@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export interface InsertBinCallback {
+export namespace GstInsertBin {
+
+interface InsertBinCallback {
     (insertbin: InsertBin, element: Gst.Element, success: boolean): void
 }
 export interface InsertBin_ConstructProps extends Gst.Bin_ConstructProps {
 }
-export class InsertBin {
+class InsertBin {
     /* Properties of Gst-1.0.Gst.Bin */
     async_handling: boolean
     message_forward: boolean
@@ -323,11 +325,13 @@ export class InsertBin {
     static new(name?: string | null): InsertBin
     static $gtype: GObject.Type
 }
-export abstract class InsertBinClass {
+abstract class InsertBinClass {
     /* Fields of GstInsertBin-1.0.GstInsertBin.InsertBinClass */
     parent_class: Gst.BinClass
     static name: string
 }
-export class InsertBinPrivate {
+class InsertBinPrivate {
     static name: string
 }
+}
+export default GstInsertBin

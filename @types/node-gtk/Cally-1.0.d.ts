@@ -17,19 +17,19 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Cally {
+declare namespace Cally {
 
-export function accessibilityInit(): boolean
-export function getCallyInitialized(): boolean
-export interface ActionCallback {
+function accessibilityInit(): boolean
+function getCallyInitialized(): boolean
+interface ActionCallback {
     (callyActor: Actor): void
 }
-export interface ActionFunc {
+interface ActionFunc {
     (callyActor: Actor): void
 }
 export interface Actor_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
-export class Actor {
+class Actor {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -269,7 +269,7 @@ export class Actor {
 }
 export interface Clone_ConstructProps extends Actor_ConstructProps {
 }
-export class Clone {
+class Clone {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -509,7 +509,7 @@ export class Clone {
 }
 export interface Group_ConstructProps extends Actor_ConstructProps {
 }
-export class Group {
+class Group {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -749,7 +749,7 @@ export class Group {
 }
 export interface Rectangle_ConstructProps extends Actor_ConstructProps {
 }
-export class Rectangle {
+class Rectangle {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -989,7 +989,7 @@ export class Rectangle {
 }
 export interface Root_ConstructProps extends Atk.GObjectAccessible_ConstructProps {
 }
-export class Root {
+class Root {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -1197,7 +1197,7 @@ export class Root {
 }
 export interface Stage_ConstructProps extends Group_ConstructProps {
 }
-export class Stage {
+class Stage {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -1483,7 +1483,7 @@ export class Stage {
 }
 export interface Text_ConstructProps extends Actor_ConstructProps {
 }
-export class Text {
+class Text {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -1786,7 +1786,7 @@ export class Text {
 }
 export interface Texture_ConstructProps extends Actor_ConstructProps {
 }
-export class Texture {
+class Texture {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessibleComponentLayer: number
     readonly accessibleComponentMdiZorder: number
@@ -2026,7 +2026,7 @@ export class Texture {
 }
 export interface Util_ConstructProps extends Atk.Util_ConstructProps {
 }
-export class Util {
+class Util {
     /* Fields of Atk-1.0.Atk.Util */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2071,7 +2071,7 @@ export class Util {
     _init (config?: Util_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ActorClass {
+abstract class ActorClass {
     /* Fields of Cally-1.0.Cally.ActorClass */
     notifyClutter: (object: GObject.Object, pspec: GObject.ParamSpec) => void
     focusClutter: (actor: Clutter.Actor, data: object) => boolean
@@ -2079,55 +2079,56 @@ export abstract class ActorClass {
     removeActor: (container: Clutter.Actor, actor: Clutter.Actor, data: object) => number
     static name: string
 }
-export class ActorPrivate {
+class ActorPrivate {
     static name: string
 }
-export abstract class CloneClass {
+abstract class CloneClass {
     static name: string
 }
-export class ClonePrivate {
+class ClonePrivate {
     static name: string
 }
-export abstract class GroupClass {
+abstract class GroupClass {
     static name: string
 }
-export class GroupPrivate {
+class GroupPrivate {
     static name: string
 }
-export abstract class RectangleClass {
+abstract class RectangleClass {
     static name: string
 }
-export class RectanglePrivate {
+class RectanglePrivate {
     static name: string
 }
-export abstract class RootClass {
+abstract class RootClass {
     static name: string
 }
-export class RootPrivate {
+class RootPrivate {
     static name: string
 }
-export abstract class StageClass {
+abstract class StageClass {
     static name: string
 }
-export class StagePrivate {
+class StagePrivate {
     static name: string
 }
-export abstract class TextClass {
+abstract class TextClass {
     static name: string
 }
-export class TextPrivate {
+class TextPrivate {
     static name: string
 }
-export abstract class TextureClass {
+abstract class TextureClass {
     static name: string
 }
-export class TexturePrivate {
+class TexturePrivate {
     static name: string
 }
-export abstract class UtilClass {
+abstract class UtilClass {
     static name: string
 }
-export class UtilPrivate {
+class UtilPrivate {
     static name: string
 }
 }
+export default Cally

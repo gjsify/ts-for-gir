@@ -1,2 +1,1 @@
-imports.gi.versions.Gedit = '3.0'
-module.exports = imports.gi.Gedit
+export {default as default} from 'gi://Gedit?version=3.0';

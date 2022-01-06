@@ -1,2 +1,1 @@
-imports.gi.versions.Uhm = '0.0'
-module.exports = imports.gi.Uhm
+export {default as default} from 'gi://Uhm?version=0.0';

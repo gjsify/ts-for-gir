@@ -3,24 +3,26 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum MemoryUse {
+export namespace Rest {
+
+enum MemoryUse {
     STATIC,
     TAKE,
     COPY,
 }
-export enum OAuthSignatureMethod {
+enum OAuthSignatureMethod {
     PLAINTEXT,
     HMAC_SHA1,
 }
-export enum ProxyCallError {
+enum ProxyCallError {
     FAILED,
 }
-export enum ProxyError {
+enum ProxyError {
     CANCELLED,
     RESOLUTION,
     CONNECTION,
@@ -60,19 +62,19 @@ export enum ProxyError {
     HTTP_GATEWAY_TIMEOUT,
     HTTP_HTTP_VERSION_NOT_SUPPORTED,
 }
-export function hmac_sha1(key: string, message: string): string
-export function proxy_call_error_quark(): GLib.Quark
-export function proxy_error_quark(): GLib.Quark
-export interface OAuthProxyAuthCallback {
+function hmac_sha1(key: string, message: string): string
+function proxy_call_error_quark(): GLib.Quark
+function proxy_error_quark(): GLib.Quark
+interface OAuthProxyAuthCallback {
     (proxy: OAuthProxy, error: GLib.Error, weak_object: GObject.Object, userdata?: object | null): void
 }
-export interface ProxyCallAsyncCallback {
+interface ProxyCallAsyncCallback {
     (call: ProxyCall, error: GLib.Error, weak_object: GObject.Object, userdata?: object | null): void
 }
-export interface ProxyCallContinuousCallback {
+interface ProxyCallContinuousCallback {
     (call: ProxyCall, buf: string, len: number, error: GLib.Error, weak_object: GObject.Object, userdata?: object | null): void
 }
-export interface ProxyCallUploadCallback {
+interface ProxyCallUploadCallback {
     (call: ProxyCall, total: number, uploaded: number, error: GLib.Error, weak_object: GObject.Object, userdata?: object | null): void
 }
 export interface OAuth2Proxy_ConstructProps extends Proxy_ConstructProps {
@@ -80,7 +82,7 @@ export interface OAuth2Proxy_ConstructProps extends Proxy_ConstructProps {
     auth_endpoint?: string
     client_id?: string
 }
-export class OAuth2Proxy {
+class OAuth2Proxy {
     /* Properties of Rest-0.7.Rest.OAuth2Proxy */
     access_token: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -179,7 +181,7 @@ export class OAuth2Proxy {
 }
 export interface OAuth2ProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
-export class OAuth2ProxyCall {
+class OAuth2ProxyCall {
     /* Fields of Rest-0.7.Rest.OAuth2ProxyCall */
     parent: ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -265,7 +267,7 @@ export interface OAuthProxy_ConstructProps extends Proxy_ConstructProps {
     token?: string
     token_secret?: string
 }
-export class OAuthProxy {
+class OAuthProxy {
     /* Properties of Rest-0.7.Rest.OAuthProxy */
     signature_host: string
     signature_method: OAuthSignatureMethod
@@ -381,7 +383,7 @@ export class OAuthProxy {
 }
 export interface OAuthProxyCall_ConstructProps extends ProxyCall_ConstructProps {
 }
-export class OAuthProxyCall {
+class OAuthProxyCall {
     /* Fields of Rest-0.7.Rest.OAuthProxyCall */
     parent: ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -472,7 +474,7 @@ export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
     user_agent?: string
     username?: string
 }
-export class Proxy {
+class Proxy {
     /* Properties of Rest-0.7.Rest.Proxy */
     binding_required: boolean
     password: string
@@ -559,7 +561,7 @@ export class Proxy {
 }
 export interface ProxyAuth_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ProxyAuth {
+class ProxyAuth {
     /* Fields of Rest-0.7.Rest.ProxyAuth */
     parent: GObject.Object
     priv: ProxyAuthPrivate
@@ -615,7 +617,7 @@ export class ProxyAuth {
 export interface ProxyCall_ConstructProps extends GObject.Object_ConstructProps {
     proxy?: Proxy
 }
-export class ProxyCall {
+class ProxyCall {
     /* Fields of Rest-0.7.Rest.ProxyCall */
     parent: GObject.Object
     priv: ProxyCallPrivate
@@ -694,7 +696,7 @@ export class ProxyCall {
 }
 export interface XmlParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XmlParser {
+class XmlParser {
     /* Fields of Rest-0.7.Rest.XmlParser */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -746,30 +748,30 @@ export class XmlParser {
     static new(): XmlParser
     static $gtype: GObject.Type
 }
-export abstract class OAuth2ProxyCallClass {
+abstract class OAuth2ProxyCallClass {
     /* Fields of Rest-0.7.Rest.OAuth2ProxyCallClass */
     parent_class: ProxyCallClass
     static name: string
 }
-export abstract class OAuth2ProxyClass {
+abstract class OAuth2ProxyClass {
     /* Fields of Rest-0.7.Rest.OAuth2ProxyClass */
     parent_class: ProxyClass
     static name: string
 }
-export class OAuth2ProxyPrivate {
+class OAuth2ProxyPrivate {
     static name: string
 }
-export abstract class OAuthProxyCallClass {
+abstract class OAuthProxyCallClass {
     /* Fields of Rest-0.7.Rest.OAuthProxyCallClass */
     parent_class: ProxyCallClass
     static name: string
 }
-export abstract class OAuthProxyClass {
+abstract class OAuthProxyClass {
     /* Fields of Rest-0.7.Rest.OAuthProxyClass */
     parent_class: ProxyClass
     static name: string
 }
-export class Param {
+class Param {
     /* Methods of Rest-0.7.Rest.Param */
     get_content(): object | null
     get_content_length(): number
@@ -785,7 +787,7 @@ export class Param {
     static new_string(name: string, use: MemoryUse, string: string): Param
     static new_with_owner(name: string, data: Uint8Array[], content_type: string, filename?: string | null, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Param
 }
-export class Params {
+class Params {
     /* Methods of Rest-0.7.Rest.Params */
     add(param: Param): void
     are_strings(): boolean
@@ -795,36 +797,36 @@ export class Params {
     remove(name: string): void
     static name: string
 }
-export class ParamsIter {
+class ParamsIter {
     /* Methods of Rest-0.7.Rest.ParamsIter */
     init(params: Params): void
     next(): [ /* returnType */ boolean, /* name */ string, /* param */ Param | null ]
     static name: string
 }
-export abstract class ProxyAuthClass {
+abstract class ProxyAuthClass {
     /* Fields of Rest-0.7.Rest.ProxyAuthClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ProxyAuthPrivate {
+class ProxyAuthPrivate {
     static name: string
 }
-export abstract class ProxyCallClass {
+abstract class ProxyCallClass {
     /* Fields of Rest-0.7.Rest.ProxyCallClass */
     prepare: (call: ProxyCall) => boolean
     serialize_params: (call: ProxyCall) => [ /* returnType */ boolean, /* content_type */ string, /* content */ string, /* content_len */ number ]
     static name: string
 }
-export class ProxyCallPrivate {
+class ProxyCallPrivate {
     static name: string
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of Rest-0.7.Rest.ProxyClass */
     new_call: (proxy: Proxy) => ProxyCall
     authenticate: (proxy: Proxy, auth: ProxyAuth, retrying: boolean) => boolean
     static name: string
 }
-export class XmlNode {
+class XmlNode {
     /* Fields of Rest-0.7.Rest.XmlNode */
     name: string
     content: string
@@ -841,8 +843,10 @@ export class XmlNode {
     set_content(value: string): void
     static name: string
 }
-export abstract class XmlParserClass {
+abstract class XmlParserClass {
     /* Fields of Rest-0.7.Rest.XmlParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default Rest

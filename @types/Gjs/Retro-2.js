@@ -1,2 +1,1 @@
-imports.gi.versions.Retro = '2'
-module.exports = imports.gi.Retro
+export {default as default} from 'gi://Retro?version=2';

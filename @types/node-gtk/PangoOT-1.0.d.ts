@@ -12,9 +12,9 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace PangoOT {
+declare namespace PangoOT {
 
-export enum TableType {
+enum TableType {
     GSUB,
     GPOS,
 }
@@ -22,13 +22,13 @@ export const ALL_GLYPHS: number
 export const DEFAULT_LANGUAGE: number
 export const NO_FEATURE: number
 export const NO_SCRIPT: number
-export function tagFromLanguage(language?: Pango.Language | null): Tag
-export function tagFromScript(script: Pango.Script): Tag
-export function tagToLanguage(languageTag: Tag): Pango.Language
-export function tagToScript(scriptTag: Tag): Pango.Script
+function tagFromLanguage(language?: Pango.Language | null): Tag
+function tagFromScript(script: Pango.Script): Tag
+function tagToLanguage(languageTag: Tag): Pango.Language
+function tagToScript(scriptTag: Tag): Pango.Script
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Info {
+class Info {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of PangoOT-1.0.PangoOT.Info */
@@ -82,7 +82,7 @@ export class Info {
 }
 export interface Ruleset_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Ruleset {
+class Ruleset {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of PangoOT-1.0.PangoOT.Ruleset */
@@ -137,7 +137,7 @@ export class Ruleset {
     static getForDescription(info: Info, desc: RulesetDescription): Ruleset
     static $gtype: GObject.Type
 }
-export class Buffer {
+class Buffer {
     /* Methods of PangoOT-1.0.PangoOT.Buffer */
     addGlyph(glyph: number, properties: number, cluster: number): void
     clear(): void
@@ -152,13 +152,13 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(font: PangoFc.Font): Buffer
 }
-export class FeatureMap {
+class FeatureMap {
     /* Fields of PangoOT-1.0.PangoOT.FeatureMap */
     featureName: number[]
     propertyBit: number
     static name: string
 }
-export class Glyph {
+class Glyph {
     /* Fields of PangoOT-1.0.PangoOT.Glyph */
     glyph: number
     properties: number
@@ -168,7 +168,7 @@ export class Glyph {
     internal: number
     static name: string
 }
-export class RulesetDescription {
+class RulesetDescription {
     /* Fields of PangoOT-1.0.PangoOT.RulesetDescription */
     script: Pango.Script
     language: Pango.Language
@@ -185,5 +185,6 @@ export class RulesetDescription {
     hash(): number
     static name: string
 }
-export type Tag = number
+type Tag = number
 }
+export default PangoOT

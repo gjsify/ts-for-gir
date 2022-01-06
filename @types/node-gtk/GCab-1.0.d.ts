@@ -7,22 +7,22 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GCab {
+declare namespace GCab {
 
-export enum Compression {
+enum Compression {
     NONE,
     MSZIP,
     QUANTUM,
     LZX,
     MASK,
 }
-export enum Error {
+enum Error {
     FORMAT,
     FAILED,
     NOT_SUPPORTED,
     INVALID_DATA,
 }
-export enum FileAttribute {
+enum FileAttribute {
     RDONLY,
     HIDDEN,
     SYSTEM,
@@ -30,15 +30,15 @@ export enum FileAttribute {
     EXEC,
     NAME_IS_UTF,
 }
-export function errorQuark(): GLib.Quark
-export interface FileCallback {
+function errorQuark(): GLib.Quark
+interface FileCallback {
     (file: File): boolean
 }
 export interface Cabinet_ConstructProps extends GObject.Object_ConstructProps {
     reserved?: any[]
     signature?: any[]
 }
-export class Cabinet {
+class Cabinet {
     /* Properties of GCab-1.0.GCab.Cabinet */
     reserved: any[]
     signature: any[]
@@ -111,7 +111,7 @@ export interface File_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
     name?: string
 }
-export class File {
+class File {
     /* Properties of GCab-1.0.GCab.File */
     bytes: any
     file: Gio.File
@@ -194,7 +194,7 @@ export interface Folder_ConstructProps extends GObject.Object_ConstructProps {
     comptype?: number
     reserved?: any[]
 }
-export class Folder {
+class Folder {
     /* Properties of GCab-1.0.GCab.Folder */
     readonly compression: Compression
     reserved: any[]
@@ -258,19 +258,20 @@ export class Folder {
     static new(comptype: number): Folder
     static $gtype: GObject.Type
 }
-export abstract class CabinetClass {
+abstract class CabinetClass {
     /* Fields of GCab-1.0.GCab.CabinetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of GCab-1.0.GCab.FileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FolderClass {
+abstract class FolderClass {
     /* Fields of GCab-1.0.GCab.FolderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default GCab

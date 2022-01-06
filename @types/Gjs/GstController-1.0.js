@@ -1,2 +1,1 @@
-imports.gi.versions.GstController = '1.0'
-module.exports = imports.gi.GstController
+export {default as default} from 'gi://GstController?version=1.0';

@@ -3,40 +3,42 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GtkSource from './GtkSource-4';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Amtk from './Amtk-5';
+import type GtkSource from './GtkSource-4';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Amtk from './Amtk-5';
 
-export enum InfoBarLocation {
+export namespace Tepl {
+
+enum InfoBarLocation {
     ALONGSIDE_ICON,
     BELOW_ICON,
 }
-export enum NewlineType {
+enum NewlineType {
     LF,
     CR,
     CR_LF,
 }
-export enum SelectionType {
+enum SelectionType {
     NO_SELECTION,
     ON_SAME_LINE,
     MULTIPLE_LINES,
 }
-export enum FileSaverFlags {
+enum FileSaverFlags {
     NONE,
     CREATE_BACKUP,
 }
-export enum GutterRendererFoldsState {
+enum GutterRendererFoldsState {
     NONE,
     START_FOLDED,
     START_OPENED,
@@ -44,36 +46,36 @@ export enum GutterRendererFoldsState {
     END,
 }
 export const UTILS_STYLE_PROVIDER_PRIORITY_LIBRARY: number
-export function finalize(): void
-export function init(): void
-export function io_error_info_bar_cant_create_backup(location: Gio.File, error: GLib.Error): InfoBar
-export function io_error_info_bar_externally_modified(location: Gio.File, document_modified: boolean): InfoBar
-export function io_error_info_bar_file_already_open(location: Gio.File): InfoBar
-export function io_error_info_bar_invalid_characters(location: Gio.File): InfoBar
-export function iter_get_line_indentation(iter: Gtk.TextIter): string
-export function menu_shell_append_edit_actions(menu_shell: Gtk.MenuShell): void
-export function pango_font_description_to_css(desc: Pango.FontDescription): string
-export function utils_binding_transform_func_smart_bool(binding: GObject.Binding, from_value: any, to_value: any, user_data?: object | null): boolean
-export function utils_create_close_button(): Gtk.Widget
-export function utils_create_parent_directories(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function utils_decode_uri(uri: string): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null ]
-export function utils_file_query_exists_async(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function utils_file_query_exists_finish(file: Gio.File, result: Gio.AsyncResult): boolean
-export function utils_get_file_extension(filename: string): string
-export function utils_get_file_shortname(filename: string): string
-export function utils_list_box_clear(list_box: Gtk.ListBox): void
-export function utils_list_box_get_filtered_children(list_box: Gtk.ListBox, filter_func: Gtk.ListBoxFilterFunc): [ /* returnType */ Gtk.ListBoxRow[] | null, /* n_filtered_children */ number | null ]
-export function utils_list_box_get_row_at_index_with_filter(list_box: Gtk.ListBox, index: number, filter_func: Gtk.ListBoxFilterFunc): Gtk.ListBoxRow | null
-export function utils_list_box_scroll_to_row(list_box: Gtk.ListBox, row: Gtk.ListBoxRow): void
-export function utils_list_box_scroll_to_selected_row(list_box: Gtk.ListBox): void
-export function utils_list_box_setup_scrolling(list_box: Gtk.ListBox, scrolled_window: Gtk.ScrolledWindow): void
-export function utils_markup_escape_text(src: string): string | null
-export function utils_override_font(widget: Gtk.Widget, font_str?: string | null): void
-export function utils_replace_home_dir_with_tilde(filename: string): string
-export function utils_str_end_truncate(str: string, truncate_length: number): string
-export function utils_str_middle_truncate(str: string, truncate_length: number): string
-export function utils_str_replace(string: string, search: string, replacement: string): string
-export class LanguageChooser {
+function finalize(): void
+function init(): void
+function io_error_info_bar_cant_create_backup(location: Gio.File, error: GLib.Error): InfoBar
+function io_error_info_bar_externally_modified(location: Gio.File, document_modified: boolean): InfoBar
+function io_error_info_bar_file_already_open(location: Gio.File): InfoBar
+function io_error_info_bar_invalid_characters(location: Gio.File): InfoBar
+function iter_get_line_indentation(iter: Gtk.TextIter): string
+function menu_shell_append_edit_actions(menu_shell: Gtk.MenuShell): void
+function pango_font_description_to_css(desc: Pango.FontDescription): string
+function utils_binding_transform_func_smart_bool(binding: GObject.Binding, from_value: any, to_value: any, user_data?: object | null): boolean
+function utils_create_close_button(): Gtk.Widget
+function utils_create_parent_directories(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function utils_decode_uri(uri: string): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null ]
+function utils_file_query_exists_async(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function utils_file_query_exists_finish(file: Gio.File, result: Gio.AsyncResult): boolean
+function utils_get_file_extension(filename: string): string
+function utils_get_file_shortname(filename: string): string
+function utils_list_box_clear(list_box: Gtk.ListBox): void
+function utils_list_box_get_filtered_children(list_box: Gtk.ListBox, filter_func: Gtk.ListBoxFilterFunc): [ /* returnType */ Gtk.ListBoxRow[] | null, /* n_filtered_children */ number | null ]
+function utils_list_box_get_row_at_index_with_filter(list_box: Gtk.ListBox, index: number, filter_func: Gtk.ListBoxFilterFunc): Gtk.ListBoxRow | null
+function utils_list_box_scroll_to_row(list_box: Gtk.ListBox, row: Gtk.ListBoxRow): void
+function utils_list_box_scroll_to_selected_row(list_box: Gtk.ListBox): void
+function utils_list_box_setup_scrolling(list_box: Gtk.ListBox, scrolled_window: Gtk.ScrolledWindow): void
+function utils_markup_escape_text(src: string): string | null
+function utils_override_font(widget: Gtk.Widget, font_str?: string | null): void
+function utils_replace_home_dir_with_tilde(filename: string): string
+function utils_str_end_truncate(str: string, truncate_length: number): string
+function utils_str_middle_truncate(str: string, truncate_length: number): string
+function utils_str_replace(string: string, search: string, replacement: string): string
+class LanguageChooser {
     /* Methods of Tepl-6.Tepl.LanguageChooser */
     select_language(language?: GtkSource.Language | null): void
     /* Virtual methods of Tepl-6.Tepl.LanguageChooser */
@@ -85,7 +87,7 @@ export class LanguageChooser {
     emit(sigName: "language-activated", language?: GtkSource.Language | null): void
     static name: string
 }
-export class TabGroup {
+class TabGroup {
     /* Properties of Tepl-6.Tepl.TabGroup */
     readonly active_buffer: Buffer
     active_tab: Tab
@@ -108,7 +110,7 @@ export class TabGroup {
 }
 export interface AbstractFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AbstractFactory {
+class AbstractFactory {
     /* Fields of Tepl-6.Tepl.AbstractFactory */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -174,7 +176,7 @@ export class AbstractFactory {
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
 }
-export class Application {
+class Application {
     /* Fields of Tepl-6.Tepl.Application */
     parent: GObject.Object
     priv: ApplicationPrivate
@@ -240,7 +242,7 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     handle_title?: boolean
     active_tab?: Tab
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Tepl-6.Tepl.ApplicationWindow */
     handle_title: boolean
     /* Properties of Tepl-6.Tepl.TabGroup */
@@ -330,7 +332,7 @@ export class ApplicationWindow {
 export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     tepl_style_scheme_id?: string
 }
-export class Buffer {
+class Buffer {
     /* Properties of Tepl-6.Tepl.Buffer */
     readonly tepl_full_title: string
     readonly tepl_short_title: string
@@ -635,7 +637,7 @@ export class Buffer {
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
-export class File {
+class File {
     /* Properties of Tepl-6.Tepl.File */
     location: Gio.File
     readonly newline_type: NewlineType
@@ -710,7 +712,7 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     file?: File
     location?: Gio.File
 }
-export class FileLoader {
+class FileLoader {
     /* Fields of Tepl-6.Tepl.FileLoader */
     parent: GObject.Object
     priv: FileLoaderPrivate
@@ -774,7 +776,7 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     location?: Gio.File
     newline_type?: NewlineType
 }
-export class FileSaver {
+class FileSaver {
     /* Properties of Tepl-6.Tepl.FileSaver */
     flags: FileSaverFlags
     newline_type: NewlineType
@@ -847,7 +849,7 @@ export interface FoldRegion_ConstructProps extends GObject.Object_ConstructProps
     buffer?: Gtk.TextBuffer
     folded?: boolean
 }
-export class FoldRegion {
+class FoldRegion {
     /* Properties of Tepl-6.Tepl.FoldRegion */
     folded: boolean
     /* Fields of Tepl-6.Tepl.FoldRegion */
@@ -910,7 +912,7 @@ export class FoldRegion {
 export interface GotoLineBar_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class GotoLineBar {
+class GotoLineBar {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -1764,7 +1766,7 @@ export class GotoLineBar {
 }
 export interface GutterRendererFolds_ConstructProps extends GtkSource.GutterRenderer_ConstructProps {
 }
-export class GutterRendererFolds {
+class GutterRendererFolds {
     /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignment_mode: GtkSource.GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
@@ -1908,7 +1910,7 @@ export interface InfoBar_ConstructProps extends Gtk.InfoBar_ConstructProps {
     icon_name?: string
     orientation?: Gtk.Orientation
 }
-export class InfoBar {
+class InfoBar {
     /* Properties of Tepl-6.Tepl.InfoBar */
     handle_close_response: boolean
     icon_from_message_type: boolean
@@ -2807,7 +2809,7 @@ export class InfoBar {
 }
 export interface LanguageChooserDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class LanguageChooserDialog {
+class LanguageChooserDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -3877,7 +3879,7 @@ export class LanguageChooserDialog {
 export interface LanguageChooserWidget_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class LanguageChooserWidget {
+class LanguageChooserWidget {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -4736,7 +4738,7 @@ export class LanguageChooserWidget {
 }
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Metadata {
+class Metadata {
     /* Fields of Tepl-6.Tepl.Metadata */
     parent: GObject.Object
     priv: MetadataPrivate
@@ -4792,7 +4794,7 @@ export class Metadata {
 }
 export interface MetadataManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MetadataManager {
+class MetadataManager {
     /* Fields of Tepl-6.Tepl.MetadataManager */
     parent: GObject.Object
     priv: MetadataManagerPrivate
@@ -4852,7 +4854,7 @@ export class MetadataManager {
 export interface Notebook_ConstructProps extends Gtk.Notebook_ConstructProps {
     active_tab?: Tab
 }
-export class Notebook {
+class Notebook {
     /* Properties of Gtk-3.0.Gtk.Notebook */
     enable_popup: boolean
     group_name: string
@@ -5792,7 +5794,7 @@ export class Notebook {
 export interface Panel_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Panel {
+class Panel {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -6652,7 +6654,7 @@ export interface ProgressInfoBar_ConstructProps extends InfoBar_ConstructProps {
     has_cancel_button?: boolean
     orientation?: Gtk.Orientation
 }
-export class ProgressInfoBar {
+class ProgressInfoBar {
     /* Properties of Tepl-6.Tepl.InfoBar */
     handle_close_response: boolean
     icon_from_message_type: boolean
@@ -7555,7 +7557,7 @@ export class ProgressInfoBar {
 export interface SpaceDrawerPrefs_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class SpaceDrawerPrefs {
+class SpaceDrawerPrefs {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -8409,7 +8411,7 @@ export class SpaceDrawerPrefs {
 export interface Statusbar_ConstructProps extends Gtk.Statusbar_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Statusbar {
+class Statusbar {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -9275,7 +9277,7 @@ export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_Constru
     tepl_style_scheme_id?: string
     style_scheme?: GtkSource.StyleScheme
 }
-export class StyleSchemeChooserWidget {
+class StyleSchemeChooserWidget {
     /* Properties of Tepl-6.Tepl.StyleSchemeChooserWidget */
     tepl_style_scheme_id: string
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -10105,7 +10107,7 @@ export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
     active_tab?: Tab
 }
-export class Tab {
+class Tab {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -11002,7 +11004,7 @@ export interface TabLabel_ConstructProps extends Gtk.Grid_ConstructProps {
     tab?: Tab
     orientation?: Gtk.Orientation
 }
-export class TabLabel {
+class TabLabel {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -11862,7 +11864,7 @@ export interface View_ConstructProps extends GtkSource.View_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of GtkSource-4.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
@@ -13021,7 +13023,7 @@ export class View {
     static new_with_buffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
-export abstract class AbstractFactoryClass {
+abstract class AbstractFactoryClass {
     /* Fields of Tepl-6.Tepl.AbstractFactoryClass */
     parent_class: GObject.ObjectClass
     create_main_window: (factory: AbstractFactory, app: Gtk.Application) => Gtk.ApplicationWindow | null
@@ -13031,189 +13033,189 @@ export abstract class AbstractFactoryClass {
     create_metadata_manager_file: (factory: AbstractFactory) => Gio.File | null
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Tepl-6.Tepl.ApplicationClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Tepl-6.Tepl.ApplicationWindowClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationWindowPrivate {
+class ApplicationWindowPrivate {
     static name: string
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Tepl-6.Tepl.BufferClass */
     parent_class: GtkSource.BufferClass
     tepl_cursor_moved: (buffer: Buffer) => void
     padding: object[]
     static name: string
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of Tepl-6.Tepl.FileClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileLoaderClass {
+abstract class FileLoaderClass {
     /* Fields of Tepl-6.Tepl.FileLoaderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileLoaderPrivate {
+class FileLoaderPrivate {
     static name: string
 }
-export class FilePrivate {
+class FilePrivate {
     static name: string
 }
-export abstract class FileSaverClass {
+abstract class FileSaverClass {
     /* Fields of Tepl-6.Tepl.FileSaverClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileSaverPrivate {
+class FileSaverPrivate {
     static name: string
 }
-export abstract class FoldRegionClass {
+abstract class FoldRegionClass {
     /* Fields of Tepl-6.Tepl.FoldRegionClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class GotoLineBarClass {
+abstract class GotoLineBarClass {
     /* Fields of Tepl-6.Tepl.GotoLineBarClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class GotoLineBarPrivate {
+class GotoLineBarPrivate {
     static name: string
 }
-export abstract class GutterRendererFoldsClass {
+abstract class GutterRendererFoldsClass {
     /* Fields of Tepl-6.Tepl.GutterRendererFoldsClass */
     parent_class: GtkSource.GutterRendererClass
     padding: object[]
     static name: string
 }
-export abstract class InfoBarClass {
+abstract class InfoBarClass {
     /* Fields of Tepl-6.Tepl.InfoBarClass */
     parent_class: Gtk.InfoBarClass
     padding: object[]
     static name: string
 }
-export class InfoBarPrivate {
+class InfoBarPrivate {
     static name: string
 }
-export abstract class LanguageChooserDialogClass {
+abstract class LanguageChooserDialogClass {
     /* Fields of Tepl-6.Tepl.LanguageChooserDialogClass */
     parent_class: Gtk.DialogClass
     padding: object[]
     static name: string
 }
-export class LanguageChooserDialogPrivate {
+class LanguageChooserDialogPrivate {
     static name: string
 }
-export abstract class LanguageChooserInterface {
+abstract class LanguageChooserInterface {
     /* Fields of Tepl-6.Tepl.LanguageChooserInterface */
     parent_interface: GObject.TypeInterface
     select_language: (chooser: LanguageChooser, language?: GtkSource.Language | null) => void
     language_activated: (chooser: LanguageChooser, language: GtkSource.Language) => void
     static name: string
 }
-export abstract class LanguageChooserWidgetClass {
+abstract class LanguageChooserWidgetClass {
     /* Fields of Tepl-6.Tepl.LanguageChooserWidgetClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class LanguageChooserWidgetPrivate {
+class LanguageChooserWidgetPrivate {
     static name: string
 }
-export abstract class MetadataClass {
+abstract class MetadataClass {
     /* Fields of Tepl-6.Tepl.MetadataClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class MetadataManagerClass {
+abstract class MetadataManagerClass {
     /* Fields of Tepl-6.Tepl.MetadataManagerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class MetadataManagerPrivate {
+class MetadataManagerPrivate {
     static name: string
 }
-export class MetadataPrivate {
+class MetadataPrivate {
     static name: string
 }
-export abstract class NotebookClass {
+abstract class NotebookClass {
     /* Fields of Tepl-6.Tepl.NotebookClass */
     parent_class: Gtk.NotebookClass
     padding: object[]
     static name: string
 }
-export class NotebookPrivate {
+class NotebookPrivate {
     static name: string
 }
-export abstract class PanelClass {
+abstract class PanelClass {
     /* Fields of Tepl-6.Tepl.PanelClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class PanelPrivate {
+class PanelPrivate {
     static name: string
 }
-export abstract class ProgressInfoBarClass {
+abstract class ProgressInfoBarClass {
     /* Fields of Tepl-6.Tepl.ProgressInfoBarClass */
     parent_class: InfoBarClass
     padding: object[]
     static name: string
 }
-export class ProgressInfoBarPrivate {
+class ProgressInfoBarPrivate {
     static name: string
 }
-export class SignalGroup {
+class SignalGroup {
     static name: string
 }
-export abstract class SpaceDrawerPrefsClass {
+abstract class SpaceDrawerPrefsClass {
     /* Fields of Tepl-6.Tepl.SpaceDrawerPrefsClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class SpaceDrawerPrefsPrivate {
+class SpaceDrawerPrefsPrivate {
     static name: string
 }
-export abstract class StatusbarClass {
+abstract class StatusbarClass {
     /* Fields of Tepl-6.Tepl.StatusbarClass */
     parent_class: Gtk.StatusbarClass
     padding: object[]
     static name: string
 }
-export class StatusbarPrivate {
+class StatusbarPrivate {
     static name: string
 }
-export abstract class StyleSchemeChooserWidgetClass {
+abstract class StyleSchemeChooserWidgetClass {
     /* Fields of Tepl-6.Tepl.StyleSchemeChooserWidgetClass */
     parent_class: Gtk.BinClass
     padding: object[]
     static name: string
 }
-export class StyleSchemeChooserWidgetPrivate {
+class StyleSchemeChooserWidgetPrivate {
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Tepl-6.Tepl.TabClass */
     parent_class: Gtk.GridClass
     pack_view: (tab: Tab, view: View) => void
@@ -13222,7 +13224,7 @@ export abstract class TabClass {
     close_request: (tab: Tab) => void
     static name: string
 }
-export abstract class TabGroupInterface {
+abstract class TabGroupInterface {
     /* Fields of Tepl-6.Tepl.TabGroupInterface */
     parent_interface: GObject.TypeInterface
     get_tabs: (tab_group: TabGroup) => Tab[]
@@ -13231,21 +13233,23 @@ export abstract class TabGroupInterface {
     append_tab_vfunc: (tab_group: TabGroup, tab: Tab) => void
     static name: string
 }
-export abstract class TabLabelClass {
+abstract class TabLabelClass {
     /* Fields of Tepl-6.Tepl.TabLabelClass */
     parent_class: Gtk.GridClass
     get_tooltip_markup: (tab_label: TabLabel) => string
     static name: string
 }
-export class TabLabelPrivate {
+class TabLabelPrivate {
     static name: string
 }
-export class TabPrivate {
+class TabPrivate {
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Tepl-6.Tepl.ViewClass */
     parent_class: GtkSource.ViewClass
     padding: object[]
     static name: string
 }
+}
+export default Tepl

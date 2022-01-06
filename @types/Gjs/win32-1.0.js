@@ -1,2 +1,1 @@
-imports.gi.versions.win32 = '1.0'
-module.exports = imports.gi.win32
+export {default as default} from 'gi://win32?version=1.0';

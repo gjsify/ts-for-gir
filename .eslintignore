@@ -3,11 +3,11 @@ node_modules/
 # don't lint build output (make sure it's set to your correct build folder name)
 lib/
 tmp/
-test/*.js
+test/
 # don't lint templates
 templates/
 # temporary ignore examples
-# examples/
+examples/
 # temporary ignore generated types, remove this if the heap out of memory bug is fixed 
 @types/
 *.js

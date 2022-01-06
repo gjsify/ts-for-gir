@@ -1,2 +1,1 @@
-imports.gi.versions.Builder = '1.0'
-module.exports = imports.gi.Builder
+export {default as default} from 'gi://Builder?version=1.0';

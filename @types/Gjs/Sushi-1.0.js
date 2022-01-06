@@ -1,2 +1,1 @@
-imports.gi.versions.Sushi = '1.0'
-module.exports = imports.gi.Sushi
+export {default as default} from 'gi://Sushi?version=1.0';

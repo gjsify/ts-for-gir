@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GSignond {
+declare namespace GSignond {
 
-export enum Error {
+enum Error {
     NONE,
     UNKNOWN,
     INTERNAL_SERVER,
@@ -51,7 +51,7 @@ export enum Error {
     INCORRECT_DATE,
     USER_ERR,
 }
-export enum PluginState {
+enum PluginState {
     NONE,
     RESOLVING,
     CONNECTING,
@@ -65,7 +65,7 @@ export enum PluginState {
     DONE,
     HOLDING,
 }
-export enum SignonuiError {
+enum SignonuiError {
     NONE,
     GENERAL,
     NO_SIGNONUI,
@@ -79,7 +79,7 @@ export enum SignonuiError {
     FORBIDDEN,
     FORGOT_PASSWORD,
 }
-export enum UiPolicy {
+enum UiPolicy {
     DEFAULT,
     REQUEST_PASSWORD,
     NO_USER_INTERACTION,
@@ -87,17 +87,17 @@ export enum UiPolicy {
 }
 export const CONFIG_DBUS_TIMEOUTS: string
 export const CONFIG_GENERAL: string
-export function errorNewFromVariant(var_: GLib.Variant): GLib.Error | null
-export function errorQuark(): GLib.Quark
-export function errorToVariant(error: GLib.Error): GLib.Variant | null
-export function generateNonce(): string
-export function isHostInDomain(host: string, domain: string): boolean
-export function newIoStreamFromFd(inFd: number, outFd: number, closeFds: boolean): Gio.IOStream
-export function securityContextFromVariant(variant: GLib.Variant): SecurityContext
-export function sequenceToArray(seq: GLib.Sequence): string[]
-export function wipeDirectory(dirname: string): boolean
-export function wipeFile(filename: string): boolean
-export class Plugin {
+function errorNewFromVariant(var_: GLib.Variant): GLib.Error | null
+function errorQuark(): GLib.Quark
+function errorToVariant(error: GLib.Error): GLib.Variant | null
+function generateNonce(): string
+function isHostInDomain(host: string, domain: string): boolean
+function newIoStreamFromFd(inFd: number, outFd: number, closeFds: boolean): Gio.IOStream
+function securityContextFromVariant(variant: GLib.Variant): SecurityContext
+function sequenceToArray(seq: GLib.Sequence): string[]
+function wipeDirectory(dirname: string): boolean
+function wipeFile(filename: string): boolean
+class Plugin {
     /* Properties of GSignond-1.0.GSignond.Plugin */
     readonly mechanisms: string[]
     readonly type: string
@@ -155,7 +155,7 @@ export class Plugin {
 export interface AccessControlManager_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class AccessControlManager {
+class AccessControlManager {
     /* Fields of GSignond-1.0.GSignond.AccessControlManager */
     parentInstance: GObject.Object
     config: Config
@@ -210,7 +210,7 @@ export class AccessControlManager {
 }
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Config {
+class Config {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GSignond-1.0.GSignond.Config */
@@ -262,7 +262,7 @@ export class Config {
 }
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Credentials {
+class Credentials {
     /* Fields of GSignond-1.0.GSignond.Credentials */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -320,7 +320,7 @@ export class Credentials {
 }
 export interface Dictionary_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Dictionary {
+class Dictionary {
     /* Fields of GSignond-1.0.GSignond.Dictionary */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -391,7 +391,7 @@ export class Dictionary {
 }
 export interface Extension_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Extension {
+class Extension {
     /* Fields of GSignond-1.0.GSignond.Extension */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -445,7 +445,7 @@ export class Extension {
 export interface SecretStorage_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class SecretStorage {
+class SecretStorage {
     /* Fields of GSignond-1.0.GSignond.SecretStorage */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -505,7 +505,7 @@ export class SecretStorage {
 }
 export interface SessionData_ConstructProps extends Dictionary_ConstructProps {
 }
-export class SessionData {
+class SessionData {
     /* Fields of GSignond-1.0.GSignond.SessionData */
     parentInstance: Dictionary
     /* Fields of GObject-2.0.GObject.Object */
@@ -597,7 +597,7 @@ export class SessionData {
 }
 export interface SignonuiData_ConstructProps extends Dictionary_ConstructProps {
 }
-export class SignonuiData {
+class SignonuiData {
     /* Fields of GSignond-1.0.GSignond.SignonuiData */
     parentInstance: Dictionary
     /* Fields of GObject-2.0.GObject.Object */
@@ -709,7 +709,7 @@ export class SignonuiData {
 export interface StorageManager_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class StorageManager {
+class StorageManager {
     /* Fields of GSignond-1.0.GSignond.StorageManager */
     parentInstance: GObject.Object
     config: Config
@@ -764,7 +764,7 @@ export class StorageManager {
     _init (config?: StorageManager_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AccessControlManagerClass {
+abstract class AccessControlManagerClass {
     /* Fields of GSignond-1.0.GSignond.AccessControlManagerClass */
     parentClass: GObject.ObjectClass
     securityContextOfPeer: (self: AccessControlManager, peerCtx: SecurityContext, peerFd: number, peerService: string, peerAppCtx: string) => void
@@ -774,21 +774,21 @@ export abstract class AccessControlManagerClass {
     securityContextOfKeychain: (self: AccessControlManager) => SecurityContext
     static name: string
 }
-export class AccessControlManagerPrivate {
+class AccessControlManagerPrivate {
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of GSignond-1.0.GSignond.ConfigClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CredentialsClass {
+abstract class CredentialsClass {
     static name: string
 }
-export abstract class DictionaryClass {
+abstract class DictionaryClass {
     static name: string
 }
-export abstract class ExtensionClass {
+abstract class ExtensionClass {
     /* Fields of GSignond-1.0.GSignond.ExtensionClass */
     parentClass: GObject.ObjectClass
     getExtensionName: (self: Extension) => string
@@ -798,7 +798,7 @@ export abstract class ExtensionClass {
     getAccessControlManager: (self: Extension, config: Config) => AccessControlManager
     static name: string
 }
-export abstract class PluginInterface {
+abstract class PluginInterface {
     /* Fields of GSignond-1.0.GSignond.PluginInterface */
     parent: GObject.TypeInterface
     cancel: (self: Plugin) => void
@@ -808,7 +808,7 @@ export abstract class PluginInterface {
     refresh: (self: Plugin, uiData: SignonuiData) => void
     static name: string
 }
-export abstract class SecretStorageClass {
+abstract class SecretStorageClass {
     /* Fields of GSignond-1.0.GSignond.SecretStorageClass */
     parentClass: GObject.ObjectClass
     openDb: (self: SecretStorage) => boolean
@@ -825,10 +825,10 @@ export abstract class SecretStorageClass {
     getLastError: (self: SecretStorage) => GLib.Error
     static name: string
 }
-export class SecretStoragePrivate {
+class SecretStoragePrivate {
     static name: string
 }
-export class SecurityContext {
+class SecurityContext {
     /* Fields of GSignond-1.0.GSignond.SecurityContext */
     sysCtx: string
     appCtx: string
@@ -851,13 +851,13 @@ export class SecurityContext {
     static newFromValues(systemContext: string, applicationContext: string): SecurityContext
     static fromVariant(variant: GLib.Variant): SecurityContext
 }
-export abstract class SessionDataClass {
+abstract class SessionDataClass {
     static name: string
 }
-export abstract class SignonuiDataClass {
+abstract class SignonuiDataClass {
     static name: string
 }
-export abstract class StorageManagerClass {
+abstract class StorageManagerClass {
     /* Fields of GSignond-1.0.GSignond.StorageManagerClass */
     parentClass: GObject.ObjectClass
     initializeStorage: (self: StorageManager) => boolean
@@ -868,7 +868,8 @@ export abstract class StorageManagerClass {
     filesystemIsMounted: (self: StorageManager) => boolean
     static name: string
 }
-export class StorageManagerPrivate {
+class StorageManagerPrivate {
     static name: string
 }
 }
+export default GSignond

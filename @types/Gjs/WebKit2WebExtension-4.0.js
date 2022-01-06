@@ -1,2 +1,1 @@
-imports.gi.versions.WebKit2WebExtension = '4.0'
-module.exports = imports.gi.WebKit2WebExtension
+export {default as default} from 'gi://WebKit2WebExtension?version=4.0';

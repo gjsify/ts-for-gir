@@ -3,30 +3,32 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum CacheResponse {
+export namespace Soup {
+
+enum CacheResponse {
     FRESH,
     NEEDS_VALIDATION,
     STALE,
 }
-export enum CacheType {
+enum CacheType {
     SINGLE_USER,
     SHARED,
 }
-export enum CookieJarAcceptPolicy {
+enum CookieJarAcceptPolicy {
     ALWAYS,
     NEVER,
     NO_THIRD_PARTY,
     GRANDFATHERED_THIRD_PARTY,
 }
-export enum DateFormat {
+enum DateFormat {
     HTTP,
     COOKIE,
 }
-export enum Encoding {
+enum Encoding {
     UNRECOGNIZED,
     NONE,
     CONTENT_LENGTH,
@@ -34,40 +36,40 @@ export enum Encoding {
     CHUNKED,
     BYTERANGES,
 }
-export enum HTTPVersion {
+enum HTTPVersion {
     HTTP_1_0,
     HTTP_1_1,
     HTTP_2_0,
 }
-export enum LoggerLogLevel {
+enum LoggerLogLevel {
     NONE,
     MINIMAL,
     HEADERS,
     BODY,
 }
-export enum MemoryUse {
+enum MemoryUse {
     STATIC,
     TAKE,
     COPY,
 }
-export enum MessageHeadersType {
+enum MessageHeadersType {
     REQUEST,
     RESPONSE,
     MULTIPART,
 }
-export enum MessagePriority {
+enum MessagePriority {
     VERY_LOW,
     LOW,
     NORMAL,
     HIGH,
     VERY_HIGH,
 }
-export enum SameSitePolicy {
+enum SameSitePolicy {
     NONE,
     LAX,
     STRICT,
 }
-export enum SessionError {
+enum SessionError {
     PARSING,
     ENCODING,
     TOO_MANY_REDIRECTS,
@@ -76,7 +78,7 @@ export enum SessionError {
     REDIRECT_BAD_URI,
     MESSAGE_ALREADY_IN_QUEUE,
 }
-export enum Status {
+enum Status {
     NONE,
     CONTINUE,
     SWITCHING_PROTOCOLS,
@@ -132,14 +134,14 @@ export enum Status {
     INSUFFICIENT_STORAGE,
     NOT_EXTENDED,
 }
-export enum TLDError {
+enum TLDError {
     INVALID_HOSTNAME,
     IS_IP_ADDRESS,
     NOT_ENOUGH_DOMAINS,
     NO_BASE_DOMAIN,
     NO_PSL_DATA,
 }
-export enum URIComponent {
+enum URIComponent {
     NONE,
     SCHEME,
     USER,
@@ -151,7 +153,7 @@ export enum URIComponent {
     QUERY,
     FRAGMENT,
 }
-export enum WebsocketCloseCode {
+enum WebsocketCloseCode {
     NORMAL,
     GOING_AWAY,
     PROTOCOL_ERROR,
@@ -165,44 +167,44 @@ export enum WebsocketCloseCode {
     SERVER_ERROR,
     TLS_HANDSHAKE,
 }
-export enum WebsocketConnectionType {
+enum WebsocketConnectionType {
     UNKNOWN,
     CLIENT,
     SERVER,
 }
-export enum WebsocketDataType {
+enum WebsocketDataType {
     TEXT,
     BINARY,
 }
-export enum WebsocketError {
+enum WebsocketError {
     FAILED,
     NOT_WEBSOCKET,
     BAD_HANDSHAKE,
     BAD_ORIGIN,
 }
-export enum WebsocketState {
+enum WebsocketState {
     OPEN,
     CLOSING,
     CLOSED,
 }
-export enum Cacheability {
+enum Cacheability {
     CACHEABLE,
     UNCACHEABLE,
     INVALIDATES,
     VALIDATES,
 }
-export enum Expectation {
+enum Expectation {
     UNRECOGNIZED,
     CONTINUE,
 }
-export enum MessageFlags {
+enum MessageFlags {
     NO_REDIRECT,
     NEW_CONNECTION,
     IDEMPOTENT,
     DO_NOT_USE_AUTH_CACHE,
     COLLECT_METRICS,
 }
-export enum ServerListenOptions {
+enum ServerListenOptions {
     HTTPS,
     IPV4_ONLY,
     IPV6_ONLY,
@@ -219,77 +221,77 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_MIN_REQUIRED: number
-export function check_version(major: number, minor: number, micro: number): boolean
-export function cookie_parse(header: string, origin?: GLib.Uri | null): Cookie | null
-export function cookies_from_request(msg: Message): Cookie[]
-export function cookies_from_response(msg: Message): Cookie[]
-export function cookies_to_cookie_header(cookies: Cookie[]): string
-export function cookies_to_request(cookies: Cookie[], msg: Message): void
-export function cookies_to_response(cookies: Cookie[], msg: Message): void
-export function date_time_new_from_http_string(date_string: string): GLib.DateTime | null
-export function date_time_to_string(date: GLib.DateTime, format: DateFormat): string
-export function form_decode(encoded_form: string): GLib.HashTable
-export function form_decode_multipart(multipart: Multipart, file_control_name?: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ GLib.Bytes | null ]
-export function form_encode_datalist(form_data_set: GLib.Data): string
-export function form_encode_hash(form_data_set: GLib.HashTable): string
-export function get_major_version(): number
-export function get_micro_version(): number
-export function get_minor_version(): number
-export function header_contains(header: string, token: string): boolean
-export function header_free_param_list(param_list: GLib.HashTable): void
-export function header_g_string_append_param(string: GLib.String, name: string, value: string): void
-export function header_g_string_append_param_quoted(string: GLib.String, name: string, value: string): void
-export function header_parse_list(header: string): string[]
-export function header_parse_param_list(header: string): GLib.HashTable
-export function header_parse_param_list_strict(header: string): GLib.HashTable | null
-export function header_parse_quality_list(header: string): [ /* returnType */ string[], /* unacceptable */ string[] | null ]
-export function header_parse_semi_param_list(header: string): GLib.HashTable
-export function header_parse_semi_param_list_strict(header: string): GLib.HashTable | null
-export function headers_parse(str: string, len: number, dest: MessageHeaders): boolean
-export function headers_parse_request(str: string, len: number, req_headers: MessageHeaders): [ /* returnType */ number, /* req_method */ string | null, /* req_path */ string | null, /* ver */ HTTPVersion | null ]
-export function headers_parse_response(str: string, len: number, headers: MessageHeaders): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
-export function headers_parse_status_line(status_line: string): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
-export function message_headers_iter_init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
-export function session_error_quark(): GLib.Quark
-export function status_get_phrase(status_code: number): string
-export function tld_domain_is_public_suffix(domain: string): boolean
-export function tld_error_quark(): GLib.Quark
-export function tld_get_base_domain(hostname: string): string
-export function uri_decode_data_uri(uri: string): [ /* returnType */ GLib.Bytes, /* content_type */ string | null ]
-export function uri_equal(uri1: GLib.Uri, uri2: GLib.Uri): boolean
-export function websocket_client_prepare_handshake(msg: Message, origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): void
-export function websocket_client_verify_handshake(msg: Message, supported_extensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* accepted_extensions */ WebsocketExtension[] | null ]
-export function websocket_error_quark(): GLib.Quark
-export function websocket_server_check_handshake(msg: ServerMessage, origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): boolean
-export function websocket_server_process_handshake(msg: ServerMessage, expected_origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* accepted_extensions */ WebsocketExtension[] | null ]
-export interface AuthDomainBasicAuthCallback {
+function check_version(major: number, minor: number, micro: number): boolean
+function cookie_parse(header: string, origin?: GLib.Uri | null): Cookie | null
+function cookies_from_request(msg: Message): Cookie[]
+function cookies_from_response(msg: Message): Cookie[]
+function cookies_to_cookie_header(cookies: Cookie[]): string
+function cookies_to_request(cookies: Cookie[], msg: Message): void
+function cookies_to_response(cookies: Cookie[], msg: Message): void
+function date_time_new_from_http_string(date_string: string): GLib.DateTime | null
+function date_time_to_string(date: GLib.DateTime, format: DateFormat): string
+function form_decode(encoded_form: string): GLib.HashTable
+function form_decode_multipart(multipart: Multipart, file_control_name?: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ GLib.Bytes | null ]
+function form_encode_datalist(form_data_set: GLib.Data): string
+function form_encode_hash(form_data_set: GLib.HashTable): string
+function get_major_version(): number
+function get_micro_version(): number
+function get_minor_version(): number
+function header_contains(header: string, token: string): boolean
+function header_free_param_list(param_list: GLib.HashTable): void
+function header_g_string_append_param(string: GLib.String, name: string, value: string): void
+function header_g_string_append_param_quoted(string: GLib.String, name: string, value: string): void
+function header_parse_list(header: string): string[]
+function header_parse_param_list(header: string): GLib.HashTable
+function header_parse_param_list_strict(header: string): GLib.HashTable | null
+function header_parse_quality_list(header: string): [ /* returnType */ string[], /* unacceptable */ string[] | null ]
+function header_parse_semi_param_list(header: string): GLib.HashTable
+function header_parse_semi_param_list_strict(header: string): GLib.HashTable | null
+function headers_parse(str: string, len: number, dest: MessageHeaders): boolean
+function headers_parse_request(str: string, len: number, req_headers: MessageHeaders): [ /* returnType */ number, /* req_method */ string | null, /* req_path */ string | null, /* ver */ HTTPVersion | null ]
+function headers_parse_response(str: string, len: number, headers: MessageHeaders): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
+function headers_parse_status_line(status_line: string): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
+function message_headers_iter_init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
+function session_error_quark(): GLib.Quark
+function status_get_phrase(status_code: number): string
+function tld_domain_is_public_suffix(domain: string): boolean
+function tld_error_quark(): GLib.Quark
+function tld_get_base_domain(hostname: string): string
+function uri_decode_data_uri(uri: string): [ /* returnType */ GLib.Bytes, /* content_type */ string | null ]
+function uri_equal(uri1: GLib.Uri, uri2: GLib.Uri): boolean
+function websocket_client_prepare_handshake(msg: Message, origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): void
+function websocket_client_verify_handshake(msg: Message, supported_extensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* accepted_extensions */ WebsocketExtension[] | null ]
+function websocket_error_quark(): GLib.Quark
+function websocket_server_check_handshake(msg: ServerMessage, origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): boolean
+function websocket_server_process_handshake(msg: ServerMessage, expected_origin?: string | null, protocols?: string[] | null, supported_extensions?: GObject.TypeClass[] | null): [ /* returnType */ boolean, /* accepted_extensions */ WebsocketExtension[] | null ]
+interface AuthDomainBasicAuthCallback {
     (domain: AuthDomainBasic, msg: ServerMessage, username: string, password: string): boolean
 }
-export interface AuthDomainDigestAuthCallback {
+interface AuthDomainDigestAuthCallback {
     (domain: AuthDomainDigest, msg: ServerMessage, username: string): string | null
 }
-export interface AuthDomainFilter {
+interface AuthDomainFilter {
     (domain: AuthDomain, msg: ServerMessage): boolean
 }
-export interface AuthDomainGenericAuthCallback {
+interface AuthDomainGenericAuthCallback {
     (domain: AuthDomain, msg: ServerMessage, username: string): boolean
 }
-export interface LoggerFilter {
+interface LoggerFilter {
     (logger: Logger, msg: Message): LoggerLogLevel
 }
-export interface LoggerPrinter {
+interface LoggerPrinter {
     (logger: Logger, level: LoggerLogLevel, direction: number, data: string): void
 }
-export interface MessageHeadersForeachFunc {
+interface MessageHeadersForeachFunc {
     (name: string, value: string): void
 }
-export interface ServerCallback {
+interface ServerCallback {
     (server: Server, msg: ServerMessage, path: string, query?: GLib.HashTable | null): void
 }
-export interface ServerWebsocketCallback {
+interface ServerWebsocketCallback {
     (server: Server, msg: ServerMessage, path: string, connection: WebsocketConnection): void
 }
-export class SessionFeature {
+class SessionFeature {
     static name: string
 }
 export interface Auth_ConstructProps extends GObject.Object_ConstructProps {
@@ -297,7 +299,7 @@ export interface Auth_ConstructProps extends GObject.Object_ConstructProps {
     is_for_proxy?: boolean
     realm?: string
 }
-export class Auth {
+class Auth {
     /* Properties of Soup-3.0.Soup.Auth */
     authority: string
     readonly is_authenticated: boolean
@@ -388,7 +390,7 @@ export class Auth {
 }
 export interface AuthBasic_ConstructProps extends Auth_ConstructProps {
 }
-export class AuthBasic {
+class AuthBasic {
     /* Properties of Soup-3.0.Soup.Auth */
     authority: string
     readonly is_authenticated: boolean
@@ -477,7 +479,7 @@ export class AuthBasic {
 }
 export interface AuthDigest_ConstructProps extends Auth_ConstructProps {
 }
-export class AuthDigest {
+class AuthDigest {
     /* Properties of Soup-3.0.Soup.Auth */
     authority: string
     readonly is_authenticated: boolean
@@ -572,7 +574,7 @@ export interface AuthDomain_ConstructProps extends GObject.Object_ConstructProps
     proxy?: boolean
     realm?: string
 }
-export class AuthDomain {
+class AuthDomain {
     /* Properties of Soup-3.0.Soup.AuthDomain */
     filter: AuthDomainFilter
     filter_data: object
@@ -652,7 +654,7 @@ export interface AuthDomainBasic_ConstructProps extends AuthDomain_ConstructProp
     auth_callback?: AuthDomainBasicAuthCallback
     auth_data?: object
 }
-export class AuthDomainBasic {
+class AuthDomainBasic {
     /* Properties of Soup-3.0.Soup.AuthDomainBasic */
     auth_callback: AuthDomainBasicAuthCallback
     auth_data: object
@@ -741,7 +743,7 @@ export interface AuthDomainDigest_ConstructProps extends AuthDomain_ConstructPro
     auth_callback?: AuthDomainDigestAuthCallback
     auth_data?: object
 }
-export class AuthDomainDigest {
+class AuthDomainDigest {
     /* Properties of Soup-3.0.Soup.AuthDomainDigest */
     auth_callback: AuthDomainDigestAuthCallback
     auth_data: object
@@ -830,7 +832,7 @@ export class AuthDomainDigest {
 }
 export interface AuthManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthManager {
+class AuthManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.AuthManager */
@@ -885,7 +887,7 @@ export class AuthManager {
 }
 export interface AuthNTLM_ConstructProps extends Auth_ConstructProps {
 }
-export class AuthNTLM {
+class AuthNTLM {
     /* Properties of Soup-3.0.Soup.Auth */
     authority: string
     readonly is_authenticated: boolean
@@ -974,7 +976,7 @@ export class AuthNTLM {
 }
 export interface AuthNegotiate_ConstructProps extends Auth_ConstructProps {
 }
-export class AuthNegotiate {
+class AuthNegotiate {
     /* Properties of Soup-3.0.Soup.Auth */
     authority: string
     readonly is_authenticated: boolean
@@ -1067,7 +1069,7 @@ export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
     cache_dir?: string
     cache_type?: CacheType
 }
-export class Cache {
+class Cache {
     /* Fields of Soup-3.0.Soup.Cache */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1128,7 +1130,7 @@ export class Cache {
 }
 export interface ContentDecoder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentDecoder {
+class ContentDecoder {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1176,7 +1178,7 @@ export class ContentDecoder {
 }
 export interface ContentSniffer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentSniffer {
+class ContentSniffer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.ContentSniffer */
@@ -1230,7 +1232,7 @@ export interface CookieJar_ConstructProps extends GObject.Object_ConstructProps 
     accept_policy?: CookieJarAcceptPolicy
     read_only?: boolean
 }
-export class CookieJar {
+class CookieJar {
     /* Properties of Soup-3.0.Soup.CookieJar */
     accept_policy: CookieJarAcceptPolicy
     /* Fields of Soup-3.0.Soup.CookieJar */
@@ -1309,7 +1311,7 @@ export class CookieJar {
 export interface CookieJarDB_ConstructProps extends CookieJar_ConstructProps {
     filename?: string
 }
-export class CookieJarDB {
+class CookieJarDB {
     /* Properties of Soup-3.0.Soup.CookieJar */
     accept_policy: CookieJarAcceptPolicy
     /* Fields of Soup-3.0.Soup.CookieJar */
@@ -1389,7 +1391,7 @@ export class CookieJarDB {
 export interface CookieJarText_ConstructProps extends CookieJar_ConstructProps {
     filename?: string
 }
-export class CookieJarText {
+class CookieJarText {
     /* Properties of Soup-3.0.Soup.CookieJar */
     accept_policy: CookieJarAcceptPolicy
     /* Fields of Soup-3.0.Soup.CookieJar */
@@ -1468,7 +1470,7 @@ export class CookieJarText {
 }
 export interface HSTSEnforcer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HSTSEnforcer {
+class HSTSEnforcer {
     /* Fields of Soup-3.0.Soup.HSTSEnforcer */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1536,7 +1538,7 @@ export class HSTSEnforcer {
 export interface HSTSEnforcerDB_ConstructProps extends HSTSEnforcer_ConstructProps {
     filename?: string
 }
-export class HSTSEnforcerDB {
+class HSTSEnforcerDB {
     /* Fields of Soup-3.0.Soup.HSTSEnforcer */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1606,7 +1608,7 @@ export interface Logger_ConstructProps extends GObject.Object_ConstructProps {
     level?: LoggerLogLevel
     max_body_size?: number
 }
-export class Logger {
+class Logger {
     /* Properties of Soup-3.0.Soup.Logger */
     level: LoggerLogLevel
     max_body_size: number
@@ -1677,7 +1679,7 @@ export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     site_for_cookies?: GLib.Uri
     uri?: GLib.Uri
 }
-export class Message {
+class Message {
     /* Properties of Soup-3.0.Soup.Message */
     first_party: GLib.Uri
     flags: MessageFlags
@@ -1875,7 +1877,7 @@ export class Message {
 export interface MultipartInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
     message?: Message
 }
-export class MultipartInputStream {
+class MultipartInputStream {
     /* Properties of Gio-2.0.Gio.FilterInputStream */
     close_base_stream: boolean
     /* Fields of Gio-2.0.Gio.FilterInputStream */
@@ -1986,7 +1988,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     tls_certificate?: Gio.TlsCertificate
     tls_database?: Gio.TlsDatabase
 }
-export class Server {
+class Server {
     /* Properties of Soup-3.0.Soup.Server */
     server_header: string
     tls_auth_mode: Gio.TlsAuthenticationMode
@@ -2093,7 +2095,7 @@ export class Server {
 }
 export interface ServerMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServerMessage {
+class ServerMessage {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.ServerMessage */
@@ -2207,7 +2209,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     tls_interaction?: Gio.TlsInteraction
     user_agent?: string
 }
-export class Session {
+class Session {
     /* Properties of Soup-3.0.Soup.Session */
     accept_language: string
     accept_language_auto: boolean
@@ -2342,7 +2344,7 @@ export interface WebsocketConnection_ConstructProps extends GObject.Object_Const
     protocol?: string
     uri?: GLib.Uri
 }
-export class WebsocketConnection {
+class WebsocketConnection {
     /* Properties of Soup-3.0.Soup.WebsocketConnection */
     keepalive_interval: number
     max_incoming_payload_size: number
@@ -2436,7 +2438,7 @@ export class WebsocketConnection {
 }
 export interface WebsocketExtension_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebsocketExtension {
+class WebsocketExtension {
     /* Fields of Soup-3.0.Soup.WebsocketExtension */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2498,7 +2500,7 @@ export class WebsocketExtension {
 }
 export interface WebsocketExtensionDeflate_ConstructProps extends WebsocketExtension_ConstructProps {
 }
-export class WebsocketExtensionDeflate {
+class WebsocketExtensionDeflate {
     /* Fields of Soup-3.0.Soup.WebsocketExtension */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2560,7 +2562,7 @@ export class WebsocketExtensionDeflate {
 }
 export interface WebsocketExtensionManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebsocketExtensionManager {
+class WebsocketExtensionManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2606,7 +2608,7 @@ export class WebsocketExtensionManager {
     _init (config?: WebsocketExtensionManager_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AuthClass {
+abstract class AuthClass {
     /* Fields of Soup-3.0.Soup.AuthClass */
     parent_class: GObject.ObjectClass
     scheme_name: string
@@ -2621,12 +2623,12 @@ export abstract class AuthClass {
     padding: object[]
     static name: string
 }
-export abstract class AuthDomainBasicClass {
+abstract class AuthDomainBasicClass {
     /* Fields of Soup-3.0.Soup.AuthDomainBasicClass */
     parent_class: AuthDomainClass
     static name: string
 }
-export abstract class AuthDomainClass {
+abstract class AuthDomainClass {
     /* Fields of Soup-3.0.Soup.AuthDomainClass */
     parent_class: GObject.ObjectClass
     accepts: (domain: AuthDomain, msg: ServerMessage, header: string) => string
@@ -2635,40 +2637,40 @@ export abstract class AuthDomainClass {
     padding: object[]
     static name: string
 }
-export abstract class AuthDomainDigestClass {
+abstract class AuthDomainDigestClass {
     /* Fields of Soup-3.0.Soup.AuthDomainDigestClass */
     parent_class: AuthDomainClass
     static name: string
 }
-export abstract class AuthManagerClass {
+abstract class AuthManagerClass {
     /* Fields of Soup-3.0.Soup.AuthManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CacheClass {
+abstract class CacheClass {
     /* Fields of Soup-3.0.Soup.CacheClass */
     parent_class: GObject.ObjectClass
     get_cacheability: (cache: Cache, msg: Message) => Cacheability
     padding: object[]
     static name: string
 }
-export class ClientMessageIO {
+class ClientMessageIO {
     static name: string
 }
-export class Connection {
+class Connection {
     static name: string
 }
-export abstract class ContentDecoderClass {
+abstract class ContentDecoderClass {
     /* Fields of Soup-3.0.Soup.ContentDecoderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ContentSnifferClass {
+abstract class ContentSnifferClass {
     /* Fields of Soup-3.0.Soup.ContentSnifferClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Cookie {
+class Cookie {
     /* Methods of Soup-3.0.Soup.Cookie */
     applies_to_uri(uri: GLib.Uri): boolean
     copy(): Cookie
@@ -2701,7 +2703,7 @@ export class Cookie {
     static new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
     static parse(header: string, origin?: GLib.Uri | null): Cookie | null
 }
-export abstract class CookieJarClass {
+abstract class CookieJarClass {
     /* Fields of Soup-3.0.Soup.CookieJarClass */
     parent_class: GObject.ObjectClass
     save: (jar: CookieJar) => void
@@ -2710,17 +2712,17 @@ export abstract class CookieJarClass {
     padding: object[]
     static name: string
 }
-export abstract class CookieJarDBClass {
+abstract class CookieJarDBClass {
     /* Fields of Soup-3.0.Soup.CookieJarDBClass */
     parent_class: CookieJarClass
     static name: string
 }
-export abstract class CookieJarTextClass {
+abstract class CookieJarTextClass {
     /* Fields of Soup-3.0.Soup.CookieJarTextClass */
     parent_class: CookieJarClass
     static name: string
 }
-export abstract class HSTSEnforcerClass {
+abstract class HSTSEnforcerClass {
     /* Fields of Soup-3.0.Soup.HSTSEnforcerClass */
     parent_class: GObject.ObjectClass
     is_persistent: (hsts_enforcer: HSTSEnforcer) => boolean
@@ -2728,12 +2730,12 @@ export abstract class HSTSEnforcerClass {
     changed: (enforcer: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void
     static name: string
 }
-export abstract class HSTSEnforcerDBClass {
+abstract class HSTSEnforcerDBClass {
     /* Fields of Soup-3.0.Soup.HSTSEnforcerDBClass */
     parent_class: HSTSEnforcerClass
     static name: string
 }
-export class HSTSPolicy {
+class HSTSPolicy {
     /* Methods of Soup-3.0.Soup.HSTSPolicy */
     copy(): HSTSPolicy
     equal(policy2: HSTSPolicy): boolean
@@ -2753,12 +2755,12 @@ export class HSTSPolicy {
     static new_full(domain: string, max_age: number, expires: GLib.DateTime, include_subdomains: boolean): HSTSPolicy
     static new_session_policy(domain: string, include_subdomains: boolean): HSTSPolicy
 }
-export abstract class LoggerClass {
+abstract class LoggerClass {
     /* Fields of Soup-3.0.Soup.LoggerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MessageBody {
+class MessageBody {
     /* Fields of Soup-3.0.Soup.MessageBody */
     data: Uint8Array[]
     length: number
@@ -2781,12 +2783,12 @@ export class MessageBody {
     /* Static methods and pseudo-constructors */
     static new(): MessageBody
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     /* Fields of Soup-3.0.Soup.MessageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MessageHeaders {
+class MessageHeaders {
     /* Methods of Soup-3.0.Soup.MessageHeaders */
     append(name: string, value: string): void
     clean_connection_headers(): void
@@ -2823,14 +2825,14 @@ export class MessageHeaders {
     /* Static methods and pseudo-constructors */
     static new(type: MessageHeadersType): MessageHeaders
 }
-export class MessageHeadersIter {
+class MessageHeadersIter {
     /* Methods of Soup-3.0.Soup.MessageHeadersIter */
     next(): [ /* returnType */ boolean, /* name */ string, /* value */ string ]
     static name: string
     /* Static methods and pseudo-constructors */
     static init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
 }
-export class MessageMetrics {
+class MessageMetrics {
     /* Methods of Soup-3.0.Soup.MessageMetrics */
     copy(): MessageMetrics
     free(): void
@@ -2851,13 +2853,13 @@ export class MessageMetrics {
     get_tls_start(): number
     static name: string
 }
-export class MessageQueue {
+class MessageQueue {
     static name: string
 }
-export class MessageQueueItem {
+class MessageQueueItem {
     static name: string
 }
-export class Multipart {
+class Multipart {
     /* Methods of Soup-3.0.Soup.Multipart */
     append_form_file(control_name: string, filename: string, content_type: string, body: GLib.Bytes): void
     append_form_string(control_name: string, data: string): void
@@ -2873,18 +2875,18 @@ export class Multipart {
     static new(mime_type: string): Multipart
     static new_from_message(headers: MessageHeaders, body: GLib.Bytes): Multipart
 }
-export abstract class MultipartInputStreamClass {
+abstract class MultipartInputStreamClass {
     /* Fields of Soup-3.0.Soup.MultipartInputStreamClass */
     parent_class: Gio.FilterInputStreamClass
     static name: string
 }
-export class Range {
+class Range {
     /* Fields of Soup-3.0.Soup.Range */
     start: number
     end: number
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     /* Fields of Soup-3.0.Soup.ServerClass */
     parent_class: GObject.ObjectClass
     request_started: (server: Server, msg: ServerMessage) => void
@@ -2894,30 +2896,30 @@ export abstract class ServerClass {
     padding: object[]
     static name: string
 }
-export abstract class ServerMessageClass {
+abstract class ServerMessageClass {
     /* Fields of Soup-3.0.Soup.ServerMessageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Soup-3.0.Soup.SessionClass */
     parent_class: GObject.ObjectClass
     request_queued: (session: Session, msg: Message) => void
     request_unqueued: (session: Session, msg: Message) => void
     static name: string
 }
-export abstract class SessionFeatureInterface {
+abstract class SessionFeatureInterface {
     static name: string
 }
-export class Socket {
+class Socket {
     static name: string
 }
-export abstract class WebsocketConnectionClass {
+abstract class WebsocketConnectionClass {
     /* Fields of Soup-3.0.Soup.WebsocketConnectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class WebsocketExtensionClass {
+abstract class WebsocketExtensionClass {
     /* Fields of Soup-3.0.Soup.WebsocketExtensionClass */
     parent_class: GObject.ObjectClass
     name: string
@@ -2928,13 +2930,15 @@ export abstract class WebsocketExtensionClass {
     process_incoming_message: (extension: WebsocketExtension, header: number, payload: GLib.Bytes) => [ /* returnType */ GLib.Bytes, /* header */ number ]
     static name: string
 }
-export abstract class WebsocketExtensionDeflateClass {
+abstract class WebsocketExtensionDeflateClass {
     /* Fields of Soup-3.0.Soup.WebsocketExtensionDeflateClass */
     parent_class: WebsocketExtensionClass
     static name: string
 }
-export abstract class WebsocketExtensionManagerClass {
+abstract class WebsocketExtensionManagerClass {
     /* Fields of Soup-3.0.Soup.WebsocketExtensionManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default Soup

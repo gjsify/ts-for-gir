@@ -1,2 +1,1 @@
-imports.gi.versions.LibvirtGConfig = '1.0'
-module.exports = imports.gi.LibvirtGConfig
+export {default as default} from 'gi://LibvirtGConfig?version=1.0';

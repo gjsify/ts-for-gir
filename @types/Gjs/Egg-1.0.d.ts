@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum AnimationMode {
+export namespace Egg {
+
+enum AnimationMode {
     LINEAR,
     EASE_IN_QUAD,
     EASE_IN_OUT_QUAD,
@@ -25,27 +27,27 @@ export enum AnimationMode {
     EASE_OUT_CUBIC,
     EASE_IN_OUT_CUBIC,
 }
-export enum SliderPosition {
+enum SliderPosition {
     NONE,
     TOP,
     RIGHT,
     BOTTOM,
     LEFT,
 }
-export enum ThreeGridColumn {
+enum ThreeGridColumn {
     LEFT,
     CENTER,
     RIGHT,
 }
 export const COUNTER_REQUIRES_ATOMIC: number
-export function counter_arena_get_default(): CounterArena
-export function date_time_format_for_display(self: GLib.DateTime): string
-export function frame_source_add(frames_per_sec: number, callback: GLib.SourceFunc): number
-export function get_current_cpu_call(): number
-export interface CounterForeachFunc {
+function counter_arena_get_default(): CounterArena
+function date_time_format_for_display(self: GLib.DateTime): string
+function frame_source_add(frames_per_sec: number, callback: GLib.SourceFunc): number
+function get_current_cpu_call(): number
+interface CounterForeachFunc {
     (counter: Counter): void
 }
-export interface TaskCacheCallback {
+interface TaskCacheCallback {
     (self: TaskCache, key: object | null, task: Gio.Task): void
 }
 export interface Animation_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -54,7 +56,7 @@ export interface Animation_ConstructProps extends GObject.InitiallyUnowned_Const
     mode?: AnimationMode
     target?: GObject.Object
 }
-export class Animation {
+class Animation {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Egg-1.0.Egg.Animation */
@@ -113,7 +115,7 @@ export class Animation {
 export interface BindingGroup_ConstructProps extends GObject.Object_ConstructProps {
     source?: GObject.Object
 }
-export class BindingGroup {
+class BindingGroup {
     /* Properties of Egg-1.0.Egg.BindingGroup */
     source: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -174,7 +176,7 @@ export interface Box_ConstructProps extends Gtk.Box_ConstructProps {
     max_width_request?: number
     orientation?: Gtk.Orientation
 }
-export class Box {
+class Box {
     /* Properties of Egg-1.0.Egg.Box */
     max_width_request: number
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -1021,7 +1023,7 @@ export class Box {
 export interface CenteringBin_ConstructProps extends Gtk.Bin_ConstructProps {
     max_width_request?: number
 }
-export class CenteringBin {
+class CenteringBin {
     /* Properties of Egg-1.0.Egg.CenteringBin */
     max_width_request: number
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -1838,7 +1840,7 @@ export interface ColumnLayout_ConstructProps extends Gtk.Container_ConstructProp
     max_columns?: number
     row_spacing?: number
 }
-export class ColumnLayout {
+class ColumnLayout {
     /* Properties of Egg-1.0.Egg.ColumnLayout */
     column_spacing: number
     column_width: number
@@ -2665,7 +2667,7 @@ export class ColumnLayout {
 }
 export interface ElasticBin_ConstructProps extends Gtk.Bin_ConstructProps {
 }
-export class ElasticBin {
+class ElasticBin {
     /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
@@ -3479,7 +3481,7 @@ export interface EmptyState_ConstructProps extends Gtk.Bin_ConstructProps {
     subtitle?: string
     title?: string
 }
-export class EmptyState {
+class EmptyState {
     /* Properties of Egg-1.0.Egg.EmptyState */
     icon_name: string
     pixel_size: number
@@ -4314,7 +4316,7 @@ export interface EntryBox_ConstructProps extends Gtk.Box_ConstructProps {
     max_width_chars?: number
     orientation?: Gtk.Orientation
 }
-export class EntryBox {
+class EntryBox {
     /* Properties of Egg-1.0.Egg.EntryBox */
     max_width_chars: number
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -5166,7 +5168,7 @@ export interface FileChooserEntry_ConstructProps extends Gtk.Bin_ConstructProps 
     show_hidden?: boolean
     title?: string
 }
-export class FileChooserEntry {
+class FileChooserEntry {
     /* Properties of Egg-1.0.Egg.FileChooserEntry */
     action: Gtk.FileChooserAction
     create_folders: boolean
@@ -6009,7 +6011,7 @@ export interface ListBox_ConstructProps extends Gtk.ListBox_ConstructProps {
     row_type?: GObject.Type
     row_type_name?: string
 }
-export class ListBox {
+class ListBox {
     /* Properties of Gtk-3.0.Gtk.ListBox */
     activate_on_single_click: boolean
     selection_mode: Gtk.SelectionMode
@@ -6889,7 +6891,7 @@ export class ListBox {
 }
 export interface MenuManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MenuManager {
+class MenuManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Egg-1.0.Egg.MenuManager */
@@ -6945,7 +6947,7 @@ export class MenuManager {
 export interface PillBox_ConstructProps extends Gtk.EventBox_ConstructProps {
     label?: string
 }
-export class PillBox {
+class PillBox {
     /* Properties of Egg-1.0.Egg.PillBox */
     label: string
     /* Properties of Gtk-3.0.Gtk.EventBox */
@@ -7777,7 +7779,7 @@ export class PillBox {
 export interface PriorityBox_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class PriorityBox {
+class PriorityBox {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -8622,7 +8624,7 @@ export interface ProgressButton_ConstructProps extends Gtk.Button_ConstructProps
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class ProgressButton {
+class ProgressButton {
     /* Properties of Egg-1.0.Egg.ProgressButton */
     progress: number
     show_progress: boolean
@@ -9555,7 +9557,7 @@ export interface RadioBox_ConstructProps extends Gtk.Bin_ConstructProps {
     active_id?: string
     show_more?: boolean
 }
-export class RadioBox {
+class RadioBox {
     /* Properties of Egg-1.0.Egg.RadioBox */
     active_id: string
     readonly has_more: boolean
@@ -10382,7 +10384,7 @@ export class RadioBox {
 }
 export interface ScrolledWindow_ConstructProps extends Gtk.ScrolledWindow_ConstructProps {
 }
-export class ScrolledWindow {
+class ScrolledWindow {
     /* Properties of Gtk-3.0.Gtk.ScrolledWindow */
     hadjustment: Gtk.Adjustment
     hscrollbar_policy: Gtk.PolicyType
@@ -11287,7 +11289,7 @@ export interface SearchBar_ConstructProps extends Gtk.Bin_ConstructProps {
     search_mode_enabled?: boolean
     show_close_button?: boolean
 }
-export class SearchBar {
+class SearchBar {
     /* Properties of Egg-1.0.Egg.SearchBar */
     search_mode_enabled: boolean
     show_close_button: boolean
@@ -12119,7 +12121,7 @@ export interface SettingsFlagAction_ConstructProps extends GObject.Object_Constr
     schema_id?: string
     schema_key?: string
 }
-export class SettingsFlagAction {
+class SettingsFlagAction {
     /* Properties of Egg-1.0.Egg.SettingsFlagAction */
     schema_key: string
     /* Properties of Gio-2.0.Gio.Action */
@@ -12211,7 +12213,7 @@ export interface SettingsSandwich_ConstructProps extends GObject.Object_Construc
     path?: string
     schema_id?: string
 }
-export class SettingsSandwich {
+class SettingsSandwich {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Egg-1.0.Egg.SettingsSandwich */
@@ -12282,7 +12284,7 @@ export interface SignalGroup_ConstructProps extends GObject.Object_ConstructProp
     target?: GObject.Object
     target_type?: GObject.Type
 }
-export class SignalGroup {
+class SignalGroup {
     /* Properties of Egg-1.0.Egg.SignalGroup */
     target: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -12353,7 +12355,7 @@ export interface SimpleLabel_ConstructProps extends Gtk.Widget_ConstructProps {
     width_chars?: number
     xalign?: number
 }
-export class SimpleLabel {
+class SimpleLabel {
     /* Properties of Egg-1.0.Egg.SimpleLabel */
     label: string
     width_chars: number
@@ -13115,7 +13117,7 @@ export interface SimplePopover_ConstructProps extends Gtk.Popover_ConstructProps
     text?: string
     title?: string
 }
-export class SimplePopover {
+class SimplePopover {
     /* Properties of Egg-1.0.Egg.SimplePopover */
     button_text: string
     message: string
@@ -14009,7 +14011,7 @@ export class SimplePopover {
 export interface Slider_ConstructProps extends Gtk.Container_ConstructProps {
     position?: SliderPosition
 }
-export class Slider {
+class Slider {
     /* Properties of Egg-1.0.Egg.Slider */
     position: SliderPosition
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -14823,7 +14825,7 @@ export class Slider {
 export interface StateMachine_ConstructProps extends GObject.Object_ConstructProps {
     state?: string
 }
-export class StateMachine {
+class StateMachine {
     /* Properties of Egg-1.0.Egg.StateMachine */
     state: string
     /* Fields of Egg-1.0.Egg.StateMachine */
@@ -14912,7 +14914,7 @@ export interface Suggestion_ConstructProps extends GObject.Object_ConstructProps
     subtitle?: string
     title?: string
 }
-export class Suggestion {
+class Suggestion {
     /* Properties of Egg-1.0.Egg.Suggestion */
     icon_name: string
     id: string
@@ -15000,7 +15002,7 @@ export interface SuggestionEntry_ConstructProps extends Gtk.Entry_ConstructProps
     model?: Gio.ListModel
     editing_canceled?: boolean
 }
-export class SuggestionEntry {
+class SuggestionEntry {
     /* Properties of Egg-1.0.Egg.SuggestionEntry */
     model: Gio.ListModel
     readonly typed_text: string
@@ -16112,7 +16114,7 @@ export class SuggestionEntry {
 export interface SuggestionEntryBuffer_ConstructProps extends Gtk.EntryBuffer_ConstructProps {
     suggestion?: Suggestion
 }
-export class SuggestionEntryBuffer {
+class SuggestionEntryBuffer {
     /* Properties of Egg-1.0.Egg.SuggestionEntryBuffer */
     suggestion: Suggestion
     /* Properties of Gtk-3.0.Gtk.EntryBuffer */
@@ -16213,7 +16215,7 @@ export interface SuggestionPopover_ConstructProps extends Gtk.Window_ConstructPr
     relative_to?: Gtk.Widget
     selected?: Suggestion
 }
-export class SuggestionPopover {
+class SuggestionPopover {
     /* Properties of Egg-1.0.Egg.SuggestionPopover */
     model: Suggestion
     relative_to: Gtk.Widget
@@ -17275,7 +17277,7 @@ export class SuggestionPopover {
 export interface SuggestionRow_ConstructProps extends Gtk.ListBoxRow_ConstructProps {
     suggestion?: Suggestion
 }
-export class SuggestionRow {
+class SuggestionRow {
     /* Properties of Egg-1.0.Egg.SuggestionRow */
     suggestion: Suggestion
     /* Properties of Gtk-3.0.Gtk.ListBoxRow */
@@ -18124,7 +18126,7 @@ export interface TaskCache_ConstructProps extends GObject.Object_ConstructProps 
     value_copy_func?: object
     value_destroy_func?: object
 }
-export class TaskCache {
+class TaskCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Egg-1.0.Egg.TaskCache */
@@ -18181,7 +18183,7 @@ export interface ThreeGrid_ConstructProps extends Gtk.Container_ConstructProps {
     column_spacing?: number
     row_spacing?: number
 }
-export class ThreeGrid {
+class ThreeGrid {
     /* Properties of Egg-1.0.Egg.ThreeGrid */
     column_spacing: number
     row_spacing: number
@@ -18994,7 +18996,7 @@ export class ThreeGrid {
 export interface WidgetActionGroup_ConstructProps extends GObject.Object_ConstructProps {
     widget?: Gtk.Widget
 }
-export class WidgetActionGroup {
+class WidgetActionGroup {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Egg-1.0.Egg.WidgetActionGroup */
@@ -19087,32 +19089,32 @@ export class WidgetActionGroup {
     static attach(widget: Gtk.Widget, group_name: string): void
     static $gtype: GObject.Type
 }
-export abstract class AnimationClass {
+abstract class AnimationClass {
     /* Fields of Egg-1.0.Egg.AnimationClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export abstract class BindingGroupClass {
+abstract class BindingGroupClass {
     /* Fields of Egg-1.0.Egg.BindingGroupClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class BoxClass {
+abstract class BoxClass {
     /* Fields of Egg-1.0.Egg.BoxClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class CenteringBinClass {
+abstract class CenteringBinClass {
     /* Fields of Egg-1.0.Egg.CenteringBinClass */
     parent: Gtk.BinClass
     static name: string
 }
-export abstract class ColumnLayoutClass {
+abstract class ColumnLayoutClass {
     /* Fields of Egg-1.0.Egg.ColumnLayoutClass */
     parent: Gtk.ContainerClass
     static name: string
 }
-export class Counter {
+class Counter {
     /* Fields of Egg-1.0.Egg.Counter */
     values: CounterValue
     category: string
@@ -19123,7 +19125,7 @@ export class Counter {
     reset(): void
     static name: string
 }
-export class CounterArena {
+class CounterArena {
     /* Methods of Egg-1.0.Egg.CounterArena */
     foreach(func: CounterForeachFunc): void
     ref(): CounterArena
@@ -19134,13 +19136,13 @@ export class CounterArena {
     static new_for_pid(pid: GLib.Pid): CounterArena
     static get_default(): CounterArena
 }
-export class CounterValue {
+class CounterValue {
     /* Fields of Egg-1.0.Egg.CounterValue */
     value: number
     padding: number[]
     static name: string
 }
-export abstract class ElasticBinClass {
+abstract class ElasticBinClass {
     /* Fields of Egg-1.0.Egg.ElasticBinClass */
     parent_class: Gtk.BinClass
     _reserved1: object
@@ -19149,17 +19151,17 @@ export abstract class ElasticBinClass {
     _reserved4: object
     static name: string
 }
-export abstract class EmptyStateClass {
+abstract class EmptyStateClass {
     /* Fields of Egg-1.0.Egg.EmptyStateClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class EntryBoxClass {
+abstract class EntryBoxClass {
     /* Fields of Egg-1.0.Egg.EntryBoxClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class FileChooserEntryClass {
+abstract class FileChooserEntryClass {
     /* Fields of Egg-1.0.Egg.FileChooserEntryClass */
     parent_class: Gtk.BinClass
     _reserved1: object
@@ -19168,7 +19170,7 @@ export abstract class FileChooserEntryClass {
     _reserved4: object
     static name: string
 }
-export class Heap {
+class Heap {
     /* Fields of Egg-1.0.Egg.Heap */
     data: string
     len: number
@@ -19184,7 +19186,7 @@ export class Heap {
     /* Static methods and pseudo-constructors */
     static new(element_size: number, compare_func: GLib.CompareFunc): Heap
 }
-export abstract class ListBoxClass {
+abstract class ListBoxClass {
     /* Fields of Egg-1.0.Egg.ListBoxClass */
     parent_class: Gtk.ListBoxClass
     _reserved1: object
@@ -19193,17 +19195,17 @@ export abstract class ListBoxClass {
     _reserved4: object
     static name: string
 }
-export abstract class MenuManagerClass {
+abstract class MenuManagerClass {
     /* Fields of Egg-1.0.Egg.MenuManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class PillBoxClass {
+abstract class PillBoxClass {
     /* Fields of Egg-1.0.Egg.PillBoxClass */
     parent_class: Gtk.EventBoxClass
     static name: string
 }
-export abstract class PriorityBoxClass {
+abstract class PriorityBoxClass {
     /* Fields of Egg-1.0.Egg.PriorityBoxClass */
     parent_class: Gtk.BoxClass
     _reserved1: object
@@ -19212,7 +19214,7 @@ export abstract class PriorityBoxClass {
     _reserved4: object
     static name: string
 }
-export abstract class ProgressButtonClass {
+abstract class ProgressButtonClass {
     /* Fields of Egg-1.0.Egg.ProgressButtonClass */
     parent_class: Gtk.ButtonClass
     _reserved1: object
@@ -19221,7 +19223,7 @@ export abstract class ProgressButtonClass {
     _reserved4: object
     static name: string
 }
-export abstract class RadioBoxClass {
+abstract class RadioBoxClass {
     /* Fields of Egg-1.0.Egg.RadioBoxClass */
     parent_class: Gtk.BinClass
     _padding1: object
@@ -19230,37 +19232,37 @@ export abstract class RadioBoxClass {
     _padding4: object
     static name: string
 }
-export abstract class ScrolledWindowClass {
+abstract class ScrolledWindowClass {
     /* Fields of Egg-1.0.Egg.ScrolledWindowClass */
     parent_class: Gtk.ScrolledWindowClass
     static name: string
 }
-export abstract class SearchBarClass {
+abstract class SearchBarClass {
     /* Fields of Egg-1.0.Egg.SearchBarClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class SettingsFlagActionClass {
+abstract class SettingsFlagActionClass {
     /* Fields of Egg-1.0.Egg.SettingsFlagActionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SettingsSandwichClass {
+abstract class SettingsSandwichClass {
     /* Fields of Egg-1.0.Egg.SettingsSandwichClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SignalGroupClass {
+abstract class SignalGroupClass {
     /* Fields of Egg-1.0.Egg.SignalGroupClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SimpleLabelClass {
+abstract class SimpleLabelClass {
     /* Fields of Egg-1.0.Egg.SimpleLabelClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
-export abstract class SimplePopoverClass {
+abstract class SimplePopoverClass {
     /* Fields of Egg-1.0.Egg.SimplePopoverClass */
     parent: Gtk.PopoverClass
     activate: (self: SimplePopover, text: string) => void
@@ -19268,17 +19270,17 @@ export abstract class SimplePopoverClass {
     changed: (self: SimplePopover) => void
     static name: string
 }
-export abstract class SliderClass {
+abstract class SliderClass {
     /* Fields of Egg-1.0.Egg.SliderClass */
     parent_instance: Gtk.ContainerClass
     static name: string
 }
-export abstract class StateMachineClass {
+abstract class StateMachineClass {
     /* Fields of Egg-1.0.Egg.StateMachineClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export abstract class SuggestionClass {
+abstract class SuggestionClass {
     /* Fields of Egg-1.0.Egg.SuggestionClass */
     parent_class: GObject.ObjectClass
     suggest_suffix: (self: Suggestion, typed_text: string) => string | null
@@ -19289,7 +19291,7 @@ export abstract class SuggestionClass {
     _reserved4: object
     static name: string
 }
-export abstract class SuggestionEntryBufferClass {
+abstract class SuggestionEntryBufferClass {
     /* Fields of Egg-1.0.Egg.SuggestionEntryBufferClass */
     parent_class: Gtk.EntryBufferClass
     _reserved1: object
@@ -19298,7 +19300,7 @@ export abstract class SuggestionEntryBufferClass {
     _reserved4: object
     static name: string
 }
-export abstract class SuggestionEntryClass {
+abstract class SuggestionEntryClass {
     /* Fields of Egg-1.0.Egg.SuggestionEntryClass */
     parent_class: Gtk.EntryClass
     hide_suggestions: (self: SuggestionEntry) => void
@@ -19315,12 +19317,12 @@ export abstract class SuggestionEntryClass {
     _reserved8: object
     static name: string
 }
-export abstract class SuggestionPopoverClass {
+abstract class SuggestionPopoverClass {
     /* Fields of Egg-1.0.Egg.SuggestionPopoverClass */
     parent_class: Gtk.WindowClass
     static name: string
 }
-export abstract class SuggestionRowClass {
+abstract class SuggestionRowClass {
     /* Fields of Egg-1.0.Egg.SuggestionRowClass */
     parent_class: Gtk.ListBoxRowClass
     _reserved1: object
@@ -19329,12 +19331,12 @@ export abstract class SuggestionRowClass {
     _reserved4: object
     static name: string
 }
-export abstract class TaskCacheClass {
+abstract class TaskCacheClass {
     /* Fields of Egg-1.0.Egg.TaskCacheClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ThreeGridClass {
+abstract class ThreeGridClass {
     /* Fields of Egg-1.0.Egg.ThreeGridClass */
     parent_class: Gtk.ContainerClass
     _reserved1: object
@@ -19347,8 +19349,10 @@ export abstract class ThreeGridClass {
     _reserved8: object
     static name: string
 }
-export abstract class WidgetActionGroupClass {
+abstract class WidgetActionGroupClass {
     /* Fields of Egg-1.0.Egg.WidgetActionGroupClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default Egg

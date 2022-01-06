@@ -1,2 +1,1 @@
-imports.gi.versions.TotemPlParser = '1.0'
-module.exports = imports.gi.TotemPlParser
+export {default as default} from 'gi://TotemPlParser?version=1.0';

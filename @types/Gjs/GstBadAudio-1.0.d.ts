@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstAudio from './GstAudio-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstAudio from './GstAudio-1.0';
 
-export enum NonstreamAudioOutputMode {
+export namespace GstBadAudio {
+
+enum NonstreamAudioOutputMode {
     LOOPING,
     STEADY,
 }
-export enum NonstreamAudioSubsongMode {
+enum NonstreamAudioSubsongMode {
     SINGLE,
     ALL,
     DECODER_DEFAULT,
@@ -25,7 +27,7 @@ export interface NonstreamAudioDecoder_ConstructProps extends Gst.Element_Constr
     current_subsong?: number
     num_loops?: number
 }
-export class NonstreamAudioDecoder {
+class NonstreamAudioDecoder {
     /* Properties of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     current_subsong: number
     num_loops: number
@@ -282,7 +284,7 @@ export class NonstreamAudioDecoder {
 }
 export interface PlanarAudioAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlanarAudioAdapter {
+class PlanarAudioAdapter {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstBadAudio-1.0.GstBadAudio.PlanarAudioAdapter */
@@ -345,7 +347,7 @@ export class PlanarAudioAdapter {
     static new(): PlanarAudioAdapter
     static $gtype: GObject.Type
 }
-export abstract class NonstreamAudioDecoderClass {
+abstract class NonstreamAudioDecoderClass {
     /* Fields of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoderClass */
     element_class: Gst.ElementClass
     loads_from_sinkpad: boolean
@@ -370,6 +372,8 @@ export abstract class NonstreamAudioDecoderClass {
     propose_allocation: (dec: NonstreamAudioDecoder, query: Gst.Query) => boolean
     static name: string
 }
-export abstract class PlanarAudioAdapterClass {
+abstract class PlanarAudioAdapterClass {
     static name: string
 }
+}
+export default GstBadAudio

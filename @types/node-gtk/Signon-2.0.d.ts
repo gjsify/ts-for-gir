@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Signon {
+declare namespace Signon {
 
-export enum Error {
+enum Error {
     UNKNOWN,
     INTERNAL_SERVER,
     INTERNAL_COMMUNICATION,
@@ -46,13 +46,13 @@ export enum Error {
     INCORRECT_DATE,
     USER_ERROR,
 }
-export enum SessionDataUiPolicy {
+enum SessionDataUiPolicy {
     DEFAULT,
     REQUEST_PASSWORD,
     NO_USER_INTERACTION,
     VALIDATION,
 }
-export enum IdentityType {
+enum IdentityType {
     OTHER,
     APP,
     WEB,
@@ -67,10 +67,10 @@ export const SESSION_DATA_TIMEOUT: string
 export const SESSION_DATA_UI_POLICY: string
 export const SESSION_DATA_USERNAME: string
 export const SESSION_DATA_WINDOW_ID: string
-export function errorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
 export interface AuthService_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthService {
+class AuthService {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Signon-2.0.Signon.AuthService */
@@ -124,7 +124,7 @@ export class AuthService {
 }
 export interface AuthSession_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthSession {
+class AuthSession {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Signon-2.0.Signon.AuthSession */
@@ -183,7 +183,7 @@ export class AuthSession {
 export interface Identity_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
-export class Identity {
+class Identity {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Signon-2.0.Signon.Identity */
@@ -249,22 +249,22 @@ export class Identity {
     static newFromDb(id: number): Identity
     static $gtype: GObject.Type
 }
-export abstract class AuthServiceClass {
+abstract class AuthServiceClass {
     /* Fields of Signon-2.0.Signon.AuthServiceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class AuthSessionClass {
+abstract class AuthSessionClass {
     /* Fields of Signon-2.0.Signon.AuthSessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class IdentityClass {
+abstract class IdentityClass {
     /* Fields of Signon-2.0.Signon.IdentityClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class IdentityInfo {
+class IdentityInfo {
     /* Methods of Signon-2.0.Signon.IdentityInfo */
     addAccessControl(systemContext: string, applicationContext: string): void
     copy(): IdentityInfo
@@ -291,7 +291,7 @@ export class IdentityInfo {
     /* Static methods and pseudo-constructors */
     static new(): IdentityInfo
 }
-export class SecurityContext {
+class SecurityContext {
     /* Methods of Signon-2.0.Signon.SecurityContext */
     copy(): SecurityContext
     free(): void
@@ -307,3 +307,4 @@ export class SecurityContext {
     static newFromValues(systemContext: string, applicationContext: string): SecurityContext
 }
 }
+export default Signon

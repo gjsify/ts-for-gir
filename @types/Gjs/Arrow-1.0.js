@@ -1,2 +1,1 @@
-imports.gi.versions.Arrow = '1.0'
-module.exports = imports.gi.Arrow
+export {default as default} from 'gi://Arrow?version=1.0';

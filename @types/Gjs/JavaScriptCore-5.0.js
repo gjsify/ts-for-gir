@@ -1,2 +1,1 @@
-imports.gi.versions.JavaScriptCore = '5.0'
-module.exports = imports.gi.JavaScriptCore
+export {default as default} from 'gi://JavaScriptCore?version=5.0';

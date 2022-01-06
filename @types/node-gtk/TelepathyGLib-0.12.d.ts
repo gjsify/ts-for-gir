@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace TelepathyGLib {
+declare namespace TelepathyGLib {
 
-export enum AccessControlType {
+enum AccessControlType {
     WHITELIST,
     PUBLISH_LIST,
     GROUP,
@@ -18,21 +18,21 @@ export enum AccessControlType {
     CLOSED,
     NOT_UNDERSTOOD,
 }
-export enum CMInfoSource {
+enum CMInfoSource {
     NONE,
     FILE,
     LIVE,
 }
-export enum CallContentDisposition {
+enum CallContentDisposition {
     NONE,
     INITIAL,
 }
-export enum CallContentPacketizationType {
+enum CallContentPacketizationType {
     RTP,
     RAW,
     MSN_WEBCAM,
 }
-export enum CallState {
+enum CallState {
     UNKNOWN,
     PENDING_INITIATOR,
     INITIALISING,
@@ -41,7 +41,7 @@ export enum CallState {
     ACTIVE,
     ENDED,
 }
-export enum CallStateChangeReason {
+enum CallStateChangeReason {
     UNKNOWN,
     PROGRESS_MADE,
     USER_REQUESTED,
@@ -57,7 +57,7 @@ export enum CallStateChangeReason {
     MEDIA_ERROR,
     CONNECTIVITY_ERROR,
 }
-export enum CallStreamCandidateType {
+enum CallStreamCandidateType {
     NONE,
     HOST,
     SERVER_REFLEXIVE,
@@ -65,33 +65,33 @@ export enum CallStreamCandidateType {
     RELAY,
     MULTICAST,
 }
-export enum CaptchaCancelReason {
+enum CaptchaCancelReason {
     USER_CANCELLED,
     NOT_SUPPORTED,
     SERVICE_CONFUSED,
 }
-export enum CaptchaStatus {
+enum CaptchaStatus {
     LOCAL_PENDING,
     REMOTE_PENDING,
     SUCCEEDED,
     TRY_AGAIN,
     FAILED,
 }
-export enum ChannelChatState {
+enum ChannelChatState {
     GONE,
     INACTIVE,
     ACTIVE,
     PAUSED,
     COMPOSING,
 }
-export enum ChannelContactSearchState {
+enum ChannelContactSearchState {
     NOT_STARTED,
     IN_PROGRESS,
     MORE_AVAILABLE,
     COMPLETED,
     FAILED,
 }
-export enum ChannelGroupChangeReason {
+enum ChannelGroupChangeReason {
     NONE,
     OFFLINE,
     KICKED,
@@ -105,14 +105,14 @@ export enum ChannelGroupChangeReason {
     PERMISSION_DENIED,
     SEPARATED,
 }
-export enum ChannelTextMessageType {
+enum ChannelTextMessageType {
     NORMAL,
     ACTION,
     NOTICE,
     AUTO_REPLY,
     DELIVERY_REPORT,
 }
-export enum ChannelTextSendError {
+enum ChannelTextSendError {
     UNKNOWN,
     OFFLINE,
     INVALID_CONTACT,
@@ -120,7 +120,7 @@ export enum ChannelTextSendError {
     TOO_LONG,
     NOT_IMPLEMENTED,
 }
-export enum ConnectionPresenceType {
+enum ConnectionPresenceType {
     UNSET,
     OFFLINE,
     AVAILABLE,
@@ -131,12 +131,12 @@ export enum ConnectionPresenceType {
     UNKNOWN,
     ERROR,
 }
-export enum ConnectionStatus {
+enum ConnectionStatus {
     CONNECTED,
     CONNECTING,
     DISCONNECTED,
 }
-export enum ConnectionStatusReason {
+enum ConnectionStatusReason {
     NONE_SPECIFIED,
     REQUESTED,
     NETWORK_ERROR,
@@ -155,7 +155,7 @@ export enum ConnectionStatusReason {
     CERT_INSECURE,
     CERT_LIMIT_EXCEEDED,
 }
-export enum ContactFeature {
+enum ContactFeature {
     ALIAS,
     AVATAR_TOKEN,
     PRESENCE,
@@ -168,19 +168,19 @@ export enum ContactFeature {
     CONTACT_GROUPS,
     CONTACT_BLOCKING,
 }
-export enum ContactListState {
+enum ContactListState {
     NONE,
     WAITING,
     FAILURE,
     SUCCESS,
 }
-export enum ContactMetadataStorageType {
+enum ContactMetadataStorageType {
     NONE,
     SUBSCRIBED_OR_PENDING,
     SUBSCRIBED,
     ANYONE,
 }
-export enum DBusError {
+enum DBusError {
     UNKNOWN_REMOTE_ERROR,
     PROXY_UNREFERENCED,
     NO_INTERFACE,
@@ -193,7 +193,7 @@ export enum DBusError {
     CANCELLED,
     INCONSISTENT,
 }
-export enum DTMFEvent {
+enum DTMFEvent {
     DIGIT_0,
     DIGIT_1,
     DIGIT_2,
@@ -211,7 +211,7 @@ export enum DTMFEvent {
     LETTER_C,
     LETTER_D,
 }
-export enum DebugLevel {
+enum DebugLevel {
     ERROR,
     CRITICAL,
     WARNING,
@@ -219,7 +219,7 @@ export enum DebugLevel {
     INFO,
     DEBUG,
 }
-export enum DeliveryStatus {
+enum DeliveryStatus {
     UNKNOWN,
     DELIVERED,
     TEMPORARILY_FAILED,
@@ -228,7 +228,7 @@ export enum DeliveryStatus {
     READ,
     DELETED,
 }
-export enum Error {
+enum Error {
     NETWORK_ERROR,
     NOT_IMPLEMENTED,
     INVALID_ARGUMENT,
@@ -284,13 +284,13 @@ export enum Error {
     MEDIA_STREAMING_ERROR,
     CAPTCHA_NOT_SUPPORTED,
 }
-export enum FileHashType {
+enum FileHashType {
     NONE,
     MD5,
     SHA1,
     SHA256,
 }
-export enum FileTransferState {
+enum FileTransferState {
     NONE,
     PENDING,
     ACCEPTED,
@@ -298,7 +298,7 @@ export enum FileTransferState {
     COMPLETED,
     CANCELLED,
 }
-export enum FileTransferStateChangeReason {
+enum FileTransferStateChangeReason {
     NONE,
     REQUESTED,
     LOCAL_STOPPED,
@@ -306,39 +306,39 @@ export enum FileTransferStateChangeReason {
     LOCAL_ERROR,
     REMOTE_ERROR,
 }
-export enum HTTPMethod {
+enum HTTPMethod {
     GET,
     POST,
 }
-export enum HandleType {
+enum HandleType {
     NONE,
     CONTACT,
     ROOM,
     LIST,
     GROUP,
 }
-export enum LocalHoldState {
+enum LocalHoldState {
     UNHELD,
     HELD,
     PENDING_HOLD,
     PENDING_UNHOLD,
 }
-export enum LocalHoldStateReason {
+enum LocalHoldStateReason {
     NONE,
     REQUESTED,
     RESOURCE_NOT_AVAILABLE,
 }
-export enum MediaStreamBaseProto {
+enum MediaStreamBaseProto {
     UDP,
     TCP,
 }
-export enum MediaStreamDirection {
+enum MediaStreamDirection {
     NONE,
     SEND,
     RECEIVE,
     BIDIRECTIONAL,
 }
-export enum MediaStreamError {
+enum MediaStreamError {
     UNKNOWN,
     EOS,
     CODEC_NEGOTIATION_FAILED,
@@ -348,35 +348,35 @@ export enum MediaStreamError {
     INVALID_CM_BEHAVIOR,
     MEDIA_ERROR,
 }
-export enum MediaStreamState {
+enum MediaStreamState {
     DISCONNECTED,
     CONNECTING,
     CONNECTED,
 }
-export enum MediaStreamTransportType {
+enum MediaStreamTransportType {
     LOCAL,
     DERIVED,
     RELAY,
 }
-export enum MediaStreamType {
+enum MediaStreamType {
     AUDIO,
     VIDEO,
 }
-export enum RCPTXRRTTMode {
+enum RCPTXRRTTMode {
     ALL,
     SENDER,
 }
-export enum RichPresenceAccessControlType {
+enum RichPresenceAccessControlType {
     WHITELIST,
     PUBLISH_LIST,
     GROUP,
     OPEN,
 }
-export enum SASLAbortReason {
+enum SASLAbortReason {
     INVALID_CHALLENGE,
     USER_ABORT,
 }
-export enum SASLStatus {
+enum SASLStatus {
     NOT_STARTED,
     IN_PROGRESS,
     SERVER_SUCCEEDED,
@@ -385,48 +385,48 @@ export enum SASLStatus {
     SERVER_FAILED,
     CLIENT_FAILED,
 }
-export enum SendingState {
+enum SendingState {
     NONE,
     PENDING_SEND,
     SENDING,
     PENDING_STOP_SENDING,
 }
-export enum ServicePointType {
+enum ServicePointType {
     NONE,
     EMERGENCY,
     COUNSELING,
 }
-export enum SocketAccessControl {
+enum SocketAccessControl {
     LOCALHOST,
     PORT,
     NETMASK,
     CREDENTIALS,
 }
-export enum SocketAddressType {
+enum SocketAddressType {
     UNIX,
     ABSTRACT_UNIX,
     IPV4,
     IPV6,
 }
-export enum StreamComponent {
+enum StreamComponent {
     UNKNOWN,
     DATA,
     CONTROL,
 }
-export enum StreamEndpointState {
+enum StreamEndpointState {
     CONNECTING,
     PROVISIONALLY_CONNECTED,
     FULLY_CONNECTED,
     EXHAUSTED_CANDIDATES,
     FAILED,
 }
-export enum StreamFlowState {
+enum StreamFlowState {
     STOPPED,
     PENDING_START,
     PENDING_STOP,
     STARTED,
 }
-export enum StreamTransportType {
+enum StreamTransportType {
     UNKNOWN,
     RAW_UDP,
     ICE,
@@ -435,14 +435,14 @@ export enum StreamTransportType {
     SHM,
     MULTICAST,
 }
-export enum SubscriptionState {
+enum SubscriptionState {
     UNKNOWN,
     NO,
     REMOVED_REMOTELY,
     ASK,
     YES,
 }
-export enum TLSCertificateRejectReason {
+enum TLSCertificateRejectReason {
     UNKNOWN,
     UNTRUSTED,
     EXPIRED,
@@ -454,47 +454,47 @@ export enum TLSCertificateRejectReason {
     INSECURE,
     LIMIT_EXCEEDED,
 }
-export enum TLSCertificateState {
+enum TLSCertificateState {
     PENDING,
     ACCEPTED,
     REJECTED,
 }
-export enum TubeChannelState {
+enum TubeChannelState {
     LOCAL_PENDING,
     REMOTE_PENDING,
     OPEN,
     NOT_OFFERED,
 }
-export enum TubeState {
+enum TubeState {
     LOCAL_PENDING,
     REMOTE_PENDING,
     OPEN,
 }
-export enum TubeType {
+enum TubeType {
     DBUS,
     STREAM,
 }
-export enum AnonymityModeFlags {
+enum AnonymityModeFlags {
     CLIENT_INFO,
     SHOW_CLIENT_INFO,
     NETWORK_INFO,
 }
-export enum CallFlags {
+enum CallFlags {
     LOCALLY_HELD,
     LOCALLY_RINGING,
     LOCALLY_QUEUED,
     FORWARDED,
     CLEARING,
 }
-export enum CallMemberFlags {
+enum CallMemberFlags {
     RINGING,
     HELD,
     CONFERENCE_HOST,
 }
-export enum CaptchaFlags {
+enum CaptchaFlags {
     CAPTCHA_FLAGS_REQUIRED,
 }
-export enum ChannelCallStateFlags {
+enum ChannelCallStateFlags {
     RINGING,
     QUEUED,
     HELD,
@@ -502,7 +502,7 @@ export enum ChannelCallStateFlags {
     IN_PROGRESS,
     CONFERENCE_HOST,
 }
-export enum ChannelGroupFlags {
+enum ChannelGroupFlags {
     CAN_ADD,
     CAN_REMOVE,
     CAN_RESCIND,
@@ -518,7 +518,7 @@ export enum ChannelGroupFlags {
     MEMBERS_CHANGED_DETAILED,
     MESSAGE_DEPART,
 }
-export enum ChannelMediaCapabilities {
+enum ChannelMediaCapabilities {
     AUDIO,
     VIDEO,
     NAT_TRAVERSAL_STUN,
@@ -526,64 +526,64 @@ export enum ChannelMediaCapabilities {
     NAT_TRAVERSAL_ICE_UDP,
     IMMUTABLE_STREAMS,
 }
-export enum ChannelPasswordFlags {
+enum ChannelPasswordFlags {
     PROVIDE,
     HINT,
 }
-export enum ChannelTextMessageFlags {
+enum ChannelTextMessageFlags {
     TRUNCATED,
     NON_TEXT_CONTENT,
     SCROLLBACK,
     RESCUED,
 }
-export enum ConnMgrParamFlags {
+enum ConnMgrParamFlags {
     REQUIRED,
     REGISTER,
     HAS_DEFAULT,
     SECRET,
     DBUS_PROPERTY,
 }
-export enum ConnectionAliasFlags {
+enum ConnectionAliasFlags {
     CONNECTION_ALIAS_FLAG_USER_SET,
 }
-export enum ConnectionCapabilityFlags {
+enum ConnectionCapabilityFlags {
     CREATE,
     INVITE,
 }
-export enum ContactBlockingCapabilities {
+enum ContactBlockingCapabilities {
     CONTACT_BLOCKING_CAPABILITY_CAN_REPORT_ABUSIVE,
 }
-export enum ContactInfoFieldFlags {
+enum ContactInfoFieldFlags {
     PARAMETERS_EXACT,
     OVERWRITTEN_BY_NICKNAME,
 }
-export enum ContactInfoFlags {
+enum ContactInfoFlags {
     CAN_SET,
     PUSH,
 }
-export enum DBusNameType {
+enum DBusNameType {
     UNIQUE,
     WELL_KNOWN,
     BUS_DAEMON,
     NOT_BUS_DAEMON,
     ANY,
 }
-export enum DBusPropertiesMixinFlags {
+enum DBusPropertiesMixinFlags {
     READ,
     WRITE,
     EMITS_CHANGED,
     EMITS_INVALIDATED,
 }
-export enum DeliveryReportingSupportFlags {
+enum DeliveryReportingSupportFlags {
     FAILURES,
     SUCCESSES,
     READ,
     DELETED,
 }
-export enum LocationFeatures {
+enum LocationFeatures {
     LOCATION_FEATURE_CAN_SET,
 }
-export enum MailNotificationFlags {
+enum MailNotificationFlags {
     SUPPORTS_UNREAD_MAIL_COUNT,
     SUPPORTS_UNREAD_MAILS,
     EMITS_MAILS_RECEIVED,
@@ -591,31 +591,31 @@ export enum MailNotificationFlags {
     SUPPORTS_REQUEST_MAIL_URL,
     THREAD_BASED,
 }
-export enum MediaStreamPendingSend {
+enum MediaStreamPendingSend {
     LOCAL_SEND,
     REMOTE_SEND,
 }
-export enum MessagePartSupportFlags {
+enum MessagePartSupportFlags {
     ONE_ATTACHMENT,
     MULTIPLE_ATTACHMENTS,
 }
-export enum MessageSendingFlags {
+enum MessageSendingFlags {
     DELIVERY,
     READ,
     DELETED,
 }
-export enum PropertyFlags {
+enum PropertyFlags {
     READ,
     WRITE,
 }
-export enum RTCPXRStatisticsFlags {
+enum RTCPXRStatisticsFlags {
     LOSS,
     DUPLICATE,
     JITTER,
     TTL,
     HL,
 }
-export enum StorageRestrictionFlags {
+enum StorageRestrictionFlags {
     PARAMETERS,
     ENABLED,
     PRESENCE,
@@ -1132,263 +1132,263 @@ export const TOKEN_CONNECTION_INTERFACE_SIMPLE_PRESENCE_PRESENCE: string
 export const UNKNOWN_CONNECTION_STATUS: ConnectionStatus
 export const UNKNOWN_HANDLE_TYPE: HandleType
 export const USER_ACTION_TIME_NOT_USER_ACTION: number
-export function asvGetBoolean(asv: GLib.HashTable, key: string): { returnType: boolean, valid: boolean }
-export function asvGetBoxed(asv: GLib.HashTable, key: string, type: GObject.Type): object | null
-export function asvGetBytes(asv: GLib.HashTable, key: string): any[] | null
-export function asvGetDouble(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
-export function asvGetInt32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
-export function asvGetInt64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
-export function asvGetObjectPath(asv: GLib.HashTable, key: string): string | null
-export function asvGetString(asv: GLib.HashTable, key: string): string | null
-export function asvGetStrv(asv: GLib.HashTable, key: string): string[] | null
-export function asvGetUint32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
-export function asvGetUint64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
-export function dbusCheckValidBusName(name: string, allowTypes: DBusNameType): boolean
-export function dbusCheckValidInterfaceName(name: string): boolean
-export function dbusCheckValidMemberName(name: string): boolean
-export function dbusCheckValidObjectPath(path: string): boolean
-export function dbusErrorsQuark(): GLib.Quark
-export function dbusPropertiesMixinClassInit(cls: GObject.ObjectClass, offset: number): void
-export function dbusPropertiesMixinDupAll(self: GObject.Object, interfaceName: string): GLib.HashTable
-export function dbusPropertiesMixinEmitPropertiesChanged(object: GObject.Object, interfaceName: string, properties?: string | null): void
-export function dbusPropertiesMixinGet(self: GObject.Object, interfaceName: string, propertyName: string, value: any): boolean
-export function dbusPropertiesMixinGetterGobjectProperties(object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, getterData?: object | null): void
-export function dbusPropertiesMixinIfaceInit(gIface?: object | null, ifaceData?: object | null): void
-export function dbusPropertiesMixinSet(self: GObject.Object, interfaceName: string, propertyName: string, value: any): boolean
-export function dbusPropertiesMixinSetterGobjectProperties(object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, setterData?: object | null): boolean
-export function debugDivertMessages(filename: string): void
-export function debugSetFlags(flagsString: string): void
-export function debugSetPersistent(persistent: boolean): void
-export function debugTimestampedLogHandler(logDomain: string, logLevel: GLib.LogLevelFlags, message: string, ignored?: object | null): void
-export function errorGetDbusName(error: Error): string
-export function errorQuark(): GLib.Quark
-export function errorsDisconnectedQuark(): GLib.Quark
-export function errorsRemovedFromGroupQuark(): GLib.Quark
-export function escapeAsIdentifier(name: string): string
-export function handleEnsure(self: HandleRepoIface, id: string, context?: object | null): Handle
-export function handleTypeIsValid(type: HandleType): boolean
-export function handleTypeToString(type: HandleType): string
-export function ifaceQuarkAccount(): GLib.Quark
-export function ifaceQuarkAccountInterfaceAddressing(): GLib.Quark
-export function ifaceQuarkAccountInterfaceAvatar(): GLib.Quark
-export function ifaceQuarkAccountInterfaceStorage(): GLib.Quark
-export function ifaceQuarkAccountManager(): GLib.Quark
-export function ifaceQuarkAuthenticationTlsCertificate(): GLib.Quark
-export function ifaceQuarkCallContent(): GLib.Quark
-export function ifaceQuarkCallContentInterfaceAudioControl(): GLib.Quark
-export function ifaceQuarkCallContentInterfaceDtmf(): GLib.Quark
-export function ifaceQuarkCallContentInterfaceMedia(): GLib.Quark
-export function ifaceQuarkCallContentInterfaceVideoControl(): GLib.Quark
-export function ifaceQuarkCallContentMediaDescription(): GLib.Quark
-export function ifaceQuarkCallContentMediaDescriptionInterfaceRtcpExtendedReports(): GLib.Quark
-export function ifaceQuarkCallContentMediaDescriptionInterfaceRtcpFeedback(): GLib.Quark
-export function ifaceQuarkCallContentMediaDescriptionInterfaceRtpHeaderExtensions(): GLib.Quark
-export function ifaceQuarkCallStream(): GLib.Quark
-export function ifaceQuarkCallStreamEndpoint(): GLib.Quark
-export function ifaceQuarkCallStreamInterfaceMedia(): GLib.Quark
-export function ifaceQuarkChannel(): GLib.Quark
-export function ifaceQuarkChannelDispatchOperation(): GLib.Quark
-export function ifaceQuarkChannelDispatcher(): GLib.Quark
-export function ifaceQuarkChannelDispatcherInterfaceMessages1(): GLib.Quark
-export function ifaceQuarkChannelDispatcherInterfaceOperationList(): GLib.Quark
-export function ifaceQuarkChannelInterfaceAnonymity(): GLib.Quark
-export function ifaceQuarkChannelInterfaceCallState(): GLib.Quark
-export function ifaceQuarkChannelInterfaceCaptchaAuthentication(): GLib.Quark
-export function ifaceQuarkChannelInterfaceChatState(): GLib.Quark
-export function ifaceQuarkChannelInterfaceConference(): GLib.Quark
-export function ifaceQuarkChannelInterfaceDestroyable(): GLib.Quark
-export function ifaceQuarkChannelInterfaceDtmf(): GLib.Quark
-export function ifaceQuarkChannelInterfaceFileTransferMetadata(): GLib.Quark
-export function ifaceQuarkChannelInterfaceGroup(): GLib.Quark
-export function ifaceQuarkChannelInterfaceHold(): GLib.Quark
-export function ifaceQuarkChannelInterfaceMediaSignalling(): GLib.Quark
-export function ifaceQuarkChannelInterfaceMessages(): GLib.Quark
-export function ifaceQuarkChannelInterfacePassword(): GLib.Quark
-export function ifaceQuarkChannelInterfaceRoom(): GLib.Quark
-export function ifaceQuarkChannelInterfaceRoomConfig(): GLib.Quark
-export function ifaceQuarkChannelInterfaceSaslAuthentication(): GLib.Quark
-export function ifaceQuarkChannelInterfaceSecurable(): GLib.Quark
-export function ifaceQuarkChannelInterfaceServicePoint(): GLib.Quark
-export function ifaceQuarkChannelInterfaceSms(): GLib.Quark
-export function ifaceQuarkChannelInterfaceSubject(): GLib.Quark
-export function ifaceQuarkChannelInterfaceTube(): GLib.Quark
-export function ifaceQuarkChannelRequest(): GLib.Quark
-export function ifaceQuarkChannelTypeCall(): GLib.Quark
-export function ifaceQuarkChannelTypeContactList(): GLib.Quark
-export function ifaceQuarkChannelTypeContactSearch(): GLib.Quark
-export function ifaceQuarkChannelTypeDbusTube(): GLib.Quark
-export function ifaceQuarkChannelTypeFileTransfer(): GLib.Quark
-export function ifaceQuarkChannelTypeRoomList(): GLib.Quark
-export function ifaceQuarkChannelTypeServerAuthentication(): GLib.Quark
-export function ifaceQuarkChannelTypeServerTlsConnection(): GLib.Quark
-export function ifaceQuarkChannelTypeStreamTube(): GLib.Quark
-export function ifaceQuarkChannelTypeStreamedMedia(): GLib.Quark
-export function ifaceQuarkChannelTypeText(): GLib.Quark
-export function ifaceQuarkChannelTypeTubes(): GLib.Quark
-export function ifaceQuarkClient(): GLib.Quark
-export function ifaceQuarkClientApprover(): GLib.Quark
-export function ifaceQuarkClientHandler(): GLib.Quark
-export function ifaceQuarkClientInterfaceRequests(): GLib.Quark
-export function ifaceQuarkClientObserver(): GLib.Quark
-export function ifaceQuarkConnection(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceAddressing(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceAliasing(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceAnonymity(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceAvatars(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceBalance(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceCapabilities(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceCellular(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceClientTypes(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContactBlocking(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContactCapabilities(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContactGroups(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContactInfo(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContactList(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceContacts(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceLocation(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceMailNotification(): GLib.Quark
-export function ifaceQuarkConnectionInterfacePowerSaving(): GLib.Quark
-export function ifaceQuarkConnectionInterfacePresence(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceRenaming(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceRequests(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceServicePoint(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceSidecars1(): GLib.Quark
-export function ifaceQuarkConnectionInterfaceSimplePresence(): GLib.Quark
-export function ifaceQuarkConnectionManager(): GLib.Quark
-export function ifaceQuarkDbusDaemon(): GLib.Quark
-export function ifaceQuarkDbusIntrospectable(): GLib.Quark
-export function ifaceQuarkDbusPeer(): GLib.Quark
-export function ifaceQuarkDbusProperties(): GLib.Quark
-export function ifaceQuarkDebug(): GLib.Quark
-export function ifaceQuarkMediaSessionHandler(): GLib.Quark
-export function ifaceQuarkMediaStreamHandler(): GLib.Quark
-export function ifaceQuarkPropertiesInterface(): GLib.Quark
-export function ifaceQuarkProtocol(): GLib.Quark
-export function ifaceQuarkProtocolInterfaceAddressing(): GLib.Quark
-export function ifaceQuarkProtocolInterfaceAvatars(): GLib.Quark
-export function ifaceQuarkProtocolInterfacePresence(): GLib.Quark
-export function intsetFromArray(array: number[]): Intset
-export function listConnectionManagers(busDaemon: DBusDaemon, callback: ConnectionManagerListCb, weakObject?: GObject.Object | null): void
-export function listConnectionManagersAsync(dbusDaemon?: DBusDaemon | null, callback?: Gio.AsyncReadyCallback | null): void
-export function listConnectionManagersFinish(result: Gio.AsyncResult): ConnectionManager[]
-export function listConnectionNames(busDaemon: DBusDaemon, callback: ConnectionNameListCb, weakObject?: GObject.Object | null): void
-export function simpleAsyncReportSuccessInIdle(source?: GObject.Object | null, callback?: Gio.AsyncReadyCallback | null, sourceTag?: object | null): void
-export function svcInterfaceSetDbusPropertiesInfo(gInterface: GObject.Type, info: DBusPropertiesMixinIfaceInfo): void
-export function userActionTimeFromX11(x11Time: number): number
-export function userActionTimeShouldPresent(userActionTime: number): { returnType: boolean, x11Time: number | null }
-export function utf8MakeValid(name: string): string
-export function valueArrayFree(va: GObject.ValueArray): void
-export interface AccountChannelRequestDelegatedChannelCb {
+function asvGetBoolean(asv: GLib.HashTable, key: string): { returnType: boolean, valid: boolean }
+function asvGetBoxed(asv: GLib.HashTable, key: string, type: GObject.Type): object | null
+function asvGetBytes(asv: GLib.HashTable, key: string): any[] | null
+function asvGetDouble(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+function asvGetInt32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+function asvGetInt64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+function asvGetObjectPath(asv: GLib.HashTable, key: string): string | null
+function asvGetString(asv: GLib.HashTable, key: string): string | null
+function asvGetStrv(asv: GLib.HashTable, key: string): string[] | null
+function asvGetUint32(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+function asvGetUint64(asv: GLib.HashTable, key: string): { returnType: number, valid: boolean }
+function dbusCheckValidBusName(name: string, allowTypes: DBusNameType): boolean
+function dbusCheckValidInterfaceName(name: string): boolean
+function dbusCheckValidMemberName(name: string): boolean
+function dbusCheckValidObjectPath(path: string): boolean
+function dbusErrorsQuark(): GLib.Quark
+function dbusPropertiesMixinClassInit(cls: GObject.ObjectClass, offset: number): void
+function dbusPropertiesMixinDupAll(self: GObject.Object, interfaceName: string): GLib.HashTable
+function dbusPropertiesMixinEmitPropertiesChanged(object: GObject.Object, interfaceName: string, properties?: string | null): void
+function dbusPropertiesMixinGet(self: GObject.Object, interfaceName: string, propertyName: string, value: any): boolean
+function dbusPropertiesMixinGetterGobjectProperties(object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, getterData?: object | null): void
+function dbusPropertiesMixinIfaceInit(gIface?: object | null, ifaceData?: object | null): void
+function dbusPropertiesMixinSet(self: GObject.Object, interfaceName: string, propertyName: string, value: any): boolean
+function dbusPropertiesMixinSetterGobjectProperties(object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, setterData?: object | null): boolean
+function debugDivertMessages(filename: string): void
+function debugSetFlags(flagsString: string): void
+function debugSetPersistent(persistent: boolean): void
+function debugTimestampedLogHandler(logDomain: string, logLevel: GLib.LogLevelFlags, message: string, ignored?: object | null): void
+function errorGetDbusName(error: Error): string
+function errorQuark(): GLib.Quark
+function errorsDisconnectedQuark(): GLib.Quark
+function errorsRemovedFromGroupQuark(): GLib.Quark
+function escapeAsIdentifier(name: string): string
+function handleEnsure(self: HandleRepoIface, id: string, context?: object | null): Handle
+function handleTypeIsValid(type: HandleType): boolean
+function handleTypeToString(type: HandleType): string
+function ifaceQuarkAccount(): GLib.Quark
+function ifaceQuarkAccountInterfaceAddressing(): GLib.Quark
+function ifaceQuarkAccountInterfaceAvatar(): GLib.Quark
+function ifaceQuarkAccountInterfaceStorage(): GLib.Quark
+function ifaceQuarkAccountManager(): GLib.Quark
+function ifaceQuarkAuthenticationTlsCertificate(): GLib.Quark
+function ifaceQuarkCallContent(): GLib.Quark
+function ifaceQuarkCallContentInterfaceAudioControl(): GLib.Quark
+function ifaceQuarkCallContentInterfaceDtmf(): GLib.Quark
+function ifaceQuarkCallContentInterfaceMedia(): GLib.Quark
+function ifaceQuarkCallContentInterfaceVideoControl(): GLib.Quark
+function ifaceQuarkCallContentMediaDescription(): GLib.Quark
+function ifaceQuarkCallContentMediaDescriptionInterfaceRtcpExtendedReports(): GLib.Quark
+function ifaceQuarkCallContentMediaDescriptionInterfaceRtcpFeedback(): GLib.Quark
+function ifaceQuarkCallContentMediaDescriptionInterfaceRtpHeaderExtensions(): GLib.Quark
+function ifaceQuarkCallStream(): GLib.Quark
+function ifaceQuarkCallStreamEndpoint(): GLib.Quark
+function ifaceQuarkCallStreamInterfaceMedia(): GLib.Quark
+function ifaceQuarkChannel(): GLib.Quark
+function ifaceQuarkChannelDispatchOperation(): GLib.Quark
+function ifaceQuarkChannelDispatcher(): GLib.Quark
+function ifaceQuarkChannelDispatcherInterfaceMessages1(): GLib.Quark
+function ifaceQuarkChannelDispatcherInterfaceOperationList(): GLib.Quark
+function ifaceQuarkChannelInterfaceAnonymity(): GLib.Quark
+function ifaceQuarkChannelInterfaceCallState(): GLib.Quark
+function ifaceQuarkChannelInterfaceCaptchaAuthentication(): GLib.Quark
+function ifaceQuarkChannelInterfaceChatState(): GLib.Quark
+function ifaceQuarkChannelInterfaceConference(): GLib.Quark
+function ifaceQuarkChannelInterfaceDestroyable(): GLib.Quark
+function ifaceQuarkChannelInterfaceDtmf(): GLib.Quark
+function ifaceQuarkChannelInterfaceFileTransferMetadata(): GLib.Quark
+function ifaceQuarkChannelInterfaceGroup(): GLib.Quark
+function ifaceQuarkChannelInterfaceHold(): GLib.Quark
+function ifaceQuarkChannelInterfaceMediaSignalling(): GLib.Quark
+function ifaceQuarkChannelInterfaceMessages(): GLib.Quark
+function ifaceQuarkChannelInterfacePassword(): GLib.Quark
+function ifaceQuarkChannelInterfaceRoom(): GLib.Quark
+function ifaceQuarkChannelInterfaceRoomConfig(): GLib.Quark
+function ifaceQuarkChannelInterfaceSaslAuthentication(): GLib.Quark
+function ifaceQuarkChannelInterfaceSecurable(): GLib.Quark
+function ifaceQuarkChannelInterfaceServicePoint(): GLib.Quark
+function ifaceQuarkChannelInterfaceSms(): GLib.Quark
+function ifaceQuarkChannelInterfaceSubject(): GLib.Quark
+function ifaceQuarkChannelInterfaceTube(): GLib.Quark
+function ifaceQuarkChannelRequest(): GLib.Quark
+function ifaceQuarkChannelTypeCall(): GLib.Quark
+function ifaceQuarkChannelTypeContactList(): GLib.Quark
+function ifaceQuarkChannelTypeContactSearch(): GLib.Quark
+function ifaceQuarkChannelTypeDbusTube(): GLib.Quark
+function ifaceQuarkChannelTypeFileTransfer(): GLib.Quark
+function ifaceQuarkChannelTypeRoomList(): GLib.Quark
+function ifaceQuarkChannelTypeServerAuthentication(): GLib.Quark
+function ifaceQuarkChannelTypeServerTlsConnection(): GLib.Quark
+function ifaceQuarkChannelTypeStreamTube(): GLib.Quark
+function ifaceQuarkChannelTypeStreamedMedia(): GLib.Quark
+function ifaceQuarkChannelTypeText(): GLib.Quark
+function ifaceQuarkChannelTypeTubes(): GLib.Quark
+function ifaceQuarkClient(): GLib.Quark
+function ifaceQuarkClientApprover(): GLib.Quark
+function ifaceQuarkClientHandler(): GLib.Quark
+function ifaceQuarkClientInterfaceRequests(): GLib.Quark
+function ifaceQuarkClientObserver(): GLib.Quark
+function ifaceQuarkConnection(): GLib.Quark
+function ifaceQuarkConnectionInterfaceAddressing(): GLib.Quark
+function ifaceQuarkConnectionInterfaceAliasing(): GLib.Quark
+function ifaceQuarkConnectionInterfaceAnonymity(): GLib.Quark
+function ifaceQuarkConnectionInterfaceAvatars(): GLib.Quark
+function ifaceQuarkConnectionInterfaceBalance(): GLib.Quark
+function ifaceQuarkConnectionInterfaceCapabilities(): GLib.Quark
+function ifaceQuarkConnectionInterfaceCellular(): GLib.Quark
+function ifaceQuarkConnectionInterfaceClientTypes(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContactBlocking(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContactCapabilities(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContactGroups(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContactInfo(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContactList(): GLib.Quark
+function ifaceQuarkConnectionInterfaceContacts(): GLib.Quark
+function ifaceQuarkConnectionInterfaceLocation(): GLib.Quark
+function ifaceQuarkConnectionInterfaceMailNotification(): GLib.Quark
+function ifaceQuarkConnectionInterfacePowerSaving(): GLib.Quark
+function ifaceQuarkConnectionInterfacePresence(): GLib.Quark
+function ifaceQuarkConnectionInterfaceRenaming(): GLib.Quark
+function ifaceQuarkConnectionInterfaceRequests(): GLib.Quark
+function ifaceQuarkConnectionInterfaceServicePoint(): GLib.Quark
+function ifaceQuarkConnectionInterfaceSidecars1(): GLib.Quark
+function ifaceQuarkConnectionInterfaceSimplePresence(): GLib.Quark
+function ifaceQuarkConnectionManager(): GLib.Quark
+function ifaceQuarkDbusDaemon(): GLib.Quark
+function ifaceQuarkDbusIntrospectable(): GLib.Quark
+function ifaceQuarkDbusPeer(): GLib.Quark
+function ifaceQuarkDbusProperties(): GLib.Quark
+function ifaceQuarkDebug(): GLib.Quark
+function ifaceQuarkMediaSessionHandler(): GLib.Quark
+function ifaceQuarkMediaStreamHandler(): GLib.Quark
+function ifaceQuarkPropertiesInterface(): GLib.Quark
+function ifaceQuarkProtocol(): GLib.Quark
+function ifaceQuarkProtocolInterfaceAddressing(): GLib.Quark
+function ifaceQuarkProtocolInterfaceAvatars(): GLib.Quark
+function ifaceQuarkProtocolInterfacePresence(): GLib.Quark
+function intsetFromArray(array: number[]): Intset
+function listConnectionManagers(busDaemon: DBusDaemon, callback: ConnectionManagerListCb, weakObject?: GObject.Object | null): void
+function listConnectionManagersAsync(dbusDaemon?: DBusDaemon | null, callback?: Gio.AsyncReadyCallback | null): void
+function listConnectionManagersFinish(result: Gio.AsyncResult): ConnectionManager[]
+function listConnectionNames(busDaemon: DBusDaemon, callback: ConnectionNameListCb, weakObject?: GObject.Object | null): void
+function simpleAsyncReportSuccessInIdle(source?: GObject.Object | null, callback?: Gio.AsyncReadyCallback | null, sourceTag?: object | null): void
+function svcInterfaceSetDbusPropertiesInfo(gInterface: GObject.Type, info: DBusPropertiesMixinIfaceInfo): void
+function userActionTimeFromX11(x11Time: number): number
+function userActionTimeShouldPresent(userActionTime: number): { returnType: boolean, x11Time: number | null }
+function utf8MakeValid(name: string): string
+function valueArrayFree(va: GObject.ValueArray): void
+interface AccountChannelRequestDelegatedChannelCb {
     (request: AccountChannelRequest, channel: Channel): void
 }
-export interface BaseClientClassAddDispatchOperationImpl {
+interface BaseClientClassAddDispatchOperationImpl {
     (client: BaseClient, account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation, context: AddDispatchOperationContext): void
 }
-export interface BaseClientClassHandleChannelsImpl {
+interface BaseClientClassHandleChannelsImpl {
     (client: BaseClient, account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
 }
-export interface BaseClientClassObserveChannelsImpl {
+interface BaseClientClassObserveChannelsImpl {
     (client: BaseClient, account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
 }
-export interface BaseClientDelegatedChannelsCb {
+interface BaseClientDelegatedChannelsCb {
     (client: BaseClient, channels: Channel[]): void
 }
-export interface BaseConnectionGetUniqueConnectionNameImpl {
+interface BaseConnectionGetUniqueConnectionNameImpl {
     (self: BaseConnection): string
 }
-export interface BaseConnectionProc {
+interface BaseConnectionProc {
     (self: BaseConnection): void
 }
-export interface BaseConnectionStartConnectingImpl {
+interface BaseConnectionStartConnectingImpl {
     (self: BaseConnection): boolean
 }
-export interface ChannelWhenReadyCb {
+interface ChannelWhenReadyCb {
     (channel: Channel, error: GLib.Error): void
 }
-export interface ConnectionContactsByHandleCb {
+interface ConnectionContactsByHandleCb {
     (connection: Connection, contacts: Contact[], failed: Handle[], error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionContactsByIdCb {
+interface ConnectionContactsByIdCb {
     (connection: Connection, contacts: Contact[], requestedIds: string[], failedIdErrors: GLib.HashTable, error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionHoldHandlesCb {
+interface ConnectionHoldHandlesCb {
     (connection: Connection, handleType: HandleType, nHandles: number, handles: Handle, error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionManagerListCb {
+interface ConnectionManagerListCb {
     (cms: ConnectionManager[], nCms: number, error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionManagerWhenReadyCb {
+interface ConnectionManagerWhenReadyCb {
     (cm: ConnectionManager, error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionNameListCb {
+interface ConnectionNameListCb {
     (names: string[], n: number, cms: string[], protocols: string[], error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionRequestHandlesCb {
+interface ConnectionRequestHandlesCb {
     (connection: Connection, handleType: HandleType, handles: number[], ids: string[], error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionUpgradeContactsCb {
+interface ConnectionUpgradeContactsCb {
     (connection: Connection, contacts: Contact[], error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface ConnectionWhenReadyCb {
+interface ConnectionWhenReadyCb {
     (connection: Connection, error: GLib.Error): void
 }
-export interface DBusDaemonListNamesCb {
+interface DBusDaemonListNamesCb {
     (busDaemon: DBusDaemon, names: string, error: GLib.Error, weakObject: GObject.Object): void
 }
-export interface DBusDaemonNameOwnerChangedCb {
+interface DBusDaemonNameOwnerChangedCb {
     (busDaemon: DBusDaemon, name: string, newOwner: string): void
 }
-export interface DBusPropertiesMixinGetter {
+interface DBusPropertiesMixinGetter {
     (object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, getterData?: object | null): void
 }
-export interface DBusPropertiesMixinSetter {
+interface DBusPropertiesMixinSetter {
     (object: GObject.Object, iface: GLib.Quark, name: GLib.Quark, value: any, setterData?: object | null): boolean
 }
-export interface GroupMixinAddMemberFunc {
+interface GroupMixinAddMemberFunc {
     (obj: GObject.Object, handle: Handle, message: string): boolean
 }
-export interface GroupMixinRemMemberFunc {
+interface GroupMixinRemMemberFunc {
     (obj: GObject.Object, handle: Handle, message: string): boolean
 }
-export interface GroupMixinRemMemberWithReasonFunc {
+interface GroupMixinRemMemberWithReasonFunc {
     (obj: GObject.Object, handle: Handle, message: string, reason: number): boolean
 }
-export interface IntFunc {
+interface IntFunc {
     (i: number, userdata?: object | null): void
 }
-export interface PresenceMixinGetMaximumStatusMessageLengthFunc {
+interface PresenceMixinGetMaximumStatusMessageLengthFunc {
     (obj: GObject.Object): number
 }
-export interface PresenceMixinSetOwnStatusFunc {
+interface PresenceMixinSetOwnStatusFunc {
     (obj: GObject.Object, status: PresenceStatus): boolean
 }
-export interface PresenceMixinStatusAvailableFunc {
+interface PresenceMixinStatusAvailableFunc {
     (obj: GObject.Object, which: number): boolean
 }
-export interface ProxyPrepareAsync {
+interface ProxyPrepareAsync {
     (proxy: Proxy, feature: ProxyFeature, callback?: Gio.AsyncReadyCallback | null): void
 }
-export interface SimpleApproverAddDispatchOperationImpl {
+interface SimpleApproverAddDispatchOperationImpl {
     (approver: SimpleApprover, account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, context: AddDispatchOperationContext): void
 }
-export interface SimpleHandlerHandleChannelsImpl {
+interface SimpleHandlerHandleChannelsImpl {
     (handler: SimpleHandler, account: Account, connection: Connection, channels: Channel[], requestsSatisfied: ChannelRequest[], userActionTime: number, context: HandleChannelsContext): void
 }
-export interface SimpleObserverObserveChannelsImpl {
+interface SimpleObserverObserveChannelsImpl {
     (observer: SimpleObserver, account: Account, connection: Connection, channels: Channel[], dispatchOperation: ChannelDispatchOperation | null, requests: ChannelRequest[], context: ObserveChannelsContext): void
 }
-export class ClientChannelFactory {
+class ClientChannelFactory {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactory */
     createChannel(conn: Connection, path: string, properties: GLib.HashTable): Channel
     dupChannelFeatures(channel: Channel): GLib.Quark[]
     static name: string
 }
-export class HandleRepoIface {
+class HandleRepoIface {
     static name: string
 }
 export interface Account_ConstructProps extends Proxy_ConstructProps {
 }
-export class Account {
+class Account {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Account */
     readonly automaticPresenceType: number
     readonly automaticStatus: string
@@ -1762,7 +1762,7 @@ export interface AccountChannelRequest_ConstructProps extends GObject.Object_Con
     requestVardict?: GLib.Variant
     userActionTime?: number
 }
-export class AccountChannelRequest {
+class AccountChannelRequest {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.AccountChannelRequest */
     readonly channelRequest: ChannelRequest
     /* Fields of GObject-2.0.GObject.Object */
@@ -1864,7 +1864,7 @@ export class AccountChannelRequest {
 }
 export interface AccountManager_ConstructProps extends Proxy_ConstructProps {
 }
-export class AccountManager {
+class AccountManager {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -1986,7 +1986,7 @@ export interface AccountRequest_ConstructProps extends GObject.Object_ConstructP
     displayName?: string
     protocol?: string
 }
-export class AccountRequest {
+class AccountRequest {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.AccountRequest */
     readonly automaticPresenceType: number
     readonly automaticStatus: string
@@ -2157,7 +2157,7 @@ export interface AddDispatchOperationContext_ConstructProps extends GObject.Obje
     connection?: Connection
     dispatchOperation?: ChannelDispatchOperation
 }
-export class AddDispatchOperationContext {
+class AddDispatchOperationContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.AddDispatchOperationContext */
@@ -2206,7 +2206,7 @@ export class AddDispatchOperationContext {
 }
 export interface AutomaticClientFactory_ConstructProps extends SimpleClientFactory_ConstructProps {
 }
-export class AutomaticClientFactory {
+class AutomaticClientFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactory */
@@ -2271,7 +2271,7 @@ export class AutomaticClientFactory {
 }
 export interface AutomaticProxyFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AutomaticProxyFactory {
+class AutomaticProxyFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2328,7 +2328,7 @@ export interface BaseClient_ConstructProps extends GObject.Object_ConstructProps
     name?: string
     uniquifyName?: boolean
 }
-export class BaseClient {
+class BaseClient {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
@@ -2418,7 +2418,7 @@ export class BaseClient {
 export interface BaseConnection_ConstructProps extends GObject.Object_ConstructProps {
     accountPathSuffix?: string
 }
-export class BaseConnection {
+class BaseConnection {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.BaseConnection */
     readonly hasImmortalHandles: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -2499,7 +2499,7 @@ export class BaseConnection {
 }
 export interface BasicProxyFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BasicProxyFactory {
+class BasicProxyFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2550,7 +2550,7 @@ export class BasicProxyFactory {
 }
 export interface CallChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class CallChannel {
+class CallChannel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallChannel */
     readonly contents: object[]
     readonly flags: number
@@ -2882,7 +2882,7 @@ export interface CallContent_ConstructProps extends Proxy_ConstructProps {
     channel?: CallChannel
     connection?: Connection
 }
-export class CallContent {
+class CallContent {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallContent */
     readonly disposition: number
     readonly mediaType: number
@@ -3012,7 +3012,7 @@ export interface CallStream_ConstructProps extends Proxy_ConstructProps {
     connection?: Connection
     content?: CallContent
 }
-export class CallStream {
+class CallStream {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.CallStream */
     readonly canRequestReceiving: boolean
     readonly localSendingState: number
@@ -3122,7 +3122,7 @@ export class CallStream {
 export interface Capabilities_ConstructProps extends GObject.Object_ConstructProps {
     contactSpecific?: boolean
 }
-export class Capabilities {
+class Capabilities {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Capabilities */
     readonly channelClassesVariant: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
@@ -3193,7 +3193,7 @@ export class Capabilities {
 export interface Channel_ConstructProps extends Proxy_ConstructProps {
     connection?: Connection
 }
-export class Channel {
+class Channel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Channel */
     readonly channelReady: boolean
     readonly groupFlags: number
@@ -3409,7 +3409,7 @@ export interface ChannelDispatchOperation_ConstructProps extends Proxy_Construct
     channels?: object[]
     connection?: Connection
 }
-export class ChannelDispatchOperation {
+class ChannelDispatchOperation {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.ChannelDispatchOperation */
     readonly possibleHandlers: string[]
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
@@ -3517,7 +3517,7 @@ export class ChannelDispatchOperation {
 }
 export interface ChannelDispatcher_ConstructProps extends Proxy_ConstructProps {
 }
-export class ChannelDispatcher {
+class ChannelDispatcher {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -3599,7 +3599,7 @@ export class ChannelDispatcher {
 export interface ChannelRequest_ConstructProps extends Proxy_ConstructProps {
     channelFactory?: GObject.Object
 }
-export class ChannelRequest {
+class ChannelRequest {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.ChannelRequest */
     readonly account: Account
     channelFactory: GObject.Object
@@ -3734,7 +3734,7 @@ export class ChannelRequest {
 }
 export interface ClientMessage_ConstructProps extends Message_ConstructProps {
 }
-export class ClientMessage {
+class ClientMessage {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
@@ -3814,7 +3814,7 @@ export class ClientMessage {
 }
 export interface Connection_ConstructProps extends Proxy_ConstructProps {
 }
-export class Connection {
+class Connection {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Connection */
     readonly balance: number
     readonly balanceCurrency: string
@@ -4143,7 +4143,7 @@ export interface ConnectionManager_ConstructProps extends Proxy_ConstructProps {
     alwaysIntrospect?: boolean
     managerFile?: string
 }
-export class ConnectionManager {
+class ConnectionManager {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.ConnectionManager */
     alwaysIntrospect: boolean
     readonly cmName: string
@@ -4280,7 +4280,7 @@ export class ConnectionManager {
 }
 export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Contact {
+class Contact {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Contact */
     readonly alias: string
     readonly avatarFile: Gio.File
@@ -4504,7 +4504,7 @@ export interface ContactSearch_ConstructProps extends GObject.Object_ConstructPr
     limit?: number
     server?: string
 }
-export class ContactSearch {
+class ContactSearch {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.ContactSearch */
     limit: number
     readonly state: number
@@ -4585,7 +4585,7 @@ export class ContactSearch {
 export interface ContactSearchResult_ConstructProps extends GObject.Object_ConstructProps {
     identifier?: string
 }
-export class ContactSearchResult {
+class ContactSearchResult {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ContactSearchResult */
@@ -4635,7 +4635,7 @@ export class ContactSearchResult {
 }
 export interface DBusDaemon_ConstructProps extends Proxy_ConstructProps {
 }
-export class DBusDaemon {
+class DBusDaemon {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -4722,7 +4722,7 @@ export class DBusDaemon {
 }
 export interface DBusTubeChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class DBusTubeChannel {
+class DBusTubeChannel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.DBusTubeChannel */
     readonly parametersVardict: GLib.Variant
     readonly serviceName: string
@@ -4948,7 +4948,7 @@ export class DBusTubeChannel {
 }
 export interface DebugClient_ConstructProps extends Proxy_ConstructProps {
 }
-export class DebugClient {
+class DebugClient {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.DebugClient */
     readonly enabled: boolean
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
@@ -5046,7 +5046,7 @@ export class DebugClient {
 }
 export interface DebugMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DebugMessage {
+class DebugMessage {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.DebugMessage */
     readonly category: string
     readonly domain: string
@@ -5128,7 +5128,7 @@ export class DebugMessage {
 }
 export interface FileTransferChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class FileTransferChannel {
+class FileTransferChannel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.FileTransferChannel */
     readonly date: GLib.DateTime
     readonly description: string
@@ -5416,7 +5416,7 @@ export interface HandleChannelsContext_ConstructProps extends GObject.Object_Con
     requestsSatisfied?: object[]
     userActionTime?: number
 }
-export class HandleChannelsContext {
+class HandleChannelsContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.HandleChannelsContext */
@@ -5473,7 +5473,7 @@ export class HandleChannelsContext {
 }
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Message {
+class Message {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
@@ -5555,7 +5555,7 @@ export interface ObserveChannelsContext_ConstructProps extends GObject.Object_Co
     dispatchOperation?: ChannelDispatchOperation
     requests?: object[]
 }
-export class ObserveChannelsContext {
+class ObserveChannelsContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ObserveChannelsContext */
@@ -5608,7 +5608,7 @@ export interface Protocol_ConstructProps extends Proxy_ConstructProps {
     cmName?: string
     protocolName?: string
 }
-export class Protocol {
+class Protocol {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Protocol */
     readonly addressableUriSchemes: string[]
     readonly addressableVcardFields: string[]
@@ -5781,7 +5781,7 @@ export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
     factory?: SimpleClientFactory
     objectPath?: string
 }
-export class Proxy {
+class Proxy {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.Proxy */
     readonly interfaces: string[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -5856,7 +5856,7 @@ export class Proxy {
 }
 export interface RoomInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RoomInfo {
+class RoomInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.RoomInfo */
@@ -5915,7 +5915,7 @@ export interface RoomList_ConstructProps extends GObject.Object_ConstructProps {
     account?: Account
     server?: string
 }
-export class RoomList {
+class RoomList {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.RoomList */
     readonly listing: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -5992,7 +5992,7 @@ export class RoomList {
 export interface SignalledMessage_ConstructProps extends Message_ConstructProps {
     sender?: Contact
 }
-export class SignalledMessage {
+class SignalledMessage {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.Message */
@@ -6074,7 +6074,7 @@ export interface SimpleApprover_ConstructProps extends BaseClient_ConstructProps
     destroy?: object
     userData?: object
 }
-export class SimpleApprover {
+class SimpleApprover {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
@@ -6168,7 +6168,7 @@ export class SimpleApprover {
 export interface SimpleClientFactory_ConstructProps extends GObject.Object_ConstructProps {
     dbusDaemon?: DBusDaemon
 }
-export class SimpleClientFactory {
+class SimpleClientFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactory */
@@ -6238,7 +6238,7 @@ export interface SimpleHandler_ConstructProps extends BaseClient_ConstructProps 
     requests?: boolean
     userData?: object
 }
-export class SimpleHandler {
+class SimpleHandler {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
@@ -6335,7 +6335,7 @@ export interface SimpleObserver_ConstructProps extends BaseClient_ConstructProps
     recover?: boolean
     userData?: object
 }
-export class SimpleObserver {
+class SimpleObserver {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.BaseClient */
@@ -6428,7 +6428,7 @@ export class SimpleObserver {
 }
 export interface StreamTubeChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class StreamTubeChannel {
+class StreamTubeChannel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.StreamTubeChannel */
     readonly parametersVardict: GLib.Variant
     readonly service: string
@@ -6664,7 +6664,7 @@ export interface StreamTubeConnection_ConstructProps extends GObject.Object_Cons
     contact?: Contact
     socketConnection?: Gio.SocketConnection
 }
-export class StreamTubeConnection {
+class StreamTubeConnection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.StreamTubeConnection */
@@ -6720,7 +6720,7 @@ export class StreamTubeConnection {
 export interface TLSCertificate_ConstructProps extends Proxy_ConstructProps {
     parent?: Proxy
 }
-export class TLSCertificate {
+class TLSCertificate {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.TLSCertificate */
     readonly certData: object[]
     readonly certType: string
@@ -6833,7 +6833,7 @@ export interface TLSCertificateRejection_ConstructProps extends GObject.Object_C
     error?: GLib.Error
     reason?: number
 }
-export class TLSCertificateRejection {
+class TLSCertificateRejection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.TLSCertificateRejection */
@@ -6884,7 +6884,7 @@ export class TLSCertificateRejection {
 }
 export interface TextChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class TextChannel {
+class TextChannel {
     /* Properties of TelepathyGLib-0.12.TelepathyGLib.TextChannel */
     readonly deliveryReportingSupport: number
     readonly isSmsChannel: boolean
@@ -7166,53 +7166,53 @@ export class TextChannel {
     static getFeatureQuarkSms(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class AccountChannelRequestClass {
+abstract class AccountChannelRequestClass {
     static name: string
 }
-export class AccountChannelRequestPrivate {
+class AccountChannelRequestPrivate {
     static name: string
 }
-export abstract class AccountClass {
+abstract class AccountClass {
     static name: string
 }
-export class AccountClassPrivate {
+class AccountClassPrivate {
     static name: string
 }
-export abstract class AccountManagerClass {
+abstract class AccountManagerClass {
     static name: string
 }
-export class AccountManagerClassPrivate {
+class AccountManagerClassPrivate {
     static name: string
 }
-export class AccountManagerPrivate {
+class AccountManagerPrivate {
     static name: string
 }
-export class AccountPrivate {
+class AccountPrivate {
     static name: string
 }
-export abstract class AccountRequestClass {
+abstract class AccountRequestClass {
     static name: string
 }
-export class AccountRequestPrivate {
+class AccountRequestPrivate {
     static name: string
 }
-export abstract class AddDispatchOperationContextClass {
+abstract class AddDispatchOperationContextClass {
     static name: string
 }
-export class AddDispatchOperationContextPrivate {
+class AddDispatchOperationContextPrivate {
     static name: string
 }
-export abstract class AutomaticClientFactoryClass {
+abstract class AutomaticClientFactoryClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.AutomaticClientFactoryClass */
     parentClass: SimpleClientFactoryClass
     static name: string
 }
-export abstract class AutomaticProxyFactoryClass {
+abstract class AutomaticProxyFactoryClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.AutomaticProxyFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AvatarRequirements {
+class AvatarRequirements {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.AvatarRequirements */
     supportedMimeTypes: string[]
     minimumWidth: number
@@ -7228,7 +7228,7 @@ export class AvatarRequirements {
     /* Static methods and pseudo-constructors */
     static new(supportedMimeTypes: string[], minimumWidth: number, minimumHeight: number, recommendedWidth: number, recommendedHeight: number, maximumWidth: number, maximumHeight: number, maximumBytes: number): AvatarRequirements
 }
-export abstract class BaseClientClass {
+abstract class BaseClientClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.BaseClientClass */
     parentClass: GObject.ObjectClass
     observeChannels: BaseClientClassObserveChannelsImpl
@@ -7236,13 +7236,13 @@ export abstract class BaseClientClass {
     handleChannels: BaseClientClassHandleChannelsImpl
     static name: string
 }
-export class BaseClientClassPrivate {
+class BaseClientClassPrivate {
     static name: string
 }
-export class BaseClientPrivate {
+class BaseClientPrivate {
     static name: string
 }
-export abstract class BaseConnectionClass {
+abstract class BaseConnectionClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.BaseConnectionClass */
     parentClass: GObject.ObjectClass
     getUniqueConnectionName: BaseConnectionGetUniqueConnectionNameImpl
@@ -7253,27 +7253,27 @@ export abstract class BaseConnectionClass {
     startConnecting: BaseConnectionStartConnectingImpl
     static name: string
 }
-export class BaseConnectionPrivate {
+class BaseConnectionPrivate {
     static name: string
 }
-export abstract class BasicProxyFactoryClass {
+abstract class BasicProxyFactoryClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.BasicProxyFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CallChannelClass {
+abstract class CallChannelClass {
     static name: string
 }
-export class CallChannelPrivate {
+class CallChannelPrivate {
     static name: string
 }
-export abstract class CallContentClass {
+abstract class CallContentClass {
     static name: string
 }
-export class CallContentPrivate {
+class CallContentPrivate {
     static name: string
 }
-export class CallStateReason {
+class CallStateReason {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.CallStateReason */
     actor: Handle
     reason: CallStateChangeReason
@@ -7281,73 +7281,73 @@ export class CallStateReason {
     message: string
     static name: string
 }
-export abstract class CallStreamClass {
+abstract class CallStreamClass {
     static name: string
 }
-export class CallStreamPrivate {
+class CallStreamPrivate {
     static name: string
 }
-export abstract class CapabilitiesClass {
+abstract class CapabilitiesClass {
     static name: string
 }
-export class CapabilitiesPrivate {
+class CapabilitiesPrivate {
     static name: string
 }
-export abstract class ChannelClass {
+abstract class ChannelClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ChannelClass */
     parentClass: ProxyClass
     static name: string
 }
-export abstract class ChannelDispatchOperationClass {
+abstract class ChannelDispatchOperationClass {
     static name: string
 }
-export class ChannelDispatchOperationClassPrivate {
+class ChannelDispatchOperationClassPrivate {
     static name: string
 }
-export class ChannelDispatchOperationPrivate {
+class ChannelDispatchOperationPrivate {
     static name: string
 }
-export abstract class ChannelDispatcherClass {
+abstract class ChannelDispatcherClass {
     static name: string
 }
-export class ChannelDispatcherClassPrivate {
+class ChannelDispatcherClassPrivate {
     static name: string
 }
-export class ChannelDispatcherPrivate {
+class ChannelDispatcherPrivate {
     static name: string
 }
-export class ChannelManagerIter {
+class ChannelManagerIter {
     static name: string
 }
-export class ChannelPrivate {
+class ChannelPrivate {
     static name: string
 }
-export abstract class ChannelRequestClass {
+abstract class ChannelRequestClass {
     static name: string
 }
-export class ChannelRequestClassPrivate {
+class ChannelRequestClassPrivate {
     static name: string
 }
-export class ChannelRequestPrivate {
+class ChannelRequestPrivate {
     static name: string
 }
-export abstract class ClientChannelFactoryInterface {
+abstract class ClientChannelFactoryInterface {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ClientChannelFactoryInterface */
     parent: GObject.TypeInterface
     static name: string
 }
-export abstract class ClientMessageClass {
+abstract class ClientMessageClass {
     static name: string
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ConnectionClass */
     parentClass: ProxyClass
     static name: string
 }
-export abstract class ConnectionManagerClass {
+abstract class ConnectionManagerClass {
     static name: string
 }
-export class ConnectionManagerParam {
+class ConnectionManagerParam {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ConnectionManagerParam */
     copy(): ConnectionManagerParam
     dupDefaultVariant(): GLib.Variant
@@ -7362,10 +7362,10 @@ export class ConnectionManagerParam {
     isSecret(): boolean
     static name: string
 }
-export class ConnectionManagerPrivate {
+class ConnectionManagerPrivate {
     static name: string
 }
-export class ConnectionManagerProtocol {
+class ConnectionManagerProtocol {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ConnectionManagerProtocol */
     name: string
     params: ConnectionManagerParam
@@ -7378,13 +7378,13 @@ export class ConnectionManagerProtocol {
     hasParam(param: string): boolean
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
-export abstract class ContactClass {
+abstract class ContactClass {
     static name: string
 }
-export class ContactInfoField {
+class ContactInfoField {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ContactInfoField */
     fieldName: string
     parameters: string[]
@@ -7395,7 +7395,7 @@ export class ContactInfoField {
     /* Static methods and pseudo-constructors */
     static new(fieldName: string, parameters: string[], fieldValue: string[]): ContactInfoField
 }
-export class ContactInfoFieldSpec {
+class ContactInfoFieldSpec {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ContactInfoFieldSpec */
     name: string
     parameters: string[]
@@ -7403,47 +7403,47 @@ export class ContactInfoFieldSpec {
     max: number
     static name: string
 }
-export class ContactPrivate {
+class ContactPrivate {
     static name: string
 }
-export abstract class ContactSearchClass {
+abstract class ContactSearchClass {
     static name: string
 }
-export class ContactSearchPrivate {
+class ContactSearchPrivate {
     static name: string
 }
-export abstract class ContactSearchResultClass {
+abstract class ContactSearchResultClass {
     static name: string
 }
-export class ContactSearchResultPrivate {
+class ContactSearchResultPrivate {
     static name: string
 }
-export class ContactsMixin {
+class ContactsMixin {
     static name: string
 }
-export class ContactsMixinClass {
+class ContactsMixinClass {
     static name: string
 }
-export class ContactsMixinClassPrivate {
+class ContactsMixinClassPrivate {
     static name: string
 }
-export class ContactsMixinPrivate {
+class ContactsMixinPrivate {
     static name: string
 }
-export abstract class DBusDaemonClass {
+abstract class DBusDaemonClass {
     static name: string
 }
-export class DBusDaemonPrivate {
+class DBusDaemonPrivate {
     static name: string
 }
-export class DBusPropertiesMixinClass {
+class DBusPropertiesMixinClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinClass */
     interfaces: DBusPropertiesMixinIfaceImpl
     static name: string
     /* Static methods and pseudo-constructors */
     static init(cls: GObject.ObjectClass, offset: number): void
 }
-export class DBusPropertiesMixinIfaceImpl {
+class DBusPropertiesMixinIfaceImpl {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinIfaceImpl */
     name: string
     getter: DBusPropertiesMixinGetter
@@ -7451,20 +7451,20 @@ export class DBusPropertiesMixinIfaceImpl {
     props: DBusPropertiesMixinPropImpl
     static name: string
 }
-export class DBusPropertiesMixinIfaceInfo {
+class DBusPropertiesMixinIfaceInfo {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinIfaceInfo */
     dbusInterface: GLib.Quark
     props: DBusPropertiesMixinPropInfo
     static name: string
 }
-export class DBusPropertiesMixinPropImpl {
+class DBusPropertiesMixinPropImpl {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinPropImpl */
     name: string
     getterData: object
     setterData: object
     static name: string
 }
-export class DBusPropertiesMixinPropInfo {
+class DBusPropertiesMixinPropInfo {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.DBusPropertiesMixinPropInfo */
     name: GLib.Quark
     flags: DBusPropertiesMixinFlags
@@ -7472,31 +7472,31 @@ export class DBusPropertiesMixinPropInfo {
     type: GObject.Type
     static name: string
 }
-export abstract class DBusTubeChannelClass {
+abstract class DBusTubeChannelClass {
     static name: string
 }
-export class DBusTubeChannelPrivate {
+class DBusTubeChannelPrivate {
     static name: string
 }
-export abstract class DebugClientClass {
+abstract class DebugClientClass {
     static name: string
 }
-export class DebugClientPrivate {
+class DebugClientPrivate {
     static name: string
 }
-export abstract class DebugMessageClass {
+abstract class DebugMessageClass {
     static name: string
 }
-export class DebugMessagePriv {
+class DebugMessagePriv {
     static name: string
 }
-export abstract class FileTransferChannelClass {
+abstract class FileTransferChannelClass {
     static name: string
 }
-export class FileTransferChannelPrivate {
+class FileTransferChannelPrivate {
     static name: string
 }
-export class GroupMixin {
+class GroupMixin {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.GroupMixin */
     handleRepo: HandleRepoIface
     selfHandle: Handle
@@ -7507,35 +7507,35 @@ export class GroupMixin {
     priv: GroupMixinPrivate
     static name: string
 }
-export class GroupMixinClass {
+class GroupMixinClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.GroupMixinClass */
     addMember: GroupMixinAddMemberFunc
     removeMember: GroupMixinRemMemberFunc
     priv: GroupMixinClassPrivate
     static name: string
 }
-export class GroupMixinClassPrivate {
+class GroupMixinClassPrivate {
     static name: string
 }
-export class GroupMixinPrivate {
+class GroupMixinPrivate {
     static name: string
 }
-export abstract class HandleChannelsContextClass {
+abstract class HandleChannelsContextClass {
     static name: string
 }
-export class HandleChannelsContextPrivate {
+class HandleChannelsContextPrivate {
     static name: string
 }
-export class HandleRepoIfaceClass {
+class HandleRepoIfaceClass {
     static name: string
 }
-export class HandleSet {
+class HandleSet {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.HandleSet */
     dump(): string
     toIdentifierMap(): GLib.HashTable
     static name: string
 }
-export class Intset {
+class Intset {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.Intset */
     add(element: number): void
     clear(): void
@@ -7564,13 +7564,13 @@ export class Intset {
     static sizedNew(size: number): Intset
     static fromArray(array: number[]): Intset
 }
-export class IntsetFastIter {
+class IntsetFastIter {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.IntsetFastIter */
     init(set: Intset): void
     next(output: number): boolean
     static name: string
 }
-export class IntsetIter {
+class IntsetIter {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.IntsetIter */
     set: Intset
     element: number
@@ -7580,19 +7580,19 @@ export class IntsetIter {
     reset(): void
     static name: string
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     static name: string
 }
-export abstract class ObserveChannelsContextClass {
+abstract class ObserveChannelsContextClass {
     static name: string
 }
-export class ObserveChannelsContextPrivate {
+class ObserveChannelsContextPrivate {
     static name: string
 }
-export class PresenceMixin {
+class PresenceMixin {
     static name: string
 }
-export class PresenceMixinClass {
+class PresenceMixinClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceMixinClass */
     statusAvailable: PresenceMixinStatusAvailableFunc
     setOwnStatus: PresenceMixinSetOwnStatusFunc
@@ -7600,25 +7600,25 @@ export class PresenceMixinClass {
     getMaximumStatusMessageLength: PresenceMixinGetMaximumStatusMessageLengthFunc
     static name: string
 }
-export class PresenceMixinClassPrivate {
+class PresenceMixinClassPrivate {
     static name: string
 }
-export class PresenceMixinPrivate {
+class PresenceMixinPrivate {
     static name: string
 }
-export class PresenceStatus {
+class PresenceStatus {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatus */
     index: number
     optionalArguments: GLib.HashTable
     static name: string
 }
-export class PresenceStatusOptionalArgumentSpec {
+class PresenceStatusOptionalArgumentSpec {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatusOptionalArgumentSpec */
     name: string
     dtype: string
     static name: string
 }
-export class PresenceStatusSpec {
+class PresenceStatusSpec {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.PresenceStatusSpec */
     name: string
     presenceType: ConnectionPresenceType
@@ -7637,26 +7637,26 @@ export class PresenceStatusSpec {
     /* Static methods and pseudo-constructors */
     static new(name: string, type: ConnectionPresenceType, canSetOnSelf: boolean, hasMessage: boolean): PresenceStatusSpec
 }
-export class PresenceStatusSpecPrivate {
+class PresenceStatusSpecPrivate {
     static name: string
 }
-export abstract class ProtocolClass {
+abstract class ProtocolClass {
     static name: string
 }
-export class ProtocolClassPrivate {
+class ProtocolClassPrivate {
     static name: string
 }
-export class ProtocolPrivate {
+class ProtocolPrivate {
     static name: string
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ProxyClass */
     parentClass: GObject.ObjectClass
     interface: GLib.Quark
     mustHaveUniqueName: number
     static name: string
 }
-export class ProxyFeature {
+class ProxyFeature {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.ProxyFeature */
     name: GLib.Quark
     core: boolean
@@ -7667,44 +7667,44 @@ export class ProxyFeature {
     canRetry: boolean
     static name: string
 }
-export class ProxyFeaturePrivate {
+class ProxyFeaturePrivate {
     static name: string
 }
-export class ProxyPendingCall {
+class ProxyPendingCall {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ProxyPendingCall */
     cancel(): void
     static name: string
 }
-export class ProxyPrivate {
+class ProxyPrivate {
     static name: string
 }
-export class ProxySignalConnection {
+class ProxySignalConnection {
     /* Methods of TelepathyGLib-0.12.TelepathyGLib.ProxySignalConnection */
     disconnect(): void
     static name: string
 }
-export abstract class RoomInfoClass {
+abstract class RoomInfoClass {
     static name: string
 }
-export class RoomInfoPriv {
+class RoomInfoPriv {
     static name: string
 }
-export abstract class RoomListClass {
+abstract class RoomListClass {
     static name: string
 }
-export class RoomListPrivate {
+class RoomListPrivate {
     static name: string
 }
-export abstract class SignalledMessageClass {
+abstract class SignalledMessageClass {
     static name: string
 }
-export abstract class SimpleApproverClass {
+abstract class SimpleApproverClass {
     static name: string
 }
-export class SimpleApproverPrivate {
+class SimpleApproverPrivate {
     static name: string
 }
-export abstract class SimpleClientFactoryClass {
+abstract class SimpleClientFactoryClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactoryClass */
     parentClass: GObject.ObjectClass
     dupAccountFeatures: (self: SimpleClientFactory, account: Account) => GLib.Quark[]
@@ -7713,56 +7713,57 @@ export abstract class SimpleClientFactoryClass {
     dupContactFeatures: (self: SimpleClientFactory, connection: Connection) => ContactFeature[]
     static name: string
 }
-export class SimpleClientFactoryPrivate {
+class SimpleClientFactoryPrivate {
     static name: string
 }
-export abstract class SimpleHandlerClass {
+abstract class SimpleHandlerClass {
     static name: string
 }
-export class SimpleHandlerPrivate {
+class SimpleHandlerPrivate {
     static name: string
 }
-export abstract class SimpleObserverClass {
+abstract class SimpleObserverClass {
     static name: string
 }
-export class SimpleObserverPrivate {
+class SimpleObserverPrivate {
     static name: string
 }
-export abstract class StreamTubeChannelClass {
+abstract class StreamTubeChannelClass {
     static name: string
 }
-export class StreamTubeChannelPrivate {
+class StreamTubeChannelPrivate {
     static name: string
 }
-export abstract class StreamTubeConnectionClass {
+abstract class StreamTubeConnectionClass {
     static name: string
 }
-export class StreamTubeConnectionPrivate {
+class StreamTubeConnectionPrivate {
     static name: string
 }
-export abstract class TLSCertificateClass {
+abstract class TLSCertificateClass {
     static name: string
 }
-export class TLSCertificateClassPrivate {
+class TLSCertificateClassPrivate {
     static name: string
 }
-export class TLSCertificatePrivate {
+class TLSCertificatePrivate {
     static name: string
 }
-export abstract class TLSCertificateRejectionClass {
+abstract class TLSCertificateRejectionClass {
     static name: string
 }
-export class TLSCertificateRejectionPriv {
+class TLSCertificateRejectionPriv {
     static name: string
 }
-export abstract class TextChannelClass {
+abstract class TextChannelClass {
     static name: string
 }
-export class TextChannelPrivate {
+class TextChannelPrivate {
     static name: string
 }
-export class WeakRef {
+class WeakRef {
     static name: string
 }
-export type Handle = number
+type Handle = number
 }
+export default TelepathyGLib

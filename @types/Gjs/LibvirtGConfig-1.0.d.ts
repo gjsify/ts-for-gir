@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type libxml2 from './libxml2-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum DomainChannelTargetType {
+export namespace LibvirtGConfig {
+
+enum DomainChannelTargetType {
     GUESTFWD,
     VIRTIO,
     SPICEPORT,
 }
-export enum DomainClockOffset {
+enum DomainClockOffset {
     UTC,
     LOCALTIME,
     TIMEZONE,
     VARIABLE,
 }
-export enum DomainConsoleTargetType {
+enum DomainConsoleTargetType {
     XEN,
     SERIAL,
     UML,
@@ -26,7 +28,7 @@ export enum DomainConsoleTargetType {
     LXC,
     OPENVZ,
 }
-export enum DomainControllerUsbModel {
+enum DomainControllerUsbModel {
     PIIX3_UHCI,
     PIIX4_UHCI,
     EHCI,
@@ -38,24 +40,24 @@ export enum DomainControllerUsbModel {
     PCI_OHCI,
     QEMU_XHCI,
 }
-export enum DomainCpuFeaturePolicy {
+enum DomainCpuFeaturePolicy {
     FORCE,
     REQUIRE,
     OPTIONAL,
     DISABLE,
     FORBID,
 }
-export enum DomainCpuMatchPolicy {
+enum DomainCpuMatchPolicy {
     MINIMUM,
     EXACT,
     STRICT,
 }
-export enum DomainCpuMode {
+enum DomainCpuMode {
     CUSTOM,
     HOST_MODEL,
     HOST_PASSTHROUGH,
 }
-export enum DomainDiskBus {
+enum DomainDiskBus {
     IDE,
     FDC,
     SCSI,
@@ -65,7 +67,7 @@ export enum DomainDiskBus {
     UML,
     SATA,
 }
-export enum DomainDiskCacheType {
+enum DomainDiskCacheType {
     DEFAULT,
     NONE,
     WRITETHROUGH,
@@ -73,21 +75,21 @@ export enum DomainDiskCacheType {
     DIRECTSYNC,
     UNSAFE,
 }
-export enum DomainDiskDriverDiscard {
+enum DomainDiskDriverDiscard {
     UNMAP,
     IGNORE,
 }
-export enum DomainDiskDriverErrorPolicy {
+enum DomainDiskDriverErrorPolicy {
     STOP,
     REPORT,
     IGNORE,
     ENOSPACE,
 }
-export enum DomainDiskDriverIoPolicy {
+enum DomainDiskDriverIoPolicy {
     THREADS,
     NATIVE,
 }
-export enum DomainDiskFormat {
+enum DomainDiskFormat {
     RAW,
     DIR,
     BOCHS,
@@ -103,33 +105,33 @@ export enum DomainDiskFormat {
     FAT,
     VHD,
 }
-export enum DomainDiskGuestDeviceType {
+enum DomainDiskGuestDeviceType {
     DISK,
     FLOPPY,
     CDROM,
 }
-export enum DomainDiskSnapshotType {
+enum DomainDiskSnapshotType {
     NO,
     INTERNAL,
     EXTERNAL,
 }
-export enum DomainDiskStartupPolicy {
+enum DomainDiskStartupPolicy {
     MANDATORY,
     REQUISITE,
     OPTIONAL,
 }
-export enum DomainDiskType {
+enum DomainDiskType {
     FILE,
     BLOCK,
     DIR,
     NETWORK,
 }
-export enum DomainFilesysAccessType {
+enum DomainFilesysAccessType {
     PASSTHROUGH,
     MAPPED,
     SQUASH,
 }
-export enum DomainFilesysDriverType {
+enum DomainFilesysDriverType {
     DEFAULT,
     PATH,
     HANDLE,
@@ -137,7 +139,7 @@ export enum DomainFilesysDriverType {
     NBD,
     PLOOP,
 }
-export enum DomainFilesysType {
+enum DomainFilesysType {
     MOUNT,
     BLOCK,
     FILE,
@@ -145,7 +147,7 @@ export enum DomainFilesysType {
     RAM,
     BIND,
 }
-export enum DomainGraphicsSpiceImageCompression {
+enum DomainGraphicsSpiceImageCompression {
     AUTO_GLZ,
     AUTO_LZ,
     QUIC,
@@ -153,22 +155,22 @@ export enum DomainGraphicsSpiceImageCompression {
     LZ,
     OFF,
 }
-export enum DomainInputBus {
+enum DomainInputBus {
     PS2,
     USB,
     XEN,
 }
-export enum DomainInputDeviceType {
+enum DomainInputDeviceType {
     MOUSE,
     TABLET,
     KEYBOARD,
 }
-export enum DomainInterfaceLinkState {
+enum DomainInterfaceLinkState {
     DEFAULT,
     UP,
     DOWN,
 }
-export enum DomainLifecycleAction {
+enum DomainLifecycleAction {
     DESTROY,
     RESTART,
     PRESERVE,
@@ -176,45 +178,45 @@ export enum DomainLifecycleAction {
     COREDUMP_DESTROY,
     COREDUMP_RESTART,
 }
-export enum DomainLifecycleEvent {
+enum DomainLifecycleEvent {
     ON_POWEROFF,
     ON_REBOOT,
     ON_CRASH,
 }
-export enum DomainMemballoonModel {
+enum DomainMemballoonModel {
     NONE,
     VIRTIO,
 }
-export enum DomainOsBootDevice {
+enum DomainOsBootDevice {
     FD,
     HD,
     CDROM,
     NETWORK,
 }
-export enum DomainOsFirmware {
+enum DomainOsFirmware {
     BIOS,
     EFI,
 }
-export enum DomainOsSmBiosMode {
+enum DomainOsSmBiosMode {
     EMULATE,
     HOST,
     SYSINFO,
 }
-export enum DomainOsType {
+enum DomainOsType {
     HVM,
     LINUX,
     EXE,
     XEN,
     UML,
 }
-export enum DomainRedirdevBus {
+enum DomainRedirdevBus {
     USB,
 }
-export enum DomainSeclabelType {
+enum DomainSeclabelType {
     DYNAMIC,
     STATIC,
 }
-export enum DomainSnapshotDomainState {
+enum DomainSnapshotDomainState {
     NOSTATE,
     RUNNING,
     BLOCKED,
@@ -225,12 +227,12 @@ export enum DomainSnapshotDomainState {
     PMSUSPENDED,
     DISK_SNAPSHOT,
 }
-export enum DomainSnapshotMemoryState {
+enum DomainSnapshotMemoryState {
     NONE,
     INTERNAL,
     EXTERNAL,
 }
-export enum DomainSoundModel {
+enum DomainSoundModel {
     SB16,
     ES1370,
     PCSPK,
@@ -238,13 +240,13 @@ export enum DomainSoundModel {
     ICH6,
     ICH9,
 }
-export enum DomainTimerTickPolicy {
+enum DomainTimerTickPolicy {
     DELAY,
     CATCHUP,
     MERGE,
     DISCARD,
 }
-export enum DomainVideoModel {
+enum DomainVideoModel {
     VGA,
     CIRRUS,
     VMVGA,
@@ -254,7 +256,7 @@ export enum DomainVideoModel {
     VIRTIO,
     BOCHS,
 }
-export enum DomainVirtType {
+enum DomainVirtType {
     QEMU,
     KQEMU,
     KVM,
@@ -271,7 +273,7 @@ export enum DomainVirtType {
     ONE,
     PHYP,
 }
-export enum StoragePoolType {
+enum StoragePoolType {
     DIR,
     FS,
     NETFS,
@@ -281,14 +283,14 @@ export enum StoragePoolType {
     SCSI,
     MPATH,
 }
-export enum StorageVolTargetFeatures {
+enum StorageVolTargetFeatures {
     REFCOUNT,
 }
-export function init(argv?: string[] | null): /* argv */ string[] | null
-export function init_check(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
+function init(argv?: string[] | null): /* argv */ string[] | null
+function init_check(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
 export interface Capabilities_ConstructProps extends Object_ConstructProps {
 }
-export class Capabilities {
+class Capabilities {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.Capabilities */
     parent: Object
     priv: CapabilitiesPrivate
@@ -351,7 +353,7 @@ export class Capabilities {
 }
 export interface CapabilitiesCpu_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesCpu {
+class CapabilitiesCpu {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpu */
     parent: Object
     priv: CapabilitiesCpuPrivate
@@ -415,7 +417,7 @@ export class CapabilitiesCpu {
 }
 export interface CapabilitiesCpuFeature_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesCpuFeature {
+class CapabilitiesCpuFeature {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuFeature */
     parent: Object
     priv: CapabilitiesCpuFeaturePrivate
@@ -473,7 +475,7 @@ export class CapabilitiesCpuFeature {
 }
 export interface CapabilitiesCpuModel_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesCpuModel {
+class CapabilitiesCpuModel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuModel */
     parent: Object
     priv: CapabilitiesCpuModelPrivate
@@ -536,7 +538,7 @@ export class CapabilitiesCpuModel {
 }
 export interface CapabilitiesCpuTopology_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesCpuTopology {
+class CapabilitiesCpuTopology {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuTopology */
     parent: Object
     priv: CapabilitiesCpuTopologyPrivate
@@ -603,7 +605,7 @@ export class CapabilitiesCpuTopology {
 }
 export interface CapabilitiesGuest_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesGuest {
+class CapabilitiesGuest {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuest */
     parent: Object
     priv: CapabilitiesGuestPrivate
@@ -662,7 +664,7 @@ export class CapabilitiesGuest {
 }
 export interface CapabilitiesGuestArch_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesGuestArch {
+class CapabilitiesGuestArch {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestArch */
     parent: Object
     priv: CapabilitiesGuestArchPrivate
@@ -721,7 +723,7 @@ export class CapabilitiesGuestArch {
 }
 export interface CapabilitiesGuestDomain_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesGuestDomain {
+class CapabilitiesGuestDomain {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestDomain */
     parent: Object
     priv: CapabilitiesGuestDomainPrivate
@@ -779,7 +781,7 @@ export class CapabilitiesGuestDomain {
 }
 export interface CapabilitiesGuestFeature_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesGuestFeature {
+class CapabilitiesGuestFeature {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestFeature */
     parent: Object
     priv: CapabilitiesGuestFeaturePrivate
@@ -836,7 +838,7 @@ export class CapabilitiesGuestFeature {
 }
 export interface CapabilitiesHost_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesHost {
+class CapabilitiesHost {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesHost */
     parent: Object
     priv: CapabilitiesHostPrivate
@@ -895,7 +897,7 @@ export class CapabilitiesHost {
 }
 export interface CapabilitiesHostSecModel_ConstructProps extends Object_ConstructProps {
 }
-export class CapabilitiesHostSecModel {
+class CapabilitiesHostSecModel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesHostSecModel */
     parent: Object
     priv: CapabilitiesHostSecModelPrivate
@@ -961,7 +963,7 @@ export interface Domain_ConstructProps extends Object_ConstructProps {
     uuid?: string
     vcpu?: number
 }
-export class Domain {
+class Domain {
     /* Properties of LibvirtGConfig-1.0.LibvirtGConfig.Domain */
     current_memory: number
     description: string
@@ -1080,7 +1082,7 @@ export class Domain {
 }
 export interface DomainAddress_ConstructProps extends Object_ConstructProps {
 }
-export class DomainAddress {
+class DomainAddress {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddress */
     parent: Object
     priv: DomainAddressPrivate
@@ -1135,7 +1137,7 @@ export class DomainAddress {
 }
 export interface DomainAddressPci_ConstructProps extends DomainAddress_ConstructProps {
 }
-export class DomainAddressPci {
+class DomainAddressPci {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddressPci */
     parent: DomainAddress
     priv: DomainAddressPciPrivate
@@ -1206,7 +1208,7 @@ export class DomainAddressPci {
 }
 export interface DomainAddressUsb_ConstructProps extends DomainAddress_ConstructProps {
 }
-export class DomainAddressUsb {
+class DomainAddressUsb {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddressUsb */
     parent: DomainAddress
     priv: DomainAddressUsbPrivate
@@ -1269,7 +1271,7 @@ export class DomainAddressUsb {
 }
 export interface DomainCapabilities_ConstructProps extends Object_ConstructProps {
 }
-export class DomainCapabilities {
+class DomainCapabilities {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCapabilities */
     parent: Object
     priv: DomainCapabilitiesPrivate
@@ -1331,7 +1333,7 @@ export class DomainCapabilities {
 }
 export interface DomainCapabilitiesOs_ConstructProps extends Object_ConstructProps {
 }
-export class DomainCapabilitiesOs {
+class DomainCapabilitiesOs {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCapabilitiesOs */
     parent: Object
     priv: DomainCapabilitiesOsPrivate
@@ -1390,7 +1392,7 @@ export class DomainCapabilitiesOs {
 }
 export interface DomainChannel_ConstructProps extends DomainChardev_ConstructProps {
 }
-export class DomainChannel {
+class DomainChannel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChannel */
     parent: DomainChardev
     priv: DomainChannelPrivate
@@ -1460,7 +1462,7 @@ export class DomainChannel {
 }
 export interface DomainChardev_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainChardev {
+class DomainChardev {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardev */
     parent: DomainDevice
     priv: DomainChardevPrivate
@@ -1520,7 +1522,7 @@ export class DomainChardev {
 }
 export interface DomainChardevSource_ConstructProps extends Object_ConstructProps {
 }
-export class DomainChardevSource {
+class DomainChardevSource {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSource */
     parent: Object
     priv: DomainChardevSourcePrivate
@@ -1575,7 +1577,7 @@ export class DomainChardevSource {
 }
 export interface DomainChardevSourcePty_ConstructProps extends DomainChardevSource_ConstructProps {
 }
-export class DomainChardevSourcePty {
+class DomainChardevSourcePty {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourcePty */
     parent: DomainChardevSource
     priv: DomainChardevSourcePtyPrivate
@@ -1638,7 +1640,7 @@ export class DomainChardevSourcePty {
 }
 export interface DomainChardevSourceSpicePort_ConstructProps extends DomainChardevSource_ConstructProps {
 }
-export class DomainChardevSourceSpicePort {
+class DomainChardevSourceSpicePort {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceSpicePort */
     parent: DomainChardevSource
     priv: DomainChardevSourceSpicePortPrivate
@@ -1701,7 +1703,7 @@ export class DomainChardevSourceSpicePort {
 }
 export interface DomainChardevSourceSpiceVmc_ConstructProps extends DomainChardevSource_ConstructProps {
 }
-export class DomainChardevSourceSpiceVmc {
+class DomainChardevSourceSpiceVmc {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceSpiceVmc */
     parent: DomainChardevSource
     priv: DomainChardevSourceSpiceVmcPrivate
@@ -1761,7 +1763,7 @@ export class DomainChardevSourceSpiceVmc {
 }
 export interface DomainChardevSourceUnix_ConstructProps extends DomainChardevSource_ConstructProps {
 }
-export class DomainChardevSourceUnix {
+class DomainChardevSourceUnix {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceUnix */
     parent: DomainChardevSource
     priv: DomainChardevSourceUnixPrivate
@@ -1821,7 +1823,7 @@ export class DomainChardevSourceUnix {
 }
 export interface DomainClock_ConstructProps extends Object_ConstructProps {
 }
-export class DomainClock {
+class DomainClock {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainClock */
     parent: Object
     priv: DomainClockPrivate
@@ -1889,7 +1891,7 @@ export class DomainClock {
 }
 export interface DomainConsole_ConstructProps extends DomainChardev_ConstructProps {
 }
-export class DomainConsole {
+class DomainConsole {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainConsole */
     parent: DomainChardev
     priv: DomainConsolePrivate
@@ -1956,7 +1958,7 @@ export class DomainConsole {
 }
 export interface DomainController_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainController {
+class DomainController {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainController */
     parent: DomainDevice
     priv: DomainControllerPrivate
@@ -2019,7 +2021,7 @@ export class DomainController {
 }
 export interface DomainControllerUsb_ConstructProps extends DomainController_ConstructProps {
 }
-export class DomainControllerUsb {
+class DomainControllerUsb {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainControllerUsb */
     parent: DomainController
     priv: DomainControllerUsbPrivate
@@ -2090,7 +2092,7 @@ export class DomainControllerUsb {
 }
 export interface DomainCpu_ConstructProps extends CapabilitiesCpu_ConstructProps {
 }
-export class DomainCpu {
+class DomainCpu {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpu */
     parent: CapabilitiesCpu
     priv: DomainCpuPrivate
@@ -2165,7 +2167,7 @@ export class DomainCpu {
 }
 export interface DomainCpuFeature_ConstructProps extends CapabilitiesCpuFeature_ConstructProps {
 }
-export class DomainCpuFeature {
+class DomainCpuFeature {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpuFeature */
     parent: CapabilitiesCpu
     priv: DomainCpuFeaturePrivate
@@ -2231,7 +2233,7 @@ export class DomainCpuFeature {
 }
 export interface DomainCpuModel_ConstructProps extends CapabilitiesCpuModel_ConstructProps {
 }
-export class DomainCpuModel {
+class DomainCpuModel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpuModel */
     parent: CapabilitiesCpuModel
     priv: DomainCpuModelPrivate
@@ -2294,7 +2296,7 @@ export class DomainCpuModel {
 }
 export interface DomainDevice_ConstructProps extends Object_ConstructProps {
 }
-export class DomainDevice {
+class DomainDevice {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDevice */
     parent: Object
     priv: DomainDevicePrivate
@@ -2351,7 +2353,7 @@ export class DomainDevice {
 }
 export interface DomainDisk_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainDisk {
+class DomainDisk {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDisk */
     parent: DomainDevice
     priv: DomainDiskPrivate
@@ -2439,7 +2441,7 @@ export class DomainDisk {
 }
 export interface DomainDiskDriver_ConstructProps extends Object_ConstructProps {
 }
-export class DomainDiskDriver {
+class DomainDiskDriver {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDiskDriver */
     parent: Object
     priv: DomainDiskDriverPrivate
@@ -2514,7 +2516,7 @@ export class DomainDiskDriver {
 }
 export interface DomainFilesys_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainFilesys {
+class DomainFilesys {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainFilesys */
     parent: DomainDevice
     priv: DomainFilesysPrivate
@@ -2585,7 +2587,7 @@ export class DomainFilesys {
 }
 export interface DomainGraphics_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainGraphics {
+class DomainGraphics {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphics */
     parent: DomainDevice
     priv: DomainGraphicsPrivate
@@ -2642,7 +2644,7 @@ export class DomainGraphics {
 }
 export interface DomainGraphicsDesktop_ConstructProps extends DomainGraphics_ConstructProps {
 }
-export class DomainGraphicsDesktop {
+class DomainGraphicsDesktop {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsDesktop */
     parent: DomainGraphics
     priv: DomainGraphicsDesktopPrivate
@@ -2709,7 +2711,7 @@ export class DomainGraphicsDesktop {
 }
 export interface DomainGraphicsRdp_ConstructProps extends DomainGraphics_ConstructProps {
 }
-export class DomainGraphicsRdp {
+class DomainGraphicsRdp {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsRdp */
     parent: DomainGraphics
     priv: DomainGraphicsRdpPrivate
@@ -2779,7 +2781,7 @@ export class DomainGraphicsRdp {
 }
 export interface DomainGraphicsSdl_ConstructProps extends DomainGraphics_ConstructProps {
 }
-export class DomainGraphicsSdl {
+class DomainGraphicsSdl {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsSdl */
     parent: DomainGraphics
     priv: DomainGraphicsSdlPrivate
@@ -2845,7 +2847,7 @@ export class DomainGraphicsSdl {
 }
 export interface DomainGraphicsSpice_ConstructProps extends DomainGraphics_ConstructProps {
 }
-export class DomainGraphicsSpice {
+class DomainGraphicsSpice {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsSpice */
     parent: DomainGraphics
     priv: DomainGraphicsSpicePrivate
@@ -2916,7 +2918,7 @@ export class DomainGraphicsSpice {
 }
 export interface DomainGraphicsVnc_ConstructProps extends DomainGraphics_ConstructProps {
 }
-export class DomainGraphicsVnc {
+class DomainGraphicsVnc {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsVnc */
     parent: DomainGraphics
     priv: DomainGraphicsVncPrivate
@@ -2985,7 +2987,7 @@ export class DomainGraphicsVnc {
 }
 export interface DomainHostdev_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainHostdev {
+class DomainHostdev {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainHostdev */
     parent: DomainDevice
     priv: DomainHostdevPrivate
@@ -3049,7 +3051,7 @@ export class DomainHostdev {
 }
 export interface DomainHostdevPci_ConstructProps extends DomainHostdev_ConstructProps {
 }
-export class DomainHostdevPci {
+class DomainHostdevPci {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainHostdevPci */
     parent: DomainHostdev
     priv: DomainHostdevPciPrivate
@@ -3127,7 +3129,7 @@ export class DomainHostdevPci {
 }
 export interface DomainInput_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainInput {
+class DomainInput {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInput */
     parent: DomainDevice
     priv: DomainInputPrivate
@@ -3194,7 +3196,7 @@ export class DomainInput {
 }
 export interface DomainInterface_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainInterface {
+class DomainInterface {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterface */
     parent: DomainDevice
     priv: DomainInterfacePrivate
@@ -3262,7 +3264,7 @@ export class DomainInterface {
 }
 export interface DomainInterfaceBridge_ConstructProps extends DomainInterface_ConstructProps {
 }
-export class DomainInterfaceBridge {
+class DomainInterfaceBridge {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceBridge */
     parent: DomainInterface
     priv: DomainInterfaceBridgePrivate
@@ -3337,7 +3339,7 @@ export class DomainInterfaceBridge {
 }
 export interface DomainInterfaceFilterref_ConstructProps extends Object_ConstructProps {
 }
-export class DomainInterfaceFilterref {
+class DomainInterfaceFilterref {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceFilterref */
     parent: Object
     priv: DomainInterfaceFilterrefPrivate
@@ -3402,7 +3404,7 @@ export class DomainInterfaceFilterref {
 }
 export interface DomainInterfaceFilterrefParameter_ConstructProps extends Object_ConstructProps {
 }
-export class DomainInterfaceFilterrefParameter {
+class DomainInterfaceFilterrefParameter {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceFilterrefParameter */
     parent: Object
     priv: DomainInterfaceFilterrefParameterPrivate
@@ -3467,7 +3469,7 @@ export class DomainInterfaceFilterrefParameter {
 }
 export interface DomainInterfaceNetwork_ConstructProps extends DomainInterface_ConstructProps {
 }
-export class DomainInterfaceNetwork {
+class DomainInterfaceNetwork {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceNetwork */
     parent: DomainInterface
     priv: DomainInterfaceNetworkPrivate
@@ -3542,7 +3544,7 @@ export class DomainInterfaceNetwork {
 }
 export interface DomainInterfaceUser_ConstructProps extends DomainInterface_ConstructProps {
 }
-export class DomainInterfaceUser {
+class DomainInterfaceUser {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceUser */
     parent: DomainInterface
     priv: DomainInterfaceUserPrivate
@@ -3615,7 +3617,7 @@ export class DomainInterfaceUser {
 }
 export interface DomainMemballoon_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainMemballoon {
+class DomainMemballoon {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainMemballoon */
     parent: DomainDevice
     priv: DomainMemballoonPrivate
@@ -3679,7 +3681,7 @@ export class DomainMemballoon {
 }
 export interface DomainOs_ConstructProps extends Object_ConstructProps {
 }
-export class DomainOs {
+class DomainOs {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainOs */
     parent: Object
     priv: DomainOsPrivate
@@ -3758,7 +3760,7 @@ export class DomainOs {
 }
 export interface DomainParallel_ConstructProps extends DomainChardev_ConstructProps {
 }
-export class DomainParallel {
+class DomainParallel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainParallel */
     parent: DomainChardev
     priv: DomainParallelPrivate
@@ -3823,7 +3825,7 @@ export class DomainParallel {
 }
 export interface DomainPowerManagement_ConstructProps extends Object_ConstructProps {
 }
-export class DomainPowerManagement {
+class DomainPowerManagement {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainPowerManagement */
     parent: Object
     priv: DomainPowerManagementPrivate
@@ -3886,7 +3888,7 @@ export class DomainPowerManagement {
 }
 export interface DomainRedirdev_ConstructProps extends DomainChardev_ConstructProps {
 }
-export class DomainRedirdev {
+class DomainRedirdev {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainRedirdev */
     parent: DomainChardev
     priv: DomainRedirdevPrivate
@@ -3954,7 +3956,7 @@ export class DomainRedirdev {
 }
 export interface DomainSeclabel_ConstructProps extends Object_ConstructProps {
 }
-export class DomainSeclabel {
+class DomainSeclabel {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSeclabel */
     parent: Object
     priv: DomainSeclabelPrivate
@@ -4019,7 +4021,7 @@ export class DomainSeclabel {
 }
 export interface DomainSerial_ConstructProps extends DomainChardev_ConstructProps {
 }
-export class DomainSerial {
+class DomainSerial {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSerial */
     parent: DomainChardev
     priv: DomainSerialPrivate
@@ -4084,7 +4086,7 @@ export class DomainSerial {
 }
 export interface DomainSmartcard_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainSmartcard {
+class DomainSmartcard {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcard */
     parent: DomainDevice
     priv: DomainSmartcardPrivate
@@ -4143,7 +4145,7 @@ export class DomainSmartcard {
 }
 export interface DomainSmartcardHost_ConstructProps extends DomainSmartcard_ConstructProps {
 }
-export class DomainSmartcardHost {
+class DomainSmartcardHost {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardHost */
     parent: DomainSmartcard
     priv: DomainSmartcardHostPrivate
@@ -4205,7 +4207,7 @@ export class DomainSmartcardHost {
 }
 export interface DomainSmartcardHostCertificates_ConstructProps extends DomainSmartcard_ConstructProps {
 }
-export class DomainSmartcardHostCertificates {
+class DomainSmartcardHostCertificates {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardHostCertificates */
     parent: DomainSmartcard
     priv: DomainSmartcardHostCertificatesPrivate
@@ -4270,7 +4272,7 @@ export class DomainSmartcardHostCertificates {
 }
 export interface DomainSmartcardPassthrough_ConstructProps extends DomainSmartcard_ConstructProps {
 }
-export class DomainSmartcardPassthrough {
+class DomainSmartcardPassthrough {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardPassthrough */
     parent: DomainSmartcard
     priv: DomainSmartcardPassthroughPrivate
@@ -4334,7 +4336,7 @@ export class DomainSmartcardPassthrough {
 }
 export interface DomainSnapshot_ConstructProps extends Object_ConstructProps {
 }
-export class DomainSnapshot {
+class DomainSnapshot {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSnapshot */
     parent: Object
     priv: DomainSnapshotPrivate
@@ -4410,7 +4412,7 @@ export class DomainSnapshot {
 }
 export interface DomainSnapshotDisk_ConstructProps extends Object_ConstructProps {
 }
-export class DomainSnapshotDisk {
+class DomainSnapshotDisk {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSnapshotDisk */
     parent: Object
     priv: DomainSnapshotDiskPrivate
@@ -4479,7 +4481,7 @@ export class DomainSnapshotDisk {
 }
 export interface DomainSound_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainSound {
+class DomainSound {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSound */
     parent: DomainDevice
     priv: DomainSoundPrivate
@@ -4543,7 +4545,7 @@ export class DomainSound {
 }
 export interface DomainTimer_ConstructProps extends Object_ConstructProps {
 }
-export class DomainTimer {
+class DomainTimer {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimer */
     parent: Object
     priv: DomainTimerPrivate
@@ -4603,7 +4605,7 @@ export class DomainTimer {
 }
 export interface DomainTimerHpet_ConstructProps extends DomainTimer_ConstructProps {
 }
-export class DomainTimerHpet {
+class DomainTimerHpet {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerHpet */
     parent: DomainTimer
     priv: DomainTimerHpetPrivate
@@ -4668,7 +4670,7 @@ export class DomainTimerHpet {
 }
 export interface DomainTimerPit_ConstructProps extends DomainTimer_ConstructProps {
 }
-export class DomainTimerPit {
+class DomainTimerPit {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerPit */
     parent: DomainTimer
     priv: DomainTimerPitPrivate
@@ -4733,7 +4735,7 @@ export class DomainTimerPit {
 }
 export interface DomainTimerRtc_ConstructProps extends DomainTimer_ConstructProps {
 }
-export class DomainTimerRtc {
+class DomainTimerRtc {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerRtc */
     parent: DomainTimer
     priv: DomainTimerRtcPrivate
@@ -4798,7 +4800,7 @@ export class DomainTimerRtc {
 }
 export interface DomainVideo_ConstructProps extends DomainDevice_ConstructProps {
 }
-export class DomainVideo {
+class DomainVideo {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainVideo */
     parent: DomainDevice
     priv: DomainVideoPrivate
@@ -4868,7 +4870,7 @@ export class DomainVideo {
 }
 export interface Interface_ConstructProps extends Object_ConstructProps {
 }
-export class Interface {
+class Interface {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.Interface */
     parent: Object
     priv: InterfacePrivate
@@ -4928,7 +4930,7 @@ export class Interface {
 }
 export interface Network_ConstructProps extends Object_ConstructProps {
 }
-export class Network {
+class Network {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.Network */
     parent: Object
     priv: NetworkPrivate
@@ -4988,7 +4990,7 @@ export class Network {
 }
 export interface NetworkFilter_ConstructProps extends Object_ConstructProps {
 }
-export class NetworkFilter {
+class NetworkFilter {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.NetworkFilter */
     parent: Object
     priv: NetworkFilterPrivate
@@ -5048,7 +5050,7 @@ export class NetworkFilter {
 }
 export interface NodeDevice_ConstructProps extends Object_ConstructProps {
 }
-export class NodeDevice {
+class NodeDevice {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.NodeDevice */
     parent: Object
     priv: NodeDevicePrivate
@@ -5110,7 +5112,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     node?: object
     schema?: string
 }
-export class Object {
+class Object {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.Object */
     parent: GObject.Object
     priv: ObjectPrivate
@@ -5169,7 +5171,7 @@ export class Object {
 }
 export interface Secret_ConstructProps extends Object_ConstructProps {
 }
-export class Secret {
+class Secret {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.Secret */
     parent: Object
     priv: SecretPrivate
@@ -5229,7 +5231,7 @@ export class Secret {
 }
 export interface StoragePermissions_ConstructProps extends Object_ConstructProps {
 }
-export class StoragePermissions {
+class StoragePermissions {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePermissions */
     parent: Object
     priv: StoragePermissionsPrivate
@@ -5298,7 +5300,7 @@ export class StoragePermissions {
 }
 export interface StoragePool_ConstructProps extends Object_ConstructProps {
 }
-export class StoragePool {
+class StoragePool {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePool */
     parent: Object
     priv: StoragePoolPrivate
@@ -5375,7 +5377,7 @@ export class StoragePool {
 }
 export interface StoragePoolSource_ConstructProps extends Object_ConstructProps {
 }
-export class StoragePoolSource {
+class StoragePoolSource {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePoolSource */
     parent: Object
     priv: StoragePoolSourcePrivate
@@ -5452,7 +5454,7 @@ export class StoragePoolSource {
 }
 export interface StoragePoolTarget_ConstructProps extends Object_ConstructProps {
 }
-export class StoragePoolTarget {
+class StoragePoolTarget {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePoolTarget */
     parent: Object
     priv: StoragePoolTargetPrivate
@@ -5517,7 +5519,7 @@ export class StoragePoolTarget {
 }
 export interface StorageVol_ConstructProps extends Object_ConstructProps {
 }
-export class StorageVol {
+class StorageVol {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVol */
     parent: Object
     priv: StorageVolPrivate
@@ -5583,7 +5585,7 @@ export class StorageVol {
 }
 export interface StorageVolBackingStore_ConstructProps extends Object_ConstructProps {
 }
-export class StorageVolBackingStore {
+class StorageVolBackingStore {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVolBackingStore */
     parent: Object
     priv: StorageVolBackingStorePrivate
@@ -5646,7 +5648,7 @@ export class StorageVolBackingStore {
 }
 export interface StorageVolTarget_ConstructProps extends Object_ConstructProps {
 }
-export class StorageVolTarget {
+class StorageVolTarget {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVolTarget */
     parent: Object
     priv: StorageVolTargetPrivate
@@ -5709,743 +5711,745 @@ export class StorageVolTarget {
     static new_from_xml(type: GObject.Type, root_name: string, schema: string, xml: string): StorageVolTarget
     static $gtype: GObject.Type
 }
-export abstract class CapabilitiesClass {
+abstract class CapabilitiesClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class CapabilitiesCpuClass {
+abstract class CapabilitiesCpuClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuClass */
     parent_class: ObjectClass
     get_features: (cpu: CapabilitiesCpu) => CapabilitiesCpuFeature[]
     padding: object[]
     static name: string
 }
-export abstract class CapabilitiesCpuFeatureClass {
+abstract class CapabilitiesCpuFeatureClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuFeatureClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesCpuFeaturePrivate {
+class CapabilitiesCpuFeaturePrivate {
     static name: string
 }
-export abstract class CapabilitiesCpuModelClass {
+abstract class CapabilitiesCpuModelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuModelClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesCpuModelPrivate {
+class CapabilitiesCpuModelPrivate {
     static name: string
 }
-export class CapabilitiesCpuPrivate {
+class CapabilitiesCpuPrivate {
     static name: string
 }
-export abstract class CapabilitiesCpuTopologyClass {
+abstract class CapabilitiesCpuTopologyClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesCpuTopologyClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesCpuTopologyPrivate {
+class CapabilitiesCpuTopologyPrivate {
     static name: string
 }
-export abstract class CapabilitiesGuestArchClass {
+abstract class CapabilitiesGuestArchClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestArchClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesGuestArchPrivate {
+class CapabilitiesGuestArchPrivate {
     static name: string
 }
-export abstract class CapabilitiesGuestClass {
+abstract class CapabilitiesGuestClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class CapabilitiesGuestDomainClass {
+abstract class CapabilitiesGuestDomainClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestDomainClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesGuestDomainPrivate {
+class CapabilitiesGuestDomainPrivate {
     static name: string
 }
-export abstract class CapabilitiesGuestFeatureClass {
+abstract class CapabilitiesGuestFeatureClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesGuestFeatureClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesGuestFeaturePrivate {
+class CapabilitiesGuestFeaturePrivate {
     static name: string
 }
-export class CapabilitiesGuestPrivate {
+class CapabilitiesGuestPrivate {
     static name: string
 }
-export abstract class CapabilitiesHostClass {
+abstract class CapabilitiesHostClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesHostClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesHostPrivate {
+class CapabilitiesHostPrivate {
     static name: string
 }
-export abstract class CapabilitiesHostSecModelClass {
+abstract class CapabilitiesHostSecModelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.CapabilitiesHostSecModelClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class CapabilitiesHostSecModelPrivate {
+class CapabilitiesHostSecModelPrivate {
     static name: string
 }
-export class CapabilitiesPrivate {
+class CapabilitiesPrivate {
     static name: string
 }
-export abstract class DomainAddressClass {
+abstract class DomainAddressClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddressClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainAddressPciClass {
+abstract class DomainAddressPciClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddressPciClass */
     parent_class: DomainAddressClass
     padding: object[]
     static name: string
 }
-export class DomainAddressPciPrivate {
+class DomainAddressPciPrivate {
     static name: string
 }
-export class DomainAddressPrivate {
+class DomainAddressPrivate {
     static name: string
 }
-export abstract class DomainAddressUsbClass {
+abstract class DomainAddressUsbClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainAddressUsbClass */
     parent_class: DomainAddressClass
     padding: object[]
     static name: string
 }
-export class DomainAddressUsbPrivate {
+class DomainAddressUsbPrivate {
     static name: string
 }
-export abstract class DomainCapabilitiesClass {
+abstract class DomainCapabilitiesClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCapabilitiesClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainCapabilitiesOsClass {
+abstract class DomainCapabilitiesOsClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCapabilitiesOsClass */
     parent_class: ObjectClass
     get_firmwares: (os: DomainCapabilitiesOs) => DomainOsFirmware[]
     padding: object[]
     static name: string
 }
-export class DomainCapabilitiesOsPrivate {
+class DomainCapabilitiesOsPrivate {
     static name: string
 }
-export class DomainCapabilitiesPrivate {
+class DomainCapabilitiesPrivate {
     static name: string
 }
-export abstract class DomainChannelClass {
+abstract class DomainChannelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChannelClass */
     parent_class: DomainChardevClass
     padding: object[]
     static name: string
 }
-export class DomainChannelPrivate {
+class DomainChannelPrivate {
     static name: string
 }
-export abstract class DomainChardevClass {
+abstract class DomainChardevClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainChardevPrivate {
+class DomainChardevPrivate {
     static name: string
 }
-export abstract class DomainChardevSourceClass {
+abstract class DomainChardevSourceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainChardevSourcePrivate {
+class DomainChardevSourcePrivate {
     static name: string
 }
-export abstract class DomainChardevSourcePtyClass {
+abstract class DomainChardevSourcePtyClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourcePtyClass */
     parent_class: DomainChardevSourceClass
     padding: object[]
     static name: string
 }
-export class DomainChardevSourcePtyPrivate {
+class DomainChardevSourcePtyPrivate {
     static name: string
 }
-export abstract class DomainChardevSourceSpicePortClass {
+abstract class DomainChardevSourceSpicePortClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceSpicePortClass */
     parent_class: DomainChardevSourceClass
     padding: object[]
     static name: string
 }
-export class DomainChardevSourceSpicePortPrivate {
+class DomainChardevSourceSpicePortPrivate {
     static name: string
 }
-export abstract class DomainChardevSourceSpiceVmcClass {
+abstract class DomainChardevSourceSpiceVmcClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceSpiceVmcClass */
     parent_class: DomainChardevSourceClass
     padding: object[]
     static name: string
 }
-export class DomainChardevSourceSpiceVmcPrivate {
+class DomainChardevSourceSpiceVmcPrivate {
     static name: string
 }
-export abstract class DomainChardevSourceUnixClass {
+abstract class DomainChardevSourceUnixClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainChardevSourceUnixClass */
     parent_class: DomainChardevSourceClass
     padding: object[]
     static name: string
 }
-export class DomainChardevSourceUnixPrivate {
+class DomainChardevSourceUnixPrivate {
     static name: string
 }
-export abstract class DomainClass {
+abstract class DomainClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainClockClass {
+abstract class DomainClockClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainClockClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainClockPrivate {
+class DomainClockPrivate {
     static name: string
 }
-export abstract class DomainConsoleClass {
+abstract class DomainConsoleClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainConsoleClass */
     parent_class: DomainChardevClass
     padding: object[]
     static name: string
 }
-export class DomainConsolePrivate {
+class DomainConsolePrivate {
     static name: string
 }
-export abstract class DomainControllerClass {
+abstract class DomainControllerClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainControllerClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainControllerPrivate {
+class DomainControllerPrivate {
     static name: string
 }
-export abstract class DomainControllerUsbClass {
+abstract class DomainControllerUsbClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainControllerUsbClass */
     parent_class: DomainControllerClass
     padding: object[]
     static name: string
 }
-export class DomainControllerUsbPrivate {
+class DomainControllerUsbPrivate {
     static name: string
 }
-export abstract class DomainCpuClass {
+abstract class DomainCpuClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpuClass */
     parent_class: CapabilitiesCpuClass
     padding: object[]
     static name: string
 }
-export abstract class DomainCpuFeatureClass {
+abstract class DomainCpuFeatureClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpuFeatureClass */
     parent_class: CapabilitiesCpuClass
     padding: object[]
     static name: string
 }
-export class DomainCpuFeaturePrivate {
+class DomainCpuFeaturePrivate {
     static name: string
 }
-export abstract class DomainCpuModelClass {
+abstract class DomainCpuModelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainCpuModelClass */
     parent_class: CapabilitiesCpuModelClass
     padding: object[]
     static name: string
 }
-export class DomainCpuModelPrivate {
+class DomainCpuModelPrivate {
     static name: string
 }
-export class DomainCpuPrivate {
+class DomainCpuPrivate {
     static name: string
 }
-export abstract class DomainDeviceClass {
+abstract class DomainDeviceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDeviceClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainDevicePrivate {
+class DomainDevicePrivate {
     static name: string
 }
-export abstract class DomainDiskClass {
+abstract class DomainDiskClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDiskClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export abstract class DomainDiskDriverClass {
+abstract class DomainDiskDriverClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainDiskDriverClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainDiskDriverPrivate {
+class DomainDiskDriverPrivate {
     static name: string
 }
-export class DomainDiskPrivate {
+class DomainDiskPrivate {
     static name: string
 }
-export abstract class DomainFilesysClass {
+abstract class DomainFilesysClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainFilesysClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainFilesysPrivate {
+class DomainFilesysPrivate {
     static name: string
 }
-export abstract class DomainGraphicsClass {
+abstract class DomainGraphicsClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export abstract class DomainGraphicsDesktopClass {
+abstract class DomainGraphicsDesktopClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsDesktopClass */
     parent_class: DomainGraphicsClass
     padding: object[]
     static name: string
 }
-export class DomainGraphicsDesktopPrivate {
+class DomainGraphicsDesktopPrivate {
     static name: string
 }
-export class DomainGraphicsPrivate {
+class DomainGraphicsPrivate {
     static name: string
 }
-export abstract class DomainGraphicsRdpClass {
+abstract class DomainGraphicsRdpClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsRdpClass */
     parent_class: DomainGraphicsClass
     padding: object[]
     static name: string
 }
-export class DomainGraphicsRdpPrivate {
+class DomainGraphicsRdpPrivate {
     static name: string
 }
-export abstract class DomainGraphicsSdlClass {
+abstract class DomainGraphicsSdlClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsSdlClass */
     parent_class: DomainGraphicsClass
     padding: object[]
     static name: string
 }
-export class DomainGraphicsSdlPrivate {
+class DomainGraphicsSdlPrivate {
     static name: string
 }
-export abstract class DomainGraphicsSpiceClass {
+abstract class DomainGraphicsSpiceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsSpiceClass */
     parent_class: DomainGraphicsClass
     padding: object[]
     static name: string
 }
-export class DomainGraphicsSpicePrivate {
+class DomainGraphicsSpicePrivate {
     static name: string
 }
-export abstract class DomainGraphicsVncClass {
+abstract class DomainGraphicsVncClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainGraphicsVncClass */
     parent_class: DomainGraphicsClass
     padding: object[]
     static name: string
 }
-export class DomainGraphicsVncPrivate {
+class DomainGraphicsVncPrivate {
     static name: string
 }
-export abstract class DomainHostdevClass {
+abstract class DomainHostdevClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainHostdevClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export abstract class DomainHostdevPciClass {
+abstract class DomainHostdevPciClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainHostdevPciClass */
     parent_class: DomainHostdevClass
     padding: object[]
     static name: string
 }
-export class DomainHostdevPciPrivate {
+class DomainHostdevPciPrivate {
     static name: string
 }
-export class DomainHostdevPrivate {
+class DomainHostdevPrivate {
     static name: string
 }
-export abstract class DomainInputClass {
+abstract class DomainInputClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInputClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainInputPrivate {
+class DomainInputPrivate {
     static name: string
 }
-export abstract class DomainInterfaceBridgeClass {
+abstract class DomainInterfaceBridgeClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceBridgeClass */
     parent_class: DomainInterfaceClass
     padding: object[]
     static name: string
 }
-export class DomainInterfaceBridgePrivate {
+class DomainInterfaceBridgePrivate {
     static name: string
 }
-export abstract class DomainInterfaceClass {
+abstract class DomainInterfaceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export abstract class DomainInterfaceFilterrefClass {
+abstract class DomainInterfaceFilterrefClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceFilterrefClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainInterfaceFilterrefParameterClass {
+abstract class DomainInterfaceFilterrefParameterClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceFilterrefParameterClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainInterfaceFilterrefParameterPrivate {
+class DomainInterfaceFilterrefParameterPrivate {
     static name: string
 }
-export class DomainInterfaceFilterrefPrivate {
+class DomainInterfaceFilterrefPrivate {
     static name: string
 }
-export abstract class DomainInterfaceNetworkClass {
+abstract class DomainInterfaceNetworkClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceNetworkClass */
     parent_class: DomainInterfaceClass
     padding: object[]
     static name: string
 }
-export class DomainInterfaceNetworkPrivate {
+class DomainInterfaceNetworkPrivate {
     static name: string
 }
-export class DomainInterfacePrivate {
+class DomainInterfacePrivate {
     static name: string
 }
-export abstract class DomainInterfaceUserClass {
+abstract class DomainInterfaceUserClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainInterfaceUserClass */
     parent_class: DomainInterfaceClass
     padding: object[]
     static name: string
 }
-export class DomainInterfaceUserPrivate {
+class DomainInterfaceUserPrivate {
     static name: string
 }
-export abstract class DomainMemballoonClass {
+abstract class DomainMemballoonClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainMemballoonClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainMemballoonPrivate {
+class DomainMemballoonPrivate {
     static name: string
 }
-export abstract class DomainOsClass {
+abstract class DomainOsClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainOsClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainOsPrivate {
+class DomainOsPrivate {
     static name: string
 }
-export abstract class DomainParallelClass {
+abstract class DomainParallelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainParallelClass */
     parent_class: DomainChardevClass
     padding: object[]
     static name: string
 }
-export class DomainParallelPrivate {
+class DomainParallelPrivate {
     static name: string
 }
-export abstract class DomainPowerManagementClass {
+abstract class DomainPowerManagementClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainPowerManagementClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainPowerManagementPrivate {
+class DomainPowerManagementPrivate {
     static name: string
 }
-export class DomainPrivate {
+class DomainPrivate {
     static name: string
 }
-export abstract class DomainRedirdevClass {
+abstract class DomainRedirdevClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainRedirdevClass */
     parent_class: DomainChardevClass
     padding: object[]
     static name: string
 }
-export class DomainRedirdevPrivate {
+class DomainRedirdevPrivate {
     static name: string
 }
-export abstract class DomainSeclabelClass {
+abstract class DomainSeclabelClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSeclabelClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainSeclabelPrivate {
+class DomainSeclabelPrivate {
     static name: string
 }
-export abstract class DomainSerialClass {
+abstract class DomainSerialClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSerialClass */
     parent_class: DomainChardevClass
     padding: object[]
     static name: string
 }
-export class DomainSerialPrivate {
+class DomainSerialPrivate {
     static name: string
 }
-export abstract class DomainSmartcardClass {
+abstract class DomainSmartcardClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export abstract class DomainSmartcardHostCertificatesClass {
+abstract class DomainSmartcardHostCertificatesClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardHostCertificatesClass */
     parent_class: DomainSmartcardClass
     padding: object[]
     static name: string
 }
-export class DomainSmartcardHostCertificatesPrivate {
+class DomainSmartcardHostCertificatesPrivate {
     static name: string
 }
-export abstract class DomainSmartcardHostClass {
+abstract class DomainSmartcardHostClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardHostClass */
     parent_class: DomainSmartcardClass
     padding: object[]
     static name: string
 }
-export class DomainSmartcardHostPrivate {
+class DomainSmartcardHostPrivate {
     static name: string
 }
-export abstract class DomainSmartcardPassthroughClass {
+abstract class DomainSmartcardPassthroughClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSmartcardPassthroughClass */
     parent_class: DomainSmartcardClass
     padding: object[]
     static name: string
 }
-export class DomainSmartcardPassthroughPrivate {
+class DomainSmartcardPassthroughPrivate {
     static name: string
 }
-export class DomainSmartcardPrivate {
+class DomainSmartcardPrivate {
     static name: string
 }
-export abstract class DomainSnapshotClass {
+abstract class DomainSnapshotClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSnapshotClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainSnapshotDiskClass {
+abstract class DomainSnapshotDiskClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSnapshotDiskClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class DomainSnapshotDiskPrivate {
+class DomainSnapshotDiskPrivate {
     static name: string
 }
-export class DomainSnapshotPrivate {
+class DomainSnapshotPrivate {
     static name: string
 }
-export abstract class DomainSoundClass {
+abstract class DomainSoundClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainSoundClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainSoundPrivate {
+class DomainSoundPrivate {
     static name: string
 }
-export abstract class DomainTimerClass {
+abstract class DomainTimerClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DomainTimerHpetClass {
+abstract class DomainTimerHpetClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerHpetClass */
     parent_class: DomainTimerClass
     padding: object[]
     static name: string
 }
-export class DomainTimerHpetPrivate {
+class DomainTimerHpetPrivate {
     static name: string
 }
-export abstract class DomainTimerPitClass {
+abstract class DomainTimerPitClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerPitClass */
     parent_class: DomainTimerClass
     padding: object[]
     static name: string
 }
-export class DomainTimerPitPrivate {
+class DomainTimerPitPrivate {
     static name: string
 }
-export class DomainTimerPrivate {
+class DomainTimerPrivate {
     static name: string
 }
-export abstract class DomainTimerRtcClass {
+abstract class DomainTimerRtcClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainTimerRtcClass */
     parent_class: DomainTimerClass
     padding: object[]
     static name: string
 }
-export class DomainTimerRtcPrivate {
+class DomainTimerRtcPrivate {
     static name: string
 }
-export abstract class DomainVideoClass {
+abstract class DomainVideoClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.DomainVideoClass */
     parent_class: DomainDeviceClass
     padding: object[]
     static name: string
 }
-export class DomainVideoPrivate {
+class DomainVideoPrivate {
     static name: string
 }
-export abstract class InterfaceClass {
+abstract class InterfaceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.InterfaceClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class InterfacePrivate {
+class InterfacePrivate {
     static name: string
 }
-export abstract class NetworkClass {
+abstract class NetworkClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.NetworkClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class NetworkFilterClass {
+abstract class NetworkFilterClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.NetworkFilterClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class NetworkFilterPrivate {
+class NetworkFilterPrivate {
     static name: string
 }
-export class NetworkPrivate {
+class NetworkPrivate {
     static name: string
 }
-export abstract class NodeDeviceClass {
+abstract class NodeDeviceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.NodeDeviceClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class NodeDevicePrivate {
+class NodeDevicePrivate {
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.ObjectClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ObjectPrivate {
+class ObjectPrivate {
     static name: string
 }
-export abstract class SecretClass {
+abstract class SecretClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.SecretClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class SecretPrivate {
+class SecretPrivate {
     static name: string
 }
-export abstract class StoragePermissionsClass {
+abstract class StoragePermissionsClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePermissionsClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StoragePermissionsPrivate {
+class StoragePermissionsPrivate {
     static name: string
 }
-export abstract class StoragePoolClass {
+abstract class StoragePoolClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePoolClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StoragePoolPrivate {
+class StoragePoolPrivate {
     static name: string
 }
-export abstract class StoragePoolSourceClass {
+abstract class StoragePoolSourceClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePoolSourceClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StoragePoolSourcePrivate {
+class StoragePoolSourcePrivate {
     static name: string
 }
-export abstract class StoragePoolTargetClass {
+abstract class StoragePoolTargetClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StoragePoolTargetClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StoragePoolTargetPrivate {
+class StoragePoolTargetPrivate {
     static name: string
 }
-export abstract class StorageVolBackingStoreClass {
+abstract class StorageVolBackingStoreClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVolBackingStoreClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StorageVolBackingStorePrivate {
+class StorageVolBackingStorePrivate {
     static name: string
 }
-export abstract class StorageVolClass {
+abstract class StorageVolClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVolClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StorageVolPrivate {
+class StorageVolPrivate {
     static name: string
 }
-export abstract class StorageVolTargetClass {
+abstract class StorageVolTargetClass {
     /* Fields of LibvirtGConfig-1.0.LibvirtGConfig.StorageVolTargetClass */
     parent_class: ObjectClass
     padding: object[]
     static name: string
 }
-export class StorageVolTargetPrivate {
+class StorageVolTargetPrivate {
     static name: string
 }
+}
+export default LibvirtGConfig

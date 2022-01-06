@@ -3,23 +3,25 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as SpiceClientGLib from './SpiceClientGLib-2.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as Atk from './Atk-1.0';
+import type SpiceClientGLib from './SpiceClientGLib-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type Gio from './Gio-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type Atk from './Atk-1.0';
 
-export enum DisplayKeyEvent {
+export namespace SpiceClientGtk {
+
+enum DisplayKeyEvent {
     PRESS,
     RELEASE,
     CLICK,
@@ -37,7 +39,7 @@ export interface Display_ConstructProps extends Gtk.EventBox_ConstructProps {
     session?: SpiceClientGLib.Session
     zoom_level?: number
 }
-export class Display {
+class Display {
     /* Properties of SpiceClientGtk-3.0.SpiceClientGtk.Display */
     disable_inputs: boolean
     grab_keyboard: boolean
@@ -913,7 +915,7 @@ export interface GtkSession_ConstructProps extends GObject.Object_ConstructProps
     session?: SpiceClientGLib.Session
     sync_modifiers?: boolean
 }
-export class GtkSession {
+class GtkSession {
     /* Properties of SpiceClientGtk-3.0.SpiceClientGtk.GtkSession */
     auto_clipboard: boolean
     auto_usbredir: boolean
@@ -982,7 +984,7 @@ export interface UsbDeviceWidget_ConstructProps extends Gtk.Box_ConstructProps {
     session?: SpiceClientGLib.Session
     orientation?: Gtk.Orientation
 }
-export class UsbDeviceWidget {
+class UsbDeviceWidget {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -1823,10 +1825,10 @@ export class UsbDeviceWidget {
     static new(orientation: Gtk.Orientation, spacing: number): UsbDeviceWidget
     static $gtype: GObject.Type
 }
-export abstract class DisplayClass {
+abstract class DisplayClass {
     static name: string
 }
-export class GrabSequence {
+class GrabSequence {
     /* Methods of SpiceClientGtk-3.0.SpiceClientGtk.GrabSequence */
     as_string(): string
     copy(): GrabSequence
@@ -1838,12 +1840,14 @@ export class GrabSequence {
     static new(keysyms: number[]): GrabSequence
     static new_from_string(str: string): GrabSequence
 }
-export abstract class GtkSessionClass {
+abstract class GtkSessionClass {
     static name: string
 }
-export abstract class UsbDeviceWidgetClass {
+abstract class UsbDeviceWidgetClass {
     static name: string
 }
-export class UsbDeviceWidgetPrivate {
+class UsbDeviceWidgetPrivate {
     static name: string
 }
+}
+export default SpiceClientGtk

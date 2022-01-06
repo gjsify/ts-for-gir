@@ -10,34 +10,34 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GDesktopEnums } from './GDesktopEnums-3.0';
 
-export declare namespace GnomeDesktop {
+declare namespace GnomeDesktop {
 
-export enum DesktopThumbnailSize {
+enum DesktopThumbnailSize {
     NORMAL,
     LARGE,
     XLARGE,
     XXLARGE,
 }
-export function desktopThumbnailIsValid(pixbuf: GdkPixbuf.Pixbuf, uri: string, mtime: number): boolean
-export function desktopThumbnailPathForUri(uri: string, size: DesktopThumbnailSize): string
-export function getAllLocales(): string[]
-export function getCountryFromCode(code: string, translation?: string | null): string
-export function getCountryFromLocale(locale: string, translation?: string | null): string
-export function getInputSourceFromLocale(locale: string): { returnType: boolean, type: string, id: string }
-export function getLanguageFromCode(code: string, translation?: string | null): string
-export function getLanguageFromLocale(locale: string, translation?: string | null): string
-export function getTranslatedModifier(modifier: string, translation?: string | null): string
-export function languageHasTranslations(code: string): boolean
-export function normalizeLocale(locale: string): string
-export function parseLocale(locale: string): { returnType: boolean, languageCodep: string | null, countryCodep: string | null, codesetp: string | null, modifierp: string | null }
-export function startSystemdScope(name: string, pid: number, description?: string | null, connection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function startSystemdScopeFinish(res: Gio.AsyncResult): boolean
-export interface IdleMonitorWatchFunc {
+function desktopThumbnailIsValid(pixbuf: GdkPixbuf.Pixbuf, uri: string, mtime: number): boolean
+function desktopThumbnailPathForUri(uri: string, size: DesktopThumbnailSize): string
+function getAllLocales(): string[]
+function getCountryFromCode(code: string, translation?: string | null): string
+function getCountryFromLocale(locale: string, translation?: string | null): string
+function getInputSourceFromLocale(locale: string): { returnType: boolean, type: string, id: string }
+function getLanguageFromCode(code: string, translation?: string | null): string
+function getLanguageFromLocale(locale: string, translation?: string | null): string
+function getTranslatedModifier(modifier: string, translation?: string | null): string
+function languageHasTranslations(code: string): boolean
+function normalizeLocale(locale: string): string
+function parseLocale(locale: string): { returnType: boolean, languageCodep: string | null, countryCodep: string | null, codesetp: string | null, modifierp: string | null }
+function startSystemdScope(name: string, pid: number, description?: string | null, connection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function startSystemdScopeFinish(res: Gio.AsyncResult): boolean
+interface IdleMonitorWatchFunc {
     (monitor: IdleMonitor, id: number): void
 }
 export interface DesktopThumbnailFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DesktopThumbnailFactory {
+class DesktopThumbnailFactory {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.DesktopThumbnailFactory */
     parent: GObject.Object
     priv: DesktopThumbnailFactoryPrivate
@@ -94,7 +94,7 @@ export class DesktopThumbnailFactory {
 }
 export interface IdleMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IdleMonitor {
+class IdleMonitor {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.IdleMonitor */
     parent: GObject.Object
     priv: IdleMonitorPrivate
@@ -152,7 +152,7 @@ export class IdleMonitor {
 }
 export interface PnpIds_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PnpIds {
+class PnpIds {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.PnpIds */
     parent: GObject.Object
     priv: PnpIdsPrivate
@@ -205,7 +205,7 @@ export class PnpIds {
 export interface WallClock_ConstructProps extends GObject.Object_ConstructProps {
     timeOnly?: boolean
 }
-export class WallClock {
+class WallClock {
     /* Properties of GnomeDesktop-4.0.GnomeDesktop.WallClock */
     readonly clock: string
     timeOnly: boolean
@@ -278,7 +278,7 @@ export class WallClock {
 }
 export interface XkbInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XkbInfo {
+class XkbInfo {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.XkbInfo */
     parentObject: GObject.Object
     priv: XkbInfoPrivate
@@ -342,44 +342,45 @@ export class XkbInfo {
     static new(): XkbInfo
     static $gtype: GObject.Type
 }
-export abstract class DesktopThumbnailFactoryClass {
+abstract class DesktopThumbnailFactoryClass {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.DesktopThumbnailFactoryClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class DesktopThumbnailFactoryPrivate {
+class DesktopThumbnailFactoryPrivate {
     static name: string
 }
-export abstract class IdleMonitorClass {
+abstract class IdleMonitorClass {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.IdleMonitorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class IdleMonitorPrivate {
+class IdleMonitorPrivate {
     static name: string
 }
-export abstract class PnpIdsClass {
+abstract class PnpIdsClass {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.PnpIdsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PnpIdsPrivate {
+class PnpIdsPrivate {
     static name: string
 }
-export abstract class WallClockClass {
+abstract class WallClockClass {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.WallClockClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WallClockPrivate {
+class WallClockPrivate {
     static name: string
 }
-export abstract class XkbInfoClass {
+abstract class XkbInfoClass {
     /* Fields of GnomeDesktop-4.0.GnomeDesktop.XkbInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class XkbInfoPrivate {
+class XkbInfoPrivate {
     static name: string
 }
 }
+export default GnomeDesktop

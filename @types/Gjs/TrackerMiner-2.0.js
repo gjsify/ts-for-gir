@@ -1,2 +1,1 @@
-imports.gi.versions.TrackerMiner = '2.0'
-module.exports = imports.gi.TrackerMiner
+export {default as default} from 'gi://TrackerMiner?version=2.0';

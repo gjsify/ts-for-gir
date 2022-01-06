@@ -3,28 +3,30 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum AnalogId {
+export namespace Retro {
+
+enum AnalogId {
     X,
     Y,
 }
-export enum AnalogIndex {
+enum AnalogIndex {
     LEFT,
     RIGHT,
 }
-export enum ControllerType {
+enum ControllerType {
     NONE,
     JOYPAD,
     MOUSE,
@@ -34,7 +36,7 @@ export enum ControllerType {
     POINTER,
     TYPE_MASK,
 }
-export enum JoypadId {
+enum JoypadId {
     B,
     Y,
     SELECT,
@@ -52,7 +54,7 @@ export enum JoypadId {
     L3,
     R3,
 }
-export enum LightgunId {
+enum LightgunId {
     X,
     Y,
     TRIGGER,
@@ -61,13 +63,13 @@ export enum LightgunId {
     PAUSE,
     START,
 }
-export enum MemoryType {
+enum MemoryType {
     SAVE_RAM,
     RTC,
     SYSTEM_RAM,
     VIDEO_RAM,
 }
-export enum MouseId {
+enum MouseId {
     X,
     Y,
     LEFT,
@@ -80,30 +82,30 @@ export enum MouseId {
     BUTTON_4,
     BUTTON_5,
 }
-export enum PointerId {
+enum PointerId {
     X,
     Y,
     PRESSED,
 }
-export enum RumbleEffect {
+enum RumbleEffect {
     STRONG,
     WEAK,
 }
-export enum VideoFilter {
+enum VideoFilter {
     SMOOTH,
     SHARP,
     CRT,
 }
-export function controller_type_get_id_count(type: ControllerType): number
-export function controller_type_get_index_count(type: ControllerType): number
-export function g_log(sender: Core, log_domain: string | null, log_level: GLib.LogLevelFlags, message: string): void
-export function gtk_get_resource(): Gio.Resource
-export function joypad_id_from_button_code(button_code: number): JoypadId
-export function joypad_id_to_button_code(joypad_id: JoypadId): number
-export function pixbuf_get_aspect_ratio(pixbuf: GdkPixbuf.Pixbuf): number
-export function pixbuf_set_aspect_ratio(pixbuf: GdkPixbuf.Pixbuf, aspect_ratio: number): void
-export function video_filter_from_string(filter: string): VideoFilter
-export class Controller {
+function controller_type_get_id_count(type: ControllerType): number
+function controller_type_get_index_count(type: ControllerType): number
+function g_log(sender: Core, log_domain: string | null, log_level: GLib.LogLevelFlags, message: string): void
+function gtk_get_resource(): Gio.Resource
+function joypad_id_from_button_code(button_code: number): JoypadId
+function joypad_id_to_button_code(joypad_id: JoypadId): number
+function pixbuf_get_aspect_ratio(pixbuf: GdkPixbuf.Pixbuf): number
+function pixbuf_set_aspect_ratio(pixbuf: GdkPixbuf.Pixbuf, aspect_ratio: number): void
+function video_filter_from_string(filter: string): VideoFilter
+class Controller {
     /* Methods of Retro-1.Retro.Controller */
     emit_state_changed(): void
     get_capabilities(): number
@@ -126,7 +128,7 @@ export class Controller {
 }
 export interface ControllerIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ControllerIterator {
+class ControllerIterator {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.ControllerIterator */
@@ -183,7 +185,7 @@ export interface Core_ConstructProps extends GObject.Object_ConstructProps {
     system_directory?: string
     user_name?: string
 }
-export class Core {
+class Core {
     /* Properties of Retro-1.Retro.Core */
     readonly api_version: number
     content_directory: string
@@ -323,7 +325,7 @@ export class Core {
 }
 export interface CoreDescriptor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CoreDescriptor {
+class CoreDescriptor {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.CoreDescriptor */
@@ -396,7 +398,7 @@ export interface CoreView_ConstructProps extends Gtk.EventBox_ConstructProps {
     can_grab_pointer?: boolean
     snap_pointer_to_borders?: boolean
 }
-export class CoreView {
+class CoreView {
     /* Properties of Retro-1.Retro.CoreView */
     can_grab_pointer: boolean
     snap_pointer_to_borders: boolean
@@ -1245,7 +1247,7 @@ export class CoreView {
 }
 export interface KeyJoypadMapping_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeyJoypadMapping {
+class KeyJoypadMapping {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.KeyJoypadMapping */
@@ -1299,7 +1301,7 @@ export class KeyJoypadMapping {
 }
 export interface ModuleIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ModuleIterator {
+class ModuleIterator {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.ModuleIterator */
@@ -1352,7 +1354,7 @@ export class ModuleIterator {
 }
 export interface ModuleQuery_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ModuleQuery {
+class ModuleQuery {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.ModuleQuery */
@@ -1404,7 +1406,7 @@ export class ModuleQuery {
 }
 export interface Option_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Option {
+class Option {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.Option */
@@ -1462,7 +1464,7 @@ export class Option {
 }
 export interface OptionIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class OptionIterator {
+class OptionIterator {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.OptionIterator */
@@ -1510,7 +1512,7 @@ export class OptionIterator {
     _init (config?: OptionIterator_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ControllerInterface {
+abstract class ControllerInterface {
     /* Fields of Retro-1.Retro.ControllerInterface */
     parent_iface: GObject.TypeInterface
     get_input_state: (self: Controller, input: Input) => number
@@ -1520,52 +1522,52 @@ export abstract class ControllerInterface {
     set_rumble_state: (self: Controller, effect: RumbleEffect, strength: number) => void
     static name: string
 }
-export abstract class ControllerIteratorClass {
+abstract class ControllerIteratorClass {
     /* Fields of Retro-1.Retro.ControllerIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CoreClass {
+abstract class CoreClass {
     /* Fields of Retro-1.Retro.CoreClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CoreDescriptorClass {
+abstract class CoreDescriptorClass {
     /* Fields of Retro-1.Retro.CoreDescriptorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CoreViewClass {
+abstract class CoreViewClass {
     /* Fields of Retro-1.Retro.CoreViewClass */
     parent_class: Gtk.EventBoxClass
     static name: string
 }
-export abstract class KeyJoypadMappingClass {
+abstract class KeyJoypadMappingClass {
     /* Fields of Retro-1.Retro.KeyJoypadMappingClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ModuleIteratorClass {
+abstract class ModuleIteratorClass {
     /* Fields of Retro-1.Retro.ModuleIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ModuleQueryClass {
+abstract class ModuleQueryClass {
     /* Fields of Retro-1.Retro.ModuleQueryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class OptionClass {
+abstract class OptionClass {
     /* Fields of Retro-1.Retro.OptionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class OptionIteratorClass {
+abstract class OptionIteratorClass {
     /* Fields of Retro-1.Retro.OptionIteratorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Pixdata {
+class Pixdata {
     /* Methods of Retro-1.Retro.Pixdata */
     copy(): Pixdata
     free(): void
@@ -1576,7 +1578,7 @@ export class Pixdata {
     to_pixbuf(): GdkPixbuf.Pixbuf
     static name: string
 }
-export class Input {
+class Input {
     /* Methods of Retro-1.Retro.Input */
     copy(): Input
     free(): void
@@ -1592,3 +1594,5 @@ export class Input {
     /* Static methods and pseudo-constructors */
     static new(): Input
 }
+}
+export default Retro

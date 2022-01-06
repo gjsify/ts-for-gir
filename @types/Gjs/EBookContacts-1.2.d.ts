@@ -3,45 +3,47 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as Soup from './Soup-2.4';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type EDataServer from './EDataServer-1.2';
+import type Soup from './Soup-2.4';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
 
-export enum BookChangeType {
+export namespace EBookContacts {
+
+enum BookChangeType {
     ADDED,
     DELETED,
     MODIFIED,
 }
-export enum BookClientError {
+enum BookClientError {
     NO_SUCH_BOOK,
     CONTACT_NOT_FOUND,
     CONTACT_ID_ALREADY_EXISTS,
     NO_SUCH_SOURCE,
     NO_SPACE,
 }
-export enum BookCursorOrigin {
+enum BookCursorOrigin {
     CURRENT,
     BEGIN,
     END,
 }
-export enum BookCursorSortType {
+enum BookCursorSortType {
     ASCENDING,
     DESCENDING,
 }
-export enum BookIndexType {
+enum BookIndexType {
     PREFIX,
     SUFFIX,
     PHONE,
     SORT_KEY,
 }
-export enum BookQueryTest {
+enum BookQueryTest {
     IS,
     CONTAINS,
     BEGINS_WITH,
@@ -53,7 +55,7 @@ export enum BookQueryTest {
     REGEX_RAW,
     LAST,
 }
-export enum BookViewStatus {
+enum BookViewStatus {
     STATUS_OK,
     STATUS_TIME_LIMIT_EXCEEDED,
     STATUS_SIZE_LIMIT_EXCEEDED,
@@ -61,7 +63,7 @@ export enum BookViewStatus {
     ERROR_QUERY_REFUSED,
     ERROR_OTHER_ERROR,
 }
-export enum ContactField {
+enum ContactField {
     UID,
     FILE_AS,
     BOOK_UID,
@@ -216,16 +218,16 @@ export enum ContactField {
     FIRST_LABEL_ID,
     LAST_LABEL_ID,
 }
-export enum ContactPhotoType {
+enum ContactPhotoType {
     INLINED,
     URI,
 }
-export enum PhoneNumberCountrySource {
+enum PhoneNumberCountrySource {
     FQTN,
     IDD,
     DEFAULT,
 }
-export enum PhoneNumberError {
+enum PhoneNumberError {
     NOT_IMPLEMENTED,
     UNKNOWN,
     NOT_A_NUMBER,
@@ -234,31 +236,31 @@ export enum PhoneNumberError {
     TOO_SHORT,
     TOO_LONG,
 }
-export enum PhoneNumberFormat {
+enum PhoneNumberFormat {
     E164,
     INTERNATIONAL,
     NATIONAL,
     RFC3966,
 }
-export enum PhoneNumberMatch {
+enum PhoneNumberMatch {
     NONE,
     EXACT,
     NATIONAL,
     SHORT,
 }
-export enum VCardFormat {
+enum VCardFormat {
     /* 21 (invalid, starts with a number) */
     /* 30 (invalid, starts with a number) */
 }
-export enum BookClientViewFlags {
+enum BookClientViewFlags {
     NONE,
     NOTIFY_INITIAL,
 }
-export enum BookCursorStepFlags {
+enum BookCursorStepFlags {
     MOVE,
     FETCH,
 }
-export enum BookOperationFlags {
+enum BookOperationFlags {
     NONE,
     CONFLICT_FAIL,
     CONFLICT_USE_NEWER,
@@ -342,33 +344,33 @@ export const EVC_X_YAHOO: string
 export const SOURCE_EXTENSION_BACKEND_SUMMARY_SETUP: string
 export const VCARD_21_VALID_PARAMETERS: string
 export const VCARD_21_VALID_PROPERTIES: string
-export function address_western_parse(in_address: string): AddressWestern
-export function book_client_error_create(code: BookClientError, custom_msg: string): GLib.Error
-export function book_client_error_quark(): GLib.Quark
-export function book_client_error_to_string(code: BookClientError): string
-export function book_query_and(nqs: number, qs: BookQuery, unref: boolean): BookQuery
-export function book_query_any_field_contains(value: string): BookQuery
-export function book_query_field_exists(field: ContactField): BookQuery
-export function book_query_field_test(field: ContactField, test: BookQueryTest, value: string): BookQuery
-export function book_query_from_string(query_string: string): BookQuery
-export function book_query_or(nqs: number, qs: BookQuery, unref: boolean): BookQuery
-export function book_query_vcard_field_exists(field: string): BookQuery
-export function book_query_vcard_field_test(field: string, test: BookQueryTest, value: string): BookQuery
-export function book_util_conflict_resolution_to_operation_flags(conflict_resolution: EDataServer.ConflictResolution): number
-export function book_util_foreach_address(email_address: string, func: GLib.HRFunc): void
-export function book_util_operation_flags_to_conflict_resolution(flags: number): EDataServer.ConflictResolution
-export function contact_attr_list_copy(list: string[]): string[]
-export function contact_attr_list_free(list: string[]): void
-export function contact_date_from_string(str: string): ContactDate
-export function contact_name_from_string(name_str: string): ContactName
-export function name_western_parse(full_name: string): NameWestern
-export function phone_number_compare_strings(first_number: string, second_number: string): PhoneNumberMatch
-export function phone_number_compare_strings_with_region(first_number: string, second_number: string, region_code?: string | null): PhoneNumberMatch
-export function phone_number_error_quark(): GLib.Quark
-export function phone_number_from_string(phone_number: string, region_code?: string | null): PhoneNumber
-export function phone_number_get_country_code_for_region(region_code?: string | null): number
-export function phone_number_get_default_region(): string
-export function phone_number_is_supported(): boolean
+function address_western_parse(in_address: string): AddressWestern
+function book_client_error_create(code: BookClientError, custom_msg: string): GLib.Error
+function book_client_error_quark(): GLib.Quark
+function book_client_error_to_string(code: BookClientError): string
+function book_query_and(nqs: number, qs: BookQuery, unref: boolean): BookQuery
+function book_query_any_field_contains(value: string): BookQuery
+function book_query_field_exists(field: ContactField): BookQuery
+function book_query_field_test(field: ContactField, test: BookQueryTest, value: string): BookQuery
+function book_query_from_string(query_string: string): BookQuery
+function book_query_or(nqs: number, qs: BookQuery, unref: boolean): BookQuery
+function book_query_vcard_field_exists(field: string): BookQuery
+function book_query_vcard_field_test(field: string, test: BookQueryTest, value: string): BookQuery
+function book_util_conflict_resolution_to_operation_flags(conflict_resolution: EDataServer.ConflictResolution): number
+function book_util_foreach_address(email_address: string, func: GLib.HRFunc): void
+function book_util_operation_flags_to_conflict_resolution(flags: number): EDataServer.ConflictResolution
+function contact_attr_list_copy(list: string[]): string[]
+function contact_attr_list_free(list: string[]): void
+function contact_date_from_string(str: string): ContactDate
+function contact_name_from_string(name_str: string): ContactName
+function name_western_parse(full_name: string): NameWestern
+function phone_number_compare_strings(first_number: string, second_number: string): PhoneNumberMatch
+function phone_number_compare_strings_with_region(first_number: string, second_number: string, region_code?: string | null): PhoneNumberMatch
+function phone_number_error_quark(): GLib.Quark
+function phone_number_from_string(phone_number: string, region_code?: string | null): PhoneNumber
+function phone_number_get_country_code_for_region(region_code?: string | null): number
+function phone_number_get_default_region(): string
+function phone_number_is_supported(): boolean
 export interface Contact_ConstructProps extends VCard_ConstructProps {
     Rev?: string
     address?: any
@@ -512,7 +514,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     wants_html?: boolean
     x509Cert?: ContactCert
 }
-export class Contact {
+class Contact {
     /* Properties of EBookContacts-1.2.EBookContacts.Contact */
     Rev: string
     address: any
@@ -1029,7 +1031,7 @@ export interface SourceBackendSummarySetup_ConstructProps extends EDataServer.So
     indexed_fields?: string
     summary_fields?: string
 }
-export class SourceBackendSummarySetup {
+class SourceBackendSummarySetup {
     /* Properties of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetup */
     indexed_fields: string
     summary_fields: string
@@ -1094,7 +1096,7 @@ export class SourceBackendSummarySetup {
 }
 export interface VCard_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VCard {
+class VCard {
     /* Fields of EBookContacts-1.2.EBookContacts.VCard */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1165,7 +1167,7 @@ export class VCard {
     static unescape_string(s: string): string
     static $gtype: GObject.Type
 }
-export class AddressWestern {
+class AddressWestern {
     /* Fields of EBookContacts-1.2.EBookContacts.AddressWestern */
     po_box: string
     extended: string
@@ -1181,13 +1183,13 @@ export class AddressWestern {
     /* Static methods and pseudo-constructors */
     static parse(in_address: string): AddressWestern
 }
-export class BookChange {
+class BookChange {
     /* Fields of EBookContacts-1.2.EBookContacts.BookChange */
     change_type: BookChangeType
     contact: Contact
     static name: string
 }
-export class BookQuery {
+class BookQuery {
     /* Methods of EBookContacts-1.2.EBookContacts.BookQuery */
     copy(): BookQuery
     not(unref: boolean): BookQuery
@@ -1205,7 +1207,7 @@ export class BookQuery {
     static vcard_field_exists(field: string): BookQuery
     static vcard_field_test(field: string, test: BookQueryTest, value: string): BookQuery
 }
-export class ContactAddress {
+class ContactAddress {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactAddress */
     address_format: string
     po: string
@@ -1223,7 +1225,7 @@ export class ContactAddress {
     /* Static methods and pseudo-constructors */
     static new(): ContactAddress
 }
-export class ContactCert {
+class ContactCert {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactCert */
     length: number
     data: string
@@ -1235,12 +1237,12 @@ export class ContactCert {
     /* Static methods and pseudo-constructors */
     static new(): ContactCert
 }
-export abstract class ContactClass {
+abstract class ContactClass {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactClass */
     parent_class: VCardClass
     static name: string
 }
-export class ContactDate {
+class ContactDate {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactDate */
     year: number
     month: number
@@ -1256,7 +1258,7 @@ export class ContactDate {
     static new(): ContactDate
     static from_string(str: string): ContactDate
 }
-export class ContactGeo {
+class ContactGeo {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactGeo */
     latitude: number
     longitude: number
@@ -1268,7 +1270,7 @@ export class ContactGeo {
     /* Static methods and pseudo-constructors */
     static new(): ContactGeo
 }
-export class ContactName {
+class ContactName {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactName */
     family: string
     given: string
@@ -1286,7 +1288,7 @@ export class ContactName {
     static new(): ContactName
     static from_string(name_str: string): ContactName
 }
-export class ContactPhoto {
+class ContactPhoto {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactPhoto */
     type: ContactPhotoType
     /* Methods of EBookContacts-1.2.EBookContacts.ContactPhoto */
@@ -1304,10 +1306,10 @@ export class ContactPhoto {
     /* Static methods and pseudo-constructors */
     static new(): ContactPhoto
 }
-export class ContactPrivate {
+class ContactPrivate {
     static name: string
 }
-export class NameWestern {
+class NameWestern {
     /* Fields of EBookContacts-1.2.EBookContacts.NameWestern */
     prefix: string
     first: string
@@ -1323,7 +1325,7 @@ export class NameWestern {
     /* Static methods and pseudo-constructors */
     static parse(full_name: string): NameWestern
 }
-export class PhoneNumber {
+class PhoneNumber {
     /* Methods of EBookContacts-1.2.EBookContacts.PhoneNumber */
     compare(second_number: PhoneNumber): PhoneNumberMatch
     copy(): PhoneNumber
@@ -1341,15 +1343,15 @@ export class PhoneNumber {
     static get_default_region(): string
     static is_supported(): boolean
 }
-export abstract class SourceBackendSummarySetupClass {
+abstract class SourceBackendSummarySetupClass {
     /* Fields of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetupClass */
     parent_class: EDataServer.SourceBackendClass
     static name: string
 }
-export class SourceBackendSummarySetupPrivate {
+class SourceBackendSummarySetupPrivate {
     static name: string
 }
-export class VCardAttribute {
+class VCardAttribute {
     /* Methods of EBookContacts-1.2.EBookContacts.VCardAttribute */
     add_param(param: VCardAttributeParam): void
     add_param_with_value(param: VCardAttributeParam, value: string): void
@@ -1378,7 +1380,7 @@ export class VCardAttribute {
     /* Static methods and pseudo-constructors */
     static new(attr_group: string | null, attr_name: string): VCardAttribute
 }
-export class VCardAttributeParam {
+class VCardAttributeParam {
     /* Methods of EBookContacts-1.2.EBookContacts.VCardAttributeParam */
     add_value(value: string): void
     copy(): VCardAttributeParam
@@ -1392,11 +1394,13 @@ export class VCardAttributeParam {
     /* Static methods and pseudo-constructors */
     static new(name: string): VCardAttributeParam
 }
-export abstract class VCardClass {
+abstract class VCardClass {
     /* Fields of EBookContacts-1.2.EBookContacts.VCardClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class VCardPrivate {
+class VCardPrivate {
     static name: string
 }
+}
+export default EBookContacts

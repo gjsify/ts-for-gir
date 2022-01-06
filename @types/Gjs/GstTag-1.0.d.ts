@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum TagDemuxResult {
+export namespace GstTag {
+
+enum TagDemuxResult {
     BROKEN_TAG,
     AGAIN,
     OK,
 }
-export enum TagImageType {
+enum TagImageType {
     NONE,
     UNDEFINED,
     FRONT_COVER,
@@ -36,7 +38,7 @@ export enum TagImageType {
     BAND_ARTIST_LOGO,
     PUBLISHER_STUDIO_LOGO,
 }
-export enum TagLicenseFlags {
+enum TagLicenseFlags {
     PERMITS_REPRODUCTION,
     PERMITS_DISTRIBUTION,
     PERMITS_DERIVATIVE_WORKS,
@@ -91,49 +93,49 @@ export const TAG_MUSICBRAINZ_RELEASEGROUPID: string
 export const TAG_MUSICBRAINZ_RELEASETRACKID: string
 export const TAG_MUSICBRAINZ_TRACKID: string
 export const TAG_MUSICBRAINZ_TRMID: string
-export function tag_check_language_code(lang_code: string): boolean
-export function tag_freeform_string_to_utf8(data: number[], env_vars: string[]): string
-export function tag_from_id3_tag(id3_tag: string): string
-export function tag_from_id3_user_tag(type: string, id3_user_tag: string): string
-export function tag_from_vorbis_tag(vorbis_tag: string): string
-export function tag_get_id3v2_tag_size(buffer: Gst.Buffer): number
-export function tag_get_language_code_iso_639_1(lang_code: string): string
-export function tag_get_language_code_iso_639_2B(lang_code: string): string
-export function tag_get_language_code_iso_639_2T(lang_code: string): string
-export function tag_get_language_codes(): string[]
-export function tag_get_language_name(language_code: string): string
-export function tag_get_license_description(license_ref: string): string
-export function tag_get_license_flags(license_ref: string): TagLicenseFlags
-export function tag_get_license_jurisdiction(license_ref: string): string
-export function tag_get_license_nick(license_ref: string): string
-export function tag_get_license_title(license_ref: string): string
-export function tag_get_license_version(license_ref: string): string
-export function tag_get_licenses(): string[]
-export function tag_id3_genre_count(): number
-export function tag_id3_genre_get(id: number): string
-export function tag_image_data_to_image_sample(image_data: Uint8Array[], image_type: TagImageType): Gst.Sample
-export function tag_list_add_id3_image(tag_list: Gst.TagList, image_data: Uint8Array[], id3_picture_type: number): boolean
-export function tag_list_from_exif_buffer(buffer: Gst.Buffer, byte_order: number, base_offset: number): Gst.TagList
-export function tag_list_from_exif_buffer_with_tiff_header(buffer: Gst.Buffer): Gst.TagList
-export function tag_list_from_id3v2_tag(buffer: Gst.Buffer): Gst.TagList
-export function tag_list_from_vorbiscomment(data: Uint8Array[], id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
-export function tag_list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
-export function tag_list_from_xmp_buffer(buffer: Gst.Buffer): Gst.TagList
-export function tag_list_new_from_id3v1(data: Uint8Array[]): Gst.TagList
-export function tag_list_to_exif_buffer(taglist: Gst.TagList, byte_order: number, base_offset: number): Gst.Buffer
-export function tag_list_to_exif_buffer_with_tiff_header(taglist: Gst.TagList): Gst.Buffer
-export function tag_list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: Uint8Array[], vendor_string?: string | null): Gst.Buffer
-export function tag_list_to_xmp_buffer(list: Gst.TagList, read_only: boolean, schemas: string[]): Gst.Buffer
-export function tag_parse_extended_comment(ext_comment: string, fail_if_no_key: boolean): [ /* returnType */ boolean, /* key */ string | null, /* lang */ string | null, /* value */ string ]
-export function tag_register_musicbrainz_tags(): void
-export function tag_to_id3_tag(gst_tag: string): string
-export function tag_to_vorbis_comments(list: Gst.TagList, tag: string): string[]
-export function tag_to_vorbis_tag(gst_tag: string): string
-export function tag_xmp_list_schemas(): string[]
-export function vorbis_tag_add(list: Gst.TagList, tag: string, value: string): void
+function tag_check_language_code(lang_code: string): boolean
+function tag_freeform_string_to_utf8(data: number[], env_vars: string[]): string
+function tag_from_id3_tag(id3_tag: string): string
+function tag_from_id3_user_tag(type: string, id3_user_tag: string): string
+function tag_from_vorbis_tag(vorbis_tag: string): string
+function tag_get_id3v2_tag_size(buffer: Gst.Buffer): number
+function tag_get_language_code_iso_639_1(lang_code: string): string
+function tag_get_language_code_iso_639_2B(lang_code: string): string
+function tag_get_language_code_iso_639_2T(lang_code: string): string
+function tag_get_language_codes(): string[]
+function tag_get_language_name(language_code: string): string
+function tag_get_license_description(license_ref: string): string
+function tag_get_license_flags(license_ref: string): TagLicenseFlags
+function tag_get_license_jurisdiction(license_ref: string): string
+function tag_get_license_nick(license_ref: string): string
+function tag_get_license_title(license_ref: string): string
+function tag_get_license_version(license_ref: string): string
+function tag_get_licenses(): string[]
+function tag_id3_genre_count(): number
+function tag_id3_genre_get(id: number): string
+function tag_image_data_to_image_sample(image_data: Uint8Array[], image_type: TagImageType): Gst.Sample
+function tag_list_add_id3_image(tag_list: Gst.TagList, image_data: Uint8Array[], id3_picture_type: number): boolean
+function tag_list_from_exif_buffer(buffer: Gst.Buffer, byte_order: number, base_offset: number): Gst.TagList
+function tag_list_from_exif_buffer_with_tiff_header(buffer: Gst.Buffer): Gst.TagList
+function tag_list_from_id3v2_tag(buffer: Gst.Buffer): Gst.TagList
+function tag_list_from_vorbiscomment(data: Uint8Array[], id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
+function tag_list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: Uint8Array[]): [ /* returnType */ Gst.TagList, /* vendor_string */ string | null ]
+function tag_list_from_xmp_buffer(buffer: Gst.Buffer): Gst.TagList
+function tag_list_new_from_id3v1(data: Uint8Array[]): Gst.TagList
+function tag_list_to_exif_buffer(taglist: Gst.TagList, byte_order: number, base_offset: number): Gst.Buffer
+function tag_list_to_exif_buffer_with_tiff_header(taglist: Gst.TagList): Gst.Buffer
+function tag_list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: Uint8Array[], vendor_string?: string | null): Gst.Buffer
+function tag_list_to_xmp_buffer(list: Gst.TagList, read_only: boolean, schemas: string[]): Gst.Buffer
+function tag_parse_extended_comment(ext_comment: string, fail_if_no_key: boolean): [ /* returnType */ boolean, /* key */ string | null, /* lang */ string | null, /* value */ string ]
+function tag_register_musicbrainz_tags(): void
+function tag_to_id3_tag(gst_tag: string): string
+function tag_to_vorbis_comments(list: Gst.TagList, tag: string): string[]
+function tag_to_vorbis_tag(gst_tag: string): string
+function tag_xmp_list_schemas(): string[]
+function vorbis_tag_add(list: Gst.TagList, tag: string, value: string): void
 export interface TagXmpWriter_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagXmpWriter {
+class TagXmpWriter {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -344,7 +346,7 @@ export class TagXmpWriter {
 }
 export interface TagDemux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagDemux {
+class TagDemux {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -554,7 +556,7 @@ export class TagDemux {
 }
 export interface TagMux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagMux {
+class TagMux {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -768,7 +770,7 @@ export class TagMux {
     _init (config?: TagMux_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class TagDemuxClass {
+abstract class TagDemuxClass {
     /* Fields of GstTag-1.0.GstTag.TagDemuxClass */
     parent_class: Gst.ElementClass
     min_start_size: number
@@ -778,21 +780,23 @@ export abstract class TagDemuxClass {
     merge_tags: (demux: TagDemux, start_tags: Gst.TagList, end_tags: Gst.TagList) => Gst.TagList
     static name: string
 }
-export class TagDemuxPrivate {
+class TagDemuxPrivate {
     static name: string
 }
-export abstract class TagMuxClass {
+abstract class TagMuxClass {
     /* Fields of GstTag-1.0.GstTag.TagMuxClass */
     parent_class: Gst.ElementClass
     render_start_tag: (mux: TagMux, tag_list: Gst.TagList) => Gst.Buffer
     render_end_tag: (mux: TagMux, tag_list: Gst.TagList) => Gst.Buffer
     static name: string
 }
-export class TagMuxPrivate {
+class TagMuxPrivate {
     static name: string
 }
-export abstract class TagXmpWriterInterface {
+abstract class TagXmpWriterInterface {
     /* Fields of GstTag-1.0.GstTag.TagXmpWriterInterface */
     parent: GObject.TypeInterface
     static name: string
 }
+}
+export default GstTag

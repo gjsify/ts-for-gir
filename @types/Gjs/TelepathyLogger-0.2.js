@@ -1,2 +1,1 @@
-imports.gi.versions.TelepathyLogger = '0.2'
-module.exports = imports.gi.TelepathyLogger
+export {default as default} from 'gi://TelepathyLogger?version=0.2';

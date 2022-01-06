@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum AnnotationTextIcon {
+export namespace EvinceDocument {
+
+enum AnnotationTextIcon {
     NOTE,
     COMMENT,
     KEY,
@@ -28,41 +30,41 @@ export enum AnnotationTextIcon {
     CIRCLE,
     UNKNOWN,
 }
-export enum AnnotationTextMarkupType {
+enum AnnotationTextMarkupType {
     HIGHLIGHT,
     STRIKE_OUT,
     UNDERLINE,
     SQUIGGLY,
 }
-export enum AnnotationType {
+enum AnnotationType {
     UNKNOWN,
     TEXT,
     ATTACHMENT,
     TEXT_MARKUP,
 }
-export enum AnnotationsOverMarkup {
+enum AnnotationsOverMarkup {
     NOT_IMPLEMENTED,
     UNKNOWN,
     YES,
     NOT,
 }
-export enum CompressionType {
+enum CompressionType {
     NONE,
     BZIP2,
     GZIP,
     LZMA,
 }
-export enum DocumentContainsJS {
+enum DocumentContainsJS {
     UNKNOWN,
     NO,
     YES,
 }
-export enum DocumentError {
+enum DocumentError {
     INVALID,
     UNSUPPORTED_CONTENT,
     ENCRYPTED,
 }
-export enum DocumentLayout {
+enum DocumentLayout {
     SINGLE_PAGE,
     ONE_COLUMN,
     TWO_COLUMN_LEFT,
@@ -70,7 +72,7 @@ export enum DocumentLayout {
     TWO_PAGE_LEFT,
     TWO_PAGE_RIGHT,
 }
-export enum DocumentMode {
+enum DocumentMode {
     NONE,
     USE_OC,
     USE_THUMBS,
@@ -78,26 +80,26 @@ export enum DocumentMode {
     USE_ATTACHMENTS,
     PRESENTATION,
 }
-export enum FileExporterFormat {
+enum FileExporterFormat {
     UNKNOWN,
     PS,
     PDF,
 }
-export enum FormFieldButtonType {
+enum FormFieldButtonType {
     PUSH,
     CHECK,
     RADIO,
 }
-export enum FormFieldChoiceType {
+enum FormFieldChoiceType {
     COMBO,
     LIST,
 }
-export enum FormFieldTextType {
+enum FormFieldTextType {
     NORMAL,
     MULTILINE,
     FILE_SELECT,
 }
-export enum LinkActionType {
+enum LinkActionType {
     GOTO_DEST,
     GOTO_REMOTE,
     EXTERNAL_URI,
@@ -106,7 +108,7 @@ export enum LinkActionType {
     LAYERS_STATE,
     RESET_FORM,
 }
-export enum LinkDestType {
+enum LinkDestType {
     PAGE,
     XYZ,
     FIT,
@@ -117,20 +119,20 @@ export enum LinkDestType {
     PAGE_LABEL,
     UNKNOWN,
 }
-export enum SelectionStyle {
+enum SelectionStyle {
     GLYPH,
     WORD,
     LINE,
 }
-export enum TransitionEffectAlignment {
+enum TransitionEffectAlignment {
     HORIZONTAL,
     VERTICAL,
 }
-export enum TransitionEffectDirection {
+enum TransitionEffectDirection {
     INWARD,
     OUTWARD,
 }
-export enum TransitionEffectType {
+enum TransitionEffectType {
     REPLACE,
     SPLIT,
     BLINDS,
@@ -144,7 +146,7 @@ export enum TransitionEffectType {
     UNCOVER,
     FADE,
 }
-export enum AnnotationsSaveMask {
+enum AnnotationsSaveMask {
     NONE,
     CONTENTS,
     COLOR,
@@ -159,7 +161,7 @@ export enum AnnotationsSaveMask {
     TEXT_MARKUP_TYPE,
     ALL,
 }
-export enum DocumentInfoFields {
+enum DocumentInfoFields {
     TITLE,
     FORMAT,
     AUTHOR,
@@ -180,18 +182,18 @@ export enum DocumentInfoFields {
     LICENSE,
     CONTAINS_JS,
 }
-export enum DocumentLoadFlags {
+enum DocumentLoadFlags {
     NONE,
     NO_CACHE,
 }
-export enum DocumentPermissions {
+enum DocumentPermissions {
     OK_TO_PRINT,
     OK_TO_MODIFY,
     OK_TO_COPY,
     OK_TO_ADD_NOTES,
     FULL,
 }
-export enum DocumentUIHints {
+enum DocumentUIHints {
     HIDE_TOOLBAR,
     HIDE_MENUBAR,
     HIDE_WINDOWUI,
@@ -200,7 +202,7 @@ export enum DocumentUIHints {
     DISPLAY_DOC_TITLE,
     DIRECTION_RTL,
 }
-export enum FileExporterCapabilities {
+enum FileExporterCapabilities {
     PAGE_SET,
     COPIES,
     COLLATE,
@@ -211,32 +213,32 @@ export enum FileExporterCapabilities {
     PREVIEW,
     NUMBER_UP,
 }
-export enum FindOptions {
+enum FindOptions {
     DEFAULT,
     CASE_SENSITIVE,
     WHOLE_WORDS_ONLY,
 }
 export const MAJOR_VERSION: number
 export const MINOR_VERSION: number
-export function backends_manager_get_document(mime_type: string): Document
-export function backends_manager_get_document_module_name(document: Document): string
-export function document_error_quark(): GLib.Quark
-export function file_compress(uri: string, type: CompressionType): string
-export function file_copy_metadata(from: string, to: string): boolean
-export function file_get_mime_type(uri: string, fast: boolean): string
-export function file_is_temp(file: Gio.File): boolean
-export function file_uncompress(uri: string, type: CompressionType): string
-export function get_locale_dir(): string
-export function init(): boolean
-export function mkdtemp(tmpl: string): string
-export function mkstemp(tmpl: string, file_name: string): number
-export function mkstemp_file(tmpl: string): Gio.File
-export function rect_cmp(a: Rectangle, b: Rectangle): number
-export function shutdown(): void
-export function tmp_file_unlink(file: Gio.File): void
-export function tmp_filename_unlink(filename: string): void
-export function tmp_uri_unlink(uri: string): void
-export function xfer_uri_simple(from: string, to: string): boolean
+function backends_manager_get_document(mime_type: string): Document
+function backends_manager_get_document_module_name(document: Document): string
+function document_error_quark(): GLib.Quark
+function file_compress(uri: string, type: CompressionType): string
+function file_copy_metadata(from: string, to: string): boolean
+function file_get_mime_type(uri: string, fast: boolean): string
+function file_is_temp(file: Gio.File): boolean
+function file_uncompress(uri: string, type: CompressionType): string
+function get_locale_dir(): string
+function init(): boolean
+function mkdtemp(tmpl: string): string
+function mkstemp(tmpl: string, file_name: string): number
+function mkstemp_file(tmpl: string): Gio.File
+function rect_cmp(a: Rectangle, b: Rectangle): number
+function shutdown(): void
+function tmp_file_unlink(file: Gio.File): void
+function tmp_filename_unlink(filename: string): void
+function tmp_uri_unlink(uri: string): void
+function xfer_uri_simple(from: string, to: string): boolean
 export interface AnnotationMarkup_ConstructProps extends Annotation_ConstructProps {
     can_have_popup?: boolean
     has_popup?: boolean
@@ -245,7 +247,7 @@ export interface AnnotationMarkup_ConstructProps extends Annotation_ConstructPro
     popup_is_open?: boolean
     rectangle?: Rectangle
 }
-export class AnnotationMarkup {
+class AnnotationMarkup {
     /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationMarkup */
     can_have_popup: boolean
     has_popup: boolean
@@ -358,7 +360,7 @@ export class AnnotationMarkup {
     _init (config?: AnnotationMarkup_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class AsyncRenderer {
+class AsyncRenderer {
     /* Methods of EvinceDocument-3.0.EvinceDocument.AsyncRenderer */
     render_pixbuf(page: number, scale: number, rotation: number): void
     /* Virtual methods of EvinceDocument-3.0.EvinceDocument.AsyncRenderer */
@@ -370,7 +372,7 @@ export class AsyncRenderer {
     emit(sigName: "render-finished", object: GdkPixbuf.Pixbuf): void
     static name: string
 }
-export class DocumentAnnotations {
+class DocumentAnnotations {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentAnnotations */
     add_annotation(annot: Annotation, rect: Rectangle): void
     can_add_annotation(): boolean
@@ -389,7 +391,7 @@ export class DocumentAnnotations {
     vfunc_save_annotation(annot: Annotation, mask: AnnotationsSaveMask): void
     static name: string
 }
-export class DocumentAttachments {
+class DocumentAttachments {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentAttachments */
     get_attachments(): Attachment[]
     has_attachments(): boolean
@@ -398,7 +400,7 @@ export class DocumentAttachments {
     vfunc_has_attachments(): boolean
     static name: string
 }
-export class DocumentFind {
+class DocumentFind {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentFind */
     find_text(page: Page, text: string, case_sensitive: boolean): Rectangle[]
     find_text_with_options(page: Page, text: string, options: FindOptions): Rectangle[]
@@ -409,7 +411,7 @@ export class DocumentFind {
     vfunc_get_supported_options(): FindOptions
     static name: string
 }
-export class DocumentFonts {
+class DocumentFonts {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentFonts */
     fill_model(model: Gtk.TreeModel): void
     get_fonts_summary(): string
@@ -422,7 +424,7 @@ export class DocumentFonts {
     vfunc_scan(n_pages: number): boolean
     static name: string
 }
-export class DocumentForms {
+class DocumentForms {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentForms */
     document_is_modified(): boolean
     form_field_button_get_state(field: FormField): boolean
@@ -457,7 +459,7 @@ export class DocumentForms {
     vfunc_reset_form(action: LinkAction): void
     static name: string
 }
-export class DocumentImages {
+class DocumentImages {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentImages */
     get_image(image: Image): GdkPixbuf.Pixbuf
     get_image_mapping(page: Page): MappingList
@@ -466,7 +468,7 @@ export class DocumentImages {
     vfunc_get_image_mapping(page: Page): MappingList
     static name: string
 }
-export class DocumentLayers {
+class DocumentLayers {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentLayers */
     get_layers(): Gtk.TreeModel
     has_layers(): boolean
@@ -481,7 +483,7 @@ export class DocumentLayers {
     vfunc_show_layer(layer: Layer): void
     static name: string
 }
-export class DocumentLinks {
+class DocumentLinks {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentLinks */
     find_link_dest(link_name: string): LinkDest
     find_link_page(link_name: string): number
@@ -500,21 +502,21 @@ export class DocumentLinks {
     vfunc_has_document_links(): boolean
     static name: string
 }
-export class DocumentMedia {
+class DocumentMedia {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentMedia */
     get_media_mapping(page: Page): MappingList
     /* Virtual methods of EvinceDocument-3.0.EvinceDocument.DocumentMedia */
     vfunc_get_media_mapping(page: Page): MappingList
     static name: string
 }
-export class DocumentPrint {
+class DocumentPrint {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentPrint */
     print_page(page: Page, cr: cairo.Context): void
     /* Virtual methods of EvinceDocument-3.0.EvinceDocument.DocumentPrint */
     vfunc_print_page(page: Page, cr: cairo.Context): void
     static name: string
 }
-export class DocumentSecurity {
+class DocumentSecurity {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentSecurity */
     has_document_security(): boolean
     set_password(password: string): void
@@ -523,7 +525,7 @@ export class DocumentSecurity {
     vfunc_set_password(password: string): void
     static name: string
 }
-export class DocumentText {
+class DocumentText {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentText */
     get_text(page: Page): string
     get_text_attrs(page: Page): Pango.AttrList
@@ -536,7 +538,7 @@ export class DocumentText {
     vfunc_get_text_mapping(page: Page): cairo.Region
     static name: string
 }
-export class DocumentTransition {
+class DocumentTransition {
     /* Methods of EvinceDocument-3.0.EvinceDocument.DocumentTransition */
     get_effect(page: number): TransitionEffect
     get_page_duration(page: number): number
@@ -545,7 +547,7 @@ export class DocumentTransition {
     vfunc_get_page_duration(page: number): number
     static name: string
 }
-export class FileExporter {
+class FileExporter {
     /* Methods of EvinceDocument-3.0.EvinceDocument.FileExporter */
     begin(fc: FileExporterContext): void
     begin_page(): void
@@ -562,7 +564,7 @@ export class FileExporter {
     vfunc_get_capabilities(): FileExporterCapabilities
     static name: string
 }
-export class Selection {
+class Selection {
     /* Methods of EvinceDocument-3.0.EvinceDocument.Selection */
     get_selected_text(page: Page, style: SelectionStyle, points: Rectangle): string
     get_selection_region(rc: RenderContext, style: SelectionStyle, points: Rectangle): cairo.Region
@@ -582,7 +584,7 @@ export interface Annotation_ConstructProps extends GObject.Object_ConstructProps
     page?: Page
     rgba?: Gdk.RGBA
 }
-export class Annotation {
+class Annotation {
     /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
     area: Rectangle
     color: object
@@ -675,7 +677,7 @@ export interface AnnotationAttachment_ConstructProps extends Annotation_Construc
     popup_is_open?: boolean
     rectangle?: Rectangle
 }
-export class AnnotationAttachment {
+class AnnotationAttachment {
     /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationAttachment */
     attachment: Attachment
     /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
@@ -807,7 +809,7 @@ export interface AnnotationText_ConstructProps extends Annotation_ConstructProps
     popup_is_open?: boolean
     rectangle?: Rectangle
 }
-export class AnnotationText {
+class AnnotationText {
     /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationText */
     icon: AnnotationTextIcon
     is_open: boolean
@@ -943,7 +945,7 @@ export interface AnnotationTextMarkup_ConstructProps extends Annotation_Construc
     popup_is_open?: boolean
     rectangle?: Rectangle
 }
-export class AnnotationTextMarkup {
+class AnnotationTextMarkup {
     /* Properties of EvinceDocument-3.0.EvinceDocument.AnnotationTextMarkup */
     type: AnnotationTextMarkupType
     /* Properties of EvinceDocument-3.0.EvinceDocument.Annotation */
@@ -1076,7 +1078,7 @@ export interface Attachment_ConstructProps extends GObject.Object_ConstructProps
     name?: string
     size?: number
 }
-export class Attachment {
+class Attachment {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Attachment */
     base_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1138,7 +1140,7 @@ export class Attachment {
 export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     modified?: boolean
 }
-export class Document {
+class Document {
     /* Properties of EvinceDocument-3.0.EvinceDocument.Document */
     modified: boolean
     /* Fields of EvinceDocument-3.0.EvinceDocument.Document */
@@ -1267,7 +1269,7 @@ export class Document {
 }
 export interface FormField_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FormField {
+class FormField {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
     parent: GObject.Object
     id: number
@@ -1326,7 +1328,7 @@ export class FormField {
 }
 export interface FormFieldButton_ConstructProps extends FormField_ConstructProps {
 }
-export class FormFieldButton {
+class FormFieldButton {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldButton */
     parent: FormField
     type: FormFieldButtonType
@@ -1390,7 +1392,7 @@ export class FormFieldButton {
 }
 export interface FormFieldChoice_ConstructProps extends FormField_ConstructProps {
 }
-export class FormFieldChoice {
+class FormFieldChoice {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldChoice */
     parent: FormField
     type: FormFieldChoiceType
@@ -1459,7 +1461,7 @@ export class FormFieldChoice {
 }
 export interface FormFieldSignature_ConstructProps extends FormField_ConstructProps {
 }
-export class FormFieldSignature {
+class FormFieldSignature {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldSignature */
     parent: FormField
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormField */
@@ -1521,7 +1523,7 @@ export class FormFieldSignature {
 }
 export interface FormFieldText_ConstructProps extends FormField_ConstructProps {
 }
-export class FormFieldText {
+class FormFieldText {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldText */
     parent: FormField
     type: FormFieldTextType
@@ -1591,7 +1593,7 @@ export class FormFieldText {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Image */
     base_instance: GObject.Object
     priv: ImagePrivate
@@ -1651,7 +1653,7 @@ export class Image {
 }
 export interface Layer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Layer {
+class Layer {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Layer */
     base_instance: GObject.Object
     priv: LayerPrivate
@@ -1709,7 +1711,7 @@ export interface Link_ConstructProps extends GObject.Object_ConstructProps {
     action?: LinkAction
     title?: string
 }
-export class Link {
+class Link {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EvinceDocument-3.0.EvinceDocument.Link */
@@ -1773,7 +1775,7 @@ export interface LinkAction_ConstructProps extends GObject.Object_ConstructProps
     type?: LinkActionType
     uri?: string
 }
-export class LinkAction {
+class LinkAction {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EvinceDocument-3.0.EvinceDocument.LinkAction */
@@ -1850,7 +1852,7 @@ export interface LinkDest_ConstructProps extends GObject.Object_ConstructProps {
     type?: LinkDestType
     zoom?: number
 }
-export class LinkDest {
+class LinkDest {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EvinceDocument-3.0.EvinceDocument.LinkDest */
@@ -1918,7 +1920,7 @@ export class LinkDest {
 }
 export interface Media_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Media {
+class Media {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Media */
     base_instance: GObject.Object
     priv: MediaPrivate
@@ -1976,7 +1978,7 @@ export class Media {
 }
 export interface Page_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Page {
+class Page {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Page */
     base_instance: GObject.Object
     index: number
@@ -2031,7 +2033,7 @@ export class Page {
 }
 export interface RenderContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RenderContext {
+class RenderContext {
     /* Fields of EvinceDocument-3.0.EvinceDocument.RenderContext */
     parent: GObject.Object
     page: Page
@@ -2104,7 +2106,7 @@ export interface TransitionEffect_ConstructProps extends GObject.Object_Construc
     scale?: number
     type?: TransitionEffectType
 }
-export class TransitionEffect {
+class TransitionEffect {
     /* Properties of EvinceDocument-3.0.EvinceDocument.TransitionEffect */
     alignment: TransitionEffectAlignment
     angle: number
@@ -2177,34 +2179,34 @@ export class TransitionEffect {
     _init (config?: TransitionEffect_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AnnotationAttachmentClass {
+abstract class AnnotationAttachmentClass {
     static name: string
 }
-export abstract class AnnotationClass {
+abstract class AnnotationClass {
     static name: string
 }
-export abstract class AnnotationMarkupInterface {
+abstract class AnnotationMarkupInterface {
     static name: string
 }
-export abstract class AnnotationTextClass {
+abstract class AnnotationTextClass {
     static name: string
 }
-export abstract class AnnotationTextMarkupClass {
+abstract class AnnotationTextMarkupClass {
     static name: string
 }
-export abstract class AsyncRendererInterface {
+abstract class AsyncRendererInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.AsyncRendererInterface */
     base_iface: GObject.TypeInterface
     render_finished: (renderer: AsyncRenderer, pixbuf: GdkPixbuf.Pixbuf) => void
     render_pixbuf: (renderer: AsyncRenderer, page: number, scale: number, rotation: number) => void
     static name: string
 }
-export abstract class AttachmentClass {
+abstract class AttachmentClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.AttachmentClass */
     base_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DocumentAnnotationsInterface {
+abstract class DocumentAnnotationsInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentAnnotationsInterface */
     base_iface: GObject.TypeInterface
     get_annotations: (document_annots: DocumentAnnotations, page: Page) => MappingList
@@ -2215,20 +2217,20 @@ export abstract class DocumentAnnotationsInterface {
     over_markup: (document_annots: DocumentAnnotations, annot: Annotation, x: number, y: number) => AnnotationsOverMarkup
     static name: string
 }
-export abstract class DocumentAttachmentsInterface {
+abstract class DocumentAttachmentsInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentAttachmentsInterface */
     base_iface: GObject.TypeInterface
     has_attachments: (document_attachments: DocumentAttachments) => boolean
     get_attachments: (document_attachments: DocumentAttachments) => Attachment[]
     static name: string
 }
-export class DocumentBackendInfo {
+class DocumentBackendInfo {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentBackendInfo */
     name: string
     version: string
     static name: string
 }
-export abstract class DocumentClass {
+abstract class DocumentClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentClass */
     base_class: GObject.ObjectClass
     load: (document: Document, uri: string) => boolean
@@ -2247,7 +2249,7 @@ export abstract class DocumentClass {
     get_thumbnail_surface: (document: Document, rc: RenderContext) => cairo.Surface
     static name: string
 }
-export abstract class DocumentFindInterface {
+abstract class DocumentFindInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFindInterface */
     base_iface: GObject.TypeInterface
     find_text: (document_find: DocumentFind, page: Page, text: string, case_sensitive: boolean) => Rectangle[]
@@ -2255,7 +2257,7 @@ export abstract class DocumentFindInterface {
     get_supported_options: (document_find: DocumentFind) => FindOptions
     static name: string
 }
-export abstract class DocumentFontsInterface {
+abstract class DocumentFontsInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFontsInterface */
     base_iface: GObject.TypeInterface
     scan: (document_fonts: DocumentFonts, n_pages: number) => boolean
@@ -2264,7 +2266,7 @@ export abstract class DocumentFontsInterface {
     get_fonts_summary: (document_fonts: DocumentFonts) => string
     static name: string
 }
-export abstract class DocumentFormsInterface {
+abstract class DocumentFormsInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentFormsInterface */
     base_iface: GObject.TypeInterface
     get_form_fields: (document_forms: DocumentForms, page: Page) => MappingList
@@ -2284,14 +2286,14 @@ export abstract class DocumentFormsInterface {
     reset_form: (document_forms: DocumentForms, action: LinkAction) => void
     static name: string
 }
-export abstract class DocumentImagesInterface {
+abstract class DocumentImagesInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentImagesInterface */
     base_iface: GObject.TypeInterface
     get_image_mapping: (document_images: DocumentImages, page: Page) => MappingList
     get_image: (document_images: DocumentImages, image: Image) => GdkPixbuf.Pixbuf
     static name: string
 }
-export class DocumentInfo {
+class DocumentInfo {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentInfo */
     title: string
     format: string
@@ -2319,7 +2321,7 @@ export class DocumentInfo {
     free(): void
     static name: string
 }
-export abstract class DocumentLayersInterface {
+abstract class DocumentLayersInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLayersInterface */
     base_iface: GObject.TypeInterface
     has_layers: (document_layers: DocumentLayers) => boolean
@@ -2329,7 +2331,7 @@ export abstract class DocumentLayersInterface {
     layer_is_visible: (document_layers: DocumentLayers, layer: Layer) => boolean
     static name: string
 }
-export class DocumentLicense {
+class DocumentLicense {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLicense */
     text: string
     uri: string
@@ -2346,7 +2348,7 @@ export class DocumentLicense {
     /* Static methods and pseudo-constructors */
     static new(): DocumentLicense
 }
-export abstract class DocumentLinksInterface {
+abstract class DocumentLinksInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLinksInterface */
     base_iface: GObject.TypeInterface
     has_document_links: (document_links: DocumentLinks) => boolean
@@ -2356,29 +2358,29 @@ export abstract class DocumentLinksInterface {
     find_link_page: (document_links: DocumentLinks, link_name: string) => number
     static name: string
 }
-export abstract class DocumentMediaInterface {
+abstract class DocumentMediaInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentMediaInterface */
     base_iface: GObject.TypeInterface
     get_media_mapping: (document_media: DocumentMedia, page: Page) => MappingList
     static name: string
 }
-export abstract class DocumentPrintInterface {
+abstract class DocumentPrintInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentPrintInterface */
     base_iface: GObject.TypeInterface
     print_page: (document_print: DocumentPrint, page: Page, cr: cairo.Context) => void
     static name: string
 }
-export class DocumentPrivate {
+class DocumentPrivate {
     static name: string
 }
-export abstract class DocumentSecurityInterface {
+abstract class DocumentSecurityInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentSecurityInterface */
     base_iface: GObject.TypeInterface
     has_document_security: (document_security: DocumentSecurity) => boolean
     set_password: (document_security: DocumentSecurity, password: string) => void
     static name: string
 }
-export abstract class DocumentTextInterface {
+abstract class DocumentTextInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentTextInterface */
     base_iface: GObject.TypeInterface
     get_text_mapping: (document_text: DocumentText, page: Page) => cairo.Region
@@ -2387,14 +2389,14 @@ export abstract class DocumentTextInterface {
     get_text_attrs: (document_text: DocumentText, page: Page) => Pango.AttrList
     static name: string
 }
-export abstract class DocumentTransitionInterface {
+abstract class DocumentTransitionInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentTransitionInterface */
     base_iface: GObject.TypeInterface
     get_page_duration: (document_trans: DocumentTransition, page: number) => number
     get_effect: (document_trans: DocumentTransition, page: number) => TransitionEffect
     static name: string
 }
-export class FileExporterContext {
+class FileExporterContext {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FileExporterContext */
     format: FileExporterFormat
     filename: string
@@ -2406,7 +2408,7 @@ export class FileExporterContext {
     pages_per_sheet: number
     static name: string
 }
-export abstract class FileExporterInterface {
+abstract class FileExporterInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FileExporterInterface */
     base_iface: GObject.TypeInterface
     begin: (exporter: FileExporter, fc: FileExporterContext) => void
@@ -2417,72 +2419,72 @@ export abstract class FileExporterInterface {
     get_capabilities: (exporter: FileExporter) => FileExporterCapabilities
     static name: string
 }
-export abstract class FormFieldButtonClass {
+abstract class FormFieldButtonClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldButtonClass */
     parent_class: FormFieldClass
     static name: string
 }
-export abstract class FormFieldChoiceClass {
+abstract class FormFieldChoiceClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldChoiceClass */
     parent_class: FormFieldClass
     static name: string
 }
-export abstract class FormFieldClass {
+abstract class FormFieldClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FormFieldSignatureClass {
+abstract class FormFieldSignatureClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldSignatureClass */
     parent_class: FormFieldClass
     static name: string
 }
-export abstract class FormFieldTextClass {
+abstract class FormFieldTextClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.FormFieldTextClass */
     parent_class: FormFieldClass
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.ImageClass */
     base_class: GObject.ObjectClass
     static name: string
 }
-export class ImagePrivate {
+class ImagePrivate {
     static name: string
 }
-export abstract class LayerClass {
+abstract class LayerClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.LayerClass */
     base_class: GObject.ObjectClass
     static name: string
 }
-export class LayerPrivate {
+class LayerPrivate {
     static name: string
 }
-export abstract class LinkActionClass {
+abstract class LinkActionClass {
     static name: string
 }
-export class LinkActionPrivate {
+class LinkActionPrivate {
     static name: string
 }
-export abstract class LinkClass {
+abstract class LinkClass {
     static name: string
 }
-export abstract class LinkDestClass {
+abstract class LinkDestClass {
     static name: string
 }
-export class LinkDestPrivate {
+class LinkDestPrivate {
     static name: string
 }
-export class LinkPrivate {
+class LinkPrivate {
     static name: string
 }
-export class Mapping {
+class Mapping {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Mapping */
     area: Rectangle
     data: object
     static name: string
 }
-export class MappingList {
+class MappingList {
     /* Methods of EvinceDocument-3.0.EvinceDocument.MappingList */
     find(data?: object | null): Mapping
     find_custom(data: object | null, func: GLib.CompareFunc): Mapping
@@ -2501,26 +2503,26 @@ export class MappingList {
     /* Static methods and pseudo-constructors */
     static new(page: number, list: Mapping[], data_destroy_func: GLib.DestroyNotify): MappingList
 }
-export abstract class MediaClass {
+abstract class MediaClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.MediaClass */
     base_class: GObject.ObjectClass
     static name: string
 }
-export class MediaPrivate {
+class MediaPrivate {
     static name: string
 }
-export abstract class PageClass {
+abstract class PageClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.PageClass */
     base_class: GObject.ObjectClass
     static name: string
 }
-export class Point {
+class Point {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Point */
     x: number
     y: number
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of EvinceDocument-3.0.EvinceDocument.Rectangle */
     x1: number
     y1: number
@@ -2535,12 +2537,12 @@ export class Rectangle {
     /* Static methods and pseudo-constructors */
     static new(): Rectangle
 }
-export abstract class RenderContextClass {
+abstract class RenderContextClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.RenderContextClass */
     klass: GObject.ObjectClass
     static name: string
 }
-export abstract class SelectionInterface {
+abstract class SelectionInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.SelectionInterface */
     base_iface: GObject.TypeInterface
     render_selection: (selection: Selection, rc: RenderContext, surface: cairo.Surface, points: Rectangle, old_points: Rectangle, style: SelectionStyle, text: Gdk.Color, base: Gdk.Color) => void
@@ -2548,7 +2550,7 @@ export abstract class SelectionInterface {
     get_selection_region: (selection: Selection, rc: RenderContext, style: SelectionStyle, points: Rectangle) => cairo.Region
     static name: string
 }
-export class SourceLink {
+class SourceLink {
     /* Fields of EvinceDocument-3.0.EvinceDocument.SourceLink */
     filename: string
     line: number
@@ -2562,16 +2564,18 @@ export class SourceLink {
     /* Static methods and pseudo-constructors */
     static new(filename: string, line: number, col: number): SourceLink
 }
-export abstract class TransitionEffectClass {
+abstract class TransitionEffectClass {
     /* Fields of EvinceDocument-3.0.EvinceDocument.TransitionEffectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TypeInfo {
+class TypeInfo {
     /* Fields of EvinceDocument-3.0.EvinceDocument.TypeInfo */
     desc: string
     mime_types: string
     static name: string
 }
-export type BackendPage = object
-export type BackendPageDestroyFunc = GLib.DestroyNotify
+type BackendPage = object
+type BackendPageDestroyFunc = GLib.DestroyNotify
+}
+export default EvinceDocument

@@ -3,13 +3,15 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum RTCPFBType {
+export namespace GstRtp {
+
+enum RTCPFBType {
     FB_TYPE_INVALID,
     RTPFB_TYPE_NACK,
     RTPFB_TYPE_TMMBR,
@@ -25,7 +27,7 @@ export enum RTCPFBType {
     PSFB_TYPE_TSTN,
     PSFB_TYPE_VBCN,
 }
-export enum RTCPSDESType {
+enum RTCPSDESType {
     INVALID,
     END,
     CNAME,
@@ -44,7 +46,7 @@ export enum RTCPSDESType {
     CCID,
     MID,
 }
-export enum RTCPType {
+enum RTCPType {
     INVALID,
     SR,
     RR,
@@ -55,7 +57,7 @@ export enum RTCPType {
     PSFB,
     XR,
 }
-export enum RTCPXRType {
+enum RTCPXRType {
     INVALID,
     LRLE,
     DRLE,
@@ -65,7 +67,7 @@ export enum RTCPXRType {
     SSUMM,
     VOIP_METRICS,
 }
-export enum RTPPayload {
+enum RTPPayload {
     PCMU,
     /* 1016 (invalid, starts with a number) */
     G721,
@@ -93,30 +95,30 @@ export enum RTPPayload {
     MP2T,
     H263,
 }
-export enum RTPProfile {
+enum RTPProfile {
     UNKNOWN,
     AVP,
     SAVP,
     AVPF,
     SAVPF,
 }
-export enum RTPBufferFlags {
+enum RTPBufferFlags {
     RETRANSMISSION,
     REDUNDANT,
     LAST,
 }
-export enum RTPBufferMapFlags {
+enum RTPBufferMapFlags {
     SKIP_PADDING,
     LAST,
 }
-export enum RTPHeaderExtensionDirection {
+enum RTPHeaderExtensionDirection {
     INACTIVE,
     SENDONLY,
     RECVONLY,
     SENDRECV,
     INHERITED,
 }
-export enum RTPHeaderExtensionFlags {
+enum RTPHeaderExtensionFlags {
     ONE_BYTE,
     TWO_BYTE,
 }
@@ -172,46 +174,46 @@ export const RTP_PAYLOAD_TS48: number
 export const RTP_PAYLOAD_TS48_STRING: string
 export const RTP_SOURCE_META_MAX_CSRC_COUNT: number
 export const RTP_VERSION: number
-export function buffer_add_rtp_source_meta(buffer: Gst.Buffer, ssrc: number | null, csrc: number | null, csrc_count: number): RTPSourceMeta
-export function buffer_get_rtp_source_meta(buffer: Gst.Buffer): RTPSourceMeta
-export function rtcp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
-export function rtcp_buffer_new(mtu: number): Gst.Buffer
-export function rtcp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
-export function rtcp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
-export function rtcp_buffer_validate(buffer: Gst.Buffer): boolean
-export function rtcp_buffer_validate_data(data: Uint8Array[]): boolean
-export function rtcp_buffer_validate_data_reduced(data: Uint8Array[]): boolean
-export function rtcp_buffer_validate_reduced(buffer: Gst.Buffer): boolean
-export function rtcp_ntp_to_unix(ntptime: number): number
-export function rtcp_sdes_name_to_type(name: string): RTCPSDESType
-export function rtcp_sdes_type_to_name(type: RTCPSDESType): string
-export function rtcp_unix_to_ntp(unixtime: number): number
-export function rtp_buffer_allocate_data(buffer: Gst.Buffer, payload_len: number, pad_len: number, csrc_count: number): void
-export function rtp_buffer_calc_header_len(csrc_count: number): number
-export function rtp_buffer_calc_packet_len(payload_len: number, pad_len: number, csrc_count: number): number
-export function rtp_buffer_calc_payload_len(packet_len: number, pad_len: number, csrc_count: number): number
-export function rtp_buffer_compare_seqnum(seqnum1: number, seqnum2: number): number
-export function rtp_buffer_default_clock_rate(payload_type: number): number
-export function rtp_buffer_ext_timestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
-export function rtp_buffer_get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
-export function rtp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
-export function rtp_buffer_new_allocate(payload_len: number, pad_len: number, csrc_count: number): Gst.Buffer
-export function rtp_buffer_new_allocate_len(packet_len: number, pad_len: number, csrc_count: number): Gst.Buffer
-export function rtp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
-export function rtp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
-export function rtp_get_header_extension_list(): Gst.ElementFactory[]
-export function rtp_hdrext_get_ntp_56(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
-export function rtp_hdrext_get_ntp_64(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
-export function rtp_hdrext_set_ntp_56(data: object | null, size: number, ntptime: number): boolean
-export function rtp_hdrext_set_ntp_64(data: object | null, size: number, ntptime: number): boolean
-export function rtp_payload_info_for_name(media: string, encoding_name: string): RTPPayloadInfo
-export function rtp_payload_info_for_pt(payload_type: number): RTPPayloadInfo
-export function rtp_source_meta_api_get_type(): GObject.Type
-export function rtp_source_meta_get_info(): Gst.MetaInfo
+function buffer_add_rtp_source_meta(buffer: Gst.Buffer, ssrc: number | null, csrc: number | null, csrc_count: number): RTPSourceMeta
+function buffer_get_rtp_source_meta(buffer: Gst.Buffer): RTPSourceMeta
+function rtcp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags, rtcp: RTCPBuffer): boolean
+function rtcp_buffer_new(mtu: number): Gst.Buffer
+function rtcp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
+function rtcp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
+function rtcp_buffer_validate(buffer: Gst.Buffer): boolean
+function rtcp_buffer_validate_data(data: Uint8Array[]): boolean
+function rtcp_buffer_validate_data_reduced(data: Uint8Array[]): boolean
+function rtcp_buffer_validate_reduced(buffer: Gst.Buffer): boolean
+function rtcp_ntp_to_unix(ntptime: number): number
+function rtcp_sdes_name_to_type(name: string): RTCPSDESType
+function rtcp_sdes_type_to_name(type: RTCPSDESType): string
+function rtcp_unix_to_ntp(unixtime: number): number
+function rtp_buffer_allocate_data(buffer: Gst.Buffer, payload_len: number, pad_len: number, csrc_count: number): void
+function rtp_buffer_calc_header_len(csrc_count: number): number
+function rtp_buffer_calc_packet_len(payload_len: number, pad_len: number, csrc_count: number): number
+function rtp_buffer_calc_payload_len(packet_len: number, pad_len: number, csrc_count: number): number
+function rtp_buffer_compare_seqnum(seqnum1: number, seqnum2: number): number
+function rtp_buffer_default_clock_rate(payload_type: number): number
+function rtp_buffer_ext_timestamp(exttimestamp: number, timestamp: number): [ /* returnType */ number, /* exttimestamp */ number ]
+function rtp_buffer_get_extension_onebyte_header_from_bytes(bytes: GLib.Bytes, bit_pattern: number, id: number, nth: number): [ /* returnType */ boolean, /* data */ Uint8Array[] ]
+function rtp_buffer_map(buffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* rtp */ RTPBuffer ]
+function rtp_buffer_new_allocate(payload_len: number, pad_len: number, csrc_count: number): Gst.Buffer
+function rtp_buffer_new_allocate_len(packet_len: number, pad_len: number, csrc_count: number): Gst.Buffer
+function rtp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
+function rtp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
+function rtp_get_header_extension_list(): Gst.ElementFactory[]
+function rtp_hdrext_get_ntp_56(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
+function rtp_hdrext_get_ntp_64(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
+function rtp_hdrext_set_ntp_56(data: object | null, size: number, ntptime: number): boolean
+function rtp_hdrext_set_ntp_64(data: object | null, size: number, ntptime: number): boolean
+function rtp_payload_info_for_name(media: string, encoding_name: string): RTPPayloadInfo
+function rtp_payload_info_for_pt(payload_type: number): RTPPayloadInfo
+function rtp_source_meta_api_get_type(): GObject.Type
+function rtp_source_meta_get_info(): Gst.MetaInfo
 export interface RTPBaseAudioPayload_ConstructProps extends RTPBasePayload_ConstructProps {
     buffer_list?: boolean
 }
-export class RTPBaseAudioPayload {
+class RTPBaseAudioPayload {
     /* Properties of GstRtp-1.0.GstRtp.RTPBaseAudioPayload */
     buffer_list: boolean
     /* Properties of GstRtp-1.0.GstRtp.RTPBasePayload */
@@ -520,7 +522,7 @@ export interface RTPBaseDepayload_ConstructProps extends Gst.Element_ConstructPr
     max_reorder?: number
     source_info?: boolean
 }
-export class RTPBaseDepayload {
+class RTPBaseDepayload {
     /* Properties of GstRtp-1.0.GstRtp.RTPBaseDepayload */
     auto_header_extension: boolean
     max_reorder: number
@@ -777,7 +779,7 @@ export interface RTPBasePayload_ConstructProps extends Gst.Element_ConstructProp
     ssrc?: number
     timestamp_offset?: number
 }
-export class RTPBasePayload {
+class RTPBasePayload {
     /* Properties of GstRtp-1.0.GstRtp.RTPBasePayload */
     auto_header_extension: boolean
     max_ptime: number
@@ -1060,7 +1062,7 @@ export class RTPBasePayload {
 }
 export interface RTPHeaderExtension_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class RTPHeaderExtension {
+class RTPHeaderExtension {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1292,7 +1294,7 @@ export class RTPHeaderExtension {
     static set_uri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void
     static $gtype: GObject.Type
 }
-export class RTCPBuffer {
+class RTCPBuffer {
     /* Fields of GstRtp-1.0.GstRtp.RTCPBuffer */
     buffer: Gst.Buffer
     map: Gst.MapInfo
@@ -1311,7 +1313,7 @@ export class RTCPBuffer {
     static validate_data_reduced(data: Uint8Array[]): boolean
     static validate_reduced(buffer: Gst.Buffer): boolean
 }
-export class RTCPPacket {
+class RTCPPacket {
     /* Fields of GstRtp-1.0.GstRtp.RTCPPacket */
     rtcp: RTCPBuffer
     offset: number
@@ -1394,15 +1396,15 @@ export class RTCPPacket {
     xr_next_rb(): boolean
     static name: string
 }
-export abstract class RTPBaseAudioPayloadClass {
+abstract class RTPBaseAudioPayloadClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPBaseAudioPayloadClass */
     parent_class: RTPBasePayloadClass
     static name: string
 }
-export class RTPBaseAudioPayloadPrivate {
+class RTPBaseAudioPayloadPrivate {
     static name: string
 }
-export abstract class RTPBaseDepayloadClass {
+abstract class RTPBaseDepayloadClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPBaseDepayloadClass */
     parent_class: Gst.ElementClass
     set_caps: (filter: RTPBaseDepayload, caps: Gst.Caps) => boolean
@@ -1412,10 +1414,10 @@ export abstract class RTPBaseDepayloadClass {
     process_rtp_packet: (base: RTPBaseDepayload, rtp_buffer: RTPBuffer) => Gst.Buffer
     static name: string
 }
-export class RTPBaseDepayloadPrivate {
+class RTPBaseDepayloadPrivate {
     static name: string
 }
-export abstract class RTPBasePayloadClass {
+abstract class RTPBasePayloadClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPBasePayloadClass */
     parent_class: Gst.ElementClass
     get_caps: (payload: RTPBasePayload, pad: Gst.Pad, filter: Gst.Caps) => Gst.Caps
@@ -1426,10 +1428,10 @@ export abstract class RTPBasePayloadClass {
     query: (payload: RTPBasePayload, pad: Gst.Pad, query: Gst.Query) => boolean
     static name: string
 }
-export class RTPBasePayloadPrivate {
+class RTPBasePayloadPrivate {
     static name: string
 }
-export class RTPBuffer {
+class RTPBuffer {
     /* Fields of GstRtp-1.0.GstRtp.RTPBuffer */
     buffer: Gst.Buffer
     state: number
@@ -1488,7 +1490,7 @@ export class RTPBuffer {
     static new_copy_data(data: Uint8Array[]): Gst.Buffer
     static new_take_data(data: Uint8Array[]): Gst.Buffer
 }
-export abstract class RTPHeaderExtensionClass {
+abstract class RTPHeaderExtensionClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     parent_class: Gst.ElementClass
     get_supported_flags: (ext: RTPHeaderExtension) => RTPHeaderExtensionFlags
@@ -1503,7 +1505,7 @@ export abstract class RTPHeaderExtensionClass {
     set_uri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void
     static name: string
 }
-export class RTPPayloadInfo {
+class RTPPayloadInfo {
     /* Fields of GstRtp-1.0.GstRtp.RTPPayloadInfo */
     payload_type: number
     media: string
@@ -1516,7 +1518,7 @@ export class RTPPayloadInfo {
     static for_name(media: string, encoding_name: string): RTPPayloadInfo
     static for_pt(payload_type: number): RTPPayloadInfo
 }
-export class RTPSourceMeta {
+class RTPSourceMeta {
     /* Fields of GstRtp-1.0.GstRtp.RTPSourceMeta */
     meta: Gst.Meta
     ssrc: number
@@ -1531,3 +1533,5 @@ export class RTPSourceMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
+}
+export default GstRtp

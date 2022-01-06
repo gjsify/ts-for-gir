@@ -1,2 +1,1 @@
-imports.gi.versions.GstRtspServer = '1.0'
-module.exports = imports.gi.GstRtspServer
+export {default as default} from 'gi://GstRtspServer?version=1.0';

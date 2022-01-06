@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum FactoryFlags {
+export namespace Amtk {
+
+enum FactoryFlags {
     FLAGS_NONE,
     IGNORE_GACTION,
     IGNORE_ICON,
@@ -26,18 +28,18 @@ export enum FactoryFlags {
     IGNORE_ACCELS_FOR_DOC,
     IGNORE_ACCELS_FOR_APP,
 }
-export function action_map_add_action_entries_check_dups(action_map: Gio.ActionMap, entries: Gio.ActionEntry[], user_data?: object | null): void
-export function finalize(): void
-export function init(): void
-export function menu_item_get_long_description(menu_item: Gtk.MenuItem): string | null
-export function menu_item_set_icon_name(item: Gtk.MenuItem, icon_name: string): void
-export function menu_item_set_long_description(menu_item: Gtk.MenuItem, long_description?: string | null): void
-export function utils_bind_g_action_to_gtk_action(g_action_map: Gio.ActionMap, detailed_g_action_name_without_prefix: string, gtk_action_group: Gtk.ActionGroup, gtk_action_name: string): void
-export function utils_create_gtk_action(g_action_map: Gio.ActionMap, detailed_g_action_name_with_prefix: string, gtk_action_group: Gtk.ActionGroup, gtk_action_name: string): void
-export function utils_recent_chooser_menu_get_item_uri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
+function action_map_add_action_entries_check_dups(action_map: Gio.ActionMap, entries: Gio.ActionEntry[], user_data?: object | null): void
+function finalize(): void
+function init(): void
+function menu_item_get_long_description(menu_item: Gtk.MenuItem): string | null
+function menu_item_set_icon_name(item: Gtk.MenuItem, icon_name: string): void
+function menu_item_set_long_description(menu_item: Gtk.MenuItem, long_description?: string | null): void
+function utils_bind_g_action_to_gtk_action(g_action_map: Gio.ActionMap, detailed_g_action_name_without_prefix: string, gtk_action_group: Gtk.ActionGroup, gtk_action_name: string): void
+function utils_create_gtk_action(g_action_map: Gio.ActionMap, detailed_g_action_name_with_prefix: string, gtk_action_group: Gtk.ActionGroup, gtk_action_name: string): void
+function utils_recent_chooser_menu_get_item_uri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
 export interface ActionInfoCentralStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoCentralStore {
+class ActionInfoCentralStore {
     /* Fields of Amtk-4.Amtk.ActionInfoCentralStore */
     parent: GObject.Object
     priv: ActionInfoCentralStorePrivate
@@ -92,7 +94,7 @@ export class ActionInfoCentralStore {
 }
 export interface ActionInfoStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoStore {
+class ActionInfoStore {
     /* Fields of Amtk-4.Amtk.ActionInfoStore */
     parent: GObject.Object
     priv: ActionInfoStorePrivate
@@ -152,7 +154,7 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     application_window?: Gtk.ApplicationWindow
     statusbar?: Gtk.Statusbar
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Amtk-4.Amtk.ApplicationWindow */
     statusbar: Gtk.Statusbar
     /* Fields of Amtk-4.Amtk.ApplicationWindow */
@@ -219,7 +221,7 @@ export interface Factory_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
     default_flags?: FactoryFlags
 }
-export class Factory {
+class Factory {
     /* Properties of Amtk-4.Amtk.Factory */
     default_flags: FactoryFlags
     /* Fields of Amtk-4.Amtk.Factory */
@@ -290,7 +292,7 @@ export class Factory {
 export interface MenuShell_ConstructProps extends GObject.Object_ConstructProps {
     menu_shell?: Gtk.MenuShell
 }
-export class MenuShell {
+class MenuShell {
     /* Fields of Amtk-4.Amtk.MenuShell */
     parent: GObject.Object
     priv: MenuShellPrivate
@@ -353,7 +355,7 @@ export class MenuShell {
     static get_from_gtk_menu_shell(gtk_menu_shell: Gtk.MenuShell): MenuShell
     static $gtype: GObject.Type
 }
-export class ActionInfo {
+class ActionInfo {
     /* Methods of Amtk-4.Amtk.ActionInfo */
     copy(): ActionInfo
     get_accels(): string[]
@@ -377,16 +379,16 @@ export class ActionInfo {
     static new(): ActionInfo
     static new_from_entry(info_entry: ActionInfoEntry, translation_domain?: string | null): ActionInfo
 }
-export abstract class ActionInfoCentralStoreClass {
+abstract class ActionInfoCentralStoreClass {
     /* Fields of Amtk-4.Amtk.ActionInfoCentralStoreClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoCentralStorePrivate {
+class ActionInfoCentralStorePrivate {
     static name: string
 }
-export class ActionInfoEntry {
+class ActionInfoEntry {
     /* Fields of Amtk-4.Amtk.ActionInfoEntry */
     action_name: string
     icon_name: string
@@ -395,34 +397,34 @@ export class ActionInfoEntry {
     tooltip: string
     static name: string
 }
-export abstract class ActionInfoStoreClass {
+abstract class ActionInfoStoreClass {
     /* Fields of Amtk-4.Amtk.ActionInfoStoreClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoStorePrivate {
+class ActionInfoStorePrivate {
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Amtk-4.Amtk.ApplicationWindowClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationWindowPrivate {
+class ApplicationWindowPrivate {
     static name: string
 }
-export abstract class FactoryClass {
+abstract class FactoryClass {
     /* Fields of Amtk-4.Amtk.FactoryClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FactoryPrivate {
+class FactoryPrivate {
     static name: string
 }
-export abstract class MenuShellClass {
+abstract class MenuShellClass {
     /* Fields of Amtk-4.Amtk.MenuShellClass */
     parent_class: GObject.ObjectClass
     menu_item_selected: (amtk_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
@@ -430,6 +432,8 @@ export abstract class MenuShellClass {
     padding: object[]
     static name: string
 }
-export class MenuShellPrivate {
+class MenuShellPrivate {
     static name: string
 }
+}
+export default Amtk

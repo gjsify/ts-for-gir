@@ -1,2 +1,1 @@
-imports.gi.versions.GnomeAutoar = '0.1'
-module.exports = imports.gi.GnomeAutoar
+export {default as default} from 'gi://GnomeAutoar?version=0.1';

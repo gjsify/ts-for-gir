@@ -3,15 +3,17 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ColInfo {
+export namespace Libmsi {
+
+enum ColInfo {
     NAMES,
     TYPES,
 }
-export enum DBError {
+enum DBError {
     SUCCESS,
     INVALIDARG,
     MOREDATA,
@@ -46,7 +48,7 @@ export enum DBError {
     STRINGOVERFLOW,
     BADLOCALIZEATTRIB,
 }
-export enum Property {
+enum Property {
     DICTIONARY,
     CODEPAGE,
     TITLE,
@@ -68,13 +70,13 @@ export enum Property {
     APPNAME,
     SECURITY,
 }
-export enum PropertyType {
+enum PropertyType {
     EMPTY,
     INT,
     STRING,
     FILETIME,
 }
-export enum ResultError {
+enum ResultError {
     SUCCESS,
     ACCESS_DENIED,
     INVALID_HANDLE,
@@ -95,21 +97,21 @@ export enum ResultError {
     DATATYPE_MISMATCH,
     INVALID_DATATYPE,
 }
-export enum DbFlags {
+enum DbFlags {
     READONLY,
     CREATE,
     TRANSACT,
     PATCH,
 }
 export const NULL_INT: number
-export function db_error_quark(): GLib.Quark
-export function result_error_quark(): GLib.Quark
+function db_error_quark(): GLib.Quark
+function result_error_quark(): GLib.Quark
 export interface Database_ConstructProps extends GObject.Object_ConstructProps {
     flags?: DbFlags
     outpath?: string
     path?: string
 }
-export class Database {
+class Database {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Libmsi-1.0.Libmsi.Database */
@@ -170,7 +172,7 @@ export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     database?: Database
     query?: string
 }
-export class Query {
+class Query {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Libmsi-1.0.Libmsi.Query */
@@ -227,7 +229,7 @@ export class Query {
 export interface Record_ConstructProps extends GObject.Object_ConstructProps {
     count?: number
 }
-export class Record {
+class Record {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Libmsi-1.0.Libmsi.Record */
@@ -290,7 +292,7 @@ export interface SummaryInfo_ConstructProps extends GObject.Object_ConstructProp
     database?: Database
     update_count?: number
 }
-export class SummaryInfo {
+class SummaryInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Libmsi-1.0.Libmsi.SummaryInfo */
@@ -349,23 +351,25 @@ export class SummaryInfo {
     static new(database: Database | null, update_count: number): SummaryInfo
     static $gtype: GObject.Type
 }
-export abstract class DatabaseClass {
+abstract class DatabaseClass {
     /* Fields of Libmsi-1.0.Libmsi.DatabaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class QueryClass {
+abstract class QueryClass {
     /* Fields of Libmsi-1.0.Libmsi.QueryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordClass {
+abstract class RecordClass {
     /* Fields of Libmsi-1.0.Libmsi.RecordClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SummaryInfoClass {
+abstract class SummaryInfoClass {
     /* Fields of Libmsi-1.0.Libmsi.SummaryInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default Libmsi

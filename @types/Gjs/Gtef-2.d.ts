@@ -3,70 +3,72 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GtkSource from './GtkSource-3.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type GtkSource from './GtkSource-3.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum CompressionType {
+export namespace Gtef {
+
+enum CompressionType {
     NONE,
     GZIP,
 }
-export enum FileLoaderError {
+enum FileLoaderError {
     TOO_BIG,
     ENCODING_AUTO_DETECTION_FAILED,
 }
-export enum FileSaverError {
+enum FileSaverError {
     INVALID_CHARS,
     EXTERNALLY_MODIFIED,
 }
-export enum NewlineType {
+enum NewlineType {
     LF,
     CR,
     CR_LF,
 }
-export enum SelectionType {
+enum SelectionType {
     NO_SELECTION,
     ON_SAME_LINE,
     MULTIPLE_LINES,
 }
-export enum FileSaverFlags {
+enum FileSaverFlags {
     NONE,
     IGNORE_INVALID_CHARS,
     IGNORE_MODIFICATION_TIME,
     CREATE_BACKUP,
 }
-export enum GutterRendererFoldsState {
+enum GutterRendererFoldsState {
     NONE,
     START_FOLDED,
     START_OPENED,
     CONTINUE,
     END,
 }
-export function action_map_add_action_entries_check_dups(action_map: Gio.ActionMap, entries: Gio.ActionEntry[], user_data?: object | null): void
-export function encoding_get_all(): Encoding[]
-export function encoding_get_default_candidates(): Encoding[]
-export function file_loader_error_quark(): GLib.Quark
-export function file_saver_error_quark(): GLib.Quark
-export function iter_get_line_indentation(iter: Gtk.TextIter): string
-export function menu_item_get_long_description(menu_item: Gtk.MenuItem): string | null
-export function menu_item_set_icon_name(item: Gtk.MenuItem, icon_name: string): void
-export function menu_item_set_long_description(menu_item: Gtk.MenuItem, long_description?: string | null): void
-export function metadata_manager_init(metadata_path: string): void
-export function metadata_manager_shutdown(): void
-export function utils_recent_chooser_menu_get_item_uri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
+function action_map_add_action_entries_check_dups(action_map: Gio.ActionMap, entries: Gio.ActionEntry[], user_data?: object | null): void
+function encoding_get_all(): Encoding[]
+function encoding_get_default_candidates(): Encoding[]
+function file_loader_error_quark(): GLib.Quark
+function file_saver_error_quark(): GLib.Quark
+function iter_get_line_indentation(iter: Gtk.TextIter): string
+function menu_item_get_long_description(menu_item: Gtk.MenuItem): string | null
+function menu_item_set_icon_name(item: Gtk.MenuItem, icon_name: string): void
+function menu_item_set_long_description(menu_item: Gtk.MenuItem, long_description?: string | null): void
+function metadata_manager_init(metadata_path: string): void
+function metadata_manager_shutdown(): void
+function utils_recent_chooser_menu_get_item_uri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
 export interface ActionInfoCentralStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoCentralStore {
+class ActionInfoCentralStore {
     /* Fields of Gtef-2.Gtef.ActionInfoCentralStore */
     parent: GObject.Object
     priv: ActionInfoCentralStorePrivate
@@ -122,7 +124,7 @@ export class ActionInfoCentralStore {
 export interface ActionInfoStore_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
 }
-export class ActionInfoStore {
+class ActionInfoStore {
     /* Fields of Gtef-2.Gtef.ActionInfoStore */
     parent: GObject.Object
     priv: ActionInfoStorePrivate
@@ -183,7 +185,7 @@ export class ActionInfoStore {
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
 }
-export class Application {
+class Application {
     /* Fields of Gtef-2.Gtef.Application */
     parent: GObject.Object
     priv: ApplicationPrivate
@@ -243,7 +245,7 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     application_window?: Gtk.ApplicationWindow
     statusbar?: Gtk.Statusbar
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Gtef-2.Gtef.ApplicationWindow */
     statusbar: Gtk.Statusbar
     /* Fields of Gtef-2.Gtef.ApplicationWindow */
@@ -308,7 +310,7 @@ export class ApplicationWindow {
 export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     gtef_style_scheme_id?: string
 }
-export class Buffer {
+class Buffer {
     /* Properties of Gtef-2.Gtef.Buffer */
     gtef_style_scheme_id: string
     readonly gtef_title: string
@@ -606,7 +608,7 @@ export class Buffer {
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
-export class File {
+class File {
     /* Properties of Gtef-2.Gtef.File */
     readonly compression_type: CompressionType
     readonly encoding: Encoding
@@ -695,7 +697,7 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     location?: Gio.File
     max_size?: number
 }
-export class FileLoader {
+class FileLoader {
     /* Properties of Gtef-2.Gtef.FileLoader */
     chunk_size: number
     max_size: number
@@ -767,7 +769,7 @@ export class FileLoader {
 export interface FileMetadata_ConstructProps extends GObject.Object_ConstructProps {
     file?: File
 }
-export class FileMetadata {
+class FileMetadata {
     /* Fields of Gtef-2.Gtef.FileMetadata */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -836,7 +838,7 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     location?: Gio.File
     newline_type?: GtkSource.NewlineType
 }
-export class FileSaver {
+class FileSaver {
     /* Properties of Gtef-2.Gtef.FileSaver */
     compression_type: GtkSource.CompressionType
     encoding: Encoding
@@ -919,7 +921,7 @@ export interface FoldRegion_ConstructProps extends GObject.Object_ConstructProps
     buffer?: Gtk.TextBuffer
     folded?: boolean
 }
-export class FoldRegion {
+class FoldRegion {
     /* Properties of Gtef-2.Gtef.FoldRegion */
     folded: boolean
     /* Fields of Gtef-2.Gtef.FoldRegion */
@@ -981,7 +983,7 @@ export class FoldRegion {
 }
 export interface GutterRendererFolds_ConstructProps extends GtkSource.GutterRenderer_ConstructProps {
 }
-export class GutterRendererFolds {
+class GutterRendererFolds {
     /* Properties of GtkSource-3.0.GtkSource.GutterRenderer */
     alignment_mode: GtkSource.GutterRendererAlignmentMode
     background_rgba: Gdk.RGBA
@@ -1122,7 +1124,7 @@ export class GutterRendererFolds {
 export interface InfoBar_ConstructProps extends Gtk.InfoBar_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class InfoBar {
+class InfoBar {
     /* Properties of Gtk-3.0.Gtk.InfoBar */
     message_type: Gtk.MessageType
     revealed: boolean
@@ -2004,7 +2006,7 @@ export class InfoBar {
 export interface MenuShell_ConstructProps extends GObject.Object_ConstructProps {
     menu_shell?: Gtk.MenuShell
 }
-export class MenuShell {
+class MenuShell {
     /* Fields of Gtef-2.Gtef.MenuShell */
     parent: GObject.Object
     priv: MenuShellPrivate
@@ -2070,7 +2072,7 @@ export class MenuShell {
 export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Tab {
+class Tab {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -2926,7 +2928,7 @@ export interface View_ConstructProps extends GtkSource.View_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of GtkSource-3.0.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
@@ -4090,7 +4092,7 @@ export class View {
     static new_with_buffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
-export class ActionInfo {
+class ActionInfo {
     /* Methods of Gtef-2.Gtef.ActionInfo */
     copy(): ActionInfo
     get_accels(): string[]
@@ -4112,16 +4114,16 @@ export class ActionInfo {
     static new(): ActionInfo
     static new_from_entry(info_entry: ActionInfoEntry, translation_domain?: string | null): ActionInfo
 }
-export abstract class ActionInfoCentralStoreClass {
+abstract class ActionInfoCentralStoreClass {
     /* Fields of Gtef-2.Gtef.ActionInfoCentralStoreClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoCentralStorePrivate {
+class ActionInfoCentralStorePrivate {
     static name: string
 }
-export class ActionInfoEntry {
+class ActionInfoEntry {
     /* Fields of Gtef-2.Gtef.ActionInfoEntry */
     action_name: string
     icon_name: string
@@ -4130,41 +4132,41 @@ export class ActionInfoEntry {
     tooltip: string
     static name: string
 }
-export abstract class ActionInfoStoreClass {
+abstract class ActionInfoStoreClass {
     /* Fields of Gtef-2.Gtef.ActionInfoStoreClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoStorePrivate {
+class ActionInfoStorePrivate {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Gtef-2.Gtef.ApplicationClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Gtef-2.Gtef.ApplicationWindowClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationWindowPrivate {
+class ApplicationWindowPrivate {
     static name: string
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Gtef-2.Gtef.BufferClass */
     parent_class: GtkSource.BufferClass
     gtef_cursor_moved: (buffer: Buffer) => void
     padding: object[]
     static name: string
 }
-export class Encoding {
+class Encoding {
     /* Methods of Gtef-2.Gtef.Encoding */
     copy(): Encoding
     equals(enc2?: Encoding | null): boolean
@@ -4183,52 +4185,52 @@ export class Encoding {
     static get_all(): Encoding[]
     static get_default_candidates(): Encoding[]
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of Gtef-2.Gtef.FileClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileLoaderClass {
+abstract class FileLoaderClass {
     /* Fields of Gtef-2.Gtef.FileLoaderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileMetadataClass {
+abstract class FileMetadataClass {
     /* Fields of Gtef-2.Gtef.FileMetadataClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileSaverClass {
+abstract class FileSaverClass {
     /* Fields of Gtef-2.Gtef.FileSaverClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileSaverPrivate {
+class FileSaverPrivate {
     static name: string
 }
-export abstract class FoldRegionClass {
+abstract class FoldRegionClass {
     /* Fields of Gtef-2.Gtef.FoldRegionClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class GutterRendererFoldsClass {
+abstract class GutterRendererFoldsClass {
     /* Fields of Gtef-2.Gtef.GutterRendererFoldsClass */
     parent_class: GtkSource.GutterRendererClass
     padding: object[]
     static name: string
 }
-export abstract class InfoBarClass {
+abstract class InfoBarClass {
     /* Fields of Gtef-2.Gtef.InfoBarClass */
     parent_class: Gtk.InfoBarClass
     padding: object[]
     static name: string
 }
-export abstract class MenuShellClass {
+abstract class MenuShellClass {
     /* Fields of Gtef-2.Gtef.MenuShellClass */
     parent_class: GObject.ObjectClass
     menu_item_selected: (gtef_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
@@ -4236,18 +4238,20 @@ export abstract class MenuShellClass {
     padding: object[]
     static name: string
 }
-export class MenuShellPrivate {
+class MenuShellPrivate {
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Gtef-2.Gtef.TabClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Gtef-2.Gtef.ViewClass */
     parent_class: GtkSource.ViewClass
     padding: object[]
     static name: string
 }
+}
+export default Gtef

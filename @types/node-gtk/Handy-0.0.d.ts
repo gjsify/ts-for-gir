@@ -16,69 +16,69 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Handy {
+declare namespace Handy {
 
-export enum ArrowsDirection {
+enum ArrowsDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum CenteringPolicy {
+enum CenteringPolicy {
     LOOSE,
     STRICT,
 }
-export enum Fold {
+enum Fold {
     UNFOLDED,
     FOLDED,
 }
-export enum LeafletChildTransitionType {
+enum LeafletChildTransitionType {
     NONE,
     CROSSFADE,
     SLIDE,
     OVER,
     UNDER,
 }
-export enum LeafletModeTransitionType {
+enum LeafletModeTransitionType {
     NONE,
     SLIDE,
 }
-export enum LeafletTransitionType {
+enum LeafletTransitionType {
     NONE,
     SLIDE,
     OVER,
     UNDER,
 }
-export enum PaginatorIndicatorStyle {
+enum PaginatorIndicatorStyle {
     NONE,
     DOTS,
     LINES,
 }
-export enum SqueezerTransitionType {
+enum SqueezerTransitionType {
     NONE,
     CROSSFADE,
 }
-export enum ViewSwitcherPolicy {
+enum ViewSwitcherPolicy {
     AUTO,
     NARROW,
     WIDE,
 }
-export function easeOutCubic(t: number): number
-export function enumValueRowName(value: EnumValueObject, userData?: object | null): string
-export function getEnableAnimations(widget: Gtk.Widget): boolean
-export function init(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
-export function listBoxSeparatorHeader(row: Gtk.ListBoxRow, before?: Gtk.ListBoxRow | null, unusedUserData?: object | null): void
-export function stringUtf8Len(string: GLib.String): number
-export function stringUtf8Truncate(string: GLib.String, len: number): GLib.String
-export interface ComboRowGetEnumValueNameFunc {
+function easeOutCubic(t: number): number
+function enumValueRowName(value: EnumValueObject, userData?: object | null): string
+function getEnableAnimations(widget: Gtk.Widget): boolean
+function init(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
+function listBoxSeparatorHeader(row: Gtk.ListBoxRow, before?: Gtk.ListBoxRow | null, unusedUserData?: object | null): void
+function stringUtf8Len(string: GLib.String): number
+function stringUtf8Truncate(string: GLib.String, len: number): GLib.String
+interface ComboRowGetEnumValueNameFunc {
     (value: EnumValueObject): string
 }
-export interface ComboRowGetNameFunc {
+interface ComboRowGetNameFunc {
     (item: GObject.Object): string
 }
 export interface Swipeable_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Swipeable {
+class Swipeable {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -993,7 +993,7 @@ export interface ActionRow_ConstructProps extends PreferencesRow_ConstructProps 
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ActionRow {
+class ActionRow {
     /* Properties of Handy-0.0.Handy.ActionRow */
     activatableWidget: Gtk.Widget
     iconName: string
@@ -2065,7 +2065,7 @@ export interface Arrows_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     direction?: ArrowsDirection
     duration?: number
 }
-export class Arrows {
+class Arrows {
     /* Properties of Handy-0.0.Handy.Arrows */
     count: number
     direction: ArrowsDirection
@@ -2994,7 +2994,7 @@ export interface Column_ConstructProps extends Gtk.Bin_ConstructProps {
     linearGrowthWidth?: number
     maximumWidth?: number
 }
-export class Column {
+class Column {
     /* Properties of Handy-0.0.Handy.Column */
     linearGrowthWidth: number
     maximumWidth: number
@@ -3989,7 +3989,7 @@ export interface ComboRow_ConstructProps extends ActionRow_ConstructProps {
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ComboRow {
+class ComboRow {
     /* Properties of Handy-0.0.Handy.ComboRow */
     selectedIndex: number
     useSubtitle: boolean
@@ -5086,7 +5086,7 @@ export interface Dialer_ConstructProps extends Gtk.Bin_ConstructProps {
     rowSpacing?: number
     showActionButtons?: boolean
 }
-export class Dialer {
+class Dialer {
     /* Properties of Handy-0.0.Handy.Dialer */
     columnSpacing: number
     number: string
@@ -6119,7 +6119,7 @@ export interface DialerButton_ConstructProps extends Gtk.Button_ConstructProps {
     relatedAction?: Gtk.Action
     useActionAppearance?: boolean
 }
-export class DialerButton {
+class DialerButton {
     /* Properties of Handy-0.0.Handy.DialerButton */
     readonly digit: number
     symbols: string
@@ -7262,7 +7262,7 @@ export interface DialerCycleButton_ConstructProps extends DialerButton_Construct
     relatedAction?: Gtk.Action
     useActionAppearance?: boolean
 }
-export class DialerCycleButton {
+class DialerCycleButton {
     /* Properties of Handy-0.0.Handy.DialerCycleButton */
     cycleTimeout: number
     /* Properties of Handy-0.0.Handy.DialerButton */
@@ -8425,7 +8425,7 @@ export class DialerCycleButton {
 }
 export interface Dialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class Dialog {
+class Dialog {
     /* Properties of Handy-0.0.Handy.Dialog */
     readonly narrow: boolean
     /* Properties of Gtk-3.0.Gtk.Window */
@@ -9759,7 +9759,7 @@ export class Dialog {
 }
 export interface EnumValueObject_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EnumValueObject {
+class EnumValueObject {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Handy-0.0.Handy.EnumValueObject */
@@ -9815,7 +9815,7 @@ export interface ExpanderRow_ConstructProps extends ActionRow_ConstructProps {
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ExpanderRow {
+class ExpanderRow {
     /* Properties of Handy-0.0.Handy.ExpanderRow */
     enableExpansion: boolean
     expanded: boolean
@@ -10921,7 +10921,7 @@ export interface HeaderBar_ConstructProps extends Gtk.Container_ConstructProps {
     title?: string
     transitionDuration?: number
 }
-export class HeaderBar {
+class HeaderBar {
     /* Properties of Handy-0.0.Handy.HeaderBar */
     centeringPolicy: CenteringPolicy
     customTitle: Gtk.Widget
@@ -11986,7 +11986,7 @@ export class HeaderBar {
 export interface HeaderGroup_ConstructProps extends GObject.Object_ConstructProps {
     focus?: Gtk.HeaderBar
 }
-export class HeaderGroup {
+class HeaderGroup {
     /* Properties of Handy-0.0.Handy.HeaderGroup */
     focus: Gtk.HeaderBar
     /* Fields of Handy-0.0.Handy.HeaderGroup */
@@ -12065,7 +12065,7 @@ export interface Keypad_ConstructProps extends Gtk.Grid_ConstructProps {
     showSymbols?: boolean
     orientation?: Gtk.Orientation
 }
-export class Keypad {
+class Keypad {
     /* Properties of Handy-0.0.Handy.Keypad */
     entry: Gtk.Widget
     leftAction: Gtk.Widget
@@ -13148,7 +13148,7 @@ export interface Leaflet_ConstructProps extends Gtk.Container_ConstructProps {
     visibleChildName?: string
     orientation?: Gtk.Orientation
 }
-export class Leaflet {
+class Leaflet {
     /* Properties of Handy-0.0.Handy.Leaflet */
     canSwipeBack: boolean
     canSwipeForward: boolean
@@ -14284,7 +14284,7 @@ export interface Paginator_ConstructProps extends Gtk.EventBox_ConstructProps {
     spacing?: number
     orientation?: Gtk.Orientation
 }
-export class Paginator {
+class Paginator {
     /* Properties of Handy-0.0.Handy.Paginator */
     allowMouseDrag: boolean
     animationDuration: number
@@ -15394,7 +15394,7 @@ export interface PreferencesGroup_ConstructProps extends Gtk.Box_ConstructProps 
     title?: string
     orientation?: Gtk.Orientation
 }
-export class PreferencesGroup {
+class PreferencesGroup {
     /* Properties of Handy-0.0.Handy.PreferencesGroup */
     description: string
     title: string
@@ -16429,7 +16429,7 @@ export interface PreferencesPage_ConstructProps extends Gtk.ScrolledWindow_Const
     iconName?: string
     title?: string
 }
-export class PreferencesPage {
+class PreferencesPage {
     /* Properties of Handy-0.0.Handy.PreferencesPage */
     iconName: string
     title: string
@@ -17571,7 +17571,7 @@ export interface PreferencesRow_ConstructProps extends Gtk.ListBoxRow_ConstructP
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class PreferencesRow {
+class PreferencesRow {
     /* Properties of Handy-0.0.Handy.PreferencesRow */
     title: string
     useUnderline: boolean
@@ -18610,7 +18610,7 @@ export class PreferencesRow {
 }
 export interface PreferencesWindow_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class PreferencesWindow {
+class PreferencesWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -19912,7 +19912,7 @@ export interface SearchBar_ConstructProps extends Gtk.Bin_ConstructProps {
     searchModeEnabled?: boolean
     showCloseButton?: boolean
 }
-export class SearchBar {
+class SearchBar {
     /* Properties of Handy-0.0.Handy.SearchBar */
     searchModeEnabled: boolean
     showCloseButton: boolean
@@ -20910,7 +20910,7 @@ export interface Squeezer_ConstructProps extends Gtk.Container_ConstructProps {
     transitionType?: SqueezerTransitionType
     orientation?: Gtk.Orientation
 }
-export class Squeezer {
+class Squeezer {
     /* Properties of Handy-0.0.Handy.Squeezer */
     homogeneous: boolean
     interpolateSize: boolean
@@ -21939,7 +21939,7 @@ export class Squeezer {
 }
 export interface SwipeGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SwipeGroup {
+class SwipeGroup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Handy-0.0.Handy.SwipeGroup */
@@ -22002,7 +22002,7 @@ export class SwipeGroup {
 export interface TitleBar_ConstructProps extends Gtk.Bin_ConstructProps {
     selectionMode?: boolean
 }
-export class TitleBar {
+class TitleBar {
     /* Properties of Handy-0.0.Handy.TitleBar */
     selectionMode: boolean
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -22986,7 +22986,7 @@ export class TitleBar {
 export interface ValueObject_ConstructProps extends GObject.Object_ConstructProps {
     value?: any
 }
-export class ValueObject {
+class ValueObject {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Handy-0.0.Handy.ValueObject */
@@ -23043,7 +23043,7 @@ export interface ViewSwitcher_ConstructProps extends Gtk.Box_ConstructProps {
     stack?: Gtk.Stack
     orientation?: Gtk.Orientation
 }
-export class ViewSwitcher {
+class ViewSwitcher {
     /* Properties of Handy-0.0.Handy.ViewSwitcher */
     iconSize: number
     narrowEllipsize: Pango.EllipsizeMode
@@ -24096,7 +24096,7 @@ export interface ViewSwitcherBar_ConstructProps extends Gtk.Bin_ConstructProps {
     reveal?: boolean
     stack?: Gtk.Stack
 }
-export class ViewSwitcherBar {
+class ViewSwitcherBar {
     /* Properties of Handy-0.0.Handy.ViewSwitcherBar */
     iconSize: number
     policy: ViewSwitcherPolicy
@@ -25101,122 +25101,122 @@ export class ViewSwitcherBar {
     static new(): ViewSwitcherBar
     static $gtype: GObject.Type
 }
-export abstract class ActionRowClass {
+abstract class ActionRowClass {
     /* Fields of Handy-0.0.Handy.ActionRowClass */
     parentClass: Gtk.ListBoxRowClass
     activate: (self: ActionRow) => void
     static name: string
 }
-export abstract class ArrowsClass {
+abstract class ArrowsClass {
     /* Fields of Handy-0.0.Handy.ArrowsClass */
     parentClass: Gtk.DrawingAreaClass
     static name: string
 }
-export abstract class ColumnClass {
+abstract class ColumnClass {
     /* Fields of Handy-0.0.Handy.ColumnClass */
     parentClass: Gtk.BinClass
     static name: string
 }
-export abstract class ComboRowClass {
+abstract class ComboRowClass {
     /* Fields of Handy-0.0.Handy.ComboRowClass */
     parentClass: ActionRowClass
     static name: string
 }
-export abstract class DialerButtonClass {
+abstract class DialerButtonClass {
     /* Fields of Handy-0.0.Handy.DialerButtonClass */
     parentClass: Gtk.ButtonClass
     static name: string
 }
-export abstract class DialerClass {
+abstract class DialerClass {
     /* Fields of Handy-0.0.Handy.DialerClass */
     parentClass: Gtk.BinClass
     submitted: (self: Dialer, number: string) => void
     static name: string
 }
-export abstract class DialerCycleButtonClass {
+abstract class DialerCycleButtonClass {
     /* Fields of Handy-0.0.Handy.DialerCycleButtonClass */
     parentClass: DialerButtonClass
     cycleStart: (self: DialerCycleButton) => void
     cycleEnd: (self: DialerCycleButton) => void
     static name: string
 }
-export abstract class DialogClass {
+abstract class DialogClass {
     /* Fields of Handy-0.0.Handy.DialogClass */
     parentClass: Gtk.DialogClass
     static name: string
 }
-export abstract class EnumValueObjectClass {
+abstract class EnumValueObjectClass {
     /* Fields of Handy-0.0.Handy.EnumValueObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ExpanderRowClass {
+abstract class ExpanderRowClass {
     /* Fields of Handy-0.0.Handy.ExpanderRowClass */
     parentClass: ActionRowClass
     static name: string
 }
-export abstract class HeaderBarClass {
+abstract class HeaderBarClass {
     /* Fields of Handy-0.0.Handy.HeaderBarClass */
     parentClass: Gtk.ContainerClass
     static name: string
 }
-export abstract class HeaderGroupClass {
+abstract class HeaderGroupClass {
     /* Fields of Handy-0.0.Handy.HeaderGroupClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class KeypadClass {
+abstract class KeypadClass {
     /* Fields of Handy-0.0.Handy.KeypadClass */
     parentClass: Gtk.GridClass
     static name: string
 }
-export abstract class LeafletClass {
+abstract class LeafletClass {
     /* Fields of Handy-0.0.Handy.LeafletClass */
     parentClass: Gtk.ContainerClass
     todo: (self: Leaflet) => void
     static name: string
 }
-export abstract class PaginatorClass {
+abstract class PaginatorClass {
     /* Fields of Handy-0.0.Handy.PaginatorClass */
     parentClass: Gtk.EventBoxClass
     static name: string
 }
-export abstract class PreferencesGroupClass {
+abstract class PreferencesGroupClass {
     /* Fields of Handy-0.0.Handy.PreferencesGroupClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export abstract class PreferencesPageClass {
+abstract class PreferencesPageClass {
     /* Fields of Handy-0.0.Handy.PreferencesPageClass */
     parentClass: Gtk.ScrolledWindowClass
     static name: string
 }
-export abstract class PreferencesRowClass {
+abstract class PreferencesRowClass {
     /* Fields of Handy-0.0.Handy.PreferencesRowClass */
     parentClass: Gtk.ListBoxRowClass
     static name: string
 }
-export abstract class PreferencesWindowClass {
+abstract class PreferencesWindowClass {
     /* Fields of Handy-0.0.Handy.PreferencesWindowClass */
     parentClass: Gtk.WindowClass
     static name: string
 }
-export abstract class SearchBarClass {
+abstract class SearchBarClass {
     /* Fields of Handy-0.0.Handy.SearchBarClass */
     parentClass: Gtk.BinClass
     static name: string
 }
-export abstract class SqueezerClass {
+abstract class SqueezerClass {
     /* Fields of Handy-0.0.Handy.SqueezerClass */
     parentClass: Gtk.ContainerClass
     static name: string
 }
-export abstract class SwipeGroupClass {
+abstract class SwipeGroupClass {
     /* Fields of Handy-0.0.Handy.SwipeGroupClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SwipeableInterface {
+abstract class SwipeableInterface {
     /* Fields of Handy-0.0.Handy.SwipeableInterface */
     parent: GObject.TypeInterface
     switchChild: (self: Swipeable, index: number, duration: number) => void
@@ -25225,24 +25225,25 @@ export abstract class SwipeableInterface {
     endSwipe: (self: Swipeable, duration: number, to: number) => void
     static name: string
 }
-export abstract class TitleBarClass {
+abstract class TitleBarClass {
     /* Fields of Handy-0.0.Handy.TitleBarClass */
     parentClass: Gtk.BinClass
     static name: string
 }
-export abstract class ValueObjectClass {
+abstract class ValueObjectClass {
     /* Fields of Handy-0.0.Handy.ValueObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ViewSwitcherBarClass {
+abstract class ViewSwitcherBarClass {
     /* Fields of Handy-0.0.Handy.ViewSwitcherBarClass */
     parentClass: Gtk.BinClass
     static name: string
 }
-export abstract class ViewSwitcherClass {
+abstract class ViewSwitcherClass {
     /* Fields of Handy-0.0.Handy.ViewSwitcherClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
 }
+export default Handy

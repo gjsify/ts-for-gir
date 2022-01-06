@@ -3,35 +3,37 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-4.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-4.0';
+import type cairo from './cairo-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export enum X11DeviceType {
+export namespace GdkX11 {
+
+enum X11DeviceType {
     LOGICAL,
     PHYSICAL,
     FLOATING,
 }
-export function x11_device_get_id(device: X11DeviceXI2): number
-export function x11_device_manager_lookup(device_manager: X11DeviceManagerXI2, device_id: number): X11DeviceXI2 | null
-export function x11_free_compound_text(ctext: number): void
-export function x11_free_text_list(list: string): void
-export function x11_get_server_time(surface: X11Surface): number
-export function x11_get_xatom_by_name_for_display(display: X11Display, atom_name: string): xlib.Atom
-export function x11_get_xatom_name_for_display(display: X11Display, xatom: xlib.Atom): string
-export function x11_lookup_xdisplay(xdisplay: xlib.Display): X11Display
-export function x11_set_sm_client_id(sm_client_id?: string | null): void
+function x11_device_get_id(device: X11DeviceXI2): number
+function x11_device_manager_lookup(device_manager: X11DeviceManagerXI2, device_id: number): X11DeviceXI2 | null
+function x11_free_compound_text(ctext: number): void
+function x11_free_text_list(list: string): void
+function x11_get_server_time(surface: X11Surface): number
+function x11_get_xatom_by_name_for_display(display: X11Display, atom_name: string): xlib.Atom
+function x11_get_xatom_name_for_display(display: X11Display, xatom: xlib.Atom): string
+function x11_lookup_xdisplay(xdisplay: xlib.Display): X11Display
+function x11_set_sm_client_id(sm_client_id?: string | null): void
 export interface X11AppLaunchContext_ConstructProps extends Gdk.AppLaunchContext_ConstructProps {
 }
-export class X11AppLaunchContext {
+class X11AppLaunchContext {
     /* Fields of Gio-2.0.Gio.AppLaunchContext */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -114,7 +116,7 @@ export interface X11DeviceManagerXI2_ConstructProps extends GObject.Object_Const
     minor?: number
     opcode?: number
 }
-export class X11DeviceManagerXI2 {
+class X11DeviceManagerXI2 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -163,7 +165,7 @@ export class X11DeviceManagerXI2 {
 export interface X11DeviceXI2_ConstructProps extends Gdk.Device_ConstructProps {
     device_id?: number
 }
-export class X11DeviceXI2 {
+class X11DeviceXI2 {
     /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
@@ -263,7 +265,7 @@ export class X11DeviceXI2 {
 }
 export interface X11Display_ConstructProps extends Gdk.Display_ConstructProps {
 }
-export class X11Display {
+class X11Display {
     /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly input_shapes: boolean
@@ -396,7 +398,7 @@ export class X11Display {
 }
 export interface X11Drag_ConstructProps extends Gdk.Drag_ConstructProps {
 }
-export class X11Drag {
+class X11Drag {
     /* Properties of Gdk-4.0.Gdk.Drag */
     actions: Gdk.DragAction
     readonly display: Gdk.Display
@@ -475,7 +477,7 @@ export class X11Drag {
 }
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
-export class X11GLContext {
+class X11GLContext {
     /* Properties of Gdk-4.0.Gdk.GLContext */
     allowed_apis: Gdk.GLAPI
     readonly api: Gdk.GLAPI
@@ -555,7 +557,7 @@ export class X11GLContext {
 }
 export interface X11Monitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
-export class X11Monitor {
+class X11Monitor {
     /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Gdk.Rectangle
@@ -653,7 +655,7 @@ export class X11Monitor {
 }
 export interface X11Screen_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class X11Screen {
+class X11Screen {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkX11-4.0.GdkX11.X11Screen */
@@ -713,7 +715,7 @@ export class X11Screen {
 }
 export interface X11Surface_ConstructProps extends Gdk.Surface_ConstructProps {
 }
-export class X11Surface {
+class X11Surface {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
@@ -832,30 +834,32 @@ export class X11Surface {
     static lookup_for_display(display: X11Display, window: xlib.Window): X11Surface
     static $gtype: GObject.Type
 }
-export abstract class X11AppLaunchContextClass {
+abstract class X11AppLaunchContextClass {
     static name: string
 }
-export abstract class X11DeviceManagerXI2Class {
+abstract class X11DeviceManagerXI2Class {
     static name: string
 }
-export abstract class X11DeviceXI2Class {
+abstract class X11DeviceXI2Class {
     static name: string
 }
-export abstract class X11DisplayClass {
+abstract class X11DisplayClass {
     static name: string
 }
-export abstract class X11DragClass {
+abstract class X11DragClass {
     static name: string
 }
-export abstract class X11GLContextClass {
+abstract class X11GLContextClass {
     static name: string
 }
-export abstract class X11MonitorClass {
+abstract class X11MonitorClass {
     static name: string
 }
-export abstract class X11ScreenClass {
+abstract class X11ScreenClass {
     static name: string
 }
-export abstract class X11SurfaceClass {
+abstract class X11SurfaceClass {
     static name: string
 }
+}
+export default GdkX11

@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GstPbutils from './GstPbutils-1.0';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstAudio from './GstAudio-1.0';
+import type libxml2 from './libxml2-2.0';
+import type GstPbutils from './GstPbutils-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstAudio from './GstAudio-1.0';
+
+export namespace GUPnPDLNA {
 
 export interface Discoverer_ConstructProps extends GstPbutils.Discoverer_ConstructProps {
     extended_mode?: boolean
     relaxed_mode?: boolean
 }
-export class Discoverer {
+class Discoverer {
     /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     use_cache: boolean
@@ -116,7 +118,7 @@ export interface Information_ConstructProps extends GObject.Object_ConstructProp
     mime?: string
     name?: string
 }
-export class Information {
+class Information {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -175,7 +177,7 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     mime?: string
     name?: string
 }
-export class Profile {
+class Profile {
     /* Properties of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     readonly encoding_profile: GstPbutils.EncodingProfile
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
@@ -232,19 +234,21 @@ export class Profile {
     _init (config?: Profile_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DiscovererClass {
+abstract class DiscovererClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.DiscovererClass */
     parent_class: GstPbutils.DiscovererClass
     done: (discoverer: Discoverer, dlna: Information, err: GLib.Error) => void
     static name: string
 }
-export abstract class InformationClass {
+abstract class InformationClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.InformationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.ProfileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default GUPnPDLNA

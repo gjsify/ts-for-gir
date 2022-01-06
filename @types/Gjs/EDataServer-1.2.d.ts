@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
 
-export enum ClientError {
+export namespace EDataServer {
+
+enum ClientError {
     INVALID_ARG,
     BUSY,
     SOURCE_NOT_LOADED,
@@ -37,35 +39,35 @@ export enum ClientError {
     NOT_OPENED,
     OUT_OF_SYNC,
 }
-export enum CollatorError {
+enum CollatorError {
     OPEN,
     CONVERSION,
     INVALID_LOCALE,
 }
-export enum ConflictResolution {
+enum ConflictResolution {
     FAIL,
     USE_NEWER,
     KEEP_SERVER,
     KEEP_LOCAL,
     WRITE_COPY,
 }
-export enum MdnResponsePolicy {
+enum MdnResponsePolicy {
     NEVER,
     ALWAYS,
     ASK,
 }
-export enum OAuth2ServiceNavigationPolicy {
+enum OAuth2ServiceNavigationPolicy {
     DENY,
     ALLOW,
     ABORT,
 }
-export enum ProxyMethod {
+enum ProxyMethod {
     DEFAULT,
     MANUAL,
     AUTO,
     NONE,
 }
-export enum SourceAuthenticationResult {
+enum SourceAuthenticationResult {
     UNKNOWN,
     ERROR,
     ERROR_SSL_FAILED,
@@ -73,64 +75,64 @@ export enum SourceAuthenticationResult {
     REJECTED,
     REQUIRED,
 }
-export enum SourceConnectionStatus {
+enum SourceConnectionStatus {
     DISCONNECTED,
     AWAITING_CREDENTIALS,
     SSL_FAILED,
     CONNECTING,
     CONNECTED,
 }
-export enum SourceCredentialsReason {
+enum SourceCredentialsReason {
     UNKNOWN,
     REQUIRED,
     REJECTED,
     SSL_FAILED,
     ERROR,
 }
-export enum SourceLDAPAuthentication {
+enum SourceLDAPAuthentication {
     NONE,
     EMAIL,
     BINDDN,
 }
-export enum SourceLDAPScope {
+enum SourceLDAPScope {
     ONELEVEL,
     SUBTREE,
 }
-export enum SourceLDAPSecurity {
+enum SourceLDAPSecurity {
     NONE,
     LDAPS,
     STARTTLS,
 }
-export enum SourceMailCompositionReplyStyle {
+enum SourceMailCompositionReplyStyle {
     DEFAULT,
     QUOTED,
     DO_NOT_QUOTE,
     ATTACH,
     OUTLOOK,
 }
-export enum SourceWeatherUnits {
+enum SourceWeatherUnits {
     FAHRENHEIT,
     CENTIGRADE,
     KELVIN,
 }
-export enum ThreeState {
+enum ThreeState {
     OFF,
     ON,
     INCONSISTENT,
 }
-export enum TimeParseStatus {
+enum TimeParseStatus {
     OK,
     NONE,
     INVALID,
 }
-export enum TrustPromptResponse {
+enum TrustPromptResponse {
     UNKNOWN,
     REJECT,
     ACCEPT,
     ACCEPT_TEMPORARILY,
     REJECT_TEMPORARILY,
 }
-export enum WebDAVACEPrincipalKind {
+enum WebDAVACEPrincipalKind {
     UNKNOWN,
     HREF,
     ALL,
@@ -140,11 +142,11 @@ export enum WebDAVACEPrincipalKind {
     SELF,
     OWNER,
 }
-export enum WebDAVLockScope {
+enum WebDAVLockScope {
     EXCLUSIVE,
     SHARED,
 }
-export enum WebDAVPrivilegeHint {
+enum WebDAVPrivilegeHint {
     UNKNOWN,
     READ,
     WRITE,
@@ -159,17 +161,17 @@ export enum WebDAVPrivilegeHint {
     ALL,
     CALDAV_READ_FREE_BUSY,
 }
-export enum WebDAVPrivilegeKind {
+enum WebDAVPrivilegeKind {
     UNKNOWN,
     ABSTRACT,
     AGGREGATE,
     COMMON,
 }
-export enum WebDAVPropertyChangeKind {
+enum WebDAVPropertyChangeKind {
     SET,
     REMOVE,
 }
-export enum WebDAVResourceKind {
+enum WebDAVResourceKind {
     UNKNOWN,
     ADDRESSBOOK,
     CALENDAR,
@@ -179,20 +181,20 @@ export enum WebDAVResourceKind {
     SUBSCRIBED_ICALENDAR,
     WEBDAV_NOTES,
 }
-export enum XmlHashStatus {
+enum XmlHashStatus {
     SAME,
     DIFFERENT,
     NOT_FOUND,
 }
-export enum XmlHashType {
+enum XmlHashType {
     OBJECT_UID,
     PROPERTY,
 }
-export enum OAuth2ServiceFlags {
+enum OAuth2ServiceFlags {
     NONE,
     EXTRACT_REQUIRES_PAGE_CONTENT,
 }
-export enum WebDAVACEFlag {
+enum WebDAVACEFlag {
     UNKNOWN,
     GRANT,
     DENY,
@@ -200,14 +202,14 @@ export enum WebDAVACEFlag {
     PROTECTED,
     INHERITED,
 }
-export enum WebDAVACLRestrictions {
+enum WebDAVACLRestrictions {
     NONE,
     GRANT_ONLY,
     NO_INVERT,
     DENY_BEFORE_GRANT,
     REQUIRED_PRINCIPAL,
 }
-export enum WebDAVDiscoverSupports {
+enum WebDAVDiscoverSupports {
     NONE,
     CONTACTS,
     EVENTS,
@@ -217,7 +219,7 @@ export enum WebDAVDiscoverSupports {
     CALENDAR_AUTO_SCHEDULE,
     SUBSCRIBED_ICALENDAR,
 }
-export enum WebDAVListFlags {
+enum WebDAVListFlags {
     ALL,
     NONE,
     SUPPORTS,
@@ -233,7 +235,7 @@ export enum WebDAVListFlags {
     ONLY_CALENDAR,
     ONLY_ADDRESSBOOK,
 }
-export enum WebDAVResourceSupports {
+enum WebDAVResourceSupports {
     NONE,
     CONTACTS,
     EVENTS,
@@ -327,150 +329,150 @@ export const WEBDAV_NS_CALENDARSERVER: string
 export const WEBDAV_NS_CARDDAV: string
 export const WEBDAV_NS_DAV: string
 export const WEBDAV_NS_ICAL: string
-export function binding_bind_property(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-export function binding_bind_property_full(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to?: Function | null, transform_from?: Function | null): GObject.Binding
-export function binding_transform_enum_nick_to_value(binding: GObject.Binding, source_value: any, target_value: any, not_used?: object | null): boolean
-export function binding_transform_enum_value_to_nick(binding: GObject.Binding, source_value: any, target_value: any, not_used?: object | null): boolean
-export function categories_add(category: string, unused: string, icon_file: string, searchable: boolean): void
-export function categories_dup_icon_file_for(category: string): string
-export function categories_dup_list(): string[]
-export function categories_exist(category: string): boolean
-export function categories_get_icon_file_for(category: string): string
-export function categories_get_list(): string[]
-export function categories_is_searchable(category: string): boolean
-export function categories_register_change_listener(listener: GObject.Callback): void
-export function categories_remove(category: string): void
-export function categories_set_icon_file_for(category: string, icon_file: string): void
-export function categories_unregister_change_listener(listener: GObject.Callback): void
-export function collator_error_quark(): GLib.Quark
-export function data_server_util_get_dbus_call_timeout(): number
-export function data_server_util_set_dbus_call_timeout(timeout_msec: number): void
-export function debug_log_clear(): void
-export function debug_log_disable_domains(domains: string[]): void
-export function debug_log_dump(filename: string): boolean
-export function debug_log_dump_to_dated_file(): boolean
-export function debug_log_enable_domains(domains: string[]): void
-export function debug_log_get_max_lines(): number
-export function debug_log_is_domain_enabled(domain: string): boolean
-export function debug_log_load_configuration(filename: string): boolean
-export function debug_log_set_max_lines(num_lines: number): void
-export function eds_check_version(required_major: number, required_minor: number, required_micro: number): string
-export function enum_from_string(enum_type: GObject.Type, string: string, enum_value: number): boolean
-export function enum_to_string(enum_type: GObject.Type, enum_value: number): string
-export function file_recursive_delete(file: Gio.File, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function file_recursive_delete_finish(file: Gio.File, result: Gio.AsyncResult): boolean
-export function file_recursive_delete_sync(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function filename_make_safe(string: string): void
-export function filename_mkdir_encoded(basepath: string, fileprefix: string, filename: string, fileindex: number): string
-export function free_form_exp_to_sexp(free_form_exp: string, symbols: FreeFormExpSymbol): string
-export function get_user_cache_dir(): string
-export function get_user_config_dir(): string
-export function get_user_data_dir(): string
-export function localtime_with_offset(tt: number, tm: object | null, offset: number): void
-export function mktime_utc(tm?: object | null): number
-export function oauth2_service_util_set_to_form(form: GLib.HashTable, name: string, value?: string | null): void
-export function oauth2_service_util_take_to_form(form: GLib.HashTable, name: string, value?: string | null): void
-export function queue_transfer(src_queue: GLib.Queue, dst_queue: GLib.Queue): void
-export function secret_store_delete_sync(uid: string, cancellable?: Gio.Cancellable | null): boolean
-export function secret_store_lookup_sync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_secret */ string ]
-export function secret_store_store_sync(uid: string, secret: string, label: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-export function soup_logger_attach(message: Soup.Message, input_stream: Gio.InputStream): Gio.InputStream
-export function soup_ssl_trust_connect(soup_message: Soup.Message, source: Source): void
-export function strftime(string: string, max: number, fmt: string, tm?: object | null): number
-export function time_format_date_and_time(date_tm: object | null, use_24_hour_format: boolean, show_midnight: boolean, show_zero_seconds: boolean, buffer: string, buffer_size: number): void
-export function time_format_time(date_tm: object | null, use_24_hour_format: boolean, show_zero_seconds: boolean, buffer: string, buffer_size: number): void
-export function time_get_d_fmt_with_4digit_year(): string
-export function time_parse_date(value: string, result?: object | null): TimeParseStatus
-export function time_parse_date_and_time(value: string, result?: object | null): TimeParseStatus
-export function time_parse_date_and_time_ex(value: string, result: object | null, two_digit_year: boolean): TimeParseStatus
-export function time_parse_date_ex(value: string, result: object | null, two_digit_year: boolean): TimeParseStatus
-export function time_parse_time(value: string, result?: object | null): TimeParseStatus
-export function timeout_add_seconds_with_name(priority: number, interval: number, name: string | null, function_: GLib.SourceFunc): number
-export function timeout_add_with_name(priority: number, interval: number, name: string | null, function_: GLib.SourceFunc): number
-export function type_traverse(parent_type: GObject.Type, func: TypeFunc): void
-export function uid_new(): string
-export function utf8_strftime(string: string, max: number, fmt: string, tm?: object | null): number
-export function util_can_use_collection_as_credential_source(collection_source?: object | null, child_source?: object | null): boolean
-export function util_copy_object_slist(copy_to: GObject.Object[] | null, objects: GObject.Object[]): GObject.Object[]
-export function util_copy_string_slist(copy_to: string[] | null, strings: string[]): string[]
-export function util_ensure_gdbus_string(str: string, gdbus_str: string): string
-export function util_free_nullable_object_slist(objects: GObject.Object[]): void
-export function util_free_object_slist(objects: GObject.Object[]): void
-export function util_free_string_slist(strings: string[]): void
-export function util_generate_uid(): string
-export function util_get_directory_variants(main_path: string, replace_prefix: string, with_modules_dir: boolean): string[]
-export function util_get_source_full_name(registry?: object | null, source?: object | null): string
-export function util_gthread_id(thread: GLib.Thread): number
-export function util_identity_can_send(registry?: object | null, identity_source?: object | null): boolean
-export function util_safe_free_string(str: string): void
-export function util_slist_to_strv(strings: string[]): string[]
-export function util_source_compare_for_sort(source_a?: object | null, source_b?: object | null): number
-export function util_strcmp0(str1?: string | null, str2?: string | null): number
-export function util_strdup_strip(string?: string | null): string | null
-export function util_strstrcase(haystack: string, needle: string): string | null
-export function util_strv_equal(v1: string[], v2: string[]): boolean
-export function util_strv_to_slist(strv: string): string[]
-export function util_unicode_get_utf8(text: string, out: number): string | null
-export function util_unref_in_thread(object?: object | null): void
-export function util_utf8_data_make_valid(data: string, data_bytes: number): string
-export function util_utf8_decompose(text: string): string
-export function util_utf8_make_valid(str: string): string
-export function util_utf8_normalize(str?: string | null): string | null
-export function util_utf8_remove_accents(str: string): string
-export function util_utf8_strcasecmp(s1: string, s2: string): number
-export function util_utf8_strstrcase(haystack?: string | null, needle?: string | null): string | null
-export function util_utf8_strstrcasedecomp(haystack: string, needle: string): string
-export function webdav_access_control_entry_free(ptr?: object | null): void
-export function webdav_discover_free_discovered_sources(discovered_sources: WebDAVDiscoveredSource[]): void
-export function webdav_discover_sources(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdav_discover_sources_finish(source: Source, result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
-export function webdav_discover_sources_full(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, ref_source_func?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdav_discover_sources_full_sync(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, ref_source_func?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
-export function webdav_discover_sources_sync(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
-export function webdav_privilege_free(ptr?: object | null): void
-export function webdav_property_change_free(ptr?: object | null): void
-export function webdav_resource_free(ptr?: object | null): void
-export function xml_destroy_hash(hash: GLib.HashTable): void
-export function xml_save_file(filename: string, doc: libxml2.Doc): number
-export function xml_to_hash(doc: libxml2.Doc, type: XmlHashType): GLib.HashTable
-export function xmlhash_add(hash: XmlHash, key: string, data: string): void
-export function xmlhash_compare(hash: XmlHash, key: string, compare_data: string): XmlHashStatus
-export function xmlhash_destroy(hash: XmlHash): void
-export function xmlhash_foreach_key(hash: XmlHash, func: XmlHashFunc): void
-export function xmlhash_foreach_key_remove(hash: XmlHash, func: XmlHashRemoveFunc): void
-export function xmlhash_remove(hash: XmlHash, key: string): void
-export function xmlhash_write(hash: XmlHash): void
-export interface FreeFormExpBuildSexpFunc {
+function binding_bind_property(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+function binding_bind_property_full(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to?: Function | null, transform_from?: Function | null): GObject.Binding
+function binding_transform_enum_nick_to_value(binding: GObject.Binding, source_value: any, target_value: any, not_used?: object | null): boolean
+function binding_transform_enum_value_to_nick(binding: GObject.Binding, source_value: any, target_value: any, not_used?: object | null): boolean
+function categories_add(category: string, unused: string, icon_file: string, searchable: boolean): void
+function categories_dup_icon_file_for(category: string): string
+function categories_dup_list(): string[]
+function categories_exist(category: string): boolean
+function categories_get_icon_file_for(category: string): string
+function categories_get_list(): string[]
+function categories_is_searchable(category: string): boolean
+function categories_register_change_listener(listener: GObject.Callback): void
+function categories_remove(category: string): void
+function categories_set_icon_file_for(category: string, icon_file: string): void
+function categories_unregister_change_listener(listener: GObject.Callback): void
+function collator_error_quark(): GLib.Quark
+function data_server_util_get_dbus_call_timeout(): number
+function data_server_util_set_dbus_call_timeout(timeout_msec: number): void
+function debug_log_clear(): void
+function debug_log_disable_domains(domains: string[]): void
+function debug_log_dump(filename: string): boolean
+function debug_log_dump_to_dated_file(): boolean
+function debug_log_enable_domains(domains: string[]): void
+function debug_log_get_max_lines(): number
+function debug_log_is_domain_enabled(domain: string): boolean
+function debug_log_load_configuration(filename: string): boolean
+function debug_log_set_max_lines(num_lines: number): void
+function eds_check_version(required_major: number, required_minor: number, required_micro: number): string
+function enum_from_string(enum_type: GObject.Type, string: string, enum_value: number): boolean
+function enum_to_string(enum_type: GObject.Type, enum_value: number): string
+function file_recursive_delete(file: Gio.File, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function file_recursive_delete_finish(file: Gio.File, result: Gio.AsyncResult): boolean
+function file_recursive_delete_sync(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function filename_make_safe(string: string): void
+function filename_mkdir_encoded(basepath: string, fileprefix: string, filename: string, fileindex: number): string
+function free_form_exp_to_sexp(free_form_exp: string, symbols: FreeFormExpSymbol): string
+function get_user_cache_dir(): string
+function get_user_config_dir(): string
+function get_user_data_dir(): string
+function localtime_with_offset(tt: number, tm: object | null, offset: number): void
+function mktime_utc(tm?: object | null): number
+function oauth2_service_util_set_to_form(form: GLib.HashTable, name: string, value?: string | null): void
+function oauth2_service_util_take_to_form(form: GLib.HashTable, name: string, value?: string | null): void
+function queue_transfer(src_queue: GLib.Queue, dst_queue: GLib.Queue): void
+function secret_store_delete_sync(uid: string, cancellable?: Gio.Cancellable | null): boolean
+function secret_store_lookup_sync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_secret */ string ]
+function secret_store_store_sync(uid: string, secret: string, label: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
+function soup_logger_attach(message: Soup.Message, input_stream: Gio.InputStream): Gio.InputStream
+function soup_ssl_trust_connect(soup_message: Soup.Message, source: Source): void
+function strftime(string: string, max: number, fmt: string, tm?: object | null): number
+function time_format_date_and_time(date_tm: object | null, use_24_hour_format: boolean, show_midnight: boolean, show_zero_seconds: boolean, buffer: string, buffer_size: number): void
+function time_format_time(date_tm: object | null, use_24_hour_format: boolean, show_zero_seconds: boolean, buffer: string, buffer_size: number): void
+function time_get_d_fmt_with_4digit_year(): string
+function time_parse_date(value: string, result?: object | null): TimeParseStatus
+function time_parse_date_and_time(value: string, result?: object | null): TimeParseStatus
+function time_parse_date_and_time_ex(value: string, result: object | null, two_digit_year: boolean): TimeParseStatus
+function time_parse_date_ex(value: string, result: object | null, two_digit_year: boolean): TimeParseStatus
+function time_parse_time(value: string, result?: object | null): TimeParseStatus
+function timeout_add_seconds_with_name(priority: number, interval: number, name: string | null, function_: GLib.SourceFunc): number
+function timeout_add_with_name(priority: number, interval: number, name: string | null, function_: GLib.SourceFunc): number
+function type_traverse(parent_type: GObject.Type, func: TypeFunc): void
+function uid_new(): string
+function utf8_strftime(string: string, max: number, fmt: string, tm?: object | null): number
+function util_can_use_collection_as_credential_source(collection_source?: object | null, child_source?: object | null): boolean
+function util_copy_object_slist(copy_to: GObject.Object[] | null, objects: GObject.Object[]): GObject.Object[]
+function util_copy_string_slist(copy_to: string[] | null, strings: string[]): string[]
+function util_ensure_gdbus_string(str: string, gdbus_str: string): string
+function util_free_nullable_object_slist(objects: GObject.Object[]): void
+function util_free_object_slist(objects: GObject.Object[]): void
+function util_free_string_slist(strings: string[]): void
+function util_generate_uid(): string
+function util_get_directory_variants(main_path: string, replace_prefix: string, with_modules_dir: boolean): string[]
+function util_get_source_full_name(registry?: object | null, source?: object | null): string
+function util_gthread_id(thread: GLib.Thread): number
+function util_identity_can_send(registry?: object | null, identity_source?: object | null): boolean
+function util_safe_free_string(str: string): void
+function util_slist_to_strv(strings: string[]): string[]
+function util_source_compare_for_sort(source_a?: object | null, source_b?: object | null): number
+function util_strcmp0(str1?: string | null, str2?: string | null): number
+function util_strdup_strip(string?: string | null): string | null
+function util_strstrcase(haystack: string, needle: string): string | null
+function util_strv_equal(v1: string[], v2: string[]): boolean
+function util_strv_to_slist(strv: string): string[]
+function util_unicode_get_utf8(text: string, out: number): string | null
+function util_unref_in_thread(object?: object | null): void
+function util_utf8_data_make_valid(data: string, data_bytes: number): string
+function util_utf8_decompose(text: string): string
+function util_utf8_make_valid(str: string): string
+function util_utf8_normalize(str?: string | null): string | null
+function util_utf8_remove_accents(str: string): string
+function util_utf8_strcasecmp(s1: string, s2: string): number
+function util_utf8_strstrcase(haystack?: string | null, needle?: string | null): string | null
+function util_utf8_strstrcasedecomp(haystack: string, needle: string): string
+function webdav_access_control_entry_free(ptr?: object | null): void
+function webdav_discover_free_discovered_sources(discovered_sources: WebDAVDiscoveredSource[]): void
+function webdav_discover_sources(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function webdav_discover_sources_finish(source: Source, result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
+function webdav_discover_sources_full(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, ref_source_func?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function webdav_discover_sources_full_sync(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, ref_source_func?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
+function webdav_discover_sources_sync(source: Source, url_use_path: string | null, only_supports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificate_pem */ string | null, /* out_certificate_errors */ Gio.TlsCertificateFlags | null, /* out_discovered_sources */ WebDAVDiscoveredSource[] | null, /* out_calendar_user_addresses */ string[] | null ]
+function webdav_privilege_free(ptr?: object | null): void
+function webdav_property_change_free(ptr?: object | null): void
+function webdav_resource_free(ptr?: object | null): void
+function xml_destroy_hash(hash: GLib.HashTable): void
+function xml_save_file(filename: string, doc: libxml2.Doc): number
+function xml_to_hash(doc: libxml2.Doc, type: XmlHashType): GLib.HashTable
+function xmlhash_add(hash: XmlHash, key: string, data: string): void
+function xmlhash_compare(hash: XmlHash, key: string, compare_data: string): XmlHashStatus
+function xmlhash_destroy(hash: XmlHash): void
+function xmlhash_foreach_key(hash: XmlHash, func: XmlHashFunc): void
+function xmlhash_foreach_key_remove(hash: XmlHash, func: XmlHashRemoveFunc): void
+function xmlhash_remove(hash: XmlHash, key: string): void
+function xmlhash_write(hash: XmlHash): void
+interface FreeFormExpBuildSexpFunc {
     (word: string, options: string, hint: string): string
 }
-export interface OAuth2ServiceRefSourceFunc {
+interface OAuth2ServiceRefSourceFunc {
     (uid: string): Source | null
 }
-export interface SourceRefreshFunc {
+interface SourceRefreshFunc {
     (source: Source): void
 }
-export interface TypeFunc {
+interface TypeFunc {
     (type: GObject.Type): void
 }
-export interface WebDAVDiscoverRefSourceFunc {
+interface WebDAVDiscoverRefSourceFunc {
     (uid: string): Source | null
 }
-export interface WebDAVPropstatTraverseFunc {
+interface WebDAVPropstatTraverseFunc {
     (webdav: WebDAVSession, prop_node: libxml2.Node, request_uri: Soup.URI, href: string | null, status_code: number): boolean
 }
-export interface XmlHashFunc {
+interface XmlHashFunc {
     (key: string, value: string): void
 }
-export interface XmlHashRemoveFunc {
+interface XmlHashRemoveFunc {
     (key: string, value: string): boolean
 }
-export class Extensible {
+class Extensible {
     /* Methods of EDataServer-1.2.EDataServer.Extensible */
     list_extensions(extension_type: GObject.Type): Extension[]
     load_extensions(): void
     static name: string
 }
-export class OAuth2Service {
+class OAuth2Service {
     /* Methods of EDataServer-1.2.EDataServer.OAuth2Service */
     can_process(source: Source): boolean
     delete_token_sync(source: Source, cancellable?: Gio.Cancellable | null): boolean
@@ -520,7 +522,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     online?: boolean
     source?: Source
 }
-export class Client {
+class Client {
     /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly main_context: GLib.MainContext
@@ -672,7 +674,7 @@ export class Client {
 export interface Extension_ConstructProps extends GObject.Object_ConstructProps {
     extensible?: Extensible
 }
-export class Extension {
+class Extension {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.Extension */
@@ -724,7 +726,7 @@ export interface GDataOAuth2Authorizer_ConstructProps extends GObject.Object_Con
     service_type?: GObject.Type
     source?: Source
 }
-export class GDataOAuth2Authorizer {
+class GDataOAuth2Authorizer {
     /* Fields of EDataServer-1.2.EDataServer.GDataOAuth2Authorizer */
     parent: GObject.Object
     priv: GDataOAuth2AuthorizerPrivate
@@ -797,7 +799,7 @@ export class GDataOAuth2Authorizer {
 export interface Module_ConstructProps extends GObject.TypeModule_ConstructProps {
     filename?: string
 }
-export class Module {
+class Module {
     /* Fields of GObject-2.0.GObject.TypeModule */
     parent_instance: GObject.Object
     use_count: number
@@ -874,7 +876,7 @@ export class Module {
 export interface NetworkMonitor_ConstructProps extends GObject.Object_ConstructProps {
     gio_name?: string
 }
-export class NetworkMonitor {
+class NetworkMonitor {
     /* Properties of EDataServer-1.2.EDataServer.NetworkMonitor */
     gio_name: string
     /* Properties of Gio-2.0.Gio.NetworkMonitor */
@@ -962,7 +964,7 @@ export class NetworkMonitor {
 }
 export interface OAuth2ServiceBase_ConstructProps extends Extension_ConstructProps {
 }
-export class OAuth2ServiceBase {
+class OAuth2ServiceBase {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceBase */
     parent: Extension
     /* Fields of GObject-2.0.GObject.Object */
@@ -1014,7 +1016,7 @@ export class OAuth2ServiceBase {
 }
 export interface OAuth2ServiceGoogle_ConstructProps extends OAuth2ServiceBase_ConstructProps {
 }
-export class OAuth2ServiceGoogle {
+class OAuth2ServiceGoogle {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceGoogle */
     parent: OAuth2ServiceBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1109,7 +1111,7 @@ export class OAuth2ServiceGoogle {
 }
 export interface OAuth2ServiceOutlook_ConstructProps extends OAuth2ServiceBase_ConstructProps {
 }
-export class OAuth2ServiceOutlook {
+class OAuth2ServiceOutlook {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceOutlook */
     parent: OAuth2ServiceBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1204,7 +1206,7 @@ export class OAuth2ServiceOutlook {
 }
 export interface OAuth2ServiceYahoo_ConstructProps extends OAuth2ServiceBase_ConstructProps {
 }
-export class OAuth2ServiceYahoo {
+class OAuth2ServiceYahoo {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceYahoo */
     parent: OAuth2ServiceBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1299,7 +1301,7 @@ export class OAuth2ServiceYahoo {
 }
 export interface OAuth2Services_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class OAuth2Services {
+class OAuth2Services {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.OAuth2Services */
@@ -1361,7 +1363,7 @@ export class OAuth2Services {
 }
 export interface SoupAuthBearer_ConstructProps extends Soup.Auth_ConstructProps {
 }
-export class SoupAuthBearer {
+class SoupAuthBearer {
     /* Properties of Soup-2.4.Soup.Auth */
     host: string
     readonly is_authenticated: boolean
@@ -1455,7 +1457,7 @@ export interface SoupSession_ConstructProps extends Soup.Session_ConstructProps 
     credentials?: NamedParameters
     source?: Source
 }
-export class SoupSession {
+class SoupSession {
     /* Properties of EDataServer-1.2.EDataServer.SoupSession */
     credentials: NamedParameters
     /* Properties of Soup-2.4.Soup.Session */
@@ -1649,7 +1651,7 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     parent?: string
     uid?: string
 }
-export class Source {
+class Source {
     /* Properties of EDataServer-1.2.EDataServer.Source */
     readonly connection_status: SourceConnectionStatus
     display_name: string
@@ -1854,7 +1856,7 @@ export class Source {
 export interface SourceAddressBook_ConstructProps extends SourceBackend_ConstructProps {
     order?: number
 }
-export class SourceAddressBook {
+class SourceAddressBook {
     /* Properties of EDataServer-1.2.EDataServer.SourceAddressBook */
     order: number
     /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
@@ -1924,7 +1926,7 @@ export interface SourceAlarms_ConstructProps extends SourceExtension_ConstructPr
     include_me?: boolean
     last_notified?: string
 }
-export class SourceAlarms {
+class SourceAlarms {
     /* Properties of EDataServer-1.2.EDataServer.SourceAlarms */
     include_me: boolean
     last_notified: string
@@ -1998,7 +2000,7 @@ export interface SourceAuthentication_ConstructProps extends SourceExtension_Con
     remember_password?: boolean
     user?: string
 }
-export class SourceAuthentication {
+class SourceAuthentication {
     /* Properties of EDataServer-1.2.EDataServer.SourceAuthentication */
     readonly connectable: Gio.SocketConnectable
     credential_name: string
@@ -2104,7 +2106,7 @@ export class SourceAuthentication {
 export interface SourceAutocomplete_ConstructProps extends SourceExtension_ConstructProps {
     include_me?: boolean
 }
-export class SourceAutocomplete {
+class SourceAutocomplete {
     /* Properties of EDataServer-1.2.EDataServer.SourceAutocomplete */
     include_me: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -2165,7 +2167,7 @@ export class SourceAutocomplete {
 export interface SourceAutoconfig_ConstructProps extends SourceExtension_ConstructProps {
     revision?: string
 }
-export class SourceAutoconfig {
+class SourceAutoconfig {
     /* Properties of EDataServer-1.2.EDataServer.SourceAutoconfig */
     revision: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -2227,7 +2229,7 @@ export class SourceAutoconfig {
 export interface SourceBackend_ConstructProps extends SourceExtension_ConstructProps {
     backend_name?: string
 }
-export class SourceBackend {
+class SourceBackend {
     /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backend_name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -2288,7 +2290,7 @@ export class SourceBackend {
 }
 export interface SourceCalendar_ConstructProps extends SourceSelectable_ConstructProps {
 }
-export class SourceCalendar {
+class SourceCalendar {
     /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
@@ -2367,7 +2369,7 @@ export class SourceCalendar {
 }
 export interface SourceCamel_ConstructProps extends SourceExtension_ConstructProps {
 }
-export class SourceCamel {
+class SourceCamel {
     /* Properties of EDataServer-1.2.EDataServer.SourceCamel */
     readonly settings: Camel.Settings
     /* Fields of GObject-2.0.GObject.Object */
@@ -2438,7 +2440,7 @@ export interface SourceCollection_ConstructProps extends SourceBackend_Construct
     identity?: string
     mail_enabled?: boolean
 }
-export class SourceCollection {
+class SourceCollection {
     /* Properties of EDataServer-1.2.EDataServer.SourceCollection */
     allow_sources_rename: boolean
     calendar_enabled: boolean
@@ -2540,7 +2542,7 @@ export class SourceCollection {
 export interface SourceContacts_ConstructProps extends SourceExtension_ConstructProps {
     include_me?: boolean
 }
-export class SourceContacts {
+class SourceContacts {
     /* Properties of EDataServer-1.2.EDataServer.SourceContacts */
     include_me: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -2601,7 +2603,7 @@ export class SourceContacts {
 export interface SourceCredentialsProvider_ConstructProps extends GObject.Object_ConstructProps {
     registry?: GObject.Object
 }
-export class SourceCredentialsProvider {
+class SourceCredentialsProvider {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProvider */
@@ -2673,7 +2675,7 @@ export class SourceCredentialsProvider {
 }
 export interface SourceCredentialsProviderImpl_ConstructProps extends Extension_ConstructProps {
 }
-export class SourceCredentialsProviderImpl {
+class SourceCredentialsProviderImpl {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
@@ -2738,7 +2740,7 @@ export class SourceCredentialsProviderImpl {
 }
 export interface SourceCredentialsProviderImplOAuth2_ConstructProps extends SourceCredentialsProviderImpl_ConstructProps {
 }
-export class SourceCredentialsProviderImplOAuth2 {
+class SourceCredentialsProviderImplOAuth2 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
@@ -2803,7 +2805,7 @@ export class SourceCredentialsProviderImplOAuth2 {
 }
 export interface SourceCredentialsProviderImplPassword_ConstructProps extends SourceCredentialsProviderImpl_ConstructProps {
 }
-export class SourceCredentialsProviderImplPassword {
+class SourceCredentialsProviderImplPassword {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProviderImpl */
@@ -2869,7 +2871,7 @@ export class SourceCredentialsProviderImplPassword {
 export interface SourceExtension_ConstructProps extends GObject.Object_ConstructProps {
     source?: Source
 }
-export class SourceExtension {
+class SourceExtension {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
@@ -2927,7 +2929,7 @@ export interface SourceGoa_ConstructProps extends SourceExtension_ConstructProps
     contacts_url?: string
     name?: string
 }
-export class SourceGoa {
+class SourceGoa {
     /* Properties of EDataServer-1.2.EDataServer.SourceGoa */
     account_id: string
     address: string
@@ -3019,7 +3021,7 @@ export interface SourceLDAP_ConstructProps extends SourceExtension_ConstructProp
     scope?: SourceLDAPScope
     security?: SourceLDAPSecurity
 }
-export class SourceLDAP {
+class SourceLDAP {
     /* Properties of EDataServer-1.2.EDataServer.SourceLDAP */
     authentication: SourceLDAPAuthentication
     can_browse: boolean
@@ -3114,7 +3116,7 @@ export interface SourceLocal_ConstructProps extends SourceExtension_ConstructPro
     email_address?: string
     writable?: boolean
 }
-export class SourceLocal {
+class SourceLocal {
     /* Properties of EDataServer-1.2.EDataServer.SourceLocal */
     custom_file: Gio.File
     email_address: string
@@ -3187,7 +3189,7 @@ export class SourceLocal {
 export interface SourceMDN_ConstructProps extends SourceExtension_ConstructProps {
     response_policy?: MdnResponsePolicy
 }
-export class SourceMDN {
+class SourceMDN {
     /* Properties of EDataServer-1.2.EDataServer.SourceMDN */
     response_policy: MdnResponsePolicy
     /* Fields of GObject-2.0.GObject.Object */
@@ -3252,7 +3254,7 @@ export interface SourceMailAccount_ConstructProps extends SourceBackend_Construc
     mark_seen_timeout?: number
     needs_initial_setup?: boolean
 }
-export class SourceMailAccount {
+class SourceMailAccount {
     /* Properties of EDataServer-1.2.EDataServer.SourceMailAccount */
     archive_folder: string
     identity_uid: string
@@ -3351,7 +3353,7 @@ export interface SourceMailComposition_ConstructProps extends SourceExtension_Co
     templates_folder?: string
     top_signature?: ThreeState
 }
-export class SourceMailComposition {
+class SourceMailComposition {
     /* Properties of EDataServer-1.2.EDataServer.SourceMailComposition */
     bcc: string[]
     cc: string[]
@@ -3462,7 +3464,7 @@ export interface SourceMailIdentity_ConstructProps extends SourceExtension_Const
     reply_to?: string
     signature_uid?: string
 }
-export class SourceMailIdentity {
+class SourceMailIdentity {
     /* Properties of EDataServer-1.2.EDataServer.SourceMailIdentity */
     address: string
     aliases: string
@@ -3555,7 +3557,7 @@ export class SourceMailIdentity {
 export interface SourceMailSignature_ConstructProps extends SourceExtension_ConstructProps {
     mime_type?: string
 }
-export class SourceMailSignature {
+class SourceMailSignature {
     /* Properties of EDataServer-1.2.EDataServer.SourceMailSignature */
     readonly file: Gio.File
     mime_type: string
@@ -3624,7 +3626,7 @@ export interface SourceMailSubmission_ConstructProps extends SourceExtension_Con
     transport_uid?: string
     use_sent_folder?: boolean
 }
-export class SourceMailSubmission {
+class SourceMailSubmission {
     /* Properties of EDataServer-1.2.EDataServer.SourceMailSubmission */
     replies_to_origin_folder: boolean
     sent_folder: string
@@ -3701,7 +3703,7 @@ export class SourceMailSubmission {
 }
 export interface SourceMailTransport_ConstructProps extends SourceBackend_ConstructProps {
 }
-export class SourceMailTransport {
+class SourceMailTransport {
     /* Properties of EDataServer-1.2.EDataServer.SourceBackend */
     backend_name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -3762,7 +3764,7 @@ export class SourceMailTransport {
 }
 export interface SourceMemoList_ConstructProps extends SourceSelectable_ConstructProps {
 }
-export class SourceMemoList {
+class SourceMemoList {
     /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
@@ -3842,7 +3844,7 @@ export class SourceMemoList {
 export interface SourceOffline_ConstructProps extends SourceExtension_ConstructProps {
     stay_synchronized?: boolean
 }
-export class SourceOffline {
+class SourceOffline {
     /* Properties of EDataServer-1.2.EDataServer.SourceOffline */
     stay_synchronized: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -3909,7 +3911,7 @@ export interface SourceOpenPGP_ConstructProps extends SourceExtension_ConstructP
     sign_by_default?: boolean
     signing_algorithm?: string
 }
-export class SourceOpenPGP {
+class SourceOpenPGP {
     /* Properties of EDataServer-1.2.EDataServer.SourceOpenPGP */
     always_trust: boolean
     encrypt_by_default: boolean
@@ -4015,7 +4017,7 @@ export interface SourceProxy_ConstructProps extends SourceExtension_ConstructPro
     socks_host?: string
     socks_port?: number
 }
-export class SourceProxy {
+class SourceProxy {
     /* Properties of EDataServer-1.2.EDataServer.SourceProxy */
     autoconfig_url: string
     ftp_host: string
@@ -4150,7 +4152,7 @@ export interface SourceRefresh_ConstructProps extends SourceExtension_ConstructP
     enabled?: boolean
     interval_minutes?: number
 }
-export class SourceRefresh {
+class SourceRefresh {
     /* Properties of EDataServer-1.2.EDataServer.SourceRefresh */
     enabled: boolean
     interval_minutes: number
@@ -4221,7 +4223,7 @@ export interface SourceRegistry_ConstructProps extends GObject.Object_ConstructP
     default_memo_list?: Source
     default_task_list?: Source
 }
-export class SourceRegistry {
+class SourceRegistry {
     /* Properties of EDataServer-1.2.EDataServer.SourceRegistry */
     default_address_book: Source
     default_calendar: Source
@@ -4370,7 +4372,7 @@ export interface SourceRegistryWatcher_ConstructProps extends GObject.Object_Con
     extension_name?: string
     registry?: SourceRegistry
 }
-export class SourceRegistryWatcher {
+class SourceRegistryWatcher {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceRegistryWatcher */
@@ -4439,7 +4441,7 @@ export class SourceRegistryWatcher {
 export interface SourceResource_ConstructProps extends SourceExtension_ConstructProps {
     identity?: string
 }
-export class SourceResource {
+class SourceResource {
     /* Properties of EDataServer-1.2.EDataServer.SourceResource */
     identity: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -4501,7 +4503,7 @@ export class SourceResource {
 export interface SourceRevisionGuards_ConstructProps extends SourceExtension_ConstructProps {
     enabled?: boolean
 }
-export class SourceRevisionGuards {
+class SourceRevisionGuards {
     /* Properties of EDataServer-1.2.EDataServer.SourceRevisionGuards */
     enabled: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -4567,7 +4569,7 @@ export interface SourceSMIME_ConstructProps extends SourceExtension_ConstructPro
     signing_algorithm?: string
     signing_certificate?: string
 }
-export class SourceSMIME {
+class SourceSMIME {
     /* Properties of EDataServer-1.2.EDataServer.SourceSMIME */
     encrypt_by_default: boolean
     encrypt_to_self: boolean
@@ -4657,7 +4659,7 @@ export interface SourceSecurity_ConstructProps extends SourceExtension_Construct
     method?: string
     secure?: boolean
 }
-export class SourceSecurity {
+class SourceSecurity {
     /* Properties of EDataServer-1.2.EDataServer.SourceSecurity */
     method: string
     secure: boolean
@@ -4726,7 +4728,7 @@ export interface SourceSelectable_ConstructProps extends SourceBackend_Construct
     order?: number
     selected?: boolean
 }
-export class SourceSelectable {
+class SourceSelectable {
     /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
@@ -4805,7 +4807,7 @@ export class SourceSelectable {
 }
 export interface SourceTaskList_ConstructProps extends SourceSelectable_ConstructProps {
 }
-export class SourceTaskList {
+class SourceTaskList {
     /* Properties of EDataServer-1.2.EDataServer.SourceSelectable */
     color: string
     order: number
@@ -4885,7 +4887,7 @@ export class SourceTaskList {
 export interface SourceUoa_ConstructProps extends SourceExtension_ConstructProps {
     account_id?: number
 }
-export class SourceUoa {
+class SourceUoa {
     /* Properties of EDataServer-1.2.EDataServer.SourceUoa */
     account_id: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -4947,7 +4949,7 @@ export interface SourceWeather_ConstructProps extends SourceExtension_ConstructP
     location?: string
     units?: SourceWeatherUnits
 }
-export class SourceWeather {
+class SourceWeather {
     /* Properties of EDataServer-1.2.EDataServer.SourceWeather */
     location: string
     units: SourceWeatherUnits
@@ -5014,7 +5016,7 @@ export class SourceWeather {
 export interface SourceWebDAVNotes_ConstructProps extends SourceExtension_ConstructProps {
     default_ext?: string
 }
-export class SourceWebDAVNotes {
+class SourceWebDAVNotes {
     /* Properties of EDataServer-1.2.EDataServer.SourceWebDAVNotes */
     default_ext: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -5085,7 +5087,7 @@ export interface SourceWebdav_ConstructProps extends SourceExtension_ConstructPr
     soup_uri?: Soup.URI
     ssl_trust?: string
 }
-export class SourceWebdav {
+class SourceWebdav {
     /* Properties of EDataServer-1.2.EDataServer.SourceWebdav */
     avoid_ifmatch: boolean
     calendar_auto_schedule: boolean
@@ -5201,7 +5203,7 @@ export class SourceWebdav {
 }
 export interface WebDAVSession_ConstructProps extends SoupSession_ConstructProps {
 }
-export class WebDAVSession {
+class WebDAVSession {
     /* Properties of EDataServer-1.2.EDataServer.SoupSession */
     credentials: NamedParameters
     /* Properties of Soup-2.4.Soup.Session */
@@ -5431,7 +5433,7 @@ export class WebDAVSession {
 }
 export interface XmlDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XmlDocument {
+class XmlDocument {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.XmlDocument */
@@ -5497,10 +5499,10 @@ export class XmlDocument {
     static new(ns_href: string | null, root_element: string): XmlDocument
     static $gtype: GObject.Type
 }
-export class AsyncClosure {
+class AsyncClosure {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of EDataServer-1.2.EDataServer.ClientClass */
     unwrap_dbus_error: (client: Client, dbus_error: GLib.Error) => void
     retrieve_capabilities: (client: Client, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -5528,13 +5530,13 @@ export abstract class ClientClass {
     backend_property_changed: (client: Client, prop_name: string, prop_value: string) => void
     static name: string
 }
-export class ClientErrorsList {
+class ClientErrorsList {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export class Collator {
+class Collator {
     /* Methods of EDataServer-1.2.EDataServer.Collator */
     collate(str_a?: string | null, str_b?: string | null): [ /* returnType */ boolean, /* result */ number ]
     generate_key(str: string): string
@@ -5551,50 +5553,50 @@ export class Collator {
     static new_interpret_country(locale: string): Collator
     static error_quark(): GLib.Quark
 }
-export abstract class ExtensibleInterface {
+abstract class ExtensibleInterface {
     /* Fields of EDataServer-1.2.EDataServer.ExtensibleInterface */
     parent_interface: GObject.TypeInterface
     static name: string
 }
-export abstract class ExtensionClass {
+abstract class ExtensionClass {
     /* Fields of EDataServer-1.2.EDataServer.ExtensionClass */
     parent_class: GObject.ObjectClass
     extensible_type: GObject.Type
     static name: string
 }
-export class ExtensionPrivate {
+class ExtensionPrivate {
     static name: string
 }
-export class Flag {
+class Flag {
     static name: string
 }
-export class FreeFormExpSymbol {
+class FreeFormExpSymbol {
     /* Fields of EDataServer-1.2.EDataServer.FreeFormExpSymbol */
     names: string
     hint: string
     build_sexp: FreeFormExpBuildSexpFunc
     static name: string
 }
-export abstract class GDataOAuth2AuthorizerClass {
+abstract class GDataOAuth2AuthorizerClass {
     /* Fields of EDataServer-1.2.EDataServer.GDataOAuth2AuthorizerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class GDataOAuth2AuthorizerPrivate {
+class GDataOAuth2AuthorizerPrivate {
     static name: string
 }
-export class MemChunk {
+class MemChunk {
     static name: string
 }
-export abstract class ModuleClass {
+abstract class ModuleClass {
     /* Fields of EDataServer-1.2.EDataServer.ModuleClass */
     parent_class: GObject.TypeModuleClass
     static name: string
 }
-export class ModulePrivate {
+class ModulePrivate {
     static name: string
 }
-export class NamedParameters {
+class NamedParameters {
     /* Methods of EDataServer-1.2.EDataServer.NamedParameters */
     assign(from?: NamedParameters | null): void
     clear(): void
@@ -5616,25 +5618,25 @@ export class NamedParameters {
     static new_string(str: string): NamedParameters
     static new_strv(strv: string): NamedParameters
 }
-export abstract class NetworkMonitorClass {
+abstract class NetworkMonitorClass {
     /* Fields of EDataServer-1.2.EDataServer.NetworkMonitorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class NetworkMonitorPrivate {
+class NetworkMonitorPrivate {
     static name: string
 }
-export abstract class OAuth2ServiceBaseClass {
+abstract class OAuth2ServiceBaseClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceBaseClass */
     parent_class: ExtensionClass
     static name: string
 }
-export abstract class OAuth2ServiceGoogleClass {
+abstract class OAuth2ServiceGoogleClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceGoogleClass */
     parent_class: OAuth2ServiceBaseClass
     static name: string
 }
-export abstract class OAuth2ServiceInterface {
+abstract class OAuth2ServiceInterface {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceInterface */
     parent_interface: GObject.TypeInterface
     can_process: (service: OAuth2Service, source: Source) => boolean
@@ -5657,26 +5659,26 @@ export abstract class OAuth2ServiceInterface {
     reserved: object[]
     static name: string
 }
-export abstract class OAuth2ServiceOutlookClass {
+abstract class OAuth2ServiceOutlookClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceOutlookClass */
     parent_class: OAuth2ServiceBaseClass
     static name: string
 }
-export abstract class OAuth2ServiceYahooClass {
+abstract class OAuth2ServiceYahooClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceYahooClass */
     parent_class: OAuth2ServiceBaseClass
     static name: string
 }
-export abstract class OAuth2ServicesClass {
+abstract class OAuth2ServicesClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServicesClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class OAuth2ServicesPrivate {
+class OAuth2ServicesPrivate {
     static name: string
 }
-export class OperationPool {
+class OperationPool {
     /* Methods of EDataServer-1.2.EDataServer.OperationPool */
     free(): void
     push(opdata?: object | null): void
@@ -5684,89 +5686,89 @@ export class OperationPool {
     reserve_opid(): number
     static name: string
 }
-export abstract class SoupAuthBearerClass {
+abstract class SoupAuthBearerClass {
     /* Fields of EDataServer-1.2.EDataServer.SoupAuthBearerClass */
     parent_class: Soup.AuthClass
     static name: string
 }
-export class SoupAuthBearerPrivate {
+class SoupAuthBearerPrivate {
     static name: string
 }
-export abstract class SoupSessionClass {
+abstract class SoupSessionClass {
     /* Fields of EDataServer-1.2.EDataServer.SoupSessionClass */
     parent_class: Soup.SessionClass
     reserved: object[]
     static name: string
 }
-export class SoupSessionPrivate {
+class SoupSessionPrivate {
     static name: string
 }
-export abstract class SourceAddressBookClass {
+abstract class SourceAddressBookClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceAddressBookClass */
     parent_class: SourceBackendClass
     static name: string
 }
-export class SourceAddressBookPrivate {
+class SourceAddressBookPrivate {
     static name: string
 }
-export abstract class SourceAlarmsClass {
+abstract class SourceAlarmsClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceAlarmsClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceAlarmsPrivate {
+class SourceAlarmsPrivate {
     static name: string
 }
-export abstract class SourceAuthenticationClass {
+abstract class SourceAuthenticationClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceAuthenticationClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceAuthenticationPrivate {
+class SourceAuthenticationPrivate {
     static name: string
 }
-export abstract class SourceAutocompleteClass {
+abstract class SourceAutocompleteClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceAutocompleteClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceAutocompletePrivate {
+class SourceAutocompletePrivate {
     static name: string
 }
-export abstract class SourceAutoconfigClass {
+abstract class SourceAutoconfigClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceAutoconfigClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceAutoconfigPrivate {
+class SourceAutoconfigPrivate {
     static name: string
 }
-export abstract class SourceBackendClass {
+abstract class SourceBackendClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceBackendClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceBackendPrivate {
+class SourceBackendPrivate {
     static name: string
 }
-export abstract class SourceCalendarClass {
+abstract class SourceCalendarClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCalendarClass */
     parent_class: SourceSelectableClass
     static name: string
 }
-export class SourceCalendarPrivate {
+class SourceCalendarPrivate {
     static name: string
 }
-export abstract class SourceCamelClass {
+abstract class SourceCamelClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCamelClass */
     parent_class: SourceExtensionClass
     settings_type: GObject.Type
     static name: string
 }
-export class SourceCamelPrivate {
+class SourceCamelPrivate {
     static name: string
 }
-export abstract class SourceClass {
+abstract class SourceClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceClass */
     parent_class: GObject.ObjectClass
     changed: (source: Source) => void
@@ -5793,29 +5795,29 @@ export abstract class SourceClass {
     reserved: object[]
     static name: string
 }
-export abstract class SourceCollectionClass {
+abstract class SourceCollectionClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCollectionClass */
     parent_class: SourceBackendClass
     static name: string
 }
-export class SourceCollectionPrivate {
+class SourceCollectionPrivate {
     static name: string
 }
-export abstract class SourceContactsClass {
+abstract class SourceContactsClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceContactsClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceContactsPrivate {
+class SourceContactsPrivate {
     static name: string
 }
-export abstract class SourceCredentialsProviderClass {
+abstract class SourceCredentialsProviderClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderClass */
     parent_class: GObject.ObjectClass
     ref_source: (provider: SourceCredentialsProvider, uid: string) => Source
     static name: string
 }
-export abstract class SourceCredentialsProviderImplClass {
+abstract class SourceCredentialsProviderImplClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplClass */
     parent_class: ExtensionClass
     can_process: (provider_impl: SourceCredentialsProviderImpl, source: Source) => boolean
@@ -5826,161 +5828,161 @@ export abstract class SourceCredentialsProviderImplClass {
     delete_sync: (provider_impl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export abstract class SourceCredentialsProviderImplOAuth2Class {
+abstract class SourceCredentialsProviderImplOAuth2Class {
     /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplOAuth2Class */
     parent_class: SourceCredentialsProviderImplClass
     static name: string
 }
-export class SourceCredentialsProviderImplOAuth2Private {
+class SourceCredentialsProviderImplOAuth2Private {
     static name: string
 }
-export abstract class SourceCredentialsProviderImplPasswordClass {
+abstract class SourceCredentialsProviderImplPasswordClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceCredentialsProviderImplPasswordClass */
     parent_class: SourceCredentialsProviderImplClass
     static name: string
 }
-export class SourceCredentialsProviderImplPasswordPrivate {
+class SourceCredentialsProviderImplPasswordPrivate {
     static name: string
 }
-export class SourceCredentialsProviderImplPrivate {
+class SourceCredentialsProviderImplPrivate {
     static name: string
 }
-export class SourceCredentialsProviderPrivate {
+class SourceCredentialsProviderPrivate {
     static name: string
 }
-export abstract class SourceExtensionClass {
+abstract class SourceExtensionClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceExtensionClass */
     parent_class: GObject.ObjectClass
     name: string
     static name: string
 }
-export class SourceExtensionPrivate {
+class SourceExtensionPrivate {
     static name: string
 }
-export abstract class SourceGoaClass {
+abstract class SourceGoaClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceGoaClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceGoaPrivate {
+class SourceGoaPrivate {
     static name: string
 }
-export abstract class SourceLDAPClass {
+abstract class SourceLDAPClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceLDAPClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceLDAPPrivate {
+class SourceLDAPPrivate {
     static name: string
 }
-export abstract class SourceLocalClass {
+abstract class SourceLocalClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceLocalClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceLocalPrivate {
+class SourceLocalPrivate {
     static name: string
 }
-export abstract class SourceMDNClass {
+abstract class SourceMDNClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMDNClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceMDNPrivate {
+class SourceMDNPrivate {
     static name: string
 }
-export abstract class SourceMailAccountClass {
+abstract class SourceMailAccountClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailAccountClass */
     parent_class: SourceBackendClass
     static name: string
 }
-export class SourceMailAccountPrivate {
+class SourceMailAccountPrivate {
     static name: string
 }
-export abstract class SourceMailCompositionClass {
+abstract class SourceMailCompositionClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailCompositionClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceMailCompositionPrivate {
+class SourceMailCompositionPrivate {
     static name: string
 }
-export abstract class SourceMailIdentityClass {
+abstract class SourceMailIdentityClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailIdentityClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceMailIdentityPrivate {
+class SourceMailIdentityPrivate {
     static name: string
 }
-export abstract class SourceMailSignatureClass {
+abstract class SourceMailSignatureClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailSignatureClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceMailSignaturePrivate {
+class SourceMailSignaturePrivate {
     static name: string
 }
-export abstract class SourceMailSubmissionClass {
+abstract class SourceMailSubmissionClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailSubmissionClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceMailSubmissionPrivate {
+class SourceMailSubmissionPrivate {
     static name: string
 }
-export abstract class SourceMailTransportClass {
+abstract class SourceMailTransportClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMailTransportClass */
     parent_class: SourceBackendClass
     static name: string
 }
-export class SourceMailTransportPrivate {
+class SourceMailTransportPrivate {
     static name: string
 }
-export abstract class SourceMemoListClass {
+abstract class SourceMemoListClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceMemoListClass */
     parent_class: SourceSelectableClass
     static name: string
 }
-export class SourceMemoListPrivate {
+class SourceMemoListPrivate {
     static name: string
 }
-export abstract class SourceOfflineClass {
+abstract class SourceOfflineClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceOfflineClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceOfflinePrivate {
+class SourceOfflinePrivate {
     static name: string
 }
-export abstract class SourceOpenPGPClass {
+abstract class SourceOpenPGPClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceOpenPGPClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceOpenPGPPrivate {
+class SourceOpenPGPPrivate {
     static name: string
 }
-export class SourcePrivate {
+class SourcePrivate {
     static name: string
 }
-export abstract class SourceProxyClass {
+abstract class SourceProxyClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceProxyClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceProxyPrivate {
+class SourceProxyPrivate {
     static name: string
 }
-export abstract class SourceRefreshClass {
+abstract class SourceRefreshClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceRefreshClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceRefreshPrivate {
+class SourceRefreshPrivate {
     static name: string
 }
-export abstract class SourceRegistryClass {
+abstract class SourceRegistryClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceRegistryClass */
     parent_class: GObject.ObjectClass
     source_added: (registry: SourceRegistry, source: Source) => void
@@ -5991,10 +5993,10 @@ export abstract class SourceRegistryClass {
     credentials_required: (registry: SourceRegistry, source: Source, reason: SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error: GLib.Error) => void
     static name: string
 }
-export class SourceRegistryPrivate {
+class SourceRegistryPrivate {
     static name: string
 }
-export abstract class SourceRegistryWatcherClass {
+abstract class SourceRegistryWatcherClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceRegistryWatcherClass */
     parent_class: GObject.ObjectClass
     filter: (watcher: SourceRegistryWatcher, source: Source) => boolean
@@ -6002,90 +6004,90 @@ export abstract class SourceRegistryWatcherClass {
     disappeared: (watcher: SourceRegistryWatcher, source: Source) => void
     static name: string
 }
-export class SourceRegistryWatcherPrivate {
+class SourceRegistryWatcherPrivate {
     static name: string
 }
-export abstract class SourceResourceClass {
+abstract class SourceResourceClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceResourceClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceResourcePrivate {
+class SourceResourcePrivate {
     static name: string
 }
-export abstract class SourceRevisionGuardsClass {
+abstract class SourceRevisionGuardsClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceRevisionGuardsClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceRevisionGuardsPrivate {
+class SourceRevisionGuardsPrivate {
     static name: string
 }
-export abstract class SourceSMIMEClass {
+abstract class SourceSMIMEClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceSMIMEClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceSMIMEPrivate {
+class SourceSMIMEPrivate {
     static name: string
 }
-export abstract class SourceSecurityClass {
+abstract class SourceSecurityClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceSecurityClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceSecurityPrivate {
+class SourceSecurityPrivate {
     static name: string
 }
-export abstract class SourceSelectableClass {
+abstract class SourceSelectableClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceSelectableClass */
     parent_class: SourceBackendClass
     static name: string
 }
-export class SourceSelectablePrivate {
+class SourceSelectablePrivate {
     static name: string
 }
-export abstract class SourceTaskListClass {
+abstract class SourceTaskListClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceTaskListClass */
     parent_class: SourceSelectableClass
     static name: string
 }
-export class SourceTaskListPrivate {
+class SourceTaskListPrivate {
     static name: string
 }
-export abstract class SourceUoaClass {
+abstract class SourceUoaClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceUoaClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceUoaPrivate {
+class SourceUoaPrivate {
     static name: string
 }
-export abstract class SourceWeatherClass {
+abstract class SourceWeatherClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceWeatherClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceWeatherPrivate {
+class SourceWeatherPrivate {
     static name: string
 }
-export abstract class SourceWebDAVNotesClass {
+abstract class SourceWebDAVNotesClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceWebDAVNotesClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceWebDAVNotesPrivate {
+class SourceWebDAVNotesPrivate {
     static name: string
 }
-export abstract class SourceWebdavClass {
+abstract class SourceWebdavClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceWebdavClass */
     parent_class: SourceExtensionClass
     static name: string
 }
-export class SourceWebdavPrivate {
+class SourceWebdavPrivate {
     static name: string
 }
-export class WebDAVAccessControlEntry {
+class WebDAVAccessControlEntry {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVAccessControlEntry */
     principal_kind: WebDAVACEPrincipalKind
     principal_href: string
@@ -6103,7 +6105,7 @@ export class WebDAVAccessControlEntry {
     static new(principal_kind: WebDAVACEPrincipalKind, principal_href: string | null, flags: number, inherited_href?: string | null): WebDAVAccessControlEntry
     static free(ptr?: object | null): void
 }
-export class WebDAVDiscoveredSource {
+class WebDAVDiscoveredSource {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVDiscoveredSource */
     href: string
     supports: number
@@ -6116,7 +6118,7 @@ export class WebDAVDiscoveredSource {
     free(): void
     static name: string
 }
-export class WebDAVPrivilege {
+class WebDAVPrivilege {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVPrivilege */
     ns_uri: string
     name: string
@@ -6132,7 +6134,7 @@ export class WebDAVPrivilege {
     static new(ns_uri: string | null, name: string | null, description: string | null, kind: WebDAVPrivilegeKind, hint: WebDAVPrivilegeHint): WebDAVPrivilege
     static free(ptr?: object | null): void
 }
-export class WebDAVPropertyChange {
+class WebDAVPropertyChange {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVPropertyChange */
     kind: WebDAVPropertyChangeKind
     ns_uri: string
@@ -6146,7 +6148,7 @@ export class WebDAVPropertyChange {
     static new_set(ns_uri: string, name: string, value?: string | null): WebDAVPropertyChange
     static free(ptr?: object | null): void
 }
-export class WebDAVResource {
+class WebDAVResource {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVResource */
     kind: WebDAVResourceKind
     supports: number
@@ -6169,24 +6171,26 @@ export class WebDAVResource {
     static new(kind: WebDAVResourceKind, supports: number, href: string, etag: string | null, display_name: string | null, content_type: string | null, content_length: number, creation_date: number, last_modified: number, description: string | null, color: string | null, order: number): WebDAVResource
     static free(ptr?: object | null): void
 }
-export abstract class WebDAVSessionClass {
+abstract class WebDAVSessionClass {
     /* Fields of EDataServer-1.2.EDataServer.WebDAVSessionClass */
     parent_class: SoupSessionClass
     reserved: object[]
     static name: string
 }
-export class WebDAVSessionPrivate {
+class WebDAVSessionPrivate {
     static name: string
 }
-export abstract class XmlDocumentClass {
+abstract class XmlDocumentClass {
     /* Fields of EDataServer-1.2.EDataServer.XmlDocumentClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class XmlDocumentPrivate {
+class XmlDocumentPrivate {
     static name: string
 }
-export class XmlHash {
+class XmlHash {
     static name: string
 }
+}
+export default EDataServer

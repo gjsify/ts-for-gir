@@ -16,16 +16,16 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Unique {
+declare namespace Unique {
 
-export enum Command {
+enum Command {
     INVALID,
     ACTIVATE,
     NEW,
     OPEN,
     CLOSE,
 }
-export enum Response {
+enum Response {
     INVALID,
     OK,
     CANCEL,
@@ -37,7 +37,7 @@ export interface App_ConstructProps extends GObject.Object_ConstructProps {
     screen?: Gdk.Screen
     startupId?: string
 }
-export class App {
+class App {
     /* Properties of Unique-3.0.Unique.App */
     readonly isRunning: boolean
     screen: Gdk.Screen
@@ -107,7 +107,7 @@ export class App {
 }
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Fields of Unique-3.0.Unique.Backend */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -164,21 +164,21 @@ export class Backend {
     static create(): Backend
     static $gtype: GObject.Type
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of Unique-3.0.Unique.AppClass */
     messageReceived: (app: App, command: number, messageData: MessageData, time: number) => Response
     static name: string
 }
-export class AppPrivate {
+class AppPrivate {
     static name: string
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     /* Fields of Unique-3.0.Unique.BackendClass */
     requestName: (backend: Backend) => boolean
     sendMessage: (backend: Backend, commandId: number, messageData: MessageData, time: number) => Response
     static name: string
 }
-export class MessageData {
+class MessageData {
     /* Methods of Unique-3.0.Unique.MessageData */
     copy(): MessageData
     free(): void
@@ -200,3 +200,4 @@ export class MessageData {
     static new(): MessageData
 }
 }
+export default Unique

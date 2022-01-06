@@ -16,14 +16,14 @@ import type { Camel } from './Camel-1.2';
 import type { EBookContacts } from './EBookContacts-1.2';
 import type { EBackend } from './EBackend-1.2';
 
-export declare namespace EDataBook {
+declare namespace EDataBook {
 
-export enum BookCacheCursorOrigin {
+enum BookCacheCursorOrigin {
     CURRENT,
     BEGIN,
     END,
 }
-export enum BookSqliteError {
+enum BookSqliteError {
     ENGINE,
     CONSTRAINT,
     CONTACT_NOT_FOUND,
@@ -33,30 +33,30 @@ export enum BookSqliteError {
     END_OF_LIST,
     LOAD,
 }
-export enum bSqlChangeType {
+enum bSqlChangeType {
     CONTACT_ADDED,
     LOCALE_CHANGED,
     LAST,
 }
-export enum bSqlCursorOrigin {
+enum bSqlCursorOrigin {
     CURRENT,
     BEGIN,
     END,
 }
-export enum bSqlLockType {
+enum bSqlLockType {
     READ,
     WRITE,
 }
-export enum bSqlUnlockAction {
+enum bSqlUnlockAction {
     NONE,
     COMMIT,
     ROLLBACK,
 }
-export enum BookCacheCursorStepFlags {
+enum BookCacheCursorStepFlags {
     MOVE,
     FETCH,
 }
-export enum bSqlCursorStepFlags {
+enum bSqlCursorStepFlags {
     MOVE,
     FETCH,
 }
@@ -65,42 +65,42 @@ export const BOOK_SQL_SYNC_DATA_KEY: string
 export const EDS_ADDRESS_BOOK_MODULES: string
 export const EDS_SUBPROCESS_BOOK_PATH: string
 export const XIMIAN_VCARD: string
-export function bookCacheSearchDataFree(data?: object | null): void
-export function bookMetaBackendInfoFree(ptr?: object | null): void
-export function ebsqlGetContactExtraUnlocked(ebsql: BookSqlite, uid: string): { returnType: boolean, retExtra: string }
-export function ebsqlGetContactUnlocked(ebsql: BookSqlite, uid: string, metaContact: boolean): { returnType: boolean, contact: EBookContacts.Contact }
-export function ebsqlGetVcardUnlocked(ebsql: BookSqlite, uid: string, metaContact: boolean): { returnType: boolean, retVcard: string }
-export interface BookBackendCustomOpFunc {
+function bookCacheSearchDataFree(data?: object | null): void
+function bookMetaBackendInfoFree(ptr?: object | null): void
+function ebsqlGetContactExtraUnlocked(ebsql: BookSqlite, uid: string): { returnType: boolean, retExtra: string }
+function ebsqlGetContactUnlocked(ebsql: BookSqlite, uid: string, metaContact: boolean): { returnType: boolean, contact: EBookContacts.Contact }
+function ebsqlGetVcardUnlocked(ebsql: BookSqlite, uid: string, metaContact: boolean): { returnType: boolean, retVcard: string }
+interface BookBackendCustomOpFunc {
     (bookBackend: BookBackend, cancellable?: Gio.Cancellable | null): void
 }
-export interface BookBackendForeachViewFunc {
+interface BookBackendForeachViewFunc {
     (backend: BookBackend, view: DataBookView): boolean
 }
-export interface BookCacheSearchFunc {
+interface BookCacheSearchFunc {
     (bookCache: BookCache, uid: string, revision: string, object: string, extra: string, customFlags: number, offlineState: EBackend.OfflineState): boolean
 }
-export interface DataBookCursorCompareContactFunc {
+interface DataBookCursorCompareContactFunc {
     (cursor: DataBookCursor, contact: EBookContacts.Contact): number
 }
-export interface DataBookCursorGetPositionFunc {
+interface DataBookCursorGetPositionFunc {
     (cursor: DataBookCursor, cancellable?: Gio.Cancellable | null): boolean
 }
-export interface DataBookCursorLoadLocaleFunc {
+interface DataBookCursorLoadLocaleFunc {
     (cursor: DataBookCursor): boolean
 }
-export interface DataBookCursorSetAlphabetIndexFunc {
+interface DataBookCursorSetAlphabetIndexFunc {
     (cursor: DataBookCursor, index: number, locale: string): boolean
 }
-export interface DataBookCursorSetSexpFunc {
+interface DataBookCursorSetSexpFunc {
     (cursor: DataBookCursor, sexp?: string | null): boolean
 }
-export interface DataBookCursorStepFunc {
+interface DataBookCursorStepFunc {
     (cursor: DataBookCursor, revisionGuard: string | null, flags: EBookContacts.BookCursorStepFlags, origin: EBookContacts.BookCursorOrigin, count: number, cancellable?: Gio.Cancellable | null): number
 }
-export interface bSqlChangeCallback {
+interface bSqlChangeCallback {
     (changeType: bSqlChangeType, uid: string, extra: string, vcard: string): void
 }
-export interface bSqlVCardCallback {
+interface bSqlVCardCallback {
     (uid: string, extra: string): string
 }
 export interface BookBackend_ConstructProps extends EBackend.Backend_ConstructProps {
@@ -108,7 +108,7 @@ export interface BookBackend_ConstructProps extends EBackend.Backend_ConstructPr
     registry?: EDataServer.SourceRegistry
     writable?: boolean
 }
-export class BookBackend {
+class BookBackend {
     /* Properties of EDataBook-1.2.EDataBook.BookBackend */
     cacheDir: string
     readonly proxyResolver: Gio.ProxyResolver
@@ -290,7 +290,7 @@ export class BookBackend {
 }
 export interface BookBackendFactory_ConstructProps extends EBackend.BackendFactory_ConstructProps {
 }
-export class BookBackendFactory {
+class BookBackendFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.BackendFactory */
@@ -342,7 +342,7 @@ export class BookBackendFactory {
 }
 export interface BookBackendSExp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookBackendSExp {
+class BookBackendSExp {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookBackendSExp */
@@ -395,7 +395,7 @@ export class BookBackendSExp {
 }
 export interface BookBackendSync_ConstructProps extends BookBackend_ConstructProps {
 }
-export class BookBackendSync {
+class BookBackendSync {
     /* Properties of EDataBook-1.2.EDataBook.BookBackend */
     cacheDir: string
     readonly proxyResolver: Gio.ProxyResolver
@@ -587,7 +587,7 @@ export class BookBackendSync {
 }
 export interface BookCache_ConstructProps extends EBackend.Cache_ConstructProps {
 }
-export class BookCache {
+class BookCache {
     /* Properties of EDataBook-1.2.EDataBook.BookCache */
     readonly locale: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -738,7 +738,7 @@ export class BookCache {
 export interface BookMetaBackend_ConstructProps extends BookBackendSync_ConstructProps {
     cache?: BookCache
 }
-export class BookMetaBackend {
+class BookMetaBackend {
     /* Properties of EDataBook-1.2.EDataBook.BookMetaBackend */
     cache: BookCache
     /* Properties of EDataBook-1.2.EDataBook.BookBackend */
@@ -975,7 +975,7 @@ export class BookMetaBackend {
 }
 export interface BookSqlite_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookSqlite {
+class BookSqlite {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookSqlite */
@@ -1064,7 +1064,7 @@ export interface DataBook_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Gio.DBusConnection
     objectPath?: string
 }
-export class DataBook {
+class DataBook {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.DataBook */
@@ -1132,7 +1132,7 @@ export class DataBook {
 export interface DataBookCursor_ConstructProps extends GObject.Object_ConstructProps {
     backend?: BookBackend
 }
-export class DataBookCursor {
+class DataBookCursor {
     /* Properties of EDataBook-1.2.EDataBook.DataBookCursor */
     readonly position: number
     readonly total: number
@@ -1204,7 +1204,7 @@ export interface DataBookCursorCache_ConstructProps extends DataBookCursor_Const
     bookCache?: BookCache
     cursor?: object
 }
-export class DataBookCursorCache {
+class DataBookCursorCache {
     /* Properties of EDataBook-1.2.EDataBook.DataBookCursor */
     readonly position: number
     readonly total: number
@@ -1279,7 +1279,7 @@ export interface DataBookCursorSqlite_ConstructProps extends DataBookCursor_Cons
     ebsql?: BookSqlite
     revisionKey?: string
 }
-export class DataBookCursorSqlite {
+class DataBookCursorSqlite {
     /* Properties of EDataBook-1.2.EDataBook.DataBookCursor */
     readonly position: number
     readonly total: number
@@ -1351,7 +1351,7 @@ export class DataBookCursorSqlite {
 }
 export interface DataBookDirect_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataBookDirect {
+class DataBookDirect {
     /* Fields of EDataBook-1.2.EDataBook.DataBookDirect */
     parent: GObject.Object
     priv: DataBookDirectPrivate
@@ -1403,7 +1403,7 @@ export class DataBookDirect {
 }
 export interface DataBookFactory_ConstructProps extends EBackend.DataFactory_ConstructProps {
 }
-export class DataBookFactory {
+class DataBookFactory {
     /* Properties of EBackend-1.2.EBackend.DataFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of EDataBook-1.2.EDataBook.DataBookFactory */
@@ -1514,7 +1514,7 @@ export interface DataBookView_ConstructProps extends GObject.Object_ConstructPro
     objectPath?: string
     sexp?: BookBackendSExp
 }
-export class DataBookView {
+class DataBookView {
     /* Fields of EDataBook-1.2.EDataBook.DataBookView */
     parent: GObject.Object
     priv: DataBookViewPrivate
@@ -1581,7 +1581,7 @@ export class DataBookView {
 }
 export interface SubprocessBookFactory_ConstructProps extends EBackend.SubprocessFactory_ConstructProps {
 }
-export class SubprocessBookFactory {
+class SubprocessBookFactory {
     /* Properties of EBackend-1.2.EBackend.SubprocessFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of EDataBook-1.2.EDataBook.SubprocessBookFactory */
@@ -1647,7 +1647,7 @@ export class SubprocessBookFactory {
 }
 export interface SystemLocaleWatcher_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SystemLocaleWatcher {
+class SystemLocaleWatcher {
     /* Properties of EDataBook-1.2.EDataBook.SystemLocaleWatcher */
     readonly locale: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -1701,7 +1701,7 @@ export class SystemLocaleWatcher {
     static new(): SystemLocaleWatcher
     static $gtype: GObject.Type
 }
-export abstract class BookBackendClass {
+abstract class BookBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendClass */
     useSerialDispatchQueue: boolean
     implGetBackendProperty: (backend: BookBackend, propName: string) => string
@@ -1726,25 +1726,25 @@ export abstract class BookBackendClass {
     reservedPadding: object[]
     static name: string
 }
-export abstract class BookBackendFactoryClass {
+abstract class BookBackendFactoryClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendFactoryClass */
     factoryName: string
     backendType: GObject.Type
     static name: string
 }
-export class BookBackendFactoryPrivate {
+class BookBackendFactoryPrivate {
     static name: string
 }
-export class BookBackendPrivate {
+class BookBackendPrivate {
     static name: string
 }
-export abstract class BookBackendSExpClass {
+abstract class BookBackendSExpClass {
     static name: string
 }
-export class BookBackendSExpPrivate {
+class BookBackendSExpPrivate {
     static name: string
 }
-export abstract class BookBackendSyncClass {
+abstract class BookBackendSyncClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendSyncClass */
     openSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
     refreshSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
@@ -1752,26 +1752,26 @@ export abstract class BookBackendSyncClass {
     reservedPadding: object[]
     static name: string
 }
-export class BookBackendSyncPrivate {
+class BookBackendSyncPrivate {
     static name: string
 }
-export abstract class BookCacheClass {
+abstract class BookCacheClass {
     /* Fields of EDataBook-1.2.EDataBook.BookCacheClass */
     e164Changed: (bookCache: BookCache, contact: EBookContacts.Contact, isReplace: boolean) => void
     dupContactRevision: (bookCache: BookCache, contact: EBookContacts.Contact) => string
     static name: string
 }
-export class BookCacheCursor {
+class BookCacheCursor {
     static name: string
     static new(bookCache: BookCache, sexp: string, sortFields: EBookContacts.ContactField[], sortTypes: EBookContacts.BookCursorSortType[]): BookCacheCursor
     constructor(bookCache: BookCache, sexp: string, sortFields: EBookContacts.ContactField[], sortTypes: EBookContacts.BookCursorSortType[])
     /* Static methods and pseudo-constructors */
     static new(bookCache: BookCache, sexp: string, sortFields: EBookContacts.ContactField[], sortTypes: EBookContacts.BookCursorSortType[]): BookCacheCursor
 }
-export class BookCachePrivate {
+class BookCachePrivate {
     static name: string
 }
-export class BookCacheSearchData {
+class BookCacheSearchData {
     /* Fields of EDataBook-1.2.EDataBook.BookCacheSearchData */
     uid: string
     vcard: string
@@ -1785,7 +1785,7 @@ export class BookCacheSearchData {
     static new(uid: string, vcard: string, extra?: string | null): BookCacheSearchData
     static free(data?: object | null): void
 }
-export abstract class BookMetaBackendClass {
+abstract class BookMetaBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookMetaBackendClass */
     connectSync: (metaBackend: BookMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAuthResult: EDataServer.SourceAuthenticationResult, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     disconnectSync: (metaBackend: BookMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
@@ -1801,7 +1801,7 @@ export abstract class BookMetaBackendClass {
     getSslErrorDetails: (metaBackend: BookMetaBackend) => { returnType: boolean, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     static name: string
 }
-export class BookMetaBackendInfo {
+class BookMetaBackendInfo {
     /* Fields of EDataBook-1.2.EDataBook.BookMetaBackendInfo */
     uid: string
     revision: string
@@ -1816,28 +1816,28 @@ export class BookMetaBackendInfo {
     static new(uid: string, revision?: string | null, object?: string | null, extra?: string | null): BookMetaBackendInfo
     static free(ptr?: object | null): void
 }
-export class BookMetaBackendPrivate {
+class BookMetaBackendPrivate {
     static name: string
 }
-export abstract class BookSqliteClass {
+abstract class BookSqliteClass {
     /* Fields of EDataBook-1.2.EDataBook.BookSqliteClass */
     beforeInsertContact: (ebsql: BookSqlite, db: object | null, contact: EBookContacts.Contact, extra: string, replace: boolean, cancellable?: Gio.Cancellable | null) => boolean
     beforeRemoveContact: (ebsql: BookSqlite, db: object | null, contactUid: string, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export class BookSqlitePrivate {
+class BookSqlitePrivate {
     static name: string
 }
-export abstract class DataBookClass {
+abstract class DataBookClass {
     static name: string
 }
-export abstract class DataBookCursorCacheClass {
+abstract class DataBookCursorCacheClass {
     static name: string
 }
-export class DataBookCursorCachePrivate {
+class DataBookCursorCachePrivate {
     static name: string
 }
-export abstract class DataBookCursorClass {
+abstract class DataBookCursorClass {
     /* Fields of EDataBook-1.2.EDataBook.DataBookCursorClass */
     setSexp: DataBookCursorSetSexpFunc
     step: DataBookCursorStepFunc
@@ -1847,62 +1847,62 @@ export abstract class DataBookCursorClass {
     loadLocale: DataBookCursorLoadLocaleFunc
     static name: string
 }
-export class DataBookCursorPrivate {
+class DataBookCursorPrivate {
     static name: string
 }
-export abstract class DataBookCursorSqliteClass {
+abstract class DataBookCursorSqliteClass {
     static name: string
 }
-export class DataBookCursorSqlitePrivate {
+class DataBookCursorSqlitePrivate {
     static name: string
 }
-export abstract class DataBookDirectClass {
+abstract class DataBookDirectClass {
     /* Fields of EDataBook-1.2.EDataBook.DataBookDirectClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class DataBookDirectPrivate {
+class DataBookDirectPrivate {
     static name: string
 }
-export abstract class DataBookFactoryClass {
+abstract class DataBookFactoryClass {
     /* Fields of EDataBook-1.2.EDataBook.DataBookFactoryClass */
     parentClass: EBackend.DataFactoryClass
     static name: string
 }
-export class DataBookFactoryPrivate {
+class DataBookFactoryPrivate {
     static name: string
 }
-export class DataBookPrivate {
+class DataBookPrivate {
     static name: string
 }
-export abstract class DataBookViewClass {
+abstract class DataBookViewClass {
     /* Fields of EDataBook-1.2.EDataBook.DataBookViewClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class DataBookViewPrivate {
+class DataBookViewPrivate {
     static name: string
 }
-export abstract class SubprocessBookFactoryClass {
+abstract class SubprocessBookFactoryClass {
     /* Fields of EDataBook-1.2.EDataBook.SubprocessBookFactoryClass */
     parentClass: EBackend.SubprocessFactoryClass
     static name: string
 }
-export class SubprocessBookFactoryPrivate {
+class SubprocessBookFactoryPrivate {
     static name: string
 }
-export abstract class SystemLocaleWatcherClass {
+abstract class SystemLocaleWatcherClass {
     /* Fields of EDataBook-1.2.EDataBook.SystemLocaleWatcherClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SystemLocaleWatcherPrivate {
+class SystemLocaleWatcherPrivate {
     static name: string
 }
-export class bSqlCursor {
+class bSqlCursor {
     static name: string
 }
-export class bSqlSearchData {
+class bSqlSearchData {
     /* Fields of EDataBook-1.2.EDataBook.bSqlSearchData */
     uid: string
     vcard: string
@@ -1910,3 +1910,4 @@ export class bSqlSearchData {
     static name: string
 }
 }
+export default EDataBook

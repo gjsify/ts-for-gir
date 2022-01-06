@@ -1,2 +1,1 @@
-imports.gi.versions.GConf = '2.0'
-module.exports = imports.gi.GConf
+export {default as default} from 'gi://GConf?version=2.0';

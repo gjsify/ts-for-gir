@@ -15,9 +15,9 @@ import type { Goa } from './Goa-1.0';
 import type { Camel } from './Camel-1.2';
 import type { EBookContacts } from './EBookContacts-1.2';
 
-export declare namespace EBook {
+declare namespace EBook {
 
-export enum BookStatus {
+enum BookStatus {
     OK,
     INVALID_ARG,
     BUSY,
@@ -44,11 +44,11 @@ export enum BookStatus {
     NO_SPACE,
     NOT_SUPPORTED,
 }
-export function bookErrorQuark(): GLib.Quark
-export function bookUtilsGetRecipientCertificatesSync(registry: EDataServer.SourceRegistry, onlyClients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificates: string[] }
+function bookErrorQuark(): GLib.Quark
+function bookUtilsGetRecipientCertificatesSync(registry: EDataServer.SourceRegistry, onlyClients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificates: string[] }
 export interface BookClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
-export class BookClient {
+class BookClient {
     /* Properties of EBook-1.2.EBook.BookClient */
     readonly locale: string
     /* Properties of EDataServer-1.2.EDataServer.Client */
@@ -254,7 +254,7 @@ export interface BookClientCursor_ConstructProps extends GObject.Object_Construc
     objectPath?: string
     sortFields?: string[]
 }
-export class BookClientCursor {
+class BookClientCursor {
     /* Properties of EBook-1.2.EBook.BookClientCursor */
     readonly alphabet: string[]
     readonly position: number
@@ -346,7 +346,7 @@ export interface BookClientView_ConstructProps extends GObject.Object_ConstructP
     connection?: Gio.DBusConnection
     objectPath?: string
 }
-export class BookClientView {
+class BookClientView {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClientView */
@@ -431,7 +431,7 @@ export class BookClientView {
 }
 export interface Destination_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Destination {
+class Destination {
     /* Fields of EBook-1.2.EBook.Destination */
     object: GObject.Object
     priv: DestinationPrivate
@@ -520,36 +520,37 @@ export class Destination {
     static importv(str: string): Destination[]
     static $gtype: GObject.Type
 }
-export abstract class BookClientClass {
+abstract class BookClientClass {
     static name: string
 }
-export abstract class BookClientCursorClass {
+abstract class BookClientCursorClass {
     /* Fields of EBook-1.2.EBook.BookClientCursorClass */
     refresh: (cursor: BookClientCursor) => void
     static name: string
 }
-export class BookClientCursorPrivate {
+class BookClientCursorPrivate {
     static name: string
 }
-export class BookClientPrivate {
+class BookClientPrivate {
     static name: string
 }
-export abstract class BookClientViewClass {
+abstract class BookClientViewClass {
     /* Fields of EBook-1.2.EBook.BookClientViewClass */
     progress: (clientView: BookClientView, percent: number, message: string) => void
     complete: (clientView: BookClientView, error: GLib.Error) => void
     static name: string
 }
-export class BookClientViewPrivate {
+class BookClientViewPrivate {
     static name: string
 }
-export abstract class DestinationClass {
+abstract class DestinationClass {
     /* Fields of EBook-1.2.EBook.DestinationClass */
     parentClass: GObject.ObjectClass
     changed: (destination: Destination) => void
     static name: string
 }
-export class DestinationPrivate {
+class DestinationPrivate {
     static name: string
 }
 }
+export default EBook

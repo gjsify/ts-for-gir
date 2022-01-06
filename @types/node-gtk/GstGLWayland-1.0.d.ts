@@ -11,11 +11,11 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstGL } from './GstGL-1.0';
 
-export declare namespace GstGLWayland {
+declare namespace GstGLWayland {
 
 export interface GLDisplayWayland_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
-export class GLDisplayWayland {
+class GLDisplayWayland {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -135,10 +135,11 @@ export class GLDisplayWayland {
     static newWithDisplay(display?: object | null): GLDisplayWayland
     static $gtype: GObject.Type
 }
-export abstract class GLDisplayWaylandClass {
+abstract class GLDisplayWaylandClass {
     /* Fields of GstGLWayland-1.0.GstGLWayland.GLDisplayWaylandClass */
     objectClass: GstGL.GLDisplayClass
     padding: object[]
     static name: string
 }
 }
+export default GstGLWayland

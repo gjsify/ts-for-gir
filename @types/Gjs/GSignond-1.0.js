@@ -1,2 +1,1 @@
-imports.gi.versions.GSignond = '1.0'
-module.exports = imports.gi.GSignond
+export {default as default} from 'gi://GSignond?version=1.0';

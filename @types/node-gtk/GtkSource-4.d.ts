@@ -16,92 +16,92 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace GtkSource {
+declare namespace GtkSource {
 
-export enum BackgroundPatternType {
+enum BackgroundPatternType {
     NONE,
     GRID,
 }
-export enum BracketMatchType {
+enum BracketMatchType {
     NONE,
     OUT_OF_RANGE,
     NOT_FOUND,
     FOUND,
 }
-export enum ChangeCaseType {
+enum ChangeCaseType {
     LOWER,
     UPPER,
     TOGGLE,
     TITLE,
 }
-export enum CompletionError {
+enum CompletionError {
     ALREADY_BOUND,
     NOT_BOUND,
 }
-export enum CompressionType {
+enum CompressionType {
     NONE,
     GZIP,
 }
-export enum FileLoaderError {
+enum FileLoaderError {
     TOO_BIG,
     ENCODING_AUTO_DETECTION_FAILED,
     CONVERSION_FALLBACK,
 }
-export enum FileSaverError {
+enum FileSaverError {
     INVALID_CHARS,
     EXTERNALLY_MODIFIED,
 }
-export enum GutterRendererAlignmentMode {
+enum GutterRendererAlignmentMode {
     CELL,
     FIRST,
     LAST,
 }
-export enum NewlineType {
+enum NewlineType {
     LF,
     CR,
     CR_LF,
 }
-export enum SmartHomeEndType {
+enum SmartHomeEndType {
     DISABLED,
     BEFORE,
     AFTER,
     ALWAYS,
 }
-export enum ViewGutterPosition {
+enum ViewGutterPosition {
     LINES,
     MARKS,
 }
-export enum CompletionActivation {
+enum CompletionActivation {
     NONE,
     INTERACTIVE,
     USER_REQUESTED,
 }
-export enum FileSaverFlags {
+enum FileSaverFlags {
     NONE,
     IGNORE_INVALID_CHARS,
     IGNORE_MODIFICATION_TIME,
     CREATE_BACKUP,
 }
-export enum GutterRendererState {
+enum GutterRendererState {
     NORMAL,
     CURSOR,
     PRELIT,
     SELECTED,
 }
-export enum SortFlags {
+enum SortFlags {
     NONE,
     CASE_SENSITIVE,
     REVERSE_ORDER,
     REMOVE_DUPLICATES,
 }
-export enum SpaceLocationFlags {
+enum SpaceLocationFlags {
     NONE,
     LEADING,
     INSIDE_TEXT,
     TRAILING,
     ALL,
 }
-export enum SpaceTypeFlags {
+enum SpaceTypeFlags {
     NONE,
     SPACE,
     TAB,
@@ -109,19 +109,19 @@ export enum SpaceTypeFlags {
     NBSP,
     ALL,
 }
-export function completionErrorQuark(): GLib.Quark
-export function encodingGetAll(): Encoding[]
-export function encodingGetCurrent(): Encoding
-export function encodingGetDefaultCandidates(): Encoding[]
-export function encodingGetFromCharset(charset: string): Encoding | null
-export function encodingGetUtf8(): Encoding
-export function fileLoaderErrorQuark(): GLib.Quark
-export function fileSaverErrorQuark(): GLib.Quark
-export function finalize(): void
-export function init(): void
-export function utilsEscapeSearchText(text: string): string
-export function utilsUnescapeSearchText(text: string): string
-export class CompletionProposal {
+function completionErrorQuark(): GLib.Quark
+function encodingGetAll(): Encoding[]
+function encodingGetCurrent(): Encoding
+function encodingGetDefaultCandidates(): Encoding[]
+function encodingGetFromCharset(charset: string): Encoding | null
+function encodingGetUtf8(): Encoding
+function fileLoaderErrorQuark(): GLib.Quark
+function fileSaverErrorQuark(): GLib.Quark
+function finalize(): void
+function init(): void
+function utilsEscapeSearchText(text: string): string
+function utilsUnescapeSearchText(text: string): string
+class CompletionProposal {
     /* Methods of GtkSource-4.GtkSource.CompletionProposal */
     changed(): void
     equal(other: CompletionProposal): boolean
@@ -141,7 +141,7 @@ export class CompletionProposal {
     emit(sigName: "changed"): void
     static name: string
 }
-export class CompletionProvider {
+class CompletionProvider {
     /* Methods of GtkSource-4.GtkSource.CompletionProvider */
     activateProposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     getActivation(): CompletionActivation
@@ -158,7 +158,7 @@ export class CompletionProvider {
     updateInfo(proposal: CompletionProposal, info: CompletionInfo): void
     static name: string
 }
-export class StyleSchemeChooser {
+class StyleSchemeChooser {
     /* Properties of GtkSource-4.GtkSource.StyleSchemeChooser */
     styleScheme: StyleScheme
     /* Methods of GtkSource-4.GtkSource.StyleSchemeChooser */
@@ -166,7 +166,7 @@ export class StyleSchemeChooser {
     setStyleScheme(scheme: StyleScheme): void
     static name: string
 }
-export class UndoManager {
+class UndoManager {
     /* Methods of GtkSource-4.GtkSource.UndoManager */
     beginNotUndoableAction(): void
     canRedo(): boolean
@@ -198,7 +198,7 @@ export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     styleScheme?: StyleScheme
     undoManager?: UndoManager
 }
-export class Buffer {
+class Buffer {
     /* Properties of GtkSource-4.GtkSource.Buffer */
     readonly canRedo: boolean
     readonly canUndo: boolean
@@ -540,7 +540,7 @@ export interface Completion_ConstructProps extends GObject.Object_ConstructProps
     showIcons?: boolean
     view?: View
 }
-export class Completion {
+class Completion {
     /* Properties of GtkSource-4.GtkSource.Completion */
     accelerators: number
     autoCompleteDelay: number
@@ -693,7 +693,7 @@ export interface CompletionContext_ConstructProps extends GObject.InitiallyUnown
     completion?: Completion
     iter?: Gtk.TextIter
 }
-export class CompletionContext {
+class CompletionContext {
     /* Properties of GtkSource-4.GtkSource.CompletionContext */
     activation: CompletionActivation
     iter: Gtk.TextIter
@@ -764,7 +764,7 @@ export class CompletionContext {
 }
 export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class CompletionInfo {
+class CompletionInfo {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -2074,7 +2074,7 @@ export interface CompletionItem_ConstructProps extends GObject.Object_ConstructP
     markup?: string
     text?: string
 }
-export class CompletionItem {
+class CompletionItem {
     /* Properties of GtkSource-4.GtkSource.CompletionItem */
     gicon: Gio.Icon
     icon: GdkPixbuf.Pixbuf
@@ -2200,7 +2200,7 @@ export interface CompletionWords_ConstructProps extends GObject.Object_Construct
     proposalsBatchSize?: number
     scanBatchSize?: number
 }
-export class CompletionWords {
+class CompletionWords {
     /* Properties of GtkSource-4.GtkSource.CompletionWords */
     activation: CompletionActivation
     icon: GdkPixbuf.Pixbuf
@@ -2317,7 +2317,7 @@ export class CompletionWords {
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
-export class File {
+class File {
     /* Properties of GtkSource-4.GtkSource.File */
     readonly compressionType: CompressionType
     readonly encoding: Encoding
@@ -2413,7 +2413,7 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     inputStream?: Gio.InputStream
     location?: Gio.File
 }
-export class FileLoader {
+class FileLoader {
     /* Fields of GtkSource-4.GtkSource.FileLoader */
     parent: GObject.Object
     priv: FileLoaderPrivate
@@ -2482,7 +2482,7 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     location?: Gio.File
     newlineType?: NewlineType
 }
-export class FileSaver {
+class FileSaver {
     /* Properties of GtkSource-4.GtkSource.FileSaver */
     compressionType: CompressionType
     encoding: Encoding
@@ -2574,7 +2574,7 @@ export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
     view?: View
     windowType?: Gtk.TextWindowType
 }
-export class Gutter {
+class Gutter {
     /* Fields of GtkSource-4.GtkSource.Gutter */
     parent: GObject.Object
     priv: GutterPrivate
@@ -2639,7 +2639,7 @@ export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_
     yalign?: number
     ypad?: number
 }
-export class GutterRenderer {
+class GutterRenderer {
     /* Properties of GtkSource-4.GtkSource.GutterRenderer */
     alignmentMode: GutterRendererAlignmentMode
     backgroundRgba: Gdk.RGBA
@@ -2805,7 +2805,7 @@ export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_Cons
     iconName?: string
     pixbuf?: GdkPixbuf.Pixbuf
 }
-export class GutterRendererPixbuf {
+class GutterRendererPixbuf {
     /* Properties of GtkSource-4.GtkSource.GutterRendererPixbuf */
     gicon: Gio.Icon
     iconName: string
@@ -2998,7 +2998,7 @@ export interface GutterRendererText_ConstructProps extends GutterRenderer_Constr
     markup?: string
     text?: string
 }
-export class GutterRendererText {
+class GutterRendererText {
     /* Properties of GtkSource-4.GtkSource.GutterRendererText */
     markup: string
     text: string
@@ -3181,7 +3181,7 @@ export class GutterRendererText {
 }
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Language {
+class Language {
     /* Properties of GtkSource-4.GtkSource.Language */
     readonly hidden: boolean
     readonly id: string
@@ -3266,7 +3266,7 @@ export class Language {
 export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
     searchPath?: string[]
 }
-export class LanguageManager {
+class LanguageManager {
     /* Properties of GtkSource-4.GtkSource.LanguageManager */
     readonly languageIds: string[]
     searchPath: string[]
@@ -3342,7 +3342,7 @@ export interface Map_ConstructProps extends View_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class Map {
+class Map {
     /* Properties of GtkSource-4.GtkSource.Map */
     fontDesc: Pango.FontDescription
     view: View
@@ -4827,7 +4827,7 @@ export class Map {
 export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
     category?: string
 }
-export class Mark {
+class Mark {
     /* Fields of GtkSource-4.GtkSource.Mark */
     parentInstance: Gtk.TextMark
     priv: MarkPrivate
@@ -4893,7 +4893,7 @@ export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructP
     iconName?: string
     pixbuf?: GdkPixbuf.Pixbuf
 }
-export class MarkAttributes {
+class MarkAttributes {
     /* Properties of GtkSource-4.GtkSource.MarkAttributes */
     background: Gdk.RGBA
     gicon: Gio.Icon
@@ -4999,7 +4999,7 @@ export interface PrintCompositor_ConstructProps extends GObject.Object_Construct
     tabWidth?: number
     wrapMode?: Gtk.WrapMode
 }
-export class PrintCompositor {
+class PrintCompositor {
     /* Properties of GtkSource-4.GtkSource.PrintCompositor */
     bodyFontName: string
     footerFontName: string
@@ -5154,7 +5154,7 @@ export class PrintCompositor {
 export interface Region_ConstructProps extends GObject.Object_ConstructProps {
     buffer?: Gtk.TextBuffer
 }
-export class Region {
+class Region {
     /* Fields of GtkSource-4.GtkSource.Region */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5219,7 +5219,7 @@ export interface SearchContext_ConstructProps extends GObject.Object_ConstructPr
     matchStyle?: Style
     settings?: SearchSettings
 }
-export class SearchContext {
+class SearchContext {
     /* Properties of GtkSource-4.GtkSource.SearchContext */
     highlight: boolean
     matchStyle: Style
@@ -5317,7 +5317,7 @@ export interface SearchSettings_ConstructProps extends GObject.Object_ConstructP
     searchText?: string
     wrapAround?: boolean
 }
-export class SearchSettings {
+class SearchSettings {
     /* Properties of GtkSource-4.GtkSource.SearchSettings */
     atWordBoundaries: boolean
     caseSensitive: boolean
@@ -5411,7 +5411,7 @@ export interface SpaceDrawer_ConstructProps extends GObject.Object_ConstructProp
     enableMatrix?: boolean
     matrix?: GLib.Variant
 }
-export class SpaceDrawer {
+class SpaceDrawer {
     /* Properties of GtkSource-4.GtkSource.SpaceDrawer */
     enableMatrix: boolean
     matrix: GLib.Variant
@@ -5500,7 +5500,7 @@ export interface Style_ConstructProps extends GObject.Object_ConstructProps {
     underlineColorSet?: boolean
     underlineSet?: boolean
 }
-export class Style {
+class Style {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GtkSource-4.GtkSource.Style */
@@ -5549,7 +5549,7 @@ export class Style {
 export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
-export class StyleScheme {
+class StyleScheme {
     /* Properties of GtkSource-4.GtkSource.StyleScheme */
     readonly description: string
     readonly filename: string
@@ -5628,7 +5628,7 @@ export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_Cons
     useActionAppearance?: boolean
     styleScheme?: StyleScheme
 }
-export class StyleSchemeChooserButton {
+class StyleSchemeChooserButton {
     /* Properties of Gtk-3.0.Gtk.Button */
     alwaysShowImage: boolean
     image: Gtk.Widget
@@ -6760,7 +6760,7 @@ export class StyleSchemeChooserButton {
 export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_ConstructProps {
     styleScheme?: StyleScheme
 }
-export class StyleSchemeChooserWidget {
+class StyleSchemeChooserWidget {
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -7744,7 +7744,7 @@ export class StyleSchemeChooserWidget {
 export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
     searchPath?: string[]
 }
-export class StyleSchemeManager {
+class StyleSchemeManager {
     /* Properties of GtkSource-4.GtkSource.StyleSchemeManager */
     readonly schemeIds: string[]
     searchPath: string[]
@@ -7818,7 +7818,7 @@ export interface Tag_ConstructProps extends Gtk.TextTag_ConstructProps {
     drawSpaces?: boolean
     drawSpacesSet?: boolean
 }
-export class Tag {
+class Tag {
     /* Properties of GtkSource-4.GtkSource.Tag */
     drawSpaces: boolean
     drawSpacesSet: boolean
@@ -8349,7 +8349,7 @@ export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of GtkSource-4.GtkSource.View */
     autoIndent: boolean
     backgroundPattern: BackgroundPatternType
@@ -9815,7 +9815,7 @@ export class View {
     static newWithBuffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of GtkSource-4.GtkSource.BufferClass */
     parentClass: Gtk.TextBufferClass
     undo: (buffer: Buffer) => void
@@ -9824,10 +9824,10 @@ export abstract class BufferClass {
     padding: object[]
     static name: string
 }
-export class BufferPrivate {
+class BufferPrivate {
     static name: string
 }
-export abstract class CompletionClass {
+abstract class CompletionClass {
     /* Fields of GtkSource-4.GtkSource.CompletionClass */
     parentClass: GObject.ObjectClass
     proposalActivated: (completion: Completion, provider: CompletionProvider, proposal: CompletionProposal) => boolean
@@ -9840,38 +9840,38 @@ export abstract class CompletionClass {
     padding: object[]
     static name: string
 }
-export abstract class CompletionContextClass {
+abstract class CompletionContextClass {
     /* Fields of GtkSource-4.GtkSource.CompletionContextClass */
     parentClass: GObject.InitiallyUnownedClass
     cancelled: (context: CompletionContext) => void
     padding: object[]
     static name: string
 }
-export class CompletionContextPrivate {
+class CompletionContextPrivate {
     static name: string
 }
-export abstract class CompletionInfoClass {
+abstract class CompletionInfoClass {
     /* Fields of GtkSource-4.GtkSource.CompletionInfoClass */
     parentClass: Gtk.WindowClass
     padding: object[]
     static name: string
 }
-export class CompletionInfoPrivate {
+class CompletionInfoPrivate {
     static name: string
 }
-export abstract class CompletionItemClass {
+abstract class CompletionItemClass {
     /* Fields of GtkSource-4.GtkSource.CompletionItemClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class CompletionItemPrivate {
+class CompletionItemPrivate {
     static name: string
 }
-export class CompletionPrivate {
+class CompletionPrivate {
     static name: string
 }
-export abstract class CompletionProposalIface {
+abstract class CompletionProposalIface {
     /* Fields of GtkSource-4.GtkSource.CompletionProposalIface */
     parent: GObject.TypeInterface
     getLabel: (proposal: CompletionProposal) => string
@@ -9886,7 +9886,7 @@ export abstract class CompletionProposalIface {
     changed: (proposal: CompletionProposal) => void
     static name: string
 }
-export abstract class CompletionProviderIface {
+abstract class CompletionProviderIface {
     /* Fields of GtkSource-4.GtkSource.CompletionProviderIface */
     gIface: GObject.TypeInterface
     getName: (provider: CompletionProvider) => string
@@ -9904,15 +9904,15 @@ export abstract class CompletionProviderIface {
     getPriority: (provider: CompletionProvider) => number
     static name: string
 }
-export abstract class CompletionWordsClass {
+abstract class CompletionWordsClass {
     /* Fields of GtkSource-4.GtkSource.CompletionWordsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CompletionWordsPrivate {
+class CompletionWordsPrivate {
     static name: string
 }
-export class Encoding {
+class Encoding {
     /* Methods of GtkSource-4.GtkSource.Encoding */
     copy(): Encoding
     free(): void
@@ -9927,43 +9927,43 @@ export class Encoding {
     static getFromCharset(charset: string): Encoding | null
     static getUtf8(): Encoding
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of GtkSource-4.GtkSource.FileClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileLoaderClass {
+abstract class FileLoaderClass {
     /* Fields of GtkSource-4.GtkSource.FileLoaderClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileLoaderPrivate {
+class FileLoaderPrivate {
     static name: string
 }
-export class FilePrivate {
+class FilePrivate {
     static name: string
 }
-export abstract class FileSaverClass {
+abstract class FileSaverClass {
     /* Fields of GtkSource-4.GtkSource.FileSaverClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileSaverPrivate {
+class FileSaverPrivate {
     static name: string
 }
-export abstract class GutterClass {
+abstract class GutterClass {
     /* Fields of GtkSource-4.GtkSource.GutterClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class GutterPrivate {
+class GutterPrivate {
     static name: string
 }
-export abstract class GutterRendererClass {
+abstract class GutterRendererClass {
     /* Fields of GtkSource-4.GtkSource.GutterRendererClass */
     parentClass: GObject.InitiallyUnownedClass
     begin: (renderer: GutterRenderer, cr: cairo.Context, backgroundArea: Gdk.Rectangle, cellArea: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter) => void
@@ -9979,119 +9979,119 @@ export abstract class GutterRendererClass {
     padding: object[]
     static name: string
 }
-export abstract class GutterRendererPixbufClass {
+abstract class GutterRendererPixbufClass {
     static name: string
 }
-export class GutterRendererPixbufPrivate {
+class GutterRendererPixbufPrivate {
     static name: string
 }
-export class GutterRendererPrivate {
+class GutterRendererPrivate {
     static name: string
 }
-export abstract class GutterRendererTextClass {
+abstract class GutterRendererTextClass {
     static name: string
 }
-export class GutterRendererTextPrivate {
+class GutterRendererTextPrivate {
     static name: string
 }
-export abstract class LanguageClass {
+abstract class LanguageClass {
     /* Fields of GtkSource-4.GtkSource.LanguageClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class LanguageManagerClass {
+abstract class LanguageManagerClass {
     /* Fields of GtkSource-4.GtkSource.LanguageManagerClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class LanguageManagerPrivate {
+class LanguageManagerPrivate {
     static name: string
 }
-export class LanguagePrivate {
+class LanguagePrivate {
     static name: string
 }
-export abstract class MapClass {
+abstract class MapClass {
     /* Fields of GtkSource-4.GtkSource.MapClass */
     parentClass: ViewClass
     padding: object[]
     static name: string
 }
-export abstract class MarkAttributesClass {
+abstract class MarkAttributesClass {
     static name: string
 }
-export class MarkAttributesPrivate {
+class MarkAttributesPrivate {
     static name: string
 }
-export abstract class MarkClass {
+abstract class MarkClass {
     /* Fields of GtkSource-4.GtkSource.MarkClass */
     parentClass: Gtk.TextMarkClass
     padding: object[]
     static name: string
 }
-export class MarkPrivate {
+class MarkPrivate {
     static name: string
 }
-export abstract class PrintCompositorClass {
+abstract class PrintCompositorClass {
     /* Fields of GtkSource-4.GtkSource.PrintCompositorClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class PrintCompositorPrivate {
+class PrintCompositorPrivate {
     static name: string
 }
-export abstract class RegionClass {
+abstract class RegionClass {
     /* Fields of GtkSource-4.GtkSource.RegionClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class RegionIter {
+class RegionIter {
     /* Methods of GtkSource-4.GtkSource.RegionIter */
     getSubregion(): { returnType: boolean, start: Gtk.TextIter | null, end: Gtk.TextIter | null }
     isEnd(): boolean
     next(): boolean
     static name: string
 }
-export abstract class SearchContextClass {
+abstract class SearchContextClass {
     /* Fields of GtkSource-4.GtkSource.SearchContextClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class SearchContextPrivate {
+class SearchContextPrivate {
     static name: string
 }
-export abstract class SearchSettingsClass {
+abstract class SearchSettingsClass {
     /* Fields of GtkSource-4.GtkSource.SearchSettingsClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class SearchSettingsPrivate {
+class SearchSettingsPrivate {
     static name: string
 }
-export abstract class SpaceDrawerClass {
+abstract class SpaceDrawerClass {
     /* Fields of GtkSource-4.GtkSource.SpaceDrawerClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class SpaceDrawerPrivate {
+class SpaceDrawerPrivate {
     static name: string
 }
-export abstract class StyleClass {
+abstract class StyleClass {
     static name: string
 }
-export abstract class StyleSchemeChooserButtonClass {
+abstract class StyleSchemeChooserButtonClass {
     /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserButtonClass */
     parent: Gtk.ButtonClass
     padding: object[]
     static name: string
 }
-export abstract class StyleSchemeChooserInterface {
+abstract class StyleSchemeChooserInterface {
     /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserInterface */
     baseInterface: GObject.TypeInterface
     getStyleScheme: (chooser: StyleSchemeChooser) => StyleScheme
@@ -10099,37 +10099,37 @@ export abstract class StyleSchemeChooserInterface {
     padding: object[]
     static name: string
 }
-export abstract class StyleSchemeChooserWidgetClass {
+abstract class StyleSchemeChooserWidgetClass {
     /* Fields of GtkSource-4.GtkSource.StyleSchemeChooserWidgetClass */
     parent: Gtk.BinClass
     padding: object[]
     static name: string
 }
-export abstract class StyleSchemeClass {
+abstract class StyleSchemeClass {
     /* Fields of GtkSource-4.GtkSource.StyleSchemeClass */
     baseClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class StyleSchemeManagerClass {
+abstract class StyleSchemeManagerClass {
     /* Fields of GtkSource-4.GtkSource.StyleSchemeManagerClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class StyleSchemeManagerPrivate {
+class StyleSchemeManagerPrivate {
     static name: string
 }
-export class StyleSchemePrivate {
+class StyleSchemePrivate {
     static name: string
 }
-export abstract class TagClass {
+abstract class TagClass {
     /* Fields of GtkSource-4.GtkSource.TagClass */
     parentClass: Gtk.TextTagClass
     padding: object[]
     static name: string
 }
-export abstract class UndoManagerIface {
+abstract class UndoManagerIface {
     /* Fields of GtkSource-4.GtkSource.UndoManagerIface */
     parent: GObject.TypeInterface
     canUndo: (manager: UndoManager) => boolean
@@ -10142,7 +10142,7 @@ export abstract class UndoManagerIface {
     canRedoChanged: (manager: UndoManager) => void
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of GtkSource-4.GtkSource.ViewClass */
     parentClass: Gtk.TextViewClass
     undo: (view: View) => void
@@ -10154,7 +10154,8 @@ export abstract class ViewClass {
     padding: object[]
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
 }
+export default GtkSource

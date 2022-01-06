@@ -1,2 +1,1 @@
-imports.gi.versions.Atspi = '2.0'
-module.exports = imports.gi.Atspi
+export {default as default} from 'gi://Atspi?version=2.0';

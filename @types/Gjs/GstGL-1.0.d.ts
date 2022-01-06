@@ -3,24 +3,26 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum GLBaseMemoryError {
+export namespace GstGL {
+
+enum GLBaseMemoryError {
     FAILED,
     OLD_LIBS,
     RESOURCE_UNAVAILABLE,
 }
-export enum GLConfigCaveat {
+enum GLConfigCaveat {
     NONE,
     SLOW,
     NON_CONFORMANT,
 }
-export enum GLContextError {
+enum GLContextError {
     FAILED,
     WRONG_CONFIG,
     WRONG_API,
@@ -28,7 +30,7 @@ export enum GLContextError {
     CREATE_CONTEXT,
     RESOURCE_UNAVAILABLE,
 }
-export enum GLFormat {
+enum GLFormat {
     LUMINANCE,
     ALPHA,
     LUMINANCE_ALPHA,
@@ -49,17 +51,17 @@ export enum GLFormat {
     R16,
     RG16,
 }
-export enum GLQueryType {
+enum GLQueryType {
     NONE,
     TIME_ELAPSED,
     TIMESTAMP,
 }
-export enum GLSLError {
+enum GLSLError {
     COMPILE,
     LINK,
     PROGRAM,
 }
-export enum GLSLVersion {
+enum GLSLVersion {
     NONE,
     /* 100 (invalid, starts with a number) */
     /* 110 (invalid, starts with a number) */
@@ -78,30 +80,30 @@ export enum GLSLVersion {
     /* 440 (invalid, starts with a number) */
     /* 450 (invalid, starts with a number) */
 }
-export enum GLStereoDownmix {
+enum GLStereoDownmix {
     GREEN_MAGENTA_DUBOIS,
     RED_CYAN_DUBOIS,
     AMBER_BLUE_DUBOIS,
 }
-export enum GLTextureTarget {
+enum GLTextureTarget {
     NONE,
     /* 2D (invalid, starts with a number) */
     RECTANGLE,
     EXTERNAL_OES,
 }
-export enum GLUploadReturn {
+enum GLUploadReturn {
     DONE,
     ERROR,
     UNSUPPORTED,
     RECONFIGURE,
     UNSHARED_GL_CONTEXT,
 }
-export enum GLWindowError {
+enum GLWindowError {
     FAILED,
     OLD_LIBS,
     RESOURCE_UNAVAILABLE,
 }
-export enum GLAPI {
+enum GLAPI {
     NONE,
     OPENGL,
     OPENGL3,
@@ -109,17 +111,17 @@ export enum GLAPI {
     GLES2,
     ANY,
 }
-export enum GLBaseMemoryTransfer {
+enum GLBaseMemoryTransfer {
     DOWNLOAD,
     UPLOAD,
 }
-export enum GLConfigSurfaceType {
+enum GLConfigSurfaceType {
     NONE,
     WINDOW,
     PBUFFER,
     PIXMAP,
 }
-export enum GLDisplayType {
+enum GLDisplayType {
     NONE,
     X11,
     WAYLAND,
@@ -135,7 +137,7 @@ export enum GLDisplayType {
     ANDROID,
     ANY,
 }
-export enum GLPlatform {
+enum GLPlatform {
     NONE,
     EGL,
     GLX,
@@ -144,7 +146,7 @@ export enum GLPlatform {
     EAGL,
     ANY,
 }
-export enum GLSLProfile {
+enum GLSLProfile {
     NONE,
     ES,
     CORE,
@@ -186,113 +188,113 @@ export const GL_TEXTURE_TARGET_2D_STR: string
 export const GL_TEXTURE_TARGET_EXTERNAL_OES_STR: string
 export const GL_TEXTURE_TARGET_RECTANGLE_STR: string
 export const MAP_GL: number
-export function buffer_add_gl_sync_meta(context: GLContext, buffer: Gst.Buffer): GLSyncMeta
-export function buffer_add_gl_sync_meta_full(context: GLContext, buffer: Gst.Buffer, data?: object | null): GLSyncMeta
-export function buffer_pool_config_get_gl_allocation_params(config: Gst.Structure): GLAllocationParams
-export function buffer_pool_config_set_gl_allocation_params(config: Gst.Structure, params: GLAllocationParams): void
-export function context_get_gl_display(context: Gst.Context): [ /* returnType */ boolean, /* display */ GLDisplay ]
-export function context_set_gl_display(context: Gst.Context, display: GLDisplay): void
-export function gl_api_from_string(api_s: string): GLAPI
-export function gl_api_to_string(api: GLAPI): string
-export function gl_base_memory_alloc(allocator: GLBaseMemoryAllocator, params: GLAllocationParams): GLBaseMemory
-export function gl_base_memory_error_quark(): GLib.Quark
-export function gl_base_memory_init_once(): void
-export function gl_buffer_init_once(): void
-export function gl_check_extension(name: string, ext: string): boolean
-export function gl_config_caveat_to_string(caveat: GLConfigCaveat): string | null
-export function gl_config_surface_type_to_string(surface_type: GLConfigSurfaceType): string | null
-export function gl_context_error_quark(): GLib.Quark
-export function gl_element_propagate_display_context(element: Gst.Element, display: GLDisplay): void
-export function gl_ensure_element_data(element: object | null, display_ptr: GLDisplay, other_context_ptr: GLContext): [ /* returnType */ boolean, /* display_ptr */ GLDisplay, /* other_context_ptr */ GLContext ]
-export function gl_format_from_video_info(context: GLContext, vinfo: GstVideo.VideoInfo, plane: number): GLFormat
-export function gl_format_is_supported(context: GLContext, format: GLFormat): boolean
-export function gl_format_type_from_sized_gl_format(format: GLFormat): [ /* unsized_format */ GLFormat, /* gl_type */ number ]
-export function gl_format_type_n_bytes(format: number, type: number): number
-export function gl_get_affine_transformation_meta_as_ndc(meta?: GstVideo.VideoAffineTransformationMeta | null): /* matrix */ number[]
-export function gl_get_plane_data_size(info: GstVideo.VideoInfo, align: GstVideo.VideoAlignment, plane: number): number
-export function gl_get_plane_start(info: GstVideo.VideoInfo, valign: GstVideo.VideoAlignment, plane: number): number
-export function gl_handle_context_query(element: Gst.Element, query: Gst.Query, display?: GLDisplay | null, context?: GLContext | null, other_context?: GLContext | null): boolean
-export function gl_handle_set_context(element: Gst.Element, context: Gst.Context, display: GLDisplay, other_context: GLContext): [ /* returnType */ boolean, /* display */ GLDisplay, /* other_context */ GLContext ]
-export function gl_memory_init_once(): void
-export function gl_memory_pbo_init_once(): void
-export function gl_multiply_matrix4(a: number[], b: number[]): /* result */ number[]
-export function gl_platform_from_string(platform_s: string): GLPlatform
-export function gl_platform_to_string(platform: GLPlatform): string
-export function gl_query_local_gl_context(element: Gst.Element, direction: Gst.PadDirection, context_ptr: GLContext): [ /* returnType */ boolean, /* context_ptr */ GLContext ]
-export function gl_renderbuffer_init_once(): void
-export function gl_set_affine_transformation_meta_from_ndc(meta: GstVideo.VideoAffineTransformationMeta, matrix: number[]): void
-export function gl_sized_gl_format_from_gl_format_type(context: GLContext, format: number, type: number): number
-export function gl_stereo_downmix_mode_get_type(): GObject.Type
-export function gl_sync_meta_api_get_type(): GObject.Type
-export function gl_sync_meta_get_info(): Gst.MetaInfo
-export function gl_texture_target_from_gl(target: number): GLTextureTarget
-export function gl_texture_target_from_string(str: string): GLTextureTarget
-export function gl_texture_target_to_buffer_pool_option(target: GLTextureTarget): string
-export function gl_texture_target_to_gl(target: GLTextureTarget): number
-export function gl_texture_target_to_string(target: GLTextureTarget): string
-export function gl_value_get_texture_target_mask(value: any): GLTextureTarget
-export function gl_value_set_texture_target(value: any, target: GLTextureTarget): boolean
-export function gl_value_set_texture_target_from_mask(value: any, target_mask: GLTextureTarget): boolean
-export function gl_version_to_glsl_version(gl_api: GLAPI, maj: number, min: number): GLSLVersion
-export function gl_window_error_quark(): GLib.Quark
-export function glsl_error_quark(): GLib.Quark
-export function glsl_profile_from_string(string: string): GLSLProfile
-export function glsl_profile_to_string(profile: GLSLProfile): string | null
-export function glsl_string_get_version_profile(s: string): [ /* returnType */ boolean, /* version */ GLSLVersion, /* profile */ GLSLProfile ]
-export function glsl_version_from_string(string: string): GLSLVersion
-export function glsl_version_profile_from_string(string: string): [ /* returnType */ boolean, /* version_ret */ GLSLVersion, /* profile_ret */ GLSLProfile ]
-export function glsl_version_profile_to_string(version: GLSLVersion, profile: GLSLProfile): string
-export function glsl_version_to_string(version: GLSLVersion): string | null
-export function is_gl_base_memory(mem: Gst.Memory): boolean
-export function is_gl_buffer(mem: Gst.Memory): boolean
-export function is_gl_memory(mem: Gst.Memory): boolean
-export function is_gl_memory_pbo(mem: Gst.Memory): boolean
-export function is_gl_renderbuffer(mem: Gst.Memory): boolean
-export interface GLAllocationParamsCopyFunc {
+function buffer_add_gl_sync_meta(context: GLContext, buffer: Gst.Buffer): GLSyncMeta
+function buffer_add_gl_sync_meta_full(context: GLContext, buffer: Gst.Buffer, data?: object | null): GLSyncMeta
+function buffer_pool_config_get_gl_allocation_params(config: Gst.Structure): GLAllocationParams
+function buffer_pool_config_set_gl_allocation_params(config: Gst.Structure, params: GLAllocationParams): void
+function context_get_gl_display(context: Gst.Context): [ /* returnType */ boolean, /* display */ GLDisplay ]
+function context_set_gl_display(context: Gst.Context, display: GLDisplay): void
+function gl_api_from_string(api_s: string): GLAPI
+function gl_api_to_string(api: GLAPI): string
+function gl_base_memory_alloc(allocator: GLBaseMemoryAllocator, params: GLAllocationParams): GLBaseMemory
+function gl_base_memory_error_quark(): GLib.Quark
+function gl_base_memory_init_once(): void
+function gl_buffer_init_once(): void
+function gl_check_extension(name: string, ext: string): boolean
+function gl_config_caveat_to_string(caveat: GLConfigCaveat): string | null
+function gl_config_surface_type_to_string(surface_type: GLConfigSurfaceType): string | null
+function gl_context_error_quark(): GLib.Quark
+function gl_element_propagate_display_context(element: Gst.Element, display: GLDisplay): void
+function gl_ensure_element_data(element: object | null, display_ptr: GLDisplay, other_context_ptr: GLContext): [ /* returnType */ boolean, /* display_ptr */ GLDisplay, /* other_context_ptr */ GLContext ]
+function gl_format_from_video_info(context: GLContext, vinfo: GstVideo.VideoInfo, plane: number): GLFormat
+function gl_format_is_supported(context: GLContext, format: GLFormat): boolean
+function gl_format_type_from_sized_gl_format(format: GLFormat): [ /* unsized_format */ GLFormat, /* gl_type */ number ]
+function gl_format_type_n_bytes(format: number, type: number): number
+function gl_get_affine_transformation_meta_as_ndc(meta?: GstVideo.VideoAffineTransformationMeta | null): /* matrix */ number[]
+function gl_get_plane_data_size(info: GstVideo.VideoInfo, align: GstVideo.VideoAlignment, plane: number): number
+function gl_get_plane_start(info: GstVideo.VideoInfo, valign: GstVideo.VideoAlignment, plane: number): number
+function gl_handle_context_query(element: Gst.Element, query: Gst.Query, display?: GLDisplay | null, context?: GLContext | null, other_context?: GLContext | null): boolean
+function gl_handle_set_context(element: Gst.Element, context: Gst.Context, display: GLDisplay, other_context: GLContext): [ /* returnType */ boolean, /* display */ GLDisplay, /* other_context */ GLContext ]
+function gl_memory_init_once(): void
+function gl_memory_pbo_init_once(): void
+function gl_multiply_matrix4(a: number[], b: number[]): /* result */ number[]
+function gl_platform_from_string(platform_s: string): GLPlatform
+function gl_platform_to_string(platform: GLPlatform): string
+function gl_query_local_gl_context(element: Gst.Element, direction: Gst.PadDirection, context_ptr: GLContext): [ /* returnType */ boolean, /* context_ptr */ GLContext ]
+function gl_renderbuffer_init_once(): void
+function gl_set_affine_transformation_meta_from_ndc(meta: GstVideo.VideoAffineTransformationMeta, matrix: number[]): void
+function gl_sized_gl_format_from_gl_format_type(context: GLContext, format: number, type: number): number
+function gl_stereo_downmix_mode_get_type(): GObject.Type
+function gl_sync_meta_api_get_type(): GObject.Type
+function gl_sync_meta_get_info(): Gst.MetaInfo
+function gl_texture_target_from_gl(target: number): GLTextureTarget
+function gl_texture_target_from_string(str: string): GLTextureTarget
+function gl_texture_target_to_buffer_pool_option(target: GLTextureTarget): string
+function gl_texture_target_to_gl(target: GLTextureTarget): number
+function gl_texture_target_to_string(target: GLTextureTarget): string
+function gl_value_get_texture_target_mask(value: any): GLTextureTarget
+function gl_value_set_texture_target(value: any, target: GLTextureTarget): boolean
+function gl_value_set_texture_target_from_mask(value: any, target_mask: GLTextureTarget): boolean
+function gl_version_to_glsl_version(gl_api: GLAPI, maj: number, min: number): GLSLVersion
+function gl_window_error_quark(): GLib.Quark
+function glsl_error_quark(): GLib.Quark
+function glsl_profile_from_string(string: string): GLSLProfile
+function glsl_profile_to_string(profile: GLSLProfile): string | null
+function glsl_string_get_version_profile(s: string): [ /* returnType */ boolean, /* version */ GLSLVersion, /* profile */ GLSLProfile ]
+function glsl_version_from_string(string: string): GLSLVersion
+function glsl_version_profile_from_string(string: string): [ /* returnType */ boolean, /* version_ret */ GLSLVersion, /* profile_ret */ GLSLProfile ]
+function glsl_version_profile_to_string(version: GLSLVersion, profile: GLSLProfile): string
+function glsl_version_to_string(version: GLSLVersion): string | null
+function is_gl_base_memory(mem: Gst.Memory): boolean
+function is_gl_buffer(mem: Gst.Memory): boolean
+function is_gl_memory(mem: Gst.Memory): boolean
+function is_gl_memory_pbo(mem: Gst.Memory): boolean
+function is_gl_renderbuffer(mem: Gst.Memory): boolean
+interface GLAllocationParamsCopyFunc {
     (src: GLAllocationParams, dest: GLAllocationParams): void
 }
-export interface GLAllocationParamsFreeFunc {
+interface GLAllocationParamsFreeFunc {
     (params?: object | null): void
 }
-export interface GLAsyncDebugLogGetMessage {
+interface GLAsyncDebugLogGetMessage {
     (): string
 }
-export interface GLBaseMemoryAllocatorAllocFunction {
+interface GLBaseMemoryAllocatorAllocFunction {
     (allocator: GLBaseMemoryAllocator, params: GLAllocationParams): GLBaseMemory
 }
-export interface GLBaseMemoryAllocatorCopyFunction {
+interface GLBaseMemoryAllocatorCopyFunction {
     (mem: GLBaseMemory, offset: number, size: number): GLBaseMemory
 }
-export interface GLBaseMemoryAllocatorCreateFunction {
+interface GLBaseMemoryAllocatorCreateFunction {
     (mem: GLBaseMemory): boolean
 }
-export interface GLBaseMemoryAllocatorDestroyFunction {
+interface GLBaseMemoryAllocatorDestroyFunction {
     (mem: GLBaseMemory): void
 }
-export interface GLBaseMemoryAllocatorMapFunction {
+interface GLBaseMemoryAllocatorMapFunction {
     (mem: GLBaseMemory, info: Gst.MapInfo, maxsize: number): object | null
 }
-export interface GLBaseMemoryAllocatorUnmapFunction {
+interface GLBaseMemoryAllocatorUnmapFunction {
     (mem: GLBaseMemory, info: Gst.MapInfo): void
 }
-export interface GLContextThreadFunc {
+interface GLContextThreadFunc {
     (context: GLContext, data?: object | null): void
 }
-export interface GLFilterRenderFunc {
+interface GLFilterRenderFunc {
     (filter: GLFilter, in_tex: GLMemory): boolean
 }
-export interface GLFramebufferFunc {
+interface GLFramebufferFunc {
     (stuff?: object | null): boolean
 }
-export interface GLWindowCB {
+interface GLWindowCB {
     (data?: object | null): void
 }
-export interface GLWindowResizeCB {
+interface GLWindowResizeCB {
     (data: object | null, width: number, height: number): void
 }
 export interface GLBaseFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
-export class GLBaseFilter {
+class GLBaseFilter {
     /* Properties of GstGL-1.0.GstGL.GLBaseFilter */
     readonly context: GLContext
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
@@ -564,7 +566,7 @@ export class GLBaseFilter {
 }
 export interface GLBaseMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class GLBaseMemoryAllocator {
+class GLBaseMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -673,7 +675,7 @@ export class GLBaseMemoryAllocator {
 export interface GLBaseSrc_ConstructProps extends GstBase.PushSrc_ConstructProps {
     timestamp_offset?: number
 }
-export class GLBaseSrc {
+class GLBaseSrc {
     /* Properties of GstGL-1.0.GstGL.GLBaseSrc */
     timestamp_offset: number
     /* Properties of GstBase-1.0.GstBase.BaseSrc */
@@ -975,7 +977,7 @@ export class GLBaseSrc {
 }
 export interface GLBufferAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
-export class GLBufferAllocator {
+class GLBufferAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1086,7 +1088,7 @@ export class GLBufferAllocator {
 }
 export interface GLBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
-export class GLBufferPool {
+class GLBufferPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1207,7 +1209,7 @@ export class GLBufferPool {
 }
 export interface GLColorConvert_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLColorConvert {
+class GLColorConvert {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1304,7 +1306,7 @@ export class GLColorConvert {
 }
 export interface GLContext_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLContext {
+class GLContext {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1446,7 +1448,7 @@ export class GLContext {
 }
 export interface GLDisplay_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLDisplay {
+class GLDisplay {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1559,7 +1561,7 @@ export class GLDisplay {
 }
 export interface GLFilter_ConstructProps extends GLBaseFilter_ConstructProps {
 }
-export class GLFilter {
+class GLFilter {
     /* Properties of GstGL-1.0.GstGL.GLBaseFilter */
     readonly context: GLContext
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
@@ -1852,7 +1854,7 @@ export class GLFilter {
 }
 export interface GLFramebuffer_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLFramebuffer {
+class GLFramebuffer {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1950,7 +1952,7 @@ export class GLFramebuffer {
 }
 export interface GLMemoryAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
-export class GLMemoryAllocator {
+class GLMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2063,7 +2065,7 @@ export class GLMemoryAllocator {
 }
 export interface GLMemoryPBOAllocator_ConstructProps extends GLMemoryAllocator_ConstructProps {
 }
-export class GLMemoryPBOAllocator {
+class GLMemoryPBOAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2178,7 +2180,7 @@ export class GLMemoryPBOAllocator {
 export interface GLOverlayCompositor_ConstructProps extends Gst.Object_ConstructProps {
     yinvert?: boolean
 }
-export class GLOverlayCompositor {
+class GLOverlayCompositor {
     /* Properties of GstGL-1.0.GstGL.GLOverlayCompositor */
     yinvert: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -2278,7 +2280,7 @@ export class GLOverlayCompositor {
 }
 export interface GLRenderbufferAllocator_ConstructProps extends GLBaseMemoryAllocator_ConstructProps {
 }
-export class GLRenderbufferAllocator {
+class GLRenderbufferAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2389,7 +2391,7 @@ export class GLRenderbufferAllocator {
 }
 export interface GLSLStage_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLSLStage {
+class GLSLStage {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2491,7 +2493,7 @@ export class GLSLStage {
 }
 export interface GLShader_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLShader {
+class GLShader {
     /* Properties of GstGL-1.0.GstGL.GLShader */
     readonly linked: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -2632,7 +2634,7 @@ export class GLShader {
 }
 export interface GLUpload_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLUpload {
+class GLUpload {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2738,7 +2740,7 @@ export interface GLViewConvert_ConstructProps extends Gst.Object_ConstructProps 
     output_flags_override?: GstVideo.VideoMultiviewFlags
     output_mode_override?: GstVideo.VideoMultiviewMode
 }
-export class GLViewConvert {
+class GLViewConvert {
     /* Properties of GstGL-1.0.GstGL.GLViewConvert */
     downmix_mode: GLStereoDownmix
     input_flags_override: GstVideo.VideoMultiviewFlags
@@ -2865,7 +2867,7 @@ export class GLViewConvert {
 }
 export interface GLWindow_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GLWindow {
+class GLWindow {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -3010,7 +3012,7 @@ export class GLWindow {
     static new(display: GLDisplay): GLWindow
     static $gtype: GObject.Type
 }
-export class GLAllocationParams {
+class GLAllocationParams {
     /* Fields of GstGL-1.0.GstGL.GLAllocationParams */
     struct_size: number
     copy: GLAllocationParamsCopyFunc
@@ -3028,7 +3030,7 @@ export class GLAllocationParams {
     free_data(): void
     static name: string
 }
-export class GLAsyncDebug {
+class GLAsyncDebug {
     /* Methods of GstGL-1.0.GstGL.GLAsyncDebug */
     free(): void
     freeze(): void
@@ -3038,7 +3040,7 @@ export class GLAsyncDebug {
     unset(): void
     static name: string
 }
-export abstract class GLBaseFilterClass {
+abstract class GLBaseFilterClass {
     /* Fields of GstGL-1.0.GstGL.GLBaseFilterClass */
     parent_class: GstBase.BaseTransformClass
     supported_gl_api: GLAPI
@@ -3047,10 +3049,10 @@ export abstract class GLBaseFilterClass {
     gl_set_caps: (filter: GLBaseFilter, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
     static name: string
 }
-export class GLBaseFilterPrivate {
+class GLBaseFilterPrivate {
     static name: string
 }
-export class GLBaseMemory {
+class GLBaseMemory {
     /* Fields of GstGL-1.0.GstGL.GLBaseMemory */
     mem: Gst.Memory
     context: GLContext
@@ -3069,7 +3071,7 @@ export class GLBaseMemory {
     static alloc(allocator: GLBaseMemoryAllocator, params: GLAllocationParams): GLBaseMemory
     static init_once(): void
 }
-export abstract class GLBaseMemoryAllocatorClass {
+abstract class GLBaseMemoryAllocatorClass {
     /* Fields of GstGL-1.0.GstGL.GLBaseMemoryAllocatorClass */
     parent_class: Gst.AllocatorClass
     alloc: GLBaseMemoryAllocatorAllocFunction
@@ -3080,7 +3082,7 @@ export abstract class GLBaseMemoryAllocatorClass {
     destroy: GLBaseMemoryAllocatorDestroyFunction
     static name: string
 }
-export abstract class GLBaseSrcClass {
+abstract class GLBaseSrcClass {
     /* Fields of GstGL-1.0.GstGL.GLBaseSrcClass */
     parent_class: GstBase.PushSrcClass
     supported_gl_api: GLAPI
@@ -3089,10 +3091,10 @@ export abstract class GLBaseSrcClass {
     fill_gl_memory: (src: GLBaseSrc, mem: GLMemory) => boolean
     static name: string
 }
-export class GLBaseSrcPrivate {
+class GLBaseSrcPrivate {
     static name: string
 }
-export class GLBuffer {
+class GLBuffer {
     /* Fields of GstGL-1.0.GstGL.GLBuffer */
     mem: GLBaseMemory
     id: number
@@ -3102,7 +3104,7 @@ export class GLBuffer {
     /* Static methods and pseudo-constructors */
     static init_once(): void
 }
-export class GLBufferAllocationParams {
+class GLBufferAllocationParams {
     /* Fields of GstGL-1.0.GstGL.GLBufferAllocationParams */
     parent: GLAllocationParams
     gl_target: number
@@ -3113,26 +3115,26 @@ export class GLBufferAllocationParams {
     /* Static methods and pseudo-constructors */
     static new(context: GLContext, alloc_size: number, alloc_params: Gst.AllocationParams | null, gl_target: number, gl_usage: number): GLBufferAllocationParams
 }
-export abstract class GLBufferAllocatorClass {
+abstract class GLBufferAllocatorClass {
     /* Fields of GstGL-1.0.GstGL.GLBufferAllocatorClass */
     parent_class: GLBaseMemoryAllocatorClass
     static name: string
 }
-export abstract class GLBufferPoolClass {
+abstract class GLBufferPoolClass {
     /* Fields of GstGL-1.0.GstGL.GLBufferPoolClass */
     parent_class: Gst.BufferPoolClass
     static name: string
 }
-export class GLBufferPoolPrivate {
+class GLBufferPoolPrivate {
     static name: string
 }
-export abstract class GLColorConvertClass {
+abstract class GLColorConvertClass {
     static name: string
 }
-export class GLColorConvertPrivate {
+class GLColorConvertPrivate {
     static name: string
 }
-export abstract class GLContextClass {
+abstract class GLContextClass {
     /* Fields of GstGL-1.0.GstGL.GLContextClass */
     parent_class: Gst.ObjectClass
     get_current_context: () => number
@@ -3151,20 +3153,20 @@ export abstract class GLContextClass {
     request_config: (context: GLContext, gl_config?: Gst.Structure | null) => boolean
     static name: string
 }
-export class GLContextPrivate {
+class GLContextPrivate {
     static name: string
 }
-export abstract class GLDisplayClass {
+abstract class GLDisplayClass {
     /* Fields of GstGL-1.0.GstGL.GLDisplayClass */
     object_class: Gst.ObjectClass
     get_handle: (display: GLDisplay) => number
     create_window: (display: GLDisplay) => GLWindow
     static name: string
 }
-export class GLDisplayPrivate {
+class GLDisplayPrivate {
     static name: string
 }
-export abstract class GLFilterClass {
+abstract class GLFilterClass {
     /* Fields of GstGL-1.0.GstGL.GLFilterClass */
     parent_class: GLBaseFilterClass
     set_caps: (filter: GLFilter, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
@@ -3174,16 +3176,16 @@ export abstract class GLFilterClass {
     transform_internal_caps: (filter: GLFilter, direction: Gst.PadDirection, caps: Gst.Caps, filter_caps: Gst.Caps) => Gst.Caps
     static name: string
 }
-export abstract class GLFramebufferClass {
+abstract class GLFramebufferClass {
     static name: string
 }
-export class GLFramebufferPrivate {
+class GLFramebufferPrivate {
     static name: string
 }
-export class GLFuncs {
+class GLFuncs {
     static name: string
 }
-export class GLMemory {
+class GLMemory {
     /* Fields of GstGL-1.0.GstGL.GLMemory */
     mem: GLBaseMemory
     tex_id: number
@@ -3211,14 +3213,14 @@ export class GLMemory {
     /* Static methods and pseudo-constructors */
     static init_once(): void
 }
-export abstract class GLMemoryAllocatorClass {
+abstract class GLMemoryAllocatorClass {
     /* Fields of GstGL-1.0.GstGL.GLMemoryAllocatorClass */
     map: GLBaseMemoryAllocatorMapFunction
     copy: GLBaseMemoryAllocatorCopyFunction
     unmap: GLBaseMemoryAllocatorUnmapFunction
     static name: string
 }
-export class GLMemoryPBO {
+class GLMemoryPBO {
     /* Methods of GstGL-1.0.GstGL.GLMemoryPBO */
     copy_into_texture(tex_id: number, target: GLTextureTarget, tex_format: GLFormat, width: number, height: number, stride: number, respecify: boolean): boolean
     download_transfer(): void
@@ -3227,17 +3229,17 @@ export class GLMemoryPBO {
     /* Static methods and pseudo-constructors */
     static init_once(): void
 }
-export abstract class GLMemoryPBOAllocatorClass {
+abstract class GLMemoryPBOAllocatorClass {
     /* Fields of GstGL-1.0.GstGL.GLMemoryPBOAllocatorClass */
     parent_class: GLMemoryAllocatorClass
     static name: string
 }
-export abstract class GLOverlayCompositorClass {
+abstract class GLOverlayCompositorClass {
     /* Fields of GstGL-1.0.GstGL.GLOverlayCompositorClass */
     object_class: Gst.ObjectClass
     static name: string
 }
-export class GLQuery {
+class GLQuery {
     /* Methods of GstGL-1.0.GstGL.GLQuery */
     counter(): void
     end(): void
@@ -3250,7 +3252,7 @@ export class GLQuery {
     /* Static methods and pseudo-constructors */
     static local_gl_context(element: Gst.Element, direction: Gst.PadDirection, context_ptr: GLContext): [ /* returnType */ boolean, /* context_ptr */ GLContext ]
 }
-export class GLRenderbuffer {
+class GLRenderbuffer {
     /* Fields of GstGL-1.0.GstGL.GLRenderbuffer */
     renderbuffer_id: number
     renderbuffer_format: GLFormat
@@ -3266,7 +3268,7 @@ export class GLRenderbuffer {
     /* Static methods and pseudo-constructors */
     static init_once(): void
 }
-export class GLRenderbufferAllocationParams {
+class GLRenderbufferAllocationParams {
     /* Fields of GstGL-1.0.GstGL.GLRenderbufferAllocationParams */
     renderbuffer_format: GLFormat
     width: number
@@ -3278,24 +3280,24 @@ export class GLRenderbufferAllocationParams {
     static new(context: GLContext, alloc_params: Gst.AllocationParams | null, renderbuffer_format: GLFormat, width: number, height: number): GLRenderbufferAllocationParams
     static new_wrapped(context: GLContext, alloc_params: Gst.AllocationParams | null, renderbuffer_format: GLFormat, width: number, height: number, gl_handle?: object | null, user_data?: object | null, notify?: GLib.DestroyNotify | null): GLRenderbufferAllocationParams
 }
-export abstract class GLRenderbufferAllocatorClass {
+abstract class GLRenderbufferAllocatorClass {
     /* Fields of GstGL-1.0.GstGL.GLRenderbufferAllocatorClass */
     parent_class: GLBaseMemoryAllocatorClass
     static name: string
 }
-export abstract class GLSLStageClass {
+abstract class GLSLStageClass {
     static name: string
 }
-export class GLSLStagePrivate {
+class GLSLStagePrivate {
     static name: string
 }
-export abstract class GLShaderClass {
+abstract class GLShaderClass {
     static name: string
 }
-export class GLShaderPrivate {
+class GLShaderPrivate {
     static name: string
 }
-export class GLSyncMeta {
+class GLSyncMeta {
     /* Fields of GstGL-1.0.GstGL.GLSyncMeta */
     parent: Gst.Meta
     context: GLContext
@@ -3315,15 +3317,15 @@ export class GLSyncMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
-export abstract class GLUploadClass {
+abstract class GLUploadClass {
     /* Fields of GstGL-1.0.GstGL.GLUploadClass */
     object_class: Gst.ObjectClass
     static name: string
 }
-export class GLUploadPrivate {
+class GLUploadPrivate {
     static name: string
 }
-export class GLVideoAllocationParams {
+class GLVideoAllocationParams {
     /* Fields of GstGL-1.0.GstGL.GLVideoAllocationParams */
     parent: GLAllocationParams
     v_info: GstVideo.VideoInfo
@@ -3343,13 +3345,13 @@ export class GLVideoAllocationParams {
     static new_wrapped_gl_handle(context: GLContext, alloc_params: Gst.AllocationParams | null, v_info: GstVideo.VideoInfo, plane: number, valign: GstVideo.VideoAlignment | null, target: GLTextureTarget, tex_format: GLFormat, gl_handle?: object | null, user_data?: object | null, notify?: GLib.DestroyNotify | null): GLVideoAllocationParams
     static new_wrapped_texture(context: GLContext, alloc_params: Gst.AllocationParams | null, v_info: GstVideo.VideoInfo, plane: number, valign: GstVideo.VideoAlignment | null, target: GLTextureTarget, tex_format: GLFormat, tex_id: number, user_data?: object | null, notify?: GLib.DestroyNotify | null): GLVideoAllocationParams
 }
-export abstract class GLViewConvertClass {
+abstract class GLViewConvertClass {
     static name: string
 }
-export class GLViewConvertPrivate {
+class GLViewConvertPrivate {
     static name: string
 }
-export abstract class GLWindowClass {
+abstract class GLWindowClass {
     /* Fields of GstGL-1.0.GstGL.GLWindowClass */
     parent_class: Gst.ObjectClass
     get_display: (window: GLWindow) => number
@@ -3371,6 +3373,8 @@ export abstract class GLWindowClass {
     has_output_surface: (window: GLWindow) => boolean
     static name: string
 }
-export class GLWindowPrivate {
+class GLWindowPrivate {
     static name: string
 }
+}
+export default GstGL

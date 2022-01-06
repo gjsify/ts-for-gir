@@ -1,2 +1,1 @@
-imports.gi.versions.Tepl = '5'
-module.exports = imports.gi.Tepl
+export {default as default} from 'gi://Tepl?version=5';

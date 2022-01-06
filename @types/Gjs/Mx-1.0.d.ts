@@ -3,41 +3,43 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as freetype2 from './freetype2-2.0';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoFT2 from './PangoFT2-1.0';
-import type * as PangoFc from './PangoFc-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as Atk from './Atk-1.0';
+import type freetype2 from './freetype2-2.0';
+import type fontconfig from './fontconfig-2.0';
+import type cairo from './cairo-1.0';
+import type PangoFT2 from './PangoFT2-1.0';
+import type PangoFc from './PangoFc-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type Cogl from './Cogl-1.0';
+import type Clutter from './Clutter-1.0';
+import type Atk from './Atk-1.0';
 
-export enum ActorManagerError {
+export namespace Mx {
+
+enum ActorManagerError {
     CONTAINER_DESTROYED,
     ACTOR_DESTROYED,
     CREATION_FAILED,
     UNKNOWN_OPERATION,
 }
-export enum Align {
+enum Align {
     START,
     MIDDLE,
     END,
 }
-export enum DragAxis {
+enum DragAxis {
     NONE,
     X,
     Y,
 }
-export enum FocusDirection {
+enum FocusDirection {
     OUT,
     UP,
     DOWN,
@@ -46,7 +48,7 @@ export enum FocusDirection {
     NEXT,
     PREVIOUS,
 }
-export enum FocusHint {
+enum FocusHint {
     FIRST,
     LAST,
     PRIOR,
@@ -55,68 +57,68 @@ export enum FocusHint {
     FROM_LEFT,
     FROM_RIGHT,
 }
-export enum FontWeight {
+enum FontWeight {
     NORMAL,
     BOLD,
     BOLDER,
     LIGHTER,
 }
-export enum ImageError {
+enum ImageError {
     BAD_FORMAT,
     NO_ASYNC,
     INTERNAL,
     INVALID_PARAMETER,
 }
-export enum ImageScaleMode {
+enum ImageScaleMode {
     NONE,
     FIT,
     CROP,
 }
-export enum KineticScrollViewState {
+enum KineticScrollViewState {
     IDLE,
     PANNING,
     SCROLLING,
     CLAMPING,
 }
-export enum LongPressAction {
+enum LongPressAction {
     QUERY,
     ACTION,
     CANCEL,
 }
-export enum Orientation {
+enum Orientation {
     HORIZONTAL,
     VERTICAL,
 }
-export enum Position {
+enum Position {
     TOP,
     RIGHT,
     BOTTOM,
     LEFT,
 }
-export enum ScrollPolicy {
+enum ScrollPolicy {
     NONE,
     HORIZONTAL,
     VERTICAL,
     BOTH,
 }
-export enum StyleError {
+enum StyleError {
     INVALID_FILE,
 }
-export enum TooltipAnimation {
+enum TooltipAnimation {
     BOUNCE,
     FADE,
 }
-export enum WindowRotation {
+enum WindowRotation {
     /* 0 (invalid, starts with a number) */
     /* 90 (invalid, starts with a number) */
     /* 180 (invalid, starts with a number) */
     /* 270 (invalid, starts with a number) */
 }
-export enum ApplicationFlags {
+enum ApplicationFlags {
     SINGLE_INSTANCE,
     KEEP_ALIVE,
 }
-export enum StyleChangedFlags {
+enum StyleChangedFlags {
     NONE,
     FORCE,
     INVALIDATE_CACHE,
@@ -127,18 +129,18 @@ export const MINOR_VERSION: number
 export const PARAM_TRANSLATEABLE: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export function actor_box_clamp_to_pixels(box: Clutter.ActorBox): void
-export function allocate_align_fill(child: Clutter.Actor, childbox: Clutter.ActorBox, x_alignment: Align, y_alignment: Align, x_fill: boolean, y_fill: boolean): void
-export function border_image_set_from_string(value: any, str: string, filename: string): void
-export function focus_hint_from_direction(direction: FocusDirection): FocusHint
-export function font_weight_set_from_string(value: any, str: string): void
-export function image_error_quark(): GLib.Quark
-export function set_locale(): void
-export function utils_format_time(time_: GLib.TimeVal): string
-export interface ActionCallbackFunc {
+function actor_box_clamp_to_pixels(box: Clutter.ActorBox): void
+function allocate_align_fill(child: Clutter.Actor, childbox: Clutter.ActorBox, x_alignment: Align, y_alignment: Align, x_fill: boolean, y_fill: boolean): void
+function border_image_set_from_string(value: any, str: string, filename: string): void
+function focus_hint_from_direction(direction: FocusDirection): FocusHint
+function font_weight_set_from_string(value: any, str: string): void
+function image_error_quark(): GLib.Quark
+function set_locale(): void
+function utils_format_time(time_: GLib.TimeVal): string
+interface ActionCallbackFunc {
     (action: Action): void
 }
-export interface ClipboardCallbackFunc {
+interface ClipboardCallbackFunc {
     (clipboard: Clipboard, text: string): void
 }
 export interface Draggable_ConstructProps extends Clutter.Actor_ConstructProps {
@@ -147,7 +149,7 @@ export interface Draggable_ConstructProps extends Clutter.Actor_ConstructProps {
     drag_enabled?: boolean
     drag_threshold?: number
 }
-export class Draggable {
+class Draggable {
     /* Properties of Mx-1.0.Mx.Draggable */
     axis: DragAxis
     drag_actor: Clutter.Actor
@@ -835,7 +837,7 @@ export class Draggable {
 export interface Droppable_ConstructProps extends Clutter.Actor_ConstructProps {
     drop_enabled?: boolean
 }
-export class Droppable {
+class Droppable {
     /* Properties of Mx-1.0.Mx.Droppable */
     drop_enabled: boolean
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -1507,7 +1509,7 @@ export class Droppable {
     _init (config?: Droppable_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Focusable {
+class Focusable {
     /* Methods of Mx-1.0.Mx.Focusable */
     accept_focus(hint: FocusHint): Focusable
     move_focus(direction: FocusDirection, from: Focusable): Focusable
@@ -1516,14 +1518,14 @@ export class Focusable {
     vfunc_move_focus(direction: FocusDirection, from: Focusable): Focusable
     static name: string
 }
-export class ItemFactory {
+class ItemFactory {
     /* Methods of Mx-1.0.Mx.ItemFactory */
     create(): Clutter.Actor
     /* Virtual methods of Mx-1.0.Mx.ItemFactory */
     vfunc_create(): Clutter.Actor
     static name: string
 }
-export class Scrollable {
+class Scrollable {
     /* Properties of Mx-1.0.Mx.Scrollable */
     horizontal_adjustment: Adjustment
     vertical_adjustment: Adjustment
@@ -1535,7 +1537,7 @@ export class Scrollable {
     vfunc_set_adjustments(hadjustment: Adjustment, vadjustment: Adjustment): void
     static name: string
 }
-export class Stylable {
+class Stylable {
     /* Properties of Mx-1.0.Mx.Stylable */
     style: Style
     style_class: string
@@ -1578,7 +1580,7 @@ export interface Action_ConstructProps extends GObject.InitiallyUnowned_Construc
     display_name?: string
     icon?: string
 }
-export class Action {
+class Action {
     /* Properties of Mx-1.0.Mx.Action */
     active: boolean
     display_name: string
@@ -1696,7 +1698,7 @@ export interface ActorManager_ConstructProps extends GObject.Object_ConstructPro
     stage?: Clutter.Stage
     time_slice?: number
 }
-export class ActorManager {
+class ActorManager {
     /* Properties of Mx-1.0.Mx.ActorManager */
     readonly n_operations: number
     time_slice: number
@@ -1805,7 +1807,7 @@ export interface Adjustment_ConstructProps extends GObject.Object_ConstructProps
     upper?: number
     value?: number
 }
-export class Adjustment {
+class Adjustment {
     /* Properties of Mx-1.0.Mx.Adjustment */
     clamp_value: boolean
     elastic: boolean
@@ -1914,7 +1916,7 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     application_name?: string
     flags?: number
 }
-export class Application {
+class Application {
     /* Fields of Mx-1.0.Mx.Application */
     parent: GObject.Object
     priv: ApplicationPrivate
@@ -1997,7 +1999,7 @@ export interface Bin_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Bin {
+class Bin {
     /* Properties of Mx-1.0.Mx.Bin */
     child: Clutter.Actor
     x_align: Align
@@ -2813,7 +2815,7 @@ export interface BoxLayout_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class BoxLayout {
+class BoxLayout {
     /* Properties of Mx-1.0.Mx.BoxLayout */
     enable_animations: boolean
     orientation: Orientation
@@ -3654,7 +3656,7 @@ export interface BoxLayoutChild_ConstructProps extends Clutter.ChildMeta_Constru
     y_align?: Align
     y_fill?: boolean
 }
-export class BoxLayoutChild {
+class BoxLayoutChild {
     /* Properties of Mx-1.0.Mx.BoxLayoutChild */
     expand: boolean
     x_align: Align
@@ -3736,7 +3738,7 @@ export interface Button_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Button {
+class Button {
     /* Properties of Mx-1.0.Mx.Button */
     action: Action
     icon_name: string
@@ -4601,7 +4603,7 @@ export interface ButtonGroup_ConstructProps extends GObject.InitiallyUnowned_Con
     active_button?: Button
     allow_no_active?: boolean
 }
-export class ButtonGroup {
+class ButtonGroup {
     /* Properties of Mx-1.0.Mx.ButtonGroup */
     active_button: Button
     allow_no_active: boolean
@@ -4670,7 +4672,7 @@ export class ButtonGroup {
 }
 export interface Clipboard_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Clipboard {
+class Clipboard {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mx-1.0.Mx.Clipboard */
@@ -4729,7 +4731,7 @@ export interface ComboBox_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ComboBox {
+class ComboBox {
     /* Properties of Mx-1.0.Mx.ComboBox */
     active_icon_name: string
     active_text: string
@@ -5548,7 +5550,7 @@ export interface DeformBowTie_ConstructProps extends DeformTexture_ConstructProp
     style_class?: string
     style_pseudo_class?: string
 }
-export class DeformBowTie {
+class DeformBowTie {
     /* Properties of Mx-1.0.Mx.DeformBowTie */
     flip_back: boolean
     period: number
@@ -6375,7 +6377,7 @@ export interface DeformPageTurn_ConstructProps extends DeformTexture_ConstructPr
     style_class?: string
     style_pseudo_class?: string
 }
-export class DeformPageTurn {
+class DeformPageTurn {
     /* Properties of Mx-1.0.Mx.DeformPageTurn */
     angle: number
     period: number
@@ -7208,7 +7210,7 @@ export interface DeformTexture_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class DeformTexture {
+class DeformTexture {
     /* Properties of Mx-1.0.Mx.DeformTexture */
     back: Clutter.Texture
     front: Clutter.Texture
@@ -8022,7 +8024,7 @@ export interface DeformWaves_ConstructProps extends DeformTexture_ConstructProps
     style_class?: string
     style_pseudo_class?: string
 }
-export class DeformWaves {
+class DeformWaves {
     /* Properties of Mx-1.0.Mx.DeformWaves */
     amplitude: number
     angle: number
@@ -8856,7 +8858,7 @@ export interface Dialog_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Dialog {
+class Dialog {
     /* Properties of Mx-1.0.Mx.Bin */
     child: Clutter.Actor
     x_align: Align
@@ -9679,7 +9681,7 @@ export interface Entry_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Entry {
+class Entry {
     /* Properties of Mx-1.0.Mx.Entry */
     readonly clutter_text: Clutter.Text
     hint_text: string
@@ -10521,7 +10523,7 @@ export interface Expander_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Expander {
+class Expander {
     /* Properties of Mx-1.0.Mx.Expander */
     expanded: boolean
     label: string
@@ -11357,7 +11359,7 @@ export interface FadeEffect_ConstructProps extends Clutter.OffscreenEffect_Const
     color?: Clutter.Color
     freeze_update?: boolean
 }
-export class FadeEffect {
+class FadeEffect {
     /* Properties of Mx-1.0.Mx.FadeEffect */
     border_bottom: number
     border_left: number
@@ -11487,7 +11489,7 @@ export interface FloatingWidget_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class FloatingWidget {
+class FloatingWidget {
     /* Properties of Mx-1.0.Mx.Widget */
     disabled: boolean
     menu: Menu
@@ -12273,7 +12275,7 @@ export class FloatingWidget {
 }
 export interface FocusManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FocusManager {
+class FocusManager {
     /* Properties of Mx-1.0.Mx.FocusManager */
     readonly focused: Clutter.Actor
     readonly stage: Clutter.Stage
@@ -12342,7 +12344,7 @@ export interface Frame_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Frame {
+class Frame {
     /* Properties of Mx-1.0.Mx.Bin */
     child: Clutter.Actor
     x_align: Align
@@ -13168,7 +13170,7 @@ export interface Grid_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Grid {
+class Grid {
     /* Properties of Mx-1.0.Mx.Grid */
     child_x_align: Align
     child_y_align: Align
@@ -14023,7 +14025,7 @@ export interface Icon_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Icon {
+class Icon {
     /* Properties of Mx-1.0.Mx.Icon */
     icon_name: string
     icon_size: number
@@ -14821,7 +14823,7 @@ export class Icon {
 export interface IconTheme_ConstructProps extends GObject.Object_ConstructProps {
     theme_name?: string
 }
-export class IconTheme {
+class IconTheme {
     /* Properties of Mx-1.0.Mx.IconTheme */
     theme_name: string
     /* Fields of Mx-1.0.Mx.IconTheme */
@@ -14897,7 +14899,7 @@ export interface Image_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Image {
+class Image {
     /* Properties of Mx-1.0.Mx.Image */
     allow_upscale: boolean
     image_rotation: number
@@ -15745,7 +15747,7 @@ export interface ItemView_ConstructProps extends Grid_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ItemView {
+class ItemView {
     /* Properties of Mx-1.0.Mx.ItemView */
     factory: GObject.Object
     item_type: GObject.Type
@@ -16629,7 +16631,7 @@ export interface KineticScrollView_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class KineticScrollView {
+class KineticScrollView {
     /* Properties of Mx-1.0.Mx.KineticScrollView */
     acceleration_factor: number
     clamp_duration: number
@@ -17512,7 +17514,7 @@ export interface Label_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Label {
+class Label {
     /* Properties of Mx-1.0.Mx.Label */
     readonly clutter_text: Clutter.Text
     fade_out: boolean
@@ -18340,7 +18342,7 @@ export interface ListView_ConstructProps extends BoxLayout_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ListView {
+class ListView {
     /* Properties of Mx-1.0.Mx.ListView */
     factory: GObject.Object
     item_type: GObject.Type
@@ -19199,7 +19201,7 @@ export interface Menu_ConstructProps extends FloatingWidget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Menu {
+class Menu {
     /* Properties of Mx-1.0.Mx.Widget */
     disabled: boolean
     menu: Menu
@@ -20008,7 +20010,7 @@ export interface Notebook_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Notebook {
+class Notebook {
     /* Properties of Mx-1.0.Mx.Notebook */
     current_page: Clutter.Actor
     enable_gestures: boolean
@@ -20819,7 +20821,7 @@ export interface Offscreen_ConstructProps extends Clutter.Texture_ConstructProps
     pick_child?: boolean
     redirect_enabled?: boolean
 }
-export class Offscreen {
+class Offscreen {
     /* Properties of Mx-1.0.Mx.Offscreen */
     accumulation_enabled: boolean
     readonly accumulation_material: object
@@ -21654,7 +21656,7 @@ export interface PathBar_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class PathBar {
+class PathBar {
     /* Properties of Mx-1.0.Mx.PathBar */
     clear_on_change: boolean
     editable: boolean
@@ -22479,7 +22481,7 @@ export interface ProgressBar_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ProgressBar {
+class ProgressBar {
     /* Properties of Mx-1.0.Mx.ProgressBar */
     progress: number
     /* Properties of Mx-1.0.Mx.Widget */
@@ -23276,7 +23278,7 @@ export interface ScrollBar_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ScrollBar {
+class ScrollBar {
     /* Properties of Mx-1.0.Mx.ScrollBar */
     adjustment: Adjustment
     orientation: Orientation
@@ -24114,7 +24116,7 @@ export interface ScrollView_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class ScrollView {
+class ScrollView {
     /* Properties of Mx-1.0.Mx.ScrollView */
     enable_gestures: boolean
     enable_mouse_scrolling: boolean
@@ -24946,7 +24948,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     long_press_timeout?: number
     small_screen?: boolean
 }
-export class Settings {
+class Settings {
     /* Properties of Mx-1.0.Mx.Settings */
     drag_threshold: number
     font_name: string
@@ -25020,7 +25022,7 @@ export interface Slider_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Slider {
+class Slider {
     /* Properties of Mx-1.0.Mx.Slider */
     buffer_value: number
     value: number
@@ -25827,7 +25829,7 @@ export interface Spinner_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Spinner {
+class Spinner {
     /* Properties of Mx-1.0.Mx.Spinner */
     animating: boolean
     /* Properties of Mx-1.0.Mx.Widget */
@@ -26628,7 +26630,7 @@ export interface Stack_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Stack {
+class Stack {
     /* Properties of Mx-1.0.Mx.Widget */
     disabled: boolean
     menu: Menu
@@ -27438,7 +27440,7 @@ export interface StackChild_ConstructProps extends Clutter.ChildMeta_ConstructPr
     y_align?: Align
     y_fill?: boolean
 }
-export class StackChild {
+class StackChild {
     /* Properties of Mx-1.0.Mx.StackChild */
     crop: boolean
     fit: boolean
@@ -27511,7 +27513,7 @@ export class StackChild {
 }
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Style {
+class Style {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mx-1.0.Mx.Style */
@@ -27576,7 +27578,7 @@ export interface Table_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Table {
+class Table {
     /* Properties of Mx-1.0.Mx.Table */
     readonly column_count: number
     column_spacing: number
@@ -28418,7 +28420,7 @@ export interface TableChild_ConstructProps extends Clutter.ChildMeta_ConstructPr
     y_expand?: boolean
     y_fill?: boolean
 }
-export class TableChild {
+class TableChild {
     /* Properties of Mx-1.0.Mx.TableChild */
     column: number
     column_span: number
@@ -28503,7 +28505,7 @@ export class TableChild {
 }
 export interface TextureCache_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TextureCache {
+class TextureCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mx-1.0.Mx.TextureCache */
@@ -28573,7 +28575,7 @@ export interface TextureFrame_ConstructProps extends Clutter.Actor_ConstructProp
     right?: number
     top?: number
 }
-export class TextureFrame {
+class TextureFrame {
     /* Properties of Mx-1.0.Mx.TextureFrame */
     bottom: number
     left: number
@@ -29310,7 +29312,7 @@ export interface Toggle_ConstructProps extends Widget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Toggle {
+class Toggle {
     /* Properties of Mx-1.0.Mx.Toggle */
     active: boolean
     /* Properties of Mx-1.0.Mx.Widget */
@@ -30109,7 +30111,7 @@ export interface Toolbar_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Toolbar {
+class Toolbar {
     /* Properties of Mx-1.0.Mx.Toolbar */
     has_close_button: boolean
     /* Properties of Mx-1.0.Mx.Bin */
@@ -30939,7 +30941,7 @@ export interface Tooltip_ConstructProps extends FloatingWidget_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Tooltip {
+class Tooltip {
     /* Properties of Mx-1.0.Mx.Tooltip */
     text: string
     tip_area: Clutter.Geometry
@@ -31749,7 +31751,7 @@ export interface Viewport_ConstructProps extends Bin_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Viewport {
+class Viewport {
     /* Properties of Mx-1.0.Mx.Viewport */
     sync_adjustments: boolean
     x_origin: number
@@ -32596,7 +32598,7 @@ export interface Widget_ConstructProps extends Clutter.Actor_ConstructProps {
     style_class?: string
     style_pseudo_class?: string
 }
-export class Widget {
+class Widget {
     /* Properties of Mx-1.0.Mx.Widget */
     disabled: boolean
     menu: Menu
@@ -33393,7 +33395,7 @@ export interface Window_ConstructProps extends GObject.Object_ConstructProps {
     toolbar?: Toolbar
     window_rotation?: WindowRotation
 }
-export class Window {
+class Window {
     /* Properties of Mx-1.0.Mx.Window */
     child: Clutter.Actor
     fullscreen: boolean
@@ -33512,16 +33514,16 @@ export class Window {
     static get_for_stage(stage: Clutter.Stage): Window
     static $gtype: GObject.Type
 }
-export abstract class ActionClass {
+abstract class ActionClass {
     /* Fields of Mx-1.0.Mx.ActionClass */
     parent_class: GObject.InitiallyUnownedClass
     activated: (action: Action) => void
     static name: string
 }
-export class ActionPrivate {
+class ActionPrivate {
     static name: string
 }
-export abstract class ActorManagerClass {
+abstract class ActorManagerClass {
     /* Fields of Mx-1.0.Mx.ActorManagerClass */
     parent_class: GObject.ObjectClass
     actor_created: (manager: ActorManager, id: number, actor: Clutter.Actor) => void
@@ -33533,19 +33535,19 @@ export abstract class ActorManagerClass {
     operation_failed: (manager: ActorManager, id: number, error: GLib.Error) => void
     static name: string
 }
-export class ActorManagerPrivate {
+class ActorManagerPrivate {
     static name: string
 }
-export abstract class AdjustmentClass {
+abstract class AdjustmentClass {
     /* Fields of Mx-1.0.Mx.AdjustmentClass */
     changed: (adjustment: Adjustment) => void
     interpolation_completed: (adjustment: Adjustment) => void
     static name: string
 }
-export class AdjustmentPrivate {
+class AdjustmentPrivate {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Mx-1.0.Mx.ApplicationClass */
     parent_class: GObject.ObjectClass
     create_window: (application: Application) => Window
@@ -33553,16 +33555,16 @@ export abstract class ApplicationClass {
     actions_changed: (app: Application) => void
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class BinClass {
+abstract class BinClass {
     static name: string
 }
-export class BinPrivate {
+class BinPrivate {
     static name: string
 }
-export class BorderImage {
+class BorderImage {
     /* Fields of Mx-1.0.Mx.BorderImage */
     uri: string
     top: number
@@ -33573,97 +33575,97 @@ export class BorderImage {
     /* Static methods and pseudo-constructors */
     static set_from_string(value: any, str: string, filename: string): void
 }
-export abstract class BoxLayoutChildClass {
+abstract class BoxLayoutChildClass {
     /* Fields of Mx-1.0.Mx.BoxLayoutChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
-export class BoxLayoutChildPrivate {
+class BoxLayoutChildPrivate {
     static name: string
 }
-export abstract class BoxLayoutClass {
+abstract class BoxLayoutClass {
     /* Fields of Mx-1.0.Mx.BoxLayoutClass */
     parent_class: WidgetClass
     static name: string
 }
-export class BoxLayoutPrivate {
+class BoxLayoutPrivate {
     static name: string
 }
-export abstract class ButtonClass {
+abstract class ButtonClass {
     /* Fields of Mx-1.0.Mx.ButtonClass */
     parent_class: BinClass
     clicked: (button: Button) => void
     static name: string
 }
-export abstract class ButtonGroupClass {
+abstract class ButtonGroupClass {
     /* Fields of Mx-1.0.Mx.ButtonGroupClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class ButtonGroupPrivate {
+class ButtonGroupPrivate {
     static name: string
 }
-export class ButtonPrivate {
+class ButtonPrivate {
     static name: string
 }
-export abstract class ClipboardClass {
+abstract class ClipboardClass {
     /* Fields of Mx-1.0.Mx.ClipboardClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ClipboardPrivate {
+class ClipboardPrivate {
     static name: string
 }
-export abstract class ComboBoxClass {
+abstract class ComboBoxClass {
     /* Fields of Mx-1.0.Mx.ComboBoxClass */
     parent_class: WidgetClass
     static name: string
 }
-export class ComboBoxPrivate {
+class ComboBoxPrivate {
     static name: string
 }
-export abstract class DeformBowTieClass {
+abstract class DeformBowTieClass {
     /* Fields of Mx-1.0.Mx.DeformBowTieClass */
     parent_class: DeformTextureClass
     static name: string
 }
-export class DeformBowTiePrivate {
+class DeformBowTiePrivate {
     static name: string
 }
-export abstract class DeformPageTurnClass {
+abstract class DeformPageTurnClass {
     /* Fields of Mx-1.0.Mx.DeformPageTurnClass */
     parent_class: DeformTextureClass
     static name: string
 }
-export class DeformPageTurnPrivate {
+class DeformPageTurnPrivate {
     static name: string
 }
-export abstract class DeformTextureClass {
+abstract class DeformTextureClass {
     /* Fields of Mx-1.0.Mx.DeformTextureClass */
     parent_class: WidgetClass
     deform: (texture: DeformTexture, vertex: Cogl.TextureVertex, width: number, height: number) => void
     static name: string
 }
-export class DeformTexturePrivate {
+class DeformTexturePrivate {
     static name: string
 }
-export abstract class DeformWavesClass {
+abstract class DeformWavesClass {
     /* Fields of Mx-1.0.Mx.DeformWavesClass */
     parent_class: DeformTextureClass
     static name: string
 }
-export class DeformWavesPrivate {
+class DeformWavesPrivate {
     static name: string
 }
-export abstract class DialogClass {
+abstract class DialogClass {
     /* Fields of Mx-1.0.Mx.DialogClass */
     parent_class: BinClass
     static name: string
 }
-export class DialogPrivate {
+class DialogPrivate {
     static name: string
 }
-export abstract class DraggableIface {
+abstract class DraggableIface {
     /* Fields of Mx-1.0.Mx.DraggableIface */
     enable: (draggable: Draggable) => void
     disable: (draggable: Draggable) => void
@@ -33672,7 +33674,7 @@ export abstract class DraggableIface {
     drag_end: (draggable: Draggable, event_x: number, event_y: number) => void
     static name: string
 }
-export abstract class DroppableIface {
+abstract class DroppableIface {
     /* Fields of Mx-1.0.Mx.DroppableIface */
     enable: (droppable: Droppable) => void
     disable: (droppable: Droppable) => void
@@ -33682,163 +33684,163 @@ export abstract class DroppableIface {
     drop: (droppable: Droppable, draggable: Draggable, event_x: number, event_y: number, button: number, modifiers: Clutter.ModifierType) => void
     static name: string
 }
-export abstract class EntryClass {
+abstract class EntryClass {
     /* Fields of Mx-1.0.Mx.EntryClass */
     parent_class: WidgetClass
     primary_icon_clicked: (entry: Entry) => void
     secondary_icon_clicked: (entry: Entry) => void
     static name: string
 }
-export class EntryPrivate {
+class EntryPrivate {
     static name: string
 }
-export abstract class ExpanderClass {
+abstract class ExpanderClass {
     /* Fields of Mx-1.0.Mx.ExpanderClass */
     parent_class: BinClass
     expand_complete: (expander: Expander) => void
     static name: string
 }
-export class ExpanderPrivate {
+class ExpanderPrivate {
     static name: string
 }
-export abstract class FadeEffectClass {
+abstract class FadeEffectClass {
     /* Fields of Mx-1.0.Mx.FadeEffectClass */
     parent_class: Clutter.OffscreenEffectClass
     static name: string
 }
-export class FadeEffectPrivate {
+class FadeEffectPrivate {
     static name: string
 }
-export abstract class FloatingWidgetClass {
+abstract class FloatingWidgetClass {
     /* Fields of Mx-1.0.Mx.FloatingWidgetClass */
     parent_class: WidgetClass
     floating_pick: (actor: Clutter.Actor, color: Clutter.Color) => void
     floating_paint: (actor: Clutter.Actor) => void
     static name: string
 }
-export class FloatingWidgetPrivate {
+class FloatingWidgetPrivate {
     static name: string
 }
-export abstract class FocusManagerClass {
+abstract class FocusManagerClass {
     /* Fields of Mx-1.0.Mx.FocusManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class FocusManagerPrivate {
+class FocusManagerPrivate {
     static name: string
 }
-export abstract class FocusableIface {
+abstract class FocusableIface {
     /* Fields of Mx-1.0.Mx.FocusableIface */
     parent_class: GObject.ObjectClass
     accept_focus: (focusable: Focusable, hint: FocusHint) => Focusable
     move_focus: (focusable: Focusable, direction: FocusDirection, from: Focusable) => Focusable
     static name: string
 }
-export abstract class FrameClass {
+abstract class FrameClass {
     /* Fields of Mx-1.0.Mx.FrameClass */
     parent_class: BinClass
     static name: string
 }
-export class FramePrivate {
+class FramePrivate {
     static name: string
 }
-export abstract class GridClass {
+abstract class GridClass {
     /* Fields of Mx-1.0.Mx.GridClass */
     parent_class: WidgetClass
     static name: string
 }
-export class GridPrivate {
+class GridPrivate {
     static name: string
 }
-export abstract class IconClass {
+abstract class IconClass {
     /* Fields of Mx-1.0.Mx.IconClass */
     parent_class: WidgetClass
     static name: string
 }
-export class IconPrivate {
+class IconPrivate {
     static name: string
 }
-export abstract class IconThemeClass {
+abstract class IconThemeClass {
     /* Fields of Mx-1.0.Mx.IconThemeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IconThemePrivate {
+class IconThemePrivate {
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of Mx-1.0.Mx.ImageClass */
     image_loaded: (image: Image) => void
     image_load_error: (image: Image, error: GLib.Error) => void
     static name: string
 }
-export class ImagePrivate {
+class ImagePrivate {
     static name: string
 }
-export abstract class ItemFactoryIface {
+abstract class ItemFactoryIface {
     /* Fields of Mx-1.0.Mx.ItemFactoryIface */
     create: (factory: ItemFactory) => Clutter.Actor
     static name: string
 }
-export abstract class ItemViewClass {
+abstract class ItemViewClass {
     /* Fields of Mx-1.0.Mx.ItemViewClass */
     parent_class: GridClass
     static name: string
 }
-export class ItemViewPrivate {
+class ItemViewPrivate {
     static name: string
 }
-export abstract class KineticScrollViewClass {
+abstract class KineticScrollViewClass {
     /* Fields of Mx-1.0.Mx.KineticScrollViewClass */
     parent_class: BinClass
     static name: string
 }
-export class KineticScrollViewPrivate {
+class KineticScrollViewPrivate {
     static name: string
 }
-export abstract class LabelClass {
+abstract class LabelClass {
     /* Fields of Mx-1.0.Mx.LabelClass */
     parent_class: WidgetClass
     static name: string
 }
-export class LabelPrivate {
+class LabelPrivate {
     static name: string
 }
-export abstract class ListViewClass {
+abstract class ListViewClass {
     /* Fields of Mx-1.0.Mx.ListViewClass */
     parent_class: BoxLayoutClass
     static name: string
 }
-export class ListViewPrivate {
+class ListViewPrivate {
     static name: string
 }
-export abstract class MenuClass {
+abstract class MenuClass {
     /* Fields of Mx-1.0.Mx.MenuClass */
     parent_class: FloatingWidgetClass
     action_activated: (menu: Menu, action: Action) => void
     static name: string
 }
-export class MenuPrivate {
+class MenuPrivate {
     static name: string
 }
-export abstract class NotebookClass {
+abstract class NotebookClass {
     /* Fields of Mx-1.0.Mx.NotebookClass */
     parent_class: WidgetClass
     static name: string
 }
-export class NotebookPrivate {
+class NotebookPrivate {
     static name: string
 }
-export abstract class OffscreenClass {
+abstract class OffscreenClass {
     /* Fields of Mx-1.0.Mx.OffscreenClass */
     parent_class: Clutter.TextureClass
     paint_child: (self: Offscreen) => void
     static name: string
 }
-export class OffscreenPrivate {
+class OffscreenPrivate {
     static name: string
 }
-export class Padding {
+class Padding {
     /* Fields of Mx-1.0.Mx.Padding */
     top: number
     right: number
@@ -33846,94 +33848,94 @@ export class Padding {
     left: number
     static name: string
 }
-export abstract class PathBarClass {
+abstract class PathBarClass {
     /* Fields of Mx-1.0.Mx.PathBarClass */
     parent_class: WidgetClass
     static name: string
 }
-export class PathBarPrivate {
+class PathBarPrivate {
     static name: string
 }
-export abstract class ProgressBarClass {
+abstract class ProgressBarClass {
     /* Fields of Mx-1.0.Mx.ProgressBarClass */
     parent_class: WidgetClass
     static name: string
 }
-export class ProgressBarPrivate {
+class ProgressBarPrivate {
     static name: string
 }
-export abstract class ScrollBarClass {
+abstract class ScrollBarClass {
     /* Fields of Mx-1.0.Mx.ScrollBarClass */
     parent_class: BinClass
     scroll_start: (bar: ScrollBar) => void
     scroll_stop: (bar: ScrollBar) => void
     static name: string
 }
-export class ScrollBarPrivate {
+class ScrollBarPrivate {
     static name: string
 }
-export abstract class ScrollViewClass {
+abstract class ScrollViewClass {
     /* Fields of Mx-1.0.Mx.ScrollViewClass */
     parent_class: BinClass
     static name: string
 }
-export class ScrollViewPrivate {
+class ScrollViewPrivate {
     static name: string
 }
-export abstract class ScrollableIface {
+abstract class ScrollableIface {
     /* Fields of Mx-1.0.Mx.ScrollableIface */
     set_adjustments: (scrollable: Scrollable, hadjustment: Adjustment, vadjustment: Adjustment) => void
     get_adjustments: (scrollable: Scrollable) => [ /* hadjustment */ Adjustment | null, /* vadjustment */ Adjustment | null ]
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of Mx-1.0.Mx.SettingsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export class SettingsProvider {
+class SettingsProvider {
     static name: string
 }
-export class SettingsProviderIface {
+class SettingsProviderIface {
     static name: string
 }
-export abstract class SliderClass {
+abstract class SliderClass {
     /* Fields of Mx-1.0.Mx.SliderClass */
     parent_class: WidgetClass
     static name: string
 }
-export class SliderPrivate {
+class SliderPrivate {
     static name: string
 }
-export abstract class SpinnerClass {
+abstract class SpinnerClass {
     /* Fields of Mx-1.0.Mx.SpinnerClass */
     parent_class: WidgetClass
     looped: (spinner: Spinner) => void
     static name: string
 }
-export class SpinnerPrivate {
+class SpinnerPrivate {
     static name: string
 }
-export abstract class StackChildClass {
+abstract class StackChildClass {
     /* Fields of Mx-1.0.Mx.StackChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
-export class StackChildPrivate {
+class StackChildPrivate {
     static name: string
 }
-export abstract class StackClass {
+abstract class StackClass {
     /* Fields of Mx-1.0.Mx.StackClass */
     parent_class: WidgetClass
     static name: string
 }
-export class StackPrivate {
+class StackPrivate {
     static name: string
 }
-export abstract class StylableIface {
+abstract class StylableIface {
     /* Fields of Mx-1.0.Mx.StylableIface */
     get_style: (stylable: Stylable) => Style
     set_style: (stylable: Stylable, style: Style) => void
@@ -33946,92 +33948,94 @@ export abstract class StylableIface {
     install_property(iface: Stylable | Function | GObject.Type, owner_type: GObject.Type, pspec: GObject.ParamSpec): void
     static name: string
 }
-export abstract class StyleClass {
+abstract class StyleClass {
     /* Fields of Mx-1.0.Mx.StyleClass */
     parent_class: GObject.ObjectClass
     changed: (style: Style) => void
     static name: string
 }
-export class StylePrivate {
+class StylePrivate {
     static name: string
 }
-export abstract class TableChildClass {
+abstract class TableChildClass {
     /* Fields of Mx-1.0.Mx.TableChildClass */
     parent_class: Clutter.ChildMetaClass
     static name: string
 }
-export abstract class TableClass {
+abstract class TableClass {
     /* Fields of Mx-1.0.Mx.TableClass */
     parent_class: WidgetClass
     static name: string
 }
-export class TablePrivate {
+class TablePrivate {
     static name: string
 }
-export abstract class TextureCacheClass {
+abstract class TextureCacheClass {
     /* Fields of Mx-1.0.Mx.TextureCacheClass */
     parent_class: GObject.ObjectClass
     loaded: (self: TextureCache, uri: string, texture: Clutter.Texture) => void
     error_loading: (self: TextureCache, error: GLib.Error) => void
     static name: string
 }
-export abstract class TextureFrameClass {
+abstract class TextureFrameClass {
     /* Fields of Mx-1.0.Mx.TextureFrameClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class TextureFramePrivate {
+class TextureFramePrivate {
     static name: string
 }
-export abstract class ToggleClass {
+abstract class ToggleClass {
     /* Fields of Mx-1.0.Mx.ToggleClass */
     parent_class: WidgetClass
     static name: string
 }
-export class TogglePrivate {
+class TogglePrivate {
     static name: string
 }
-export abstract class ToolbarClass {
+abstract class ToolbarClass {
     /* Fields of Mx-1.0.Mx.ToolbarClass */
     parent_class: BinClass
     close_button_clicked: (toolbar: Toolbar) => boolean
     static name: string
 }
-export class ToolbarPrivate {
+class ToolbarPrivate {
     static name: string
 }
-export abstract class TooltipClass {
+abstract class TooltipClass {
     /* Fields of Mx-1.0.Mx.TooltipClass */
     parent_class: FloatingWidgetClass
     static name: string
 }
-export class TooltipPrivate {
+class TooltipPrivate {
     static name: string
 }
-export abstract class ViewportClass {
+abstract class ViewportClass {
     /* Fields of Mx-1.0.Mx.ViewportClass */
     parent_class: BinClass
     static name: string
 }
-export class ViewportPrivate {
+class ViewportPrivate {
     static name: string
 }
-export abstract class WidgetClass {
+abstract class WidgetClass {
     /* Fields of Mx-1.0.Mx.WidgetClass */
     paint_background: (self: Widget, background: Clutter.Actor, color: Clutter.Color) => void
     long_press: (widget: Widget, action: LongPressAction, x: number, y: number) => boolean
     apply_style: (widget: Widget, style: Style) => void
     static name: string
 }
-export class WidgetPrivate {
+class WidgetPrivate {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Mx-1.0.Mx.WindowClass */
     parent_class: GObject.ObjectClass
     destroy: (window: Window) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
+}
+export default Mx

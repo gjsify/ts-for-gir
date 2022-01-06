@@ -1,2 +1,1 @@
-imports.gi.versions.Anthy = '9000'
-module.exports = imports.gi.Anthy
+export {default as default} from 'gi://Anthy?version=9000';

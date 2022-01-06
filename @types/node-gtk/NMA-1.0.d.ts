@@ -17,15 +17,15 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace NMA {
+declare namespace NMA {
 
-export enum CertChooserFlags {
+enum CertChooserFlags {
     NONE,
     CERT,
     PASSWORDS,
     PEM,
 }
-export enum MobileFamily {
+enum MobileFamily {
     UNKNOWN,
     /* 3GPP (invalid, starts with a number) */
     CDMA,
@@ -36,17 +36,17 @@ export const BAR_CODE_WIDGET_CONNECTION: string
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function mobileProvidersSplit3gppMccMnc(mccmnc: string): { returnType: boolean, mcc: string, mnc: string }
-export function utilsMenuToSecretFlags(passwdEntry: Gtk.Widget): NM.SettingSecretFlags
-export function utilsSetupPasswordStorage(passwdEntry: Gtk.Widget, initialFlags: NM.SettingSecretFlags, setting: NM.Setting, passwordFlagsName: string, withNotRequired: boolean, askMode: boolean): void
-export function utilsUpdatePasswordStorage(passwdEntry: Gtk.Widget, secretFlags: NM.SettingSecretFlags, setting: NM.Setting, passwordFlagsName: string): void
-export interface MobileWizardCallback {
+function mobileProvidersSplit3gppMccMnc(mccmnc: string): { returnType: boolean, mcc: string, mnc: string }
+function utilsMenuToSecretFlags(passwdEntry: Gtk.Widget): NM.SettingSecretFlags
+function utilsSetupPasswordStorage(passwdEntry: Gtk.Widget, initialFlags: NM.SettingSecretFlags, setting: NM.Setting, passwordFlagsName: string, withNotRequired: boolean, askMode: boolean): void
+function utilsUpdatePasswordStorage(passwdEntry: Gtk.Widget, secretFlags: NM.SettingSecretFlags, setting: NM.Setting, passwordFlagsName: string): void
+interface MobileWizardCallback {
     (self: MobileWizard, canceled: boolean, method: MobileWizardAccessMethod): void
 }
 export interface BarCode_ConstructProps extends GObject.Object_ConstructProps {
     text?: string
 }
-export class BarCode {
+class BarCode {
     /* Properties of NMA-1.0.NMA.BarCode */
     readonly size: number
     text: string
@@ -112,7 +112,7 @@ export interface BarCodeWidget_ConstructProps extends Gtk.Box_ConstructProps {
     connection?: NM.Connection
     orientation?: Gtk.Orientation
 }
-export class BarCodeWidget {
+class BarCodeWidget {
     /* Properties of NMA-1.0.NMA.BarCodeWidget */
     connection: NM.Connection
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -1134,7 +1134,7 @@ export interface CertChooser_ConstructProps extends Gtk.Grid_ConstructProps {
     title?: string
     orientation?: Gtk.Orientation
 }
-export class CertChooser {
+class CertChooser {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
@@ -2215,7 +2215,7 @@ export interface MobileProvidersDatabase_ConstructProps extends GObject.Object_C
     countryCodes?: string
     serviceProviders?: string
 }
-export class MobileProvidersDatabase {
+class MobileProvidersDatabase {
     /* Fields of NMA-1.0.NMA.MobileProvidersDatabase */
     parent: GObject.Object
     priv: MobileProvidersDatabasePrivate
@@ -2280,7 +2280,7 @@ export class MobileProvidersDatabase {
 }
 export interface MobileWizard_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MobileWizard {
+class MobileWizard {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NMA-1.0.NMA.MobileWizard */
@@ -2328,7 +2328,7 @@ export class MobileWizard {
 }
 export interface VpnPasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class VpnPasswordDialog {
+class VpnPasswordDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -3670,7 +3670,7 @@ export class VpnPasswordDialog {
 }
 export interface WifiDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class WifiDialog {
+class WifiDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -5002,16 +5002,16 @@ export class WifiDialog {
     static newForSecrets(client: NM.Client, connection: NM.Connection, secretsSettingName: string, secretsHints: string): WifiDialog
     static $gtype: GObject.Type
 }
-export abstract class BarCodeClass {
+abstract class BarCodeClass {
     static name: string
 }
-export abstract class BarCodeWidgetClass {
+abstract class BarCodeWidgetClass {
     static name: string
 }
-export abstract class CertChooserClass {
+abstract class CertChooserClass {
     static name: string
 }
-export class CountryInfo {
+class CountryInfo {
     /* Methods of NMA-1.0.NMA.CountryInfo */
     getCountryCode(): string
     getCountryName(): string
@@ -5020,7 +5020,7 @@ export class CountryInfo {
     unref(): void
     static name: string
 }
-export class MobileAccessMethod {
+class MobileAccessMethod {
     /* Methods of NMA-1.0.NMA.MobileAccessMethod */
     get3gppApn(): string
     getDns(): string[]
@@ -5033,7 +5033,7 @@ export class MobileAccessMethod {
     unref(): void
     static name: string
 }
-export class MobileProvider {
+class MobileProvider {
     /* Methods of NMA-1.0.NMA.MobileProvider */
     get3gppMccMnc(): string[]
     getCdmaSid(): number[]
@@ -5043,15 +5043,15 @@ export class MobileProvider {
     unref(): void
     static name: string
 }
-export abstract class MobileProvidersDatabaseClass {
+abstract class MobileProvidersDatabaseClass {
     /* Fields of NMA-1.0.NMA.MobileProvidersDatabaseClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class MobileProvidersDatabasePrivate {
+class MobileProvidersDatabasePrivate {
     static name: string
 }
-export class MobileWizardAccessMethod {
+class MobileWizardAccessMethod {
     /* Fields of NMA-1.0.NMA.MobileWizardAccessMethod */
     providerName: string
     planName: string
@@ -5061,69 +5061,70 @@ export class MobileWizardAccessMethod {
     gsmApn: string
     static name: string
 }
-export abstract class MobileWizardClass {
+abstract class MobileWizardClass {
     static name: string
 }
-export abstract class VpnPasswordDialogClass {
+abstract class VpnPasswordDialogClass {
     /* Fields of NMA-1.0.NMA.VpnPasswordDialogClass */
     parentClass: Gtk.DialogClass
     static name: string
 }
-export abstract class WifiDialogClass {
+abstract class WifiDialogClass {
     /* Fields of NMA-1.0.NMA.WifiDialogClass */
     parent: Gtk.DialogClass
     static name: string
 }
-export class Ws {
+class Ws {
     /* Methods of NMA-1.0.NMA.Ws */
     adhocCompatible(): boolean
     hotspotCompatible(): boolean
     validate(): boolean
     static name: string
 }
-export class Ws8021x {
+class Ws8021x {
     static name: string
 }
-export class Ws8021xClass {
+class Ws8021xClass {
     static name: string
 }
-export class WsDynamicWep {
+class WsDynamicWep {
     static name: string
 }
-export class WsDynamicWepClass {
+class WsDynamicWepClass {
     static name: string
 }
-export class WsInterface {
+class WsInterface {
     static name: string
 }
-export class WsLeap {
+class WsLeap {
     static name: string
 }
-export class WsLeapClass {
+class WsLeapClass {
     static name: string
 }
-export class WsSae {
+class WsSae {
     static name: string
 }
-export class WsSaeClass {
+class WsSaeClass {
     static name: string
 }
-export class WsWepKey {
+class WsWepKey {
     static name: string
 }
-export class WsWepKeyClass {
+class WsWepKeyClass {
     static name: string
 }
-export class WsWpaEap {
+class WsWpaEap {
     static name: string
 }
-export class WsWpaEapClass {
+class WsWpaEapClass {
     static name: string
 }
-export class WsWpaPsk {
+class WsWpaPsk {
     static name: string
 }
-export class WsWpaPskClass {
+class WsWpaPskClass {
     static name: string
 }
 }
+export default NMA

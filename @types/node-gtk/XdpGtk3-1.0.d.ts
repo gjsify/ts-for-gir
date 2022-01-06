@@ -17,7 +17,8 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace XdpGtk3 {
+declare namespace XdpGtk3 {
 
-export function parentNewGtk(window: Gtk.Window): Xdp.Parent
+function parentNewGtk(window: Gtk.Window): Xdp.Parent
 }
+export default XdpGtk3

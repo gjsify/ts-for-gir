@@ -1,2 +1,1 @@
-imports.gi.versions.Bamf = '3'
-module.exports = imports.gi.Bamf
+export {default as default} from 'gi://Bamf?version=3';

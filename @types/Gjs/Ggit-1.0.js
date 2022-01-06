@@ -1,2 +1,1 @@
-imports.gi.versions.Ggit = '1.0'
-module.exports = imports.gi.Ggit
+export {default as default} from 'gi://Ggit?version=1.0';

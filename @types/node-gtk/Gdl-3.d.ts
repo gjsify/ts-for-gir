@@ -16,19 +16,19 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Gdl {
+declare namespace Gdl {
 
-export enum DockBarStyle {
+enum DockBarStyle {
     ICONS,
     TEXT,
     BOTH,
     AUTO,
 }
-export enum DockItemButtonImageType {
+enum DockItemButtonImageType {
     CLOSE,
     ICONIFY,
 }
-export enum DockPlacement {
+enum DockPlacement {
     NONE,
     TOP,
     BOTTOM,
@@ -37,7 +37,7 @@ export enum DockPlacement {
     CENTER,
     FLOATING,
 }
-export enum SwitcherStyle {
+enum SwitcherStyle {
     TEXT,
     ICON,
     BOTH,
@@ -45,7 +45,7 @@ export enum SwitcherStyle {
     TABS,
     NONE,
 }
-export enum DockItemBehavior {
+enum DockItemBehavior {
     NORMAL,
     NEVER_FLOATING,
     NEVER_VERTICAL,
@@ -60,28 +60,28 @@ export enum DockItemBehavior {
     CANT_ICONIFY,
     NO_GRIP,
 }
-export enum DockItemFlags {
+enum DockItemFlags {
     IN_DRAG,
     IN_PREDRAG,
     ICONIFIED,
     USER_ACTION,
 }
-export enum DockObjectFlags {
+enum DockObjectFlags {
     AUTOMATIC,
     ATTACHED,
     IN_REFLOW,
     IN_DETACH,
 }
-export enum DockParamFlags {
+enum DockParamFlags {
     EXPORT,
     AFTER,
 }
 export const DOCK_MASTER_PROPERTY: string
 export const DOCK_NAME_PROPERTY: string
 export const DOCK_OBJECT_FLAGS_SHIFT: number
-export function marshalVOIDOBJECTENUMBOXED(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function marshalVOIDOBJECTINTINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function marshalVOIDUINTUINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function marshalVOIDOBJECTENUMBOXED(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function marshalVOIDOBJECTINTINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function marshalVOIDUINTUINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
 export interface Dock_ConstructProps extends DockObject_ConstructProps {
     defaultTitle?: string
     floating?: boolean
@@ -91,7 +91,7 @@ export interface Dock_ConstructProps extends DockObject_ConstructProps {
     skipTaskbar?: boolean
     width?: number
 }
-export class Dock {
+class Dock {
     /* Properties of Gdl-3.Gdl.Dock */
     defaultTitle: string
     floatx: number
@@ -1191,7 +1191,7 @@ export interface DockBar_ConstructProps extends Gtk.Box_ConstructProps {
     master?: GObject.Object
     orientation?: Gtk.Orientation
 }
-export class DockBar {
+class DockBar {
     /* Properties of Gdl-3.Gdl.DockBar */
     dockbarStyle: DockBarStyle
     master: GObject.Object
@@ -2229,7 +2229,7 @@ export interface DockItem_ConstructProps extends DockObject_ConstructProps {
     preferredWidth?: number
     resize?: boolean
 }
-export class DockItem {
+class DockItem {
     /* Properties of Gdl-3.Gdl.DockItem */
     behavior: DockItemBehavior
     closed: boolean
@@ -3380,7 +3380,7 @@ export class DockItem {
 }
 export interface DockItemButtonImage_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class DockItemButtonImage {
+class DockItemButtonImage {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -4281,7 +4281,7 @@ export class DockItemButtonImage {
 export interface DockItemGrip_ConstructProps extends Gtk.Container_ConstructProps {
     item?: DockItem
 }
-export class DockItemGrip {
+class DockItemGrip {
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -5259,7 +5259,7 @@ export class DockItemGrip {
 export interface DockLayout_ConstructProps extends GObject.Object_ConstructProps {
     master?: GObject.Object
 }
-export class DockLayout {
+class DockLayout {
     /* Properties of Gdl-3.Gdl.DockLayout */
     readonly dirty: boolean
     master: GObject.Object
@@ -5337,7 +5337,7 @@ export interface DockMaster_ConstructProps extends GObject.Object_ConstructProps
     tabPos?: Gtk.PositionType
     tabReorderable?: boolean
 }
-export class DockMaster {
+class DockMaster {
     /* Properties of Gdl-3.Gdl.DockMaster */
     defaultTitle: string
     locked: number
@@ -5432,7 +5432,7 @@ export class DockMaster {
 export interface DockNotebook_ConstructProps extends DockItem_ConstructProps {
     page?: number
 }
-export class DockNotebook {
+class DockNotebook {
     /* Properties of Gdl-3.Gdl.DockNotebook */
     page: number
     /* Properties of Gdl-3.Gdl.DockItem */
@@ -6596,7 +6596,7 @@ export interface DockObject_ConstructProps extends Gtk.Container_ConstructProps 
     pixbufIcon?: object
     stockId?: string
 }
-export class DockObject {
+class DockObject {
     /* Properties of Gdl-3.Gdl.DockObject */
     longName: string
     master: DockMaster
@@ -7638,7 +7638,7 @@ export class DockObject {
 export interface DockPaned_ConstructProps extends DockItem_ConstructProps {
     position?: number
 }
-export class DockPaned {
+class DockPaned {
     /* Properties of Gdl-3.Gdl.DockPaned */
     position: number
     /* Properties of Gdl-3.Gdl.DockItem */
@@ -8795,7 +8795,7 @@ export class DockPaned {
     static new(name: string, longName: string, behavior: DockItemBehavior): DockPaned
     static $gtype: GObject.Type
 }
-export class DockParam {
+class DockParam {
     static name: string
 }
 export interface DockPlaceholder_ConstructProps extends DockObject_ConstructProps {
@@ -8808,7 +8808,7 @@ export interface DockPlaceholder_ConstructProps extends DockObject_ConstructProp
     sticky?: boolean
     width?: number
 }
-export class DockPlaceholder {
+class DockPlaceholder {
     /* Properties of Gdl-3.Gdl.DockPlaceholder */
     height: number
     host: DockObject
@@ -9877,7 +9877,7 @@ export class DockPlaceholder {
 export interface DockTablabel_ConstructProps extends Gtk.Bin_ConstructProps {
     item?: DockItem
 }
-export class DockTablabel {
+class DockTablabel {
     /* Properties of Gdl-3.Gdl.DockTablabel */
     item: DockItem
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -10872,7 +10872,7 @@ export class DockTablabel {
 }
 export interface PreviewWindow_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class PreviewWindow {
+class PreviewWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -12177,7 +12177,7 @@ export interface Switcher_ConstructProps extends Gtk.Notebook_ConstructProps {
     tabPos?: Gtk.PositionType
     tabReorderable?: boolean
 }
-export class Switcher {
+class Switcher {
     /* Properties of Gdl-3.Gdl.Switcher */
     switcherStyle: SwitcherStyle
     tabPos: Gtk.PositionType
@@ -13300,25 +13300,25 @@ export class Switcher {
     static new(): Switcher
     static $gtype: GObject.Type
 }
-export abstract class DockBarClass {
+abstract class DockBarClass {
     /* Fields of Gdl-3.Gdl.DockBarClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export class DockBarPrivate {
+class DockBarPrivate {
     static name: string
 }
-export abstract class DockClass {
+abstract class DockClass {
     /* Fields of Gdl-3.Gdl.DockClass */
     layoutChanged: (dock: Dock) => void
     static name: string
 }
-export abstract class DockItemButtonImageClass {
+abstract class DockItemButtonImageClass {
     /* Fields of Gdl-3.Gdl.DockItemButtonImageClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class DockItemClass {
+abstract class DockItemClass {
     /* Fields of Gdl-3.Gdl.DockItemClass */
     parentClass: DockObjectClass
     priv: DockItemClassPrivate
@@ -13331,50 +13331,50 @@ export abstract class DockItemClass {
     setHasGrip(item_class: DockItem | Function | GObject.Type, hasGrip: boolean): void
     static name: string
 }
-export class DockItemClassPrivate {
+class DockItemClassPrivate {
     static name: string
 }
-export abstract class DockItemGripClass {
+abstract class DockItemGripClass {
     /* Fields of Gdl-3.Gdl.DockItemGripClass */
     parentClass: Gtk.ContainerClass
     static name: string
 }
-export class DockItemGripPrivate {
+class DockItemGripPrivate {
     static name: string
 }
-export class DockItemPrivate {
+class DockItemPrivate {
     static name: string
 }
-export abstract class DockLayoutClass {
+abstract class DockLayoutClass {
     /* Fields of Gdl-3.Gdl.DockLayoutClass */
     gObjectClass: GObject.ObjectClass
     static name: string
 }
-export class DockLayoutPrivate {
+class DockLayoutPrivate {
     static name: string
 }
-export abstract class DockMasterClass {
+abstract class DockMasterClass {
     /* Fields of Gdl-3.Gdl.DockMasterClass */
     parentClass: GObject.ObjectClass
     layoutChanged: (master: DockMaster) => void
     static name: string
 }
-export class DockMasterPrivate {
+class DockMasterPrivate {
     static name: string
 }
-export abstract class DockNotebookClass {
+abstract class DockNotebookClass {
     /* Fields of Gdl-3.Gdl.DockNotebookClass */
     parentClass: DockItemClass
     priv: DockNotebookClassPrivate
     static name: string
 }
-export class DockNotebookClassPrivate {
+class DockNotebookClassPrivate {
     static name: string
 }
-export class DockNotebookPrivate {
+class DockNotebookPrivate {
     static name: string
 }
-export abstract class DockObjectClass {
+abstract class DockObjectClass {
     /* Fields of Gdl-3.Gdl.DockObjectClass */
     parentClass: Gtk.ContainerClass
     priv: DockObjectClassPrivate
@@ -13389,32 +13389,32 @@ export abstract class DockObjectClass {
     setIsCompound(object_class: DockObject | Function | GObject.Type, isCompound: boolean): void
     static name: string
 }
-export class DockObjectClassPrivate {
+class DockObjectClassPrivate {
     static name: string
 }
-export class DockObjectPrivate {
+class DockObjectPrivate {
     static name: string
 }
-export abstract class DockPanedClass {
+abstract class DockPanedClass {
     /* Fields of Gdl-3.Gdl.DockPanedClass */
     parentClass: DockItemClass
     static name: string
 }
-export class DockPanedPrivate {
+class DockPanedPrivate {
     static name: string
 }
-export abstract class DockPlaceholderClass {
+abstract class DockPlaceholderClass {
     /* Fields of Gdl-3.Gdl.DockPlaceholderClass */
     parentClass: DockObjectClass
     static name: string
 }
-export class DockPlaceholderPrivate {
+class DockPlaceholderPrivate {
     static name: string
 }
-export class DockPrivate {
+class DockPrivate {
     static name: string
 }
-export class DockRequest {
+class DockRequest {
     /* Fields of Gdl-3.Gdl.DockRequest */
     applicant: DockObject
     target: DockObject
@@ -13423,27 +13423,28 @@ export class DockRequest {
     extra: any
     static name: string
 }
-export abstract class DockTablabelClass {
+abstract class DockTablabelClass {
     /* Fields of Gdl-3.Gdl.DockTablabelClass */
     parentClass: Gtk.BinClass
     buttonPressedHandle: (tablabel: DockTablabel, event: Gdk.EventButton) => void
     static name: string
 }
-export abstract class PreviewWindowClass {
+abstract class PreviewWindowClass {
     /* Fields of Gdl-3.Gdl.PreviewWindowClass */
     parentClass: Gtk.WindowClass
     static name: string
 }
-export abstract class SwitcherClass {
+abstract class SwitcherClass {
     /* Fields of Gdl-3.Gdl.SwitcherClass */
     parentClass: Gtk.NotebookClass
     priv: SwitcherClassPrivate
     static name: string
 }
-export class SwitcherClassPrivate {
+class SwitcherClassPrivate {
     static name: string
 }
-export class SwitcherPrivate {
+class SwitcherPrivate {
     static name: string
 }
 }
+export default Gdl

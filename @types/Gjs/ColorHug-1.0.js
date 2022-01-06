@@ -1,2 +1,1 @@
-imports.gi.versions.ColorHug = '1.0'
-module.exports = imports.gi.ColorHug
+export {default as default} from 'gi://ColorHug?version=1.0';

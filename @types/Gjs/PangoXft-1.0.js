@@ -1,2 +1,1 @@
-imports.gi.versions.PangoXft = '1.0'
-module.exports = imports.gi.PangoXft
+export {default as default} from 'gi://PangoXft?version=1.0';

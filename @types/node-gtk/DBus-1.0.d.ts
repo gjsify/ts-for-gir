@@ -5,26 +5,27 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace DBus {
+declare namespace DBus {
 
-export enum BusType {
+enum BusType {
     SESSION,
     SYSTEM,
     STARTER,
 }
-export class Connection {
+class Connection {
     static name: string
 }
-export class Error {
+class Error {
     static name: string
 }
-export class Message {
+class Message {
     static name: string
 }
-export class MessageIter {
+class MessageIter {
     static name: string
 }
-export class PendingCall {
+class PendingCall {
     static name: string
 }
 }
+export default DBus

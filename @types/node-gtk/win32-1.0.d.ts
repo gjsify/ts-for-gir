@@ -5,9 +5,10 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace win32 {
+declare namespace win32 {
 
-export type HWND = number
-export type HICON = number
-export type HGDIOBJ = number
+type HWND = number
+type HICON = number
+type HGDIOBJ = number
 }
+export default win32

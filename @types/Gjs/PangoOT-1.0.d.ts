@@ -3,16 +3,18 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as freetype2 from './freetype2-2.0';
-import type * as PangoFc from './PangoFc-1.0';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type freetype2 from './freetype2-2.0';
+import type PangoFc from './PangoFc-1.0';
+import type fontconfig from './fontconfig-2.0';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum TableType {
+export namespace PangoOT {
+
+enum TableType {
     GSUB,
     GPOS,
 }
@@ -20,13 +22,13 @@ export const ALL_GLYPHS: number
 export const DEFAULT_LANGUAGE: number
 export const NO_FEATURE: number
 export const NO_SCRIPT: number
-export function tag_from_language(language?: Pango.Language | null): Tag
-export function tag_from_script(script: Pango.Script): Tag
-export function tag_to_language(language_tag: Tag): Pango.Language
-export function tag_to_script(script_tag: Tag): Pango.Script
+function tag_from_language(language?: Pango.Language | null): Tag
+function tag_from_script(script: Pango.Script): Tag
+function tag_to_language(language_tag: Tag): Pango.Language
+function tag_to_script(script_tag: Tag): Pango.Script
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Info {
+class Info {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of PangoOT-1.0.PangoOT.Info */
@@ -83,7 +85,7 @@ export class Info {
 }
 export interface Ruleset_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Ruleset {
+class Ruleset {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of PangoOT-1.0.PangoOT.Ruleset */
@@ -141,7 +143,7 @@ export class Ruleset {
     static get_for_description(info: Info, desc: RulesetDescription): Ruleset
     static $gtype: GObject.Type
 }
-export class Buffer {
+class Buffer {
     /* Methods of PangoOT-1.0.PangoOT.Buffer */
     add_glyph(glyph: number, properties: number, cluster: number): void
     clear(): void
@@ -156,13 +158,13 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(font: PangoFc.Font): Buffer
 }
-export class FeatureMap {
+class FeatureMap {
     /* Fields of PangoOT-1.0.PangoOT.FeatureMap */
     feature_name: number[]
     property_bit: number
     static name: string
 }
-export class Glyph {
+class Glyph {
     /* Fields of PangoOT-1.0.PangoOT.Glyph */
     glyph: number
     properties: number
@@ -172,7 +174,7 @@ export class Glyph {
     internal: number
     static name: string
 }
-export class RulesetDescription {
+class RulesetDescription {
     /* Fields of PangoOT-1.0.PangoOT.RulesetDescription */
     script: Pango.Script
     language: Pango.Language
@@ -189,4 +191,6 @@ export class RulesetDescription {
     hash(): number
     static name: string
 }
-export type Tag = number
+type Tag = number
+}
+export default PangoOT

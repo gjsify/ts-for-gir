@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum SessionEvent {
+export namespace Guestfs {
+
+enum SessionEvent {
     CLOSE,
     SUBPROCESS_QUIT,
     LAUNCH_DONE,
@@ -19,7 +21,7 @@ export enum SessionEvent {
     LIBVIRT_AUTH,
     WARNING,
 }
-export enum Tristate {
+enum Tristate {
     FALSE,
     TRUE,
     NONE,
@@ -35,7 +37,7 @@ export interface AddDomain_ConstructProps extends GObject.Object_ConstructProps 
     readonly?: Tristate
     readonlydisk?: string
 }
-export class AddDomain {
+class AddDomain {
     /* Properties of Guestfs-1.0.Guestfs.AddDomain */
     allowuuid: Tristate
     cachemode: string
@@ -127,7 +129,7 @@ export interface AddDrive_ConstructProps extends GObject.Object_ConstructProps {
     secret?: string
     username?: string
 }
-export class AddDrive {
+class AddDrive {
     /* Properties of Guestfs-1.0.Guestfs.AddDrive */
     cachemode: string
     copyonread: Tristate
@@ -216,7 +218,7 @@ export interface AddDriveScratch_ConstructProps extends GObject.Object_Construct
     label?: string
     name?: string
 }
-export class AddDriveScratch {
+class AddDriveScratch {
     /* Properties of Guestfs-1.0.Guestfs.AddDriveScratch */
     label: string
     name: string
@@ -283,7 +285,7 @@ export interface AddLibvirtDom_ConstructProps extends GObject.Object_ConstructPr
     readonly?: Tristate
     readonlydisk?: string
 }
-export class AddLibvirtDom {
+class AddLibvirtDom {
     /* Properties of Guestfs-1.0.Guestfs.AddLibvirtDom */
     cachemode: string
     copyonread: Tristate
@@ -359,7 +361,7 @@ export class AddLibvirtDom {
 export interface AugTransform_ConstructProps extends GObject.Object_ConstructProps {
     remove?: Tristate
 }
-export class AugTransform {
+class AugTransform {
     /* Properties of Guestfs-1.0.Guestfs.AugTransform */
     remove: Tristate
     /* Fields of Guestfs-1.0.Guestfs.AugTransform */
@@ -418,7 +420,7 @@ export interface BTRFSFilesystemDefragment_ConstructProps extends GObject.Object
     compress?: string
     flush?: Tristate
 }
-export class BTRFSFilesystemDefragment {
+class BTRFSFilesystemDefragment {
     /* Properties of Guestfs-1.0.Guestfs.BTRFSFilesystemDefragment */
     compress: string
     flush: Tristate
@@ -479,7 +481,7 @@ export class BTRFSFilesystemDefragment {
 export interface BTRFSFilesystemResize_ConstructProps extends GObject.Object_ConstructProps {
     size?: number
 }
-export class BTRFSFilesystemResize {
+class BTRFSFilesystemResize {
     /* Properties of Guestfs-1.0.Guestfs.BTRFSFilesystemResize */
     size: number
     /* Fields of Guestfs-1.0.Guestfs.BTRFSFilesystemResize */
@@ -537,7 +539,7 @@ export class BTRFSFilesystemResize {
 export interface BTRFSImage_ConstructProps extends GObject.Object_ConstructProps {
     compresslevel?: number
 }
-export class BTRFSImage {
+class BTRFSImage {
     /* Properties of Guestfs-1.0.Guestfs.BTRFSImage */
     compresslevel: number
     /* Fields of Guestfs-1.0.Guestfs.BTRFSImage */
@@ -595,7 +597,7 @@ export class BTRFSImage {
 export interface BTRFSSubvolumeCreate_ConstructProps extends GObject.Object_ConstructProps {
     qgroupid?: string
 }
-export class BTRFSSubvolumeCreate {
+class BTRFSSubvolumeCreate {
     /* Properties of Guestfs-1.0.Guestfs.BTRFSSubvolumeCreate */
     qgroupid: string
     /* Fields of Guestfs-1.0.Guestfs.BTRFSSubvolumeCreate */
@@ -654,7 +656,7 @@ export interface BTRFSSubvolumeSnapshot_ConstructProps extends GObject.Object_Co
     qgroupid?: string
     ro?: Tristate
 }
-export class BTRFSSubvolumeSnapshot {
+class BTRFSSubvolumeSnapshot {
     /* Properties of Guestfs-1.0.Guestfs.BTRFSSubvolumeSnapshot */
     qgroupid: string
     ro: Tristate
@@ -716,7 +718,7 @@ export interface BtrfsFsck_ConstructProps extends GObject.Object_ConstructProps 
     repair?: Tristate
     superblock?: number
 }
-export class BtrfsFsck {
+class BtrfsFsck {
     /* Properties of Guestfs-1.0.Guestfs.BtrfsFsck */
     repair: Tristate
     superblock: number
@@ -777,7 +779,7 @@ export class BtrfsFsck {
 export interface CompressDeviceOut_ConstructProps extends GObject.Object_ConstructProps {
     level?: number
 }
-export class CompressDeviceOut {
+class CompressDeviceOut {
     /* Properties of Guestfs-1.0.Guestfs.CompressDeviceOut */
     level: number
     /* Fields of Guestfs-1.0.Guestfs.CompressDeviceOut */
@@ -835,7 +837,7 @@ export class CompressDeviceOut {
 export interface CompressOut_ConstructProps extends GObject.Object_ConstructProps {
     level?: number
 }
-export class CompressOut {
+class CompressOut {
     /* Properties of Guestfs-1.0.Guestfs.CompressOut */
     level: number
     /* Fields of Guestfs-1.0.Guestfs.CompressOut */
@@ -896,7 +898,7 @@ export interface CopyAttributes_ConstructProps extends GObject.Object_ConstructP
     ownership?: Tristate
     xattributes?: Tristate
 }
-export class CopyAttributes {
+class CopyAttributes {
     /* Properties of Guestfs-1.0.Guestfs.CopyAttributes */
     all: Tristate
     mode: Tristate
@@ -967,7 +969,7 @@ export interface CopyDeviceToDevice_ConstructProps extends GObject.Object_Constr
     sparse?: Tristate
     srcoffset?: number
 }
-export class CopyDeviceToDevice {
+class CopyDeviceToDevice {
     /* Properties of Guestfs-1.0.Guestfs.CopyDeviceToDevice */
     append: Tristate
     destoffset: number
@@ -1041,7 +1043,7 @@ export interface CopyDeviceToFile_ConstructProps extends GObject.Object_Construc
     sparse?: Tristate
     srcoffset?: number
 }
-export class CopyDeviceToFile {
+class CopyDeviceToFile {
     /* Properties of Guestfs-1.0.Guestfs.CopyDeviceToFile */
     append: Tristate
     destoffset: number
@@ -1115,7 +1117,7 @@ export interface CopyFileToDevice_ConstructProps extends GObject.Object_Construc
     sparse?: Tristate
     srcoffset?: number
 }
-export class CopyFileToDevice {
+class CopyFileToDevice {
     /* Properties of Guestfs-1.0.Guestfs.CopyFileToDevice */
     append: Tristate
     destoffset: number
@@ -1189,7 +1191,7 @@ export interface CopyFileToFile_ConstructProps extends GObject.Object_ConstructP
     sparse?: Tristate
     srcoffset?: number
 }
-export class CopyFileToFile {
+class CopyFileToFile {
     /* Properties of Guestfs-1.0.Guestfs.CopyFileToFile */
     append: Tristate
     destoffset: number
@@ -1259,7 +1261,7 @@ export class CopyFileToFile {
 export interface CpioOut_ConstructProps extends GObject.Object_ConstructProps {
     format?: string
 }
-export class CpioOut {
+class CpioOut {
     /* Properties of Guestfs-1.0.Guestfs.CpioOut */
     format: string
     /* Fields of Guestfs-1.0.Guestfs.CpioOut */
@@ -1321,7 +1323,7 @@ export interface DiskCreate_ConstructProps extends GObject.Object_ConstructProps
     compat?: string
     preallocation?: string
 }
-export class DiskCreate {
+class DiskCreate {
     /* Properties of Guestfs-1.0.Guestfs.DiskCreate */
     backingfile: string
     backingformat: string
@@ -1391,7 +1393,7 @@ export class DiskCreate {
 export interface DownloadBlocks_ConstructProps extends GObject.Object_ConstructProps {
     unallocated?: Tristate
 }
-export class DownloadBlocks {
+class DownloadBlocks {
     /* Properties of Guestfs-1.0.Guestfs.DownloadBlocks */
     unallocated: Tristate
     /* Fields of Guestfs-1.0.Guestfs.DownloadBlocks */
@@ -1450,7 +1452,7 @@ export interface E2fsck_ConstructProps extends GObject.Object_ConstructProps {
     correct?: Tristate
     forceall?: Tristate
 }
-export class E2fsck {
+class E2fsck {
     /* Properties of Guestfs-1.0.Guestfs.E2fsck */
     correct: Tristate
     forceall: Tristate
@@ -1513,7 +1515,7 @@ export interface Fstrim_ConstructProps extends GObject.Object_ConstructProps {
     minimumfreeextent?: number
     offset?: number
 }
-export class Fstrim {
+class Fstrim {
     /* Properties of Guestfs-1.0.Guestfs.Fstrim */
     length: number
     minimumfreeextent: number
@@ -1577,7 +1579,7 @@ export class Fstrim {
 export interface GlobExpand_ConstructProps extends GObject.Object_ConstructProps {
     directoryslash?: Tristate
 }
-export class GlobExpand {
+class GlobExpand {
     /* Properties of Guestfs-1.0.Guestfs.GlobExpand */
     directoryslash: Tristate
     /* Fields of Guestfs-1.0.Guestfs.GlobExpand */
@@ -1638,7 +1640,7 @@ export interface Grep_ConstructProps extends GObject.Object_ConstructProps {
     fixed?: Tristate
     insensitive?: Tristate
 }
-export class Grep {
+class Grep {
     /* Properties of Guestfs-1.0.Guestfs.Grep */
     compressed: Tristate
     extended: Tristate
@@ -1708,7 +1710,7 @@ export interface HivexOpen_ConstructProps extends GObject.Object_ConstructProps 
     verbose?: Tristate
     write?: Tristate
 }
-export class HivexOpen {
+class HivexOpen {
     /* Properties of Guestfs-1.0.Guestfs.HivexOpen */
     debug: Tristate
     unsafe: Tristate
@@ -1776,7 +1778,7 @@ export interface InspectGetIcon_ConstructProps extends GObject.Object_ConstructP
     favicon?: Tristate
     highquality?: Tristate
 }
-export class InspectGetIcon {
+class InspectGetIcon {
     /* Properties of Guestfs-1.0.Guestfs.InspectGetIcon */
     favicon: Tristate
     highquality: Tristate
@@ -1840,7 +1842,7 @@ export interface InternalTest_ConstructProps extends GObject.Object_ConstructPro
     oint64?: number
     ostring?: string
 }
-export class InternalTest {
+class InternalTest {
     /* Properties of Guestfs-1.0.Guestfs.InternalTest */
     obool: Tristate
     oint: number
@@ -1969,7 +1971,7 @@ export interface InternalTest63Optargs_ConstructProps extends GObject.Object_Con
     opt8?: number
     opt9?: number
 }
-export class InternalTest63Optargs {
+class InternalTest63Optargs {
     /* Properties of Guestfs-1.0.Guestfs.InternalTest63Optargs */
     opt1: number
     opt10: number
@@ -2213,7 +2215,7 @@ export class InternalTest63Optargs {
 export interface InternalTestOnlyOptargs_ConstructProps extends GObject.Object_ConstructProps {
     test?: number
 }
-export class InternalTestOnlyOptargs {
+class InternalTestOnlyOptargs {
     /* Properties of Guestfs-1.0.Guestfs.InternalTestOnlyOptargs */
     test: number
     /* Fields of Guestfs-1.0.Guestfs.InternalTestOnlyOptargs */
@@ -2271,7 +2273,7 @@ export class InternalTestOnlyOptargs {
 export interface IsBlockdev_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsBlockdev {
+class IsBlockdev {
     /* Properties of Guestfs-1.0.Guestfs.IsBlockdev */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsBlockdev */
@@ -2329,7 +2331,7 @@ export class IsBlockdev {
 export interface IsChardev_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsChardev {
+class IsChardev {
     /* Properties of Guestfs-1.0.Guestfs.IsChardev */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsChardev */
@@ -2387,7 +2389,7 @@ export class IsChardev {
 export interface IsDir_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsDir {
+class IsDir {
     /* Properties of Guestfs-1.0.Guestfs.IsDir */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsDir */
@@ -2445,7 +2447,7 @@ export class IsDir {
 export interface IsFifo_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsFifo {
+class IsFifo {
     /* Properties of Guestfs-1.0.Guestfs.IsFifo */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsFifo */
@@ -2503,7 +2505,7 @@ export class IsFifo {
 export interface IsFile_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsFile {
+class IsFile {
     /* Properties of Guestfs-1.0.Guestfs.IsFile */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsFile */
@@ -2561,7 +2563,7 @@ export class IsFile {
 export interface IsSocket_ConstructProps extends GObject.Object_ConstructProps {
     followsymlinks?: Tristate
 }
-export class IsSocket {
+class IsSocket {
     /* Properties of Guestfs-1.0.Guestfs.IsSocket */
     followsymlinks: Tristate
     /* Fields of Guestfs-1.0.Guestfs.IsSocket */
@@ -2623,7 +2625,7 @@ export interface MDCreate_ConstructProps extends GObject.Object_ConstructProps {
     nrdevices?: number
     spare?: number
 }
-export class MDCreate {
+class MDCreate {
     /* Properties of Guestfs-1.0.Guestfs.MDCreate */
     chunk: number
     level: string
@@ -2730,7 +2732,7 @@ export interface Mke2fs_ConstructProps extends GObject.Object_ConstructProps {
     uuid?: string
     writesbandgrouponly?: Tristate
 }
-export class Mke2fs {
+class Mke2fs {
     /* Properties of Guestfs-1.0.Guestfs.Mke2fs */
     blockscount: number
     blocksize: number
@@ -2903,7 +2905,7 @@ export interface Mkfs_ConstructProps extends GObject.Object_ConstructProps {
     label?: string
     sectorsize?: number
 }
-export class Mkfs {
+class Mkfs {
     /* Properties of Guestfs-1.0.Guestfs.Mkfs */
     blocksize: number
     features: string
@@ -2980,7 +2982,7 @@ export interface MkfsBtrfs_ConstructProps extends GObject.Object_ConstructProps 
     nodesize?: number
     sectorsize?: number
 }
-export class MkfsBtrfs {
+class MkfsBtrfs {
     /* Properties of Guestfs-1.0.Guestfs.MkfsBtrfs */
     allocstart: number
     bytecount: number
@@ -3059,7 +3061,7 @@ export class MkfsBtrfs {
 export interface Mksquashfs_ConstructProps extends GObject.Object_ConstructProps {
     compress?: string
 }
-export class Mksquashfs {
+class Mksquashfs {
     /* Properties of Guestfs-1.0.Guestfs.Mksquashfs */
     compress: string
     /* Fields of Guestfs-1.0.Guestfs.Mksquashfs */
@@ -3118,7 +3120,7 @@ export interface Mkswap_ConstructProps extends GObject.Object_ConstructProps {
     label?: string
     uuid?: string
 }
-export class Mkswap {
+class Mkswap {
     /* Properties of Guestfs-1.0.Guestfs.Mkswap */
     label: string
     uuid: string
@@ -3179,7 +3181,7 @@ export class Mkswap {
 export interface Mktemp_ConstructProps extends GObject.Object_ConstructProps {
     suffix?: string
 }
-export class Mktemp {
+class Mktemp {
     /* Properties of Guestfs-1.0.Guestfs.Mktemp */
     suffix: string
     /* Fields of Guestfs-1.0.Guestfs.Mktemp */
@@ -3237,7 +3239,7 @@ export class Mktemp {
 export interface Mount9P_ConstructProps extends GObject.Object_ConstructProps {
     options?: string
 }
-export class Mount9P {
+class Mount9P {
     /* Properties of Guestfs-1.0.Guestfs.Mount9P */
     options: string
     /* Fields of Guestfs-1.0.Guestfs.Mount9P */
@@ -3298,7 +3300,7 @@ export interface MountLocal_ConstructProps extends GObject.Object_ConstructProps
     options?: string
     readonly?: Tristate
 }
-export class MountLocal {
+class MountLocal {
     /* Properties of Guestfs-1.0.Guestfs.MountLocal */
     cachetimeout: number
     debugcalls: Tristate
@@ -3366,7 +3368,7 @@ export interface NTFSResizeOpts_ConstructProps extends GObject.Object_ConstructP
     force?: Tristate
     size?: number
 }
-export class NTFSResizeOpts {
+class NTFSResizeOpts {
     /* Properties of Guestfs-1.0.Guestfs.NTFSResizeOpts */
     force: Tristate
     size: number
@@ -3431,7 +3433,7 @@ export interface NtfscloneOut_ConstructProps extends GObject.Object_ConstructPro
     preservetimestamps?: Tristate
     rescue?: Tristate
 }
-export class NtfscloneOut {
+class NtfscloneOut {
     /* Properties of Guestfs-1.0.Guestfs.NtfscloneOut */
     force: Tristate
     ignorefscheck: Tristate
@@ -3501,7 +3503,7 @@ export class NtfscloneOut {
 export interface Ntfsfix_ConstructProps extends GObject.Object_ConstructProps {
     clearbadsectors?: Tristate
 }
-export class Ntfsfix {
+class Ntfsfix {
     /* Properties of Guestfs-1.0.Guestfs.Ntfsfix */
     clearbadsectors: Tristate
     /* Fields of Guestfs-1.0.Guestfs.Ntfsfix */
@@ -3559,7 +3561,7 @@ export class Ntfsfix {
 export interface Remount_ConstructProps extends GObject.Object_ConstructProps {
     rw?: Tristate
 }
-export class Remount {
+class Remount {
     /* Properties of Guestfs-1.0.Guestfs.Remount */
     rw: Tristate
     /* Fields of Guestfs-1.0.Guestfs.Remount */
@@ -3618,7 +3620,7 @@ export interface Rsync_ConstructProps extends GObject.Object_ConstructProps {
     archive?: Tristate
     deletedest?: Tristate
 }
-export class Rsync {
+class Rsync {
     /* Properties of Guestfs-1.0.Guestfs.Rsync */
     archive: Tristate
     deletedest: Tristate
@@ -3680,7 +3682,7 @@ export interface RsyncIn_ConstructProps extends GObject.Object_ConstructProps {
     archive?: Tristate
     deletedest?: Tristate
 }
-export class RsyncIn {
+class RsyncIn {
     /* Properties of Guestfs-1.0.Guestfs.RsyncIn */
     archive: Tristate
     deletedest: Tristate
@@ -3742,7 +3744,7 @@ export interface RsyncOut_ConstructProps extends GObject.Object_ConstructProps {
     archive?: Tristate
     deletedest?: Tristate
 }
-export class RsyncOut {
+class RsyncOut {
     /* Properties of Guestfs-1.0.Guestfs.RsyncOut */
     archive: Tristate
     deletedest: Tristate
@@ -3803,7 +3805,7 @@ export class RsyncOut {
 export interface SelinuxRelabel_ConstructProps extends GObject.Object_ConstructProps {
     force?: Tristate
 }
-export class SelinuxRelabel {
+class SelinuxRelabel {
     /* Properties of Guestfs-1.0.Guestfs.SelinuxRelabel */
     force: Tristate
     /* Fields of Guestfs-1.0.Guestfs.SelinuxRelabel */
@@ -3860,7 +3862,7 @@ export class SelinuxRelabel {
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Session {
+class Session {
     /* Fields of Guestfs-1.0.Guestfs.Session */
     parent: GObject.Object
     priv: SessionPrivate
@@ -4563,7 +4565,7 @@ export class Session {
 export interface SetE2attrs_ConstructProps extends GObject.Object_ConstructProps {
     clear?: Tristate
 }
-export class SetE2attrs {
+class SetE2attrs {
     /* Properties of Guestfs-1.0.Guestfs.SetE2attrs */
     clear: Tristate
     /* Fields of Guestfs-1.0.Guestfs.SetE2attrs */
@@ -4621,7 +4623,7 @@ export class SetE2attrs {
 export interface Syslinux_ConstructProps extends GObject.Object_ConstructProps {
     directory?: string
 }
-export class Syslinux {
+class Syslinux {
     /* Properties of Guestfs-1.0.Guestfs.Syslinux */
     directory: string
     /* Fields of Guestfs-1.0.Guestfs.Syslinux */
@@ -4682,7 +4684,7 @@ export interface TarIn_ConstructProps extends GObject.Object_ConstructProps {
     selinux?: Tristate
     xattrs?: Tristate
 }
-export class TarIn {
+class TarIn {
     /* Properties of Guestfs-1.0.Guestfs.TarIn */
     acls: Tristate
     compress: string
@@ -4753,7 +4755,7 @@ export interface TarOut_ConstructProps extends GObject.Object_ConstructProps {
     selinux?: Tristate
     xattrs?: Tristate
 }
-export class TarOut {
+class TarOut {
     /* Properties of Guestfs-1.0.Guestfs.TarOut */
     acls: Tristate
     compress: string
@@ -4832,7 +4834,7 @@ export interface Tune2FS_ConstructProps extends GObject.Object_ConstructProps {
     reservedblockspercentage?: number
     user?: number
 }
-export class Tune2FS {
+class Tune2FS {
     /* Properties of Guestfs-1.0.Guestfs.Tune2FS */
     errorbehavior: string
     force: Tristate
@@ -4918,7 +4920,7 @@ export interface Umount_ConstructProps extends GObject.Object_ConstructProps {
     force?: Tristate
     lazyunmount?: Tristate
 }
-export class Umount {
+class Umount {
     /* Properties of Guestfs-1.0.Guestfs.Umount */
     force: Tristate
     lazyunmount: Tristate
@@ -4979,7 +4981,7 @@ export class Umount {
 export interface UmountLocal_ConstructProps extends GObject.Object_ConstructProps {
     retry?: Tristate
 }
-export class UmountLocal {
+class UmountLocal {
     /* Properties of Guestfs-1.0.Guestfs.UmountLocal */
     retry: Tristate
     /* Fields of Guestfs-1.0.Guestfs.UmountLocal */
@@ -5043,7 +5045,7 @@ export interface XfsAdmin_ConstructProps extends GObject.Object_ConstructProps {
     uuid?: string
     v2log?: Tristate
 }
-export class XfsAdmin {
+class XfsAdmin {
     /* Properties of Guestfs-1.0.Guestfs.XfsAdmin */
     extunwritten: Tristate
     imgfile: Tristate
@@ -5126,7 +5128,7 @@ export interface XfsGrowfs_ConstructProps extends GObject.Object_ConstructProps 
     rtsec?: Tristate
     rtsize?: number
 }
-export class XfsGrowfs {
+class XfsGrowfs {
     /* Properties of Guestfs-1.0.Guestfs.XfsGrowfs */
     datasec: Tristate
     datasize: number
@@ -5214,7 +5216,7 @@ export interface XfsRepair_ConstructProps extends GObject.Object_ConstructProps 
     noprefetch?: Tristate
     rtdev?: string
 }
-export class XfsRepair {
+class XfsRepair {
     /* Properties of Guestfs-1.0.Guestfs.XfsRepair */
     agstride: number
     bhashsize: number
@@ -5296,39 +5298,39 @@ export class XfsRepair {
     static new(): XfsRepair
     static $gtype: GObject.Type
 }
-export abstract class AddDomainClass {
+abstract class AddDomainClass {
     /* Fields of Guestfs-1.0.Guestfs.AddDomainClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AddDomainPrivate {
+class AddDomainPrivate {
     static name: string
 }
-export abstract class AddDriveClass {
+abstract class AddDriveClass {
     /* Fields of Guestfs-1.0.Guestfs.AddDriveClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AddDrivePrivate {
+class AddDrivePrivate {
     static name: string
 }
-export abstract class AddDriveScratchClass {
+abstract class AddDriveScratchClass {
     /* Fields of Guestfs-1.0.Guestfs.AddDriveScratchClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AddDriveScratchPrivate {
+class AddDriveScratchPrivate {
     static name: string
 }
-export abstract class AddLibvirtDomClass {
+abstract class AddLibvirtDomClass {
     /* Fields of Guestfs-1.0.Guestfs.AddLibvirtDomClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AddLibvirtDomPrivate {
+class AddLibvirtDomPrivate {
     static name: string
 }
-export class Application {
+class Application {
     /* Fields of Guestfs-1.0.Guestfs.Application */
     app_name: string
     app_display_name: string
@@ -5344,7 +5346,7 @@ export class Application {
     app_description: string
     static name: string
 }
-export class Application2 {
+class Application2 {
     /* Fields of Guestfs-1.0.Guestfs.Application2 */
     app2_name: string
     app2_display_name: string
@@ -5365,15 +5367,15 @@ export class Application2 {
     app2_spare4: string
     static name: string
 }
-export abstract class AugTransformClass {
+abstract class AugTransformClass {
     /* Fields of Guestfs-1.0.Guestfs.AugTransformClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AugTransformPrivate {
+class AugTransformPrivate {
     static name: string
 }
-export class BTRFSBalance {
+class BTRFSBalance {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSBalance */
     btrfsbalance_status: string
     btrfsbalance_total: number
@@ -5382,38 +5384,38 @@ export class BTRFSBalance {
     btrfsbalance_left: number
     static name: string
 }
-export abstract class BTRFSFilesystemDefragmentClass {
+abstract class BTRFSFilesystemDefragmentClass {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSFilesystemDefragmentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BTRFSFilesystemDefragmentPrivate {
+class BTRFSFilesystemDefragmentPrivate {
     static name: string
 }
-export abstract class BTRFSFilesystemResizeClass {
+abstract class BTRFSFilesystemResizeClass {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSFilesystemResizeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BTRFSFilesystemResizePrivate {
+class BTRFSFilesystemResizePrivate {
     static name: string
 }
-export abstract class BTRFSImageClass {
+abstract class BTRFSImageClass {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSImageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BTRFSImagePrivate {
+class BTRFSImagePrivate {
     static name: string
 }
-export class BTRFSQgroup {
+class BTRFSQgroup {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSQgroup */
     btrfsqgroup_id: string
     btrfsqgroup_rfer: number
     btrfsqgroup_excl: number
     static name: string
 }
-export class BTRFSScrub {
+class BTRFSScrub {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSScrub */
     btrfsscrub_data_extents_scrubbed: number
     btrfsscrub_tree_extents_scrubbed: number
@@ -5432,175 +5434,175 @@ export class BTRFSScrub {
     btrfsscrub_last_physical: number
     static name: string
 }
-export class BTRFSSubvolume {
+class BTRFSSubvolume {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSSubvolume */
     btrfssubvolume_id: number
     btrfssubvolume_top_level_id: number
     btrfssubvolume_path: string
     static name: string
 }
-export abstract class BTRFSSubvolumeCreateClass {
+abstract class BTRFSSubvolumeCreateClass {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSSubvolumeCreateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BTRFSSubvolumeCreatePrivate {
+class BTRFSSubvolumeCreatePrivate {
     static name: string
 }
-export abstract class BTRFSSubvolumeSnapshotClass {
+abstract class BTRFSSubvolumeSnapshotClass {
     /* Fields of Guestfs-1.0.Guestfs.BTRFSSubvolumeSnapshotClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BTRFSSubvolumeSnapshotPrivate {
+class BTRFSSubvolumeSnapshotPrivate {
     static name: string
 }
-export abstract class BtrfsFsckClass {
+abstract class BtrfsFsckClass {
     /* Fields of Guestfs-1.0.Guestfs.BtrfsFsckClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BtrfsFsckPrivate {
+class BtrfsFsckPrivate {
     static name: string
 }
-export abstract class CompressDeviceOutClass {
+abstract class CompressDeviceOutClass {
     /* Fields of Guestfs-1.0.Guestfs.CompressDeviceOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CompressDeviceOutPrivate {
+class CompressDeviceOutPrivate {
     static name: string
 }
-export abstract class CompressOutClass {
+abstract class CompressOutClass {
     /* Fields of Guestfs-1.0.Guestfs.CompressOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CompressOutPrivate {
+class CompressOutPrivate {
     static name: string
 }
-export abstract class CopyAttributesClass {
+abstract class CopyAttributesClass {
     /* Fields of Guestfs-1.0.Guestfs.CopyAttributesClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CopyAttributesPrivate {
+class CopyAttributesPrivate {
     static name: string
 }
-export abstract class CopyDeviceToDeviceClass {
+abstract class CopyDeviceToDeviceClass {
     /* Fields of Guestfs-1.0.Guestfs.CopyDeviceToDeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CopyDeviceToDevicePrivate {
+class CopyDeviceToDevicePrivate {
     static name: string
 }
-export abstract class CopyDeviceToFileClass {
+abstract class CopyDeviceToFileClass {
     /* Fields of Guestfs-1.0.Guestfs.CopyDeviceToFileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CopyDeviceToFilePrivate {
+class CopyDeviceToFilePrivate {
     static name: string
 }
-export abstract class CopyFileToDeviceClass {
+abstract class CopyFileToDeviceClass {
     /* Fields of Guestfs-1.0.Guestfs.CopyFileToDeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CopyFileToDevicePrivate {
+class CopyFileToDevicePrivate {
     static name: string
 }
-export abstract class CopyFileToFileClass {
+abstract class CopyFileToFileClass {
     /* Fields of Guestfs-1.0.Guestfs.CopyFileToFileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CopyFileToFilePrivate {
+class CopyFileToFilePrivate {
     static name: string
 }
-export abstract class CpioOutClass {
+abstract class CpioOutClass {
     /* Fields of Guestfs-1.0.Guestfs.CpioOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CpioOutPrivate {
+class CpioOutPrivate {
     static name: string
 }
-export class Dirent {
+class Dirent {
     /* Fields of Guestfs-1.0.Guestfs.Dirent */
     ino: number
     ftyp: number
     name: string
     static name: string
 }
-export abstract class DiskCreateClass {
+abstract class DiskCreateClass {
     /* Fields of Guestfs-1.0.Guestfs.DiskCreateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class DiskCreatePrivate {
+class DiskCreatePrivate {
     static name: string
 }
-export abstract class DownloadBlocksClass {
+abstract class DownloadBlocksClass {
     /* Fields of Guestfs-1.0.Guestfs.DownloadBlocksClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class DownloadBlocksPrivate {
+class DownloadBlocksPrivate {
     static name: string
 }
-export abstract class E2fsckClass {
+abstract class E2fsckClass {
     /* Fields of Guestfs-1.0.Guestfs.E2fsckClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class E2fsckPrivate {
+class E2fsckPrivate {
     static name: string
 }
-export abstract class FstrimClass {
+abstract class FstrimClass {
     /* Fields of Guestfs-1.0.Guestfs.FstrimClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class FstrimPrivate {
+class FstrimPrivate {
     static name: string
 }
-export abstract class GlobExpandClass {
+abstract class GlobExpandClass {
     /* Fields of Guestfs-1.0.Guestfs.GlobExpandClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class GlobExpandPrivate {
+class GlobExpandPrivate {
     static name: string
 }
-export abstract class GrepClass {
+abstract class GrepClass {
     /* Fields of Guestfs-1.0.Guestfs.GrepClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class GrepPrivate {
+class GrepPrivate {
     static name: string
 }
-export class HivexNode {
+class HivexNode {
     /* Fields of Guestfs-1.0.Guestfs.HivexNode */
     hivex_node_h: number
     static name: string
 }
-export abstract class HivexOpenClass {
+abstract class HivexOpenClass {
     /* Fields of Guestfs-1.0.Guestfs.HivexOpenClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class HivexOpenPrivate {
+class HivexOpenPrivate {
     static name: string
 }
-export class HivexValue {
+class HivexValue {
     /* Fields of Guestfs-1.0.Guestfs.HivexValue */
     hivex_value_h: number
     static name: string
 }
-export class INotifyEvent {
+class INotifyEvent {
     /* Fields of Guestfs-1.0.Guestfs.INotifyEvent */
     in_wd: number
     in_mask: number
@@ -5608,7 +5610,7 @@ export class INotifyEvent {
     in_name: string
     static name: string
 }
-export class ISOInfo {
+class ISOInfo {
     /* Fields of Guestfs-1.0.Guestfs.ISOInfo */
     iso_system_id: string
     iso_volume_id: string
@@ -5629,93 +5631,93 @@ export class ISOInfo {
     iso_volume_effective_t: number
     static name: string
 }
-export abstract class InspectGetIconClass {
+abstract class InspectGetIconClass {
     /* Fields of Guestfs-1.0.Guestfs.InspectGetIconClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class InspectGetIconPrivate {
+class InspectGetIconPrivate {
     static name: string
 }
-export class IntBool {
+class IntBool {
     /* Fields of Guestfs-1.0.Guestfs.IntBool */
     i: number
     b: number
     static name: string
 }
-export abstract class InternalTest63OptargsClass {
+abstract class InternalTest63OptargsClass {
     /* Fields of Guestfs-1.0.Guestfs.InternalTest63OptargsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class InternalTest63OptargsPrivate {
+class InternalTest63OptargsPrivate {
     static name: string
 }
-export abstract class InternalTestClass {
+abstract class InternalTestClass {
     /* Fields of Guestfs-1.0.Guestfs.InternalTestClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class InternalTestOnlyOptargsClass {
+abstract class InternalTestOnlyOptargsClass {
     /* Fields of Guestfs-1.0.Guestfs.InternalTestOnlyOptargsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class InternalTestOnlyOptargsPrivate {
+class InternalTestOnlyOptargsPrivate {
     static name: string
 }
-export class InternalTestPrivate {
+class InternalTestPrivate {
     static name: string
 }
-export abstract class IsBlockdevClass {
+abstract class IsBlockdevClass {
     /* Fields of Guestfs-1.0.Guestfs.IsBlockdevClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsBlockdevPrivate {
+class IsBlockdevPrivate {
     static name: string
 }
-export abstract class IsChardevClass {
+abstract class IsChardevClass {
     /* Fields of Guestfs-1.0.Guestfs.IsChardevClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsChardevPrivate {
+class IsChardevPrivate {
     static name: string
 }
-export abstract class IsDirClass {
+abstract class IsDirClass {
     /* Fields of Guestfs-1.0.Guestfs.IsDirClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsDirPrivate {
+class IsDirPrivate {
     static name: string
 }
-export abstract class IsFifoClass {
+abstract class IsFifoClass {
     /* Fields of Guestfs-1.0.Guestfs.IsFifoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsFifoPrivate {
+class IsFifoPrivate {
     static name: string
 }
-export abstract class IsFileClass {
+abstract class IsFileClass {
     /* Fields of Guestfs-1.0.Guestfs.IsFileClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsFilePrivate {
+class IsFilePrivate {
     static name: string
 }
-export abstract class IsSocketClass {
+abstract class IsSocketClass {
     /* Fields of Guestfs-1.0.Guestfs.IsSocketClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IsSocketPrivate {
+class IsSocketPrivate {
     static name: string
 }
-export class LV {
+class LV {
     /* Fields of Guestfs-1.0.Guestfs.LV */
     lv_name: string
     lv_uuid: number[]
@@ -5735,110 +5737,110 @@ export class LV {
     modules: string
     static name: string
 }
-export abstract class MDCreateClass {
+abstract class MDCreateClass {
     /* Fields of Guestfs-1.0.Guestfs.MDCreateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MDCreatePrivate {
+class MDCreatePrivate {
     static name: string
 }
-export class MDStat {
+class MDStat {
     /* Fields of Guestfs-1.0.Guestfs.MDStat */
     mdstat_device: string
     mdstat_index: number
     mdstat_flags: string
     static name: string
 }
-export abstract class Mke2fsClass {
+abstract class Mke2fsClass {
     /* Fields of Guestfs-1.0.Guestfs.Mke2fsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Mke2fsPrivate {
+class Mke2fsPrivate {
     static name: string
 }
-export abstract class MkfsBtrfsClass {
+abstract class MkfsBtrfsClass {
     /* Fields of Guestfs-1.0.Guestfs.MkfsBtrfsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MkfsBtrfsPrivate {
+class MkfsBtrfsPrivate {
     static name: string
 }
-export abstract class MkfsClass {
+abstract class MkfsClass {
     /* Fields of Guestfs-1.0.Guestfs.MkfsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MkfsPrivate {
+class MkfsPrivate {
     static name: string
 }
-export abstract class MksquashfsClass {
+abstract class MksquashfsClass {
     /* Fields of Guestfs-1.0.Guestfs.MksquashfsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MksquashfsPrivate {
+class MksquashfsPrivate {
     static name: string
 }
-export abstract class MkswapClass {
+abstract class MkswapClass {
     /* Fields of Guestfs-1.0.Guestfs.MkswapClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MkswapPrivate {
+class MkswapPrivate {
     static name: string
 }
-export abstract class MktempClass {
+abstract class MktempClass {
     /* Fields of Guestfs-1.0.Guestfs.MktempClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MktempPrivate {
+class MktempPrivate {
     static name: string
 }
-export abstract class Mount9PClass {
+abstract class Mount9PClass {
     /* Fields of Guestfs-1.0.Guestfs.Mount9PClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Mount9PPrivate {
+class Mount9PPrivate {
     static name: string
 }
-export abstract class MountLocalClass {
+abstract class MountLocalClass {
     /* Fields of Guestfs-1.0.Guestfs.MountLocalClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MountLocalPrivate {
+class MountLocalPrivate {
     static name: string
 }
-export abstract class NTFSResizeOptsClass {
+abstract class NTFSResizeOptsClass {
     /* Fields of Guestfs-1.0.Guestfs.NTFSResizeOptsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class NTFSResizeOptsPrivate {
+class NTFSResizeOptsPrivate {
     static name: string
 }
-export abstract class NtfscloneOutClass {
+abstract class NtfscloneOutClass {
     /* Fields of Guestfs-1.0.Guestfs.NtfscloneOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class NtfscloneOutPrivate {
+class NtfscloneOutPrivate {
     static name: string
 }
-export abstract class NtfsfixClass {
+abstract class NtfsfixClass {
     /* Fields of Guestfs-1.0.Guestfs.NtfsfixClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class NtfsfixPrivate {
+class NtfsfixPrivate {
     static name: string
 }
-export class PV {
+class PV {
     /* Fields of Guestfs-1.0.Guestfs.PV */
     pv_name: string
     pv_uuid: number[]
@@ -5856,7 +5858,7 @@ export class PV {
     pv_mda_free: number
     static name: string
 }
-export class Partition {
+class Partition {
     /* Fields of Guestfs-1.0.Guestfs.Partition */
     part_num: number
     part_start: number
@@ -5864,52 +5866,52 @@ export class Partition {
     part_size: number
     static name: string
 }
-export abstract class RemountClass {
+abstract class RemountClass {
     /* Fields of Guestfs-1.0.Guestfs.RemountClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RemountPrivate {
+class RemountPrivate {
     static name: string
 }
-export abstract class RsyncClass {
+abstract class RsyncClass {
     /* Fields of Guestfs-1.0.Guestfs.RsyncClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class RsyncInClass {
+abstract class RsyncInClass {
     /* Fields of Guestfs-1.0.Guestfs.RsyncInClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RsyncInPrivate {
+class RsyncInPrivate {
     static name: string
 }
-export abstract class RsyncOutClass {
+abstract class RsyncOutClass {
     /* Fields of Guestfs-1.0.Guestfs.RsyncOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RsyncOutPrivate {
+class RsyncOutPrivate {
     static name: string
 }
-export class RsyncPrivate {
+class RsyncPrivate {
     static name: string
 }
-export abstract class SelinuxRelabelClass {
+abstract class SelinuxRelabelClass {
     /* Fields of Guestfs-1.0.Guestfs.SelinuxRelabelClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SelinuxRelabelPrivate {
+class SelinuxRelabelPrivate {
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Guestfs-1.0.Guestfs.SessionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SessionEventParams {
+class SessionEventParams {
     /* Fields of Guestfs-1.0.Guestfs.SessionEventParams */
     event: SessionEvent
     flags: number
@@ -5918,18 +5920,18 @@ export class SessionEventParams {
     array_len: number
     static name: string
 }
-export class SessionPrivate {
+class SessionPrivate {
     static name: string
 }
-export abstract class SetE2attrsClass {
+abstract class SetE2attrsClass {
     /* Fields of Guestfs-1.0.Guestfs.SetE2attrsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SetE2attrsPrivate {
+class SetE2attrsPrivate {
     static name: string
 }
-export class Stat {
+class Stat {
     /* Fields of Guestfs-1.0.Guestfs.Stat */
     dev: number
     ino: number
@@ -5946,7 +5948,7 @@ export class Stat {
     ctime: number
     static name: string
 }
-export class StatNS {
+class StatNS {
     /* Fields of Guestfs-1.0.Guestfs.StatNS */
     st_dev: number
     st_ino: number
@@ -5972,7 +5974,7 @@ export class StatNS {
     st_spare6: number
     static name: string
 }
-export class StatVFS {
+class StatVFS {
     /* Fields of Guestfs-1.0.Guestfs.StatVFS */
     bsize: number
     frsize: number
@@ -5987,15 +5989,15 @@ export class StatVFS {
     namemax: number
     static name: string
 }
-export abstract class SyslinuxClass {
+abstract class SyslinuxClass {
     /* Fields of Guestfs-1.0.Guestfs.SyslinuxClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SyslinuxPrivate {
+class SyslinuxPrivate {
     static name: string
 }
-export class TSKDirent {
+class TSKDirent {
     /* Fields of Guestfs-1.0.Guestfs.TSKDirent */
     tsk_inode: number
     tsk_type: number
@@ -6015,31 +6017,31 @@ export class TSKDirent {
     tsk_spare1: number
     static name: string
 }
-export abstract class TarInClass {
+abstract class TarInClass {
     /* Fields of Guestfs-1.0.Guestfs.TarInClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TarInPrivate {
+class TarInPrivate {
     static name: string
 }
-export abstract class TarOutClass {
+abstract class TarOutClass {
     /* Fields of Guestfs-1.0.Guestfs.TarOutClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TarOutPrivate {
+class TarOutPrivate {
     static name: string
 }
-export abstract class Tune2FSClass {
+abstract class Tune2FSClass {
     /* Fields of Guestfs-1.0.Guestfs.Tune2FSClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Tune2FSPrivate {
+class Tune2FSPrivate {
     static name: string
 }
-export class UTSName {
+class UTSName {
     /* Fields of Guestfs-1.0.Guestfs.UTSName */
     uts_sysname: string
     uts_release: string
@@ -6047,23 +6049,23 @@ export class UTSName {
     uts_machine: string
     static name: string
 }
-export abstract class UmountClass {
+abstract class UmountClass {
     /* Fields of Guestfs-1.0.Guestfs.UmountClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class UmountLocalClass {
+abstract class UmountLocalClass {
     /* Fields of Guestfs-1.0.Guestfs.UmountLocalClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class UmountLocalPrivate {
+class UmountLocalPrivate {
     static name: string
 }
-export class UmountPrivate {
+class UmountPrivate {
     static name: string
 }
-export class VG {
+class VG {
     /* Fields of Guestfs-1.0.Guestfs.VG */
     vg_name: string
     vg_uuid: number[]
@@ -6086,7 +6088,7 @@ export class VG {
     vg_mda_free: number
     static name: string
 }
-export class Version {
+class Version {
     /* Fields of Guestfs-1.0.Guestfs.Version */
     major: number
     minor: number
@@ -6094,13 +6096,13 @@ export class Version {
     extra: string
     static name: string
 }
-export class XAttr {
+class XAttr {
     /* Fields of Guestfs-1.0.Guestfs.XAttr */
     attrname: string
     attrval: Uint8Array[]
     static name: string
 }
-export class XFSInfo {
+class XFSInfo {
     /* Fields of Guestfs-1.0.Guestfs.XFSInfo */
     xfs_mntpoint: string
     xfs_inodesize: number
@@ -6129,33 +6131,35 @@ export class XFSInfo {
     xfs_rtextents: number
     static name: string
 }
-export abstract class XfsAdminClass {
+abstract class XfsAdminClass {
     /* Fields of Guestfs-1.0.Guestfs.XfsAdminClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class XfsAdminPrivate {
+class XfsAdminPrivate {
     static name: string
 }
-export abstract class XfsGrowfsClass {
+abstract class XfsGrowfsClass {
     /* Fields of Guestfs-1.0.Guestfs.XfsGrowfsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class XfsGrowfsPrivate {
+class XfsGrowfsPrivate {
     static name: string
 }
-export abstract class XfsRepairClass {
+abstract class XfsRepairClass {
     /* Fields of Guestfs-1.0.Guestfs.XfsRepairClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class XfsRepairPrivate {
+class XfsRepairPrivate {
     static name: string
 }
-export class YaraDetection {
+class YaraDetection {
     /* Fields of Guestfs-1.0.Guestfs.YaraDetection */
     yara_name: string
     yara_rule: string
     static name: string
 }
+}
+export default Guestfs

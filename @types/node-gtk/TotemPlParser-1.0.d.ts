@@ -7,21 +7,21 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace TotemPlParser {
+declare namespace TotemPlParser {
 
-export enum ParserError {
+enum ParserError {
     NO_DISC,
     MOUNT_FAILED,
     EMPTY_PLAYLIST,
 }
-export enum ParserResult {
+enum ParserResult {
     UNHANDLED,
     ERROR,
     SUCCESS,
     IGNORED,
     CANCELLED,
 }
-export enum ParserType {
+enum ParserType {
     PLS,
     M3U,
     M3U_DOS,
@@ -66,15 +66,15 @@ export const PARSER_FIELD_VOLUME: string
 export const PARSER_VERSION_MAJOR: number
 export const PARSER_VERSION_MICRO: number
 export const PARSER_VERSION_MINOR: number
-export function parserErrorQuark(): GLib.Quark
-export function parserMetadataGetType(): GObject.Type
+function parserErrorQuark(): GLib.Quark
+function parserMetadataGetType(): GObject.Type
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     debug?: boolean
     disableUnsafe?: boolean
     force?: boolean
     recurse?: boolean
 }
-export class Parser {
+class Parser {
     /* Properties of TotemPlParser-1.0.TotemPlParser.Parser */
     debug: boolean
     disableUnsafe: boolean
@@ -182,7 +182,7 @@ export class Parser {
 }
 export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Playlist {
+class Playlist {
     /* Fields of TotemPlParser-1.0.TotemPlParser.Playlist */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -239,7 +239,7 @@ export class Playlist {
     static new(): Playlist
     static $gtype: GObject.Type
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     /* Fields of TotemPlParser-1.0.TotemPlParser.ParserClass */
     parentClass: GObject.ObjectClass
     entryParsed: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
@@ -247,15 +247,16 @@ export abstract class ParserClass {
     playlistEnded: (parser: Parser, uri: string) => void
     static name: string
 }
-export class ParserPrivate {
+class ParserPrivate {
     static name: string
 }
-export abstract class PlaylistClass {
+abstract class PlaylistClass {
     /* Fields of TotemPlParser-1.0.TotemPlParser.PlaylistClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PlaylistIter {
+class PlaylistIter {
     static name: string
 }
 }
+export default TotemPlParser

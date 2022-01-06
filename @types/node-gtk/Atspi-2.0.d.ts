@@ -7,9 +7,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { DBus } from './DBus-1.0';
 
-export declare namespace Atspi {
+declare namespace Atspi {
 
-export enum CollectionMatchType {
+enum CollectionMatchType {
     INVALID,
     ALL,
     ANY,
@@ -17,7 +17,7 @@ export enum CollectionMatchType {
     EMPTY,
     LAST_DEFINED,
 }
-export enum CollectionSortOrder {
+enum CollectionSortOrder {
     INVALID,
     CANONICAL,
     FLOW,
@@ -27,13 +27,13 @@ export enum CollectionSortOrder {
     REVERSE_TAB,
     LAST_DEFINED,
 }
-export enum CollectionTreeTraversalType {
+enum CollectionTreeTraversalType {
     RESTRICT_CHILDREN,
     RESTRICT_SIBLING,
     INORDER,
     LAST_DEFINED,
 }
-export enum ComponentLayer {
+enum ComponentLayer {
     INVALID,
     BACKGROUND,
     CANVAS,
@@ -44,22 +44,22 @@ export enum ComponentLayer {
     WINDOW,
     LAST_DEFINED,
 }
-export enum CoordType {
+enum CoordType {
     SCREEN,
     WINDOW,
     PARENT,
 }
-export enum EventType {
+enum EventType {
     KEY_PRESSED_EVENT,
     KEY_RELEASED_EVENT,
     BUTTON_PRESSED_EVENT,
     BUTTON_RELEASED_EVENT,
 }
-export enum KeyEventType {
+enum KeyEventType {
     PRESSED,
     RELEASED,
 }
-export enum KeySynthType {
+enum KeySynthType {
     PRESS,
     RELEASE,
     PRESSRELEASE,
@@ -68,7 +68,7 @@ export enum KeySynthType {
     LOCKMODIFIERS,
     UNLOCKMODIFIERS,
 }
-export enum LocaleType {
+enum LocaleType {
     MESSAGES,
     COLLATE,
     CTYPE,
@@ -76,7 +76,7 @@ export enum LocaleType {
     NUMERIC,
     TIME,
 }
-export enum ModifierType {
+enum ModifierType {
     SHIFT,
     SHIFTLOCK,
     CONTROL,
@@ -86,7 +86,7 @@ export enum ModifierType {
     META3,
     NUMLOCK,
 }
-export enum RelationType {
+enum RelationType {
     NULL,
     LABEL_FOR,
     LABELLED_BY,
@@ -112,7 +112,7 @@ export enum RelationType {
     ERROR_FOR,
     LAST_DEFINED,
 }
-export enum Role {
+enum Role {
     INVALID,
     ACCELERATOR_LABEL,
     ALERT,
@@ -244,7 +244,7 @@ export enum Role {
     SUGGESTION,
     LAST_DEFINED,
 }
-export enum ScrollType {
+enum ScrollType {
     TOP_LEFT,
     BOTTOM_RIGHT,
     TOP_EDGE,
@@ -253,7 +253,7 @@ export enum ScrollType {
     RIGHT_EDGE,
     ANYWHERE,
 }
-export enum StateType {
+enum StateType {
     INVALID,
     ACTIVE,
     ARMED,
@@ -300,7 +300,7 @@ export enum StateType {
     READ_ONLY,
     LAST_DEFINED,
 }
-export enum TextBoundaryType {
+enum TextBoundaryType {
     CHAR,
     WORD_START,
     WORD_END,
@@ -309,20 +309,20 @@ export enum TextBoundaryType {
     LINE_START,
     LINE_END,
 }
-export enum TextClipType {
+enum TextClipType {
     NONE,
     MIN,
     MAX,
     BOTH,
 }
-export enum TextGranularity {
+enum TextGranularity {
     CHAR,
     WORD,
     SENTENCE,
     LINE,
     PARAGRAPH,
 }
-export enum Cache {
+enum Cache {
     NONE,
     PARENT,
     CHILDREN,
@@ -336,7 +336,7 @@ export enum Cache {
     DEFAULT,
     UNDEFINED,
 }
-export enum KeyListenerSyncType {
+enum KeyListenerSyncType {
     NOSYNC,
     SYNCHRONOUS,
     CANCONSUME,
@@ -388,40 +388,40 @@ export const STATETYPE_COUNT: number
 export const TEXT_BOUNDARY_TYPE_COUNT: number
 export const TEXT_CLIP_TYPE_COUNT: number
 export const TREETRAVERSALTYPE_COUNT: number
-export function deregisterDeviceEventListener(listener: DeviceListener, filter?: object | null): boolean
-export function deregisterKeystrokeListener(listener: DeviceListener, keySet: KeyDefinition[] | null, modmask: KeyMaskType, eventTypes: KeyEventMask): boolean
-export function eventMain(): void
-export function eventQuit(): void
-export function exit(): number
-export function generateKeyboardEvent(keyval: number, keystring: string | null, synthType: KeySynthType): boolean
-export function generateMouseEvent(x: number, y: number, name: string): boolean
-export function getDesktop(i: number): Accessible
-export function getDesktopCount(): number
-export function getDesktopList(): Accessible[]
-export function init(): number
-export function isInitialized(): boolean
-export function registerDeviceEventListener(listener: DeviceListener, eventTypes: DeviceEventMask, filter?: object | null): boolean
-export function registerKeystrokeListener(listener: DeviceListener, keySet: KeyDefinition[] | null, modmask: KeyMaskType, eventTypes: KeyEventMask, syncType: KeyListenerSyncType): boolean
-export function roleGetName(role: Role): string
-export function setMainContext(cnx: GLib.MainContext): void
-export function setReferenceWindow(accessible: Accessible): void
-export function setTimeout(val: number, startupTime: number): void
-export interface DeviceListenerCB {
+function deregisterDeviceEventListener(listener: DeviceListener, filter?: object | null): boolean
+function deregisterKeystrokeListener(listener: DeviceListener, keySet: KeyDefinition[] | null, modmask: KeyMaskType, eventTypes: KeyEventMask): boolean
+function eventMain(): void
+function eventQuit(): void
+function exit(): number
+function generateKeyboardEvent(keyval: number, keystring: string | null, synthType: KeySynthType): boolean
+function generateMouseEvent(x: number, y: number, name: string): boolean
+function getDesktop(i: number): Accessible
+function getDesktopCount(): number
+function getDesktopList(): Accessible[]
+function init(): number
+function isInitialized(): boolean
+function registerDeviceEventListener(listener: DeviceListener, eventTypes: DeviceEventMask, filter?: object | null): boolean
+function registerKeystrokeListener(listener: DeviceListener, keySet: KeyDefinition[] | null, modmask: KeyMaskType, eventTypes: KeyEventMask, syncType: KeyListenerSyncType): boolean
+function roleGetName(role: Role): string
+function setMainContext(cnx: GLib.MainContext): void
+function setReferenceWindow(accessible: Accessible): void
+function setTimeout(val: number, startupTime: number): void
+interface DeviceListenerCB {
     (stroke: DeviceEvent): boolean
 }
-export interface DeviceListenerSimpleCB {
+interface DeviceListenerSimpleCB {
     (stroke: DeviceEvent): boolean
 }
-export interface EventListenerCB {
+interface EventListenerCB {
     (event: Event): void
 }
-export interface EventListenerSimpleCB {
+interface EventListenerSimpleCB {
     (event: Event): void
 }
-export interface KeyCallback {
+interface KeyCallback {
     (device: Device, pressed: boolean, keycode: number, keysym: number, modifiers: number, keystring: string): void
 }
-export class Action {
+class Action {
     /* Methods of Atspi-2.0.Atspi.Action */
     doAction(i: number): boolean
     getActionDescription(i: number): string
@@ -431,7 +431,7 @@ export class Action {
     getActionName(i: number): string
     static name: string
 }
-export class Collection {
+class Collection {
     /* Methods of Atspi-2.0.Atspi.Collection */
     getActiveDescendant(): Accessible
     getMatches(rule: MatchRule, sortby: CollectionSortOrder, count: number, traverse: boolean): Accessible[]
@@ -440,7 +440,7 @@ export class Collection {
     isAncestorOf(test: Accessible): boolean
     static name: string
 }
-export class Component {
+class Component {
     /* Methods of Atspi-2.0.Atspi.Component */
     contains(x: number, y: number, ctype: CoordType): boolean
     getAccessibleAtPoint(x: number, y: number, ctype: CoordType): Accessible | null
@@ -458,7 +458,7 @@ export class Component {
     setSize(width: number, height: number): boolean
     static name: string
 }
-export class Document {
+class Document {
     /* Methods of Atspi-2.0.Atspi.Document */
     getDocumentAttributeValue(attribute: string): string
     getDocumentAttributes(): GLib.HashTable
@@ -467,7 +467,7 @@ export class Document {
     getPageCount(): number
     static name: string
 }
-export class EditableText {
+class EditableText {
     /* Methods of Atspi-2.0.Atspi.EditableText */
     copyText(startPos: number, endPos: number): boolean
     cutText(startPos: number, endPos: number): boolean
@@ -477,14 +477,14 @@ export class EditableText {
     setTextContents(newContents: string): boolean
     static name: string
 }
-export class Hypertext {
+class Hypertext {
     /* Methods of Atspi-2.0.Atspi.Hypertext */
     getLink(linkIndex: number): Hyperlink | null
     getLinkIndex(characterOffset: number): number
     getNLinks(): number
     static name: string
 }
-export class Image {
+class Image {
     /* Methods of Atspi-2.0.Atspi.Image */
     getImageDescription(): string
     getImageExtents(ctype: CoordType): Rect
@@ -493,7 +493,7 @@ export class Image {
     getImageSize(): Point
     static name: string
 }
-export class Selection {
+class Selection {
     /* Methods of Atspi-2.0.Atspi.Selection */
     clearSelection(): boolean
     deselectChild(childIndex: number): boolean
@@ -505,7 +505,7 @@ export class Selection {
     selectChild(childIndex: number): boolean
     static name: string
 }
-export class Table {
+class Table {
     /* Methods of Atspi-2.0.Atspi.Table */
     addColumnSelection(column: number): boolean
     addRowSelection(row: number): boolean
@@ -535,7 +535,7 @@ export class Table {
     removeRowSelection(row: number): boolean
     static name: string
 }
-export class TableCell {
+class TableCell {
     /* Methods of Atspi-2.0.Atspi.TableCell */
     getColumnHeaderCells(): Accessible[]
     getColumnIndex(): number
@@ -547,7 +547,7 @@ export class TableCell {
     getTable(): Accessible
     static name: string
 }
-export class Text {
+class Text {
     /* Methods of Atspi-2.0.Atspi.Text */
     addSelection(startOffset: number, endOffset: number): boolean
     getAttributeRun(offset: number, includeDefaults: boolean): { returnType: GLib.HashTable, startOffset: number, endOffset: number }
@@ -575,7 +575,7 @@ export class Text {
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
     static name: string
 }
-export class Value {
+class Value {
     /* Methods of Atspi-2.0.Atspi.Value */
     getCurrentValue(): number
     getMaximumValue(): number
@@ -586,7 +586,7 @@ export class Value {
 }
 export interface Accessible_ConstructProps extends Object_ConstructProps {
 }
-export class Accessible {
+class Accessible {
     /* Fields of Atspi-2.0.Atspi.Accessible */
     parent: Object
     accessibleParent: Accessible
@@ -822,7 +822,7 @@ export class Accessible {
 }
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Application {
+class Application {
     /* Fields of Atspi-2.0.Atspi.Application */
     parent: GObject.Object
     hash: GLib.HashTable
@@ -878,7 +878,7 @@ export class Application {
 }
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Device {
+class Device {
     /* Fields of Atspi-2.0.Atspi.Device */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -939,7 +939,7 @@ export class Device {
 }
 export interface DeviceLegacy_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceLegacy {
+class DeviceLegacy {
     /* Fields of Atspi-2.0.Atspi.DeviceLegacy */
     parent: Device
     /* Fields of GObject-2.0.GObject.Object */
@@ -1000,7 +1000,7 @@ export class DeviceLegacy {
 }
 export interface DeviceListener_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DeviceListener {
+class DeviceListener {
     /* Fields of Atspi-2.0.Atspi.DeviceListener */
     parent: GObject.Object
     id: number
@@ -1054,7 +1054,7 @@ export class DeviceListener {
 }
 export interface DeviceX11_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceX11 {
+class DeviceX11 {
     /* Fields of Atspi-2.0.Atspi.DeviceX11 */
     parent: Device
     /* Fields of GObject-2.0.GObject.Object */
@@ -1115,7 +1115,7 @@ export class DeviceX11 {
 }
 export interface EventListener_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EventListener {
+class EventListener {
     /* Fields of Atspi-2.0.Atspi.EventListener */
     parent: GObject.Object
     callback: EventListenerCB
@@ -1174,7 +1174,7 @@ export class EventListener {
 }
 export interface Hyperlink_ConstructProps extends Object_ConstructProps {
 }
-export class Hyperlink {
+class Hyperlink {
     /* Fields of Atspi-2.0.Atspi.Hyperlink */
     parent: Object
     /* Fields of Atspi-2.0.Atspi.Object */
@@ -1232,7 +1232,7 @@ export class Hyperlink {
 }
 export interface MatchRule_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MatchRule {
+class MatchRule {
     /* Fields of Atspi-2.0.Atspi.MatchRule */
     parent: GObject.Object
     states: StateSet
@@ -1290,7 +1290,7 @@ export class MatchRule {
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Object {
+class Object {
     /* Fields of Atspi-2.0.Atspi.Object */
     parent: GObject.Object
     app: Application
@@ -1339,7 +1339,7 @@ export class Object {
 }
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Relation {
+class Relation {
     /* Fields of Atspi-2.0.Atspi.Relation */
     parent: GObject.Object
     relationType: RelationType
@@ -1392,7 +1392,7 @@ export class Relation {
 }
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StateSet {
+class StateSet {
     /* Fields of Atspi-2.0.Atspi.StateSet */
     parent: GObject.Object
     accessible: object
@@ -1450,22 +1450,22 @@ export class StateSet {
     static new(states: StateType[]): StateSet
     static $gtype: GObject.Type
 }
-export abstract class AccessibleClass {
+abstract class AccessibleClass {
     /* Fields of Atspi-2.0.Atspi.AccessibleClass */
     parentClass: ObjectClass
     regionChanged: (accessible: Accessible, currentOffset: number, lastOffset: number) => void
     modeChanged: (accessible: Accessible, enabled: boolean) => void
     static name: string
 }
-export class AccessiblePrivate {
+class AccessiblePrivate {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Atspi-2.0.Atspi.ApplicationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Atspi-2.0.Atspi.DeviceClass */
     parentClass: GObject.ObjectClass
     addKeyGrab: (device: Device, kd: KeyDefinition) => void
@@ -1478,7 +1478,7 @@ export abstract class DeviceClass {
     getLockedModifiers: (device: Device) => number
     static name: string
 }
-export class DeviceEvent {
+class DeviceEvent {
     /* Fields of Atspi-2.0.Atspi.DeviceEvent */
     type: EventType
     id: number
@@ -1489,23 +1489,23 @@ export class DeviceEvent {
     isText: boolean
     static name: string
 }
-export abstract class DeviceLegacyClass {
+abstract class DeviceLegacyClass {
     /* Fields of Atspi-2.0.Atspi.DeviceLegacyClass */
     parentClass: DeviceClass
     static name: string
 }
-export abstract class DeviceListenerClass {
+abstract class DeviceListenerClass {
     /* Fields of Atspi-2.0.Atspi.DeviceListenerClass */
     parentClass: GObject.ObjectClass
     deviceEvent: (listener: DeviceListener, event: DeviceEvent) => boolean
     static name: string
 }
-export abstract class DeviceX11Class {
+abstract class DeviceX11Class {
     /* Fields of Atspi-2.0.Atspi.DeviceX11Class */
     parentClass: DeviceClass
     static name: string
 }
-export class Event {
+class Event {
     /* Fields of Atspi-2.0.Atspi.Event */
     type: string
     source: Accessible
@@ -1518,24 +1518,24 @@ export class Event {
     static main(): void
     static quit(): void
 }
-export abstract class EventListenerClass {
+abstract class EventListenerClass {
     /* Fields of Atspi-2.0.Atspi.EventListenerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class EventListenerMode {
+class EventListenerMode {
     /* Fields of Atspi-2.0.Atspi.EventListenerMode */
     synchronous: boolean
     preemptive: boolean
     global: boolean
     static name: string
 }
-export abstract class HyperlinkClass {
+abstract class HyperlinkClass {
     /* Fields of Atspi-2.0.Atspi.HyperlinkClass */
     parentClass: ObjectClass
     static name: string
 }
-export class KeyDefinition {
+class KeyDefinition {
     /* Fields of Atspi-2.0.Atspi.KeyDefinition */
     keycode: number
     keysym: number
@@ -1543,7 +1543,7 @@ export class KeyDefinition {
     modifiers: number
     static name: string
 }
-export class KeySet {
+class KeySet {
     /* Fields of Atspi-2.0.Atspi.KeySet */
     keysyms: number
     keycodes: number
@@ -1551,17 +1551,17 @@ export class KeySet {
     len: number
     static name: string
 }
-export abstract class MatchRuleClass {
+abstract class MatchRuleClass {
     /* Fields of Atspi-2.0.Atspi.MatchRuleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Atspi-2.0.Atspi.ObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Point {
+class Point {
     /* Fields of Atspi-2.0.Atspi.Point */
     x: number
     y: number
@@ -1569,7 +1569,7 @@ export class Point {
     copy(): Point
     static name: string
 }
-export class Range {
+class Range {
     /* Fields of Atspi-2.0.Atspi.Range */
     startOffset: number
     endOffset: number
@@ -1577,7 +1577,7 @@ export class Range {
     copy(): Range
     static name: string
 }
-export class Rect {
+class Rect {
     /* Fields of Atspi-2.0.Atspi.Rect */
     x: number
     y: number
@@ -1587,26 +1587,27 @@ export class Rect {
     copy(): Rect
     static name: string
 }
-export abstract class RelationClass {
+abstract class RelationClass {
     /* Fields of Atspi-2.0.Atspi.RelationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class StateSetClass {
+abstract class StateSetClass {
     /* Fields of Atspi-2.0.Atspi.StateSetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class TextRange {
+class TextRange {
     /* Fields of Atspi-2.0.Atspi.TextRange */
     startOffset: number
     endOffset: number
     content: string
     static name: string
 }
-export type ControllerEventMask = number
-export type DeviceEventMask = number
-export type KeyEventMask = number
-export type KeyMaskType = number
-export type KeystrokeListener = void
+type ControllerEventMask = number
+type DeviceEventMask = number
+type KeyEventMask = number
+type KeyMaskType = number
+type KeystrokeListener = void
 }
+export default Atspi

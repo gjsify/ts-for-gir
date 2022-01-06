@@ -1,2 +1,1 @@
-imports.gi.versions.GooCanvas = '3.0'
-module.exports = imports.gi.GooCanvas
+export {default as default} from 'gi://GooCanvas?version=3.0';

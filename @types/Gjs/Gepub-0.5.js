@@ -1,2 +1,1 @@
-imports.gi.versions.Gepub = '0.5'
-module.exports = imports.gi.Gepub
+export {default as default} from 'gi://Gepub?version=0.5';

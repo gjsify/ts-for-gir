@@ -1,2 +1,1 @@
-imports.gi.versions.Gitg = '1.0'
-module.exports = imports.gi.Gitg
+export {default as default} from 'gi://Gitg?version=1.0';

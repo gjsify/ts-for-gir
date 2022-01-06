@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstPbutils from './GstPbutils-1.0';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstAudio from './GstAudio-1.0';
+import type GstPbutils from './GstPbutils-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstAudio from './GstAudio-1.0';
 
-export enum TranscoderError {
+export namespace GstTranscoder {
+
+enum TranscoderError {
     FAILED,
 }
-export enum TranscoderMessage {
+enum TranscoderMessage {
     POSITION_UPDATED,
     DURATION_CHANGED,
     STATE_CHANGED,
@@ -23,20 +25,20 @@ export enum TranscoderMessage {
     ERROR,
     WARNING,
 }
-export enum TranscoderState {
+enum TranscoderState {
     STOPPED,
     PAUSED,
     PLAYING,
 }
-export function transcoder_error_get_name(error: TranscoderError): string
-export function transcoder_error_quark(): GLib.Quark
-export function transcoder_message_get_name(message: TranscoderMessage): string
-export function transcoder_message_parse_duration(msg: Gst.Message): /* duration */ Gst.ClockTime
-export function transcoder_message_parse_error(msg: Gst.Message): [ /* error */ GLib.Error, /* details */ Gst.Structure ]
-export function transcoder_message_parse_position(msg: Gst.Message): /* position */ Gst.ClockTime
-export function transcoder_message_parse_state(msg: Gst.Message): /* state */ TranscoderState
-export function transcoder_message_parse_warning(msg: Gst.Message): [ /* error */ GLib.Error, /* details */ Gst.Structure ]
-export function transcoder_state_get_name(state: TranscoderState): string
+function transcoder_error_get_name(error: TranscoderError): string
+function transcoder_error_quark(): GLib.Quark
+function transcoder_message_get_name(message: TranscoderMessage): string
+function transcoder_message_parse_duration(msg: Gst.Message): /* duration */ Gst.ClockTime
+function transcoder_message_parse_error(msg: Gst.Message): [ /* error */ GLib.Error, /* details */ Gst.Structure ]
+function transcoder_message_parse_position(msg: Gst.Message): /* position */ Gst.ClockTime
+function transcoder_message_parse_state(msg: Gst.Message): /* state */ TranscoderState
+function transcoder_message_parse_warning(msg: Gst.Message): [ /* error */ GLib.Error, /* details */ Gst.Structure ]
+function transcoder_state_get_name(state: TranscoderState): string
 export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
     avoid_reencoding?: boolean
     dest_uri?: string
@@ -44,7 +46,7 @@ export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
     profile?: GstPbutils.EncodingProfile
     src_uri?: string
 }
-export class Transcoder {
+class Transcoder {
     /* Properties of GstTranscoder-1.0.GstTranscoder.Transcoder */
     avoid_reencoding: boolean
     readonly duration: number
@@ -169,7 +171,7 @@ export class Transcoder {
 }
 export interface TranscoderSignalAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TranscoderSignalAdapter {
+class TranscoderSignalAdapter {
     /* Properties of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapter */
     readonly transcoder: Transcoder
     /* Fields of GObject-2.0.GObject.Object */
@@ -240,13 +242,15 @@ export class TranscoderSignalAdapter {
     _init (config?: TranscoderSignalAdapter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class TranscoderClass {
+abstract class TranscoderClass {
     /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
-export abstract class TranscoderSignalAdapterClass {
+abstract class TranscoderSignalAdapterClass {
     /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default GstTranscoder

@@ -3,15 +3,17 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstAudio from './GstAudio-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstAudio from './GstAudio-1.0';
 
-export enum AudioVisualizerShader {
+export namespace GstPbutils {
+
+enum AudioVisualizerShader {
     NONE,
     FADE,
     FADE_AND_MOVE_UP,
@@ -23,7 +25,7 @@ export enum AudioVisualizerShader {
     FADE_AND_MOVE_VERT_OUT,
     FADE_AND_MOVE_VERT_IN,
 }
-export enum DiscovererResult {
+enum DiscovererResult {
     OK,
     URI_INVALID,
     ERROR,
@@ -31,7 +33,7 @@ export enum DiscovererResult {
     BUSY,
     MISSING_PLUGINS,
 }
-export enum InstallPluginsReturn {
+enum InstallPluginsReturn {
     SUCCESS,
     NOT_FOUND,
     ERROR,
@@ -44,14 +46,14 @@ export enum InstallPluginsReturn {
     HELPER_MISSING,
     INSTALL_IN_PROGRESS,
 }
-export enum DiscovererSerializeFlags {
+enum DiscovererSerializeFlags {
     BASIC,
     CAPS,
     TAGS,
     MISC,
     ALL,
 }
-export enum PbUtilsCapsDescriptionFlags {
+enum PbUtilsCapsDescriptionFlags {
     CONTAINER,
     AUDIO,
     VIDEO,
@@ -69,75 +71,75 @@ export const PLUGINS_BASE_VERSION_MAJOR: number
 export const PLUGINS_BASE_VERSION_MICRO: number
 export const PLUGINS_BASE_VERSION_MINOR: number
 export const PLUGINS_BASE_VERSION_NANO: number
-export function codec_utils_aac_caps_set_level_and_profile(caps: Gst.Caps, audio_config: Uint8Array[]): boolean
-export function codec_utils_aac_get_channels(audio_config: Uint8Array[]): number
-export function codec_utils_aac_get_index_from_sample_rate(rate: number): number
-export function codec_utils_aac_get_level(audio_config: Uint8Array[]): string
-export function codec_utils_aac_get_profile(audio_config: Uint8Array[]): string
-export function codec_utils_aac_get_sample_rate(audio_config: Uint8Array[]): number
-export function codec_utils_aac_get_sample_rate_from_index(sr_idx: number): number
-export function codec_utils_caps_get_mime_codec(caps: Gst.Caps): string
-export function codec_utils_h264_caps_set_level_and_profile(caps: Gst.Caps, sps: Uint8Array[]): boolean
-export function codec_utils_h264_get_level(sps: Uint8Array[]): string
-export function codec_utils_h264_get_level_idc(level: string): number
-export function codec_utils_h264_get_profile(sps: Uint8Array[]): string
-export function codec_utils_h264_get_profile_flags_level(codec_data: number, len: number, profile: number, flags: number, level: number): boolean
-export function codec_utils_h265_caps_set_level_tier_and_profile(caps: Gst.Caps, profile_tier_level: Uint8Array[]): boolean
-export function codec_utils_h265_get_level(profile_tier_level: Uint8Array[]): string
-export function codec_utils_h265_get_level_idc(level: string): number
-export function codec_utils_h265_get_profile(profile_tier_level: Uint8Array[]): string
-export function codec_utils_h265_get_tier(profile_tier_level: Uint8Array[]): string
-export function codec_utils_mpeg4video_caps_set_level_and_profile(caps: Gst.Caps, vis_obj_seq: Uint8Array[]): boolean
-export function codec_utils_mpeg4video_get_level(vis_obj_seq: Uint8Array[]): string
-export function codec_utils_mpeg4video_get_profile(vis_obj_seq: Uint8Array[]): string
-export function codec_utils_opus_create_caps(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping?: Uint8Array[] | null): Gst.Caps
-export function codec_utils_opus_create_caps_from_header(header: Gst.Buffer, comments?: Gst.Buffer | null): Gst.Caps
-export function codec_utils_opus_create_header(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping: Uint8Array[] | null, pre_skip: number, output_gain: number): Gst.Buffer
-export function codec_utils_opus_parse_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[] ]
-export function codec_utils_opus_parse_header(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[], /* pre_skip */ number, /* output_gain */ number ]
-export function encoding_list_all_targets(categoryname?: string | null): EncodingTarget[]
-export function encoding_list_available_categories(): string[]
-export function install_plugins_async(details: string[], ctx: InstallPluginsContext | null, func: InstallPluginsResultFunc): InstallPluginsReturn
-export function install_plugins_installation_in_progress(): boolean
-export function install_plugins_return_get_name(ret: InstallPluginsReturn): string
-export function install_plugins_supported(): boolean
-export function install_plugins_sync(details: string[], ctx?: InstallPluginsContext | null): InstallPluginsReturn
-export function is_missing_plugin_message(msg: Gst.Message): boolean
-export function missing_decoder_installer_detail_new(decode_caps: Gst.Caps): string
-export function missing_decoder_message_new(element: Gst.Element, decode_caps: Gst.Caps): Gst.Message
-export function missing_element_installer_detail_new(factory_name: string): string
-export function missing_element_message_new(element: Gst.Element, factory_name: string): Gst.Message
-export function missing_encoder_installer_detail_new(encode_caps: Gst.Caps): string
-export function missing_encoder_message_new(element: Gst.Element, encode_caps: Gst.Caps): Gst.Message
-export function missing_plugin_message_get_description(msg: Gst.Message): string
-export function missing_plugin_message_get_installer_detail(msg: Gst.Message): string
-export function missing_uri_sink_installer_detail_new(protocol: string): string
-export function missing_uri_sink_message_new(element: Gst.Element, protocol: string): Gst.Message
-export function missing_uri_source_installer_detail_new(protocol: string): string
-export function missing_uri_source_message_new(element: Gst.Element, protocol: string): Gst.Message
-export function pb_utils_add_codec_description_to_tag_list(taglist: Gst.TagList, codec_tag: string | null, caps: Gst.Caps): boolean
-export function pb_utils_get_caps_description_flags(caps: Gst.Caps): PbUtilsCapsDescriptionFlags
-export function pb_utils_get_codec_description(caps: Gst.Caps): string
-export function pb_utils_get_decoder_description(caps: Gst.Caps): string
-export function pb_utils_get_element_description(factory_name: string): string
-export function pb_utils_get_encoder_description(caps: Gst.Caps): string
-export function pb_utils_get_file_extension_from_caps(caps: Gst.Caps): string | null
-export function pb_utils_get_sink_description(protocol: string): string
-export function pb_utils_get_source_description(protocol: string): string
-export function pb_utils_init(): void
-export function plugins_base_version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
-export function plugins_base_version_string(): string
-export interface AudioVisualizerShaderFunc {
+function codec_utils_aac_caps_set_level_and_profile(caps: Gst.Caps, audio_config: Uint8Array[]): boolean
+function codec_utils_aac_get_channels(audio_config: Uint8Array[]): number
+function codec_utils_aac_get_index_from_sample_rate(rate: number): number
+function codec_utils_aac_get_level(audio_config: Uint8Array[]): string
+function codec_utils_aac_get_profile(audio_config: Uint8Array[]): string
+function codec_utils_aac_get_sample_rate(audio_config: Uint8Array[]): number
+function codec_utils_aac_get_sample_rate_from_index(sr_idx: number): number
+function codec_utils_caps_get_mime_codec(caps: Gst.Caps): string
+function codec_utils_h264_caps_set_level_and_profile(caps: Gst.Caps, sps: Uint8Array[]): boolean
+function codec_utils_h264_get_level(sps: Uint8Array[]): string
+function codec_utils_h264_get_level_idc(level: string): number
+function codec_utils_h264_get_profile(sps: Uint8Array[]): string
+function codec_utils_h264_get_profile_flags_level(codec_data: number, len: number, profile: number, flags: number, level: number): boolean
+function codec_utils_h265_caps_set_level_tier_and_profile(caps: Gst.Caps, profile_tier_level: Uint8Array[]): boolean
+function codec_utils_h265_get_level(profile_tier_level: Uint8Array[]): string
+function codec_utils_h265_get_level_idc(level: string): number
+function codec_utils_h265_get_profile(profile_tier_level: Uint8Array[]): string
+function codec_utils_h265_get_tier(profile_tier_level: Uint8Array[]): string
+function codec_utils_mpeg4video_caps_set_level_and_profile(caps: Gst.Caps, vis_obj_seq: Uint8Array[]): boolean
+function codec_utils_mpeg4video_get_level(vis_obj_seq: Uint8Array[]): string
+function codec_utils_mpeg4video_get_profile(vis_obj_seq: Uint8Array[]): string
+function codec_utils_opus_create_caps(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping?: Uint8Array[] | null): Gst.Caps
+function codec_utils_opus_create_caps_from_header(header: Gst.Buffer, comments?: Gst.Buffer | null): Gst.Caps
+function codec_utils_opus_create_header(rate: number, channels: number, channel_mapping_family: number, stream_count: number, coupled_count: number, channel_mapping: Uint8Array[] | null, pre_skip: number, output_gain: number): Gst.Buffer
+function codec_utils_opus_parse_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[] ]
+function codec_utils_opus_parse_header(header: Gst.Buffer): [ /* returnType */ boolean, /* rate */ number, /* channels */ number, /* channel_mapping_family */ number, /* stream_count */ number, /* coupled_count */ number, /* channel_mapping */ Uint8Array[], /* pre_skip */ number, /* output_gain */ number ]
+function encoding_list_all_targets(categoryname?: string | null): EncodingTarget[]
+function encoding_list_available_categories(): string[]
+function install_plugins_async(details: string[], ctx: InstallPluginsContext | null, func: InstallPluginsResultFunc): InstallPluginsReturn
+function install_plugins_installation_in_progress(): boolean
+function install_plugins_return_get_name(ret: InstallPluginsReturn): string
+function install_plugins_supported(): boolean
+function install_plugins_sync(details: string[], ctx?: InstallPluginsContext | null): InstallPluginsReturn
+function is_missing_plugin_message(msg: Gst.Message): boolean
+function missing_decoder_installer_detail_new(decode_caps: Gst.Caps): string
+function missing_decoder_message_new(element: Gst.Element, decode_caps: Gst.Caps): Gst.Message
+function missing_element_installer_detail_new(factory_name: string): string
+function missing_element_message_new(element: Gst.Element, factory_name: string): Gst.Message
+function missing_encoder_installer_detail_new(encode_caps: Gst.Caps): string
+function missing_encoder_message_new(element: Gst.Element, encode_caps: Gst.Caps): Gst.Message
+function missing_plugin_message_get_description(msg: Gst.Message): string
+function missing_plugin_message_get_installer_detail(msg: Gst.Message): string
+function missing_uri_sink_installer_detail_new(protocol: string): string
+function missing_uri_sink_message_new(element: Gst.Element, protocol: string): Gst.Message
+function missing_uri_source_installer_detail_new(protocol: string): string
+function missing_uri_source_message_new(element: Gst.Element, protocol: string): Gst.Message
+function pb_utils_add_codec_description_to_tag_list(taglist: Gst.TagList, codec_tag: string | null, caps: Gst.Caps): boolean
+function pb_utils_get_caps_description_flags(caps: Gst.Caps): PbUtilsCapsDescriptionFlags
+function pb_utils_get_codec_description(caps: Gst.Caps): string
+function pb_utils_get_decoder_description(caps: Gst.Caps): string
+function pb_utils_get_element_description(factory_name: string): string
+function pb_utils_get_encoder_description(caps: Gst.Caps): string
+function pb_utils_get_file_extension_from_caps(caps: Gst.Caps): string | null
+function pb_utils_get_sink_description(protocol: string): string
+function pb_utils_get_source_description(protocol: string): string
+function pb_utils_init(): void
+function plugins_base_version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
+function plugins_base_version_string(): string
+interface AudioVisualizerShaderFunc {
     (scope: AudioVisualizer, s: GstVideo.VideoFrame, d: GstVideo.VideoFrame): void
 }
-export interface InstallPluginsResultFunc {
+interface InstallPluginsResultFunc {
     (result: InstallPluginsReturn): void
 }
 export interface AudioVisualizer_ConstructProps extends Gst.Element_ConstructProps {
     shade_amount?: number
     shader?: AudioVisualizerShader
 }
-export class AudioVisualizer {
+class AudioVisualizer {
     /* Properties of GstPbutils-1.0.GstPbutils.AudioVisualizer */
     shade_amount: number
     shader: AudioVisualizerShader
@@ -358,7 +360,7 @@ export interface Discoverer_ConstructProps extends GObject.Object_ConstructProps
     timeout?: number
     use_cache?: boolean
 }
-export class Discoverer {
+class Discoverer {
     /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     use_cache: boolean
@@ -440,7 +442,7 @@ export class Discoverer {
 }
 export interface DiscovererAudioInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
-export class DiscovererAudioInfo {
+class DiscovererAudioInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererAudioInfo */
@@ -506,7 +508,7 @@ export class DiscovererAudioInfo {
 }
 export interface DiscovererContainerInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
-export class DiscovererContainerInfo {
+class DiscovererContainerInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererContainerInfo */
@@ -566,7 +568,7 @@ export class DiscovererContainerInfo {
 }
 export interface DiscovererInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DiscovererInfo {
+class DiscovererInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererInfo */
@@ -635,7 +637,7 @@ export class DiscovererInfo {
 }
 export interface DiscovererStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DiscovererStreamInfo {
+class DiscovererStreamInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
@@ -695,7 +697,7 @@ export class DiscovererStreamInfo {
 }
 export interface DiscovererSubtitleInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
-export class DiscovererSubtitleInfo {
+class DiscovererSubtitleInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererSubtitleInfo */
@@ -755,7 +757,7 @@ export class DiscovererSubtitleInfo {
 }
 export interface DiscovererVideoInfo_ConstructProps extends DiscovererStreamInfo_ConstructProps {
 }
-export class DiscovererVideoInfo {
+class DiscovererVideoInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererVideoInfo */
@@ -825,7 +827,7 @@ export class DiscovererVideoInfo {
 }
 export interface EncodingAudioProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
-export class EncodingAudioProfile {
+class EncodingAudioProfile {
     /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
@@ -910,7 +912,7 @@ export class EncodingAudioProfile {
 }
 export interface EncodingContainerProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
-export class EncodingContainerProfile {
+class EncodingContainerProfile {
     /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
@@ -1001,7 +1003,7 @@ export interface EncodingProfile_ConstructProps extends GObject.Object_Construct
     element_properties?: Gst.Structure
     restriction_caps?: Gst.Caps
 }
-export class EncodingProfile {
+class EncodingProfile {
     /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
@@ -1087,7 +1089,7 @@ export class EncodingProfile {
 }
 export interface EncodingTarget_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EncodingTarget {
+class EncodingTarget {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.EncodingTarget */
@@ -1149,7 +1151,7 @@ export class EncodingTarget {
 }
 export interface EncodingVideoProfile_ConstructProps extends EncodingProfile_ConstructProps {
 }
-export class EncodingVideoProfile {
+class EncodingVideoProfile {
     /* Properties of GstPbutils-1.0.GstPbutils.EncodingProfile */
     element_properties: Gst.Structure
     restriction_caps: Gst.Caps
@@ -1237,17 +1239,17 @@ export class EncodingVideoProfile {
     static new(format: Gst.Caps, preset: string | null, restriction: Gst.Caps | null, presence: number): EncodingVideoProfile
     static $gtype: GObject.Type
 }
-export abstract class AudioVisualizerClass {
+abstract class AudioVisualizerClass {
     /* Fields of GstPbutils-1.0.GstPbutils.AudioVisualizerClass */
     setup: (scope: AudioVisualizer) => boolean
     render: (scope: AudioVisualizer, audio: Gst.Buffer, video: GstVideo.VideoFrame) => boolean
     decide_allocation: (scope: AudioVisualizer, query: Gst.Query) => boolean
     static name: string
 }
-export class AudioVisualizerPrivate {
+class AudioVisualizerPrivate {
     static name: string
 }
-export abstract class DiscovererClass {
+abstract class DiscovererClass {
     /* Fields of GstPbutils-1.0.GstPbutils.DiscovererClass */
     parentclass: GObject.ObjectClass
     finished: (discoverer: Discoverer) => void
@@ -1257,22 +1259,22 @@ export abstract class DiscovererClass {
     _reserved: object[]
     static name: string
 }
-export class DiscovererPrivate {
+class DiscovererPrivate {
     static name: string
 }
-export abstract class EncodingAudioProfileClass {
+abstract class EncodingAudioProfileClass {
     static name: string
 }
-export abstract class EncodingContainerProfileClass {
+abstract class EncodingContainerProfileClass {
     static name: string
 }
-export abstract class EncodingProfileClass {
+abstract class EncodingProfileClass {
     static name: string
 }
-export abstract class EncodingVideoProfileClass {
+abstract class EncodingVideoProfileClass {
     static name: string
 }
-export class InstallPluginsContext {
+class InstallPluginsContext {
     /* Methods of GstPbutils-1.0.GstPbutils.InstallPluginsContext */
     copy(): InstallPluginsContext
     free(): void
@@ -1286,10 +1288,12 @@ export class InstallPluginsContext {
     /* Static methods and pseudo-constructors */
     static new(): InstallPluginsContext
 }
-export type DiscovererAudioInfoClass = GObject.ObjectClass
-export type DiscovererContainerInfoClass = GObject.ObjectClass
-export type DiscovererInfoClass = GObject.ObjectClass
-export type DiscovererStreamInfoClass = GObject.ObjectClass
-export type DiscovererSubtitleInfoClass = GObject.ObjectClass
-export type DiscovererVideoInfoClass = GObject.ObjectClass
-export type EncodingTargetClass = GObject.ObjectClass
+type DiscovererAudioInfoClass = GObject.ObjectClass
+type DiscovererContainerInfoClass = GObject.ObjectClass
+type DiscovererInfoClass = GObject.ObjectClass
+type DiscovererStreamInfoClass = GObject.ObjectClass
+type DiscovererSubtitleInfoClass = GObject.ObjectClass
+type DiscovererVideoInfoClass = GObject.ObjectClass
+type EncodingTargetClass = GObject.ObjectClass
+}
+export default GstPbutils

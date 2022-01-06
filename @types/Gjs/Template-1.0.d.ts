@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum Error {
+export namespace Template {
+
+enum Error {
     INVALID_STATE,
     TEMPLATE_NOT_FOUND,
     CIRCULAR_INCLUDE,
@@ -27,7 +29,7 @@ export enum Error {
     NOT_A_VALUE,
     NOT_A_FUNCTION,
 }
-export enum ExprBuiltin {
+enum ExprBuiltin {
     ABS,
     CEIL,
     FLOOR,
@@ -38,7 +40,7 @@ export enum ExprBuiltin {
     SQRT,
     TYPEOF,
 }
-export enum ExprType {
+enum ExprType {
     ADD,
     SUB,
     MUL,
@@ -68,7 +70,7 @@ export enum ExprType {
     OR,
     INVERT_BOOLEAN,
 }
-export enum SymbolType {
+enum SymbolType {
     EXPR,
     VALUE,
 }
@@ -78,15 +80,15 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
-export function error_quark(): GLib.Quark
-export function expr_from_string(str: string): Expr
-export interface ScopeResolver {
+function error_quark(): GLib.Quark
+function expr_from_string(str: string): Expr
+interface ScopeResolver {
     (scope: Scope, name: string, symbol: Symbol): boolean
 }
 export interface Template_ConstructProps extends GObject.Object_ConstructProps {
     locator?: TemplateLocator
 }
-export class Template {
+class Template {
     /* Properties of Template-1.0.Template.Template */
     locator: TemplateLocator
     /* Fields of Template-1.0.Template.Template */
@@ -152,7 +154,7 @@ export class Template {
 }
 export interface TemplateLocator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TemplateLocator {
+class TemplateLocator {
     /* Fields of Template-1.0.Template.TemplateLocator */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -209,7 +211,7 @@ export class TemplateLocator {
     static new(): TemplateLocator
     static $gtype: GObject.Type
 }
-export class Scope {
+class Scope {
     /* Methods of Template-1.0.Template.Scope */
     get(name: string): Symbol
     new_with_parent(): Scope
@@ -232,7 +234,7 @@ export class Scope {
     /* Static methods and pseudo-constructors */
     static new(): Scope
 }
-export class Symbol {
+class Symbol {
     /* Methods of Template-1.0.Template.Symbol */
     assign_boolean(v_bool: boolean): void
     assign_double(v_double: number): void
@@ -252,18 +254,18 @@ export class Symbol {
     /* Static methods and pseudo-constructors */
     static new(): Symbol
 }
-export abstract class TemplateClass {
+abstract class TemplateClass {
     /* Fields of Template-1.0.Template.TemplateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class TemplateLocatorClass {
+abstract class TemplateLocatorClass {
     /* Fields of Template-1.0.Template.TemplateLocatorClass */
     parent_instance: GObject.ObjectClass
     locate: (self: TemplateLocator, path: string) => Gio.InputStream
     static name: string
 }
-export class Expr {
+class Expr {
     /* Methods of Template-1.0.Template.Expr */
     eval(scope: Scope, return_value: any): boolean
     new_getattr(attr: string): Expr
@@ -286,3 +288,5 @@ export class Expr {
     static new_user_fn_call(name: string, param: Expr): Expr
     static from_string(str: string): Expr
 }
+}
+export default Template

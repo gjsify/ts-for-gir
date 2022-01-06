@@ -1,2 +1,1 @@
-imports.gi.versions.Camel = '1.2'
-module.exports = imports.gi.Camel
+export {default as default} from 'gi://Camel?version=1.2';

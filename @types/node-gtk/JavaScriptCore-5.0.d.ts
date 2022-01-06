@@ -6,13 +6,13 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace JavaScriptCore {
+declare namespace JavaScriptCore {
 
-export enum CheckSyntaxMode {
+enum CheckSyntaxMode {
     SCRIPT,
     MODULE,
 }
-export enum CheckSyntaxResult {
+enum CheckSyntaxResult {
     SUCCESS,
     RECOVERABLE_ERROR,
     IRRECOVERABLE_ERROR,
@@ -20,7 +20,7 @@ export enum CheckSyntaxResult {
     OUT_OF_MEMORY_ERROR,
     STACK_OVERFLOW_ERROR,
 }
-export enum OptionType {
+enum OptionType {
     BOOLEAN,
     INT,
     UINT,
@@ -29,7 +29,7 @@ export enum OptionType {
     STRING,
     RANGE_STRING,
 }
-export enum ValuePropertyFlags {
+enum ValuePropertyFlags {
     CONFIGURABLE,
     ENUMERABLE,
     WRITABLE,
@@ -41,44 +41,44 @@ export const OPTIONS_USE_DFG: string
 export const OPTIONS_USE_FTL: string
 export const OPTIONS_USE_JIT: string
 export const OPTIONS_USE_LLINT: string
-export function getMajorVersion(): number
-export function getMicroVersion(): number
-export function getMinorVersion(): number
-export function optionsForeach(function_: OptionsFunc): void
-export function optionsGetBoolean(option: string): { returnType: boolean, value: boolean }
-export function optionsGetDouble(option: string): { returnType: boolean, value: number }
-export function optionsGetInt(option: string): { returnType: boolean, value: number }
-export function optionsGetOptionGroup(): GLib.OptionGroup
-export function optionsGetRangeString(option: string): { returnType: boolean, value: string }
-export function optionsGetSize(option: string): { returnType: boolean, value: number }
-export function optionsGetString(option: string): { returnType: boolean, value: string }
-export function optionsGetUint(option: string): { returnType: boolean, value: number }
-export function optionsSetBoolean(option: string, value: boolean): boolean
-export function optionsSetDouble(option: string, value: number): boolean
-export function optionsSetInt(option: string, value: number): boolean
-export function optionsSetRangeString(option: string, value: string): boolean
-export function optionsSetSize(option: string, value: number): boolean
-export function optionsSetString(option: string, value: string): boolean
-export function optionsSetUint(option: string, value: number): boolean
-export interface ClassDeletePropertyFunction {
+function getMajorVersion(): number
+function getMicroVersion(): number
+function getMinorVersion(): number
+function optionsForeach(function_: OptionsFunc): void
+function optionsGetBoolean(option: string): { returnType: boolean, value: boolean }
+function optionsGetDouble(option: string): { returnType: boolean, value: number }
+function optionsGetInt(option: string): { returnType: boolean, value: number }
+function optionsGetOptionGroup(): GLib.OptionGroup
+function optionsGetRangeString(option: string): { returnType: boolean, value: string }
+function optionsGetSize(option: string): { returnType: boolean, value: number }
+function optionsGetString(option: string): { returnType: boolean, value: string }
+function optionsGetUint(option: string): { returnType: boolean, value: number }
+function optionsSetBoolean(option: string, value: boolean): boolean
+function optionsSetDouble(option: string, value: number): boolean
+function optionsSetInt(option: string, value: number): boolean
+function optionsSetRangeString(option: string, value: string): boolean
+function optionsSetSize(option: string, value: number): boolean
+function optionsSetString(option: string, value: string): boolean
+function optionsSetUint(option: string, value: number): boolean
+interface ClassDeletePropertyFunction {
     (jscClass: Class, context: Context, instance: object | null, name: string): boolean
 }
-export interface ClassEnumeratePropertiesFunction {
+interface ClassEnumeratePropertiesFunction {
     (jscClass: Class, context: Context, instance?: object | null): string[] | null
 }
-export interface ClassGetPropertyFunction {
+interface ClassGetPropertyFunction {
     (jscClass: Class, context: Context, instance: object | null, name: string): Value | null
 }
-export interface ClassHasPropertyFunction {
+interface ClassHasPropertyFunction {
     (jscClass: Class, context: Context, instance: object | null, name: string): boolean
 }
-export interface ClassSetPropertyFunction {
+interface ClassSetPropertyFunction {
     (jscClass: Class, context: Context, instance: object | null, name: string, value: Value): boolean
 }
-export interface ExceptionHandler {
+interface ExceptionHandler {
     (context: Context, exception: Exception): void
 }
-export interface OptionsFunc {
+interface OptionsFunc {
     (option: string, type: OptionType, description?: string | null): boolean
 }
 export interface Class_ConstructProps extends GObject.Object_ConstructProps {
@@ -86,7 +86,7 @@ export interface Class_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     parent?: Class
 }
-export class Class {
+class Class {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of JavaScriptCore-5.0.JavaScriptCore.Class */
@@ -140,7 +140,7 @@ export class Class {
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     virtualMachine?: VirtualMachine
 }
-export class Context {
+class Context {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.Context */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -208,7 +208,7 @@ export class Context {
 }
 export interface Exception_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Exception {
+class Exception {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.Exception */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -268,7 +268,7 @@ export class Exception {
 export interface Value_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
-export class Value {
+class Value {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.Value */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -358,7 +358,7 @@ export class Value {
 }
 export interface VirtualMachine_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VirtualMachine {
+class VirtualMachine {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.VirtualMachine */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -408,7 +408,7 @@ export class VirtualMachine {
 export interface WeakValue_ConstructProps extends GObject.Object_ConstructProps {
     value?: Value
 }
-export class WeakValue {
+class WeakValue {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.WeakValue */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -463,10 +463,10 @@ export class WeakValue {
     static new(value: Value): WeakValue
     static $gtype: GObject.Type
 }
-export abstract class ClassClass {
+abstract class ClassClass {
     static name: string
 }
-export class ClassVTable {
+class ClassVTable {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.ClassVTable */
     getProperty: ClassGetPropertyFunction
     setProperty: ClassSetPropertyFunction
@@ -475,44 +475,45 @@ export class ClassVTable {
     enumerateProperties: ClassEnumeratePropertiesFunction
     static name: string
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.ContextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ContextPrivate {
+class ContextPrivate {
     static name: string
 }
-export abstract class ExceptionClass {
+abstract class ExceptionClass {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.ExceptionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ExceptionPrivate {
+class ExceptionPrivate {
     static name: string
 }
-export abstract class ValueClass {
+abstract class ValueClass {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.ValueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ValuePrivate {
+class ValuePrivate {
     static name: string
 }
-export abstract class VirtualMachineClass {
+abstract class VirtualMachineClass {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.VirtualMachineClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class VirtualMachinePrivate {
+class VirtualMachinePrivate {
     static name: string
 }
-export abstract class WeakValueClass {
+abstract class WeakValueClass {
     /* Fields of JavaScriptCore-5.0.JavaScriptCore.WeakValueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WeakValuePrivate {
+class WeakValuePrivate {
     static name: string
 }
 }
+export default JavaScriptCore

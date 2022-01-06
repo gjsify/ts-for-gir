@@ -7,32 +7,32 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace ModemManager {
+declare namespace ModemManager {
 
-export enum BearerIpMethod {
+enum BearerIpMethod {
     UNKNOWN,
     PPP,
     STATIC,
     DHCP,
 }
-export enum BearerMultiplexSupport {
+enum BearerMultiplexSupport {
     UNKNOWN,
     NONE,
     REQUESTED,
     REQUIRED,
 }
-export enum BearerType {
+enum BearerType {
     UNKNOWN,
     DEFAULT,
     DEFAULT_ATTACH,
     DEDICATED,
 }
-export enum CallDirection {
+enum CallDirection {
     UNKNOWN,
     INCOMING,
     OUTGOING,
 }
-export enum CallState {
+enum CallState {
     UNKNOWN,
     DIALING,
     RINGING_OUT,
@@ -42,7 +42,7 @@ export enum CallState {
     WAITING,
     TERMINATED,
 }
-export enum CallStateReason {
+enum CallStateReason {
     UNKNOWN,
     OUTGOING_STARTED,
     INCOMING_NEW,
@@ -54,7 +54,7 @@ export enum CallStateReason {
     TRANSFERRED,
     DEFLECTED,
 }
-export enum CdmaActivationError {
+enum CdmaActivationError {
     NONE,
     UNKNOWN,
     ROAMING,
@@ -66,14 +66,14 @@ export enum CdmaActivationError {
     TIMEDOUT,
     STARTFAILED,
 }
-export enum ConnectionError {
+enum ConnectionError {
     UNKNOWN,
     NOCARRIER,
     NODIALTONE,
     BUSY,
     NOANSWER,
 }
-export enum CoreError {
+enum CoreError {
     FAILED,
     CANCELLED,
     ABORTED,
@@ -89,12 +89,12 @@ export enum CoreError {
     RETRY,
     EXISTS,
 }
-export enum FirmwareImageType {
+enum FirmwareImageType {
     UNKNOWN,
     GENERIC,
     GOBI,
 }
-export enum MessageError {
+enum MessageError {
     MEFAILURE,
     SMSSERVICERESERVED,
     NOTALLOWED,
@@ -119,7 +119,7 @@ export enum MessageError {
     NOCNMAACKEXPECTED,
     UNKNOWN,
 }
-export enum MobileEquipmentError {
+enum MobileEquipmentError {
     PHONEFAILURE,
     NOCONNECTION,
     LINKRESERVED,
@@ -284,25 +284,25 @@ export enum MobileEquipmentError {
     NONETWORKSLICESAVAILABLE,
     WIRELINEACCESSAREANOTALLOWED,
 }
-export enum Modem3gppEpsUeModeOperation {
+enum Modem3gppEpsUeModeOperation {
     UNKNOWN,
     PS_1,
     PS_2,
     CSPS_1,
     CSPS_2,
 }
-export enum Modem3gppNetworkAvailability {
+enum Modem3gppNetworkAvailability {
     UNKNOWN,
     AVAILABLE,
     CURRENT,
     FORBIDDEN,
 }
-export enum Modem3gppPacketServiceState {
+enum Modem3gppPacketServiceState {
     UNKNOWN,
     DETACHED,
     ATTACHED,
 }
-export enum Modem3gppRegistrationState {
+enum Modem3gppRegistrationState {
     IDLE,
     HOME,
     SEARCHING,
@@ -316,19 +316,19 @@ export enum Modem3gppRegistrationState {
     ROAMING_CSFB_NOT_PREFERRED,
     ATTACHED_RLOS,
 }
-export enum Modem3gppSubscriptionState {
+enum Modem3gppSubscriptionState {
     UNKNOWN,
     UNPROVISIONED,
     PROVISIONED,
     OUT_OF_DATA,
 }
-export enum Modem3gppUssdSessionState {
+enum Modem3gppUssdSessionState {
     UNKNOWN,
     IDLE,
     ACTIVE,
     USER_RESPONSE,
 }
-export enum ModemBand {
+enum ModemBand {
     UNKNOWN,
     EGSM,
     DCS,
@@ -502,20 +502,20 @@ export enum ModemBand {
     NGRAN_260,
     NGRAN_261,
 }
-export enum ModemCdmaActivationState {
+enum ModemCdmaActivationState {
     UNKNOWN,
     NOT_ACTIVATED,
     ACTIVATING,
     PARTIALLY_ACTIVATED,
     ACTIVATED,
 }
-export enum ModemCdmaRegistrationState {
+enum ModemCdmaRegistrationState {
     UNKNOWN,
     REGISTERED,
     HOME,
     ROAMING,
 }
-export enum ModemCdmaRmProtocol {
+enum ModemCdmaRmProtocol {
     UNKNOWN,
     ASYNC,
     PACKET_RELAY,
@@ -523,13 +523,13 @@ export enum ModemCdmaRmProtocol {
     PACKET_NETWORK_SLIP,
     STU_III,
 }
-export enum ModemContactsStorage {
+enum ModemContactsStorage {
     UNKNOWN,
     ME,
     SM,
     MT,
 }
-export enum ModemLock {
+enum ModemLock {
     UNKNOWN,
     NONE,
     SIM_PIN,
@@ -548,7 +548,7 @@ export enum ModemLock {
     PH_NETSUB_PIN,
     PH_NETSUB_PUK,
 }
-export enum ModemPortType {
+enum ModemPortType {
     UNKNOWN,
     NET,
     AT,
@@ -559,13 +559,13 @@ export enum ModemPortType {
     AUDIO,
     IGNORED,
 }
-export enum ModemPowerState {
+enum ModemPowerState {
     UNKNOWN,
     OFF,
     LOW,
     ON,
 }
-export enum ModemState {
+enum ModemState {
     FAILED,
     UNKNOWN,
     INITIALIZING,
@@ -580,19 +580,19 @@ export enum ModemState {
     CONNECTING,
     CONNECTED,
 }
-export enum ModemStateChangeReason {
+enum ModemStateChangeReason {
     UNKNOWN,
     USER_REQUESTED,
     SUSPEND,
     FAILURE,
 }
-export enum ModemStateFailedReason {
+enum ModemStateFailedReason {
     NONE,
     UNKNOWN,
     SIM_MISSING,
     SIM_ERROR,
 }
-export enum OmaSessionState {
+enum OmaSessionState {
     FAILED,
     UNKNOWN,
     STARTED,
@@ -606,7 +606,7 @@ export enum OmaSessionState {
     MIP_PROFILE_DOWNLOADED,
     COMPLETED,
 }
-export enum OmaSessionStateFailedReason {
+enum OmaSessionStateFailedReason {
     UNKNOWN,
     NETWORK_UNAVAILABLE,
     SERVER_UNAVAILABLE,
@@ -614,7 +614,7 @@ export enum OmaSessionStateFailedReason {
     MAX_RETRY_EXCEEDED,
     SESSION_CANCELLED,
 }
-export enum OmaSessionType {
+enum OmaSessionType {
     UNKNOWN,
     CLIENT_INITIATED_DEVICE_CONFIGURE,
     CLIENT_INITIATED_PRL_UPDATE,
@@ -624,7 +624,7 @@ export enum OmaSessionType {
     DEVICE_INITIATED_PRL_UPDATE,
     DEVICE_INITIATED_HANDS_FREE_ACTIVATION,
 }
-export enum SerialError {
+enum SerialError {
     UNKNOWN,
     OPENFAILED,
     SENDFAILED,
@@ -635,22 +635,22 @@ export enum SerialError {
     PARSEFAILED,
     FRAMENOTFOUND,
 }
-export enum SimEsimStatus {
+enum SimEsimStatus {
     UNKNOWN,
     NO_PROFILES,
     WITH_PROFILES,
 }
-export enum SimRemovability {
+enum SimRemovability {
     UNKNOWN,
     REMOVABLE,
     NOT_REMOVABLE,
 }
-export enum SimType {
+enum SimType {
     UNKNOWN,
     PHYSICAL,
     ESIM,
 }
-export enum SmsCdmaServiceCategory {
+enum SmsCdmaServiceCategory {
     UNKNOWN,
     EMERGENCY_BROADCAST,
     ADMINISTRATIVE,
@@ -689,7 +689,7 @@ export enum SmsCdmaServiceCategory {
     CMAS_CHILD_ABDUCTION_EMERGENCY,
     CMAS_TEST,
 }
-export enum SmsCdmaTeleserviceId {
+enum SmsCdmaTeleserviceId {
     UNKNOWN,
     CMT91,
     WPT,
@@ -700,7 +700,7 @@ export enum SmsCdmaTeleserviceId {
     SCPT,
     CATPT,
 }
-export enum SmsDeliveryState {
+enum SmsDeliveryState {
     COMPLETED_RECEIVED,
     COMPLETED_FORWARDED_UNCONFIRMED,
     COMPLETED_REPLACED_BY_SC,
@@ -784,7 +784,7 @@ export enum SmsDeliveryState {
     TEMPORARY_GENERAL_PROBLEM_USER_DATA_SIZE_ERROR,
     TEMPORARY_GENERAL_PROBLEM_OTHER,
 }
-export enum SmsPduType {
+enum SmsPduType {
     UNKNOWN,
     DELIVER,
     SUBMIT,
@@ -796,7 +796,7 @@ export enum SmsPduType {
     CDMA_USER_ACKNOWLEDGEMENT,
     CDMA_READ_ACKNOWLEDGEMENT,
 }
-export enum SmsState {
+enum SmsState {
     UNKNOWN,
     STORED,
     RECEIVING,
@@ -804,7 +804,7 @@ export enum SmsState {
     SENDING,
     SENT,
 }
-export enum SmsStorage {
+enum SmsStorage {
     UNKNOWN,
     SM,
     ME,
@@ -813,13 +813,13 @@ export enum SmsStorage {
     BM,
     TA,
 }
-export enum SmsValidityType {
+enum SmsValidityType {
     UNKNOWN,
     RELATIVE,
     ABSOLUTE,
     ENHANCED,
 }
-export enum TODO_3gppProfileCmpFlags {
+enum TODO_3gppProfileCmpFlags {
     NONE,
     NO_PROFILE_ID,
     NO_PROFILE_NAME,
@@ -827,7 +827,7 @@ export enum TODO_3gppProfileCmpFlags {
     NO_APN_TYPE,
     NO_IP_TYPE,
 }
-export enum BearerAllowedAuth {
+enum BearerAllowedAuth {
     UNKNOWN,
     NONE,
     PAP,
@@ -836,7 +836,7 @@ export enum BearerAllowedAuth {
     MSCHAPV2,
     EAP,
 }
-export enum BearerApnType {
+enum BearerApnType {
     NONE,
     INITIAL,
     DEFAULT,
@@ -853,14 +853,14 @@ export enum BearerApnType {
     XCAP,
     TETHERING,
 }
-export enum BearerIpFamily {
+enum BearerIpFamily {
     NONE,
     IPV4,
     IPV6,
     IPV4V6,
     ANY,
 }
-export enum BearerPropertiesCmpFlags {
+enum BearerPropertiesCmpFlags {
     NONE,
     LOOSE,
     NO_PASSWORD,
@@ -870,7 +870,7 @@ export enum BearerPropertiesCmpFlags {
     NO_PROFILE_ID,
     NO_PROFILE_NAME,
 }
-export enum Modem3gppFacility {
+enum Modem3gppFacility {
     NONE,
     SIM,
     FIXED_DIALING,
@@ -881,7 +881,7 @@ export enum Modem3gppFacility {
     PROVIDER_PERS,
     CORP_PERS,
 }
-export enum ModemAccessTechnology {
+enum ModemAccessTechnology {
     UNKNOWN,
     POTS,
     GSM,
@@ -901,7 +901,7 @@ export enum ModemAccessTechnology {
     /* 5GNR (invalid, starts with a number) */
     ANY,
 }
-export enum ModemCapability {
+enum ModemCapability {
     NONE,
     POTS,
     CDMA_EVDO,
@@ -912,18 +912,18 @@ export enum ModemCapability {
     TDS,
     ANY,
 }
-export enum ModemFirmwareUpdateMethod {
+enum ModemFirmwareUpdateMethod {
     NONE,
     FASTBOOT,
     QMI_PDC,
     MBIM_QDU,
     FIREHOSE,
 }
-export enum ModemLocationAssistanceDataType {
+enum ModemLocationAssistanceDataType {
     NONE,
     XTRA,
 }
-export enum ModemLocationSource {
+enum ModemLocationSource {
     NONE,
     /* 3GPP_LAC_CI (invalid, starts with a number) */
     GPS_RAW,
@@ -933,7 +933,7 @@ export enum ModemLocationSource {
     AGPS_MSA,
     AGPS_MSB,
 }
-export enum ModemMode {
+enum ModemMode {
     NONE,
     CS,
     /* 2G (invalid, starts with a number) */
@@ -942,7 +942,7 @@ export enum ModemMode {
     /* 5G (invalid, starts with a number) */
     ANY,
 }
-export enum OmaFeature {
+enum OmaFeature {
     NONE,
     DEVICE_PROVISIONING,
     PRL_UPDATE,
@@ -1207,102 +1207,102 @@ export const SMS_PROPERTY_TEXT: string
 export const SMS_PROPERTY_TIMESTAMP: string
 export const SMS_PROPERTY_VALIDITY: string
 export const UNLOCK_RETRIES_UNKNOWN: number
-export function bearerAllowedAuthBuildStringFromMask(mask: BearerAllowedAuth): string
-export function bearerApnTypeBuildStringFromMask(mask: BearerApnType): string
-export function bearerIpFamilyBuildStringFromMask(mask: BearerIpFamily): string
-export function bearerIpMethodGetString(val: BearerIpMethod): string
-export function bearerMultiplexSupportGetString(val: BearerMultiplexSupport): string
-export function bearerTypeGetString(val: BearerType): string
-export function callDirectionGetString(val: CallDirection): string
-export function callStateGetString(val: CallState): string
-export function callStateReasonGetString(val: CallStateReason): string
-export function cdmaActivationErrorQuark(): GLib.Quark
-export function connectionErrorQuark(): GLib.Quark
-export function coreErrorQuark(): GLib.Quark
-export function firmwareImageTypeGetString(val: FirmwareImageType): string
-export function gdbusBearerInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusBearerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusCallInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusCallOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModem3gppInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModem3gppOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModem3gppProfileManagerInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModem3gppProfileManagerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModem3gppUssdInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModem3gppUssdOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemCdmaInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemCdmaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemFirmwareInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemFirmwareOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemLocationInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemLocationOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemMessagingInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemMessagingOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemOmaInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemOmaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemSarInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemSarOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemSignalInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemSignalOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemSimpleInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemSimpleOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemTimeInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemTimeOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusModemVoiceInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusModemVoiceOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusOrgFreedesktopModemManager1InterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusOrgFreedesktopModemManager1OverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusSimInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusSimOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function gdbusSmsInterfaceInfo(): Gio.DBusInterfaceInfo
-export function gdbusSmsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function messageErrorQuark(): GLib.Quark
-export function mobileEquipmentErrorQuark(): GLib.Quark
-export function modem3gppEpsUeModeOperationGetString(val: Modem3gppEpsUeModeOperation): string
-export function modem3gppFacilityBuildStringFromMask(mask: Modem3gppFacility): string
-export function modem3gppNetworkAvailabilityGetString(val: Modem3gppNetworkAvailability): string
-export function modem3gppPacketServiceStateGetString(val: Modem3gppPacketServiceState): string
-export function modem3gppRegistrationStateGetString(val: Modem3gppRegistrationState): string
-export function modem3gppSubscriptionStateGetString(val: Modem3gppSubscriptionState): string
-export function modem3gppUssdSessionStateGetString(val: Modem3gppUssdSessionState): string
-export function modemAccessTechnologyBuildStringFromMask(mask: ModemAccessTechnology): string
-export function modemBandGetString(val: ModemBand): string
-export function modemCapabilityBuildStringFromMask(mask: ModemCapability): string
-export function modemCdmaActivationStateGetString(val: ModemCdmaActivationState): string
-export function modemCdmaRegistrationStateGetString(val: ModemCdmaRegistrationState): string
-export function modemCdmaRmProtocolGetString(val: ModemCdmaRmProtocol): string
-export function modemContactsStorageGetString(val: ModemContactsStorage): string
-export function modemFirmwareUpdateMethodBuildStringFromMask(mask: ModemFirmwareUpdateMethod): string
-export function modemLocationAssistanceDataTypeBuildStringFromMask(mask: ModemLocationAssistanceDataType): string
-export function modemLocationSourceBuildStringFromMask(mask: ModemLocationSource): string
-export function modemLockGetString(val: ModemLock): string
-export function modemModeBuildStringFromMask(mask: ModemMode): string
-export function modemPortTypeGetString(val: ModemPortType): string
-export function modemPowerStateGetString(val: ModemPowerState): string
-export function modemStateChangeReasonGetString(val: ModemStateChangeReason): string
-export function modemStateFailedReasonGetString(val: ModemStateFailedReason): string
-export function modemStateGetString(val: ModemState): string
-export function omaFeatureBuildStringFromMask(mask: OmaFeature): string
-export function omaSessionStateFailedReasonGetString(val: OmaSessionStateFailedReason): string
-export function omaSessionStateGetString(val: OmaSessionState): string
-export function omaSessionTypeGetString(val: OmaSessionType): string
-export function serialErrorQuark(): GLib.Quark
-export function simEsimStatusGetString(val: SimEsimStatus): string
-export function simRemovabilityGetString(val: SimRemovability): string
-export function simTypeGetString(val: SimType): string
-export function smsCdmaServiceCategoryGetString(val: SmsCdmaServiceCategory): string
-export function smsCdmaTeleserviceIdGetString(val: SmsCdmaTeleserviceId): string
-export function smsDeliveryStateGetString(val: SmsDeliveryState): string
-export function smsPduTypeGetString(val: SmsPduType): string
-export function smsStateGetString(val: SmsState): string
-export function smsStorageGetString(val: SmsStorage): string
-export function smsValidityTypeGetString(val: SmsValidityType): string
-export interface UnlockRetriesForeachCb {
+function bearerAllowedAuthBuildStringFromMask(mask: BearerAllowedAuth): string
+function bearerApnTypeBuildStringFromMask(mask: BearerApnType): string
+function bearerIpFamilyBuildStringFromMask(mask: BearerIpFamily): string
+function bearerIpMethodGetString(val: BearerIpMethod): string
+function bearerMultiplexSupportGetString(val: BearerMultiplexSupport): string
+function bearerTypeGetString(val: BearerType): string
+function callDirectionGetString(val: CallDirection): string
+function callStateGetString(val: CallState): string
+function callStateReasonGetString(val: CallStateReason): string
+function cdmaActivationErrorQuark(): GLib.Quark
+function connectionErrorQuark(): GLib.Quark
+function coreErrorQuark(): GLib.Quark
+function firmwareImageTypeGetString(val: FirmwareImageType): string
+function gdbusBearerInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusBearerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusCallInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusCallOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModem3gppInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModem3gppOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModem3gppProfileManagerInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModem3gppProfileManagerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModem3gppUssdInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModem3gppUssdOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemCdmaInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemCdmaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemFirmwareInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemFirmwareOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemLocationInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemLocationOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemMessagingInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemMessagingOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemOmaInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemOmaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemSarInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemSarOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemSignalInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemSignalOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemSimpleInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemSimpleOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemTimeInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemTimeOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusModemVoiceInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusModemVoiceOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusOrgFreedesktopModemManager1InterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusOrgFreedesktopModemManager1OverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusSimInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusSimOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function gdbusSmsInterfaceInfo(): Gio.DBusInterfaceInfo
+function gdbusSmsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function messageErrorQuark(): GLib.Quark
+function mobileEquipmentErrorQuark(): GLib.Quark
+function modem3gppEpsUeModeOperationGetString(val: Modem3gppEpsUeModeOperation): string
+function modem3gppFacilityBuildStringFromMask(mask: Modem3gppFacility): string
+function modem3gppNetworkAvailabilityGetString(val: Modem3gppNetworkAvailability): string
+function modem3gppPacketServiceStateGetString(val: Modem3gppPacketServiceState): string
+function modem3gppRegistrationStateGetString(val: Modem3gppRegistrationState): string
+function modem3gppSubscriptionStateGetString(val: Modem3gppSubscriptionState): string
+function modem3gppUssdSessionStateGetString(val: Modem3gppUssdSessionState): string
+function modemAccessTechnologyBuildStringFromMask(mask: ModemAccessTechnology): string
+function modemBandGetString(val: ModemBand): string
+function modemCapabilityBuildStringFromMask(mask: ModemCapability): string
+function modemCdmaActivationStateGetString(val: ModemCdmaActivationState): string
+function modemCdmaRegistrationStateGetString(val: ModemCdmaRegistrationState): string
+function modemCdmaRmProtocolGetString(val: ModemCdmaRmProtocol): string
+function modemContactsStorageGetString(val: ModemContactsStorage): string
+function modemFirmwareUpdateMethodBuildStringFromMask(mask: ModemFirmwareUpdateMethod): string
+function modemLocationAssistanceDataTypeBuildStringFromMask(mask: ModemLocationAssistanceDataType): string
+function modemLocationSourceBuildStringFromMask(mask: ModemLocationSource): string
+function modemLockGetString(val: ModemLock): string
+function modemModeBuildStringFromMask(mask: ModemMode): string
+function modemPortTypeGetString(val: ModemPortType): string
+function modemPowerStateGetString(val: ModemPowerState): string
+function modemStateChangeReasonGetString(val: ModemStateChangeReason): string
+function modemStateFailedReasonGetString(val: ModemStateFailedReason): string
+function modemStateGetString(val: ModemState): string
+function omaFeatureBuildStringFromMask(mask: OmaFeature): string
+function omaSessionStateFailedReasonGetString(val: OmaSessionStateFailedReason): string
+function omaSessionStateGetString(val: OmaSessionState): string
+function omaSessionTypeGetString(val: OmaSessionType): string
+function serialErrorQuark(): GLib.Quark
+function simEsimStatusGetString(val: SimEsimStatus): string
+function simRemovabilityGetString(val: SimRemovability): string
+function simTypeGetString(val: SimType): string
+function smsCdmaServiceCategoryGetString(val: SmsCdmaServiceCategory): string
+function smsCdmaTeleserviceIdGetString(val: SmsCdmaTeleserviceId): string
+function smsDeliveryStateGetString(val: SmsDeliveryState): string
+function smsPduTypeGetString(val: SmsPduType): string
+function smsStateGetString(val: SmsState): string
+function smsStorageGetString(val: SmsStorage): string
+function smsValidityTypeGetString(val: SmsValidityType): string
+interface UnlockRetriesForeachCb {
     (lock: ModemLock, count: number): void
 }
-export class GdbusBearer {
+class GdbusBearer {
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearerType: number
     connected: boolean
@@ -1342,7 +1342,7 @@ export class GdbusBearer {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusCall {
+class GdbusCall {
     /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
     audioFormat: GLib.Variant
     audioPort: string
@@ -1433,7 +1433,7 @@ export class GdbusCall {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModem {
+class GdbusModem {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     accessTechnologies: number
     bearers: string[]
@@ -1591,7 +1591,7 @@ export class GdbusModem {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModem3gpp {
+class GdbusModem3gpp {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
     enabledFacilityLocks: number
     epsUeModeOperation: number
@@ -1665,7 +1665,7 @@ export class GdbusModem3gpp {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModem3gppProfileManager {
+class GdbusModem3gppProfileManager {
     /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
     callDelete(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callDeleteFinish(res: Gio.AsyncResult): boolean
@@ -1706,7 +1706,7 @@ export class GdbusModem3gppProfileManager {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModem3gppUssd {
+class GdbusModem3gppUssd {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
     networkNotification: string
     networkRequest: string
@@ -1745,7 +1745,7 @@ export class GdbusModem3gppUssd {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemCdma {
+class GdbusModemCdma {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
     activationState: number
     cdma1xRegistrationState: number
@@ -1785,7 +1785,7 @@ export class GdbusModemCdma {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemFirmware {
+class GdbusModemFirmware {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
     updateSettings: GLib.Variant
     /* Methods of ModemManager-1.0.ModemManager.GdbusModemFirmware */
@@ -1813,7 +1813,7 @@ export class GdbusModemFirmware {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemLocation {
+class GdbusModemLocation {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
     assistanceDataServers: string[]
     capabilities: number
@@ -1875,7 +1875,7 @@ export class GdbusModemLocation {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemMessaging {
+class GdbusModemMessaging {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
     defaultStorage: number
     messages: string[]
@@ -1926,7 +1926,7 @@ export class GdbusModemMessaging {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemOma {
+class GdbusModemOma {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
     features: number
     pendingNetworkInitiatedSessions: GLib.Variant
@@ -1981,7 +1981,7 @@ export class GdbusModemOma {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemSar {
+class GdbusModemSar {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
     powerLevel: number
     state: boolean
@@ -2010,7 +2010,7 @@ export class GdbusModemSar {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemSignal {
+class GdbusModemSignal {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
     errorRateThreshold: boolean
@@ -2046,7 +2046,7 @@ export class GdbusModemSignal {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemSimple {
+class GdbusModemSimple {
     /* Methods of ModemManager-1.0.ModemManager.GdbusModemSimple */
     callConnect(argProperties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callConnectFinish(res: Gio.AsyncResult): { returnType: boolean, outBearer: string | null }
@@ -2081,7 +2081,7 @@ export class GdbusModemSimple {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemTime {
+class GdbusModemTime {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
     networkTimezone: GLib.Variant
     /* Methods of ModemManager-1.0.ModemManager.GdbusModemTime */
@@ -2106,7 +2106,7 @@ export class GdbusModemTime {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusModemVoice {
+class GdbusModemVoice {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
     calls: string[]
     emergencyOnly: boolean
@@ -2210,7 +2210,7 @@ export class GdbusModemVoice {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusObject {
+class GdbusObject {
     /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
@@ -2258,7 +2258,7 @@ export class GdbusObject {
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
     static name: string
 }
-export class GdbusOrgFreedesktopModemManager1 {
+class GdbusOrgFreedesktopModemManager1 {
     /* Properties of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
     version: string
     /* Methods of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
@@ -2304,7 +2304,7 @@ export class GdbusOrgFreedesktopModemManager1 {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusSim {
+class GdbusSim {
     /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
     active: boolean
     eid: string
@@ -2369,7 +2369,7 @@ export class GdbusSim {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class GdbusSms {
+class GdbusSms {
     /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
     "class": number
     data: GLib.Variant
@@ -2414,7 +2414,7 @@ export class GdbusSms {
 }
 export interface TODO_3gppProfile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TODO_3gppProfile {
+class TODO_3gppProfile {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.3gppProfile */
@@ -2493,7 +2493,7 @@ export interface Bearer_ConstructProps extends GdbusBearerProxy_ConstructProps {
     stats?: GLib.Variant
     suspended?: boolean
 }
-export class Bearer {
+class Bearer {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2732,7 +2732,7 @@ export class Bearer {
 }
 export interface BearerIpConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BearerIpConfig {
+class BearerIpConfig {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.BearerIpConfig */
@@ -2784,7 +2784,7 @@ export class BearerIpConfig {
 }
 export interface BearerProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BearerProperties {
+class BearerProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.BearerProperties */
@@ -2856,7 +2856,7 @@ export class BearerProperties {
 }
 export interface BearerStats_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BearerStats {
+class BearerStats {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.BearerStats */
@@ -2920,7 +2920,7 @@ export interface Call_ConstructProps extends GdbusCallProxy_ConstructProps {
     state?: number
     stateReason?: number
 }
-export class Call {
+class Call {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3186,7 +3186,7 @@ export class Call {
 }
 export interface CallAudioFormat_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CallAudioFormat {
+class CallAudioFormat {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.CallAudioFormat */
@@ -3235,7 +3235,7 @@ export class CallAudioFormat {
 }
 export interface CallProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CallProperties {
+class CallProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.CallProperties */
@@ -3294,7 +3294,7 @@ export class CallProperties {
 }
 export interface CdmaManualActivationProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CdmaManualActivationProperties {
+class CdmaManualActivationProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.CdmaManualActivationProperties */
@@ -3359,7 +3359,7 @@ export class CdmaManualActivationProperties {
 }
 export interface FirmwareProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FirmwareProperties {
+class FirmwareProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.FirmwareProperties */
@@ -3421,7 +3421,7 @@ export class FirmwareProperties {
 }
 export interface FirmwareUpdateSettings_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FirmwareUpdateSettings {
+class FirmwareUpdateSettings {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.FirmwareUpdateSettings */
@@ -3484,7 +3484,7 @@ export interface GdbusBearerProxy_ConstructProps extends Gio.DBusProxy_Construct
     stats?: GLib.Variant
     suspended?: boolean
 }
-export class GdbusBearerProxy {
+class GdbusBearerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3714,7 +3714,7 @@ export interface GdbusBearerSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     stats?: GLib.Variant
     suspended?: boolean
 }
-export class GdbusBearerSkeleton {
+class GdbusBearerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
@@ -3898,7 +3898,7 @@ export interface GdbusCallProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     state?: number
     stateReason?: number
 }
-export class GdbusCallProxy {
+class GdbusCallProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4143,7 +4143,7 @@ export interface GdbusCallSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     state?: number
     stateReason?: number
 }
-export class GdbusCallSkeleton {
+class GdbusCallSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
@@ -4341,7 +4341,7 @@ export class GdbusCallSkeleton {
 }
 export interface GdbusModem3gppProfileManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class GdbusModem3gppProfileManagerProxy {
+class GdbusModem3gppProfileManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4494,7 +4494,7 @@ export class GdbusModem3gppProfileManagerProxy {
 }
 export interface GdbusModem3gppProfileManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class GdbusModem3gppProfileManagerSkeleton {
+class GdbusModem3gppProfileManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -4618,7 +4618,7 @@ export interface GdbusModem3gppProxy_ConstructProps extends Gio.DBusProxy_Constr
     registrationState?: number
     subscriptionState?: number
 }
-export class GdbusModem3gppProxy {
+class GdbusModem3gppProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4870,7 +4870,7 @@ export interface GdbusModem3gppSkeleton_ConstructProps extends Gio.DBusInterface
     registrationState?: number
     subscriptionState?: number
 }
-export class GdbusModem3gppSkeleton {
+class GdbusModem3gppSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gpp */
@@ -5074,7 +5074,7 @@ export interface GdbusModem3gppUssdProxy_ConstructProps extends Gio.DBusProxy_Co
     networkRequest?: string
     state?: number
 }
-export class GdbusModem3gppUssdProxy {
+class GdbusModem3gppUssdProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5243,7 +5243,7 @@ export interface GdbusModem3gppUssdSkeleton_ConstructProps extends Gio.DBusInter
     networkRequest?: string
     state?: number
 }
-export class GdbusModem3gppUssdSkeleton {
+class GdbusModem3gppUssdSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem3gppUssd */
@@ -5376,7 +5376,7 @@ export interface GdbusModemCdmaProxy_ConstructProps extends Gio.DBusProxy_Constr
     nid?: number
     sid?: number
 }
-export class GdbusModemCdmaProxy {
+class GdbusModemCdmaProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5570,7 +5570,7 @@ export interface GdbusModemCdmaSkeleton_ConstructProps extends Gio.DBusInterface
     nid?: number
     sid?: number
 }
-export class GdbusModemCdmaSkeleton {
+class GdbusModemCdmaSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemCdma */
@@ -5718,7 +5718,7 @@ export class GdbusModemCdmaSkeleton {
 export interface GdbusModemFirmwareProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     updateSettings?: GLib.Variant
 }
-export class GdbusModemFirmwareProxy {
+class GdbusModemFirmwareProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5864,7 +5864,7 @@ export class GdbusModemFirmwareProxy {
 export interface GdbusModemFirmwareSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     updateSettings?: GLib.Variant
 }
-export class GdbusModemFirmwareSkeleton {
+class GdbusModemFirmwareSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemFirmware */
@@ -5977,7 +5977,7 @@ export interface GdbusModemLocationProxy_ConstructProps extends Gio.DBusProxy_Co
     suplServer?: string
     supportedAssistanceData?: number
 }
-export class GdbusModemLocationProxy {
+class GdbusModemLocationProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -6199,7 +6199,7 @@ export interface GdbusModemLocationSkeleton_ConstructProps extends Gio.DBusInter
     suplServer?: string
     supportedAssistanceData?: number
 }
-export class GdbusModemLocationSkeleton {
+class GdbusModemLocationSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemLocation */
@@ -6376,7 +6376,7 @@ export interface GdbusModemMessagingProxy_ConstructProps extends Gio.DBusProxy_C
     messages?: string[]
     supportedStorages?: GLib.Variant
 }
-export class GdbusModemMessagingProxy {
+class GdbusModemMessagingProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -6557,7 +6557,7 @@ export interface GdbusModemMessagingSkeleton_ConstructProps extends Gio.DBusInte
     messages?: string[]
     supportedStorages?: GLib.Variant
 }
-export class GdbusModemMessagingSkeleton {
+class GdbusModemMessagingSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemMessaging */
@@ -6699,7 +6699,7 @@ export interface GdbusModemOmaProxy_ConstructProps extends Gio.DBusProxy_Constru
     sessionState?: number
     sessionType?: number
 }
-export class GdbusModemOmaProxy {
+class GdbusModemOmaProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -6890,7 +6890,7 @@ export interface GdbusModemOmaSkeleton_ConstructProps extends Gio.DBusInterfaceS
     sessionState?: number
     sessionType?: number
 }
-export class GdbusModemOmaSkeleton {
+class GdbusModemOmaSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemOma */
@@ -7072,7 +7072,7 @@ export interface GdbusModemProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     unlockRequired?: number
     unlockRetries?: GLib.Variant
 }
-export class GdbusModemProxy {
+class GdbusModemProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -7519,7 +7519,7 @@ export interface GdbusModemSarProxy_ConstructProps extends Gio.DBusProxy_Constru
     powerLevel?: number
     state?: boolean
 }
-export class GdbusModemSarProxy {
+class GdbusModemSarProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -7672,7 +7672,7 @@ export interface GdbusModemSarSkeleton_ConstructProps extends Gio.DBusInterfaceS
     powerLevel?: number
     state?: boolean
 }
-export class GdbusModemSarSkeleton {
+class GdbusModemSarSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
@@ -7792,7 +7792,7 @@ export interface GdbusModemSignalProxy_ConstructProps extends Gio.DBusProxy_Cons
     rssiThreshold?: number
     umts?: GLib.Variant
 }
-export class GdbusModemSignalProxy {
+class GdbusModemSignalProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -7994,7 +7994,7 @@ export interface GdbusModemSignalSkeleton_ConstructProps extends Gio.DBusInterfa
     rssiThreshold?: number
     umts?: GLib.Variant
 }
-export class GdbusModemSignalSkeleton {
+class GdbusModemSignalSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
@@ -8147,7 +8147,7 @@ export class GdbusModemSignalSkeleton {
 }
 export interface GdbusModemSimpleProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class GdbusModemSimpleProxy {
+class GdbusModemSimpleProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -8294,7 +8294,7 @@ export class GdbusModemSimpleProxy {
 }
 export interface GdbusModemSimpleSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class GdbusModemSimpleSkeleton {
+class GdbusModemSimpleSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -8436,7 +8436,7 @@ export interface GdbusModemSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     unlockRequired?: number
     unlockRetries?: GLib.Variant
 }
-export class GdbusModemSkeleton {
+class GdbusModemSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
@@ -8842,7 +8842,7 @@ export class GdbusModemSkeleton {
 export interface GdbusModemTimeProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     networkTimezone?: GLib.Variant
 }
-export class GdbusModemTimeProxy {
+class GdbusModemTimeProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -8985,7 +8985,7 @@ export class GdbusModemTimeProxy {
 export interface GdbusModemTimeSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     networkTimezone?: GLib.Variant
 }
-export class GdbusModemTimeSkeleton {
+class GdbusModemTimeSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemTime */
@@ -9089,7 +9089,7 @@ export interface GdbusModemVoiceProxy_ConstructProps extends Gio.DBusProxy_Const
     calls?: string[]
     emergencyOnly?: boolean
 }
-export class GdbusModemVoiceProxy {
+class GdbusModemVoiceProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -9317,7 +9317,7 @@ export interface GdbusModemVoiceSkeleton_ConstructProps extends Gio.DBusInterfac
     calls?: string[]
     emergencyOnly?: boolean
 }
-export class GdbusModemVoiceSkeleton {
+class GdbusModemVoiceSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemVoice */
@@ -9503,7 +9503,7 @@ export class GdbusModemVoiceSkeleton {
 }
 export interface GdbusObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
-export class GdbusObjectManagerClient {
+class GdbusObjectManagerClient {
     /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9629,7 +9629,7 @@ export interface GdbusObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Con
     modem3gppProfileManager?: GdbusModem3gppProfileManager
     modem3gppUssd?: GdbusModem3gppUssd
 }
-export class GdbusObjectProxy {
+class GdbusObjectProxy {
     /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
@@ -9807,7 +9807,7 @@ export interface GdbusObjectSkeleton_ConstructProps extends Gio.DBusObjectSkelet
     modem3gppProfileManager?: GdbusModem3gppProfileManager
     modem3gppUssd?: GdbusModem3gppUssd
 }
-export class GdbusObjectSkeleton {
+class GdbusObjectSkeleton {
     /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
     /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
@@ -10004,7 +10004,7 @@ export class GdbusObjectSkeleton {
 export interface GdbusOrgFreedesktopModemManager1Proxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     version?: string
 }
-export class GdbusOrgFreedesktopModemManager1Proxy {
+class GdbusOrgFreedesktopModemManager1Proxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -10168,7 +10168,7 @@ export class GdbusOrgFreedesktopModemManager1Proxy {
 export interface GdbusOrgFreedesktopModemManager1Skeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     version?: string
 }
-export class GdbusOrgFreedesktopModemManager1Skeleton {
+class GdbusOrgFreedesktopModemManager1Skeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1 */
@@ -10302,7 +10302,7 @@ export interface GdbusSimProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     simIdentifier?: string
     simType?: number
 }
-export class GdbusSimProxy {
+class GdbusSimProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -10545,7 +10545,7 @@ export interface GdbusSimSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     simIdentifier?: string
     simType?: number
 }
-export class GdbusSimSkeleton {
+class GdbusSimSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusSim */
@@ -10753,7 +10753,7 @@ export interface GdbusSmsProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     timestamp?: string
     validity?: GLib.Variant
 }
-export class GdbusSmsProxy {
+class GdbusSmsProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -11004,7 +11004,7 @@ export interface GdbusSmsSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     timestamp?: string
     validity?: GLib.Variant
 }
-export class GdbusSmsSkeleton {
+class GdbusSmsSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusSms */
@@ -11199,7 +11199,7 @@ export class GdbusSmsSkeleton {
 }
 export interface KernelEventProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KernelEventProperties {
+class KernelEventProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.KernelEventProperties */
@@ -11255,7 +11255,7 @@ export class KernelEventProperties {
 }
 export interface Location3gpp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Location3gpp {
+class Location3gpp {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Location3gpp */
@@ -11307,7 +11307,7 @@ export class Location3gpp {
 }
 export interface LocationCdmaBs_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LocationCdmaBs {
+class LocationCdmaBs {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.LocationCdmaBs */
@@ -11355,7 +11355,7 @@ export class LocationCdmaBs {
 }
 export interface LocationGpsNmea_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LocationGpsNmea {
+class LocationGpsNmea {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.LocationGpsNmea */
@@ -11404,7 +11404,7 @@ export class LocationGpsNmea {
 }
 export interface LocationGpsRaw_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LocationGpsRaw {
+class LocationGpsRaw {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.LocationGpsRaw */
@@ -11454,7 +11454,7 @@ export class LocationGpsRaw {
 }
 export interface Manager_ConstructProps extends GdbusObjectManagerClient_ConstructProps {
 }
-export class Manager {
+class Manager {
     /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -11617,7 +11617,7 @@ export interface Modem_ConstructProps extends GdbusModemProxy_ConstructProps {
     unlockRequired?: number
     unlockRetries?: GLib.Variant
 }
-export class Modem {
+class Modem {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -12171,7 +12171,7 @@ export interface Modem3gpp_ConstructProps extends GdbusModem3gppProxy_ConstructP
     registrationState?: number
     subscriptionState?: number
 }
-export class Modem3gpp {
+class Modem3gpp {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -12445,7 +12445,7 @@ export class Modem3gpp {
 }
 export interface Modem3gppProfileManager_ConstructProps extends GdbusModem3gppProfileManagerProxy_ConstructProps {
 }
-export class Modem3gppProfileManager {
+class Modem3gppProfileManager {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -12607,7 +12607,7 @@ export interface Modem3gppUssd_ConstructProps extends GdbusModem3gppUssdProxy_Co
     networkRequest?: string
     state?: number
 }
-export class Modem3gppUssd {
+class Modem3gppUssd {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -12791,7 +12791,7 @@ export interface ModemCdma_ConstructProps extends GdbusModemCdmaProxy_ConstructP
     nid?: number
     sid?: number
 }
-export class ModemCdma {
+class ModemCdma {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -12991,7 +12991,7 @@ export class ModemCdma {
 export interface ModemFirmware_ConstructProps extends GdbusModemFirmwareProxy_ConstructProps {
     updateSettings?: GLib.Variant
 }
-export class ModemFirmware {
+class ModemFirmware {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -13149,7 +13149,7 @@ export interface ModemLocation_ConstructProps extends GdbusModemLocationProxy_Co
     suplServer?: string
     supportedAssistanceData?: number
 }
-export class ModemLocation {
+class ModemLocation {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -13406,7 +13406,7 @@ export interface ModemMessaging_ConstructProps extends GdbusModemMessagingProxy_
     messages?: string[]
     supportedStorages?: GLib.Variant
 }
-export class ModemMessaging {
+class ModemMessaging {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -13597,7 +13597,7 @@ export interface ModemOma_ConstructProps extends GdbusModemOmaProxy_ConstructPro
     sessionState?: number
     sessionType?: number
 }
-export class ModemOma {
+class ModemOma {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -13800,7 +13800,7 @@ export interface ModemSar_ConstructProps extends GdbusModemSarProxy_ConstructPro
     powerLevel?: number
     state?: boolean
 }
-export class ModemSar {
+class ModemSar {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -13965,7 +13965,7 @@ export interface ModemSignal_ConstructProps extends GdbusModemSignalProxy_Constr
     rssiThreshold?: number
     umts?: GLib.Variant
 }
-export class ModemSignal {
+class ModemSignal {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -14176,7 +14176,7 @@ export class ModemSignal {
 }
 export interface ModemSimple_ConstructProps extends GdbusModemSimpleProxy_ConstructProps {
 }
-export class ModemSimple {
+class ModemSimple {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -14330,7 +14330,7 @@ export class ModemSimple {
 export interface ModemTime_ConstructProps extends GdbusModemTimeProxy_ConstructProps {
     networkTimezone?: GLib.Variant
 }
-export class ModemTime {
+class ModemTime {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -14476,7 +14476,7 @@ export interface ModemVoice_ConstructProps extends GdbusModemVoiceProxy_Construc
     calls?: string[]
     emergencyOnly?: boolean
 }
-export class ModemVoice {
+class ModemVoice {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -14727,7 +14727,7 @@ export class ModemVoice {
 }
 export interface NetworkTimezone_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NetworkTimezone {
+class NetworkTimezone {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.NetworkTimezone */
@@ -14790,7 +14790,7 @@ export interface Object_ConstructProps extends GdbusObjectProxy_ConstructProps {
     modem3gppProfileManager?: GdbusModem3gppProfileManager
     modem3gppUssd?: GdbusModem3gppUssd
 }
-export class Object {
+class Object {
     /* Properties of ModemManager-1.0.ModemManager.GdbusObject */
     modem: GdbusModem
     modemCdma: GdbusModemCdma
@@ -14968,7 +14968,7 @@ export class Object {
 }
 export interface Pco_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Pco {
+class Pco {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Pco */
@@ -15019,7 +15019,7 @@ export class Pco {
 }
 export interface Signal_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Signal {
+class Signal {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Signal */
@@ -15074,7 +15074,7 @@ export class Signal {
 }
 export interface SignalThresholdProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SignalThresholdProperties {
+class SignalThresholdProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.SignalThresholdProperties */
@@ -15137,7 +15137,7 @@ export interface Sim_ConstructProps extends GdbusSimProxy_ConstructProps {
     simIdentifier?: string
     simType?: number
 }
-export class Sim {
+class Sim {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -15401,7 +15401,7 @@ export class Sim {
 }
 export interface SimpleConnectProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleConnectProperties {
+class SimpleConnectProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.SimpleConnectProperties */
@@ -15487,7 +15487,7 @@ export interface SimpleStatus_ConstructProps extends GObject.Object_ConstructPro
     signalQuality?: GLib.Variant
     state?: ModemState
 }
-export class SimpleStatus {
+class SimpleStatus {
     /* Properties of ModemManager-1.0.ModemManager.SimpleStatus */
     accessTechnologies: ModemAccessTechnology
     cdmaCdma1xRegistrationState: ModemCdmaRegistrationState
@@ -15634,7 +15634,7 @@ export interface Sms_ConstructProps extends GdbusSmsProxy_ConstructProps {
     timestamp?: string
     validity?: GLib.Variant
 }
-export class Sms {
+class Sms {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -15895,7 +15895,7 @@ export class Sms {
 }
 export interface SmsProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SmsProperties {
+class SmsProperties {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.SmsProperties */
@@ -15965,7 +15965,7 @@ export class SmsProperties {
 }
 export interface UnlockRetries_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UnlockRetries {
+class UnlockRetries {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.UnlockRetries */
@@ -16011,73 +16011,73 @@ export class UnlockRetries {
     _init (config?: UnlockRetries_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class TODO_3gppProfileClass {
+abstract class TODO_3gppProfileClass {
     static name: string
 }
-export class TODO_3gppProfilePrivate {
+class TODO_3gppProfilePrivate {
     static name: string
 }
-export abstract class BearerClass {
+abstract class BearerClass {
     static name: string
 }
-export abstract class BearerIpConfigClass {
+abstract class BearerIpConfigClass {
     static name: string
 }
-export class BearerIpConfigPrivate {
+class BearerIpConfigPrivate {
     static name: string
 }
-export class BearerPrivate {
+class BearerPrivate {
     static name: string
 }
-export abstract class BearerPropertiesClass {
+abstract class BearerPropertiesClass {
     static name: string
 }
-export class BearerPropertiesPrivate {
+class BearerPropertiesPrivate {
     static name: string
 }
-export abstract class BearerStatsClass {
+abstract class BearerStatsClass {
     static name: string
 }
-export class BearerStatsPrivate {
+class BearerStatsPrivate {
     static name: string
 }
-export abstract class CallAudioFormatClass {
+abstract class CallAudioFormatClass {
     static name: string
 }
-export class CallAudioFormatPrivate {
+class CallAudioFormatPrivate {
     static name: string
 }
-export abstract class CallClass {
+abstract class CallClass {
     static name: string
 }
-export class CallPrivate {
+class CallPrivate {
     static name: string
 }
-export abstract class CallPropertiesClass {
+abstract class CallPropertiesClass {
     static name: string
 }
-export class CallPropertiesPrivate {
+class CallPropertiesPrivate {
     static name: string
 }
-export abstract class CdmaManualActivationPropertiesClass {
+abstract class CdmaManualActivationPropertiesClass {
     static name: string
 }
-export class CdmaManualActivationPropertiesPrivate {
+class CdmaManualActivationPropertiesPrivate {
     static name: string
 }
-export abstract class FirmwarePropertiesClass {
+abstract class FirmwarePropertiesClass {
     static name: string
 }
-export class FirmwarePropertiesPrivate {
+class FirmwarePropertiesPrivate {
     static name: string
 }
-export abstract class FirmwareUpdateSettingsClass {
+abstract class FirmwareUpdateSettingsClass {
     static name: string
 }
-export class FirmwareUpdateSettingsPrivate {
+class FirmwareUpdateSettingsPrivate {
     static name: string
 }
-export abstract class GdbusBearerIface {
+abstract class GdbusBearerIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusBearerIface */
     parentIface: GObject.TypeInterface
     handleConnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16097,23 +16097,23 @@ export abstract class GdbusBearerIface {
     getSuspended: (object: GdbusBearer) => boolean
     static name: string
 }
-export abstract class GdbusBearerProxyClass {
+abstract class GdbusBearerProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusBearerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusBearerProxyPrivate {
+class GdbusBearerProxyPrivate {
     static name: string
 }
-export abstract class GdbusBearerSkeletonClass {
+abstract class GdbusBearerSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusBearerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusBearerSkeletonPrivate {
+class GdbusBearerSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusCallIface {
+abstract class GdbusCallIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusCallIface */
     parentIface: GObject.TypeInterface
     handleAccept: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16134,23 +16134,23 @@ export abstract class GdbusCallIface {
     stateChanged: (object: GdbusCall, argOld: number, argNew: number, argReason: number) => void
     static name: string
 }
-export abstract class GdbusCallProxyClass {
+abstract class GdbusCallProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusCallProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusCallProxyPrivate {
+class GdbusCallProxyPrivate {
     static name: string
 }
-export abstract class GdbusCallSkeletonClass {
+abstract class GdbusCallSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusCallSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusCallSkeletonPrivate {
+class GdbusCallSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppIface {
+abstract class GdbusModem3gppIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppIface */
     parentIface: GObject.TypeInterface
     handleDisableFacilityLock: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -16172,7 +16172,7 @@ export abstract class GdbusModem3gppIface {
     getSubscriptionState: (object: GdbusModem3gpp) => number
     static name: string
 }
-export abstract class GdbusModem3gppProfileManagerIface {
+abstract class GdbusModem3gppProfileManagerIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerIface */
     parentIface: GObject.TypeInterface
     handleDelete: (object: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -16181,39 +16181,39 @@ export abstract class GdbusModem3gppProfileManagerIface {
     updated: (object: GdbusModem3gppProfileManager) => void
     static name: string
 }
-export abstract class GdbusModem3gppProfileManagerProxyClass {
+abstract class GdbusModem3gppProfileManagerProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModem3gppProfileManagerProxyPrivate {
+class GdbusModem3gppProfileManagerProxyPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppProfileManagerSkeletonClass {
+abstract class GdbusModem3gppProfileManagerSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModem3gppProfileManagerSkeletonPrivate {
+class GdbusModem3gppProfileManagerSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppProxyClass {
+abstract class GdbusModem3gppProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModem3gppProxyPrivate {
+class GdbusModem3gppProxyPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppSkeletonClass {
+abstract class GdbusModem3gppSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModem3gppSkeletonPrivate {
+class GdbusModem3gppSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppUssdIface {
+abstract class GdbusModem3gppUssdIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdIface */
     parentIface: GObject.TypeInterface
     handleCancel: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16224,23 +16224,23 @@ export abstract class GdbusModem3gppUssdIface {
     getState: (object: GdbusModem3gppUssd) => number
     static name: string
 }
-export abstract class GdbusModem3gppUssdProxyClass {
+abstract class GdbusModem3gppUssdProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModem3gppUssdProxyPrivate {
+class GdbusModem3gppUssdProxyPrivate {
     static name: string
 }
-export abstract class GdbusModem3gppUssdSkeletonClass {
+abstract class GdbusModem3gppUssdSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModem3gppUssdSkeletonPrivate {
+class GdbusModem3gppUssdSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemCdmaIface {
+abstract class GdbusModemCdmaIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaIface */
     parentIface: GObject.TypeInterface
     handleActivate: (object: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean
@@ -16255,23 +16255,23 @@ export abstract class GdbusModemCdmaIface {
     activationStateChanged: (object: GdbusModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void
     static name: string
 }
-export abstract class GdbusModemCdmaProxyClass {
+abstract class GdbusModemCdmaProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemCdmaProxyPrivate {
+class GdbusModemCdmaProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemCdmaSkeletonClass {
+abstract class GdbusModemCdmaSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemCdmaSkeletonPrivate {
+class GdbusModemCdmaSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemFirmwareIface {
+abstract class GdbusModemFirmwareIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareIface */
     parentIface: GObject.TypeInterface
     handleList: (object: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16279,23 +16279,23 @@ export abstract class GdbusModemFirmwareIface {
     getUpdateSettings: (object: GdbusModemFirmware) => GLib.Variant | null
     static name: string
 }
-export abstract class GdbusModemFirmwareProxyClass {
+abstract class GdbusModemFirmwareProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemFirmwareProxyPrivate {
+class GdbusModemFirmwareProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemFirmwareSkeletonClass {
+abstract class GdbusModemFirmwareSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemFirmwareSkeletonPrivate {
+class GdbusModemFirmwareSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemIface {
+abstract class GdbusModemIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemIface */
     parentIface: GObject.TypeInterface
     handleCommand: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean
@@ -16348,7 +16348,7 @@ export abstract class GdbusModemIface {
     stateChanged: (object: GdbusModem, argOld: number, argNew: number, argReason: number) => void
     static name: string
 }
-export abstract class GdbusModemLocationIface {
+abstract class GdbusModemLocationIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationIface */
     parentIface: GObject.TypeInterface
     handleGetLocation: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16366,23 +16366,23 @@ export abstract class GdbusModemLocationIface {
     getSupportedAssistanceData: (object: GdbusModemLocation) => number
     static name: string
 }
-export abstract class GdbusModemLocationProxyClass {
+abstract class GdbusModemLocationProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemLocationProxyPrivate {
+class GdbusModemLocationProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemLocationSkeletonClass {
+abstract class GdbusModemLocationSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemLocationSkeletonPrivate {
+class GdbusModemLocationSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemMessagingIface {
+abstract class GdbusModemMessagingIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingIface */
     parentIface: GObject.TypeInterface
     handleCreate: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -16395,23 +16395,23 @@ export abstract class GdbusModemMessagingIface {
     deleted: (object: GdbusModemMessaging, argPath: string) => void
     static name: string
 }
-export abstract class GdbusModemMessagingProxyClass {
+abstract class GdbusModemMessagingProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemMessagingProxyPrivate {
+class GdbusModemMessagingProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemMessagingSkeletonClass {
+abstract class GdbusModemMessagingSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemMessagingSkeletonPrivate {
+class GdbusModemMessagingSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemOmaIface {
+abstract class GdbusModemOmaIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaIface */
     parentIface: GObject.TypeInterface
     handleAcceptNetworkInitiatedSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean
@@ -16425,31 +16425,31 @@ export abstract class GdbusModemOmaIface {
     sessionStateChanged: (object: GdbusModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void
     static name: string
 }
-export abstract class GdbusModemOmaProxyClass {
+abstract class GdbusModemOmaProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemOmaProxyPrivate {
+class GdbusModemOmaProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemOmaSkeletonClass {
+abstract class GdbusModemOmaSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemOmaSkeletonPrivate {
+class GdbusModemOmaSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemProxyClass {
+abstract class GdbusModemProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemProxyPrivate {
+class GdbusModemProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemSarIface {
+abstract class GdbusModemSarIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarIface */
     parentIface: GObject.TypeInterface
     handleEnable: (object: GdbusModemSar, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
@@ -16458,23 +16458,23 @@ export abstract class GdbusModemSarIface {
     getState: (object: GdbusModemSar) => boolean
     static name: string
 }
-export abstract class GdbusModemSarProxyClass {
+abstract class GdbusModemSarProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemSarProxyPrivate {
+class GdbusModemSarProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemSarSkeletonClass {
+abstract class GdbusModemSarSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemSarSkeletonPrivate {
+class GdbusModemSarSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemSignalIface {
+abstract class GdbusModemSignalIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalIface */
     parentIface: GObject.TypeInterface
     handleSetup: (object: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean
@@ -16490,23 +16490,23 @@ export abstract class GdbusModemSignalIface {
     getUmts: (object: GdbusModemSignal) => GLib.Variant | null
     static name: string
 }
-export abstract class GdbusModemSignalProxyClass {
+abstract class GdbusModemSignalProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemSignalProxyPrivate {
+class GdbusModemSignalProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemSignalSkeletonClass {
+abstract class GdbusModemSignalSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemSignalSkeletonPrivate {
+class GdbusModemSignalSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemSimpleIface {
+abstract class GdbusModemSimpleIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleIface */
     parentIface: GObject.TypeInterface
     handleConnect: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
@@ -16514,31 +16514,31 @@ export abstract class GdbusModemSimpleIface {
     handleGetStatus: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation) => boolean
     static name: string
 }
-export abstract class GdbusModemSimpleProxyClass {
+abstract class GdbusModemSimpleProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemSimpleProxyPrivate {
+class GdbusModemSimpleProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemSimpleSkeletonClass {
+abstract class GdbusModemSimpleSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemSimpleSkeletonPrivate {
+class GdbusModemSimpleSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemSkeletonClass {
+abstract class GdbusModemSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemSkeletonPrivate {
+class GdbusModemSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemTimeIface {
+abstract class GdbusModemTimeIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeIface */
     parentIface: GObject.TypeInterface
     handleGetNetworkTime: (object: GdbusModemTime, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16546,23 +16546,23 @@ export abstract class GdbusModemTimeIface {
     networkTimeChanged: (object: GdbusModemTime, argTime: string) => void
     static name: string
 }
-export abstract class GdbusModemTimeProxyClass {
+abstract class GdbusModemTimeProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemTimeProxyPrivate {
+class GdbusModemTimeProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemTimeSkeletonClass {
+abstract class GdbusModemTimeSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemTimeSkeletonPrivate {
+class GdbusModemTimeSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusModemVoiceIface {
+abstract class GdbusModemVoiceIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceIface */
     parentIface: GObject.TypeInterface
     handleCallWaitingQuery: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16580,52 +16580,52 @@ export abstract class GdbusModemVoiceIface {
     callDeleted: (object: GdbusModemVoice, argPath: string) => void
     static name: string
 }
-export abstract class GdbusModemVoiceProxyClass {
+abstract class GdbusModemVoiceProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusModemVoiceProxyPrivate {
+class GdbusModemVoiceProxyPrivate {
     static name: string
 }
-export abstract class GdbusModemVoiceSkeletonClass {
+abstract class GdbusModemVoiceSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusModemVoiceSkeletonPrivate {
+class GdbusModemVoiceSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusObjectIface {
+abstract class GdbusObjectIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class GdbusObjectManagerClientClass {
+abstract class GdbusObjectManagerClientClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
-export class GdbusObjectManagerClientPrivate {
+class GdbusObjectManagerClientPrivate {
     static name: string
 }
-export abstract class GdbusObjectProxyClass {
+abstract class GdbusObjectProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
-export class GdbusObjectProxyPrivate {
+class GdbusObjectProxyPrivate {
     static name: string
 }
-export abstract class GdbusObjectSkeletonClass {
+abstract class GdbusObjectSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
-export class GdbusObjectSkeletonPrivate {
+class GdbusObjectSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusOrgFreedesktopModemManager1Iface {
+abstract class GdbusOrgFreedesktopModemManager1Iface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1Iface */
     parentIface: GObject.TypeInterface
     handleInhibitDevice: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean
@@ -16635,23 +16635,23 @@ export abstract class GdbusOrgFreedesktopModemManager1Iface {
     getVersion: (object: GdbusOrgFreedesktopModemManager1) => string | null
     static name: string
 }
-export abstract class GdbusOrgFreedesktopModemManager1ProxyClass {
+abstract class GdbusOrgFreedesktopModemManager1ProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1ProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusOrgFreedesktopModemManager1ProxyPrivate {
+class GdbusOrgFreedesktopModemManager1ProxyPrivate {
     static name: string
 }
-export abstract class GdbusOrgFreedesktopModemManager1SkeletonClass {
+abstract class GdbusOrgFreedesktopModemManager1SkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1SkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusOrgFreedesktopModemManager1SkeletonPrivate {
+class GdbusOrgFreedesktopModemManager1SkeletonPrivate {
     static name: string
 }
-export abstract class GdbusSimIface {
+abstract class GdbusSimIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSimIface */
     parentIface: GObject.TypeInterface
     handleChangePin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean
@@ -16672,23 +16672,23 @@ export abstract class GdbusSimIface {
     getSimType: (object: GdbusSim) => number
     static name: string
 }
-export abstract class GdbusSimProxyClass {
+abstract class GdbusSimProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSimProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusSimProxyPrivate {
+class GdbusSimProxyPrivate {
     static name: string
 }
-export abstract class GdbusSimSkeletonClass {
+abstract class GdbusSimSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSimSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusSimSkeletonPrivate {
+class GdbusSimSkeletonPrivate {
     static name: string
 }
-export abstract class GdbusSmsIface {
+abstract class GdbusSmsIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSmsIface */
     parentIface: GObject.TypeInterface
     handleSend: (object: GdbusSms, invocation: Gio.DBusMethodInvocation) => boolean
@@ -16711,62 +16711,62 @@ export abstract class GdbusSmsIface {
     getValidity: (object: GdbusSms) => GLib.Variant | null
     static name: string
 }
-export abstract class GdbusSmsProxyClass {
+abstract class GdbusSmsProxyClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSmsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class GdbusSmsProxyPrivate {
+class GdbusSmsProxyPrivate {
     static name: string
 }
-export abstract class GdbusSmsSkeletonClass {
+abstract class GdbusSmsSkeletonClass {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSmsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GdbusSmsSkeletonPrivate {
+class GdbusSmsSkeletonPrivate {
     static name: string
 }
-export abstract class KernelEventPropertiesClass {
+abstract class KernelEventPropertiesClass {
     static name: string
 }
-export class KernelEventPropertiesPrivate {
+class KernelEventPropertiesPrivate {
     static name: string
 }
-export abstract class Location3gppClass {
+abstract class Location3gppClass {
     static name: string
 }
-export class Location3gppPrivate {
+class Location3gppPrivate {
     static name: string
 }
-export abstract class LocationCdmaBsClass {
+abstract class LocationCdmaBsClass {
     static name: string
 }
-export class LocationCdmaBsPrivate {
+class LocationCdmaBsPrivate {
     static name: string
 }
-export abstract class LocationGpsNmeaClass {
+abstract class LocationGpsNmeaClass {
     static name: string
 }
-export class LocationGpsNmeaPrivate {
+class LocationGpsNmeaPrivate {
     static name: string
 }
-export abstract class LocationGpsRawClass {
+abstract class LocationGpsRawClass {
     static name: string
 }
-export class LocationGpsRawPrivate {
+class LocationGpsRawPrivate {
     static name: string
 }
-export abstract class ManagerClass {
+abstract class ManagerClass {
     static name: string
 }
-export class ManagerPrivate {
+class ManagerPrivate {
     static name: string
 }
-export abstract class Modem3gppClass {
+abstract class Modem3gppClass {
     static name: string
 }
-export class Modem3gppNetwork {
+class Modem3gppNetwork {
     /* Methods of ModemManager-1.0.ModemManager.Modem3gppNetwork */
     free(): void
     getAccessTechnology(): ModemAccessTechnology
@@ -16776,52 +16776,52 @@ export class Modem3gppNetwork {
     getOperatorShort(): string
     static name: string
 }
-export class Modem3gppPrivate {
+class Modem3gppPrivate {
     static name: string
 }
-export abstract class Modem3gppProfileManagerClass {
+abstract class Modem3gppProfileManagerClass {
     static name: string
 }
-export abstract class Modem3gppUssdClass {
+abstract class Modem3gppUssdClass {
     static name: string
 }
-export abstract class ModemCdmaClass {
+abstract class ModemCdmaClass {
     static name: string
 }
-export abstract class ModemClass {
+abstract class ModemClass {
     static name: string
 }
-export abstract class ModemFirmwareClass {
+abstract class ModemFirmwareClass {
     static name: string
 }
-export class ModemFirmwarePrivate {
+class ModemFirmwarePrivate {
     static name: string
 }
-export abstract class ModemLocationClass {
+abstract class ModemLocationClass {
     static name: string
 }
-export class ModemLocationPrivate {
+class ModemLocationPrivate {
     static name: string
 }
-export abstract class ModemMessagingClass {
+abstract class ModemMessagingClass {
     static name: string
 }
-export class ModemMessagingPrivate {
+class ModemMessagingPrivate {
     static name: string
 }
-export class ModemModeCombination {
+class ModemModeCombination {
     /* Fields of ModemManager-1.0.ModemManager.ModemModeCombination */
     allowed: ModemMode
     preferred: ModemMode
     static name: string
 }
-export abstract class ModemOmaClass {
+abstract class ModemOmaClass {
     static name: string
 }
-export class ModemOmaPrivate {
+class ModemOmaPrivate {
     static name: string
 }
-export class ModemPortInfo {
+class ModemPortInfo {
     /* Fields of ModemManager-1.0.ModemManager.ModemPortInfo */
     name: string
     type: ModemPortType
@@ -16829,70 +16829,70 @@ export class ModemPortInfo {
     arrayFree(arraySize: number): void
     static name: string
 }
-export class ModemPrivate {
+class ModemPrivate {
     static name: string
 }
-export abstract class ModemSarClass {
+abstract class ModemSarClass {
     static name: string
 }
-export abstract class ModemSignalClass {
+abstract class ModemSignalClass {
     static name: string
 }
-export class ModemSignalPrivate {
+class ModemSignalPrivate {
     static name: string
 }
-export abstract class ModemSimpleClass {
+abstract class ModemSimpleClass {
     static name: string
 }
-export abstract class ModemTimeClass {
+abstract class ModemTimeClass {
     static name: string
 }
-export class ModemTimePrivate {
+class ModemTimePrivate {
     static name: string
 }
-export abstract class ModemVoiceClass {
+abstract class ModemVoiceClass {
     static name: string
 }
-export class ModemVoicePrivate {
+class ModemVoicePrivate {
     static name: string
 }
-export abstract class NetworkTimezoneClass {
+abstract class NetworkTimezoneClass {
     static name: string
 }
-export class NetworkTimezonePrivate {
+class NetworkTimezonePrivate {
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     static name: string
 }
-export class OmaPendingNetworkInitiatedSession {
+class OmaPendingNetworkInitiatedSession {
     /* Fields of ModemManager-1.0.ModemManager.OmaPendingNetworkInitiatedSession */
     sessionType: OmaSessionType
     sessionId: number
     static name: string
 }
-export abstract class PcoClass {
+abstract class PcoClass {
     static name: string
 }
-export class PcoPrivate {
+class PcoPrivate {
     static name: string
 }
-export abstract class SignalClass {
+abstract class SignalClass {
     static name: string
 }
-export class SignalPrivate {
+class SignalPrivate {
     static name: string
 }
-export abstract class SignalThresholdPropertiesClass {
+abstract class SignalThresholdPropertiesClass {
     static name: string
 }
-export class SignalThresholdPropertiesPrivate {
+class SignalThresholdPropertiesPrivate {
     static name: string
 }
-export abstract class SimClass {
+abstract class SimClass {
     static name: string
 }
-export class SimPreferredNetwork {
+class SimPreferredNetwork {
     /* Methods of ModemManager-1.0.ModemManager.SimPreferredNetwork */
     free(): void
     getAccessTechnology(): ModemAccessTechnology
@@ -16905,31 +16905,32 @@ export class SimPreferredNetwork {
     /* Static methods and pseudo-constructors */
     static new(): SimPreferredNetwork
 }
-export abstract class SimpleConnectPropertiesClass {
+abstract class SimpleConnectPropertiesClass {
     static name: string
 }
-export class SimpleConnectPropertiesPrivate {
+class SimpleConnectPropertiesPrivate {
     static name: string
 }
-export abstract class SimpleStatusClass {
+abstract class SimpleStatusClass {
     static name: string
 }
-export class SimpleStatusPrivate {
+class SimpleStatusPrivate {
     static name: string
 }
-export abstract class SmsClass {
+abstract class SmsClass {
     static name: string
 }
-export abstract class SmsPropertiesClass {
+abstract class SmsPropertiesClass {
     static name: string
 }
-export class SmsPropertiesPrivate {
+class SmsPropertiesPrivate {
     static name: string
 }
-export abstract class UnlockRetriesClass {
+abstract class UnlockRetriesClass {
     static name: string
 }
-export class UnlockRetriesPrivate {
+class UnlockRetriesPrivate {
     static name: string
 }
 }
+export default ModemManager

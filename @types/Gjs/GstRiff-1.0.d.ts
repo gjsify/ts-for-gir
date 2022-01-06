@@ -3,10 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+
+export namespace GstRiff {
 
 export const RIFF_IBM_FORMAT_ADPCM: number
 export const RIFF_IBM_FORMAT_ALAW: number
@@ -171,11 +173,13 @@ export const RIFF_WAVE_FORMAT_WMS: number
 export const RIFF_WAVE_FORMAT_XEBEC: number
 export const RIFF_WAVE_FORMAT_YAMAHA_ADPCM: number
 export const RIFF_WAVE_FORMAT_ZYXEL_ADPCM: number
-export function riff_create_audio_template_caps(): Gst.Caps
-export function riff_create_iavs_template_caps(): Gst.Caps
-export function riff_create_video_template_caps(): Gst.Caps
-export function riff_init(): void
-export function riff_parse_chunk(element: Gst.Element, buf: Gst.Buffer, offset: number, fourcc: number, chunk_data: Gst.Buffer): boolean
-export function riff_parse_file_header(element: Gst.Element, buf: Gst.Buffer, doctype: number): boolean
-export function riff_parse_info(element: Gst.Element, buf: Gst.Buffer, taglist: Gst.TagList): void
-export function riff_read_chunk(element: Gst.Element, pad: Gst.Pad, offset: number, tag: number, chunk_data: Gst.Buffer): Gst.FlowReturn
+function riff_create_audio_template_caps(): Gst.Caps
+function riff_create_iavs_template_caps(): Gst.Caps
+function riff_create_video_template_caps(): Gst.Caps
+function riff_init(): void
+function riff_parse_chunk(element: Gst.Element, buf: Gst.Buffer, offset: number, fourcc: number, chunk_data: Gst.Buffer): boolean
+function riff_parse_file_header(element: Gst.Element, buf: Gst.Buffer, doctype: number): boolean
+function riff_parse_info(element: Gst.Element, buf: Gst.Buffer, taglist: Gst.TagList): void
+function riff_read_chunk(element: Gst.Element, pad: Gst.Pad, offset: number, tag: number, chunk_data: Gst.Buffer): Gst.FlowReturn
+}
+export default GstRiff

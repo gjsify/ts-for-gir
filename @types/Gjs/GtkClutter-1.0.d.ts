@@ -3,34 +3,36 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as Json from './Json-1.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Cogl from './Cogl-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Clutter from './Clutter-1.0';
+import type Json from './Json-1.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Cogl from './Cogl-1.0';
 
-export enum TextureError {
+export namespace GtkClutter {
+
+enum TextureError {
     TEXTURE_ERROR_INVALID_STOCK_ID,
 }
-export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function init_with_args(argv?: string[] | null, parameter_string?: string | null, entries?: GLib.OptionEntry[] | null, translation_domain?: string | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+function init_with_args(argv?: string[] | null, parameter_string?: string | null, entries?: GLib.OptionEntry[] | null, translation_domain?: string | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
 export interface Actor_ConstructProps extends Clutter.Actor_ConstructProps {
     contents?: Gtk.Widget
 }
-export class Actor {
+class Actor {
     /* Properties of GtkClutter-1.0.GtkClutter.Actor */
     contents: Gtk.Widget
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -750,7 +752,7 @@ export class Actor {
 export interface Embed_ConstructProps extends Gtk.Container_ConstructProps {
     use_layout_size?: boolean
 }
-export class Embed {
+class Embed {
     /* Properties of GtkClutter-1.0.GtkClutter.Embed */
     use_layout_size: boolean
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -1563,7 +1565,7 @@ export class Embed {
 }
 export interface Texture_ConstructProps extends Clutter.Texture_ConstructProps {
 }
-export class Texture {
+class Texture {
     /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filter_quality: Clutter.TextureQuality
@@ -2353,7 +2355,7 @@ export class Texture {
 }
 export interface Window_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -3389,24 +3391,26 @@ export class Window {
     static new(type: Gtk.WindowType): Window
     static $gtype: GObject.Type
 }
-export abstract class ActorClass {
+abstract class ActorClass {
     static name: string
 }
-export class ActorPrivate {
+class ActorPrivate {
     static name: string
 }
-export abstract class EmbedClass {
+abstract class EmbedClass {
     static name: string
 }
-export class EmbedPrivate {
+class EmbedPrivate {
     static name: string
 }
-export abstract class TextureClass {
+abstract class TextureClass {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
+}
+export default GtkClutter

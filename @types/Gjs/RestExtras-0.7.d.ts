@@ -3,14 +3,16 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Rest from './Rest-0.7';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Rest from './Rest-0.7';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export interface YoutubeProxyUploadCallback {
+export namespace RestExtras {
+
+interface YoutubeProxyUploadCallback {
     (proxy: YoutubeProxy, payload: string, total: number, uploaded: number, error: GLib.Error, weak_object: GObject.Object): void
 }
 export interface FlickrProxy_ConstructProps extends Rest.Proxy_ConstructProps {
@@ -18,7 +20,7 @@ export interface FlickrProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     shared_secret?: string
     token?: string
 }
-export class FlickrProxy {
+class FlickrProxy {
     /* Properties of RestExtras-0.7.RestExtras.FlickrProxy */
     token: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -122,7 +124,7 @@ export class FlickrProxy {
 export interface FlickrProxyCall_ConstructProps extends Rest.ProxyCall_ConstructProps {
     upload?: boolean
 }
-export class FlickrProxyCall {
+class FlickrProxyCall {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCall */
     parent: Rest.ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -205,7 +207,7 @@ export interface LastfmProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     secret?: string
     session_key?: string
 }
-export class LastfmProxy {
+class LastfmProxy {
     /* Properties of RestExtras-0.7.RestExtras.LastfmProxy */
     session_key: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -306,7 +308,7 @@ export class LastfmProxy {
 }
 export interface LastfmProxyCall_ConstructProps extends Rest.ProxyCall_ConstructProps {
 }
-export class LastfmProxyCall {
+class LastfmProxyCall {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCall */
     parent: Rest.ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -388,7 +390,7 @@ export interface YoutubeProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     developer_key?: string
     user_auth?: string
 }
-export class YoutubeProxy {
+class YoutubeProxy {
     /* Properties of RestExtras-0.7.RestExtras.YoutubeProxy */
     user_auth: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -482,37 +484,39 @@ export class YoutubeProxy {
     static new_with_auth(developer_key: string, user_auth: string): YoutubeProxy
     static $gtype: GObject.Type
 }
-export abstract class FlickrProxyCallClass {
+abstract class FlickrProxyCallClass {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCallClass */
     parent_class: Rest.ProxyCallClass
     static name: string
 }
-export abstract class FlickrProxyClass {
+abstract class FlickrProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
-export class FlickrProxyPrivate {
+class FlickrProxyPrivate {
     static name: string
 }
-export abstract class LastfmProxyCallClass {
+abstract class LastfmProxyCallClass {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCallClass */
     parent_class: Rest.ProxyCallClass
     static name: string
 }
-export abstract class LastfmProxyClass {
+abstract class LastfmProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
-export class LastfmProxyPrivate {
+class LastfmProxyPrivate {
     static name: string
 }
-export abstract class YoutubeProxyClass {
+abstract class YoutubeProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.YoutubeProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
-export class YoutubeProxyPrivate {
+class YoutubeProxyPrivate {
     static name: string
 }
+}
+export default RestExtras

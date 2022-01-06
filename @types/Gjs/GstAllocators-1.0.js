@@ -1,2 +1,1 @@
-imports.gi.versions.GstAllocators = '1.0'
-module.exports = imports.gi.GstAllocators
+export {default as default} from 'gi://GstAllocators?version=1.0';

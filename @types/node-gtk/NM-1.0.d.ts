@@ -7,23 +7,23 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace NM {
+declare namespace NM {
 
-export enum TODO_80211Mode {
+enum TODO_80211Mode {
     UNKNOWN,
     ADHOC,
     INFRA,
     AP,
     MESH,
 }
-export enum ActiveConnectionState {
+enum ActiveConnectionState {
     UNKNOWN,
     ACTIVATING,
     ACTIVATED,
     DEACTIVATING,
     DEACTIVATED,
 }
-export enum ActiveConnectionStateReason {
+enum ActiveConnectionStateReason {
     UNKNOWN,
     NONE,
     USER_DISCONNECTED,
@@ -40,7 +40,7 @@ export enum ActiveConnectionStateReason {
     DEVICE_REALIZE_FAILED,
     DEVICE_REMOVED,
 }
-export enum AgentManagerError {
+enum AgentManagerError {
     FAILED,
     PERMISSIONDENIED,
     INVALIDIDENTIFIER,
@@ -48,16 +48,16 @@ export enum AgentManagerError {
     NOSECRETS,
     USERCANCELED,
 }
-export enum Capability {
+enum Capability {
     TEAM,
     OVS,
 }
-export enum ClientError {
+enum ClientError {
     FAILED,
     MANAGER_NOT_RUNNING,
     OBJECT_CREATION_FAILED,
 }
-export enum ClientPermission {
+enum ClientPermission {
     NONE,
     ENABLE_DISABLE_NETWORK,
     ENABLE_DISABLE_WIFI,
@@ -78,13 +78,13 @@ export enum ClientPermission {
     WIFI_SCAN,
     LAST,
 }
-export enum ClientPermissionResult {
+enum ClientPermissionResult {
     UNKNOWN,
     YES,
     AUTH,
     NO,
 }
-export enum ConnectionError {
+enum ConnectionError {
     FAILED,
     SETTINGNOTFOUND,
     PROPERTYNOTFOUND,
@@ -94,20 +94,20 @@ export enum ConnectionError {
     MISSINGPROPERTY,
     INVALIDPROPERTY,
 }
-export enum ConnectionMultiConnect {
+enum ConnectionMultiConnect {
     DEFAULT,
     SINGLE,
     MANUAL_MULTIPLE,
     MULTIPLE,
 }
-export enum ConnectivityState {
+enum ConnectivityState {
     UNKNOWN,
     NONE,
     PORTAL,
     LIMITED,
     FULL,
 }
-export enum CryptoError {
+enum CryptoError {
     FAILED,
     INVALID_DATA,
     INVALID_PASSWORD,
@@ -115,7 +115,7 @@ export enum CryptoError {
     DECRYPTION_FAILED,
     ENCRYPTION_FAILED,
 }
-export enum DeviceError {
+enum DeviceError {
     FAILED,
     CREATIONFAILED,
     INVALIDCONNECTION,
@@ -128,7 +128,7 @@ export enum DeviceError {
     MISSINGDEPENDENCIES,
     INVALIDARGUMENT,
 }
-export enum DeviceState {
+enum DeviceState {
     UNKNOWN,
     UNMANAGED,
     UNAVAILABLE,
@@ -143,7 +143,7 @@ export enum DeviceState {
     DEACTIVATING,
     FAILED,
 }
-export enum DeviceStateReason {
+enum DeviceStateReason {
     NONE,
     UNKNOWN,
     NOW_MANAGED,
@@ -213,7 +213,7 @@ export enum DeviceStateReason {
     SRIOV_CONFIGURATION_FAILED,
     PEER_NOT_FOUND,
 }
-export enum DeviceType {
+enum DeviceType {
     UNKNOWN,
     ETHERNET,
     WIFI,
@@ -247,7 +247,7 @@ export enum DeviceType {
     WIFI_P2P,
     VRF,
 }
-export enum IPTunnelMode {
+enum IPTunnelMode {
     UNKNOWN,
     IPIP,
     GRE,
@@ -261,17 +261,17 @@ export enum IPTunnelMode {
     GRETAP,
     IP6GRETAP,
 }
-export enum KeyfileHandlerType {
+enum KeyfileHandlerType {
     WARN,
     WRITE_CERT,
 }
-export enum KeyfileWarnSeverity {
+enum KeyfileWarnSeverity {
     DEBUG,
     INFO,
     INFO_MISSING_FILE,
     WARN,
 }
-export enum ManagerError {
+enum ManagerError {
     FAILED,
     PERMISSIONDENIED,
     UNKNOWNCONNECTION,
@@ -287,20 +287,20 @@ export enum ManagerError {
     INVALIDARGUMENTS,
     MISSINGPLUGIN,
 }
-export enum Metered {
+enum Metered {
     UNKNOWN,
     YES,
     NO,
     GUESS_YES,
     GUESS_NO,
 }
-export enum RollbackResult {
+enum RollbackResult {
     OK,
     ERR_NO_DEVICE,
     ERR_DEVICE_UNMANAGED,
     ERR_FAILED,
 }
-export enum SecretAgentError {
+enum SecretAgentError {
     FAILED,
     PERMISSIONDENIED,
     INVALIDCONNECTION,
@@ -308,19 +308,19 @@ export enum SecretAgentError {
     AGENTCANCELED,
     NOSECRETS,
 }
-export enum Setting8021xCKFormat {
+enum Setting8021xCKFormat {
     UNKNOWN,
     X509,
     RAW_KEY,
     PKCS12,
 }
-export enum Setting8021xCKScheme {
+enum Setting8021xCKScheme {
     UNKNOWN,
     BLOB,
     PATH,
     PKCS11,
 }
-export enum SettingCompareFlags {
+enum SettingCompareFlags {
     EXACT,
     FUZZY,
     IGNORE_ID,
@@ -331,66 +331,66 @@ export enum SettingCompareFlags {
     DIFF_RESULT_NO_DEFAULT,
     IGNORE_TIMESTAMP,
 }
-export enum SettingConnectionAutoconnectSlaves {
+enum SettingConnectionAutoconnectSlaves {
     DEFAULT,
     NO,
     YES,
 }
-export enum SettingConnectionDnsOverTls {
+enum SettingConnectionDnsOverTls {
     DEFAULT,
     NO,
     OPPORTUNISTIC,
     YES,
 }
-export enum SettingConnectionLldp {
+enum SettingConnectionLldp {
     DEFAULT,
     DISABLE,
     ENABLE_RX,
 }
-export enum SettingConnectionLlmnr {
+enum SettingConnectionLlmnr {
     DEFAULT,
     NO,
     RESOLVE,
     YES,
 }
-export enum SettingConnectionMdns {
+enum SettingConnectionMdns {
     DEFAULT,
     NO,
     RESOLVE,
     YES,
 }
-export enum SettingDiffResult {
+enum SettingDiffResult {
     UNKNOWN,
     IN_A,
     IN_B,
     IN_A_DEFAULT,
     IN_B_DEFAULT,
 }
-export enum SettingIP6ConfigAddrGenMode {
+enum SettingIP6ConfigAddrGenMode {
     EUI64,
     STABLE_PRIVACY,
 }
-export enum SettingIP6ConfigPrivacy {
+enum SettingIP6ConfigPrivacy {
     UNKNOWN,
     DISABLED,
     PREFER_PUBLIC_ADDR,
     PREFER_TEMP_ADDR,
 }
-export enum SettingMacRandomization {
+enum SettingMacRandomization {
     DEFAULT,
     NEVER,
     ALWAYS,
 }
-export enum SettingMacsecMode {
+enum SettingMacsecMode {
     PSK,
     EAP,
 }
-export enum SettingMacsecValidation {
+enum SettingMacsecValidation {
     DISABLE,
     CHECK,
     STRICT,
 }
-export enum SettingMacvlanMode {
+enum SettingMacvlanMode {
     UNKNOWN,
     VEPA,
     BRIDGE,
@@ -398,39 +398,39 @@ export enum SettingMacvlanMode {
     PASSTHRU,
     SOURCE,
 }
-export enum SettingProxyMethod {
+enum SettingProxyMethod {
     NONE,
     AUTO,
 }
-export enum SettingSerialParity {
+enum SettingSerialParity {
     NONE,
     EVEN,
     ODD,
 }
-export enum SettingTunMode {
+enum SettingTunMode {
     UNKNOWN,
     TUN,
     TAP,
 }
-export enum SettingWirelessPowersave {
+enum SettingWirelessPowersave {
     DEFAULT,
     IGNORE,
     DISABLE,
     ENABLE,
 }
-export enum SettingWirelessSecurityFils {
+enum SettingWirelessSecurityFils {
     DEFAULT,
     DISABLE,
     OPTIONAL,
     REQUIRED,
 }
-export enum SettingWirelessSecurityPmf {
+enum SettingWirelessSecurityPmf {
     DEFAULT,
     DISABLE,
     OPTIONAL,
     REQUIRED,
 }
-export enum SettingsError {
+enum SettingsError {
     FAILED,
     PERMISSIONDENIED,
     NOTSUPPORTED,
@@ -440,11 +440,11 @@ export enum SettingsError {
     INVALIDHOSTNAME,
     INVALIDARGUMENTS,
 }
-export enum SriovVFVlanProtocol {
+enum SriovVFVlanProtocol {
     /* 1Q (invalid, starts with a number) */
     /* 1AD (invalid, starts with a number) */
 }
-export enum State {
+enum State {
     UNKNOWN,
     ASLEEP,
     DISCONNECTED,
@@ -454,12 +454,12 @@ export enum State {
     CONNECTED_SITE,
     CONNECTED_GLOBAL,
 }
-export enum Ternary {
+enum Ternary {
     DEFAULT,
     FALSE,
     TRUE,
 }
-export enum UtilsSecurityType {
+enum UtilsSecurityType {
     INVALID,
     NONE,
     STATIC_WEP,
@@ -473,11 +473,11 @@ export enum UtilsSecurityType {
     OWE,
     WPA3_SUITE_B_192,
 }
-export enum VlanPriorityMap {
+enum VlanPriorityMap {
     INGRESS_MAP,
     EGRESS_MAP,
 }
-export enum VpnConnectionState {
+enum VpnConnectionState {
     UNKNOWN,
     PREPARE,
     NEED_AUTH,
@@ -487,7 +487,7 @@ export enum VpnConnectionState {
     FAILED,
     DISCONNECTED,
 }
-export enum VpnConnectionStateReason {
+enum VpnConnectionStateReason {
     UNKNOWN,
     NONE,
     USER_DISCONNECTED,
@@ -501,7 +501,7 @@ export enum VpnConnectionStateReason {
     LOGIN_FAILED,
     CONNECTION_REMOVED,
 }
-export enum VpnPluginError {
+enum VpnPluginError {
     FAILED,
     STARTINGINPROGRESS,
     ALREADYSTARTED,
@@ -513,12 +513,12 @@ export enum VpnPluginError {
     INVALIDCONNECTION,
     INTERACTIVENOTSUPPORTED,
 }
-export enum VpnPluginFailure {
+enum VpnPluginFailure {
     LOGIN_FAILED,
     CONNECT_FAILED,
     BAD_IP_CONFIG,
 }
-export enum VpnServiceState {
+enum VpnServiceState {
     UNKNOWN,
     INIT,
     SHUTDOWN,
@@ -527,25 +527,25 @@ export enum VpnServiceState {
     STOPPING,
     STOPPED,
 }
-export enum WepKeyType {
+enum WepKeyType {
     UNKNOWN,
     KEY,
     PASSPHRASE,
 }
-export enum WimaxNspNetworkType {
+enum WimaxNspNetworkType {
     UNKNOWN,
     HOME,
     PARTNER,
     ROAMING_PARTNER,
 }
-export enum TODO_80211ApFlags {
+enum TODO_80211ApFlags {
     NONE,
     PRIVACY,
     WPS,
     WPS_PBC,
     WPS_PIN,
 }
-export enum TODO_80211ApSecurityFlags {
+enum TODO_80211ApSecurityFlags {
     NONE,
     PAIR_WEP40,
     PAIR_WEP104,
@@ -562,7 +562,7 @@ export enum TODO_80211ApSecurityFlags {
     KEY_MGMT_OWE_TM,
     KEY_MGMT_EAP_SUITE_B_192,
 }
-export enum ActivationStateFlags {
+enum ActivationStateFlags {
     NONE,
     IS_MASTER,
     IS_SLAVE,
@@ -573,23 +573,23 @@ export enum ActivationStateFlags {
     LIFETIME_BOUND_TO_PROFILE_VISIBILITY,
     EXTERNAL,
 }
-export enum BluetoothCapabilities {
+enum BluetoothCapabilities {
     NONE,
     DUN,
     NAP,
 }
-export enum CheckpointCreateFlags {
+enum CheckpointCreateFlags {
     NONE,
     DESTROY_ALL,
     DELETE_NEW_CONNECTIONS,
     DISCONNECT_NEW_DEVICES,
     ALLOW_OVERLAPPING,
 }
-export enum ClientInstanceFlags {
+enum ClientInstanceFlags {
     NONE,
     NO_AUTO_FETCH_PERMISSIONS,
 }
-export enum ConnectionSerializationFlags {
+enum ConnectionSerializationFlags {
     ALL,
     WITH_NON_SECRET,
     NO_SECRETS,
@@ -599,28 +599,28 @@ export enum ConnectionSerializationFlags {
     WITH_SECRETS_SYSTEM_OWNED,
     WITH_SECRETS_NOT_SAVED,
 }
-export enum DeviceCapabilities {
+enum DeviceCapabilities {
     NONE,
     NM_SUPPORTED,
     CARRIER_DETECT,
     IS_SOFTWARE,
     SRIOV,
 }
-export enum DeviceInterfaceFlags {
+enum DeviceInterfaceFlags {
     UP,
     LOWER_UP,
     PROMISC,
     CARRIER,
     LLDP_CLIENT_ENABLED,
 }
-export enum DeviceModemCapabilities {
+enum DeviceModemCapabilities {
     NONE,
     POTS,
     CDMA_EVDO,
     GSM_UMTS,
     LTE,
 }
-export enum DeviceWifiCapabilities {
+enum DeviceWifiCapabilities {
     NONE,
     CIPHER_WEP40,
     CIPHER_WEP104,
@@ -636,24 +636,24 @@ export enum DeviceWifiCapabilities {
     MESH,
     IBSS_RSN,
 }
-export enum DhcpHostnameFlags {
+enum DhcpHostnameFlags {
     NONE,
     FQDN_SERV_UPDATE,
     FQDN_ENCODED,
     FQDN_NO_UPDATE,
     FQDN_CLEAR_FLAGS,
 }
-export enum IPAddressCmpFlags {
+enum IPAddressCmpFlags {
     NONE,
     WITH_ATTRS,
 }
-export enum IPRoutingRuleAsStringFlags {
+enum IPRoutingRuleAsStringFlags {
     NONE,
     AF_INET,
     AF_INET6,
     VALIDATE,
 }
-export enum IPTunnelFlags {
+enum IPTunnelFlags {
     NONE,
     IP6_IGN_ENCAP_LIMIT,
     IP6_USE_ORIG_TCLASS,
@@ -662,20 +662,20 @@ export enum IPTunnelFlags {
     IP6_RCV_DSCP_COPY,
     IP6_USE_ORIG_FWMARK,
 }
-export enum KeyfileHandlerFlags {
+enum KeyfileHandlerFlags {
     NONE,
 }
-export enum ManagerReloadFlags {
+enum ManagerReloadFlags {
     CONF,
     DNS_RC,
     DNS_FULL,
 }
-export enum SecretAgentCapabilities {
+enum SecretAgentCapabilities {
     NONE,
     VPN_HINTS,
     LAST,
 }
-export enum SecretAgentGetSecretsFlags {
+enum SecretAgentGetSecretsFlags {
     NONE,
     ALLOW_INTERACTION,
     REQUEST_NEW,
@@ -684,26 +684,26 @@ export enum SecretAgentGetSecretsFlags {
     ONLY_SYSTEM,
     NO_ERRORS,
 }
-export enum Setting8021xAuthFlags {
+enum Setting8021xAuthFlags {
     NONE,
     TLS_1_0_DISABLE,
     TLS_1_1_DISABLE,
     TLS_1_2_DISABLE,
     ALL,
 }
-export enum SettingDcbFlags {
+enum SettingDcbFlags {
     NONE,
     ENABLE,
     ADVERTISE,
     WILLING,
 }
-export enum SettingSecretFlags {
+enum SettingSecretFlags {
     NONE,
     AGENT_OWNED,
     NOT_SAVED,
     NOT_REQUIRED,
 }
-export enum SettingWiredWakeOnLan {
+enum SettingWiredWakeOnLan {
     PHY,
     UNICAST,
     MULTICAST,
@@ -713,14 +713,14 @@ export enum SettingWiredWakeOnLan {
     DEFAULT,
     IGNORE,
 }
-export enum SettingWirelessSecurityWpsMethod {
+enum SettingWirelessSecurityWpsMethod {
     DEFAULT,
     DISABLED,
     AUTO,
     PBC,
     PIN,
 }
-export enum SettingWirelessWakeOnWLan {
+enum SettingWirelessWakeOnWLan {
     ANY,
     DISCONNECT,
     MAGIC,
@@ -733,20 +733,20 @@ export enum SettingWirelessWakeOnWLan {
     DEFAULT,
     IGNORE,
 }
-export enum SettingsAddConnection2Flags {
+enum SettingsAddConnection2Flags {
     NONE,
     TO_DISK,
     IN_MEMORY,
     BLOCK_AUTOCONNECT,
 }
-export enum SettingsConnectionFlags {
+enum SettingsConnectionFlags {
     NONE,
     UNSAVED,
     NM_GENERATED,
     VOLATILE,
     EXTERNAL,
 }
-export enum SettingsUpdate2Flags {
+enum SettingsUpdate2Flags {
     NONE,
     TO_DISK,
     IN_MEMORY,
@@ -756,18 +756,18 @@ export enum SettingsUpdate2Flags {
     BLOCK_AUTOCONNECT,
     NO_REAPPLY,
 }
-export enum TeamLinkWatcherArpPingFlags {
+enum TeamLinkWatcherArpPingFlags {
     VALIDATE_ACTIVE,
     VALIDATE_INACTIVE,
     SEND_ALWAYS,
 }
-export enum VlanFlags {
+enum VlanFlags {
     REORDER_HEADERS,
     GVRP,
     LOOSE_BINDING,
     MVRP,
 }
-export enum VpnEditorPluginCapability {
+enum VpnEditorPluginCapability {
     NONE,
     IMPORT,
     EXPORT,
@@ -1840,138 +1840,138 @@ export const WIREGUARD_PEER_ATTR_PRESHARED_KEY_FLAGS: string
 export const WIREGUARD_PEER_ATTR_PUBLIC_KEY: string
 export const WIREGUARD_PUBLIC_KEY_LEN: number
 export const WIREGUARD_SYMMETRIC_KEY_LEN: number
-export function agentManagerErrorQuark(): GLib.Quark
-export function bridgeVlanFromStr(str: string): BridgeVlan
-export function clientErrorQuark(): GLib.Quark
-export function connectionErrorQuark(): GLib.Quark
-export function cryptoErrorQuark(): GLib.Quark
-export function deviceErrorQuark(): GLib.Quark
-export function ethtoolOptnameIsCoalesce(optname?: string | null): boolean
-export function ethtoolOptnameIsFeature(optname?: string | null): boolean
-export function ethtoolOptnameIsPause(optname?: string | null): boolean
-export function ethtoolOptnameIsRing(optname?: string | null): boolean
-export function ipRouteAttributeValidate(name: string, value: GLib.Variant, family: number): { returnType: boolean, known: boolean }
-export function ipRouteGetVariantAttributeSpec(): VariantAttributeSpec
-export function ipRoutingRuleFromString(str: string, toStringFlags: IPRoutingRuleAsStringFlags, extraArgs?: GLib.HashTable | null): IPRoutingRule
-export function keyfileRead(keyfile: GLib.KeyFile, baseDir: string, handlerFlags: KeyfileHandlerFlags, handler?: KeyfileReadHandler | null): Connection
-export function keyfileWrite(connection: Connection, handlerFlags: KeyfileHandlerFlags, handler?: KeyfileWriteHandler | null): GLib.KeyFile
-export function managerErrorQuark(): GLib.Quark
-export function secretAgentErrorQuark(): GLib.Quark
-export function settingsErrorQuark(): GLib.Quark
-export function sriovVfAttributeValidate(name: string, value: GLib.Variant): { returnType: boolean, known: boolean }
-export function utilsApModeSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities): boolean
-export function utilsBase64secretDecode(base64Key: string, requiredKeyLen: number, outKey?: number | null): boolean
-export function utilsBin2hexstr(src: any[], finalLen: number): string
-export function utilsBondModeIntToString(mode: number): string
-export function utilsBondModeStringToInt(mode: string): number
-export function utilsCheckVirtualDeviceCompatibility(virtualType: GObject.Type, otherType: GObject.Type): boolean
-export function utilsEnumFromStr(type: GObject.Type, str: string): { returnType: boolean, outValue: number | null, errToken: string | null }
-export function utilsEnumGetValues(type: GObject.Type, from: number, to: number): string[]
-export function utilsEnumToStr(type: GObject.Type, value: number): string
-export function utilsEscapeSsid(ssid: any[]): string
-export function utilsFileIsCertificate(filename: string): boolean
-export function utilsFileIsPkcs12(filename: string): boolean
-export function utilsFileIsPrivateKey(filename: string): { returnType: boolean, outEncrypted: boolean }
-export function utilsFileSearchInPaths(progname: string, tryFirst: string | null, paths: string | null, fileTestFlags: GLib.FileTest, predicate: UtilsFileSearchInPathsPredicate): string
-export function utilsFormatVariantAttributes(attributes: GLib.HashTable, attrSeparator: number, keyValueSeparator: number): string
-export function utilsGetTimestampMsec(): number
-export function utilsHexstr2bin(hex: string): any
-export function utilsHwaddrAtoba(asc: string, length: number): any[]
-export function utilsHwaddrAton(asc: string, buffer: any[]): number
-export function utilsHwaddrCanonical(asc: string, length: number): string
-export function utilsHwaddrLen(type: number): number
-export function utilsHwaddrMatches(hwaddr1: object | null, hwaddr1Len: number, hwaddr2: object | null, hwaddr2Len: number): boolean
-export function utilsHwaddrNtoa(addr: any[]): string
-export function utilsHwaddrValid(asc: string, length: number): boolean
-export function utilsIfaceValidName(name?: string | null): boolean
-export function utilsIp4AddressesFromVariant(value: GLib.Variant): { returnType: IPAddress[], outGateway: string | null }
-export function utilsIp4AddressesToVariant(addresses: IPAddress[], gateway?: string | null): GLib.Variant
-export function utilsIp4DnsFromVariant(value: GLib.Variant): string
-export function utilsIp4DnsToVariant(dns: string): GLib.Variant
-export function utilsIp4GetDefaultPrefix(ip: number): number
-export function utilsIp4NetmaskToPrefix(netmask: number): number
-export function utilsIp4PrefixToNetmask(prefix: number): number
-export function utilsIp4RoutesFromVariant(value: GLib.Variant): IPRoute[]
-export function utilsIp4RoutesToVariant(routes: IPRoute[]): GLib.Variant
-export function utilsIp6AddressesFromVariant(value: GLib.Variant): { returnType: IPAddress[], outGateway: string | null }
-export function utilsIp6AddressesToVariant(addresses: IPAddress[], gateway?: string | null): GLib.Variant
-export function utilsIp6DnsFromVariant(value: GLib.Variant): string
-export function utilsIp6DnsToVariant(dns: string): GLib.Variant
-export function utilsIp6RoutesFromVariant(value: GLib.Variant): IPRoute[]
-export function utilsIp6RoutesToVariant(routes: IPRoute[]): GLib.Variant
-export function utilsIpAddressesFromVariant(value: GLib.Variant, family: number): IPAddress[]
-export function utilsIpAddressesToVariant(addresses: IPAddress[]): GLib.Variant
-export function utilsIpRoutesFromVariant(value: GLib.Variant, family: number): IPRoute[]
-export function utilsIpRoutesToVariant(routes: IPRoute[]): GLib.Variant
-export function utilsIpaddrValid(family: number, ip: string): boolean
-export function utilsIsEmptySsid(ssid: any[]): boolean
-export function utilsIsJsonObject(str: string): boolean
-export function utilsIsUuid(str?: string | null): boolean
-export function utilsIsValidIfaceName(name?: string | null): boolean
-export function utilsParseVariantAttributes(string: string, attrSeparator: number, keyValueSeparator: number, ignoreUnknown: boolean, spec: VariantAttributeSpec): GLib.HashTable
-export function utilsPrint(outputMode: number, msg: string): void
-export function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
-export function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
-export function utilsSriovVfFromStr(str: string): SriovVF
-export function utilsSriovVfToStr(vf: SriovVF, omitIndex: boolean): string
-export function utilsSsidToUtf8(ssid: any[]): string
-export function utilsTcActionFromStr(str: string): TCAction
-export function utilsTcActionToStr(action: TCAction): string
-export function utilsTcQdiscFromStr(str: string): TCQdisc
-export function utilsTcQdiscToStr(qdisc: TCQdisc): string
-export function utilsTcTfilterFromStr(str: string): TCTfilter
-export function utilsTcTfilterToStr(tfilter: TCTfilter): string
-export function utilsUuidGenerate(): string
-export function utilsVersion(): number
-export function utilsWepKeyValid(key: string, wepType: WepKeyType): boolean
-export function utilsWifi2ghzFreqs(): number
-export function utilsWifi5ghzFreqs(): number
-export function utilsWifiChannelToFreq(channel: number, band: string): number
-export function utilsWifiFindNextChannel(channel: number, direction: number, band: string): number
-export function utilsWifiFreqToChannel(freq: number): number
-export function utilsWifiIsChannelValid(channel: number, band: string): boolean
-export function utilsWifiStrengthBars(strength: number): string
-export function utilsWpaPskValid(psk: string): boolean
-export function vpnEditorPluginLoad(pluginName: string, checkService: string): VpnEditorPlugin
-export function vpnEditorPluginLoadFromFile(pluginName: string, checkService: string, checkOwner: number, checkFile: UtilsCheckFilePredicate): VpnEditorPlugin
-export function vpnPluginErrorQuark(): GLib.Quark
-export interface KeyfileReadHandler {
+function agentManagerErrorQuark(): GLib.Quark
+function bridgeVlanFromStr(str: string): BridgeVlan
+function clientErrorQuark(): GLib.Quark
+function connectionErrorQuark(): GLib.Quark
+function cryptoErrorQuark(): GLib.Quark
+function deviceErrorQuark(): GLib.Quark
+function ethtoolOptnameIsCoalesce(optname?: string | null): boolean
+function ethtoolOptnameIsFeature(optname?: string | null): boolean
+function ethtoolOptnameIsPause(optname?: string | null): boolean
+function ethtoolOptnameIsRing(optname?: string | null): boolean
+function ipRouteAttributeValidate(name: string, value: GLib.Variant, family: number): { returnType: boolean, known: boolean }
+function ipRouteGetVariantAttributeSpec(): VariantAttributeSpec
+function ipRoutingRuleFromString(str: string, toStringFlags: IPRoutingRuleAsStringFlags, extraArgs?: GLib.HashTable | null): IPRoutingRule
+function keyfileRead(keyfile: GLib.KeyFile, baseDir: string, handlerFlags: KeyfileHandlerFlags, handler?: KeyfileReadHandler | null): Connection
+function keyfileWrite(connection: Connection, handlerFlags: KeyfileHandlerFlags, handler?: KeyfileWriteHandler | null): GLib.KeyFile
+function managerErrorQuark(): GLib.Quark
+function secretAgentErrorQuark(): GLib.Quark
+function settingsErrorQuark(): GLib.Quark
+function sriovVfAttributeValidate(name: string, value: GLib.Variant): { returnType: boolean, known: boolean }
+function utilsApModeSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities): boolean
+function utilsBase64secretDecode(base64Key: string, requiredKeyLen: number, outKey?: number | null): boolean
+function utilsBin2hexstr(src: any[], finalLen: number): string
+function utilsBondModeIntToString(mode: number): string
+function utilsBondModeStringToInt(mode: string): number
+function utilsCheckVirtualDeviceCompatibility(virtualType: GObject.Type, otherType: GObject.Type): boolean
+function utilsEnumFromStr(type: GObject.Type, str: string): { returnType: boolean, outValue: number | null, errToken: string | null }
+function utilsEnumGetValues(type: GObject.Type, from: number, to: number): string[]
+function utilsEnumToStr(type: GObject.Type, value: number): string
+function utilsEscapeSsid(ssid: any[]): string
+function utilsFileIsCertificate(filename: string): boolean
+function utilsFileIsPkcs12(filename: string): boolean
+function utilsFileIsPrivateKey(filename: string): { returnType: boolean, outEncrypted: boolean }
+function utilsFileSearchInPaths(progname: string, tryFirst: string | null, paths: string | null, fileTestFlags: GLib.FileTest, predicate: UtilsFileSearchInPathsPredicate): string
+function utilsFormatVariantAttributes(attributes: GLib.HashTable, attrSeparator: number, keyValueSeparator: number): string
+function utilsGetTimestampMsec(): number
+function utilsHexstr2bin(hex: string): any
+function utilsHwaddrAtoba(asc: string, length: number): any[]
+function utilsHwaddrAton(asc: string, buffer: any[]): number
+function utilsHwaddrCanonical(asc: string, length: number): string
+function utilsHwaddrLen(type: number): number
+function utilsHwaddrMatches(hwaddr1: object | null, hwaddr1Len: number, hwaddr2: object | null, hwaddr2Len: number): boolean
+function utilsHwaddrNtoa(addr: any[]): string
+function utilsHwaddrValid(asc: string, length: number): boolean
+function utilsIfaceValidName(name?: string | null): boolean
+function utilsIp4AddressesFromVariant(value: GLib.Variant): { returnType: IPAddress[], outGateway: string | null }
+function utilsIp4AddressesToVariant(addresses: IPAddress[], gateway?: string | null): GLib.Variant
+function utilsIp4DnsFromVariant(value: GLib.Variant): string
+function utilsIp4DnsToVariant(dns: string): GLib.Variant
+function utilsIp4GetDefaultPrefix(ip: number): number
+function utilsIp4NetmaskToPrefix(netmask: number): number
+function utilsIp4PrefixToNetmask(prefix: number): number
+function utilsIp4RoutesFromVariant(value: GLib.Variant): IPRoute[]
+function utilsIp4RoutesToVariant(routes: IPRoute[]): GLib.Variant
+function utilsIp6AddressesFromVariant(value: GLib.Variant): { returnType: IPAddress[], outGateway: string | null }
+function utilsIp6AddressesToVariant(addresses: IPAddress[], gateway?: string | null): GLib.Variant
+function utilsIp6DnsFromVariant(value: GLib.Variant): string
+function utilsIp6DnsToVariant(dns: string): GLib.Variant
+function utilsIp6RoutesFromVariant(value: GLib.Variant): IPRoute[]
+function utilsIp6RoutesToVariant(routes: IPRoute[]): GLib.Variant
+function utilsIpAddressesFromVariant(value: GLib.Variant, family: number): IPAddress[]
+function utilsIpAddressesToVariant(addresses: IPAddress[]): GLib.Variant
+function utilsIpRoutesFromVariant(value: GLib.Variant, family: number): IPRoute[]
+function utilsIpRoutesToVariant(routes: IPRoute[]): GLib.Variant
+function utilsIpaddrValid(family: number, ip: string): boolean
+function utilsIsEmptySsid(ssid: any[]): boolean
+function utilsIsJsonObject(str: string): boolean
+function utilsIsUuid(str?: string | null): boolean
+function utilsIsValidIfaceName(name?: string | null): boolean
+function utilsParseVariantAttributes(string: string, attrSeparator: number, keyValueSeparator: number, ignoreUnknown: boolean, spec: VariantAttributeSpec): GLib.HashTable
+function utilsPrint(outputMode: number, msg: string): void
+function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
+function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
+function utilsSriovVfFromStr(str: string): SriovVF
+function utilsSriovVfToStr(vf: SriovVF, omitIndex: boolean): string
+function utilsSsidToUtf8(ssid: any[]): string
+function utilsTcActionFromStr(str: string): TCAction
+function utilsTcActionToStr(action: TCAction): string
+function utilsTcQdiscFromStr(str: string): TCQdisc
+function utilsTcQdiscToStr(qdisc: TCQdisc): string
+function utilsTcTfilterFromStr(str: string): TCTfilter
+function utilsTcTfilterToStr(tfilter: TCTfilter): string
+function utilsUuidGenerate(): string
+function utilsVersion(): number
+function utilsWepKeyValid(key: string, wepType: WepKeyType): boolean
+function utilsWifi2ghzFreqs(): number
+function utilsWifi5ghzFreqs(): number
+function utilsWifiChannelToFreq(channel: number, band: string): number
+function utilsWifiFindNextChannel(channel: number, direction: number, band: string): number
+function utilsWifiFreqToChannel(freq: number): number
+function utilsWifiIsChannelValid(channel: number, band: string): boolean
+function utilsWifiStrengthBars(strength: number): string
+function utilsWpaPskValid(psk: string): boolean
+function vpnEditorPluginLoad(pluginName: string, checkService: string): VpnEditorPlugin
+function vpnEditorPluginLoadFromFile(pluginName: string, checkService: string, checkOwner: number, checkFile: UtilsCheckFilePredicate): VpnEditorPlugin
+function vpnPluginErrorQuark(): GLib.Quark
+interface KeyfileReadHandler {
     (keyfile: GLib.KeyFile, connection: Connection, handlerType: KeyfileHandlerType, handlerData: KeyfileHandlerData): boolean
 }
-export interface KeyfileWriteHandler {
+interface KeyfileWriteHandler {
     (connection: Connection, keyfile: GLib.KeyFile, handlerType: KeyfileHandlerType, handlerData: KeyfileHandlerData): boolean
 }
-export interface SecretAgentOldDeleteSecretsFunc {
+interface SecretAgentOldDeleteSecretsFunc {
     (agent: SecretAgentOld, connection: Connection, error: GLib.Error): void
 }
-export interface SecretAgentOldGetSecretsFunc {
+interface SecretAgentOldGetSecretsFunc {
     (agent: SecretAgentOld, connection: Connection, secrets: GLib.Variant, error: GLib.Error): void
 }
-export interface SecretAgentOldSaveSecretsFunc {
+interface SecretAgentOldSaveSecretsFunc {
     (agent: SecretAgentOld, connection: Connection, error: GLib.Error): void
 }
-export interface SettingClearSecretsWithFlagsFn {
+interface SettingClearSecretsWithFlagsFn {
     (setting: Setting, secret: string, flags: SettingSecretFlags): boolean
 }
-export interface SettingValueIterFn {
+interface SettingValueIterFn {
     (setting: Setting, key: string, value: any, flags: GObject.ParamFlags): void
 }
-export interface UtilsCheckFilePredicate {
+interface UtilsCheckFilePredicate {
     (filename: string, stat?: object | null): boolean
 }
-export interface UtilsFileSearchInPathsPredicate {
+interface UtilsFileSearchInPathsPredicate {
     (filename: string): boolean
 }
-export interface UtilsPredicateStr {
+interface UtilsPredicateStr {
     (str: string): boolean
 }
-export interface VpnIterFunc {
+interface VpnIterFunc {
     (key: string, value: string): void
 }
-export interface _ConnectionForEachSecretFunc {
+interface _ConnectionForEachSecretFunc {
     (flags: SettingSecretFlags): boolean
 }
-export class Connection {
+class Connection {
     /* Methods of NM-1.0.NM.Connection */
     addSetting(setting: Setting): void
     clearSecrets(): void
@@ -2058,7 +2058,7 @@ export class Connection {
     emit(sigName: "secrets-updated", settingName: string): void
     static name: string
 }
-export class VpnEditor {
+class VpnEditor {
     /* Methods of NM-1.0.NM.VpnEditor */
     getWidget(): GObject.Object
     updateConnection(connection: Connection): boolean
@@ -2070,7 +2070,7 @@ export class VpnEditor {
     emit(sigName: "changed"): void
     static name: string
 }
-export class VpnEditorPlugin {
+class VpnEditorPlugin {
     /* Properties of NM-1.0.NM.VpnEditorPlugin */
     readonly description: string
     readonly name: string
@@ -2091,7 +2091,7 @@ export class VpnEditorPlugin {
 }
 export interface AccessPoint_ConstructProps extends Object_ConstructProps {
 }
-export class AccessPoint {
+class AccessPoint {
     /* Properties of NM-1.0.NM.AccessPoint */
     readonly bssid: string
     readonly flags: TODO_80211ApFlags
@@ -2232,7 +2232,7 @@ export class AccessPoint {
 }
 export interface ActiveConnection_ConstructProps extends Object_ConstructProps {
 }
-export class ActiveConnection {
+class ActiveConnection {
     /* Properties of NM-1.0.NM.ActiveConnection */
     readonly connection: RemoteConnection
     readonly "default": boolean
@@ -2414,7 +2414,7 @@ export class ActiveConnection {
 }
 export interface Checkpoint_ConstructProps extends Object_ConstructProps {
 }
-export class Checkpoint {
+class Checkpoint {
     /* Properties of NM-1.0.NM.Checkpoint */
     readonly created: number
     readonly devices: Device[]
@@ -2505,7 +2505,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     wirelessEnabled?: boolean
     wwanEnabled?: boolean
 }
-export class Client {
+class Client {
     /* Properties of NM-1.0.NM.Client */
     readonly activatingConnection: ActiveConnection
     readonly activeConnections: ActiveConnection[]
@@ -2889,7 +2889,7 @@ export class Client {
 export interface Device_ConstructProps extends Object_ConstructProps {
     autoconnect?: boolean
 }
-export class Device {
+class Device {
     /* Properties of NM-1.0.NM.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
@@ -3204,7 +3204,7 @@ export class Device {
 }
 export interface Device6Lowpan_ConstructProps extends Device_ConstructProps {
 }
-export class Device6Lowpan {
+class Device6Lowpan {
     /* Properties of NM-1.0.NM.Device6Lowpan */
     readonly parent: Device
     /* Properties of NM-1.0.NM.Device */
@@ -3526,7 +3526,7 @@ export class Device6Lowpan {
 }
 export interface DeviceAdsl_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceAdsl {
+class DeviceAdsl {
     /* Properties of NM-1.0.NM.DeviceAdsl */
     readonly carrier: boolean
     /* Properties of NM-1.0.NM.Device */
@@ -3848,7 +3848,7 @@ export class DeviceAdsl {
 }
 export interface DeviceBond_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBond {
+class DeviceBond {
     /* Properties of NM-1.0.NM.DeviceBond */
     readonly carrier: boolean
     readonly slaves: Device[]
@@ -4177,7 +4177,7 @@ export class DeviceBond {
 }
 export interface DeviceBridge_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBridge {
+class DeviceBridge {
     /* Properties of NM-1.0.NM.DeviceBridge */
     readonly carrier: boolean
     readonly slaves: Device[]
@@ -4506,7 +4506,7 @@ export class DeviceBridge {
 }
 export interface DeviceBt_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBt {
+class DeviceBt {
     /* Properties of NM-1.0.NM.DeviceBt */
     readonly btCapabilities: BluetoothCapabilities
     readonly name: string
@@ -4835,7 +4835,7 @@ export class DeviceBt {
 }
 export interface DeviceDummy_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceDummy {
+class DeviceDummy {
     /* Properties of NM-1.0.NM.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
@@ -5148,7 +5148,7 @@ export class DeviceDummy {
 }
 export interface DeviceEthernet_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceEthernet {
+class DeviceEthernet {
     /* Properties of NM-1.0.NM.DeviceEthernet */
     readonly carrier: boolean
     readonly permHwAddress: string
@@ -5491,7 +5491,7 @@ export class DeviceEthernet {
 }
 export interface DeviceGeneric_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceGeneric {
+class DeviceGeneric {
     /* Properties of NM-1.0.NM.DeviceGeneric */
     readonly typeDescription: string
     /* Properties of NM-1.0.NM.Device */
@@ -5811,7 +5811,7 @@ export class DeviceGeneric {
 }
 export interface DeviceIPTunnel_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceIPTunnel {
+class DeviceIPTunnel {
     /* Properties of NM-1.0.NM.DeviceIPTunnel */
     readonly encapsulationLimit: number
     readonly flags: number
@@ -6210,7 +6210,7 @@ export class DeviceIPTunnel {
 }
 export interface DeviceInfiniband_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceInfiniband {
+class DeviceInfiniband {
     /* Properties of NM-1.0.NM.DeviceInfiniband */
     readonly carrier: boolean
     /* Properties of NM-1.0.NM.Device */
@@ -6532,7 +6532,7 @@ export class DeviceInfiniband {
 }
 export interface DeviceMacsec_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceMacsec {
+class DeviceMacsec {
     /* Properties of NM-1.0.NM.DeviceMacsec */
     readonly cipherSuite: number
     readonly encodingSa: number
@@ -6938,7 +6938,7 @@ export class DeviceMacsec {
 }
 export interface DeviceMacvlan_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceMacvlan {
+class DeviceMacvlan {
     /* Properties of NM-1.0.NM.DeviceMacvlan */
     readonly mode: string
     readonly noPromisc: boolean
@@ -7281,7 +7281,7 @@ export class DeviceMacvlan {
 }
 export interface DeviceModem_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceModem {
+class DeviceModem {
     /* Properties of NM-1.0.NM.DeviceModem */
     readonly apn: string
     readonly currentCapabilities: DeviceModemCapabilities
@@ -7631,7 +7631,7 @@ export class DeviceModem {
 }
 export interface DeviceOlpcMesh_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceOlpcMesh {
+class DeviceOlpcMesh {
     /* Properties of NM-1.0.NM.DeviceOlpcMesh */
     readonly activeChannel: number
     readonly companion: DeviceWifi
@@ -7960,7 +7960,7 @@ export class DeviceOlpcMesh {
 }
 export interface DeviceOvsBridge_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceOvsBridge {
+class DeviceOvsBridge {
     /* Properties of NM-1.0.NM.DeviceOvsBridge */
     readonly slaves: Device[]
     /* Properties of NM-1.0.NM.Device */
@@ -8282,7 +8282,7 @@ export class DeviceOvsBridge {
 }
 export interface DeviceOvsInterface_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceOvsInterface {
+class DeviceOvsInterface {
     /* Properties of NM-1.0.NM.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
@@ -8595,7 +8595,7 @@ export class DeviceOvsInterface {
 }
 export interface DeviceOvsPort_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceOvsPort {
+class DeviceOvsPort {
     /* Properties of NM-1.0.NM.DeviceOvsPort */
     readonly slaves: Device[]
     /* Properties of NM-1.0.NM.Device */
@@ -8917,7 +8917,7 @@ export class DeviceOvsPort {
 }
 export interface DevicePpp_ConstructProps extends Device_ConstructProps {
 }
-export class DevicePpp {
+class DevicePpp {
     /* Properties of NM-1.0.NM.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
@@ -9230,7 +9230,7 @@ export class DevicePpp {
 }
 export interface DeviceTeam_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceTeam {
+class DeviceTeam {
     /* Properties of NM-1.0.NM.DeviceTeam */
     readonly carrier: boolean
     readonly config: string
@@ -9566,7 +9566,7 @@ export class DeviceTeam {
 }
 export interface DeviceTun_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceTun {
+class DeviceTun {
     /* Properties of NM-1.0.NM.DeviceTun */
     readonly group: number
     readonly mode: string
@@ -9923,7 +9923,7 @@ export class DeviceTun {
 }
 export interface DeviceVeth_ConstructProps extends DeviceEthernet_ConstructProps {
 }
-export class DeviceVeth {
+class DeviceVeth {
     /* Properties of NM-1.0.NM.DeviceVeth */
     readonly peer: Device
     /* Properties of NM-1.0.NM.DeviceEthernet */
@@ -10275,7 +10275,7 @@ export class DeviceVeth {
 }
 export interface DeviceVlan_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceVlan {
+class DeviceVlan {
     /* Properties of NM-1.0.NM.DeviceVlan */
     readonly carrier: boolean
     readonly parent: Device
@@ -10611,7 +10611,7 @@ export class DeviceVlan {
 }
 export interface DeviceVrf_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceVrf {
+class DeviceVrf {
     /* Properties of NM-1.0.NM.DeviceVrf */
     readonly table: number
     /* Properties of NM-1.0.NM.Device */
@@ -10933,7 +10933,7 @@ export class DeviceVrf {
 }
 export interface DeviceVxlan_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceVxlan {
+class DeviceVxlan {
     /* Properties of NM-1.0.NM.DeviceVxlan */
     readonly ageing: number
     readonly carrier: boolean
@@ -11367,7 +11367,7 @@ export class DeviceVxlan {
 }
 export interface DeviceWifi_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWifi {
+class DeviceWifi {
     /* Properties of NM-1.0.NM.DeviceWifi */
     readonly accessPoints: AccessPoint[]
     readonly activeAccessPoint: AccessPoint
@@ -11748,7 +11748,7 @@ export class DeviceWifi {
 }
 export interface DeviceWifiP2P_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWifiP2P {
+class DeviceWifiP2P {
     /* Properties of NM-1.0.NM.DeviceWifiP2P */
     readonly peers: WifiP2PPeer[]
     /* Properties of NM-1.0.NM.Device */
@@ -12086,7 +12086,7 @@ export class DeviceWifiP2P {
 }
 export interface DeviceWimax_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWimax {
+class DeviceWimax {
     /* Properties of NM-1.0.NM.DeviceWimax */
     readonly activeNsp: WimaxNsp
     readonly bsid: string
@@ -12462,7 +12462,7 @@ export class DeviceWimax {
 }
 export interface DeviceWireGuard_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWireGuard {
+class DeviceWireGuard {
     /* Properties of NM-1.0.NM.DeviceWireGuard */
     readonly fwmark: number
     readonly listenPort: number
@@ -12798,7 +12798,7 @@ export class DeviceWireGuard {
 }
 export interface DeviceWpan_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWpan {
+class DeviceWpan {
     /* Properties of NM-1.0.NM.Device */
     readonly activeConnection: ActiveConnection
     autoconnect: boolean
@@ -13111,7 +13111,7 @@ export class DeviceWpan {
 }
 export interface DhcpConfig_ConstructProps extends Object_ConstructProps {
 }
-export class DhcpConfig {
+class DhcpConfig {
     /* Properties of NM-1.0.NM.DhcpConfig */
     readonly family: number
     readonly options: GLib.HashTable
@@ -13189,7 +13189,7 @@ export class DhcpConfig {
 }
 export interface IPConfig_ConstructProps extends Object_ConstructProps {
 }
-export class IPConfig {
+class IPConfig {
     /* Properties of NM-1.0.NM.IPConfig */
     readonly addresses: object[]
     readonly domains: string[]
@@ -13308,7 +13308,7 @@ export class IPConfig {
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Object {
+class Object {
     /* Properties of NM-1.0.NM.Object */
     readonly client: Client
     readonly path: string
@@ -13369,7 +13369,7 @@ export class Object {
 }
 export interface RemoteConnection_ConstructProps extends Object_ConstructProps {
 }
-export class RemoteConnection {
+class RemoteConnection {
     /* Properties of NM-1.0.NM.RemoteConnection */
     readonly filename: string
     readonly flags: number
@@ -13561,7 +13561,7 @@ export interface SecretAgentOld_ConstructProps extends GObject.Object_ConstructP
     dbusConnection?: Gio.DBusConnection
     identifier?: string
 }
-export class SecretAgentOld {
+class SecretAgentOld {
     /* Properties of NM-1.0.NM.SecretAgentOld */
     autoRegister: boolean
     capabilities: SecretAgentCapabilities
@@ -13653,7 +13653,7 @@ export class SecretAgentOld {
 }
 export interface Setting_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Setting {
+class Setting {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -13728,7 +13728,7 @@ export class Setting {
 export interface Setting6Lowpan_ConstructProps extends Setting_ConstructProps {
     parent?: string
 }
-export class Setting6Lowpan {
+class Setting6Lowpan {
     /* Properties of NM-1.0.NM.Setting6Lowpan */
     parent: string
     /* Properties of NM-1.0.NM.Setting */
@@ -13858,7 +13858,7 @@ export interface Setting8021x_ConstructProps extends Setting_ConstructProps {
     subjectMatch?: string
     systemCaCerts?: boolean
 }
-export class Setting8021x {
+class Setting8021x {
     /* Properties of NM-1.0.NM.Setting8021x */
     altsubjectMatches: string[]
     anonymousIdentity: string
@@ -14312,7 +14312,7 @@ export interface SettingAdsl_ConstructProps extends Setting_ConstructProps {
     vci?: number
     vpi?: number
 }
-export class SettingAdsl {
+class SettingAdsl {
     /* Properties of NM-1.0.NM.SettingAdsl */
     encapsulation: string
     password: string
@@ -14439,7 +14439,7 @@ export interface SettingBluetooth_ConstructProps extends Setting_ConstructProps 
     bdaddr?: string
     type?: string
 }
-export class SettingBluetooth {
+class SettingBluetooth {
     /* Properties of NM-1.0.NM.SettingBluetooth */
     bdaddr: string
     type: string
@@ -14530,7 +14530,7 @@ export class SettingBluetooth {
 export interface SettingBond_ConstructProps extends Setting_ConstructProps {
     options?: GLib.HashTable
 }
-export class SettingBond {
+class SettingBond {
     /* Properties of NM-1.0.NM.SettingBond */
     options: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
@@ -14622,7 +14622,7 @@ export class SettingBond {
 export interface SettingBondPort_ConstructProps extends Setting_ConstructProps {
     queueId?: number
 }
-export class SettingBondPort {
+class SettingBondPort {
     /* Properties of NM-1.0.NM.SettingBondPort */
     queueId: number
     /* Properties of NM-1.0.NM.Setting */
@@ -14732,7 +14732,7 @@ export interface SettingBridge_ConstructProps extends Setting_ConstructProps {
     vlanStatsEnabled?: boolean
     vlans?: BridgeVlan[]
 }
-export class SettingBridge {
+class SettingBridge {
     /* Properties of NM-1.0.NM.SettingBridge */
     ageingTime: number
     forwardDelay: number
@@ -15006,7 +15006,7 @@ export interface SettingBridgePort_ConstructProps extends Setting_ConstructProps
     priority?: number
     vlans?: BridgeVlan[]
 }
-export class SettingBridgePort {
+class SettingBridgePort {
     /* Properties of NM-1.0.NM.SettingBridgePort */
     hairpinMode: boolean
     pathCost: number
@@ -15120,7 +15120,7 @@ export interface SettingCdma_ConstructProps extends Setting_ConstructProps {
     passwordFlags?: SettingSecretFlags
     username?: string
 }
-export class SettingCdma {
+class SettingCdma {
     /* Properties of NM-1.0.NM.SettingCdma */
     mtu: number
     number: string
@@ -15257,7 +15257,7 @@ export interface SettingConnection_ConstructProps extends Setting_ConstructProps
     waitDeviceTimeout?: number
     zone?: string
 }
-export class SettingConnection {
+class SettingConnection {
     /* Properties of NM-1.0.NM.SettingConnection */
     authRetries: number
     autoconnect: boolean
@@ -15540,7 +15540,7 @@ export interface SettingDcb_ConstructProps extends Setting_ConstructProps {
     priorityStrictBandwidth?: boolean[]
     priorityTrafficClass?: number[]
 }
-export class SettingDcb {
+class SettingDcb {
     /* Properties of NM-1.0.NM.SettingDcb */
     appFcoeFlags: SettingDcbFlags
     appFcoeMode: string
@@ -15727,7 +15727,7 @@ export class SettingDcb {
 }
 export interface SettingDummy_ConstructProps extends Setting_ConstructProps {
 }
-export class SettingDummy {
+class SettingDummy {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -15801,7 +15801,7 @@ export class SettingDummy {
 }
 export interface SettingEthtool_ConstructProps extends Setting_ConstructProps {
 }
-export class SettingEthtool {
+class SettingEthtool {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -15880,7 +15880,7 @@ export class SettingEthtool {
 }
 export interface SettingGeneric_ConstructProps extends Setting_ConstructProps {
 }
-export class SettingGeneric {
+class SettingGeneric {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -15968,7 +15968,7 @@ export interface SettingGsm_ConstructProps extends Setting_ConstructProps {
     simOperatorId?: string
     username?: string
 }
-export class SettingGsm {
+class SettingGsm {
     /* Properties of NM-1.0.NM.SettingGsm */
     apn: string
     autoConfig: boolean
@@ -16146,7 +16146,7 @@ export interface SettingHostname_ConstructProps extends Setting_ConstructProps {
     onlyFromDefault?: Ternary
     priority?: number
 }
-export class SettingHostname {
+class SettingHostname {
     /* Properties of NM-1.0.NM.SettingHostname */
     fromDhcp: Ternary
     fromDnsLookup: Ternary
@@ -16253,7 +16253,7 @@ export interface SettingIP4Config_ConstructProps extends SettingIPConfig_Constru
     dhcpFqdn?: string
     dhcpVendorClassIdentifier?: string
 }
-export class SettingIP4Config {
+class SettingIP4Config {
     /* Properties of NM-1.0.NM.SettingIP4Config */
     dhcpClientId: string
     dhcpFqdn: string
@@ -16545,7 +16545,7 @@ export interface SettingIP6Config_ConstructProps extends SettingIPConfig_Constru
     raTimeout?: number
     token?: string
 }
-export class SettingIP6Config {
+class SettingIP6Config {
     /* Properties of NM-1.0.NM.SettingIP6Config */
     addrGenMode: number
     dhcpDuid: string
@@ -16868,7 +16868,7 @@ export interface SettingIPConfig_ConstructProps extends Setting_ConstructProps {
     routeTable?: number
     routes?: IPRoute[]
 }
-export class SettingIPConfig {
+class SettingIPConfig {
     /* Properties of NM-1.0.NM.SettingIPConfig */
     addresses: IPAddress[]
     dadTimeout: number
@@ -17143,7 +17143,7 @@ export interface SettingIPTunnel_ConstructProps extends Setting_ConstructProps {
     tos?: number
     ttl?: number
 }
-export class SettingIPTunnel {
+class SettingIPTunnel {
     /* Properties of NM-1.0.NM.SettingIPTunnel */
     encapsulationLimit: number
     flags: number
@@ -17315,7 +17315,7 @@ export interface SettingInfiniband_ConstructProps extends Setting_ConstructProps
     parent?: string
     transportMode?: string
 }
-export class SettingInfiniband {
+class SettingInfiniband {
     /* Properties of NM-1.0.NM.SettingInfiniband */
     macAddress: string
     mtu: number
@@ -17436,7 +17436,7 @@ export interface SettingMacsec_ConstructProps extends Setting_ConstructProps {
     sendSci?: boolean
     validation?: number
 }
-export class SettingMacsec {
+class SettingMacsec {
     /* Properties of NM-1.0.NM.SettingMacsec */
     encrypt: boolean
     mkaCak: string
@@ -17579,7 +17579,7 @@ export interface SettingMacvlan_ConstructProps extends Setting_ConstructProps {
     promiscuous?: boolean
     tap?: boolean
 }
-export class SettingMacvlan {
+class SettingMacvlan {
     /* Properties of NM-1.0.NM.SettingMacvlan */
     mode: number
     parent: string
@@ -17687,7 +17687,7 @@ export interface SettingMatch_ConstructProps extends Setting_ConstructProps {
     kernelCommandLine?: string[]
     path?: string[]
 }
-export class SettingMatch {
+class SettingMatch {
     /* Properties of NM-1.0.NM.SettingMatch */
     driver: string[]
     interfaceName: string[]
@@ -17818,7 +17818,7 @@ export interface SettingOlpcMesh_ConstructProps extends Setting_ConstructProps {
     dhcpAnycastAddress?: string
     ssid?: any
 }
-export class SettingOlpcMesh {
+class SettingOlpcMesh {
     /* Properties of NM-1.0.NM.SettingOlpcMesh */
     channel: number
     dhcpAnycastAddress: string
@@ -17920,7 +17920,7 @@ export interface SettingOvsBridge_ConstructProps extends Setting_ConstructProps 
     rstpEnable?: boolean
     stpEnable?: boolean
 }
-export class SettingOvsBridge {
+class SettingOvsBridge {
     /* Properties of NM-1.0.NM.SettingOvsBridge */
     datapathType: string
     failMode: string
@@ -18032,7 +18032,7 @@ export class SettingOvsBridge {
 export interface SettingOvsDpdk_ConstructProps extends Setting_ConstructProps {
     devargs?: string
 }
-export class SettingOvsDpdk {
+class SettingOvsDpdk {
     /* Properties of NM-1.0.NM.SettingOvsDpdk */
     devargs: string
     /* Properties of NM-1.0.NM.Setting */
@@ -18116,7 +18116,7 @@ export class SettingOvsDpdk {
 export interface SettingOvsExternalIDs_ConstructProps extends Setting_ConstructProps {
     data?: GLib.HashTable
 }
-export class SettingOvsExternalIDs {
+class SettingOvsExternalIDs {
     /* Properties of NM-1.0.NM.SettingOvsExternalIDs */
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
@@ -18204,7 +18204,7 @@ export class SettingOvsExternalIDs {
 export interface SettingOvsInterface_ConstructProps extends Setting_ConstructProps {
     type?: string
 }
-export class SettingOvsInterface {
+class SettingOvsInterface {
     /* Properties of NM-1.0.NM.SettingOvsInterface */
     type: string
     /* Properties of NM-1.0.NM.Setting */
@@ -18288,7 +18288,7 @@ export class SettingOvsInterface {
 export interface SettingOvsPatch_ConstructProps extends Setting_ConstructProps {
     peer?: string
 }
-export class SettingOvsPatch {
+class SettingOvsPatch {
     /* Properties of NM-1.0.NM.SettingOvsPatch */
     peer: string
     /* Properties of NM-1.0.NM.Setting */
@@ -18377,7 +18377,7 @@ export interface SettingOvsPort_ConstructProps extends Setting_ConstructProps {
     tag?: number
     vlanMode?: string
 }
-export class SettingOvsPort {
+class SettingOvsPort {
     /* Properties of NM-1.0.NM.SettingOvsPort */
     bondDowndelay: number
     bondMode: string
@@ -18513,7 +18513,7 @@ export interface SettingPpp_ConstructProps extends Setting_ConstructProps {
     requireMppe?: boolean
     requireMppe128?: boolean
 }
-export class SettingPpp {
+class SettingPpp {
     /* Properties of NM-1.0.NM.SettingPpp */
     baud: number
     crtscts: boolean
@@ -18720,7 +18720,7 @@ export interface SettingPppoe_ConstructProps extends Setting_ConstructProps {
     service?: string
     username?: string
 }
-export class SettingPppoe {
+class SettingPppoe {
     /* Properties of NM-1.0.NM.SettingPppoe */
     parent: string
     password: string
@@ -18835,7 +18835,7 @@ export interface SettingProxy_ConstructProps extends Setting_ConstructProps {
     pacScript?: string
     pacUrl?: string
 }
-export class SettingProxy {
+class SettingProxy {
     /* Properties of NM-1.0.NM.SettingProxy */
     browserOnly: boolean
     method: number
@@ -18944,7 +18944,7 @@ export interface SettingSerial_ConstructProps extends Setting_ConstructProps {
     sendDelay?: number
     stopbits?: number
 }
-export class SettingSerial {
+class SettingSerial {
     /* Properties of NM-1.0.NM.SettingSerial */
     baud: number
     bits: number
@@ -19058,7 +19058,7 @@ export interface SettingSriov_ConstructProps extends Setting_ConstructProps {
     totalVfs?: number
     vfs?: SriovVF[]
 }
-export class SettingSriov {
+class SettingSriov {
     /* Properties of NM-1.0.NM.SettingSriov */
     autoprobeDrivers: Ternary
     totalVfs: number
@@ -19162,7 +19162,7 @@ export interface SettingTCConfig_ConstructProps extends Setting_ConstructProps {
     qdiscs?: TCQdisc[]
     tfilters?: TCTfilter[]
 }
-export class SettingTCConfig {
+class SettingTCConfig {
     /* Properties of NM-1.0.NM.SettingTCConfig */
     qdiscs: TCQdisc[]
     tfilters: TCTfilter[]
@@ -19278,7 +19278,7 @@ export interface SettingTeam_ConstructProps extends Setting_ConstructProps {
     runnerTxBalancerInterval?: number
     runnerTxHash?: string[]
 }
-export class SettingTeam {
+class SettingTeam {
     /* Properties of NM-1.0.NM.SettingTeam */
     config: string
     linkWatchers: TeamLinkWatcher[]
@@ -19482,7 +19482,7 @@ export interface SettingTeamPort_ConstructProps extends Setting_ConstructProps {
     queueId?: number
     sticky?: boolean
 }
-export class SettingTeamPort {
+class SettingTeamPort {
     /* Properties of NM-1.0.NM.SettingTeamPort */
     config: string
     lacpKey: number
@@ -19618,7 +19618,7 @@ export interface SettingTun_ConstructProps extends Setting_ConstructProps {
     pi?: boolean
     vnetHdr?: boolean
 }
-export class SettingTun {
+class SettingTun {
     /* Properties of NM-1.0.NM.SettingTun */
     group: string
     mode: number
@@ -19737,7 +19737,7 @@ export class SettingTun {
 export interface SettingUser_ConstructProps extends Setting_ConstructProps {
     data?: GLib.HashTable
 }
-export class SettingUser {
+class SettingUser {
     /* Properties of NM-1.0.NM.SettingUser */
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
@@ -19825,7 +19825,7 @@ export class SettingUser {
 export interface SettingVeth_ConstructProps extends Setting_ConstructProps {
     peer?: string
 }
-export class SettingVeth {
+class SettingVeth {
     /* Properties of NM-1.0.NM.SettingVeth */
     peer: string
     /* Properties of NM-1.0.NM.Setting */
@@ -19913,7 +19913,7 @@ export interface SettingVlan_ConstructProps extends Setting_ConstructProps {
     ingressPriorityMap?: string[]
     parent?: string
 }
-export class SettingVlan {
+class SettingVlan {
     /* Properties of NM-1.0.NM.SettingVlan */
     egressPriorityMap: string[]
     flags: VlanFlags
@@ -20036,7 +20036,7 @@ export interface SettingVpn_ConstructProps extends Setting_ConstructProps {
     timeout?: number
     userName?: string
 }
-export class SettingVpn {
+class SettingVpn {
     /* Properties of NM-1.0.NM.SettingVpn */
     data: GLib.HashTable
     persistent: boolean
@@ -20165,7 +20165,7 @@ export class SettingVpn {
 export interface SettingVrf_ConstructProps extends Setting_ConstructProps {
     table?: number
 }
-export class SettingVrf {
+class SettingVrf {
     /* Properties of NM-1.0.NM.SettingVrf */
     table: number
     /* Properties of NM-1.0.NM.Setting */
@@ -20264,7 +20264,7 @@ export interface SettingVxlan_ConstructProps extends Setting_ConstructProps {
     tos?: number
     ttl?: number
 }
-export class SettingVxlan {
+class SettingVxlan {
     /* Properties of NM-1.0.NM.SettingVxlan */
     ageing: number
     destinationPort: number
@@ -20455,7 +20455,7 @@ export interface SettingWifiP2P_ConstructProps extends Setting_ConstructProps {
     wfdIes?: any
     wpsMethod?: number
 }
-export class SettingWifiP2P {
+class SettingWifiP2P {
     /* Properties of NM-1.0.NM.SettingWifiP2P */
     peer: string
     wfdIes: any
@@ -20554,7 +20554,7 @@ export interface SettingWimax_ConstructProps extends Setting_ConstructProps {
     macAddress?: string
     networkName?: string
 }
-export class SettingWimax {
+class SettingWimax {
     /* Properties of NM-1.0.NM.SettingWimax */
     macAddress: string
     networkName: string
@@ -20652,7 +20652,7 @@ export interface SettingWireGuard_ConstructProps extends Setting_ConstructProps 
     privateKey?: string
     privateKeyFlags?: SettingSecretFlags
 }
-export class SettingWireGuard {
+class SettingWireGuard {
     /* Properties of NM-1.0.NM.SettingWireGuard */
     fwmark: number
     ip4AutoDefaultRoute: Ternary
@@ -20806,7 +20806,7 @@ export interface SettingWired_ConstructProps extends Setting_ConstructProps {
     wakeOnLan?: number
     wakeOnLanPassword?: string
 }
-export class SettingWired {
+class SettingWired {
     /* Properties of NM-1.0.NM.SettingWired */
     acceptAllMacAddresses: Ternary
     autoNegotiate: boolean
@@ -21016,7 +21016,7 @@ export interface SettingWireless_ConstructProps extends Setting_ConstructProps {
     txPower?: number
     wakeOnWlan?: number
 }
-export class SettingWireless {
+class SettingWireless {
     /* Properties of NM-1.0.NM.SettingWireless */
     apIsolation: Ternary
     band: string
@@ -21247,7 +21247,7 @@ export interface SettingWirelessSecurity_ConstructProps extends Setting_Construc
     wepTxKeyidx?: number
     wpsMethod?: number
 }
-export class SettingWirelessSecurity {
+class SettingWirelessSecurity {
     /* Properties of NM-1.0.NM.SettingWirelessSecurity */
     authAlg: string
     fils: number
@@ -21481,7 +21481,7 @@ export interface SettingWpan_ConstructProps extends Setting_ConstructProps {
     panId?: number
     shortAddress?: number
 }
-export class SettingWpan {
+class SettingWpan {
     /* Properties of NM-1.0.NM.SettingWpan */
     channel: number
     macAddress: string
@@ -21592,7 +21592,7 @@ export class SettingWpan {
 }
 export interface SimpleConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleConnection {
+class SimpleConnection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -21724,7 +21724,7 @@ export class SimpleConnection {
 }
 export interface VpnConnection_ConstructProps extends ActiveConnection_ConstructProps {
 }
-export class VpnConnection {
+class VpnConnection {
     /* Properties of NM-1.0.NM.VpnConnection */
     readonly banner: string
     readonly vpnState: VpnConnectionState
@@ -21930,7 +21930,7 @@ export interface VpnPluginInfo_ConstructProps extends GObject.Object_ConstructPr
     filename?: string
     keyfile?: GLib.KeyFile
 }
-export class VpnPluginInfo {
+class VpnPluginInfo {
     /* Properties of NM-1.0.NM.VpnPluginInfo */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -22014,7 +22014,7 @@ export interface VpnPluginOld_ConstructProps extends GObject.Object_ConstructPro
     serviceName?: string
     state?: VpnServiceState
 }
-export class VpnPluginOld {
+class VpnPluginOld {
     /* Properties of NM-1.0.NM.VpnPluginOld */
     state: VpnServiceState
     /* Fields of NM-1.0.NM.VpnPluginOld */
@@ -22129,7 +22129,7 @@ export interface VpnServicePlugin_ConstructProps extends GObject.Object_Construc
     state?: VpnServiceState
     watchPeer?: boolean
 }
-export class VpnServicePlugin {
+class VpnServicePlugin {
     /* Properties of NM-1.0.NM.VpnServicePlugin */
     state: VpnServiceState
     /* Fields of NM-1.0.NM.VpnServicePlugin */
@@ -22240,7 +22240,7 @@ export class VpnServicePlugin {
 }
 export interface WifiP2PPeer_ConstructProps extends Object_ConstructProps {
 }
-export class WifiP2PPeer {
+class WifiP2PPeer {
     /* Properties of NM-1.0.NM.WifiP2PPeer */
     readonly flags: TODO_80211ApFlags
     readonly hwAddress: string
@@ -22375,7 +22375,7 @@ export class WifiP2PPeer {
 }
 export interface WimaxNsp_ConstructProps extends Object_ConstructProps {
 }
-export class WimaxNsp {
+class WimaxNsp {
     /* Properties of NM-1.0.NM.WimaxNsp */
     readonly name: string
     readonly networkType: WimaxNspNetworkType
@@ -22459,13 +22459,13 @@ export class WimaxNsp {
     _init (config?: WimaxNsp_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AccessPointClass {
+abstract class AccessPointClass {
     static name: string
 }
-export abstract class ActiveConnectionClass {
+abstract class ActiveConnectionClass {
     static name: string
 }
-export class BridgeVlan {
+class BridgeVlan {
     /* Methods of NM-1.0.NM.BridgeVlan */
     cmp(b: BridgeVlan): number
     getVidRange(): { returnType: boolean, vidStart: number, vidEnd: number }
@@ -22486,13 +22486,13 @@ export class BridgeVlan {
     static new(vidStart: number, vidEnd: number): BridgeVlan
     static fromStr(str: string): BridgeVlan
 }
-export abstract class CheckpointClass {
+abstract class CheckpointClass {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     static name: string
 }
-export abstract class ConnectionInterface {
+abstract class ConnectionInterface {
     /* Fields of NM-1.0.NM.ConnectionInterface */
     parent: GObject.TypeInterface
     secretsUpdated: (connection: Connection, setting: string) => void
@@ -22500,100 +22500,100 @@ export abstract class ConnectionInterface {
     changed: (connection: Connection) => void
     static name: string
 }
-export abstract class Device6LowpanClass {
+abstract class Device6LowpanClass {
     static name: string
 }
-export abstract class DeviceAdslClass {
+abstract class DeviceAdslClass {
     static name: string
 }
-export abstract class DeviceBondClass {
+abstract class DeviceBondClass {
     static name: string
 }
-export abstract class DeviceBridgeClass {
+abstract class DeviceBridgeClass {
     static name: string
 }
-export abstract class DeviceBtClass {
+abstract class DeviceBtClass {
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     static name: string
 }
-export abstract class DeviceDummyClass {
+abstract class DeviceDummyClass {
     static name: string
 }
-export abstract class DeviceEthernetClass {
+abstract class DeviceEthernetClass {
     static name: string
 }
-export abstract class DeviceGenericClass {
+abstract class DeviceGenericClass {
     static name: string
 }
-export abstract class DeviceIPTunnelClass {
+abstract class DeviceIPTunnelClass {
     static name: string
 }
-export abstract class DeviceInfinibandClass {
+abstract class DeviceInfinibandClass {
     static name: string
 }
-export abstract class DeviceMacsecClass {
+abstract class DeviceMacsecClass {
     static name: string
 }
-export abstract class DeviceMacvlanClass {
+abstract class DeviceMacvlanClass {
     static name: string
 }
-export abstract class DeviceModemClass {
+abstract class DeviceModemClass {
     static name: string
 }
-export abstract class DeviceOlpcMeshClass {
+abstract class DeviceOlpcMeshClass {
     static name: string
 }
-export abstract class DeviceOvsBridgeClass {
+abstract class DeviceOvsBridgeClass {
     static name: string
 }
-export abstract class DeviceOvsInterfaceClass {
+abstract class DeviceOvsInterfaceClass {
     static name: string
 }
-export abstract class DeviceOvsPortClass {
+abstract class DeviceOvsPortClass {
     static name: string
 }
-export abstract class DevicePppClass {
+abstract class DevicePppClass {
     static name: string
 }
-export abstract class DeviceTeamClass {
+abstract class DeviceTeamClass {
     static name: string
 }
-export abstract class DeviceTunClass {
+abstract class DeviceTunClass {
     static name: string
 }
-export abstract class DeviceVethClass {
+abstract class DeviceVethClass {
     static name: string
 }
-export abstract class DeviceVlanClass {
+abstract class DeviceVlanClass {
     static name: string
 }
-export abstract class DeviceVrfClass {
+abstract class DeviceVrfClass {
     static name: string
 }
-export abstract class DeviceVxlanClass {
+abstract class DeviceVxlanClass {
     static name: string
 }
-export abstract class DeviceWifiClass {
+abstract class DeviceWifiClass {
     static name: string
 }
-export abstract class DeviceWifiP2PClass {
+abstract class DeviceWifiP2PClass {
     static name: string
 }
-export abstract class DeviceWimaxClass {
+abstract class DeviceWimaxClass {
     static name: string
 }
-export abstract class DeviceWireGuardClass {
+abstract class DeviceWireGuardClass {
     static name: string
 }
-export abstract class DeviceWpanClass {
+abstract class DeviceWpanClass {
     static name: string
 }
-export abstract class DhcpConfigClass {
+abstract class DhcpConfigClass {
     static name: string
 }
-export class DnsEntry {
+class DnsEntry {
     /* Methods of NM-1.0.NM.DnsEntry */
     getDomains(): string[]
     getInterface(): string
@@ -22603,7 +22603,7 @@ export class DnsEntry {
     unref(): void
     static name: string
 }
-export class IPAddress {
+class IPAddress {
     /* Methods of NM-1.0.NM.IPAddress */
     cmpFull(b: IPAddress, cmpFlags: IPAddressCmpFlags): number
     dup(): IPAddress
@@ -22625,10 +22625,10 @@ export class IPAddress {
     static new(family: number, addr: string, prefix: number): IPAddress
     static newBinary(family: number, addr: object | null, prefix: number): IPAddress
 }
-export abstract class IPConfigClass {
+abstract class IPConfigClass {
     static name: string
 }
-export class IPRoute {
+class IPRoute {
     /* Methods of NM-1.0.NM.IPRoute */
     dup(): IPRoute
     equal(other: IPRoute): boolean
@@ -22656,7 +22656,7 @@ export class IPRoute {
     static attributeValidate(name: string, value: GLib.Variant, family: number): { returnType: boolean, known: boolean }
     static getVariantAttributeSpec(): VariantAttributeSpec
 }
-export class IPRoutingRule {
+class IPRoutingRule {
     /* Methods of NM-1.0.NM.IPRoutingRule */
     cmp(other?: IPRoutingRule | null): number
     getAction(): number
@@ -22709,14 +22709,14 @@ export class IPRoutingRule {
     static new(addrFamily: number): IPRoutingRule
     static fromString(str: string, toStringFlags: IPRoutingRuleAsStringFlags, extraArgs?: GLib.HashTable | null): IPRoutingRule
 }
-export class KeyfileHandlerData {
+class KeyfileHandlerData {
     /* Methods of NM-1.0.NM.KeyfileHandlerData */
     failWithError(src: GLib.Error): void
     getContext(): { outKfGroupName: string | null, outKfKeyName: string | null, outCurSetting: Setting | null, outCurPropertyName: string | null }
     warnGet(): { outMessage: string | null, outSeverity: KeyfileWarnSeverity | null }
     static name: string
 }
-export class LldpNeighbor {
+class LldpNeighbor {
     /* Methods of NM-1.0.NM.LldpNeighbor */
     getAttrNames(): string[]
     getAttrStringValue(name: string): { returnType: boolean, outValue: string | null }
@@ -22731,13 +22731,13 @@ export class LldpNeighbor {
     /* Static methods and pseudo-constructors */
     static new(): LldpNeighbor
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     static name: string
 }
-export abstract class RemoteConnectionClass {
+abstract class RemoteConnectionClass {
     static name: string
 }
-export abstract class SecretAgentOldClass {
+abstract class SecretAgentOldClass {
     /* Fields of NM-1.0.NM.SecretAgentOldClass */
     parent: GObject.ObjectClass
     getSecrets: (self: SecretAgentOld, connection: Connection, connectionPath: string, settingName: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentOldGetSecretsFunc) => void
@@ -22746,172 +22746,172 @@ export abstract class SecretAgentOldClass {
     deleteSecrets: (self: SecretAgentOld, connection: Connection, connectionPath: string, callback: SecretAgentOldDeleteSecretsFunc) => void
     static name: string
 }
-export abstract class Setting6LowpanClass {
+abstract class Setting6LowpanClass {
     static name: string
 }
-export abstract class Setting8021xClass {
+abstract class Setting8021xClass {
     static name: string
 }
-export abstract class SettingAdslClass {
+abstract class SettingAdslClass {
     static name: string
 }
-export abstract class SettingBluetoothClass {
+abstract class SettingBluetoothClass {
     static name: string
 }
-export abstract class SettingBondClass {
+abstract class SettingBondClass {
     static name: string
 }
-export abstract class SettingBondPortClass {
+abstract class SettingBondPortClass {
     static name: string
 }
-export abstract class SettingBridgeClass {
+abstract class SettingBridgeClass {
     static name: string
 }
-export abstract class SettingBridgePortClass {
+abstract class SettingBridgePortClass {
     static name: string
 }
-export abstract class SettingCdmaClass {
+abstract class SettingCdmaClass {
     static name: string
 }
-export abstract class SettingClass {
+abstract class SettingClass {
     static name: string
 }
-export abstract class SettingConnectionClass {
+abstract class SettingConnectionClass {
     static name: string
 }
-export abstract class SettingDcbClass {
+abstract class SettingDcbClass {
     static name: string
 }
-export abstract class SettingDummyClass {
+abstract class SettingDummyClass {
     static name: string
 }
-export abstract class SettingEthtoolClass {
+abstract class SettingEthtoolClass {
     static name: string
 }
-export abstract class SettingGenericClass {
+abstract class SettingGenericClass {
     static name: string
 }
-export abstract class SettingGsmClass {
+abstract class SettingGsmClass {
     static name: string
 }
-export abstract class SettingHostnameClass {
+abstract class SettingHostnameClass {
     static name: string
 }
-export abstract class SettingIP4ConfigClass {
+abstract class SettingIP4ConfigClass {
     static name: string
 }
-export abstract class SettingIP6ConfigClass {
+abstract class SettingIP6ConfigClass {
     static name: string
 }
-export abstract class SettingIPConfigClass {
+abstract class SettingIPConfigClass {
     static name: string
 }
-export abstract class SettingIPTunnelClass {
+abstract class SettingIPTunnelClass {
     static name: string
 }
-export abstract class SettingInfinibandClass {
+abstract class SettingInfinibandClass {
     static name: string
 }
-export abstract class SettingMacsecClass {
+abstract class SettingMacsecClass {
     static name: string
 }
-export abstract class SettingMacvlanClass {
+abstract class SettingMacvlanClass {
     static name: string
 }
-export abstract class SettingMatchClass {
+abstract class SettingMatchClass {
     static name: string
 }
-export abstract class SettingOlpcMeshClass {
+abstract class SettingOlpcMeshClass {
     static name: string
 }
-export abstract class SettingOvsBridgeClass {
+abstract class SettingOvsBridgeClass {
     static name: string
 }
-export abstract class SettingOvsDpdkClass {
+abstract class SettingOvsDpdkClass {
     static name: string
 }
-export abstract class SettingOvsExternalIDsClass {
+abstract class SettingOvsExternalIDsClass {
     static name: string
 }
-export abstract class SettingOvsInterfaceClass {
+abstract class SettingOvsInterfaceClass {
     static name: string
 }
-export abstract class SettingOvsPatchClass {
+abstract class SettingOvsPatchClass {
     static name: string
 }
-export abstract class SettingOvsPortClass {
+abstract class SettingOvsPortClass {
     static name: string
 }
-export abstract class SettingPppClass {
+abstract class SettingPppClass {
     static name: string
 }
-export abstract class SettingPppoeClass {
+abstract class SettingPppoeClass {
     static name: string
 }
-export abstract class SettingProxyClass {
+abstract class SettingProxyClass {
     static name: string
 }
-export abstract class SettingSerialClass {
+abstract class SettingSerialClass {
     static name: string
 }
-export abstract class SettingSriovClass {
+abstract class SettingSriovClass {
     static name: string
 }
-export abstract class SettingTCConfigClass {
+abstract class SettingTCConfigClass {
     static name: string
 }
-export abstract class SettingTeamClass {
+abstract class SettingTeamClass {
     static name: string
 }
-export abstract class SettingTeamPortClass {
+abstract class SettingTeamPortClass {
     static name: string
 }
-export abstract class SettingTunClass {
+abstract class SettingTunClass {
     static name: string
 }
-export abstract class SettingUserClass {
+abstract class SettingUserClass {
     static name: string
 }
-export abstract class SettingVethClass {
+abstract class SettingVethClass {
     static name: string
 }
-export abstract class SettingVlanClass {
+abstract class SettingVlanClass {
     static name: string
 }
-export abstract class SettingVpnClass {
+abstract class SettingVpnClass {
     static name: string
 }
-export abstract class SettingVrfClass {
+abstract class SettingVrfClass {
     static name: string
 }
-export abstract class SettingVxlanClass {
+abstract class SettingVxlanClass {
     static name: string
 }
-export abstract class SettingWifiP2PClass {
+abstract class SettingWifiP2PClass {
     static name: string
 }
-export abstract class SettingWimaxClass {
+abstract class SettingWimaxClass {
     static name: string
 }
-export abstract class SettingWireGuardClass {
+abstract class SettingWireGuardClass {
     static name: string
 }
-export abstract class SettingWiredClass {
+abstract class SettingWiredClass {
     static name: string
 }
-export abstract class SettingWirelessClass {
+abstract class SettingWirelessClass {
     static name: string
 }
-export abstract class SettingWirelessSecurityClass {
+abstract class SettingWirelessSecurityClass {
     static name: string
 }
-export abstract class SettingWpanClass {
+abstract class SettingWpanClass {
     static name: string
 }
-export abstract class SimpleConnectionClass {
+abstract class SimpleConnectionClass {
     static name: string
 }
-export class SriovVF {
+class SriovVF {
     /* Methods of NM-1.0.NM.SriovVF */
     addVlan(vlanId: number): boolean
     dup(): SriovVF
@@ -22935,7 +22935,7 @@ export class SriovVF {
     static new(index: number): SriovVF
     static attributeValidate(name: string, value: GLib.Variant): { returnType: boolean, known: boolean }
 }
-export class TCAction {
+class TCAction {
     /* Methods of NM-1.0.NM.TCAction */
     dup(): TCAction
     equal(other: TCAction): boolean
@@ -22951,7 +22951,7 @@ export class TCAction {
     /* Static methods and pseudo-constructors */
     static new(kind: string): TCAction
 }
-export class TCQdisc {
+class TCQdisc {
     /* Methods of NM-1.0.NM.TCQdisc */
     dup(): TCQdisc
     equal(other: TCQdisc): boolean
@@ -22970,7 +22970,7 @@ export class TCQdisc {
     /* Static methods and pseudo-constructors */
     static new(kind: string, parent: number): TCQdisc
 }
-export class TCTfilter {
+class TCTfilter {
     /* Methods of NM-1.0.NM.TCTfilter */
     dup(): TCTfilter
     equal(other: TCTfilter): boolean
@@ -22988,7 +22988,7 @@ export class TCTfilter {
     /* Static methods and pseudo-constructors */
     static new(kind: string, parent: number): TCTfilter
 }
-export class TeamLinkWatcher {
+class TeamLinkWatcher {
     /* Methods of NM-1.0.NM.TeamLinkWatcher */
     dup(): TeamLinkWatcher
     equal(other: TeamLinkWatcher): boolean
@@ -23011,13 +23011,13 @@ export class TeamLinkWatcher {
     static newEthtool(delayUp: number, delayDown: number): TeamLinkWatcher
     static newNsnaPing(initWait: number, interval: number, missedMax: number, targetHost: string): TeamLinkWatcher
 }
-export class VariantAttributeSpec {
+class VariantAttributeSpec {
     static name: string
 }
-export abstract class VpnConnectionClass {
+abstract class VpnConnectionClass {
     static name: string
 }
-export abstract class VpnEditorInterface {
+abstract class VpnEditorInterface {
     /* Fields of NM-1.0.NM.VpnEditorInterface */
     gIface: GObject.TypeInterface
     getWidget: (editor: VpnEditor) => GObject.Object
@@ -23026,7 +23026,7 @@ export abstract class VpnEditorInterface {
     changed: (editor: VpnEditor) => void
     static name: string
 }
-export abstract class VpnEditorPluginInterface {
+abstract class VpnEditorPluginInterface {
     /* Fields of NM-1.0.NM.VpnEditorPluginInterface */
     gIface: GObject.TypeInterface
     getEditor: (plugin: VpnEditorPlugin, connection: Connection) => VpnEditor
@@ -23037,13 +23037,13 @@ export abstract class VpnEditorPluginInterface {
     getVt: (plugin: VpnEditorPlugin, outVtSize: number) => VpnEditorPluginVT
     static name: string
 }
-export class VpnEditorPluginVT {
+class VpnEditorPluginVT {
     static name: string
 }
-export abstract class VpnPluginInfoClass {
+abstract class VpnPluginInfoClass {
     static name: string
 }
-export abstract class VpnPluginOldClass {
+abstract class VpnPluginOldClass {
     /* Fields of NM-1.0.NM.VpnPluginOldClass */
     parent: GObject.ObjectClass
     stateChanged: (plugin: VpnPluginOld, state: VpnServiceState) => void
@@ -23060,7 +23060,7 @@ export abstract class VpnPluginOldClass {
     connectInteractive: (plugin: VpnPluginOld, connection: Connection, details: GLib.Variant) => boolean
     static name: string
 }
-export abstract class VpnServicePluginClass {
+abstract class VpnServicePluginClass {
     /* Fields of NM-1.0.NM.VpnServicePluginClass */
     parent: GObject.ObjectClass
     stateChanged: (plugin: VpnServicePlugin, state: VpnServiceState) => void
@@ -23077,13 +23077,13 @@ export abstract class VpnServicePluginClass {
     connectInteractive: (plugin: VpnServicePlugin, connection: Connection, details: GLib.Variant) => boolean
     static name: string
 }
-export abstract class WifiP2PPeerClass {
+abstract class WifiP2PPeerClass {
     static name: string
 }
-export abstract class WimaxNspClass {
+abstract class WimaxNspClass {
     static name: string
 }
-export class WireGuardPeer {
+class WireGuardPeer {
     /* Methods of NM-1.0.NM.WireGuardPeer */
     appendAllowedIp(allowedIp: string, acceptInvalid: boolean): boolean
     clearAllowedIps(): void
@@ -23114,3 +23114,4 @@ export class WireGuardPeer {
     static new(): WireGuardPeer
 }
 }
+export default NM

@@ -16,20 +16,20 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Dbusmenu } from './Dbusmenu-0.4';
 
-export declare namespace DbusmenuGtk {
+declare namespace DbusmenuGtk {
 
 export const GTK_MENUITEM_H__: number
-export function gtkParseGetCachedItem(widget: Gtk.Widget): Dbusmenu.Menuitem
-export function gtkParseMenuStructure(widget: Gtk.Widget): Dbusmenu.Menuitem
-export function menuitemPropertyGetImage(menuitem: Dbusmenu.Menuitem, property: string): GdkPixbuf.Pixbuf
-export function menuitemPropertyGetShortcut(menuitem: Dbusmenu.Menuitem): { key: number, modifier: Gdk.ModifierType }
-export function menuitemPropertySetImage(menuitem: Dbusmenu.Menuitem, property: string, data: GdkPixbuf.Pixbuf): boolean
-export function menuitemPropertySetShortcut(menuitem: Dbusmenu.Menuitem, key: number, modifier: Gdk.ModifierType): boolean
-export function menuitemPropertySetShortcutMenuitem(menuitem: Dbusmenu.Menuitem, gmi: Gtk.MenuItem): boolean
-export function menuitemPropertySetShortcutString(menuitem: Dbusmenu.Menuitem, shortcut: string): boolean
+function gtkParseGetCachedItem(widget: Gtk.Widget): Dbusmenu.Menuitem
+function gtkParseMenuStructure(widget: Gtk.Widget): Dbusmenu.Menuitem
+function menuitemPropertyGetImage(menuitem: Dbusmenu.Menuitem, property: string): GdkPixbuf.Pixbuf
+function menuitemPropertyGetShortcut(menuitem: Dbusmenu.Menuitem): { key: number, modifier: Gdk.ModifierType }
+function menuitemPropertySetImage(menuitem: Dbusmenu.Menuitem, property: string, data: GdkPixbuf.Pixbuf): boolean
+function menuitemPropertySetShortcut(menuitem: Dbusmenu.Menuitem, key: number, modifier: Gdk.ModifierType): boolean
+function menuitemPropertySetShortcutMenuitem(menuitem: Dbusmenu.Menuitem, gmi: Gtk.MenuItem): boolean
+function menuitemPropertySetShortcutString(menuitem: Dbusmenu.Menuitem, shortcut: string): boolean
 export interface Client_ConstructProps extends Dbusmenu.Client_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of Dbusmenu-0.4.Dbusmenu.Client */
     groupEvents: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -129,7 +129,7 @@ export interface Menu_ConstructProps extends Gtk.Menu_ConstructProps {
     dbusName?: string
     dbusObject?: string
 }
-export class Menu {
+class Menu {
     /* Properties of Gtk-2.0.Gtk.Menu */
     accelGroup: Gtk.AccelGroup
     accelPath: string
@@ -1103,7 +1103,7 @@ export class Menu {
     static new(): Menu
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of DbusmenuGtk-0.4.DbusmenuGtk.ClientClass */
     parentClass: Dbusmenu.ClientClass
     rootChanged: (newroot: Dbusmenu.Menuitem) => void
@@ -1115,10 +1115,10 @@ export abstract class ClientClass {
     reserved6: () => void
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class MenuClass {
+abstract class MenuClass {
     /* Fields of DbusmenuGtk-0.4.DbusmenuGtk.MenuClass */
     parentClass: Gtk.MenuClass
     reserved1: () => void
@@ -1129,7 +1129,8 @@ export abstract class MenuClass {
     reserved6: () => void
     static name: string
 }
-export class MenuPrivate {
+class MenuPrivate {
     static name: string
 }
 }
+export default DbusmenuGtk

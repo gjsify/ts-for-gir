@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GCalc from './GCalc-2';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Json from './Json-1.0';
-import type * as GXml from './GXml-0.20';
-import type * as libxml2 from './libxml2-2.0';
+import type GCalc from './GCalc-2';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Json from './Json-1.0';
+import type GXml from './GXml-0.20';
+import type libxml2 from './libxml2-2.0';
 
-export enum MoveDirection {
+export namespace Vda {
+
+enum MoveDirection {
     FORWARD,
     BACKWARD,
     RELATIVE,
 }
-export enum MetaObjectError {
+enum MetaObjectError {
     APPEND,
     UPDATE,
     SAVE,
     DROP,
 }
-export enum ConnectionError {
+enum ConnectionError {
     NO_DATABASE_NAME_ERROR,
     SERVER_ERROR,
     QUERY_CREATION_ERROR,
 }
-export enum DataObjectError {
+enum DataObjectError {
     SELECT_ERROR,
     INSERT_ERROR,
     DELETE_ERROR,
@@ -36,35 +38,35 @@ export enum DataObjectError {
     PARAMETERS_ERROR,
     NO_CONNECTION_ERROR,
 }
-export enum DataCollectionError {
+enum DataCollectionError {
     INVALID_PROPERTY_ERROR,
 }
-export enum ParserError {
+enum ParserError {
     INVALID_TOKEN_ERROR,
     INVALID_EXPRESSION_ERROR,
 }
-export enum QueryError {
+enum QueryError {
     INVALID_QUERY_ERROR,
     INVALID_CONNECTION_ERROR,
     GENERAL_ERROR,
 }
-export enum RoleError {
+enum RoleError {
     PROVILAGE_ERROR,
 }
-export enum RowModelError {
+enum RowModelError {
     INVALID_COLUMN_NAME_ERROR,
     INVALID_COLUMN_NUMBER_ERROR,
 }
-export enum SqlCommandError {
+enum SqlCommandError {
     INVALID_STRUCTURE_ERROR,
 }
-export enum SqlCommandSelectError {
+enum SqlCommandSelectError {
     INVALID_FIELDS_ERROR,
 }
-export enum SqlExpressionError {
+enum SqlExpressionError {
     INVALID_EXPRESSION_ERROR,
 }
-export enum ConnectionStatus {
+enum ConnectionStatus {
     INVALID,
     IN_PROGRESS,
     CANCELED,
@@ -73,7 +75,7 @@ export enum ConnectionStatus {
     TIMEOUT,
     CONNECTED,
 }
-export enum SqlExpressionOperatorType {
+enum SqlExpressionOperatorType {
     NONE,
     AND,
     OR,
@@ -118,7 +120,7 @@ export enum SqlExpressionOperatorType {
     BITNOT,
     ILIKE,
 }
-export enum RoleGrant {
+enum RoleGrant {
     NONE,
     SELECT,
     INSERT,
@@ -134,7 +136,7 @@ export enum RoleGrant {
 export interface MetaObject_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Connection
 }
-export class MetaObject {
+class MetaObject {
     /* Properties of Vda-1.Vda.MetaObject */
     connection: Connection
     /* Fields of GObject-2.0.GObject.Object */
@@ -193,7 +195,7 @@ export class MetaObject {
 export interface MetaNamedObject_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class MetaNamedObject {
+class MetaNamedObject {
     /* Properties of Vda-1.Vda.MetaNamedObject */
     name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -251,7 +253,7 @@ export class MetaNamedObject {
 }
 export interface ColumnModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ColumnModel {
+class ColumnModel {
     /* Properties of Vda-1.Vda.ColumnModel */
     readonly name: string
     readonly data_type: GObject.Type
@@ -313,7 +315,7 @@ export class ColumnModel {
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     parameters?: ConnectionParameters
 }
-export class Connection {
+class Connection {
     /* Properties of Vda-1.Vda.Connection */
     readonly status: ConnectionStatus
     parameters: ConnectionParameters
@@ -429,7 +431,7 @@ export class Connection {
 }
 export interface ConnectionBlob_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConnectionBlob {
+class ConnectionBlob {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionBlob */
@@ -483,7 +485,7 @@ export class ConnectionBlob {
 }
 export interface ConnectionRolebased_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConnectionRolebased {
+class ConnectionRolebased {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionRolebased */
@@ -537,7 +539,7 @@ export class ConnectionRolebased {
 }
 export interface ConnectionTransactional_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConnectionTransactional {
+class ConnectionTransactional {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionTransactional */
@@ -602,7 +604,7 @@ export interface DataObject_ConstructProps extends GObject.Object_ConstructProps
     database_table_name?: string
     cancellable?: Gio.Cancellable
 }
-export class DataObject {
+class DataObject {
     /* Properties of Vda-1.Vda.DataObject */
     database_connection: Connection
     database_table_name: string
@@ -724,7 +726,7 @@ export interface DataCollection_ConstructProps extends GObject.Object_ConstructP
     database_connection?: Connection
     cancellable?: Gio.Cancellable
 }
-export class DataCollection {
+class DataCollection {
     /* Properties of Vda-1.Vda.DataCollection */
     database_connection: Connection
     readonly parent_property: string
@@ -813,7 +815,7 @@ export class DataCollection {
 }
 export interface HashModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HashModel {
+class HashModel {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.HashModel */
@@ -869,7 +871,7 @@ export class HashModel {
 }
 export interface Inserted_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Inserted {
+class Inserted {
     /* Properties of Vda-1.Vda.Inserted */
     readonly number: number
     readonly last_inserted: RowModel
@@ -930,7 +932,7 @@ export class Inserted {
 }
 export interface ParsedQuery_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ParsedQuery {
+class ParsedQuery {
     /* Properties of Vda-1.Vda.ParsedQuery */
     readonly command: SqlCommand
     /* Fields of GObject-2.0.GObject.Object */
@@ -986,7 +988,7 @@ export class ParsedQuery {
 }
 export interface PreparedQuery_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PreparedQuery {
+class PreparedQuery {
     /* Properties of Vda-1.Vda.PreparedQuery */
     readonly name: string
     readonly parameters: SqlParameters
@@ -1047,7 +1049,7 @@ export class PreparedQuery {
 }
 export interface Query_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Query {
+class Query {
     /* Properties of Vda-1.Vda.Query */
     readonly sql: string
     readonly connection: Connection
@@ -1118,7 +1120,7 @@ export class Query {
 }
 export interface Result_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Result {
+class Result {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1166,7 +1168,7 @@ export class Result {
 }
 export interface Role_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Role {
+class Role {
     /* Properties of Vda-1.Vda.Role */
     readonly connection: Connection
     /* Fields of GObject-2.0.GObject.Object */
@@ -1238,7 +1240,7 @@ export class Role {
 }
 export interface RowModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RowModel {
+class RowModel {
     /* Properties of Vda-1.Vda.RowModel */
     readonly n_columns: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1306,7 +1308,7 @@ export class RowModel {
 }
 export interface SqlAffectedRows_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlAffectedRows {
+class SqlAffectedRows {
     /* Properties of Vda-1.Vda.SqlAffectedRows */
     readonly number: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1362,7 +1364,7 @@ export class SqlAffectedRows {
 }
 export interface SqlCommand_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommand {
+class SqlCommand {
     /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
     /* Fields of GObject-2.0.GObject.Object */
@@ -1418,7 +1420,7 @@ export class SqlCommand {
 }
 export interface SqlCommandConditional_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandConditional {
+class SqlCommandConditional {
     /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
     /* Fields of GObject-2.0.GObject.Object */
@@ -1474,7 +1476,7 @@ export class SqlCommandConditional {
 }
 export interface SqlCommandDelete_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandDelete {
+class SqlCommandDelete {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlCommandDelete */
@@ -1530,7 +1532,7 @@ export class SqlCommandDelete {
 }
 export interface SqlCommandInsert_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandInsert {
+class SqlCommandInsert {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlCommandInsert */
@@ -1586,7 +1588,7 @@ export class SqlCommandInsert {
 }
 export interface SqlCommandModification_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandModification {
+class SqlCommandModification {
     /* Properties of Vda-1.Vda.SqlCommandModification */
     readonly fields: HashModel
     readonly values: HashModel
@@ -1657,7 +1659,7 @@ export class SqlCommandModification {
 }
 export interface SqlCommandParametrized_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandParametrized {
+class SqlCommandParametrized {
     /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
     /* Fields of GObject-2.0.GObject.Object */
@@ -1713,7 +1715,7 @@ export class SqlCommandParametrized {
 }
 export interface SqlCommandSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandSelect {
+class SqlCommandSelect {
     /* Properties of Vda-1.Vda.SqlCommandSelect */
     readonly fields: HashModel
     readonly tables: HashModel
@@ -1790,7 +1792,7 @@ export interface SqlCommandTableRelated_ConstructProps extends GObject.Object_Co
     table?: string
     allias?: string
 }
-export class SqlCommandTableRelated {
+class SqlCommandTableRelated {
     /* Properties of Vda-1.Vda.SqlCommandTableRelated */
     table: string
     allias: string
@@ -1855,7 +1857,7 @@ export class SqlCommandTableRelated {
 }
 export interface SqlCommandUpdate_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlCommandUpdate {
+class SqlCommandUpdate {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlCommandUpdate */
@@ -1911,7 +1913,7 @@ export class SqlCommandUpdate {
 }
 export interface SqlExpression_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpression {
+class SqlExpression {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlExpression */
@@ -1974,7 +1976,7 @@ export interface SqlExpressionField_ConstructProps extends GObject.Object_Constr
     name?: string
     allias?: string
 }
-export class SqlExpressionField {
+class SqlExpressionField {
     /* Properties of Vda-1.Vda.SqlExpressionField */
     table_ref: string
     name: string
@@ -2046,7 +2048,7 @@ export class SqlExpressionField {
 }
 export interface SqlExpressionOperator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperator {
+class SqlExpressionOperator {
     /* Properties of Vda-1.Vda.SqlExpressionOperator */
     readonly operator_type: SqlExpressionOperatorType
     /* Fields of GObject-2.0.GObject.Object */
@@ -2172,7 +2174,7 @@ export class SqlExpressionOperator {
 }
 export interface SqlExpressionOperatorGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorGroup {
+class SqlExpressionOperatorGroup {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2220,7 +2222,7 @@ export class SqlExpressionOperatorGroup {
 }
 export interface SqlExpressionOperatorMultiterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorMultiterm {
+class SqlExpressionOperatorMultiterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2268,7 +2270,7 @@ export class SqlExpressionOperatorMultiterm {
 }
 export interface SqlExpressionOperatorAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorAnd {
+class SqlExpressionOperatorAnd {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2316,7 +2318,7 @@ export class SqlExpressionOperatorAnd {
 }
 export interface SqlExpressionOperatorOr_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorOr {
+class SqlExpressionOperatorOr {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2364,7 +2366,7 @@ export class SqlExpressionOperatorOr {
 }
 export interface SqlExpressionOperatorBinaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBinaryterm {
+class SqlExpressionOperatorBinaryterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2412,7 +2414,7 @@ export class SqlExpressionOperatorBinaryterm {
 }
 export interface SqlExpressionOperatorEq_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorEq {
+class SqlExpressionOperatorEq {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2460,7 +2462,7 @@ export class SqlExpressionOperatorEq {
 }
 export interface SqlExpressionOperatorNotEq_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotEq {
+class SqlExpressionOperatorNotEq {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2508,7 +2510,7 @@ export class SqlExpressionOperatorNotEq {
 }
 export interface SqlExpressionOperatorDiff_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorDiff {
+class SqlExpressionOperatorDiff {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2556,7 +2558,7 @@ export class SqlExpressionOperatorDiff {
 }
 export interface SqlExpressionOperatorGt_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorGt {
+class SqlExpressionOperatorGt {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2604,7 +2606,7 @@ export class SqlExpressionOperatorGt {
 }
 export interface SqlExpressionOperatorLt_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorLt {
+class SqlExpressionOperatorLt {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2652,7 +2654,7 @@ export class SqlExpressionOperatorLt {
 }
 export interface SqlExpressionOperatorGeq_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorGeq {
+class SqlExpressionOperatorGeq {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2700,7 +2702,7 @@ export class SqlExpressionOperatorGeq {
 }
 export interface SqlExpressionOperatorLeq_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorLeq {
+class SqlExpressionOperatorLeq {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2748,7 +2750,7 @@ export class SqlExpressionOperatorLeq {
 }
 export interface SqlExpressionOperatorRegexp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorRegexp {
+class SqlExpressionOperatorRegexp {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2796,7 +2798,7 @@ export class SqlExpressionOperatorRegexp {
 }
 export interface SqlExpressionOperatorStar_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorStar {
+class SqlExpressionOperatorStar {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2844,7 +2846,7 @@ export class SqlExpressionOperatorStar {
 }
 export interface SqlExpressionOperatorDiv_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorDiv {
+class SqlExpressionOperatorDiv {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2892,7 +2894,7 @@ export class SqlExpressionOperatorDiv {
 }
 export interface SqlExpressionOperatorIn_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIn {
+class SqlExpressionOperatorIn {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2940,7 +2942,7 @@ export class SqlExpressionOperatorIn {
 }
 export interface SqlExpressionOperatorNotIn_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotIn {
+class SqlExpressionOperatorNotIn {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2988,7 +2990,7 @@ export class SqlExpressionOperatorNotIn {
 }
 export interface SqlExpressionOperatorConcatenate_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorConcatenate {
+class SqlExpressionOperatorConcatenate {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3036,7 +3038,7 @@ export class SqlExpressionOperatorConcatenate {
 }
 export interface SqlExpressionOperatorSimilarTo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorSimilarTo {
+class SqlExpressionOperatorSimilarTo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3084,7 +3086,7 @@ export class SqlExpressionOperatorSimilarTo {
 }
 export interface SqlExpressionOperatorLike_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorLike {
+class SqlExpressionOperatorLike {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3132,7 +3134,7 @@ export class SqlExpressionOperatorLike {
 }
 export interface SqlExpressionOperatorNotLike_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotLike {
+class SqlExpressionOperatorNotLike {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3180,7 +3182,7 @@ export class SqlExpressionOperatorNotLike {
 }
 export interface SqlExpressionOperatorIlike_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIlike {
+class SqlExpressionOperatorIlike {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3228,7 +3230,7 @@ export class SqlExpressionOperatorIlike {
 }
 export interface SqlExpressionOperatorNotIlike_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotIlike {
+class SqlExpressionOperatorNotIlike {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3276,7 +3278,7 @@ export class SqlExpressionOperatorNotIlike {
 }
 export interface SqlExpressionOperatorBinaryUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBinaryUnaryterm {
+class SqlExpressionOperatorBinaryUnaryterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3324,7 +3326,7 @@ export class SqlExpressionOperatorBinaryUnaryterm {
 }
 export interface SqlExpressionOperatorMinus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorMinus {
+class SqlExpressionOperatorMinus {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3372,7 +3374,7 @@ export class SqlExpressionOperatorMinus {
 }
 export interface SqlExpressionOperatorPlus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorPlus {
+class SqlExpressionOperatorPlus {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3420,7 +3422,7 @@ export class SqlExpressionOperatorPlus {
 }
 export interface SqlExpressionOperatorInitialUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorInitialUnaryterm {
+class SqlExpressionOperatorInitialUnaryterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3468,7 +3470,7 @@ export class SqlExpressionOperatorInitialUnaryterm {
 }
 export interface SqlExpressionOperatorNot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNot {
+class SqlExpressionOperatorNot {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3516,7 +3518,7 @@ export class SqlExpressionOperatorNot {
 }
 export interface SqlExpressionOperatorFinalUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorFinalUnaryterm {
+class SqlExpressionOperatorFinalUnaryterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3564,7 +3566,7 @@ export class SqlExpressionOperatorFinalUnaryterm {
 }
 export interface SqlExpressionOperatorIs_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIs {
+class SqlExpressionOperatorIs {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3612,7 +3614,7 @@ export class SqlExpressionOperatorIs {
 }
 export interface SqlExpressionOperatorIsNot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNot {
+class SqlExpressionOperatorIsNot {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3660,7 +3662,7 @@ export class SqlExpressionOperatorIsNot {
 }
 export interface SqlExpressionOperatorIsNull_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNull {
+class SqlExpressionOperatorIsNull {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3708,7 +3710,7 @@ export class SqlExpressionOperatorIsNull {
 }
 export interface SqlExpressionOperatorIsNotNull_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotNull {
+class SqlExpressionOperatorIsNotNull {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3756,7 +3758,7 @@ export class SqlExpressionOperatorIsNotNull {
 }
 export interface SqlExpressionOperatorIsTrue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsTrue {
+class SqlExpressionOperatorIsTrue {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3804,7 +3806,7 @@ export class SqlExpressionOperatorIsTrue {
 }
 export interface SqlExpressionOperatorIsNotTrue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotTrue {
+class SqlExpressionOperatorIsNotTrue {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3852,7 +3854,7 @@ export class SqlExpressionOperatorIsNotTrue {
 }
 export interface SqlExpressionOperatorIsFalse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsFalse {
+class SqlExpressionOperatorIsFalse {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3900,7 +3902,7 @@ export class SqlExpressionOperatorIsFalse {
 }
 export interface SqlExpressionOperatorIsNotFalse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotFalse {
+class SqlExpressionOperatorIsNotFalse {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3948,7 +3950,7 @@ export class SqlExpressionOperatorIsNotFalse {
 }
 export interface SqlExpressionOperatorIsUnknown_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsUnknown {
+class SqlExpressionOperatorIsUnknown {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3996,7 +3998,7 @@ export class SqlExpressionOperatorIsUnknown {
 }
 export interface SqlExpressionOperatorIsNotUnknown_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotUnknown {
+class SqlExpressionOperatorIsNotUnknown {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4044,7 +4046,7 @@ export class SqlExpressionOperatorIsNotUnknown {
 }
 export interface SqlExpressionOperatorIsDistinct_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsDistinct {
+class SqlExpressionOperatorIsDistinct {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4092,7 +4094,7 @@ export class SqlExpressionOperatorIsDistinct {
 }
 export interface SqlExpressionOperatorIsNotDistinct_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotDistinct {
+class SqlExpressionOperatorIsNotDistinct {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4140,7 +4142,7 @@ export class SqlExpressionOperatorIsNotDistinct {
 }
 export interface SqlExpressionOperatorIsDistinctFrom_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsDistinctFrom {
+class SqlExpressionOperatorIsDistinctFrom {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4188,7 +4190,7 @@ export class SqlExpressionOperatorIsDistinctFrom {
 }
 export interface SqlExpressionOperatorIsNotDistinctFrom_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorIsNotDistinctFrom {
+class SqlExpressionOperatorIsNotDistinctFrom {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4236,7 +4238,7 @@ export class SqlExpressionOperatorIsNotDistinctFrom {
 }
 export interface SqlExpressionOperatorThreeterm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorThreeterm {
+class SqlExpressionOperatorThreeterm {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4284,7 +4286,7 @@ export class SqlExpressionOperatorThreeterm {
 }
 export interface SqlExpressionOperatorBetween_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBetween {
+class SqlExpressionOperatorBetween {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4332,7 +4334,7 @@ export class SqlExpressionOperatorBetween {
 }
 export interface SqlExpressionOperatorBetweenAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBetweenAnd {
+class SqlExpressionOperatorBetweenAnd {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4380,7 +4382,7 @@ export class SqlExpressionOperatorBetweenAnd {
 }
 export interface SqlExpressionOperatorNotBetween_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotBetween {
+class SqlExpressionOperatorNotBetween {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4428,7 +4430,7 @@ export class SqlExpressionOperatorNotBetween {
 }
 export interface SqlExpressionOperatorNotBetweenAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotBetweenAnd {
+class SqlExpressionOperatorNotBetweenAnd {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4476,7 +4478,7 @@ export class SqlExpressionOperatorNotBetweenAnd {
 }
 export interface SqlExpressionOperatorBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBetweenSymmetric {
+class SqlExpressionOperatorBetweenSymmetric {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4524,7 +4526,7 @@ export class SqlExpressionOperatorBetweenSymmetric {
 }
 export interface SqlExpressionOperatorBetweenSymmetricAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorBetweenSymmetricAnd {
+class SqlExpressionOperatorBetweenSymmetricAnd {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4572,7 +4574,7 @@ export class SqlExpressionOperatorBetweenSymmetricAnd {
 }
 export interface SqlExpressionOperatorNotBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotBetweenSymmetric {
+class SqlExpressionOperatorNotBetweenSymmetric {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4620,7 +4622,7 @@ export class SqlExpressionOperatorNotBetweenSymmetric {
 }
 export interface SqlExpressionOperatorNotBetweenSymmetricAnd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlExpressionOperatorNotBetweenSymmetricAnd {
+class SqlExpressionOperatorNotBetweenSymmetricAnd {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4670,7 +4672,7 @@ export interface SqlExpressionValue_ConstructProps extends GObject.Object_Constr
     connection?: Connection
     value?: SqlValue
 }
-export class SqlExpressionValue {
+class SqlExpressionValue {
     /* Properties of Vda-1.Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
@@ -4740,7 +4742,7 @@ export interface SqlExpressionValueParameter_ConstructProps extends GObject.Obje
     name?: string
     gtype?: GObject.Type
 }
-export class SqlExpressionValueParameter {
+class SqlExpressionValueParameter {
     /* Properties of Vda-1.Vda.SqlExpressionValueParameter */
     parameters: SqlParameters
     name: string
@@ -4816,7 +4818,7 @@ export class SqlExpressionValueParameter {
 }
 export interface SqlParameters_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlParameters {
+class SqlParameters {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlParameters */
@@ -4876,7 +4878,7 @@ export class SqlParameters {
 }
 export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlParser {
+class SqlParser {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlParser */
@@ -4930,7 +4932,7 @@ export interface SqlTableReference_ConstructProps extends GObject.Object_Constru
     name?: string
     allias?: string
 }
-export class SqlTableReference {
+class SqlTableReference {
     /* Properties of Vda-1.Vda.SqlTableReference */
     name: string
     allias: string
@@ -4995,7 +4997,7 @@ export class SqlTableReference {
 }
 export interface Stringifiable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Stringifiable {
+class Stringifiable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Stringifiable */
@@ -5047,7 +5049,7 @@ export class Stringifiable {
 }
 export interface SqlValue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValue {
+class SqlValue {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -5120,7 +5122,7 @@ export class SqlValue {
 }
 export interface SqlValueNull_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueNull {
+class SqlValueNull {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5168,7 +5170,7 @@ export class SqlValueNull {
 }
 export interface SqlValueBool_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueBool {
+class SqlValueBool {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5216,7 +5218,7 @@ export class SqlValueBool {
 }
 export interface SqlValueBit_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueBit {
+class SqlValueBit {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5264,7 +5266,7 @@ export class SqlValueBit {
 }
 export interface SqlValueString_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueString {
+class SqlValueString {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5312,7 +5314,7 @@ export class SqlValueString {
 }
 export interface SqlValueXml_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueXml {
+class SqlValueXml {
     /* Properties of Vda-1.Vda.SqlValueXml */
     readonly document: GXml.DomDocument
     /* Fields of GObject-2.0.GObject.Object */
@@ -5368,7 +5370,7 @@ export class SqlValueXml {
 }
 export interface SqlValueJson_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueJson {
+class SqlValueJson {
     /* Properties of Vda-1.Vda.SqlValueJson */
     readonly document: Json.Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -5424,7 +5426,7 @@ export class SqlValueJson {
 }
 export interface SqlValueText_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueText {
+class SqlValueText {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5472,7 +5474,7 @@ export class SqlValueText {
 }
 export interface SqlValueName_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueName {
+class SqlValueName {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5520,7 +5522,7 @@ export class SqlValueName {
 }
 export interface SqlValueInteger_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInteger {
+class SqlValueInteger {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5568,7 +5570,7 @@ export class SqlValueInteger {
 }
 export interface SqlValueByte_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueByte {
+class SqlValueByte {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5616,7 +5618,7 @@ export class SqlValueByte {
 }
 export interface SqlValueInt2_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt2 {
+class SqlValueInt2 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5664,7 +5666,7 @@ export class SqlValueInt2 {
 }
 export interface SqlValueInt4_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt4 {
+class SqlValueInt4 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5712,7 +5714,7 @@ export class SqlValueInt4 {
 }
 export interface SqlValueInt8_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt8 {
+class SqlValueInt8 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5760,7 +5762,7 @@ export class SqlValueInt8 {
 }
 export interface SqlValueUnsignedInteger_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueUnsignedInteger {
+class SqlValueUnsignedInteger {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5808,7 +5810,7 @@ export class SqlValueUnsignedInteger {
 }
 export interface SqlValueUnsignedByte_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueUnsignedByte {
+class SqlValueUnsignedByte {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5856,7 +5858,7 @@ export class SqlValueUnsignedByte {
 }
 export interface SqlValueUnsignedInt2_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueUnsignedInt2 {
+class SqlValueUnsignedInt2 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5904,7 +5906,7 @@ export class SqlValueUnsignedInt2 {
 }
 export interface SqlValueUnsignedInt4_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueUnsignedInt4 {
+class SqlValueUnsignedInt4 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5952,7 +5954,7 @@ export class SqlValueUnsignedInt4 {
 }
 export interface SqlValueUnsignedInt8_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueUnsignedInt8 {
+class SqlValueUnsignedInt8 {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6000,7 +6002,7 @@ export class SqlValueUnsignedInt8 {
 }
 export interface SqlValueOid_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueOid {
+class SqlValueOid {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6048,7 +6050,7 @@ export class SqlValueOid {
 }
 export interface SqlValueNumeric_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueNumeric {
+class SqlValueNumeric {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueNumeric */
@@ -6116,7 +6118,7 @@ export class SqlValueNumeric {
 }
 export interface SqlValueFloat_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueFloat {
+class SqlValueFloat {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueFloat */
@@ -6168,7 +6170,7 @@ export class SqlValueFloat {
 }
 export interface SqlValueDouble_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueDouble {
+class SqlValueDouble {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6216,7 +6218,7 @@ export class SqlValueDouble {
 }
 export interface SqlValueMoney_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueMoney {
+class SqlValueMoney {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueMoney */
@@ -6274,7 +6276,7 @@ export class SqlValueMoney {
 }
 export interface SqlValueDate_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueDate {
+class SqlValueDate {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueDate */
@@ -6328,7 +6330,7 @@ export class SqlValueDate {
 }
 export interface SqlValueTimestamp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueTimestamp {
+class SqlValueTimestamp {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueTimestamp */
@@ -6398,7 +6400,7 @@ export class SqlValueTimestamp {
 }
 export interface SqlValueTimestampNtz_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueTimestampNtz {
+class SqlValueTimestampNtz {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6446,7 +6448,7 @@ export class SqlValueTimestampNtz {
 }
 export interface SqlValueTime_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueTime {
+class SqlValueTime {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6494,7 +6496,7 @@ export class SqlValueTime {
 }
 export interface SqlValueTimeNtz_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueTimeNtz {
+class SqlValueTimeNtz {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6542,7 +6544,7 @@ export class SqlValueTimeNtz {
 }
 export interface SqlValueBinary_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueBinary {
+class SqlValueBinary {
     /* Properties of Vda-1.Vda.SqlValueBinary */
     readonly size: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -6604,7 +6606,7 @@ export class SqlValueBinary {
 }
 export interface SqlValueBlob_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueBlob {
+class SqlValueBlob {
     /* Properties of Vda-1.Vda.SqlValueBlob */
     readonly connection: Connection
     /* Fields of GObject-2.0.GObject.Object */
@@ -6668,7 +6670,7 @@ export class SqlValueBlob {
 }
 export interface SqlValueBlobOid_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueBlobOid {
+class SqlValueBlobOid {
     /* Properties of Vda-1.Vda.SqlValueBlobOid */
     readonly identification: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -6726,7 +6728,7 @@ export interface SqlValueGeometricPoint_ConstructProps extends GObject.Object_Co
     x?: number
     y?: number
 }
-export class SqlValueGeometricPoint {
+class SqlValueGeometricPoint {
     /* Properties of Vda-1.Vda.SqlValueGeometricPoint */
     x: number
     y: number
@@ -6792,7 +6794,7 @@ export class SqlValueGeometricPoint {
 export interface SqlValueMathExp_ConstructProps extends GObject.Object_ConstructProps {
     math?: GCalc.MathEquationManager
 }
-export class SqlValueMathExp {
+class SqlValueMathExp {
     /* Properties of Vda-1.Vda.SqlValueMathExp */
     math: GCalc.MathEquationManager
     /* Fields of GObject-2.0.GObject.Object */
@@ -6850,7 +6852,7 @@ export class SqlValueMathExp {
 }
 export interface TableModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TableModel {
+class TableModel {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6898,7 +6900,7 @@ export class TableModel {
 }
 export interface TableModelSequential_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TableModelSequential {
+class TableModelSequential {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.TableModelSequential */
@@ -6958,7 +6960,7 @@ export class TableModelSequential {
 }
 export interface AffectedRows_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AffectedRows {
+class AffectedRows {
     /* Properties of Vda-1.Vda.SqlAffectedRows */
     readonly number: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -7018,7 +7020,7 @@ export interface CommandDelete_ConstructProps extends GObject.Object_ConstructPr
     table?: string
     allias?: string
 }
-export class CommandDelete {
+class CommandDelete {
     /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
     /* Properties of Vda-1.Vda.SqlCommandTableRelated */
@@ -7116,7 +7118,7 @@ export class CommandDelete {
 }
 export interface CommandInsert_ConstructProps extends CommandModification_ConstructProps {
 }
-export class CommandInsert {
+class CommandInsert {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -7193,7 +7195,7 @@ export interface CommandModification_ConstructProps extends GObject.Object_Const
     table?: string
     allias?: string
 }
-export class CommandModification {
+class CommandModification {
     /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
     /* Properties of Vda-1.Vda.SqlCommandTableRelated */
@@ -7296,7 +7298,7 @@ export class CommandModification {
 }
 export interface CommandSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CommandSelect {
+class CommandSelect {
     /* Properties of Vda-1.Vda.SqlCommand */
     readonly connection: Connection
     /* Properties of Vda-1.Vda.SqlCommandConditional */
@@ -7397,7 +7399,7 @@ export class CommandSelect {
 }
 export interface CommandUpdate_ConstructProps extends CommandModification_ConstructProps {
 }
-export class CommandUpdate {
+class CommandUpdate {
     /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
     /* Fields of GObject-2.0.GObject.Object */
@@ -7481,7 +7483,7 @@ export interface ConnectionParameter_ConstructProps extends GObject.Object_Const
     name?: string
     value?: string
 }
-export class ConnectionParameter {
+class ConnectionParameter {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7543,7 +7545,7 @@ export class ConnectionParameter {
 }
 export interface ConnectionParameterDbName_ConstructProps extends ConnectionParameter_ConstructProps {
 }
-export class ConnectionParameterDbName {
+class ConnectionParameterDbName {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7605,7 +7607,7 @@ export class ConnectionParameterDbName {
 }
 export interface ConnectionParameterHost_ConstructProps extends ConnectionParameter_ConstructProps {
 }
-export class ConnectionParameterHost {
+class ConnectionParameterHost {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7667,7 +7669,7 @@ export class ConnectionParameterHost {
 }
 export interface ConnectionParameterPort_ConstructProps extends ConnectionParameter_ConstructProps {
 }
-export class ConnectionParameterPort {
+class ConnectionParameterPort {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7729,7 +7731,7 @@ export class ConnectionParameterPort {
 }
 export interface ConnectionParameterUserName_ConstructProps extends ConnectionParameter_ConstructProps {
 }
-export class ConnectionParameterUserName {
+class ConnectionParameterUserName {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7791,7 +7793,7 @@ export class ConnectionParameterUserName {
 }
 export interface ConnectionParameterPassword_ConstructProps extends ConnectionParameter_ConstructProps {
 }
-export class ConnectionParameterPassword {
+class ConnectionParameterPassword {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
@@ -7853,7 +7855,7 @@ export class ConnectionParameterPassword {
 }
 export interface ConnectionParameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
-export class ConnectionParameters {
+class ConnectionParameters {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
@@ -8004,7 +8006,7 @@ export class ConnectionParameters {
 }
 export interface Expression_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class Expression {
+class Expression {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8225,7 +8227,7 @@ export interface ExpressionField_ConstructProps extends Expression_ConstructProp
     name?: string
     allias?: string
 }
-export class ExpressionField {
+class ExpressionField {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8456,7 +8458,7 @@ export class ExpressionField {
 }
 export interface ExpressionOperator_ConstructProps extends Expression_ConstructProps {
 }
-export class ExpressionOperator {
+class ExpressionOperator {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8743,7 +8745,7 @@ export class ExpressionOperator {
 }
 export interface ExpressionOperatorGroup_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorGroup {
+class ExpressionOperatorGroup {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8993,7 +8995,7 @@ export class ExpressionOperatorGroup {
 }
 export interface ExpressionOperatorMultiterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorMultiterm {
+class ExpressionOperatorMultiterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -9245,7 +9247,7 @@ export class ExpressionOperatorMultiterm {
 }
 export interface ExpressionOperatorAnd_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
-export class ExpressionOperatorAnd {
+class ExpressionOperatorAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -9501,7 +9503,7 @@ export class ExpressionOperatorAnd {
 }
 export interface ExpressionOperatorOr_ConstructProps extends ExpressionOperatorMultiterm_ConstructProps {
 }
-export class ExpressionOperatorOr {
+class ExpressionOperatorOr {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -9757,7 +9759,7 @@ export class ExpressionOperatorOr {
 }
 export interface ExpressionOperatorBinaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorBinaryterm {
+class ExpressionOperatorBinaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10009,7 +10011,7 @@ export class ExpressionOperatorBinaryterm {
 }
 export interface ExpressionOperatorEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorEq {
+class ExpressionOperatorEq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10265,7 +10267,7 @@ export class ExpressionOperatorEq {
 }
 export interface ExpressionOperatorNotEq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorNotEq {
+class ExpressionOperatorNotEq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10521,7 +10523,7 @@ export class ExpressionOperatorNotEq {
 }
 export interface ExpressionOperatorDiff_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorDiff {
+class ExpressionOperatorDiff {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10777,7 +10779,7 @@ export class ExpressionOperatorDiff {
 }
 export interface ExpressionOperatorGt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorGt {
+class ExpressionOperatorGt {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -11033,7 +11035,7 @@ export class ExpressionOperatorGt {
 }
 export interface ExpressionOperatorLt_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorLt {
+class ExpressionOperatorLt {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -11289,7 +11291,7 @@ export class ExpressionOperatorLt {
 }
 export interface ExpressionOperatorGeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorGeq {
+class ExpressionOperatorGeq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -11545,7 +11547,7 @@ export class ExpressionOperatorGeq {
 }
 export interface ExpressionOperatorLeq_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorLeq {
+class ExpressionOperatorLeq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -11801,7 +11803,7 @@ export class ExpressionOperatorLeq {
 }
 export interface ExpressionOperatorRegexp_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorRegexp {
+class ExpressionOperatorRegexp {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -12057,7 +12059,7 @@ export class ExpressionOperatorRegexp {
 }
 export interface ExpressionOperatorStar_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorStar {
+class ExpressionOperatorStar {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -12313,7 +12315,7 @@ export class ExpressionOperatorStar {
 }
 export interface ExpressionOperatorDiv_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorDiv {
+class ExpressionOperatorDiv {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -12569,7 +12571,7 @@ export class ExpressionOperatorDiv {
 }
 export interface ExpressionOperatorIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorIn {
+class ExpressionOperatorIn {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -12825,7 +12827,7 @@ export class ExpressionOperatorIn {
 }
 export interface ExpressionOperatorNotIn_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorNotIn {
+class ExpressionOperatorNotIn {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -13081,7 +13083,7 @@ export class ExpressionOperatorNotIn {
 }
 export interface ExpressionOperatorConcatenate_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorConcatenate {
+class ExpressionOperatorConcatenate {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -13337,7 +13339,7 @@ export class ExpressionOperatorConcatenate {
 }
 export interface ExpressionOperatorSimilarTo_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorSimilarTo {
+class ExpressionOperatorSimilarTo {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -13593,7 +13595,7 @@ export class ExpressionOperatorSimilarTo {
 }
 export interface ExpressionOperatorLike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorLike {
+class ExpressionOperatorLike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -13849,7 +13851,7 @@ export class ExpressionOperatorLike {
 }
 export interface ExpressionOperatorNotLike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorNotLike {
+class ExpressionOperatorNotLike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -14105,7 +14107,7 @@ export class ExpressionOperatorNotLike {
 }
 export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorIlike {
+class ExpressionOperatorIlike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -14361,7 +14363,7 @@ export class ExpressionOperatorIlike {
 }
 export interface ExpressionOperatorNotIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorNotIlike {
+class ExpressionOperatorNotIlike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -14617,7 +14619,7 @@ export class ExpressionOperatorNotIlike {
 }
 export interface ExpressionOperatorBinaryUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorBinaryUnaryterm {
+class ExpressionOperatorBinaryUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -14869,7 +14871,7 @@ export class ExpressionOperatorBinaryUnaryterm {
 }
 export interface ExpressionOperatorMinus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
-export class ExpressionOperatorMinus {
+class ExpressionOperatorMinus {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -15125,7 +15127,7 @@ export class ExpressionOperatorMinus {
 }
 export interface ExpressionOperatorPlus_ConstructProps extends ExpressionOperatorBinaryUnaryterm_ConstructProps {
 }
-export class ExpressionOperatorPlus {
+class ExpressionOperatorPlus {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -15381,7 +15383,7 @@ export class ExpressionOperatorPlus {
 }
 export interface ExpressionOperatorInitialUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorInitialUnaryterm {
+class ExpressionOperatorInitialUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -15633,7 +15635,7 @@ export class ExpressionOperatorInitialUnaryterm {
 }
 export interface ExpressionOperatorNot_ConstructProps extends ExpressionOperatorInitialUnaryterm_ConstructProps {
 }
-export class ExpressionOperatorNot {
+class ExpressionOperatorNot {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -15889,7 +15891,7 @@ export class ExpressionOperatorNot {
 }
 export interface ExpressionOperatorFinalUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorFinalUnaryterm {
+class ExpressionOperatorFinalUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -16141,7 +16143,7 @@ export class ExpressionOperatorFinalUnaryterm {
 }
 export interface ExpressionOperatorIs_ConstructProps extends ExpressionOperatorFinalUnaryterm_ConstructProps {
 }
-export class ExpressionOperatorIs {
+class ExpressionOperatorIs {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -16397,7 +16399,7 @@ export class ExpressionOperatorIs {
 }
 export interface ExpressionOperatorIsNot_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
-export class ExpressionOperatorIsNot {
+class ExpressionOperatorIsNot {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -16657,7 +16659,7 @@ export class ExpressionOperatorIsNot {
 }
 export interface ExpressionOperatorIsNull_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
-export class ExpressionOperatorIsNull {
+class ExpressionOperatorIsNull {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -16917,7 +16919,7 @@ export class ExpressionOperatorIsNull {
 }
 export interface ExpressionOperatorIsNotNull_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
-export class ExpressionOperatorIsNotNull {
+class ExpressionOperatorIsNotNull {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -17181,7 +17183,7 @@ export class ExpressionOperatorIsNotNull {
 }
 export interface ExpressionOperatorIsTrue_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
-export class ExpressionOperatorIsTrue {
+class ExpressionOperatorIsTrue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -17441,7 +17443,7 @@ export class ExpressionOperatorIsTrue {
 }
 export interface ExpressionOperatorIsNotTrue_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
-export class ExpressionOperatorIsNotTrue {
+class ExpressionOperatorIsNotTrue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -17705,7 +17707,7 @@ export class ExpressionOperatorIsNotTrue {
 }
 export interface ExpressionOperatorIsFalse_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
-export class ExpressionOperatorIsFalse {
+class ExpressionOperatorIsFalse {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -17965,7 +17967,7 @@ export class ExpressionOperatorIsFalse {
 }
 export interface ExpressionOperatorIsNotFalse_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
-export class ExpressionOperatorIsNotFalse {
+class ExpressionOperatorIsNotFalse {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -18229,7 +18231,7 @@ export class ExpressionOperatorIsNotFalse {
 }
 export interface ExpressionOperatorIsNotUnknown_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
 }
-export class ExpressionOperatorIsNotUnknown {
+class ExpressionOperatorIsNotUnknown {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -18493,7 +18495,7 @@ export class ExpressionOperatorIsNotUnknown {
 }
 export interface ExpressionOperatorIsUnknown_ConstructProps extends ExpressionOperatorIs_ConstructProps {
 }
-export class ExpressionOperatorIsUnknown {
+class ExpressionOperatorIsUnknown {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -18753,7 +18755,7 @@ export class ExpressionOperatorIsUnknown {
 }
 export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorIsDistinct {
+class ExpressionOperatorIsDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -19009,7 +19011,7 @@ export class ExpressionOperatorIsDistinct {
 }
 export interface ExpressionOperatorIsNotDistinct_ConstructProps extends ExpressionOperatorIsDistinct_ConstructProps {
 }
-export class ExpressionOperatorIsNotDistinct {
+class ExpressionOperatorIsNotDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -19269,7 +19271,7 @@ export class ExpressionOperatorIsNotDistinct {
 }
 export interface ExpressionOperatorIsDistinctFrom_ConstructProps extends ExpressionOperatorIsDistinct_ConstructProps {
 }
-export class ExpressionOperatorIsDistinctFrom {
+class ExpressionOperatorIsDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -19529,7 +19531,7 @@ export class ExpressionOperatorIsDistinctFrom {
 }
 export interface ExpressionOperatorIsNotDistinctFrom_ConstructProps extends ExpressionOperatorIsNotDistinct_ConstructProps {
 }
-export class ExpressionOperatorIsNotDistinctFrom {
+class ExpressionOperatorIsNotDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -19793,7 +19795,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
 }
 export interface ExpressionOperatorThreeterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
-export class ExpressionOperatorThreeterm {
+class ExpressionOperatorThreeterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -20046,7 +20048,7 @@ export class ExpressionOperatorThreeterm {
 }
 export interface ExpressionOperatorBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
 }
-export class ExpressionOperatorBetween {
+class ExpressionOperatorBetween {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -20303,7 +20305,7 @@ export class ExpressionOperatorBetween {
 }
 export interface ExpressionOperatorBetweenAnd_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
 }
-export class ExpressionOperatorBetweenAnd {
+class ExpressionOperatorBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -20564,7 +20566,7 @@ export class ExpressionOperatorBetweenAnd {
 }
 export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
 }
-export class ExpressionOperatorNotBetween {
+class ExpressionOperatorNotBetween {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -20825,7 +20827,7 @@ export class ExpressionOperatorNotBetween {
 }
 export interface ExpressionOperatorNotBetweenAnd_ConstructProps extends ExpressionOperatorNotBetween_ConstructProps {
 }
-export class ExpressionOperatorNotBetweenAnd {
+class ExpressionOperatorNotBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -21090,7 +21092,7 @@ export class ExpressionOperatorNotBetweenAnd {
 }
 export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
 }
-export class ExpressionOperatorBetweenSymmetric {
+class ExpressionOperatorBetweenSymmetric {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -21351,7 +21353,7 @@ export class ExpressionOperatorBetweenSymmetric {
 }
 export interface ExpressionOperatorBetweenSymmetricAnd_ConstructProps extends ExpressionOperatorBetweenSymmetric_ConstructProps {
 }
-export class ExpressionOperatorBetweenSymmetricAnd {
+class ExpressionOperatorBetweenSymmetricAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -21616,7 +21618,7 @@ export class ExpressionOperatorBetweenSymmetricAnd {
 }
 export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends ExpressionOperatorBetweenSymmetric_ConstructProps {
 }
-export class ExpressionOperatorNotBetweenSymmetric {
+class ExpressionOperatorNotBetweenSymmetric {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -21881,7 +21883,7 @@ export class ExpressionOperatorNotBetweenSymmetric {
 }
 export interface ExpressionOperatorNotBetweenSymmetricAnd_ConstructProps extends ExpressionOperatorNotBetweenSymmetric_ConstructProps {
 }
-export class ExpressionOperatorNotBetweenSymmetricAnd {
+class ExpressionOperatorNotBetweenSymmetricAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -22152,7 +22154,7 @@ export interface ExpressionValue_ConstructProps extends Expression_ConstructProp
     connection?: Connection
     value?: SqlValue
 }
-export class ExpressionValue {
+class ExpressionValue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -22381,7 +22383,7 @@ export interface ExpressionValueParameter_ConstructProps extends ExpressionValue
     name?: string
     gtype?: GObject.Type
 }
-export class ExpressionValueParameter {
+class ExpressionValueParameter {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -22624,7 +22626,7 @@ export class ExpressionValueParameter {
 }
 export interface HashList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class HashList {
+class HashList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -22841,7 +22843,7 @@ export class HashList {
 export interface InvalidQuery_ConstructProps extends GObject.Object_ConstructProps {
     message?: string
 }
-export class InvalidQuery {
+class InvalidQuery {
     /* Properties of Vda-1.Vda.InvalidQuery */
     message: string
     /* Properties of Vda-1.Vda.Query */
@@ -22921,7 +22923,7 @@ export class InvalidQuery {
 }
 export interface InvalidPreparedQuery_ConstructProps extends InvalidQuery_ConstructProps {
 }
-export class InvalidPreparedQuery {
+class InvalidPreparedQuery {
     /* Properties of Vda-1.Vda.InvalidQuery */
     message: string
     /* Properties of Vda-1.Vda.PreparedQuery */
@@ -23000,7 +23002,7 @@ export class InvalidPreparedQuery {
 export interface InvalidResult_ConstructProps extends GObject.Object_ConstructProps {
     message?: string
 }
-export class InvalidResult {
+class InvalidResult {
     /* Properties of Vda-1.Vda.InvalidResult */
     message: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -23057,7 +23059,7 @@ export class InvalidResult {
 }
 export interface Parameters_ConstructProps extends Gee.HashMap_ConstructProps {
 }
-export class Parameters {
+class Parameters {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
@@ -23214,7 +23216,7 @@ export class Parameters {
 }
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Parser {
+class Parser {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -23270,7 +23272,7 @@ export interface TableReference_ConstructProps extends GObject.Object_ConstructP
     name?: string
     allias?: string
 }
-export class TableReference {
+class TableReference {
     /* Properties of Vda-1.Vda.SqlTableReference */
     name: string
     allias: string
@@ -23337,7 +23339,7 @@ export class TableReference {
 }
 export interface Value_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Value {
+class Value {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Fields of Vda-1.Vda.Value */
@@ -23419,7 +23421,7 @@ export class Value {
 }
 export interface ValueNull_ConstructProps extends Value_ConstructProps {
 }
-export class ValueNull {
+class ValueNull {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -23493,7 +23495,7 @@ export class ValueNull {
 }
 export interface ValueString_ConstructProps extends Value_ConstructProps {
 }
-export class ValueString {
+class ValueString {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -23567,7 +23569,7 @@ export class ValueString {
 }
 export interface ValueXml_ConstructProps extends ValueString_ConstructProps {
 }
-export class ValueXml {
+class ValueXml {
     /* Properties of Vda-1.Vda.SqlValueXml */
     readonly document: GXml.DomDocument
     /* Fields of Vda-1.Vda.Value */
@@ -23649,7 +23651,7 @@ export class ValueXml {
 }
 export interface ValueJson_ConstructProps extends ValueString_ConstructProps {
 }
-export class ValueJson {
+class ValueJson {
     /* Properties of Vda-1.Vda.SqlValueJson */
     readonly document: Json.Node
     /* Fields of Vda-1.Vda.Value */
@@ -23731,7 +23733,7 @@ export class ValueJson {
 }
 export interface ValueText_ConstructProps extends ValueString_ConstructProps {
 }
-export class ValueText {
+class ValueText {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -23805,7 +23807,7 @@ export class ValueText {
 }
 export interface ValueName_ConstructProps extends ValueString_ConstructProps {
 }
-export class ValueName {
+class ValueName {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -23879,7 +23881,7 @@ export class ValueName {
 }
 export interface ValueBool_ConstructProps extends Value_ConstructProps {
 }
-export class ValueBool {
+class ValueBool {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -23953,7 +23955,7 @@ export class ValueBool {
 }
 export interface ValueBit_ConstructProps extends ValueBool_ConstructProps {
 }
-export class ValueBit {
+class ValueBit {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24027,7 +24029,7 @@ export class ValueBit {
 }
 export interface ValueInteger_ConstructProps extends Value_ConstructProps {
 }
-export class ValueInteger {
+class ValueInteger {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Fields of Vda-1.Vda.Value */
@@ -24107,7 +24109,7 @@ export class ValueInteger {
 }
 export interface ValueByte_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueByte {
+class ValueByte {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24181,7 +24183,7 @@ export class ValueByte {
 }
 export interface ValueInt2_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueInt2 {
+class ValueInt2 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24255,7 +24257,7 @@ export class ValueInt2 {
 }
 export interface ValueInt4_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueInt4 {
+class ValueInt4 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24329,7 +24331,7 @@ export class ValueInt4 {
 }
 export interface ValueInt8_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueInt8 {
+class ValueInt8 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24403,7 +24405,7 @@ export class ValueInt8 {
 }
 export interface ValueUnsignedInteger_ConstructProps extends Value_ConstructProps {
 }
-export class ValueUnsignedInteger {
+class ValueUnsignedInteger {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Fields of Vda-1.Vda.Value */
@@ -24483,7 +24485,7 @@ export class ValueUnsignedInteger {
 }
 export interface ValueUnsignedByte_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueUnsignedByte {
+class ValueUnsignedByte {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24557,7 +24559,7 @@ export class ValueUnsignedByte {
 }
 export interface ValueUnsignedInt2_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueUnsignedInt2 {
+class ValueUnsignedInt2 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24631,7 +24633,7 @@ export class ValueUnsignedInt2 {
 }
 export interface ValueUnsignedInt4_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueUnsignedInt4 {
+class ValueUnsignedInt4 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24705,7 +24707,7 @@ export class ValueUnsignedInt4 {
 }
 export interface ValueUnsignedInt8_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueUnsignedInt8 {
+class ValueUnsignedInt8 {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24779,7 +24781,7 @@ export class ValueUnsignedInt8 {
 }
 export interface ValueOid_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueOid {
+class ValueOid {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24853,7 +24855,7 @@ export class ValueOid {
 }
 export interface ValueNumeric_ConstructProps extends Value_ConstructProps {
 }
-export class ValueNumeric {
+class ValueNumeric {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -24948,7 +24950,7 @@ export class ValueNumeric {
 }
 export interface ValueFloat_ConstructProps extends ValueNumeric_ConstructProps {
 }
-export class ValueFloat {
+class ValueFloat {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -25038,7 +25040,7 @@ export class ValueFloat {
 }
 export interface ValueDouble_ConstructProps extends ValueNumeric_ConstructProps {
 }
-export class ValueDouble {
+class ValueDouble {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -25124,7 +25126,7 @@ export class ValueDouble {
 }
 export interface ValueMoney_ConstructProps extends ValueNumeric_ConstructProps {
 }
-export class ValueMoney {
+class ValueMoney {
     /* Fields of Vda-1.Vda.Value */
     _name: string
     _val: any
@@ -25220,7 +25222,7 @@ export class ValueMoney {
 }
 export interface ValueTimestamp_ConstructProps extends Value_ConstructProps {
 }
-export class ValueTimestamp {
+class ValueTimestamp {
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -25319,7 +25321,7 @@ export class ValueTimestamp {
 }
 export interface ValueTimestampNtz_ConstructProps extends ValueTimestamp_ConstructProps {
 }
-export class ValueTimestampNtz {
+class ValueTimestampNtz {
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -25410,7 +25412,7 @@ export class ValueTimestampNtz {
 }
 export interface ValueTime_ConstructProps extends ValueTimestamp_ConstructProps {
 }
-export class ValueTime {
+class ValueTime {
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -25501,7 +25503,7 @@ export class ValueTime {
 }
 export interface ValueTimeNtz_ConstructProps extends ValueTimestampNtz_ConstructProps {
 }
-export class ValueTimeNtz {
+class ValueTimeNtz {
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -25592,7 +25594,7 @@ export class ValueTimeNtz {
 }
 export interface ValueDate_ConstructProps extends Value_ConstructProps {
 }
-export class ValueDate {
+class ValueDate {
     /* Fields of Vda-1.Vda.ValueDate */
     d: GLib.Date
     /* Fields of Vda-1.Vda.Value */
@@ -25674,7 +25676,7 @@ export class ValueDate {
 }
 export interface ValueBinary_ConstructProps extends Value_ConstructProps {
 }
-export class ValueBinary {
+class ValueBinary {
     /* Properties of Vda-1.Vda.SqlValueBinary */
     readonly size: number
     /* Fields of Vda-1.Vda.Value */
@@ -25766,7 +25768,7 @@ export interface ValueMathExp_ConstructProps extends GObject.Object_ConstructPro
     parameters?: SqlParameters
     math?: GCalc.MathEquationManager
 }
-export class ValueMathExp {
+class ValueMathExp {
     /* Properties of Vda-1.Vda.ValueMathExp */
     parameters: SqlParameters
     /* Properties of Vda-1.Vda.SqlValue */
@@ -25857,473 +25859,473 @@ export class ValueMathExp {
     static new_from_gtype(type: GObject.Type): SqlValue | null
     static $gtype: GObject.Type
 }
-export abstract class AffectedRowsClass {
+abstract class AffectedRowsClass {
     static name: string
 }
-export class AffectedRowsPrivate {
+class AffectedRowsPrivate {
     static name: string
 }
-export abstract class CommandDeleteClass {
+abstract class CommandDeleteClass {
     static name: string
 }
-export class CommandDeletePrivate {
+class CommandDeletePrivate {
     static name: string
 }
-export abstract class CommandInsertClass {
+abstract class CommandInsertClass {
     static name: string
 }
-export class CommandInsertPrivate {
+class CommandInsertPrivate {
     static name: string
 }
-export abstract class CommandModificationClass {
+abstract class CommandModificationClass {
     static name: string
 }
-export class CommandModificationPrivate {
+class CommandModificationPrivate {
     static name: string
 }
-export abstract class CommandSelectClass {
+abstract class CommandSelectClass {
     static name: string
 }
-export class CommandSelectPrivate {
+class CommandSelectPrivate {
     static name: string
 }
-export abstract class CommandUpdateClass {
+abstract class CommandUpdateClass {
     static name: string
 }
-export class CommandUpdatePrivate {
+class CommandUpdatePrivate {
     static name: string
 }
-export abstract class ConnectionParameterClass {
+abstract class ConnectionParameterClass {
     static name: string
 }
-export class ConnectionParameterPrivate {
+class ConnectionParameterPrivate {
     static name: string
 }
-export abstract class ConnectionParameterDbNameClass {
+abstract class ConnectionParameterDbNameClass {
     static name: string
 }
-export class ConnectionParameterDbNamePrivate {
+class ConnectionParameterDbNamePrivate {
     static name: string
 }
-export abstract class ConnectionParameterHostClass {
+abstract class ConnectionParameterHostClass {
     static name: string
 }
-export class ConnectionParameterHostPrivate {
+class ConnectionParameterHostPrivate {
     static name: string
 }
-export abstract class ConnectionParameterPortClass {
+abstract class ConnectionParameterPortClass {
     static name: string
 }
-export class ConnectionParameterPortPrivate {
+class ConnectionParameterPortPrivate {
     static name: string
 }
-export abstract class ConnectionParameterUserNameClass {
+abstract class ConnectionParameterUserNameClass {
     static name: string
 }
-export class ConnectionParameterUserNamePrivate {
+class ConnectionParameterUserNamePrivate {
     static name: string
 }
-export abstract class ConnectionParameterPasswordClass {
+abstract class ConnectionParameterPasswordClass {
     static name: string
 }
-export class ConnectionParameterPasswordPrivate {
+class ConnectionParameterPasswordPrivate {
     static name: string
 }
-export abstract class ConnectionParametersClass {
+abstract class ConnectionParametersClass {
     /* Fields of Vda-1.Vda.ConnectionParametersClass */
     parse: (cnstring: string) => void
     static name: string
 }
-export class ConnectionParametersPrivate {
+class ConnectionParametersPrivate {
     static name: string
 }
-export abstract class ExpressionClass {
+abstract class ExpressionClass {
     /* Fields of Vda-1.Vda.ExpressionClass */
     to_string: () => string
     static name: string
 }
-export class ExpressionPrivate {
+class ExpressionPrivate {
     static name: string
 }
-export abstract class ExpressionFieldClass {
+abstract class ExpressionFieldClass {
     static name: string
 }
-export class ExpressionFieldPrivate {
+class ExpressionFieldPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorClass {
+abstract class ExpressionOperatorClass {
     static name: string
 }
-export class ExpressionOperatorPrivate {
+class ExpressionOperatorPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorGroupClass {
+abstract class ExpressionOperatorGroupClass {
     static name: string
 }
-export class ExpressionOperatorGroupPrivate {
+class ExpressionOperatorGroupPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorMultitermClass {
+abstract class ExpressionOperatorMultitermClass {
     static name: string
 }
-export class ExpressionOperatorMultitermPrivate {
+class ExpressionOperatorMultitermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorAndClass {
+abstract class ExpressionOperatorAndClass {
     static name: string
 }
-export class ExpressionOperatorAndPrivate {
+class ExpressionOperatorAndPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorOrClass {
+abstract class ExpressionOperatorOrClass {
     static name: string
 }
-export class ExpressionOperatorOrPrivate {
+class ExpressionOperatorOrPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBinarytermClass {
+abstract class ExpressionOperatorBinarytermClass {
     static name: string
 }
-export class ExpressionOperatorBinarytermPrivate {
+class ExpressionOperatorBinarytermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorEqClass {
+abstract class ExpressionOperatorEqClass {
     static name: string
 }
-export class ExpressionOperatorEqPrivate {
+class ExpressionOperatorEqPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotEqClass {
+abstract class ExpressionOperatorNotEqClass {
     static name: string
 }
-export class ExpressionOperatorNotEqPrivate {
+class ExpressionOperatorNotEqPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorDiffClass {
+abstract class ExpressionOperatorDiffClass {
     static name: string
 }
-export class ExpressionOperatorDiffPrivate {
+class ExpressionOperatorDiffPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorGtClass {
+abstract class ExpressionOperatorGtClass {
     static name: string
 }
-export class ExpressionOperatorGtPrivate {
+class ExpressionOperatorGtPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorLtClass {
+abstract class ExpressionOperatorLtClass {
     static name: string
 }
-export class ExpressionOperatorLtPrivate {
+class ExpressionOperatorLtPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorGeqClass {
+abstract class ExpressionOperatorGeqClass {
     static name: string
 }
-export class ExpressionOperatorGeqPrivate {
+class ExpressionOperatorGeqPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorLeqClass {
+abstract class ExpressionOperatorLeqClass {
     static name: string
 }
-export class ExpressionOperatorLeqPrivate {
+class ExpressionOperatorLeqPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorRegexpClass {
+abstract class ExpressionOperatorRegexpClass {
     static name: string
 }
-export class ExpressionOperatorRegexpPrivate {
+class ExpressionOperatorRegexpPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorStarClass {
+abstract class ExpressionOperatorStarClass {
     static name: string
 }
-export class ExpressionOperatorStarPrivate {
+class ExpressionOperatorStarPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorDivClass {
+abstract class ExpressionOperatorDivClass {
     static name: string
 }
-export class ExpressionOperatorDivPrivate {
+class ExpressionOperatorDivPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorInClass {
+abstract class ExpressionOperatorInClass {
     static name: string
 }
-export class ExpressionOperatorInPrivate {
+class ExpressionOperatorInPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotInClass {
+abstract class ExpressionOperatorNotInClass {
     static name: string
 }
-export class ExpressionOperatorNotInPrivate {
+class ExpressionOperatorNotInPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorConcatenateClass {
+abstract class ExpressionOperatorConcatenateClass {
     static name: string
 }
-export class ExpressionOperatorConcatenatePrivate {
+class ExpressionOperatorConcatenatePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorSimilarToClass {
+abstract class ExpressionOperatorSimilarToClass {
     static name: string
 }
-export class ExpressionOperatorSimilarToPrivate {
+class ExpressionOperatorSimilarToPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorLikeClass {
+abstract class ExpressionOperatorLikeClass {
     static name: string
 }
-export class ExpressionOperatorLikePrivate {
+class ExpressionOperatorLikePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotLikeClass {
+abstract class ExpressionOperatorNotLikeClass {
     static name: string
 }
-export class ExpressionOperatorNotLikePrivate {
+class ExpressionOperatorNotLikePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIlikeClass {
+abstract class ExpressionOperatorIlikeClass {
     static name: string
 }
-export class ExpressionOperatorIlikePrivate {
+class ExpressionOperatorIlikePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotIlikeClass {
+abstract class ExpressionOperatorNotIlikeClass {
     static name: string
 }
-export class ExpressionOperatorNotIlikePrivate {
+class ExpressionOperatorNotIlikePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBinaryUnarytermClass {
+abstract class ExpressionOperatorBinaryUnarytermClass {
     static name: string
 }
-export class ExpressionOperatorBinaryUnarytermPrivate {
+class ExpressionOperatorBinaryUnarytermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorMinusClass {
+abstract class ExpressionOperatorMinusClass {
     static name: string
 }
-export class ExpressionOperatorMinusPrivate {
+class ExpressionOperatorMinusPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorPlusClass {
+abstract class ExpressionOperatorPlusClass {
     static name: string
 }
-export class ExpressionOperatorPlusPrivate {
+class ExpressionOperatorPlusPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorInitialUnarytermClass {
+abstract class ExpressionOperatorInitialUnarytermClass {
     static name: string
 }
-export class ExpressionOperatorInitialUnarytermPrivate {
+class ExpressionOperatorInitialUnarytermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotClass {
+abstract class ExpressionOperatorNotClass {
     static name: string
 }
-export class ExpressionOperatorNotPrivate {
+class ExpressionOperatorNotPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorFinalUnarytermClass {
+abstract class ExpressionOperatorFinalUnarytermClass {
     static name: string
 }
-export class ExpressionOperatorFinalUnarytermPrivate {
+class ExpressionOperatorFinalUnarytermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsClass {
+abstract class ExpressionOperatorIsClass {
     static name: string
 }
-export class ExpressionOperatorIsPrivate {
+class ExpressionOperatorIsPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotClass {
+abstract class ExpressionOperatorIsNotClass {
     static name: string
 }
-export class ExpressionOperatorIsNotPrivate {
+class ExpressionOperatorIsNotPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNullClass {
+abstract class ExpressionOperatorIsNullClass {
     static name: string
 }
-export class ExpressionOperatorIsNullPrivate {
+class ExpressionOperatorIsNullPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotNullClass {
+abstract class ExpressionOperatorIsNotNullClass {
     static name: string
 }
-export class ExpressionOperatorIsNotNullPrivate {
+class ExpressionOperatorIsNotNullPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsTrueClass {
+abstract class ExpressionOperatorIsTrueClass {
     static name: string
 }
-export class ExpressionOperatorIsTruePrivate {
+class ExpressionOperatorIsTruePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotTrueClass {
+abstract class ExpressionOperatorIsNotTrueClass {
     static name: string
 }
-export class ExpressionOperatorIsNotTruePrivate {
+class ExpressionOperatorIsNotTruePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsFalseClass {
+abstract class ExpressionOperatorIsFalseClass {
     static name: string
 }
-export class ExpressionOperatorIsFalsePrivate {
+class ExpressionOperatorIsFalsePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotFalseClass {
+abstract class ExpressionOperatorIsNotFalseClass {
     static name: string
 }
-export class ExpressionOperatorIsNotFalsePrivate {
+class ExpressionOperatorIsNotFalsePrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotUnknownClass {
+abstract class ExpressionOperatorIsNotUnknownClass {
     static name: string
 }
-export class ExpressionOperatorIsNotUnknownPrivate {
+class ExpressionOperatorIsNotUnknownPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsUnknownClass {
+abstract class ExpressionOperatorIsUnknownClass {
     static name: string
 }
-export class ExpressionOperatorIsUnknownPrivate {
+class ExpressionOperatorIsUnknownPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsDistinctClass {
+abstract class ExpressionOperatorIsDistinctClass {
     static name: string
 }
-export class ExpressionOperatorIsDistinctPrivate {
+class ExpressionOperatorIsDistinctPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotDistinctClass {
+abstract class ExpressionOperatorIsNotDistinctClass {
     static name: string
 }
-export class ExpressionOperatorIsNotDistinctPrivate {
+class ExpressionOperatorIsNotDistinctPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsDistinctFromClass {
+abstract class ExpressionOperatorIsDistinctFromClass {
     static name: string
 }
-export class ExpressionOperatorIsDistinctFromPrivate {
+class ExpressionOperatorIsDistinctFromPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorIsNotDistinctFromClass {
+abstract class ExpressionOperatorIsNotDistinctFromClass {
     static name: string
 }
-export class ExpressionOperatorIsNotDistinctFromPrivate {
+class ExpressionOperatorIsNotDistinctFromPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorThreetermClass {
+abstract class ExpressionOperatorThreetermClass {
     static name: string
 }
-export class ExpressionOperatorThreetermPrivate {
+class ExpressionOperatorThreetermPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBetweenClass {
+abstract class ExpressionOperatorBetweenClass {
     static name: string
 }
-export class ExpressionOperatorBetweenPrivate {
+class ExpressionOperatorBetweenPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBetweenAndClass {
+abstract class ExpressionOperatorBetweenAndClass {
     static name: string
 }
-export class ExpressionOperatorBetweenAndPrivate {
+class ExpressionOperatorBetweenAndPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotBetweenClass {
+abstract class ExpressionOperatorNotBetweenClass {
     static name: string
 }
-export class ExpressionOperatorNotBetweenPrivate {
+class ExpressionOperatorNotBetweenPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotBetweenAndClass {
+abstract class ExpressionOperatorNotBetweenAndClass {
     static name: string
 }
-export class ExpressionOperatorNotBetweenAndPrivate {
+class ExpressionOperatorNotBetweenAndPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBetweenSymmetricClass {
+abstract class ExpressionOperatorBetweenSymmetricClass {
     static name: string
 }
-export class ExpressionOperatorBetweenSymmetricPrivate {
+class ExpressionOperatorBetweenSymmetricPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorBetweenSymmetricAndClass {
+abstract class ExpressionOperatorBetweenSymmetricAndClass {
     static name: string
 }
-export class ExpressionOperatorBetweenSymmetricAndPrivate {
+class ExpressionOperatorBetweenSymmetricAndPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotBetweenSymmetricClass {
+abstract class ExpressionOperatorNotBetweenSymmetricClass {
     static name: string
 }
-export class ExpressionOperatorNotBetweenSymmetricPrivate {
+class ExpressionOperatorNotBetweenSymmetricPrivate {
     static name: string
 }
-export abstract class ExpressionOperatorNotBetweenSymmetricAndClass {
+abstract class ExpressionOperatorNotBetweenSymmetricAndClass {
     static name: string
 }
-export class ExpressionOperatorNotBetweenSymmetricAndPrivate {
+class ExpressionOperatorNotBetweenSymmetricAndPrivate {
     static name: string
 }
-export abstract class ExpressionValueClass {
+abstract class ExpressionValueClass {
     static name: string
 }
-export class ExpressionValuePrivate {
+class ExpressionValuePrivate {
     static name: string
 }
-export abstract class ExpressionValueParameterClass {
+abstract class ExpressionValueParameterClass {
     static name: string
 }
-export class ExpressionValueParameterPrivate {
+class ExpressionValueParameterPrivate {
     static name: string
 }
-export abstract class HashListClass {
+abstract class HashListClass {
     static name: string
 }
-export class HashListPrivate {
+class HashListPrivate {
     static name: string
 }
-export abstract class InvalidQueryClass {
+abstract class InvalidQueryClass {
     static name: string
 }
-export class InvalidQueryPrivate {
+class InvalidQueryPrivate {
     static name: string
 }
-export abstract class InvalidPreparedQueryClass {
+abstract class InvalidPreparedQueryClass {
     static name: string
 }
-export class InvalidPreparedQueryPrivate {
+class InvalidPreparedQueryPrivate {
     static name: string
 }
-export abstract class InvalidResultClass {
+abstract class InvalidResultClass {
     static name: string
 }
-export class InvalidResultPrivate {
+class InvalidResultPrivate {
     static name: string
 }
-export abstract class ParametersClass {
+abstract class ParametersClass {
     static name: string
 }
-export class ParametersPrivate {
+class ParametersPrivate {
     static name: string
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     static name: string
 }
-export class ParserPrivate {
+class ParserPrivate {
     static name: string
 }
-export abstract class TableReferenceClass {
+abstract class TableReferenceClass {
     static name: string
 }
-export class TableReferencePrivate {
+class TableReferencePrivate {
     static name: string
 }
-export abstract class ValueClass {
+abstract class ValueClass {
     /* Fields of Vda-1.Vda.ValueClass */
     force_value: (val: any) => boolean
     from_value: (val: any) => boolean
@@ -26336,214 +26338,214 @@ export abstract class ValueClass {
     to_sql_expression: () => string
     static name: string
 }
-export class ValuePrivate {
+class ValuePrivate {
     static name: string
 }
-export abstract class ValueNullClass {
+abstract class ValueNullClass {
     static name: string
 }
-export class ValueNullPrivate {
+class ValueNullPrivate {
     static name: string
 }
-export abstract class ValueStringClass {
+abstract class ValueStringClass {
     static name: string
 }
-export class ValueStringPrivate {
+class ValueStringPrivate {
     static name: string
 }
-export abstract class ValueXmlClass {
+abstract class ValueXmlClass {
     static name: string
 }
-export class ValueXmlPrivate {
+class ValueXmlPrivate {
     static name: string
 }
-export abstract class ValueJsonClass {
+abstract class ValueJsonClass {
     static name: string
 }
-export class ValueJsonPrivate {
+class ValueJsonPrivate {
     static name: string
 }
-export abstract class ValueTextClass {
+abstract class ValueTextClass {
     static name: string
 }
-export class ValueTextPrivate {
+class ValueTextPrivate {
     static name: string
 }
-export abstract class ValueNameClass {
+abstract class ValueNameClass {
     static name: string
 }
-export class ValueNamePrivate {
+class ValueNamePrivate {
     static name: string
 }
-export abstract class ValueBoolClass {
+abstract class ValueBoolClass {
     static name: string
 }
-export class ValueBoolPrivate {
+class ValueBoolPrivate {
     static name: string
 }
-export abstract class ValueBitClass {
+abstract class ValueBitClass {
     static name: string
 }
-export class ValueBitPrivate {
+class ValueBitPrivate {
     static name: string
 }
-export abstract class ValueIntegerClass {
+abstract class ValueIntegerClass {
     static name: string
 }
-export class ValueIntegerPrivate {
+class ValueIntegerPrivate {
     static name: string
 }
-export abstract class ValueByteClass {
+abstract class ValueByteClass {
     static name: string
 }
-export class ValueBytePrivate {
+class ValueBytePrivate {
     static name: string
 }
-export abstract class ValueInt2Class {
+abstract class ValueInt2Class {
     static name: string
 }
-export class ValueInt2Private {
+class ValueInt2Private {
     static name: string
 }
-export abstract class ValueInt4Class {
+abstract class ValueInt4Class {
     static name: string
 }
-export class ValueInt4Private {
+class ValueInt4Private {
     static name: string
 }
-export abstract class ValueInt8Class {
+abstract class ValueInt8Class {
     static name: string
 }
-export class ValueInt8Private {
+class ValueInt8Private {
     static name: string
 }
-export abstract class ValueUnsignedIntegerClass {
+abstract class ValueUnsignedIntegerClass {
     static name: string
 }
-export class ValueUnsignedIntegerPrivate {
+class ValueUnsignedIntegerPrivate {
     static name: string
 }
-export abstract class ValueUnsignedByteClass {
+abstract class ValueUnsignedByteClass {
     static name: string
 }
-export class ValueUnsignedBytePrivate {
+class ValueUnsignedBytePrivate {
     static name: string
 }
-export abstract class ValueUnsignedInt2Class {
+abstract class ValueUnsignedInt2Class {
     static name: string
 }
-export class ValueUnsignedInt2Private {
+class ValueUnsignedInt2Private {
     static name: string
 }
-export abstract class ValueUnsignedInt4Class {
+abstract class ValueUnsignedInt4Class {
     static name: string
 }
-export class ValueUnsignedInt4Private {
+class ValueUnsignedInt4Private {
     static name: string
 }
-export abstract class ValueUnsignedInt8Class {
+abstract class ValueUnsignedInt8Class {
     static name: string
 }
-export class ValueUnsignedInt8Private {
+class ValueUnsignedInt8Private {
     static name: string
 }
-export abstract class ValueOidClass {
+abstract class ValueOidClass {
     static name: string
 }
-export class ValueOidPrivate {
+class ValueOidPrivate {
     static name: string
 }
-export abstract class ValueNumericClass {
+abstract class ValueNumericClass {
     /* Fields of Vda-1.Vda.ValueNumericClass */
     format: (str: string) => string
     static name: string
 }
-export class ValueNumericPrivate {
+class ValueNumericPrivate {
     static name: string
 }
-export abstract class ValueFloatClass {
+abstract class ValueFloatClass {
     static name: string
 }
-export class ValueFloatPrivate {
+class ValueFloatPrivate {
     static name: string
 }
-export abstract class ValueDoubleClass {
+abstract class ValueDoubleClass {
     static name: string
 }
-export class ValueDoublePrivate {
+class ValueDoublePrivate {
     static name: string
 }
-export abstract class ValueMoneyClass {
+abstract class ValueMoneyClass {
     static name: string
 }
-export class ValueMoneyPrivate {
+class ValueMoneyPrivate {
     static name: string
 }
-export abstract class ValueTimestampClass {
+abstract class ValueTimestampClass {
     /* Fields of Vda-1.Vda.ValueTimestampClass */
     format_local: () => string
     format_utc: () => string
     format_locale: () => string
     static name: string
 }
-export class ValueTimestampPrivate {
+class ValueTimestampPrivate {
     static name: string
 }
-export abstract class ValueTimestampNtzClass {
+abstract class ValueTimestampNtzClass {
     static name: string
 }
-export class ValueTimestampNtzPrivate {
+class ValueTimestampNtzPrivate {
     static name: string
 }
-export abstract class ValueTimeClass {
+abstract class ValueTimeClass {
     static name: string
 }
-export class ValueTimePrivate {
+class ValueTimePrivate {
     static name: string
 }
-export abstract class ValueTimeNtzClass {
+abstract class ValueTimeNtzClass {
     static name: string
 }
-export class ValueTimeNtzPrivate {
+class ValueTimeNtzPrivate {
     static name: string
 }
-export abstract class ValueDateClass {
+abstract class ValueDateClass {
     static name: string
 }
-export class ValueDatePrivate {
+class ValueDatePrivate {
     static name: string
 }
-export abstract class ValueBinaryClass {
+abstract class ValueBinaryClass {
     static name: string
 }
-export class ValueBinaryPrivate {
+class ValueBinaryPrivate {
     static name: string
 }
-export abstract class ValueMathExpClass {
+abstract class ValueMathExpClass {
     static name: string
 }
-export class ValueMathExpPrivate {
+class ValueMathExpPrivate {
     static name: string
 }
-export abstract class MetaObjectIface {
+abstract class MetaObjectIface {
     /* Fields of Vda-1.Vda.MetaObjectIface */
     get_connection: () => Connection
     set_connection: (value: Connection) => void
     static name: string
 }
-export abstract class MetaNamedObjectIface {
+abstract class MetaNamedObjectIface {
     /* Fields of Vda-1.Vda.MetaNamedObjectIface */
     get_name: () => string
     set_name: (value: string) => void
     static name: string
 }
-export abstract class ColumnModelIface {
+abstract class ColumnModelIface {
     /* Fields of Vda-1.Vda.ColumnModelIface */
     get_name: () => string
     get_data_type: () => GObject.Type
     static name: string
 }
-export abstract class ConnectionIface {
+abstract class ConnectionIface {
     /* Fields of Vda-1.Vda.ConnectionIface */
     close: (_callback_?: Gio.AsyncReadyCallback | null) => void
     close_finish: (_res_: Gio.AsyncResult) => void
@@ -26564,19 +26566,19 @@ export abstract class ConnectionIface {
     get_connection_string: () => string
     static name: string
 }
-export abstract class ConnectionBlobIface {
+abstract class ConnectionBlobIface {
     /* Fields of Vda-1.Vda.ConnectionBlobIface */
     create: (stream: Gio.InputStream) => SqlValueBlob
     delete_: (val: SqlValueBlob) => void
     static name: string
 }
-export abstract class ConnectionRolebasedIface {
+abstract class ConnectionRolebasedIface {
     /* Fields of Vda-1.Vda.ConnectionRolebasedIface */
     current_role: () => Role | null
     create_role: (name: string, params: Parameters) => Role | null
     static name: string
 }
-export abstract class ConnectionTransactionalIface {
+abstract class ConnectionTransactionalIface {
     /* Fields of Vda-1.Vda.ConnectionTransactionalIface */
     add_savepoint: (name?: string | null) => boolean
     delete_savepoint: (name?: string | null) => boolean
@@ -26586,7 +26588,7 @@ export abstract class ConnectionTransactionalIface {
     rollback_transaction: (name?: string | null) => boolean
     static name: string
 }
-export abstract class DataObjectIface {
+abstract class DataObjectIface {
     /* Fields of Vda-1.Vda.DataObjectIface */
     update_data_from_db: (_callback_?: Gio.AsyncReadyCallback | null) => void
     update_data_from_db_finish: (_res_: Gio.AsyncResult) => void
@@ -26617,7 +26619,7 @@ export abstract class DataObjectIface {
     set_cancellable: (value: Gio.Cancellable) => void
     static name: string
 }
-export abstract class DataCollectionIface {
+abstract class DataCollectionIface {
     /* Fields of Vda-1.Vda.DataCollectionIface */
     get_objects: (_callback_?: Gio.AsyncReadyCallback | null) => void
     get_objects_finish: (_res_: Gio.AsyncResult) => TableModel
@@ -26631,31 +26633,31 @@ export abstract class DataCollectionIface {
     set_cancellable: (value: Gio.Cancellable) => void
     static name: string
 }
-export abstract class HashModelIface {
+abstract class HashModelIface {
     /* Fields of Vda-1.Vda.HashModelIface */
     add: (object: GObject.Object) => void
     find: (key: GObject.Object) => GObject.Object | null
     remove: (object: GObject.Object) => void
     static name: string
 }
-export abstract class InsertedIface {
+abstract class InsertedIface {
     /* Fields of Vda-1.Vda.InsertedIface */
     get_number: () => number
     get_last_inserted: () => RowModel
     static name: string
 }
-export abstract class ParsedQueryIface {
+abstract class ParsedQueryIface {
     /* Fields of Vda-1.Vda.ParsedQueryIface */
     get_command: () => SqlCommand
     static name: string
 }
-export abstract class PreparedQueryIface {
+abstract class PreparedQueryIface {
     /* Fields of Vda-1.Vda.PreparedQueryIface */
     get_name: () => string
     get_parameters: () => SqlParameters
     static name: string
 }
-export abstract class QueryIface {
+abstract class QueryIface {
     /* Fields of Vda-1.Vda.QueryIface */
     execute: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     execute_finish: (_res_: Gio.AsyncResult) => Result | null
@@ -26666,10 +26668,10 @@ export abstract class QueryIface {
     get_connection: () => Connection
     static name: string
 }
-export abstract class ResultIface {
+abstract class ResultIface {
     static name: string
 }
-export abstract class RoleIface {
+abstract class RoleIface {
     /* Fields of Vda-1.Vda.RoleIface */
     name: (_callback_?: Gio.AsyncReadyCallback | null) => void
     name_finish: (_res_: Gio.AsyncResult) => string
@@ -26682,7 +26684,7 @@ export abstract class RoleIface {
     get_connection: () => Connection
     static name: string
 }
-export abstract class RowModelIface {
+abstract class RowModelIface {
     /* Fields of Vda-1.Vda.RowModelIface */
     get_column: (name: string) => ColumnModel | null
     get_column_at: (col: number) => ColumnModel | null
@@ -26693,36 +26695,36 @@ export abstract class RowModelIface {
     get_n_columns: () => number
     static name: string
 }
-export abstract class SqlAffectedRowsIface {
+abstract class SqlAffectedRowsIface {
     /* Fields of Vda-1.Vda.SqlAffectedRowsIface */
     get_number: () => number
     static name: string
 }
-export abstract class SqlCommandIface {
+abstract class SqlCommandIface {
     /* Fields of Vda-1.Vda.SqlCommandIface */
     get_connection: () => Connection
     static name: string
 }
-export abstract class SqlCommandConditionalIface {
+abstract class SqlCommandConditionalIface {
     /* Fields of Vda-1.Vda.SqlCommandConditionalIface */
     get_condition: () => SqlExpression
     static name: string
 }
-export abstract class SqlCommandDeleteIface {
+abstract class SqlCommandDeleteIface {
     /* Fields of Vda-1.Vda.SqlCommandDeleteIface */
     stringify: () => string
     to_query: (name?: string | null) => Query
     parse: (sql: string) => void
     static name: string
 }
-export abstract class SqlCommandInsertIface {
+abstract class SqlCommandInsertIface {
     /* Fields of Vda-1.Vda.SqlCommandInsertIface */
     stringify: () => string
     to_query: (name?: string | null) => Query
     parse: (sql: string) => void
     static name: string
 }
-export abstract class SqlCommandModificationIface {
+abstract class SqlCommandModificationIface {
     /* Fields of Vda-1.Vda.SqlCommandModificationIface */
     add_field_value: (name: string, val?: any | null) => void
     add_field: (name: string) => void
@@ -26733,12 +26735,12 @@ export abstract class SqlCommandModificationIface {
     get_values: () => HashModel
     static name: string
 }
-export abstract class SqlCommandParametrizedIface {
+abstract class SqlCommandParametrizedIface {
     /* Fields of Vda-1.Vda.SqlCommandParametrizedIface */
     get_parameters: () => SqlParameters
     static name: string
 }
-export abstract class SqlCommandSelectIface {
+abstract class SqlCommandSelectIface {
     /* Fields of Vda-1.Vda.SqlCommandSelectIface */
     add_field: (field: string, table_ref?: string | null, alias?: string | null) => void
     add_table: (name: string, allias?: string | null) => void
@@ -26751,7 +26753,7 @@ export abstract class SqlCommandSelectIface {
     get_tables: () => HashModel
     static name: string
 }
-export abstract class SqlCommandTableRelatedIface {
+abstract class SqlCommandTableRelatedIface {
     /* Fields of Vda-1.Vda.SqlCommandTableRelatedIface */
     get_table: () => string
     set_table: (value: string) => void
@@ -26759,14 +26761,14 @@ export abstract class SqlCommandTableRelatedIface {
     set_allias: (value: string) => void
     static name: string
 }
-export abstract class SqlCommandUpdateIface {
+abstract class SqlCommandUpdateIface {
     /* Fields of Vda-1.Vda.SqlCommandUpdateIface */
     stringify: () => string
     to_query: (name?: string | null) => Query
     parse: (sql: string) => void
     static name: string
 }
-export abstract class SqlExpressionIface {
+abstract class SqlExpressionIface {
     /* Fields of Vda-1.Vda.SqlExpressionIface */
     add_expression: (exp: SqlExpression) => void
     remove_expression: (exp: SqlExpression) => void
@@ -26774,7 +26776,7 @@ export abstract class SqlExpressionIface {
     add_math_expression: (str: string, cnc: Connection, params?: SqlParameters | null) => void
     static name: string
 }
-export abstract class SqlExpressionFieldIface {
+abstract class SqlExpressionFieldIface {
     /* Fields of Vda-1.Vda.SqlExpressionFieldIface */
     get_table_ref: () => string
     set_table_ref: (value: string) => void
@@ -26784,7 +26786,7 @@ export abstract class SqlExpressionFieldIface {
     set_allias: (value?: string | null) => void
     static name: string
 }
-export abstract class SqlExpressionOperatorIface {
+abstract class SqlExpressionOperatorIface {
     /* Fields of Vda-1.Vda.SqlExpressionOperatorIface */
     create_field_expression: (name: string) => SqlExpressionField
     create_value_expression: (val: any | null, cnc: Connection) => SqlExpressionValue
@@ -26824,163 +26826,163 @@ export abstract class SqlExpressionOperatorIface {
     get_operator_type: () => SqlExpressionOperatorType
     static name: string
 }
-export abstract class SqlExpressionOperatorGroupIface {
+abstract class SqlExpressionOperatorGroupIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorMultitermIface {
+abstract class SqlExpressionOperatorMultitermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorAndIface {
+abstract class SqlExpressionOperatorAndIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorOrIface {
+abstract class SqlExpressionOperatorOrIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBinarytermIface {
+abstract class SqlExpressionOperatorBinarytermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorEqIface {
+abstract class SqlExpressionOperatorEqIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotEqIface {
+abstract class SqlExpressionOperatorNotEqIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorDiffIface {
+abstract class SqlExpressionOperatorDiffIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorGtIface {
+abstract class SqlExpressionOperatorGtIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorLtIface {
+abstract class SqlExpressionOperatorLtIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorGeqIface {
+abstract class SqlExpressionOperatorGeqIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorLeqIface {
+abstract class SqlExpressionOperatorLeqIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorRegexpIface {
+abstract class SqlExpressionOperatorRegexpIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorStarIface {
+abstract class SqlExpressionOperatorStarIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorDivIface {
+abstract class SqlExpressionOperatorDivIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorInIface {
+abstract class SqlExpressionOperatorInIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotInIface {
+abstract class SqlExpressionOperatorNotInIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorConcatenateIface {
+abstract class SqlExpressionOperatorConcatenateIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorSimilarToIface {
+abstract class SqlExpressionOperatorSimilarToIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorLikeIface {
+abstract class SqlExpressionOperatorLikeIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotLikeIface {
+abstract class SqlExpressionOperatorNotLikeIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIlikeIface {
+abstract class SqlExpressionOperatorIlikeIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotIlikeIface {
+abstract class SqlExpressionOperatorNotIlikeIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBinaryUnarytermIface {
+abstract class SqlExpressionOperatorBinaryUnarytermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorMinusIface {
+abstract class SqlExpressionOperatorMinusIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorPlusIface {
+abstract class SqlExpressionOperatorPlusIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorInitialUnarytermIface {
+abstract class SqlExpressionOperatorInitialUnarytermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotIface {
+abstract class SqlExpressionOperatorNotIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorFinalUnarytermIface {
+abstract class SqlExpressionOperatorFinalUnarytermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsIface {
+abstract class SqlExpressionOperatorIsIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotIface {
+abstract class SqlExpressionOperatorIsNotIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNullIface {
+abstract class SqlExpressionOperatorIsNullIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotNullIface {
+abstract class SqlExpressionOperatorIsNotNullIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsTrueIface {
+abstract class SqlExpressionOperatorIsTrueIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotTrueIface {
+abstract class SqlExpressionOperatorIsNotTrueIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsFalseIface {
+abstract class SqlExpressionOperatorIsFalseIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotFalseIface {
+abstract class SqlExpressionOperatorIsNotFalseIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsUnknownIface {
+abstract class SqlExpressionOperatorIsUnknownIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotUnknownIface {
+abstract class SqlExpressionOperatorIsNotUnknownIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsDistinctIface {
+abstract class SqlExpressionOperatorIsDistinctIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotDistinctIface {
+abstract class SqlExpressionOperatorIsNotDistinctIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsDistinctFromIface {
+abstract class SqlExpressionOperatorIsDistinctFromIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorIsNotDistinctFromIface {
+abstract class SqlExpressionOperatorIsNotDistinctFromIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorThreetermIface {
+abstract class SqlExpressionOperatorThreetermIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBetweenIface {
+abstract class SqlExpressionOperatorBetweenIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBetweenAndIface {
+abstract class SqlExpressionOperatorBetweenAndIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotBetweenIface {
+abstract class SqlExpressionOperatorNotBetweenIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotBetweenAndIface {
+abstract class SqlExpressionOperatorNotBetweenAndIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBetweenSymmetricIface {
+abstract class SqlExpressionOperatorBetweenSymmetricIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorBetweenSymmetricAndIface {
+abstract class SqlExpressionOperatorBetweenSymmetricAndIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotBetweenSymmetricIface {
+abstract class SqlExpressionOperatorNotBetweenSymmetricIface {
     static name: string
 }
-export abstract class SqlExpressionOperatorNotBetweenSymmetricAndIface {
+abstract class SqlExpressionOperatorNotBetweenSymmetricAndIface {
     static name: string
 }
-export abstract class SqlExpressionValueIface {
+abstract class SqlExpressionValueIface {
     /* Fields of Vda-1.Vda.SqlExpressionValueIface */
     set_math_expression_value: (str: string, params?: SqlParameters | null) => void
     get_connection: () => Connection | null
@@ -26989,7 +26991,7 @@ export abstract class SqlExpressionValueIface {
     set_value: (value: SqlValue) => void
     static name: string
 }
-export abstract class SqlExpressionValueParameterIface {
+abstract class SqlExpressionValueParameterIface {
     /* Fields of Vda-1.Vda.SqlExpressionValueParameterIface */
     parse: (str: string) => void
     get_parameters: () => SqlParameters
@@ -27000,7 +27002,7 @@ export abstract class SqlExpressionValueParameterIface {
     set_gtype: (value: GObject.Type) => void
     static name: string
 }
-export abstract class SqlParametersIface {
+abstract class SqlParametersIface {
     /* Fields of Vda-1.Vda.SqlParametersIface */
     set_value: (name: string, val: any) => void
     get_value: (name: string) => any | null
@@ -27009,12 +27011,12 @@ export abstract class SqlParametersIface {
     has_param: (name: string) => boolean
     static name: string
 }
-export abstract class SqlParserIface {
+abstract class SqlParserIface {
     /* Fields of Vda-1.Vda.SqlParserIface */
     parse: (str: string, cnc: Connection) => SqlCommandParametrized
     static name: string
 }
-export abstract class SqlTableReferenceIface {
+abstract class SqlTableReferenceIface {
     /* Fields of Vda-1.Vda.SqlTableReferenceIface */
     get_name: () => string
     set_name: (value: string) => void
@@ -27022,12 +27024,12 @@ export abstract class SqlTableReferenceIface {
     set_allias: (value?: string | null) => void
     static name: string
 }
-export abstract class StringifiableIface {
+abstract class StringifiableIface {
     /* Fields of Vda-1.Vda.StringifiableIface */
     to_string: () => string
     static name: string
 }
-export abstract class SqlValueIface {
+abstract class SqlValueIface {
     /* Fields of Vda-1.Vda.SqlValueIface */
     parse: (str: string) => boolean
     from_value: (val: any) => boolean
@@ -27039,68 +27041,68 @@ export abstract class SqlValueIface {
     get_name: () => string
     static name: string
 }
-export abstract class SqlValueNullIface {
+abstract class SqlValueNullIface {
     static name: string
 }
-export abstract class SqlValueBoolIface {
+abstract class SqlValueBoolIface {
     static name: string
 }
-export abstract class SqlValueBitIface {
+abstract class SqlValueBitIface {
     static name: string
 }
-export abstract class SqlValueStringIface {
+abstract class SqlValueStringIface {
     static name: string
 }
-export abstract class SqlValueXmlIface {
+abstract class SqlValueXmlIface {
     /* Fields of Vda-1.Vda.SqlValueXmlIface */
     get_document: () => GXml.DomDocument
     static name: string
 }
-export abstract class SqlValueJsonIface {
+abstract class SqlValueJsonIface {
     /* Fields of Vda-1.Vda.SqlValueJsonIface */
     get_document: () => Json.Node
     static name: string
 }
-export abstract class SqlValueTextIface {
+abstract class SqlValueTextIface {
     static name: string
 }
-export abstract class SqlValueNameIface {
+abstract class SqlValueNameIface {
     static name: string
 }
-export abstract class SqlValueIntegerIface {
+abstract class SqlValueIntegerIface {
     static name: string
 }
-export abstract class SqlValueByteIface {
+abstract class SqlValueByteIface {
     static name: string
 }
-export abstract class SqlValueInt2Iface {
+abstract class SqlValueInt2Iface {
     static name: string
 }
-export abstract class SqlValueInt4Iface {
+abstract class SqlValueInt4Iface {
     static name: string
 }
-export abstract class SqlValueInt8Iface {
+abstract class SqlValueInt8Iface {
     static name: string
 }
-export abstract class SqlValueUnsignedIntegerIface {
+abstract class SqlValueUnsignedIntegerIface {
     static name: string
 }
-export abstract class SqlValueUnsignedByteIface {
+abstract class SqlValueUnsignedByteIface {
     static name: string
 }
-export abstract class SqlValueUnsignedInt2Iface {
+abstract class SqlValueUnsignedInt2Iface {
     static name: string
 }
-export abstract class SqlValueUnsignedInt4Iface {
+abstract class SqlValueUnsignedInt4Iface {
     static name: string
 }
-export abstract class SqlValueUnsignedInt8Iface {
+abstract class SqlValueUnsignedInt8Iface {
     static name: string
 }
-export abstract class SqlValueOidIface {
+abstract class SqlValueOidIface {
     static name: string
 }
-export abstract class SqlValueNumericIface {
+abstract class SqlValueNumericIface {
     /* Fields of Vda-1.Vda.SqlValueNumericIface */
     set_precision: (p: number) => void
     get_precision: () => number
@@ -27113,15 +27115,15 @@ export abstract class SqlValueNumericIface {
     set_imaginary: (img: number) => void
     static name: string
 }
-export abstract class SqlValueFloatIface {
+abstract class SqlValueFloatIface {
     /* Fields of Vda-1.Vda.SqlValueFloatIface */
     get_float: () => number
     static name: string
 }
-export abstract class SqlValueDoubleIface {
+abstract class SqlValueDoubleIface {
     static name: string
 }
-export abstract class SqlValueMoneyIface {
+abstract class SqlValueMoneyIface {
     /* Fields of Vda-1.Vda.SqlValueMoneyIface */
     locale: () => string
     int_locale: () => string
@@ -27129,13 +27131,13 @@ export abstract class SqlValueMoneyIface {
     set_int_precision: (p: number) => void
     static name: string
 }
-export abstract class SqlValueDateIface {
+abstract class SqlValueDateIface {
     /* Fields of Vda-1.Vda.SqlValueDateIface */
     get_date: () => /* result */ GLib.Date
     set_date: (ts: GLib.Date) => void
     static name: string
 }
-export abstract class SqlValueTimestampIface {
+abstract class SqlValueTimestampIface {
     /* Fields of Vda-1.Vda.SqlValueTimestampIface */
     format_local: () => string
     format_utc: () => string
@@ -27149,16 +27151,16 @@ export abstract class SqlValueTimestampIface {
     set_timestamp: (ts: GLib.DateTime) => void
     static name: string
 }
-export abstract class SqlValueTimestampNtzIface {
+abstract class SqlValueTimestampNtzIface {
     static name: string
 }
-export abstract class SqlValueTimeIface {
+abstract class SqlValueTimeIface {
     static name: string
 }
-export abstract class SqlValueTimeNtzIface {
+abstract class SqlValueTimeNtzIface {
     static name: string
 }
-export abstract class SqlValueBinaryIface {
+abstract class SqlValueBinaryIface {
     /* Fields of Vda-1.Vda.SqlValueBinaryIface */
     get_bytes: () => GLib.Bytes
     get_out_stream: () => Gio.OutputStream | null
@@ -27166,7 +27168,7 @@ export abstract class SqlValueBinaryIface {
     get_size: () => number
     static name: string
 }
-export abstract class SqlValueBlobIface {
+abstract class SqlValueBlobIface {
     /* Fields of Vda-1.Vda.SqlValueBlobIface */
     create: (stream: Gio.InputStream) => void
     delete_: () => void
@@ -27175,12 +27177,12 @@ export abstract class SqlValueBlobIface {
     get_connection: () => Connection
     static name: string
 }
-export abstract class SqlValueBlobOidIface {
+abstract class SqlValueBlobOidIface {
     /* Fields of Vda-1.Vda.SqlValueBlobOidIface */
     get_identification: () => number
     static name: string
 }
-export abstract class SqlValueGeometricPointIface {
+abstract class SqlValueGeometricPointIface {
     /* Fields of Vda-1.Vda.SqlValueGeometricPointIface */
     get_x: () => number
     set_x: (value: number) => void
@@ -27188,16 +27190,16 @@ export abstract class SqlValueGeometricPointIface {
     set_y: (value: number) => void
     static name: string
 }
-export abstract class SqlValueMathExpIface {
+abstract class SqlValueMathExpIface {
     /* Fields of Vda-1.Vda.SqlValueMathExpIface */
     get_math: () => GCalc.MathEquationManager
     set_math: (value: GCalc.MathEquationManager) => void
     static name: string
 }
-export abstract class TableModelIface {
+abstract class TableModelIface {
     static name: string
 }
-export abstract class TableModelSequentialIface {
+abstract class TableModelSequentialIface {
     /* Fields of Vda-1.Vda.TableModelSequentialIface */
     current: () => RowModel | null
     next: () => boolean
@@ -27206,3 +27208,5 @@ export abstract class TableModelSequentialIface {
     copy_current: () => RowModel | null
     static name: string
 }
+}
+export default Vda

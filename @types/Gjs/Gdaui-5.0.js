@@ -1,2 +1,1 @@
-imports.gi.versions.Gdaui = '5.0'
-module.exports = imports.gi.Gdaui
+export {default as default} from 'gi://Gdaui?version=5.0';

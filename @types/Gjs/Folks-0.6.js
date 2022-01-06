@@ -1,2 +1,1 @@
-imports.gi.versions.Folks = '0.6'
-module.exports = imports.gi.Folks
+export {default as default} from 'gi://Folks?version=0.6';

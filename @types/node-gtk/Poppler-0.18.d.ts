@@ -8,20 +8,20 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Poppler {
+declare namespace Poppler {
 
-export enum ActionLayerAction {
+enum ActionLayerAction {
     ON,
     OFF,
     TOGGLE,
 }
-export enum ActionMovieOperation {
+enum ActionMovieOperation {
     PLAY,
     PAUSE,
     RESUME,
     STOP,
 }
-export enum ActionType {
+enum ActionType {
     UNKNOWN,
     NONE,
     GOTO_DEST,
@@ -35,26 +35,26 @@ export enum ActionType {
     JAVASCRIPT,
     RESET_FORM,
 }
-export enum AdditionalActionType {
+enum AdditionalActionType {
     FIELD_MODIFIED,
     FORMAT_FIELD,
     VALIDATE_FIELD,
     CALCULATE_FIELD,
 }
-export enum AnnotExternalDataType {
+enum AnnotExternalDataType {
     /* 3D (invalid, starts with a number) */
     UNKNOWN,
 }
-export enum AnnotFreeTextQuadding {
+enum AnnotFreeTextQuadding {
     LEFT_JUSTIFIED,
     CENTERED,
     RIGHT_JUSTIFIED,
 }
-export enum AnnotMarkupReplyType {
+enum AnnotMarkupReplyType {
     R,
     GROUP,
 }
-export enum AnnotTextState {
+enum AnnotTextState {
     MARKED,
     UNMARKED,
     ACCEPTED,
@@ -64,7 +64,7 @@ export enum AnnotTextState {
     NONE,
     UNKNOWN,
 }
-export enum AnnotType {
+enum AnnotType {
     UNKNOWN,
     TEXT,
     LINK,
@@ -92,12 +92,12 @@ export enum AnnotType {
     WATERMARK,
     /* 3D (invalid, starts with a number) */
 }
-export enum Backend {
+enum Backend {
     UNKNOWN,
     SPLASH,
     CAIRO,
 }
-export enum DestType {
+enum DestType {
     UNKNOWN,
     XYZ,
     FIT,
@@ -109,14 +109,14 @@ export enum DestType {
     FITBV,
     NAMED,
 }
-export enum Error {
+enum Error {
     INVALID,
     ENCRYPTED,
     OPEN_FILE,
     BAD_CATALOG,
     DAMAGED,
 }
-export enum FontType {
+enum FontType {
     UNKNOWN,
     TYPE1,
     TYPE1C,
@@ -130,34 +130,34 @@ export enum FontType {
     CID_TYPE2,
     CID_TYPE2OT,
 }
-export enum FormButtonType {
+enum FormButtonType {
     PUSH,
     CHECK,
     RADIO,
 }
-export enum FormChoiceType {
+enum FormChoiceType {
     COMBO,
     LIST,
 }
-export enum FormFieldType {
+enum FormFieldType {
     UNKNOWN,
     BUTTON,
     TEXT,
     CHOICE,
     SIGNATURE,
 }
-export enum FormTextType {
+enum FormTextType {
     NORMAL,
     MULTILINE,
     FILE_SELECT,
 }
-export enum MoviePlayMode {
+enum MoviePlayMode {
     ONCE,
     OPEN,
     REPEAT,
     PALINDROME,
 }
-export enum PDFConformance {
+enum PDFConformance {
     UNSET,
     A,
     B,
@@ -168,7 +168,7 @@ export enum PDFConformance {
     U,
     NONE,
 }
-export enum PDFPart {
+enum PDFPart {
     UNSET,
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
@@ -180,7 +180,7 @@ export enum PDFPart {
     /* 8 (invalid, starts with a number) */
     NONE,
 }
-export enum PDFSubtype {
+enum PDFSubtype {
     UNSET,
     PDF_A,
     PDF_E,
@@ -189,7 +189,7 @@ export enum PDFSubtype {
     PDF_X,
     NONE,
 }
-export enum PageLayout {
+enum PageLayout {
     UNSET,
     SINGLE_PAGE,
     ONE_COLUMN,
@@ -198,7 +198,7 @@ export enum PageLayout {
     TWO_PAGE_LEFT,
     TWO_PAGE_RIGHT,
 }
-export enum PageMode {
+enum PageMode {
     UNSET,
     NONE,
     USE_OUTLINES,
@@ -207,15 +207,15 @@ export enum PageMode {
     USE_OC,
     USE_ATTACHMENTS,
 }
-export enum PageTransitionAlignment {
+enum PageTransitionAlignment {
     HORIZONTAL,
     VERTICAL,
 }
-export enum PageTransitionDirection {
+enum PageTransitionDirection {
     INWARD,
     OUTWARD,
 }
-export enum PageTransitionType {
+enum PageTransitionType {
     REPLACE,
     SPLIT,
     BLINDS,
@@ -229,28 +229,28 @@ export enum PageTransitionType {
     UNCOVER,
     FADE,
 }
-export enum PrintDuplex {
+enum PrintDuplex {
     NONE,
     SIMPLEX,
     DUPLEX_FLIP_SHORT_EDGE,
     DUPLEX_FLIP_LONG_EDGE,
 }
-export enum PrintScaling {
+enum PrintScaling {
     APP_DEFAULT,
     NONE,
 }
-export enum SelectionStyle {
+enum SelectionStyle {
     GLYPH,
     WORD,
     LINE,
 }
-export enum StructureBlockAlign {
+enum StructureBlockAlign {
     BEFORE,
     MIDDLE,
     AFTER,
     JUSTIFY,
 }
-export enum StructureBorderStyle {
+enum StructureBorderStyle {
     NONE,
     HIDDEN,
     DOTTED,
@@ -261,7 +261,7 @@ export enum StructureBorderStyle {
     INSET,
     OUTSET,
 }
-export enum StructureElementKind {
+enum StructureElementKind {
     CONTENT,
     OBJECT_REFERENCE,
     DOCUMENT,
@@ -314,31 +314,31 @@ export enum StructureElementKind {
     FORMULA,
     FORM,
 }
-export enum StructureFormRole {
+enum StructureFormRole {
     UNDEFINED,
     RADIO_BUTTON,
     PUSH_BUTTON,
     TEXT_VALUE,
     CHECKBOX,
 }
-export enum StructureFormState {
+enum StructureFormState {
     ON,
     OFF,
     NEUTRAL,
 }
-export enum StructureGlyphOrientation {
+enum StructureGlyphOrientation {
     AUTO,
     /* 0 (invalid, starts with a number) */
     /* 90 (invalid, starts with a number) */
     /* 180 (invalid, starts with a number) */
     /* 270 (invalid, starts with a number) */
 }
-export enum StructureInlineAlign {
+enum StructureInlineAlign {
     START,
     CENTER,
     END,
 }
-export enum StructureListNumbering {
+enum StructureListNumbering {
     NONE,
     DISC,
     CIRCLE,
@@ -349,49 +349,49 @@ export enum StructureListNumbering {
     UPPER_ALPHA,
     LOWER_ALPHA,
 }
-export enum StructurePlacement {
+enum StructurePlacement {
     BLOCK,
     INLINE,
     BEFORE,
     START,
     END,
 }
-export enum StructureRubyAlign {
+enum StructureRubyAlign {
     START,
     CENTER,
     END,
     JUSTIFY,
     DISTRIBUTE,
 }
-export enum StructureRubyPosition {
+enum StructureRubyPosition {
     BEFORE,
     AFTER,
     WARICHU,
     INLINE,
 }
-export enum StructureTableScope {
+enum StructureTableScope {
     ROW,
     COLUMN,
     BOTH,
 }
-export enum StructureTextAlign {
+enum StructureTextAlign {
     START,
     CENTER,
     END,
     JUSTIFY,
 }
-export enum StructureTextDecoration {
+enum StructureTextDecoration {
     NONE,
     UNDERLINE,
     OVERLINE,
     LINETHROUGH,
 }
-export enum StructureWritingMode {
+enum StructureWritingMode {
     LR_TB,
     RL_TB,
     TB_RL,
 }
-export enum AnnotFlag {
+enum AnnotFlag {
     UNKNOWN,
     INVISIBLE,
     HIDDEN,
@@ -404,14 +404,14 @@ export enum AnnotFlag {
     TOGGLE_NO_VIEW,
     LOCKED_CONTENTS,
 }
-export enum FindFlags {
+enum FindFlags {
     DEFAULT,
     CASE_SENSITIVE,
     BACKWARDS,
     WHOLE_WORDS_ONLY,
     IGNORE_DIACRITICS,
 }
-export enum Permissions {
+enum Permissions {
     OK_TO_PRINT,
     OK_TO_MODIFY,
     OK_TO_COPY,
@@ -422,17 +422,17 @@ export enum Permissions {
     OK_TO_PRINT_HIGH_RESOLUTION,
     FULL,
 }
-export enum PrintFlags {
+enum PrintFlags {
     DOCUMENT,
     MARKUP_ANNOTS,
     STAMP_ANNOTS_ONLY,
     ALL,
 }
-export enum StructureGetTextFlags {
+enum StructureGetTextFlags {
     NONE,
     RECURSIVE,
 }
-export enum ViewerPreferences {
+enum ViewerPreferences {
     UNSET,
     HIDE_TOOLBAR,
     HIDE_MENUBAR,
@@ -455,21 +455,21 @@ export const HAS_CAIRO: number
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function dateParse(date: string, timet: number): boolean
-export function errorQuark(): GLib.Quark
-export function getBackend(): Backend
-export function getVersion(): string
-export function namedDestFromBytestring(data: any[]): string
-export function namedDestToBytestring(name: string): any[] | null
-export interface AttachmentSaveFunc {
+function dateParse(date: string, timet: number): boolean
+function errorQuark(): GLib.Quark
+function getBackend(): Backend
+function getVersion(): string
+function namedDestFromBytestring(data: any[]): string
+function namedDestToBytestring(name: string): any[] | null
+interface AttachmentSaveFunc {
     (buf: any[]): boolean
 }
-export interface MediaSaveFunc {
+interface MediaSaveFunc {
     (buf: any[]): boolean
 }
 export interface Annot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Annot {
+class Annot {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.Annot */
@@ -527,7 +527,7 @@ export class Annot {
 }
 export interface AnnotCircle_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotCircle {
+class AnnotCircle {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotCircle */
@@ -605,7 +605,7 @@ export class AnnotCircle {
 }
 export interface AnnotFileAttachment_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotFileAttachment {
+class AnnotFileAttachment {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotFileAttachment */
@@ -680,7 +680,7 @@ export class AnnotFileAttachment {
 }
 export interface AnnotFreeText_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotFreeText {
+class AnnotFreeText {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotFreeText */
@@ -756,7 +756,7 @@ export class AnnotFreeText {
 }
 export interface AnnotLine_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotLine {
+class AnnotLine {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotLine */
@@ -833,7 +833,7 @@ export class AnnotLine {
 }
 export interface AnnotMarkup_ConstructProps extends Annot_ConstructProps {
 }
-export class AnnotMarkup {
+class AnnotMarkup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
@@ -906,7 +906,7 @@ export class AnnotMarkup {
 }
 export interface AnnotMovie_ConstructProps extends Annot_ConstructProps {
 }
-export class AnnotMovie {
+class AnnotMovie {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotMovie */
@@ -967,7 +967,7 @@ export class AnnotMovie {
 }
 export interface AnnotScreen_ConstructProps extends Annot_ConstructProps {
 }
-export class AnnotScreen {
+class AnnotScreen {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotScreen */
@@ -1027,7 +1027,7 @@ export class AnnotScreen {
 }
 export interface AnnotSquare_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotSquare {
+class AnnotSquare {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotSquare */
@@ -1105,7 +1105,7 @@ export class AnnotSquare {
 }
 export interface AnnotText_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotText {
+class AnnotText {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotText */
@@ -1186,7 +1186,7 @@ export class AnnotText {
 }
 export interface AnnotTextMarkup_ConstructProps extends AnnotMarkup_ConstructProps {
 }
-export class AnnotTextMarkup {
+class AnnotTextMarkup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.AnnotTextMarkup */
@@ -1267,7 +1267,7 @@ export class AnnotTextMarkup {
 }
 export interface Attachment_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Attachment {
+class Attachment {
     /* Fields of Poppler-0.18.Poppler.Attachment */
     parent: GObject.Object
     name: string
@@ -1339,7 +1339,7 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     subject?: string
     title?: string
 }
-export class Document {
+class Document {
     /* Properties of Poppler-0.18.Poppler.Document */
     author: string
     creationDate: number
@@ -1595,7 +1595,7 @@ export class Document {
 }
 export interface FontInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FontInfo {
+class FontInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.FontInfo */
@@ -1645,7 +1645,7 @@ export class FontInfo {
 }
 export interface FormField_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FormField {
+class FormField {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.FormField */
@@ -1725,7 +1725,7 @@ export class FormField {
 }
 export interface Layer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Layer {
+class Layer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.Layer */
@@ -1777,7 +1777,7 @@ export class Layer {
 }
 export interface Media_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Media {
+class Media {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.Media */
@@ -1828,7 +1828,7 @@ export class Media {
 }
 export interface Movie_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Movie {
+class Movie {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.Movie */
@@ -1885,7 +1885,7 @@ export class Movie {
 }
 export interface PSFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PSFile {
+class PSFile {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.PSFile */
@@ -1936,7 +1936,7 @@ export class PSFile {
 }
 export interface Page_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Page {
+class Page {
     /* Properties of Poppler-0.18.Poppler.Page */
     readonly label: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -2028,7 +2028,7 @@ export class Page {
 }
 export interface StructureElement_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StructureElement {
+class StructureElement {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Poppler-0.18.Poppler.StructureElement */
@@ -2127,20 +2127,20 @@ export class StructureElement {
     _init (config?: StructureElement_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class ActionAny {
+class ActionAny {
     /* Fields of Poppler-0.18.Poppler.ActionAny */
     type: ActionType
     title: string
     static name: string
 }
-export class ActionGotoDest {
+class ActionGotoDest {
     /* Fields of Poppler-0.18.Poppler.ActionGotoDest */
     type: ActionType
     title: string
     dest: Dest
     static name: string
 }
-export class ActionGotoRemote {
+class ActionGotoRemote {
     /* Fields of Poppler-0.18.Poppler.ActionGotoRemote */
     type: ActionType
     title: string
@@ -2148,14 +2148,14 @@ export class ActionGotoRemote {
     dest: Dest
     static name: string
 }
-export class ActionJavascript {
+class ActionJavascript {
     /* Fields of Poppler-0.18.Poppler.ActionJavascript */
     type: ActionType
     title: string
     script: string
     static name: string
 }
-export class ActionLaunch {
+class ActionLaunch {
     /* Fields of Poppler-0.18.Poppler.ActionLaunch */
     type: ActionType
     title: string
@@ -2163,13 +2163,13 @@ export class ActionLaunch {
     params: string
     static name: string
 }
-export class ActionLayer {
+class ActionLayer {
     /* Fields of Poppler-0.18.Poppler.ActionLayer */
     action: ActionLayerAction
     layers: object[]
     static name: string
 }
-export class ActionMovie {
+class ActionMovie {
     /* Fields of Poppler-0.18.Poppler.ActionMovie */
     type: ActionType
     title: string
@@ -2177,21 +2177,21 @@ export class ActionMovie {
     movie: Movie
     static name: string
 }
-export class ActionNamed {
+class ActionNamed {
     /* Fields of Poppler-0.18.Poppler.ActionNamed */
     type: ActionType
     title: string
     namedDest: string
     static name: string
 }
-export class ActionOCGState {
+class ActionOCGState {
     /* Fields of Poppler-0.18.Poppler.ActionOCGState */
     type: ActionType
     title: string
     stateList: object[]
     static name: string
 }
-export class ActionRendition {
+class ActionRendition {
     /* Fields of Poppler-0.18.Poppler.ActionRendition */
     type: ActionType
     title: string
@@ -2199,7 +2199,7 @@ export class ActionRendition {
     media: Media
     static name: string
 }
-export class ActionResetForm {
+class ActionResetForm {
     /* Fields of Poppler-0.18.Poppler.ActionResetForm */
     type: ActionType
     title: string
@@ -2207,14 +2207,14 @@ export class ActionResetForm {
     exclude: boolean
     static name: string
 }
-export class ActionUri {
+class ActionUri {
     /* Fields of Poppler-0.18.Poppler.ActionUri */
     type: ActionType
     title: string
     uri: string
     static name: string
 }
-export class AnnotCalloutLine {
+class AnnotCalloutLine {
     /* Fields of Poppler-0.18.Poppler.AnnotCalloutLine */
     multiline: boolean
     x1: number
@@ -2232,7 +2232,7 @@ export class AnnotCalloutLine {
     /* Static methods and pseudo-constructors */
     static new(): AnnotCalloutLine
 }
-export class AnnotMapping {
+class AnnotMapping {
     /* Fields of Poppler-0.18.Poppler.AnnotMapping */
     area: Rectangle
     annot: Annot
@@ -2245,12 +2245,12 @@ export class AnnotMapping {
     /* Static methods and pseudo-constructors */
     static new(): AnnotMapping
 }
-export abstract class AttachmentClass {
+abstract class AttachmentClass {
     /* Fields of Poppler-0.18.Poppler.AttachmentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Color {
+class Color {
     /* Fields of Poppler-0.18.Poppler.Color */
     red: number
     green: number
@@ -2264,7 +2264,7 @@ export class Color {
     /* Static methods and pseudo-constructors */
     static new(): Color
 }
-export class Dest {
+class Dest {
     /* Fields of Poppler-0.18.Poppler.Dest */
     type: DestType
     pageNum: number
@@ -2282,7 +2282,7 @@ export class Dest {
     free(): void
     static name: string
 }
-export class FontsIter {
+class FontsIter {
     /* Methods of Poppler-0.18.Poppler.FontsIter */
     copy(): FontsIter
     free(): void
@@ -2297,7 +2297,7 @@ export class FontsIter {
     next(): boolean
     static name: string
 }
-export class FormFieldMapping {
+class FormFieldMapping {
     /* Fields of Poppler-0.18.Poppler.FormFieldMapping */
     area: Rectangle
     field: FormField
@@ -2310,7 +2310,7 @@ export class FormFieldMapping {
     /* Static methods and pseudo-constructors */
     static new(): FormFieldMapping
 }
-export class ImageMapping {
+class ImageMapping {
     /* Fields of Poppler-0.18.Poppler.ImageMapping */
     area: Rectangle
     imageId: number
@@ -2323,7 +2323,7 @@ export class ImageMapping {
     /* Static methods and pseudo-constructors */
     static new(): ImageMapping
 }
-export class IndexIter {
+class IndexIter {
     /* Methods of Poppler-0.18.Poppler.IndexIter */
     copy(): IndexIter
     free(): void
@@ -2337,7 +2337,7 @@ export class IndexIter {
     /* Static methods and pseudo-constructors */
     static new(document: Document): IndexIter
 }
-export class LayersIter {
+class LayersIter {
     /* Methods of Poppler-0.18.Poppler.LayersIter */
     copy(): LayersIter
     free(): void
@@ -2351,7 +2351,7 @@ export class LayersIter {
     /* Static methods and pseudo-constructors */
     static new(document: Document): LayersIter
 }
-export class LinkMapping {
+class LinkMapping {
     /* Fields of Poppler-0.18.Poppler.LinkMapping */
     area: Rectangle
     action: Action
@@ -2364,13 +2364,13 @@ export class LinkMapping {
     /* Static methods and pseudo-constructors */
     static new(): LinkMapping
 }
-export class PageRange {
+class PageRange {
     /* Fields of Poppler-0.18.Poppler.PageRange */
     startPage: number
     endPage: number
     static name: string
 }
-export class PageTransition {
+class PageTransition {
     /* Fields of Poppler-0.18.Poppler.PageTransition */
     type: PageTransitionType
     alignment: PageTransitionAlignment
@@ -2389,7 +2389,7 @@ export class PageTransition {
     /* Static methods and pseudo-constructors */
     static new(): PageTransition
 }
-export class Point {
+class Point {
     /* Fields of Poppler-0.18.Poppler.Point */
     x: number
     y: number
@@ -2402,7 +2402,7 @@ export class Point {
     /* Static methods and pseudo-constructors */
     static new(): Point
 }
-export class Quadrilateral {
+class Quadrilateral {
     /* Fields of Poppler-0.18.Poppler.Quadrilateral */
     p1: Point
     p2: Point
@@ -2417,7 +2417,7 @@ export class Quadrilateral {
     /* Static methods and pseudo-constructors */
     static new(): Quadrilateral
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Poppler-0.18.Poppler.Rectangle */
     x1: number
     y1: number
@@ -2432,7 +2432,7 @@ export class Rectangle {
     /* Static methods and pseudo-constructors */
     static new(): Rectangle
 }
-export class StructureElementIter {
+class StructureElementIter {
     /* Methods of Poppler-0.18.Poppler.StructureElementIter */
     copy(): StructureElementIter
     free(): void
@@ -2445,7 +2445,7 @@ export class StructureElementIter {
     /* Static methods and pseudo-constructors */
     static new(popplerDocument: Document): StructureElementIter
 }
-export class TextAttributes {
+class TextAttributes {
     /* Fields of Poppler-0.18.Poppler.TextAttributes */
     fontName: string
     fontSize: number
@@ -2462,7 +2462,7 @@ export class TextAttributes {
     /* Static methods and pseudo-constructors */
     static new(): TextAttributes
 }
-export class TextSpan {
+class TextSpan {
     /* Methods of Poppler-0.18.Poppler.TextSpan */
     copy(): TextSpan
     free(): void
@@ -2474,7 +2474,7 @@ export class TextSpan {
     isSerifFont(): boolean
     static name: string
 }
-export class Action {
+class Action {
     /* Fields of Poppler-0.18.Poppler.Action */
     type: ActionType
     any: ActionAny
@@ -2494,3 +2494,4 @@ export class Action {
     static name: string
 }
 }
+export default Poppler

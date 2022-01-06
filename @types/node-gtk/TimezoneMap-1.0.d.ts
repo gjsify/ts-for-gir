@@ -17,7 +17,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace TimezoneMap {
+declare namespace TimezoneMap {
 
 export const TIMEZONE_COMPLETION_ADMIN1: number
 export const TIMEZONE_COMPLETION_COUNTRY: number
@@ -28,7 +28,7 @@ export const TIMEZONE_COMPLETION_NAME: number
 export const TIMEZONE_COMPLETION_ZONE: number
 export interface TimezoneCompletion_ConstructProps extends Gtk.EntryCompletion_ConstructProps {
 }
-export class TimezoneCompletion {
+class TimezoneCompletion {
     /* Properties of Gtk-3.0.Gtk.EntryCompletion */
     inlineCompletion: boolean
     inlineSelection: boolean
@@ -210,7 +210,7 @@ export interface TimezoneLocation_ConstructProps extends GObject.Object_Construc
     longitude?: number
     zone?: string
 }
-export class TimezoneLocation {
+class TimezoneLocation {
     /* Properties of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     comment: string
     country: string
@@ -297,7 +297,7 @@ export class TimezoneLocation {
 }
 export interface TimezoneMap_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class TimezoneMap {
+class TimezoneMap {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -1206,28 +1206,29 @@ export class TimezoneMap {
     static new(): TimezoneMap
     static $gtype: GObject.Type
 }
-export abstract class TimezoneCompletionClass {
+abstract class TimezoneCompletionClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletionClass */
     parentClass: Gtk.EntryCompletionClass
     static name: string
 }
-export class TimezoneCompletionPrivate {
+class TimezoneCompletionPrivate {
     static name: string
 }
-export abstract class TimezoneLocationClass {
+abstract class TimezoneLocationClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class TimezoneLocationPrivate {
+class TimezoneLocationPrivate {
     static name: string
 }
-export abstract class TimezoneMapClass {
+abstract class TimezoneMapClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMapClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export class TimezoneMapPrivate {
+class TimezoneMapPrivate {
     static name: string
 }
 }
+export default TimezoneMap

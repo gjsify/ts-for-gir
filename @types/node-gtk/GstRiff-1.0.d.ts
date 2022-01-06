@@ -8,7 +8,7 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstRiff {
+declare namespace GstRiff {
 
 export const RIFF_IBM_FORMAT_ADPCM: number
 export const RIFF_IBM_FORMAT_ALAW: number
@@ -173,12 +173,13 @@ export const RIFF_WAVE_FORMAT_WMS: number
 export const RIFF_WAVE_FORMAT_XEBEC: number
 export const RIFF_WAVE_FORMAT_YAMAHA_ADPCM: number
 export const RIFF_WAVE_FORMAT_ZYXEL_ADPCM: number
-export function riffCreateAudioTemplateCaps(): Gst.Caps
-export function riffCreateIavsTemplateCaps(): Gst.Caps
-export function riffCreateVideoTemplateCaps(): Gst.Caps
-export function riffInit(): void
-export function riffParseChunk(element: Gst.Element, buf: Gst.Buffer, offset: number, fourcc: number, chunkData: Gst.Buffer): boolean
-export function riffParseFileHeader(element: Gst.Element, buf: Gst.Buffer, doctype: number): boolean
-export function riffParseInfo(element: Gst.Element, buf: Gst.Buffer, taglist: Gst.TagList): void
-export function riffReadChunk(element: Gst.Element, pad: Gst.Pad, offset: number, tag: number, chunkData: Gst.Buffer): Gst.FlowReturn
+function riffCreateAudioTemplateCaps(): Gst.Caps
+function riffCreateIavsTemplateCaps(): Gst.Caps
+function riffCreateVideoTemplateCaps(): Gst.Caps
+function riffInit(): void
+function riffParseChunk(element: Gst.Element, buf: Gst.Buffer, offset: number, fourcc: number, chunkData: Gst.Buffer): boolean
+function riffParseFileHeader(element: Gst.Element, buf: Gst.Buffer, doctype: number): boolean
+function riffParseInfo(element: Gst.Element, buf: Gst.Buffer, taglist: Gst.TagList): void
+function riffReadChunk(element: Gst.Element, pad: Gst.Pad, offset: number, tag: number, chunkData: Gst.Buffer): Gst.FlowReturn
 }
+export default GstRiff

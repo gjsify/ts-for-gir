@@ -1,2 +1,1 @@
-imports.gi.versions.EDataCal = '2.0'
-module.exports = imports.gi.EDataCal
+export {default as default} from 'gi://EDataCal?version=2.0';

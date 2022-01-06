@@ -3,8 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export class XserverRegion {
+export namespace xfixes {
+
+class XserverRegion {
     static name: string
 }
+}
+export default xfixes

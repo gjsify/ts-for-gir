@@ -1,2 +1,1 @@
-imports.gi.versions.SecretUnstable = '0'
-module.exports = imports.gi.SecretUnstable
+export {default as default} from 'gi://SecretUnstable?version=0';

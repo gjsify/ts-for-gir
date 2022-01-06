@@ -1,2 +1,1 @@
-imports.gi.versions.Cogl = '1.0'
-module.exports = imports.gi.Cogl
+export {default as default} from 'gi://Cogl?version=1.0';

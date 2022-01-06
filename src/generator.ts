@@ -14,7 +14,7 @@ export class Generator {
         this.log = new Logger(config.environment, config.verbose, 'TsForGir')
     }
 
-    private exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): void {
+    private async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
@@ -24,33 +24,33 @@ export class Generator {
         )
 
         // Types
-        templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
-        templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+        await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
+        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
-            templateProcessor.create('index.js', this.config.outdir, 'index.js')
+            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
             const template = this.config.exportDefault ? 'esGjs.js' : 'Gjs.js'
-            templateProcessor.create(template, this.config.outdir, 'Gjs.js')
+            await templateProcessor.create(template, this.config.outdir, 'Gjs.js')
         }
     }
 
-    private exportGjsCastLib(inheritanceTable: InheritanceTable): void {
+    private async exportGjsCastLib(inheritanceTable: InheritanceTable) {
         if (!this.config.outdir) return
 
         const inheritanceTableKeys = Object.keys(inheritanceTable)
         const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable }, 'gjs', this.config)
-        templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
+        await templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
     }
 
-    private exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): void {
+    private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
 
-        templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
         if (this.config.buildType === 'lib') {
-            templateProcessor.create('index.js', this.config.outdir, 'index.js')
+            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
         }
     }
 
@@ -68,7 +68,11 @@ export class Generator {
     }
 
     public async start(girModules: GirModule[], groupedGirModules: GirModulesGrouped[]): Promise<void> {
-        this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
+        this.log.info(
+            `Start to generate .d.ts files for '${this.config.environment}' as '${
+                this.config.buildType || 'unknown'
+            }'.`,
+        )
 
         if (girModules.length == 0) {
             this.log.error('Need to specify modules!')
@@ -109,13 +113,13 @@ export class Generator {
 
         if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            this.exportNodeGtk(girModules, groupedGirModules)
+            await this.exportNodeGtk(girModules, groupedGirModules)
         }
 
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            this.exportGjs(girModules, groupedGirModules)
-            this.exportGjsCastLib(inheritanceTable)
+            await this.exportGjs(girModules, groupedGirModules)
+            await this.exportGjsCastLib(inheritanceTable)
         }
 
         this.log.success('Done.')

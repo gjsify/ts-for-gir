@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstPbutils from './GstPbutils-1.0';
-import type * as GstAudio from './GstAudio-1.0';
-import type * as Gio from './Gio-2.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstPbutils from './GstPbutils-1.0';
+import type GstAudio from './GstAudio-1.0';
+import type Gio from './Gio-2.0';
 
-export enum AssetLoadingReturn {
+export namespace GES {
+
+enum AssetLoadingReturn {
     ERROR,
     ASYNC,
     OK,
 }
-export enum ChildrenControlMode {
+enum ChildrenControlMode {
     UPDATE,
     IGNORE_NOTIFIES,
     UPDATE_OFFSETS,
     UPDATE_ALL_VALUES,
     LAST,
 }
-export enum Edge {
+enum Edge {
     EDGE_START,
     START,
     EDGE_END,
@@ -33,7 +35,7 @@ export enum Edge {
     EDGE_NONE,
     NONE,
 }
-export enum EditMode {
+enum EditMode {
     EDIT_NORMAL,
     NORMAL,
     EDIT_RIPPLE,
@@ -45,7 +47,7 @@ export enum EditMode {
     EDIT_SLIDE,
     SLIDE,
 }
-export enum Error {
+enum Error {
     ASSET_WRONG_ID,
     ASSET_LOADING,
     FORMATTER_MALFORMED_INPUT_FILE,
@@ -56,14 +58,14 @@ export enum Error {
     INVALID_OVERLAP_IN_TRACK,
     INVALID_EFFECT_BIN_DESCRIPTION,
 }
-export enum TextHAlign {
+enum TextHAlign {
     LEFT,
     CENTER,
     RIGHT,
     POSITION,
     ABSOLUTE,
 }
-export enum TextVAlign {
+enum TextVAlign {
     BASELINE,
     BOTTOM,
     TOP,
@@ -71,7 +73,7 @@ export enum TextVAlign {
     CENTER,
     ABSOLUTE,
 }
-export enum VideoStandardTransitionType {
+enum VideoStandardTransitionType {
     NONE,
     BAR_WIPE_LR,
     BAR_WIPE_TB,
@@ -145,7 +147,7 @@ export enum VideoStandardTransitionType {
     WINDSHIELD_H,
     CROSSFADE,
 }
-export enum VideoTestPattern {
+enum VideoTestPattern {
     SMPTE,
     SNOW,
     BLACK,
@@ -165,23 +167,23 @@ export enum VideoTestPattern {
     CHROMA_ZONE_PLATE,
     SOLID_COLOR,
 }
-export enum MarkerFlags {
+enum MarkerFlags {
     NONE,
     SNAPPABLE,
 }
-export enum MetaFlag {
+enum MetaFlag {
     READABLE,
     WRITABLE,
     READWRITE,
 }
-export enum PipelineFlags {
+enum PipelineFlags {
     AUDIO_PREVIEW,
     VIDEO_PREVIEW,
     FULL_PREVIEW,
     RENDER,
     SMART_RENDER,
 }
-export enum TrackType {
+enum TrackType {
     UNKNOWN,
     AUDIO,
     VIDEO,
@@ -207,51 +209,51 @@ export const VERSION_MAJOR: number
 export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export const VERSION_NANO: number
-export function add_missing_uri_relocation_uri(uri: string, recurse: boolean): boolean
-export function deinit(): void
-export function edge_name(edge: Edge): string
-export function edit_mode_name(mode: EditMode): string
-export function find_formatter_for_uri(uri: string): Asset
-export function init(): boolean
-export function init_check(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
-export function is_initialized(): boolean
-export function list_assets(filter: GObject.Type): Asset[]
-export function play_sink_convert_frame(playsink: Gst.Element, caps: Gst.Caps): Gst.Sample
-export function pspec_equal(key_spec_1?: object | null, key_spec_2?: object | null): boolean
-export function pspec_hash(key_spec?: object | null): number
-export function track_type_name(type: TrackType): string
-export function validate_register_action_types(): boolean
-export function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
-export interface BaseEffectTimeTranslationFunc {
+function add_missing_uri_relocation_uri(uri: string, recurse: boolean): boolean
+function deinit(): void
+function edge_name(edge: Edge): string
+function edit_mode_name(mode: EditMode): string
+function find_formatter_for_uri(uri: string): Asset
+function init(): boolean
+function init_check(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
+function is_initialized(): boolean
+function list_assets(filter: GObject.Type): Asset[]
+function play_sink_convert_frame(playsink: Gst.Element, caps: Gst.Caps): Gst.Sample
+function pspec_equal(key_spec_1?: object | null, key_spec_2?: object | null): boolean
+function pspec_hash(key_spec?: object | null): number
+function track_type_name(type: TrackType): string
+function validate_register_action_types(): boolean
+function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
+interface BaseEffectTimeTranslationFunc {
     (effect: BaseEffect, time: Gst.ClockTime, time_property_values: GLib.HashTable): Gst.ClockTime
 }
-export interface CreateTrackElementFunc {
+interface CreateTrackElementFunc {
     (clip: Clip, type: TrackType): TrackElement | null
 }
-export interface CreateTrackElementsFunc {
+interface CreateTrackElementsFunc {
     (clip: Clip, type: TrackType): TrackElement[]
 }
-export interface ExtractableCheckId {
+interface ExtractableCheckId {
     (type: GObject.Type, id: string): string
 }
-export interface FillTrackElementFunc {
+interface FillTrackElementFunc {
     (clip: Clip, track_element: TrackElement, nleobj: Gst.Element): boolean
 }
-export interface FormatterCanLoadURIMethod {
+interface FormatterCanLoadURIMethod {
     (dummy_instance: Formatter, uri: string): boolean
 }
-export interface FormatterLoadFromURIMethod {
+interface FormatterLoadFromURIMethod {
     (formatter: Formatter, timeline: Timeline, uri: string): boolean
 }
-export interface FormatterSaveToURIMethod {
+interface FormatterSaveToURIMethod {
     (formatter: Formatter, timeline: Timeline, uri: string, overwrite: boolean): boolean
 }
-export interface MetaForeachFunc {
+interface MetaForeachFunc {
     (container: MetaContainer, key: string, value: any): void
 }
 export interface Extractable_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class Extractable {
+class Extractable {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.Extractable */
@@ -305,7 +307,7 @@ export class Extractable {
     _init (config?: Extractable_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class MetaContainer {
+class MetaContainer {
     /* Methods of GES-1.0.GES.MetaContainer */
     add_metas_from_string(str: string): boolean
     check_meta_registered(meta_item: string): [ /* returnType */ boolean, /* flags */ MetaFlag | null, /* type */ GObject.Type | null ]
@@ -358,7 +360,7 @@ export interface Asset_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
     proxy?: Asset
 }
-export class Asset {
+class Asset {
     /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
@@ -492,7 +494,7 @@ export class Asset {
 }
 export interface AudioSource_ConstructProps extends Source_ConstructProps {
 }
-export class AudioSource {
+class AudioSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -746,7 +748,7 @@ export class AudioSource {
 }
 export interface AudioTestSource_ConstructProps extends AudioSource_ConstructProps {
 }
-export class AudioTestSource {
+class AudioTestSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -1005,7 +1007,7 @@ export class AudioTestSource {
 }
 export interface AudioTrack_ConstructProps extends Track_ConstructProps {
 }
-export class AudioTrack {
+class AudioTrack {
     /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
@@ -1384,7 +1386,7 @@ export class AudioTrack {
 }
 export interface AudioTransition_ConstructProps extends Transition_ConstructProps {
 }
-export class AudioTransition {
+class AudioTransition {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -1638,7 +1640,7 @@ export class AudioTransition {
 export interface AudioUriSource_ConstructProps extends AudioSource_ConstructProps {
     uri?: string
 }
-export class AudioUriSource {
+class AudioUriSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -1892,7 +1894,7 @@ export class AudioUriSource {
 }
 export interface BaseEffect_ConstructProps extends Operation_ConstructProps {
 }
-export class BaseEffect {
+class BaseEffect {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -2147,7 +2149,7 @@ export class BaseEffect {
 }
 export interface BaseEffectClip_ConstructProps extends OperationClip_ConstructProps {
 }
-export class BaseEffectClip {
+class BaseEffectClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -2412,7 +2414,7 @@ export class BaseEffectClip {
 }
 export interface BaseTransitionClip_ConstructProps extends OperationClip_ConstructProps {
 }
-export class BaseTransitionClip {
+class BaseTransitionClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -2677,7 +2679,7 @@ export class BaseTransitionClip {
 }
 export interface BaseXmlFormatter_ConstructProps extends Formatter_ConstructProps {
 }
-export class BaseXmlFormatter {
+class BaseXmlFormatter {
     /* Fields of GES-1.0.GES.BaseXmlFormatter */
     parent: Formatter
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
@@ -2742,7 +2744,7 @@ export class BaseXmlFormatter {
 export interface Clip_ConstructProps extends Container_ConstructProps {
     supported_formats?: TrackType
 }
-export class Clip {
+class Clip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -3008,7 +3010,7 @@ export class Clip {
 export interface ClipAsset_ConstructProps extends Asset_ConstructProps {
     supported_formats?: TrackType
 }
-export class ClipAsset {
+class ClipAsset {
     /* Properties of GES-1.0.GES.ClipAsset */
     supported_formats: TrackType
     /* Properties of GES-1.0.GES.Asset */
@@ -3146,7 +3148,7 @@ export class ClipAsset {
 }
 export interface CommandLineFormatter_ConstructProps extends Formatter_ConstructProps {
 }
-export class CommandLineFormatter {
+class CommandLineFormatter {
     /* Fields of GES-1.0.GES.CommandLineFormatter */
     parent_instance: Formatter
     priv: CommandLineFormatterPrivate
@@ -3216,7 +3218,7 @@ export class CommandLineFormatter {
 }
 export interface Container_ConstructProps extends TimelineElement_ConstructProps {
 }
-export class Container {
+class Container {
     /* Properties of GES-1.0.GES.Container */
     readonly height: number
     /* Properties of GES-1.0.GES.TimelineElement */
@@ -3447,7 +3449,7 @@ export class Container {
 export interface Effect_ConstructProps extends BaseEffect_ConstructProps {
     bin_description?: string
 }
-export class Effect {
+class Effect {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -3705,7 +3707,7 @@ export class Effect {
 }
 export interface EffectAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
-export class EffectAsset {
+class EffectAsset {
     /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
     /* Properties of GES-1.0.GES.Asset */
@@ -3848,7 +3850,7 @@ export interface EffectClip_ConstructProps extends BaseEffectClip_ConstructProps
     audio_bin_description?: string
     video_bin_description?: string
 }
-export class EffectClip {
+class EffectClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -4115,7 +4117,7 @@ export class EffectClip {
 }
 export interface Formatter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class Formatter {
+class Formatter {
     /* Fields of GES-1.0.GES.Formatter */
     parent: GObject.InitiallyUnowned
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
@@ -4189,7 +4191,7 @@ export interface Group_ConstructProps extends Container_ConstructProps {
     priority?: number
     start?: number
 }
-export class Group {
+class Group {
     /* Properties of GES-1.0.GES.Group */
     duration: number
     in_point: number
@@ -4421,7 +4423,7 @@ export class Group {
 export interface ImageSource_ConstructProps extends VideoSource_ConstructProps {
     uri?: string
 }
-export class ImageSource {
+class ImageSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -4679,7 +4681,7 @@ export interface Layer_ConstructProps extends GObject.InitiallyUnowned_Construct
     auto_transition?: boolean
     priority?: number
 }
-export class Layer {
+class Layer {
     /* Properties of GES-1.0.GES.Layer */
     auto_transition: boolean
     priority: number
@@ -4826,7 +4828,7 @@ export class Layer {
 }
 export interface Marker_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Marker {
+class Marker {
     /* Properties of GES-1.0.GES.Marker */
     readonly position: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -4924,7 +4926,7 @@ export class Marker {
 export interface MarkerList_ConstructProps extends GObject.Object_ConstructProps {
     flags?: MarkerFlags
 }
-export class MarkerList {
+class MarkerList {
     /* Properties of GES-1.0.GES.MarkerList */
     flags: MarkerFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -4995,7 +4997,7 @@ export class MarkerList {
 export interface MultiFileSource_ConstructProps extends VideoSource_ConstructProps {
     uri?: string
 }
-export class MultiFileSource {
+class MultiFileSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -5253,7 +5255,7 @@ export class MultiFileSource {
 }
 export interface Operation_ConstructProps extends TrackElement_ConstructProps {
 }
-export class Operation {
+class Operation {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -5504,7 +5506,7 @@ export class Operation {
 }
 export interface OperationClip_ConstructProps extends Clip_ConstructProps {
 }
-export class OperationClip {
+class OperationClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -5769,7 +5771,7 @@ export class OperationClip {
 }
 export interface OverlayClip_ConstructProps extends OperationClip_ConstructProps {
 }
-export class OverlayClip {
+class OverlayClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -6040,7 +6042,7 @@ export interface Pipeline_ConstructProps extends Gst.Pipeline_ConstructProps {
     video_filter?: Gst.Element
     video_sink?: Gst.Element
 }
-export class Pipeline {
+class Pipeline {
     /* Properties of GES-1.0.GES.Pipeline */
     audio_filter: Gst.Element
     audio_sink: Gst.Element
@@ -6400,7 +6402,7 @@ export class Pipeline {
 }
 export interface PitiviFormatter_ConstructProps extends Formatter_ConstructProps {
 }
-export class PitiviFormatter {
+class PitiviFormatter {
     /* Fields of GES-1.0.GES.PitiviFormatter */
     parent: Formatter
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
@@ -6467,7 +6469,7 @@ export class PitiviFormatter {
 export interface Project_ConstructProps extends Asset_ConstructProps {
     uri?: string
 }
-export class Project {
+class Project {
     /* Properties of GES-1.0.GES.Asset */
     proxy: Asset
     readonly proxy_target: Asset
@@ -6643,7 +6645,7 @@ export class Project {
 }
 export interface Source_ConstructProps extends TrackElement_ConstructProps {
 }
-export class Source {
+class Source {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -6897,7 +6899,7 @@ export class Source {
 }
 export interface SourceClip_ConstructProps extends Clip_ConstructProps {
 }
-export class SourceClip {
+class SourceClip {
     /* Properties of GES-1.0.GES.Clip */
     readonly duration_limit: number
     readonly layer: Layer
@@ -7164,7 +7166,7 @@ export class SourceClip {
 }
 export interface SourceClipAsset_ConstructProps extends ClipAsset_ConstructProps {
 }
-export class SourceClipAsset {
+class SourceClipAsset {
     /* Properties of GES-1.0.GES.ClipAsset */
     supported_formats: TrackType
     /* Properties of GES-1.0.GES.Asset */
@@ -7308,7 +7310,7 @@ export interface TestClip_ConstructProps extends SourceClip_ConstructProps {
     volume?: number
     vpattern?: VideoTestPattern
 }
-export class TestClip {
+class TestClip {
     /* Properties of GES-1.0.GES.TestClip */
     freq: number
     mute: boolean
@@ -7598,7 +7600,7 @@ export class TestClip {
 }
 export interface TextOverlay_ConstructProps extends Operation_ConstructProps {
 }
-export class TextOverlay {
+class TextOverlay {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -7873,7 +7875,7 @@ export interface TextOverlayClip_ConstructProps extends OverlayClip_ConstructPro
     xpos?: number
     ypos?: number
 }
-export class TextOverlayClip {
+class TextOverlayClip {
     /* Properties of GES-1.0.GES.TextOverlayClip */
     color: number
     font_desc: string
@@ -8179,7 +8181,7 @@ export interface Timeline_ConstructProps extends Gst.Bin_ConstructProps {
     auto_transition?: boolean
     snapping_distance?: number
 }
-export class Timeline {
+class Timeline {
     /* Properties of GES-1.0.GES.Timeline */
     auto_transition: boolean
     readonly duration: number
@@ -8614,7 +8616,7 @@ export interface TimelineElement_ConstructProps extends GObject.InitiallyUnowned
     start?: number
     timeline?: Timeline
 }
-export class TimelineElement {
+class TimelineElement {
     /* Properties of GES-1.0.GES.TimelineElement */
     duration: number
     in_point: number
@@ -8823,7 +8825,7 @@ export interface TitleClip_ConstructProps extends SourceClip_ConstructProps {
     xpos?: number
     ypos?: number
 }
-export class TitleClip {
+class TitleClip {
     /* Properties of GES-1.0.GES.TitleClip */
     background: number
     color: number
@@ -9132,7 +9134,7 @@ export class TitleClip {
 }
 export interface TitleSource_ConstructProps extends VideoSource_ConstructProps {
 }
-export class TitleSource {
+class TitleSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -9410,7 +9412,7 @@ export interface Track_ConstructProps extends Gst.Bin_ConstructProps {
     restriction_caps?: Gst.Caps
     track_type?: TrackType
 }
-export class Track {
+class Track {
     /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
@@ -9790,7 +9792,7 @@ export interface TrackElement_ConstructProps extends TimelineElement_ConstructPr
     has_internal_source?: boolean
     track_type?: TrackType
 }
-export class TrackElement {
+class TrackElement {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -10042,7 +10044,7 @@ export class TrackElement {
 export interface TrackElementAsset_ConstructProps extends Asset_ConstructProps {
     track_type?: TrackType
 }
-export class TrackElementAsset {
+class TrackElementAsset {
     /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
     /* Properties of GES-1.0.GES.Asset */
@@ -10179,7 +10181,7 @@ export class TrackElementAsset {
 }
 export interface Transition_ConstructProps extends Operation_ConstructProps {
 }
-export class Transition {
+class Transition {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -10431,7 +10433,7 @@ export class Transition {
 export interface TransitionClip_ConstructProps extends BaseTransitionClip_ConstructProps {
     vtype?: VideoStandardTransitionType
 }
-export class TransitionClip {
+class TransitionClip {
     /* Properties of GES-1.0.GES.TransitionClip */
     vtype: VideoStandardTransitionType
     /* Properties of GES-1.0.GES.Clip */
@@ -10707,7 +10709,7 @@ export interface UriClip_ConstructProps extends SourceClip_ConstructProps {
     supported_formats?: TrackType
     uri?: string
 }
-export class UriClip {
+class UriClip {
     /* Properties of GES-1.0.GES.UriClip */
     is_image: boolean
     mute: boolean
@@ -10987,7 +10989,7 @@ export class UriClip {
 export interface UriClipAsset_ConstructProps extends SourceClipAsset_ConstructProps {
     duration?: number
 }
-export class UriClipAsset {
+class UriClipAsset {
     /* Properties of GES-1.0.GES.UriClipAsset */
     duration: number
     readonly is_nested_timeline: boolean
@@ -11144,7 +11146,7 @@ export class UriClipAsset {
 }
 export interface UriSourceAsset_ConstructProps extends TrackElementAsset_ConstructProps {
 }
-export class UriSourceAsset {
+class UriSourceAsset {
     /* Properties of GES-1.0.GES.TrackElementAsset */
     track_type: TrackType
     /* Properties of GES-1.0.GES.Asset */
@@ -11286,7 +11288,7 @@ export class UriSourceAsset {
 }
 export interface VideoSource_ConstructProps extends Source_ConstructProps {
 }
-export class VideoSource {
+class VideoSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -11542,7 +11544,7 @@ export class VideoSource {
 }
 export interface VideoTestSource_ConstructProps extends VideoSource_ConstructProps {
 }
-export class VideoTestSource {
+class VideoTestSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -11801,7 +11803,7 @@ export class VideoTestSource {
 }
 export interface VideoTrack_ConstructProps extends Track_ConstructProps {
 }
-export class VideoTrack {
+class VideoTrack {
     /* Properties of GES-1.0.GES.Track */
     readonly duration: number
     id: string
@@ -12183,7 +12185,7 @@ export interface VideoTransition_ConstructProps extends Transition_ConstructProp
     invert?: boolean
     transition_type?: VideoStandardTransitionType
 }
-export class VideoTransition {
+class VideoTransition {
     /* Properties of GES-1.0.GES.VideoTransition */
     border: number
     invert: boolean
@@ -12454,7 +12456,7 @@ export class VideoTransition {
 export interface VideoUriSource_ConstructProps extends VideoSource_ConstructProps {
     uri?: string
 }
-export class VideoUriSource {
+class VideoUriSource {
     /* Properties of GES-1.0.GES.TrackElement */
     active: boolean
     auto_clamp_control_sources: boolean
@@ -12710,7 +12712,7 @@ export class VideoUriSource {
 }
 export interface XmlFormatter_ConstructProps extends BaseXmlFormatter_ConstructProps {
 }
-export class XmlFormatter {
+class XmlFormatter {
     /* Fields of GES-1.0.GES.XmlFormatter */
     parent: BaseXmlFormatter
     priv: XmlFormatterPrivate
@@ -12774,7 +12776,7 @@ export class XmlFormatter {
     _init (config?: XmlFormatter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AssetClass {
+abstract class AssetClass {
     /* Fields of GES-1.0.GES.AssetClass */
     parent: GObject.ObjectClass
     start_loading: (self: Asset) => AssetLoadingReturn
@@ -12785,64 +12787,64 @@ export abstract class AssetClass {
     _ges_reserved: object[]
     static name: string
 }
-export class AssetPrivate {
+class AssetPrivate {
     static name: string
 }
-export abstract class AudioSourceClass {
+abstract class AudioSourceClass {
     static name: string
 }
-export class AudioSourcePrivate {
+class AudioSourcePrivate {
     static name: string
 }
-export abstract class AudioTestSourceClass {
+abstract class AudioTestSourceClass {
     static name: string
 }
-export class AudioTestSourcePrivate {
+class AudioTestSourcePrivate {
     static name: string
 }
-export abstract class AudioTrackClass {
+abstract class AudioTrackClass {
     /* Fields of GES-1.0.GES.AudioTrackClass */
     parent_class: TrackClass
     _ges_reserved: object[]
     static name: string
 }
-export class AudioTrackPrivate {
+class AudioTrackPrivate {
     static name: string
 }
-export abstract class AudioTransitionClass {
+abstract class AudioTransitionClass {
     /* Fields of GES-1.0.GES.AudioTransitionClass */
     parent_class: TransitionClass
     _ges_reserved: object[]
     static name: string
 }
-export class AudioTransitionPrivate {
+class AudioTransitionPrivate {
     static name: string
 }
-export abstract class AudioUriSourceClass {
+abstract class AudioUriSourceClass {
     static name: string
 }
-export class AudioUriSourcePrivate {
+class AudioUriSourcePrivate {
     static name: string
 }
-export abstract class BaseEffectClass {
+abstract class BaseEffectClass {
     static name: string
 }
-export abstract class BaseEffectClipClass {
+abstract class BaseEffectClipClass {
     static name: string
 }
-export class BaseEffectClipPrivate {
+class BaseEffectClipPrivate {
     static name: string
 }
-export class BaseEffectPrivate {
+class BaseEffectPrivate {
     static name: string
 }
-export abstract class BaseTransitionClipClass {
+abstract class BaseTransitionClipClass {
     static name: string
 }
-export class BaseTransitionClipPrivate {
+class BaseTransitionClipPrivate {
     static name: string
 }
-export abstract class BaseXmlFormatterClass {
+abstract class BaseXmlFormatterClass {
     /* Fields of GES-1.0.GES.BaseXmlFormatterClass */
     parent: FormatterClass
     content_parser: GLib.MarkupParser
@@ -12850,37 +12852,37 @@ export abstract class BaseXmlFormatterClass {
     _ges_reserved: object[]
     static name: string
 }
-export class BaseXmlFormatterPrivate {
+class BaseXmlFormatterPrivate {
     static name: string
 }
-export abstract class ClipAssetClass {
+abstract class ClipAssetClass {
     /* Fields of GES-1.0.GES.ClipAssetClass */
     parent: AssetClass
     get_natural_framerate: (self: ClipAsset) => [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     _ges_reserved: object[]
     static name: string
 }
-export class ClipAssetPrivate {
+class ClipAssetPrivate {
     static name: string
 }
-export abstract class ClipClass {
+abstract class ClipClass {
     /* Fields of GES-1.0.GES.ClipClass */
     create_track_element: CreateTrackElementFunc
     create_track_elements: CreateTrackElementsFunc
     static name: string
 }
-export class ClipPrivate {
+class ClipPrivate {
     static name: string
 }
-export abstract class CommandLineFormatterClass {
+abstract class CommandLineFormatterClass {
     /* Fields of GES-1.0.GES.CommandLineFormatterClass */
     parent_class: FormatterClass
     static name: string
 }
-export class CommandLineFormatterPrivate {
+class CommandLineFormatterPrivate {
     static name: string
 }
-export abstract class ContainerClass {
+abstract class ContainerClass {
     /* Fields of GES-1.0.GES.ContainerClass */
     child_added: (container: Container, element: TimelineElement) => void
     child_removed: (container: Container, element: TimelineElement) => void
@@ -12890,33 +12892,33 @@ export abstract class ContainerClass {
     edit: (container: Container, layers: Layer[] | null, new_layer_priority: number, mode: EditMode, edge: Edge, position: number) => boolean
     static name: string
 }
-export class ContainerPrivate {
+class ContainerPrivate {
     static name: string
 }
-export abstract class EffectAssetClass {
+abstract class EffectAssetClass {
     /* Fields of GES-1.0.GES.EffectAssetClass */
     parent_class: TrackElementAssetClass
     _ges_reserved: object[]
     static name: string
 }
-export class EffectAssetPrivate {
+class EffectAssetPrivate {
     static name: string
 }
-export abstract class EffectClass {
+abstract class EffectClass {
     /* Methods of GES-1.0.GES.EffectClass */
     register_rate_property(klass: Effect | Function | GObject.Type, element_name: string, property_name: string): boolean
     static name: string
 }
-export abstract class EffectClipClass {
+abstract class EffectClipClass {
     static name: string
 }
-export class EffectClipPrivate {
+class EffectClipPrivate {
     static name: string
 }
-export class EffectPrivate {
+class EffectPrivate {
     static name: string
 }
-export abstract class ExtractableInterface {
+abstract class ExtractableInterface {
     /* Fields of GES-1.0.GES.ExtractableInterface */
     parent: GObject.TypeInterface
     asset_type: GObject.Type
@@ -12930,7 +12932,7 @@ export abstract class ExtractableInterface {
     _ges_reserved: object[]
     static name: string
 }
-export abstract class FormatterClass {
+abstract class FormatterClass {
     /* Fields of GES-1.0.GES.FormatterClass */
     parent_class: GObject.InitiallyUnownedClass
     can_load_uri: FormatterCanLoadURIMethod
@@ -12940,94 +12942,94 @@ export abstract class FormatterClass {
     register_metas(klass: Formatter | Function | GObject.Type, name: string, description: string, extensions: string, caps: string, version: number, rank: Gst.Rank): void
     static name: string
 }
-export class FormatterPrivate {
+class FormatterPrivate {
     static name: string
 }
-export abstract class GroupClass {
+abstract class GroupClass {
     /* Fields of GES-1.0.GES.GroupClass */
     parent_class: ContainerClass
     _ges_reserved: object[]
     static name: string
 }
-export class GroupPrivate {
+class GroupPrivate {
     static name: string
 }
-export abstract class ImageSourceClass {
+abstract class ImageSourceClass {
     /* Fields of GES-1.0.GES.ImageSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
 }
-export class ImageSourcePrivate {
+class ImageSourcePrivate {
     static name: string
 }
-export abstract class LayerClass {
+abstract class LayerClass {
     /* Fields of GES-1.0.GES.LayerClass */
     object_added: (layer: Layer, object: Clip) => void
     object_removed: (layer: Layer, object: Clip) => void
     static name: string
 }
-export class LayerPrivate {
+class LayerPrivate {
     static name: string
 }
-export abstract class MarkerClass {
+abstract class MarkerClass {
     /* Fields of GES-1.0.GES.MarkerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MarkerListClass {
+abstract class MarkerListClass {
     /* Fields of GES-1.0.GES.MarkerListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MetaContainerInterface {
+abstract class MetaContainerInterface {
     /* Fields of GES-1.0.GES.MetaContainerInterface */
     parent_iface: GObject.TypeInterface
     _ges_reserved: object[]
     static name: string
 }
-export abstract class MultiFileSourceClass {
+abstract class MultiFileSourceClass {
     /* Fields of GES-1.0.GES.MultiFileSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
 }
-export class MultiFileSourcePrivate {
+class MultiFileSourcePrivate {
     static name: string
 }
-export abstract class OperationClass {
+abstract class OperationClass {
     static name: string
 }
-export abstract class OperationClipClass {
+abstract class OperationClipClass {
     static name: string
 }
-export class OperationClipPrivate {
+class OperationClipPrivate {
     static name: string
 }
-export class OperationPrivate {
+class OperationPrivate {
     static name: string
 }
-export abstract class OverlayClipClass {
+abstract class OverlayClipClass {
     /* Fields of GES-1.0.GES.OverlayClipClass */
     parent_class: OperationClipClass
     static name: string
 }
-export class OverlayClipPrivate {
+class OverlayClipPrivate {
     static name: string
 }
-export abstract class PipelineClass {
+abstract class PipelineClass {
     static name: string
 }
-export class PipelinePrivate {
+class PipelinePrivate {
     static name: string
 }
-export abstract class PitiviFormatterClass {
+abstract class PitiviFormatterClass {
     static name: string
 }
-export class PitiviFormatterPrivate {
+class PitiviFormatterPrivate {
     static name: string
 }
-export abstract class ProjectClass {
+abstract class ProjectClass {
     /* Fields of GES-1.0.GES.ProjectClass */
     parent_class: AssetClass
     asset_added: (self: Project, asset: Asset) => void
@@ -13040,50 +13042,50 @@ export abstract class ProjectClass {
     _ges_reserved: object[]
     static name: string
 }
-export class ProjectPrivate {
+class ProjectPrivate {
     static name: string
 }
-export abstract class SourceClass {
+abstract class SourceClass {
     /* Fields of GES-1.0.GES.SourceClass */
     select_pad: (source: Source, pad: Gst.Pad) => boolean
     create_source: (source: Source) => Gst.Element
     static name: string
 }
-export abstract class SourceClipAssetClass {
+abstract class SourceClipAssetClass {
     /* Fields of GES-1.0.GES.SourceClipAssetClass */
     parent_class: ClipAssetClass
     static name: string
 }
-export abstract class SourceClipClass {
+abstract class SourceClipClass {
     static name: string
 }
-export class SourceClipPrivate {
+class SourceClipPrivate {
     static name: string
 }
-export class SourcePrivate {
+class SourcePrivate {
     static name: string
 }
-export abstract class TestClipClass {
+abstract class TestClipClass {
     static name: string
 }
-export class TestClipPrivate {
+class TestClipPrivate {
     static name: string
 }
-export abstract class TextOverlayClass {
+abstract class TextOverlayClass {
     /* Fields of GES-1.0.GES.TextOverlayClass */
     parent_class: OperationClass
     static name: string
 }
-export abstract class TextOverlayClipClass {
+abstract class TextOverlayClipClass {
     static name: string
 }
-export class TextOverlayClipPrivate {
+class TextOverlayClipPrivate {
     static name: string
 }
-export class TextOverlayPrivate {
+class TextOverlayPrivate {
     static name: string
 }
-export abstract class TimelineClass {
+abstract class TimelineClass {
     /* Fields of GES-1.0.GES.TimelineClass */
     parent_class: Gst.BinClass
     track_added: (timeline: Timeline, track: Track) => void
@@ -13093,7 +13095,7 @@ export abstract class TimelineClass {
     group_added: (timeline: Timeline, group: Group) => void
     static name: string
 }
-export abstract class TimelineElementClass {
+abstract class TimelineElementClass {
     /* Fields of GES-1.0.GES.TimelineElementClass */
     parent_class: GObject.InitiallyUnownedClass
     set_parent: (self: TimelineElement, parent: TimelineElement) => boolean
@@ -13117,40 +13119,40 @@ export abstract class TimelineElementClass {
     _ges_reserved: object[]
     static name: string
 }
-export class TimelineElementPrivate {
+class TimelineElementPrivate {
     static name: string
 }
-export class TimelinePrivate {
+class TimelinePrivate {
     static name: string
 }
-export abstract class TitleClipClass {
+abstract class TitleClipClass {
     static name: string
 }
-export class TitleClipPrivate {
+class TitleClipPrivate {
     static name: string
 }
-export abstract class TitleSourceClass {
+abstract class TitleSourceClass {
     /* Fields of GES-1.0.GES.TitleSourceClass */
     parent_class: VideoSourceClass
     static name: string
 }
-export class TitleSourcePrivate {
+class TitleSourcePrivate {
     static name: string
 }
-export abstract class TrackClass {
+abstract class TrackClass {
     static name: string
 }
-export abstract class TrackElementAssetClass {
+abstract class TrackElementAssetClass {
     /* Fields of GES-1.0.GES.TrackElementAssetClass */
     parent_class: AssetClass
     get_natural_framerate: (self: TrackElementAsset) => [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     _ges_reserved: object[]
     static name: string
 }
-export class TrackElementAssetPrivate {
+class TrackElementAssetPrivate {
     static name: string
 }
-export abstract class TrackElementClass {
+abstract class TrackElementClass {
     /* Fields of GES-1.0.GES.TrackElementClass */
     nleobject_factorytype: string
     create_gnl_object: (object: TrackElement) => Gst.Element
@@ -13160,25 +13162,25 @@ export abstract class TrackElementClass {
     lookup_child: (object: TrackElement, prop_name: string) => [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     static name: string
 }
-export class TrackElementPrivate {
+class TrackElementPrivate {
     static name: string
 }
-export class TrackPrivate {
+class TrackPrivate {
     static name: string
 }
-export abstract class TransitionClass {
+abstract class TransitionClass {
     static name: string
 }
-export abstract class TransitionClipClass {
+abstract class TransitionClipClass {
     static name: string
 }
-export class TransitionClipPrivate {
+class TransitionClipPrivate {
     static name: string
 }
-export class TransitionPrivate {
+class TransitionPrivate {
     static name: string
 }
-export abstract class UriClipAssetClass {
+abstract class UriClipAssetClass {
     /* Fields of GES-1.0.GES.UriClipAssetClass */
     parent_class: SourceClipAssetClass
     discovered: (discoverer: GstPbutils.Discoverer, info: GstPbutils.DiscovererInfo, err: GLib.Error) => void
@@ -13186,72 +13188,74 @@ export abstract class UriClipAssetClass {
     set_timeout(klass: UriClipAsset | Function | GObject.Type, timeout: Gst.ClockTime): void
     static name: string
 }
-export class UriClipAssetPrivate {
+class UriClipAssetPrivate {
     static name: string
 }
-export abstract class UriClipClass {
+abstract class UriClipClass {
     static name: string
 }
-export class UriClipPrivate {
+class UriClipPrivate {
     static name: string
 }
-export class UriSource {
+class UriSource {
     static name: string
 }
-export abstract class UriSourceAssetClass {
+abstract class UriSourceAssetClass {
     /* Fields of GES-1.0.GES.UriSourceAssetClass */
     parent_class: TrackElementAssetClass
     _ges_reserved: object[]
     static name: string
 }
-export class UriSourceAssetPrivate {
+class UriSourceAssetPrivate {
     static name: string
 }
-export abstract class VideoSourceClass {
+abstract class VideoSourceClass {
     static name: string
 }
-export class VideoSourcePrivate {
+class VideoSourcePrivate {
     static name: string
 }
-export abstract class VideoTestSourceClass {
+abstract class VideoTestSourceClass {
     /* Fields of GES-1.0.GES.VideoTestSourceClass */
     parent_class: VideoSourceClass
     _ges_reserved: object[]
     static name: string
 }
-export class VideoTestSourcePrivate {
+class VideoTestSourcePrivate {
     static name: string
 }
-export abstract class VideoTrackClass {
+abstract class VideoTrackClass {
     /* Fields of GES-1.0.GES.VideoTrackClass */
     parent_class: TrackClass
     _ges_reserved: object[]
     static name: string
 }
-export class VideoTrackPrivate {
+class VideoTrackPrivate {
     static name: string
 }
-export abstract class VideoTransitionClass {
+abstract class VideoTransitionClass {
     /* Fields of GES-1.0.GES.VideoTransitionClass */
     parent_class: TransitionClass
     static name: string
 }
-export class VideoTransitionPrivate {
+class VideoTransitionPrivate {
     static name: string
 }
-export abstract class VideoUriSourceClass {
+abstract class VideoUriSourceClass {
     static name: string
 }
-export class VideoUriSourcePrivate {
+class VideoUriSourcePrivate {
     static name: string
 }
-export abstract class XmlFormatterClass {
+abstract class XmlFormatterClass {
     /* Fields of GES-1.0.GES.XmlFormatterClass */
     parent: BaseXmlFormatterClass
     _ges_reserved: object[]
     static name: string
 }
-export class XmlFormatterPrivate {
+class XmlFormatterPrivate {
     static name: string
 }
-export type FrameNumber = number
+type FrameNumber = number
+}
+export default GES

@@ -1,2 +1,1 @@
-imports.gi.versions.PangoCairo = '1.0'
-module.exports = imports.gi.PangoCairo
+export {default as default} from 'gi://PangoCairo?version=1.0';

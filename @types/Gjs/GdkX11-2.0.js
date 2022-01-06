@@ -1,2 +1,1 @@
-imports.gi.versions.GdkX11 = '2.0'
-module.exports = imports.gi.GdkX11
+export {default as default} from 'gi://GdkX11?version=2.0';

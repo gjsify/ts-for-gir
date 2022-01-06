@@ -5,27 +5,28 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace xrandr {
+declare namespace xrandr {
 
-export class ScreenSize {
+class ScreenSize {
     static name: string
 }
-export class ScreenChangeNotifyEvent {
+class ScreenChangeNotifyEvent {
     static name: string
 }
-export class NotifyEvent {
+class NotifyEvent {
     static name: string
 }
-export class ScreenResources {
+class ScreenResources {
     static name: string
 }
-export class OutputChangeNotifyEvent {
+class OutputChangeNotifyEvent {
     static name: string
 }
-export class CrtcChangeNotifyEvent {
+class CrtcChangeNotifyEvent {
     static name: string
 }
-export class OutputPropertyNotifyEvent {
+class OutputPropertyNotifyEvent {
     static name: string
 }
 }
+export default xrandr

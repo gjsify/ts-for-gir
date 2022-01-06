@@ -3,31 +3,33 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export interface ClientGetServicesCallback {
+export namespace SocialWebClient {
+
+interface ClientGetServicesCallback {
     (client: Client, services: string[]): void
 }
-export interface ClientIsOnlineCallback {
+interface ClientIsOnlineCallback {
     (client: Client, online: boolean): void
 }
-export interface ClientServiceContactsQueryOpenViewCallback {
+interface ClientServiceContactsQueryOpenViewCallback {
     (query: ClientService, contact_view?: ClientContactView | null): void
 }
-export interface ClientServiceGetCapabilitiesCallback {
+interface ClientServiceGetCapabilitiesCallback {
     (service: ClientService, caps: string[], error: GLib.Error): void
 }
-export interface ClientServiceQueryOpenViewCallback {
+interface ClientServiceQueryOpenViewCallback {
     (query: ClientService, item_view?: ClientItemView | null): void
 }
-export interface ClientServiceUpdateStatusCallback {
+interface ClientServiceUpdateStatusCallback {
     (service: ClientService, error: GLib.Error): void
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Fields of SocialWebClient-0.25.SocialWebClient.Client */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -88,7 +90,7 @@ export class Client {
 export interface ClientContactView_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
-export class ClientContactView {
+class ClientContactView {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientContactView */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -154,7 +156,7 @@ export class ClientContactView {
 export interface ClientItemView_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
-export class ClientItemView {
+class ClientItemView {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientItemView */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -219,7 +221,7 @@ export class ClientItemView {
 }
 export interface ClientLastfm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ClientLastfm {
+class ClientLastfm {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientLastfm */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -274,7 +276,7 @@ export class ClientLastfm {
 }
 export interface ClientService_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ClientService {
+class ClientService {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientService */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -356,27 +358,27 @@ export class ClientService {
     static has_cap(caps: string[], cap: string): boolean
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientContactViewClass {
+abstract class ClientContactViewClass {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientContactViewClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientItemViewClass {
+abstract class ClientItemViewClass {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientItemViewClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientLastfmClass {
+abstract class ClientLastfmClass {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientLastfmClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientServiceClass {
+abstract class ClientServiceClass {
     /* Fields of SocialWebClient-0.25.SocialWebClient.ClientServiceClass */
     parent_class: GObject.ObjectClass
     capabilities_changed: (service: ClientService, caps: string) => void
@@ -385,7 +387,7 @@ export abstract class ClientServiceClass {
     status_updated: (service: ClientService, success: boolean) => void
     static name: string
 }
-export class Contact {
+class Contact {
     /* Fields of SocialWebClient-0.25.SocialWebClient.Contact */
     refcount: number
     service: string
@@ -406,7 +408,7 @@ export class Contact {
     /* Static methods and pseudo-constructors */
     static new(): Contact
 }
-export class Item {
+class Item {
     /* Fields of SocialWebClient-0.25.SocialWebClient.Item */
     refcount: number
     service: string
@@ -426,3 +428,5 @@ export class Item {
     /* Static methods and pseudo-constructors */
     static new(): Item
 }
+}
+export default SocialWebClient

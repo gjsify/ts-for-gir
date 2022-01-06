@@ -8,26 +8,26 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstController {
+declare namespace GstController {
 
-export enum InterpolationMode {
+enum InterpolationMode {
     NONE,
     LINEAR,
     CUBIC,
     CUBIC_MONOTONIC,
 }
-export enum LFOWaveform {
+enum LFOWaveform {
     SINE,
     SQUARE,
     SAW,
     REVERSE_SAW,
     TRIANGLE,
 }
-export function timedValueControlInvalidateCache(self: TimedValueControlSource): void
-export interface DirectControlBindingConvertGValue {
+function timedValueControlInvalidateCache(self: TimedValueControlSource): void
+interface DirectControlBindingConvertGValue {
     (self: DirectControlBinding, srcValue: number, destValue: any): void
 }
-export interface DirectControlBindingConvertValue {
+interface DirectControlBindingConvertValue {
     (self: DirectControlBinding, srcValue: number, destValue?: object | null): void
 }
 export interface ARGBControlBinding_ConstructProps extends Gst.ControlBinding_ConstructProps {
@@ -36,7 +36,7 @@ export interface ARGBControlBinding_ConstructProps extends Gst.ControlBinding_Co
     controlSourceG?: Gst.ControlSource
     controlSourceR?: Gst.ControlSource
 }
-export class ARGBControlBinding {
+class ARGBControlBinding {
     /* Properties of GstController-1.0.GstController.ARGBControlBinding */
     controlSourceA: Gst.ControlSource
     controlSourceB: Gst.ControlSource
@@ -165,7 +165,7 @@ export interface DirectControlBinding_ConstructProps extends Gst.ControlBinding_
     absolute?: boolean
     controlSource?: Gst.ControlSource
 }
-export class DirectControlBinding {
+class DirectControlBinding {
     /* Properties of GstController-1.0.GstController.DirectControlBinding */
     controlSource: Gst.ControlSource
     /* Properties of Gst-1.0.Gst.Object */
@@ -276,7 +276,7 @@ export class DirectControlBinding {
 export interface InterpolationControlSource_ConstructProps extends TimedValueControlSource_ConstructProps {
     mode?: InterpolationMode
 }
-export class InterpolationControlSource {
+class InterpolationControlSource {
     /* Properties of GstController-1.0.GstController.InterpolationControlSource */
     mode: InterpolationMode
     /* Properties of Gst-1.0.Gst.Object */
@@ -415,7 +415,7 @@ export interface LFOControlSource_ConstructProps extends Gst.ControlSource_Const
     timeshift?: number
     waveform?: LFOWaveform
 }
-export class LFOControlSource {
+class LFOControlSource {
     /* Properties of GstController-1.0.GstController.LFOControlSource */
     amplitude: number
     frequency: number
@@ -545,7 +545,7 @@ export class LFOControlSource {
 }
 export interface ProxyControlBinding_ConstructProps extends Gst.ControlBinding_ConstructProps {
 }
-export class ProxyControlBinding {
+class ProxyControlBinding {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -647,7 +647,7 @@ export class ProxyControlBinding {
 }
 export interface TimedValueControlSource_ConstructProps extends Gst.ControlSource_ConstructProps {
 }
-export class TimedValueControlSource {
+class TimedValueControlSource {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -773,7 +773,7 @@ export class TimedValueControlSource {
 export interface TriggerControlSource_ConstructProps extends TimedValueControlSource_ConstructProps {
     tolerance?: number
 }
-export class TriggerControlSource {
+class TriggerControlSource {
     /* Properties of GstController-1.0.GstController.TriggerControlSource */
     tolerance: number
     /* Properties of Gst-1.0.Gst.Object */
@@ -905,12 +905,12 @@ export class TriggerControlSource {
     static new(): TriggerControlSource
     static $gtype: GObject.Type
 }
-export abstract class ARGBControlBindingClass {
+abstract class ARGBControlBindingClass {
     /* Fields of GstController-1.0.GstController.ARGBControlBindingClass */
     parentClass: Gst.ControlBindingClass
     static name: string
 }
-export class ControlPoint {
+class ControlPoint {
     /* Fields of GstController-1.0.GstController.ControlPoint */
     timestamp: Gst.ClockTime
     value: number
@@ -919,44 +919,45 @@ export class ControlPoint {
     free(): void
     static name: string
 }
-export abstract class DirectControlBindingClass {
+abstract class DirectControlBindingClass {
     /* Fields of GstController-1.0.GstController.DirectControlBindingClass */
     parentClass: Gst.ControlBindingClass
     static name: string
 }
-export abstract class InterpolationControlSourceClass {
+abstract class InterpolationControlSourceClass {
     /* Fields of GstController-1.0.GstController.InterpolationControlSourceClass */
     parentClass: TimedValueControlSourceClass
     static name: string
 }
-export class InterpolationControlSourcePrivate {
+class InterpolationControlSourcePrivate {
     static name: string
 }
-export abstract class LFOControlSourceClass {
+abstract class LFOControlSourceClass {
     /* Fields of GstController-1.0.GstController.LFOControlSourceClass */
     parentClass: Gst.ControlSourceClass
     static name: string
 }
-export class LFOControlSourcePrivate {
+class LFOControlSourcePrivate {
     static name: string
 }
-export abstract class ProxyControlBindingClass {
+abstract class ProxyControlBindingClass {
     static name: string
 }
-export abstract class TimedValueControlSourceClass {
+abstract class TimedValueControlSourceClass {
     /* Fields of GstController-1.0.GstController.TimedValueControlSourceClass */
     parentClass: Gst.ControlSourceClass
     static name: string
 }
-export class TimedValueControlSourcePrivate {
+class TimedValueControlSourcePrivate {
     static name: string
 }
-export abstract class TriggerControlSourceClass {
+abstract class TriggerControlSourceClass {
     /* Fields of GstController-1.0.GstController.TriggerControlSourceClass */
     parentClass: TimedValueControlSourceClass
     static name: string
 }
-export class TriggerControlSourcePrivate {
+class TriggerControlSourcePrivate {
     static name: string
 }
 }
+export default GstController

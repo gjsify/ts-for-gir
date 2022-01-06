@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Uhm {
+declare namespace Uhm {
 
-export enum ServerError {
+enum ServerError {
     SERVER_ERROR_MESSAGE_MISMATCH,
 }
 export const MAJOR_VERSION: number
@@ -18,7 +18,7 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export interface Resolver_ConstructProps extends Gio.Resolver_ConstructProps {
 }
-export class Resolver {
+class Resolver {
     /* Fields of Gio-2.0.Gio.Resolver */
     parentInstance: GObject.Object
     priv: Gio.ResolverPrivate
@@ -99,7 +99,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     tlsCertificate?: Gio.TlsCertificate
     traceDirectory?: Gio.File
 }
-export class Server {
+class Server {
     /* Properties of Uhm-0.0.Uhm.Server */
     readonly address: string
     enableLogging: boolean
@@ -227,19 +227,20 @@ export class Server {
     static receivedMessageChunkFromSoup(logger: Soup.Logger, level: Soup.LoggerLogLevel, direction: number, data: string, userData?: object | null): void
     static $gtype: GObject.Type
 }
-export abstract class ResolverClass {
+abstract class ResolverClass {
     static name: string
 }
-export class ResolverPrivate {
+class ResolverPrivate {
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     /* Fields of Uhm-0.0.Uhm.ServerClass */
     handleMessage: (self: Server, message: Soup.Message, client: Soup.ClientContext) => boolean
     compareMessages: (self: Server, expectedMessage: Soup.Message, actualMessage: Soup.Message, actualClient: Soup.ClientContext) => boolean
     static name: string
 }
-export class ServerPrivate {
+class ServerPrivate {
     static name: string
 }
 }
+export default Uhm

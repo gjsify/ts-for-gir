@@ -3,14 +3,16 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GVnc from './GVnc-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GVnc from './GVnc-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace GVncPulse {
 
 export interface AudioPulse_ConstructProps extends GVnc.BaseAudio_ConstructProps {
 }
-export class AudioPulse {
+class AudioPulse {
     /* Fields of GVncPulse-1.0.GVncPulse.AudioPulse */
     parent: GVnc.BaseAudio
     priv: AudioPulsePrivate
@@ -83,11 +85,13 @@ export class AudioPulse {
     static new(): AudioPulse
     static $gtype: GObject.Type
 }
-export abstract class AudioPulseClass {
+abstract class AudioPulseClass {
     /* Fields of GVncPulse-1.0.GVncPulse.AudioPulseClass */
     parent_class: GVnc.BaseAudioClass
     static name: string
 }
-export class AudioPulsePrivate {
+class AudioPulsePrivate {
     static name: string
 }
+}
+export default GVncPulse

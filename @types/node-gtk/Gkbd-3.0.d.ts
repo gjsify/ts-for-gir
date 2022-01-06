@@ -17,9 +17,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Gkbd {
+declare namespace Gkbd {
 
-export enum KeyboardDrawingGroupLevelPosition {
+enum KeyboardDrawingGroupLevelPosition {
     TOPLEFT,
     TOPRIGHT,
     BOTTOMLEFT,
@@ -28,7 +28,7 @@ export enum KeyboardDrawingGroupLevelPosition {
     FIRST,
     LAST,
 }
-export enum KeyboardDrawingItemType {
+enum KeyboardDrawingItemType {
     INVALID,
     KEY,
     KEY_EXTRA,
@@ -37,20 +37,20 @@ export enum KeyboardDrawingItemType {
 export const DESKTOP_SCHEMA: string
 export const KEYBOARD_DRAWING_H: number
 export const KEYBOARD_SCHEMA: string
-export function installGlibLogAppender(): void
-export function keyboardConfigAddDefaultSwitchOptionIfNecessary(layoutsList: string, optionsList: string, wasAppended: boolean): string[]
-export function keyboardConfigFormatFullDescription(layoutDescr: string, variantDescr: string): string
-export function keyboardConfigGetDescriptions(configRegistry: Xkl.ConfigRegistry, name: string, layoutShortDescr: string, layoutDescr: string, variantShortDescr: string, variantDescr: string): boolean
-export function keyboardConfigMergeItems(parent: string, child: string): string
-export function keyboardConfigSplitItems(merged: string, parent: string, child: string): boolean
-export function previewLoadPosition(): Gdk.Rectangle
-export function previewSavePosition(rect: Gdk.Rectangle): void
-export function strvAppend(arr: string, element: string): string[]
-export function strvBehead(arr: string): void
-export function strvRemove(arr: string, element: string): boolean
+function installGlibLogAppender(): void
+function keyboardConfigAddDefaultSwitchOptionIfNecessary(layoutsList: string, optionsList: string, wasAppended: boolean): string[]
+function keyboardConfigFormatFullDescription(layoutDescr: string, variantDescr: string): string
+function keyboardConfigGetDescriptions(configRegistry: Xkl.ConfigRegistry, name: string, layoutShortDescr: string, layoutDescr: string, variantShortDescr: string, variantDescr: string): boolean
+function keyboardConfigMergeItems(parent: string, child: string): string
+function keyboardConfigSplitItems(merged: string, parent: string, child: string): boolean
+function previewLoadPosition(): Gdk.Rectangle
+function previewSavePosition(rect: Gdk.Rectangle): void
+function strvAppend(arr: string, element: string): string[]
+function strvBehead(arr: string): void
+function strvRemove(arr: string, element: string): boolean
 export interface Configuration_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Configuration {
+class Configuration {
     /* Fields of Gkbd-3.0.Gkbd.Configuration */
     parent: GObject.Object
     priv: ConfigurationPrivate
@@ -142,7 +142,7 @@ export class Configuration {
 }
 export interface Indicator_ConstructProps extends Gtk.Notebook_ConstructProps {
 }
-export class Indicator {
+class Indicator {
     /* Properties of Gtk-3.0.Gtk.Notebook */
     enablePopup: boolean
     groupName: string
@@ -1266,7 +1266,7 @@ export class Indicator {
 }
 export interface KeyboardDrawing_ConstructProps extends Gtk.DrawingArea_ConstructProps {
 }
-export class KeyboardDrawing {
+class KeyboardDrawing {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -2187,7 +2187,7 @@ export class KeyboardDrawing {
 }
 export interface Status_ConstructProps extends Gtk.StatusIcon_ConstructProps {
 }
-export class Status {
+class Status {
     /* Properties of Gtk-3.0.Gtk.StatusIcon */
     readonly embedded: boolean
     file: string
@@ -2397,15 +2397,15 @@ export class Status {
     static getXklEngine(): Xkl.Engine
     static $gtype: GObject.Type
 }
-export abstract class ConfigurationClass {
+abstract class ConfigurationClass {
     /* Fields of Gkbd-3.0.Gkbd.ConfigurationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ConfigurationPrivate {
+class ConfigurationPrivate {
     static name: string
 }
-export class DesktopConfig {
+class DesktopConfig {
     /* Fields of Gkbd-3.0.Gkbd.DesktopConfig */
     defaultGroup: number
     groupPerApp: boolean
@@ -2429,13 +2429,13 @@ export class DesktopConfig {
     term(): void
     static name: string
 }
-export abstract class IndicatorClass {
+abstract class IndicatorClass {
     /* Fields of Gkbd-3.0.Gkbd.IndicatorClass */
     parentClass: Gtk.NotebookClass
     reinitUi: (gki: Indicator) => void
     static name: string
 }
-export class IndicatorConfig {
+class IndicatorConfig {
     /* Fields of Gkbd-3.0.Gkbd.IndicatorConfig */
     secondaryGroupsMask: number
     showFlags: boolean
@@ -2464,10 +2464,10 @@ export class IndicatorConfig {
     term(): void
     static name: string
 }
-export class IndicatorPrivate {
+class IndicatorPrivate {
     static name: string
 }
-export class KeyboardConfig {
+class KeyboardConfig {
     /* Fields of Gkbd-3.0.Gkbd.KeyboardConfig */
     model: string
     layoutsVariants: string
@@ -2495,28 +2495,28 @@ export class KeyboardConfig {
     static mergeItems(parent: string, child: string): string
     static splitItems(merged: string, parent: string, child: string): boolean
 }
-export abstract class KeyboardDrawingClass {
+abstract class KeyboardDrawingClass {
     /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingClass */
     parentClass: Gtk.DrawingAreaClass
     badKeycode: (drawing: KeyboardDrawing, keycode: number) => void
     static name: string
 }
-export class KeyboardDrawingDoodad {
+class KeyboardDrawingDoodad {
     static name: string
 }
-export class KeyboardDrawingGroupLevel {
+class KeyboardDrawingGroupLevel {
     /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingGroupLevel */
     group: number
     level: number
     static name: string
 }
-export class KeyboardDrawingItem {
+class KeyboardDrawingItem {
     static name: string
 }
-export class KeyboardDrawingKey {
+class KeyboardDrawingKey {
     static name: string
 }
-export class KeyboardDrawingRenderContext {
+class KeyboardDrawingRenderContext {
     /* Fields of Gkbd-3.0.Gkbd.KeyboardDrawingRenderContext */
     cr: cairo.Context
     angle: number
@@ -2527,12 +2527,13 @@ export class KeyboardDrawingRenderContext {
     darkColor: Gdk.RGBA
     static name: string
 }
-export abstract class StatusClass {
+abstract class StatusClass {
     /* Fields of Gkbd-3.0.Gkbd.StatusClass */
     parentClass: Gtk.NotebookClass
     static name: string
 }
-export class StatusPrivate {
+class StatusPrivate {
     static name: string
 }
 }
+export default Gkbd

@@ -8,23 +8,23 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace TelepathyLogger {
+declare namespace TelepathyLogger {
 
-export enum EntityType {
+enum EntityType {
     UNKNOWN,
     CONTACT,
     ROOM,
     SELF,
 }
-export enum LogManagerError {
+enum LogManagerError {
     LOG_MANAGER_ERROR_ADD_EVENT,
 }
-export enum EventTypeMask {
+enum EventTypeMask {
     TEXT,
     CALL,
     ANY,
 }
-export interface LogEventFilter {
+interface LogEventFilter {
     (event: Event): boolean
 }
 export interface CallEvent_ConstructProps extends Event_ConstructProps {
@@ -33,7 +33,7 @@ export interface CallEvent_ConstructProps extends Event_ConstructProps {
     endActor?: Entity
     endReason?: number
 }
-export class CallEvent {
+class CallEvent {
     /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -101,7 +101,7 @@ export interface Entity_ConstructProps extends GObject.Object_ConstructProps {
     identifier?: string
     type?: number
 }
-export class Entity {
+class Entity {
     /* Fields of TelepathyLogger-0.2.TelepathyLogger.Entity */
     parent: GObject.Object
     priv: EntityPriv
@@ -163,7 +163,7 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     sender?: Entity
     timestamp?: number
 }
-export class Event {
+class Event {
     /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -222,7 +222,7 @@ export class Event {
 }
 export interface LogManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LogManager {
+class LogManager {
     /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogManager */
     parent: GObject.Object
     priv: object
@@ -291,7 +291,7 @@ export interface LogWalker_ConstructProps extends GObject.Object_ConstructProps 
     filter?: object
     filterData?: object
 }
-export class LogWalker {
+class LogWalker {
     /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogWalker */
     parentInstance: GObject.Object
     priv: LogWalkerPriv
@@ -351,7 +351,7 @@ export interface TextEvent_ConstructProps extends Event_ConstructProps {
     messageType?: number
     supersedesToken?: string
 }
-export class TextEvent {
+class TextEvent {
     /* Properties of TelepathyLogger-0.2.TelepathyLogger.Event */
     readonly accountPath: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -415,43 +415,44 @@ export class TextEvent {
     _init (config?: TextEvent_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class CallEventClass {
+abstract class CallEventClass {
     static name: string
 }
-export class CallEventPriv {
+class CallEventPriv {
     static name: string
 }
-export class EntityPriv {
+class EntityPriv {
     static name: string
 }
-export abstract class EventClass {
+abstract class EventClass {
     static name: string
 }
-export class EventPriv {
+class EventPriv {
     static name: string
 }
-export abstract class LogManagerClass {
+abstract class LogManagerClass {
     /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class LogSearchHit {
+class LogSearchHit {
     /* Fields of TelepathyLogger-0.2.TelepathyLogger.LogSearchHit */
     account: TelepathyGLib.Account
     target: Entity
     date: GLib.Date
     static name: string
 }
-export abstract class LogWalkerClass {
+abstract class LogWalkerClass {
     static name: string
 }
-export class LogWalkerPriv {
+class LogWalkerPriv {
     static name: string
 }
-export abstract class TextEventClass {
+abstract class TextEventClass {
     static name: string
 }
-export class TextEventPriv {
+class TextEventPriv {
     static name: string
 }
 }
+export default TelepathyLogger

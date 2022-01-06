@@ -17,58 +17,58 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Gtef {
+declare namespace Gtef {
 
-export enum CompressionType {
+enum CompressionType {
     NONE,
     GZIP,
 }
-export enum FileLoaderError {
+enum FileLoaderError {
     TOO_BIG,
     ENCODING_AUTO_DETECTION_FAILED,
 }
-export enum FileSaverError {
+enum FileSaverError {
     INVALID_CHARS,
     EXTERNALLY_MODIFIED,
 }
-export enum NewlineType {
+enum NewlineType {
     LF,
     CR,
     CR_LF,
 }
-export enum SelectionType {
+enum SelectionType {
     NO_SELECTION,
     ON_SAME_LINE,
     MULTIPLE_LINES,
 }
-export enum FileSaverFlags {
+enum FileSaverFlags {
     NONE,
     IGNORE_INVALID_CHARS,
     IGNORE_MODIFICATION_TIME,
     CREATE_BACKUP,
 }
-export enum GutterRendererFoldsState {
+enum GutterRendererFoldsState {
     NONE,
     START_FOLDED,
     START_OPENED,
     CONTINUE,
     END,
 }
-export function actionMapAddActionEntriesCheckDups(actionMap: Gio.ActionMap, entries: Gio.ActionEntry[], userData?: object | null): void
-export function encodingGetAll(): Encoding[]
-export function encodingGetDefaultCandidates(): Encoding[]
-export function fileLoaderErrorQuark(): GLib.Quark
-export function fileSaverErrorQuark(): GLib.Quark
-export function iterGetLineIndentation(iter: Gtk.TextIter): string
-export function menuItemGetLongDescription(menuItem: Gtk.MenuItem): string | null
-export function menuItemSetIconName(item: Gtk.MenuItem, iconName: string): void
-export function menuItemSetLongDescription(menuItem: Gtk.MenuItem, longDescription?: string | null): void
-export function metadataManagerInit(metadataPath: string): void
-export function metadataManagerShutdown(): void
-export function utilsRecentChooserMenuGetItemUri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
+function actionMapAddActionEntriesCheckDups(actionMap: Gio.ActionMap, entries: Gio.ActionEntry[], userData?: object | null): void
+function encodingGetAll(): Encoding[]
+function encodingGetDefaultCandidates(): Encoding[]
+function fileLoaderErrorQuark(): GLib.Quark
+function fileSaverErrorQuark(): GLib.Quark
+function iterGetLineIndentation(iter: Gtk.TextIter): string
+function menuItemGetLongDescription(menuItem: Gtk.MenuItem): string | null
+function menuItemSetIconName(item: Gtk.MenuItem, iconName: string): void
+function menuItemSetLongDescription(menuItem: Gtk.MenuItem, longDescription?: string | null): void
+function metadataManagerInit(metadataPath: string): void
+function metadataManagerShutdown(): void
+function utilsRecentChooserMenuGetItemUri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
 export interface ActionInfoCentralStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoCentralStore {
+class ActionInfoCentralStore {
     /* Fields of Gtef-2.Gtef.ActionInfoCentralStore */
     parent: GObject.Object
     priv: ActionInfoCentralStorePrivate
@@ -121,7 +121,7 @@ export class ActionInfoCentralStore {
 export interface ActionInfoStore_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
 }
-export class ActionInfoStore {
+class ActionInfoStore {
     /* Fields of Gtef-2.Gtef.ActionInfoStore */
     parent: GObject.Object
     priv: ActionInfoStorePrivate
@@ -179,7 +179,7 @@ export class ActionInfoStore {
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
 }
-export class Application {
+class Application {
     /* Fields of Gtef-2.Gtef.Application */
     parent: GObject.Object
     priv: ApplicationPrivate
@@ -236,7 +236,7 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     applicationWindow?: Gtk.ApplicationWindow
     statusbar?: Gtk.Statusbar
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Gtef-2.Gtef.ApplicationWindow */
     statusbar: Gtk.Statusbar
     /* Fields of Gtef-2.Gtef.ApplicationWindow */
@@ -301,7 +301,7 @@ export class ApplicationWindow {
 export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     gtefStyleSchemeId?: string
 }
-export class Buffer {
+class Buffer {
     /* Properties of Gtef-2.Gtef.Buffer */
     gtefStyleSchemeId: string
     readonly gtefTitle: string
@@ -662,7 +662,7 @@ export class Buffer {
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?: Gio.File
 }
-export class File {
+class File {
     /* Properties of Gtef-2.Gtef.File */
     readonly compressionType: CompressionType
     readonly encoding: Encoding
@@ -766,7 +766,7 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
     location?: Gio.File
     maxSize?: number
 }
-export class FileLoader {
+class FileLoader {
     /* Properties of Gtef-2.Gtef.FileLoader */
     chunkSize: number
     maxSize: number
@@ -841,7 +841,7 @@ export class FileLoader {
 export interface FileMetadata_ConstructProps extends GObject.Object_ConstructProps {
     file?: File
 }
-export class FileMetadata {
+class FileMetadata {
     /* Fields of Gtef-2.Gtef.FileMetadata */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -907,7 +907,7 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     location?: Gio.File
     newlineType?: GtkSource.NewlineType
 }
-export class FileSaver {
+class FileSaver {
     /* Properties of Gtef-2.Gtef.FileSaver */
     compressionType: GtkSource.CompressionType
     encoding: Encoding
@@ -999,7 +999,7 @@ export interface FoldRegion_ConstructProps extends GObject.Object_ConstructProps
     buffer?: Gtk.TextBuffer
     folded?: boolean
 }
-export class FoldRegion {
+class FoldRegion {
     /* Properties of Gtef-2.Gtef.FoldRegion */
     folded: boolean
     /* Fields of Gtef-2.Gtef.FoldRegion */
@@ -1061,7 +1061,7 @@ export class FoldRegion {
 }
 export interface GutterRendererFolds_ConstructProps extends GtkSource.GutterRenderer_ConstructProps {
 }
-export class GutterRendererFolds {
+class GutterRendererFolds {
     /* Properties of GtkSource-3.0.GtkSource.GutterRenderer */
     alignmentMode: GtkSource.GutterRendererAlignmentMode
     backgroundRgba: Gdk.RGBA
@@ -1231,7 +1231,7 @@ export class GutterRendererFolds {
 export interface InfoBar_ConstructProps extends Gtk.InfoBar_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class InfoBar {
+class InfoBar {
     /* Properties of Gtk-3.0.Gtk.InfoBar */
     messageType: Gtk.MessageType
     revealed: boolean
@@ -2299,7 +2299,7 @@ export class InfoBar {
 export interface MenuShell_ConstructProps extends GObject.Object_ConstructProps {
     menuShell?: Gtk.MenuShell
 }
-export class MenuShell {
+class MenuShell {
     /* Fields of Gtef-2.Gtef.MenuShell */
     parent: GObject.Object
     priv: MenuShellPrivate
@@ -2363,7 +2363,7 @@ export class MenuShell {
 export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Tab {
+class Tab {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
@@ -3401,7 +3401,7 @@ export interface View_ConstructProps extends GtkSource.View_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of GtkSource-3.0.GtkSource.View */
     autoIndent: boolean
     backgroundPattern: GtkSource.BackgroundPatternType
@@ -4885,7 +4885,7 @@ export class View {
     static newWithBuffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
-export class ActionInfo {
+class ActionInfo {
     /* Methods of Gtef-2.Gtef.ActionInfo */
     copy(): ActionInfo
     getAccels(): string[]
@@ -4907,16 +4907,16 @@ export class ActionInfo {
     static new(): ActionInfo
     static newFromEntry(infoEntry: ActionInfoEntry, translationDomain?: string | null): ActionInfo
 }
-export abstract class ActionInfoCentralStoreClass {
+abstract class ActionInfoCentralStoreClass {
     /* Fields of Gtef-2.Gtef.ActionInfoCentralStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoCentralStorePrivate {
+class ActionInfoCentralStorePrivate {
     static name: string
 }
-export class ActionInfoEntry {
+class ActionInfoEntry {
     /* Fields of Gtef-2.Gtef.ActionInfoEntry */
     actionName: string
     iconName: string
@@ -4925,41 +4925,41 @@ export class ActionInfoEntry {
     tooltip: string
     static name: string
 }
-export abstract class ActionInfoStoreClass {
+abstract class ActionInfoStoreClass {
     /* Fields of Gtef-2.Gtef.ActionInfoStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoStorePrivate {
+class ActionInfoStorePrivate {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Gtef-2.Gtef.ApplicationClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Gtef-2.Gtef.ApplicationWindowClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationWindowPrivate {
+class ApplicationWindowPrivate {
     static name: string
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Gtef-2.Gtef.BufferClass */
     parentClass: GtkSource.BufferClass
     gtefCursorMoved: (buffer: Buffer) => void
     padding: object[]
     static name: string
 }
-export class Encoding {
+class Encoding {
     /* Methods of Gtef-2.Gtef.Encoding */
     copy(): Encoding
     equals(enc2?: Encoding | null): boolean
@@ -4978,52 +4978,52 @@ export class Encoding {
     static getAll(): Encoding[]
     static getDefaultCandidates(): Encoding[]
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of Gtef-2.Gtef.FileClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileLoaderClass {
+abstract class FileLoaderClass {
     /* Fields of Gtef-2.Gtef.FileLoaderClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileMetadataClass {
+abstract class FileMetadataClass {
     /* Fields of Gtef-2.Gtef.FileMetadataClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class FileSaverClass {
+abstract class FileSaverClass {
     /* Fields of Gtef-2.Gtef.FileSaverClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FileSaverPrivate {
+class FileSaverPrivate {
     static name: string
 }
-export abstract class FoldRegionClass {
+abstract class FoldRegionClass {
     /* Fields of Gtef-2.Gtef.FoldRegionClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class GutterRendererFoldsClass {
+abstract class GutterRendererFoldsClass {
     /* Fields of Gtef-2.Gtef.GutterRendererFoldsClass */
     parentClass: GtkSource.GutterRendererClass
     padding: object[]
     static name: string
 }
-export abstract class InfoBarClass {
+abstract class InfoBarClass {
     /* Fields of Gtef-2.Gtef.InfoBarClass */
     parentClass: Gtk.InfoBarClass
     padding: object[]
     static name: string
 }
-export abstract class MenuShellClass {
+abstract class MenuShellClass {
     /* Fields of Gtef-2.Gtef.MenuShellClass */
     parentClass: GObject.ObjectClass
     menuItemSelected: (gtefMenuShell: MenuShell, menuItem: Gtk.MenuItem) => void
@@ -5031,19 +5031,20 @@ export abstract class MenuShellClass {
     padding: object[]
     static name: string
 }
-export class MenuShellPrivate {
+class MenuShellPrivate {
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Gtef-2.Gtef.TabClass */
     parentClass: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Gtef-2.Gtef.ViewClass */
     parentClass: GtkSource.ViewClass
     padding: object[]
     static name: string
 }
 }
+export default Gtef

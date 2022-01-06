@@ -1,2 +1,1 @@
-imports.gi.versions.GnomeBG = '4.0'
-module.exports = imports.gi.GnomeBG
+export {default as default} from 'gi://GnomeBG?version=4.0';

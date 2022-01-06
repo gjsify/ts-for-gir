@@ -1,2 +1,1 @@
-imports.gi.versions.GstVideo = '1.0'
-module.exports = imports.gi.GstVideo
+export {default as default} from 'gi://GstVideo?version=1.0';

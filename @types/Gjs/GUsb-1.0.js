@@ -1,2 +1,1 @@
-imports.gi.versions.GUsb = '1.0'
-module.exports = imports.gi.GUsb
+export {default as default} from 'gi://GUsb?version=1.0';

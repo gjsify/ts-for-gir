@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Gee from './Gee-0.8';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Gee from './Gee-0.8';
 
-export enum ServicesLogLevel {
+export namespace Granite {
+
+enum ServicesLogLevel {
     DEBUG,
     INFO,
     NOTIFY,
@@ -25,15 +27,15 @@ export enum ServicesLogLevel {
     ERROR,
     FATAL,
 }
-export enum ServicesContractorError {
+enum ServicesContractorError {
     SERVICE_NOT_AVAILABLE,
 }
-export enum WidgetsDynamicNotebookTabBarBehavior {
+enum WidgetsDynamicNotebookTabBarBehavior {
     ALWAYS,
     SINGLE,
     NEVER,
 }
-export enum WidgetsStorageBarItemDescription {
+enum WidgetsStorageBarItemDescription {
     OTHER,
     AUDIO,
     VIDEO,
@@ -41,7 +43,7 @@ export enum WidgetsStorageBarItemDescription {
     APP,
     FILES,
 }
-export enum CollapseMode {
+enum CollapseMode {
     NONE,
     LEFT,
     TOP,
@@ -50,24 +52,24 @@ export enum CollapseMode {
     BOTTOM,
     LAST,
 }
-export enum TextStyle {
+enum TextStyle {
     TITLE,
     H1,
     H2,
     H3,
 }
-export enum CloseButtonPosition {
+enum CloseButtonPosition {
     LEFT,
     RIGHT,
 }
-export enum SettingsPageStatusType {
+enum SettingsPageStatusType {
     ERROR,
     OFFLINE,
     SUCCESS,
     WARNING,
     NONE,
 }
-export enum SettingsColorScheme {
+enum SettingsColorScheme {
     NO_PREFERENCE,
     DARK,
     LIGHT,
@@ -118,38 +120,38 @@ export const TRANSITION_DURATION_CLOSE: number
 export const TRANSITION_DURATION_IN_PLACE: number
 export const TRANSITION_DURATION_OPEN: number
 export const TOOLTIP_SECONDARY_TEXT_MARKUP: string
-export function date_time_get_default_time_format(is_12h: boolean, with_second: boolean): string
-export function date_time_get_relative_datetime(date_time: GLib.DateTime): string
-export function date_time_is_same_day(day1: GLib.DateTime, day2: GLib.DateTime): boolean
-export function date_time_get_default_date_format(with_weekday: boolean, with_day: boolean, with_year: boolean): string
-export function date_time_seconds_to_time(seconds: number): string
-export function services_application_set_badge(count: number, _callback_?: Gio.AsyncReadyCallback | null): void
-export function services_application_set_badge_finish(_res_: Gio.AsyncResult): boolean
-export function services_application_set_badge_visible(visible: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
-export function services_application_set_badge_visible_finish(_res_: Gio.AsyncResult): boolean
-export function services_application_set_progress(progress: number, _callback_?: Gio.AsyncReadyCallback | null): void
-export function services_application_set_progress_finish(_res_: Gio.AsyncResult): boolean
-export function services_application_set_progress_visible(visible: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
-export function services_application_set_progress_visible_finish(_res_: Gio.AsyncResult): boolean
-export function widgets_utils_set_color_primary(window: Gtk.Widget, color: Gdk.RGBA, priority: number): Gtk.CssProvider | null
-export function widgets_utils_set_theming(widget: Gtk.Widget, stylesheet: string, class_name: string | null, priority: number): Gtk.CssProvider | null
-export function widgets_utils_set_theming_for_screen(screen: Gdk.Screen, stylesheet: string, priority: number): Gtk.CssProvider | null
-export function widgets_utils_get_css_provider(stylesheet: string): Gtk.CssProvider | null
-export function widgets_utils_apply_text_style_to_label(text_style: TextStyle, label: Gtk.Label): void
-export function widgets_utils_get_default_close_button_position(): [ /* returnType */ boolean, /* position */ CloseButtonPosition ]
-export function widgets_utils_get_button_layout_schema(): string | null
-export function widgets_storage_bar_item_description_get_class(description: WidgetsStorageBarItemDescription): string | null
-export function widgets_storage_bar_item_description_get_name(description: WidgetsStorageBarItemDescription): string
-export function text_style_get_stylesheet(): [ /* returnType */ string, /* style_class */ string ]
-export function accel_to_string(accel?: string | null): string
-export function markup_accel_tooltip(accels: string[] | null, description?: string | null): string
-export function contrasting_foreground_color(bg_color: Gdk.RGBA): /* result */ Gdk.RGBA
-export interface WidgetsDroppedDelegate {
+function date_time_get_default_time_format(is_12h: boolean, with_second: boolean): string
+function date_time_get_relative_datetime(date_time: GLib.DateTime): string
+function date_time_is_same_day(day1: GLib.DateTime, day2: GLib.DateTime): boolean
+function date_time_get_default_date_format(with_weekday: boolean, with_day: boolean, with_year: boolean): string
+function date_time_seconds_to_time(seconds: number): string
+function services_application_set_badge(count: number, _callback_?: Gio.AsyncReadyCallback | null): void
+function services_application_set_badge_finish(_res_: Gio.AsyncResult): boolean
+function services_application_set_badge_visible(visible: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
+function services_application_set_badge_visible_finish(_res_: Gio.AsyncResult): boolean
+function services_application_set_progress(progress: number, _callback_?: Gio.AsyncReadyCallback | null): void
+function services_application_set_progress_finish(_res_: Gio.AsyncResult): boolean
+function services_application_set_progress_visible(visible: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
+function services_application_set_progress_visible_finish(_res_: Gio.AsyncResult): boolean
+function widgets_utils_set_color_primary(window: Gtk.Widget, color: Gdk.RGBA, priority: number): Gtk.CssProvider | null
+function widgets_utils_set_theming(widget: Gtk.Widget, stylesheet: string, class_name: string | null, priority: number): Gtk.CssProvider | null
+function widgets_utils_set_theming_for_screen(screen: Gdk.Screen, stylesheet: string, priority: number): Gtk.CssProvider | null
+function widgets_utils_get_css_provider(stylesheet: string): Gtk.CssProvider | null
+function widgets_utils_apply_text_style_to_label(text_style: TextStyle, label: Gtk.Label): void
+function widgets_utils_get_default_close_button_position(): [ /* returnType */ boolean, /* position */ CloseButtonPosition ]
+function widgets_utils_get_button_layout_schema(): string | null
+function widgets_storage_bar_item_description_get_class(description: WidgetsStorageBarItemDescription): string | null
+function widgets_storage_bar_item_description_get_name(description: WidgetsStorageBarItemDescription): string
+function text_style_get_stylesheet(): [ /* returnType */ string, /* style_class */ string ]
+function accel_to_string(accel?: string | null): string
+function markup_accel_tooltip(accels: string[] | null, description?: string | null): string
+function contrasting_foreground_color(bg_color: Gdk.RGBA): /* result */ Gdk.RGBA
+interface WidgetsDroppedDelegate {
     (): void
 }
 export interface ServicesContract_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesContract {
+class ServicesContract {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Granite-1.0.Granite.ServicesContract */
@@ -209,7 +211,7 @@ export class ServicesContract {
 }
 export interface ServicesSettingsSerializable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesSettingsSerializable {
+class ServicesSettingsSerializable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Granite-1.0.Granite.ServicesSettingsSerializable */
@@ -263,7 +265,7 @@ export class ServicesSettingsSerializable {
 }
 export interface WidgetsSourceListSortable_ConstructProps extends WidgetsSourceListExpandableItem_ConstructProps {
 }
-export class WidgetsSourceListSortable {
+class WidgetsSourceListSortable {
     /* Properties of Granite-1.0.Granite.WidgetsSourceListExpandableItem */
     collapsible: boolean
     expanded: boolean
@@ -433,7 +435,7 @@ export class WidgetsSourceListSortable {
 }
 export interface WidgetsSourceListDragSource_ConstructProps extends WidgetsSourceListItem_ConstructProps {
 }
-export class WidgetsSourceListDragSource {
+class WidgetsSourceListDragSource {
     /* Properties of Granite-1.0.Granite.WidgetsSourceListItem */
     parent: WidgetsSourceListExpandableItem
     name: string
@@ -559,7 +561,7 @@ export class WidgetsSourceListDragSource {
 }
 export interface WidgetsSourceListDragDest_ConstructProps extends WidgetsSourceListItem_ConstructProps {
 }
-export class WidgetsSourceListDragDest {
+class WidgetsSourceListDragDest {
     /* Properties of Granite-1.0.Granite.WidgetsSourceListItem */
     parent: WidgetsSourceListExpandableItem
     name: string
@@ -688,7 +690,7 @@ export interface DrawingBufferSurface_ConstructProps extends GObject.Object_Cons
     width?: number
     height?: number
 }
-export class DrawingBufferSurface {
+class DrawingBufferSurface {
     /* Properties of Granite-1.0.Granite.DrawingBufferSurface */
     surface: cairo.Surface
     width: number
@@ -764,7 +766,7 @@ export class DrawingBufferSurface {
 }
 export interface DrawingColor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DrawingColor {
+class DrawingColor {
     /* Fields of Granite-1.0.Granite.DrawingColor */
     R: number
     G: number
@@ -846,7 +848,7 @@ export class DrawingColor {
 }
 export interface DrawingUtilities_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DrawingUtilities {
+class DrawingUtilities {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -898,7 +900,7 @@ export class DrawingUtilities {
 }
 export interface ServicesContractorProxy_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesContractorProxy {
+class ServicesContractorProxy {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -957,7 +959,7 @@ export class ServicesContractorProxy {
 }
 export interface ServicesIconFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesIconFactory {
+class ServicesIconFactory {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Granite-1.0.Granite.ServicesIconFactory */
@@ -1011,7 +1013,7 @@ export class ServicesIconFactory {
 }
 export interface ServicesLogger_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesLogger {
+class ServicesLogger {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1065,7 +1067,7 @@ export class ServicesLogger {
 }
 export interface ServicesPaths_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesPaths {
+class ServicesPaths {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1136,7 +1138,7 @@ export class ServicesPaths {
 export interface ServicesSettings_ConstructProps extends GObject.Object_ConstructProps {
     schema?: Gio.Settings
 }
-export class ServicesSettings {
+class ServicesSettings {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Granite-1.0.Granite.ServicesSettings */
@@ -1193,7 +1195,7 @@ export class ServicesSettings {
 }
 export interface ServicesSimpleCommand_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesSimpleCommand {
+class ServicesSimpleCommand {
     /* Fields of Granite-1.0.Granite.ServicesSimpleCommand */
     standard_output_str: string
     error_output_str: string
@@ -1262,7 +1264,7 @@ export class ServicesSimpleCommand {
 }
 export interface ServicesSystem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServicesSystem {
+class ServicesSystem {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1322,7 +1324,7 @@ export interface WidgetsAlertView_ConstructProps extends Gtk.Grid_ConstructProps
     description?: string
     icon_name?: string
 }
-export class WidgetsAlertView {
+class WidgetsAlertView {
     /* Properties of Granite-1.0.Granite.WidgetsAlertView */
     title: string
     description: string
@@ -2169,7 +2171,7 @@ export class WidgetsAlertView {
 export interface WidgetsAvatar_ConstructProps extends Gtk.EventBox_ConstructProps {
     pixbuf?: GdkPixbuf.Pixbuf
 }
-export class WidgetsAvatar {
+class WidgetsAvatar {
     /* Properties of Granite-1.0.Granite.WidgetsAvatar */
     pixbuf: GdkPixbuf.Pixbuf
     /* Properties of Gtk-3.0.Gtk.EventBox */
@@ -2984,7 +2986,7 @@ export class WidgetsAvatar {
 export interface WidgetsCellRendererBadge_ConstructProps extends Gtk.CellRenderer_ConstructProps {
     text?: string
 }
-export class WidgetsCellRendererBadge {
+class WidgetsCellRendererBadge {
     /* Properties of Granite-1.0.Granite.WidgetsCellRendererBadge */
     text: string
     /* Properties of Gtk-3.0.Gtk.CellRenderer */
@@ -3138,7 +3140,7 @@ export class WidgetsCellRendererBadge {
 export interface WidgetsCellRendererExpander_ConstructProps extends Gtk.CellRenderer_ConstructProps {
     is_category_expander?: boolean
 }
-export class WidgetsCellRendererExpander {
+class WidgetsCellRendererExpander {
     /* Properties of Granite-1.0.Granite.WidgetsCellRendererExpander */
     is_category_expander: boolean
     /* Properties of Gtk-3.0.Gtk.CellRenderer */
@@ -3295,7 +3297,7 @@ export class WidgetsCellRendererExpander {
 export interface WidgetsCollapsiblePaned_ConstructProps extends Gtk.Paned_ConstructProps {
     collapse_mode?: CollapseMode
 }
-export class WidgetsCollapsiblePaned {
+class WidgetsCollapsiblePaned {
     /* Properties of Granite-1.0.Granite.WidgetsCollapsiblePaned */
     collapse_mode: CollapseMode
     /* Properties of Gtk-3.0.Gtk.Paned */
@@ -4143,7 +4145,7 @@ export class WidgetsCollapsiblePaned {
 }
 export interface WidgetsCompositedWindow_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class WidgetsCompositedWindow {
+class WidgetsCompositedWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -5181,7 +5183,7 @@ export interface WidgetsDatePicker_ConstructProps extends Gtk.Entry_ConstructPro
     format?: string
     date?: GLib.DateTime
 }
-export class WidgetsDatePicker {
+class WidgetsDatePicker {
     /* Properties of Granite-1.0.Granite.WidgetsDatePicker */
     date: GLib.DateTime
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -6238,7 +6240,7 @@ export interface WidgetsTab_ConstructProps extends Gtk.EventBox_ConstructProps {
     ellipsize_mode?: Pango.EllipsizeMode
     menu?: Gtk.Menu
 }
-export class WidgetsTab {
+class WidgetsTab {
     /* Properties of Granite-1.0.Granite.WidgetsTab */
     label: string
     tooltip: string
@@ -7124,7 +7126,7 @@ export interface WidgetsDynamicNotebook_ConstructProps extends Gtk.EventBox_Cons
     tab_bar_behavior?: WidgetsDynamicNotebookTabBarBehavior
     menu?: Gtk.Menu
 }
-export class WidgetsDynamicNotebook {
+class WidgetsDynamicNotebook {
     /* Properties of Granite-1.0.Granite.WidgetsDynamicNotebook */
     readonly n_tabs: number
     show_tabs: boolean
@@ -8052,7 +8054,7 @@ export class WidgetsDynamicNotebook {
 export interface WidgetsModeButton_ConstructProps extends Gtk.Box_ConstructProps {
     selected?: number
 }
-export class WidgetsModeButton {
+class WidgetsModeButton {
     /* Properties of Granite-1.0.Granite.WidgetsModeButton */
     selected: number
     readonly n_items: number
@@ -8897,7 +8899,7 @@ export interface WidgetsOverlayBar_ConstructProps extends Gtk.EventBox_Construct
     label?: string
     active?: boolean
 }
-export class WidgetsOverlayBar {
+class WidgetsOverlayBar {
     /* Properties of Granite-1.0.Granite.WidgetsOverlayBar */
     status: string
     label: string
@@ -9722,7 +9724,7 @@ export interface WidgetsSourceList_ConstructProps extends Gtk.ScrolledWindow_Con
     selected?: WidgetsSourceListItem
     ellipsize_mode?: Pango.EllipsizeMode
 }
-export class WidgetsSourceList {
+class WidgetsSourceList {
     /* Properties of Granite-1.0.Granite.WidgetsSourceList */
     root: WidgetsSourceListExpandableItem
     selected: WidgetsSourceListItem
@@ -10662,7 +10664,7 @@ export interface WidgetsSourceListItem_ConstructProps extends GObject.Object_Con
     activatable?: Gio.Icon
     activatable_tooltip?: string
 }
-export class WidgetsSourceListItem {
+class WidgetsSourceListItem {
     /* Properties of Granite-1.0.Granite.WidgetsSourceListItem */
     parent: WidgetsSourceListExpandableItem
     name: string
@@ -10786,7 +10788,7 @@ export interface WidgetsSourceListExpandableItem_ConstructProps extends WidgetsS
     collapsible?: boolean
     expanded?: boolean
 }
-export class WidgetsSourceListExpandableItem {
+class WidgetsSourceListExpandableItem {
     /* Properties of Granite-1.0.Granite.WidgetsSourceListExpandableItem */
     collapsible: boolean
     expanded: boolean
@@ -10951,7 +10953,7 @@ export interface WidgetsStorageBar_ConstructProps extends Gtk.Box_ConstructProps
     total_usage?: number
     inner_margin_sides?: number
 }
-export class WidgetsStorageBar {
+class WidgetsStorageBar {
     /* Properties of Granite-1.0.Granite.WidgetsStorageBar */
     storage: number
     total_usage: number
@@ -11785,7 +11787,7 @@ export interface WidgetsTimePicker_ConstructProps extends Gtk.Entry_ConstructPro
     format_24?: string
     time?: GLib.DateTime
 }
-export class WidgetsTimePicker {
+class WidgetsTimePicker {
     /* Properties of Granite-1.0.Granite.WidgetsTimePicker */
     time: GLib.DateTime
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -12809,7 +12811,7 @@ export class WidgetsTimePicker {
 export interface WidgetsToast_ConstructProps extends Gtk.Revealer_ConstructProps {
     title?: string
 }
-export class WidgetsToast {
+class WidgetsToast {
     /* Properties of Granite-1.0.Granite.WidgetsToast */
     title: string
     /* Properties of Gtk-3.0.Gtk.Revealer */
@@ -13639,7 +13641,7 @@ export interface WidgetsWelcomeButton_ConstructProps extends Gtk.Button_Construc
     description?: string
     icon?: Gtk.Image
 }
-export class WidgetsWelcomeButton {
+class WidgetsWelcomeButton {
     /* Properties of Granite-1.0.Granite.WidgetsWelcomeButton */
     title: string
     description: string
@@ -14525,7 +14527,7 @@ export interface WidgetsWelcome_ConstructProps extends Gtk.EventBox_ConstructPro
     title?: string
     subtitle?: string
 }
-export class WidgetsWelcome {
+class WidgetsWelcome {
     /* Properties of Granite-1.0.Granite.WidgetsWelcome */
     title: string
     subtitle: string
@@ -15355,7 +15357,7 @@ export class WidgetsWelcome {
 }
 export interface Application_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Gtk-3.0.Gtk.Application */
     readonly active_window: Gtk.Window
     app_menu: Gio.MenuModel
@@ -15608,7 +15610,7 @@ export interface SettingsPage_ConstructProps extends Gtk.ScrolledWindow_Construc
     icon_name?: string
     title?: string
 }
-export class SettingsPage {
+class SettingsPage {
     /* Properties of Granite-1.0.Granite.SettingsPage */
     status_type: SettingsPageStatusType
     status: string
@@ -16525,7 +16527,7 @@ export interface SimpleSettingsPage_ConstructProps extends SettingsPage_Construc
     icon_name?: string
     title?: string
 }
-export class SimpleSettingsPage {
+class SimpleSettingsPage {
     /* Properties of Granite-1.0.Granite.SimpleSettingsPage */
     description: string
     icon_name: string
@@ -17451,7 +17453,7 @@ export interface AccelLabel_ConstructProps extends Gtk.Grid_ConstructProps {
     accel_string?: string
     label?: string
 }
-export class AccelLabel {
+class AccelLabel {
     /* Properties of Granite-1.0.Granite.AccelLabel */
     action_name: string
     accel_string: string
@@ -18296,7 +18298,7 @@ export interface AsyncImage_ConstructProps extends Gtk.Image_ConstructProps {
     gicon_async?: Gio.Icon
     size_async?: number
 }
-export class AsyncImage {
+class AsyncImage {
     /* Properties of Granite-1.0.Granite.AsyncImage */
     gicon_async: Gio.Icon
     size_async: number
@@ -19117,7 +19119,7 @@ export class AsyncImage {
 }
 export interface Dialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class Dialog {
+class Dialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -20156,7 +20158,7 @@ export class Dialog {
 }
 export interface HeaderLabel_ConstructProps extends Gtk.Label_ConstructProps {
 }
-export class HeaderLabel {
+class HeaderLabel {
     /* Properties of Gtk-3.0.Gtk.Label */
     angle: number
     attributes: Pango.AttrList
@@ -21030,7 +21032,7 @@ export class HeaderLabel {
 }
 export interface HyperTextView_ConstructProps extends Gtk.TextView_ConstructProps {
 }
-export class HyperTextView {
+class HyperTextView {
     /* Properties of Gtk-3.0.Gtk.TextView */
     accepts_tab: boolean
     bottom_margin: number
@@ -22022,7 +22024,7 @@ export interface MessageDialog_ConstructProps extends Dialog_ConstructProps {
     buttons?: Gtk.ButtonsType
     custom_bin?: Gtk.Bin
 }
-export class MessageDialog {
+class MessageDialog {
     /* Properties of Granite-1.0.Granite.MessageDialog */
     primary_text: string
     secondary_text: string
@@ -23096,7 +23098,7 @@ export interface ModeSwitch_ConstructProps extends Gtk.Grid_ConstructProps {
     secondary_icon_name?: string
     secondary_icon_tooltip_text?: string
 }
-export class ModeSwitch {
+class ModeSwitch {
     /* Properties of Granite-1.0.Granite.ModeSwitch */
     active: boolean
     primary_icon_gicon: Gio.Icon
@@ -23964,7 +23966,7 @@ export interface SeekBar_ConstructProps extends Gtk.Grid_ConstructProps {
     duration_label?: Gtk.Label
     scale?: Gtk.Scale
 }
-export class SeekBar {
+class SeekBar {
     /* Properties of Granite-1.0.Granite.SeekBar */
     playback_duration: number
     playback_progress: number
@@ -24824,7 +24826,7 @@ export interface SettingsSidebar_ConstructProps extends Gtk.ScrolledWindow_Const
     stack?: Gtk.Stack
     visible_child_name?: string
 }
-export class SettingsSidebar {
+class SettingsSidebar {
     /* Properties of Granite-1.0.Granite.SettingsSidebar */
     visible_child_name: string
     /* Properties of Gtk-3.0.Gtk.ScrolledWindow */
@@ -25719,7 +25721,7 @@ export class SettingsSidebar {
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     prefers_color_scheme?: SettingsColorScheme
 }
-export class Settings {
+class Settings {
     /* Properties of Granite-1.0.Granite.Settings */
     prefers_color_scheme: SettingsColorScheme
     /* Fields of GObject-2.0.GObject.Object */
@@ -25777,7 +25779,7 @@ export interface SwitchModelButton_ConstructProps extends Gtk.ToggleButton_Const
     text?: string
     description?: string
 }
-export class SwitchModelButton {
+class SwitchModelButton {
     /* Properties of Granite-1.0.Granite.SwitchModelButton */
     text: string
     description: string
@@ -26683,7 +26685,7 @@ export interface ValidatedEntry_ConstructProps extends Gtk.Entry_ConstructProps 
     min_length?: number
     regex?: GLib.Regex
 }
-export class ValidatedEntry {
+class ValidatedEntry {
     /* Properties of Granite-1.0.Granite.ValidatedEntry */
     is_valid: boolean
     min_length: number
@@ -27705,69 +27707,69 @@ export class ValidatedEntry {
     static new(): ValidatedEntry
     static $gtype: GObject.Type
 }
-export abstract class DrawingBufferSurfaceClass {
+abstract class DrawingBufferSurfaceClass {
     static name: string
 }
-export class DrawingBufferSurfacePrivate {
+class DrawingBufferSurfacePrivate {
     static name: string
 }
-export abstract class DrawingColorClass {
+abstract class DrawingColorClass {
     static name: string
 }
-export class DrawingColorPrivate {
+class DrawingColorPrivate {
     static name: string
 }
-export abstract class DrawingUtilitiesClass {
+abstract class DrawingUtilitiesClass {
     static name: string
 }
-export class DrawingUtilitiesPrivate {
+class DrawingUtilitiesPrivate {
     static name: string
 }
-export abstract class ServicesContractorProxyClass {
+abstract class ServicesContractorProxyClass {
     static name: string
 }
-export class ServicesContractorProxyPrivate {
+class ServicesContractorProxyPrivate {
     static name: string
 }
-export abstract class ServicesIconFactoryClass {
+abstract class ServicesIconFactoryClass {
     static name: string
 }
-export class ServicesIconFactoryPrivate {
+class ServicesIconFactoryPrivate {
     static name: string
 }
-export abstract class ServicesLoggerClass {
+abstract class ServicesLoggerClass {
     static name: string
 }
-export class ServicesLoggerPrivate {
+class ServicesLoggerPrivate {
     static name: string
 }
-export abstract class ServicesPathsClass {
+abstract class ServicesPathsClass {
     static name: string
 }
-export class ServicesPathsPrivate {
+class ServicesPathsPrivate {
     static name: string
 }
-export abstract class ServicesSettingsClass {
+abstract class ServicesSettingsClass {
     /* Fields of Granite-1.0.Granite.ServicesSettingsClass */
     verify: (self: any, key: string) => void
     static name: string
 }
-export class ServicesSettingsPrivate {
+class ServicesSettingsPrivate {
     static name: string
 }
-export abstract class ServicesSimpleCommandClass {
+abstract class ServicesSimpleCommandClass {
     static name: string
 }
-export class ServicesSimpleCommandPrivate {
+class ServicesSimpleCommandPrivate {
     static name: string
 }
-export abstract class ServicesSystemClass {
+abstract class ServicesSystemClass {
     static name: string
 }
-export class ServicesSystemPrivate {
+class ServicesSystemPrivate {
     static name: string
 }
-export abstract class ServicesContractIface {
+abstract class ServicesContractIface {
     /* Fields of Granite-1.0.Granite.ServicesContractIface */
     get_display_name: (self: any) => string
     get_description: (self: any) => string
@@ -27776,91 +27778,91 @@ export abstract class ServicesContractIface {
     execute_with_files: (self: any, files: Gio.File[]) => void
     static name: string
 }
-export abstract class ServicesSettingsSerializableIface {
+abstract class ServicesSettingsSerializableIface {
     /* Fields of Granite-1.0.Granite.ServicesSettingsSerializableIface */
     settings_serialize: (self: any) => string
     settings_deserialize: (self: any, s: string) => void
     static name: string
 }
-export abstract class WidgetsAlertViewClass {
+abstract class WidgetsAlertViewClass {
     static name: string
 }
-export class WidgetsAlertViewPrivate {
+class WidgetsAlertViewPrivate {
     static name: string
 }
-export abstract class WidgetsAvatarClass {
+abstract class WidgetsAvatarClass {
     static name: string
 }
-export class WidgetsAvatarPrivate {
+class WidgetsAvatarPrivate {
     static name: string
 }
-export abstract class WidgetsCellRendererBadgeClass {
+abstract class WidgetsCellRendererBadgeClass {
     static name: string
 }
-export class WidgetsCellRendererBadgePrivate {
+class WidgetsCellRendererBadgePrivate {
     static name: string
 }
-export abstract class WidgetsCellRendererExpanderClass {
+abstract class WidgetsCellRendererExpanderClass {
     /* Fields of Granite-1.0.Granite.WidgetsCellRendererExpanderClass */
     get_arrow_size: (self: WidgetsCellRendererExpander, widget: Gtk.Widget) => number
     static name: string
 }
-export class WidgetsCellRendererExpanderPrivate {
+class WidgetsCellRendererExpanderPrivate {
     static name: string
 }
-export abstract class WidgetsCollapsiblePanedClass {
+abstract class WidgetsCollapsiblePanedClass {
     static name: string
 }
-export class WidgetsCollapsiblePanedPrivate {
+class WidgetsCollapsiblePanedPrivate {
     static name: string
 }
-export abstract class WidgetsCompositedWindowClass {
+abstract class WidgetsCompositedWindowClass {
     static name: string
 }
-export class WidgetsCompositedWindowPrivate {
+class WidgetsCompositedWindowPrivate {
     static name: string
 }
-export abstract class WidgetsDatePickerClass {
+abstract class WidgetsDatePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsDatePickerClass */
     position_dropdown: (self: WidgetsDatePicker) => /* rect */ Gdk.Rectangle
     static name: string
 }
-export class WidgetsDatePickerPrivate {
+class WidgetsDatePickerPrivate {
     static name: string
 }
-export abstract class WidgetsTabClass {
+abstract class WidgetsTabClass {
     static name: string
 }
-export class WidgetsTabPrivate {
+class WidgetsTabPrivate {
     static name: string
 }
-export abstract class WidgetsDynamicNotebookClass {
+abstract class WidgetsDynamicNotebookClass {
     static name: string
 }
-export class WidgetsDynamicNotebookPrivate {
+class WidgetsDynamicNotebookPrivate {
     static name: string
 }
-export abstract class WidgetsModeButtonClass {
+abstract class WidgetsModeButtonClass {
     static name: string
 }
-export class WidgetsModeButtonPrivate {
+class WidgetsModeButtonPrivate {
     static name: string
 }
-export abstract class WidgetsOverlayBarClass {
+abstract class WidgetsOverlayBarClass {
     static name: string
 }
-export class WidgetsOverlayBarPrivate {
+class WidgetsOverlayBarPrivate {
     static name: string
 }
-export abstract class WidgetsSourceListClass {
+abstract class WidgetsSourceListClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListClass */
     item_selected: (self: WidgetsSourceList, item?: WidgetsSourceListItem | null) => void
     static name: string
 }
-export class WidgetsSourceListPrivate {
+class WidgetsSourceListPrivate {
     static name: string
 }
-export abstract class WidgetsSourceListItemClass {
+abstract class WidgetsSourceListItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListItemClass */
     get_context_menu: (self: WidgetsSourceListItem) => Gtk.Menu | null
     edited: (self: WidgetsSourceListItem, new_name: string) => void
@@ -27868,156 +27870,158 @@ export abstract class WidgetsSourceListItemClass {
     activated: (self: WidgetsSourceListItem) => void
     static name: string
 }
-export class WidgetsSourceListItemPrivate {
+class WidgetsSourceListItemPrivate {
     static name: string
 }
-export abstract class WidgetsSourceListExpandableItemClass {
+abstract class WidgetsSourceListExpandableItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListExpandableItemClass */
     toggled: (self: WidgetsSourceListExpandableItem) => void
     static name: string
 }
-export class WidgetsSourceListExpandableItemPrivate {
+class WidgetsSourceListExpandableItemPrivate {
     static name: string
 }
-export abstract class WidgetsStorageBarClass {
+abstract class WidgetsStorageBarClass {
     static name: string
 }
-export class WidgetsStorageBarPrivate {
+class WidgetsStorageBarPrivate {
     static name: string
 }
-export abstract class WidgetsTimePickerClass {
+abstract class WidgetsTimePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsTimePickerClass */
     position_dropdown: (self: WidgetsTimePicker) => [ /* x */ number, /* y */ number ]
     static name: string
 }
-export class WidgetsTimePickerPrivate {
+class WidgetsTimePickerPrivate {
     static name: string
 }
-export abstract class WidgetsToastClass {
+abstract class WidgetsToastClass {
     static name: string
 }
-export class WidgetsToastPrivate {
+class WidgetsToastPrivate {
     static name: string
 }
-export abstract class WidgetsWelcomeButtonClass {
+abstract class WidgetsWelcomeButtonClass {
     static name: string
 }
-export class WidgetsWelcomeButtonPrivate {
+class WidgetsWelcomeButtonPrivate {
     static name: string
 }
-export abstract class WidgetsWelcomeClass {
+abstract class WidgetsWelcomeClass {
     static name: string
 }
-export class WidgetsWelcomePrivate {
+class WidgetsWelcomePrivate {
     static name: string
 }
-export abstract class WidgetsSourceListSortableIface {
+abstract class WidgetsSourceListSortableIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListSortableIface */
     allow_dnd_sorting: (self: WidgetsSourceListSortable) => boolean
     compare: (self: WidgetsSourceListSortable, a: WidgetsSourceListItem, b: WidgetsSourceListItem) => number
     static name: string
 }
-export abstract class WidgetsSourceListDragSourceIface {
+abstract class WidgetsSourceListDragSourceIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragSourceIface */
     draggable: (self: WidgetsSourceListDragSource) => boolean
     prepare_selection_data: (self: WidgetsSourceListDragSource, selection_data: Gtk.SelectionData) => void
     static name: string
 }
-export abstract class WidgetsSourceListDragDestIface {
+abstract class WidgetsSourceListDragDestIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragDestIface */
     data_drop_possible: (self: WidgetsSourceListDragDest, context: Gdk.DragContext, data: Gtk.SelectionData) => boolean
     data_received: (self: WidgetsSourceListDragDest, context: Gdk.DragContext, data: Gtk.SelectionData) => Gdk.DragAction
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Granite-1.0.Granite.ApplicationClass */
     set_options: (self: Application) => void
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class SettingsPageClass {
+abstract class SettingsPageClass {
     static name: string
 }
-export class SettingsPagePrivate {
+class SettingsPagePrivate {
     static name: string
 }
-export abstract class SimpleSettingsPageClass {
+abstract class SimpleSettingsPageClass {
     static name: string
 }
-export class SimpleSettingsPagePrivate {
+class SimpleSettingsPagePrivate {
     static name: string
 }
-export abstract class AccelLabelClass {
+abstract class AccelLabelClass {
     static name: string
 }
-export class AccelLabelPrivate {
+class AccelLabelPrivate {
     static name: string
 }
-export abstract class AsyncImageClass {
+abstract class AsyncImageClass {
     static name: string
 }
-export class AsyncImagePrivate {
+class AsyncImagePrivate {
     static name: string
 }
-export abstract class DialogClass {
+abstract class DialogClass {
     static name: string
 }
-export class DialogPrivate {
+class DialogPrivate {
     static name: string
 }
-export abstract class HeaderLabelClass {
+abstract class HeaderLabelClass {
     static name: string
 }
-export class HeaderLabelPrivate {
+class HeaderLabelPrivate {
     static name: string
 }
-export abstract class HyperTextViewClass {
+abstract class HyperTextViewClass {
     static name: string
 }
-export class HyperTextViewPrivate {
+class HyperTextViewPrivate {
     static name: string
 }
-export abstract class MessageDialogClass {
+abstract class MessageDialogClass {
     static name: string
 }
-export class MessageDialogPrivate {
+class MessageDialogPrivate {
     static name: string
 }
-export abstract class ModeSwitchClass {
+abstract class ModeSwitchClass {
     static name: string
 }
-export class ModeSwitchPrivate {
+class ModeSwitchPrivate {
     static name: string
 }
-export abstract class SeekBarClass {
+abstract class SeekBarClass {
     static name: string
 }
-export class SeekBarPrivate {
+class SeekBarPrivate {
     static name: string
 }
-export abstract class SettingsSidebarClass {
+abstract class SettingsSidebarClass {
     static name: string
 }
-export class SettingsSidebarPrivate {
+class SettingsSidebarPrivate {
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export abstract class SwitchModelButtonClass {
+abstract class SwitchModelButtonClass {
     static name: string
 }
-export class SwitchModelButtonPrivate {
+class SwitchModelButtonPrivate {
     static name: string
 }
-export abstract class ValidatedEntryClass {
+abstract class ValidatedEntryClass {
     static name: string
 }
-export class ValidatedEntryPrivate {
+class ValidatedEntryPrivate {
     static name: string
 }
+}
+export default Granite

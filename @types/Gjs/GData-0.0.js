@@ -1,2 +1,1 @@
-imports.gi.versions.GData = '0.0'
-module.exports = imports.gi.GData
+export {default as default} from 'gi://GData?version=0.0';

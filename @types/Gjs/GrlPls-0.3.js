@@ -1,2 +1,1 @@
-imports.gi.versions.GrlPls = '0.3'
-module.exports = imports.gi.GrlPls
+export {default as default} from 'gi://GrlPls?version=0.3';

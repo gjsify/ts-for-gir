@@ -1,2 +1,1 @@
-imports.gi.versions.PackageKitPlugin = '1.0'
-module.exports = imports.gi.PackageKitPlugin
+export {default as default} from 'gi://PackageKitPlugin?version=1.0';

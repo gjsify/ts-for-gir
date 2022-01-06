@@ -1,2 +1,1 @@
-imports.gi.versions.EDataBook = '1.2'
-module.exports = imports.gi.EDataBook
+export {default as default} from 'gi://EDataBook?version=1.2';

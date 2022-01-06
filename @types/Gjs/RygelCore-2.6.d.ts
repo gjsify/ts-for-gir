@@ -3,16 +3,18 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GUPnP from './GUPnP-1.2';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as GSSDP from './GSSDP-1.2';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GUPnP from './GUPnP-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type GSSDP from './GSSDP-1.2';
 
-export enum LogLevel {
+export namespace RygelCore {
+
+enum LogLevel {
     INVALID,
     ERROR,
     CRITICAL,
@@ -21,7 +23,7 @@ export enum LogLevel {
     DEFAULT,
     DEBUG,
 }
-export enum ConfigurationEntry {
+enum ConfigurationEntry {
     INTERFACE,
     PORT,
     TRANSCODING,
@@ -33,18 +35,18 @@ export enum ConfigurationEntry {
     MUSIC_UPLOAD_FOLDER,
     PICTURE_UPLOAD_FOLDER,
 }
-export enum SectionEntry {
+enum SectionEntry {
     TITLE,
     ENABLED,
 }
-export enum ConfigurationError {
+enum ConfigurationError {
     NO_VALUE_SET,
     VALUE_OUT_OF_RANGE,
 }
-export enum CmdlineConfigError {
+enum CmdlineConfigError {
     VERSION_ONLY,
 }
-export enum PluginCapabilities {
+enum PluginCapabilities {
     NONE,
     IMAGE_UPLOAD,
     VIDEO_UPLOAD,
@@ -55,10 +57,10 @@ export enum PluginCapabilities {
     DIAGNOSTICS,
     ENERGY_MANAGEMENT,
 }
-export function get_pretty_host_name(): string
+function get_pretty_host_name(): string
 export interface DBusInterface_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DBusInterface {
+class DBusInterface {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.DBusInterface */
@@ -110,7 +112,7 @@ export class DBusInterface {
 }
 export interface DBusAclProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DBusAclProvider {
+class DBusAclProvider {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.DBusAclProvider */
@@ -164,7 +166,7 @@ export class DBusAclProvider {
 }
 export interface Configuration_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Configuration {
+class Configuration {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.Configuration */
@@ -265,7 +267,7 @@ export class Configuration {
 export interface StateMachine_ConstructProps extends GObject.Object_ConstructProps {
     cancellable?: Gio.Cancellable
 }
-export class StateMachine {
+class StateMachine {
     /* Properties of RygelCore-2.6.RygelCore.StateMachine */
     cancellable: Gio.Cancellable
     /* Fields of GObject-2.0.GObject.Object */
@@ -331,7 +333,7 @@ export class StateMachine {
 }
 export interface ConnectionManager_ConstructProps extends GUPnP.Service_ConstructProps {
 }
-export class ConnectionManager {
+class ConnectionManager {
     /* Fields of RygelCore-2.6.RygelCore.ConnectionManager */
     sink_protocol_info: string
     connection_ids: string
@@ -425,7 +427,7 @@ export class ConnectionManager {
 export interface BasicManagement_ConstructProps extends GUPnP.Service_ConstructProps {
     max_history_size?: number
 }
-export class BasicManagement {
+class BasicManagement {
     /* Properties of RygelCore-2.6.RygelCore.BasicManagement */
     max_history_size: number
     /* Fields of RygelCore-2.6.RygelCore.BasicManagement */
@@ -516,7 +518,7 @@ export class BasicManagement {
 }
 export interface DescriptionFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DescriptionFile {
+class DescriptionFile {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.DescriptionFile */
@@ -584,7 +586,7 @@ export class DescriptionFile {
     static from_xml_document(doc: GUPnP.XMLDoc): DescriptionFile
     static $gtype: GObject.Type
 }
-export class DLNAProfile {
+class DLNAProfile {
     /* Fields of RygelCore-2.6.RygelCore.DLNAProfile */
     ref_count: number
     mime: string
@@ -598,7 +600,7 @@ export class DLNAProfile {
 }
 export interface EnergyManagement_ConstructProps extends GUPnP.Service_ConstructProps {
 }
-export class EnergyManagement {
+class EnergyManagement {
     /* Fields of GUPnP-1.2.GUPnP.Service */
     parent_instance: GUPnP.ServiceInfo
     /* Fields of GObject-2.0.GObject.Object */
@@ -681,7 +683,7 @@ export class EnergyManagement {
 export interface RootDevice_ConstructProps extends GUPnP.RootDevice_ConstructProps {
     services?: Gee.ArrayList
 }
-export class RootDevice {
+class RootDevice {
     /* Properties of RygelCore-2.6.RygelCore.RootDevice */
     services: Gee.ArrayList
     /* Properties of GUPnP-1.2.GUPnP.RootDevice */
@@ -793,7 +795,7 @@ export class RootDevice {
 export interface RootDeviceFactory_ConstructProps extends GObject.Object_ConstructProps {
     context?: GUPnP.Context
 }
-export class RootDeviceFactory {
+class RootDeviceFactory {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.RootDeviceFactory */
@@ -851,7 +853,7 @@ export class RootDeviceFactory {
 }
 export interface LogHandler_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LogHandler {
+class LogHandler {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -901,7 +903,7 @@ export class LogHandler {
 }
 export interface MetaConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MetaConfig {
+class MetaConfig {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1006,7 +1008,7 @@ export class MetaConfig {
 }
 export interface PluginLoader_ConstructProps extends RecursiveModuleLoader_ConstructProps {
 }
-export class PluginLoader {
+class PluginLoader {
     /* Properties of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     base_path: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -1080,7 +1082,7 @@ export class PluginLoader {
 export interface RecursiveModuleLoader_ConstructProps extends GObject.Object_ConstructProps {
     base_path?: string
 }
-export class RecursiveModuleLoader {
+class RecursiveModuleLoader {
     /* Properties of RygelCore-2.6.RygelCore.RecursiveModuleLoader */
     base_path: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -1151,7 +1153,7 @@ export interface Plugin_ConstructProps extends GUPnP.ResourceFactory_ConstructPr
     icon_infos?: Gee.ArrayList
     default_icons?: Gee.ArrayList
 }
-export class Plugin {
+class Plugin {
     /* Properties of RygelCore-2.6.RygelCore.Plugin */
     capabilities: PluginCapabilities
     title: string
@@ -1244,7 +1246,7 @@ export class Plugin {
     static new(): Plugin
     static $gtype: GObject.Type
 }
-export class ResourceInfo {
+class ResourceInfo {
     /* Fields of RygelCore-2.6.RygelCore.ResourceInfo */
     ref_count: number
     upnp_type: string
@@ -1262,7 +1264,7 @@ export interface MediaDevice_ConstructProps extends GObject.Object_ConstructProp
     title?: string
     capabilities?: PluginCapabilities
 }
-export class MediaDevice {
+class MediaDevice {
     /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: Plugin
     /* Fields of GObject-2.0.GObject.Object */
@@ -1322,7 +1324,7 @@ export class MediaDevice {
 }
 export interface BaseConfiguration_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BaseConfiguration {
+class BaseConfiguration {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.BaseConfiguration */
@@ -1424,7 +1426,7 @@ export class BaseConfiguration {
 }
 export interface CmdlineConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CmdlineConfig {
+class CmdlineConfig {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.6.RygelCore.CmdlineConfig */
@@ -1530,7 +1532,7 @@ export class CmdlineConfig {
 }
 export interface EnvironmentConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EnvironmentConfig {
+class EnvironmentConfig {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1633,7 +1635,7 @@ export class EnvironmentConfig {
 }
 export interface UserConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UserConfig {
+class UserConfig {
     /* Fields of RygelCore-2.6.RygelCore.UserConfig */
     key_file: GLib.KeyFile
     sys_key_file: GLib.KeyFile
@@ -1744,7 +1746,7 @@ export interface V1Hacks_ConstructProps extends GObject.Object_ConstructProps {
     device_type?: string
     service_types?: string[]
 }
-export class V1Hacks {
+class V1Hacks {
     /* Properties of RygelCore-2.6.RygelCore.V1Hacks */
     device_type: string
     /* Fields of RygelCore-2.6.RygelCore.V1Hacks */
@@ -1803,7 +1805,7 @@ export class V1Hacks {
     static new(device_type: string, service_types: string[]): V1Hacks
     static $gtype: GObject.Type
 }
-export class IconInfo {
+class IconInfo {
     /* Fields of RygelCore-2.6.RygelCore.IconInfo */
     ref_count: number
     mime_type: string
@@ -1819,7 +1821,7 @@ export class IconInfo {
     /* Static methods and pseudo-constructors */
     static new(mime_type: string, file_extension: string): IconInfo
 }
-export class XMLUtils {
+class XMLUtils {
     /* Fields of RygelCore-2.6.RygelCore.XMLUtils */
     ref_count: number
     static name: string
@@ -1828,7 +1830,7 @@ export class XMLUtils {
     /* Static methods and pseudo-constructors */
     static new(): XMLUtils
 }
-export class XMLUtilsIterator {
+class XMLUtilsIterator {
     /* Fields of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     ref_count: number
     /* Methods of RygelCore-2.6.RygelCore.XMLUtilsIterator */
@@ -1841,7 +1843,7 @@ export class XMLUtilsIterator {
     /* Static methods and pseudo-constructors */
     static new(node?: object | null): XMLUtilsIterator
 }
-export class XMLUtilsChildIterator {
+class XMLUtilsChildIterator {
     /* Fields of RygelCore-2.6.RygelCore.XMLUtilsIterator */
     ref_count: number
     /* Methods of RygelCore-2.6.RygelCore.XMLUtilsIterator */
@@ -1860,7 +1862,7 @@ export interface PluginInformation_ConstructProps extends GObject.Object_Constru
     conflicts?: any
     module_loaded?: boolean
 }
-export class PluginInformation {
+class PluginInformation {
     /* Properties of RygelCore-2.6.RygelCore.PluginInformation */
     module_loaded: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -1918,98 +1920,98 @@ export class PluginInformation {
     static new_from_file(file: Gio.File): PluginInformation
     static $gtype: GObject.Type
 }
-export abstract class ConnectionManagerClass {
+abstract class ConnectionManagerClass {
     /* Fields of RygelCore-2.6.RygelCore.ConnectionManagerClass */
     get_current_protocol_info: (self: ConnectionManager) => string
     static name: string
 }
-export class ConnectionManagerPrivate {
+class ConnectionManagerPrivate {
     static name: string
 }
-export abstract class BasicManagementClass {
+abstract class BasicManagementClass {
     static name: string
 }
-export class BasicManagementPrivate {
+class BasicManagementPrivate {
     static name: string
 }
-export abstract class DescriptionFileClass {
+abstract class DescriptionFileClass {
     static name: string
 }
-export class DescriptionFilePrivate {
+class DescriptionFilePrivate {
     static name: string
 }
-export abstract class DLNAProfileClass {
+abstract class DLNAProfileClass {
     static name: string
 }
-export class DLNAProfilePrivate {
+class DLNAProfilePrivate {
     static name: string
 }
-export abstract class EnergyManagementClass {
+abstract class EnergyManagementClass {
     static name: string
 }
-export class EnergyManagementPrivate {
+class EnergyManagementPrivate {
     static name: string
 }
-export abstract class RootDeviceClass {
+abstract class RootDeviceClass {
     static name: string
 }
-export class RootDevicePrivate {
+class RootDevicePrivate {
     static name: string
 }
-export abstract class RootDeviceFactoryClass {
+abstract class RootDeviceFactoryClass {
     static name: string
 }
-export class RootDeviceFactoryPrivate {
+class RootDeviceFactoryPrivate {
     static name: string
 }
-export abstract class LogHandlerClass {
+abstract class LogHandlerClass {
     static name: string
 }
-export class LogHandlerPrivate {
+class LogHandlerPrivate {
     static name: string
 }
-export abstract class MetaConfigClass {
+abstract class MetaConfigClass {
     static name: string
 }
-export class MetaConfigPrivate {
+class MetaConfigPrivate {
     static name: string
 }
-export abstract class PluginLoaderClass {
+abstract class PluginLoaderClass {
     static name: string
 }
-export class PluginLoaderPrivate {
+class PluginLoaderPrivate {
     static name: string
 }
-export abstract class RecursiveModuleLoaderClass {
+abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.6.RygelCore.RecursiveModuleLoaderClass */
     load_module_from_file: (self: RecursiveModuleLoader, file: Gio.File) => boolean
     load_module_from_info: (self: RecursiveModuleLoader, info: PluginInformation) => boolean
     static name: string
 }
-export class RecursiveModuleLoaderPrivate {
+class RecursiveModuleLoaderPrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of RygelCore-2.6.RygelCore.PluginClass */
     apply_hacks: (self: Plugin, device: RootDevice, description_path: string) => void
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export abstract class ResourceInfoClass {
+abstract class ResourceInfoClass {
     static name: string
 }
-export class ResourceInfoPrivate {
+class ResourceInfoPrivate {
     static name: string
 }
-export abstract class MediaDeviceClass {
+abstract class MediaDeviceClass {
     static name: string
 }
-export class MediaDevicePrivate {
+class MediaDevicePrivate {
     static name: string
 }
-export abstract class BaseConfigurationClass {
+abstract class BaseConfigurationClass {
     /* Fields of RygelCore-2.6.RygelCore.BaseConfigurationClass */
     get_interface: (self: BaseConfiguration) => string
     get_interfaces: (self: BaseConfiguration) => string[]
@@ -2033,75 +2035,75 @@ export abstract class BaseConfigurationClass {
     get_bool: (self: BaseConfiguration, section: string, key: string) => boolean
     static name: string
 }
-export class BaseConfigurationPrivate {
+class BaseConfigurationPrivate {
     static name: string
 }
-export abstract class CmdlineConfigClass {
+abstract class CmdlineConfigClass {
     static name: string
 }
-export class CmdlineConfigPrivate {
+class CmdlineConfigPrivate {
     static name: string
 }
-export abstract class EnvironmentConfigClass {
+abstract class EnvironmentConfigClass {
     static name: string
 }
-export class EnvironmentConfigPrivate {
+class EnvironmentConfigPrivate {
     static name: string
 }
-export abstract class UserConfigClass {
+abstract class UserConfigClass {
     static name: string
 }
-export class UserConfigPrivate {
+class UserConfigPrivate {
     static name: string
 }
-export abstract class V1HacksClass {
+abstract class V1HacksClass {
     static name: string
 }
-export class V1HacksPrivate {
+class V1HacksPrivate {
     static name: string
 }
-export abstract class IconInfoClass {
+abstract class IconInfoClass {
     static name: string
 }
-export class IconInfoPrivate {
+class IconInfoPrivate {
     static name: string
 }
-export abstract class XMLUtilsClass {
+abstract class XMLUtilsClass {
     static name: string
 }
-export class XMLUtilsPrivate {
+class XMLUtilsPrivate {
     static name: string
 }
-export abstract class XMLUtilsIteratorClass {
+abstract class XMLUtilsIteratorClass {
     static name: string
 }
-export class XMLUtilsIteratorPrivate {
+class XMLUtilsIteratorPrivate {
     static name: string
 }
-export abstract class XMLUtilsChildIteratorClass {
+abstract class XMLUtilsChildIteratorClass {
     static name: string
 }
-export class XMLUtilsChildIteratorPrivate {
+class XMLUtilsChildIteratorPrivate {
     static name: string
 }
-export abstract class PluginInformationClass {
+abstract class PluginInformationClass {
     static name: string
 }
-export class PluginInformationPrivate {
+class PluginInformationPrivate {
     static name: string
 }
-export abstract class DBusInterfaceIface {
+abstract class DBusInterfaceIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusInterfaceIface */
     shutdown: (self: DBusInterface) => void
     static name: string
 }
-export abstract class DBusAclProviderIface {
+abstract class DBusAclProviderIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusAclProviderIface */
     is_allowed: (self: DBusAclProvider, device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     is_allowed_finish: (self: DBusAclProvider, _res_: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class ConfigurationIface {
+abstract class ConfigurationIface {
     /* Fields of RygelCore-2.6.RygelCore.ConfigurationIface */
     get_interface: (self: Configuration) => string
     get_interfaces: (self: Configuration) => string[]
@@ -2125,7 +2127,7 @@ export abstract class ConfigurationIface {
     get_bool: (self: Configuration, section: string, key: string) => boolean
     static name: string
 }
-export abstract class StateMachineIface {
+abstract class StateMachineIface {
     /* Fields of RygelCore-2.6.RygelCore.StateMachineIface */
     run: (self: StateMachine, _callback_?: Gio.AsyncReadyCallback | null) => void
     run_finish: (self: StateMachine, _res_: Gio.AsyncResult) => void
@@ -2133,3 +2135,5 @@ export abstract class StateMachineIface {
     set_cancellable: (self: StateMachine, value: Gio.Cancellable) => void
     static name: string
 }
+}
+export default RygelCore

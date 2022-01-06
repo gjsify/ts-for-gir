@@ -3,14 +3,16 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Arrow from './Arrow-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Arrow from './Arrow-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace ArrowDataset {
 
 export interface CSVFileFormat_ConstructProps extends FileFormat_ConstructProps {
 }
-export class CSVFileFormat {
+class CSVFileFormat {
     /* Fields of ArrowDataset-1.0.ArrowDataset.CSVFileFormat */
     parent_instance: FileFormat
     /* Fields of GObject-2.0.GObject.Object */
@@ -66,7 +68,7 @@ export class CSVFileFormat {
 export interface FileFormat_ConstructProps extends GObject.Object_ConstructProps {
     file_format?: object
 }
-export class FileFormat {
+class FileFormat {
     /* Fields of ArrowDataset-1.0.ArrowDataset.FileFormat */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -119,7 +121,7 @@ export class FileFormat {
 }
 export interface IPCFileFormat_ConstructProps extends FileFormat_ConstructProps {
 }
-export class IPCFileFormat {
+class IPCFileFormat {
     /* Fields of ArrowDataset-1.0.ArrowDataset.IPCFileFormat */
     parent_instance: FileFormat
     /* Fields of GObject-2.0.GObject.Object */
@@ -174,7 +176,7 @@ export class IPCFileFormat {
 }
 export interface InMemoryScanTask_ConstructProps extends ScanTask_ConstructProps {
 }
-export class InMemoryScanTask {
+class InMemoryScanTask {
     /* Fields of ArrowDataset-1.0.ArrowDataset.InMemoryScanTask */
     parent_instance: ScanTask
     /* Fields of GObject-2.0.GObject.Object */
@@ -230,7 +232,7 @@ export class InMemoryScanTask {
 }
 export interface ParquetFileFormat_ConstructProps extends FileFormat_ConstructProps {
 }
-export class ParquetFileFormat {
+class ParquetFileFormat {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ParquetFileFormat */
     parent_instance: FileFormat
     /* Fields of GObject-2.0.GObject.Object */
@@ -287,7 +289,7 @@ export interface ScanContext_ConstructProps extends GObject.Object_ConstructProp
     scan_context?: object
     use_threads?: boolean
 }
-export class ScanContext {
+class ScanContext {
     /* Properties of ArrowDataset-1.0.ArrowDataset.ScanContext */
     use_threads: boolean
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanContext */
@@ -345,7 +347,7 @@ export interface ScanOptions_ConstructProps extends GObject.Object_ConstructProp
     batch_size?: number
     scan_options?: object
 }
-export class ScanOptions {
+class ScanOptions {
     /* Properties of ArrowDataset-1.0.ArrowDataset.ScanOptions */
     batch_size: number
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanOptions */
@@ -407,7 +409,7 @@ export interface ScanTask_ConstructProps extends GObject.Object_ConstructProps {
     options?: ScanOptions
     scan_task?: object
 }
-export class ScanTask {
+class ScanTask {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanTask */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -459,43 +461,45 @@ export class ScanTask {
     _init (config?: ScanTask_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class CSVFileFormatClass {
+abstract class CSVFileFormatClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.CSVFileFormatClass */
     parent_class: FileFormatClass
     static name: string
 }
-export abstract class FileFormatClass {
+abstract class FileFormatClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.FileFormatClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class IPCFileFormatClass {
+abstract class IPCFileFormatClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.IPCFileFormatClass */
     parent_class: FileFormatClass
     static name: string
 }
-export abstract class InMemoryScanTaskClass {
+abstract class InMemoryScanTaskClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.InMemoryScanTaskClass */
     parent_class: ScanTaskClass
     static name: string
 }
-export abstract class ParquetFileFormatClass {
+abstract class ParquetFileFormatClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ParquetFileFormatClass */
     parent_class: FileFormatClass
     static name: string
 }
-export abstract class ScanContextClass {
+abstract class ScanContextClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ScanOptionsClass {
+abstract class ScanOptionsClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanOptionsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ScanTaskClass {
+abstract class ScanTaskClass {
     /* Fields of ArrowDataset-1.0.ArrowDataset.ScanTaskClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default ArrowDataset

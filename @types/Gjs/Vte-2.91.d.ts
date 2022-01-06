@@ -3,71 +3,73 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum Align {
+export namespace Vte {
+
+enum Align {
     START,
     CENTER,
     END,
     START_FILL,
 }
-export enum CursorBlinkMode {
+enum CursorBlinkMode {
     SYSTEM,
     ON,
     OFF,
 }
-export enum CursorShape {
+enum CursorShape {
     BLOCK,
     IBEAM,
     UNDERLINE,
 }
-export enum EraseBinding {
+enum EraseBinding {
     AUTO,
     ASCII_BACKSPACE,
     ASCII_DELETE,
     DELETE_SEQUENCE,
     TTY,
 }
-export enum Format {
+enum Format {
     TEXT,
     HTML,
 }
-export enum PtyError {
+enum PtyError {
     PTY_HELPER_FAILED,
     PTY98_FAILED,
 }
-export enum RegexError {
+enum RegexError {
     INCOMPATIBLE,
     NOT_SUPPORTED,
 }
-export enum TextBlinkMode {
+enum TextBlinkMode {
     NEVER,
     FOCUSED,
     UNFOCUSED,
     ALWAYS,
 }
-export enum WriteFlags {
+enum WriteFlags {
     DEFAULT,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     FLAG_BIDI,
     FLAG_ICU,
     FLAG_SYSTEMD,
     FLAG_SIXEL,
     FLAGS_MASK,
 }
-export enum PtyFlags {
+enum PtyFlags {
     NO_LASTLOG,
     NO_UTMP,
     NO_WTMP,
@@ -86,27 +88,27 @@ export const SPAWN_NO_SYSTEMD_SCOPE: number
 export const SPAWN_REQUIRE_SYSTEMD_SCOPE: number
 export const TEST_FLAGS_ALL: number
 export const TEST_FLAGS_NONE: number
-export function get_encoding_supported(encoding: string): boolean
-export function get_encodings(include_aliases: boolean): string[]
-export function get_feature_flags(): FeatureFlags
-export function get_features(): string
-export function get_major_version(): number
-export function get_micro_version(): number
-export function get_minor_version(): number
-export function get_user_shell(): string
-export function pty_error_quark(): GLib.Quark
-export function regex_error_quark(): GLib.Quark
-export interface SelectionFunc {
+function get_encoding_supported(encoding: string): boolean
+function get_encodings(include_aliases: boolean): string[]
+function get_feature_flags(): FeatureFlags
+function get_features(): string
+function get_major_version(): number
+function get_micro_version(): number
+function get_minor_version(): number
+function get_user_shell(): string
+function pty_error_quark(): GLib.Quark
+function regex_error_quark(): GLib.Quark
+interface SelectionFunc {
     (terminal: Terminal, column: number, row: number): boolean
 }
-export interface TerminalSpawnAsyncCallback {
+interface TerminalSpawnAsyncCallback {
     (terminal: Terminal, pid: GLib.Pid, error: GLib.Error): void
 }
 export interface Pty_ConstructProps extends GObject.Object_ConstructProps {
     fd?: number
     flags?: PtyFlags
 }
-export class Pty {
+class Pty {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Vte-2.91.Vte.Pty */
@@ -205,7 +207,7 @@ export interface Terminal_ConstructProps extends Gtk.Widget_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class Terminal {
+class Terminal {
     /* Properties of Vte-2.91.Vte.Terminal */
     allow_bold: boolean
     allow_hyperlink: boolean
@@ -1321,13 +1323,13 @@ export class Terminal {
     static new(): Terminal
     static $gtype: GObject.Type
 }
-export class CharAttributes {
+class CharAttributes {
     static name: string
 }
-export abstract class PtyClass {
+abstract class PtyClass {
     static name: string
 }
-export class Regex {
+class Regex {
     /* Methods of Vte-2.91.Vte.Regex */
     jit(flags: number): boolean
     ref(): Regex
@@ -1338,7 +1340,7 @@ export class Regex {
     static new_for_match(pattern: string, pattern_length: number, flags: number): Regex
     static new_for_search(pattern: string, pattern_length: number, flags: number): Regex
 }
-export abstract class TerminalClass {
+abstract class TerminalClass {
     /* Fields of Vte-2.91.Vte.TerminalClass */
     parent_class: Gtk.WidgetClass
     eof: (terminal: Terminal) => void
@@ -1371,6 +1373,8 @@ export abstract class TerminalClass {
     bell: (terminal: Terminal) => void
     static name: string
 }
-export class TerminalClassPrivate {
+class TerminalClassPrivate {
     static name: string
 }
+}
+export default Vte

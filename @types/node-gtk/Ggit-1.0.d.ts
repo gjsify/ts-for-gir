@@ -7,19 +7,19 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Ggit {
+declare namespace Ggit {
 
-export enum BranchType {
+enum BranchType {
     LOCAL,
     REMOTE,
 }
-export enum CloneLocal {
+enum CloneLocal {
     AUTO,
     LOCAL,
     NO_LOCAL,
     NO_LINKS,
 }
-export enum ConfigLevel {
+enum ConfigLevel {
     PROGRAMDATA,
     SYSTEM,
     XDG,
@@ -28,7 +28,7 @@ export enum ConfigLevel {
     APP,
     HIGHEST,
 }
-export enum DeltaType {
+enum DeltaType {
     UNMODIFIED,
     ADDED,
     DELETED,
@@ -38,19 +38,19 @@ export enum DeltaType {
     IGNORED,
     UNTRACKED,
 }
-export enum DiffBinaryType {
+enum DiffBinaryType {
     NONE,
     LITERAL,
     DELTA,
 }
-export enum DiffFormatType {
+enum DiffFormatType {
     PATCH,
     PATCH_HEADER,
     RAW,
     NAME_ONLY,
     NAME_STATUS,
 }
-export enum DiffLineType {
+enum DiffLineType {
     CONTEXT,
     ADDITION,
     DELETION,
@@ -61,11 +61,11 @@ export enum DiffLineType {
     HUNK_HDR,
     BINARY,
 }
-export enum Direction {
+enum Direction {
     FETCH,
     PUSH,
 }
-export enum Error {
+enum Error {
     GIT_ERROR,
     NOTFOUND,
     EXISTS,
@@ -74,7 +74,7 @@ export enum Error {
     PASSTHROUGH,
     ITEROVER,
 }
-export enum FileMode {
+enum FileMode {
     UNREADABLE,
     TREE,
     BLOB,
@@ -82,22 +82,22 @@ export enum FileMode {
     LINK,
     COMMIT,
 }
-export enum MergeFileFavor {
+enum MergeFileFavor {
     NORMAL,
     OURS,
     THEIRS,
     UNION,
 }
-export enum PackbuilderStage {
+enum PackbuilderStage {
     ADDING_OBJECTS,
     DELTAFICATION,
 }
-export enum ProxyType {
+enum ProxyType {
     NONE,
     AUTO,
     SPECIFIED,
 }
-export enum RebaseOperationType {
+enum RebaseOperationType {
     PICK,
     REWORD,
     EDIT,
@@ -105,67 +105,67 @@ export enum RebaseOperationType {
     FIXUP,
     EXEC,
 }
-export enum RefType {
+enum RefType {
     INVALID,
     OID,
     SYMBOLIC,
     LISTALL,
 }
-export enum RemoteCompletionType {
+enum RemoteCompletionType {
     DOWNLOAD,
     INDEXING,
     ERROR,
 }
-export enum RemoteDownloadTagsType {
+enum RemoteDownloadTagsType {
     UNSPECIFIED,
     AUTO,
     NONE,
     ALL,
 }
-export enum ResetType {
+enum ResetType {
     SOFT,
     MIXED,
     HARD,
 }
-export enum StatusShow {
+enum StatusShow {
     INDEX_AND_WORKDIR,
     INDEX_ONLY,
     WORKDIR_ONLY,
 }
-export enum SubmoduleIgnore {
+enum SubmoduleIgnore {
     UNSPECIFIED,
     NONE,
     UNTRACKED,
     DIRTY,
     ALL,
 }
-export enum SubmoduleRecurse {
+enum SubmoduleRecurse {
     NO,
     YES,
     ONDEMAND,
 }
-export enum SubmoduleUpdate {
+enum SubmoduleUpdate {
     CHECKOUT,
     REBASE,
     MERGE,
     NONE,
     DEFAULT,
 }
-export enum TreeWalkMode {
+enum TreeWalkMode {
     PRE,
     POST,
 }
-export enum AttributeCheckFlags {
+enum AttributeCheckFlags {
     FILE_THEN_INDEX,
     INDEX_THEN_FILE,
     INDEX_ONLY,
     NO_SYSTEM,
 }
-export enum BlameFlags {
+enum BlameFlags {
     NORMAL,
     TRACK_COPIES_SAME_FILE,
 }
-export enum CheckoutNotifyFlags {
+enum CheckoutNotifyFlags {
     NONE,
     CONFLICT,
     DIRTY,
@@ -174,7 +174,7 @@ export enum CheckoutNotifyFlags {
     IGNORED,
     ALL,
 }
-export enum CheckoutStrategy {
+enum CheckoutStrategy {
     NONE,
     SAFE,
     FORCE,
@@ -198,18 +198,18 @@ export enum CheckoutStrategy {
     UPDATE_SUBMODULES,
     UPDATE_SUBMODULES_IF_CHANGED,
 }
-export enum CreateFlags {
+enum CreateFlags {
     NONE,
     FORCE,
 }
-export enum Credtype {
+enum Credtype {
     USERPASS_PLAINTEXT,
     SSH_KEY,
     SSH_CUSTOM,
     DEFAULT,
     SSH_INTERACTIVE,
 }
-export enum DiffFindFlags {
+enum DiffFindFlags {
     FIND_BY_CONFIG,
     FIND_RENAMES,
     FIND_RENAMES_FROM_REWRITES,
@@ -227,16 +227,16 @@ export enum DiffFindFlags {
     BREAK_REWRITES_FOR_RENAMES_ONLY,
     FIND_REMOVE_UNMODIFIED,
 }
-export enum DiffFlag {
+enum DiffFlag {
     BINARY,
     NOT_BINARY,
     VALID_ID,
 }
-export enum DiffFormatEmailFlags {
+enum DiffFormatEmailFlags {
     NONE,
     EXCLUDE_SUBJECT_PATCH_MARKER,
 }
-export enum DiffOption {
+enum DiffOption {
     NORMAL,
     REVERSE,
     INCLUDE_IGNORED,
@@ -263,12 +263,12 @@ export enum DiffOption {
     MINIMAL,
     SHOW_BINARY,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     THREADS,
     HTTPS,
     SSH,
 }
-export enum MergeFileFlags {
+enum MergeFileFlags {
     DEFAULT,
     STYLE_MERGE,
     STYLE_DIFF3,
@@ -279,25 +279,25 @@ export enum MergeFileFlags {
     DIFF_PATIENCE,
     DIFF_MINIMAL,
 }
-export enum MergeFlags {
+enum MergeFlags {
     FIND_RENAMES,
     FAIL_ON_CONFLICT,
     SKIP_REUC,
     NO_RECURSIVE,
 }
-export enum SortMode {
+enum SortMode {
     NONE,
     TOPOLOGICAL,
     TIME,
     REVERSE,
 }
-export enum StashFlags {
+enum StashFlags {
     DEFAULT,
     KEEP_INDEX,
     INCLUDE_UNTRACKED,
     INCLUDE_IGNORED,
 }
-export enum StatusFlags {
+enum StatusFlags {
     CURRENT,
     INDEX_NEW,
     INDEX_MODIFIED,
@@ -310,7 +310,7 @@ export enum StatusFlags {
     WORKING_TREE_TYPECHANGE,
     IGNORED,
 }
-export enum StatusOption {
+enum StatusOption {
     INCLUDE_UNTRACKED,
     INCLUDE_IGNORED,
     INCLUDE_UNMODIFIED,
@@ -324,7 +324,7 @@ export enum StatusOption {
     SORT_CASE_INSENSITIVELY,
     DEFAULT,
 }
-export enum SubmoduleStatus {
+enum SubmoduleStatus {
     IN_HEAD,
     IN_INDEX,
     IN_CONFIG,
@@ -340,76 +340,76 @@ export enum SubmoduleStatus {
     WD_WD_MODIFIED,
     WD_UNTRACKED,
 }
-export function errorQuark(): GLib.Quark
-export function getFeatures(): FeatureFlags
-export function init(): void
-export function messagePrettify(message: string, stripComments: boolean, commentChar: number): string
-export interface ConfigCallback {
+function errorQuark(): GLib.Quark
+function getFeatures(): FeatureFlags
+function init(): void
+function messagePrettify(message: string, stripComments: boolean, commentChar: number): string
+interface ConfigCallback {
     (entry: ConfigEntry): number
 }
-export interface ConfigMatchCallback {
+interface ConfigMatchCallback {
     (matchInfo: GLib.MatchInfo, value: string): number
 }
-export interface CredAcquireCallback {
+interface CredAcquireCallback {
     (url: string, usernameFromUrl: string | null, allowedTypes: number, cred: Cred): number
 }
-export interface DiffBinaryCallback {
+interface DiffBinaryCallback {
     (delta: DiffDelta, binary: DiffBinary): number
 }
-export interface DiffFileCallback {
+interface DiffFileCallback {
     (delta: DiffDelta, progress: number): number
 }
-export interface DiffHunkCallback {
+interface DiffHunkCallback {
     (delta: DiffDelta, hunk: DiffHunk): number
 }
-export interface DiffLineCallback {
+interface DiffLineCallback {
     (delta: DiffDelta, hunk: DiffHunk | null, line: DiffLine): number
 }
-export interface DiffSimilarityMetricBufferSignatureCallback {
+interface DiffSimilarityMetricBufferSignatureCallback {
     (file: DiffFile, buf: string, buflen: number, out?: object | null): number
 }
-export interface DiffSimilarityMetricFileSignatureCallback {
+interface DiffSimilarityMetricFileSignatureCallback {
     (file: DiffFile, fullpath: string, out?: object | null): number
 }
-export interface DiffSimilarityMetricFreeSignatureCallback {
+interface DiffSimilarityMetricFreeSignatureCallback {
     (signature?: object | null): void
 }
-export interface DiffSimilarityMetricSimilarityCallback {
+interface DiffSimilarityMetricSimilarityCallback {
     (score: number, signatureA?: object | null, signatureB?: object | null): number
 }
-export interface NoteCallback {
+interface NoteCallback {
     (blobId: OId, annotatedObjectId: OId): number
 }
-export interface ReferencesCallback {
+interface ReferencesCallback {
     (reference: Ref): number
 }
-export interface ReferencesNameCallback {
+interface ReferencesNameCallback {
     (name: string): number
 }
-export interface RemoteListCallback {
+interface RemoteListCallback {
     (name: string, oid: OId, loid: OId, local: boolean): number
 }
-export interface StashCallback {
+interface StashCallback {
     (index: number, message: string, stashOid: OId): number
 }
-export interface StatusCallback {
+interface StatusCallback {
     (path: string, statusFlags: StatusFlags): number
 }
-export interface SubmoduleCallback {
+interface SubmoduleCallback {
     (submodule: Submodule, name: string): number
 }
-export interface TagCallback {
+interface TagCallback {
     (name: string, tagOid: OId): number
 }
-export interface TransferProgressCallback {
+interface TransferProgressCallback {
     (stats: TransferProgress): number
 }
-export interface TreeWalkCallback {
+interface TreeWalkCallback {
     (root: string, entry: TreeEntry): number
 }
 export interface Blame_ConstructProps extends Native_ConstructProps {
 }
-export class Blame {
+class Blame {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -464,7 +464,7 @@ export class Blame {
 }
 export interface Blob_ConstructProps extends Object_ConstructProps {
 }
-export class Blob {
+class Blob {
     /* Fields of Ggit-1.0.Ggit.Object */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -518,7 +518,7 @@ export class Blob {
 export interface BlobOutputStream_ConstructProps extends Gio.OutputStream_ConstructProps {
     repository?: Repository
 }
-export class BlobOutputStream {
+class BlobOutputStream {
     /* Fields of Ggit-1.0.Ggit.BlobOutputStream */
     parentInstance: Gio.OutputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -597,7 +597,7 @@ export class BlobOutputStream {
 }
 export interface Branch_ConstructProps extends Ref_ConstructProps {
 }
-export class Branch {
+class Branch {
     /* Fields of Ggit-1.0.Ggit.Branch */
     parentInstance: Ref
     /* Fields of GObject-2.0.GObject.Object */
@@ -681,7 +681,7 @@ export interface CheckoutOptions_ConstructProps extends GObject.Object_Construct
     targetDirectory?: string
     theirLabel?: string
 }
-export class CheckoutOptions {
+class CheckoutOptions {
     /* Properties of Ggit-1.0.Ggit.CheckoutOptions */
     ancestorLabel: string
     baseline: Tree
@@ -825,7 +825,7 @@ export interface CherryPickOptions_ConstructProps extends GObject.Object_Constru
     mainline?: number
     mergeOptions?: MergeOptions
 }
-export class CherryPickOptions {
+class CherryPickOptions {
     /* Properties of Ggit-1.0.Ggit.CherryPickOptions */
     checkoutOptions: CheckoutOptions
     mainline: number
@@ -900,7 +900,7 @@ export class CherryPickOptions {
 }
 export interface CloneOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CloneOptions {
+class CloneOptions {
     /* Fields of Ggit-1.0.Ggit.CloneOptions */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -958,7 +958,7 @@ export class CloneOptions {
 }
 export interface Commit_ConstructProps extends Object_ConstructProps {
 }
-export class Commit {
+class Commit {
     /* Fields of Ggit-1.0.Ggit.Commit */
     parentInstance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1020,7 +1020,7 @@ export class Commit {
 export interface CommitParents_ConstructProps extends GObject.Object_ConstructProps {
     commit?: Commit
 }
-export class CommitParents {
+class CommitParents {
     /* Properties of Ggit-1.0.Ggit.CommitParents */
     readonly size: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1078,7 +1078,7 @@ export class CommitParents {
 }
 export interface Config_ConstructProps extends Native_ConstructProps {
 }
-export class Config {
+class Config {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1148,7 +1148,7 @@ export class Config {
 }
 export interface Cred_ConstructProps extends Native_ConstructProps {
 }
-export class Cred {
+class Cred {
     /* Fields of Ggit-1.0.Ggit.Cred */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -1197,7 +1197,7 @@ export interface CredPlaintext_ConstructProps extends Cred_ConstructProps {
     password?: string
     username?: string
 }
-export class CredPlaintext {
+class CredPlaintext {
     /* Fields of Ggit-1.0.Ggit.CredPlaintext */
     parentInstance: Cred
     /* Fields of GObject-2.0.GObject.Object */
@@ -1253,7 +1253,7 @@ export class CredPlaintext {
 export interface CredSshInteractive_ConstructProps extends Cred_ConstructProps {
     username?: string
 }
-export class CredSshInteractive {
+class CredSshInteractive {
     /* Fields of Ggit-1.0.Ggit.CredSshInteractive */
     parentInstance: Cred
     /* Fields of GObject-2.0.GObject.Object */
@@ -1308,7 +1308,7 @@ export class CredSshInteractive {
 export interface CredSshKeyFromAgent_ConstructProps extends Cred_ConstructProps {
     username?: string
 }
-export class CredSshKeyFromAgent {
+class CredSshKeyFromAgent {
     /* Fields of Ggit-1.0.Ggit.Cred */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -1363,7 +1363,7 @@ export class CredSshKeyFromAgent {
 export interface Diff_ConstructProps extends Native_ConstructProps {
     repository?: Repository
 }
-export class Diff {
+class Diff {
     /* Fields of Ggit-1.0.Ggit.Diff */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -1432,7 +1432,7 @@ export interface DiffFindOptions_ConstructProps extends GObject.Object_Construct
     renameLimit?: number
     renameThreshold?: number
 }
-export class DiffFindOptions {
+class DiffFindOptions {
     /* Properties of Ggit-1.0.Ggit.DiffFindOptions */
     copyThreshold: number
     flags: DiffFindFlags
@@ -1538,7 +1538,7 @@ export interface DiffFormatEmailOptions_ConstructProps extends GObject.Object_Co
     summary?: string
     totalPatches?: number
 }
-export class DiffFormatEmailOptions {
+class DiffFormatEmailOptions {
     /* Properties of Ggit-1.0.Ggit.DiffFormatEmailOptions */
     author: Signature
     body: string
@@ -1651,7 +1651,7 @@ export interface DiffOptions_ConstructProps extends GObject.Object_ConstructProp
     oldPrefix?: string
     pathspec?: string[]
 }
-export class DiffOptions {
+class DiffOptions {
     /* Properties of Ggit-1.0.Ggit.DiffOptions */
     flags: DiffOption
     nContextLines: number
@@ -1751,7 +1751,7 @@ export class DiffOptions {
 export interface Index_ConstructProps extends Native_ConstructProps {
     file?: Gio.File
 }
-export class Index {
+class Index {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1817,7 +1817,7 @@ export class Index {
 export interface Native_ConstructProps extends ObjectFactoryBase_ConstructProps {
     native?: object
 }
-export class Native {
+class Native {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -1864,7 +1864,7 @@ export class Native {
 }
 export interface Object_ConstructProps extends Native_ConstructProps {
 }
-export class Object {
+class Object {
     /* Fields of Ggit-1.0.Ggit.Object */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -1914,7 +1914,7 @@ export class Object {
 }
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ObjectFactory {
+class ObjectFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Ggit-1.0.Ggit.ObjectFactory */
@@ -1965,7 +1965,7 @@ export class ObjectFactory {
 }
 export interface ObjectFactoryBase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ObjectFactoryBase {
+class ObjectFactoryBase {
     /* Fields of Ggit-1.0.Ggit.ObjectFactoryBase */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2012,7 +2012,7 @@ export class ObjectFactoryBase {
 }
 export interface ProxyOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ProxyOptions {
+class ProxyOptions {
     /* Fields of Ggit-1.0.Ggit.ProxyOptions */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2063,7 +2063,7 @@ export interface PushOptions_ConstructProps extends GObject.Object_ConstructProp
     callbacks?: RemoteCallbacks
     parallelism?: number
 }
-export class PushOptions {
+class PushOptions {
     /* Properties of Ggit-1.0.Ggit.PushOptions */
     callbacks: RemoteCallbacks
     parallelism: number
@@ -2130,7 +2130,7 @@ export class PushOptions {
 }
 export interface Rebase_ConstructProps extends Native_ConstructProps {
 }
-export class Rebase {
+class Rebase {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -2185,7 +2185,7 @@ export class Rebase {
 }
 export interface Ref_ConstructProps extends Native_ConstructProps {
 }
-export class Ref {
+class Ref {
     /* Fields of Ggit-1.0.Ggit.Ref */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -2255,7 +2255,7 @@ export class Ref {
 }
 export interface Remote_ConstructProps extends Native_ConstructProps {
 }
-export class Remote {
+class Remote {
     /* Fields of Ggit-1.0.Ggit.Remote */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -2320,7 +2320,7 @@ export class Remote {
 }
 export interface RemoteCallbacks_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteCallbacks {
+class RemoteCallbacks {
     /* Fields of Ggit-1.0.Ggit.RemoteCallbacks */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2394,7 +2394,7 @@ export interface Repository_ConstructProps extends Native_ConstructProps {
     url?: string
     workdir?: Gio.File
 }
-export class Repository {
+class Repository {
     /* Properties of Ggit-1.0.Ggit.Repository */
     readonly head: Ref
     workdir: Gio.File
@@ -2554,7 +2554,7 @@ export class Repository {
 export interface RevisionWalker_ConstructProps extends Native_ConstructProps {
     repository?: Repository
 }
-export class RevisionWalker {
+class RevisionWalker {
     /* Properties of Ggit-1.0.Ggit.RevisionWalker */
     repository: Repository
     /* Fields of Ggit-1.0.Ggit.RevisionWalker */
@@ -2628,7 +2628,7 @@ export class RevisionWalker {
 export interface Signature_ConstructProps extends Native_ConstructProps {
     encoding?: string
 }
-export class Signature {
+class Signature {
     /* Fields of Ggit-1.0.Ggit.Native */
     parentInstance: ObjectFactoryBase
     /* Fields of GObject-2.0.GObject.Object */
@@ -2686,7 +2686,7 @@ export interface SubmoduleUpdateOptions_ConstructProps extends GObject.Object_Co
     checkoutOptions?: CheckoutOptions
     fetchOptions?: FetchOptions
 }
-export class SubmoduleUpdateOptions {
+class SubmoduleUpdateOptions {
     /* Properties of Ggit-1.0.Ggit.SubmoduleUpdateOptions */
     checkoutOptions: CheckoutOptions
     fetchOptions: FetchOptions
@@ -2753,7 +2753,7 @@ export class SubmoduleUpdateOptions {
 }
 export interface Tag_ConstructProps extends Object_ConstructProps {
 }
-export class Tag {
+class Tag {
     /* Fields of Ggit-1.0.Ggit.Tag */
     parentInstance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2811,7 +2811,7 @@ export class Tag {
 }
 export interface Tree_ConstructProps extends Object_ConstructProps {
 }
-export class Tree {
+class Tree {
     /* Fields of Ggit-1.0.Ggit.Tree */
     parentInstance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2867,7 +2867,7 @@ export class Tree {
 }
 export interface TreeBuilder_ConstructProps extends Native_ConstructProps {
 }
-export class TreeBuilder {
+class TreeBuilder {
     /* Fields of Ggit-1.0.Ggit.TreeBuilder */
     parentInstance: Native
     /* Fields of GObject-2.0.GObject.Object */
@@ -2918,7 +2918,7 @@ export class TreeBuilder {
     _init (config?: TreeBuilder_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class AnnotatedCommit {
+class AnnotatedCommit {
     /* Methods of Ggit-1.0.Ggit.AnnotatedCommit */
     getId(): OId | null
     ref(): AnnotatedCommit | null
@@ -2927,12 +2927,12 @@ export class AnnotatedCommit {
     /* Static methods and pseudo-constructors */
     static newFromRef(repository: Repository, ref: Ref): AnnotatedCommit
 }
-export abstract class BlameClass {
+abstract class BlameClass {
     /* Fields of Ggit-1.0.Ggit.BlameClass */
     parentClass: NativeClass
     static name: string
 }
-export class BlameHunk {
+class BlameHunk {
     /* Methods of Ggit-1.0.Ggit.BlameHunk */
     getFinalCommitId(): OId | null
     getFinalSignature(): Signature | null
@@ -2947,7 +2947,7 @@ export class BlameHunk {
     unref(): void
     static name: string
 }
-export class BlameOptions {
+class BlameOptions {
     /* Methods of Ggit-1.0.Ggit.BlameOptions */
     copy(): BlameOptions | null
     free(): void
@@ -2967,18 +2967,18 @@ export class BlameOptions {
     /* Static methods and pseudo-constructors */
     static new(): BlameOptions
 }
-export abstract class BlobClass {
+abstract class BlobClass {
     /* Fields of Ggit-1.0.Ggit.BlobClass */
     parentClass: ObjectClass
     static name: string
 }
-export abstract class BlobOutputStreamClass {
+abstract class BlobOutputStreamClass {
     static name: string
 }
-export abstract class BranchClass {
+abstract class BranchClass {
     static name: string
 }
-export class BranchEnumerator {
+class BranchEnumerator {
     /* Methods of Ggit-1.0.Ggit.BranchEnumerator */
     get(): Ref | null
     iterator(): BranchEnumerator | null
@@ -2987,39 +2987,39 @@ export class BranchEnumerator {
     unref(): void
     static name: string
 }
-export abstract class CheckoutOptionsClass {
+abstract class CheckoutOptionsClass {
     /* Fields of Ggit-1.0.Ggit.CheckoutOptionsClass */
     parentClass: GObject.ObjectClass
     notify: (options: CheckoutOptions, why: CheckoutNotifyFlags, path: string, baseline: DiffFile, target: DiffFile, workdir: DiffFile) => number
     progress: (options: CheckoutOptions, path: string, completedSteps: number, totalSteps: number) => void
     static name: string
 }
-export abstract class CherryPickOptionsClass {
+abstract class CherryPickOptionsClass {
     /* Fields of Ggit-1.0.Ggit.CherryPickOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CloneOptionsClass {
+abstract class CloneOptionsClass {
     /* Fields of Ggit-1.0.Ggit.CloneOptionsClass */
     parentClass: GObject.ObjectClass
     createRepository: (options: CloneOptions, path: string, isBare: boolean) => Repository | null
     createRemote: (options: CloneOptions, repository: Repository, name: string, url: string) => Remote | null
     static name: string
 }
-export abstract class CommitClass {
+abstract class CommitClass {
     static name: string
 }
-export abstract class CommitParentsClass {
+abstract class CommitParentsClass {
     /* Fields of Ggit-1.0.Ggit.CommitParentsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of Ggit-1.0.Ggit.ConfigClass */
     parentClass: NativeClass
     static name: string
 }
-export class ConfigEntry {
+class ConfigEntry {
     /* Methods of Ggit-1.0.Ggit.ConfigEntry */
     getLevel(): ConfigLevel
     getName(): string | null
@@ -3028,18 +3028,18 @@ export class ConfigEntry {
     unref(): void
     static name: string
 }
-export abstract class CredClass {
+abstract class CredClass {
     static name: string
 }
-export abstract class CredPlaintextClass {
+abstract class CredPlaintextClass {
     static name: string
 }
-export abstract class CredSshInteractiveClass {
+abstract class CredSshInteractiveClass {
     /* Fields of Ggit-1.0.Ggit.CredSshInteractiveClass */
     prompt: (cred: CredSshInteractive, prompts: CredSshInteractivePrompt[]) => void
     static name: string
 }
-export class CredSshInteractivePrompt {
+class CredSshInteractivePrompt {
     /* Methods of Ggit-1.0.Ggit.CredSshInteractivePrompt */
     getInstruction(): string
     getName(): string
@@ -3055,12 +3055,12 @@ export class CredSshInteractivePrompt {
     /* Static methods and pseudo-constructors */
     static new(name: string, instruction: string, text: string, isMasked: boolean): CredSshInteractivePrompt
 }
-export abstract class CredSshKeyFromAgentClass {
+abstract class CredSshKeyFromAgentClass {
     /* Fields of Ggit-1.0.Ggit.CredSshKeyFromAgentClass */
     parentClass: CredClass
     static name: string
 }
-export class DiffBinary {
+class DiffBinary {
     /* Methods of Ggit-1.0.Ggit.DiffBinary */
     getNewFile(): DiffBinaryFile | null
     getOldFile(): DiffBinaryFile | null
@@ -3068,7 +3068,7 @@ export class DiffBinary {
     unref(): void
     static name: string
 }
-export class DiffBinaryFile {
+class DiffBinaryFile {
     /* Methods of Ggit-1.0.Ggit.DiffBinaryFile */
     getBinaryType(): DiffBinaryType
     getData(size?: number | null): number
@@ -3077,10 +3077,10 @@ export class DiffBinaryFile {
     unref(): void
     static name: string
 }
-export abstract class DiffClass {
+abstract class DiffClass {
     static name: string
 }
-export class DiffDelta {
+class DiffDelta {
     /* Methods of Ggit-1.0.Ggit.DiffDelta */
     getFlags(): DiffFlag
     getNewFile(): DiffFile | null
@@ -3091,7 +3091,7 @@ export class DiffDelta {
     unref(): void
     static name: string
 }
-export class DiffFile {
+class DiffFile {
     /* Methods of Ggit-1.0.Ggit.DiffFile */
     getFlags(): DiffFlag
     getMode(): number
@@ -3102,17 +3102,17 @@ export class DiffFile {
     unref(): void
     static name: string
 }
-export abstract class DiffFindOptionsClass {
+abstract class DiffFindOptionsClass {
     /* Fields of Ggit-1.0.Ggit.DiffFindOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DiffFormatEmailOptionsClass {
+abstract class DiffFormatEmailOptionsClass {
     /* Fields of Ggit-1.0.Ggit.DiffFormatEmailOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DiffHunk {
+class DiffHunk {
     /* Methods of Ggit-1.0.Ggit.DiffHunk */
     getHeader(): string
     getNewLines(): number
@@ -3123,7 +3123,7 @@ export class DiffHunk {
     unref(): void
     static name: string
 }
-export class DiffLine {
+class DiffLine {
     /* Methods of Ggit-1.0.Ggit.DiffLine */
     getContent(): any[]
     getContentOffset(): number
@@ -3135,12 +3135,12 @@ export class DiffLine {
     unref(): void
     static name: string
 }
-export abstract class DiffOptionsClass {
+abstract class DiffOptionsClass {
     /* Fields of Ggit-1.0.Ggit.DiffOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DiffSimilarityMetric {
+class DiffSimilarityMetric {
     /* Methods of Ggit-1.0.Ggit.DiffSimilarityMetric */
     copy(): DiffSimilarityMetric | null
     free(): void
@@ -3150,7 +3150,7 @@ export class DiffSimilarityMetric {
     /* Static methods and pseudo-constructors */
     static new(fileSignature: DiffSimilarityMetricFileSignatureCallback, bufferSignature: DiffSimilarityMetricBufferSignatureCallback, freeSignature: DiffSimilarityMetricFreeSignatureCallback, similarity: DiffSimilarityMetricSimilarityCallback): DiffSimilarityMetric
 }
-export class FetchOptions {
+class FetchOptions {
     /* Methods of Ggit-1.0.Ggit.FetchOptions */
     copy(): FetchOptions | null
     free(): void
@@ -3164,12 +3164,12 @@ export class FetchOptions {
     /* Static methods and pseudo-constructors */
     static new(): FetchOptions
 }
-export abstract class IndexClass {
+abstract class IndexClass {
     /* Fields of Ggit-1.0.Ggit.IndexClass */
     parentClass: NativeClass
     static name: string
 }
-export class IndexEntries {
+class IndexEntries {
     /* Methods of Ggit-1.0.Ggit.IndexEntries */
     getByIndex(idx: number): IndexEntry | null
     getByPath(file: Gio.File, stage: number): IndexEntry | null
@@ -3178,7 +3178,7 @@ export class IndexEntries {
     unref(): void
     static name: string
 }
-export class IndexEntriesResolveUndo {
+class IndexEntriesResolveUndo {
     /* Methods of Ggit-1.0.Ggit.IndexEntriesResolveUndo */
     get(idx: number): IndexEntryResolveUndo | null
     getByFile(file: Gio.File): IndexEntryResolveUndo | null
@@ -3187,7 +3187,7 @@ export class IndexEntriesResolveUndo {
     unref(): void
     static name: string
 }
-export class IndexEntry {
+class IndexEntry {
     /* Methods of Ggit-1.0.Ggit.IndexEntry */
     getDev(): number
     getFileSize(): number
@@ -3216,7 +3216,7 @@ export class IndexEntry {
     unref(): void
     static name: string
 }
-export class IndexEntryResolveUndo {
+class IndexEntryResolveUndo {
     /* Methods of Ggit-1.0.Ggit.IndexEntryResolveUndo */
     getFile(): Gio.File | null
     getId(stage: number): OId | null
@@ -3225,7 +3225,7 @@ export class IndexEntryResolveUndo {
     unref(): void
     static name: string
 }
-export class MergeOptions {
+class MergeOptions {
     /* Methods of Ggit-1.0.Ggit.MergeOptions */
     copy(): MergeOptions | null
     free(): void
@@ -3247,10 +3247,10 @@ export class MergeOptions {
     /* Static methods and pseudo-constructors */
     static new(): MergeOptions
 }
-export abstract class NativeClass {
+abstract class NativeClass {
     static name: string
 }
-export class Note {
+class Note {
     /* Methods of Ggit-1.0.Ggit.Note */
     getId(): OId | null
     getMessage(): string | null
@@ -3258,7 +3258,7 @@ export class Note {
     unref(): void
     static name: string
 }
-export class OId {
+class OId {
     /* Methods of Ggit-1.0.Ggit.OId */
     compare(b: OId): number
     copy(): OId | null
@@ -3273,18 +3273,18 @@ export class OId {
     static newFromRaw(raw: any[]): OId
     static newFromString(str: string): OId
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     static name: string
 }
-export abstract class ObjectFactoryBaseClass {
+abstract class ObjectFactoryBaseClass {
     static name: string
 }
-export abstract class ObjectFactoryClass {
+abstract class ObjectFactoryClass {
     /* Fields of Ggit-1.0.Ggit.ObjectFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Patch {
+class Patch {
     /* Methods of Ggit-1.0.Ggit.Patch */
     getDelta(): DiffDelta | null
     getHunk(idx: number): DiffHunk | null
@@ -3300,22 +3300,22 @@ export class Patch {
     static newFromBlobs(oldBlob?: Blob | null, oldAsPath?: string | null, newBlob?: Blob | null, newAsPath?: string | null, diffOptions?: DiffOptions | null): Patch
     static newFromDiff(diff: Diff, idx: number): Patch
 }
-export abstract class ProxyOptionsClass {
+abstract class ProxyOptionsClass {
     /* Fields of Ggit-1.0.Ggit.ProxyOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PushOptionsClass {
+abstract class PushOptionsClass {
     /* Fields of Ggit-1.0.Ggit.PushOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RebaseClass {
+abstract class RebaseClass {
     /* Fields of Ggit-1.0.Ggit.RebaseClass */
     parentClass: NativeClass
     static name: string
 }
-export class RebaseOperation {
+class RebaseOperation {
     /* Methods of Ggit-1.0.Ggit.RebaseOperation */
     getExec(): string | null
     getId(): OId | null
@@ -3324,7 +3324,7 @@ export class RebaseOperation {
     unref(): void
     static name: string
 }
-export class RebaseOptions {
+class RebaseOptions {
     /* Methods of Ggit-1.0.Ggit.RebaseOptions */
     copy(): RebaseOptions | null
     free(): void
@@ -3340,10 +3340,10 @@ export class RebaseOptions {
     /* Static methods and pseudo-constructors */
     static new(): RebaseOptions
 }
-export abstract class RefClass {
+abstract class RefClass {
     static name: string
 }
-export class RefSpec {
+class RefSpec {
     /* Methods of Ggit-1.0.Ggit.RefSpec */
     getDestination(): string | null
     getSource(): string | null
@@ -3352,7 +3352,7 @@ export class RefSpec {
     unref(): void
     static name: string
 }
-export class Reflog {
+class Reflog {
     /* Methods of Ggit-1.0.Ggit.Reflog */
     append(oid: OId, committer: Signature, message: string): boolean
     getEntryCount(): number
@@ -3363,7 +3363,7 @@ export class Reflog {
     write(): boolean
     static name: string
 }
-export class ReflogEntry {
+class ReflogEntry {
     /* Methods of Ggit-1.0.Ggit.ReflogEntry */
     getCommitter(): Signature | null
     getMessage(): string | null
@@ -3373,7 +3373,7 @@ export class ReflogEntry {
     unref(): void
     static name: string
 }
-export abstract class RemoteCallbacksClass {
+abstract class RemoteCallbacksClass {
     /* Fields of Ggit-1.0.Ggit.RemoteCallbacksClass */
     parentClass: GObject.ObjectClass
     progress: (callbacks: RemoteCallbacks, message: string) => void
@@ -3383,10 +3383,10 @@ export abstract class RemoteCallbacksClass {
     credentials: (callbacks: RemoteCallbacks, url: string, usernameFromUrl: string | null, allowedTypes: Credtype) => Cred | null
     static name: string
 }
-export abstract class RemoteClass {
+abstract class RemoteClass {
     static name: string
 }
-export class RemoteHead {
+class RemoteHead {
     /* Methods of Ggit-1.0.Ggit.RemoteHead */
     getLocalOid(): OId | null
     getName(): string | null
@@ -3396,10 +3396,10 @@ export class RemoteHead {
     unref(): void
     static name: string
 }
-export abstract class RepositoryClass {
+abstract class RepositoryClass {
     static name: string
 }
-export class RevertOptions {
+class RevertOptions {
     /* Methods of Ggit-1.0.Ggit.RevertOptions */
     copy(): RevertOptions | null
     free(): void
@@ -3409,15 +3409,15 @@ export class RevertOptions {
     /* Static methods and pseudo-constructors */
     static new(mainline: number, mergeOptions?: MergeOptions | null, checkoutOptions?: CheckoutOptions | null): RevertOptions
 }
-export abstract class RevisionWalkerClass {
+abstract class RevisionWalkerClass {
     static name: string
 }
-export abstract class SignatureClass {
+abstract class SignatureClass {
     /* Fields of Ggit-1.0.Ggit.SignatureClass */
     parentClass: NativeClass
     static name: string
 }
-export class StatusOptions {
+class StatusOptions {
     /* Methods of Ggit-1.0.Ggit.StatusOptions */
     copy(): StatusOptions | null
     free(): void
@@ -3427,7 +3427,7 @@ export class StatusOptions {
     /* Static methods and pseudo-constructors */
     static new(options: StatusOption, show: StatusShow, pathspec?: string[] | null): StatusOptions
 }
-export class Submodule {
+class Submodule {
     /* Methods of Ggit-1.0.Ggit.Submodule */
     getFetchRecurse(): boolean
     getHeadId(): OId
@@ -3448,15 +3448,15 @@ export class Submodule {
     update(init: boolean, options: SubmoduleUpdateOptions): void
     static name: string
 }
-export abstract class SubmoduleUpdateOptionsClass {
+abstract class SubmoduleUpdateOptionsClass {
     /* Fields of Ggit-1.0.Ggit.SubmoduleUpdateOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TagClass {
+abstract class TagClass {
     static name: string
 }
-export class TransferProgress {
+class TransferProgress {
     /* Methods of Ggit-1.0.Ggit.TransferProgress */
     copy(): TransferProgress | null
     free(): void
@@ -3466,13 +3466,13 @@ export class TransferProgress {
     getTotalObjects(): number
     static name: string
 }
-export abstract class TreeBuilderClass {
+abstract class TreeBuilderClass {
     static name: string
 }
-export abstract class TreeClass {
+abstract class TreeClass {
     static name: string
 }
-export class TreeEntry {
+class TreeEntry {
     /* Methods of Ggit-1.0.Ggit.TreeEntry */
     getFileMode(): FileMode
     getId(): OId | null
@@ -3483,3 +3483,4 @@ export class TreeEntry {
     static name: string
 }
 }
+export default Ggit

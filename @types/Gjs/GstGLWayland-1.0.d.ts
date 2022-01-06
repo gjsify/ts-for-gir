@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstGL from './GstGL-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstGL from './GstGL-1.0';
+
+export namespace GstGLWayland {
 
 export interface GLDisplayWayland_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
-export class GLDisplayWayland {
+class GLDisplayWayland {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -131,9 +133,11 @@ export class GLDisplayWayland {
     static new_with_display(display?: object | null): GLDisplayWayland
     static $gtype: GObject.Type
 }
-export abstract class GLDisplayWaylandClass {
+abstract class GLDisplayWaylandClass {
     /* Fields of GstGLWayland-1.0.GstGLWayland.GLDisplayWaylandClass */
     object_class: GstGL.GLDisplayClass
     _padding: object[]
     static name: string
 }
+}
+export default GstGLWayland

@@ -7,20 +7,20 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace AppStream {
+declare namespace AppStream {
 
-export enum AgreementKind {
+enum AgreementKind {
     UNKNOWN,
     GENERIC,
     EULA,
     PRIVACY,
 }
-export enum ArtifactKind {
+enum ArtifactKind {
     UNKNOWN,
     SOURCE,
     BINARY,
 }
-export enum BundleKind {
+enum BundleKind {
     UNKNOWN,
     PACKAGE,
     LIMBA,
@@ -30,14 +30,14 @@ export enum BundleKind {
     TARBALL,
     CABINET,
 }
-export enum ChecksumKind {
+enum ChecksumKind {
     NONE,
     SHA1,
     SHA256,
     BLAKE2B,
     BLAKE2S,
 }
-export enum ComponentKind {
+enum ComponentKind {
     UNKNOWN,
     GENERIC,
     DESKTOP_APP,
@@ -56,12 +56,12 @@ export enum ComponentKind {
     ICON_THEME,
     RUNTIME,
 }
-export enum ComponentScope {
+enum ComponentScope {
     UNKNOWN,
     SYSTEM,
     USER,
 }
-export enum ContentRatingSystem {
+enum ContentRatingSystem {
     UNKNOWN,
     INCAA,
     ACB,
@@ -79,14 +79,14 @@ export enum ContentRatingSystem {
     ESRB,
     IARC,
 }
-export enum ContentRatingValue {
+enum ContentRatingValue {
     UNKNOWN,
     NONE,
     MILD,
     MODERATE,
     INTENSE,
 }
-export enum ControlKind {
+enum ControlKind {
     UNKNOWN,
     POINTING,
     KEYBOARD,
@@ -98,7 +98,7 @@ export enum ControlKind {
     TV_REMOTE,
     TABLET,
 }
-export enum DisplayLengthKind {
+enum DisplayLengthKind {
     UNKNOWN,
     XSMALL,
     SMALL,
@@ -106,23 +106,23 @@ export enum DisplayLengthKind {
     LARGE,
     XLARGE,
 }
-export enum DisplaySideKind {
+enum DisplaySideKind {
     UNKNOWN,
     SHORTEST,
     LONGEST,
 }
-export enum FormatKind {
+enum FormatKind {
     UNKNOWN,
     XML,
     YAML,
     DESKTOP_ENTRY,
 }
-export enum FormatStyle {
+enum FormatStyle {
     UNKNOWN,
     METAINFO,
     COLLECTION,
 }
-export enum FormatVersion {
+enum FormatVersion {
     V0_6,
     V0_7,
     V0_8,
@@ -134,64 +134,64 @@ export enum FormatVersion {
     V0_14,
     UNKNOWN,
 }
-export enum IconKind {
+enum IconKind {
     UNKNOWN,
     CACHED,
     STOCK,
     LOCAL,
     REMOTE,
 }
-export enum ImageKind {
+enum ImageKind {
     UNKNOWN,
     SOURCE,
     THUMBNAIL,
 }
-export enum IssueKind {
+enum IssueKind {
     UNKNOWN,
     GENERIC,
     CVE,
 }
-export enum IssueSeverity {
+enum IssueSeverity {
     UNKNOWN,
     ERROR,
     WARNING,
     INFO,
     PEDANTIC,
 }
-export enum LaunchableKind {
+enum LaunchableKind {
     UNKNOWN,
     DESKTOP_ID,
     SERVICE,
     COCKPIT_MANIFEST,
     URL,
 }
-export enum MergeKind {
+enum MergeKind {
     NONE,
     REPLACE,
     APPEND,
     REMOVE_COMPONENT,
 }
-export enum MetadataError {
+enum MetadataError {
     FAILED,
     PARSE,
     FORMAT_UNEXPECTED,
     NO_COMPONENT,
     VALUE_MISSING,
 }
-export enum MetadataLocation {
+enum MetadataLocation {
     SHARED,
     STATE,
     CACHE,
     USER,
 }
-export enum PoolError {
+enum PoolError {
     FAILED,
     TARGET_NOT_WRITABLE,
     INCOMPLETE,
     COLLISION,
     OLD_CACHE,
 }
-export enum ProvidedKind {
+enum ProvidedKind {
     UNKNOWN,
     LIBRARY,
     BINARY,
@@ -206,7 +206,7 @@ export enum ProvidedKind {
     FIRMWARE_FLASHED,
     ID,
 }
-export enum RelationCompare {
+enum RelationCompare {
     UNKNOWN,
     EQ,
     NE,
@@ -215,7 +215,7 @@ export enum RelationCompare {
     LE,
     GE,
 }
-export enum RelationItemKind {
+enum RelationItemKind {
     UNKNOWN,
     ID,
     MODALIAS,
@@ -226,54 +226,54 @@ export enum RelationItemKind {
     DISPLAY_LENGTH,
     HARDWARE,
 }
-export enum RelationKind {
+enum RelationKind {
     UNKNOWN,
     REQUIRES,
     RECOMMENDS,
     SUPPORTS,
 }
-export enum ReleaseKind {
+enum ReleaseKind {
     UNKNOWN,
     STABLE,
     DEVELOPMENT,
 }
-export enum ReleaseUrlKind {
+enum ReleaseUrlKind {
     UNKNOWN,
     DETAILS,
 }
-export enum ScreenshotKind {
+enum ScreenshotKind {
     UNKNOWN,
     DEFAULT,
     EXTRA,
 }
-export enum ScreenshotMediaKind {
+enum ScreenshotMediaKind {
     UNKNOWN,
     IMAGE,
     VIDEO,
 }
-export enum SizeKind {
+enum SizeKind {
     UNKNOWN,
     DOWNLOAD,
     INSTALLED,
 }
-export enum SuggestedKind {
+enum SuggestedKind {
     UNKNOWN,
     UPSTREAM,
     HEURISTIC,
 }
-export enum TranslationKind {
+enum TranslationKind {
     UNKNOWN,
     GETTEXT,
     QT,
 }
-export enum UrgencyKind {
+enum UrgencyKind {
     UNKNOWN,
     LOW,
     MEDIUM,
     HIGH,
     CRITICAL,
 }
-export enum UrlKind {
+enum UrlKind {
     UNKNOWN,
     HOMEPAGE,
     BUGTRACKER,
@@ -283,27 +283,27 @@ export enum UrlKind {
     TRANSLATE,
     CONTACT,
 }
-export enum UtilsError {
+enum UtilsError {
     FAILED,
 }
-export enum VideoCodecKind {
+enum VideoCodecKind {
     UNKNOWN,
     VP9,
     AV1,
 }
-export enum VideoContainerKind {
+enum VideoContainerKind {
     UNKNOWN,
     MKV,
     WEBM,
 }
-export enum CacheFlags {
+enum CacheFlags {
     NONE,
     USE_USER,
     USE_SYSTEM,
     NO_CLEAR,
     REFRESH_SYSTEM,
 }
-export enum DataIdMatchFlags {
+enum DataIdMatchFlags {
     NONE,
     SCOPE,
     BUNDLE_KIND,
@@ -311,11 +311,11 @@ export enum DataIdMatchFlags {
     ID,
     BRANCH,
 }
-export enum ParseFlags {
+enum ParseFlags {
     NONE,
     IGNORE_MEDIABASEURL,
 }
-export enum PoolFlags {
+enum PoolFlags {
     NONE,
     LOAD_OS_COLLECTION,
     LOAD_OS_METAINFO,
@@ -326,12 +326,12 @@ export enum PoolFlags {
     PREFER_OS_METAINFO,
     MONITOR,
 }
-export enum ReviewFlags {
+enum ReviewFlags {
     NONE,
     SELF,
     VOTED,
 }
-export enum SearchTokenMatch {
+enum SearchTokenMatch {
     NONE,
     MEDIATYPE,
     PKGNAME,
@@ -342,12 +342,12 @@ export enum SearchTokenMatch {
     NAME,
     ID,
 }
-export enum ValueFlags {
+enum ValueFlags {
     NONE,
     DUPLICATE_CHECK,
     NO_TRANSLATION_FALLBACK,
 }
-export enum VercmpFlags {
+enum VercmpFlags {
     NONE,
     IGNORE_EPOCH,
 }
@@ -360,118 +360,118 @@ export const IMAGE_THUMBNAIL_WIDTH: number
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function agreementKindFromString(value: string): AgreementKind
-export function agreementKindToString(value: AgreementKind): string
-export function artifactKindFromString(kind: string): ArtifactKind
-export function artifactKindToString(kind: ArtifactKind): string
-export function bundleKindFromString(bundleStr: string): BundleKind
-export function bundleKindToString(kind: BundleKind): string
-export function checksumKindFromString(kindStr: string): ChecksumKind
-export function checksumKindToString(kind: ChecksumKind): string
-export function componentKindFromString(kindStr: string): ComponentKind
-export function componentKindToString(kind: ComponentKind): string
-export function componentScopeFromString(scopeStr: string): ComponentScope
-export function componentScopeToString(scope: ComponentScope): string
-export function contentRatingSystemFormatAge(system: ContentRatingSystem, age: number): string | null
-export function contentRatingSystemFromLocale(locale: string): ContentRatingSystem
-export function contentRatingSystemGetCsmAges(system: ContentRatingSystem): number[]
-export function contentRatingSystemGetFormattedAges(system: ContentRatingSystem): string[]
-export function contentRatingSystemToString(system: ContentRatingSystem): string | null
-export function contentRatingValueFromString(value: string): ContentRatingValue
-export function contentRatingValueToString(value: ContentRatingValue): string
-export function controlKindFromString(kindStr: string): ControlKind
-export function controlKindToString(kind: ControlKind): string
-export function displayLengthKindFromString(kindStr: string): DisplayLengthKind
-export function displayLengthKindToString(kind: DisplayLengthKind): string
-export function displaySideKindFromString(kindStr: string): DisplaySideKind
-export function displaySideKindToString(kind: DisplaySideKind): string
-export function formatKindFromString(kindStr: string): FormatKind
-export function formatKindToString(kind: FormatKind): string
-export function formatVersionFromString(versionStr: string): FormatVersion
-export function formatVersionToString(version: FormatVersion): string
-export function getAppstreamVersion(): string
-export function getCurrentDistroComponentId(): string
-export function getDefaultCategories(withSpecial: boolean): Category[]
-export function getLicenseUrl(license: string): string
-export function gstringReplace(string: GLib.String, find: string, replace: string): number
-export function gstringReplace2(string: GLib.String, find: string, replace: string, limit: number): number
-export function iconKindFromString(kindStr: string): IconKind
-export function iconKindToString(kind: IconKind): string
-export function imageKindFromString(kind: string): ImageKind
-export function imageKindToString(kind: ImageKind): string
-export function isSpdxLicenseExceptionId(exceptionId: string): boolean
-export function isSpdxLicenseExpression(license: string): boolean
-export function isSpdxLicenseId(licenseId: string): boolean
-export function issueKindFromString(kindStr: string): IssueKind
-export function issueKindToString(kind: IssueKind): string
-export function issueSeverityFromString(str: string): IssueSeverity
-export function issueSeverityToString(severity: IssueSeverity): string
-export function launchableKindFromString(kindStr: string): LaunchableKind
-export function launchableKindToString(kind: LaunchableKind): string
-export function licenseIsFreeLicense(license: string): boolean
-export function licenseIsMetadataLicense(license: string): boolean
-export function licenseIsMetadataLicenseId(licenseId: string): boolean
-export function licenseToSpdxId(license: string): string
-export function markupConvertSimple(markup: string): string
-export function markupStrsplitWords(text: string, lineLen: number): string[]
-export function mergeKindFromString(kindStr: string): MergeKind
-export function mergeKindToString(kind: MergeKind): string
-export function metadataErrorQuark(): GLib.Quark
-export function poolErrorQuark(): GLib.Quark
-export function providedKindFromString(kindStr: string): ProvidedKind
-export function providedKindToL10nString(kind: ProvidedKind): string
-export function providedKindToString(kind: ProvidedKind): string
-export function relationCompareFromString(compareStr: string): RelationCompare
-export function relationCompareToString(compare: RelationCompare): string
-export function relationCompareToSymbolsString(compare: RelationCompare): string
-export function relationItemKindFromString(kindStr: string): RelationItemKind
-export function relationItemKindToString(kind: RelationItemKind): string
-export function relationKindFromString(kindStr: string): RelationKind
-export function relationKindToString(kind: RelationKind): string
-export function releaseKindFromString(kindStr: string): ReleaseKind
-export function releaseKindToString(kind: ReleaseKind): string
-export function releaseUrlKindFromString(kindStr: string): ReleaseUrlKind
-export function releaseUrlKindToString(kind: ReleaseUrlKind): string
-export function screenshotKindFromString(kind: string): ScreenshotKind
-export function screenshotKindToString(kind: ScreenshotKind): string
-export function sizeKindFromString(sizeKind: string): SizeKind
-export function sizeKindToString(sizeKind: SizeKind): string
-export function spdxLicenseDetokenize(licenseTokens: string): string | null
-export function spdxLicenseTokenize(license: string): string[] | null
-export function suggestedKindFromString(kindStr: string): SuggestedKind
-export function suggestedKindToString(kind: SuggestedKind): string
-export function translationKindFromString(kindStr: string): TranslationKind
-export function translationKindToString(kind: TranslationKind): string
-export function urgencyKindFromString(urgencyKind: string): UrgencyKind
-export function urgencyKindToString(urgencyKind: UrgencyKind): string
-export function urlKindFromString(urlKind: string): UrlKind
-export function urlKindToString(urlKind: UrlKind): string
-export function utilsBuildDataId(scope: ComponentScope, bundleKind: BundleKind, origin: string, cid: string, branch: string): string
-export function utilsCompareVersions(a: string, b: string): number
-export function utilsDataIdEqual(dataId1: string, dataId2: string): boolean
-export function utilsDataIdGetCid(dataId: string): string
-export function utilsDataIdHash(dataId: string): number
-export function utilsDataIdMatch(dataId1: string, dataId2: string, matchFlags: DataIdMatchFlags): boolean
-export function utilsDataIdValid(dataId: string): boolean
-export function utilsErrorQuark(): GLib.Quark
-export function utilsGuessScopeFromPath(path: string): ComponentScope
-export function utilsInstallMetadataFile(location: MetadataLocation, filename: string, origin: string, destdir: string): boolean
-export function utilsIsCategoryName(categoryName: string): boolean
-export function utilsIsDesktopEnvironment(desktop: string): boolean
-export function utilsIsPlatformTriplet(triplet: string): boolean
-export function utilsIsTld(tld: string): boolean
-export function utilsLocaleIsCompatible(locale1: string, locale2: string): boolean
-export function utilsSortComponentsIntoCategories(cpts: Component[], categories: Category[], checkDuplicates: boolean): void
-export function vercmp(a: string, b: string, flags: VercmpFlags): number
-export function vercmpSimple(a: string, b: string): number
-export function versionString(): string
-export function videoCodecKindFromString(str: string): VideoCodecKind
-export function videoCodecKindToString(kind: VideoCodecKind): string
-export function videoContainerKindFromString(str: string): VideoContainerKind
-export function videoContainerKindToString(kind: VideoContainerKind): string
+function agreementKindFromString(value: string): AgreementKind
+function agreementKindToString(value: AgreementKind): string
+function artifactKindFromString(kind: string): ArtifactKind
+function artifactKindToString(kind: ArtifactKind): string
+function bundleKindFromString(bundleStr: string): BundleKind
+function bundleKindToString(kind: BundleKind): string
+function checksumKindFromString(kindStr: string): ChecksumKind
+function checksumKindToString(kind: ChecksumKind): string
+function componentKindFromString(kindStr: string): ComponentKind
+function componentKindToString(kind: ComponentKind): string
+function componentScopeFromString(scopeStr: string): ComponentScope
+function componentScopeToString(scope: ComponentScope): string
+function contentRatingSystemFormatAge(system: ContentRatingSystem, age: number): string | null
+function contentRatingSystemFromLocale(locale: string): ContentRatingSystem
+function contentRatingSystemGetCsmAges(system: ContentRatingSystem): number[]
+function contentRatingSystemGetFormattedAges(system: ContentRatingSystem): string[]
+function contentRatingSystemToString(system: ContentRatingSystem): string | null
+function contentRatingValueFromString(value: string): ContentRatingValue
+function contentRatingValueToString(value: ContentRatingValue): string
+function controlKindFromString(kindStr: string): ControlKind
+function controlKindToString(kind: ControlKind): string
+function displayLengthKindFromString(kindStr: string): DisplayLengthKind
+function displayLengthKindToString(kind: DisplayLengthKind): string
+function displaySideKindFromString(kindStr: string): DisplaySideKind
+function displaySideKindToString(kind: DisplaySideKind): string
+function formatKindFromString(kindStr: string): FormatKind
+function formatKindToString(kind: FormatKind): string
+function formatVersionFromString(versionStr: string): FormatVersion
+function formatVersionToString(version: FormatVersion): string
+function getAppstreamVersion(): string
+function getCurrentDistroComponentId(): string
+function getDefaultCategories(withSpecial: boolean): Category[]
+function getLicenseUrl(license: string): string
+function gstringReplace(string: GLib.String, find: string, replace: string): number
+function gstringReplace2(string: GLib.String, find: string, replace: string, limit: number): number
+function iconKindFromString(kindStr: string): IconKind
+function iconKindToString(kind: IconKind): string
+function imageKindFromString(kind: string): ImageKind
+function imageKindToString(kind: ImageKind): string
+function isSpdxLicenseExceptionId(exceptionId: string): boolean
+function isSpdxLicenseExpression(license: string): boolean
+function isSpdxLicenseId(licenseId: string): boolean
+function issueKindFromString(kindStr: string): IssueKind
+function issueKindToString(kind: IssueKind): string
+function issueSeverityFromString(str: string): IssueSeverity
+function issueSeverityToString(severity: IssueSeverity): string
+function launchableKindFromString(kindStr: string): LaunchableKind
+function launchableKindToString(kind: LaunchableKind): string
+function licenseIsFreeLicense(license: string): boolean
+function licenseIsMetadataLicense(license: string): boolean
+function licenseIsMetadataLicenseId(licenseId: string): boolean
+function licenseToSpdxId(license: string): string
+function markupConvertSimple(markup: string): string
+function markupStrsplitWords(text: string, lineLen: number): string[]
+function mergeKindFromString(kindStr: string): MergeKind
+function mergeKindToString(kind: MergeKind): string
+function metadataErrorQuark(): GLib.Quark
+function poolErrorQuark(): GLib.Quark
+function providedKindFromString(kindStr: string): ProvidedKind
+function providedKindToL10nString(kind: ProvidedKind): string
+function providedKindToString(kind: ProvidedKind): string
+function relationCompareFromString(compareStr: string): RelationCompare
+function relationCompareToString(compare: RelationCompare): string
+function relationCompareToSymbolsString(compare: RelationCompare): string
+function relationItemKindFromString(kindStr: string): RelationItemKind
+function relationItemKindToString(kind: RelationItemKind): string
+function relationKindFromString(kindStr: string): RelationKind
+function relationKindToString(kind: RelationKind): string
+function releaseKindFromString(kindStr: string): ReleaseKind
+function releaseKindToString(kind: ReleaseKind): string
+function releaseUrlKindFromString(kindStr: string): ReleaseUrlKind
+function releaseUrlKindToString(kind: ReleaseUrlKind): string
+function screenshotKindFromString(kind: string): ScreenshotKind
+function screenshotKindToString(kind: ScreenshotKind): string
+function sizeKindFromString(sizeKind: string): SizeKind
+function sizeKindToString(sizeKind: SizeKind): string
+function spdxLicenseDetokenize(licenseTokens: string): string | null
+function spdxLicenseTokenize(license: string): string[] | null
+function suggestedKindFromString(kindStr: string): SuggestedKind
+function suggestedKindToString(kind: SuggestedKind): string
+function translationKindFromString(kindStr: string): TranslationKind
+function translationKindToString(kind: TranslationKind): string
+function urgencyKindFromString(urgencyKind: string): UrgencyKind
+function urgencyKindToString(urgencyKind: UrgencyKind): string
+function urlKindFromString(urlKind: string): UrlKind
+function urlKindToString(urlKind: UrlKind): string
+function utilsBuildDataId(scope: ComponentScope, bundleKind: BundleKind, origin: string, cid: string, branch: string): string
+function utilsCompareVersions(a: string, b: string): number
+function utilsDataIdEqual(dataId1: string, dataId2: string): boolean
+function utilsDataIdGetCid(dataId: string): string
+function utilsDataIdHash(dataId: string): number
+function utilsDataIdMatch(dataId1: string, dataId2: string, matchFlags: DataIdMatchFlags): boolean
+function utilsDataIdValid(dataId: string): boolean
+function utilsErrorQuark(): GLib.Quark
+function utilsGuessScopeFromPath(path: string): ComponentScope
+function utilsInstallMetadataFile(location: MetadataLocation, filename: string, origin: string, destdir: string): boolean
+function utilsIsCategoryName(categoryName: string): boolean
+function utilsIsDesktopEnvironment(desktop: string): boolean
+function utilsIsPlatformTriplet(triplet: string): boolean
+function utilsIsTld(tld: string): boolean
+function utilsLocaleIsCompatible(locale1: string, locale2: string): boolean
+function utilsSortComponentsIntoCategories(cpts: Component[], categories: Category[], checkDuplicates: boolean): void
+function vercmp(a: string, b: string, flags: VercmpFlags): number
+function vercmpSimple(a: string, b: string): number
+function versionString(): string
+function videoCodecKindFromString(str: string): VideoCodecKind
+function videoCodecKindToString(kind: VideoCodecKind): string
+function videoContainerKindFromString(str: string): VideoContainerKind
+function videoContainerKindToString(kind: VideoContainerKind): string
 export interface Agreement_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Agreement {
+class Agreement {
     /* Fields of AppStream-1.0.AppStream.Agreement */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -528,7 +528,7 @@ export class Agreement {
 }
 export interface AgreementSection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AgreementSection {
+class AgreementSection {
     /* Fields of AppStream-1.0.AppStream.AgreementSection */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -586,7 +586,7 @@ export class AgreementSection {
 }
 export interface Artifact_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Artifact {
+class Artifact {
     /* Fields of AppStream-1.0.AppStream.Artifact */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -651,7 +651,7 @@ export class Artifact {
 }
 export interface Bundle_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Bundle {
+class Bundle {
     /* Fields of AppStream-1.0.AppStream.Bundle */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -708,7 +708,7 @@ export interface Category_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
     name?: string
 }
-export class Category {
+class Category {
     /* Properties of AppStream-1.0.AppStream.Category */
     readonly children: object
     icon: string
@@ -806,7 +806,7 @@ export class Category {
 }
 export interface Checksum_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Checksum {
+class Checksum {
     /* Fields of AppStream-1.0.AppStream.Checksum */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -871,7 +871,7 @@ export interface Component_ConstructProps extends GObject.Object_ConstructProps 
     projectLicense?: string
     summary?: string
 }
-export class Component {
+class Component {
     /* Properties of AppStream-1.0.AppStream.Component */
     readonly categories: object[]
     description: string
@@ -1124,7 +1124,7 @@ export class Component {
 }
 export interface ContentRating_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentRating {
+class ContentRating {
     /* Fields of AppStream-1.0.AppStream.ContentRating */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1185,7 +1185,7 @@ export class ContentRating {
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Context {
+class Context {
     /* Fields of AppStream-1.0.AppStream.Context */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1251,7 +1251,7 @@ export class Context {
 }
 export interface DistroDetails_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DistroDetails {
+class DistroDetails {
     /* Properties of AppStream-1.0.AppStream.DistroDetails */
     readonly homepage: string
     readonly id: string
@@ -1333,7 +1333,7 @@ export class DistroDetails {
 }
 export interface Icon_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Icon {
+class Icon {
     /* Fields of AppStream-1.0.AppStream.Icon */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1397,7 +1397,7 @@ export class Icon {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of AppStream-1.0.AppStream.Image */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1457,7 +1457,7 @@ export class Image {
 }
 export interface Issue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Issue {
+class Issue {
     /* Fields of AppStream-1.0.AppStream.Issue */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1513,7 +1513,7 @@ export class Issue {
 }
 export interface Launchable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Launchable {
+class Launchable {
     /* Fields of AppStream-1.0.AppStream.Launchable */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1567,7 +1567,7 @@ export class Launchable {
 }
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Metadata {
+class Metadata {
     /* Fields of AppStream-1.0.AppStream.Metadata */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1648,7 +1648,7 @@ export class Metadata {
 }
 export interface Pool_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Pool {
+class Pool {
     /* Fields of AppStream-1.0.AppStream.Pool */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1738,7 +1738,7 @@ export class Pool {
 }
 export interface Provided_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Provided {
+class Provided {
     /* Fields of AppStream-1.0.AppStream.Provided */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1793,7 +1793,7 @@ export class Provided {
 }
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Relation {
+class Relation {
     /* Fields of AppStream-1.0.AppStream.Relation */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1866,7 +1866,7 @@ export class Relation {
 }
 export interface Release_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Release {
+class Release {
     /* Fields of AppStream-1.0.AppStream.Release */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1958,7 +1958,7 @@ export interface Review_ConstructProps extends GObject.Object_ConstructProps {
     summary?: string
     version?: string
 }
-export class Review {
+class Review {
     /* Properties of AppStream-1.0.AppStream.Review */
     date: Review
     description: string
@@ -2095,7 +2095,7 @@ export class Review {
 }
 export interface Screenshot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Screenshot {
+class Screenshot {
     /* Fields of AppStream-1.0.AppStream.Screenshot */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2159,7 +2159,7 @@ export class Screenshot {
 }
 export interface Suggested_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Suggested {
+class Suggested {
     /* Fields of AppStream-1.0.AppStream.Suggested */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2214,7 +2214,7 @@ export class Suggested {
 }
 export interface Translation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Translation {
+class Translation {
     /* Fields of AppStream-1.0.AppStream.Translation */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2270,7 +2270,7 @@ export class Translation {
 }
 export interface Validator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Validator {
+class Validator {
     /* Fields of AppStream-1.0.AppStream.Validator */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2333,7 +2333,7 @@ export class Validator {
 }
 export interface ValidatorIssue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ValidatorIssue {
+class ValidatorIssue {
     /* Fields of AppStream-1.0.AppStream.ValidatorIssue */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2402,7 +2402,7 @@ export class ValidatorIssue {
 }
 export interface Video_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Video {
+class Video {
     /* Fields of AppStream-1.0.AppStream.Video */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2462,135 +2462,136 @@ export class Video {
     static new(): Video
     static $gtype: GObject.Type
 }
-export abstract class AgreementClass {
+abstract class AgreementClass {
     /* Fields of AppStream-1.0.AppStream.AgreementClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class AgreementSectionClass {
+abstract class AgreementSectionClass {
     /* Fields of AppStream-1.0.AppStream.AgreementSectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ArtifactClass {
+abstract class ArtifactClass {
     /* Fields of AppStream-1.0.AppStream.ArtifactClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class BundleClass {
+abstract class BundleClass {
     /* Fields of AppStream-1.0.AppStream.BundleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CategoryClass {
+abstract class CategoryClass {
     /* Fields of AppStream-1.0.AppStream.CategoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ChecksumClass {
+abstract class ChecksumClass {
     /* Fields of AppStream-1.0.AppStream.ChecksumClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ComponentClass {
+abstract class ComponentClass {
     /* Fields of AppStream-1.0.AppStream.ComponentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContentRatingClass {
+abstract class ContentRatingClass {
     /* Fields of AppStream-1.0.AppStream.ContentRatingClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of AppStream-1.0.AppStream.ContextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DistroDetailsClass {
+abstract class DistroDetailsClass {
     /* Fields of AppStream-1.0.AppStream.DistroDetailsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class IconClass {
+abstract class IconClass {
     /* Fields of AppStream-1.0.AppStream.IconClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of AppStream-1.0.AppStream.ImageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class IssueClass {
+abstract class IssueClass {
     /* Fields of AppStream-1.0.AppStream.IssueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class LaunchableClass {
+abstract class LaunchableClass {
     /* Fields of AppStream-1.0.AppStream.LaunchableClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class MetadataClass {
+abstract class MetadataClass {
     /* Fields of AppStream-1.0.AppStream.MetadataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PoolClass {
+abstract class PoolClass {
     /* Fields of AppStream-1.0.AppStream.PoolClass */
     parentClass: GObject.ObjectClass
     changed: (pool: Pool) => void
     static name: string
 }
-export abstract class ProvidedClass {
+abstract class ProvidedClass {
     /* Fields of AppStream-1.0.AppStream.ProvidedClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RelationClass {
+abstract class RelationClass {
     /* Fields of AppStream-1.0.AppStream.RelationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ReleaseClass {
+abstract class ReleaseClass {
     /* Fields of AppStream-1.0.AppStream.ReleaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ReviewClass {
+abstract class ReviewClass {
     /* Fields of AppStream-1.0.AppStream.ReviewClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ScreenshotClass {
+abstract class ScreenshotClass {
     /* Fields of AppStream-1.0.AppStream.ScreenshotClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SuggestedClass {
+abstract class SuggestedClass {
     /* Fields of AppStream-1.0.AppStream.SuggestedClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TranslationClass {
+abstract class TranslationClass {
     /* Fields of AppStream-1.0.AppStream.TranslationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ValidatorClass {
+abstract class ValidatorClass {
     /* Fields of AppStream-1.0.AppStream.ValidatorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ValidatorIssueClass {
+abstract class ValidatorIssueClass {
     /* Fields of AppStream-1.0.AppStream.ValidatorIssueClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class VideoClass {
+abstract class VideoClass {
     /* Fields of AppStream-1.0.AppStream.VideoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default AppStream

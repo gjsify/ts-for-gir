@@ -3,38 +3,40 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AttrType {
+export namespace IBus {
+
+enum AttrType {
     UNDERLINE,
     FOREGROUND,
     BACKGROUND,
 }
-export enum AttrUnderline {
+enum AttrUnderline {
     NONE,
     SINGLE,
     DOUBLE,
     LOW,
     ERROR,
 }
-export enum BusRequestNameReply {
+enum BusRequestNameReply {
     PRIMARY_OWNER,
     IN_QUEUE,
     EXISTS,
     ALREADY_OWNER,
 }
-export enum BusStartServiceByNameReply {
+enum BusStartServiceByNameReply {
     SUCCESS,
     ALREADY_RUNNING,
 }
-export enum Error {
+enum Error {
     NO_ENGINE,
     NO_CONFIG,
     FAILED,
 }
-export enum InputPurpose {
+enum InputPurpose {
     FREE_FORM,
     ALPHA,
     DIGITS,
@@ -46,33 +48,33 @@ export enum InputPurpose {
     PASSWORD,
     PIN,
 }
-export enum Orientation {
+enum Orientation {
     HORIZONTAL,
     VERTICAL,
     SYSTEM,
 }
-export enum PreeditFocusMode {
+enum PreeditFocusMode {
     CLEAR,
     COMMIT,
 }
-export enum PropState {
+enum PropState {
     UNCHECKED,
     CHECKED,
     INCONSISTENT,
 }
-export enum PropType {
+enum PropType {
     NORMAL,
     TOGGLE,
     RADIO,
     MENU,
     SEPARATOR,
 }
-export enum BusNameFlag {
+enum BusNameFlag {
     ALLOW_REPLACEMENT,
     REPLACE_EXISTING,
     DO_NOT_QUEUE,
 }
-export enum Capabilite {
+enum Capabilite {
     PREEDIT_TEXT,
     AUXILIARY_TEXT,
     LOOKUP_TABLE,
@@ -80,7 +82,7 @@ export enum Capabilite {
     PROPERTY,
     SURROUNDING_TEXT,
 }
-export enum InputHints {
+enum InputHints {
     NONE,
     SPELLCHECK,
     NO_SPELLCHECK,
@@ -92,7 +94,7 @@ export enum InputHints {
     INHIBIT_OSK,
     VERTICAL_WRITING,
 }
-export enum ModifierType {
+enum ModifierType {
     SHIFT_MASK,
     LOCK_MASK,
     CONTROL_MASK,
@@ -115,7 +117,7 @@ export enum ModifierType {
     RELEASE_MASK,
     MODIFIER_MASK,
 }
-export enum ObjectFlags {
+enum ObjectFlags {
     IN_DESTRUCTION,
     DESTROYED,
     RESERVED_1,
@@ -4225,55 +4227,55 @@ export const zcaron: number
 export const zerosubscript: number
 export const zerosuperior: number
 export const zstroke: number
-export function attr_background_new(color: number, start_index: number, end_index: number): Attribute
-export function attr_foreground_new(color: number, start_index: number, end_index: number): Attribute
-export function attr_underline_new(underline_type: number, start_index: number, end_index: number): Attribute
-export function error_quark(): GLib.Quark
-export function free_strv(strv: string): void
-export function get_address(): string
-export function get_daemon_uid(): number
-export function get_language_name(_locale: string): string
-export function get_local_machine_id(): string
-export function get_socket_path(): string
-export function get_timeout(): number
-export function get_untranslated_language_name(_locale: string): string
-export function get_user_name(): string
-export function init(): void
-export function key_event_from_string(string: string, keyval: number, modifiers: number): boolean
-export function key_event_to_string(keyval: number, modifiers: number): string
-export function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
-export function keyval_from_name(keyval_name: string): number
-export function keyval_name(keyval: number): string
-export function keyval_to_lower(keyval: number): number
-export function keyval_to_unicode(keyval: number): number
-export function keyval_to_upper(keyval: number): number
-export function main(): void
-export function quit(): void
-export function set_display(display: string): void
-export function set_log_handler(verbose: boolean): void
-export function unicode_to_keyval(wc: number): number
-export function unset_log_handler(): void
-export function write_address(address: string): void
-export function xml_parse_buffer(buffer: string): XML
-export function xml_parse_file(name: string): XML
-export interface FreeFunc {
+function attr_background_new(color: number, start_index: number, end_index: number): Attribute
+function attr_foreground_new(color: number, start_index: number, end_index: number): Attribute
+function attr_underline_new(underline_type: number, start_index: number, end_index: number): Attribute
+function error_quark(): GLib.Quark
+function free_strv(strv: string): void
+function get_address(): string
+function get_daemon_uid(): number
+function get_language_name(_locale: string): string
+function get_local_machine_id(): string
+function get_socket_path(): string
+function get_timeout(): number
+function get_untranslated_language_name(_locale: string): string
+function get_user_name(): string
+function init(): void
+function key_event_from_string(string: string, keyval: number, modifiers: number): boolean
+function key_event_to_string(keyval: number, modifiers: number): string
+function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
+function keyval_from_name(keyval_name: string): number
+function keyval_name(keyval: number): string
+function keyval_to_lower(keyval: number): number
+function keyval_to_unicode(keyval: number): number
+function keyval_to_upper(keyval: number): number
+function main(): void
+function quit(): void
+function set_display(display: string): void
+function set_log_handler(verbose: boolean): void
+function unicode_to_keyval(wc: number): number
+function unset_log_handler(): void
+function write_address(address: string): void
+function xml_parse_buffer(buffer: string): XML
+function xml_parse_file(name: string): XML
+interface FreeFunc {
     (object: object): void
 }
-export interface ObjectDestroyFunc {
+interface ObjectDestroyFunc {
     (object: Object): void
 }
-export interface SerializableCopyFunc {
+interface SerializableCopyFunc {
     (dest: Serializable, src: Serializable): boolean
 }
-export interface SerializableDeserializeFunc {
+interface SerializableDeserializeFunc {
     (serializable: Serializable, variant: GLib.Variant): number
 }
-export interface SerializableSerializeFunc {
+interface SerializableSerializeFunc {
     (serializable: Serializable, builder: GLib.VariantBuilder): boolean
 }
 export interface AttrList_ConstructProps extends Serializable_ConstructProps {
 }
-export class AttrList {
+class AttrList {
     /* Fields of IBus-1.0.IBus.AttrList */
     parent: Serializable
     attributes: object[]
@@ -4350,7 +4352,7 @@ export class AttrList {
 }
 export interface Attribute_ConstructProps extends Serializable_ConstructProps {
 }
-export class Attribute {
+class Attribute {
     /* Fields of IBus-1.0.IBus.Attribute */
     parent: Serializable
     type: number
@@ -4434,7 +4436,7 @@ export class Attribute {
 export interface Bus_ConstructProps extends Object_ConstructProps {
     connect_async?: boolean
 }
-export class Bus {
+class Bus {
     /* Fields of IBus-1.0.IBus.Bus */
     parent: Object
     priv: BusPrivate
@@ -4589,7 +4591,7 @@ export interface Component_ConstructProps extends Serializable_ConstructProps {
     textdomain?: string
     version?: string
 }
-export class Component {
+class Component {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -4680,7 +4682,7 @@ export class Component {
 }
 export interface Config_ConstructProps extends Proxy_ConstructProps {
 }
-export class Config {
+class Config {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -4817,7 +4819,7 @@ export class Config {
 }
 export interface ConfigService_ConstructProps extends Service_ConstructProps {
 }
-export class ConfigService {
+class ConfigService {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -4899,7 +4901,7 @@ export class ConfigService {
 export interface Engine_ConstructProps extends Service_ConstructProps {
     engine_name?: string
 }
-export class Engine {
+class Engine {
     /* Fields of IBus-1.0.IBus.Engine */
     enabled: boolean
     has_focus: boolean
@@ -5098,7 +5100,7 @@ export interface EngineDesc_ConstructProps extends Serializable_ConstructProps {
     textdomain?: string
     version?: string
 }
-export class EngineDesc {
+class EngineDesc {
     /* Fields of IBus-1.0.IBus.EngineDesc */
     parent: Serializable
     /* Fields of IBus-1.0.IBus.Object */
@@ -5192,7 +5194,7 @@ export class EngineDesc {
 }
 export interface EngineSimple_ConstructProps extends Engine_ConstructProps {
 }
-export class EngineSimple {
+class EngineSimple {
     /* Fields of IBus-1.0.IBus.Engine */
     enabled: boolean
     has_focus: boolean
@@ -5377,7 +5379,7 @@ export class EngineSimple {
 }
 export interface Factory_ConstructProps extends Service_ConstructProps {
 }
-export class Factory {
+class Factory {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -5460,7 +5462,7 @@ export class Factory {
 }
 export interface HotkeyProfile_ConstructProps extends Serializable_ConstructProps {
 }
-export class HotkeyProfile {
+class HotkeyProfile {
     /* Fields of IBus-1.0.IBus.HotkeyProfile */
     parent: Serializable
     /* Fields of IBus-1.0.IBus.Object */
@@ -5546,7 +5548,7 @@ export class HotkeyProfile {
 }
 export interface InputContext_ConstructProps extends Proxy_ConstructProps {
 }
-export class InputContext {
+class InputContext {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -5750,7 +5752,7 @@ export class InputContext {
 }
 export interface Keymap_ConstructProps extends Object_ConstructProps {
 }
-export class Keymap {
+class Keymap {
     /* Fields of IBus-1.0.IBus.Keymap */
     name: string
     keymap: number[]
@@ -5819,7 +5821,7 @@ export class Keymap {
 }
 export interface LookupTable_ConstructProps extends Serializable_ConstructProps {
 }
-export class LookupTable {
+class LookupTable {
     /* Fields of IBus-1.0.IBus.LookupTable */
     parent: Serializable
     page_size: number
@@ -5923,7 +5925,7 @@ export class LookupTable {
 }
 export interface Object_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class Object {
+class Object {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -5985,7 +5987,7 @@ export class Object {
 }
 export interface ObservedPath_ConstructProps extends Serializable_ConstructProps {
 }
-export class ObservedPath {
+class ObservedPath {
     /* Fields of IBus-1.0.IBus.ObservedPath */
     parent: Serializable
     path: string
@@ -6068,7 +6070,7 @@ export class ObservedPath {
 }
 export interface PanelService_ConstructProps extends Service_ConstructProps {
 }
-export class PanelService {
+class PanelService {
     /* Fields of IBus-1.0.IBus.PanelService */
     parent: Service
     /* Fields of IBus-1.0.IBus.Object */
@@ -6254,7 +6256,7 @@ export class PanelService {
 }
 export interface PropList_ConstructProps extends Serializable_ConstructProps {
 }
-export class PropList {
+class PropList {
     /* Fields of IBus-1.0.IBus.PropList */
     parent: Serializable
     properties: object[]
@@ -6342,7 +6344,7 @@ export interface Property_ConstructProps extends Serializable_ConstructProps {
     tooltip?: Text
     visible?: boolean
 }
-export class Property {
+class Property {
     /* Properties of IBus-1.0.IBus.Property */
     icon: string
     label: Text
@@ -6460,7 +6462,7 @@ export class Property {
 }
 export interface Proxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class Proxy {
+class Proxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -6579,7 +6581,7 @@ export class Proxy {
 }
 export interface Registry_ConstructProps extends Serializable_ConstructProps {
 }
-export class Registry {
+class Registry {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -6667,7 +6669,7 @@ export class Registry {
 }
 export interface Serializable_ConstructProps extends Object_ConstructProps {
 }
-export class Serializable {
+class Serializable {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -6742,7 +6744,7 @@ export interface Service_ConstructProps extends Object_ConstructProps {
     connection?: Gio.DBusConnection
     object_path?: string
 }
-export class Service {
+class Service {
     /* Fields of IBus-1.0.IBus.Object */
     parent: GObject.InitiallyUnowned
     flags: number
@@ -6816,7 +6818,7 @@ export class Service {
 }
 export interface Text_ConstructProps extends Serializable_ConstructProps {
 }
-export class Text {
+class Text {
     /* Fields of IBus-1.0.IBus.Text */
     parent: Serializable
     is_static: boolean
@@ -6898,39 +6900,39 @@ export class Text {
     static new_from_unichar(c: number): Text
     static $gtype: GObject.Type
 }
-export abstract class AttrListClass {
+abstract class AttrListClass {
     /* Fields of IBus-1.0.IBus.AttrListClass */
     parent: SerializableClass
     static name: string
 }
-export abstract class AttributeClass {
+abstract class AttributeClass {
     /* Fields of IBus-1.0.IBus.AttributeClass */
     parent: SerializableClass
     static name: string
 }
-export abstract class BusClass {
+abstract class BusClass {
     /* Fields of IBus-1.0.IBus.BusClass */
     parent: ObjectClass
     static name: string
 }
-export class BusPrivate {
+class BusPrivate {
     static name: string
 }
-export abstract class ComponentClass {
+abstract class ComponentClass {
     /* Fields of IBus-1.0.IBus.ComponentClass */
     parent: SerializableClass
     static name: string
 }
-export class ComponentPrivate {
+class ComponentPrivate {
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     static name: string
 }
-export class ConfigPrivate {
+class ConfigPrivate {
     static name: string
 }
-export abstract class ConfigServiceClass {
+abstract class ConfigServiceClass {
     /* Fields of IBus-1.0.IBus.ConfigServiceClass */
     set_value: (config: ConfigService, section: string, name: string, value: GLib.Variant) => boolean
     get_value: (config: ConfigService, section: string, name: string) => GLib.Variant
@@ -6938,7 +6940,7 @@ export abstract class ConfigServiceClass {
     get_values: (config: ConfigService, section: string) => GLib.Variant
     static name: string
 }
-export abstract class EngineClass {
+abstract class EngineClass {
     /* Fields of IBus-1.0.IBus.EngineClass */
     process_key_event: (engine: Engine, keyval: number, keycode: number, state: number) => boolean
     focus_in: (engine: Engine) => void
@@ -6962,67 +6964,67 @@ export abstract class EngineClass {
     set_content_type: (engine: Engine, purpose: number, hints: number) => void
     static name: string
 }
-export abstract class EngineDescClass {
+abstract class EngineDescClass {
     /* Fields of IBus-1.0.IBus.EngineDescClass */
     parent: SerializableClass
     static name: string
 }
-export class EngineDescPrivate {
+class EngineDescPrivate {
     static name: string
 }
-export class EnginePrivate {
+class EnginePrivate {
     static name: string
 }
-export abstract class EngineSimpleClass {
+abstract class EngineSimpleClass {
     static name: string
 }
-export class EngineSimplePrivate {
+class EngineSimplePrivate {
     static name: string
 }
-export abstract class FactoryClass {
+abstract class FactoryClass {
     /* Fields of IBus-1.0.IBus.FactoryClass */
     create_engine: (factory: Factory, engine_name: string) => Engine
     static name: string
 }
-export class FactoryPrivate {
+class FactoryPrivate {
     static name: string
 }
-export abstract class HotkeyProfileClass {
+abstract class HotkeyProfileClass {
     /* Fields of IBus-1.0.IBus.HotkeyProfileClass */
     parent: SerializableClass
     trigger: (profile: HotkeyProfile, event: GLib.Quark) => void
     static name: string
 }
-export abstract class InputContextClass {
+abstract class InputContextClass {
     /* Fields of IBus-1.0.IBus.InputContextClass */
     parent: ProxyClass
     static name: string
 }
-export abstract class KeymapClass {
+abstract class KeymapClass {
     /* Fields of IBus-1.0.IBus.KeymapClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class LookupTableClass {
+abstract class LookupTableClass {
     /* Fields of IBus-1.0.IBus.LookupTableClass */
     parent: SerializableClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of IBus-1.0.IBus.ObjectClass */
     parent: GObject.InitiallyUnownedClass
     destroy: (object: Object) => void
     static name: string
 }
-export class ObjectPrivate {
+class ObjectPrivate {
     static name: string
 }
-export abstract class ObservedPathClass {
+abstract class ObservedPathClass {
     /* Fields of IBus-1.0.IBus.ObservedPathClass */
     parent: SerializableClass
     static name: string
 }
-export abstract class PanelServiceClass {
+abstract class PanelServiceClass {
     /* Fields of IBus-1.0.IBus.PanelServiceClass */
     parent: ServiceClass
     focus_in: (panel: PanelService, input_context_path: string) => void
@@ -7052,26 +7054,26 @@ export abstract class PanelServiceClass {
     set_content_type: (panel: PanelService, purpose: number, hints: number) => void
     static name: string
 }
-export abstract class PropListClass {
+abstract class PropListClass {
     /* Fields of IBus-1.0.IBus.PropListClass */
     parent: SerializableClass
     static name: string
 }
-export abstract class PropertyClass {
+abstract class PropertyClass {
     /* Fields of IBus-1.0.IBus.PropertyClass */
     parent: SerializableClass
     static name: string
 }
-export class PropertyPrivate {
+class PropertyPrivate {
     static name: string
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of IBus-1.0.IBus.ProxyClass */
     parent: Gio.DBusProxyClass
     destroy: (proxy: Proxy) => void
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of IBus-1.0.IBus.Rectangle */
     x: number
     y: number
@@ -7079,23 +7081,23 @@ export class Rectangle {
     height: number
     static name: string
 }
-export abstract class RegistryClass {
+abstract class RegistryClass {
     static name: string
 }
-export class RegistryPrivate {
+class RegistryPrivate {
     static name: string
 }
-export abstract class SerializableClass {
+abstract class SerializableClass {
     /* Fields of IBus-1.0.IBus.SerializableClass */
     serialize: (object: Serializable, builder: GLib.VariantBuilder) => boolean
     deserialize: (object: Serializable, variant: GLib.Variant) => number
     copy: (dest: Serializable, src: Serializable) => boolean
     static name: string
 }
-export class SerializablePrivate {
+class SerializablePrivate {
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of IBus-1.0.IBus.ServiceClass */
     service_method_call: (service: Service, connection: Gio.DBusConnection, sender: string, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation) => void
     service_get_property: (service: Service, connection: Gio.DBusConnection, sender: string, object_path: string, interface_name: string, property_name: string) => GLib.Variant | null
@@ -7104,15 +7106,15 @@ export abstract class ServiceClass {
     add_interfaces(klass: Service | Function | GObject.Type, xml_data: string): boolean
     static name: string
 }
-export class ServicePrivate {
+class ServicePrivate {
     static name: string
 }
-export abstract class TextClass {
+abstract class TextClass {
     /* Fields of IBus-1.0.IBus.TextClass */
     parent: SerializableClass
     static name: string
 }
-export class XML {
+class XML {
     /* Fields of IBus-1.0.IBus.XML */
     name: string
     text: string
@@ -7127,3 +7129,5 @@ export class XML {
     static parse_buffer(buffer: string): XML
     static parse_file(name: string): XML
 }
+}
+export default IBus

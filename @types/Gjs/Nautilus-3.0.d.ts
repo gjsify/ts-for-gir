@@ -3,37 +3,39 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum OperationResult {
+export namespace Nautilus {
+
+enum OperationResult {
     COMPLETE,
     FAILED,
     IN_PROGRESS,
 }
-export function file_info_create(location: Gio.File): FileInfo
-export function file_info_create_for_uri(uri: string): FileInfo
-export function file_info_list_copy(files: FileInfo[]): FileInfo[]
-export function file_info_list_free(files: FileInfo[]): void
-export function file_info_lookup(location: Gio.File): FileInfo
-export function file_info_lookup_for_uri(uri: string): FileInfo
-export function info_provider_update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
-export class ColumnProvider {
+function file_info_create(location: Gio.File): FileInfo
+function file_info_create_for_uri(uri: string): FileInfo
+function file_info_list_copy(files: FileInfo[]): FileInfo[]
+function file_info_list_free(files: FileInfo[]): void
+function file_info_lookup(location: Gio.File): FileInfo
+function file_info_lookup_for_uri(uri: string): FileInfo
+function info_provider_update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
+class ColumnProvider {
     /* Methods of Nautilus-3.0.Nautilus.ColumnProvider */
     get_columns(): Column[]
     static name: string
 }
-export class FileInfo {
+class FileInfo {
     /* Methods of Nautilus-3.0.Nautilus.FileInfo */
     add_emblem(emblem_name: string): void
     add_string_attribute(attribute_name: string, value: string): void
@@ -83,7 +85,7 @@ export class FileInfo {
     static lookup(location: Gio.File): FileInfo
     static lookup_for_uri(uri: string): FileInfo
 }
-export class InfoProvider {
+class InfoProvider {
     /* Methods of Nautilus-3.0.Nautilus.InfoProvider */
     cancel_update(handle: OperationHandle): void
     update_file_info(file: FileInfo, update_complete: Function, handle: OperationHandle): OperationResult
@@ -91,12 +93,12 @@ export class InfoProvider {
     /* Static methods and pseudo-constructors */
     static update_complete_invoke(update_complete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
 }
-export class LocationWidgetProvider {
+class LocationWidgetProvider {
     /* Methods of Nautilus-3.0.Nautilus.LocationWidgetProvider */
     get_widget(uri: string, window: Gtk.Widget): Gtk.Widget
     static name: string
 }
-export class MenuProvider {
+class MenuProvider {
     /* Methods of Nautilus-3.0.Nautilus.MenuProvider */
     emit_items_updated_signal(): void
     get_background_items(window: Gtk.Widget, current_folder: FileInfo): MenuItem[] | null
@@ -107,7 +109,7 @@ export class MenuProvider {
     emit(sigName: "items-updated"): void
     static name: string
 }
-export class PropertyPageProvider {
+class PropertyPageProvider {
     /* Methods of Nautilus-3.0.Nautilus.PropertyPageProvider */
     get_pages(files: FileInfo[]): PropertyPage[]
     static name: string
@@ -120,7 +122,7 @@ export interface Column_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     xalign?: number
 }
-export class Column {
+class Column {
     /* Properties of Nautilus-3.0.Nautilus.Column */
     attribute: string
     readonly attribute_q: number
@@ -189,7 +191,7 @@ export class Column {
 }
 export interface Menu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Menu {
+class Menu {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Nautilus-3.0.Nautilus.Menu */
@@ -249,7 +251,7 @@ export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
     sensitive?: boolean
     tip?: string
 }
-export class MenuItem {
+class MenuItem {
     /* Properties of Nautilus-3.0.Nautilus.MenuItem */
     icon: string
     label: string
@@ -333,7 +335,7 @@ export interface PropertyPage_ConstructProps extends GObject.Object_ConstructPro
     name?: string
     page?: Gtk.Widget
 }
-export class PropertyPage {
+class PropertyPage {
     /* Properties of Nautilus-3.0.Nautilus.PropertyPage */
     label: Gtk.Widget
     page: Gtk.Widget
@@ -388,20 +390,20 @@ export class PropertyPage {
     static new(name: string, label: Gtk.Widget, page: Gtk.Widget): PropertyPage
     static $gtype: GObject.Type
 }
-export abstract class ColumnClass {
+abstract class ColumnClass {
     /* Fields of Nautilus-3.0.Nautilus.ColumnClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ColumnProviderInterface {
+class ColumnProviderInterface {
     /* Fields of Nautilus-3.0.Nautilus.ColumnProviderInterface */
     g_iface: GObject.TypeInterface
     static name: string
 }
-export class File {
+class File {
     static name: string
 }
-export abstract class FileInfoInterface {
+abstract class FileInfoInterface {
     /* Fields of Nautilus-3.0.Nautilus.FileInfoInterface */
     g_iface: GObject.TypeInterface
     is_gone: (file_info: FileInfo) => boolean
@@ -425,49 +427,51 @@ export abstract class FileInfoInterface {
     can_write: (file_info: FileInfo) => boolean
     static name: string
 }
-export class InfoProviderInterface {
+class InfoProviderInterface {
     /* Fields of Nautilus-3.0.Nautilus.InfoProviderInterface */
     g_iface: GObject.TypeInterface
     update_file_info: (provider: InfoProvider, file: FileInfo, update_complete: Function, handle: OperationHandle) => OperationResult
     cancel_update: (provider: InfoProvider, handle: OperationHandle) => void
     static name: string
 }
-export class LocationWidgetProviderInterface {
+class LocationWidgetProviderInterface {
     /* Fields of Nautilus-3.0.Nautilus.LocationWidgetProviderInterface */
     g_iface: GObject.TypeInterface
     static name: string
 }
-export abstract class MenuClass {
+abstract class MenuClass {
     /* Fields of Nautilus-3.0.Nautilus.MenuClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MenuItemClass {
+abstract class MenuItemClass {
     /* Fields of Nautilus-3.0.Nautilus.MenuItemClass */
     parent: GObject.ObjectClass
     activate: (item: MenuItem) => void
     static name: string
 }
-export class MenuProviderInterface {
+class MenuProviderInterface {
     /* Fields of Nautilus-3.0.Nautilus.MenuProviderInterface */
     g_iface: GObject.TypeInterface
     static name: string
 }
-export class OperationHandle {
+class OperationHandle {
     static name: string
 }
-export abstract class PropertyPageClass {
+abstract class PropertyPageClass {
     /* Fields of Nautilus-3.0.Nautilus.PropertyPageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class PropertyPageProviderInterface {
+class PropertyPageProviderInterface {
     /* Fields of Nautilus-3.0.Nautilus.PropertyPageProviderInterface */
     g_iface: GObject.TypeInterface
     static name: string
 }
-export type ColumnProviderIface = ColumnProviderInterface
-export type InfoProviderIface = InfoProviderInterface
-export type LocationWidgetProviderIface = LocationWidgetProviderInterface
-export type MenuProviderIface = MenuProviderInterface
-export type PropertyPageProviderIface = PropertyPageProviderInterface
+type ColumnProviderIface = ColumnProviderInterface
+type InfoProviderIface = InfoProviderInterface
+type LocationWidgetProviderIface = LocationWidgetProviderInterface
+type MenuProviderIface = MenuProviderInterface
+type PropertyPageProviderIface = PropertyPageProviderInterface
+}
+export default Nautilus

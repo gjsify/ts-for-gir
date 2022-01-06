@@ -3,27 +3,29 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type xlib from './xlib-2.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum Command {
+export namespace Unique {
+
+enum Command {
     INVALID,
     ACTIVATE,
     NEW,
     OPEN,
     CLOSE,
 }
-export enum Response {
+enum Response {
     INVALID,
     OK,
     CANCEL,
@@ -35,7 +37,7 @@ export interface App_ConstructProps extends GObject.Object_ConstructProps {
     screen?: Gdk.Screen
     startup_id?: string
 }
-export class App {
+class App {
     /* Properties of Unique-3.0.Unique.App */
     readonly is_running: boolean
     screen: Gdk.Screen
@@ -102,7 +104,7 @@ export class App {
 }
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Fields of Unique-3.0.Unique.Backend */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -165,21 +167,21 @@ export class Backend {
     static create(): Backend
     static $gtype: GObject.Type
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of Unique-3.0.Unique.AppClass */
     message_received: (app: App, command: number, message_data: MessageData, time_: number) => Response
     static name: string
 }
-export class AppPrivate {
+class AppPrivate {
     static name: string
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     /* Fields of Unique-3.0.Unique.BackendClass */
     request_name: (backend: Backend) => boolean
     send_message: (backend: Backend, command_id: number, message_data: MessageData, time_: number) => Response
     static name: string
 }
-export class MessageData {
+class MessageData {
     /* Methods of Unique-3.0.Unique.MessageData */
     copy(): MessageData
     free(): void
@@ -200,3 +202,5 @@ export class MessageData {
     /* Static methods and pseudo-constructors */
     static new(): MessageData
 }
+}
+export default Unique

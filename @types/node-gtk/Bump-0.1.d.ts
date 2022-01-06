@@ -8,14 +8,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gee } from './Gee-0.8';
 
-export declare namespace Bump {
+declare namespace Bump {
 
-export interface Callback {
+interface Callback {
     (gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify): object | null
 }
 export interface Queue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Queue {
+class Queue {
     /* Properties of Bump-0.1.Bump.Queue */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -70,7 +70,7 @@ export class Queue {
 }
 export interface Threading_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Threading {
+class Threading {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Bump-0.1.Bump.Threading */
@@ -129,7 +129,7 @@ export interface AsyncPriorityQueue_ConstructProps extends Gee.PriorityQueue_Con
     gDestroyFunc?: GLib.DestroyNotify
     waitingThreads?: number
 }
-export class AsyncPriorityQueue {
+class AsyncPriorityQueue {
     /* Properties of Bump-0.1.Bump.AsyncPriorityQueue */
     waitingThreads: number
     /* Properties of Gee-0.8.Gee.AbstractQueue */
@@ -263,7 +263,7 @@ export interface Claim_ConstructProps extends GObject.Object_ConstructProps {
     timeAcquired?: number
     timeReleased?: number
 }
-export class Claim {
+class Claim {
     /* Properties of Bump-0.1.Bump.Claim */
     readonly active: boolean
     timeAcquired: number
@@ -354,7 +354,7 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     autoReset?: boolean
     triggered?: boolean
 }
-export class Event {
+class Event {
     /* Properties of Bump-0.1.Bump.Event */
     triggered: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -423,7 +423,7 @@ export interface Factory_ConstructProps extends GObject.Object_ConstructProps {
     gDupFunc?: GObject.BoxedCopyFunc
     gDestroyFunc?: GLib.DestroyNotify
 }
-export class Factory {
+class Factory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Bump-0.1.Bump.Factory */
@@ -485,7 +485,7 @@ export interface Lazy_ConstructProps extends Factory_ConstructProps {
     tDestroyFunc?: GLib.DestroyNotify
     pool?: TaskQueue
 }
-export class Lazy {
+class Lazy {
     /* Properties of Bump-0.1.Bump.Lazy */
     readonly value: object
     readonly isInitialized: boolean
@@ -566,7 +566,7 @@ export interface ResourceClaim_ConstructProps extends Claim_ConstructProps {
     tDestroyFunc?: GLib.DestroyNotify
     pool?: ResourcePool
 }
-export class ResourceClaim {
+class ResourceClaim {
     /* Properties of Bump-0.1.Bump.ResourceClaim */
     readonly resource: object
     /* Properties of Bump-0.1.Bump.Claim */
@@ -665,7 +665,7 @@ export interface ResourcePool_ConstructProps extends Factory_ConstructProps {
     numResources?: number
     pool?: TaskQueue
 }
-export class ResourcePool {
+class ResourcePool {
     /* Properties of Bump-0.1.Bump.ResourcePool */
     maxIdleTime: GLib.TimeSpan
     numResources: number
@@ -770,7 +770,7 @@ export interface Semaphore_ConstructProps extends TaskQueue_ConstructProps {
     claims?: number
     pool?: TaskQueue
 }
-export class Semaphore {
+class Semaphore {
     /* Properties of Bump-0.1.Bump.Semaphore */
     claims: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -846,7 +846,7 @@ export class Semaphore {
 export interface SemaphoreClaim_ConstructProps extends Claim_ConstructProps {
     semaphore?: Semaphore
 }
-export class SemaphoreClaim {
+class SemaphoreClaim {
     /* Properties of Bump-0.1.Bump.Claim */
     readonly active: boolean
     timeAcquired: number
@@ -927,7 +927,7 @@ export class SemaphoreClaim {
 }
 export interface TaskQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TaskQueue {
+class TaskQueue {
     /* Properties of Bump-0.1.Bump.Queue */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1001,13 +1001,13 @@ export class TaskQueue {
     static getGlobal(): TaskQueue
     static $gtype: GObject.Type
 }
-export abstract class AsyncPriorityQueueClass {
+abstract class AsyncPriorityQueueClass {
     static name: string
 }
-export class AsyncPriorityQueuePrivate {
+class AsyncPriorityQueuePrivate {
     static name: string
 }
-export abstract class ClaimClass {
+abstract class ClaimClass {
     /* Fields of Bump-0.1.Bump.ClaimClass */
     release: () => void
     init: (cancellable?: Gio.Cancellable | null) => boolean
@@ -1015,16 +1015,16 @@ export abstract class ClaimClass {
     initFinish: (res: Gio.AsyncResult) => boolean
     static name: string
 }
-export class ClaimPrivate {
+class ClaimPrivate {
     static name: string
 }
-export abstract class EventClass {
+abstract class EventClass {
     static name: string
 }
-export class EventPrivate {
+class EventPrivate {
     static name: string
 }
-export abstract class FactoryClass {
+abstract class FactoryClass {
     /* Fields of Bump-0.1.Bump.FactoryClass */
     create: (priority: number, cancellable?: Gio.Cancellable | null) => object | null
     createAsync: (priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -1038,46 +1038,46 @@ export abstract class FactoryClass {
     acquireBackgroundFinish: (res: Gio.AsyncResult) => object | null
     static name: string
 }
-export class FactoryPrivate {
+class FactoryPrivate {
     static name: string
 }
-export abstract class LazyClass {
+abstract class LazyClass {
     static name: string
 }
-export class LazyPrivate {
+class LazyPrivate {
     static name: string
 }
-export abstract class ResourceClaimClass {
+abstract class ResourceClaimClass {
     static name: string
 }
-export class ResourceClaimPrivate {
+class ResourceClaimPrivate {
     static name: string
 }
-export abstract class ResourcePoolClass {
+abstract class ResourcePoolClass {
     /* Fields of Bump-0.1.Bump.ResourcePoolClass */
     release: (resource?: object | null) => void
     static name: string
 }
-export class ResourcePoolPrivate {
+class ResourcePoolPrivate {
     static name: string
 }
-export abstract class SemaphoreClass {
+abstract class SemaphoreClass {
     /* Fields of Bump-0.1.Bump.SemaphoreClass */
     claim: (priority: number, cancellable?: Gio.Cancellable | null) => SemaphoreClaim
     claimAsync: (priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     claimFinish: (res: Gio.AsyncResult) => SemaphoreClaim
     static name: string
 }
-export class SemaphorePrivate {
+class SemaphorePrivate {
     static name: string
 }
-export abstract class SemaphoreClaimClass {
+abstract class SemaphoreClaimClass {
     static name: string
 }
-export class SemaphoreClaimPrivate {
+class SemaphoreClaimPrivate {
     static name: string
 }
-export abstract class TaskQueueClass {
+abstract class TaskQueueClass {
     /* Fields of Bump-0.1.Bump.TaskQueueClass */
     spawn: (max: number) => number
     add: (task: GLib.SourceFunc, priority: number, cancellable?: Gio.Cancellable | null) => void
@@ -1089,18 +1089,19 @@ export abstract class TaskQueueClass {
     executeBackgroundFinish: (gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, res: Gio.AsyncResult) => object | null
     static name: string
 }
-export class TaskQueuePrivate {
+class TaskQueuePrivate {
     static name: string
 }
-export abstract class QueueIface {
+abstract class QueueIface {
     /* Fields of Bump-0.1.Bump.QueueIface */
     process: (wait: GLib.TimeSpan) => boolean
     getLength: () => number
     static name: string
 }
-export abstract class ThreadingIface {
+abstract class ThreadingIface {
     /* Fields of Bump-0.1.Bump.ThreadingIface */
     spawn: (maxNewThreads: number) => number
     static name: string
 }
 }
+export default Bump

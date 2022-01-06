@@ -18,7 +18,8 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace XdpGtk4 {
+declare namespace XdpGtk4 {
 
-export function parentNewGtk(window: Gtk.Window): Xdp.Parent
+function parentNewGtk(window: Gtk.Window): Xdp.Parent
 }
+export default XdpGtk4

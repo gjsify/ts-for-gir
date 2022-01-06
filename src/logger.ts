@@ -12,7 +12,7 @@ export class Logger {
         private readonly verbose: boolean,
         private readonly moduleName: string,
     ) {}
-    private static prepend(args: any[], prepend: string): any[] {
+    private static prepend(args: unknown[], prepend: string): unknown[] {
         if (typeof args[0] === 'string') {
             args[0] = `${prepend}${args[0]}`
         }
@@ -23,7 +23,7 @@ export class Logger {
      * @param args
      * @param logLevel
      */
-    private prependInfos(args: any[], logLevel?: 'WARN:' | 'ERROR:' | 'INFO:' | 'DEBUG:'): any[] {
+    private prependInfos(args: unknown[], logLevel?: 'WARN:' | 'ERROR:' | 'INFO:' | 'DEBUG:'): unknown[] {
         if (logLevel || this.moduleName.length > 0 || this.environment.length > 0) {
             args = Logger.prepend(args, ' ')
         }
@@ -44,13 +44,13 @@ export class Logger {
         return args
     }
 
-    public log(...args: any[]): void {
+    public log(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         return console.log(...args)
     }
-    public dir(...args: any[]): void {
+    public dir(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
@@ -59,70 +59,70 @@ export class Logger {
         })
         return
     }
-    public info(...args: any[]): void {
+    public info(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         return console.info(chalk.blue(...args))
     }
-    public warn(...args: any[]): void {
+    public warn(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         args = this.prependInfos(args, 'WARN:')
         return console.warn(chalk.yellow(...args))
     }
-    public debug(...args: any[]): void {
+    public debug(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         args = this.prependInfos(args, 'DEBUG:')
         return console.debug(chalk.yellowBright(...args))
     }
-    public error(...args: any[]): void {
+    public error(...args: unknown[]): void {
         args = this.prependInfos(args, 'ERROR:')
         return this.danger(args)
     }
-    public success(...args: any[]): void {
+    public success(...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
         console.log(chalk.green(...args))
     }
-    public danger(...args: any[]): void {
+    public danger(...args: unknown[]): void {
         console.log(chalk.red(...args))
     }
 
     // Static versions (Here it must be ensured that Verbose is activated)
-    public static log(...args: any[]): void {
+    public static log(...args: unknown[]): void {
         return console.log(...args)
     }
-    public static dir(...args: any[]): void {
+    public static dir(...args: unknown[]): void {
         args.forEach((arg) => {
             console.dir(arg)
         })
         return
     }
-    public static info(...args: any[]): void {
+    public static info(...args: unknown[]): void {
         args = this.prepend(args, 'INFO: ')
         return console.info(chalk.blue(...args))
     }
-    public static warn(...args: any[]): void {
+    public static warn(...args: unknown[]): void {
         args = this.prepend(args, 'WARN: ')
         return console.warn(chalk.yellow(...args))
     }
-    public static debug(...args: any[]): void {
+    public static debug(...args: unknown[]): void {
         args = this.prepend(args, 'DEBUG: ')
         return console.debug(chalk.yellowBright(...args))
     }
-    public static error(...args: any[]): void {
+    public static error(...args: unknown[]): void {
         args = this.prepend(args, 'ERROR: ')
         return this.danger(args)
     }
-    public static success(...args: any[]): void {
+    public static success(...args: unknown[]): void {
         console.log(chalk.green(...args))
     }
-    public static danger(...args: any[]): void {
+    public static danger(...args: unknown[]): void {
         console.log(chalk.red(...args))
     }
 }

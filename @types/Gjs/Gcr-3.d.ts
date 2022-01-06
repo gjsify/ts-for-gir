@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gck from './Gck-1';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gck from './Gck-1';
 
-export enum CertificateChainStatus {
+export namespace Gcr {
+
+enum CertificateChainStatus {
     UNKNOWN,
     INCOMPLETE,
     DISTRUSTED,
@@ -16,16 +18,16 @@ export enum CertificateChainStatus {
     PINNED,
     ANCHORED,
 }
-export enum CertificateRequestFormat {
+enum CertificateRequestFormat {
     CERTIFICATE_REQUEST_PKCS10,
 }
-export enum DataError {
+enum DataError {
     FAILURE,
     UNRECOGNIZED,
     CANCELLED,
     LOCKED,
 }
-export enum DataFormat {
+enum DataFormat {
     ALL,
     INVALID,
     DER_PRIVATE_KEY,
@@ -58,22 +60,22 @@ export enum DataFormat {
     PEM_PRIVATE_KEY_EC,
     PEM_PUBLIC_KEY,
 }
-export enum PromptReply {
+enum PromptReply {
     CANCEL,
     CONTINUE,
 }
-export enum SystemPromptError {
+enum SystemPromptError {
     SYSTEM_PROMPT_IN_PROGRESS,
 }
-export enum SystemPrompterMode {
+enum SystemPrompterMode {
     SINGLE,
     MULTIPLE,
 }
-export enum CertificateChainFlags {
+enum CertificateChainFlags {
     NONE,
     NO_LOOKUPS,
 }
-export enum ColumnFlags {
+enum ColumnFlags {
     NONE,
     HIDDEN,
     SORTABLE,
@@ -97,55 +99,55 @@ export const UNLOCK_OPTION_ALWAYS: string
 export const UNLOCK_OPTION_IDLE: string
 export const UNLOCK_OPTION_SESSION: string
 export const UNLOCK_OPTION_TIMEOUT: string
-export function certificate_compare(first?: Comparable | null, other?: Comparable | null): number
-export function data_error_get_domain(): GLib.Quark
-export function fingerprint_from_attributes(attrs: Gck.Attributes, checksum_type: GLib.ChecksumType): Uint8Array[] | null
-export function fingerprint_from_subject_public_key_info(key_info: Uint8Array[], checksum_type: GLib.ChecksumType): Uint8Array[] | null
-export function icon_for_token(token_info: Gck.TokenInfo): Gio.Icon
-export function importer_create_for_parsed(parsed: Parsed): Importer[]
-export function importer_queue_and_filter_for_parsed(importers: Importer[], parsed: Parsed): Importer[]
-export function importer_register(importer_type: GObject.Type, attrs: Gck.Attributes): void
-export function importer_register_well_known(): void
-export function mock_prompter_disconnect(): void
-export function mock_prompter_expect_close(): void
-export function mock_prompter_expect_confirm_cancel(): void
-export function mock_prompter_expect_password_cancel(): void
-export function mock_prompter_get_delay_msec(): number
-export function mock_prompter_is_expecting(): boolean
-export function mock_prompter_is_prompting(): boolean
-export function mock_prompter_set_delay_msec(delay_msec: number): void
-export function mock_prompter_start(): string
-export function mock_prompter_stop(): void
-export function parsed_unref(parsed?: object | null): void
-export function pkcs11_add_module(module: Gck.Module): void
-export function pkcs11_add_module_from_file(module_path: string, unused?: object | null): boolean
-export function pkcs11_get_modules(): Gck.Module[]
-export function pkcs11_get_trust_lookup_slots(): Gck.Slot[]
-export function pkcs11_get_trust_lookup_uris(): string[] | null
-export function pkcs11_get_trust_store_slot(): Gck.Slot | null
-export function pkcs11_get_trust_store_uri(): string | null
-export function pkcs11_initialize(cancellable?: Gio.Cancellable | null): boolean
-export function pkcs11_initialize_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function pkcs11_initialize_finish(result: Gio.AsyncResult): boolean
-export function pkcs11_set_modules(modules: Gck.Module[]): void
-export function pkcs11_set_trust_lookup_uris(pkcs11_uris?: string | null): void
-export function pkcs11_set_trust_store_uri(pkcs11_uri?: string | null): void
-export function trust_add_pinned_certificate(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
-export function trust_add_pinned_certificate_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function trust_add_pinned_certificate_finish(result: Gio.AsyncResult): boolean
-export function trust_is_certificate_anchored(certificate: Certificate, purpose: string, cancellable?: Gio.Cancellable | null): boolean
-export function trust_is_certificate_anchored_async(certificate: Certificate, purpose: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function trust_is_certificate_anchored_finish(result: Gio.AsyncResult): boolean
-export function trust_is_certificate_pinned(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
-export function trust_is_certificate_pinned_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function trust_is_certificate_pinned_finish(result: Gio.AsyncResult): boolean
-export function trust_remove_pinned_certificate(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
-export function trust_remove_pinned_certificate_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function trust_remove_pinned_certificate_finish(result: Gio.AsyncResult): boolean
-export interface FilterCollectionFunc {
+function certificate_compare(first?: Comparable | null, other?: Comparable | null): number
+function data_error_get_domain(): GLib.Quark
+function fingerprint_from_attributes(attrs: Gck.Attributes, checksum_type: GLib.ChecksumType): Uint8Array[] | null
+function fingerprint_from_subject_public_key_info(key_info: Uint8Array[], checksum_type: GLib.ChecksumType): Uint8Array[] | null
+function icon_for_token(token_info: Gck.TokenInfo): Gio.Icon
+function importer_create_for_parsed(parsed: Parsed): Importer[]
+function importer_queue_and_filter_for_parsed(importers: Importer[], parsed: Parsed): Importer[]
+function importer_register(importer_type: GObject.Type, attrs: Gck.Attributes): void
+function importer_register_well_known(): void
+function mock_prompter_disconnect(): void
+function mock_prompter_expect_close(): void
+function mock_prompter_expect_confirm_cancel(): void
+function mock_prompter_expect_password_cancel(): void
+function mock_prompter_get_delay_msec(): number
+function mock_prompter_is_expecting(): boolean
+function mock_prompter_is_prompting(): boolean
+function mock_prompter_set_delay_msec(delay_msec: number): void
+function mock_prompter_start(): string
+function mock_prompter_stop(): void
+function parsed_unref(parsed?: object | null): void
+function pkcs11_add_module(module: Gck.Module): void
+function pkcs11_add_module_from_file(module_path: string, unused?: object | null): boolean
+function pkcs11_get_modules(): Gck.Module[]
+function pkcs11_get_trust_lookup_slots(): Gck.Slot[]
+function pkcs11_get_trust_lookup_uris(): string[] | null
+function pkcs11_get_trust_store_slot(): Gck.Slot | null
+function pkcs11_get_trust_store_uri(): string | null
+function pkcs11_initialize(cancellable?: Gio.Cancellable | null): boolean
+function pkcs11_initialize_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function pkcs11_initialize_finish(result: Gio.AsyncResult): boolean
+function pkcs11_set_modules(modules: Gck.Module[]): void
+function pkcs11_set_trust_lookup_uris(pkcs11_uris?: string | null): void
+function pkcs11_set_trust_store_uri(pkcs11_uri?: string | null): void
+function trust_add_pinned_certificate(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
+function trust_add_pinned_certificate_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function trust_add_pinned_certificate_finish(result: Gio.AsyncResult): boolean
+function trust_is_certificate_anchored(certificate: Certificate, purpose: string, cancellable?: Gio.Cancellable | null): boolean
+function trust_is_certificate_anchored_async(certificate: Certificate, purpose: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function trust_is_certificate_anchored_finish(result: Gio.AsyncResult): boolean
+function trust_is_certificate_pinned(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
+function trust_is_certificate_pinned_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function trust_is_certificate_pinned_finish(result: Gio.AsyncResult): boolean
+function trust_remove_pinned_certificate(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null): boolean
+function trust_remove_pinned_certificate_async(certificate: Certificate, purpose: string, peer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function trust_remove_pinned_certificate_finish(result: Gio.AsyncResult): boolean
+interface FilterCollectionFunc {
     (object: GObject.Object): boolean
 }
-export class Certificate {
+class Certificate {
     /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
@@ -187,7 +189,7 @@ export class Certificate {
     /* Static methods and pseudo-constructors */
     static compare(first?: Comparable | null, other?: Comparable | null): number
 }
-export class Collection {
+class Collection {
     /* Methods of Gcr-3.Gcr.Collection */
     contains(object: GObject.Object): boolean
     emit_added(object: GObject.Object): void
@@ -209,7 +211,7 @@ export class Collection {
     emit(sigName: "removed", object: GObject.Object): void
     static name: string
 }
-export class Comparable {
+class Comparable {
     /* Methods of Gcr-3.Gcr.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of Gcr-3.Gcr.Comparable */
@@ -218,7 +220,7 @@ export class Comparable {
 }
 export interface ImportInteraction_ConstructProps extends Gio.TlsInteraction_ConstructProps {
 }
-export class ImportInteraction {
+class ImportInteraction {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gcr-3.Gcr.ImportInteraction */
@@ -290,7 +292,7 @@ export class ImportInteraction {
     _init (config?: ImportInteraction_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Importer {
+class Importer {
     /* Properties of Gcr-3.Gcr.Importer */
     readonly icon: Gio.Icon
     interaction: Gio.TlsInteraction
@@ -315,7 +317,7 @@ export class Importer {
     static register(importer_type: GObject.Type, attrs: Gck.Attributes): void
     static register_well_known(): void
 }
-export class Prompt {
+class Prompt {
     /* Properties of Gcr-3.Gcr.Prompt */
     caller_window: string
     cancel_label: string
@@ -374,7 +376,7 @@ export class Prompt {
 }
 export interface CertificateChain_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CertificateChain {
+class CertificateChain {
     /* Properties of Gcr-3.Gcr.CertificateChain */
     readonly length: number
     /* Fields of Gcr-3.Gcr.CertificateChain */
@@ -441,7 +443,7 @@ export class CertificateChain {
 export interface CertificateRequest_ConstructProps extends GObject.Object_ConstructProps {
     private_key?: Gck.Object
 }
-export class CertificateRequest {
+class CertificateRequest {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gcr-3.Gcr.CertificateRequest */
@@ -503,7 +505,7 @@ export class CertificateRequest {
 export interface FilterCollection_ConstructProps extends GObject.Object_ConstructProps {
     underlying?: Collection
 }
-export class FilterCollection {
+class FilterCollection {
     /* Fields of Gcr-3.Gcr.FilterCollection */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -578,7 +580,7 @@ export class FilterCollection {
 }
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Parser {
+class Parser {
     /* Properties of Gcr-3.Gcr.Parser */
     readonly parsed_attributes: Gck.Attributes
     readonly parsed_description: string
@@ -670,7 +672,7 @@ export class Parser {
 export interface Pkcs11Certificate_ConstructProps extends Gck.Object_ConstructProps {
     attributes?: Gck.Attributes
 }
-export class Pkcs11Certificate {
+class Pkcs11Certificate {
     /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
@@ -805,7 +807,7 @@ export class Pkcs11Certificate {
 export interface SecretExchange_ConstructProps extends GObject.Object_ConstructProps {
     protocol?: string
 }
-export class SecretExchange {
+class SecretExchange {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gcr-3.Gcr.SecretExchange */
@@ -864,7 +866,7 @@ export class SecretExchange {
 }
 export interface SimpleCertificate_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleCertificate {
+class SimpleCertificate {
     /* Properties of Gcr-3.Gcr.Certificate */
     readonly description: string
     readonly expiry: GLib.Date
@@ -967,7 +969,7 @@ export class SimpleCertificate {
 }
 export interface SimpleCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleCollection {
+class SimpleCollection {
     /* Fields of Gcr-3.Gcr.SimpleCollection */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1042,7 +1044,7 @@ export class SimpleCollection {
 export interface SshAskpass_ConstructProps extends GObject.Object_ConstructProps {
     interaction?: Gio.TlsInteraction
 }
-export class SshAskpass {
+class SshAskpass {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gcr-3.Gcr.SshAskpass */
@@ -1108,7 +1110,7 @@ export interface SystemPrompt_ConstructProps extends GObject.Object_ConstructPro
     title?: string
     warning?: string
 }
-export class SystemPrompt {
+class SystemPrompt {
     /* Properties of Gcr-3.Gcr.SystemPrompt */
     secret_exchange: SecretExchange
     /* Properties of Gcr-3.Gcr.Prompt */
@@ -1262,7 +1264,7 @@ export class SystemPrompt {
 export interface SystemPrompter_ConstructProps extends GObject.Object_ConstructProps {
     prompt_type?: GObject.Type
 }
-export class SystemPrompter {
+class SystemPrompter {
     /* Properties of Gcr-3.Gcr.SystemPrompter */
     readonly prompting: boolean
     /* Fields of Gcr-3.Gcr.SystemPrompter */
@@ -1328,7 +1330,7 @@ export class SystemPrompter {
 }
 export interface UnionCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UnionCollection {
+class UnionCollection {
     /* Fields of Gcr-3.Gcr.UnionCollection */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1404,26 +1406,26 @@ export class UnionCollection {
     static new(): UnionCollection
     static $gtype: GObject.Type
 }
-export abstract class CertificateChainClass {
+abstract class CertificateChainClass {
     /* Fields of Gcr-3.Gcr.CertificateChainClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CertificateChainPrivate {
+class CertificateChainPrivate {
     static name: string
 }
-export abstract class CertificateIface {
+abstract class CertificateIface {
     /* Fields of Gcr-3.Gcr.CertificateIface */
     parent: GObject.TypeInterface
     get_der_data: (self: Certificate) => Uint8Array[]
     static name: string
 }
-export abstract class CertificateRequestClass {
+abstract class CertificateRequestClass {
     /* Fields of Gcr-3.Gcr.CertificateRequestClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CollectionIface {
+abstract class CollectionIface {
     /* Fields of Gcr-3.Gcr.CollectionIface */
     parent: GObject.TypeInterface
     added: (self: Collection, object: GObject.Object) => void
@@ -1433,7 +1435,7 @@ export abstract class CollectionIface {
     contains: (self: Collection, object: GObject.Object) => boolean
     static name: string
 }
-export class Column {
+class Column {
     /* Fields of Gcr-3.Gcr.Column */
     property_name: string
     property_type: GObject.Type
@@ -1444,21 +1446,21 @@ export class Column {
     user_data: object
     static name: string
 }
-export abstract class ComparableIface {
+abstract class ComparableIface {
     /* Fields of Gcr-3.Gcr.ComparableIface */
     parent: GObject.TypeInterface
     compare: (self: Comparable, other?: Comparable | null) => number
     static name: string
 }
-export abstract class FilterCollectionClass {
+abstract class FilterCollectionClass {
     /* Fields of Gcr-3.Gcr.FilterCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class FilterCollectionPrivate {
+class FilterCollectionPrivate {
     static name: string
 }
-export abstract class ImportInteractionIface {
+abstract class ImportInteractionIface {
     /* Fields of Gcr-3.Gcr.ImportInteractionIface */
     parent: GObject.TypeInterface
     supplement_prep: (interaction: ImportInteraction, builder: Gck.Builder) => void
@@ -1467,7 +1469,7 @@ export abstract class ImportInteractionIface {
     supplement_finish: (interaction: ImportInteraction, result: Gio.AsyncResult) => Gio.TlsInteractionResult
     static name: string
 }
-export abstract class ImporterIface {
+abstract class ImporterIface {
     /* Fields of Gcr-3.Gcr.ImporterIface */
     parent: GObject.TypeInterface
     queue_for_parsed: (importer: Importer, parsed: Parsed) => boolean
@@ -1476,7 +1478,7 @@ export abstract class ImporterIface {
     import_finish: (importer: Importer, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export class Parsed {
+class Parsed {
     /* Methods of Gcr-3.Gcr.Parsed */
     get_attributes(): Gck.Attributes | null
     get_bytes(): GLib.Bytes
@@ -1490,23 +1492,23 @@ export class Parsed {
     /* Static methods and pseudo-constructors */
     static unref(parsed?: object | null): void
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     /* Fields of Gcr-3.Gcr.ParserClass */
     parent_class: GObject.ObjectClass
     authenticate: (self: Parser, count: number) => boolean
     parsed: (self: Parser) => void
     static name: string
 }
-export class ParserPrivate {
+class ParserPrivate {
     static name: string
 }
-export abstract class Pkcs11CertificateClass {
+abstract class Pkcs11CertificateClass {
     static name: string
 }
-export class Pkcs11CertificatePrivate {
+class Pkcs11CertificatePrivate {
     static name: string
 }
-export abstract class PromptIface {
+abstract class PromptIface {
     /* Fields of Gcr-3.Gcr.PromptIface */
     parent_iface: GObject.TypeInterface
     prompt_password_async: (prompt: Prompt, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -1516,57 +1518,59 @@ export abstract class PromptIface {
     prompt_close: (prompt: Prompt) => void
     static name: string
 }
-export abstract class SecretExchangeClass {
+abstract class SecretExchangeClass {
     /* Fields of Gcr-3.Gcr.SecretExchangeClass */
     generate_exchange_key: (exchange: SecretExchange, scheme: string, public_key: number, n_public_key: number) => boolean
     derive_transport_key: (exchange: SecretExchange, peer: number, n_peer: number) => boolean
     static name: string
 }
-export class SecretExchangePrivate {
+class SecretExchangePrivate {
     static name: string
 }
-export abstract class SimpleCertificateClass {
+abstract class SimpleCertificateClass {
     /* Fields of Gcr-3.Gcr.SimpleCertificateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SimpleCertificatePrivate {
+class SimpleCertificatePrivate {
     static name: string
 }
-export abstract class SimpleCollectionClass {
+abstract class SimpleCollectionClass {
     /* Fields of Gcr-3.Gcr.SimpleCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SimpleCollectionPrivate {
+class SimpleCollectionPrivate {
     static name: string
 }
-export abstract class SshAskpassClass {
+abstract class SshAskpassClass {
     /* Fields of Gcr-3.Gcr.SshAskpassClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SystemPromptClass {
+abstract class SystemPromptClass {
     /* Fields of Gcr-3.Gcr.SystemPromptClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SystemPromptPrivate {
+class SystemPromptPrivate {
     static name: string
 }
-export abstract class SystemPrompterClass {
+abstract class SystemPrompterClass {
     /* Fields of Gcr-3.Gcr.SystemPrompterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SystemPrompterPrivate {
+class SystemPrompterPrivate {
     static name: string
 }
-export abstract class UnionCollectionClass {
+abstract class UnionCollectionClass {
     /* Fields of Gcr-3.Gcr.UnionCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class UnionCollectionPrivate {
+class UnionCollectionPrivate {
     static name: string
 }
+}
+export default Gcr

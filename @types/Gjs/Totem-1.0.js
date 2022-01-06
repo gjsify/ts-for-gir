@@ -1,2 +1,1 @@
-imports.gi.versions.Totem = '1.0'
-module.exports = imports.gi.Totem
+export {default as default} from 'gi://Totem?version=1.0';

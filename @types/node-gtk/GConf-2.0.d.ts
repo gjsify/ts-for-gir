@@ -6,19 +6,19 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GConf {
+declare namespace GConf {
 
-export enum ClientErrorHandlingMode {
+enum ClientErrorHandlingMode {
     HANDLE_NONE,
     HANDLE_UNRETURNED,
     HANDLE_ALL,
 }
-export enum ClientPreloadType {
+enum ClientPreloadType {
     PRELOAD_NONE,
     PRELOAD_ONELEVEL,
     PRELOAD_RECURSIVE,
 }
-export enum Error {
+enum Error {
     SUCCESS,
     FAILED,
     NO_SERVER,
@@ -37,7 +37,7 @@ export enum Error {
     NO_WRITABLE_DATABASE,
     IN_SHUTDOWN,
 }
-export enum ValueType {
+enum ValueType {
     INVALID,
     STRING,
     INT,
@@ -47,42 +47,42 @@ export enum ValueType {
     LIST,
     PAIR,
 }
-export enum UnsetFlags {
+enum UnsetFlags {
     NAMES,
 }
-export function concatDirAndKey(dir: string, key: string): string
-export function debugShutdown(): number
-export function enumToString(lookupTable: EnumStringPair, enumValue: number): string
-export function errorQuark(): GLib.Quark
-export function escapeKey(arbitraryText: string, len: number): string
-export function init(argc: number, argv: string): boolean
-export function isInitialized(): boolean
-export function keyIsBelow(above: string, below: string): boolean
-export function postinit(app?: object | null, modInfo?: object | null): void
-export function preinit(app?: object | null, modInfo?: object | null): void
-export function stringToEnum(lookupTable: EnumStringPair, str: string, enumValueRetloc: number): boolean
-export function unescapeKey(escapedKey: string, len: number): string
-export function uniqueKey(): string
-export function validKey(key: string, whyInvalid: string): boolean
-export function valueDecode(encoded: string): Value
-export interface ChangeSetForeachFunc {
+function concatDirAndKey(dir: string, key: string): string
+function debugShutdown(): number
+function enumToString(lookupTable: EnumStringPair, enumValue: number): string
+function errorQuark(): GLib.Quark
+function escapeKey(arbitraryText: string, len: number): string
+function init(argc: number, argv: string): boolean
+function isInitialized(): boolean
+function keyIsBelow(above: string, below: string): boolean
+function postinit(app?: object | null, modInfo?: object | null): void
+function preinit(app?: object | null, modInfo?: object | null): void
+function stringToEnum(lookupTable: EnumStringPair, str: string, enumValueRetloc: number): boolean
+function unescapeKey(escapedKey: string, len: number): string
+function uniqueKey(): string
+function validKey(key: string, whyInvalid: string): boolean
+function valueDecode(encoded: string): Value
+interface ChangeSetForeachFunc {
     (cs: ChangeSet, key: string, value: Value): void
 }
-export interface ClientErrorHandlerFunc {
+interface ClientErrorHandlerFunc {
     (client: Client, error: GLib.Error): void
 }
-export interface ClientNotifyFunc {
+interface ClientNotifyFunc {
     (client: Client, cnxnId: number, entry: Entry): void
 }
-export interface ListenersForeach {
+interface ListenersForeach {
     (location: string, cnxnId: number, listenerData?: object | null): void
 }
-export interface ListenersPredicate {
+interface ListenersPredicate {
     (location: string, cnxnId: number, listenerData?: object | null): boolean
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Fields of GConf-2.0.GConf.Client */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -182,7 +182,7 @@ export class Client {
     static getDefault(): Client
     static $gtype: GObject.Type
 }
-export class ChangeSet {
+class ChangeSet {
     /* Methods of GConf-2.0.GConf.ChangeSet */
     checkValue(key: string, valueRetloc: Value): boolean
     clear(): void
@@ -205,7 +205,7 @@ export class ChangeSet {
     /* Static methods and pseudo-constructors */
     static new(): ChangeSet
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GConf-2.0.GConf.ClientClass */
     parentClass: GObject.ObjectClass
     valueChanged: (client: Client, key: string, value: Value) => void
@@ -216,7 +216,7 @@ export abstract class ClientClass {
     pad3: GLib.Func
     static name: string
 }
-export class Engine {
+class Engine {
     /* Methods of GConf-2.0.GConf.Engine */
     allDirs(dir: string): string[]
     allEntries(dir: string): Entry[]
@@ -255,7 +255,7 @@ export class Engine {
     unset(key: string): boolean
     static name: string
 }
-export class Entry {
+class Entry {
     /* Fields of GConf-2.0.GConf.Entry */
     key: string
     value: Value
@@ -283,13 +283,13 @@ export class Entry {
     static new(key: string, val: Value): Entry
     static newNocopy(key: string, val: Value): Entry
 }
-export class EnumStringPair {
+class EnumStringPair {
     /* Fields of GConf-2.0.GConf.EnumStringPair */
     enumValue: number
     str: string
     static name: string
 }
-export class Listeners {
+class Listeners {
     /* Methods of GConf-2.0.GConf.Listeners */
     add(listenPoint: string, listenerData: object | null, destroyNotify: GLib.FreeFunc): number
     count(): number
@@ -301,7 +301,7 @@ export class Listeners {
     removeIf(predicate: ListenersPredicate): void
     static name: string
 }
-export class MetaInfo {
+class MetaInfo {
     /* Fields of GConf-2.0.GConf.MetaInfo */
     schema: string
     modUser: string
@@ -315,7 +315,7 @@ export class MetaInfo {
     setSchema(schemaName: string): void
     static name: string
 }
-export class Schema {
+class Schema {
     /* Methods of GConf-2.0.GConf.Schema */
     free(): void
     getCarType(): ValueType
@@ -339,7 +339,7 @@ export class Schema {
     setType(type: ValueType): void
     static name: string
 }
-export class Value {
+class Value {
     /* Fields of GConf-2.0.GConf.Value */
     type: ValueType
     /* Methods of GConf-2.0.GConf.Value */
@@ -374,3 +374,4 @@ export class Value {
     static decode(encoded: string): Value
 }
 }
+export default GConf

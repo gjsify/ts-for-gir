@@ -1,2 +1,1 @@
-imports.gi.versions.GnomeDesktop = '4.0'
-module.exports = imports.gi.GnomeDesktop
+export {default as default} from 'gi://GnomeDesktop?version=4.0';

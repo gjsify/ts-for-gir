@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AddressType {
+export namespace GMime {
+
+enum AddressType {
     SENDER,
     FROM,
     REPLY_TO,
@@ -15,11 +17,11 @@ export enum AddressType {
     CC,
     BCC,
 }
-export enum AutocryptPreferEncrypt {
+enum AutocryptPreferEncrypt {
     NONE,
     MUTUAL,
 }
-export enum CipherAlgo {
+enum CipherAlgo {
     DEFAULT,
     IDEA,
     /* 3DES (invalid, starts with a number) */
@@ -33,7 +35,7 @@ export enum CipherAlgo {
     CAMELLIA192,
     CAMELLIA256,
 }
-export enum ContentEncoding {
+enum ContentEncoding {
     DEFAULT,
     /* 7BIT (invalid, starts with a number) */
     /* 8BIT (invalid, starts with a number) */
@@ -42,7 +44,7 @@ export enum ContentEncoding {
     QUOTEDPRINTABLE,
     UUENCODE,
 }
-export enum DigestAlgo {
+enum DigestAlgo {
     DEFAULT,
     MD5,
     SHA1,
@@ -59,49 +61,49 @@ export enum DigestAlgo {
     CRC32_RFC1510,
     CRC32_RFC2440,
 }
-export enum EncodingConstraint {
+enum EncodingConstraint {
     /* 7BIT (invalid, starts with a number) */
     /* 8BIT (invalid, starts with a number) */
     BINARY,
 }
-export enum EncryptFlags {
+enum EncryptFlags {
     NONE,
     ALWAYS_TRUST,
     NO_COMPRESS,
     SYMMETRIC,
     THROW_KEYIDS,
 }
-export enum FilterFromMode {
+enum FilterFromMode {
     DEFAULT,
     ESCAPE,
     ARMOR,
 }
-export enum FilterGZipMode {
+enum FilterGZipMode {
     ZIP,
     UNZIP,
 }
-export enum Format {
+enum Format {
     MESSAGE,
     MBOX,
     MMDF,
 }
-export enum NewLineFormat {
+enum NewLineFormat {
     UNIX,
     DOS,
 }
-export enum OpenPGPData {
+enum OpenPGPData {
     NONE,
     ENCRYPTED,
     SIGNED,
     PUBLIC_KEY,
     PRIVATE_KEY,
 }
-export enum ParamEncodingMethod {
+enum ParamEncodingMethod {
     DEFAULT,
     RFC2231,
     RFC2047,
 }
-export enum ParserWarning {
+enum ParserWarning {
     WARN_DUPLICATED_HEADER,
     WARN_DUPLICATED_PARAMETER,
     WARN_UNENCODED_8BIT_HEADER,
@@ -120,7 +122,7 @@ export enum ParserWarning {
     WARN_PART_WITHOUT_CONTENT,
     CRIT_PART_WITHOUT_HEADERS_OR_CONTENT,
 }
-export enum PubKeyAlgo {
+enum PubKeyAlgo {
     DEFAULT,
     RSA,
     RSA_E,
@@ -133,23 +135,23 @@ export enum PubKeyAlgo {
     ECDH,
     EDDSA,
 }
-export enum RfcComplianceMode {
+enum RfcComplianceMode {
     LOOSE,
     STRICT,
 }
-export enum SecureMimeType {
+enum SecureMimeType {
     COMPRESSED_DATA,
     ENVELOPED_DATA,
     SIGNED_DATA,
     CERTS_ONLY,
     UNKNOWN,
 }
-export enum SeekWhence {
+enum SeekWhence {
     SET,
     CUR,
     END,
 }
-export enum SignatureStatus {
+enum SignatureStatus {
     VALID,
     GREEN,
     RED,
@@ -163,11 +165,11 @@ export enum SignatureStatus {
     SYS_ERROR,
     TOFU_CONFLICT,
 }
-export enum StreamBufferMode {
+enum StreamBufferMode {
     READ,
     WRITE,
 }
-export enum Trust {
+enum Trust {
     UNKNOWN,
     UNDEFINED,
     NEVER,
@@ -175,7 +177,7 @@ export enum Trust {
     FULL,
     ULTIMATE,
 }
-export enum Validity {
+enum Validity {
     UNKNOWN,
     UNDEFINED,
     NEVER,
@@ -183,18 +185,18 @@ export enum Validity {
     FULL,
     ULTIMATE,
 }
-export enum DecryptFlags {
+enum DecryptFlags {
     NONE,
     EXPORT_SESSION_KEY,
     NO_VERIFY,
     ENABLE_KEYSERVER_LOOKUPS,
     ENABLE_ONLINE_CERTIFICATE_CHECKS,
 }
-export enum FilterBestFlags {
+enum FilterBestFlags {
     CHARSET,
     ENCODING,
 }
-export enum OpenPGPState {
+enum OpenPGPState {
     NONE,
     BEGIN_PGP_MESSAGE,
     END_PGP_MESSAGE,
@@ -206,7 +208,7 @@ export enum OpenPGPState {
     BEGIN_PGP_PRIVATE_KEY_BLOCK,
     END_PGP_PRIVATE_KEY_BLOCK,
 }
-export enum VerifyFlags {
+enum VerifyFlags {
     NONE,
     ENABLE_KEYSERVER_LOOKUPS,
     ENABLE_ONLINE_CERTIFICATE_CHECKS,
@@ -242,75 +244,75 @@ export const YDECODE_STATE_INIT: number
 export const YDECODE_STATE_PART: number
 export const YENCODE_CRC_INIT: number
 export const YENCODE_STATE_INIT: number
-export function charset_best(inbuf: string, inlen: number): string | null
-export function charset_canon_name(charset: string): string
-export function charset_iconv_name(charset: string): string
-export function charset_iso_to_windows(isocharset: string): string
-export function charset_language(charset: string): string | null
-export function charset_locale_name(): string
-export function charset_map_init(): void
-export function charset_map_shutdown(): void
-export function charset_name(charset: string): string
-export function check_version(major: number, minor: number, micro: number): boolean
-export function content_encoding_from_string(str: string): ContentEncoding
-export function content_encoding_to_string(encoding: ContentEncoding): string
-export function encoding_base64_decode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_base64_encode_close(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_base64_encode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_quoted_decode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_quoted_encode_close(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_quoted_encode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_uudecode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
-export function encoding_uuencode_close(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
-export function encoding_uuencode_step(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
-export function format_options_get_default(): FormatOptions
-export function iconv_locale_to_utf8(str: string): string
-export function iconv_locale_to_utf8_length(str: string, n: number): string
-export function iconv_utf8_to_locale(str: string): string
-export function iconv_utf8_to_locale_length(str: string, n: number): string
-export function init(): void
-export function locale_charset(): string
-export function locale_language(): string | null
-export function parser_options_get_default(): ParserOptions
-export function references_parse(options: ParserOptions | null, text: string): References
-export function shutdown(): void
-export function utils_best_encoding(text: Uint8Array[]): ContentEncoding
-export function utils_decode_8bit(options: ParserOptions | null, text: Uint8Array[]): string
-export function utils_decode_message_id(message_id: string): string
-export function utils_generate_message_id(fqdn: string): string
-export function utils_header_decode_date(str: string): GLib.DateTime | null
-export function utils_header_decode_phrase(options: ParserOptions | null, phrase: string): string
-export function utils_header_decode_text(options: ParserOptions | null, text: string): string
-export function utils_header_encode_phrase(options: FormatOptions | null, phrase: string, charset?: string | null): string
-export function utils_header_encode_text(options: FormatOptions | null, text: string, charset?: string | null): string
-export function utils_header_format_date(date: GLib.DateTime): string
-export function utils_header_unfold(value: string): string
-export function utils_quote_string(str: string): string
-export function utils_structured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
-export function utils_text_is_8bit(text: Uint8Array[]): boolean
-export function utils_unquote_string(str: string): void
-export function utils_unstructured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
-export function ydecode_step(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
-export function yencode_close(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
-export function yencode_step(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
-export interface HeaderRawValueFormatter {
+function charset_best(inbuf: string, inlen: number): string | null
+function charset_canon_name(charset: string): string
+function charset_iconv_name(charset: string): string
+function charset_iso_to_windows(isocharset: string): string
+function charset_language(charset: string): string | null
+function charset_locale_name(): string
+function charset_map_init(): void
+function charset_map_shutdown(): void
+function charset_name(charset: string): string
+function check_version(major: number, minor: number, micro: number): boolean
+function content_encoding_from_string(str: string): ContentEncoding
+function content_encoding_to_string(encoding: ContentEncoding): string
+function encoding_base64_decode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_base64_encode_close(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_base64_encode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_quoted_decode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_quoted_encode_close(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_quoted_encode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_uudecode_step(inbuf: number, inlen: number, outbuf: number, state: number, save: number): number
+function encoding_uuencode_close(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
+function encoding_uuencode_step(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
+function format_options_get_default(): FormatOptions
+function iconv_locale_to_utf8(str: string): string
+function iconv_locale_to_utf8_length(str: string, n: number): string
+function iconv_utf8_to_locale(str: string): string
+function iconv_utf8_to_locale_length(str: string, n: number): string
+function init(): void
+function locale_charset(): string
+function locale_language(): string | null
+function parser_options_get_default(): ParserOptions
+function references_parse(options: ParserOptions | null, text: string): References
+function shutdown(): void
+function utils_best_encoding(text: Uint8Array[]): ContentEncoding
+function utils_decode_8bit(options: ParserOptions | null, text: Uint8Array[]): string
+function utils_decode_message_id(message_id: string): string
+function utils_generate_message_id(fqdn: string): string
+function utils_header_decode_date(str: string): GLib.DateTime | null
+function utils_header_decode_phrase(options: ParserOptions | null, phrase: string): string
+function utils_header_decode_text(options: ParserOptions | null, text: string): string
+function utils_header_encode_phrase(options: FormatOptions | null, phrase: string, charset?: string | null): string
+function utils_header_encode_text(options: FormatOptions | null, text: string, charset?: string | null): string
+function utils_header_format_date(date: GLib.DateTime): string
+function utils_header_unfold(value: string): string
+function utils_quote_string(str: string): string
+function utils_structured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
+function utils_text_is_8bit(text: Uint8Array[]): boolean
+function utils_unquote_string(str: string): void
+function utils_unstructured_header_fold(options: ParserOptions | null, format: FormatOptions | null, header: string): string
+function ydecode_step(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
+function yencode_close(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
+function yencode_step(inbuf: number, inlen: number, outbuf: number, state: number, pcrc: number, crc: number): number
+interface HeaderRawValueFormatter {
     (header: Header, options: FormatOptions, value: string, charset: string): string
 }
-export interface ObjectForeachFunc {
+interface ObjectForeachFunc {
     (parent: Object, part: Object): void
 }
-export interface ParserHeaderRegexFunc {
+interface ParserHeaderRegexFunc {
     (parser: Parser, header: string, value: string, offset: number): void
 }
-export interface ParserWarningFunc {
+interface ParserWarningFunc {
     (offset: number, errcode: ParserWarning, item: string): void
 }
-export interface PasswordRequestFunc {
+interface PasswordRequestFunc {
     (ctx: CryptoContext, user_id: string, prompt: string, reprompt: boolean, response: Stream): boolean
 }
 export interface ApplicationPkcs7Mime_ConstructProps extends Part_ConstructProps {
 }
-export class ApplicationPkcs7Mime {
+class ApplicationPkcs7Mime {
     /* Fields of GMime-3.0.GMime.ApplicationPkcs7Mime */
     parent_object: Part
     smime_type: SecureMimeType
@@ -440,7 +442,7 @@ export class ApplicationPkcs7Mime {
 }
 export interface AutocryptHeader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AutocryptHeader {
+class AutocryptHeader {
     /* Fields of GMime-3.0.GMime.AutocryptHeader */
     parent_object: GObject.Object
     address: InternetAddressMailbox
@@ -512,7 +514,7 @@ export class AutocryptHeader {
 }
 export interface AutocryptHeaderList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AutocryptHeaderList {
+class AutocryptHeaderList {
     /* Fields of GMime-3.0.GMime.AutocryptHeaderList */
     parent_object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -571,7 +573,7 @@ export class AutocryptHeaderList {
 }
 export interface Certificate_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Certificate {
+class Certificate {
     /* Fields of GMime-3.0.GMime.Certificate */
     parent_object: GObject.Object
     pubkey_algo: PubKeyAlgo
@@ -665,7 +667,7 @@ export class Certificate {
 }
 export interface CertificateList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CertificateList {
+class CertificateList {
     /* Fields of GMime-3.0.GMime.CertificateList */
     parent_object: GObject.Object
     array: object[]
@@ -729,7 +731,7 @@ export class CertificateList {
 }
 export interface ContentDisposition_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentDisposition {
+class ContentDisposition {
     /* Fields of GMime-3.0.GMime.ContentDisposition */
     parent_object: GObject.Object
     disposition: string
@@ -792,7 +794,7 @@ export class ContentDisposition {
 }
 export interface ContentType_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentType {
+class ContentType {
     /* Fields of GMime-3.0.GMime.ContentType */
     parent_object: GObject.Object
     type: string
@@ -859,7 +861,7 @@ export class ContentType {
 }
 export interface CryptoContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CryptoContext {
+class CryptoContext {
     /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
@@ -936,7 +938,7 @@ export class CryptoContext {
 }
 export interface DataWrapper_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataWrapper {
+class DataWrapper {
     /* Fields of GMime-3.0.GMime.DataWrapper */
     parent_object: GObject.Object
     encoding: ContentEncoding
@@ -999,7 +1001,7 @@ export class DataWrapper {
 }
 export interface DecryptResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DecryptResult {
+class DecryptResult {
     /* Fields of GMime-3.0.GMime.DecryptResult */
     parent_object: GObject.Object
     recipients: CertificateList
@@ -1067,7 +1069,7 @@ export class DecryptResult {
 }
 export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Filter {
+class Filter {
     /* Fields of GMime-3.0.GMime.Filter */
     parent_object: GObject.Object
     priv: object
@@ -1138,7 +1140,7 @@ export class Filter {
 }
 export interface FilterBasic_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterBasic {
+class FilterBasic {
     /* Fields of GMime-3.0.GMime.FilterBasic */
     parent_object: Filter
     encoder: Encoding
@@ -1213,7 +1215,7 @@ export class FilterBasic {
 }
 export interface FilterBest_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterBest {
+class FilterBest {
     /* Fields of GMime-3.0.GMime.FilterBest */
     parent_object: Filter
     flags: FilterBestFlags
@@ -1301,7 +1303,7 @@ export class FilterBest {
 }
 export interface FilterCharset_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterCharset {
+class FilterCharset {
     /* Fields of GMime-3.0.GMime.FilterCharset */
     parent_object: Filter
     from_charset: string
@@ -1377,7 +1379,7 @@ export class FilterCharset {
 }
 export interface FilterChecksum_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterChecksum {
+class FilterChecksum {
     /* Fields of GMime-3.0.GMime.FilterChecksum */
     parent_object: Filter
     checksum: GLib.Checksum
@@ -1455,7 +1457,7 @@ export class FilterChecksum {
 }
 export interface FilterDos2Unix_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterDos2Unix {
+class FilterDos2Unix {
     /* Fields of GMime-3.0.GMime.FilterDos2Unix */
     parent_object: Filter
     ensure_newline: boolean
@@ -1531,7 +1533,7 @@ export class FilterDos2Unix {
 }
 export interface FilterEnriched_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterEnriched {
+class FilterEnriched {
     /* Fields of GMime-3.0.GMime.FilterEnriched */
     parent_object: Filter
     flags: number
@@ -1607,7 +1609,7 @@ export class FilterEnriched {
 }
 export interface FilterFrom_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterFrom {
+class FilterFrom {
     /* Fields of GMime-3.0.GMime.FilterFrom */
     parent_object: Filter
     mode: FilterFromMode
@@ -1683,7 +1685,7 @@ export class FilterFrom {
 }
 export interface FilterGZip_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterGZip {
+class FilterGZip {
     /* Fields of GMime-3.0.GMime.FilterGZip */
     parent_object: Filter
     priv: object
@@ -1764,7 +1766,7 @@ export class FilterGZip {
 }
 export interface FilterHTML_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterHTML {
+class FilterHTML {
     /* Fields of GMime-3.0.GMime.FilterHTML */
     parent_object: Filter
     scanner: object
@@ -1844,7 +1846,7 @@ export class FilterHTML {
 }
 export interface FilterOpenPGP_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterOpenPGP {
+class FilterOpenPGP {
     /* Fields of GMime-3.0.GMime.FilterOpenPGP */
     parent_object: Filter
     /* Fields of GMime-3.0.GMime.Filter */
@@ -1922,7 +1924,7 @@ export class FilterOpenPGP {
 }
 export interface FilterSmtpData_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterSmtpData {
+class FilterSmtpData {
     /* Fields of GMime-3.0.GMime.FilterSmtpData */
     parent_object: Filter
     bol: boolean
@@ -1997,7 +1999,7 @@ export class FilterSmtpData {
 }
 export interface FilterStrip_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterStrip {
+class FilterStrip {
     /* Fields of GMime-3.0.GMime.FilterStrip */
     parent_object: Filter
     /* Fields of GMime-3.0.GMime.Filter */
@@ -2071,7 +2073,7 @@ export class FilterStrip {
 }
 export interface FilterUnix2Dos_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterUnix2Dos {
+class FilterUnix2Dos {
     /* Fields of GMime-3.0.GMime.FilterUnix2Dos */
     parent_object: Filter
     ensure_newline: boolean
@@ -2147,7 +2149,7 @@ export class FilterUnix2Dos {
 }
 export interface FilterWindows_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterWindows {
+class FilterWindows {
     /* Fields of GMime-3.0.GMime.FilterWindows */
     parent_object: Filter
     is_windows: boolean
@@ -2226,7 +2228,7 @@ export class FilterWindows {
 }
 export interface FilterYenc_ConstructProps extends Filter_ConstructProps {
 }
-export class FilterYenc {
+class FilterYenc {
     /* Fields of GMime-3.0.GMime.FilterYenc */
     parent_object: Filter
     encode: boolean
@@ -2310,7 +2312,7 @@ export class FilterYenc {
 }
 export interface GpgContext_ConstructProps extends CryptoContext_ConstructProps {
 }
-export class GpgContext {
+class GpgContext {
     /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
@@ -2388,7 +2390,7 @@ export class GpgContext {
 }
 export interface Header_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Header {
+class Header {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime-3.0.GMime.Header */
@@ -2452,7 +2454,7 @@ export class Header {
 }
 export interface HeaderList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HeaderList {
+class HeaderList {
     /* Fields of GMime-3.0.GMime.HeaderList */
     parent_object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2517,7 +2519,7 @@ export class HeaderList {
 }
 export interface InternetAddress_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class InternetAddress {
+class InternetAddress {
     /* Fields of GMime-3.0.GMime.InternetAddress */
     parent_object: GObject.Object
     charset: string
@@ -2577,7 +2579,7 @@ export class InternetAddress {
 }
 export interface InternetAddressGroup_ConstructProps extends InternetAddress_ConstructProps {
 }
-export class InternetAddressGroup {
+class InternetAddressGroup {
     /* Fields of GMime-3.0.GMime.InternetAddressGroup */
     parent_object: InternetAddress
     members: InternetAddressList
@@ -2645,7 +2647,7 @@ export class InternetAddressGroup {
 }
 export interface InternetAddressList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class InternetAddressList {
+class InternetAddressList {
     /* Fields of GMime-3.0.GMime.InternetAddressList */
     parent_object: GObject.Object
     array: object[]
@@ -2714,7 +2716,7 @@ export class InternetAddressList {
 }
 export interface InternetAddressMailbox_ConstructProps extends InternetAddress_ConstructProps {
 }
-export class InternetAddressMailbox {
+class InternetAddressMailbox {
     /* Fields of GMime-3.0.GMime.InternetAddressMailbox */
     parent_object: InternetAddress
     idn_addr: string
@@ -2784,7 +2786,7 @@ export class InternetAddressMailbox {
 }
 export interface Message_ConstructProps extends Object_ConstructProps {
 }
-export class Message {
+class Message {
     /* Fields of GMime-3.0.GMime.Message */
     parent_object: Object
     addrlists: InternetAddressList
@@ -2904,7 +2906,7 @@ export class Message {
 }
 export interface MessagePart_ConstructProps extends Object_ConstructProps {
 }
-export class MessagePart {
+class MessagePart {
     /* Fields of GMime-3.0.GMime.MessagePart */
     parent_object: Object
     message: Message
@@ -3000,7 +3002,7 @@ export class MessagePart {
 }
 export interface MessagePartial_ConstructProps extends Part_ConstructProps {
 }
-export class MessagePartial {
+class MessagePartial {
     /* Fields of GMime-3.0.GMime.MessagePartial */
     parent_object: Part
     number: number
@@ -3131,7 +3133,7 @@ export class MessagePartial {
 }
 export interface Multipart_ConstructProps extends Object_ConstructProps {
 }
-export class Multipart {
+class Multipart {
     /* Fields of GMime-3.0.GMime.Multipart */
     parent_object: Object
     children: object[]
@@ -3258,7 +3260,7 @@ export class Multipart {
 }
 export interface MultipartEncrypted_ConstructProps extends Multipart_ConstructProps {
 }
-export class MultipartEncrypted {
+class MultipartEncrypted {
     /* Fields of GMime-3.0.GMime.MultipartEncrypted */
     parent_object: Multipart
     /* Fields of GMime-3.0.GMime.Multipart */
@@ -3388,7 +3390,7 @@ export class MultipartEncrypted {
 }
 export interface MultipartSigned_ConstructProps extends Multipart_ConstructProps {
 }
-export class MultipartSigned {
+class MultipartSigned {
     /* Fields of GMime-3.0.GMime.MultipartSigned */
     parent_object: Multipart
     /* Fields of GMime-3.0.GMime.Multipart */
@@ -3518,7 +3520,7 @@ export class MultipartSigned {
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Object {
+class Object {
     /* Fields of GMime-3.0.GMime.Object */
     parent_object: GObject.Object
     disposition: ContentDisposition
@@ -3611,7 +3613,7 @@ export class Object {
 }
 export interface Param_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Param {
+class Param {
     /* Fields of GMime-3.0.GMime.Param */
     parent_object: GObject.Object
     method: ParamEncodingMethod
@@ -3676,7 +3678,7 @@ export class Param {
 }
 export interface ParamList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ParamList {
+class ParamList {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime-3.0.GMime.ParamList */
@@ -3736,7 +3738,7 @@ export class ParamList {
 }
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Parser {
+class Parser {
     /* Fields of GMime-3.0.GMime.Parser */
     parent_object: GObject.Object
     priv: object
@@ -3806,7 +3808,7 @@ export class Parser {
 }
 export interface Part_ConstructProps extends Object_ConstructProps {
 }
-export class Part {
+class Part {
     /* Fields of GMime-3.0.GMime.Part */
     parent_object: Object
     encoding: ContentEncoding
@@ -3928,7 +3930,7 @@ export class Part {
 }
 export interface Pkcs7Context_ConstructProps extends CryptoContext_ConstructProps {
 }
-export class Pkcs7Context {
+class Pkcs7Context {
     /* Fields of GMime-3.0.GMime.CryptoContext */
     parent_object: GObject.Object
     request_passwd: PasswordRequestFunc
@@ -4006,7 +4008,7 @@ export class Pkcs7Context {
 }
 export interface Signature_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Signature {
+class Signature {
     /* Fields of GMime-3.0.GMime.Signature */
     parent_object: GObject.Object
     status: SignatureStatus
@@ -4073,7 +4075,7 @@ export class Signature {
 }
 export interface SignatureList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SignatureList {
+class SignatureList {
     /* Fields of GMime-3.0.GMime.SignatureList */
     parent_object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4136,7 +4138,7 @@ export class SignatureList {
 }
 export interface Stream_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Stream {
+class Stream {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime-3.0.GMime.Stream */
@@ -4213,7 +4215,7 @@ export class Stream {
 }
 export interface StreamBuffer_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamBuffer {
+class StreamBuffer {
     /* Fields of GMime-3.0.GMime.StreamBuffer */
     parent_object: Stream
     mode: StreamBufferMode
@@ -4300,7 +4302,7 @@ export class StreamBuffer {
 }
 export interface StreamCat_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamCat {
+class StreamCat {
     /* Fields of GMime-3.0.GMime.StreamCat */
     parent_object: Stream
     sources: object
@@ -4385,7 +4387,7 @@ export class StreamCat {
 }
 export interface StreamFile_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamFile {
+class StreamFile {
     /* Fields of GMime-3.0.GMime.StreamFile */
     parent_object: Stream
     owner: boolean
@@ -4473,7 +4475,7 @@ export class StreamFile {
 }
 export interface StreamFilter_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamFilter {
+class StreamFilter {
     /* Fields of GMime-3.0.GMime.StreamFilter */
     parent_object: Stream
     priv: object
@@ -4562,7 +4564,7 @@ export class StreamFilter {
 }
 export interface StreamFs_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamFs {
+class StreamFs {
     /* Fields of GMime-3.0.GMime.StreamFs */
     parent_object: Stream
     owner: boolean
@@ -4650,7 +4652,7 @@ export class StreamFs {
 }
 export interface StreamGIO_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamGIO {
+class StreamGIO {
     /* Fields of GMime-3.0.GMime.StreamGIO */
     parent_object: Stream
     ostream: Gio.OutputStream
@@ -4739,7 +4741,7 @@ export class StreamGIO {
 }
 export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamMem {
+class StreamMem {
     /* Fields of GMime-3.0.GMime.StreamMem */
     parent_object: Stream
     buffer: Uint8Array[]
@@ -4829,7 +4831,7 @@ export class StreamMem {
 }
 export interface StreamMmap_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamMmap {
+class StreamMmap {
     /* Fields of GMime-3.0.GMime.StreamMmap */
     parent_object: Stream
     owner: boolean
@@ -4918,7 +4920,7 @@ export class StreamMmap {
 }
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamNull {
+class StreamNull {
     /* Fields of GMime-3.0.GMime.StreamNull */
     parent_object: Stream
     written: number
@@ -5005,7 +5007,7 @@ export class StreamNull {
 }
 export interface StreamPipe_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamPipe {
+class StreamPipe {
     /* Fields of GMime-3.0.GMime.StreamPipe */
     parent_object: Stream
     owner: boolean
@@ -5091,7 +5093,7 @@ export class StreamPipe {
 }
 export interface TextPart_ConstructProps extends Part_ConstructProps {
 }
-export class TextPart {
+class TextPart {
     /* Fields of GMime-3.0.GMime.TextPart */
     parent_object: Part
     /* Fields of GMime-3.0.GMime.Part */
@@ -5217,32 +5219,32 @@ export class TextPart {
     static new_with_subtype(subtype: string): TextPart
     static $gtype: GObject.Type
 }
-export abstract class ApplicationPkcs7MimeClass {
+abstract class ApplicationPkcs7MimeClass {
     /* Fields of GMime-3.0.GMime.ApplicationPkcs7MimeClass */
     parent_class: PartClass
     static name: string
 }
-export abstract class AutocryptHeaderClass {
+abstract class AutocryptHeaderClass {
     /* Fields of GMime-3.0.GMime.AutocryptHeaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class AutocryptHeaderListClass {
+abstract class AutocryptHeaderListClass {
     /* Fields of GMime-3.0.GMime.AutocryptHeaderListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CertificateClass {
+abstract class CertificateClass {
     /* Fields of GMime-3.0.GMime.CertificateClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CertificateListClass {
+abstract class CertificateListClass {
     /* Fields of GMime-3.0.GMime.CertificateListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Charset {
+class Charset {
     /* Fields of GMime-3.0.GMime.Charset */
     mask: number
     level: number
@@ -5262,17 +5264,17 @@ export class Charset {
     static map_shutdown(): void
     static name(charset: string): string
 }
-export abstract class ContentDispositionClass {
+abstract class ContentDispositionClass {
     /* Fields of GMime-3.0.GMime.ContentDispositionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ContentTypeClass {
+abstract class ContentTypeClass {
     /* Fields of GMime-3.0.GMime.ContentTypeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CryptoContextClass {
+abstract class CryptoContextClass {
     /* Fields of GMime-3.0.GMime.CryptoContextClass */
     parent_class: GObject.ObjectClass
     digest_id: (ctx: CryptoContext, name: string) => DigestAlgo
@@ -5288,18 +5290,18 @@ export abstract class CryptoContextClass {
     export_keys: (ctx: CryptoContext, keys: string, ostream: Stream) => number
     static name: string
 }
-export abstract class DataWrapperClass {
+abstract class DataWrapperClass {
     /* Fields of GMime-3.0.GMime.DataWrapperClass */
     parent_class: GObject.ObjectClass
     write_to_stream: (wrapper: DataWrapper, stream: Stream) => number
     static name: string
 }
-export abstract class DecryptResultClass {
+abstract class DecryptResultClass {
     /* Fields of GMime-3.0.GMime.DecryptResultClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Encoding {
+class Encoding {
     /* Fields of GMime-3.0.GMime.Encoding */
     encoding: ContentEncoding
     uubuf: Uint8Array[]
@@ -5325,27 +5327,27 @@ export class Encoding {
     static uuencode_close(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
     static uuencode_step(inbuf: number, inlen: number, outbuf: number, uubuf: number, state: number, save: number): number
 }
-export abstract class FilterBasicClass {
+abstract class FilterBasicClass {
     /* Fields of GMime-3.0.GMime.FilterBasicClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterBestClass {
+abstract class FilterBestClass {
     /* Fields of GMime-3.0.GMime.FilterBestClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterCharsetClass {
+abstract class FilterCharsetClass {
     /* Fields of GMime-3.0.GMime.FilterCharsetClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterChecksumClass {
+abstract class FilterChecksumClass {
     /* Fields of GMime-3.0.GMime.FilterChecksumClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterClass {
+abstract class FilterClass {
     /* Fields of GMime-3.0.GMime.FilterClass */
     parent_class: GObject.ObjectClass
     copy: (filter: Filter) => Filter
@@ -5354,62 +5356,62 @@ export abstract class FilterClass {
     reset: (filter: Filter) => void
     static name: string
 }
-export abstract class FilterDos2UnixClass {
+abstract class FilterDos2UnixClass {
     /* Fields of GMime-3.0.GMime.FilterDos2UnixClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterEnrichedClass {
+abstract class FilterEnrichedClass {
     /* Fields of GMime-3.0.GMime.FilterEnrichedClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterFromClass {
+abstract class FilterFromClass {
     /* Fields of GMime-3.0.GMime.FilterFromClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterGZipClass {
+abstract class FilterGZipClass {
     /* Fields of GMime-3.0.GMime.FilterGZipClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterHTMLClass {
+abstract class FilterHTMLClass {
     /* Fields of GMime-3.0.GMime.FilterHTMLClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterOpenPGPClass {
+abstract class FilterOpenPGPClass {
     /* Fields of GMime-3.0.GMime.FilterOpenPGPClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterSmtpDataClass {
+abstract class FilterSmtpDataClass {
     /* Fields of GMime-3.0.GMime.FilterSmtpDataClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterStripClass {
+abstract class FilterStripClass {
     /* Fields of GMime-3.0.GMime.FilterStripClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterUnix2DosClass {
+abstract class FilterUnix2DosClass {
     /* Fields of GMime-3.0.GMime.FilterUnix2DosClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterWindowsClass {
+abstract class FilterWindowsClass {
     /* Fields of GMime-3.0.GMime.FilterWindowsClass */
     parent_class: FilterClass
     static name: string
 }
-export abstract class FilterYencClass {
+abstract class FilterYencClass {
     /* Fields of GMime-3.0.GMime.FilterYencClass */
     parent_class: FilterClass
     static name: string
 }
-export class FormatOptions {
+class FormatOptions {
     /* Methods of GMime-3.0.GMime.FormatOptions */
     add_hidden_header(header: string): void
     clear_hidden_headers(): void
@@ -5430,56 +5432,56 @@ export class FormatOptions {
     static new(): FormatOptions
     static get_default(): FormatOptions
 }
-export abstract class GpgContextClass {
+abstract class GpgContextClass {
     static name: string
 }
-export abstract class HeaderClass {
+abstract class HeaderClass {
     /* Fields of GMime-3.0.GMime.HeaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class HeaderListClass {
+abstract class HeaderListClass {
     /* Fields of GMime-3.0.GMime.HeaderListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class InternetAddressClass {
+abstract class InternetAddressClass {
     /* Fields of GMime-3.0.GMime.InternetAddressClass */
     parent_class: GObject.ObjectClass
     to_string: (ia: InternetAddress, options: FormatOptions, flags: number, linelen: number, str: GLib.String) => void
     static name: string
 }
-export abstract class InternetAddressGroupClass {
+abstract class InternetAddressGroupClass {
     /* Fields of GMime-3.0.GMime.InternetAddressGroupClass */
     parent_class: InternetAddressClass
     static name: string
 }
-export abstract class InternetAddressListClass {
+abstract class InternetAddressListClass {
     /* Fields of GMime-3.0.GMime.InternetAddressListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class InternetAddressMailboxClass {
+abstract class InternetAddressMailboxClass {
     /* Fields of GMime-3.0.GMime.InternetAddressMailboxClass */
     parent_class: InternetAddressClass
     static name: string
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     /* Fields of GMime-3.0.GMime.MessageClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class MessagePartClass {
+abstract class MessagePartClass {
     /* Fields of GMime-3.0.GMime.MessagePartClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class MessagePartialClass {
+abstract class MessagePartialClass {
     /* Fields of GMime-3.0.GMime.MessagePartialClass */
     parent_class: PartClass
     static name: string
 }
-export abstract class MultipartClass {
+abstract class MultipartClass {
     /* Fields of GMime-3.0.GMime.MultipartClass */
     parent_class: ObjectClass
     clear: (multipart: Multipart) => void
@@ -5495,17 +5497,17 @@ export abstract class MultipartClass {
     get_boundary: (multipart: Multipart) => string
     static name: string
 }
-export abstract class MultipartEncryptedClass {
+abstract class MultipartEncryptedClass {
     /* Fields of GMime-3.0.GMime.MultipartEncryptedClass */
     parent_class: MultipartClass
     static name: string
 }
-export abstract class MultipartSignedClass {
+abstract class MultipartSignedClass {
     /* Fields of GMime-3.0.GMime.MultipartSignedClass */
     parent_class: MultipartClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of GMime-3.0.GMime.ObjectClass */
     parent_class: GObject.ObjectClass
     header_added: (object: Object, header: Header) => void
@@ -5518,7 +5520,7 @@ export abstract class ObjectClass {
     encode: (object: Object, constraint: EncodingConstraint) => void
     static name: string
 }
-export class OpenPGPMarker {
+class OpenPGPMarker {
     /* Fields of GMime-3.0.GMime.OpenPGPMarker */
     marker: string
     len: number
@@ -5527,22 +5529,22 @@ export class OpenPGPMarker {
     is_end_marker: boolean
     static name: string
 }
-export abstract class ParamClass {
+abstract class ParamClass {
     /* Fields of GMime-3.0.GMime.ParamClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ParamListClass {
+abstract class ParamListClass {
     /* Fields of GMime-3.0.GMime.ParamListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     /* Fields of GMime-3.0.GMime.ParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ParserOptions {
+class ParserOptions {
     /* Methods of GMime-3.0.GMime.ParserOptions */
     clone(): ParserOptions
     free(): void
@@ -5563,13 +5565,13 @@ export class ParserOptions {
     static new(): ParserOptions
     static get_default(): ParserOptions
 }
-export abstract class PartClass {
+abstract class PartClass {
     /* Fields of GMime-3.0.GMime.PartClass */
     parent_class: ObjectClass
     set_content: (mime_part: Part, content: DataWrapper) => void
     static name: string
 }
-export class PartIter {
+class PartIter {
     /* Methods of GMime-3.0.GMime.PartIter */
     clone(): PartIter
     free(): void
@@ -5590,10 +5592,10 @@ export class PartIter {
     /* Static methods and pseudo-constructors */
     static new(toplevel: Object): PartIter
 }
-export abstract class Pkcs7ContextClass {
+abstract class Pkcs7ContextClass {
     static name: string
 }
-export class References {
+class References {
     /* Fields of GMime-3.0.GMime.References */
     array: object[]
     /* Methods of GMime-3.0.GMime.References */
@@ -5611,27 +5613,27 @@ export class References {
     static new(): References
     static parse(options: ParserOptions | null, text: string): References
 }
-export abstract class SignatureClass {
+abstract class SignatureClass {
     /* Fields of GMime-3.0.GMime.SignatureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SignatureListClass {
+abstract class SignatureListClass {
     /* Fields of GMime-3.0.GMime.SignatureListClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class StreamBufferClass {
+abstract class StreamBufferClass {
     /* Fields of GMime-3.0.GMime.StreamBufferClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamCatClass {
+abstract class StreamCatClass {
     /* Fields of GMime-3.0.GMime.StreamCatClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamClass {
+abstract class StreamClass {
     /* Fields of GMime-3.0.GMime.StreamClass */
     parent_class: GObject.ObjectClass
     read: (stream: Stream, buf: Uint8Array[]) => number
@@ -5646,54 +5648,56 @@ export abstract class StreamClass {
     substream: (stream: Stream, start: number, end: number) => Stream
     static name: string
 }
-export abstract class StreamFileClass {
+abstract class StreamFileClass {
     /* Fields of GMime-3.0.GMime.StreamFileClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamFilterClass {
+abstract class StreamFilterClass {
     /* Fields of GMime-3.0.GMime.StreamFilterClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamFsClass {
+abstract class StreamFsClass {
     /* Fields of GMime-3.0.GMime.StreamFsClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamGIOClass {
+abstract class StreamGIOClass {
     /* Fields of GMime-3.0.GMime.StreamGIOClass */
     parent_class: StreamClass
     static name: string
 }
-export class StreamIOVector {
+class StreamIOVector {
     /* Fields of GMime-3.0.GMime.StreamIOVector */
     data: object
     len: number
     static name: string
 }
-export abstract class StreamMemClass {
+abstract class StreamMemClass {
     /* Fields of GMime-3.0.GMime.StreamMemClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamMmapClass {
+abstract class StreamMmapClass {
     /* Fields of GMime-3.0.GMime.StreamMmapClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamNullClass {
+abstract class StreamNullClass {
     /* Fields of GMime-3.0.GMime.StreamNullClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class StreamPipeClass {
+abstract class StreamPipeClass {
     /* Fields of GMime-3.0.GMime.StreamPipeClass */
     parent_class: StreamClass
     static name: string
 }
-export abstract class TextPartClass {
+abstract class TextPartClass {
     /* Fields of GMime-3.0.GMime.TextPartClass */
     parent_class: PartClass
     static name: string
 }
+}
+export default GMime

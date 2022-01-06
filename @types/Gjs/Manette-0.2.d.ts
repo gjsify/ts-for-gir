@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GUdev from './GUdev-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GUdev from './GUdev-1.0';
 
-export enum EventType {
+export namespace Manette {
+
+enum EventType {
     EVENT_NOTHING,
     EVENT_BUTTON_PRESS,
     EVENT_BUTTON_RELEASE,
     EVENT_ABSOLUTE,
     EVENT_HAT,
 }
-export function get_resource(): Gio.Resource
+function get_resource(): Gio.Resource
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Device {
+class Device {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Manette-0.2.Manette.Device */
@@ -93,7 +95,7 @@ export class Device {
 }
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Monitor {
+class Monitor {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Manette-0.2.Manette.Monitor */
@@ -150,22 +152,22 @@ export class Monitor {
     static new(): Monitor
     static $gtype: GObject.Type
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Manette-0.2.Manette.DeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MonitorClass {
+abstract class MonitorClass {
     /* Fields of Manette-0.2.Manette.MonitorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MonitorIter {
+class MonitorIter {
     /* Methods of Manette-0.2.Manette.MonitorIter */
     next(): [ /* returnType */ boolean, /* device */ Device | null ]
     static name: string
 }
-export class Event {
+class Event {
     /* Methods of Manette-0.2.Manette.Event */
     get_absolute(): [ /* returnType */ boolean, /* axis */ number, /* value */ number ]
     get_button(): [ /* returnType */ boolean, /* button */ number ]
@@ -179,3 +181,5 @@ export class Event {
     get_time(): number
     static name: string
 }
+}
+export default Manette

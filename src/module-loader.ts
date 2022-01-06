@@ -6,7 +6,7 @@ import * as inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import fs from 'fs'
-import { bold } from 'chalk'
+import chalk from 'chalk'
 import * as xml2js from 'xml2js'
 import {
     GirModulesGroupedMap,
@@ -24,6 +24,7 @@ import { Config } from './config'
 import { Logger } from './logger'
 import { Utils } from './utils'
 
+const bold = chalk.bold
 export class ModuleLoader {
     log: Logger
     /** Transitive module dependencies */
@@ -141,6 +142,7 @@ export class ModuleLoader {
             question = this.generateContinueQuestion()
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const answer: string = (await inquirer.prompt([question])).continue
         return answer as 'Yes' | 'No' | 'Go back'
     }
@@ -212,6 +214,7 @@ export class ModuleLoader {
         if (!choices) {
             throw new Error('No valid questions!')
         }
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const selected: string = (await inquirer.prompt([question]))[girModulesGrouped.namespace]
         if (!selected) {
             throw new Error('No valid answer!')
@@ -313,6 +316,7 @@ export class ModuleLoader {
             },
         ]
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const answer: { [name: string]: string } = await inquirer.prompt(questions)
 
         if (answer.addToIgnore === 'Yes') {
@@ -438,7 +442,7 @@ export class ModuleLoader {
         let newModuleFound = false
 
         while (girToLoad.length > 0) {
-            const packageName = girToLoad.shift()
+            const packageName = girToLoad.shift() || 'unknown'
             if (!packageName) throw new Error(`Module name '${packageName} 'not found!`)
             // If module has not already been loaded
             if (!this.existsGirModules(girModules, [packageName])) {
@@ -496,7 +500,7 @@ export class ModuleLoader {
     private async findModules(modules: string[], ignore: string[] = []): Promise<Set<string>> {
         const foundModules = new Set<string>()
 
-        for (const i in modules) {
+        for (let i = 0; i < modules.length; i++) {
             if (modules[i]) {
                 const filename = `${modules[i]}.gir`
                 let files: string[] = []

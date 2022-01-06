@@ -12,9 +12,9 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Gdk {
+declare namespace Gdk {
 
-export enum AxisUse {
+enum AxisUse {
     IGNORE,
     X,
     Y,
@@ -24,17 +24,17 @@ export enum AxisUse {
     WHEEL,
     LAST,
 }
-export enum ByteOrder {
+enum ByteOrder {
     LSB_FIRST,
     MSB_FIRST,
 }
-export enum CapStyle {
+enum CapStyle {
     NOT_LAST,
     BUTT,
     ROUND,
     PROJECTING,
 }
-export enum CrossingMode {
+enum CrossingMode {
     NORMAL,
     GRAB,
     UNGRAB,
@@ -42,7 +42,7 @@ export enum CrossingMode {
     GTK_UNGRAB,
     STATE_CHANGED,
 }
-export enum CursorType {
+enum CursorType {
     X_CURSOR,
     ARROW,
     BASED_ARROW_DOWN,
@@ -124,7 +124,7 @@ export enum CursorType {
     BLANK_CURSOR,
     CURSOR_IS_PIXMAP,
 }
-export enum DragProtocol {
+enum DragProtocol {
     MOTIF,
     XDND,
     ROOTWIN,
@@ -133,7 +133,7 @@ export enum DragProtocol {
     OLE2,
     LOCAL,
 }
-export enum EventType {
+enum EventType {
     NOTHING,
     DELETE,
     DESTROY,
@@ -174,31 +174,31 @@ export enum EventType {
     DAMAGE,
     EVENT_LAST,
 }
-export enum ExtensionMode {
+enum ExtensionMode {
     NONE,
     ALL,
     CURSOR,
 }
-export enum Fill {
+enum Fill {
     SOLID,
     TILED,
     STIPPLED,
     OPAQUE_STIPPLED,
 }
-export enum FillRule {
+enum FillRule {
     EVEN_ODD_RULE,
     WINDING_RULE,
 }
-export enum FilterReturn {
+enum FilterReturn {
     CONTINUE,
     TRANSLATE,
     REMOVE,
 }
-export enum FontType {
+enum FontType {
     FONT,
     FONTSET,
 }
-export enum Function {
+enum Function {
     COPY,
     INVERT,
     XOR,
@@ -216,14 +216,14 @@ export enum Function {
     NOR,
     SET,
 }
-export enum GrabStatus {
+enum GrabStatus {
     SUCCESS,
     ALREADY_GRABBED,
     INVALID_TIME,
     NOT_VIEWABLE,
     FROZEN,
 }
-export enum Gravity {
+enum Gravity {
     NORTH_WEST,
     NORTH,
     NORTH_EAST,
@@ -235,33 +235,33 @@ export enum Gravity {
     SOUTH_EAST,
     STATIC,
 }
-export enum ImageType {
+enum ImageType {
     NORMAL,
     SHARED,
     FASTEST,
 }
-export enum InputMode {
+enum InputMode {
     DISABLED,
     SCREEN,
     WINDOW,
 }
-export enum InputSource {
+enum InputSource {
     MOUSE,
     PEN,
     ERASER,
     CURSOR,
 }
-export enum JoinStyle {
+enum JoinStyle {
     MITER,
     ROUND,
     BEVEL,
 }
-export enum LineStyle {
+enum LineStyle {
     SOLID,
     ON_OFF_DASH,
     DOUBLE_DASH,
 }
-export enum NotifyType {
+enum NotifyType {
     ANCESTOR,
     VIRTUAL,
     INFERIOR,
@@ -269,58 +269,58 @@ export enum NotifyType {
     NONLINEAR_VIRTUAL,
     UNKNOWN,
 }
-export enum OverlapType {
+enum OverlapType {
     IN,
     OUT,
     PART,
 }
-export enum OwnerChange {
+enum OwnerChange {
     NEW_OWNER,
     DESTROY,
     CLOSE,
 }
-export enum PropMode {
+enum PropMode {
     REPLACE,
     PREPEND,
     APPEND,
 }
-export enum PropertyState {
+enum PropertyState {
     NEW_VALUE,
     DELETE,
 }
-export enum RgbDither {
+enum RgbDither {
     NONE,
     NORMAL,
     MAX,
 }
-export enum ScrollDirection {
+enum ScrollDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum SettingAction {
+enum SettingAction {
     NEW,
     CHANGED,
     DELETED,
 }
-export enum Status {
+enum Status {
     OK,
     ERROR,
     ERROR_PARAM,
     ERROR_FILE,
     ERROR_MEM,
 }
-export enum SubwindowMode {
+enum SubwindowMode {
     CLIP_BY_CHILDREN,
     INCLUDE_INFERIORS,
 }
-export enum VisibilityState {
+enum VisibilityState {
     UNOBSCURED,
     PARTIAL,
     FULLY_OBSCURED,
 }
-export enum VisualType {
+enum VisualType {
     STATIC_GRAY,
     GRAYSCALE,
     STATIC_COLOR,
@@ -328,11 +328,11 @@ export enum VisualType {
     TRUE_COLOR,
     DIRECT_COLOR,
 }
-export enum WindowClass {
+enum WindowClass {
     OUTPUT,
     ONLY,
 }
-export enum WindowEdge {
+enum WindowEdge {
     NORTH_WEST,
     NORTH,
     NORTH_EAST,
@@ -342,7 +342,7 @@ export enum WindowEdge {
     SOUTH,
     SOUTH_EAST,
 }
-export enum WindowType {
+enum WindowType {
     ROOT,
     TOPLEVEL,
     CHILD,
@@ -351,7 +351,7 @@ export enum WindowType {
     FOREIGN,
     OFFSCREEN,
 }
-export enum WindowTypeHint {
+enum WindowTypeHint {
     NORMAL,
     DIALOG,
     MENU,
@@ -367,7 +367,7 @@ export enum WindowTypeHint {
     COMBO,
     DND,
 }
-export enum DragAction {
+enum DragAction {
     DEFAULT,
     COPY,
     MOVE,
@@ -375,7 +375,7 @@ export enum DragAction {
     PRIVATE,
     ASK,
 }
-export enum EventMask {
+enum EventMask {
     EXPOSURE_MASK,
     POINTER_MOTION_MASK,
     POINTER_MOTION_HINT_MASK,
@@ -399,7 +399,7 @@ export enum EventMask {
     SCROLL_MASK,
     ALL_EVENTS_MASK,
 }
-export enum GCValuesMask {
+enum GCValuesMask {
     FOREGROUND,
     BACKGROUND,
     FONT,
@@ -419,12 +419,12 @@ export enum GCValuesMask {
     CAP_STYLE,
     JOIN_STYLE,
 }
-export enum InputCondition {
+enum InputCondition {
     READ,
     WRITE,
     EXCEPTION,
 }
-export enum ModifierType {
+enum ModifierType {
     SHIFT_MASK,
     LOCK_MASK,
     CONTROL_MASK,
@@ -444,7 +444,7 @@ export enum ModifierType {
     RELEASE_MASK,
     MODIFIER_MASK,
 }
-export enum WMDecoration {
+enum WMDecoration {
     ALL,
     BORDER,
     RESIZEH,
@@ -453,7 +453,7 @@ export enum WMDecoration {
     MINIMIZE,
     MAXIMIZE,
 }
-export enum WMFunction {
+enum WMFunction {
     ALL,
     RESIZE,
     MOVE,
@@ -461,7 +461,7 @@ export enum WMFunction {
     MAXIMIZE,
     CLOSE,
 }
-export enum WindowAttributesType {
+enum WindowAttributesType {
     TITLE,
     X,
     Y,
@@ -472,7 +472,7 @@ export enum WindowAttributesType {
     NOREDIR,
     TYPE_HINT,
 }
-export enum WindowHints {
+enum WindowHints {
     POS,
     MIN_SIZE,
     MAX_SIZE,
@@ -483,7 +483,7 @@ export enum WindowHints {
     USER_POS,
     USER_SIZE,
 }
-export enum WindowState {
+enum WindowState {
     WITHDRAWN,
     ICONIFIED,
     MAXIMIZED,
@@ -2673,211 +2673,211 @@ export const NO_BG: Pixmap
 export const PARENT_RELATIVE: number
 export const PARENT_RELATIVE_BG: Pixmap
 export const PRIORITY_REDRAW: number
-export function addOptionEntriesLibgtkOnly(group: GLib.OptionGroup): void
-export function beep(): void
-export function cairoCreate(drawable: Drawable): cairo.Context
-export function cairoRectangle(cr: cairo.Context, rectangle: Rectangle): void
-export function cairoRegion(cr: cairo.Context, region: Region): void
-export function cairoResetClip(cr: cairo.Context, drawable: Drawable): void
-export function cairoSetSourceColor(cr: cairo.Context, color: Color): void
-export function cairoSetSourcePixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf, pixbufX: number, pixbufY: number): void
-export function cairoSetSourcePixmap(cr: cairo.Context, pixmap: Pixmap, pixmapX: number, pixmapY: number): void
-export function cairoSetSourceWindow(cr: cairo.Context, window: Window, x: number, y: number): void
-export function charHeight(font: Font, character: number): number
-export function charMeasure(font: Font, character: number): number
-export function charWidth(font: Font, character: number): number
-export function charWidthWc(font: Font, character: WChar): number
-export function colorAlloc(colormap: Colormap, color: Color): number
-export function colorBlack(colormap: Colormap, color: Color): number
-export function colorChange(colormap: Colormap, color: Color): number
-export function colorParse(spec: string): { returnType: boolean, color: Color }
-export function colorWhite(colormap: Colormap, color: Color): number
-export function colorsAlloc(colormap: Colormap, contiguous: boolean, planes: number, nplanes: number, pixels: number, npixels: number): number
-export function colorsFree(colormap: Colormap, pixels: number, npixels: number, planes: number): void
-export function colorsStore(colormap: Colormap, colors: Color, ncolors: number): void
-export function devicesList(): Device[]
-export function dragAbort(context: DragContext, time: number): void
-export function dragDrop(context: DragContext, time: number): void
-export function dragDropSucceeded(context: DragContext): boolean
-export function dragFindWindow(context: DragContext, dragWindow: Window, xRoot: number, yRoot: number): { destWindow: Window, protocol: DragProtocol }
-export function dragFindWindowForScreen(context: DragContext, dragWindow: Window, screen: Screen, xRoot: number, yRoot: number): { destWindow: Window, protocol: DragProtocol }
-export function dragGetProtocol(xid: NativeWindow, protocol: DragProtocol): NativeWindow
-export function dragGetProtocolForDisplay(display: Display, xid: NativeWindow, protocol: DragProtocol): NativeWindow
-export function dragMotion(context: DragContext, destWindow: Window, protocol: DragProtocol, xRoot: number, yRoot: number, suggestedAction: DragAction, possibleActions: DragAction, time: number): boolean
-export function dragStatus(context: DragContext, action: DragAction, time: number): void
-export function drawArc(drawable: Drawable, gc: GC, filled: boolean, x: number, y: number, width: number, height: number, angle1: number, angle2: number): void
-export function drawDrawable(drawable: Drawable, gc: GC, src: Drawable, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number): void
-export function drawGlyphs(drawable: Drawable, gc: GC, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString): void
-export function drawGlyphsTransformed(drawable: Drawable, gc: GC, matrix: Pango.Matrix | null, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString): void
-export function drawGrayImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number): void
-export function drawImage(drawable: Drawable, gc: GC, image: Image, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number): void
-export function drawIndexedImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number, cmap: RgbCmap): void
-export function drawLayout(drawable: Drawable, gc: GC, x: number, y: number, layout: Pango.Layout): void
-export function drawLayoutLine(drawable: Drawable, gc: GC, x: number, y: number, line: Pango.LayoutLine): void
-export function drawLayoutLineWithColors(drawable: Drawable, gc: GC, x: number, y: number, line: Pango.LayoutLine, foreground?: Color | null, background?: Color | null): void
-export function drawLayoutWithColors(drawable: Drawable, gc: GC, x: number, y: number, layout: Pango.Layout, foreground?: Color | null, background?: Color | null): void
-export function drawLine(drawable: Drawable, gc: GC, x1: number, y1: number, x2: number, y2: number): void
-export function drawLines(drawable: Drawable, gc: GC, points: Point, nPoints: number): void
-export function drawPixbuf(drawable: Drawable, gc: GC | null, pixbuf: GdkPixbuf.Pixbuf, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, dither: RgbDither, xDither: number, yDither: number): void
-export function drawPoint(drawable: Drawable, gc: GC, x: number, y: number): void
-export function drawPoints(drawable: Drawable, gc: GC, points: Point, nPoints: number): void
-export function drawPolygon(drawable: Drawable, gc: GC, filled: boolean, points: Point, nPoints: number): void
-export function drawRectangle(drawable: Drawable, gc: GC, filled: boolean, x: number, y: number, width: number, height: number): void
-export function drawRgb32Image(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number): void
-export function drawRgb32ImageDithalign(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number, xdith: number, ydith: number): void
-export function drawRgbImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, rgbBuf: number, rowstride: number): void
-export function drawRgbImageDithalign(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, rgbBuf: number, rowstride: number, xdith: number, ydith: number): void
-export function drawSegments(drawable: Drawable, gc: GC, segs: Segment, nSegs: number): void
-export function drawString(drawable: Drawable, font: Font, gc: GC, x: number, y: number, string: string): void
-export function drawText(drawable: Drawable, font: Font, gc: GC, x: number, y: number, text: string, textLength: number): void
-export function drawTextWc(drawable: Drawable, font: Font, gc: GC, x: number, y: number, text: WChar, textLength: number): void
-export function drawTrapezoids(drawable: Drawable, gc: GC, trapezoids: Trapezoid, nTrapezoids: number): void
-export function dropFinish(context: DragContext, success: boolean, time: number): void
-export function dropReply(context: DragContext, ok: boolean, time: number): void
-export function errorTrapPop(): number
-export function errorTrapPush(): void
-export function eventGet(): Event
-export function eventGetGraphicsExpose(window: Window): Event
-export function eventHandlerSet(func: EventFunc): void
-export function eventPeek(): Event
-export function eventRequestMotions(event: EventMotion): void
-export function eventSendClientMessageForDisplay(display: Display, event: Event, winid: NativeWindow): boolean
-export function eventsPending(): boolean
-export function exit(errorCode: number): void
-export function flush(): void
-export function fontFromDescription(fontDesc: Pango.FontDescription): Font
-export function fontFromDescriptionForDisplay(display: Display, fontDesc: Pango.FontDescription): Font
-export function fontLoad(fontName: string): Font
-export function fontLoadForDisplay(display: Display, fontName: string): Font
-export function fontsetLoad(fontsetName: string): Font
-export function fontsetLoadForDisplay(display: Display, fontsetName: string): Font
-export function freeCompoundText(ctext: number): void
-export function freeTextList(list: string): void
-export function getDisplay(): string
-export function getDisplayArgName(): string
-export function getProgramClass(): string
-export function getShowEvents(): boolean
-export function getUseXshm(): boolean
-export function init(argv: string[]): { argv: string[] }
-export function initCheck(argv: string[]): { returnType: boolean, argv: string[] }
-export function inputAddFull(source: number, condition: InputCondition, function_: InputFunction): number
-export function inputRemove(tag: number): void
-export function inputSetExtensionEvents(window: Window, mask: number, mode: ExtensionMode): void
-export function keyboardGrab(window: Window, ownerEvents: boolean, time: number): GrabStatus
-export function keyboardGrabInfoLibgtkOnly(display: Display, grabWindow: Window, ownerEvents: boolean): boolean
-export function keyboardUngrab(time: number): void
-export function keyvalConvertCase(symbol: number): { lower: number, upper: number }
-export function keyvalFromName(keyvalName: string): number
-export function keyvalIsLower(keyval: number): boolean
-export function keyvalIsUpper(keyval: number): boolean
-export function keyvalName(keyval: number): string
-export function keyvalToLower(keyval: number): number
-export function keyvalToUnicode(keyval: number): number
-export function keyvalToUpper(keyval: number): number
-export function listVisuals(): Visual[]
-export function mbstowcs(dest: WChar, src: string, destMax: number): number
-export function notifyStartupComplete(): void
-export function notifyStartupCompleteWithId(startupId: string): void
-export function offscreenWindowSetEmbedder(window: Window, embedder: Window): void
-export function pangoAttrEmbossColorNew(color: Color): Pango.Attribute
-export function pangoAttrEmbossedNew(embossed: boolean): Pango.Attribute
-export function pangoAttrStippleNew(stipple: Bitmap): Pango.Attribute
-export function pangoContextSetColormap(context: Pango.Context, colormap: Colormap): void
-export function parseArgs(argv: string[]): { argv: string[] }
-export function pixbufRenderPixmapAndMask(pixbuf: GdkPixbuf.Pixbuf, pixmapReturn: Pixmap, maskReturn: Bitmap, alphaThreshold: number): void
-export function pixbufRenderPixmapAndMaskForColormap(pixbuf: GdkPixbuf.Pixbuf, colormap: Colormap, pixmapReturn: Pixmap, maskReturn: Bitmap, alphaThreshold: number): void
-export function pixbufRenderThresholdAlpha(pixbuf: GdkPixbuf.Pixbuf, bitmap: Bitmap, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, alphaThreshold: number): void
-export function pixbufRenderToDrawable(pixbuf: GdkPixbuf.Pixbuf, drawable: Drawable, gc: GC, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, dither: RgbDither, xDither: number, yDither: number): void
-export function pixbufRenderToDrawableAlpha(pixbuf: GdkPixbuf.Pixbuf, drawable: Drawable, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, alphaMode: GdkPixbuf.PixbufAlphaMode, alphaThreshold: number, dither: RgbDither, xDither: number, yDither: number): void
-export function pointerGrab(window: Window, ownerEvents: boolean, eventMask: EventMask, confineTo: Window, cursor: Cursor, time: number): GrabStatus
-export function pointerGrabInfoLibgtkOnly(display: Display, grabWindow: Window, ownerEvents: boolean): boolean
-export function pointerIsGrabbed(): boolean
-export function pointerUngrab(time: number): void
-export function preParseLibgtkOnly(): void
-export function propertyChange(window: Window, property: Atom, type: Atom, format: number, mode: PropMode, data: number, nelements: number): void
-export function propertyDelete(window: Window, property: Atom): void
-export function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number, actualPropertyType: Atom, actualFormat: number, actualLength: number, data: number): boolean
-export function queryDepths(): { depths: number[], count: number }
-export function queryVisualTypes(visualTypes: VisualType, count: number): void
-export function rgbColormapDitherable(cmap: Colormap): boolean
-export function rgbDitherable(): boolean
-export function rgbFindColor(colormap: Colormap, color: Color): void
-export function rgbGcSetBackground(gc: GC, rgb: number): void
-export function rgbGcSetForeground(gc: GC, rgb: number): void
-export function rgbGetColormap(): Colormap
-export function rgbGetVisual(): Visual
-export function rgbInit(): void
-export function rgbSetInstall(install: boolean): void
-export function rgbSetMinColors(minColors: number): void
-export function rgbSetVerbose(verbose: boolean): void
-export function rgbXpixelFromRgb(rgb: number): number
-export function selectionConvert(requestor: Window, selection: Atom, target: Atom, time: number): void
-export function selectionOwnerSet(owner: Window, selection: Atom, time: number, sendEvent: boolean): boolean
-export function selectionOwnerSetForDisplay(display: Display, owner: Window, selection: Atom, time: number, sendEvent: boolean): boolean
-export function selectionPropertyGet(requestor: Window, data: number, propType: Atom, propFormat: number): number
-export function selectionSendNotify(requestor: NativeWindow, selection: Atom, target: Atom, property: Atom, time: number): void
-export function selectionSendNotifyForDisplay(display: Display, requestor: NativeWindow, selection: Atom, target: Atom, property: Atom, time: number): void
-export function setDoubleClickTime(msec: number): void
-export function setLocale(): string
-export function setProgramClass(programClass: string): void
-export function setShowEvents(showEvents: boolean): void
-export function setSmClientId(smClientId: string): void
-export function setUseXshm(useXshm: boolean): void
-export function settingGet(name: string, value: any): boolean
-export function spawnCommandLineOnScreen(screen: Screen, commandLine: string): boolean
-export function stringExtents(font: Font, string: string, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
-export function stringHeight(font: Font, string: string): number
-export function stringMeasure(font: Font, string: string): number
-export function stringToCompoundText(str: string, encoding: Atom, format: number, ctext: number, length: number): number
-export function stringToCompoundTextForDisplay(display: Display, str: string, encoding: Atom, format: number, ctext: number, length: number): number
-export function stringWidth(font: Font, string: string): number
-export function synthesizeWindowState(window: Window, unsetFlags: WindowState, setFlags: WindowState): void
-export function testRenderSync(window: Window): void
-export function testSimulateButton(window: Window, x: number, y: number, button: number, modifiers: ModifierType, buttonPressrelease: EventType): boolean
-export function testSimulateKey(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, keyPressrelease: EventType): boolean
-export function textExtents(font: Font, text: string, textLength: number, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
-export function textExtentsWc(font: Font, text: WChar, textLength: number, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
-export function textHeight(font: Font, text: string, textLength: number): number
-export function textMeasure(font: Font, text: string, textLength: number): number
-export function textPropertyToTextList(encoding: Atom, format: number, text: number, length: number, list: string): number
-export function textPropertyToTextListForDisplay(display: Display, encoding: Atom, format: number, text: number, length: number, list: string): number
-export function textPropertyToUtf8List(encoding: Atom, format: number, text: number, length: number, list?: string | null): number
-export function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: number, length: number, list: string): number
-export function textWidth(font: Font, text: string, textLength: number): number
-export function textWidthWc(font: Font, text: WChar, textLength: number): number
-export function threadsAddIdleFull(priority: number, function_: GLib.SourceFunc): number
-export function threadsAddTimeoutFull(priority: number, interval: number, function_: GLib.SourceFunc): number
-export function threadsAddTimeoutSecondsFull(priority: number, interval: number, function_: GLib.SourceFunc): number
-export function threadsEnter(): void
-export function threadsInit(): void
-export function threadsLeave(): void
-export function unicodeToKeyval(wc: number): number
-export function utf8ToCompoundText(str: string, encoding: Atom, format: number, ctext: number, length: number): boolean
-export function utf8ToCompoundTextForDisplay(display: Display, str: string, encoding: Atom, format: number, ctext: number, length: number): boolean
-export function utf8ToStringTarget(str: string): string
-export function wcstombs(src: WChar): string
-export function windowAtPointer(): { returnType: Window, winX: number | null, winY: number | null }
-export function windowConstrainSize(geometry: Geometry, flags: number, width: number, height: number): { newWidth: number, newHeight: number }
-export function windowProcessAllUpdates(): void
-export function windowSetDebugUpdates(setting: boolean): void
-export interface DestroyNotify {
+function addOptionEntriesLibgtkOnly(group: GLib.OptionGroup): void
+function beep(): void
+function cairoCreate(drawable: Drawable): cairo.Context
+function cairoRectangle(cr: cairo.Context, rectangle: Rectangle): void
+function cairoRegion(cr: cairo.Context, region: Region): void
+function cairoResetClip(cr: cairo.Context, drawable: Drawable): void
+function cairoSetSourceColor(cr: cairo.Context, color: Color): void
+function cairoSetSourcePixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf, pixbufX: number, pixbufY: number): void
+function cairoSetSourcePixmap(cr: cairo.Context, pixmap: Pixmap, pixmapX: number, pixmapY: number): void
+function cairoSetSourceWindow(cr: cairo.Context, window: Window, x: number, y: number): void
+function charHeight(font: Font, character: number): number
+function charMeasure(font: Font, character: number): number
+function charWidth(font: Font, character: number): number
+function charWidthWc(font: Font, character: WChar): number
+function colorAlloc(colormap: Colormap, color: Color): number
+function colorBlack(colormap: Colormap, color: Color): number
+function colorChange(colormap: Colormap, color: Color): number
+function colorParse(spec: string): { returnType: boolean, color: Color }
+function colorWhite(colormap: Colormap, color: Color): number
+function colorsAlloc(colormap: Colormap, contiguous: boolean, planes: number, nplanes: number, pixels: number, npixels: number): number
+function colorsFree(colormap: Colormap, pixels: number, npixels: number, planes: number): void
+function colorsStore(colormap: Colormap, colors: Color, ncolors: number): void
+function devicesList(): Device[]
+function dragAbort(context: DragContext, time: number): void
+function dragDrop(context: DragContext, time: number): void
+function dragDropSucceeded(context: DragContext): boolean
+function dragFindWindow(context: DragContext, dragWindow: Window, xRoot: number, yRoot: number): { destWindow: Window, protocol: DragProtocol }
+function dragFindWindowForScreen(context: DragContext, dragWindow: Window, screen: Screen, xRoot: number, yRoot: number): { destWindow: Window, protocol: DragProtocol }
+function dragGetProtocol(xid: NativeWindow, protocol: DragProtocol): NativeWindow
+function dragGetProtocolForDisplay(display: Display, xid: NativeWindow, protocol: DragProtocol): NativeWindow
+function dragMotion(context: DragContext, destWindow: Window, protocol: DragProtocol, xRoot: number, yRoot: number, suggestedAction: DragAction, possibleActions: DragAction, time: number): boolean
+function dragStatus(context: DragContext, action: DragAction, time: number): void
+function drawArc(drawable: Drawable, gc: GC, filled: boolean, x: number, y: number, width: number, height: number, angle1: number, angle2: number): void
+function drawDrawable(drawable: Drawable, gc: GC, src: Drawable, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number): void
+function drawGlyphs(drawable: Drawable, gc: GC, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString): void
+function drawGlyphsTransformed(drawable: Drawable, gc: GC, matrix: Pango.Matrix | null, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString): void
+function drawGrayImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number): void
+function drawImage(drawable: Drawable, gc: GC, image: Image, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number): void
+function drawIndexedImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number, cmap: RgbCmap): void
+function drawLayout(drawable: Drawable, gc: GC, x: number, y: number, layout: Pango.Layout): void
+function drawLayoutLine(drawable: Drawable, gc: GC, x: number, y: number, line: Pango.LayoutLine): void
+function drawLayoutLineWithColors(drawable: Drawable, gc: GC, x: number, y: number, line: Pango.LayoutLine, foreground?: Color | null, background?: Color | null): void
+function drawLayoutWithColors(drawable: Drawable, gc: GC, x: number, y: number, layout: Pango.Layout, foreground?: Color | null, background?: Color | null): void
+function drawLine(drawable: Drawable, gc: GC, x1: number, y1: number, x2: number, y2: number): void
+function drawLines(drawable: Drawable, gc: GC, points: Point, nPoints: number): void
+function drawPixbuf(drawable: Drawable, gc: GC | null, pixbuf: GdkPixbuf.Pixbuf, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, dither: RgbDither, xDither: number, yDither: number): void
+function drawPoint(drawable: Drawable, gc: GC, x: number, y: number): void
+function drawPoints(drawable: Drawable, gc: GC, points: Point, nPoints: number): void
+function drawPolygon(drawable: Drawable, gc: GC, filled: boolean, points: Point, nPoints: number): void
+function drawRectangle(drawable: Drawable, gc: GC, filled: boolean, x: number, y: number, width: number, height: number): void
+function drawRgb32Image(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number): void
+function drawRgb32ImageDithalign(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, buf: number, rowstride: number, xdith: number, ydith: number): void
+function drawRgbImage(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, rgbBuf: number, rowstride: number): void
+function drawRgbImageDithalign(drawable: Drawable, gc: GC, x: number, y: number, width: number, height: number, dith: RgbDither, rgbBuf: number, rowstride: number, xdith: number, ydith: number): void
+function drawSegments(drawable: Drawable, gc: GC, segs: Segment, nSegs: number): void
+function drawString(drawable: Drawable, font: Font, gc: GC, x: number, y: number, string: string): void
+function drawText(drawable: Drawable, font: Font, gc: GC, x: number, y: number, text: string, textLength: number): void
+function drawTextWc(drawable: Drawable, font: Font, gc: GC, x: number, y: number, text: WChar, textLength: number): void
+function drawTrapezoids(drawable: Drawable, gc: GC, trapezoids: Trapezoid, nTrapezoids: number): void
+function dropFinish(context: DragContext, success: boolean, time: number): void
+function dropReply(context: DragContext, ok: boolean, time: number): void
+function errorTrapPop(): number
+function errorTrapPush(): void
+function eventGet(): Event
+function eventGetGraphicsExpose(window: Window): Event
+function eventHandlerSet(func: EventFunc): void
+function eventPeek(): Event
+function eventRequestMotions(event: EventMotion): void
+function eventSendClientMessageForDisplay(display: Display, event: Event, winid: NativeWindow): boolean
+function eventsPending(): boolean
+function exit(errorCode: number): void
+function flush(): void
+function fontFromDescription(fontDesc: Pango.FontDescription): Font
+function fontFromDescriptionForDisplay(display: Display, fontDesc: Pango.FontDescription): Font
+function fontLoad(fontName: string): Font
+function fontLoadForDisplay(display: Display, fontName: string): Font
+function fontsetLoad(fontsetName: string): Font
+function fontsetLoadForDisplay(display: Display, fontsetName: string): Font
+function freeCompoundText(ctext: number): void
+function freeTextList(list: string): void
+function getDisplay(): string
+function getDisplayArgName(): string
+function getProgramClass(): string
+function getShowEvents(): boolean
+function getUseXshm(): boolean
+function init(argv: string[]): { argv: string[] }
+function initCheck(argv: string[]): { returnType: boolean, argv: string[] }
+function inputAddFull(source: number, condition: InputCondition, function_: InputFunction): number
+function inputRemove(tag: number): void
+function inputSetExtensionEvents(window: Window, mask: number, mode: ExtensionMode): void
+function keyboardGrab(window: Window, ownerEvents: boolean, time: number): GrabStatus
+function keyboardGrabInfoLibgtkOnly(display: Display, grabWindow: Window, ownerEvents: boolean): boolean
+function keyboardUngrab(time: number): void
+function keyvalConvertCase(symbol: number): { lower: number, upper: number }
+function keyvalFromName(keyvalName: string): number
+function keyvalIsLower(keyval: number): boolean
+function keyvalIsUpper(keyval: number): boolean
+function keyvalName(keyval: number): string
+function keyvalToLower(keyval: number): number
+function keyvalToUnicode(keyval: number): number
+function keyvalToUpper(keyval: number): number
+function listVisuals(): Visual[]
+function mbstowcs(dest: WChar, src: string, destMax: number): number
+function notifyStartupComplete(): void
+function notifyStartupCompleteWithId(startupId: string): void
+function offscreenWindowSetEmbedder(window: Window, embedder: Window): void
+function pangoAttrEmbossColorNew(color: Color): Pango.Attribute
+function pangoAttrEmbossedNew(embossed: boolean): Pango.Attribute
+function pangoAttrStippleNew(stipple: Bitmap): Pango.Attribute
+function pangoContextSetColormap(context: Pango.Context, colormap: Colormap): void
+function parseArgs(argv: string[]): { argv: string[] }
+function pixbufRenderPixmapAndMask(pixbuf: GdkPixbuf.Pixbuf, pixmapReturn: Pixmap, maskReturn: Bitmap, alphaThreshold: number): void
+function pixbufRenderPixmapAndMaskForColormap(pixbuf: GdkPixbuf.Pixbuf, colormap: Colormap, pixmapReturn: Pixmap, maskReturn: Bitmap, alphaThreshold: number): void
+function pixbufRenderThresholdAlpha(pixbuf: GdkPixbuf.Pixbuf, bitmap: Bitmap, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, alphaThreshold: number): void
+function pixbufRenderToDrawable(pixbuf: GdkPixbuf.Pixbuf, drawable: Drawable, gc: GC, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, dither: RgbDither, xDither: number, yDither: number): void
+function pixbufRenderToDrawableAlpha(pixbuf: GdkPixbuf.Pixbuf, drawable: Drawable, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, alphaMode: GdkPixbuf.PixbufAlphaMode, alphaThreshold: number, dither: RgbDither, xDither: number, yDither: number): void
+function pointerGrab(window: Window, ownerEvents: boolean, eventMask: EventMask, confineTo: Window, cursor: Cursor, time: number): GrabStatus
+function pointerGrabInfoLibgtkOnly(display: Display, grabWindow: Window, ownerEvents: boolean): boolean
+function pointerIsGrabbed(): boolean
+function pointerUngrab(time: number): void
+function preParseLibgtkOnly(): void
+function propertyChange(window: Window, property: Atom, type: Atom, format: number, mode: PropMode, data: number, nelements: number): void
+function propertyDelete(window: Window, property: Atom): void
+function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number, actualPropertyType: Atom, actualFormat: number, actualLength: number, data: number): boolean
+function queryDepths(): { depths: number[], count: number }
+function queryVisualTypes(visualTypes: VisualType, count: number): void
+function rgbColormapDitherable(cmap: Colormap): boolean
+function rgbDitherable(): boolean
+function rgbFindColor(colormap: Colormap, color: Color): void
+function rgbGcSetBackground(gc: GC, rgb: number): void
+function rgbGcSetForeground(gc: GC, rgb: number): void
+function rgbGetColormap(): Colormap
+function rgbGetVisual(): Visual
+function rgbInit(): void
+function rgbSetInstall(install: boolean): void
+function rgbSetMinColors(minColors: number): void
+function rgbSetVerbose(verbose: boolean): void
+function rgbXpixelFromRgb(rgb: number): number
+function selectionConvert(requestor: Window, selection: Atom, target: Atom, time: number): void
+function selectionOwnerSet(owner: Window, selection: Atom, time: number, sendEvent: boolean): boolean
+function selectionOwnerSetForDisplay(display: Display, owner: Window, selection: Atom, time: number, sendEvent: boolean): boolean
+function selectionPropertyGet(requestor: Window, data: number, propType: Atom, propFormat: number): number
+function selectionSendNotify(requestor: NativeWindow, selection: Atom, target: Atom, property: Atom, time: number): void
+function selectionSendNotifyForDisplay(display: Display, requestor: NativeWindow, selection: Atom, target: Atom, property: Atom, time: number): void
+function setDoubleClickTime(msec: number): void
+function setLocale(): string
+function setProgramClass(programClass: string): void
+function setShowEvents(showEvents: boolean): void
+function setSmClientId(smClientId: string): void
+function setUseXshm(useXshm: boolean): void
+function settingGet(name: string, value: any): boolean
+function spawnCommandLineOnScreen(screen: Screen, commandLine: string): boolean
+function stringExtents(font: Font, string: string, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
+function stringHeight(font: Font, string: string): number
+function stringMeasure(font: Font, string: string): number
+function stringToCompoundText(str: string, encoding: Atom, format: number, ctext: number, length: number): number
+function stringToCompoundTextForDisplay(display: Display, str: string, encoding: Atom, format: number, ctext: number, length: number): number
+function stringWidth(font: Font, string: string): number
+function synthesizeWindowState(window: Window, unsetFlags: WindowState, setFlags: WindowState): void
+function testRenderSync(window: Window): void
+function testSimulateButton(window: Window, x: number, y: number, button: number, modifiers: ModifierType, buttonPressrelease: EventType): boolean
+function testSimulateKey(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, keyPressrelease: EventType): boolean
+function textExtents(font: Font, text: string, textLength: number, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
+function textExtentsWc(font: Font, text: WChar, textLength: number, lbearing: number, rbearing: number, width: number, ascent: number, descent: number): void
+function textHeight(font: Font, text: string, textLength: number): number
+function textMeasure(font: Font, text: string, textLength: number): number
+function textPropertyToTextList(encoding: Atom, format: number, text: number, length: number, list: string): number
+function textPropertyToTextListForDisplay(display: Display, encoding: Atom, format: number, text: number, length: number, list: string): number
+function textPropertyToUtf8List(encoding: Atom, format: number, text: number, length: number, list?: string | null): number
+function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: number, length: number, list: string): number
+function textWidth(font: Font, text: string, textLength: number): number
+function textWidthWc(font: Font, text: WChar, textLength: number): number
+function threadsAddIdleFull(priority: number, function_: GLib.SourceFunc): number
+function threadsAddTimeoutFull(priority: number, interval: number, function_: GLib.SourceFunc): number
+function threadsAddTimeoutSecondsFull(priority: number, interval: number, function_: GLib.SourceFunc): number
+function threadsEnter(): void
+function threadsInit(): void
+function threadsLeave(): void
+function unicodeToKeyval(wc: number): number
+function utf8ToCompoundText(str: string, encoding: Atom, format: number, ctext: number, length: number): boolean
+function utf8ToCompoundTextForDisplay(display: Display, str: string, encoding: Atom, format: number, ctext: number, length: number): boolean
+function utf8ToStringTarget(str: string): string
+function wcstombs(src: WChar): string
+function windowAtPointer(): { returnType: Window, winX: number | null, winY: number | null }
+function windowConstrainSize(geometry: Geometry, flags: number, width: number, height: number): { newWidth: number, newHeight: number }
+function windowProcessAllUpdates(): void
+function windowSetDebugUpdates(setting: boolean): void
+interface DestroyNotify {
     (data?: object | null): void
 }
-export interface EventFunc {
+interface EventFunc {
     (event: Event, data?: object | null): void
 }
-export interface FilterFunc {
+interface FilterFunc {
     (xevent: XEvent, event: Event, data?: object | null): FilterReturn
 }
-export interface InputFunction {
+interface InputFunction {
     (data: object | null, source: number, condition: InputCondition): void
 }
-export interface SpanFunc {
+interface SpanFunc {
     (span: Span, data?: object | null): void
 }
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
 }
-export class AppLaunchContext {
+class AppLaunchContext {
     /* Fields of Gdk-2.0.Gdk.AppLaunchContext */
     parentInstance: Gio.AppLaunchContext
     priv: AppLaunchContextPrivate
@@ -2957,7 +2957,7 @@ export class AppLaunchContext {
 }
 export interface Colormap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Colormap {
+class Colormap {
     /* Fields of Gdk-2.0.Gdk.Colormap */
     size: number
     colors: Color
@@ -3014,7 +3014,7 @@ export class Colormap {
 }
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Device {
+class Device {
     /* Fields of Gdk-2.0.Gdk.Device */
     parentInstance: GObject.Object
     name: string
@@ -3087,7 +3087,7 @@ export class Device {
 }
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Display {
+class Display {
     /* Fields of Gdk-2.0.Gdk.Display */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3173,7 +3173,7 @@ export class Display {
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
     defaultDisplay?: Display
 }
-export class DisplayManager {
+class DisplayManager {
     /* Properties of Gdk-2.0.Gdk.DisplayManager */
     defaultDisplay: Display
     /* Fields of GObject-2.0.GObject.Object */
@@ -3237,7 +3237,7 @@ export class DisplayManager {
 }
 export interface DragContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DragContext {
+class DragContext {
     /* Fields of Gdk-2.0.Gdk.DragContext */
     parentInstance: GObject.Object
     protocol: DragProtocol
@@ -3304,7 +3304,7 @@ export class DragContext {
 }
 export interface Drawable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Drawable {
+class Drawable {
     /* Fields of Gdk-2.0.Gdk.Drawable */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3356,7 +3356,7 @@ export class Drawable {
 }
 export interface GC_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GC {
+class GC {
     /* Fields of Gdk-2.0.Gdk.GC */
     parentInstance: GObject.Object
     clipXOrigin: number
@@ -3435,7 +3435,7 @@ export class GC {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of Gdk-2.0.Gdk.Image */
     parentInstance: GObject.Object
     type: ImageType
@@ -3508,7 +3508,7 @@ export class Image {
 }
 export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Keymap {
+class Keymap {
     /* Fields of Gdk-2.0.Gdk.Keymap */
     parentInstance: GObject.Object
     display: Display
@@ -3583,7 +3583,7 @@ export class Keymap {
 export interface PangoRenderer_ConstructProps extends Pango.Renderer_ConstructProps {
     screen?: Screen
 }
-export class PangoRenderer {
+class PangoRenderer {
     /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
     /* Fields of GObject-2.0.GObject.Object */
@@ -3657,7 +3657,7 @@ export class PangoRenderer {
 }
 export interface Pixmap_ConstructProps extends Drawable_ConstructProps {
 }
-export class Pixmap {
+class Pixmap {
     /* Fields of Gdk-2.0.Gdk.Pixmap */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3721,7 +3721,7 @@ export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     fontOptions?: object
     resolution?: number
 }
-export class Screen {
+class Screen {
     /* Properties of Gdk-2.0.Gdk.Screen */
     fontOptions: object
     resolution: number
@@ -3841,7 +3841,7 @@ export class Screen {
 }
 export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Visual {
+class Visual {
     /* Fields of Gdk-2.0.Gdk.Visual */
     parentInstance: GObject.Object
     type: VisualType
@@ -3921,7 +3921,7 @@ export class Visual {
 export interface Window_ConstructProps extends Drawable_ConstructProps {
     cursor?: Cursor
 }
-export class Window {
+class Window {
     /* Properties of Gdk-2.0.Gdk.Window */
     cursor: Cursor
     /* Fields of Gdk-2.0.Gdk.Window */
@@ -4117,25 +4117,25 @@ export class Window {
     _init (config?: Window_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AppLaunchContextClass {
+abstract class AppLaunchContextClass {
     /* Fields of Gdk-2.0.Gdk.AppLaunchContextClass */
     parentClass: Gio.AppLaunchContextClass
     static name: string
 }
-export class AppLaunchContextPrivate {
+class AppLaunchContextPrivate {
     static name: string
 }
-export class Atom {
+class Atom {
     /* Methods of Gdk-2.0.Gdk.Atom */
     name(): string
     static name: string
 }
-export class Bitmap {
+class Bitmap {
     /* Fields of Gdk-2.0.Gdk.Bitmap */
     parentInstance: GObject.Object
     static name: string
 }
-export class Color {
+class Color {
     /* Fields of Gdk-2.0.Gdk.Color */
     pixel: number
     red: number
@@ -4155,12 +4155,12 @@ export class Color {
     static parse(spec: string): { returnType: boolean, color: Color }
     static white(colormap: Colormap, color: Color): number
 }
-export abstract class ColormapClass {
+abstract class ColormapClass {
     /* Fields of Gdk-2.0.Gdk.ColormapClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Cursor {
+class Cursor {
     /* Fields of Gdk-2.0.Gdk.Cursor */
     type: CursorType
     /* Methods of Gdk-2.0.Gdk.Cursor */
@@ -4177,23 +4177,23 @@ export class Cursor {
     static newFromPixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
     static newFromPixmap(source: Pixmap, mask: Pixmap, fg: Color, bg: Color, x: number, y: number): Cursor
 }
-export class DeviceAxis {
+class DeviceAxis {
     /* Fields of Gdk-2.0.Gdk.DeviceAxis */
     use: AxisUse
     min: number
     max: number
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     static name: string
 }
-export class DeviceKey {
+class DeviceKey {
     /* Fields of Gdk-2.0.Gdk.DeviceKey */
     keyval: number
     modifiers: ModifierType
     static name: string
 }
-export abstract class DisplayClass {
+abstract class DisplayClass {
     /* Fields of Gdk-2.0.Gdk.DisplayClass */
     parentClass: GObject.ObjectClass
     getDisplayName: (display: Display) => string
@@ -4201,23 +4201,23 @@ export abstract class DisplayClass {
     closed: (display: Display, isError: boolean) => void
     static name: string
 }
-export abstract class DisplayManagerClass {
+abstract class DisplayManagerClass {
     /* Fields of Gdk-2.0.Gdk.DisplayManagerClass */
     parentClass: GObject.ObjectClass
     displayOpened: (displayManager: DisplayManager, display: Display) => void
     static name: string
 }
-export class DisplayPointerHooks {
+class DisplayPointerHooks {
     /* Fields of Gdk-2.0.Gdk.DisplayPointerHooks */
     getPointer: (display: Display, screen: Screen, x: number, y: number, mask: ModifierType) => void
     static name: string
 }
-export abstract class DragContextClass {
+abstract class DragContextClass {
     /* Fields of Gdk-2.0.Gdk.DragContextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DrawableClass {
+abstract class DrawableClass {
     /* Fields of Gdk-2.0.Gdk.DrawableClass */
     parentClass: GObject.ObjectClass
     drawRectangle: (drawable: Drawable, gc: GC, filled: boolean, x: number, y: number, width: number, height: number) => void
@@ -4243,14 +4243,14 @@ export abstract class DrawableClass {
     drawDrawableWithSrc: (drawable: Drawable, gc: GC, src: Drawable, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number, originalSrc: Drawable) => void
     static name: string
 }
-export class EventAny {
+class EventAny {
     /* Fields of Gdk-2.0.Gdk.EventAny */
     type: EventType
     window: Window
     sendEvent: number
     static name: string
 }
-export class EventButton {
+class EventButton {
     /* Fields of Gdk-2.0.Gdk.EventButton */
     type: EventType
     window: Window
@@ -4266,7 +4266,7 @@ export class EventButton {
     yRoot: number
     static name: string
 }
-export class EventClient {
+class EventClient {
     /* Fields of Gdk-2.0.Gdk.EventClient */
     type: EventType
     window: Window
@@ -4275,7 +4275,7 @@ export class EventClient {
     dataFormat: number
     static name: string
 }
-export class EventConfigure {
+class EventConfigure {
     /* Fields of Gdk-2.0.Gdk.EventConfigure */
     type: EventType
     window: Window
@@ -4286,7 +4286,7 @@ export class EventConfigure {
     height: number
     static name: string
 }
-export class EventCrossing {
+class EventCrossing {
     /* Fields of Gdk-2.0.Gdk.EventCrossing */
     type: EventType
     window: Window
@@ -4303,7 +4303,7 @@ export class EventCrossing {
     state: number
     static name: string
 }
-export class EventDND {
+class EventDND {
     /* Fields of Gdk-2.0.Gdk.EventDND */
     type: EventType
     window: Window
@@ -4314,7 +4314,7 @@ export class EventDND {
     yRoot: number
     static name: string
 }
-export class EventExpose {
+class EventExpose {
     /* Fields of Gdk-2.0.Gdk.EventExpose */
     type: EventType
     window: Window
@@ -4324,7 +4324,7 @@ export class EventExpose {
     count: number
     static name: string
 }
-export class EventFocus {
+class EventFocus {
     /* Fields of Gdk-2.0.Gdk.EventFocus */
     type: EventType
     window: Window
@@ -4332,7 +4332,7 @@ export class EventFocus {
     in_: number
     static name: string
 }
-export class EventGrabBroken {
+class EventGrabBroken {
     /* Fields of Gdk-2.0.Gdk.EventGrabBroken */
     type: EventType
     window: Window
@@ -4342,7 +4342,7 @@ export class EventGrabBroken {
     grabWindow: Window
     static name: string
 }
-export class EventKey {
+class EventKey {
     /* Fields of Gdk-2.0.Gdk.EventKey */
     type: EventType
     window: Window
@@ -4357,7 +4357,7 @@ export class EventKey {
     isModifier: number
     static name: string
 }
-export class EventMotion {
+class EventMotion {
     /* Fields of Gdk-2.0.Gdk.EventMotion */
     type: EventType
     window: Window
@@ -4373,14 +4373,14 @@ export class EventMotion {
     yRoot: number
     static name: string
 }
-export class EventNoExpose {
+class EventNoExpose {
     /* Fields of Gdk-2.0.Gdk.EventNoExpose */
     type: EventType
     window: Window
     sendEvent: number
     static name: string
 }
-export class EventOwnerChange {
+class EventOwnerChange {
     /* Fields of Gdk-2.0.Gdk.EventOwnerChange */
     type: EventType
     window: Window
@@ -4392,7 +4392,7 @@ export class EventOwnerChange {
     selectionTime: number
     static name: string
 }
-export class EventProperty {
+class EventProperty {
     /* Fields of Gdk-2.0.Gdk.EventProperty */
     type: EventType
     window: Window
@@ -4402,7 +4402,7 @@ export class EventProperty {
     state: number
     static name: string
 }
-export class EventProximity {
+class EventProximity {
     /* Fields of Gdk-2.0.Gdk.EventProximity */
     type: EventType
     window: Window
@@ -4411,7 +4411,7 @@ export class EventProximity {
     device: Device
     static name: string
 }
-export class EventScroll {
+class EventScroll {
     /* Fields of Gdk-2.0.Gdk.EventScroll */
     type: EventType
     window: Window
@@ -4426,7 +4426,7 @@ export class EventScroll {
     yRoot: number
     static name: string
 }
-export class EventSelection {
+class EventSelection {
     /* Fields of Gdk-2.0.Gdk.EventSelection */
     type: EventType
     window: Window
@@ -4438,7 +4438,7 @@ export class EventSelection {
     requestor: NativeWindow
     static name: string
 }
-export class EventSetting {
+class EventSetting {
     /* Fields of Gdk-2.0.Gdk.EventSetting */
     type: EventType
     window: Window
@@ -4447,7 +4447,7 @@ export class EventSetting {
     name: string
     static name: string
 }
-export class EventVisibility {
+class EventVisibility {
     /* Fields of Gdk-2.0.Gdk.EventVisibility */
     type: EventType
     window: Window
@@ -4455,7 +4455,7 @@ export class EventVisibility {
     state: VisibilityState
     static name: string
 }
-export class EventWindowState {
+class EventWindowState {
     /* Fields of Gdk-2.0.Gdk.EventWindowState */
     type: EventType
     window: Window
@@ -4464,7 +4464,7 @@ export class EventWindowState {
     newWindowState: WindowState
     static name: string
 }
-export class Font {
+class Font {
     /* Fields of Gdk-2.0.Gdk.Font */
     type: FontType
     ascent: number
@@ -4481,7 +4481,7 @@ export class Font {
     static load(fontName: string): Font
     static loadForDisplay(display: Display, fontName: string): Font
 }
-export abstract class GCClass {
+abstract class GCClass {
     /* Fields of Gdk-2.0.Gdk.GCClass */
     parentClass: GObject.ObjectClass
     getValues: (gc: GC, values: GCValues) => void
@@ -4489,7 +4489,7 @@ export abstract class GCClass {
     setDashes: (gc: GC, dashOffset: number, dashList: number, n: number) => void
     static name: string
 }
-export class GCValues {
+class GCValues {
     /* Fields of Gdk-2.0.Gdk.GCValues */
     foreground: Color
     background: Color
@@ -4511,7 +4511,7 @@ export class GCValues {
     joinStyle: JoinStyle
     static name: string
 }
-export class Geometry {
+class Geometry {
     /* Fields of Gdk-2.0.Gdk.Geometry */
     minWidth: number
     minHeight: number
@@ -4526,12 +4526,12 @@ export class Geometry {
     winGravity: Gravity
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of Gdk-2.0.Gdk.ImageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class KeyboardGrabInfo {
+class KeyboardGrabInfo {
     /* Fields of Gdk-2.0.Gdk.KeyboardGrabInfo */
     window: Window
     nativeWindow: Window
@@ -4542,7 +4542,7 @@ export class KeyboardGrabInfo {
     /* Static methods and pseudo-constructors */
     static libgtkOnly(display: Display, grabWindow: Window, ownerEvents: boolean): boolean
 }
-export abstract class KeymapClass {
+abstract class KeymapClass {
     /* Fields of Gdk-2.0.Gdk.KeymapClass */
     parentClass: GObject.ObjectClass
     directionChanged: (keymap: Keymap) => void
@@ -4550,59 +4550,59 @@ export abstract class KeymapClass {
     stateChanged: (keymap: Keymap) => void
     static name: string
 }
-export class KeymapKey {
+class KeymapKey {
     /* Fields of Gdk-2.0.Gdk.KeymapKey */
     keycode: number
     group: number
     level: number
     static name: string
 }
-export class PangoAttrEmbossColor {
+class PangoAttrEmbossColor {
     /* Fields of Gdk-2.0.Gdk.PangoAttrEmbossColor */
     attr: Pango.Attribute
     color: Pango.Color
     static name: string
 }
-export class PangoAttrEmbossed {
+class PangoAttrEmbossed {
     /* Fields of Gdk-2.0.Gdk.PangoAttrEmbossed */
     attr: Pango.Attribute
     embossed: boolean
     static name: string
 }
-export class PangoAttrStipple {
+class PangoAttrStipple {
     /* Fields of Gdk-2.0.Gdk.PangoAttrStipple */
     attr: Pango.Attribute
     stipple: Bitmap
     static name: string
 }
-export abstract class PangoRendererClass {
+abstract class PangoRendererClass {
     static name: string
 }
-export class PangoRendererPrivate {
+class PangoRendererPrivate {
     static name: string
 }
-export class PixmapObject {
+class PixmapObject {
     /* Fields of Gdk-2.0.Gdk.PixmapObject */
     parentInstance: Drawable
     impl: Drawable
     depth: number
     static name: string
 }
-export class PixmapObjectClass {
+class PixmapObjectClass {
     /* Fields of Gdk-2.0.Gdk.PixmapObjectClass */
     parentClass: DrawableClass
     static name: string
 }
-export class Point {
+class Point {
     /* Fields of Gdk-2.0.Gdk.Point */
     x: number
     y: number
     static name: string
 }
-export class PointerHooks {
+class PointerHooks {
     static name: string
 }
-export class PointerWindowInfo {
+class PointerWindowInfo {
     /* Fields of Gdk-2.0.Gdk.PointerWindowInfo */
     toplevelUnderPointer: Window
     windowUnderPointer: Window
@@ -4613,7 +4613,7 @@ export class PointerWindowInfo {
     motionHintSerial: number
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Gdk-2.0.Gdk.Rectangle */
     x: number
     y: number
@@ -4624,7 +4624,7 @@ export class Rectangle {
     union(src2: Rectangle): { dest: Rectangle }
     static name: string
 }
-export class Region {
+class Region {
     /* Methods of Gdk-2.0.Gdk.Region */
     destroy(): void
     empty(): boolean
@@ -4643,7 +4643,7 @@ export class Region {
     xor(source2: Region): void
     static name: string
 }
-export class RgbCmap {
+class RgbCmap {
     /* Fields of Gdk-2.0.Gdk.RgbCmap */
     colors: number[]
     nColors: number
@@ -4651,7 +4651,7 @@ export class RgbCmap {
     free(): void
     static name: string
 }
-export abstract class ScreenClass {
+abstract class ScreenClass {
     /* Fields of Gdk-2.0.Gdk.ScreenClass */
     parentClass: GObject.ObjectClass
     sizeChanged: (screen: Screen) => void
@@ -4659,7 +4659,7 @@ export abstract class ScreenClass {
     monitorsChanged: (screen: Screen) => void
     static name: string
 }
-export class Segment {
+class Segment {
     /* Fields of Gdk-2.0.Gdk.Segment */
     x1: number
     y1: number
@@ -4667,20 +4667,20 @@ export class Segment {
     y2: number
     static name: string
 }
-export class Span {
+class Span {
     /* Fields of Gdk-2.0.Gdk.Span */
     x: number
     y: number
     width: number
     static name: string
 }
-export class TimeCoord {
+class TimeCoord {
     /* Fields of Gdk-2.0.Gdk.TimeCoord */
     time: number
     axes: number[]
     static name: string
 }
-export class Trapezoid {
+class Trapezoid {
     /* Fields of Gdk-2.0.Gdk.Trapezoid */
     y1: number
     x11: number
@@ -4690,10 +4690,10 @@ export class Trapezoid {
     x22: number
     static name: string
 }
-export abstract class VisualClass {
+abstract class VisualClass {
     static name: string
 }
-export class WindowAttr {
+class WindowAttr {
     /* Fields of Gdk-2.0.Gdk.WindowAttr */
     title: string
     eventMask: number
@@ -4712,18 +4712,18 @@ export class WindowAttr {
     typeHint: WindowTypeHint
     static name: string
 }
-export class WindowObject {
+class WindowObject {
     static name: string
 }
-export class WindowObjectClass {
+class WindowObjectClass {
     /* Fields of Gdk-2.0.Gdk.WindowObjectClass */
     parentClass: DrawableClass
     static name: string
 }
-export class WindowRedirect {
+class WindowRedirect {
     static name: string
 }
-export class Event {
+class Event {
     /* Fields of Gdk-2.0.Gdk.Event */
     type: EventType
     any: EventAny
@@ -4770,10 +4770,11 @@ export class Event {
     static requestMotions(event: EventMotion): void
     static sendClientMessageForDisplay(display: Display, event: Event, winid: NativeWindow): boolean
 }
-export type NativeWindow = number
-export type Selection = Atom
-export type SelectionType = Atom
-export type Target = Atom
-export type WChar = number
-export type XEvent = void
+type NativeWindow = number
+type Selection = Atom
+type SelectionType = Atom
+type Target = Atom
+type WChar = number
+type XEvent = void
 }
+export default Gdk

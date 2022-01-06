@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type cairo from './cairo-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export enum Error {
+export namespace Rsvg {
+
+enum Error {
     FAILED,
 }
-export enum Unit {
+enum Unit {
     PERCENT,
     PX,
     EM,
@@ -24,7 +26,7 @@ export enum Unit {
     PT,
     PC,
 }
-export enum HandleFlags {
+enum HandleFlags {
     FLAGS_NONE,
     FLAG_UNLIMITED,
     FLAG_KEEP_IMAGE_DATA,
@@ -33,17 +35,17 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION: string
-export function cleanup(): void
-export function error_quark(): GLib.Quark
-export function set_default_dpi(dpi: number): void
-export function set_default_dpi_x_y(dpi_x: number, dpi_y: number): void
+function cleanup(): void
+function error_quark(): GLib.Quark
+function set_default_dpi(dpi: number): void
+function set_default_dpi_x_y(dpi_x: number, dpi_y: number): void
 export interface Handle_ConstructProps extends GObject.Object_ConstructProps {
     base_uri?: string
     dpi_x?: number
     dpi_y?: number
     flags?: HandleFlags
 }
-export class Handle {
+class Handle {
     /* Properties of Rsvg-2.0.Rsvg.Handle */
     base_uri: string
     readonly desc: string
@@ -155,7 +157,7 @@ export class Handle {
     static new_with_flags(flags: HandleFlags): Handle
     static $gtype: GObject.Type
 }
-export class DimensionData {
+class DimensionData {
     /* Fields of Rsvg-2.0.Rsvg.DimensionData */
     width: number
     height: number
@@ -163,24 +165,24 @@ export class DimensionData {
     ex: number
     static name: string
 }
-export abstract class HandleClass {
+abstract class HandleClass {
     /* Fields of Rsvg-2.0.Rsvg.HandleClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class Length {
+class Length {
     /* Fields of Rsvg-2.0.Rsvg.Length */
     length: number
     unit: Unit
     static name: string
 }
-export class PositionData {
+class PositionData {
     /* Fields of Rsvg-2.0.Rsvg.PositionData */
     x: number
     y: number
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Rsvg-2.0.Rsvg.Rectangle */
     x: number
     y: number
@@ -188,3 +190,5 @@ export class Rectangle {
     height: number
     static name: string
 }
+}
+export default Rsvg

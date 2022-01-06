@@ -1,2 +1,1 @@
-imports.gi.versions.Granite = '1.0'
-module.exports = imports.gi.Granite
+export {default as default} from 'gi://Granite?version=1.0';

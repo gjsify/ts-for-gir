@@ -3,50 +3,52 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Template from './Template-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Peas from './Peas-1.0';
-import type * as GModule from './GModule-2.0';
-import type * as GIRepository from './GIRepository-2.0';
-import type * as Json from './Json-1.0';
-import type * as GtkSource from './GtkSource-3.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Dazzle from './Dazzle-1.0';
+import type Template from './Template-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Peas from './Peas-1.0';
+import type GModule from './GModule-2.0';
+import type GIRepository from './GIRepository-2.0';
+import type Json from './Json-1.0';
+import type GtkSource from './GtkSource-3.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type Atk from './Atk-1.0';
+import type Dazzle from './Dazzle-1.0';
 
-export enum ApplicationMode {
+export namespace Ide {
+
+enum ApplicationMode {
     PRIMARY,
     WORKER,
     TOOL,
     TESTS,
 }
-export enum BufferLineChange {
+enum BufferLineChange {
     NONE,
     ADDED,
     CHANGED,
     DELETED,
 }
-export enum BuildLogStream {
+enum BuildLogStream {
     STDOUT,
     STDERR,
 }
-export enum CursorType {
+enum CursorType {
     COLUMN,
     SELECT,
     MATCH,
 }
-export enum DeviceError {
+enum DeviceError {
     DEVICE,
 }
-export enum DiagnosticSeverity {
+enum DiagnosticSeverity {
     IGNORED,
     NOTE,
     DEPRECATED,
@@ -54,32 +56,32 @@ export enum DiagnosticSeverity {
     ERROR,
     FATAL,
 }
-export enum DoapError {
+enum DoapError {
     FORMAT,
 }
-export enum HighlightResult {
+enum HighlightResult {
     STOP,
     CONTINUE,
 }
-export enum IndentStyle {
+enum IndentStyle {
     SPACES,
     TABS,
 }
-export enum LayoutGridSplit {
+enum LayoutGridSplit {
     LEFT,
     RIGHT,
     MOVE_LEFT,
     MOVE_RIGHT,
 }
-export enum RuntimeError {
+enum RuntimeError {
     RUNTIME,
 }
-export enum SourceViewModeType {
+enum SourceViewModeType {
     TRANSIENT,
     PERMANENT,
     MODAL,
 }
-export enum SourceViewMovement {
+enum SourceViewMovement {
     PREVIOUS_OFFSET,
     NEXT_OFFSET,
     NTH_CHAR,
@@ -141,11 +143,11 @@ export enum SourceViewMovement {
     NEXT_MATCH_SEARCH_CHAR,
     PREVIOUS_MATCH_SEARCH_CHAR,
 }
-export enum SourceViewTheatric {
+enum SourceViewTheatric {
     EXPAND,
     SHRINK,
 }
-export enum SymbolKind {
+enum SymbolKind {
     NONE,
     ARRAY,
     BOOLEAN,
@@ -191,16 +193,16 @@ export enum SymbolKind {
     XML_COMMENT,
     XML_CDATA,
 }
-export enum ThreadPoolKind {
+enum ThreadPoolKind {
     COMPILER,
     INDEXER,
     LAST,
 }
-export enum TransferError {
+enum TransferError {
     UNKNOWN,
     CONNECTION_IS_METERED,
 }
-export enum UriError {
+enum UriError {
     MISC,
     BAD_SCHEME,
     BAD_USER,
@@ -212,11 +214,11 @@ export enum UriError {
     BAD_QUERY,
     BAD_FRAGMENT,
 }
-export enum VcsConfigType {
+enum VcsConfigType {
     FULL_NAME,
     EMAIL,
 }
-export enum BufferLineFlags {
+enum BufferLineFlags {
     NONE,
     ADDED,
     CHANGED,
@@ -225,7 +227,7 @@ export enum BufferLineFlags {
     WARNING,
     NOTE,
 }
-export enum BuildPhase {
+enum BuildPhase {
     NONE,
     PREPARE,
     DOWNLOADS,
@@ -241,13 +243,13 @@ export enum BuildPhase {
     FINISHED,
     FAILED,
 }
-export enum SymbolFlags {
+enum SymbolFlags {
     NONE,
     IS_STATIC,
     IS_MEMBER,
     IS_DEPRECATED,
 }
-export enum UriParseFlags {
+enum UriParseFlags {
     STRICT,
     HTML5,
     NO_IRI,
@@ -257,11 +259,11 @@ export enum UriParseFlags {
     DECODED,
     UTF8_ONLY,
 }
-export enum UriToStringFlags {
+enum UriToStringFlags {
     AUTH_PARAMS,
     FRAGMENT,
 }
-export enum WorkbenchOpenFlags {
+enum WorkbenchOpenFlags {
     NONE,
     BACKGROUND,
 }
@@ -276,74 +278,74 @@ export const RECENT_PROJECTS_BOOKMARK_FILENAME: string
 export const RECENT_PROJECTS_BUILD_SYSTEM_GROUP_PREFIX: string
 export const RECENT_PROJECTS_GROUP: string
 export const RECENT_PROJECTS_LANGUAGE_GROUP_PREFIX: string
-export function build_system_new_async(context: Context, project_file: Gio.File, build_system_hint: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function build_system_new_finish(result: Gio.AsyncResult): BuildSystem
-export function build_utils_color_codes_filtering(txt: string): string
-export function completion_provider_context_current_word(context: GtkSource.CompletionContext): string
-export function completion_provider_context_in_comment(context: GtkSource.CompletionContext): boolean
-export function completion_provider_context_in_comment_or_string(context: GtkSource.CompletionContext): boolean
-export function device_error_quark(): GLib.Quark
-export function diagnostic_severity_to_string(severity: DiagnosticSeverity): string
-export function doap_error_quark(): GLib.Quark
-export function flatpak_get_app_path(path: string): string
-export function g_task_return_boolean_from_main(task: Gio.Task, value: boolean): void
-export function g_task_return_error_from_main(task: Gio.Task, error: GLib.Error): void
-export function g_task_return_int_from_main(task: Gio.Task, value: number): void
-export function g_task_return_pointer_from_main(task: Gio.Task, value: object | null, notify: GLib.DestroyNotify): void
-export function get_program_name(): string
-export function get_resource(): Gio.Resource
-export function get_system_arch(): string
-export function get_system_page_size(): number
-export function get_system_type(): string
-export function gettext(message: string): string
-export function icons_get_resource(): Gio.Resource
-export function is_flatpak(): boolean
-export function langserv_decode_completion_kind(kind: number): SymbolKind
-export function langserv_decode_symbol_kind(kind: number): SymbolKind
-export function language_format_header(language: GtkSource.Language, header: string): string
-export function log_get_verbosity(): number
-export function log_increase_verbosity(): void
-export function log_init(stdout_: boolean, filename: string): void
-export function log_set_verbosity(level: number): void
-export function log_shutdown(): void
-export function path_collapse(path: string): string
-export function path_expand(path: string): string
-export function runtime_error_quark(): GLib.Quark
-export function set_program_name(program_name: string): void
-export function source_style_scheme_apply_style(style_scheme: GtkSource.StyleScheme, style: string, tag: Gtk.TextTag): boolean
-export function symbol_kind_get_icon_name(kind: SymbolKind): string
-export function thread_pool_push(kind: ThreadPoolKind, func: ThreadFunc): void
-export function thread_pool_push_task(kind: ThreadPoolKind, task: Gio.Task, func: Gio.TaskThreadFunc): void
-export function uri_build(scheme: string, userinfo: string, host: string, port: string, path: string, query: string, fragment: string): string
-export function uri_error_quark(): GLib.Quark
-export function uri_parse_host(uri_string: string, flags: UriParseFlags): [ /* returnType */ boolean, /* scheme */ string, /* host */ string, /* port */ number ]
-export function uri_parse_params(params: string, length: number, separator: number, case_insensitive: boolean): GLib.HashTable
-export function uri_split(uri_string: string, strict: boolean): [ /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
-export function vcs_new_async(context: Context, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function vcs_new_finish(result: Gio.AsyncResult): Vcs
-export function vcs_register_ignored(pattern: string): void
-export function vcs_uri_is_valid(uri_string: string): boolean
-export function widget_get_workbench(widget: Gtk.Widget): Workbench | null
-export function widget_set_context_handler(widget: Gtk.Widget, handler: WidgetContextHandler): void
-export interface BuildLogObserver {
+function build_system_new_async(context: Context, project_file: Gio.File, build_system_hint: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function build_system_new_finish(result: Gio.AsyncResult): BuildSystem
+function build_utils_color_codes_filtering(txt: string): string
+function completion_provider_context_current_word(context: GtkSource.CompletionContext): string
+function completion_provider_context_in_comment(context: GtkSource.CompletionContext): boolean
+function completion_provider_context_in_comment_or_string(context: GtkSource.CompletionContext): boolean
+function device_error_quark(): GLib.Quark
+function diagnostic_severity_to_string(severity: DiagnosticSeverity): string
+function doap_error_quark(): GLib.Quark
+function flatpak_get_app_path(path: string): string
+function g_task_return_boolean_from_main(task: Gio.Task, value: boolean): void
+function g_task_return_error_from_main(task: Gio.Task, error: GLib.Error): void
+function g_task_return_int_from_main(task: Gio.Task, value: number): void
+function g_task_return_pointer_from_main(task: Gio.Task, value: object | null, notify: GLib.DestroyNotify): void
+function get_program_name(): string
+function get_resource(): Gio.Resource
+function get_system_arch(): string
+function get_system_page_size(): number
+function get_system_type(): string
+function gettext(message: string): string
+function icons_get_resource(): Gio.Resource
+function is_flatpak(): boolean
+function langserv_decode_completion_kind(kind: number): SymbolKind
+function langserv_decode_symbol_kind(kind: number): SymbolKind
+function language_format_header(language: GtkSource.Language, header: string): string
+function log_get_verbosity(): number
+function log_increase_verbosity(): void
+function log_init(stdout_: boolean, filename: string): void
+function log_set_verbosity(level: number): void
+function log_shutdown(): void
+function path_collapse(path: string): string
+function path_expand(path: string): string
+function runtime_error_quark(): GLib.Quark
+function set_program_name(program_name: string): void
+function source_style_scheme_apply_style(style_scheme: GtkSource.StyleScheme, style: string, tag: Gtk.TextTag): boolean
+function symbol_kind_get_icon_name(kind: SymbolKind): string
+function thread_pool_push(kind: ThreadPoolKind, func: ThreadFunc): void
+function thread_pool_push_task(kind: ThreadPoolKind, task: Gio.Task, func: Gio.TaskThreadFunc): void
+function uri_build(scheme: string, userinfo: string, host: string, port: string, path: string, query: string, fragment: string): string
+function uri_error_quark(): GLib.Quark
+function uri_parse_host(uri_string: string, flags: UriParseFlags): [ /* returnType */ boolean, /* scheme */ string, /* host */ string, /* port */ number ]
+function uri_parse_params(params: string, length: number, separator: number, case_insensitive: boolean): GLib.HashTable
+function uri_split(uri_string: string, strict: boolean): [ /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
+function vcs_new_async(context: Context, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function vcs_new_finish(result: Gio.AsyncResult): Vcs
+function vcs_register_ignored(pattern: string): void
+function vcs_uri_is_valid(uri_string: string): boolean
+function widget_get_workbench(widget: Gtk.Widget): Workbench | null
+function widget_set_context_handler(widget: Gtk.Widget, handler: WidgetContextHandler): void
+interface BuildLogObserver {
     (log_stream: BuildLogStream, message: string, message_len: number): void
 }
-export interface ExtensionSetAdapterForeachFunc {
+interface ExtensionSetAdapterForeachFunc {
     (set: ExtensionSetAdapter, plugin_info: Peas.PluginInfo, extension: Peas.Extension): void
 }
-export interface HighlightCallback {
+interface HighlightCallback {
     (begin: Gtk.TextIter, end: Gtk.TextIter, style_name: string): HighlightResult
 }
-export interface RunHandler {
+interface RunHandler {
     (self: RunManager, runner: Runner): void
 }
-export interface ThreadFunc {
+interface ThreadFunc {
     (): void
 }
-export interface WidgetContextHandler {
+interface WidgetContextHandler {
     (widget: Gtk.Widget, context: Context): void
 }
-export class ApplicationAddin {
+class ApplicationAddin {
     /* Methods of Ide-1.0.Ide.ApplicationAddin */
     load(application: Application): void
     unload(application: Application): void
@@ -352,7 +354,7 @@ export class ApplicationAddin {
     vfunc_unload(application: Application): void
     static name: string
 }
-export class ApplicationTool {
+class ApplicationTool {
     /* Methods of Ide-1.0.Ide.ApplicationTool */
     run_async(arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_finish(result: Gio.AsyncResult): number
@@ -363,7 +365,7 @@ export class ApplicationTool {
 }
 export interface BuildPipelineAddin_ConstructProps extends Object_ConstructProps {
 }
-export class BuildPipelineAddin {
+class BuildPipelineAddin {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -435,7 +437,7 @@ export interface BuildSystem_ConstructProps extends Object_ConstructProps {
     context?: Context
     project_file?: Gio.File
 }
-export class BuildSystem {
+class BuildSystem {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -517,7 +519,7 @@ export class BuildSystem {
     static new_finish(result: Gio.AsyncResult): BuildSystem
     static $gtype: GObject.Type
 }
-export class BuildSystemDiscovery {
+class BuildSystemDiscovery {
     /* Methods of Ide-1.0.Ide.BuildSystemDiscovery */
     discover(project_file: Gio.File, cancellable?: Gio.Cancellable | null): [ /* returnType */ string, /* priority */ number ]
     /* Virtual methods of Ide-1.0.Ide.BuildSystemDiscovery */
@@ -526,7 +528,7 @@ export class BuildSystemDiscovery {
 }
 export interface BuildTarget_ConstructProps extends Object_ConstructProps {
 }
-export class BuildTarget {
+class BuildTarget {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -593,7 +595,7 @@ export class BuildTarget {
     _init (config?: BuildTarget_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class CompletionProvider {
+class CompletionProvider {
     /* Methods of Ide-1.0.Ide.CompletionProvider */
     load(context: Context): void
     /* Methods of GtkSource-3.0.GtkSource.CompletionProvider */
@@ -632,7 +634,7 @@ export class CompletionProvider {
     static context_in_comment(context: GtkSource.CompletionContext): boolean
     static context_in_comment_or_string(context: GtkSource.CompletionContext): boolean
 }
-export class ConfigurationProvider {
+class ConfigurationProvider {
     /* Methods of Ide-1.0.Ide.ConfigurationProvider */
     load_async(manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
@@ -650,7 +652,7 @@ export class ConfigurationProvider {
 export interface DeviceProvider_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
-export class DeviceProvider {
+class DeviceProvider {
     /* Properties of Ide-1.0.Ide.DeviceProvider */
     readonly settled: boolean
     /* Fields of Ide-1.0.Ide.Object */
@@ -732,7 +734,7 @@ export class DeviceProvider {
 }
 export interface DiagnosticProvider_ConstructProps extends Object_ConstructProps {
 }
-export class DiagnosticProvider {
+class DiagnosticProvider {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -806,7 +808,7 @@ export class DiagnosticProvider {
     _init (config?: DiagnosticProvider_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class EditorViewAddin {
+class EditorViewAddin {
     /* Virtual methods of Ide-1.0.Ide.EditorViewAddin */
     vfunc_language_changed(language_id: string): void
     vfunc_load(view: EditorView): void
@@ -815,7 +817,7 @@ export class EditorViewAddin {
     vfunc_unload_source_view(source_view: SourceView): void
     static name: string
 }
-export class Formatter {
+class Formatter {
     /* Methods of Ide-1.0.Ide.Formatter */
     format_async(buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     format_finish(result: Gio.AsyncResult): boolean
@@ -830,7 +832,7 @@ export class Formatter {
     vfunc_load(): void
     static name: string
 }
-export class GenesisAddin {
+class GenesisAddin {
     /* Properties of Ide-1.0.Ide.GenesisAddin */
     readonly is_ready: boolean
     /* Methods of Ide-1.0.Ide.GenesisAddin */
@@ -856,7 +858,7 @@ export class GenesisAddin {
 export interface Highlighter_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
-export class Highlighter {
+class Highlighter {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -926,7 +928,7 @@ export class Highlighter {
 }
 export interface Indenter_ConstructProps extends Object_ConstructProps {
 }
-export class Indenter {
+class Indenter {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -993,7 +995,7 @@ export class Indenter {
     _init (config?: Indenter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class LayoutStackAddin {
+class LayoutStackAddin {
     /* Methods of Ide-1.0.Ide.LayoutStackAddin */
     load(stack: LayoutStack): void
     set_view(view?: LayoutView | null): void
@@ -1004,7 +1006,7 @@ export class LayoutStackAddin {
     vfunc_unload(stack: LayoutStack): void
     static name: string
 }
-export class Perspective {
+class Perspective {
     /* Methods of Ide-1.0.Ide.Perspective */
     agree_to_shutdown(): boolean
     get_accelerator(): string | null
@@ -1033,7 +1035,7 @@ export class Perspective {
     vfunc_views_foreach(callback: Gtk.Callback): void
     static name: string
 }
-export class PreferencesAddin {
+class PreferencesAddin {
     /* Methods of Ide-1.0.Ide.PreferencesAddin */
     load(preferences: Dazzle.Preferences): void
     unload(preferences: Dazzle.Preferences): void
@@ -1042,7 +1044,7 @@ export class PreferencesAddin {
     vfunc_unload(preferences: Dazzle.Preferences): void
     static name: string
 }
-export class ProjectMiner {
+class ProjectMiner {
     /* Methods of Ide-1.0.Ide.ProjectMiner */
     emit_discovered(project_info: ProjectInfo): void
     mine_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1057,7 +1059,7 @@ export class ProjectMiner {
     emit(sigName: "discovered", project_info: ProjectInfo): void
     static name: string
 }
-export class ProjectTemplate {
+class ProjectTemplate {
     /* Methods of Ide-1.0.Ide.ProjectTemplate */
     expand_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     expand_finish(result: Gio.AsyncResult): boolean
@@ -1081,7 +1083,7 @@ export class ProjectTemplate {
 export interface RenameProvider_ConstructProps extends Object_ConstructProps {
     buffer?: Buffer
 }
-export class RenameProvider {
+class RenameProvider {
     /* Properties of Ide-1.0.Ide.RenameProvider */
     buffer: Buffer
     /* Fields of Ide-1.0.Ide.Object */
@@ -1154,7 +1156,7 @@ export class RenameProvider {
     _init (config?: RenameProvider_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class RunnerAddin {
+class RunnerAddin {
     /* Methods of Ide-1.0.Ide.RunnerAddin */
     load(runner: Runner): void
     posthook_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1171,7 +1173,7 @@ export class RunnerAddin {
     vfunc_unload(runner: Runner): void
     static name: string
 }
-export class RuntimeProvider {
+class RuntimeProvider {
     /* Methods of Ide-1.0.Ide.RuntimeProvider */
     can_install(runtime_id: string): boolean
     install_async(runtime_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1188,7 +1190,7 @@ export class RuntimeProvider {
 }
 export interface SearchProvider_ConstructProps extends Object_ConstructProps {
 }
-export class SearchProvider {
+class SearchProvider {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1265,7 +1267,7 @@ export class SearchProvider {
 }
 export interface Service_ConstructProps extends Object_ConstructProps {
 }
-export class Service {
+class Service {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1339,7 +1341,7 @@ export class Service {
     _init (config?: Service_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Subprocess {
+class Subprocess {
     /* Methods of Ide-1.0.Ide.Subprocess */
     check_exit_status(): boolean
     communicate(stdin_buf: GLib.Bytes, cancellable: Gio.Cancellable | null, stdout_buf: GLib.Bytes, stderr_buf: GLib.Bytes): boolean
@@ -1392,7 +1394,7 @@ export class Subprocess {
 }
 export interface SymbolResolver_ConstructProps extends Object_ConstructProps {
 }
-export class SymbolResolver {
+class SymbolResolver {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1469,7 +1471,7 @@ export class SymbolResolver {
     _init (config?: SymbolResolver_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class SymbolTree {
+class SymbolTree {
     /* Methods of Ide-1.0.Ide.SymbolTree */
     get_n_children(node?: SymbolNode | null): number
     get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
@@ -1478,7 +1480,7 @@ export class SymbolTree {
     vfunc_get_nth_child(node: SymbolNode | null, nth: number): SymbolNode | null
     static name: string
 }
-export class TagsBuilder {
+class TagsBuilder {
     /* Methods of Ide-1.0.Ide.TagsBuilder */
     build_async(directory_or_file: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     build_finish(result: Gio.AsyncResult): boolean
@@ -1487,7 +1489,7 @@ export class TagsBuilder {
     vfunc_build_finish(result: Gio.AsyncResult): boolean
     static name: string
 }
-export class TemplateProvider {
+class TemplateProvider {
     /* Methods of Ide-1.0.Ide.TemplateProvider */
     get_project_templates(): ProjectTemplate[]
     /* Virtual methods of Ide-1.0.Ide.TemplateProvider */
@@ -1497,7 +1499,7 @@ export class TemplateProvider {
 export interface Vcs_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
-export class Vcs {
+class Vcs {
     /* Properties of Ide-1.0.Ide.Vcs */
     readonly branch_name: string
     readonly working_directory: Gio.File
@@ -1589,7 +1591,7 @@ export class Vcs {
     static register_ignored(pattern: string): void
     static $gtype: GObject.Type
 }
-export class VcsConfig {
+class VcsConfig {
     /* Methods of Ide-1.0.Ide.VcsConfig */
     get_config(type: VcsConfigType, value: any): void
     set_config(type: VcsConfigType, value: any): void
@@ -1598,7 +1600,7 @@ export class VcsConfig {
     vfunc_set_config(type: VcsConfigType, value: any): void
     static name: string
 }
-export class VcsInitializer {
+class VcsInitializer {
     /* Methods of Ide-1.0.Ide.VcsInitializer */
     get_title(): string
     initialize_async(file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1609,7 +1611,7 @@ export class VcsInitializer {
     vfunc_initialize_finish(result: Gio.AsyncResult): boolean
     static name: string
 }
-export class WorkbenchAddin {
+class WorkbenchAddin {
     /* Methods of Ide-1.0.Ide.WorkbenchAddin */
     can_open(uri: Uri, content_type?: string | null): [ /* returnType */ boolean, /* priority */ number ]
     get_id(): string
@@ -1628,7 +1630,7 @@ export class WorkbenchAddin {
     vfunc_unload(workbench: Workbench): void
     static name: string
 }
-export class Worker {
+class Worker {
     /* Methods of Ide-1.0.Ide.Worker */
     create_proxy(connection: Gio.DBusConnection): Gio.DBusProxy
     register_service(connection: Gio.DBusConnection): void
@@ -1639,7 +1641,7 @@ export class Worker {
 }
 export interface Application_ConstructProps extends Dazzle.Application_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Dazzle-1.0.Dazzle.Application */
     readonly menu_manager: Dazzle.MenuManager
     readonly shortcut_manager: Dazzle.ShortcutManager
@@ -1926,7 +1928,7 @@ export interface BackForwardItem_ConstructProps extends Object_ConstructProps {
     mark?: Gtk.TextMark
     uri?: Uri
 }
-export class BackForwardItem {
+class BackForwardItem {
     /* Properties of Ide-1.0.Ide.BackForwardItem */
     mark: Gtk.TextMark
     /* Fields of Ide-1.0.Ide.Object */
@@ -1999,7 +2001,7 @@ export class BackForwardItem {
 }
 export interface BackForwardList_ConstructProps extends Object_ConstructProps {
 }
-export class BackForwardList {
+class BackForwardList {
     /* Properties of Ide-1.0.Ide.BackForwardList */
     readonly can_go_backward: boolean
     readonly can_go_forward: boolean
@@ -2090,7 +2092,7 @@ export interface Buffer_ConstructProps extends GtkSource.Buffer_ConstructProps {
     style_scheme_name?: string
     title?: string
 }
-export class Buffer {
+class Buffer {
     /* Properties of Ide-1.0.Ide.Buffer */
     readonly busy: boolean
     readonly changed_on_volume: boolean
@@ -2447,7 +2449,7 @@ export class Buffer {
 export interface BufferChangeMonitor_ConstructProps extends Object_ConstructProps {
     buffer?: Buffer
 }
-export class BufferChangeMonitor {
+class BufferChangeMonitor {
     /* Fields of Ide-1.0.Ide.BufferChangeMonitor */
     parent_instance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2526,7 +2528,7 @@ export interface BufferManager_ConstructProps extends Object_ConstructProps {
     focus_buffer?: Buffer
     minimum_word_size?: number
 }
-export class BufferManager {
+class BufferManager {
     /* Properties of Ide-1.0.Ide.BufferManager */
     auto_save: boolean
     auto_save_timeout: number
@@ -2659,7 +2661,7 @@ export class BufferManager {
 }
 export interface BuildManager_ConstructProps extends Object_ConstructProps {
 }
-export class BuildManager {
+class BuildManager {
     /* Properties of Ide-1.0.Ide.BuildManager */
     readonly busy: boolean
     readonly can_build: boolean
@@ -2818,7 +2820,7 @@ export interface BuildPipeline_ConstructProps extends Object_ConstructProps {
     busy?: boolean
     configuration?: Configuration
 }
-export class BuildPipeline {
+class BuildPipeline {
     /* Properties of Ide-1.0.Ide.BuildPipeline */
     busy: boolean
     readonly message: string
@@ -2938,7 +2940,7 @@ export interface BuildStage_ConstructProps extends Object_ConstructProps {
     stdout_path?: string
     transient?: boolean
 }
-export class BuildStage {
+class BuildStage {
     /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
@@ -3066,7 +3068,7 @@ export interface BuildStageLauncher_ConstructProps extends BuildStage_ConstructP
     ignore_exit_status?: boolean
     launcher?: SubprocessLauncher
 }
-export class BuildStageLauncher {
+class BuildStageLauncher {
     /* Properties of Ide-1.0.Ide.BuildStageLauncher */
     clean_launcher: SubprocessLauncher
     ignore_exit_status: boolean
@@ -3210,7 +3212,7 @@ export class BuildStageLauncher {
 }
 export interface BuildStageMkdirs_ConstructProps extends BuildStage_ConstructProps {
 }
-export class BuildStageMkdirs {
+class BuildStageMkdirs {
     /* Properties of Ide-1.0.Ide.BuildStage */
     check_stdout: boolean
     completed: boolean
@@ -3341,7 +3343,7 @@ export interface BuildStageTransfer_ConstructProps extends BuildStage_ConstructP
     disable_when_metered?: boolean
     transfer?: Transfer
 }
-export class BuildStageTransfer {
+class BuildStageTransfer {
     /* Properties of Ide-1.0.Ide.BuildStageTransfer */
     disable_when_metered: boolean
     /* Properties of Ide-1.0.Ide.BuildStage */
@@ -3474,7 +3476,7 @@ export interface BuildconfigConfiguration_ConstructProps extends Configuration_C
     postbuild?: string[]
     prebuild?: string[]
 }
-export class BuildconfigConfiguration {
+class BuildconfigConfiguration {
     /* Properties of Ide-1.0.Ide.BuildconfigConfiguration */
     postbuild: string[]
     prebuild: string[]
@@ -3657,7 +3659,7 @@ export class BuildconfigConfiguration {
 }
 export interface BuildconfigConfigurationProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BuildconfigConfigurationProvider {
+class BuildconfigConfigurationProvider {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.BuildconfigConfigurationProvider */
@@ -3719,7 +3721,7 @@ export class BuildconfigConfigurationProvider {
 }
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CompletionItem {
+class CompletionItem {
     /* Fields of Ide-1.0.Ide.CompletionItem */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3779,7 +3781,7 @@ export class CompletionItem {
 export interface CompletionResults_ConstructProps extends GObject.Object_ConstructProps {
     query?: string
 }
-export class CompletionResults {
+class CompletionResults {
     /* Fields of Ide-1.0.Ide.CompletionResults */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3840,7 +3842,7 @@ export class CompletionResults {
 }
 export interface CompletionWords_ConstructProps extends GtkSource.CompletionWords_ConstructProps {
 }
-export class CompletionWords {
+class CompletionWords {
     /* Properties of GtkSource-3.0.GtkSource.CompletionWords */
     activation: GtkSource.CompletionActivation
     icon: GdkPixbuf.Pixbuf
@@ -3949,7 +3951,7 @@ export interface Configuration_ConstructProps extends Object_ConstructProps {
     runtime?: Runtime
     runtime_id?: string
 }
-export class Configuration {
+class Configuration {
     /* Properties of Ide-1.0.Ide.Configuration */
     app_id: string
     build_commands: string[]
@@ -4123,7 +4125,7 @@ export class Configuration {
 export interface ConfigurationManager_ConstructProps extends Object_ConstructProps {
     current?: Configuration
 }
-export class ConfigurationManager {
+class ConfigurationManager {
     /* Properties of Ide-1.0.Ide.ConfigurationManager */
     current: Configuration
     readonly current_display_name: string
@@ -4229,7 +4231,7 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     root_build_dir?: string
     snippets_manager?: SourceSnippetsManager
 }
-export class Context {
+class Context {
     /* Properties of Ide-1.0.Ide.Context */
     readonly back_forward_list: BackForwardList
     readonly buffer_manager: BufferManager
@@ -4359,7 +4361,7 @@ export class Context {
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     ide_source_view?: SourceView
 }
-export class Cursor {
+class Cursor {
     /* Properties of Ide-1.0.Ide.Cursor */
     ide_source_view: SourceView
     /* Fields of GObject-2.0.GObject.Object */
@@ -4418,7 +4420,7 @@ export interface Device_ConstructProps extends Object_ConstructProps {
     display_name?: string
     id?: string
 }
-export class Device {
+class Device {
     /* Properties of Ide-1.0.Ide.Device */
     display_name: string
     id: string
@@ -4501,7 +4503,7 @@ export class Device {
 }
 export interface DeviceManager_ConstructProps extends Object_ConstructProps {
 }
-export class DeviceManager {
+class DeviceManager {
     /* Properties of Ide-1.0.Ide.DeviceManager */
     readonly settled: boolean
     /* Fields of Ide-1.0.Ide.Object */
@@ -4594,7 +4596,7 @@ export class DeviceManager {
 }
 export interface DiagnosticsManager_ConstructProps extends Object_ConstructProps {
 }
-export class DiagnosticsManager {
+class DiagnosticsManager {
     /* Properties of Ide-1.0.Ide.DiagnosticsManager */
     readonly busy: boolean
     /* Fields of Ide-1.0.Ide.Object */
@@ -4678,7 +4680,7 @@ export interface DirectoryBuildSystem_ConstructProps extends Object_ConstructPro
     project_file?: Gio.File
     context?: Context
 }
-export class DirectoryBuildSystem {
+class DirectoryBuildSystem {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4770,7 +4772,7 @@ export class DirectoryBuildSystem {
 export interface DirectoryVcs_ConstructProps extends Object_ConstructProps {
     context?: Context
 }
-export class DirectoryVcs {
+class DirectoryVcs {
     /* Properties of Ide-1.0.Ide.Vcs */
     readonly branch_name: string
     readonly working_directory: Gio.File
@@ -4879,7 +4881,7 @@ export interface Doap_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     shortdesc?: string
 }
-export class Doap {
+class Doap {
     /* Properties of Ide-1.0.Ide.Doap */
     bug_database: string
     category: string
@@ -4968,7 +4970,7 @@ export interface DoapPerson_ConstructProps extends GObject.Object_ConstructProps
     email?: string
     name?: string
 }
-export class DoapPerson {
+class DoapPerson {
     /* Properties of Ide-1.0.Ide.DoapPerson */
     email: string
     name: string
@@ -5031,7 +5033,7 @@ export class DoapPerson {
 export interface EditorPerspective_ConstructProps extends Dazzle.DockOverlay_ConstructProps {
     manager?: Dazzle.DockManager
 }
-export class EditorPerspective {
+class EditorPerspective {
     /* Properties of Ide-1.0.Ide.EditorPerspective */
     readonly active_view: Gtk.Widget
     /* Properties of Gtk-3.0.Gtk.EventBox */
@@ -5961,7 +5963,7 @@ export interface EditorView_ConstructProps extends LayoutView_ConstructProps {
     document?: Buffer
     orientation?: Gtk.Orientation
 }
-export class EditorView {
+class EditorView {
     /* Properties of Ide-1.0.Ide.LayoutView */
     readonly can_split: boolean
     readonly modified: boolean
@@ -6840,7 +6842,7 @@ export class EditorView {
 }
 export interface Environment_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Environment {
+class Environment {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.Environment */
@@ -6916,7 +6918,7 @@ export interface EnvironmentVariable_ConstructProps extends GObject.Object_Const
     key?: string
     value?: string
 }
-export class EnvironmentVariable {
+class EnvironmentVariable {
     /* Properties of Ide-1.0.Ide.EnvironmentVariable */
     key: string
     value: string
@@ -6982,7 +6984,7 @@ export interface ExtensionAdapter_ConstructProps extends Object_ConstructProps {
     key?: string
     value?: string
 }
-export class ExtensionAdapter {
+class ExtensionAdapter {
     /* Properties of Ide-1.0.Ide.ExtensionAdapter */
     readonly extension: GObject.Object
     key: string
@@ -7069,7 +7071,7 @@ export interface ExtensionSetAdapter_ConstructProps extends Object_ConstructProp
     key?: string
     value?: string
 }
-export class ExtensionSetAdapter {
+class ExtensionSetAdapter {
     /* Properties of Ide-1.0.Ide.ExtensionSetAdapter */
     key: string
     value: string
@@ -7160,7 +7162,7 @@ export interface File_ConstructProps extends Object_ConstructProps {
     path?: string
     temporary_id?: number
 }
-export class File {
+class File {
     /* Properties of Ide-1.0.Ide.File */
     readonly is_temporary: boolean
     readonly language: GtkSource.Language
@@ -7269,7 +7271,7 @@ export interface FileSettings_ConstructProps extends Object_ConstructProps {
     trim_trailing_whitespace?: boolean
     trim_trailing_whitespace_set?: boolean
 }
-export class FileSettings {
+class FileSettings {
     /* Properties of Ide-1.0.Ide.FileSettings */
     encoding: string
     encoding_set: boolean
@@ -7403,7 +7405,7 @@ export interface FormatterOptions_ConstructProps extends GObject.Object_Construc
     insert_spaces?: boolean
     tab_width?: number
 }
-export class FormatterOptions {
+class FormatterOptions {
     /* Properties of Ide-1.0.Ide.FormatterOptions */
     insert_spaces: boolean
     tab_width: number
@@ -7466,7 +7468,7 @@ export class FormatterOptions {
 export interface HighlightEngine_ConstructProps extends Object_ConstructProps {
     buffer?: Buffer
 }
-export class HighlightEngine {
+class HighlightEngine {
     /* Properties of Ide-1.0.Ide.HighlightEngine */
     readonly highlighter: Highlighter
     /* Fields of Ide-1.0.Ide.Object */
@@ -7543,7 +7545,7 @@ export class HighlightEngine {
 export interface LangservClient_ConstructProps extends Object_ConstructProps {
     io_stream?: Gio.IOStream
 }
-export class LangservClient {
+class LangservClient {
     /* Fields of Ide-1.0.Ide.LangservClient */
     parent_instance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -7633,7 +7635,7 @@ export class LangservClient {
 export interface LangservCompletionProvider_ConstructProps extends Object_ConstructProps {
     client?: LangservClient
 }
-export class LangservCompletionProvider {
+class LangservCompletionProvider {
     /* Properties of Ide-1.0.Ide.LangservCompletionProvider */
     client: LangservClient
     /* Fields of Ide-1.0.Ide.LangservCompletionProvider */
@@ -7739,7 +7741,7 @@ export class LangservCompletionProvider {
 export interface LangservDiagnosticProvider_ConstructProps extends Object_ConstructProps {
     client?: LangservClient
 }
-export class LangservDiagnosticProvider {
+class LangservDiagnosticProvider {
     /* Properties of Ide-1.0.Ide.LangservDiagnosticProvider */
     client: LangservClient
     /* Fields of Ide-1.0.Ide.LangservDiagnosticProvider */
@@ -7823,7 +7825,7 @@ export class LangservDiagnosticProvider {
 export interface LangservFormatter_ConstructProps extends Object_ConstructProps {
     client?: LangservClient
 }
-export class LangservFormatter {
+class LangservFormatter {
     /* Properties of Ide-1.0.Ide.LangservFormatter */
     client: LangservClient
     /* Fields of Ide-1.0.Ide.LangservFormatter */
@@ -7913,7 +7915,7 @@ export interface LangservHighlighter_ConstructProps extends Object_ConstructProp
     client?: LangservClient
     context?: Context
 }
-export class LangservHighlighter {
+class LangservHighlighter {
     /* Properties of Ide-1.0.Ide.LangservHighlighter */
     client: LangservClient
     /* Fields of Ide-1.0.Ide.LangservHighlighter */
@@ -7992,7 +7994,7 @@ export interface LangservRenameProvider_ConstructProps extends Object_ConstructP
     buffer?: Buffer
     client?: LangservClient
 }
-export class LangservRenameProvider {
+class LangservRenameProvider {
     /* Properties of Ide-1.0.Ide.LangservRenameProvider */
     buffer: Buffer
     client: LangservClient
@@ -8073,7 +8075,7 @@ export class LangservRenameProvider {
 }
 export interface LangservSymbolNode_ConstructProps extends SymbolNode_ConstructProps {
 }
-export class LangservSymbolNode {
+class LangservSymbolNode {
     /* Properties of Ide-1.0.Ide.SymbolNode */
     flags: SymbolFlags
     kind: SymbolKind
@@ -8166,7 +8168,7 @@ export class LangservSymbolNode {
 export interface LangservSymbolResolver_ConstructProps extends Object_ConstructProps {
     client?: LangservClient
 }
-export class LangservSymbolResolver {
+class LangservSymbolResolver {
     /* Properties of Ide-1.0.Ide.LangservSymbolResolver */
     client: LangservClient
     /* Fields of Ide-1.0.Ide.LangservSymbolResolver */
@@ -8252,7 +8254,7 @@ export class LangservSymbolResolver {
 }
 export interface LangservSymbolTree_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LangservSymbolTree {
+class LangservSymbolTree {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -8309,7 +8311,7 @@ export class LangservSymbolTree {
 export interface Layout_ConstructProps extends Dazzle.DockBin_ConstructProps {
     manager?: Dazzle.DockManager
 }
-export class Layout {
+class Layout {
     /* Properties of Ide-1.0.Ide.Layout */
     readonly active_view: Gtk.Widget
     /* Properties of Dazzle-1.0.Dazzle.DockBin */
@@ -9190,7 +9192,7 @@ export class Layout {
 }
 export interface LayoutGrid_ConstructProps extends Gtk.Bin_ConstructProps {
 }
-export class LayoutGrid {
+class LayoutGrid {
     /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
@@ -10011,7 +10013,7 @@ export class LayoutGrid {
 }
 export interface LayoutPane_ConstructProps extends Dazzle.DockBinEdge_ConstructProps {
 }
-export class LayoutPane {
+class LayoutPane {
     /* Properties of Dazzle-1.0.Dazzle.DockBinEdge */
     edge: Gtk.PositionType
     /* Properties of Dazzle-1.0.Dazzle.DockRevealer */
@@ -10913,7 +10915,7 @@ export class LayoutPane {
 export interface LayoutStack_ConstructProps extends Gtk.Bin_ConstructProps {
     active_view?: LayoutView
 }
-export class LayoutStack {
+class LayoutStack {
     /* Properties of Ide-1.0.Ide.LayoutStack */
     active_view: LayoutView
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -11740,7 +11742,7 @@ export class LayoutStack {
 export interface LayoutView_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class LayoutView {
+class LayoutView {
     /* Properties of Ide-1.0.Ide.LayoutView */
     readonly can_split: boolean
     readonly modified: boolean
@@ -12612,7 +12614,7 @@ export class LayoutView {
 }
 export interface LocalDevice_ConstructProps extends Device_ConstructProps {
 }
-export class LocalDevice {
+class LocalDevice {
     /* Properties of Ide-1.0.Ide.Device */
     display_name: string
     id: string
@@ -12696,7 +12698,7 @@ export class LocalDevice {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
-export class Object {
+class Object {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -12763,7 +12765,7 @@ export class Object {
 export interface OmniBar_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class OmniBar {
+class OmniBar {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -13604,7 +13606,7 @@ export interface OmniSearchDisplay_ConstructProps extends Gtk.Box_ConstructProps
     context?: SearchContext
     orientation?: Gtk.Orientation
 }
-export class OmniSearchDisplay {
+class OmniSearchDisplay {
     /* Properties of Ide-1.0.Ide.OmniSearchDisplay */
     context: SearchContext
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -14458,7 +14460,7 @@ export class OmniSearchDisplay {
 export interface OmniSearchEntry_ConstructProps extends Gtk.Entry_ConstructProps {
     editing_canceled?: boolean
 }
-export class OmniSearchEntry {
+class OmniSearchEntry {
     /* Properties of Gtk-3.0.Gtk.Entry */
     activates_default: boolean
     attributes: Pango.AttrList
@@ -15551,7 +15553,7 @@ export interface OmniSearchGroup_ConstructProps extends Gtk.Box_ConstructProps {
     provider?: SearchProvider
     orientation?: Gtk.Orientation
 }
-export class OmniSearchGroup {
+class OmniSearchGroup {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -16409,7 +16411,7 @@ export interface OmniSearchRow_ConstructProps extends Gtk.ListBoxRow_ConstructPr
     icon_name?: string
     result?: SearchResult
 }
-export class OmniSearchRow {
+class OmniSearchRow {
     /* Properties of Ide-1.0.Ide.OmniSearchRow */
     icon_name: string
     result: SearchResult
@@ -17250,7 +17252,7 @@ export class OmniSearchRow {
 export interface PkconTransfer_ConstructProps extends Transfer_ConstructProps {
     packages?: string[]
 }
-export class PkconTransfer {
+class PkconTransfer {
     /* Properties of Ide-1.0.Ide.Transfer */
     readonly active: boolean
     readonly completed: boolean
@@ -17338,7 +17340,7 @@ export class PkconTransfer {
 }
 export interface PreferencesPerspective_ConstructProps extends Dazzle.PreferencesView_ConstructProps {
 }
-export class PreferencesPerspective {
+class PreferencesPerspective {
     /* Properties of Dazzle-1.0.Dazzle.PreferencesView */
     show_search_entry: boolean
     use_sidebar: boolean
@@ -18211,7 +18213,7 @@ export interface Progress_ConstructProps extends GObject.Object_ConstructProps {
     fraction?: number
     message?: string
 }
-export class Progress {
+class Progress {
     /* Properties of Ide-1.0.Ide.Progress */
     readonly completed: boolean
     fraction: number
@@ -18279,7 +18281,7 @@ export class Progress {
 export interface Project_ConstructProps extends Object_ConstructProps {
     root?: ProjectItem
 }
-export class Project {
+class Project {
     /* Properties of Ide-1.0.Ide.Project */
     readonly id: string
     readonly name: string
@@ -18374,7 +18376,7 @@ export interface ProjectEdit_ConstructProps extends GObject.Object_ConstructProp
     range?: SourceRange
     replacement?: string
 }
-export class ProjectEdit {
+class ProjectEdit {
     /* Properties of Ide-1.0.Ide.ProjectEdit */
     range: SourceRange
     replacement: string
@@ -18441,7 +18443,7 @@ export interface ProjectFile_ConstructProps extends ProjectItem_ConstructProps {
     file_info?: Gio.FileInfo
     path?: string
 }
-export class ProjectFile {
+class ProjectFile {
     /* Properties of Ide-1.0.Ide.ProjectFile */
     file: Gio.File
     file_info: Gio.FileInfo
@@ -18535,7 +18537,7 @@ export class ProjectFile {
 }
 export interface ProjectFiles_ConstructProps extends ProjectItem_ConstructProps {
 }
-export class ProjectFiles {
+class ProjectFiles {
     /* Properties of Ide-1.0.Ide.ProjectItem */
     parent: ProjectItem
     /* Fields of Ide-1.0.Ide.ProjectFiles */
@@ -18621,7 +18623,7 @@ export interface ProjectInfo_ConstructProps extends GObject.Object_ConstructProp
     name?: string
     priority?: number
 }
-export class ProjectInfo {
+class ProjectInfo {
     /* Properties of Ide-1.0.Ide.ProjectInfo */
     build_system_name: string
     description: string
@@ -18721,7 +18723,7 @@ export class ProjectInfo {
 export interface ProjectItem_ConstructProps extends Object_ConstructProps {
     parent?: ProjectItem
 }
-export class ProjectItem {
+class ProjectItem {
     /* Properties of Ide-1.0.Ide.ProjectItem */
     parent: ProjectItem
     /* Fields of Ide-1.0.Ide.ProjectItem */
@@ -18793,7 +18795,7 @@ export class ProjectItem {
 }
 export interface RecentProjects_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RecentProjects {
+class RecentProjects {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.RecentProjects */
@@ -18863,7 +18865,7 @@ export class RecentProjects {
 export interface RunButton_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class RunButton {
+class RunButton {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -19703,7 +19705,7 @@ export class RunButton {
 export interface RunManager_ConstructProps extends Object_ConstructProps {
     build_target?: BuildTarget
 }
-export class RunManager {
+class RunManager {
     /* Properties of Ide-1.0.Ide.RunManager */
     build_target: BuildTarget
     readonly busy: boolean
@@ -19848,7 +19850,7 @@ export interface Runner_ConstructProps extends Object_ConstructProps {
     failed?: boolean
     run_on_host?: boolean
 }
-export class Runner {
+class Runner {
     /* Properties of Ide-1.0.Ide.Runner */
     argv: string[]
     clear_env: boolean
@@ -19971,7 +19973,7 @@ export interface Runtime_ConstructProps extends Object_ConstructProps {
     display_name?: string
     id?: string
 }
-export class Runtime {
+class Runtime {
     /* Properties of Ide-1.0.Ide.Runtime */
     display_name: string
     id: string
@@ -20059,7 +20061,7 @@ export class Runtime {
 }
 export interface RuntimeManager_ConstructProps extends Object_ConstructProps {
 }
-export class RuntimeManager {
+class RuntimeManager {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -20146,7 +20148,7 @@ export class RuntimeManager {
 }
 export interface SearchContext_ConstructProps extends Object_ConstructProps {
 }
-export class SearchContext {
+class SearchContext {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -20231,7 +20233,7 @@ export class SearchContext {
 }
 export interface SearchEngine_ConstructProps extends Object_ConstructProps {
 }
-export class SearchEngine {
+class SearchEngine {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -20300,7 +20302,7 @@ export interface SearchResult_ConstructProps extends Object_ConstructProps {
     subtitle?: string
     title?: string
 }
-export class SearchResult {
+class SearchResult {
     /* Properties of Ide-1.0.Ide.SearchResult */
     provider: SearchProvider
     /* Fields of Ide-1.0.Ide.SearchResult */
@@ -20381,7 +20383,7 @@ export interface Settings_ConstructProps extends Object_ConstructProps {
     relative_path?: string
     schema_id?: string
 }
-export class Settings {
+class Settings {
     /* Fields of Ide-1.0.Ide.Object */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -20473,7 +20475,7 @@ export interface SourceMap_ConstructProps extends GtkSource.Map_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class SourceMap {
+class SourceMap {
     /* Properties of GtkSource-3.0.GtkSource.Map */
     font_desc: Pango.FontDescription
     view: GtkSource.View
@@ -21649,7 +21651,7 @@ export interface SourceSnippet_ConstructProps extends GObject.Object_ConstructPr
     snippet_text?: string
     trigger?: string
 }
-export class SourceSnippet {
+class SourceSnippet {
     /* Properties of Ide-1.0.Ide.SourceSnippet */
     readonly buffer: Gtk.TextBuffer
     description: string
@@ -21747,7 +21749,7 @@ export interface SourceSnippetChunk_ConstructProps extends GObject.Object_Constr
     text?: string
     text_set?: boolean
 }
-export class SourceSnippetChunk {
+class SourceSnippetChunk {
     /* Properties of Ide-1.0.Ide.SourceSnippetChunk */
     context: SourceSnippetContext
     spec: string
@@ -21825,7 +21827,7 @@ export class SourceSnippetChunk {
 }
 export interface SourceSnippetContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SourceSnippetContext {
+class SourceSnippetContext {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.SourceSnippetContext */
@@ -21890,7 +21892,7 @@ export class SourceSnippetContext {
 }
 export interface SourceSnippets_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SourceSnippets {
+class SourceSnippets {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.SourceSnippets */
@@ -21946,7 +21948,7 @@ export class SourceSnippets {
 }
 export interface SourceSnippetsManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SourceSnippetsManager {
+class SourceSnippetsManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Ide-1.0.Ide.SourceSnippetsManager */
@@ -22022,7 +22024,7 @@ export interface SourceView_ConstructProps extends GtkSource.View_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class SourceView {
+class SourceView {
     /* Properties of Ide-1.0.Ide.SourceView */
     back_forward_list: BackForwardList
     count: number
@@ -23507,7 +23509,7 @@ export class SourceView {
 }
 export interface SourceViewMode_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class SourceViewMode {
+class SourceViewMode {
     /* Properties of Ide-1.0.Ide.SourceViewMode */
     readonly name: string
     /* Properties of Gtk-3.0.Gtk.Widget */
@@ -24474,7 +24476,7 @@ export interface SubprocessLauncher_ConstructProps extends GObject.Object_Constr
     flags?: Gio.SubprocessFlags
     run_on_host?: boolean
 }
-export class SubprocessLauncher {
+class SubprocessLauncher {
     /* Properties of Ide-1.0.Ide.SubprocessLauncher */
     clean_env: boolean
     cwd: string
@@ -24570,7 +24572,7 @@ export class SubprocessLauncher {
 }
 export interface SubprocessSupervisor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SubprocessSupervisor {
+class SubprocessSupervisor {
     /* Fields of Ide-1.0.Ide.SubprocessSupervisor */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -24645,7 +24647,7 @@ export interface SymbolNode_ConstructProps extends Object_ConstructProps {
     name?: string
     use_markup?: boolean
 }
-export class SymbolNode {
+class SymbolNode {
     /* Properties of Ide-1.0.Ide.SymbolNode */
     flags: SymbolFlags
     kind: SymbolKind
@@ -24732,7 +24734,7 @@ export class SymbolNode {
 export interface TemplateBase_ConstructProps extends GObject.Object_ConstructProps {
     locator?: Template.TemplateLocator
 }
-export class TemplateBase {
+class TemplateBase {
     /* Properties of Ide-1.0.Ide.TemplateBase */
     locator: Template.TemplateLocator
     /* Fields of Ide-1.0.Ide.TemplateBase */
@@ -24798,7 +24800,7 @@ export interface Transfer_ConstructProps extends GObject.Object_ConstructProps {
     status?: string
     title?: string
 }
-export class Transfer {
+class Transfer {
     /* Properties of Ide-1.0.Ide.Transfer */
     readonly active: boolean
     readonly completed: boolean
@@ -24891,7 +24893,7 @@ export interface TransferButton_ConstructProps extends Dazzle.ProgressButton_Con
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class TransferButton {
+class TransferButton {
     /* Properties of Dazzle-1.0.Dazzle.ProgressButton */
     progress: number
     show_progress: boolean
@@ -25823,7 +25825,7 @@ export class TransferButton {
 }
 export interface TransferManager_ConstructProps extends Object_ConstructProps {
 }
-export class TransferManager {
+class TransferManager {
     /* Properties of Ide-1.0.Ide.TransferManager */
     readonly has_active: boolean
     readonly progress: number
@@ -25924,7 +25926,7 @@ export class TransferManager {
 export interface TransferRow_ConstructProps extends Gtk.ListBoxRow_ConstructProps {
     transfer?: Transfer
 }
-export class TransferRow {
+class TransferRow {
     /* Properties of Ide-1.0.Ide.TransferRow */
     transfer: Transfer
     /* Properties of Gtk-3.0.Gtk.ListBoxRow */
@@ -26769,7 +26771,7 @@ export interface TransfersButton_ConstructProps extends Gtk.MenuButton_Construct
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class TransfersButton {
+class TransfersButton {
     /* Properties of Gtk-3.0.Gtk.MenuButton */
     align_widget: Gtk.Container
     direction: Gtk.ArrowType
@@ -27745,7 +27747,7 @@ export class TransfersButton {
 export interface TransfersProgressIcon_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     progress?: number
 }
-export class TransfersProgressIcon {
+class TransfersProgressIcon {
     /* Properties of Ide-1.0.Ide.TransfersProgressIcon */
     progress: number
     /* Properties of Gtk-3.0.Gtk.Widget */
@@ -28494,7 +28496,7 @@ export class TransfersProgressIcon {
 }
 export interface UnsavedFiles_ConstructProps extends Object_ConstructProps {
 }
-export class UnsavedFiles {
+class UnsavedFiles {
     /* Fields of Ide-1.0.Ide.UnsavedFiles */
     parent_instance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -28572,7 +28574,7 @@ export interface Workbench_ConstructProps extends Gtk.ApplicationWindow_Construc
     visible_perspective?: Perspective
     visible_perspective_name?: string
 }
-export class Workbench {
+class Workbench {
     /* Properties of Ide-1.0.Ide.Workbench */
     readonly context: Context
     visible_perspective: Perspective
@@ -29713,7 +29715,7 @@ export class Workbench {
 }
 export interface WorkbenchHeaderBar_ConstructProps extends Gtk.HeaderBar_ConstructProps {
 }
-export class WorkbenchHeaderBar {
+class WorkbenchHeaderBar {
     /* Properties of Gtk-3.0.Gtk.HeaderBar */
     custom_title: Gtk.Widget
     decoration_layout: string
@@ -30569,7 +30571,7 @@ export interface WorkbenchMessage_ConstructProps extends Gtk.InfoBar_ConstructPr
     title?: string
     orientation?: Gtk.Orientation
 }
-export class WorkbenchMessage {
+class WorkbenchMessage {
     /* Properties of Ide-1.0.Ide.WorkbenchMessage */
     id: string
     subtitle: string
@@ -31458,36 +31460,36 @@ export class WorkbenchMessage {
     static new(orientation: Gtk.Orientation, spacing: number): WorkbenchMessage
     static $gtype: GObject.Type
 }
-export abstract class ApplicationAddinInterface {
+abstract class ApplicationAddinInterface {
     /* Fields of Ide-1.0.Ide.ApplicationAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: ApplicationAddin, application: Application) => void
     unload: (self: ApplicationAddin, application: Application) => void
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Ide-1.0.Ide.ApplicationClass */
     parent_class: Dazzle.ApplicationClass
     static name: string
 }
-export abstract class ApplicationToolInterface {
+abstract class ApplicationToolInterface {
     /* Fields of Ide-1.0.Ide.ApplicationToolInterface */
     parent_interface: GObject.TypeInterface
     run_async: (self: ApplicationTool, arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     run_finish: (self: ApplicationTool, result: Gio.AsyncResult) => number
     static name: string
 }
-export abstract class BackForwardItemClass {
+abstract class BackForwardItemClass {
     /* Fields of Ide-1.0.Ide.BackForwardItemClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class BackForwardListClass {
+abstract class BackForwardListClass {
     /* Fields of Ide-1.0.Ide.BackForwardListClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class BufferChangeMonitorClass {
+abstract class BufferChangeMonitorClass {
     /* Fields of Ide-1.0.Ide.BufferChangeMonitorClass */
     parent: ObjectClass
     set_buffer: (self: BufferChangeMonitor, buffer: Buffer) => void
@@ -31503,7 +31505,7 @@ export abstract class BufferChangeMonitorClass {
     _reserved8: object
     static name: string
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Ide-1.0.Ide.BufferClass */
     parent_class: GtkSource.BufferClass
     cursor_moved: (self: Buffer, location: Gtk.TextIter) => void
@@ -31517,38 +31519,38 @@ export abstract class BufferClass {
     _reserved8: object
     static name: string
 }
-export abstract class BufferManagerClass {
+abstract class BufferManagerClass {
     /* Fields of Ide-1.0.Ide.BufferManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export class BuildCommand {
+class BuildCommand {
     static name: string
 }
-export class BuildCommandQueue {
+class BuildCommandQueue {
     static name: string
 }
-export abstract class BuildManagerClass {
+abstract class BuildManagerClass {
     /* Fields of Ide-1.0.Ide.BuildManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class BuildPipelineAddinInterface {
+abstract class BuildPipelineAddinInterface {
     /* Fields of Ide-1.0.Ide.BuildPipelineAddinInterface */
     type_interface: GObject.TypeInterface
     load: (self: BuildPipelineAddin, pipeline: BuildPipeline) => void
     unload: (self: BuildPipelineAddin, pipeline: BuildPipeline) => void
     static name: string
 }
-export abstract class BuildPipelineClass {
+abstract class BuildPipelineClass {
     /* Fields of Ide-1.0.Ide.BuildPipelineClass */
     parent_class: ObjectClass
     static name: string
 }
-export class BuildResult {
+class BuildResult {
     static name: string
 }
-export abstract class BuildStageClass {
+abstract class BuildStageClass {
     /* Fields of Ide-1.0.Ide.BuildStageClass */
     parent_class: ObjectClass
     execute: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null) => boolean
@@ -31573,7 +31575,7 @@ export abstract class BuildStageClass {
     _reserved12: object
     static name: string
 }
-export abstract class BuildStageLauncherClass {
+abstract class BuildStageLauncherClass {
     /* Fields of Ide-1.0.Ide.BuildStageLauncherClass */
     parent_class: BuildStageClass
     _reserved1: object
@@ -31582,7 +31584,7 @@ export abstract class BuildStageLauncherClass {
     _reserved4: object
     static name: string
 }
-export abstract class BuildStageMkdirsClass {
+abstract class BuildStageMkdirsClass {
     /* Fields of Ide-1.0.Ide.BuildStageMkdirsClass */
     parent_class: BuildStageClass
     _reserved1: object
@@ -31591,18 +31593,18 @@ export abstract class BuildStageMkdirsClass {
     _reserved4: object
     static name: string
 }
-export abstract class BuildStageTransferClass {
+abstract class BuildStageTransferClass {
     /* Fields of Ide-1.0.Ide.BuildStageTransferClass */
     parent_class: BuildStageClass
     static name: string
 }
-export abstract class BuildSystemDiscoveryInterface {
+abstract class BuildSystemDiscoveryInterface {
     /* Fields of Ide-1.0.Ide.BuildSystemDiscoveryInterface */
     parent_iface: GObject.TypeInterface
     discover: (self: BuildSystemDiscovery, project_file: Gio.File, cancellable?: Gio.Cancellable | null) => [ /* returnType */ string, /* priority */ number ]
     static name: string
 }
-export abstract class BuildSystemInterface {
+abstract class BuildSystemInterface {
     /* Fields of Ide-1.0.Ide.BuildSystemInterface */
     parent_iface: GObject.TypeInterface
     get_priority: (self: BuildSystem) => number
@@ -31615,7 +31617,7 @@ export abstract class BuildSystemInterface {
     get_display_name: (self: BuildSystem) => string
     static name: string
 }
-export abstract class BuildTargetInterface {
+abstract class BuildTargetInterface {
     /* Fields of Ide-1.0.Ide.BuildTargetInterface */
     parent_iface: GObject.TypeInterface
     get_install_directory: (self: BuildTarget) => Gio.File | null
@@ -31629,38 +31631,38 @@ export abstract class BuildTargetInterface {
     _reserved8: object
     static name: string
 }
-export abstract class BuildconfigConfigurationClass {
+abstract class BuildconfigConfigurationClass {
     /* Fields of Ide-1.0.Ide.BuildconfigConfigurationClass */
     parent_class: ConfigurationClass
     static name: string
 }
-export abstract class BuildconfigConfigurationProviderClass {
+abstract class BuildconfigConfigurationProviderClass {
     /* Fields of Ide-1.0.Ide.BuildconfigConfigurationProviderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Builder {
+class Builder {
     static name: string
 }
-export abstract class CompletionItemClass {
+abstract class CompletionItemClass {
     /* Fields of Ide-1.0.Ide.CompletionItemClass */
     parent_class: GObject.ObjectClass
     match: (self: CompletionItem, query: string, casefold: string) => boolean
     static name: string
 }
-export abstract class CompletionProviderInterface {
+abstract class CompletionProviderInterface {
     /* Fields of Ide-1.0.Ide.CompletionProviderInterface */
     parent_interface: GtkSource.CompletionProviderIface
     load: (self: CompletionProvider, context: Context) => void
     static name: string
 }
-export abstract class CompletionResultsClass {
+abstract class CompletionResultsClass {
     /* Fields of Ide-1.0.Ide.CompletionResultsClass */
     parent_class: GObject.ObjectClass
     compare: (self: CompletionResults, left: CompletionItem, right: CompletionItem) => number
     static name: string
 }
-export abstract class CompletionWordsClass {
+abstract class CompletionWordsClass {
     /* Fields of Ide-1.0.Ide.CompletionWordsClass */
     parent_class: GtkSource.CompletionWordsClass
     _reserved1: object
@@ -31669,7 +31671,7 @@ export abstract class CompletionWordsClass {
     _reserved4: object
     static name: string
 }
-export abstract class ConfigurationClass {
+abstract class ConfigurationClass {
     /* Fields of Ide-1.0.Ide.ConfigurationClass */
     parent: ObjectClass
     get_device: (self: Configuration) => Device | null
@@ -31696,12 +31698,12 @@ export abstract class ConfigurationClass {
     _reserved16: object
     static name: string
 }
-export abstract class ConfigurationManagerClass {
+abstract class ConfigurationManagerClass {
     /* Fields of Ide-1.0.Ide.ConfigurationManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class ConfigurationProviderInterface {
+abstract class ConfigurationProviderInterface {
     /* Fields of Ide-1.0.Ide.ConfigurationProviderInterface */
     parent: GObject.TypeInterface
     load_async: (self: ConfigurationProvider, manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -31711,36 +31713,36 @@ export abstract class ConfigurationProviderInterface {
     save_finish: (self: ConfigurationProvider, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of Ide-1.0.Ide.ContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CursorClass {
+abstract class CursorClass {
     /* Fields of Ide-1.0.Ide.CursorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Ide-1.0.Ide.DeviceClass */
     parent: ObjectClass
     get_system_type: (self: Device) => string
     prepare_configuration: (self: Device, configuration: Configuration) => void
     static name: string
 }
-export abstract class DeviceManagerClass {
+abstract class DeviceManagerClass {
     /* Fields of Ide-1.0.Ide.DeviceManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class DeviceProviderInterface {
+abstract class DeviceProviderInterface {
     /* Fields of Ide-1.0.Ide.DeviceProviderInterface */
     parent_interface: GObject.TypeInterface
     get_settled: (provider: DeviceProvider) => boolean
     get_devices: (provider: DeviceProvider) => Device[]
     static name: string
 }
-export class Diagnostic {
+class Diagnostic {
     /* Methods of Ide-1.0.Ide.Diagnostic */
     add_range(range: SourceRange): void
     compare(b: Diagnostic): number
@@ -31764,7 +31766,7 @@ export class Diagnostic {
     /* Static methods and pseudo-constructors */
     static new(severity: DiagnosticSeverity, text: string, location: SourceLocation): Diagnostic
 }
-export abstract class DiagnosticProviderInterface {
+abstract class DiagnosticProviderInterface {
     /* Fields of Ide-1.0.Ide.DiagnosticProviderInterface */
     parent_interface: GObject.TypeInterface
     load: (self: DiagnosticProvider) => void
@@ -31772,7 +31774,7 @@ export abstract class DiagnosticProviderInterface {
     diagnose_finish: (self: DiagnosticProvider, result: Gio.AsyncResult) => Diagnostics | null
     static name: string
 }
-export class Diagnostics {
+class Diagnostics {
     /* Methods of Ide-1.0.Ide.Diagnostics */
     add(diagnostic: Diagnostic): void
     get_size(): number
@@ -31786,40 +31788,40 @@ export class Diagnostics {
     /* Static methods and pseudo-constructors */
     static new(ar?: Diagnostic[] | null): Diagnostics
 }
-export abstract class DiagnosticsManagerClass {
+abstract class DiagnosticsManagerClass {
     /* Fields of Ide-1.0.Ide.DiagnosticsManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class DirectoryBuildSystemClass {
+abstract class DirectoryBuildSystemClass {
     /* Fields of Ide-1.0.Ide.DirectoryBuildSystemClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class DirectoryVcsClass {
+abstract class DirectoryVcsClass {
     /* Fields of Ide-1.0.Ide.DirectoryVcsClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class DoapClass {
+abstract class DoapClass {
     /* Fields of Ide-1.0.Ide.DoapClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DoapPersonClass {
+abstract class DoapPersonClass {
     /* Fields of Ide-1.0.Ide.DoapPersonClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class EditorFrame {
+class EditorFrame {
     static name: string
 }
-export abstract class EditorPerspectiveClass {
+abstract class EditorPerspectiveClass {
     /* Fields of Ide-1.0.Ide.EditorPerspectiveClass */
     parent_class: Dazzle.DockOverlayClass
     static name: string
 }
-export abstract class EditorViewAddinInterface {
+abstract class EditorViewAddinInterface {
     /* Fields of Ide-1.0.Ide.EditorViewAddinInterface */
     parent: GObject.TypeInterface
     load: (self: EditorViewAddin, view: EditorView) => void
@@ -31829,42 +31831,42 @@ export abstract class EditorViewAddinInterface {
     unload_source_view: (self: EditorViewAddin, source_view: SourceView) => void
     static name: string
 }
-export abstract class EditorViewClass {
+abstract class EditorViewClass {
     /* Fields of Ide-1.0.Ide.EditorViewClass */
     parent_class: LayoutViewClass
     static name: string
 }
-export abstract class EnvironmentClass {
+abstract class EnvironmentClass {
     /* Fields of Ide-1.0.Ide.EnvironmentClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class EnvironmentVariableClass {
+abstract class EnvironmentVariableClass {
     /* Fields of Ide-1.0.Ide.EnvironmentVariableClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ExtensionAdapterClass {
+abstract class ExtensionAdapterClass {
     /* Fields of Ide-1.0.Ide.ExtensionAdapterClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class ExtensionSetAdapterClass {
+abstract class ExtensionSetAdapterClass {
     /* Fields of Ide-1.0.Ide.ExtensionSetAdapterClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of Ide-1.0.Ide.FileClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class FileSettingsClass {
+abstract class FileSettingsClass {
     /* Fields of Ide-1.0.Ide.FileSettingsClass */
     parent: ObjectClass
     static name: string
 }
-export class Fixit {
+class Fixit {
     /* Methods of Ide-1.0.Ide.Fixit */
     apply(): void
     get_range(): SourceRange
@@ -31873,7 +31875,7 @@ export class Fixit {
     unref(): void
     static name: string
 }
-export abstract class FormatterInterface {
+abstract class FormatterInterface {
     /* Fields of Ide-1.0.Ide.FormatterInterface */
     parent: GObject.TypeInterface
     load: (self: Formatter) => void
@@ -31883,12 +31885,12 @@ export abstract class FormatterInterface {
     format_range_finish: (self: Formatter, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class FormatterOptionsClass {
+abstract class FormatterOptionsClass {
     /* Fields of Ide-1.0.Ide.FormatterOptionsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class GenesisAddinInterface {
+abstract class GenesisAddinInterface {
     /* Fields of Ide-1.0.Ide.GenesisAddinInterface */
     parent_interface: GObject.TypeInterface
     get_title: (self: GenesisAddin) => string
@@ -31901,12 +31903,12 @@ export abstract class GenesisAddinInterface {
     get_priority: (self: GenesisAddin) => number
     static name: string
 }
-export abstract class HighlightEngineClass {
+abstract class HighlightEngineClass {
     /* Fields of Ide-1.0.Ide.HighlightEngineClass */
     parent_class: ObjectClass
     static name: string
 }
-export class HighlightIndex {
+class HighlightIndex {
     /* Methods of Ide-1.0.Ide.HighlightIndex */
     dump(): void
     insert(word: string, tag?: object | null): void
@@ -31919,7 +31921,7 @@ export class HighlightIndex {
     /* Static methods and pseudo-constructors */
     static new(): HighlightIndex
 }
-export abstract class HighlighterInterface {
+abstract class HighlighterInterface {
     /* Fields of Ide-1.0.Ide.HighlighterInterface */
     parent_interface: GObject.TypeInterface
     update: (self: Highlighter, callback: HighlightCallback, range_begin: Gtk.TextIter, range_end: Gtk.TextIter) => /* location */ Gtk.TextIter
@@ -31927,14 +31929,14 @@ export abstract class HighlighterInterface {
     load: (self: Highlighter) => void
     static name: string
 }
-export abstract class IndenterInterface {
+abstract class IndenterInterface {
     /* Fields of Ide-1.0.Ide.IndenterInterface */
     parent: GObject.TypeInterface
     format: (self: Indenter, text_view: Gtk.TextView, begin: Gtk.TextIter, end: Gtk.TextIter, event: Gdk.EventKey) => [ /* returnType */ string | null, /* cursor_offset */ number ]
     is_trigger: (self: Indenter, event: Gdk.EventKey) => boolean
     static name: string
 }
-export abstract class LangservClientClass {
+abstract class LangservClientClass {
     /* Fields of Ide-1.0.Ide.LangservClientClass */
     parent_class: ObjectClass
     notification: (self: LangservClient, method: string, params: GLib.Variant) => void
@@ -31950,7 +31952,7 @@ export abstract class LangservClientClass {
     _reserved8: object
     static name: string
 }
-export abstract class LangservCompletionProviderClass {
+abstract class LangservCompletionProviderClass {
     /* Fields of Ide-1.0.Ide.LangservCompletionProviderClass */
     parent_class: ObjectClass
     _reserved1: object
@@ -31963,7 +31965,7 @@ export abstract class LangservCompletionProviderClass {
     _reserved8: object
     static name: string
 }
-export abstract class LangservDiagnosticProviderClass {
+abstract class LangservDiagnosticProviderClass {
     /* Fields of Ide-1.0.Ide.LangservDiagnosticProviderClass */
     parent_class: ObjectClass
     _reserved1: object
@@ -31972,12 +31974,12 @@ export abstract class LangservDiagnosticProviderClass {
     _reserved4: object
     static name: string
 }
-export abstract class LangservFormatterClass {
+abstract class LangservFormatterClass {
     /* Fields of Ide-1.0.Ide.LangservFormatterClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class LangservHighlighterClass {
+abstract class LangservHighlighterClass {
     /* Fields of Ide-1.0.Ide.LangservHighlighterClass */
     parent_class: ObjectClass
     _reserved1: object
@@ -31986,7 +31988,7 @@ export abstract class LangservHighlighterClass {
     _reserved4: object
     static name: string
 }
-export abstract class LangservRenameProviderClass {
+abstract class LangservRenameProviderClass {
     /* Fields of Ide-1.0.Ide.LangservRenameProviderClass */
     parent_instance: ObjectClass
     _reserved1: object
@@ -31999,12 +32001,12 @@ export abstract class LangservRenameProviderClass {
     _reserved8: object
     static name: string
 }
-export abstract class LangservSymbolNodeClass {
+abstract class LangservSymbolNodeClass {
     /* Fields of Ide-1.0.Ide.LangservSymbolNodeClass */
     parent_class: SymbolNodeClass
     static name: string
 }
-export abstract class LangservSymbolResolverClass {
+abstract class LangservSymbolResolverClass {
     /* Fields of Ide-1.0.Ide.LangservSymbolResolverClass */
     parent_class: ObjectClass
     _reserved1: object
@@ -32017,27 +32019,27 @@ export abstract class LangservSymbolResolverClass {
     _reserved8: object
     static name: string
 }
-export abstract class LangservSymbolTreeClass {
+abstract class LangservSymbolTreeClass {
     /* Fields of Ide-1.0.Ide.LangservSymbolTreeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class LayoutClass {
+abstract class LayoutClass {
     /* Fields of Ide-1.0.Ide.LayoutClass */
     parent_class: Dazzle.DockBinClass
     static name: string
 }
-export abstract class LayoutGridClass {
+abstract class LayoutGridClass {
     /* Fields of Ide-1.0.Ide.LayoutGridClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class LayoutPaneClass {
+abstract class LayoutPaneClass {
     /* Fields of Ide-1.0.Ide.LayoutPaneClass */
     parent_class: Dazzle.DockBinEdgeClass
     static name: string
 }
-export abstract class LayoutStackAddinInterface {
+abstract class LayoutStackAddinInterface {
     /* Fields of Ide-1.0.Ide.LayoutStackAddinInterface */
     parent_iface: GObject.TypeInterface
     load: (self: LayoutStackAddin, stack: LayoutStack) => void
@@ -32045,12 +32047,12 @@ export abstract class LayoutStackAddinInterface {
     set_view: (self: LayoutStackAddin, view?: LayoutView | null) => void
     static name: string
 }
-export abstract class LayoutStackClass {
+abstract class LayoutStackClass {
     /* Fields of Ide-1.0.Ide.LayoutStackClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class LayoutViewClass {
+abstract class LayoutViewClass {
     /* Fields of Ide-1.0.Ide.LayoutViewClass */
     parent: Gtk.BinClass
     get_can_preview: (self: LayoutView) => boolean
@@ -32074,7 +32076,7 @@ export abstract class LayoutViewClass {
     _reserved8: object
     static name: string
 }
-export class LineReader {
+class LineReader {
     /* Fields of Ide-1.0.Ide.LineReader */
     contents: string
     length: number
@@ -32084,12 +32086,12 @@ export class LineReader {
     next(length: number): string
     static name: string
 }
-export abstract class LocalDeviceClass {
+abstract class LocalDeviceClass {
     /* Fields of Ide-1.0.Ide.LocalDeviceClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Ide-1.0.Ide.ObjectClass */
     parent: GObject.ObjectClass
     destroy: (self: Object) => void
@@ -32097,32 +32099,32 @@ export abstract class ObjectClass {
     set_context: (self: Object, context: Context) => void
     static name: string
 }
-export abstract class OmniBarClass {
+abstract class OmniBarClass {
     /* Fields of Ide-1.0.Ide.OmniBarClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class OmniSearchDisplayClass {
+abstract class OmniSearchDisplayClass {
     /* Fields of Ide-1.0.Ide.OmniSearchDisplayClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class OmniSearchEntryClass {
+abstract class OmniSearchEntryClass {
     /* Fields of Ide-1.0.Ide.OmniSearchEntryClass */
     parent_class: Gtk.EntryClass
     static name: string
 }
-export abstract class OmniSearchGroupClass {
+abstract class OmniSearchGroupClass {
     /* Fields of Ide-1.0.Ide.OmniSearchGroupClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class OmniSearchRowClass {
+abstract class OmniSearchRowClass {
     /* Fields of Ide-1.0.Ide.OmniSearchRowClass */
     parent_class: Gtk.ListBoxRowClass
     static name: string
 }
-export class PatternSpec {
+class PatternSpec {
     /* Methods of Ide-1.0.Ide.PatternSpec */
     get_text(): string
     match(haystack: string): boolean
@@ -32134,7 +32136,7 @@ export class PatternSpec {
     /* Static methods and pseudo-constructors */
     static new(keywords: string): PatternSpec
 }
-export abstract class PerspectiveInterface {
+abstract class PerspectiveInterface {
     /* Fields of Ide-1.0.Ide.PerspectiveInterface */
     parent: GObject.TypeInterface
     agree_to_shutdown: (self: Perspective) => boolean
@@ -32151,34 +32153,34 @@ export abstract class PerspectiveInterface {
     get_accelerator: (self: Perspective) => string | null
     static name: string
 }
-export abstract class PkconTransferClass {
+abstract class PkconTransferClass {
     /* Fields of Ide-1.0.Ide.PkconTransferClass */
     parent_class: TransferClass
     static name: string
 }
-export abstract class PreferencesAddinInterface {
+abstract class PreferencesAddinInterface {
     /* Fields of Ide-1.0.Ide.PreferencesAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
     unload: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
     static name: string
 }
-export abstract class PreferencesPerspectiveClass {
+abstract class PreferencesPerspectiveClass {
     /* Fields of Ide-1.0.Ide.PreferencesPerspectiveClass */
     parent_class: Dazzle.PreferencesViewClass
     static name: string
 }
-export abstract class ProgressClass {
+abstract class ProgressClass {
     /* Fields of Ide-1.0.Ide.ProgressClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProjectClass {
+abstract class ProjectClass {
     /* Fields of Ide-1.0.Ide.ProjectClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class ProjectEditClass {
+abstract class ProjectEditClass {
     /* Fields of Ide-1.0.Ide.ProjectEditClass */
     parent_instance: GObject.ObjectClass
     _reserved1: object
@@ -32187,27 +32189,27 @@ export abstract class ProjectEditClass {
     _reserved4: object
     static name: string
 }
-export abstract class ProjectFileClass {
+abstract class ProjectFileClass {
     /* Fields of Ide-1.0.Ide.ProjectFileClass */
     parent: ProjectItemClass
     static name: string
 }
-export abstract class ProjectFilesClass {
+abstract class ProjectFilesClass {
     /* Fields of Ide-1.0.Ide.ProjectFilesClass */
     parent_class: ProjectItemClass
     static name: string
 }
-export abstract class ProjectInfoClass {
+abstract class ProjectInfoClass {
     /* Fields of Ide-1.0.Ide.ProjectInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProjectItemClass {
+abstract class ProjectItemClass {
     /* Fields of Ide-1.0.Ide.ProjectItemClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class ProjectMinerInterface {
+abstract class ProjectMinerInterface {
     /* Fields of Ide-1.0.Ide.ProjectMinerInterface */
     parent_iface: GObject.TypeInterface
     discovered: (self: ProjectMiner, project_info: ProjectInfo) => void
@@ -32215,7 +32217,7 @@ export abstract class ProjectMinerInterface {
     mine_finish: (self: ProjectMiner, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class ProjectTemplateInterface {
+abstract class ProjectTemplateInterface {
     /* Fields of Ide-1.0.Ide.ProjectTemplateInterface */
     parent: GObject.TypeInterface
     get_id: (self: ProjectTemplate) => string
@@ -32228,12 +32230,12 @@ export abstract class ProjectTemplateInterface {
     expand_finish: (self: ProjectTemplate, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class RecentProjectsClass {
+abstract class RecentProjectsClass {
     /* Fields of Ide-1.0.Ide.RecentProjectsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class RenameProviderInterface {
+abstract class RenameProviderInterface {
     /* Fields of Ide-1.0.Ide.RenameProviderInterface */
     parent_iface: GObject.TypeInterface
     rename_async: (self: RenameProvider, location: SourceLocation, new_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32241,17 +32243,17 @@ export abstract class RenameProviderInterface {
     load: (self: RenameProvider) => void
     static name: string
 }
-export abstract class RunButtonClass {
+abstract class RunButtonClass {
     /* Fields of Ide-1.0.Ide.RunButtonClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class RunManagerClass {
+abstract class RunManagerClass {
     /* Fields of Ide-1.0.Ide.RunManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class RunnerAddinInterface {
+abstract class RunnerAddinInterface {
     /* Fields of Ide-1.0.Ide.RunnerAddinInterface */
     parent_interface: GObject.TypeInterface
     load: (self: RunnerAddin, runner: Runner) => void
@@ -32262,7 +32264,7 @@ export abstract class RunnerAddinInterface {
     posthook_finish: (self: RunnerAddin, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class RunnerClass {
+abstract class RunnerClass {
     /* Fields of Ide-1.0.Ide.RunnerClass */
     parent: ObjectClass
     force_quit: (self: Runner) => void
@@ -32283,7 +32285,7 @@ export abstract class RunnerClass {
     _reserved7: object
     static name: string
 }
-export abstract class RuntimeClass {
+abstract class RuntimeClass {
     /* Fields of Ide-1.0.Ide.RuntimeClass */
     parent: ObjectClass
     contains_program_in_path: (self: Runtime, program: string, cancellable?: Gio.Cancellable | null) => boolean
@@ -32306,12 +32308,12 @@ export abstract class RuntimeClass {
     _reserved16: object
     static name: string
 }
-export abstract class RuntimeManagerClass {
+abstract class RuntimeManagerClass {
     /* Fields of Ide-1.0.Ide.RuntimeManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class RuntimeProviderInterface {
+abstract class RuntimeProviderInterface {
     /* Fields of Ide-1.0.Ide.RuntimeProviderInterface */
     parent: GObject.TypeInterface
     load: (self: RuntimeProvider, manager: RuntimeManager) => void
@@ -32321,23 +32323,23 @@ export abstract class RuntimeProviderInterface {
     install_finish: (self: RuntimeProvider, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export class Script {
+class Script {
     static name: string
 }
-export class ScriptManager {
+class ScriptManager {
     static name: string
 }
-export abstract class SearchContextClass {
+abstract class SearchContextClass {
     /* Fields of Ide-1.0.Ide.SearchContextClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class SearchEngineClass {
+abstract class SearchEngineClass {
     /* Fields of Ide-1.0.Ide.SearchEngineClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class SearchProviderInterface {
+abstract class SearchProviderInterface {
     /* Fields of Ide-1.0.Ide.SearchProviderInterface */
     parent_iface: GObject.TypeInterface
     get_prefix: (provider: SearchProvider) => number
@@ -32348,7 +32350,7 @@ export abstract class SearchProviderInterface {
     activate: (provider: SearchProvider, row: Gtk.Widget, result: SearchResult) => void
     static name: string
 }
-export class SearchReducer {
+class SearchReducer {
     /* Fields of Ide-1.0.Ide.SearchReducer */
     context: SearchContext
     provider: SearchProvider
@@ -32362,13 +32364,13 @@ export class SearchReducer {
     push(result: SearchResult): void
     static name: string
 }
-export abstract class SearchResultClass {
+abstract class SearchResultClass {
     /* Fields of Ide-1.0.Ide.SearchResultClass */
     parent: ObjectClass
     activate: (result: SearchResult) => void
     static name: string
 }
-export abstract class ServiceInterface {
+abstract class ServiceInterface {
     /* Fields of Ide-1.0.Ide.ServiceInterface */
     parent_interface: GObject.TypeInterface
     context_loaded: (service: Service) => void
@@ -32377,12 +32379,12 @@ export abstract class ServiceInterface {
     stop: (service: Service) => void
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of Ide-1.0.Ide.SettingsClass */
     parent_class: ObjectClass
     static name: string
 }
-export class SourceLocation {
+class SourceLocation {
     /* Methods of Ide-1.0.Ide.SourceLocation */
     compare(b: SourceLocation): number
     get_file(): File
@@ -32399,12 +32401,12 @@ export class SourceLocation {
     /* Static methods and pseudo-constructors */
     static new(file: File, line: number, line_offset: number, offset: number): SourceLocation
 }
-export abstract class SourceMapClass {
+abstract class SourceMapClass {
     /* Fields of Ide-1.0.Ide.SourceMapClass */
     parent_class: GtkSource.MapClass
     static name: string
 }
-export class SourceRange {
+class SourceRange {
     /* Methods of Ide-1.0.Ide.SourceRange */
     get_begin(): SourceLocation
     get_end(): SourceLocation
@@ -32416,32 +32418,32 @@ export class SourceRange {
     /* Static methods and pseudo-constructors */
     static new(begin: SourceLocation, end: SourceLocation): SourceRange
 }
-export abstract class SourceSnippetChunkClass {
+abstract class SourceSnippetChunkClass {
     /* Fields of Ide-1.0.Ide.SourceSnippetChunkClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SourceSnippetClass {
+abstract class SourceSnippetClass {
     /* Fields of Ide-1.0.Ide.SourceSnippetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SourceSnippetContextClass {
+abstract class SourceSnippetContextClass {
     /* Fields of Ide-1.0.Ide.SourceSnippetContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SourceSnippetsClass {
+abstract class SourceSnippetsClass {
     /* Fields of Ide-1.0.Ide.SourceSnippetsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SourceSnippetsManagerClass {
+abstract class SourceSnippetsManagerClass {
     /* Fields of Ide-1.0.Ide.SourceSnippetsManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SourceViewClass {
+abstract class SourceViewClass {
     /* Fields of Ide-1.0.Ide.SourceViewClass */
     parent_class: GtkSource.ViewClass
     append_to_count: (self: SourceView, digit: number) => void
@@ -32516,12 +32518,12 @@ export abstract class SourceViewClass {
     _reserved24: object
     static name: string
 }
-export abstract class SourceViewModeClass {
+abstract class SourceViewModeClass {
     /* Fields of Ide-1.0.Ide.SourceViewModeClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
-export abstract class SubprocessInterface {
+abstract class SubprocessInterface {
     /* Fields of Ide-1.0.Ide.SubprocessInterface */
     parent_interface: GObject.TypeInterface
     get_identifier: (self: Subprocess) => string
@@ -32547,7 +32549,7 @@ export abstract class SubprocessInterface {
     communicate_utf8_finish: (self: Subprocess, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* stdout_buf */ string | null, /* stderr_buf */ string | null ]
     static name: string
 }
-export abstract class SubprocessLauncherClass {
+abstract class SubprocessLauncherClass {
     /* Fields of Ide-1.0.Ide.SubprocessLauncherClass */
     parent_class: GObject.ObjectClass
     spawn: (self: SubprocessLauncher, cancellable?: Gio.Cancellable | null) => Subprocess
@@ -32561,7 +32563,7 @@ export abstract class SubprocessLauncherClass {
     _reserved8: object
     static name: string
 }
-export abstract class SubprocessSupervisorClass {
+abstract class SubprocessSupervisorClass {
     /* Fields of Ide-1.0.Ide.SubprocessSupervisorClass */
     parent_class: GObject.ObjectClass
     spawned: (self: SubprocessSupervisor, subprocess: Subprocess) => void
@@ -32575,7 +32577,7 @@ export abstract class SubprocessSupervisorClass {
     _reserved8: object
     static name: string
 }
-export class Symbol {
+class Symbol {
     /* Methods of Ide-1.0.Ide.Symbol */
     get_canonical_location(): SourceLocation | null
     get_declaration_location(): SourceLocation | null
@@ -32591,7 +32593,7 @@ export class Symbol {
     /* Static methods and pseudo-constructors */
     static new(name: string, kind: SymbolKind, flags: SymbolFlags, declaration_location?: SourceLocation | null, definition_location?: SourceLocation | null, canonical_location?: SourceLocation | null): Symbol
 }
-export abstract class SymbolNodeClass {
+abstract class SymbolNodeClass {
     /* Fields of Ide-1.0.Ide.SymbolNodeClass */
     parent: ObjectClass
     get_location_async: (self: SymbolNode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32606,7 +32608,7 @@ export abstract class SymbolNodeClass {
     _reserved8: object
     static name: string
 }
-export abstract class SymbolResolverInterface {
+abstract class SymbolResolverInterface {
     /* Fields of Ide-1.0.Ide.SymbolResolverInterface */
     parent_interface: GObject.TypeInterface
     lookup_symbol_async: (self: SymbolResolver, location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32618,38 +32620,38 @@ export abstract class SymbolResolverInterface {
     find_references_finish: (self: SymbolResolver, result: Gio.AsyncResult) => SourceRange[]
     static name: string
 }
-export abstract class SymbolTreeInterface {
+abstract class SymbolTreeInterface {
     /* Fields of Ide-1.0.Ide.SymbolTreeInterface */
     parent: GObject.TypeInterface
     get_n_children: (self: SymbolTree, node?: SymbolNode | null) => number
     get_nth_child: (self: SymbolTree, node: SymbolNode | null, nth: number) => SymbolNode | null
     static name: string
 }
-export abstract class TagsBuilderInterface {
+abstract class TagsBuilderInterface {
     /* Fields of Ide-1.0.Ide.TagsBuilderInterface */
     parent: GObject.TypeInterface
     build_async: (self: TagsBuilder, directory_or_file: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     build_finish: (self: TagsBuilder, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class TemplateBaseClass {
+abstract class TemplateBaseClass {
     /* Fields of Ide-1.0.Ide.TemplateBaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class TemplateProviderInterface {
+abstract class TemplateProviderInterface {
     /* Fields of Ide-1.0.Ide.TemplateProviderInterface */
     parent_iface: GObject.TypeInterface
     get_project_templates: (self: TemplateProvider) => ProjectTemplate[]
     static name: string
 }
-export class ThreadPool {
+class ThreadPool {
     static name: string
     /* Static methods and pseudo-constructors */
     static push(kind: ThreadPoolKind, func: ThreadFunc): void
     static push_task(kind: ThreadPoolKind, task: Gio.Task, func: Gio.TaskThreadFunc): void
 }
-export abstract class TransferButtonClass {
+abstract class TransferButtonClass {
     /* Fields of Ide-1.0.Ide.TransferButtonClass */
     parent_class: Dazzle.ProgressButtonClass
     _reserved1: object
@@ -32658,7 +32660,7 @@ export abstract class TransferButtonClass {
     _reserved4: object
     static name: string
 }
-export abstract class TransferClass {
+abstract class TransferClass {
     /* Fields of Ide-1.0.Ide.TransferClass */
     parent_class: GObject.ObjectClass
     execute_async: (self: Transfer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -32673,27 +32675,27 @@ export abstract class TransferClass {
     _reserved8: object
     static name: string
 }
-export abstract class TransferManagerClass {
+abstract class TransferManagerClass {
     /* Fields of Ide-1.0.Ide.TransferManagerClass */
     parent_class: ObjectClass
     static name: string
 }
-export abstract class TransferRowClass {
+abstract class TransferRowClass {
     /* Fields of Ide-1.0.Ide.TransferRowClass */
     parent_class: Gtk.ListBoxRowClass
     static name: string
 }
-export abstract class TransfersButtonClass {
+abstract class TransfersButtonClass {
     /* Fields of Ide-1.0.Ide.TransfersButtonClass */
     parent_class: Gtk.MenuButtonClass
     static name: string
 }
-export abstract class TransfersProgressIconClass {
+abstract class TransfersProgressIconClass {
     /* Fields of Ide-1.0.Ide.TransfersProgressIconClass */
     parent_class: Gtk.DrawingAreaClass
     static name: string
 }
-export class UnsavedFile {
+class UnsavedFile {
     /* Methods of Ide-1.0.Ide.UnsavedFile */
     get_content(): GLib.Bytes
     get_file(): Gio.File
@@ -32704,12 +32706,12 @@ export class UnsavedFile {
     unref(): void
     static name: string
 }
-export abstract class UnsavedFilesClass {
+abstract class UnsavedFilesClass {
     /* Fields of Ide-1.0.Ide.UnsavedFilesClass */
     parent_class: ObjectClass
     static name: string
 }
-export class Uri {
+class Uri {
     /* Methods of Ide-1.0.Ide.Uri */
     copy(): Uri
     get_auth_params(): string
@@ -32748,14 +32750,14 @@ export class Uri {
     static parse_params(params: string, length: number, separator: number, case_insensitive: boolean): GLib.HashTable
     static split(uri_string: string, strict: boolean): [ /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
 }
-export abstract class VcsConfigInterface {
+abstract class VcsConfigInterface {
     /* Fields of Ide-1.0.Ide.VcsConfigInterface */
     parent: GObject.TypeInterface
     get_config: (self: VcsConfig, type: VcsConfigType, value: any) => void
     set_config: (self: VcsConfig, type: VcsConfigType, value: any) => void
     static name: string
 }
-export abstract class VcsInitializerInterface {
+abstract class VcsInitializerInterface {
     /* Fields of Ide-1.0.Ide.VcsInitializerInterface */
     parent: GObject.TypeInterface
     get_title: (self: VcsInitializer) => string
@@ -32763,7 +32765,7 @@ export abstract class VcsInitializerInterface {
     initialize_finish: (self: VcsInitializer, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class VcsInterface {
+abstract class VcsInterface {
     /* Fields of Ide-1.0.Ide.VcsInterface */
     parent_interface: GObject.TypeInterface
     get_working_directory: (self: Vcs) => Gio.File
@@ -32775,7 +32777,7 @@ export abstract class VcsInterface {
     get_branch_name: (self: Vcs) => string
     static name: string
 }
-export class VcsUri {
+class VcsUri {
     /* Methods of Ide-1.0.Ide.VcsUri */
     get_host(): string
     get_path(): string
@@ -32797,7 +32799,7 @@ export class VcsUri {
     static new(uri: string): VcsUri
     static is_valid(uri_string: string): boolean
 }
-export abstract class WorkbenchAddinInterface {
+abstract class WorkbenchAddinInterface {
     /* Fields of Ide-1.0.Ide.WorkbenchAddinInterface */
     parent: GObject.TypeInterface
     get_id: (self: WorkbenchAddin) => string
@@ -32809,12 +32811,12 @@ export abstract class WorkbenchAddinInterface {
     perspective_set: (self: WorkbenchAddin, perspective: Perspective) => void
     static name: string
 }
-export abstract class WorkbenchClass {
+abstract class WorkbenchClass {
     /* Fields of Ide-1.0.Ide.WorkbenchClass */
     parent_class: Gtk.ApplicationWindowClass
     static name: string
 }
-export abstract class WorkbenchHeaderBarClass {
+abstract class WorkbenchHeaderBarClass {
     /* Fields of Ide-1.0.Ide.WorkbenchHeaderBarClass */
     parent: Gtk.HeaderBarClass
     _reserved1: object
@@ -32827,15 +32829,17 @@ export abstract class WorkbenchHeaderBarClass {
     _reserved8: object
     static name: string
 }
-export abstract class WorkbenchMessageClass {
+abstract class WorkbenchMessageClass {
     /* Fields of Ide-1.0.Ide.WorkbenchMessageClass */
     parent_class: Gtk.InfoBarClass
     static name: string
 }
-export abstract class WorkerInterface {
+abstract class WorkerInterface {
     /* Fields of Ide-1.0.Ide.WorkerInterface */
     parent: GObject.TypeInterface
     create_proxy: (self: Worker, connection: Gio.DBusConnection) => Gio.DBusProxy
     register_service: (self: Worker, connection: Gio.DBusConnection) => void
     static name: string
 }
+}
+export default Ide

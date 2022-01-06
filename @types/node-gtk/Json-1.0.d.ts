@@ -7,15 +7,15 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Json {
+declare namespace Json {
 
-export enum NodeType {
+enum NodeType {
     OBJECT,
     ARRAY,
     VALUE,
     NULL,
 }
-export enum ParserError {
+enum ParserError {
     PARSE,
     TRAILING_COMMA,
     MISSING_COMMA,
@@ -25,10 +25,10 @@ export enum ParserError {
     INVALID_DATA,
     UNKNOWN,
 }
-export enum PathError {
+enum PathError {
     QUERY,
 }
-export enum ReaderError {
+enum ReaderError {
     NO_ARRAY,
     INVALID_INDEX,
     NO_OBJECT,
@@ -41,41 +41,41 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
-export function boxedCanDeserialize(gboxedType: GObject.Type, nodeType: NodeType): boolean
-export function boxedCanSerialize(gboxedType: GObject.Type): { returnType: boolean, nodeType: NodeType | null }
-export function boxedDeserialize(gboxedType: GObject.Type, node: Node): object | null
-export function boxedSerialize(gboxedType: GObject.Type, boxed?: object | null): Node | null
-export function constructGobject(gtype: GObject.Type, data: string, length: number): GObject.Object | null
-export function fromString(str: string): Node | null
-export function gobjectDeserialize(gtype: GObject.Type, node: Node): GObject.Object
-export function gobjectFromData(gtype: GObject.Type, data: string, length: number): GObject.Object | null
-export function gobjectSerialize(gobject: GObject.Object): Node
-export function gobjectToData(gobject: GObject.Object): { returnType: string, length: number | null }
-export function gvariantDeserialize(jsonNode: Node, signature?: string | null): GLib.Variant | null
-export function gvariantDeserializeData(json: string, length: number, signature?: string | null): GLib.Variant | null
-export function gvariantSerialize(variant: GLib.Variant): Node
-export function gvariantSerializeData(variant: GLib.Variant): { returnType: string, length: number | null }
-export function parserErrorQuark(): GLib.Quark
-export function pathErrorQuark(): GLib.Quark
-export function readerErrorQuark(): GLib.Quark
-export function serializeGobject(gobject: GObject.Object): { returnType: string, length: number | null }
-export function stringCompare(a: string, b: string): number
-export function stringEqual(a: string, b: string): boolean
-export function stringHash(key: string): number
-export function toString(node: Node, pretty: boolean): string
-export interface ArrayForeach {
+function boxedCanDeserialize(gboxedType: GObject.Type, nodeType: NodeType): boolean
+function boxedCanSerialize(gboxedType: GObject.Type): { returnType: boolean, nodeType: NodeType | null }
+function boxedDeserialize(gboxedType: GObject.Type, node: Node): object | null
+function boxedSerialize(gboxedType: GObject.Type, boxed?: object | null): Node | null
+function constructGobject(gtype: GObject.Type, data: string, length: number): GObject.Object | null
+function fromString(str: string): Node | null
+function gobjectDeserialize(gtype: GObject.Type, node: Node): GObject.Object
+function gobjectFromData(gtype: GObject.Type, data: string, length: number): GObject.Object | null
+function gobjectSerialize(gobject: GObject.Object): Node
+function gobjectToData(gobject: GObject.Object): { returnType: string, length: number | null }
+function gvariantDeserialize(jsonNode: Node, signature?: string | null): GLib.Variant | null
+function gvariantDeserializeData(json: string, length: number, signature?: string | null): GLib.Variant | null
+function gvariantSerialize(variant: GLib.Variant): Node
+function gvariantSerializeData(variant: GLib.Variant): { returnType: string, length: number | null }
+function parserErrorQuark(): GLib.Quark
+function pathErrorQuark(): GLib.Quark
+function readerErrorQuark(): GLib.Quark
+function serializeGobject(gobject: GObject.Object): { returnType: string, length: number | null }
+function stringCompare(a: string, b: string): number
+function stringEqual(a: string, b: string): boolean
+function stringHash(key: string): number
+function toString(node: Node, pretty: boolean): string
+interface ArrayForeach {
     (array: Array, index: number, elementNode: Node): void
 }
-export interface BoxedDeserializeFunc {
+interface BoxedDeserializeFunc {
     (node: Node): object | null
 }
-export interface BoxedSerializeFunc {
+interface BoxedSerializeFunc {
     (boxed?: object | null): Node
 }
-export interface ObjectForeach {
+interface ObjectForeach {
     (object: Object, memberName: string, memberNode: Node): void
 }
-export class Serializable {
+class Serializable {
     /* Methods of Json-1.0.Json.Serializable */
     defaultDeserializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec, propertyNode: Node): boolean
     defaultSerializeProperty(propertyName: string, value: any, pspec: GObject.ParamSpec): Node | null
@@ -90,7 +90,7 @@ export class Serializable {
 export interface Builder_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
-export class Builder {
+class Builder {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Json-1.0.Json.Builder */
@@ -156,7 +156,7 @@ export interface Generator_ConstructProps extends GObject.Object_ConstructProps 
     pretty?: boolean
     root?: Node
 }
-export class Generator {
+class Generator {
     /* Properties of Json-1.0.Json.Generator */
     indent: number
     indentChar: number
@@ -242,7 +242,7 @@ export class Generator {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     immutable?: boolean
 }
-export class Parser {
+class Parser {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Json-1.0.Json.Parser */
@@ -348,7 +348,7 @@ export class Parser {
 }
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Path {
+class Path {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Json-1.0.Json.Path */
@@ -400,7 +400,7 @@ export class Path {
 export interface Reader_ConstructProps extends GObject.Object_ConstructProps {
     root?: Node
 }
-export class Reader {
+class Reader {
     /* Properties of Json-1.0.Json.Reader */
     root: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -472,7 +472,7 @@ export class Reader {
     static new(node?: Node | null): Reader
     static $gtype: GObject.Type
 }
-export class Array {
+class Array {
     /* Methods of Json-1.0.Json.Array */
     addArrayElement(value?: Array | null): void
     addBooleanElement(value: boolean): void
@@ -508,19 +508,19 @@ export class Array {
     static new(): Array
     static sizedNew(nElements: number): Array
 }
-export abstract class BuilderClass {
+abstract class BuilderClass {
     static name: string
 }
-export class BuilderPrivate {
+class BuilderPrivate {
     static name: string
 }
-export abstract class GeneratorClass {
+abstract class GeneratorClass {
     static name: string
 }
-export class GeneratorPrivate {
+class GeneratorPrivate {
     static name: string
 }
-export class Node {
+class Node {
     /* Methods of Json-1.0.Json.Node */
     copy(): Node
     dupArray(): Array | null
@@ -570,7 +570,7 @@ export class Node {
     static alloc(): Node
     static new(type: NodeType): Node
 }
-export class Object {
+class Object {
     /* Methods of Json-1.0.Json.Object */
     addMember(memberName: string, node: Node): void
     dupMember(memberName: string): Node | null
@@ -612,7 +612,7 @@ export class Object {
     /* Static methods and pseudo-constructors */
     static new(): Object
 }
-export class ObjectIter {
+class ObjectIter {
     /* Methods of Json-1.0.Json.ObjectIter */
     init(object: Object): void
     initOrdered(object: Object): void
@@ -620,7 +620,7 @@ export class ObjectIter {
     nextOrdered(): { returnType: boolean, memberName: string | null, memberNode: Node | null }
     static name: string
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     /* Fields of Json-1.0.Json.ParserClass */
     parseStart: (parser: Parser) => void
     objectStart: (parser: Parser) => void
@@ -633,19 +633,19 @@ export abstract class ParserClass {
     error: (parser: Parser, error: GLib.Error) => void
     static name: string
 }
-export class ParserPrivate {
+class ParserPrivate {
     static name: string
 }
-export abstract class PathClass {
+abstract class PathClass {
     static name: string
 }
-export abstract class ReaderClass {
+abstract class ReaderClass {
     static name: string
 }
-export class ReaderPrivate {
+class ReaderPrivate {
     static name: string
 }
-export abstract class SerializableIface {
+abstract class SerializableIface {
     /* Fields of Json-1.0.Json.SerializableIface */
     serializeProperty: (serializable: Serializable, propertyName: string, value: any, pspec: GObject.ParamSpec) => Node
     deserializeProperty: (serializable: Serializable, propertyName: string, pspec: GObject.ParamSpec, propertyNode: Node) => { returnType: boolean, value: any }
@@ -655,3 +655,4 @@ export abstract class SerializableIface {
     static name: string
 }
 }
+export default Json

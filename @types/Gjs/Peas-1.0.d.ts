@@ -3,27 +3,29 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GIRepository from './GIRepository-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GIRepository from './GIRepository-2.0';
 
-export enum PluginInfoError {
+export namespace Peas {
+
+enum PluginInfoError {
     LOADING_FAILED,
     LOADER_NOT_FOUND,
     DEP_NOT_FOUND,
     DEP_LOADING_FAILED,
 }
-export function cclosure_marshal_VOID__BOXED_OBJECT(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint?: object | null, marshal_data?: object | null): void
-export function plugin_info_error_quark(): GLib.Quark
-export interface ExtensionSetForeachFunc {
+function cclosure_marshal_VOID__BOXED_OBJECT(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint?: object | null, marshal_data?: object | null): void
+function plugin_info_error_quark(): GLib.Quark
+interface ExtensionSetForeachFunc {
     (set: ExtensionSet, info: PluginInfo, exten: Extension, data?: object | null): void
 }
-export interface FactoryFunc {
+interface FactoryFunc {
     (parameters: GObject.Parameter[]): GObject.Object
 }
-export class Activatable {
+class Activatable {
     /* Methods of Peas-1.0.Peas.Activatable */
     activate(): void
     deactivate(): void
@@ -38,7 +40,7 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     loaded_plugins?: string[]
     nonglobal_loaders?: boolean
 }
-export class Engine {
+class Engine {
     /* Properties of Peas-1.0.Peas.Engine */
     loaded_plugins: string[]
     readonly plugin_list: object
@@ -124,7 +126,7 @@ export class Engine {
 export interface ExtensionBase_ConstructProps extends GObject.Object_ConstructProps {
     plugin_info?: PluginInfo
 }
-export class ExtensionBase {
+class ExtensionBase {
     /* Properties of Peas-1.0.Peas.ExtensionBase */
     readonly data_dir: string
     /* Fields of Peas-1.0.Peas.ExtensionBase */
@@ -185,7 +187,7 @@ export interface ExtensionSet_ConstructProps extends GObject.Object_ConstructPro
     engine?: Engine
     extension_type?: GObject.Type
 }
-export class ExtensionSet {
+class ExtensionSet {
     /* Fields of Peas-1.0.Peas.ExtensionSet */
     parent: GObject.Object
     priv: ExtensionSetPrivate
@@ -257,7 +259,7 @@ export interface ObjectModule_ConstructProps extends GObject.TypeModule_Construc
     resident?: boolean
     symbol?: string
 }
-export class ObjectModule {
+class ObjectModule {
     /* Fields of Peas-1.0.Peas.ObjectModule */
     parent: GObject.TypeModule
     priv: ObjectModulePrivate
@@ -330,7 +332,7 @@ export class ObjectModule {
     _init (config?: ObjectModule_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ActivatableInterface {
+abstract class ActivatableInterface {
     /* Fields of Peas-1.0.Peas.ActivatableInterface */
     g_iface: GObject.TypeInterface
     activate: (activatable: Activatable) => void
@@ -338,25 +340,25 @@ export abstract class ActivatableInterface {
     update_state: (activatable: Activatable) => void
     static name: string
 }
-export abstract class EngineClass {
+abstract class EngineClass {
     /* Fields of Peas-1.0.Peas.EngineClass */
     parent_class: GObject.ObjectClass
     load_plugin: (engine: Engine, info: PluginInfo) => void
     unload_plugin: (engine: Engine, info: PluginInfo) => void
     static name: string
 }
-export class EnginePrivate {
+class EnginePrivate {
     static name: string
 }
-export abstract class ExtensionBaseClass {
+abstract class ExtensionBaseClass {
     /* Fields of Peas-1.0.Peas.ExtensionBaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ExtensionBasePrivate {
+class ExtensionBasePrivate {
     static name: string
 }
-export abstract class ExtensionSetClass {
+abstract class ExtensionSetClass {
     /* Fields of Peas-1.0.Peas.ExtensionSetClass */
     parent_class: GObject.ObjectClass
     call: (set: ExtensionSet, method_name: string, args: GIRepository.Argument) => boolean
@@ -364,18 +366,18 @@ export abstract class ExtensionSetClass {
     extension_removed: (set: ExtensionSet, info: PluginInfo, exten: Extension) => void
     static name: string
 }
-export class ExtensionSetPrivate {
+class ExtensionSetPrivate {
     static name: string
 }
-export abstract class ObjectModuleClass {
+abstract class ObjectModuleClass {
     /* Fields of Peas-1.0.Peas.ObjectModuleClass */
     parent_class: GObject.TypeModuleClass
     static name: string
 }
-export class ObjectModulePrivate {
+class ObjectModulePrivate {
     static name: string
 }
-export class PluginInfo {
+class PluginInfo {
     /* Methods of Peas-1.0.Peas.PluginInfo */
     get_authors(): string[]
     get_copyright(): string
@@ -400,4 +402,6 @@ export class PluginInfo {
     /* Static methods and pseudo-constructors */
     static error_quark(): GLib.Quark
 }
-export type Extension = GObject.Object
+type Extension = GObject.Object
+}
+export default Peas

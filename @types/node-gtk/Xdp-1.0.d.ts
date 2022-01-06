@@ -7,27 +7,27 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Xdp {
+declare namespace Xdp {
 
-export enum ButtonState {
+enum ButtonState {
     RELEASED,
     PRESSED,
 }
-export enum CameraFlags {
+enum CameraFlags {
     NONE,
 }
-export enum DiscreteAxis {
+enum DiscreteAxis {
     HORIZONTAL_SCROLL,
     VERTICAL_SCROLL,
 }
-export enum EmailFlags {
+enum EmailFlags {
     NONE,
 }
-export enum KeyState {
+enum KeyState {
     RELEASED,
     PRESSED,
 }
-export enum LocationAccuracy {
+enum LocationAccuracy {
     NONE,
     COUNTRY,
     CITY,
@@ -35,104 +35,104 @@ export enum LocationAccuracy {
     STREET,
     EXACT,
 }
-export enum LocationMonitorFlags {
+enum LocationMonitorFlags {
     NONE,
 }
-export enum LoginSessionState {
+enum LoginSessionState {
     RUNNING,
     QUERY_END,
     ENDING,
 }
-export enum NotificationFlags {
+enum NotificationFlags {
     NONE,
 }
-export enum PersistMode {
+enum PersistMode {
     NONE,
     TRANSIENT,
     PERSISTENT,
 }
-export enum PrintFlags {
+enum PrintFlags {
     NONE,
 }
-export enum SaveFileFlags {
+enum SaveFileFlags {
     NONE,
 }
-export enum SessionMonitorFlags {
+enum SessionMonitorFlags {
     NONE,
 }
-export enum SessionState {
+enum SessionState {
     INITIAL,
     ACTIVE,
     CLOSED,
 }
-export enum SessionType {
+enum SessionType {
     SCREENCAST,
     REMOTE_DESKTOP,
 }
-export enum UpdateInstallFlags {
+enum UpdateInstallFlags {
     NONE,
 }
-export enum UpdateMonitorFlags {
+enum UpdateMonitorFlags {
     NONE,
 }
-export enum UpdateStatus {
+enum UpdateStatus {
     RUNNING,
     EMPTY,
     DONE,
     FAILED,
 }
-export enum UserInformationFlags {
+enum UserInformationFlags {
     NONE,
 }
-export enum BackgroundFlags {
+enum BackgroundFlags {
     NONE,
     AUTOSTART,
     ACTIVATABLE,
 }
-export enum CursorMode {
+enum CursorMode {
     HIDDEN,
     EMBEDDED,
     METADATA,
 }
-export enum DeviceType {
+enum DeviceType {
     NONE,
     KEYBOARD,
     POINTER,
     TOUCHSCREEN,
 }
-export enum InhibitFlags {
+enum InhibitFlags {
     LOGOUT,
     USER_SWITCH,
     SUSPEND,
     IDLE,
 }
-export enum OpenFileFlags {
+enum OpenFileFlags {
     NONE,
     MULTIPLE,
 }
-export enum OpenUriFlags {
+enum OpenUriFlags {
     NONE,
     ASK,
     WRITABLE,
 }
-export enum OutputType {
+enum OutputType {
     MONITOR,
     WINDOW,
     VIRTUAL,
 }
-export enum RemoteDesktopFlags {
+enum RemoteDesktopFlags {
     NONE,
     MULTIPLE,
 }
-export enum ScreencastFlags {
+enum ScreencastFlags {
     NONE,
     MULTIPLE,
 }
-export enum ScreenshotFlags {
+enum ScreenshotFlags {
     NONE,
     INTERACTIVE,
 }
-export enum SpawnFlags {
+enum SpawnFlags {
     NONE,
     CLEARENV,
     LATEST,
@@ -140,7 +140,7 @@ export enum SpawnFlags {
     NO_NETWORK,
     WATCH,
 }
-export enum WallpaperFlags {
+enum WallpaperFlags {
     NONE,
     BACKGROUND,
     LOCKSCREEN,
@@ -149,7 +149,7 @@ export enum WallpaperFlags {
 export const WALLPAPER_TARGET_BOTH: number
 export interface Portal_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Portal {
+class Portal {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Xdp-1.0.Xdp.Portal */
@@ -285,7 +285,7 @@ export class Portal {
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Session {
+class Session {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Xdp-1.0.Xdp.Session */
@@ -354,20 +354,21 @@ export class Session {
     _init (config?: Session_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Parent {
+class Parent {
     /* Methods of Xdp-1.0.Xdp.Parent */
     copy(): Parent
     free(): void
     static name: string
 }
-export abstract class PortalClass {
+abstract class PortalClass {
     /* Fields of Xdp-1.0.Xdp.PortalClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Xdp-1.0.Xdp.SessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default Xdp

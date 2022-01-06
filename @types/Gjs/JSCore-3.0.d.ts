@@ -3,8 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export function EvaluateScript(): void
-export type GlobalContextRef = any
-export type ObjectRef = any
+export namespace JSCore {
+
+function EvaluateScript(): void
+type GlobalContextRef = any
+type ObjectRef = any
+}
+export default JSCore

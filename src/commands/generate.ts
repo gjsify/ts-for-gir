@@ -2,8 +2,7 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import { Command } from '@oclif/command'
-import * as CLIConfig from '@oclif/config'
+import { Command, Config as CLIConfig } from '@oclif/core'
 import { Generator } from '../generator'
 import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
@@ -54,20 +53,20 @@ export default class Generate extends Command {
 
     static args = [Config.defaultCliArgs.modules]
 
-    constructor(argv: string[], config: CLIConfig.IConfig) {
+    constructor(argv: string[], config: CLIConfig) {
         super(argv, config)
     }
 
     async run(): Promise<void> {
-        const { argv, flags } = this.parse(Generate)
+        const { argv, flags } = await this.parse(Generate)
 
-        const config = await Config.load((flags as unknown) as ConfigFlags, argv)
+        const config = await Config.load(flags as unknown as ConfigFlags, argv)
 
         if (argv.length === 0) {
             return this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
         }
 
-        for (const i in config.environments) {
+        for (let i = 0; i < config.environments.length; i++) {
             if (config.environments[i]) {
                 const generateConfig = Config.getGenerateConfig(config, config.environments[i])
                 const moduleLoader = new ModuleLoader(generateConfig)

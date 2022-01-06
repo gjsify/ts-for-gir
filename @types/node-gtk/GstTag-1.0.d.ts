@@ -9,14 +9,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstTag {
+declare namespace GstTag {
 
-export enum TagDemuxResult {
+enum TagDemuxResult {
     BROKEN_TAG,
     AGAIN,
     OK,
 }
-export enum TagImageType {
+enum TagImageType {
     NONE,
     UNDEFINED,
     FRONT_COVER,
@@ -38,7 +38,7 @@ export enum TagImageType {
     BAND_ARTIST_LOGO,
     PUBLISHER_STUDIO_LOGO,
 }
-export enum TagLicenseFlags {
+enum TagLicenseFlags {
     PERMITS_REPRODUCTION,
     PERMITS_DISTRIBUTION,
     PERMITS_DERIVATIVE_WORKS,
@@ -93,49 +93,49 @@ export const TAG_MUSICBRAINZ_RELEASEGROUPID: string
 export const TAG_MUSICBRAINZ_RELEASETRACKID: string
 export const TAG_MUSICBRAINZ_TRACKID: string
 export const TAG_MUSICBRAINZ_TRMID: string
-export function tagCheckLanguageCode(langCode: string): boolean
-export function tagFreeformStringToUtf8(data: number[], envVars: string[]): string
-export function tagFromId3Tag(id3Tag: string): string
-export function tagFromId3UserTag(type: string, id3UserTag: string): string
-export function tagFromVorbisTag(vorbisTag: string): string
-export function tagGetId3v2TagSize(buffer: Gst.Buffer): number
-export function tagGetLanguageCodeIso6391(langCode: string): string
-export function tagGetLanguageCodeIso6392B(langCode: string): string
-export function tagGetLanguageCodeIso6392T(langCode: string): string
-export function tagGetLanguageCodes(): string[]
-export function tagGetLanguageName(languageCode: string): string
-export function tagGetLicenseDescription(licenseRef: string): string
-export function tagGetLicenseFlags(licenseRef: string): TagLicenseFlags
-export function tagGetLicenseJurisdiction(licenseRef: string): string
-export function tagGetLicenseNick(licenseRef: string): string
-export function tagGetLicenseTitle(licenseRef: string): string
-export function tagGetLicenseVersion(licenseRef: string): string
-export function tagGetLicenses(): string[]
-export function tagId3GenreCount(): number
-export function tagId3GenreGet(id: number): string
-export function tagImageDataToImageSample(imageData: any[], imageType: TagImageType): Gst.Sample
-export function tagListAddId3Image(tagList: Gst.TagList, imageData: any[], id3PictureType: number): boolean
-export function tagListFromExifBuffer(buffer: Gst.Buffer, byteOrder: number, baseOffset: number): Gst.TagList
-export function tagListFromExifBufferWithTiffHeader(buffer: Gst.Buffer): Gst.TagList
-export function tagListFromId3v2Tag(buffer: Gst.Buffer): Gst.TagList
-export function tagListFromVorbiscomment(data: any[], idData: any[]): { returnType: Gst.TagList, vendorString: string | null }
-export function tagListFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any[]): { returnType: Gst.TagList, vendorString: string | null }
-export function tagListFromXmpBuffer(buffer: Gst.Buffer): Gst.TagList
-export function tagListNewFromId3v1(data: any[]): Gst.TagList
-export function tagListToExifBuffer(taglist: Gst.TagList, byteOrder: number, baseOffset: number): Gst.Buffer
-export function tagListToExifBufferWithTiffHeader(taglist: Gst.TagList): Gst.Buffer
-export function tagListToVorbiscommentBuffer(list: Gst.TagList, idData: any[], vendorString?: string | null): Gst.Buffer
-export function tagListToXmpBuffer(list: Gst.TagList, readOnly: boolean, schemas: string[]): Gst.Buffer
-export function tagParseExtendedComment(extComment: string, failIfNoKey: boolean): { returnType: boolean, key: string | null, lang: string | null, value: string }
-export function tagRegisterMusicbrainzTags(): void
-export function tagToId3Tag(gstTag: string): string
-export function tagToVorbisComments(list: Gst.TagList, tag: string): string[]
-export function tagToVorbisTag(gstTag: string): string
-export function tagXmpListSchemas(): string[]
-export function vorbisTagAdd(list: Gst.TagList, tag: string, value: string): void
+function tagCheckLanguageCode(langCode: string): boolean
+function tagFreeformStringToUtf8(data: number[], envVars: string[]): string
+function tagFromId3Tag(id3Tag: string): string
+function tagFromId3UserTag(type: string, id3UserTag: string): string
+function tagFromVorbisTag(vorbisTag: string): string
+function tagGetId3v2TagSize(buffer: Gst.Buffer): number
+function tagGetLanguageCodeIso6391(langCode: string): string
+function tagGetLanguageCodeIso6392B(langCode: string): string
+function tagGetLanguageCodeIso6392T(langCode: string): string
+function tagGetLanguageCodes(): string[]
+function tagGetLanguageName(languageCode: string): string
+function tagGetLicenseDescription(licenseRef: string): string
+function tagGetLicenseFlags(licenseRef: string): TagLicenseFlags
+function tagGetLicenseJurisdiction(licenseRef: string): string
+function tagGetLicenseNick(licenseRef: string): string
+function tagGetLicenseTitle(licenseRef: string): string
+function tagGetLicenseVersion(licenseRef: string): string
+function tagGetLicenses(): string[]
+function tagId3GenreCount(): number
+function tagId3GenreGet(id: number): string
+function tagImageDataToImageSample(imageData: any[], imageType: TagImageType): Gst.Sample
+function tagListAddId3Image(tagList: Gst.TagList, imageData: any[], id3PictureType: number): boolean
+function tagListFromExifBuffer(buffer: Gst.Buffer, byteOrder: number, baseOffset: number): Gst.TagList
+function tagListFromExifBufferWithTiffHeader(buffer: Gst.Buffer): Gst.TagList
+function tagListFromId3v2Tag(buffer: Gst.Buffer): Gst.TagList
+function tagListFromVorbiscomment(data: any[], idData: any[]): { returnType: Gst.TagList, vendorString: string | null }
+function tagListFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any[]): { returnType: Gst.TagList, vendorString: string | null }
+function tagListFromXmpBuffer(buffer: Gst.Buffer): Gst.TagList
+function tagListNewFromId3v1(data: any[]): Gst.TagList
+function tagListToExifBuffer(taglist: Gst.TagList, byteOrder: number, baseOffset: number): Gst.Buffer
+function tagListToExifBufferWithTiffHeader(taglist: Gst.TagList): Gst.Buffer
+function tagListToVorbiscommentBuffer(list: Gst.TagList, idData: any[], vendorString?: string | null): Gst.Buffer
+function tagListToXmpBuffer(list: Gst.TagList, readOnly: boolean, schemas: string[]): Gst.Buffer
+function tagParseExtendedComment(extComment: string, failIfNoKey: boolean): { returnType: boolean, key: string | null, lang: string | null, value: string }
+function tagRegisterMusicbrainzTags(): void
+function tagToId3Tag(gstTag: string): string
+function tagToVorbisComments(list: Gst.TagList, tag: string): string[]
+function tagToVorbisTag(gstTag: string): string
+function tagXmpListSchemas(): string[]
+function vorbisTagAdd(list: Gst.TagList, tag: string, value: string): void
 export interface TagXmpWriter_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagXmpWriter {
+class TagXmpWriter {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -338,7 +338,7 @@ export class TagXmpWriter {
 }
 export interface TagDemux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagDemux {
+class TagDemux {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -536,7 +536,7 @@ export class TagDemux {
 }
 export interface TagMux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class TagMux {
+class TagMux {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -739,7 +739,7 @@ export class TagMux {
     _init (config?: TagMux_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class TagDemuxClass {
+abstract class TagDemuxClass {
     /* Fields of GstTag-1.0.GstTag.TagDemuxClass */
     parentClass: Gst.ElementClass
     minStartSize: number
@@ -749,22 +749,23 @@ export abstract class TagDemuxClass {
     mergeTags: (demux: TagDemux, startTags: Gst.TagList, endTags: Gst.TagList) => Gst.TagList
     static name: string
 }
-export class TagDemuxPrivate {
+class TagDemuxPrivate {
     static name: string
 }
-export abstract class TagMuxClass {
+abstract class TagMuxClass {
     /* Fields of GstTag-1.0.GstTag.TagMuxClass */
     parentClass: Gst.ElementClass
     renderStartTag: (mux: TagMux, tagList: Gst.TagList) => Gst.Buffer
     renderEndTag: (mux: TagMux, tagList: Gst.TagList) => Gst.Buffer
     static name: string
 }
-export class TagMuxPrivate {
+class TagMuxPrivate {
     static name: string
 }
-export abstract class TagXmpWriterInterface {
+abstract class TagXmpWriterInterface {
     /* Fields of GstTag-1.0.GstTag.TagXmpWriterInterface */
     parent: GObject.TypeInterface
     static name: string
 }
 }
+export default GstTag

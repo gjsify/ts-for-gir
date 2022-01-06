@@ -2566,12 +2566,12 @@ export class MultipartInputStream {
     can_poll(): boolean
     create_source(cancellable?: Gio.Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Gio.Cancellable | null): number
     /* Virtual methods of Soup-2.4.Soup.MultipartInputStream */
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Gio.Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(): [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean

@@ -3,31 +3,33 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Gcr from './Gcr-3';
-import type * as Gck from './Gck-1';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Gcr from './Gcr-3';
+import type Gck from './Gck-1';
 
-export enum CollectionModelMode {
+export namespace GcrUi {
+
+enum CollectionModelMode {
     LIST,
     TREE,
 }
-export function renderer_create(label: string | null, attrs: Gck.Attributes): Renderer | null
-export function renderer_register(renderer_type: GObject.Type, attrs: Gck.Attributes): void
-export function renderer_register_well_known(): void
-export function viewer_new(): Viewer
-export function viewer_new_scrolled(): Viewer
-export class Renderer {
+function renderer_create(label: string | null, attrs: Gck.Attributes): Renderer | null
+function renderer_register(renderer_type: GObject.Type, attrs: Gck.Attributes): void
+function renderer_register_well_known(): void
+function viewer_new(): Viewer
+function viewer_new_scrolled(): Viewer
+class Renderer {
     /* Properties of GcrUi-3.GcrUi.Renderer */
     attributes: Gck.Attributes
     label: string
@@ -53,7 +55,7 @@ export class Renderer {
 }
 export interface Viewer_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Viewer {
+class Viewer {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -788,7 +790,7 @@ export interface CertificateRenderer_ConstructProps extends GObject.Object_Const
     certificate?: Gcr.Certificate
     label?: string
 }
-export class CertificateRenderer {
+class CertificateRenderer {
     /* Properties of GcrUi-3.GcrUi.CertificateRenderer */
     attributes: Gck.Attributes
     certificate: Gcr.Certificate
@@ -920,7 +922,7 @@ export interface CertificateWidget_ConstructProps extends Gtk.Bin_ConstructProps
     attributes?: Gck.Attributes
     certificate?: Gcr.Certificate
 }
-export class CertificateWidget {
+class CertificateWidget {
     /* Properties of GcrUi-3.GcrUi.CertificateWidget */
     attributes: Gck.Attributes
     certificate: Gcr.Certificate
@@ -1743,7 +1745,7 @@ export interface CollectionModel_ConstructProps extends GObject.Object_Construct
     collection?: Gcr.Collection
     columns?: object
 }
-export class CollectionModel {
+class CollectionModel {
     /* Properties of GcrUi-3.GcrUi.CollectionModel */
     collection: Gcr.Collection
     /* Fields of GcrUi-3.GcrUi.CollectionModel */
@@ -1889,7 +1891,7 @@ export interface ComboSelector_ConstructProps extends Gtk.ComboBox_ConstructProp
     collection?: Gcr.Collection
     editing_canceled?: boolean
 }
-export class ComboSelector {
+class ComboSelector {
     /* Properties of Gtk-3.0.Gtk.ComboBox */
     active: number
     active_id: string
@@ -2837,7 +2839,7 @@ export interface FailureRenderer_ConstructProps extends GObject.Object_Construct
     attributes?: Gck.Attributes
     label?: string
 }
-export class FailureRenderer {
+class FailureRenderer {
     /* Properties of GcrUi-3.GcrUi.FailureRenderer */
     attributes: Gck.Attributes
     label: string
@@ -2916,7 +2918,7 @@ export interface ImportButton_ConstructProps extends Gtk.Button_ConstructProps {
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class ImportButton {
+class ImportButton {
     /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
@@ -3850,7 +3852,7 @@ export interface KeyRenderer_ConstructProps extends GObject.Object_ConstructProp
     attributes?: Gck.Attributes
     label?: string
 }
-export class KeyRenderer {
+class KeyRenderer {
     /* Properties of GcrUi-3.GcrUi.KeyRenderer */
     object: Gck.Object
     /* Properties of GcrUi-3.GcrUi.Renderer */
@@ -3932,7 +3934,7 @@ export class KeyRenderer {
 export interface KeyWidget_ConstructProps extends Gtk.Bin_ConstructProps {
     attributes?: Gck.Attributes
 }
-export class KeyWidget {
+class KeyWidget {
     /* Properties of GcrUi-3.GcrUi.KeyWidget */
     attributes: Gck.Attributes
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -4753,7 +4755,7 @@ export interface ListSelector_ConstructProps extends Gtk.TreeView_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class ListSelector {
+class ListSelector {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -5808,7 +5810,7 @@ export interface PromptDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
     title?: string
     warning?: string
 }
-export class PromptDialog {
+class PromptDialog {
     /* Properties of GcrUi-3.GcrUi.PromptDialog */
     readonly choice_visible: boolean
     readonly confirm_visible: boolean
@@ -6950,7 +6952,7 @@ export class PromptDialog {
 }
 export interface SecureEntryBuffer_ConstructProps extends Gtk.EntryBuffer_ConstructProps {
 }
-export class SecureEntryBuffer {
+class SecureEntryBuffer {
     /* Properties of Gtk-3.0.Gtk.EntryBuffer */
     readonly length: number
     max_length: number
@@ -7046,7 +7048,7 @@ export interface TreeSelector_ConstructProps extends Gtk.TreeView_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class TreeSelector {
+class TreeSelector {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -8090,7 +8092,7 @@ export interface UnlockOptionsWidget_ConstructProps extends Gtk.Bin_ConstructPro
     choice?: string
     ttl?: number
 }
-export class UnlockOptionsWidget {
+class UnlockOptionsWidget {
     /* Properties of GcrUi-3.GcrUi.UnlockOptionsWidget */
     choice: string
     ttl: number
@@ -8917,7 +8919,7 @@ export interface ViewerWidget_ConstructProps extends Gtk.Box_ConstructProps {
     display_name?: string
     orientation?: Gtk.Orientation
 }
-export class ViewerWidget {
+class ViewerWidget {
     /* Properties of GcrUi-3.GcrUi.ViewerWidget */
     display_name: string
     readonly parser: Gcr.Parser
@@ -9775,79 +9777,79 @@ export class ViewerWidget {
     static new(orientation: Gtk.Orientation, spacing: number): ViewerWidget
     static $gtype: GObject.Type
 }
-export abstract class CertificateRendererClass {
+abstract class CertificateRendererClass {
     /* Fields of GcrUi-3.GcrUi.CertificateRendererClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CertificateRendererPrivate {
+class CertificateRendererPrivate {
     static name: string
 }
-export abstract class CertificateWidgetClass {
+abstract class CertificateWidgetClass {
     static name: string
 }
-export class CertificateWidgetPrivate {
+class CertificateWidgetPrivate {
     static name: string
 }
-export abstract class CollectionModelClass {
+abstract class CollectionModelClass {
     /* Fields of GcrUi-3.GcrUi.CollectionModelClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CollectionModelPrivate {
+class CollectionModelPrivate {
     static name: string
 }
-export abstract class ComboSelectorClass {
+abstract class ComboSelectorClass {
     static name: string
 }
-export class ComboSelectorPrivate {
+class ComboSelectorPrivate {
     static name: string
 }
-export abstract class FailureRendererClass {
+abstract class FailureRendererClass {
     static name: string
 }
-export class FailureRendererPrivate {
+class FailureRendererPrivate {
     static name: string
 }
-export abstract class ImportButtonClass {
+abstract class ImportButtonClass {
     /* Fields of GcrUi-3.GcrUi.ImportButtonClass */
     parent_class: Gtk.ButtonClass
     importing: (self: ImportButton, importer: Gcr.Importer) => void
     imported: (self: ImportButton, importer: Gcr.Importer, error: GLib.Error) => void
     static name: string
 }
-export class ImportButtonPrivate {
+class ImportButtonPrivate {
     static name: string
 }
-export abstract class KeyRendererClass {
+abstract class KeyRendererClass {
     /* Fields of GcrUi-3.GcrUi.KeyRendererClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class KeyRendererPrivate {
+class KeyRendererPrivate {
     static name: string
 }
-export abstract class KeyWidgetClass {
+abstract class KeyWidgetClass {
     static name: string
 }
-export class KeyWidgetPrivate {
+class KeyWidgetPrivate {
     static name: string
 }
-export abstract class ListSelectorClass {
+abstract class ListSelectorClass {
     static name: string
 }
-export class ListSelectorPrivate {
+class ListSelectorPrivate {
     static name: string
 }
-export abstract class PromptDialogClass {
+abstract class PromptDialogClass {
     /* Fields of GcrUi-3.GcrUi.PromptDialogClass */
     parent_class: Gtk.DialogClass
     static name: string
 }
-export class PromptDialogPrivate {
+class PromptDialogPrivate {
     static name: string
 }
-export abstract class RendererIface {
+abstract class RendererIface {
     /* Fields of GcrUi-3.GcrUi.RendererIface */
     parent: GObject.TypeInterface
     data_changed: (self: Renderer) => void
@@ -9855,27 +9857,27 @@ export abstract class RendererIface {
     populate_popup: (self: Renderer, viewer: Viewer, menu: Gtk.Menu) => void
     static name: string
 }
-export abstract class SecureEntryBufferClass {
+abstract class SecureEntryBufferClass {
     /* Fields of GcrUi-3.GcrUi.SecureEntryBufferClass */
     parent_class: Gtk.EntryBufferClass
     static name: string
 }
-export class SecureEntryBufferPrivate {
+class SecureEntryBufferPrivate {
     static name: string
 }
-export abstract class TreeSelectorClass {
+abstract class TreeSelectorClass {
     static name: string
 }
-export class TreeSelectorPrivate {
+class TreeSelectorPrivate {
     static name: string
 }
-export abstract class UnlockOptionsWidgetClass {
+abstract class UnlockOptionsWidgetClass {
     static name: string
 }
-export class UnlockOptionsWidgetPrivate {
+class UnlockOptionsWidgetPrivate {
     static name: string
 }
-export abstract class ViewerIface {
+abstract class ViewerIface {
     /* Fields of GcrUi-3.GcrUi.ViewerIface */
     parent: GObject.TypeInterface
     add_renderer: (viewer: Viewer, renderer: Renderer) => void
@@ -9885,8 +9887,10 @@ export abstract class ViewerIface {
     get_renderer: (viewer: Viewer, index_: number) => Renderer
     static name: string
 }
-export abstract class ViewerWidgetClass {
+abstract class ViewerWidgetClass {
     /* Fields of GcrUi-3.GcrUi.ViewerWidgetClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
+}
+export default GcrUi

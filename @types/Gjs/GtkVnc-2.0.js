@@ -1,2 +1,1 @@
-imports.gi.versions.GtkVnc = '2.0'
-module.exports = imports.gi.GtkVnc
+export {default as default} from 'gi://GtkVnc?version=2.0';

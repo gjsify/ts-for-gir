@@ -1,2 +1,1 @@
-imports.gi.versions.GstPlayer = '1.0'
-module.exports = imports.gi.GstPlayer
+export {default as default} from 'gi://GstPlayer?version=1.0';

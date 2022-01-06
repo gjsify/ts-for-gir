@@ -1,2 +1,1 @@
-imports.gi.versions.fontconfig = '2.0'
-module.exports = imports.gi.fontconfig
+export {default as default} from 'gi://fontconfig?version=2.0';

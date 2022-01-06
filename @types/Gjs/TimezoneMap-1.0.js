@@ -1,2 +1,1 @@
-imports.gi.versions.TimezoneMap = '1.0'
-module.exports = imports.gi.TimezoneMap
+export {default as default} from 'gi://TimezoneMap?version=1.0';

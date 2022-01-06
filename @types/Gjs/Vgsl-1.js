@@ -1,2 +1,1 @@
-imports.gi.versions.Vgsl = '1'
-module.exports = imports.gi.Vgsl
+export {default as default} from 'gi://Vgsl?version=1';

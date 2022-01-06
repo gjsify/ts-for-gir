@@ -9,12 +9,12 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Plasma {
+declare namespace Plasma {
 
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     client?: object
 }
-export class Client {
+class Client {
     /* Fields of Plasma-1.0.Plasma.Client */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -68,7 +68,7 @@ export class Client {
 export interface ClientCreateOptions_ConstructProps extends GObject.Object_ConstructProps {
     gpuDevice?: number
 }
-export class ClientCreateOptions {
+class ClientCreateOptions {
     /* Properties of Plasma-1.0.Plasma.ClientCreateOptions */
     gpuDevice: number
     /* Fields of Plasma-1.0.Plasma.ClientCreateOptions */
@@ -128,7 +128,7 @@ export class ClientCreateOptions {
 export interface ClientOptions_ConstructProps extends GObject.Object_ConstructProps {
     nRetries?: number
 }
-export class ClientOptions {
+class ClientOptions {
     /* Properties of Plasma-1.0.Plasma.ClientOptions */
     nRetries: number
     /* Fields of Plasma-1.0.Plasma.ClientOptions */
@@ -187,7 +187,7 @@ export class ClientOptions {
 }
 export interface CreatedObject_ConstructProps extends Object_ConstructProps {
 }
-export class CreatedObject {
+class CreatedObject {
     /* Fields of Plasma-1.0.Plasma.CreatedObject */
     parentInstance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -244,7 +244,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     rawData?: object
     rawMetadata?: object
 }
-export class Object {
+class Object {
     /* Fields of Plasma-1.0.Plasma.Object */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -291,7 +291,7 @@ export class Object {
 }
 export interface ObjectID_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ObjectID {
+class ObjectID {
     /* Fields of Plasma-1.0.Plasma.ObjectID */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -343,7 +343,7 @@ export class ObjectID {
 }
 export interface ReferredObject_ConstructProps extends Object_ConstructProps {
 }
-export class ReferredObject {
+class ReferredObject {
     /* Fields of Plasma-1.0.Plasma.ReferredObject */
     parentInstance: Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -390,39 +390,40 @@ export class ReferredObject {
     _init (config?: ReferredObject_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Plasma-1.0.Plasma.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientCreateOptionsClass {
+abstract class ClientCreateOptionsClass {
     /* Fields of Plasma-1.0.Plasma.ClientCreateOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ClientOptionsClass {
+abstract class ClientOptionsClass {
     /* Fields of Plasma-1.0.Plasma.ClientOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CreatedObjectClass {
+abstract class CreatedObjectClass {
     /* Fields of Plasma-1.0.Plasma.CreatedObjectClass */
     parentClass: ObjectClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Plasma-1.0.Plasma.ObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ObjectIDClass {
+abstract class ObjectIDClass {
     /* Fields of Plasma-1.0.Plasma.ObjectIDClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ReferredObjectClass {
+abstract class ReferredObjectClass {
     /* Fields of Plasma-1.0.Plasma.ReferredObjectClass */
     parentClass: ObjectClass
     static name: string
 }
 }
+export default Plasma

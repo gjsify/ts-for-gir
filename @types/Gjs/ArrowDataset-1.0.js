@@ -1,2 +1,1 @@
-imports.gi.versions.ArrowDataset = '1.0'
-module.exports = imports.gi.ArrowDataset
+export {default as default} from 'gi://ArrowDataset?version=1.0';

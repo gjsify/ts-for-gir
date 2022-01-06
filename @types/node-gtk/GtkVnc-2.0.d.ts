@@ -17,21 +17,21 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { GVnc } from './GVnc-1.0';
 
-export declare namespace GtkVnc {
+declare namespace GtkVnc {
 
-export enum DisplayCredential {
+enum DisplayCredential {
     PASSWORD,
     USERNAME,
     CLIENTNAME,
 }
-export enum DisplayDepthColor {
+enum DisplayDepthColor {
     DEFAULT,
     FULL,
     MEDIUM,
     LOW,
     ULTRA_LOW,
 }
-export enum DisplayKeyEvent {
+enum DisplayKeyEvent {
     PRESS,
     RELEASE,
     CLICK,
@@ -39,7 +39,7 @@ export enum DisplayKeyEvent {
 export interface CairoFramebuffer_ConstructProps extends GVnc.BaseFramebuffer_ConstructProps {
     surface?: object
 }
-export class CairoFramebuffer {
+class CairoFramebuffer {
     /* Properties of GVnc-1.0.GVnc.BaseFramebuffer */
     colorMap: GVnc.ColorMap
     /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebuffer */
@@ -128,7 +128,7 @@ export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     smoothing?: boolean
     zoomLevel?: number
 }
-export class Display {
+class Display {
     /* Properties of GtkVnc-2.0.GtkVnc.Display */
     allowResize: boolean
     readonly connection: GVnc.Connection
@@ -1274,16 +1274,16 @@ export class Display {
     static getOptionGroup(): GLib.OptionGroup
     static $gtype: GObject.Type
 }
-export abstract class CairoFramebufferClass {
+abstract class CairoFramebufferClass {
     /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebufferClass */
     parentClass: GVnc.BaseFramebufferClass
     vncReserved: object[]
     static name: string
 }
-export class CairoFramebufferPrivate {
+class CairoFramebufferPrivate {
     static name: string
 }
-export abstract class DisplayClass {
+abstract class DisplayClass {
     /* Fields of GtkVnc-2.0.GtkVnc.DisplayClass */
     parentClass: Gtk.DrawingAreaClass
     vncConnected: (display: Display) => void
@@ -1292,10 +1292,10 @@ export abstract class DisplayClass {
     vncAuthCredential: (display: Display, credList: GObject.ValueArray) => void
     static name: string
 }
-export class DisplayPrivate {
+class DisplayPrivate {
     static name: string
 }
-export class GrabSequence {
+class GrabSequence {
     /* Fields of GtkVnc-2.0.GtkVnc.GrabSequence */
     nkeysyms: number
     keysyms: number
@@ -1312,3 +1312,4 @@ export class GrabSequence {
     static newFromString(str: string): GrabSequence
 }
 }
+export default GtkVnc

@@ -8,14 +8,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstBase {
+declare namespace GstBase {
 
-export enum AggregatorStartTimeSelection {
+enum AggregatorStartTimeSelection {
     ZERO,
     FIRST,
     SET,
 }
-export enum BaseParseFrameFlags {
+enum BaseParseFrameFlags {
     NONE,
     NEW_FRAME,
     NO_FRAME,
@@ -23,12 +23,12 @@ export enum BaseParseFrameFlags {
     DROP,
     QUEUE,
 }
-export enum BaseSrcFlags {
+enum BaseSrcFlags {
     STARTING,
     STARTED,
     LAST,
 }
-export enum CollectPadsStateFlags {
+enum CollectPadsStateFlags {
     EOS,
     FLUSHING,
     NEW_SEGMENT,
@@ -39,50 +39,50 @@ export const BASE_PARSE_FLAG_DRAINING: number
 export const BASE_PARSE_FLAG_LOST_SYNC: number
 export const BASE_TRANSFORM_SINK_NAME: string
 export const BASE_TRANSFORM_SRC_NAME: string
-export function typeFindHelper(src: Gst.Pad, size: number): Gst.Caps | null
-export function typeFindHelperForBuffer(obj: Gst.Object | null, buf: Gst.Buffer): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
-export function typeFindHelperForBufferWithExtension(obj: Gst.Object | null, buf: Gst.Buffer, extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
-export function typeFindHelperForData(obj: Gst.Object | null, data: any[]): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
-export function typeFindHelperForDataWithExtension(obj: Gst.Object | null, data: any[], extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
-export function typeFindHelperForExtension(obj: Gst.Object | null, extension: string): Gst.Caps | null
-export function typeFindHelperGetRange(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
-export function typeFindHelperGetRangeFull(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): { returnType: Gst.FlowReturn, caps: Gst.Caps, prob: Gst.TypeFindProbability | null }
-export interface CollectDataDestroyNotify {
+function typeFindHelper(src: Gst.Pad, size: number): Gst.Caps | null
+function typeFindHelperForBuffer(obj: Gst.Object | null, buf: Gst.Buffer): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
+function typeFindHelperForBufferWithExtension(obj: Gst.Object | null, buf: Gst.Buffer, extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
+function typeFindHelperForData(obj: Gst.Object | null, data: any[]): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
+function typeFindHelperForDataWithExtension(obj: Gst.Object | null, data: any[], extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
+function typeFindHelperForExtension(obj: Gst.Object | null, extension: string): Gst.Caps | null
+function typeFindHelperGetRange(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): { returnType: Gst.Caps | null, prob: Gst.TypeFindProbability | null }
+function typeFindHelperGetRangeFull(obj: Gst.Object, parent: Gst.Object | null, func: TypeFindHelperGetRangeFunction, size: number, extension?: string | null): { returnType: Gst.FlowReturn, caps: Gst.Caps, prob: Gst.TypeFindProbability | null }
+interface CollectDataDestroyNotify {
     (data: CollectData): void
 }
-export interface CollectPadsBufferFunction {
+interface CollectPadsBufferFunction {
     (pads: CollectPads, data: CollectData, buffer: Gst.Buffer): Gst.FlowReturn
 }
-export interface CollectPadsClipFunction {
+interface CollectPadsClipFunction {
     (pads: CollectPads, data: CollectData, inbuffer: Gst.Buffer): Gst.FlowReturn
 }
-export interface CollectPadsCompareFunction {
+interface CollectPadsCompareFunction {
     (pads: CollectPads, data1: CollectData, timestamp1: Gst.ClockTime, data2: CollectData, timestamp2: Gst.ClockTime): number
 }
-export interface CollectPadsEventFunction {
+interface CollectPadsEventFunction {
     (pads: CollectPads, pad: CollectData, event: Gst.Event): boolean
 }
-export interface CollectPadsFlushFunction {
+interface CollectPadsFlushFunction {
     (pads: CollectPads): void
 }
-export interface CollectPadsFunction {
+interface CollectPadsFunction {
     (pads: CollectPads): Gst.FlowReturn
 }
-export interface CollectPadsQueryFunction {
+interface CollectPadsQueryFunction {
     (pads: CollectPads, pad: CollectData, query: Gst.Query): boolean
 }
-export interface DataQueueEmptyCallback {
+interface DataQueueEmptyCallback {
     (queue: DataQueue, checkdata?: object | null): void
 }
-export interface DataQueueFullCallback {
+interface DataQueueFullCallback {
     (queue: DataQueue, checkdata?: object | null): void
 }
-export interface TypeFindHelperGetRangeFunction {
+interface TypeFindHelperGetRangeFunction {
     (obj: Gst.Object, parent: Gst.Object | null, offset: number, length: number): Gst.FlowReturn
 }
 export interface Adapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Adapter {
+class Adapter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstBase-1.0.GstBase.Adapter */
@@ -163,7 +163,7 @@ export interface Aggregator_ConstructProps extends Gst.Element_ConstructProps {
     startTime?: number
     startTimeSelection?: AggregatorStartTimeSelection
 }
-export class Aggregator {
+class Aggregator {
     /* Properties of GstBase-1.0.GstBase.Aggregator */
     emitSignals: boolean
     latency: number
@@ -413,7 +413,7 @@ export class Aggregator {
 export interface AggregatorPad_ConstructProps extends Gst.Pad_ConstructProps {
     emitSignals?: boolean
 }
-export class AggregatorPad {
+class AggregatorPad {
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emitSignals: boolean
     /* Properties of Gst-1.0.Gst.Pad */
@@ -643,7 +643,7 @@ export class AggregatorPad {
 export interface BaseParse_ConstructProps extends Gst.Element_ConstructProps {
     disablePassthrough?: boolean
 }
-export class BaseParse {
+class BaseParse {
     /* Properties of GstBase-1.0.GstBase.BaseParse */
     disablePassthrough: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -880,7 +880,7 @@ export interface BaseSink_ConstructProps extends Gst.Element_ConstructProps {
     throttleTime?: number
     tsOffset?: number
 }
-export class BaseSink {
+class BaseSink {
     /* Properties of GstBase-1.0.GstBase.BaseSink */
     async: boolean
     blocksize: number
@@ -1207,7 +1207,7 @@ export interface BaseSrc_ConstructProps extends Gst.Element_ConstructProps {
     numBuffers?: number
     typefind?: boolean
 }
-export class BaseSrc {
+class BaseSrc {
     /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     doTimestamp: boolean
@@ -1467,7 +1467,7 @@ export class BaseSrc {
 export interface BaseTransform_ConstructProps extends Gst.Element_ConstructProps {
     qos?: boolean
 }
-export class BaseTransform {
+class BaseTransform {
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -1693,7 +1693,7 @@ export class BaseTransform {
 }
 export interface CollectPads_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class CollectPads {
+class CollectPads {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1813,7 +1813,7 @@ export class CollectPads {
 }
 export interface DataQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataQueue {
+class DataQueue {
     /* Properties of GstBase-1.0.GstBase.DataQueue */
     readonly currentLevelBytes: number
     readonly currentLevelTime: number
@@ -1890,7 +1890,7 @@ export class DataQueue {
 }
 export interface PushSrc_ConstructProps extends BaseSrc_ConstructProps {
 }
-export class PushSrc {
+class PushSrc {
     /* Properties of GstBase-1.0.GstBase.BaseSrc */
     blocksize: number
     doTimestamp: boolean
@@ -2147,10 +2147,10 @@ export class PushSrc {
     _init (config?: PushSrc_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AdapterClass {
+abstract class AdapterClass {
     static name: string
 }
-export abstract class AggregatorClass {
+abstract class AggregatorClass {
     /* Fields of GstBase-1.0.GstBase.AggregatorClass */
     parentClass: Gst.ElementClass
     flush: (aggregator: Aggregator) => Gst.FlowReturn
@@ -2177,20 +2177,20 @@ export abstract class AggregatorClass {
     peekNextSample: (aggregator: Aggregator, aggregatorPad: AggregatorPad) => Gst.Sample | null
     static name: string
 }
-export abstract class AggregatorPadClass {
+abstract class AggregatorPadClass {
     /* Fields of GstBase-1.0.GstBase.AggregatorPadClass */
     parentClass: Gst.PadClass
     flush: (aggpad: AggregatorPad, aggregator: Aggregator) => Gst.FlowReturn
     skipBuffer: (aggpad: AggregatorPad, aggregator: Aggregator, buffer: Gst.Buffer) => boolean
     static name: string
 }
-export class AggregatorPadPrivate {
+class AggregatorPadPrivate {
     static name: string
 }
-export class AggregatorPrivate {
+class AggregatorPrivate {
     static name: string
 }
-export abstract class BaseParseClass {
+abstract class BaseParseClass {
     /* Fields of GstBase-1.0.GstBase.BaseParseClass */
     parentClass: Gst.ElementClass
     start: (parse: BaseParse) => boolean
@@ -2207,7 +2207,7 @@ export abstract class BaseParseClass {
     srcQuery: (parse: BaseParse, query: Gst.Query) => boolean
     static name: string
 }
-export class BaseParseFrame {
+class BaseParseFrame {
     /* Fields of GstBase-1.0.GstBase.BaseParseFrame */
     buffer: Gst.Buffer
     outBuffer: Gst.Buffer
@@ -2224,10 +2224,10 @@ export class BaseParseFrame {
     /* Static methods and pseudo-constructors */
     static new(buffer: Gst.Buffer, flags: BaseParseFrameFlags, overhead: number): BaseParseFrame
 }
-export class BaseParsePrivate {
+class BaseParsePrivate {
     static name: string
 }
-export abstract class BaseSinkClass {
+abstract class BaseSinkClass {
     /* Fields of GstBase-1.0.GstBase.BaseSinkClass */
     parentClass: Gst.ElementClass
     getCaps: (sink: BaseSink, filter: Gst.Caps) => Gst.Caps
@@ -2250,10 +2250,10 @@ export abstract class BaseSinkClass {
     renderList: (sink: BaseSink, bufferList: Gst.BufferList) => Gst.FlowReturn
     static name: string
 }
-export class BaseSinkPrivate {
+class BaseSinkPrivate {
     static name: string
 }
-export abstract class BaseSrcClass {
+abstract class BaseSrcClass {
     /* Fields of GstBase-1.0.GstBase.BaseSrcClass */
     parentClass: Gst.ElementClass
     getCaps: (src: BaseSrc, filter?: Gst.Caps | null) => Gst.Caps
@@ -2277,10 +2277,10 @@ export abstract class BaseSrcClass {
     fill: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }
-export class BaseSrcPrivate {
+class BaseSrcPrivate {
     static name: string
 }
-export abstract class BaseTransformClass {
+abstract class BaseTransformClass {
     /* Fields of GstBase-1.0.GstBase.BaseTransformClass */
     parentClass: Gst.ElementClass
     passthroughOnSameCaps: boolean
@@ -2309,10 +2309,10 @@ export abstract class BaseTransformClass {
     generateOutput: (trans: BaseTransform) => { returnType: Gst.FlowReturn, outbuf: Gst.Buffer }
     static name: string
 }
-export class BaseTransformPrivate {
+class BaseTransformPrivate {
     static name: string
 }
-export class BitReader {
+class BitReader {
     /* Fields of GstBase-1.0.GstBase.BitReader */
     data: any[]
     size: number
@@ -2337,7 +2337,7 @@ export class BitReader {
     skipToByte(): boolean
     static name: string
 }
-export class BitWriter {
+class BitWriter {
     /* Fields of GstBase-1.0.GstBase.BitWriter */
     data: number
     bitSize: number
@@ -2360,7 +2360,7 @@ export class BitWriter {
     setPos(pos: number): boolean
     static name: string
 }
-export class ByteReader {
+class ByteReader {
     /* Fields of GstBase-1.0.GstBase.ByteReader */
     data: any[]
     size: number
@@ -2432,7 +2432,7 @@ export class ByteReader {
     skipStringUtf8(): boolean
     static name: string
 }
-export class ByteWriter {
+class ByteWriter {
     /* Fields of GstBase-1.0.GstBase.ByteWriter */
     parent: ByteReader
     allocSize: number
@@ -2480,7 +2480,7 @@ export class ByteWriter {
     resetAndGetData(): any[]
     static name: string
 }
-export class CollectData {
+class CollectData {
     /* Fields of GstBase-1.0.GstBase.CollectData */
     collect: CollectPads
     pad: Gst.Pad
@@ -2489,18 +2489,18 @@ export class CollectData {
     segment: Gst.Segment
     static name: string
 }
-export class CollectDataPrivate {
+class CollectDataPrivate {
     static name: string
 }
-export abstract class CollectPadsClass {
+abstract class CollectPadsClass {
     /* Fields of GstBase-1.0.GstBase.CollectPadsClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class CollectPadsPrivate {
+class CollectPadsPrivate {
     static name: string
 }
-export abstract class DataQueueClass {
+abstract class DataQueueClass {
     /* Fields of GstBase-1.0.GstBase.DataQueueClass */
     parentClass: GObject.ObjectClass
     empty: (queue: DataQueue) => void
@@ -2508,7 +2508,7 @@ export abstract class DataQueueClass {
     gstReserved: object[]
     static name: string
 }
-export class DataQueueItem {
+class DataQueueItem {
     /* Fields of GstBase-1.0.GstBase.DataQueueItem */
     object: Gst.MiniObject
     size: number
@@ -2517,17 +2517,17 @@ export class DataQueueItem {
     destroy: GLib.DestroyNotify
     static name: string
 }
-export class DataQueuePrivate {
+class DataQueuePrivate {
     static name: string
 }
-export class DataQueueSize {
+class DataQueueSize {
     /* Fields of GstBase-1.0.GstBase.DataQueueSize */
     visible: number
     bytes: number
     time: number
     static name: string
 }
-export class FlowCombiner {
+class FlowCombiner {
     /* Methods of GstBase-1.0.GstBase.FlowCombiner */
     addPad(pad: Gst.Pad): void
     clear(): void
@@ -2544,7 +2544,7 @@ export class FlowCombiner {
     /* Static methods and pseudo-constructors */
     static new(): FlowCombiner
 }
-export abstract class PushSrcClass {
+abstract class PushSrcClass {
     /* Fields of GstBase-1.0.GstBase.PushSrcClass */
     parentClass: BaseSrcClass
     create: (src: PushSrc, buf: Gst.Buffer) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
@@ -2552,9 +2552,10 @@ export abstract class PushSrcClass {
     fill: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }
-export class QueueArray {
+class QueueArray {
     /* Methods of GstBase-1.0.GstBase.QueueArray */
     pushTailStruct(pStruct?: object | null): void
     static name: string
 }
 }
+export default GstBase

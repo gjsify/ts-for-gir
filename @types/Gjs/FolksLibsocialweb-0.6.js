@@ -1,2 +1,1 @@
-imports.gi.versions.FolksLibsocialweb = '0.6'
-module.exports = imports.gi.FolksLibsocialweb
+export {default as default} from 'gi://FolksLibsocialweb?version=0.6';

@@ -16,9 +16,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Pnl {
+declare namespace Pnl {
 
-export enum AnimationMode {
+enum AnimationMode {
     LINEAR,
     EASE_IN_QUAD,
     EASE_IN_OUT_QUAD,
@@ -27,7 +27,7 @@ export enum AnimationMode {
     EASE_OUT_CUBIC,
     EASE_IN_OUT_CUBIC,
 }
-export enum DockRevealerTransitionType {
+enum DockRevealerTransitionType {
     NONE,
     SLIDE_RIGHT,
     SLIDE_LEFT,
@@ -38,14 +38,14 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
-export function frameSourceAdd(framesPerSec: number, callback: GLib.SourceFunc): number
-export function gtkBinDraw(widget: Gtk.Widget, cr: cairo.Context): boolean
-export function gtkBinSizeAllocate(widget: Gtk.Widget, allocation: Gtk.Allocation): void
-export function overlayAddChild(self: DockOverlay, child: Gtk.Widget, type: string): void
+function frameSourceAdd(framesPerSec: number, callback: GLib.SourceFunc): number
+function gtkBinDraw(widget: Gtk.Widget, cr: cairo.Context): boolean
+function gtkBinSizeAllocate(widget: Gtk.Widget, allocation: Gtk.Allocation): void
+function overlayAddChild(self: DockOverlay, child: Gtk.Widget, type: string): void
 export interface Dock_ConstructProps extends Gtk.Container_ConstructProps {
     manager?: DockManager
 }
-export class Dock {
+class Dock {
     /* Properties of Pnl-1.0.Pnl.Dock */
     manager: DockManager
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -1010,7 +1010,7 @@ export class Dock {
 }
 export interface DockItem_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class DockItem {
+class DockItem {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -1918,7 +1918,7 @@ export interface Animation_ConstructProps extends GObject.InitiallyUnowned_Const
     mode?: AnimationMode
     target?: GObject.Object
 }
-export class Animation {
+class Animation {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Pnl-1.0.Pnl.Animation */
@@ -1976,7 +1976,7 @@ export class Animation {
 export interface DockBin_ConstructProps extends Gtk.Container_ConstructProps {
     manager?: DockManager
 }
-export class DockBin {
+class DockBin {
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -2976,7 +2976,7 @@ export class DockBin {
 export interface DockBinEdge_ConstructProps extends DockRevealer_ConstructProps {
     edge?: Gtk.PositionType
 }
-export class DockBinEdge {
+class DockBinEdge {
     /* Properties of Pnl-1.0.Pnl.DockBinEdge */
     edge: Gtk.PositionType
     /* Properties of Pnl-1.0.Pnl.DockRevealer */
@@ -4030,7 +4030,7 @@ export class DockBinEdge {
 }
 export interface DockManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DockManager {
+class DockManager {
     /* Fields of Pnl-1.0.Pnl.DockManager */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4094,7 +4094,7 @@ export class DockManager {
 export interface DockOverlay_ConstructProps extends Gtk.EventBox_ConstructProps {
     manager?: DockManager
 }
-export class DockOverlay {
+class DockOverlay {
     /* Properties of Gtk-3.0.Gtk.EventBox */
     aboveChild: boolean
     visibleWindow: boolean
@@ -5122,7 +5122,7 @@ export interface DockOverlayEdge_ConstructProps extends Gtk.Bin_ConstructProps {
     edge?: Gtk.PositionType
     position?: number
 }
-export class DockOverlayEdge {
+class DockOverlayEdge {
     /* Properties of Pnl-1.0.Pnl.DockOverlayEdge */
     edge: Gtk.PositionType
     position: number
@@ -6129,7 +6129,7 @@ export class DockOverlayEdge {
 export interface DockPaned_ConstructProps extends MultiPaned_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class DockPaned {
+class DockPaned {
     /* Properties of Pnl-1.0.Pnl.MultiPaned */
     orientation: Gtk.Orientation
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -7145,7 +7145,7 @@ export interface DockRevealer_ConstructProps extends Gtk.Bin_ConstructProps {
     transitionDuration?: number
     transitionType?: DockRevealerTransitionType
 }
-export class DockRevealer {
+class DockRevealer {
     /* Properties of Pnl-1.0.Pnl.DockRevealer */
     readonly childRevealed: boolean
     position: number
@@ -8170,7 +8170,7 @@ export interface DockStack_ConstructProps extends Gtk.Box_ConstructProps {
     edge?: Gtk.PositionType
     orientation?: Gtk.Orientation
 }
-export class DockStack {
+class DockStack {
     /* Properties of Pnl-1.0.Pnl.DockStack */
     edge: Gtk.PositionType
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -9213,7 +9213,7 @@ export class DockStack {
 export interface DockTabStrip_ConstructProps extends TabStrip_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class DockTabStrip {
+class DockTabStrip {
     /* Properties of Pnl-1.0.Pnl.TabStrip */
     edge: Gtk.PositionType
     stack: Gtk.Stack
@@ -10249,7 +10249,7 @@ export class DockTabStrip {
 export interface DockTransientGrab_ConstructProps extends GObject.Object_ConstructProps {
     timeout?: number
 }
-export class DockTransientGrab {
+class DockTransientGrab {
     /* Properties of Pnl-1.0.Pnl.DockTransientGrab */
     timeout: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -10315,7 +10315,7 @@ export interface DockWidget_ConstructProps extends Gtk.Bin_ConstructProps {
     manager?: DockManager
     title?: string
 }
-export class DockWidget {
+class DockWidget {
     /* Properties of Pnl-1.0.Pnl.DockWidget */
     manager: DockManager
     title: string
@@ -11322,7 +11322,7 @@ export class DockWidget {
 export interface DockWindow_ConstructProps extends Gtk.Window_ConstructProps {
     manager?: DockManager
 }
-export class DockWindow {
+class DockWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -12646,7 +12646,7 @@ export class DockWindow {
 export interface MultiPaned_ConstructProps extends Gtk.Container_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class MultiPaned {
+class MultiPaned {
     /* Properties of Pnl-1.0.Pnl.MultiPaned */
     orientation: Gtk.Orientation
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -13645,7 +13645,7 @@ export interface Tab_ConstructProps extends Gtk.ToggleButton_ConstructProps {
     relatedAction?: Gtk.Action
     useActionAppearance?: boolean
 }
-export class Tab {
+class Tab {
     /* Properties of Pnl-1.0.Pnl.Tab */
     edge: Gtk.PositionType
     title: string
@@ -14824,7 +14824,7 @@ export interface TabStrip_ConstructProps extends Gtk.Box_ConstructProps {
     stack?: Gtk.Stack
     orientation?: Gtk.Orientation
 }
-export class TabStrip {
+class TabStrip {
     /* Properties of Pnl-1.0.Pnl.TabStrip */
     edge: Gtk.PositionType
     stack: Gtk.Stack
@@ -15857,12 +15857,12 @@ export class TabStrip {
     static new(orientation: Gtk.Orientation, spacing: number): TabStrip
     static $gtype: GObject.Type
 }
-export abstract class AnimationClass {
+abstract class AnimationClass {
     /* Fields of Pnl-1.0.Pnl.AnimationClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export abstract class DockBinClass {
+abstract class DockBinClass {
     /* Fields of Pnl-1.0.Pnl.DockBinClass */
     parent: Gtk.ContainerClass
     padding1: () => void
@@ -15875,7 +15875,7 @@ export abstract class DockBinClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockBinEdgeClass {
+abstract class DockBinEdgeClass {
     /* Fields of Pnl-1.0.Pnl.DockBinEdgeClass */
     parent: DockRevealerClass
     moveToBinChild: (self: DockBinEdge) => void
@@ -15889,12 +15889,12 @@ export abstract class DockBinEdgeClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockInterface {
+abstract class DockInterface {
     /* Fields of Pnl-1.0.Pnl.DockInterface */
     parent: GObject.TypeInterface
     static name: string
 }
-export abstract class DockItemInterface {
+abstract class DockItemInterface {
     /* Fields of Pnl-1.0.Pnl.DockItemInterface */
     parent: GObject.TypeInterface
     setManager: (self: DockItem, manager?: DockManager | null) => void
@@ -15906,7 +15906,7 @@ export abstract class DockItemInterface {
     setChildVisible: (self: DockItem, child: DockItem, childVisible: boolean) => void
     static name: string
 }
-export abstract class DockManagerClass {
+abstract class DockManagerClass {
     /* Fields of Pnl-1.0.Pnl.DockManagerClass */
     parent: GObject.ObjectClass
     registerDock: (self: DockManager, dock: Dock) => void
@@ -15921,7 +15921,7 @@ export abstract class DockManagerClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockOverlayClass {
+abstract class DockOverlayClass {
     /* Fields of Pnl-1.0.Pnl.DockOverlayClass */
     parent: Gtk.EventBoxClass
     hideEdges: (self: DockOverlay) => void
@@ -15935,12 +15935,12 @@ export abstract class DockOverlayClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockOverlayEdgeClass {
+abstract class DockOverlayEdgeClass {
     /* Fields of Pnl-1.0.Pnl.DockOverlayEdgeClass */
     parentClass: Gtk.BinClass
     static name: string
 }
-export abstract class DockPanedClass {
+abstract class DockPanedClass {
     /* Fields of Pnl-1.0.Pnl.DockPanedClass */
     parent: MultiPanedClass
     padding1: () => void
@@ -15953,7 +15953,7 @@ export abstract class DockPanedClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockRevealerClass {
+abstract class DockRevealerClass {
     /* Fields of Pnl-1.0.Pnl.DockRevealerClass */
     parent: Gtk.BinClass
     padding1: () => void
@@ -15966,22 +15966,22 @@ export abstract class DockRevealerClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockStackClass {
+abstract class DockStackClass {
     /* Fields of Pnl-1.0.Pnl.DockStackClass */
     parent: Gtk.BoxClass
     static name: string
 }
-export abstract class DockTabStripClass {
+abstract class DockTabStripClass {
     /* Fields of Pnl-1.0.Pnl.DockTabStripClass */
     parentClass: TabStripClass
     static name: string
 }
-export abstract class DockTransientGrabClass {
+abstract class DockTransientGrabClass {
     /* Fields of Pnl-1.0.Pnl.DockTransientGrabClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DockWidgetClass {
+abstract class DockWidgetClass {
     /* Fields of Pnl-1.0.Pnl.DockWidgetClass */
     parent: Gtk.BinClass
     padding1: () => void
@@ -15994,12 +15994,12 @@ export abstract class DockWidgetClass {
     padding8: () => void
     static name: string
 }
-export abstract class DockWindowClass {
+abstract class DockWindowClass {
     /* Fields of Pnl-1.0.Pnl.DockWindowClass */
     parent: Gtk.WindowClass
     static name: string
 }
-export abstract class MultiPanedClass {
+abstract class MultiPanedClass {
     /* Fields of Pnl-1.0.Pnl.MultiPanedClass */
     parent: Gtk.ContainerClass
     resizeDragBegin: (self: MultiPaned, child: Gtk.Widget) => void
@@ -16014,14 +16014,15 @@ export abstract class MultiPanedClass {
     padding8: () => void
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Pnl-1.0.Pnl.TabClass */
     parentClass: Gtk.ToggleButtonClass
     static name: string
 }
-export abstract class TabStripClass {
+abstract class TabStripClass {
     /* Fields of Pnl-1.0.Pnl.TabStripClass */
     parent: Gtk.BoxClass
     static name: string
 }
 }
+export default Pnl

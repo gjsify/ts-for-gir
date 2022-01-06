@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as TotemPlParser from './TotemPlParser-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type TotemPlParser from './TotemPlParser-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum RemoteCommand {
+export namespace Totem {
+
+enum RemoteCommand {
     UNKNOWN,
     PLAY,
     PAUSE,
@@ -47,26 +49,26 @@ export enum RemoteCommand {
     MUTE,
     TOGGLE_ASPECT_RATIO,
 }
-export enum RemoteSetting {
+enum RemoteSetting {
     REPEAT,
 }
 export const GSETTINGS_SCHEMA: string
-export function get_plugin_paths(): string[]
-export function interface_create_header_button(header: Gtk.Widget, button: Gtk.Widget, icon_name: string, pack_type: Gtk.PackType): Gtk.Widget
-export function interface_error(title: string, reason: string, parent: Gtk.Window): void
-export function interface_error_blocking(title: string, reason: string, parent: Gtk.Window): void
-export function interface_error_with_link(title: string, reason: string, uri: string, label: string, parent: Gtk.Window): void
-export function interface_get_full_path(name: string): string
-export function interface_load(name: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
-export function interface_load_pixbuf(name: string): GdkPixbuf.Pixbuf
-export function interface_load_with_full_path(filename: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
-export function plugin_find_file(plugin_name: string, file: string): string
-export function plugin_load_interface(plugin_name: string, name: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
-export function remote_command_quark(): GLib.Quark
-export function remote_setting_quark(): GLib.Quark
+function get_plugin_paths(): string[]
+function interface_create_header_button(header: Gtk.Widget, button: Gtk.Widget, icon_name: string, pack_type: Gtk.PackType): Gtk.Widget
+function interface_error(title: string, reason: string, parent: Gtk.Window): void
+function interface_error_blocking(title: string, reason: string, parent: Gtk.Window): void
+function interface_error_with_link(title: string, reason: string, uri: string, label: string, parent: Gtk.Window): void
+function interface_get_full_path(name: string): string
+function interface_load(name: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
+function interface_load_pixbuf(name: string): GdkPixbuf.Pixbuf
+function interface_load_with_full_path(filename: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
+function plugin_find_file(plugin_name: string, file: string): string
+function plugin_load_interface(plugin_name: string, name: string, fatal: boolean, parent?: Gtk.Window | null, user_data?: object | null): Gtk.Builder
+function remote_command_quark(): GLib.Quark
+function remote_setting_quark(): GLib.Quark
 export interface Object_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Object {
+class Object {
     /* Properties of Totem-1.0.Totem.Object */
     readonly current_content_type: string
     readonly current_display_name: string
@@ -408,7 +410,7 @@ export class Object {
     static get_supported_uri_schemes(): string[]
     static $gtype: GObject.Type
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Totem-1.0.Totem.ObjectClass */
     parent_class: Gtk.ApplicationClass
     file_opened: (totem: Object, mrl: string) => void
@@ -419,3 +421,5 @@ export abstract class ObjectClass {
     get_text_subtitle: (totem: Object, mrl: string) => string
     static name: string
 }
+}
+export default Totem

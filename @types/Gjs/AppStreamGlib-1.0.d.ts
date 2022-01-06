@@ -3,23 +3,25 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export enum AgreementKind {
+export namespace AppStreamGlib {
+
+enum AgreementKind {
     UNKNOWN,
     GENERIC,
     EULA,
     PRIVACY,
 }
-export enum AppError {
+enum AppError {
     FAILED,
     INVALID_TYPE,
 }
-export enum AppKind {
+enum AppKind {
     UNKNOWN,
     DESKTOP,
     FONT,
@@ -39,18 +41,18 @@ export enum AppKind {
     DRIVER,
     ICON_THEME,
 }
-export enum AppMergeKind {
+enum AppMergeKind {
     UNKNOWN,
     NONE,
     REPLACE,
     APPEND,
 }
-export enum AppScope {
+enum AppScope {
     UNKNOWN,
     USER,
     SYSTEM,
 }
-export enum AppState {
+enum AppState {
     UNKNOWN,
     INSTALLED,
     AVAILABLE,
@@ -64,19 +66,19 @@ export enum AppState {
     PURCHASABLE,
     PURCHASING,
 }
-export enum AppTrustFlags {
+enum AppTrustFlags {
     COMPLETE,
     CHECK_DUPLICATES,
     CHECK_VALID_UTF8,
 }
-export enum AppValidateFlags {
+enum AppValidateFlags {
     NONE,
     RELAX,
     STRICT,
     NO_NETWORK,
     ALL_APPS,
 }
-export enum BundleKind {
+enum BundleKind {
     UNKNOWN,
     LIMBA,
     FLATPAK,
@@ -85,14 +87,14 @@ export enum BundleKind {
     CABINET,
     APPIMAGE,
 }
-export enum ChecksumTarget {
+enum ChecksumTarget {
     UNKNOWN,
     CONTAINER,
     CONTENT,
     SIGNATURE,
     DEVICE,
 }
-export enum ContentRatingSystem {
+enum ContentRatingSystem {
     UNKNOWN,
     INCAA,
     ACB,
@@ -110,24 +112,24 @@ export enum ContentRatingSystem {
     ESRB,
     IARC,
 }
-export enum ContentRatingValue {
+enum ContentRatingValue {
     UNKNOWN,
     NONE,
     MILD,
     MODERATE,
     INTENSE,
 }
-export enum FormatKind {
+enum FormatKind {
     UNKNOWN,
     APPSTREAM,
     DESKTOP,
     APPDATA,
     METAINFO,
 }
-export enum IconError {
+enum IconError {
     FAILED,
 }
-export enum IconKind {
+enum IconKind {
     UNKNOWN,
     STOCK,
     CACHED,
@@ -135,11 +137,11 @@ export enum IconKind {
     EMBEDDED,
     LOCAL,
 }
-export enum IconLoadFlags {
+enum IconLoadFlags {
     NONE,
     SEARCH_SIZE,
 }
-export enum IdKind {
+enum IdKind {
     UNKNOWN,
     DESKTOP,
     FONT,
@@ -152,12 +154,12 @@ export enum IdKind {
     RUNTIME,
     GENERIC,
 }
-export enum ImageKind {
+enum ImageKind {
     UNKNOWN,
     SOURCE,
     THUMBNAIL,
 }
-export enum ImageLoadFlags {
+enum ImageLoadFlags {
     NONE,
     SHARPEN,
     SET_BASENAME,
@@ -165,18 +167,18 @@ export enum ImageLoadFlags {
     ONLY_SUPPORTED,
     ALWAYS_RESIZE,
 }
-export enum ImageSaveFlags {
+enum ImageSaveFlags {
     NONE,
     PAD_16_9,
     SHARPEN,
     BLUR,
 }
-export enum InfError {
+enum InfError {
     FAILED,
     INVALID_TYPE,
     NOT_FOUND,
 }
-export enum KudoKind {
+enum KudoKind {
     UNKNOWN,
     SEARCH_PROVIDER,
     USER_DOCS,
@@ -186,26 +188,26 @@ export enum KudoKind {
     HIGH_CONTRAST,
     HI_DPI_ICON,
 }
-export enum LaunchableKind {
+enum LaunchableKind {
     UNKNOWN,
     DESKTOP_ID,
     SERVICE,
     COCKPIT_MANIFEST,
     URL,
 }
-export enum MarkupConvertFormat {
+enum MarkupConvertFormat {
     SIMPLE,
     MARKDOWN,
     NULL,
     APPSTREAM,
     HTML,
 }
-export enum NodeError {
+enum NodeError {
     FAILED,
     INVALID_MARKUP,
     NO_SUPPORT,
 }
-export enum NodeInsertFlags {
+enum NodeInsertFlags {
     NONE,
     PRE_ESCAPED,
     SWAPPED,
@@ -214,7 +216,7 @@ export enum NodeInsertFlags {
     MARK_TRANSLATABLE,
     BASE64_ENCODED,
 }
-export enum NodeToXmlFlags {
+enum NodeToXmlFlags {
     NONE,
     ADD_HEADER,
     FORMAT_MULTILINE,
@@ -222,7 +224,7 @@ export enum NodeToXmlFlags {
     INCLUDE_SIBLINGS,
     SORT_CHILDREN,
 }
-export enum ProblemKind {
+enum ProblemKind {
     UNKNOWN,
     TAG_DUPLICATED,
     TAG_MISSING,
@@ -239,7 +241,7 @@ export enum ProblemKind {
     ASPECT_RATIO_INCORRECT,
     RESOLUTION_INCORRECT,
 }
-export enum ProvideKind {
+enum ProvideKind {
     UNKNOWN,
     LIBRARY,
     BINARY,
@@ -253,17 +255,17 @@ export enum ProvideKind {
     FIRMWARE_FLASHED,
     ID,
 }
-export enum ReleaseKind {
+enum ReleaseKind {
     UNKNOWN,
     STABLE,
     DEVELOPMENT,
 }
-export enum ReleaseState {
+enum ReleaseState {
     UNKNOWN,
     INSTALLED,
     AVAILABLE,
 }
-export enum RequireCompare {
+enum RequireCompare {
     UNKNOWN,
     EQ,
     NE,
@@ -274,7 +276,7 @@ export enum RequireCompare {
     GLOB,
     REGEX,
 }
-export enum RequireKind {
+enum RequireKind {
     UNKNOWN,
     ID,
     FIRMWARE,
@@ -283,34 +285,34 @@ export enum RequireKind {
     KERNEL,
     MEMORY,
 }
-export enum ScreenshotKind {
+enum ScreenshotKind {
     UNKNOWN,
     NORMAL,
     DEFAULT,
 }
-export enum SizeKind {
+enum SizeKind {
     UNKNOWN,
     INSTALLED,
     DOWNLOAD,
 }
-export enum StoreError {
+enum StoreError {
     FAILED,
 }
-export enum StoreSearchFlags {
+enum StoreSearchFlags {
     NONE,
     USE_WILDCARDS,
 }
-export enum StoreWatchFlags {
+enum StoreWatchFlags {
     NONE,
     ADDED,
     REMOVED,
 }
-export enum SuggestKind {
+enum SuggestKind {
     UNKNOWN,
     UPSTREAM,
     HEURISTIC,
 }
-export enum Tag {
+enum Tag {
     UNKNOWN,
     COMPONENTS,
     COMPONENT,
@@ -383,24 +385,24 @@ export enum Tag {
     MODALIAS,
     LIBRARY,
 }
-export enum TagFlags {
+enum TagFlags {
     NONE,
     USE_FALLBACKS,
     USE_TRANSLATED,
 }
-export enum TranslationKind {
+enum TranslationKind {
     UNKNOWN,
     GETTEXT,
     QT,
 }
-export enum UrgencyKind {
+enum UrgencyKind {
     UNKNOWN,
     LOW,
     MEDIUM,
     HIGH,
     CRITICAL,
 }
-export enum UrlKind {
+enum UrlKind {
     UNKNOWN,
     HOMEPAGE,
     BUGTRACKER,
@@ -413,16 +415,16 @@ export enum UrlKind {
     SOURCE,
     CONTACT,
 }
-export enum UtilsError {
+enum UtilsError {
     FAILED,
     INVALID_TYPE,
 }
-export enum UtilsLocation {
+enum UtilsLocation {
     SHARED,
     CACHE,
     USER,
 }
-export enum AppParseFlags {
+enum AppParseFlags {
     NONE,
     USE_HEURISTICS,
     KEEP_COMMENTS,
@@ -433,7 +435,7 @@ export enum AppParseFlags {
     ADD_ALL_METADATA,
     ONLY_NATIVE_LANGS,
 }
-export enum AppQuirk {
+enum AppQuirk {
     NONE,
     PROVENANCE,
     COMPULSORY,
@@ -448,7 +450,7 @@ export enum AppQuirk {
     REMOVABLE_HARDWARE,
     DEVELOPER_VERIFIED,
 }
-export enum AppSearchMatch {
+enum AppSearchMatch {
     NONE,
     MIMETYPE,
     PKGNAME,
@@ -459,7 +461,7 @@ export enum AppSearchMatch {
     ID,
     ORIGIN,
 }
-export enum AppSubsumeFlags {
+enum AppSubsumeFlags {
     NONE,
     NO_OVERWRITE,
     BOTH_WAYS,
@@ -500,34 +502,34 @@ export enum AppSubsumeFlags {
     LAUNCHABLES,
     AGREEMENTS,
 }
-export enum InfLoadFlags {
+enum InfLoadFlags {
     NONE,
     STRICT,
     CASE_INSENSITIVE,
 }
-export enum MarkupConvertFlag {
+enum MarkupConvertFlag {
     NONE,
     IGNORE_ERRORS,
 }
-export enum NodeFromXmlFlags {
+enum NodeFromXmlFlags {
     NONE,
     LITERAL_TEXT,
     KEEP_COMMENTS,
     ONLY_NATIVE_LANGS,
 }
-export enum ReviewFlags {
+enum ReviewFlags {
     NONE,
     SELF,
     VOTED,
 }
-export enum StoreAddFlags {
+enum StoreAddFlags {
     NONE,
     PREFER_LOCAL,
     USE_UNIQUE_ID,
     USE_MERGE_HEURISTIC,
     ONLY_NATIVE_LANGS,
 }
-export enum StoreLoadFlags {
+enum StoreLoadFlags {
     NONE,
     APP_INFO_SYSTEM,
     APP_INFO_USER,
@@ -541,7 +543,7 @@ export enum StoreLoadFlags {
     ONLY_UNCOMPRESSED,
     ONLY_MERGE_APPS,
 }
-export enum UniqueIdMatchFlags {
+enum UniqueIdMatchFlags {
     NONE,
     SCOPE,
     BUNDLE_KIND,
@@ -550,15 +552,15 @@ export enum UniqueIdMatchFlags {
     ID,
     BRANCH,
 }
-export enum UtilsFindIconFlag {
+enum UtilsFindIconFlag {
     NONE,
     HI_DPI,
 }
-export enum VersionCompareFlag {
+enum VersionCompareFlag {
     NONE,
     USE_HEURISTICS,
 }
-export enum VersionParseFlag {
+enum VersionParseFlag {
     NONE,
     USE_TRIPLET,
     USE_BCD,
@@ -577,78 +579,78 @@ export const IMAGE_NORMAL_HEIGHT: number
 export const IMAGE_NORMAL_WIDTH: number
 export const IMAGE_THUMBNAIL_HEIGHT: number
 export const IMAGE_THUMBNAIL_WIDTH: number
-export function id_kind_from_string(id_kind: string): IdKind
-export function id_kind_to_string(id_kind: IdKind): string
-export function inf_error_quark(): GLib.Quark
-export function inf_get_driver_version(keyfile: GLib.KeyFile, timestamp: number): string
-export function inf_load_data(keyfile: GLib.KeyFile, data: string, flags: InfLoadFlags): boolean
-export function inf_load_file(keyfile: GLib.KeyFile, filename: string, flags: InfLoadFlags): boolean
-export function kudo_kind_from_string(kudo_kind: string): KudoKind
-export function kudo_kind_to_string(kudo_kind: KudoKind): string
-export function markup_convert(markup: string, format: MarkupConvertFormat): string
-export function markup_convert_full(markup: string, format: MarkupConvertFormat, flags: MarkupConvertFlag): string
-export function markup_convert_simple(markup: string): string
-export function markup_import(text: string, format: MarkupConvertFormat): string
-export function markup_strsplit_words(text: string, line_len: number): string[]
-export function markup_validate(markup: string): boolean
-export function node_error_quark(): GLib.Quark
-export function node_get_attribute(node: GLib.Node, key: string): string
-export function node_get_attribute_as_int(node: GLib.Node, key: string): number
-export function node_get_attribute_as_uint(node: GLib.Node, key: string): number
-export function node_get_comment(node: GLib.Node): string
-export function node_get_data(node: GLib.Node): string
-export function node_get_localized(node: GLib.Node, key: string): GLib.HashTable
-export function node_get_localized_best(node: GLib.Node, key: string): string
-export function node_get_localized_unwrap(node: GLib.Node): GLib.HashTable
-export function node_get_name(node: GLib.Node): string
-export function node_get_tag(node: GLib.Node): Tag
-export function node_insert_hash(parent: GLib.Node, name: string, attr_key: string, hash: GLib.HashTable, insert_flags: NodeInsertFlags): void
-export function node_insert_localized(parent: GLib.Node, name: string, localized: GLib.HashTable, insert_flags: NodeInsertFlags): void
-export function node_to_xml(node: GLib.Node, flags: NodeToXmlFlags): GLib.String
-export function node_unref(node: GLib.Node): void
-export function size_kind_from_string(size_kind: string): SizeKind
-export function size_kind_to_string(size_kind: SizeKind): string
-export function tag_from_string(tag: string): Tag
-export function tag_from_string_full(tag: string, flags: TagFlags): Tag
-export function tag_to_string(tag: Tag): string
-export function urgency_kind_from_string(urgency_kind: string): UrgencyKind
-export function urgency_kind_to_string(urgency_kind: UrgencyKind): string
-export function url_kind_from_string(url_kind: string): UrlKind
-export function url_kind_to_string(url_kind: UrlKind): string
-export function utils_appstream_id_build(str: string): string
-export function utils_appstream_id_valid(str: string): boolean
-export function utils_error_quark(): GLib.Quark
-export function utils_find_icon_filename(destdir: string, search: string): string
-export function utils_find_icon_filename_full(destdir: string, search: string, flags: UtilsFindIconFlag): string
-export function utils_guid_from_data(namespace_id: string, data: number, data_len: number): string
-export function utils_guid_from_string(str: string): string
-export function utils_guid_is_valid(guid: string): boolean
-export function utils_install_filename(location: UtilsLocation, filename: string, origin: string, destdir: string): boolean
-export function utils_is_blacklisted_id(desktop_id: string): boolean
-export function utils_is_category_id(category_id: string): boolean
-export function utils_is_environment_id(environment_id: string): boolean
-export function utils_is_spdx_license(license: string): boolean
-export function utils_is_spdx_license_id(license_id: string): boolean
-export function utils_is_stock_icon_name(name: string): boolean
-export function utils_license_to_spdx(license: string): string
-export function utils_search_token_valid(token: string): boolean
-export function utils_search_tokenize(search: string): string[]
-export function utils_spdx_license_detokenize(license_tokens: string): string
-export function utils_spdx_license_tokenize(license: string): string[]
-export function utils_string_replace(string: GLib.String, search: string, replace: string): number
-export function utils_unique_id_build(scope: AppScope, bundle_kind: BundleKind, origin: string, kind: AppKind, id: string, branch: string): string
-export function utils_unique_id_equal(unique_id1: string, unique_id2: string): boolean
-export function utils_unique_id_hash(unique_id: string): number
-export function utils_unique_id_match(unique_id1: string, unique_id2: string, match_flags: UniqueIdMatchFlags): boolean
-export function utils_unique_id_valid(unique_id: string): boolean
-export function utils_vercmp(version_a: string, version_b: string): number
-export function utils_vercmp_full(version_a: string, version_b: string, flags: VersionCompareFlag): number
-export function utils_version_from_uint16(val: number, flags: VersionParseFlag): string
-export function utils_version_from_uint32(val: number, flags: VersionParseFlag): string
-export function utils_version_parse(version: string): string
+function id_kind_from_string(id_kind: string): IdKind
+function id_kind_to_string(id_kind: IdKind): string
+function inf_error_quark(): GLib.Quark
+function inf_get_driver_version(keyfile: GLib.KeyFile, timestamp: number): string
+function inf_load_data(keyfile: GLib.KeyFile, data: string, flags: InfLoadFlags): boolean
+function inf_load_file(keyfile: GLib.KeyFile, filename: string, flags: InfLoadFlags): boolean
+function kudo_kind_from_string(kudo_kind: string): KudoKind
+function kudo_kind_to_string(kudo_kind: KudoKind): string
+function markup_convert(markup: string, format: MarkupConvertFormat): string
+function markup_convert_full(markup: string, format: MarkupConvertFormat, flags: MarkupConvertFlag): string
+function markup_convert_simple(markup: string): string
+function markup_import(text: string, format: MarkupConvertFormat): string
+function markup_strsplit_words(text: string, line_len: number): string[]
+function markup_validate(markup: string): boolean
+function node_error_quark(): GLib.Quark
+function node_get_attribute(node: GLib.Node, key: string): string
+function node_get_attribute_as_int(node: GLib.Node, key: string): number
+function node_get_attribute_as_uint(node: GLib.Node, key: string): number
+function node_get_comment(node: GLib.Node): string
+function node_get_data(node: GLib.Node): string
+function node_get_localized(node: GLib.Node, key: string): GLib.HashTable
+function node_get_localized_best(node: GLib.Node, key: string): string
+function node_get_localized_unwrap(node: GLib.Node): GLib.HashTable
+function node_get_name(node: GLib.Node): string
+function node_get_tag(node: GLib.Node): Tag
+function node_insert_hash(parent: GLib.Node, name: string, attr_key: string, hash: GLib.HashTable, insert_flags: NodeInsertFlags): void
+function node_insert_localized(parent: GLib.Node, name: string, localized: GLib.HashTable, insert_flags: NodeInsertFlags): void
+function node_to_xml(node: GLib.Node, flags: NodeToXmlFlags): GLib.String
+function node_unref(node: GLib.Node): void
+function size_kind_from_string(size_kind: string): SizeKind
+function size_kind_to_string(size_kind: SizeKind): string
+function tag_from_string(tag: string): Tag
+function tag_from_string_full(tag: string, flags: TagFlags): Tag
+function tag_to_string(tag: Tag): string
+function urgency_kind_from_string(urgency_kind: string): UrgencyKind
+function urgency_kind_to_string(urgency_kind: UrgencyKind): string
+function url_kind_from_string(url_kind: string): UrlKind
+function url_kind_to_string(url_kind: UrlKind): string
+function utils_appstream_id_build(str: string): string
+function utils_appstream_id_valid(str: string): boolean
+function utils_error_quark(): GLib.Quark
+function utils_find_icon_filename(destdir: string, search: string): string
+function utils_find_icon_filename_full(destdir: string, search: string, flags: UtilsFindIconFlag): string
+function utils_guid_from_data(namespace_id: string, data: number, data_len: number): string
+function utils_guid_from_string(str: string): string
+function utils_guid_is_valid(guid: string): boolean
+function utils_install_filename(location: UtilsLocation, filename: string, origin: string, destdir: string): boolean
+function utils_is_blacklisted_id(desktop_id: string): boolean
+function utils_is_category_id(category_id: string): boolean
+function utils_is_environment_id(environment_id: string): boolean
+function utils_is_spdx_license(license: string): boolean
+function utils_is_spdx_license_id(license_id: string): boolean
+function utils_is_stock_icon_name(name: string): boolean
+function utils_license_to_spdx(license: string): string
+function utils_search_token_valid(token: string): boolean
+function utils_search_tokenize(search: string): string[]
+function utils_spdx_license_detokenize(license_tokens: string): string
+function utils_spdx_license_tokenize(license: string): string[]
+function utils_string_replace(string: GLib.String, search: string, replace: string): number
+function utils_unique_id_build(scope: AppScope, bundle_kind: BundleKind, origin: string, kind: AppKind, id: string, branch: string): string
+function utils_unique_id_equal(unique_id1: string, unique_id2: string): boolean
+function utils_unique_id_hash(unique_id: string): number
+function utils_unique_id_match(unique_id1: string, unique_id2: string, match_flags: UniqueIdMatchFlags): boolean
+function utils_unique_id_valid(unique_id: string): boolean
+function utils_vercmp(version_a: string, version_b: string): number
+function utils_vercmp_full(version_a: string, version_b: string, flags: VersionCompareFlag): number
+function utils_version_from_uint16(val: number, flags: VersionParseFlag): string
+function utils_version_from_uint32(val: number, flags: VersionParseFlag): string
+function utils_version_parse(version: string): string
 export interface Agreement_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Agreement {
+class Agreement {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Agreement */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -710,7 +712,7 @@ export class Agreement {
 }
 export interface AgreementSection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AgreementSection {
+class AgreementSection {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.AgreementSection */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -769,7 +771,7 @@ export class AgreementSection {
 }
 export interface App_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class App {
+class App {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.App */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -982,7 +984,7 @@ export class App {
 }
 export interface Bundle_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Bundle {
+class Bundle {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Bundle */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1045,7 +1047,7 @@ export class Bundle {
 }
 export interface Checksum_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Checksum {
+class Checksum {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Checksum */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1108,7 +1110,7 @@ export class Checksum {
 }
 export interface ContentRating_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentRating {
+class ContentRating {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ContentRating */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1178,7 +1180,7 @@ export class ContentRating {
 }
 export interface Format_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Format {
+class Format {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Format */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1239,7 +1241,7 @@ export class Format {
 }
 export interface Icon_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Icon {
+class Icon {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Icon */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1315,7 +1317,7 @@ export class Icon {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Image */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1390,7 +1392,7 @@ export class Image {
 }
 export interface Launchable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Launchable {
+class Launchable {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Launchable */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1449,7 +1451,7 @@ export class Launchable {
 }
 export interface Problem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Problem {
+class Problem {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Problem */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1509,7 +1511,7 @@ export class Problem {
 }
 export interface Provide_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Provide {
+class Provide {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Provide */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1568,7 +1570,7 @@ export class Provide {
 }
 export interface Release_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Release {
+class Release {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Release */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1653,7 +1655,7 @@ export class Release {
 }
 export interface Require_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Require {
+class Require {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Require */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1730,7 +1732,7 @@ export interface Review_ConstructProps extends GObject.Object_ConstructProps {
     summary?: string
     version?: string
 }
-export class Review {
+class Review {
     /* Properties of AppStreamGlib-1.0.AppStreamGlib.Review */
     date: Review
     description: string
@@ -1840,7 +1842,7 @@ export class Review {
 }
 export interface Screenshot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Screenshot {
+class Screenshot {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Screenshot */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1908,7 +1910,7 @@ export class Screenshot {
 }
 export interface Store_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Store {
+class Store {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Store */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2035,7 +2037,7 @@ export class Store {
 }
 export interface Suggest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Suggest {
+class Suggest {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Suggest */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2094,7 +2096,7 @@ export class Suggest {
 }
 export interface Translation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Translation {
+class Translation {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.Translation */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2151,87 +2153,87 @@ export class Translation {
     static kind_to_string(kind: TranslationKind): string
     static $gtype: GObject.Type
 }
-export abstract class AgreementClass {
+abstract class AgreementClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.AgreementClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class AgreementSectionClass {
+abstract class AgreementSectionClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.AgreementSectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.AppClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class BundleClass {
+abstract class BundleClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.BundleClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ChecksumClass {
+abstract class ChecksumClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ChecksumClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ContentRatingClass {
+abstract class ContentRatingClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ContentRatingClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FormatClass {
+abstract class FormatClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.FormatClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class IconClass {
+abstract class IconClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.IconClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ImageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class LaunchableClass {
+abstract class LaunchableClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.LaunchableClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProblemClass {
+abstract class ProblemClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ProblemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProvideClass {
+abstract class ProvideClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ProvideClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ReleaseClass {
+abstract class ReleaseClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ReleaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class RequireClass {
+abstract class RequireClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.RequireClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ReviewClass {
+abstract class ReviewClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ReviewClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ScreenshotClass {
+abstract class ScreenshotClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.ScreenshotClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class StoreClass {
+abstract class StoreClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.StoreClass */
     parent_class: GObject.ObjectClass
     changed: (store: Store) => void
@@ -2240,16 +2242,18 @@ export abstract class StoreClass {
     app_changed: (store: Store, app: App) => void
     static name: string
 }
-export abstract class SuggestClass {
+abstract class SuggestClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.SuggestClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class TranslationClass {
+abstract class TranslationClass {
     /* Fields of AppStreamGlib-1.0.AppStreamGlib.TranslationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export type AppSourceKind = FormatKind
-export type ImageAlphaFlags = number
-export type Node = GLib.Node
+type AppSourceKind = FormatKind
+type ImageAlphaFlags = number
+type Node = GLib.Node
+}
+export default AppStreamGlib

@@ -9,15 +9,15 @@ import type { GLib } from './GLib-2.0';
 import type { GUsb } from './GUsb-1.0';
 import type { Colord } from './Colord-1.0';
 
-export declare namespace ColorHug {
+declare namespace ColorHug {
 
-export enum ColorSelect {
+enum ColorSelect {
     RED,
     WHITE,
     BLUE,
     GREEN,
 }
-export enum DeviceMode {
+enum DeviceMode {
     UNKNOWN,
     LEGACY,
     BOOTLOADER,
@@ -29,7 +29,7 @@ export enum DeviceMode {
     BOOTLOADER_ALS,
     FIRMWARE_ALS,
 }
-export enum Error {
+enum Error {
     NONE,
     UNKNOWN_CMD,
     WRONG_UNLOCK_CODE,
@@ -67,39 +67,39 @@ export enum Error {
     I2C_SLAVE_CONFIG,
     SELF_TEST_EEPROM,
 }
-export enum FreqScale {
+enum FreqScale {
     /* 0 (invalid, starts with a number) */
     /* 20 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
     /* 100 (invalid, starts with a number) */
 }
-export enum MeasureMode {
+enum MeasureMode {
     FREQUENCY,
     DURATION,
 }
-export enum SpectrumKind {
+enum SpectrumKind {
     RAW,
     DARK_CAL,
     TEMP_CAL,
     IRRADIANCE_CAL,
     LAST,
 }
-export enum DeviceQueueProcessFlags {
+enum DeviceQueueProcessFlags {
     NONE,
     CONTINUE_ERRORS,
     NONFATAL_ERRORS,
 }
-export enum Illuminant {
+enum Illuminant {
     NONE,
     A,
     UV,
 }
-export enum PcbErrata {
+enum PcbErrata {
     NONE,
     SWAPPED_LEDS,
     NO_WELCOME,
 }
-export enum StatusLed {
+enum StatusLed {
     GREEN,
     RED,
     BLUE,
@@ -227,56 +227,56 @@ export const USB_PID_LEGACY: number
 export const USB_VID: number
 export const USB_VID_LEGACY: number
 export const WRITE_EEPROM_MAGIC: string
-export function colorSelectToString(colorSelect: ColorSelect): string
-export function commandToString(cmd: Cmd): string
-export function deviceCheckFirmware(device: GUsb.Device, data: number, dataLen: number): boolean
-export function deviceClose(device: GUsb.Device): boolean
-export function deviceErrorQuark(): GLib.Quark
-export function deviceGetAdcCalibrationNeg(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
-export function deviceGetAdcCalibrationPos(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
-export function deviceGetCcdCalibration(device: GUsb.Device, nmStart: number, c0: number, c1: number, c2: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceGetError(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, status: Error, cmd: Cmd }
-export function deviceGetGuid(device: GUsb.Device): string
-export function deviceGetIlluminants(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: Illuminant }
-export function deviceGetIntegralTime(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
-export function deviceGetLeds(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: StatusLed }
-export function deviceGetMode(device: GUsb.Device): DeviceMode
-export function deviceGetPcbErrata(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: PcbErrata }
-export function deviceGetRuncodeAddress(device: GUsb.Device): number
-export function deviceGetSerialNumber(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
-export function deviceGetSpectrum(device: GUsb.Device, cancellable?: Gio.Cancellable | null): Colord.Spectrum
-export function deviceGetSpectrumFull(device: GUsb.Device, kind: SpectrumKind, cancellable?: Gio.Cancellable | null): Colord.Spectrum
-export function deviceGetTemperature(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
-export function deviceIsColorhug(device: GUsb.Device): boolean
-export function deviceLoadSram(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
-export function deviceModeFromFirmware(data: number, dataLen: number): DeviceMode
-export function deviceModeToString(deviceMode: DeviceMode): string
-export function deviceOpen(device: GUsb.Device): boolean
-export function deviceOpenFull(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
-export function deviceReadSram(device: GUsb.Device, addr: number, len: number, cancellable?: Gio.Cancellable | null): any
-export function deviceSaveSram(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSelfTest(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetCcdCalibration(device: GUsb.Device, nmStart: number, c0: number, c1: number, c2: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetCryptoKey(device: GUsb.Device, keys: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetIlluminants(device: GUsb.Device, value: Illuminant, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetIntegralTime(device: GUsb.Device, value: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetLeds(device: GUsb.Device, value: StatusLed, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetPcbErrata(device: GUsb.Device, value: PcbErrata, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetSerialNumber(device: GUsb.Device, value: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceSetSpectrumFull(device: GUsb.Device, kind: SpectrumKind, sp: Colord.Spectrum, cancellable?: Gio.Cancellable | null): boolean
-export function deviceTakeReadingSpectral(device: GUsb.Device, value: SpectrumKind, cancellable?: Gio.Cancellable | null): boolean
-export function deviceTakeReadingXyz(device: GUsb.Device, calibrationIdx: number, cancellable?: Gio.Cancellable | null): Colord.ColorXYZ
-export function deviceWriteCommand(device: GUsb.Device, cmd: number, bufferIn: number, bufferInLen: number, bufferOut: number, bufferOutLen: number, cancellable?: Gio.Cancellable | null): boolean
-export function deviceWriteCommandAsync(device: GUsb.Device, cmd: number, bufferIn: number, bufferInLen: number, bufferOut: number, bufferOutLen: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function deviceWriteCommandFinish(device: GUsb.Device, res: Gio.AsyncResult): boolean
-export function deviceWriteSram(device: GUsb.Device, addr: number, data: any, cancellable?: Gio.Cancellable | null): boolean
-export function measureModeToString(measureMode: MeasureMode): string
-export function multiplierToString(multiplier: FreqScale): string
-export function sha1Parse(value: string, sha1: Sha1): boolean
-export function strerror(errorEnum: Error): string
+function colorSelectToString(colorSelect: ColorSelect): string
+function commandToString(cmd: Cmd): string
+function deviceCheckFirmware(device: GUsb.Device, data: number, dataLen: number): boolean
+function deviceClose(device: GUsb.Device): boolean
+function deviceErrorQuark(): GLib.Quark
+function deviceGetAdcCalibrationNeg(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+function deviceGetAdcCalibrationPos(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+function deviceGetCcdCalibration(device: GUsb.Device, nmStart: number, c0: number, c1: number, c2: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceGetError(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, status: Error, cmd: Cmd }
+function deviceGetGuid(device: GUsb.Device): string
+function deviceGetIlluminants(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: Illuminant }
+function deviceGetIntegralTime(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+function deviceGetLeds(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: StatusLed }
+function deviceGetMode(device: GUsb.Device): DeviceMode
+function deviceGetPcbErrata(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: PcbErrata }
+function deviceGetRuncodeAddress(device: GUsb.Device): number
+function deviceGetSerialNumber(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+function deviceGetSpectrum(device: GUsb.Device, cancellable?: Gio.Cancellable | null): Colord.Spectrum
+function deviceGetSpectrumFull(device: GUsb.Device, kind: SpectrumKind, cancellable?: Gio.Cancellable | null): Colord.Spectrum
+function deviceGetTemperature(device: GUsb.Device, cancellable?: Gio.Cancellable | null): { returnType: boolean, value: number }
+function deviceIsColorhug(device: GUsb.Device): boolean
+function deviceLoadSram(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
+function deviceModeFromFirmware(data: number, dataLen: number): DeviceMode
+function deviceModeToString(deviceMode: DeviceMode): string
+function deviceOpen(device: GUsb.Device): boolean
+function deviceOpenFull(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
+function deviceReadSram(device: GUsb.Device, addr: number, len: number, cancellable?: Gio.Cancellable | null): any
+function deviceSaveSram(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
+function deviceSelfTest(device: GUsb.Device, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetCcdCalibration(device: GUsb.Device, nmStart: number, c0: number, c1: number, c2: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetCryptoKey(device: GUsb.Device, keys: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetIlluminants(device: GUsb.Device, value: Illuminant, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetIntegralTime(device: GUsb.Device, value: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetLeds(device: GUsb.Device, value: StatusLed, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetPcbErrata(device: GUsb.Device, value: PcbErrata, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetSerialNumber(device: GUsb.Device, value: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceSetSpectrumFull(device: GUsb.Device, kind: SpectrumKind, sp: Colord.Spectrum, cancellable?: Gio.Cancellable | null): boolean
+function deviceTakeReadingSpectral(device: GUsb.Device, value: SpectrumKind, cancellable?: Gio.Cancellable | null): boolean
+function deviceTakeReadingXyz(device: GUsb.Device, calibrationIdx: number, cancellable?: Gio.Cancellable | null): Colord.ColorXYZ
+function deviceWriteCommand(device: GUsb.Device, cmd: number, bufferIn: number, bufferInLen: number, bufferOut: number, bufferOutLen: number, cancellable?: Gio.Cancellable | null): boolean
+function deviceWriteCommandAsync(device: GUsb.Device, cmd: number, bufferIn: number, bufferInLen: number, bufferOut: number, bufferOutLen: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function deviceWriteCommandFinish(device: GUsb.Device, res: Gio.AsyncResult): boolean
+function deviceWriteSram(device: GUsb.Device, addr: number, data: any, cancellable?: Gio.Cancellable | null): boolean
+function measureModeToString(measureMode: MeasureMode): string
+function multiplierToString(multiplier: FreqScale): string
+function sha1Parse(value: string, sha1: Sha1): boolean
+function strerror(errorEnum: Error): string
 export interface DeviceQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DeviceQueue {
+class DeviceQueue {
     /* Fields of ColorHug-1.0.ColorHug.DeviceQueue */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -399,14 +399,14 @@ export class DeviceQueue {
     static new(): DeviceQueue
     static $gtype: GObject.Type
 }
-export abstract class DeviceQueueClass {
+abstract class DeviceQueueClass {
     /* Fields of ColorHug-1.0.ColorHug.DeviceQueueClass */
     parentClass: GObject.ObjectClass
     deviceFailed: (deviceQueue: DeviceQueue, device: GUsb.Device, errorMessage: string) => void
     progressChanged: (deviceQueue: DeviceQueue, percentage: number) => void
     static name: string
 }
-export class Sha1 {
+class Sha1 {
     /* Fields of ColorHug-1.0.ColorHug.Sha1 */
     bytes: any[]
     /* Methods of ColorHug-1.0.ColorHug.Sha1 */
@@ -415,5 +415,6 @@ export class Sha1 {
     /* Static methods and pseudo-constructors */
     static parse(value: string, sha1: Sha1): boolean
 }
-export type Cmd = number
+type Cmd = number
 }
+export default ColorHug

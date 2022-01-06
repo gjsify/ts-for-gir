@@ -20,14 +20,15 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace ClutterGdk {
+declare namespace ClutterGdk {
 
-export function disableEventRetrieval(): void
-export function getDefaultDisplay(): Gdk.Display
-export function getStageFromWindow(window: Gdk.Window): Clutter.Stage
-export function getStageWindow(stage: Clutter.Stage): Gdk.Window
-export function getVisual(): Gdk.Visual
-export function handleEvent(event: Gdk.Event): Gdk.FilterReturn
-export function setDisplay(display: Gdk.Display): void
-export function setStageForeign(stage: Clutter.Stage, window: Gdk.Window): boolean
+function disableEventRetrieval(): void
+function getDefaultDisplay(): Gdk.Display
+function getStageFromWindow(window: Gdk.Window): Clutter.Stage
+function getStageWindow(stage: Clutter.Stage): Gdk.Window
+function getVisual(): Gdk.Visual
+function handleEvent(event: Gdk.Event): Gdk.FilterReturn
+function setDisplay(display: Gdk.Display): void
+function setStageForeign(stage: Clutter.Stage, window: Gdk.Window): boolean
 }
+export default ClutterGdk

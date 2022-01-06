@@ -1,2 +1,1 @@
-imports.gi.versions.P11Kit = '1.0'
-module.exports = imports.gi.P11Kit
+export {default as default} from 'gi://P11Kit?version=1.0';

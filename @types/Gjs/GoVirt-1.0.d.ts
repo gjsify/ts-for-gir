@@ -3,36 +3,38 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Rest from './Rest-0.7';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Rest from './Rest-0.7';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ProxyError {
+export namespace GoVirt {
+
+enum ProxyError {
     PARSING_FAILED,
     ACTION_FAILED,
     FAULT,
 }
-export enum RestCallError {
+enum RestCallError {
     XML,
 }
-export enum VmDisplayType {
+enum VmDisplayType {
     SPICE,
     VNC,
 }
-export enum VmState {
+enum VmState {
     DOWN,
     UP,
     REBOOTING,
 }
-export function proxy_error_quark(): GLib.Quark
-export function rest_call_error_quark(): GLib.Quark
+function proxy_error_quark(): GLib.Quark
+function rest_call_error_quark(): GLib.Quark
 export interface Proxy_ConstructProps extends Rest.Proxy_ConstructProps {
     admin?: boolean
     ca_cert?: object[]
 }
-export class Proxy {
+class Proxy {
     /* Properties of GoVirt-1.0.GoVirt.Proxy */
     admin: boolean
     ca_cert: object[]
@@ -141,7 +143,7 @@ export interface Vm_ConstructProps extends GObject.Object_ConstructProps {
     state?: VmState
     uuid?: string
 }
-export class Vm {
+class Vm {
     /* Properties of GoVirt-1.0.GoVirt.Vm */
     display: VmDisplay
     href: string
@@ -227,7 +229,7 @@ export interface VmDisplay_ConstructProps extends GObject.Object_ConstructProps 
     ticket?: string
     type?: VmDisplayType
 }
-export class VmDisplay {
+class VmDisplay {
     /* Properties of GoVirt-1.0.GoVirt.VmDisplay */
     address: string
     expiry: number
@@ -300,29 +302,31 @@ export class VmDisplay {
     static new(): VmDisplay
     static $gtype: GObject.Type
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of GoVirt-1.0.GoVirt.ProxyClass */
     parent_class: Rest.ProxyClass
     static name: string
 }
-export class ProxyPrivate {
+class ProxyPrivate {
     static name: string
 }
-export abstract class VmClass {
+abstract class VmClass {
     /* Fields of GoVirt-1.0.GoVirt.VmClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class VmDisplayClass {
+abstract class VmDisplayClass {
     /* Fields of GoVirt-1.0.GoVirt.VmDisplayClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class VmDisplayPrivate {
+class VmDisplayPrivate {
     static name: string
 }
-export class VmPrivate {
+class VmPrivate {
     static name: string
 }
+}
+export default GoVirt

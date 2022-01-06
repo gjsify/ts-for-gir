@@ -7,55 +7,55 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Secret {
+declare namespace Secret {
 
-export enum BackendFlags {
+enum BackendFlags {
     NONE,
     OPEN_SESSION,
     LOAD_COLLECTIONS,
 }
-export enum Error {
+enum Error {
     PROTOCOL,
     IS_LOCKED,
     NO_SUCH_OBJECT,
     ALREADY_EXISTS,
     INVALID_FILE_FORMAT,
 }
-export enum SchemaAttributeType {
+enum SchemaAttributeType {
     STRING,
     INTEGER,
     BOOLEAN,
 }
-export enum SchemaType {
+enum SchemaType {
     NOTE,
     COMPAT_NETWORK,
 }
-export enum CollectionCreateFlags {
+enum CollectionCreateFlags {
     NONE,
 }
-export enum CollectionFlags {
+enum CollectionFlags {
     NONE,
     LOAD_ITEMS,
 }
-export enum ItemCreateFlags {
+enum ItemCreateFlags {
     NONE,
     REPLACE,
 }
-export enum ItemFlags {
+enum ItemFlags {
     NONE,
     LOAD_SECRET,
 }
-export enum SchemaFlags {
+enum SchemaFlags {
     NONE,
     DONT_MATCH_NAME,
 }
-export enum SearchFlags {
+enum SearchFlags {
     NONE,
     ALL,
     UNLOCK,
     LOAD_SECRETS,
 }
-export enum ServiceFlags {
+enum ServiceFlags {
     NONE,
     OPEN_SESSION,
     LOAD_COLLECTIONS,
@@ -66,26 +66,26 @@ export const COLLECTION_SESSION: string
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function backendGet(flags: BackendFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function backendGetFinish(result: Gio.AsyncResult): Backend
-export function errorGetQuark(): GLib.Quark
-export function getSchema(type: SchemaType): Schema
-export function passwordClearFinish(result: Gio.AsyncResult): boolean
-export function passwordClear(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function passwordClearSync(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null): boolean
-export function passwordLookupFinish(result: Gio.AsyncResult): string
-export function passwordLookup(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function passwordLookupSync(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null): string
-export function passwordSearchFinish(result: Gio.AsyncResult): Retrievable[]
-export function passwordSearch(schema: Schema | null, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function passwordSearchSync(schema: Schema | null, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null): Retrievable[]
-export function passwordStoreFinish(result: Gio.AsyncResult): boolean
-export function passwordStore(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, password: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function passwordStoreBinary(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, value: Value, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function passwordStoreBinarySync(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, value: Value, cancellable?: Gio.Cancellable | null): boolean
-export function passwordStoreSync(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, password: string, cancellable?: Gio.Cancellable | null): boolean
-export function passwordWipe(password?: string | null): void
-export class Backend {
+function backendGet(flags: BackendFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function backendGetFinish(result: Gio.AsyncResult): Backend
+function errorGetQuark(): GLib.Quark
+function getSchema(type: SchemaType): Schema
+function passwordClearFinish(result: Gio.AsyncResult): boolean
+function passwordClear(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function passwordClearSync(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null): boolean
+function passwordLookupFinish(result: Gio.AsyncResult): string
+function passwordLookup(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function passwordLookupSync(schema: Schema | null, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null): string
+function passwordSearchFinish(result: Gio.AsyncResult): Retrievable[]
+function passwordSearch(schema: Schema | null, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function passwordSearchSync(schema: Schema | null, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null): Retrievable[]
+function passwordStoreFinish(result: Gio.AsyncResult): boolean
+function passwordStore(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, password: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function passwordStoreBinary(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, value: Value, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function passwordStoreBinarySync(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, value: Value, cancellable?: Gio.Cancellable | null): boolean
+function passwordStoreSync(schema: Schema | null, attributes: GLib.HashTable, collection: string | null, label: string, password: string, cancellable?: Gio.Cancellable | null): boolean
+function passwordWipe(password?: string | null): void
+class Backend {
     /* Methods of Gio-2.0.Gio.AsyncInitable */
     initAsync(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     initFinish(res: Gio.AsyncResult): boolean
@@ -95,7 +95,7 @@ export class Backend {
     static get(flags: BackendFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static getFinish(result: Gio.AsyncResult): Backend
 }
-export class Retrievable {
+class Retrievable {
     /* Properties of Secret-1.Secret.Retrievable */
     attributes: GLib.HashTable
     created: number
@@ -118,7 +118,7 @@ export interface Collection_ConstructProps extends Gio.DBusProxy_ConstructProps 
     modified?: number
     service?: Service
 }
-export class Collection {
+class Collection {
     /* Properties of Secret-1.Secret.Collection */
     created: number
     label: string
@@ -286,7 +286,7 @@ export interface Item_ConstructProps extends Gio.DBusProxy_ConstructProps {
     label?: string
     modified?: number
 }
-export class Item {
+class Item {
     /* Properties of Secret-1.Secret.Item */
     readonly locked: boolean
     /* Properties of Gio-2.0.Gio.DBusProxy */
@@ -464,7 +464,7 @@ export class Item {
 }
 export interface Prompt_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class Prompt {
+class Prompt {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -580,7 +580,7 @@ export class Prompt {
 export interface Service_ConstructProps extends Gio.DBusProxy_ConstructProps {
     flags?: ServiceFlags
 }
-export class Service {
+class Service {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -737,7 +737,7 @@ export class Service {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class BackendInterface {
+abstract class BackendInterface {
     /* Fields of Secret-1.Secret.BackendInterface */
     parentIface: GObject.TypeInterface
     ensureForFlags: (self: Backend, flags: BackendFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -751,38 +751,38 @@ export abstract class BackendInterface {
     search: (self: Backend, schema: Schema, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     static name: string
 }
-export abstract class CollectionClass {
+abstract class CollectionClass {
     /* Fields of Secret-1.Secret.CollectionClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class CollectionPrivate {
+class CollectionPrivate {
     static name: string
 }
-export abstract class ItemClass {
+abstract class ItemClass {
     /* Fields of Secret-1.Secret.ItemClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ItemPrivate {
+class ItemPrivate {
     static name: string
 }
-export abstract class PromptClass {
+abstract class PromptClass {
     /* Fields of Secret-1.Secret.PromptClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PromptPrivate {
+class PromptPrivate {
     static name: string
 }
-export abstract class RetrievableInterface {
+abstract class RetrievableInterface {
     /* Fields of Secret-1.Secret.RetrievableInterface */
     parentIface: GObject.TypeInterface
     retrieveSecret: (self: Retrievable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     retrieveSecretFinish: (self: Retrievable, result: Gio.AsyncResult) => Value | null
     static name: string
 }
-export class Schema {
+class Schema {
     /* Fields of Secret-1.Secret.Schema */
     name: string
     flags: SchemaFlags
@@ -796,13 +796,13 @@ export class Schema {
     /* Static methods and pseudo-constructors */
     static new(name: string, flags: SchemaFlags, attributeNamesAndTypes: GLib.HashTable): Schema
 }
-export class SchemaAttribute {
+class SchemaAttribute {
     /* Fields of Secret-1.Secret.SchemaAttribute */
     name: string
     type: SchemaAttributeType
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of Secret-1.Secret.ServiceClass */
     parentClass: Gio.DBusProxyClass
     collectionGtype: GObject.Type
@@ -814,10 +814,10 @@ export abstract class ServiceClass {
     getItemGtype: (self: Service) => GObject.Type
     static name: string
 }
-export class ServicePrivate {
+class ServicePrivate {
     static name: string
 }
-export class Value {
+class Value {
     /* Methods of Secret-1.Secret.Value */
     get(): any[]
     getContentType(): string
@@ -833,3 +833,4 @@ export class Value {
     static newFull(secret: string, length: number, contentType: string, destroy: GLib.DestroyNotify): Value
 }
 }
+export default Secret

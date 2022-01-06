@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Polkit from './Polkit-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Polkit from './Polkit-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum RegisterFlags {
+export namespace PolkitAgent {
+
+enum RegisterFlags {
     NONE,
     RUN_IN_THREAD,
 }
-export function register_listener(listener: Listener, subject: Polkit.Subject, object_path: string): boolean
+function register_listener(listener: Listener, subject: Polkit.Subject, object_path: string): boolean
 export interface Listener_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Listener {
+class Listener {
     /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -77,7 +79,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     cookie?: string
     identity?: Polkit.Identity
 }
-export class Session {
+class Session {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of PolkitAgent-1.0.PolkitAgent.Session */
@@ -144,7 +146,7 @@ export class Session {
 }
 export interface TextListener_ConstructProps extends Listener_ConstructProps {
 }
-export class TextListener {
+class TextListener {
     /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -207,13 +209,15 @@ export class TextListener {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class ListenerClass {
+abstract class ListenerClass {
     /* Fields of PolkitAgent-1.0.PolkitAgent.ListenerClass */
     parent_class: GObject.ObjectClass
     initiate_authentication: (listener: Listener, action_id: string, message: string, icon_name: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     initiate_authentication_finish: (listener: Listener, res: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     static name: string
 }
+}
+export default PolkitAgent

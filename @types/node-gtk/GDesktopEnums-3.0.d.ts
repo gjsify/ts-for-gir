@@ -5,14 +5,14 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace GDesktopEnums {
+declare namespace GDesktopEnums {
 
-export enum BackgroundShading {
+enum BackgroundShading {
     SOLID,
     VERTICAL,
     HORIZONTAL,
 }
-export enum BackgroundStyle {
+enum BackgroundStyle {
     NONE,
     WALLPAPER,
     CENTERED,
@@ -21,73 +21,73 @@ export enum BackgroundStyle {
     ZOOM,
     SPANNED,
 }
-export enum ClockFormat {
+enum ClockFormat {
     /* 24H (invalid, starts with a number) */
     /* 12H (invalid, starts with a number) */
 }
-export enum ColorScheme {
+enum ColorScheme {
     DEFAULT,
     PREFER_DARK,
     PREFER_LIGHT,
 }
-export enum DeviceSendEvents {
+enum DeviceSendEvents {
     ENABLED,
     DISABLED,
     DISABLED_ON_EXTERNAL_MOUSE,
 }
-export enum FocusMode {
+enum FocusMode {
     CLICK,
     SLOPPY,
     MOUSE,
 }
-export enum FocusNewWindows {
+enum FocusNewWindows {
     SMART,
     STRICT,
 }
-export enum FontAntialiasingMode {
+enum FontAntialiasingMode {
     NONE,
     GRAYSCALE,
     RGBA,
 }
-export enum FontHinting {
+enum FontHinting {
     NONE,
     SLIGHT,
     MEDIUM,
     FULL,
 }
-export enum FontRgbaOrder {
+enum FontRgbaOrder {
     RGBA,
     RGB,
     BGR,
     VRGB,
     VBGR,
 }
-export enum LocationAccuracyLevel {
+enum LocationAccuracyLevel {
     COUNTRY,
     CITY,
     NEIGHBORHOOD,
     STREET,
     EXACT,
 }
-export enum MagnifierCaretTrackingMode {
+enum MagnifierCaretTrackingMode {
     NONE,
     CENTERED,
     PROPORTIONAL,
     PUSH,
 }
-export enum MagnifierFocusTrackingMode {
+enum MagnifierFocusTrackingMode {
     NONE,
     CENTERED,
     PROPORTIONAL,
     PUSH,
 }
-export enum MagnifierMouseTrackingMode {
+enum MagnifierMouseTrackingMode {
     NONE,
     CENTERED,
     PROPORTIONAL,
     PUSH,
 }
-export enum MagnifierScreenPosition {
+enum MagnifierScreenPosition {
     NONE,
     FULL_SCREEN,
     TOP_HALF,
@@ -95,49 +95,49 @@ export enum MagnifierScreenPosition {
     LEFT_HALF,
     RIGHT_HALF,
 }
-export enum MouseDwellDirection {
+enum MouseDwellDirection {
     LEFT,
     RIGHT,
     UP,
     DOWN,
 }
-export enum MouseDwellMode {
+enum MouseDwellMode {
     WINDOW,
     GESTURE,
 }
-export enum PadButtonAction {
+enum PadButtonAction {
     NONE,
     HELP,
     SWITCH_MONITOR,
     KEYBINDING,
 }
-export enum PointerAccelProfile {
+enum PointerAccelProfile {
     DEFAULT,
     FLAT,
     ADAPTIVE,
 }
-export enum ProxyMode {
+enum ProxyMode {
     NONE,
     MANUAL,
     AUTO,
 }
-export enum ScreensaverMode {
+enum ScreensaverMode {
     BLANK_ONLY,
     RANDOM,
     SINGLE,
 }
-export enum StylusButtonAction {
+enum StylusButtonAction {
     DEFAULT,
     MIDDLE,
     RIGHT,
     BACK,
     FORWARD,
 }
-export enum TabletMapping {
+enum TabletMapping {
     ABSOLUTE,
     RELATIVE,
 }
-export enum TitlebarAction {
+enum TitlebarAction {
     TOGGLE_SHADE,
     TOGGLE_MAXIMIZE,
     TOGGLE_MAXIMIZE_HORIZONTALLY,
@@ -147,38 +147,39 @@ export enum TitlebarAction {
     LOWER,
     MENU,
 }
-export enum ToolbarIconSize {
+enum ToolbarIconSize {
     SMALL,
     LARGE,
 }
-export enum ToolbarStyle {
+enum ToolbarStyle {
     BOTH,
     BOTH_HORIZ,
     ICONS,
     TEXT,
 }
-export enum TouchpadClickMethod {
+enum TouchpadClickMethod {
     DEFAULT,
     NONE,
     AREAS,
     FINGERS,
 }
-export enum TouchpadHandedness {
+enum TouchpadHandedness {
     RIGHT,
     LEFT,
     MOUSE,
 }
-export enum TouchpadTapButtonMap {
+enum TouchpadTapButtonMap {
     DEFAULT,
     LRM,
     LMR,
 }
-export enum UsbProtection {
+enum UsbProtection {
     LOCKSCREEN,
     ALWAYS,
 }
-export enum VisualBellType {
+enum VisualBellType {
     FULLSCREEN_FLASH,
     FRAME_FLASH,
 }
 }
+export default GDesktopEnums

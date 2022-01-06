@@ -10,13 +10,13 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-export declare namespace GstBadAudio {
+declare namespace GstBadAudio {
 
-export enum NonstreamAudioOutputMode {
+enum NonstreamAudioOutputMode {
     LOOPING,
     STEADY,
 }
-export enum NonstreamAudioSubsongMode {
+enum NonstreamAudioSubsongMode {
     SINGLE,
     ALL,
     DECODER_DEFAULT,
@@ -27,7 +27,7 @@ export interface NonstreamAudioDecoder_ConstructProps extends Gst.Element_Constr
     currentSubsong?: number
     numLoops?: number
 }
-export class NonstreamAudioDecoder {
+class NonstreamAudioDecoder {
     /* Properties of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     currentSubsong: number
     numLoops: number
@@ -262,7 +262,7 @@ export class NonstreamAudioDecoder {
 }
 export interface PlanarAudioAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlanarAudioAdapter {
+class PlanarAudioAdapter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstBadAudio-1.0.GstBadAudio.PlanarAudioAdapter */
@@ -322,7 +322,7 @@ export class PlanarAudioAdapter {
     static new(): PlanarAudioAdapter
     static $gtype: GObject.Type
 }
-export abstract class NonstreamAudioDecoderClass {
+abstract class NonstreamAudioDecoderClass {
     /* Fields of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoderClass */
     elementClass: Gst.ElementClass
     loadsFromSinkpad: boolean
@@ -347,7 +347,8 @@ export abstract class NonstreamAudioDecoderClass {
     proposeAllocation: (dec: NonstreamAudioDecoder, query: Gst.Query) => boolean
     static name: string
 }
-export abstract class PlanarAudioAdapterClass {
+abstract class PlanarAudioAdapterClass {
     static name: string
 }
 }
+export default GstBadAudio

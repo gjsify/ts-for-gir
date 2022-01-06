@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gst from './Gst-0.10';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Gst from './Gst-0.10';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum ColorBalanceType {
+export namespace GstInterfaces {
+
+enum ColorBalanceType {
     HARDWARE,
     SOFTWARE,
 }
-export enum MixerMessageType {
+enum MixerMessageType {
     INVALID,
     MUTE_TOGGLED,
     RECORD_TOGGLED,
@@ -22,11 +24,11 @@ export enum MixerMessageType {
     OPTIONS_LIST_CHANGED,
     MIXER_CHANGED,
 }
-export enum MixerType {
+enum MixerType {
     HARDWARE,
     SOFTWARE,
 }
-export enum NavigationCommand {
+enum NavigationCommand {
     INVALID,
     MENU1,
     MENU2,
@@ -43,7 +45,7 @@ export enum NavigationCommand {
     PREV_ANGLE,
     NEXT_ANGLE,
 }
-export enum NavigationEventType {
+enum NavigationEventType {
     INVALID,
     KEY_PRESS,
     KEY_RELEASE,
@@ -52,29 +54,29 @@ export enum NavigationEventType {
     MOUSE_MOVE,
     COMMAND,
 }
-export enum NavigationMessageType {
+enum NavigationMessageType {
     INVALID,
     MOUSE_OVER,
     COMMANDS_CHANGED,
     ANGLES_CHANGED,
 }
-export enum NavigationQueryType {
+enum NavigationQueryType {
     INVALID,
     COMMANDS,
     ANGLES,
 }
-export enum StreamVolumeFormat {
+enum StreamVolumeFormat {
     LINEAR,
     CUBIC,
     DB,
 }
-export enum MixerFlags {
+enum MixerFlags {
     NONE,
     AUTO_NOTIFICATIONS,
     HAS_WHITELIST,
     GROUPING,
 }
-export enum MixerTrackFlags {
+enum MixerTrackFlags {
     INPUT,
     OUTPUT,
     MUTE,
@@ -87,41 +89,41 @@ export enum MixerTrackFlags {
     READONLY,
     WRITEONLY,
 }
-export enum TunerChannelFlags {
+enum TunerChannelFlags {
     INPUT,
     OUTPUT,
     FREQUENCY,
     AUDIO,
 }
-export function interfaces_marshal_VOID__OBJECT_BOOLEAN(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
-export function interfaces_marshal_VOID__OBJECT_INT(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
-export function interfaces_marshal_VOID__OBJECT_POINTER(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
-export function interfaces_marshal_VOID__OBJECT_STRING(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
-export function interfaces_marshal_VOID__OBJECT_ULONG(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
-export function mixer_message_get_type(message: Gst.Message): MixerMessageType
-export function mixer_message_parse_mute_toggled(message: Gst.Message, track: MixerTrack, mute: boolean): void
-export function mixer_message_parse_option_changed(message: Gst.Message, options: MixerOptions, value: string): void
-export function mixer_message_parse_options_list_changed(message: Gst.Message, options: MixerOptions): void
-export function mixer_message_parse_record_toggled(message: Gst.Message, track: MixerTrack, record: boolean): void
-export function mixer_message_parse_volume_changed(message: Gst.Message, track: MixerTrack, volumes: number, num_channels: number): void
-export function navigation_event_get_type(event: Gst.Event): NavigationEventType
-export function navigation_event_parse_command(event: Gst.Event, command: NavigationCommand): boolean
-export function navigation_event_parse_key_event(event: Gst.Event, key: string): boolean
-export function navigation_event_parse_mouse_button_event(event: Gst.Event, button: number, x: number, y: number): boolean
-export function navigation_event_parse_mouse_move_event(event: Gst.Event, x: number, y: number): boolean
-export function navigation_message_get_type(message: Gst.Message): NavigationMessageType
-export function navigation_message_parse_angles_changed(message: Gst.Message, cur_angle: number, n_angles: number): boolean
-export function navigation_message_parse_mouse_over(message: Gst.Message, active: boolean): boolean
-export function navigation_query_get_type(query: Gst.Query): NavigationQueryType
-export function navigation_query_parse_angles(query: Gst.Query, cur_angle: number, n_angles: number): boolean
-export function navigation_query_parse_commands_length(query: Gst.Query, n_cmds: number): boolean
-export function navigation_query_parse_commands_nth(query: Gst.Query, nth: number, cmd: NavigationCommand): boolean
-export function navigation_query_set_angles(query: Gst.Query, cur_angle: number, n_angles: number): void
-export function navigation_query_set_commandsv(query: Gst.Query, n_cmds: number, cmds: NavigationCommand): void
-export function stream_volume_convert_volume(from: StreamVolumeFormat, to: StreamVolumeFormat, val: number): number
+function interfaces_marshal_VOID__OBJECT_BOOLEAN(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
+function interfaces_marshal_VOID__OBJECT_INT(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
+function interfaces_marshal_VOID__OBJECT_POINTER(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
+function interfaces_marshal_VOID__OBJECT_STRING(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
+function interfaces_marshal_VOID__OBJECT_ULONG(closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object): void
+function mixer_message_get_type(message: Gst.Message): MixerMessageType
+function mixer_message_parse_mute_toggled(message: Gst.Message, track: MixerTrack, mute: boolean): void
+function mixer_message_parse_option_changed(message: Gst.Message, options: MixerOptions, value: string): void
+function mixer_message_parse_options_list_changed(message: Gst.Message, options: MixerOptions): void
+function mixer_message_parse_record_toggled(message: Gst.Message, track: MixerTrack, record: boolean): void
+function mixer_message_parse_volume_changed(message: Gst.Message, track: MixerTrack, volumes: number, num_channels: number): void
+function navigation_event_get_type(event: Gst.Event): NavigationEventType
+function navigation_event_parse_command(event: Gst.Event, command: NavigationCommand): boolean
+function navigation_event_parse_key_event(event: Gst.Event, key: string): boolean
+function navigation_event_parse_mouse_button_event(event: Gst.Event, button: number, x: number, y: number): boolean
+function navigation_event_parse_mouse_move_event(event: Gst.Event, x: number, y: number): boolean
+function navigation_message_get_type(message: Gst.Message): NavigationMessageType
+function navigation_message_parse_angles_changed(message: Gst.Message, cur_angle: number, n_angles: number): boolean
+function navigation_message_parse_mouse_over(message: Gst.Message, active: boolean): boolean
+function navigation_query_get_type(query: Gst.Query): NavigationQueryType
+function navigation_query_parse_angles(query: Gst.Query, cur_angle: number, n_angles: number): boolean
+function navigation_query_parse_commands_length(query: Gst.Query, n_cmds: number): boolean
+function navigation_query_parse_commands_nth(query: Gst.Query, nth: number, cmd: NavigationCommand): boolean
+function navigation_query_set_angles(query: Gst.Query, cur_angle: number, n_angles: number): void
+function navigation_query_set_commandsv(query: Gst.Query, n_cmds: number, cmds: NavigationCommand): void
+function stream_volume_convert_volume(from: StreamVolumeFormat, to: StreamVolumeFormat, val: number): number
 export interface ColorBalance_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class ColorBalance {
+class ColorBalance {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -322,7 +324,7 @@ export class ColorBalance {
 }
 export interface Mixer_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class Mixer {
+class Mixer {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -540,7 +542,7 @@ export class Mixer {
     _init (config?: Mixer_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Navigation {
+class Navigation {
     /* Methods of GstInterfaces-0.10.GstInterfaces.Navigation */
     send_command(command: NavigationCommand): void
     send_event(structure: Gst.Structure): void
@@ -550,7 +552,7 @@ export class Navigation {
     vfunc_send_event(structure: Gst.Structure): void
     static name: string
 }
-export class PropertyProbe {
+class PropertyProbe {
     /* Methods of GstInterfaces-0.10.GstInterfaces.PropertyProbe */
     get_properties(): object[]
     get_property(name: string): GObject.ParamSpec
@@ -573,7 +575,7 @@ export class PropertyProbe {
     emit(sigName: "probe-needed", object: object): void
     static name: string
 }
-export class StreamVolume {
+class StreamVolume {
     /* Properties of GstInterfaces-0.10.GstInterfaces.StreamVolume */
     mute: boolean
     volume: number
@@ -586,7 +588,7 @@ export class StreamVolume {
 }
 export interface Tuner_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class Tuner {
+class Tuner {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -802,7 +804,7 @@ export class Tuner {
 }
 export interface VideoOrientation_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class VideoOrientation {
+class VideoOrientation {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -1011,7 +1013,7 @@ export class VideoOrientation {
 }
 export interface XOverlay_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class XOverlay {
+class XOverlay {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -1209,7 +1211,7 @@ export class XOverlay {
 }
 export interface ColorBalanceChannel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ColorBalanceChannel {
+class ColorBalanceChannel {
     /* Fields of GstInterfaces-0.10.GstInterfaces.ColorBalanceChannel */
     parent: GObject.Object
     label: string
@@ -1266,7 +1268,7 @@ export class ColorBalanceChannel {
 }
 export interface MixerOptions_ConstructProps extends MixerTrack_ConstructProps {
 }
-export class MixerOptions {
+class MixerOptions {
     /* Properties of GstInterfaces-0.10.GstInterfaces.MixerTrack */
     readonly flags: number
     readonly label: string
@@ -1336,7 +1338,7 @@ export interface MixerTrack_ConstructProps extends GObject.Object_ConstructProps
     index?: number
     untranslated_label?: string
 }
-export class MixerTrack {
+class MixerTrack {
     /* Properties of GstInterfaces-0.10.GstInterfaces.MixerTrack */
     readonly flags: number
     readonly label: string
@@ -1402,7 +1404,7 @@ export class MixerTrack {
 }
 export interface TunerChannel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TunerChannel {
+class TunerChannel {
     /* Fields of GstInterfaces-0.10.GstInterfaces.TunerChannel */
     parent: GObject.Object
     label: string
@@ -1466,7 +1468,7 @@ export class TunerChannel {
 }
 export interface TunerNorm_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TunerNorm {
+class TunerNorm {
     /* Fields of GstInterfaces-0.10.GstInterfaces.TunerNorm */
     parent: GObject.Object
     label: string
@@ -1516,14 +1518,14 @@ export class TunerNorm {
     _init (config?: TunerNorm_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ColorBalanceChannelClass {
+abstract class ColorBalanceChannelClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.ColorBalanceChannelClass */
     parent: GObject.ObjectClass
     value_changed: (channel: ColorBalanceChannel, value: number) => void
     _gst_reserved: object[]
     static name: string
 }
-export class ColorBalanceClass {
+class ColorBalanceClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.ColorBalanceClass */
     klass: GObject.TypeInterface
     balance_type: ColorBalanceType
@@ -1534,7 +1536,7 @@ export class ColorBalanceClass {
     _gst_reserved: object[]
     static name: string
 }
-export class MixerClass {
+class MixerClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.MixerClass */
     klass: GObject.TypeInterface
     mixer_type: MixerType
@@ -1553,26 +1555,26 @@ export class MixerClass {
     _gst_reserved: object[]
     static name: string
 }
-export abstract class MixerOptionsClass {
+abstract class MixerOptionsClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.MixerOptionsClass */
     parent: MixerTrackClass
     _gst_reserved: object[]
     static name: string
 }
-export abstract class MixerTrackClass {
+abstract class MixerTrackClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.MixerTrackClass */
     parent: GObject.ObjectClass
     _gst_reserved: object[]
     static name: string
 }
-export abstract class NavigationInterface {
+abstract class NavigationInterface {
     /* Fields of GstInterfaces-0.10.GstInterfaces.NavigationInterface */
     g_iface: GObject.TypeInterface
     send_event: (navigation: Navigation, structure: Gst.Structure) => void
     _gst_reserved: object[]
     static name: string
 }
-export abstract class PropertyProbeInterface {
+abstract class PropertyProbeInterface {
     /* Fields of GstInterfaces-0.10.GstInterfaces.PropertyProbeInterface */
     klass: GObject.TypeInterface
     probe_needed: (probe: PropertyProbe, pspec: GObject.ParamSpec) => void
@@ -1583,13 +1585,13 @@ export abstract class PropertyProbeInterface {
     _gst_reserved: object[]
     static name: string
 }
-export abstract class StreamVolumeInterface {
+abstract class StreamVolumeInterface {
     /* Fields of GstInterfaces-0.10.GstInterfaces.StreamVolumeInterface */
     parent: GObject.TypeInterface
     _gst_reserved: object[]
     static name: string
 }
-export abstract class TunerChannelClass {
+abstract class TunerChannelClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.TunerChannelClass */
     parent: GObject.ObjectClass
     frequency_changed: (channel: TunerChannel, frequency: number) => void
@@ -1597,7 +1599,7 @@ export abstract class TunerChannelClass {
     _gst_reserved: object[]
     static name: string
 }
-export class TunerClass {
+class TunerClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.TunerClass */
     klass: GObject.TypeInterface
     list_channels: (tuner: Tuner) => object[]
@@ -1614,13 +1616,13 @@ export class TunerClass {
     _gst_reserved: object[]
     static name: string
 }
-export abstract class TunerNormClass {
+abstract class TunerNormClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.TunerNormClass */
     parent: GObject.ObjectClass
     _gst_reserved: object[]
     static name: string
 }
-export abstract class VideoOrientationInterface {
+abstract class VideoOrientationInterface {
     /* Fields of GstInterfaces-0.10.GstInterfaces.VideoOrientationInterface */
     parent: GObject.TypeInterface
     get_hflip: (video_orientation: VideoOrientation, flip: boolean) => boolean
@@ -1633,7 +1635,7 @@ export abstract class VideoOrientationInterface {
     set_vcenter: (video_orientation: VideoOrientation, center: number) => boolean
     static name: string
 }
-export class XOverlayClass {
+class XOverlayClass {
     /* Fields of GstInterfaces-0.10.GstInterfaces.XOverlayClass */
     klass: GObject.TypeInterface
     set_xwindow_id: (overlay: XOverlay, xwindow_id: number) => void
@@ -1643,3 +1645,5 @@ export class XOverlayClass {
     _gst_reserved: object[]
     static name: string
 }
+}
+export default GstInterfaces

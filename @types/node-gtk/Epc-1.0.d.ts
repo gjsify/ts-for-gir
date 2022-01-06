@@ -6,24 +6,24 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Epc {
+declare namespace Epc {
 
-export enum AddressFamily {
+enum AddressFamily {
     UNSPEC,
     IPV4,
     IPV6,
 }
-export enum CollisionHandling {
+enum CollisionHandling {
     IGNORE,
     CHANGE_NAME,
     UNIQUE_SERVICE,
 }
-export enum Protocol {
+enum Protocol {
     UNKNOWN,
     HTTP,
     HTTPS,
 }
-export enum AuthFlags {
+enum AuthFlags {
     DEFAULT,
     PASSWORD_TEXT_NEEDED,
 }
@@ -32,38 +32,38 @@ export const SERVICE_TYPE_HTTPS: string
 export const TLS_SECONDS_PER_DAY: number
 export const TLS_SECONDS_PER_HOUR: number
 export const TLS_SECONDS_PER_MINUTE: number
-export function addressFamilyToString(value: AddressFamily): string
-export function authFlagsToString(value: AuthFlags): string
-export function avahiErrorQuark(): GLib.Quark
-export function collisionHandlingToString(value: CollisionHandling): string
-export function httpErrorQuark(): GLib.Quark
-export function protocolBuildUri(protocol: Protocol, hostname: string, port: number, path: string): string
-export function protocolFromName(name: string, fallback: Protocol): Protocol
-export function protocolGetServiceType(protocol: Protocol): string
-export function protocolGetUriScheme(protocol: Protocol): string
-export function protocolToString(value: Protocol): string
-export function serviceTypeGetBase(type: string): string
-export function serviceTypeGetProtocol(serviceType: string): Protocol
-export function serviceTypeNew(protocol: Protocol, application: string): string
-export function shellGetDebugLevel(): number
-export function shellGetHostName(): string
-export function shellProgressBegin(title: string, message: string): void
-export function shellProgressEnd(): void
-export function shellProgressUpdate(percentage: number, message: string): void
-export function shellRestartAvahiClient(strloc: string): void
-export function shellSetProgressHooks(hooks: ShellProgressHooks, userData: object, destroyData: GLib.DestroyNotify): void
-export function shellWatchRemove(id: number): void
-export function tlsErrorQuark(): GLib.Quark
-export function tlsGetCertificateFilename(hostname: string): string
-export function tlsGetPrivateKeyFilename(hostname: string): string
-export function tlsGetServerCredentials(hostname: string, crtfile: string, keyfile: string): boolean
-export interface AuthHandler {
+function addressFamilyToString(value: AddressFamily): string
+function authFlagsToString(value: AuthFlags): string
+function avahiErrorQuark(): GLib.Quark
+function collisionHandlingToString(value: CollisionHandling): string
+function httpErrorQuark(): GLib.Quark
+function protocolBuildUri(protocol: Protocol, hostname: string, port: number, path: string): string
+function protocolFromName(name: string, fallback: Protocol): Protocol
+function protocolGetServiceType(protocol: Protocol): string
+function protocolGetUriScheme(protocol: Protocol): string
+function protocolToString(value: Protocol): string
+function serviceTypeGetBase(type: string): string
+function serviceTypeGetProtocol(serviceType: string): Protocol
+function serviceTypeNew(protocol: Protocol, application: string): string
+function shellGetDebugLevel(): number
+function shellGetHostName(): string
+function shellProgressBegin(title: string, message: string): void
+function shellProgressEnd(): void
+function shellProgressUpdate(percentage: number, message: string): void
+function shellRestartAvahiClient(strloc: string): void
+function shellSetProgressHooks(hooks: ShellProgressHooks, userData: object, destroyData: GLib.DestroyNotify): void
+function shellWatchRemove(id: number): void
+function tlsErrorQuark(): GLib.Quark
+function tlsGetCertificateFilename(hostname: string): string
+function tlsGetPrivateKeyFilename(hostname: string): string
+function tlsGetServerCredentials(hostname: string, crtfile: string, keyfile: string): boolean
+interface AuthHandler {
     (context: AuthContext, username: string): boolean
 }
-export interface ContentsHandler {
+interface ContentsHandler {
     (publisher: Publisher, key: string): Contents
 }
-export interface ContentsReadFunc {
+interface ContentsReadFunc {
     (contents: Contents, buffer: object, length: number): boolean
 }
 export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
@@ -77,7 +77,7 @@ export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
     protocol?: Protocol
     username?: string
 }
-export class Consumer {
+class Consumer {
     /* Properties of Epc-1.0.Epc.Consumer */
     password: string
     protocol: Protocol
@@ -168,7 +168,7 @@ export interface Dispatcher_ConstructProps extends GObject.Object_ConstructProps
     cookie?: string
     name?: string
 }
-export class Dispatcher {
+class Dispatcher {
     /* Properties of Epc-1.0.Epc.Dispatcher */
     collisionHandling: CollisionHandling
     cookie: string
@@ -254,7 +254,7 @@ export interface Publisher_ConstructProps extends GObject.Object_ConstructProps 
     serviceDomain?: string
     serviceName?: string
 }
-export class Publisher {
+class Publisher {
     /* Properties of Epc-1.0.Epc.Publisher */
     application: string
     authFlags: AuthFlags
@@ -396,7 +396,7 @@ export interface ServiceMonitor_ConstructProps extends GObject.Object_ConstructP
     serviceTypes?: string[]
     skipOurOwn?: boolean
 }
-export class ServiceMonitor {
+class ServiceMonitor {
     /* Properties of Epc-1.0.Epc.ServiceMonitor */
     skipOurOwn: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -467,23 +467,23 @@ export class ServiceMonitor {
     static newForTypesStrv(domain: string, types: string): ServiceMonitor
     static $gtype: GObject.Type
 }
-export class AuthContext {
+class AuthContext {
     /* Methods of Epc-1.0.Epc.AuthContext */
     checkPassword(password: string): boolean
     getKey(): string
     getPassword(): string
     static name: string
 }
-export abstract class ConsumerClass {
+abstract class ConsumerClass {
     /* Fields of Epc-1.0.Epc.ConsumerClass */
     authenticate: (consumer: Consumer, realm: string) => void
     publisherResolved: (consumer: Consumer, protocol: Protocol, hostname: string, port: number) => void
     static name: string
 }
-export class ConsumerPrivate {
+class ConsumerPrivate {
     static name: string
 }
-export class Contents {
+class Contents {
     /* Methods of Epc-1.0.Epc.Contents */
     getMimeType(): string
     isStream(): boolean
@@ -497,19 +497,19 @@ export class Contents {
     static newDup(type: string, data: object, length: number): Contents
     static streamNew(type: string, callback: ContentsReadFunc): Contents
 }
-export abstract class DispatcherClass {
+abstract class DispatcherClass {
     static name: string
 }
-export class DispatcherPrivate {
+class DispatcherPrivate {
     static name: string
 }
-export abstract class PublisherClass {
+abstract class PublisherClass {
     static name: string
 }
-export class PublisherPrivate {
+class PublisherPrivate {
     static name: string
 }
-export class ServiceInfo {
+class ServiceInfo {
     /* Methods of Epc-1.0.Epc.ServiceInfo */
     getAddressFamily(): AddressFamily
     getDetail(name: string): string
@@ -521,17 +521,17 @@ export class ServiceInfo {
     unref(): void
     static name: string
 }
-export abstract class ServiceMonitorClass {
+abstract class ServiceMonitorClass {
     /* Fields of Epc-1.0.Epc.ServiceMonitorClass */
     serviceFound: (monitor: ServiceMonitor, name: string, info: ServiceInfo) => void
     serviceRemoved: (monitor: ServiceMonitor, name: string, type: string) => void
     scanningDone: (monitor: ServiceMonitor, type: string) => void
     static name: string
 }
-export class ServiceMonitorPrivate {
+class ServiceMonitorPrivate {
     static name: string
 }
-export class ShellProgressHooks {
+class ShellProgressHooks {
     /* Fields of Epc-1.0.Epc.ShellProgressHooks */
     begin: (title: string) => void
     update: (percentage: number, message: string) => void
@@ -539,3 +539,4 @@ export class ShellProgressHooks {
     static name: string
 }
 }
+export default Epc

@@ -1,2 +1,1 @@
-imports.gi.versions.Xdp = '1.0'
-module.exports = imports.gi.Xdp
+export {default as default} from 'gi://Xdp?version=1.0';

@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Qmi {
+declare namespace Qmi {
 
-export enum CoreError {
+enum CoreError {
     FAILED,
     WRONGSTATE,
     TIMEOUT,
@@ -22,16 +22,16 @@ export enum CoreError {
     UNEXPECTEDMESSAGE,
     INVALIDDATA,
 }
-export enum CtlDataFormat {
+enum CtlDataFormat {
     ABSENT,
     PRESENT,
 }
-export enum CtlDataLinkProtocol {
+enum CtlDataLinkProtocol {
     UNKNOWN,
     /* 802_3 (invalid, starts with a number) */
     RAW_IP,
 }
-export enum DataEndpointType {
+enum DataEndpointType {
     UNKNOWN,
     HSIC,
     HSUSB,
@@ -40,13 +40,13 @@ export enum DataEndpointType {
     BAM_DMUX,
     UNDEFINED,
 }
-export enum DeviceExpectedDataFormat {
+enum DeviceExpectedDataFormat {
     UNKNOWN,
     /* 802_3 (invalid, starts with a number) */
     RAW_IP,
     QMAP_PASS_THROUGH,
 }
-export enum DmsActivationState {
+enum DmsActivationState {
     NOT_ACTIVATED,
     ACTIVATED,
     CONNECTING,
@@ -59,39 +59,39 @@ export enum DmsActivationState {
     OTASP_SPC,
     OTASP_COMMITED,
 }
-export enum DmsBootImageDownloadMode {
+enum DmsBootImageDownloadMode {
     NORMAL,
     BOOT_AND_RECOVERY,
 }
-export enum DmsDataServiceCapability {
+enum DmsDataServiceCapability {
     NONE,
     CS,
     PS,
     SIMULTANEOUS_CS_PS,
     NON_SIMULTANEOUS_CS_PS,
 }
-export enum DmsFirmwareImageType {
+enum DmsFirmwareImageType {
     MODEM,
     PRI,
 }
-export enum DmsFoxconnDeviceMode {
+enum DmsFoxconnDeviceMode {
     UNKNOWN,
     FASTBOOT_ONLINE,
     FASTBOOT_OTA,
 }
-export enum DmsFoxconnFirmwareVersionType {
+enum DmsFoxconnFirmwareVersionType {
     FIRMWARE_MCFG,
     FIRMWARE_MCFG_APPS,
     APPS,
 }
-export enum DmsHpDeviceMode {
+enum DmsHpDeviceMode {
     FASTBOOT,
 }
-export enum DmsMacType {
+enum DmsMacType {
     WLAN,
     BT,
 }
-export enum DmsOperatingMode {
+enum DmsOperatingMode {
     ONLINE,
     LOW_POWER,
     FACTORY_TEST,
@@ -102,7 +102,7 @@ export enum DmsOperatingMode {
     MODE_ONLY_LOW_POWER,
     UNKNOWN,
 }
-export enum DmsRadioInterface {
+enum DmsRadioInterface {
     CDMA20001X,
     EVDO,
     GSM,
@@ -111,11 +111,11 @@ export enum DmsRadioInterface {
     TDS,
     /* 5GNR (invalid, starts with a number) */
 }
-export enum DmsSimCapability {
+enum DmsSimCapability {
     NOT_SUPPORTED,
     SUPPORTED,
 }
-export enum DmsSwiUsbComposition {
+enum DmsSwiUsbComposition {
     UNKNOWN,
     /* 0 (invalid, starts with a number) */
     /* 1 (invalid, starts with a number) */
@@ -141,31 +141,31 @@ export enum DmsSwiUsbComposition {
     /* 21 (invalid, starts with a number) */
     /* 22 (invalid, starts with a number) */
 }
-export enum DmsTimeReferenceType {
+enum DmsTimeReferenceType {
     USER,
 }
-export enum DmsTimeSource {
+enum DmsTimeSource {
     DEVICE,
     CDMA_NETWORK,
     HDR_NETWORK,
 }
-export enum DmsUimFacility {
+enum DmsUimFacility {
     PN,
     PU,
     PP,
     PC,
     PF,
 }
-export enum DmsUimFacilityState {
+enum DmsUimFacilityState {
     DEACTIVATED,
     ACTIVATED,
     BLOCKED,
 }
-export enum DmsUimPinId {
+enum DmsUimPinId {
     PIN,
     PIN2,
 }
-export enum DmsUimPinStatus {
+enum DmsUimPinStatus {
     NOT_INITIALIZED,
     ENABLED_NOT_VERIFIED,
     ENABLED_VERIFIED,
@@ -175,14 +175,14 @@ export enum DmsUimPinStatus {
     UNBLOCKED,
     CHANGED,
 }
-export enum DmsUimState {
+enum DmsUimState {
     INITIALIZATION_COMPLETED,
     LOCKED_OR_FAILED,
     NOT_PRESENT,
     RESERVED,
     UNKNOWN,
 }
-export enum DsdApnType {
+enum DsdApnType {
     DEFAULT,
     IMS,
     MMS,
@@ -194,32 +194,32 @@ export enum DsdApnType {
     IA,
     EMERGENCY,
 }
-export enum Endian {
+enum Endian {
     LITTLE,
     BIG,
 }
-export enum GasFirmwareListingMode {
+enum GasFirmwareListingMode {
     ACTIVE_FIRMWARE,
     ALL_FIRMWARE,
     SPECIFIC_FIRMWARE,
 }
-export enum GasUsbCompositionEndpointType {
+enum GasUsbCompositionEndpointType {
     HSUSB,
     HSIC,
 }
-export enum LocEngineState {
+enum LocEngineState {
     ON,
     OFF,
 }
-export enum LocFixRecurrenceType {
+enum LocFixRecurrenceType {
     PERIODIC_FIXES,
     SINGLE_FIX,
 }
-export enum LocHealthStatus {
+enum LocHealthStatus {
     UNHEALTHY,
     HEALTHY,
 }
-export enum LocIndicationStatus {
+enum LocIndicationStatus {
     SUCCESS,
     GENERAL_FAILURE,
     UNSUPPORTED,
@@ -228,22 +228,22 @@ export enum LocIndicationStatus {
     PHONE_OFFLINE,
     TIMEOUT,
 }
-export enum LocIntermediateReportState {
+enum LocIntermediateReportState {
     UNKNOWN,
     ENABLE,
     DISABLE,
 }
-export enum LocLockType {
+enum LocLockType {
     NONE,
     MI,
     MT,
     ALL,
 }
-export enum LocNavigationData {
+enum LocNavigationData {
     EPHEMERIS,
     ALMANAC,
 }
-export enum LocOperationMode {
+enum LocOperationMode {
     DEFAULT,
     MSB,
     MSA,
@@ -251,29 +251,29 @@ export enum LocOperationMode {
     CELLID,
     WWAN,
 }
-export enum LocPredictedOrbitsDataFormat {
+enum LocPredictedOrbitsDataFormat {
     XTRA,
 }
-export enum LocReliability {
+enum LocReliability {
     NOT_SET,
     VERY_LOW,
     LOW,
     MEDIUM,
     HIGH,
 }
-export enum LocSatelliteStatus {
+enum LocSatelliteStatus {
     IDLE,
     SEARCHING,
     TRACKING,
 }
-export enum LocServerType {
+enum LocServerType {
     UNKNOWN,
     CDMA_PDE,
     CDMA_MPC,
     UMTS_SLP,
     CUSTOM_PDE,
 }
-export enum LocSessionStatus {
+enum LocSessionStatus {
     SUCCESS,
     IN_PROGRESS,
     GENERAL_FAILURE,
@@ -283,14 +283,14 @@ export enum LocSessionStatus {
     PHONE_OFFLINE,
     ENGINE_LOCKED,
 }
-export enum LocSystem {
+enum LocSystem {
     GPS,
     GALILEO,
     SBAS,
     COMPASS,
     GLONASS,
 }
-export enum LocTimeSource {
+enum LocTimeSource {
     INVALID,
     NETWORK_TIME_TRANSFER,
     NETWORK_TIME_TAGGING,
@@ -309,7 +309,7 @@ export enum LocTimeSource {
     QZSS_TOW_DECODE,
     BDS_TOW_DECODE,
 }
-export enum NasActiveBand {
+enum NasActiveBand {
     BC_0,
     BC_1,
     BC_2,
@@ -406,42 +406,42 @@ export enum NasActiveBand {
     TDSCDMA_E,
     TDSCDMA_F,
 }
-export enum NasAttachState {
+enum NasAttachState {
     UNKNOWN,
     ATTACHED,
     DETACHED,
 }
-export enum NasBoolean {
+enum NasBoolean {
     FALSE,
     TRUE,
     UNKNOWN,
 }
-export enum NasCallBarringStatus {
+enum NasCallBarringStatus {
     NORMAL_ONLY,
     EMERGENCY_ONLY,
     NO_CALLS,
     ALL_CALLS,
     UNKNOWN,
 }
-export enum NasCdmaPilotType {
+enum NasCdmaPilotType {
     ACTIVE,
     NEIGHBOR,
 }
-export enum NasCdmaPrlPreference {
+enum NasCdmaPrlPreference {
     A_SIDE_ONLY,
     B_SIDE_ONLY,
     ANY,
 }
-export enum NasCellBroadcastCapability {
+enum NasCellBroadcastCapability {
     UNKNOWN,
     OFF,
     ON,
 }
-export enum NasChangeDuration {
+enum NasChangeDuration {
     POWER_CYCLE,
     PERMANENT,
 }
-export enum NasDLBandwidth {
+enum NasDLBandwidth {
     /* 1_4 (invalid, starts with a number) */
     /* 3 (invalid, starts with a number) */
     /* 5 (invalid, starts with a number) */
@@ -451,7 +451,7 @@ export enum NasDLBandwidth {
     INVALID,
     UNKNOWN,
 }
-export enum NasDataCapability {
+enum NasDataCapability {
     NONE,
     GPRS,
     EDGE,
@@ -467,7 +467,7 @@ export enum NasDataCapability {
     HSDPA_PLUS,
     DC_HSDPA_PLUS,
 }
-export enum NasDayOfWeek {
+enum NasDayOfWeek {
     MONDAY,
     TUESDAY,
     WEDNESDAY,
@@ -476,19 +476,19 @@ export enum NasDayOfWeek {
     SATURDAY,
     SUNDAY,
 }
-export enum NasDaylightSavingsAdjustment {
+enum NasDaylightSavingsAdjustment {
     NONE,
     ONE_HOUR,
     TWO_HOURS,
 }
-export enum NasDrx {
+enum NasDrx {
     UNKNOWN,
     CN6_T32,
     CN7_T64,
     CN8_T128,
     CN9_T256,
 }
-export enum NasEvdoSinrLevel {
+enum NasEvdoSinrLevel {
     /* 0 (invalid, starts with a number) */
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
@@ -499,54 +499,54 @@ export enum NasEvdoSinrLevel {
     /* 7 (invalid, starts with a number) */
     /* 8 (invalid, starts with a number) */
 }
-export enum NasGsmWcdmaAcquisitionOrderPreference {
+enum NasGsmWcdmaAcquisitionOrderPreference {
     AUTOMATIC,
     GSM,
     WCDMA,
 }
-export enum NasHdrPersonality {
+enum NasHdrPersonality {
     UNKNOWN,
     HRPD,
     EHRPD,
 }
-export enum NasHdrProtocolRevision {
+enum NasHdrProtocolRevision {
     NONE,
     REL_0,
     REL_A,
     REL_B,
 }
-export enum NasLteCellAccessStatus {
+enum NasLteCellAccessStatus {
     NORMAL_ONLY,
     EMERGENCY_ONLY,
     NO_CALLS,
     ALL_CALLS,
     UNKNOWN,
 }
-export enum NasLteRegistrationDomain {
+enum NasLteRegistrationDomain {
     NOT_APPLICABLE,
     CS_ONLY,
     PS_ONLY,
     CS_PS,
     LIMITED_SERVICE,
 }
-export enum NasLteVoiceDomain {
+enum NasLteVoiceDomain {
     NONE,
     IMS,
     /* 1X (invalid, starts with a number) */
     /* 3GPP (invalid, starts with a number) */
 }
-export enum NasNetworkDescriptionDisplay {
+enum NasNetworkDescriptionDisplay {
     NO,
     YES,
     UNKNOWN,
 }
-export enum NasNetworkDescriptionEncoding {
+enum NasNetworkDescriptionEncoding {
     UNSPECIFIED,
     ASCII7,
     UNICODE,
     GSM,
 }
-export enum NasNetworkNameSource {
+enum NasNetworkNameSource {
     UNKNOWN,
     OPERATOR_PLMN_LIST_AND_PLMN_NETWORK_NAME,
     COMMON_PCN_HANDSET_SPECIFICATION_AND_OPERATOR_NAME_STRING,
@@ -555,51 +555,51 @@ export enum NasNetworkNameSource {
     MCC_MNC,
     SERVICE_PROVIDER_NAME,
 }
-export enum NasNetworkRegisterType {
+enum NasNetworkRegisterType {
     AUTOMATIC,
     MANUAL,
 }
-export enum NasNetworkScanResult {
+enum NasNetworkScanResult {
     SUCCESS,
     ABORT,
     RADIO_LINK_FAILURE,
 }
-export enum NasNetworkSelectionPreference {
+enum NasNetworkSelectionPreference {
     AUTOMATIC,
     MANUAL,
 }
-export enum NasNetworkSelectionRegistrationRestriction {
+enum NasNetworkSelectionRegistrationRestriction {
     UNRESTRICTED,
     CAMPED_ONLY,
     LIMITED,
 }
-export enum NasNetworkServiceDomain {
+enum NasNetworkServiceDomain {
     NONE,
     CS,
     PS,
     CS_PS,
     UNKNOWN,
 }
-export enum NasNetworkType {
+enum NasNetworkType {
     UNKNOWN,
     /* 3GPP2 (invalid, starts with a number) */
     /* 3GPP (invalid, starts with a number) */
 }
-export enum NasPlmnEncodingScheme {
+enum NasPlmnEncodingScheme {
     GSM,
     UCS2LE,
 }
-export enum NasPlmnLanguageId {
+enum NasPlmnLanguageId {
     UNKNOWN,
     ZH_TRAD,
     ZH_SIMP,
 }
-export enum NasPlmnNameCountryInitials {
+enum NasPlmnNameCountryInitials {
     INITIALS_DO_NOT_ADD,
     INIITALS_ADD,
     INIITALS_UNSPECIFIED,
 }
-export enum NasPlmnNameSpareBits {
+enum NasPlmnNameSpareBits {
     UNKNOWN,
     BIT_8,
     BITS_78,
@@ -609,7 +609,7 @@ export enum NasPlmnNameSpareBits {
     BITS_38,
     BITS_28,
 }
-export enum NasPreferenceDuration {
+enum NasPreferenceDuration {
     PERMANENT,
     POWER_CYCLE,
     ONE_CALL,
@@ -618,11 +618,11 @@ export enum NasPreferenceDuration {
     INTERNAL_ONE_CALL_2,
     INTERNAL_ONE_CALL_3,
 }
-export enum NasPsAttachAction {
+enum NasPsAttachAction {
     ATTACH,
     DETACH,
 }
-export enum NasRadioInterface {
+enum NasRadioInterface {
     UNKNOWN,
     NONE,
     CDMA_1X,
@@ -634,14 +634,14 @@ export enum NasRadioInterface {
     TD_SCDMA,
     /* 5GNR (invalid, starts with a number) */
 }
-export enum NasRegistrationState {
+enum NasRegistrationState {
     NOT_REGISTERED,
     REGISTERED,
     NOT_REGISTERED_SEARCHING,
     REGISTRATION_DENIED,
     UNKNOWN,
 }
-export enum NasRejectCause {
+enum NasRejectCause {
     NONE,
     IMSI_UNKNOWN_IN_HLR,
     ILLEGAL_UE,
@@ -703,17 +703,17 @@ export enum NasRejectCause {
     MESSAGE_NOT_COMPATIBLE,
     UNSPECIFIED_PROTOCOL_ERROR,
 }
-export enum NasRoamingIndicatorStatus {
+enum NasRoamingIndicatorStatus {
     ON,
     OFF,
 }
-export enum NasRoamingPreference {
+enum NasRoamingPreference {
     OFF,
     NOT_OFF,
     NOT_FLASHING,
     ANY,
 }
-export enum NasRoamingStatus {
+enum NasRoamingStatus {
     OFF,
     ON,
     BLINK,
@@ -728,40 +728,40 @@ export enum NasRoamingStatus {
     BANNER_ON,
     BANNER_OFF,
 }
-export enum NasScellState {
+enum NasScellState {
     DECONFIGURED,
     DEACTIVATED,
     ACTIVATED,
 }
-export enum NasServiceDomainPreference {
+enum NasServiceDomainPreference {
     CS_ONLY,
     PS_ONLY,
     CS_PS,
     PS_ATTACH,
     PS_DETACH,
 }
-export enum NasServiceStatus {
+enum NasServiceStatus {
     NONE,
     LIMITED,
     AVAILABLE,
     LIMITED_REGIONAL,
     POWER_SAVE,
 }
-export enum NasSimRejectState {
+enum NasSimRejectState {
     UNAVAILABLE,
     AVAILABLE,
     CS_INVALID,
     PS_INVALID,
     CS_PS_INVALID,
 }
-export enum NasSwiEmmConnectionState {
+enum NasSwiEmmConnectionState {
     RRC_IDLE,
     WAITING_RRC_CFM,
     RRC_CONNECTING,
     RRC_RELEASING,
     UNKNOWN,
 }
-export enum NasSwiEmmState {
+enum NasSwiEmmState {
     DEREGISTERED,
     REG_INITIATED,
     REGISTERED,
@@ -771,7 +771,7 @@ export enum NasSwiEmmState {
     INVALID,
     UNKNOWN,
 }
-export enum NasSwiImsRegState {
+enum NasSwiImsRegState {
     NO_SRV,
     IN_PROG,
     FAILED,
@@ -779,7 +779,7 @@ export enum NasSwiImsRegState {
     FULL_SRV,
     _UNKNOWN,
 }
-export enum NasSwiModemMode {
+enum NasSwiModemMode {
     POWERING_OFF,
     FACTORY_TEST,
     OFFLINE,
@@ -794,12 +794,12 @@ export enum NasSwiModemMode {
     RESETTING_MODEM,
     UNKNOWN,
 }
-export enum NasSwiPsState {
+enum NasSwiPsState {
     ATTACHED,
     DETACHED,
     UNKNOWN,
 }
-export enum NasSwiSystemMode {
+enum NasSwiSystemMode {
     NO_SERVICE,
     AMPS,
     CDMA,
@@ -811,18 +811,18 @@ export enum NasSwiSystemMode {
     LTE,
     UNKNOWN,
 }
-export enum NasUsagePreference {
+enum NasUsagePreference {
     UNKNOWN,
     VOICE_CENTRIC,
     DATA_CENTRIC,
 }
-export enum NasVoiceDomainPreference {
+enum NasVoiceDomainPreference {
     CS_ONLY,
     PS_ONLY,
     CS_PREFERRED,
     PS_PREFERRED,
 }
-export enum NasWcdmaHsService {
+enum NasWcdmaHsService {
     HSDPA_HSUPA_UNSUPPORTED,
     HSDPA_SUPPORTED,
     HSUPA_SUPPORTED,
@@ -832,19 +832,19 @@ export enum NasWcdmaHsService {
     DC_HSDPA_PLUS_SUPPORTED,
     DC_HSDPA_PLUS_HSUPA_SUPPORTED,
 }
-export enum NasWcdmaRrcState {
+enum NasWcdmaRrcState {
     DISCONNECTED,
     CELL_PCH,
     URA_PCH,
     CELL_FACH,
     CELL_DCH,
 }
-export enum OmaHfaFeatureDoneState {
+enum OmaHfaFeatureDoneState {
     NONE,
     SUCCEEDED,
     FAILED,
 }
-export enum OmaSessionFailedReason {
+enum OmaSessionFailedReason {
     UNKNOWN,
     NETWORK_UNAVAILABLE,
     SERVER_UNAVAILABLE,
@@ -852,7 +852,7 @@ export enum OmaSessionFailedReason {
     MAX_RETRY_EXCEEDED,
     SESSION_CANCELLED,
 }
-export enum OmaSessionState {
+enum OmaSessionState {
     COMPLETE_INFORMATION_UPDATED,
     COMPLETE_UPDATED_INFORMATION_UNAVAILABLE,
     FAILED,
@@ -865,7 +865,7 @@ export enum OmaSessionState {
     PRL_DOWNLOADED,
     MIP_PROFILE_DOWNLOADED,
 }
-export enum OmaSessionType {
+enum OmaSessionType {
     CLIENT_INITIATED_DEVICE_CONFIGURE,
     CLIENT_INITIATED_PRL_UPDATE,
     CLIENT_INITIATED_HANDS_FREE_ACTIVATION,
@@ -874,7 +874,7 @@ export enum OmaSessionType {
     NETWORK_INITIATED_DEVICE_CONFIGURE,
     DEVICE_INITIATED_PRL_UPDATE,
 }
-export enum PbmSessionType {
+enum PbmSessionType {
     GW_PRIMARY,
     /* 1X_PRIMARY (invalid, starts with a number) */
     GW_SECONDARY,
@@ -884,31 +884,31 @@ export enum PbmSessionType {
     GLOBAL_PHONEBOOK_SLOT_1,
     GLOBAL_PHONEBOOK_SLOT_2,
 }
-export enum PdcConfigurationType {
+enum PdcConfigurationType {
     PLATFORM,
     SOFTWARE,
 }
-export enum PdcRefreshEventType {
+enum PdcRefreshEventType {
     START,
     COMPLETE,
     CLIENT_REFRESH,
 }
-export enum PdsNetworkMode {
+enum PdsNetworkMode {
     UMTS,
     CDMA,
 }
-export enum PdsOperatingMode {
+enum PdsOperatingMode {
     STANDALONE,
     MS_BASED,
     MS_ASSISTED,
 }
-export enum PdsOperationMode {
+enum PdsOperationMode {
     UNKNOWN,
     STANDALONE,
     MS_BASED,
     MS_ASSISTED,
 }
-export enum PdsPositionSessionStatus {
+enum PdsPositionSessionStatus {
     SUCCESS,
     IN_PROGRESS,
     GENERAL_FAILURE,
@@ -919,12 +919,12 @@ export enum PdsPositionSessionStatus {
     ENGINE_LOCKED,
     E911_SESSION_IN_PROGRESS,
 }
-export enum PdsTrackingSessionState {
+enum PdsTrackingSessionState {
     UNKNOWN,
     INACTIVE,
     ACTIVE,
 }
-export enum ProtocolError {
+enum ProtocolError {
     NONE,
     MALFORMEDMESSAGE,
     NOMEMORY,
@@ -1051,7 +1051,7 @@ export enum ProtocolError {
     CATENVELOPECOMMANDBUSY,
     CATENVELOPECOMMANDFAILED,
 }
-export enum QosEvent {
+enum QosEvent {
     UNKNOWN,
     ACTIVATED,
     SUSPENDED,
@@ -1060,13 +1060,13 @@ export enum QosEvent {
     MODIFY_REJECTED,
     INFO_CODE_UPDATED,
 }
-export enum QosStatus {
+enum QosStatus {
     UNKNOWN,
     ACTIVATED,
     SUSPENDED,
     GONE,
 }
-export enum SarRfState {
+enum SarRfState {
     /* 0 (invalid, starts with a number) */
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
@@ -1089,7 +1089,7 @@ export enum SarRfState {
     /* 19 (invalid, starts with a number) */
     /* 20 (invalid, starts with a number) */
 }
-export enum Service {
+enum Service {
     UNKNOWN,
     CTL,
     WDS,
@@ -1141,7 +1141,7 @@ export enum Service {
     GMS,
     GAS,
 }
-export enum SioPort {
+enum SioPort {
     NONE,
     A2_MUX_RMNET0,
     A2_MUX_RMNET1,
@@ -1152,7 +1152,7 @@ export enum SioPort {
     A2_MUX_RMNET6,
     A2_MUX_RMNET7,
 }
-export enum UimCardApplicationPersonalizationFeature {
+enum UimCardApplicationPersonalizationFeature {
     GW_NETWORK,
     GW_NETWORK_SUBSET,
     GW_SERVICE_PROVIDER,
@@ -1166,7 +1166,7 @@ export enum UimCardApplicationPersonalizationFeature {
     /* 1X_RUIM (invalid, starts with a number) */
     UNKNOWN,
 }
-export enum UimCardApplicationPersonalizationState {
+enum UimCardApplicationPersonalizationState {
     UNKNOWN,
     IN_PROGRESS,
     READY,
@@ -1174,7 +1174,7 @@ export enum UimCardApplicationPersonalizationState {
     PUK_CODE_REQUIRED,
     PERMANENTLY_BLOCKED,
 }
-export enum UimCardApplicationState {
+enum UimCardApplicationState {
     UNKNOWN,
     DETECTED,
     PIN1_OR_UPIN_PIN_REQUIRED,
@@ -1184,7 +1184,7 @@ export enum UimCardApplicationState {
     ILLEGAL,
     READY,
 }
-export enum UimCardApplicationType {
+enum UimCardApplicationType {
     UNKNOWN,
     SIM,
     USIM,
@@ -1192,7 +1192,7 @@ export enum UimCardApplicationType {
     CSIM,
     ISIM,
 }
-export enum UimCardError {
+enum UimCardError {
     UNKNOWN,
     POWER_DOWN,
     POLL,
@@ -1202,40 +1202,40 @@ export enum UimCardError {
     POSSIBLY_REMOVED,
     TECHNICAL,
 }
-export enum UimCardProtocol {
+enum UimCardProtocol {
     UNKNOWN,
     ICC,
     UICC,
 }
-export enum UimCardState {
+enum UimCardState {
     ABSENT,
     PRESENT,
     ERROR,
 }
-export enum UimDepersonalizationOperation {
+enum UimDepersonalizationOperation {
     DEACTIVATE,
     UNBLOCK,
 }
-export enum UimFileType {
+enum UimFileType {
     TRANSPARENT,
     CYCLIC,
     LINEAR_FIXED,
     DEDICATED_FILE,
     MASTER_FILE,
 }
-export enum UimPhysicalCardState {
+enum UimPhysicalCardState {
     UNKNOWN,
     ABSENT,
     PRESENT,
 }
-export enum UimPinId {
+enum UimPinId {
     UNKNOWN,
     PIN1,
     PIN2,
     UPIN,
     HIDDEN_KEY,
 }
-export enum UimPinState {
+enum UimPinState {
     NOT_INITIALIZED,
     ENABLED_NOT_VERIFIED,
     ENABLED_VERIFIED,
@@ -1243,7 +1243,7 @@ export enum UimPinState {
     BLOCKED,
     PERMANENTLY_BLOCKED,
 }
-export enum UimRefreshMode {
+enum UimRefreshMode {
     RESET,
     INIT,
     INIT_FCN,
@@ -1252,20 +1252,20 @@ export enum UimRefreshMode {
     APP_RESET,
     /* 3G_RESET (invalid, starts with a number) */
 }
-export enum UimRefreshStage {
+enum UimRefreshStage {
     WAIT_FOR_OK,
     START,
     END_WITH_SUCCESS,
     END_WITH_FAILURE,
 }
-export enum UimSecurityAttributeLogic {
+enum UimSecurityAttributeLogic {
     ALWAYS,
     NEVER,
     AND,
     OR,
     SINGLE,
 }
-export enum UimSessionType {
+enum UimSessionType {
     PRIMARY_GW_PROVISIONING,
     PRIMARY_1X_PROVISIONING,
     SECONDARY_GW_PROVISIONING,
@@ -1292,24 +1292,24 @@ export enum UimSessionType {
     LOGICAL_CHANNEL_SLOT_4,
     LOGICAL_CHANNEL_SLOT_5,
 }
-export enum UimSlotState {
+enum UimSlotState {
     INACTIVE,
     ACTIVE,
 }
-export enum VoiceAlphaDataCodingScheme {
+enum VoiceAlphaDataCodingScheme {
     GSM,
     UCS2,
 }
-export enum VoiceAls {
+enum VoiceAls {
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
 }
-export enum VoiceCallControlResultType {
+enum VoiceCallControlResultType {
     VOICE,
     SUPS,
     USSD,
 }
-export enum VoiceCallControlSupplementaryServiceType {
+enum VoiceCallControlSupplementaryServiceType {
     ACTIVATE,
     DEACTIVATE,
     REGISTER,
@@ -1318,12 +1318,12 @@ export enum VoiceCallControlSupplementaryServiceType {
     REGISTER_PASSWORD,
     USSD,
 }
-export enum VoiceCallDirection {
+enum VoiceCallDirection {
     UNKNOWN,
     MO,
     MT,
 }
-export enum VoiceCallEndReason {
+enum VoiceCallEndReason {
     OFFLINE,
     CDMA_LOCK,
     NO_SERVICE,
@@ -1522,14 +1522,14 @@ export enum VoiceCallEndReason {
     /* 1XCSFB_SOFT_FAILURE (invalid, starts with a number) */
     /* 1XCSFB_HARD_FAILURE (invalid, starts with a number) */
 }
-export enum VoiceCallMode {
+enum VoiceCallMode {
     UNKNOWN,
     CDMA,
     GSM,
     UMTS,
     LTE,
 }
-export enum VoiceCallState {
+enum VoiceCallState {
     UNKNOWN,
     ORIGINATION,
     INCOMING,
@@ -1542,7 +1542,7 @@ export enum VoiceCallState {
     END,
     SETUP,
 }
-export enum VoiceCallType {
+enum VoiceCallType {
     VOICE,
     VOICE_IP,
     OTAPA,
@@ -1550,23 +1550,23 @@ export enum VoiceCallType {
     EMERGENCY,
     SUPS,
 }
-export enum VoiceDomain {
+enum VoiceDomain {
     CS_ONLY,
     PS_ONLY,
     CS_PREFERRED,
     PS_PREFERRED,
 }
-export enum VoicePresentation {
+enum VoicePresentation {
     ALLOWED,
     RESTRICTED,
     UNAVAILABLE,
     PAYPHONE,
 }
-export enum VoicePrivacy {
+enum VoicePrivacy {
     STANDARD,
     ENHANCED,
 }
-export enum VoiceServiceOption {
+enum VoiceServiceOption {
     WILD,
     IS_96A,
     EVRC,
@@ -1578,13 +1578,13 @@ export enum VoiceServiceOption {
     IS_96,
     WVRC,
 }
-export enum VoiceSupplementaryServiceAction {
+enum VoiceSupplementaryServiceAction {
     ACTIVATE,
     DEACTIVATE,
     REGISTER,
     ERASE,
 }
-export enum VoiceSupplementaryServiceNotificationType {
+enum VoiceSupplementaryServiceNotificationType {
     OUTGOING_CALL_IS_FORWARDED,
     OUTGOING_CALL_IS_WAITING,
     OUTGOING_CUG_CALL,
@@ -1603,7 +1603,7 @@ export enum VoiceSupplementaryServiceNotificationType {
     CALL_IS_IN_MULTIPARTY,
     INCOMING_CALL_IS_ECT,
 }
-export enum VoiceSupplementaryServiceReason {
+enum VoiceSupplementaryServiceReason {
     FORWARD_UNCONDITIONAL,
     FORWARD_MOBILE_BUSY,
     FORWARD_NO_REPLY,
@@ -1620,7 +1620,7 @@ export enum VoiceSupplementaryServiceReason {
     BAR_ALL_INCOMING,
     CALL_WAITING,
 }
-export enum VoiceSupplementaryServiceType {
+enum VoiceSupplementaryServiceType {
     RELEASE_HELD_OR_WAITING,
     RELEASE_ACTIVE_ACCEPT_HELD_OR_WAITING,
     HOLD_ACTIVE_ACCEPT_WAITING_OR_HELD,
@@ -1633,24 +1633,24 @@ export enum VoiceSupplementaryServiceType {
     LOCAL_HOLD,
     LOCAL_UNHOLD,
 }
-export enum VoiceTtyMode {
+enum VoiceTtyMode {
     FULL,
     VCO,
     HCO,
     OFF,
 }
-export enum VoiceUserAction {
+enum VoiceUserAction {
     UNKNOWN,
     NOT_REQUIRED,
     REQUIRED,
 }
-export enum VoiceUssDataCodingScheme {
+enum VoiceUssDataCodingScheme {
     UNKNOWN,
     ASCII,
     /* 8BIT (invalid, starts with a number) */
     UCS2,
 }
-export enum WdaDataAggregationProtocol {
+enum WdaDataAggregationProtocol {
     DISABLED,
     TLP,
     QC_NCM,
@@ -1662,25 +1662,25 @@ export enum WdaDataAggregationProtocol {
     QMAPV4,
     QMAPV5,
 }
-export enum WdaLinkLayerProtocol {
+enum WdaLinkLayerProtocol {
     UNKNOWN,
     /* 802_3 (invalid, starts with a number) */
     RAW_IP,
 }
-export enum WdsAttachPdnListAction {
+enum WdsAttachPdnListAction {
     NONE,
     DETACH_OR_PDN_DISCONNECT,
 }
-export enum WdsAutoconnectSetting {
+enum WdsAutoconnectSetting {
     DISABLED,
     ENABLED,
     PAUSED,
 }
-export enum WdsAutoconnectSettingRoaming {
+enum WdsAutoconnectSettingRoaming {
     ALLOWED,
     HOME_ONLY,
 }
-export enum WdsCallEndReason {
+enum WdsCallEndReason {
     GENERIC_UNSPECIFIED,
     GENERIC_CLIENT_END,
     GENERIC_NO_SERVICE,
@@ -1754,22 +1754,22 @@ export enum WdsCallEndReason {
     EVDO_HDR_CONNECTION_SETUP_TIMEOUT,
     EVDO_HDR_RELEASED_BY_CM,
 }
-export enum WdsCallType {
+enum WdsCallType {
     LAPTOP,
     EMBEDDED,
 }
-export enum WdsClientType {
+enum WdsClientType {
     TETHERED,
     UNDEFINED,
 }
-export enum WdsConnectionStatus {
+enum WdsConnectionStatus {
     UNKNOWN,
     DISCONNECTED,
     CONNECTED,
     SUSPENDED,
     AUTHENTICATING,
 }
-export enum WdsDataBearerTechnology {
+enum WdsDataBearerTechnology {
     UNKNOWN,
     CDMA20001X,
     /* 1XEVDO (invalid, starts with a number) */
@@ -1792,18 +1792,18 @@ export enum WdsDataBearerTechnology {
     TDSCDMA_HSDPA,
     TDSCDMA_HSUPA,
 }
-export enum WdsDataCallStatus {
+enum WdsDataCallStatus {
     UNKNOWN,
     ACTIVATED,
     TERMINATED,
 }
-export enum WdsDataCallType {
+enum WdsDataCallType {
     UNKNOWN,
     EMBEDDED,
     TETHERED,
     MODEM_EMBEDDED,
 }
-export enum WdsDataSystem {
+enum WdsDataSystem {
     UNKNOWN,
     CDMA1X,
     CDMA1X_EVDO,
@@ -1812,21 +1812,21 @@ export enum WdsDataSystem {
     LTE,
     TDSCDMA,
 }
-export enum WdsDataSystemNetworkType {
+enum WdsDataSystemNetworkType {
     /* 3GPP (invalid, starts with a number) */
     /* 3GPP2 (invalid, starts with a number) */
 }
-export enum WdsDeliveryOrder {
+enum WdsDeliveryOrder {
     SUBSCRIBE,
     ON,
     OFF,
 }
-export enum WdsDormancyStatus {
+enum WdsDormancyStatus {
     UNKNOWN,
     TRAFFIC_CHANNEL_DORMANT,
     TRAFFIC_CHANNEL_ACTIVE,
 }
-export enum WdsDsProfileError {
+enum WdsDsProfileError {
     UNKNOWN,
     FAIL,
     INVALID_HANDLE,
@@ -1848,57 +1848,57 @@ export enum WdsDsProfileError {
     /* 3GPP_OUT_OF_PROFILES (invalid, starts with a number) */
     /* 3GPP2_INVALID_PROFILE_ID (invalid, starts with a number) */
 }
-export enum WdsExtendedTechnologyPreference {
+enum WdsExtendedTechnologyPreference {
     CDMA,
     UMTS,
     EPC,
     EMBMS,
     MODEM_LINK_LOCAL,
 }
-export enum WdsIpFamily {
+enum WdsIpFamily {
     UNKNOWN,
     IPV4,
     IPV6,
     UNSPECIFIED,
 }
-export enum WdsIpSupportType {
+enum WdsIpSupportType {
     IPV4,
     IPV6,
     IPV4V6,
 }
-export enum WdsNetworkType {
+enum WdsNetworkType {
     UNKNOWN,
     /* 3GPP2 (invalid, starts with a number) */
     /* 3GPP (invalid, starts with a number) */
 }
-export enum WdsPdpDataCompressionType {
+enum WdsPdpDataCompressionType {
     OFF,
     MANUFACTURER_PREFERRED,
     V42BIS,
     V44,
 }
-export enum WdsPdpHeaderCompressionType {
+enum WdsPdpHeaderCompressionType {
     OFF,
     MANUFACTURER_PREFERRED,
     RFC1144,
     RFC2507,
     RFC3095,
 }
-export enum WdsPdpType {
+enum WdsPdpType {
     IPV4,
     PPP,
     IPV6,
     IPV4_OR_IPV6,
 }
-export enum WdsProfileFamily {
+enum WdsProfileFamily {
     EMBEDDED,
     TETHERED,
 }
-export enum WdsProfileType {
+enum WdsProfileType {
     /* 3GPP (invalid, starts with a number) */
     /* 3GPP2 (invalid, starts with a number) */
 }
-export enum WdsQosClassIdentifier {
+enum WdsQosClassIdentifier {
     NETWORK_ASSIGN,
     GUARANTEED_BITRATE1,
     GUARANTEED_BITRATE2,
@@ -1909,7 +1909,7 @@ export enum WdsQosClassIdentifier {
     NON_GUARANTEED_BITRATE7,
     NON_GUARANTEED_BITRATE8,
 }
-export enum WdsRadioAccessTechnology {
+enum WdsRadioAccessTechnology {
     NULL_BEARER,
     /* 3GPP_WCDMA (invalid, starts with a number) */
     /* 3GPP_GERAN (invalid, starts with a number) */
@@ -1923,13 +1923,13 @@ export enum WdsRadioAccessTechnology {
     /* 3GPP2_WLAN (invalid, starts with a number) */
     /* 3GPP2_MAXIMUM (invalid, starts with a number) */
 }
-export enum WdsSduErroneousDelivery {
+enum WdsSduErroneousDelivery {
     SUBSCRIBE,
     NO_DETECTION,
     ENABLED,
     DISABLED,
 }
-export enum WdsSduErrorRatio {
+enum WdsSduErrorRatio {
     SUBSCRIBE,
     /* 1E2 (invalid, starts with a number) */
     /* 7E3 (invalid, starts with a number) */
@@ -1939,7 +1939,7 @@ export enum WdsSduErrorRatio {
     /* 1E6 (invalid, starts with a number) */
     /* 1E1 (invalid, starts with a number) */
 }
-export enum WdsSduResidualBitErrorRatio {
+enum WdsSduResidualBitErrorRatio {
     SUBSCRIBE,
     /* 5E2 (invalid, starts with a number) */
     /* 1E2 (invalid, starts with a number) */
@@ -1951,19 +1951,19 @@ export enum WdsSduResidualBitErrorRatio {
     /* 1E6 (invalid, starts with a number) */
     /* 6E8 (invalid, starts with a number) */
 }
-export enum WdsTetheredCallType {
+enum WdsTetheredCallType {
     NON_TETHERED,
     RMNET,
     DUN,
 }
-export enum WdsTrafficClass {
+enum WdsTrafficClass {
     SUBSCRIBED,
     CONVERSATIONAL,
     STREAMING,
     INTERACTIVE,
     BACKGROUND,
 }
-export enum WdsVerboseCallEndReason3gpp {
+enum WdsVerboseCallEndReason3gpp {
     OPERATOR_DETERMINED_BARRING,
     LLC_SNDCP_FAILURE,
     INSUFFICIENT_RESOURCES,
@@ -2005,7 +2005,7 @@ export enum WdsVerboseCallEndReason3gpp {
     APN_TYPE_CONFLICT,
     INVALID_PROXY_CALL_SESSION_CONTROL_FUNCTION_ADDRESS,
 }
-export enum WdsVerboseCallEndReasonCm {
+enum WdsVerboseCallEndReasonCm {
     CDMA_LOCK,
     INTERCEPT,
     REORDER,
@@ -2133,7 +2133,7 @@ export enum WdsVerboseCallEndReasonCm {
     NO_COLLOCATED_HDR,
     CALL_CONTROL_REJECTED,
 }
-export enum WdsVerboseCallEndReasonEhrpd {
+enum WdsVerboseCallEndReasonEhrpd {
     SUBSCRIPTION_LIMITED_TO_IPV4,
     SUBSCRIPTION_LIMITED_TO_IPV6,
     VSNCP_TIMEOUT,
@@ -2151,7 +2151,7 @@ export enum WdsVerboseCallEndReasonEhrpd {
     VSNCP_3GPP2_SUBSCRIPTION_LIMITATION,
     VSNCP_3GPP2_PDN_EXISTS_FOR_THIS_APN,
 }
-export enum WdsVerboseCallEndReasonInternal {
+enum WdsVerboseCallEndReasonInternal {
     ERROR,
     CALL_ENDED,
     UNKNOWN_INTERNAL_CAUSE,
@@ -2202,12 +2202,12 @@ export enum WdsVerboseCallEndReasonInternal {
     DDS_CALL_ABORT,
     VALIDATION_FAILURE,
 }
-export enum WdsVerboseCallEndReasonIpv6 {
+enum WdsVerboseCallEndReasonIpv6 {
     PREFIX_UNAVAILABLE,
     HRPD_IPV6_DISABLED,
     DISABLED,
 }
-export enum WdsVerboseCallEndReasonMip {
+enum WdsVerboseCallEndReasonMip {
     ERROR_REASON_UNKNOWN,
     FA_ERROR_REASON_UNSPECIFIED,
     FA_ERROR_ADMINISTRATIVELY_PROHIBITED,
@@ -2240,7 +2240,7 @@ export enum WdsVerboseCallEndReasonMip {
     HA_ERROR_REVERSE_TUNNEL_MANDATORY_AND_T_BIT_NOT_SET,
     HA_ERROR_ENCAPSULATION_UNAVAILABLE,
 }
-export enum WdsVerboseCallEndReasonPpp {
+enum WdsVerboseCallEndReasonPpp {
     UNKNOWN,
     TIMEOUT,
     AUTHENTICATION_FAILURE,
@@ -2249,7 +2249,7 @@ export enum WdsVerboseCallEndReasonPpp {
     CHAP_FAILURE,
     CLOSE_IN_PROGRESS,
 }
-export enum WdsVerboseCallEndReasonType {
+enum WdsVerboseCallEndReasonType {
     MIP,
     INTERNAL,
     CM,
@@ -2258,16 +2258,16 @@ export enum WdsVerboseCallEndReasonType {
     EHRPD,
     IPV6,
 }
-export enum WmsAckFailureCause {
+enum WmsAckFailureCause {
     NO_NETWORK_RESPONSE,
     NETWORK_RELEASED_LINK,
     NOT_SENT,
 }
-export enum WmsAckIndicator {
+enum WmsAckIndicator {
     SEND,
     DO_NOT_SEND,
 }
-export enum WmsCdmaCauseCode {
+enum WmsCdmaCauseCode {
     NETWORK_ADDRESS_VACANT,
     NETWORK_ADDRESS_TRANSLATION_FAILURE,
     NETWORK_RESOURCE_SHORTAGE,
@@ -2297,18 +2297,18 @@ export enum WmsCdmaCauseCode {
     GENERAL_USER_DATA_SIZE_ERROR,
     GENERAL_OTHER,
 }
-export enum WmsCdmaErrorClass {
+enum WmsCdmaErrorClass {
     TEMPORARY,
     PERMANENT,
     TEMPORARY_DEVICE,
     PERMANENT_DEVICE,
 }
-export enum WmsCdmaServiceOption {
+enum WmsCdmaServiceOption {
     AUTO,
     /* 6 (invalid, starts with a number) */
     /* 14 (invalid, starts with a number) */
 }
-export enum WmsGsmUmtsRpCause {
+enum WmsGsmUmtsRpCause {
     UNASSIGNED_NUMBER,
     OPERATOR_DETERMINED_BARRING,
     CALL_BARRED,
@@ -2334,7 +2334,7 @@ export enum WmsGsmUmtsRpCause {
     PROTOCOL_ERROR,
     INTERWORKING,
 }
-export enum WmsGsmUmtsTpCause {
+enum WmsGsmUmtsTpCause {
     TELE_INTERWORKING_NOT_SUPPORTED,
     SHORT_MESSAGE_TYPE_0_NOT_SUPPORTED,
     SHORT_MESSAGE_CANNOT_BE_REPLACED,
@@ -2362,7 +2362,7 @@ export enum WmsGsmUmtsTpCause {
     SIM_DATA_DOWNLOAD_ERROR,
     UNSPECIFIED_ERROR,
 }
-export enum WmsMessageClass {
+enum WmsMessageClass {
     /* 0 (invalid, starts with a number) */
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
@@ -2370,66 +2370,66 @@ export enum WmsMessageClass {
     NONE,
     CDMA,
 }
-export enum WmsMessageDeliveryFailureType {
+enum WmsMessageDeliveryFailureType {
     TEMPORARY,
     PERMANENT,
 }
-export enum WmsMessageFormat {
+enum WmsMessageFormat {
     CDMA,
     GSM_WCDMA_POINT_TO_POINT,
     GSM_WCDMA_BROADCAST,
     MWI,
 }
-export enum WmsMessageMode {
+enum WmsMessageMode {
     CDMA,
     GSM_WCDMA,
 }
-export enum WmsMessageProtocol {
+enum WmsMessageProtocol {
     CDMA,
     WCDMA,
 }
-export enum WmsMessageTagType {
+enum WmsMessageTagType {
     MT_READ,
     MT_NOT_READ,
     MO_SENT,
     MO_NOT_SENT,
 }
-export enum WmsMessageType {
+enum WmsMessageType {
     POINT,
 }
-export enum WmsNotificationType {
+enum WmsNotificationType {
     PRIMARY,
     SECONDARY_GSM,
     SECONDARY_UMTS,
 }
-export enum WmsReceiptAction {
+enum WmsReceiptAction {
     DISCARD,
     STORE_AND_NOTIFY,
     TRANSFER_ONLY,
     TRANSFER_AND_ACK,
     UNKNOWN,
 }
-export enum WmsStorageType {
+enum WmsStorageType {
     UIM,
     NV,
     NONE,
 }
-export enum WmsTransferIndication {
+enum WmsTransferIndication {
     CLIENT,
 }
-export enum CtlFlag {
+enum CtlFlag {
     NONE,
     RESPONSE,
     INDICATION,
 }
-export enum DeviceAddLinkFlags {
+enum DeviceAddLinkFlags {
     NONE,
     INGRESS_MAP_CKSUMV4,
     EGRESS_MAP_CKSUMV4,
     INGRESS_MAP_CKSUMV5,
     EGRESS_MAP_CKSUMV5,
 }
-export enum DeviceOpenFlags {
+enum DeviceOpenFlags {
     NONE,
     VERSION_INFO,
     SYNC,
@@ -2442,11 +2442,11 @@ export enum DeviceOpenFlags {
     AUTO,
     EXPECT_INDICATIONS,
 }
-export enum DeviceReleaseClientFlags {
+enum DeviceReleaseClientFlags {
     NONE,
     RELEASE_CID,
 }
-export enum DmsBandCapability {
+enum DmsBandCapability {
     BC_0_A_SYSTEM,
     BC_0_B_SYSTEM,
     BC_1_ALL_BLOCKS,
@@ -2488,7 +2488,7 @@ export enum DmsBandCapability {
     WCDMA_850_JAPAN,
     WCDMA_1500,
 }
-export enum DmsLteBandCapability {
+enum DmsLteBandCapability {
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
     /* 3 (invalid, starts with a number) */
@@ -2529,19 +2529,19 @@ export enum DmsLteBandCapability {
     /* 42 (invalid, starts with a number) */
     /* 43 (invalid, starts with a number) */
 }
-export enum DmsOfflineReason {
+enum DmsOfflineReason {
     HOST_IMAGE_MISCONFIGURATION,
     PRI_IMAGE_MISCONFIGURATION,
     PRI_VERSION_INCOMPATIBLE,
     DEVICE_MEMORY_FULL,
 }
-export enum DmsPowerState {
+enum DmsPowerState {
     EXTERNAL_SOURCE,
     BATTERY_CONNECTED,
     BATTERY_CHARGING,
     FAULT,
 }
-export enum DsdApnTypePreference {
+enum DsdApnTypePreference {
     DEFAULT,
     IMS,
     MMS,
@@ -2553,7 +2553,7 @@ export enum DsdApnTypePreference {
     IA,
     EMERGENCY,
 }
-export enum LocDeleteCellDatabase {
+enum LocDeleteCellDatabase {
     POS,
     LATEST_GPS_POS,
     OTA_POS,
@@ -2565,7 +2565,7 @@ export enum LocDeleteCellDatabase {
     CUR_SRV_CELL,
     NEIGHBOR_INFO,
 }
-export enum LocDeleteClockInfo {
+enum LocDeleteClockInfo {
     TIME_EST,
     FREQ_EST,
     WEEK_NUMBER,
@@ -2578,7 +2578,7 @@ export enum LocDeleteClockInfo {
     GLO_RF_GRP_DELAY,
     DISABLE_TT,
 }
-export enum LocDeleteGnssData {
+enum LocDeleteGnssData {
     GPS_SVDIR,
     GPS_SVSTEER,
     GPS_TIME,
@@ -2599,11 +2599,11 @@ export enum LocDeleteGnssData {
     SV_NO_EXIST,
     FREQ_BIAS_EST,
 }
-export enum LocDeleteSvInfo {
+enum LocDeleteSvInfo {
     EPHEMERIS,
     ALMANAC,
 }
-export enum LocEventRegistrationFlag {
+enum LocEventRegistrationFlag {
     POSITION_REPORT,
     GNSS_SATELLITE_INFO,
     NMEA,
@@ -2624,7 +2624,7 @@ export enum LocEventRegistrationFlag {
     PEDOMETER_CONTROL,
     MOTION_DATA_CONTROL,
 }
-export enum LocNmeaType {
+enum LocNmeaType {
     GGA,
     RMC,
     GSV,
@@ -2634,7 +2634,7 @@ export enum LocNmeaType {
     PSTIS,
     ALL,
 }
-export enum LocSatelliteValidInformation {
+enum LocSatelliteValidInformation {
     SYSTEM,
     GNSS_SATELLITE_ID,
     HEALTH_STATUS,
@@ -2644,7 +2644,7 @@ export enum LocSatelliteValidInformation {
     AZIMUTH,
     SIGNAL_TO_NOISE_RATIO,
 }
-export enum LocSensorDataUsage {
+enum LocSensorDataUsage {
     ACCELEROMETER_USED,
     GYRO_USED,
     AIDED_HEADING,
@@ -2652,13 +2652,13 @@ export enum LocSensorDataUsage {
     AIDED_POSITION,
     AIDED_VELOCITY,
 }
-export enum LocServerAddressType {
+enum LocServerAddressType {
     NONE,
     IPV4,
     IPV6,
     URL,
 }
-export enum LocTechnologyUsed {
+enum LocTechnologyUsed {
     SATELLITE,
     CELLULAR,
     WIFI,
@@ -2668,7 +2668,7 @@ export enum LocTechnologyUsed {
     AFLT,
     HYBRID,
 }
-export enum NasBandPreference {
+enum NasBandPreference {
     BC_0_A_SYSTEM,
     BC_0_B_SYSTEM,
     BC_1_ALL_BLOCKS,
@@ -2710,7 +2710,7 @@ export enum NasBandPreference {
     WCDMA_850_JAPAN,
     WCDMA_1500,
 }
-export enum NasLteBandPreference {
+enum NasLteBandPreference {
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
     /* 3 (invalid, starts with a number) */
@@ -2751,17 +2751,17 @@ export enum NasLteBandPreference {
     /* 42 (invalid, starts with a number) */
     /* 43 (invalid, starts with a number) */
 }
-export enum NasNetworkNameDisplayCondition {
+enum NasNetworkNameDisplayCondition {
     REGISTERED_PLMN_IF_KNOWN_NETWORK,
     SPN_NOT_REQUIRED_IF_UNKNOWN_NETWORK,
 }
-export enum NasNetworkScanType {
+enum NasNetworkScanType {
     GSM,
     UMTS,
     LTE,
     TD_SCDMA,
 }
-export enum NasNetworkStatus {
+enum NasNetworkStatus {
     CURRENT_SERVING,
     AVAILABLE,
     HOME,
@@ -2771,7 +2771,7 @@ export enum NasNetworkStatus {
     PREFERRED,
     NOT_PREFERRED,
 }
-export enum NasPlmnAccessTechnologyIdentifier {
+enum NasPlmnAccessTechnologyIdentifier {
     UNSPECIFIED,
     GSM_COMPACT,
     GSM,
@@ -2780,7 +2780,7 @@ export enum NasPlmnAccessTechnologyIdentifier {
     UTRAN,
     ALL,
 }
-export enum NasRadioTechnologyPreference {
+enum NasRadioTechnologyPreference {
     AUTO,
     /* 3GPP2 (invalid, starts with a number) */
     /* 3GPP (invalid, starts with a number) */
@@ -2789,7 +2789,7 @@ export enum NasRadioTechnologyPreference {
     HDR,
     LTE,
 }
-export enum NasRatModePreference {
+enum NasRatModePreference {
     CDMA_1X,
     CDMA_1XEVDO,
     GSM,
@@ -2798,7 +2798,7 @@ export enum NasRatModePreference {
     TD_SCDMA,
     /* 5GNR (invalid, starts with a number) */
 }
-export enum NasSignalStrengthRequest {
+enum NasSignalStrengthRequest {
     NONE,
     RSSI,
     ECIO,
@@ -2809,7 +2809,7 @@ export enum NasSignalStrengthRequest {
     LTE_SNR,
     LTE_RSRP,
 }
-export enum NasTdScdmaBandPreference {
+enum NasTdScdmaBandPreference {
     A,
     B,
     C,
@@ -2817,7 +2817,7 @@ export enum NasTdScdmaBandPreference {
     E,
     F,
 }
-export enum PbmEventRegistrationFlag {
+enum PbmEventRegistrationFlag {
     RECORD_UPDATE,
     PHONEBOOK_READY,
     EMERGENCY_NUMBER_LIST,
@@ -2825,7 +2825,7 @@ export enum PbmEventRegistrationFlag {
     AAS_UPDATE,
     GAS_UPDATE,
 }
-export enum PbmPhonebookType {
+enum PbmPhonebookType {
     ADN,
     FDN,
     MSISDN,
@@ -2835,7 +2835,7 @@ export enum PbmPhonebookType {
     LND,
     MBN,
 }
-export enum PdsDataValid {
+enum PdsDataValid {
     TIMESTAMP_CALENDAR,
     TIMESTAMP_UTC,
     LEAP_SECONDS,
@@ -2860,37 +2860,37 @@ export enum PdsDataValid {
     VERTICAL_DOP,
     OPERATING_MODE,
 }
-export enum ServiceFlag {
+enum ServiceFlag {
     NONE,
     COMPOUND,
     RESPONSE,
     INDICATION,
 }
-export enum UimConfiguration {
+enum UimConfiguration {
     AUTOMATIC_SELECTION,
     PERSONALIZATION_STATUS,
     HALT_SUBSCRIPTION,
 }
-export enum UimEventRegistrationFlag {
+enum UimEventRegistrationFlag {
     CARD_STATUS,
     SAP_CONNECTION,
     EXTENDED_CARD_STATUS,
     PHYSICAL_SLOT_STATUS,
 }
-export enum UimSecurityAttribute {
+enum UimSecurityAttribute {
     PIN1,
     PIN2,
     UPIN,
     ADM,
 }
-export enum VoiceWcdmaAmrStatus {
+enum VoiceWcdmaAmrStatus {
     NOT_SUPPORTED,
     WCDMA_AMR_WB,
     GSM_HR_AMR,
     GSM_AMR_WB,
     GSM_AMR_NB,
 }
-export enum WdsApnTypeMask {
+enum WdsApnTypeMask {
     DEFAULT,
     IMS,
     MMS,
@@ -2898,12 +2898,12 @@ export enum WdsApnTypeMask {
     IA,
     EMERGENCY,
 }
-export enum WdsAuthentication {
+enum WdsAuthentication {
     NONE,
     PAP,
     CHAP,
 }
-export enum WdsExtendedDataBearerTechnology3gpp {
+enum WdsExtendedDataBearerTechnology3gpp {
     UNKNOWN,
     WCDMA,
     HSDPA,
@@ -2920,7 +2920,7 @@ export enum WdsExtendedDataBearerTechnology3gpp {
     LTE_FDD,
     LTE_TDD,
 }
-export enum WdsExtendedDataBearerTechnology3gpp2 {
+enum WdsExtendedDataBearerTechnology3gpp2 {
     UNKNOWN,
     RESERVED,
     CDMA1X_IS95,
@@ -2936,7 +2936,7 @@ export enum WdsExtendedDataBearerTechnology3gpp2 {
     HDR_REV_B_MMPA,
     HDR_EVDO_FMC,
 }
-export enum WdsGetCurrentSettingsRequestedSettings {
+enum WdsGetCurrentSettingsRequestedSettings {
     NONE,
     PROFILE_ID,
     PROFILE_NAME,
@@ -2957,7 +2957,7 @@ export enum WdsGetCurrentSettingsRequestedSettings {
     IMCN_FLAG,
     EXTENDED_TECHNOLOGY,
 }
-export enum WdsPacketStatisticsMaskFlag {
+enum WdsPacketStatisticsMaskFlag {
     TX_PACKETS_OK,
     RX_PACKETS_OK,
     TX_PACKETS_ERROR,
@@ -2969,7 +2969,7 @@ export enum WdsPacketStatisticsMaskFlag {
     TX_PACKETS_DROPPED,
     RX_PACKETS_DROPPED,
 }
-export enum WdsRat3gpp {
+enum WdsRat3gpp {
     NONE,
     WCDMA,
     GPRS,
@@ -2983,7 +2983,7 @@ export enum WdsRat3gpp {
     TDSCDMA,
     NULL_BEARER,
 }
-export enum WdsRat3gpp2 {
+enum WdsRat3gpp2 {
     NONE,
     CDMA1X,
     EVDO_REV0,
@@ -2993,7 +2993,7 @@ export enum WdsRat3gpp2 {
     FMC,
     NULL_BEARER,
 }
-export enum WdsSetEventReportTransferStatistics {
+enum WdsSetEventReportTransferStatistics {
     TX_PACKETS_OK,
     RX_PACKETS_OK,
     TX_PACKETS_ERROR,
@@ -3005,24 +3005,24 @@ export enum WdsSetEventReportTransferStatistics {
     TX_PACKETS_DROPPED,
     RX_PACKETS_DROPPED,
 }
-export enum WdsSoCdma1x {
+enum WdsSoCdma1x {
     NONE,
     IS95,
     IS2000,
     IS2000_REL_A,
 }
-export enum WdsSoEvdoRev0 {
+enum WdsSoEvdoRev0 {
     NONE,
     DPA,
 }
-export enum WdsSoEvdoRevA {
+enum WdsSoEvdoRevA {
     NONE,
     DPA,
     MFPA,
     EMPA,
     EMPA_EHRPD,
 }
-export enum WdsSoEvdoRevB {
+enum WdsSoEvdoRevB {
     NONE,
     DPA,
     MFPA,
@@ -3031,7 +3031,7 @@ export enum WdsSoEvdoRevB {
     MMPA,
     MMPA_EHRPD,
 }
-export enum WdsTechnologyPreference {
+enum WdsTechnologyPreference {
     /* 3GPP (invalid, starts with a number) */
     /* 3GPP2 (invalid, starts with a number) */
 }
@@ -3059,331 +3059,331 @@ export const MESSAGE_VENDOR_GENERIC: number
 export const PROXY_N_CLIENTS: string
 export const PROXY_SOCKET_PATH: string
 export const WDS_RATE_UNAVAILABLE: number
-export function coreErrorGetString(val: CoreError): string
-export function coreErrorQuark(): GLib.Quark
-export function ctlDataFormatGetString(val: CtlDataFormat): string
-export function ctlDataLinkProtocolGetString(val: CtlDataLinkProtocol): string
-export function ctlFlagBuildStringFromMask(mask: CtlFlag): string
-export function dataEndpointTypeGetString(val: DataEndpointType): string
-export function deviceAddLinkFlagsBuildStringFromMask(mask: DeviceAddLinkFlags): string
-export function deviceExpectedDataFormatGetString(val: DeviceExpectedDataFormat): string
-export function deviceOpenFlagsBuildStringFromMask(mask: DeviceOpenFlags): string
-export function deviceReleaseClientFlagsBuildStringFromMask(mask: DeviceReleaseClientFlags): string
-export function dmsActivationStateGetString(val: DmsActivationState): string
-export function dmsBandCapabilityBuildStringFromMask(mask: DmsBandCapability): string
-export function dmsBootImageDownloadModeGetString(val: DmsBootImageDownloadMode): string
-export function dmsDataServiceCapabilityGetString(val: DmsDataServiceCapability): string
-export function dmsFirmwareImageTypeGetString(val: DmsFirmwareImageType): string
-export function dmsFoxconnDeviceModeGetString(val: DmsFoxconnDeviceMode): string
-export function dmsFoxconnFirmwareVersionTypeGetString(val: DmsFoxconnFirmwareVersionType): string
-export function dmsHpDeviceModeGetString(val: DmsHpDeviceMode): string
-export function dmsLteBandCapabilityBuildStringFromMask(mask: DmsLteBandCapability): string
-export function dmsMacTypeGetString(val: DmsMacType): string
-export function dmsOfflineReasonBuildStringFromMask(mask: DmsOfflineReason): string
-export function dmsOperatingModeGetString(val: DmsOperatingMode): string
-export function dmsPowerStateBuildStringFromMask(mask: DmsPowerState): string
-export function dmsRadioInterfaceGetString(val: DmsRadioInterface): string
-export function dmsSimCapabilityGetString(val: DmsSimCapability): string
-export function dmsSwiUsbCompositionGetDescription(value: DmsSwiUsbComposition): string
-export function dmsSwiUsbCompositionGetString(val: DmsSwiUsbComposition): string
-export function dmsTimeReferenceTypeGetString(val: DmsTimeReferenceType): string
-export function dmsTimeSourceGetString(val: DmsTimeSource): string
-export function dmsUimFacilityGetString(val: DmsUimFacility): string
-export function dmsUimFacilityStateGetString(val: DmsUimFacilityState): string
-export function dmsUimPinIdGetString(val: DmsUimPinId): string
-export function dmsUimPinStatusGetString(val: DmsUimPinStatus): string
-export function dmsUimStateGetString(val: DmsUimState): string
-export function dsdApnTypeGetString(val: DsdApnType): string
-export function dsdApnTypePreferenceBuildStringFromMask(mask: DsdApnTypePreference): string
-export function endianGetString(val: Endian): string
-export function gasFirmwareListingModeGetString(val: GasFirmwareListingMode): string
-export function gasUsbCompositionEndpointTypeGetString(val: GasUsbCompositionEndpointType): string
-export function locDeleteCellDatabaseBuildStringFromMask(mask: LocDeleteCellDatabase): string
-export function locDeleteClockInfoBuildStringFromMask(mask: LocDeleteClockInfo): string
-export function locDeleteGnssDataBuildStringFromMask(mask: LocDeleteGnssData): string
-export function locDeleteSvInfoBuildStringFromMask(mask: LocDeleteSvInfo): string
-export function locEngineStateGetString(val: LocEngineState): string
-export function locEventRegistrationFlagBuildStringFromMask(mask: LocEventRegistrationFlag): string
-export function locFixRecurrenceTypeGetString(val: LocFixRecurrenceType): string
-export function locHealthStatusGetString(val: LocHealthStatus): string
-export function locIndicationStatusGetString(val: LocIndicationStatus): string
-export function locIntermediateReportStateGetString(val: LocIntermediateReportState): string
-export function locLockTypeGetString(val: LocLockType): string
-export function locNavigationDataGetString(val: LocNavigationData): string
-export function locNmeaTypeBuildStringFromMask(mask: LocNmeaType): string
-export function locOperationModeGetString(val: LocOperationMode): string
-export function locPredictedOrbitsDataFormatGetString(val: LocPredictedOrbitsDataFormat): string
-export function locReliabilityGetString(val: LocReliability): string
-export function locSatelliteStatusGetString(val: LocSatelliteStatus): string
-export function locSatelliteValidInformationBuildStringFromMask(mask: LocSatelliteValidInformation): string
-export function locSensorDataUsageBuildStringFromMask(mask: LocSensorDataUsage): string
-export function locServerAddressTypeBuildStringFromMask(mask: LocServerAddressType): string
-export function locServerTypeGetString(val: LocServerType): string
-export function locSessionStatusGetString(val: LocSessionStatus): string
-export function locSystemGetString(val: LocSystem): string
-export function locTechnologyUsedBuildStringFromMask(mask: LocTechnologyUsed): string
-export function locTimeSourceGetString(val: LocTimeSource): string
-export function messageAddRawTlv(self: Message, type: number, raw: number, length: number): boolean
-export function messageForeachRawTlv(self: Message): void
-export function messageGetClientId(self: Message): number
-export function messageGetData(self: Message): { returnType: number, length: number }
-export function messageGetLength(self: Message): number
-export function messageGetMessageId(self: Message): number
-export function messageGetPrintableFull(self: Message, context: MessageContext, linePrefix: string): string
-export function messageGetRaw(self: Message): { returnType: number, length: number }
-export function messageGetRawTlv(self: Message, type: number): { returnType: number, length: number }
-export function messageGetService(self: Message): Service
-export function messageGetTlvPrintable(self: Message, linePrefix: string, type: number, raw: number, rawLength: number): string
-export function messageGetTransactionId(self: Message): number
-export function messageIsIndication(self: Message): boolean
-export function messageIsRequest(self: Message): boolean
-export function messageIsResponse(self: Message): boolean
-export function messageNew(service: Service, clientId: number, transactionId: number, messageId: number): Message
-export function messageNewFromData(service: Service, clientId: number, qmiData: any[]): { returnType: Message, qmiData: any[] }
-export function messageNewFromRaw(raw: any[]): { returnType: Message, raw: any[] }
-export function messageRef(self: Message): Message
-export function messageResponseNew(request: Message, error: ProtocolError): Message
-export function messageSetTransactionId(self: Message, transactionId: number): void
-export function messageTlvReadFixedSizeString(self: Message, tlvOffset: number, offset: number, stringLength: number): { returnType: boolean, offset: number, out: string }
-export function messageTlvReadGdouble(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGfloatEndian(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGint16(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGint32(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGint64(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGint8(self: Message, tlvOffset: number, offset: number): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGuint16(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGuint32(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGuint64(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadGuint8(self: Message, tlvOffset: number, offset: number): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadInit(self: Message, type: number): { returnType: number, outTlvLength: number }
-export function messageTlvReadRemainingSize(self: Message, tlvOffset: number, offset: number): number
-export function messageTlvReadSizedGuint(self: Message, tlvOffset: number, offset: number, nBytes: number, endian: Endian): { returnType: boolean, offset: number, out: number }
-export function messageTlvReadString(self: Message, tlvOffset: number, offset: number, nSizePrefixBytes: number, maxSize: number): { returnType: boolean, offset: number, out: string }
-export function messageTlvWriteComplete(self: Message, tlvOffset: number): boolean
-export function messageTlvWriteGint16(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGint32(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGint64(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGint8(self: Message, in_: number): boolean
-export function messageTlvWriteGuint16(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGuint32(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGuint64(self: Message, endian: Endian, in_: number): boolean
-export function messageTlvWriteGuint8(self: Message, in_: number): boolean
-export function messageTlvWriteInit(self: Message, type: number): number
-export function messageTlvWriteReset(self: Message, tlvOffset: number): void
-export function messageTlvWriteSizedGuint(self: Message, nBytes: number, endian: Endian, in_: number): boolean
-export function messageTlvWriteString(self: Message, nSizePrefixBytes: number, in_: string, inLength: number): boolean
-export function messageUnref(self: Message): void
-export function nasActiveBandGetString(val: NasActiveBand): string
-export function nasAttachStateGetString(val: NasAttachState): string
-export function nasBandPreferenceBuildStringFromMask(mask: NasBandPreference): string
-export function nasBooleanGetString(val: NasBoolean): string
-export function nasCallBarringStatusGetString(val: NasCallBarringStatus): string
-export function nasCdmaPilotTypeGetString(val: NasCdmaPilotType): string
-export function nasCdmaPrlPreferenceGetString(val: NasCdmaPrlPreference): string
-export function nasCellBroadcastCapabilityGetString(val: NasCellBroadcastCapability): string
-export function nasChangeDurationGetString(val: NasChangeDuration): string
-export function nasDataCapabilityGetString(val: NasDataCapability): string
-export function nasDayOfWeekGetString(val: NasDayOfWeek): string
-export function nasDaylightSavingsAdjustmentGetString(val: NasDaylightSavingsAdjustment): string
-export function nasDlBandwidthGetString(val: NasDLBandwidth): string
-export function nasDrxGetString(val: NasDrx): string
-export function nasEvdoSinrLevelGetString(val: NasEvdoSinrLevel): string
-export function nasGsmWcdmaAcquisitionOrderPreferenceGetString(val: NasGsmWcdmaAcquisitionOrderPreference): string
-export function nasHdrPersonalityGetString(val: NasHdrPersonality): string
-export function nasHdrProtocolRevisionGetString(val: NasHdrProtocolRevision): string
-export function nasLteBandPreferenceBuildStringFromMask(mask: NasLteBandPreference): string
-export function nasLteCellAccessStatusGetString(val: NasLteCellAccessStatus): string
-export function nasLteRegistrationDomainGetString(val: NasLteRegistrationDomain): string
-export function nasLteVoiceDomainGetString(val: NasLteVoiceDomain): string
-export function nasNetworkDescriptionDisplayGetString(val: NasNetworkDescriptionDisplay): string
-export function nasNetworkDescriptionEncodingGetString(val: NasNetworkDescriptionEncoding): string
-export function nasNetworkNameDisplayConditionBuildStringFromMask(mask: NasNetworkNameDisplayCondition): string
-export function nasNetworkNameSourceGetString(val: NasNetworkNameSource): string
-export function nasNetworkRegisterTypeGetString(val: NasNetworkRegisterType): string
-export function nasNetworkScanResultGetString(val: NasNetworkScanResult): string
-export function nasNetworkScanTypeBuildStringFromMask(mask: NasNetworkScanType): string
-export function nasNetworkSelectionPreferenceGetString(val: NasNetworkSelectionPreference): string
-export function nasNetworkSelectionRegistrationRestrictionGetString(val: NasNetworkSelectionRegistrationRestriction): string
-export function nasNetworkServiceDomainGetString(val: NasNetworkServiceDomain): string
-export function nasNetworkStatusBuildStringFromMask(mask: NasNetworkStatus): string
-export function nasNetworkTypeGetString(val: NasNetworkType): string
-export function nasPlmnAccessTechnologyIdentifierBuildStringFromMask(mask: NasPlmnAccessTechnologyIdentifier): string
-export function nasPlmnEncodingSchemeGetString(val: NasPlmnEncodingScheme): string
-export function nasPlmnLanguageIdGetString(val: NasPlmnLanguageId): string
-export function nasPlmnNameCountryInitialsGetString(val: NasPlmnNameCountryInitials): string
-export function nasPlmnNameSpareBitsGetString(val: NasPlmnNameSpareBits): string
-export function nasPreferenceDurationGetString(val: NasPreferenceDuration): string
-export function nasPsAttachActionGetString(val: NasPsAttachAction): string
-export function nasRadioInterfaceGetString(val: NasRadioInterface): string
-export function nasRadioTechnologyPreferenceBuildStringFromMask(mask: NasRadioTechnologyPreference): string
-export function nasRatModePreferenceBuildStringFromMask(mask: NasRatModePreference): string
-export function nasReadStringFromNetworkDescriptionEncodedArray(encoding: NasNetworkDescriptionEncoding, array: any[]): string
-export function nasReadStringFromPlmnEncodedArray(encoding: NasPlmnEncodingScheme, array: any[]): string
-export function nasRegistrationStateGetString(val: NasRegistrationState): string
-export function nasRejectCauseGetString(val: NasRejectCause): string
-export function nasRoamingIndicatorStatusGetString(val: NasRoamingIndicatorStatus): string
-export function nasRoamingPreferenceGetString(val: NasRoamingPreference): string
-export function nasRoamingStatusGetString(val: NasRoamingStatus): string
-export function nasScellStateGetString(val: NasScellState): string
-export function nasServiceDomainPreferenceGetString(val: NasServiceDomainPreference): string
-export function nasServiceStatusGetString(val: NasServiceStatus): string
-export function nasSignalStrengthRequestBuildStringFromMask(mask: NasSignalStrengthRequest): string
-export function nasSimRejectStateGetString(val: NasSimRejectState): string
-export function nasSwiEmmConnectionStateGetString(val: NasSwiEmmConnectionState): string
-export function nasSwiEmmStateGetString(val: NasSwiEmmState): string
-export function nasSwiImsRegStateGetString(val: NasSwiImsRegState): string
-export function nasSwiModemModeGetString(val: NasSwiModemMode): string
-export function nasSwiPsStateGetString(val: NasSwiPsState): string
-export function nasSwiSystemModeGetString(val: NasSwiSystemMode): string
-export function nasTdScdmaBandPreferenceBuildStringFromMask(mask: NasTdScdmaBandPreference): string
-export function nasUsagePreferenceGetString(val: NasUsagePreference): string
-export function nasVoiceDomainPreferenceGetString(val: NasVoiceDomainPreference): string
-export function nasWcdmaHsServiceGetString(val: NasWcdmaHsService): string
-export function nasWcdmaRrcStateGetString(val: NasWcdmaRrcState): string
-export function omaHfaFeatureDoneStateGetString(val: OmaHfaFeatureDoneState): string
-export function omaSessionFailedReasonGetString(val: OmaSessionFailedReason): string
-export function omaSessionStateGetString(val: OmaSessionState): string
-export function omaSessionTypeGetString(val: OmaSessionType): string
-export function pbmEventRegistrationFlagBuildStringFromMask(mask: PbmEventRegistrationFlag): string
-export function pbmPhonebookTypeBuildStringFromMask(mask: PbmPhonebookType): string
-export function pbmSessionTypeGetString(val: PbmSessionType): string
-export function pdcConfigurationTypeGetString(val: PdcConfigurationType): string
-export function pdcRefreshEventTypeGetString(val: PdcRefreshEventType): string
-export function pdsDataValidBuildStringFromMask(mask: PdsDataValid): string
-export function pdsNetworkModeGetString(val: PdsNetworkMode): string
-export function pdsOperatingModeGetString(val: PdsOperatingMode): string
-export function pdsOperationModeGetString(val: PdsOperationMode): string
-export function pdsPositionSessionStatusGetString(val: PdsPositionSessionStatus): string
-export function pdsTrackingSessionStateGetString(val: PdsTrackingSessionState): string
-export function protocolErrorGetString(val: ProtocolError): string
-export function protocolErrorQuark(): GLib.Quark
-export function qosEventGetString(val: QosEvent): string
-export function qosStatusGetString(val: QosStatus): string
-export function sarRfStateGetString(val: SarRfState): string
-export function serviceFlagBuildStringFromMask(mask: ServiceFlag): string
-export function serviceGetString(val: Service): string
-export function sioPortGetString(val: SioPort): string
-export function uimCardApplicationPersonalizationFeatureGetString(val: UimCardApplicationPersonalizationFeature): string
-export function uimCardApplicationPersonalizationStateGetString(val: UimCardApplicationPersonalizationState): string
-export function uimCardApplicationStateGetString(val: UimCardApplicationState): string
-export function uimCardApplicationTypeGetString(val: UimCardApplicationType): string
-export function uimCardErrorGetString(val: UimCardError): string
-export function uimCardProtocolGetString(val: UimCardProtocol): string
-export function uimCardStateGetString(val: UimCardState): string
-export function uimConfigurationBuildStringFromMask(mask: UimConfiguration): string
-export function uimDepersonalizationOperationGetString(val: UimDepersonalizationOperation): string
-export function uimEventRegistrationFlagBuildStringFromMask(mask: UimEventRegistrationFlag): string
-export function uimFileTypeGetString(val: UimFileType): string
-export function uimPhysicalCardStateGetString(val: UimPhysicalCardState): string
-export function uimPinIdGetString(val: UimPinId): string
-export function uimPinStateGetString(val: UimPinState): string
-export function uimRefreshModeGetString(val: UimRefreshMode): string
-export function uimRefreshStageGetString(val: UimRefreshStage): string
-export function uimSecurityAttributeBuildStringFromMask(mask: UimSecurityAttribute): string
-export function uimSecurityAttributeLogicGetString(val: UimSecurityAttributeLogic): string
-export function uimSessionTypeGetString(val: UimSessionType): string
-export function uimSlotStateGetString(val: UimSlotState): string
-export function utilsGetTracesEnabled(): boolean
-export function utilsSetTracesEnabled(enabled: boolean): void
-export function voiceAlphaDataCodingSchemeGetString(val: VoiceAlphaDataCodingScheme): string
-export function voiceAlsGetString(val: VoiceAls): string
-export function voiceCallControlResultTypeGetString(val: VoiceCallControlResultType): string
-export function voiceCallControlSupplementaryServiceTypeGetString(val: VoiceCallControlSupplementaryServiceType): string
-export function voiceCallDirectionGetString(val: VoiceCallDirection): string
-export function voiceCallEndReasonGetString(val: VoiceCallEndReason): string
-export function voiceCallModeGetString(val: VoiceCallMode): string
-export function voiceCallStateGetString(val: VoiceCallState): string
-export function voiceCallTypeGetString(val: VoiceCallType): string
-export function voiceDomainGetString(val: VoiceDomain): string
-export function voicePresentationGetString(val: VoicePresentation): string
-export function voicePrivacyGetString(val: VoicePrivacy): string
-export function voiceServiceOptionGetString(val: VoiceServiceOption): string
-export function voiceSupplementaryServiceActionGetString(val: VoiceSupplementaryServiceAction): string
-export function voiceSupplementaryServiceNotificationTypeGetString(val: VoiceSupplementaryServiceNotificationType): string
-export function voiceSupplementaryServiceReasonGetString(val: VoiceSupplementaryServiceReason): string
-export function voiceSupplementaryServiceTypeGetString(val: VoiceSupplementaryServiceType): string
-export function voiceTtyModeGetString(val: VoiceTtyMode): string
-export function voiceUserActionGetString(val: VoiceUserAction): string
-export function voiceUssDataCodingSchemeGetString(val: VoiceUssDataCodingScheme): string
-export function voiceWcdmaAmrStatusBuildStringFromMask(mask: VoiceWcdmaAmrStatus): string
-export function wdaDataAggregationProtocolGetString(val: WdaDataAggregationProtocol): string
-export function wdaLinkLayerProtocolGetString(val: WdaLinkLayerProtocol): string
-export function wdsApnTypeMaskBuildStringFromMask(mask: WdsApnTypeMask): string
-export function wdsAttachPdnListActionGetString(val: WdsAttachPdnListAction): string
-export function wdsAuthenticationBuildStringFromMask(mask: WdsAuthentication): string
-export function wdsAutoconnectSettingGetString(val: WdsAutoconnectSetting): string
-export function wdsAutoconnectSettingRoamingGetString(val: WdsAutoconnectSettingRoaming): string
-export function wdsCallEndReasonGetString(val: WdsCallEndReason): string
-export function wdsCallTypeGetString(val: WdsCallType): string
-export function wdsClientTypeGetString(val: WdsClientType): string
-export function wdsConnectionStatusGetString(val: WdsConnectionStatus): string
-export function wdsDataBearerTechnologyGetString(val: WdsDataBearerTechnology): string
-export function wdsDataCallStatusGetString(val: WdsDataCallStatus): string
-export function wdsDataCallTypeGetString(val: WdsDataCallType): string
-export function wdsDataSystemGetString(val: WdsDataSystem): string
-export function wdsDataSystemNetworkTypeGetString(val: WdsDataSystemNetworkType): string
-export function wdsDeliveryOrderGetString(val: WdsDeliveryOrder): string
-export function wdsDormancyStatusGetString(val: WdsDormancyStatus): string
-export function wdsDsProfileErrorGetString(val: WdsDsProfileError): string
-export function wdsExtendedDataBearerTechnology3gpp2BuildStringFromMask(mask: WdsExtendedDataBearerTechnology3gpp2): string
-export function wdsExtendedDataBearerTechnology3gppBuildStringFromMask(mask: WdsExtendedDataBearerTechnology3gpp): string
-export function wdsExtendedTechnologyPreferenceGetString(val: WdsExtendedTechnologyPreference): string
-export function wdsGetCurrentSettingsRequestedSettingsBuildStringFromMask(mask: WdsGetCurrentSettingsRequestedSettings): string
-export function wdsIpFamilyGetString(val: WdsIpFamily): string
-export function wdsIpSupportTypeGetString(val: WdsIpSupportType): string
-export function wdsNetworkTypeGetString(val: WdsNetworkType): string
-export function wdsPacketStatisticsMaskFlagBuildStringFromMask(mask: WdsPacketStatisticsMaskFlag): string
-export function wdsPdpDataCompressionTypeGetString(val: WdsPdpDataCompressionType): string
-export function wdsPdpHeaderCompressionTypeGetString(val: WdsPdpHeaderCompressionType): string
-export function wdsPdpTypeGetString(val: WdsPdpType): string
-export function wdsProfileFamilyGetString(val: WdsProfileFamily): string
-export function wdsProfileTypeGetString(val: WdsProfileType): string
-export function wdsQosClassIdentifierGetString(val: WdsQosClassIdentifier): string
-export function wdsRadioAccessTechnologyGetString(val: WdsRadioAccessTechnology): string
-export function wdsRat3gpp2BuildStringFromMask(mask: WdsRat3gpp2): string
-export function wdsRat3gppBuildStringFromMask(mask: WdsRat3gpp): string
-export function wdsSduErroneousDeliveryGetString(val: WdsSduErroneousDelivery): string
-export function wdsSduErrorRatioGetString(val: WdsSduErrorRatio): string
-export function wdsSduResidualBitErrorRatioGetString(val: WdsSduResidualBitErrorRatio): string
-export function wdsSetEventReportTransferStatisticsBuildStringFromMask(mask: WdsSetEventReportTransferStatistics): string
-export function wdsSoCdma1xBuildStringFromMask(mask: WdsSoCdma1x): string
-export function wdsSoEvdoRev0BuildStringFromMask(mask: WdsSoEvdoRev0): string
-export function wdsSoEvdoRevaBuildStringFromMask(mask: WdsSoEvdoRevA): string
-export function wdsSoEvdoRevbBuildStringFromMask(mask: WdsSoEvdoRevB): string
-export function wdsTechnologyPreferenceBuildStringFromMask(mask: WdsTechnologyPreference): string
-export function wdsTetheredCallTypeGetString(val: WdsTetheredCallType): string
-export function wdsTrafficClassGetString(val: WdsTrafficClass): string
-export function wdsVerboseCallEndReason3gppGetString(val: WdsVerboseCallEndReason3gpp): string
-export function wdsVerboseCallEndReasonCmGetString(val: WdsVerboseCallEndReasonCm): string
-export function wdsVerboseCallEndReasonEhrpdGetString(val: WdsVerboseCallEndReasonEhrpd): string
-export function wdsVerboseCallEndReasonGetString(type: WdsVerboseCallEndReasonType, reason: number): string
-export function wdsVerboseCallEndReasonInternalGetString(val: WdsVerboseCallEndReasonInternal): string
-export function wdsVerboseCallEndReasonIpv6GetString(val: WdsVerboseCallEndReasonIpv6): string
-export function wdsVerboseCallEndReasonMipGetString(val: WdsVerboseCallEndReasonMip): string
-export function wdsVerboseCallEndReasonPppGetString(val: WdsVerboseCallEndReasonPpp): string
-export function wdsVerboseCallEndReasonTypeGetString(val: WdsVerboseCallEndReasonType): string
-export function wmsAckFailureCauseGetString(val: WmsAckFailureCause): string
-export function wmsAckIndicatorGetString(val: WmsAckIndicator): string
-export function wmsCdmaCauseCodeGetString(val: WmsCdmaCauseCode): string
-export function wmsCdmaErrorClassGetString(val: WmsCdmaErrorClass): string
-export function wmsCdmaServiceOptionGetString(val: WmsCdmaServiceOption): string
-export function wmsGsmUmtsRpCauseGetString(val: WmsGsmUmtsRpCause): string
-export function wmsGsmUmtsTpCauseGetString(val: WmsGsmUmtsTpCause): string
-export function wmsMessageClassGetString(val: WmsMessageClass): string
-export function wmsMessageDeliveryFailureTypeGetString(val: WmsMessageDeliveryFailureType): string
-export function wmsMessageFormatGetString(val: WmsMessageFormat): string
-export function wmsMessageModeGetString(val: WmsMessageMode): string
-export function wmsMessageProtocolGetString(val: WmsMessageProtocol): string
-export function wmsMessageTagTypeGetString(val: WmsMessageTagType): string
-export function wmsMessageTypeGetString(val: WmsMessageType): string
-export function wmsNotificationTypeGetString(val: WmsNotificationType): string
-export function wmsReceiptActionGetString(val: WmsReceiptAction): string
-export function wmsStorageTypeGetString(val: WmsStorageType): string
-export function wmsTransferIndicationGetString(val: WmsTransferIndication): string
-export interface DeviceCommandAbortableParseResponseFn {
+function coreErrorGetString(val: CoreError): string
+function coreErrorQuark(): GLib.Quark
+function ctlDataFormatGetString(val: CtlDataFormat): string
+function ctlDataLinkProtocolGetString(val: CtlDataLinkProtocol): string
+function ctlFlagBuildStringFromMask(mask: CtlFlag): string
+function dataEndpointTypeGetString(val: DataEndpointType): string
+function deviceAddLinkFlagsBuildStringFromMask(mask: DeviceAddLinkFlags): string
+function deviceExpectedDataFormatGetString(val: DeviceExpectedDataFormat): string
+function deviceOpenFlagsBuildStringFromMask(mask: DeviceOpenFlags): string
+function deviceReleaseClientFlagsBuildStringFromMask(mask: DeviceReleaseClientFlags): string
+function dmsActivationStateGetString(val: DmsActivationState): string
+function dmsBandCapabilityBuildStringFromMask(mask: DmsBandCapability): string
+function dmsBootImageDownloadModeGetString(val: DmsBootImageDownloadMode): string
+function dmsDataServiceCapabilityGetString(val: DmsDataServiceCapability): string
+function dmsFirmwareImageTypeGetString(val: DmsFirmwareImageType): string
+function dmsFoxconnDeviceModeGetString(val: DmsFoxconnDeviceMode): string
+function dmsFoxconnFirmwareVersionTypeGetString(val: DmsFoxconnFirmwareVersionType): string
+function dmsHpDeviceModeGetString(val: DmsHpDeviceMode): string
+function dmsLteBandCapabilityBuildStringFromMask(mask: DmsLteBandCapability): string
+function dmsMacTypeGetString(val: DmsMacType): string
+function dmsOfflineReasonBuildStringFromMask(mask: DmsOfflineReason): string
+function dmsOperatingModeGetString(val: DmsOperatingMode): string
+function dmsPowerStateBuildStringFromMask(mask: DmsPowerState): string
+function dmsRadioInterfaceGetString(val: DmsRadioInterface): string
+function dmsSimCapabilityGetString(val: DmsSimCapability): string
+function dmsSwiUsbCompositionGetDescription(value: DmsSwiUsbComposition): string
+function dmsSwiUsbCompositionGetString(val: DmsSwiUsbComposition): string
+function dmsTimeReferenceTypeGetString(val: DmsTimeReferenceType): string
+function dmsTimeSourceGetString(val: DmsTimeSource): string
+function dmsUimFacilityGetString(val: DmsUimFacility): string
+function dmsUimFacilityStateGetString(val: DmsUimFacilityState): string
+function dmsUimPinIdGetString(val: DmsUimPinId): string
+function dmsUimPinStatusGetString(val: DmsUimPinStatus): string
+function dmsUimStateGetString(val: DmsUimState): string
+function dsdApnTypeGetString(val: DsdApnType): string
+function dsdApnTypePreferenceBuildStringFromMask(mask: DsdApnTypePreference): string
+function endianGetString(val: Endian): string
+function gasFirmwareListingModeGetString(val: GasFirmwareListingMode): string
+function gasUsbCompositionEndpointTypeGetString(val: GasUsbCompositionEndpointType): string
+function locDeleteCellDatabaseBuildStringFromMask(mask: LocDeleteCellDatabase): string
+function locDeleteClockInfoBuildStringFromMask(mask: LocDeleteClockInfo): string
+function locDeleteGnssDataBuildStringFromMask(mask: LocDeleteGnssData): string
+function locDeleteSvInfoBuildStringFromMask(mask: LocDeleteSvInfo): string
+function locEngineStateGetString(val: LocEngineState): string
+function locEventRegistrationFlagBuildStringFromMask(mask: LocEventRegistrationFlag): string
+function locFixRecurrenceTypeGetString(val: LocFixRecurrenceType): string
+function locHealthStatusGetString(val: LocHealthStatus): string
+function locIndicationStatusGetString(val: LocIndicationStatus): string
+function locIntermediateReportStateGetString(val: LocIntermediateReportState): string
+function locLockTypeGetString(val: LocLockType): string
+function locNavigationDataGetString(val: LocNavigationData): string
+function locNmeaTypeBuildStringFromMask(mask: LocNmeaType): string
+function locOperationModeGetString(val: LocOperationMode): string
+function locPredictedOrbitsDataFormatGetString(val: LocPredictedOrbitsDataFormat): string
+function locReliabilityGetString(val: LocReliability): string
+function locSatelliteStatusGetString(val: LocSatelliteStatus): string
+function locSatelliteValidInformationBuildStringFromMask(mask: LocSatelliteValidInformation): string
+function locSensorDataUsageBuildStringFromMask(mask: LocSensorDataUsage): string
+function locServerAddressTypeBuildStringFromMask(mask: LocServerAddressType): string
+function locServerTypeGetString(val: LocServerType): string
+function locSessionStatusGetString(val: LocSessionStatus): string
+function locSystemGetString(val: LocSystem): string
+function locTechnologyUsedBuildStringFromMask(mask: LocTechnologyUsed): string
+function locTimeSourceGetString(val: LocTimeSource): string
+function messageAddRawTlv(self: Message, type: number, raw: number, length: number): boolean
+function messageForeachRawTlv(self: Message): void
+function messageGetClientId(self: Message): number
+function messageGetData(self: Message): { returnType: number, length: number }
+function messageGetLength(self: Message): number
+function messageGetMessageId(self: Message): number
+function messageGetPrintableFull(self: Message, context: MessageContext, linePrefix: string): string
+function messageGetRaw(self: Message): { returnType: number, length: number }
+function messageGetRawTlv(self: Message, type: number): { returnType: number, length: number }
+function messageGetService(self: Message): Service
+function messageGetTlvPrintable(self: Message, linePrefix: string, type: number, raw: number, rawLength: number): string
+function messageGetTransactionId(self: Message): number
+function messageIsIndication(self: Message): boolean
+function messageIsRequest(self: Message): boolean
+function messageIsResponse(self: Message): boolean
+function messageNew(service: Service, clientId: number, transactionId: number, messageId: number): Message
+function messageNewFromData(service: Service, clientId: number, qmiData: any[]): { returnType: Message, qmiData: any[] }
+function messageNewFromRaw(raw: any[]): { returnType: Message, raw: any[] }
+function messageRef(self: Message): Message
+function messageResponseNew(request: Message, error: ProtocolError): Message
+function messageSetTransactionId(self: Message, transactionId: number): void
+function messageTlvReadFixedSizeString(self: Message, tlvOffset: number, offset: number, stringLength: number): { returnType: boolean, offset: number, out: string }
+function messageTlvReadGdouble(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGfloatEndian(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGint16(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGint32(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGint64(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGint8(self: Message, tlvOffset: number, offset: number): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGuint16(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGuint32(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGuint64(self: Message, tlvOffset: number, offset: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadGuint8(self: Message, tlvOffset: number, offset: number): { returnType: boolean, offset: number, out: number }
+function messageTlvReadInit(self: Message, type: number): { returnType: number, outTlvLength: number }
+function messageTlvReadRemainingSize(self: Message, tlvOffset: number, offset: number): number
+function messageTlvReadSizedGuint(self: Message, tlvOffset: number, offset: number, nBytes: number, endian: Endian): { returnType: boolean, offset: number, out: number }
+function messageTlvReadString(self: Message, tlvOffset: number, offset: number, nSizePrefixBytes: number, maxSize: number): { returnType: boolean, offset: number, out: string }
+function messageTlvWriteComplete(self: Message, tlvOffset: number): boolean
+function messageTlvWriteGint16(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGint32(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGint64(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGint8(self: Message, in_: number): boolean
+function messageTlvWriteGuint16(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGuint32(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGuint64(self: Message, endian: Endian, in_: number): boolean
+function messageTlvWriteGuint8(self: Message, in_: number): boolean
+function messageTlvWriteInit(self: Message, type: number): number
+function messageTlvWriteReset(self: Message, tlvOffset: number): void
+function messageTlvWriteSizedGuint(self: Message, nBytes: number, endian: Endian, in_: number): boolean
+function messageTlvWriteString(self: Message, nSizePrefixBytes: number, in_: string, inLength: number): boolean
+function messageUnref(self: Message): void
+function nasActiveBandGetString(val: NasActiveBand): string
+function nasAttachStateGetString(val: NasAttachState): string
+function nasBandPreferenceBuildStringFromMask(mask: NasBandPreference): string
+function nasBooleanGetString(val: NasBoolean): string
+function nasCallBarringStatusGetString(val: NasCallBarringStatus): string
+function nasCdmaPilotTypeGetString(val: NasCdmaPilotType): string
+function nasCdmaPrlPreferenceGetString(val: NasCdmaPrlPreference): string
+function nasCellBroadcastCapabilityGetString(val: NasCellBroadcastCapability): string
+function nasChangeDurationGetString(val: NasChangeDuration): string
+function nasDataCapabilityGetString(val: NasDataCapability): string
+function nasDayOfWeekGetString(val: NasDayOfWeek): string
+function nasDaylightSavingsAdjustmentGetString(val: NasDaylightSavingsAdjustment): string
+function nasDlBandwidthGetString(val: NasDLBandwidth): string
+function nasDrxGetString(val: NasDrx): string
+function nasEvdoSinrLevelGetString(val: NasEvdoSinrLevel): string
+function nasGsmWcdmaAcquisitionOrderPreferenceGetString(val: NasGsmWcdmaAcquisitionOrderPreference): string
+function nasHdrPersonalityGetString(val: NasHdrPersonality): string
+function nasHdrProtocolRevisionGetString(val: NasHdrProtocolRevision): string
+function nasLteBandPreferenceBuildStringFromMask(mask: NasLteBandPreference): string
+function nasLteCellAccessStatusGetString(val: NasLteCellAccessStatus): string
+function nasLteRegistrationDomainGetString(val: NasLteRegistrationDomain): string
+function nasLteVoiceDomainGetString(val: NasLteVoiceDomain): string
+function nasNetworkDescriptionDisplayGetString(val: NasNetworkDescriptionDisplay): string
+function nasNetworkDescriptionEncodingGetString(val: NasNetworkDescriptionEncoding): string
+function nasNetworkNameDisplayConditionBuildStringFromMask(mask: NasNetworkNameDisplayCondition): string
+function nasNetworkNameSourceGetString(val: NasNetworkNameSource): string
+function nasNetworkRegisterTypeGetString(val: NasNetworkRegisterType): string
+function nasNetworkScanResultGetString(val: NasNetworkScanResult): string
+function nasNetworkScanTypeBuildStringFromMask(mask: NasNetworkScanType): string
+function nasNetworkSelectionPreferenceGetString(val: NasNetworkSelectionPreference): string
+function nasNetworkSelectionRegistrationRestrictionGetString(val: NasNetworkSelectionRegistrationRestriction): string
+function nasNetworkServiceDomainGetString(val: NasNetworkServiceDomain): string
+function nasNetworkStatusBuildStringFromMask(mask: NasNetworkStatus): string
+function nasNetworkTypeGetString(val: NasNetworkType): string
+function nasPlmnAccessTechnologyIdentifierBuildStringFromMask(mask: NasPlmnAccessTechnologyIdentifier): string
+function nasPlmnEncodingSchemeGetString(val: NasPlmnEncodingScheme): string
+function nasPlmnLanguageIdGetString(val: NasPlmnLanguageId): string
+function nasPlmnNameCountryInitialsGetString(val: NasPlmnNameCountryInitials): string
+function nasPlmnNameSpareBitsGetString(val: NasPlmnNameSpareBits): string
+function nasPreferenceDurationGetString(val: NasPreferenceDuration): string
+function nasPsAttachActionGetString(val: NasPsAttachAction): string
+function nasRadioInterfaceGetString(val: NasRadioInterface): string
+function nasRadioTechnologyPreferenceBuildStringFromMask(mask: NasRadioTechnologyPreference): string
+function nasRatModePreferenceBuildStringFromMask(mask: NasRatModePreference): string
+function nasReadStringFromNetworkDescriptionEncodedArray(encoding: NasNetworkDescriptionEncoding, array: any[]): string
+function nasReadStringFromPlmnEncodedArray(encoding: NasPlmnEncodingScheme, array: any[]): string
+function nasRegistrationStateGetString(val: NasRegistrationState): string
+function nasRejectCauseGetString(val: NasRejectCause): string
+function nasRoamingIndicatorStatusGetString(val: NasRoamingIndicatorStatus): string
+function nasRoamingPreferenceGetString(val: NasRoamingPreference): string
+function nasRoamingStatusGetString(val: NasRoamingStatus): string
+function nasScellStateGetString(val: NasScellState): string
+function nasServiceDomainPreferenceGetString(val: NasServiceDomainPreference): string
+function nasServiceStatusGetString(val: NasServiceStatus): string
+function nasSignalStrengthRequestBuildStringFromMask(mask: NasSignalStrengthRequest): string
+function nasSimRejectStateGetString(val: NasSimRejectState): string
+function nasSwiEmmConnectionStateGetString(val: NasSwiEmmConnectionState): string
+function nasSwiEmmStateGetString(val: NasSwiEmmState): string
+function nasSwiImsRegStateGetString(val: NasSwiImsRegState): string
+function nasSwiModemModeGetString(val: NasSwiModemMode): string
+function nasSwiPsStateGetString(val: NasSwiPsState): string
+function nasSwiSystemModeGetString(val: NasSwiSystemMode): string
+function nasTdScdmaBandPreferenceBuildStringFromMask(mask: NasTdScdmaBandPreference): string
+function nasUsagePreferenceGetString(val: NasUsagePreference): string
+function nasVoiceDomainPreferenceGetString(val: NasVoiceDomainPreference): string
+function nasWcdmaHsServiceGetString(val: NasWcdmaHsService): string
+function nasWcdmaRrcStateGetString(val: NasWcdmaRrcState): string
+function omaHfaFeatureDoneStateGetString(val: OmaHfaFeatureDoneState): string
+function omaSessionFailedReasonGetString(val: OmaSessionFailedReason): string
+function omaSessionStateGetString(val: OmaSessionState): string
+function omaSessionTypeGetString(val: OmaSessionType): string
+function pbmEventRegistrationFlagBuildStringFromMask(mask: PbmEventRegistrationFlag): string
+function pbmPhonebookTypeBuildStringFromMask(mask: PbmPhonebookType): string
+function pbmSessionTypeGetString(val: PbmSessionType): string
+function pdcConfigurationTypeGetString(val: PdcConfigurationType): string
+function pdcRefreshEventTypeGetString(val: PdcRefreshEventType): string
+function pdsDataValidBuildStringFromMask(mask: PdsDataValid): string
+function pdsNetworkModeGetString(val: PdsNetworkMode): string
+function pdsOperatingModeGetString(val: PdsOperatingMode): string
+function pdsOperationModeGetString(val: PdsOperationMode): string
+function pdsPositionSessionStatusGetString(val: PdsPositionSessionStatus): string
+function pdsTrackingSessionStateGetString(val: PdsTrackingSessionState): string
+function protocolErrorGetString(val: ProtocolError): string
+function protocolErrorQuark(): GLib.Quark
+function qosEventGetString(val: QosEvent): string
+function qosStatusGetString(val: QosStatus): string
+function sarRfStateGetString(val: SarRfState): string
+function serviceFlagBuildStringFromMask(mask: ServiceFlag): string
+function serviceGetString(val: Service): string
+function sioPortGetString(val: SioPort): string
+function uimCardApplicationPersonalizationFeatureGetString(val: UimCardApplicationPersonalizationFeature): string
+function uimCardApplicationPersonalizationStateGetString(val: UimCardApplicationPersonalizationState): string
+function uimCardApplicationStateGetString(val: UimCardApplicationState): string
+function uimCardApplicationTypeGetString(val: UimCardApplicationType): string
+function uimCardErrorGetString(val: UimCardError): string
+function uimCardProtocolGetString(val: UimCardProtocol): string
+function uimCardStateGetString(val: UimCardState): string
+function uimConfigurationBuildStringFromMask(mask: UimConfiguration): string
+function uimDepersonalizationOperationGetString(val: UimDepersonalizationOperation): string
+function uimEventRegistrationFlagBuildStringFromMask(mask: UimEventRegistrationFlag): string
+function uimFileTypeGetString(val: UimFileType): string
+function uimPhysicalCardStateGetString(val: UimPhysicalCardState): string
+function uimPinIdGetString(val: UimPinId): string
+function uimPinStateGetString(val: UimPinState): string
+function uimRefreshModeGetString(val: UimRefreshMode): string
+function uimRefreshStageGetString(val: UimRefreshStage): string
+function uimSecurityAttributeBuildStringFromMask(mask: UimSecurityAttribute): string
+function uimSecurityAttributeLogicGetString(val: UimSecurityAttributeLogic): string
+function uimSessionTypeGetString(val: UimSessionType): string
+function uimSlotStateGetString(val: UimSlotState): string
+function utilsGetTracesEnabled(): boolean
+function utilsSetTracesEnabled(enabled: boolean): void
+function voiceAlphaDataCodingSchemeGetString(val: VoiceAlphaDataCodingScheme): string
+function voiceAlsGetString(val: VoiceAls): string
+function voiceCallControlResultTypeGetString(val: VoiceCallControlResultType): string
+function voiceCallControlSupplementaryServiceTypeGetString(val: VoiceCallControlSupplementaryServiceType): string
+function voiceCallDirectionGetString(val: VoiceCallDirection): string
+function voiceCallEndReasonGetString(val: VoiceCallEndReason): string
+function voiceCallModeGetString(val: VoiceCallMode): string
+function voiceCallStateGetString(val: VoiceCallState): string
+function voiceCallTypeGetString(val: VoiceCallType): string
+function voiceDomainGetString(val: VoiceDomain): string
+function voicePresentationGetString(val: VoicePresentation): string
+function voicePrivacyGetString(val: VoicePrivacy): string
+function voiceServiceOptionGetString(val: VoiceServiceOption): string
+function voiceSupplementaryServiceActionGetString(val: VoiceSupplementaryServiceAction): string
+function voiceSupplementaryServiceNotificationTypeGetString(val: VoiceSupplementaryServiceNotificationType): string
+function voiceSupplementaryServiceReasonGetString(val: VoiceSupplementaryServiceReason): string
+function voiceSupplementaryServiceTypeGetString(val: VoiceSupplementaryServiceType): string
+function voiceTtyModeGetString(val: VoiceTtyMode): string
+function voiceUserActionGetString(val: VoiceUserAction): string
+function voiceUssDataCodingSchemeGetString(val: VoiceUssDataCodingScheme): string
+function voiceWcdmaAmrStatusBuildStringFromMask(mask: VoiceWcdmaAmrStatus): string
+function wdaDataAggregationProtocolGetString(val: WdaDataAggregationProtocol): string
+function wdaLinkLayerProtocolGetString(val: WdaLinkLayerProtocol): string
+function wdsApnTypeMaskBuildStringFromMask(mask: WdsApnTypeMask): string
+function wdsAttachPdnListActionGetString(val: WdsAttachPdnListAction): string
+function wdsAuthenticationBuildStringFromMask(mask: WdsAuthentication): string
+function wdsAutoconnectSettingGetString(val: WdsAutoconnectSetting): string
+function wdsAutoconnectSettingRoamingGetString(val: WdsAutoconnectSettingRoaming): string
+function wdsCallEndReasonGetString(val: WdsCallEndReason): string
+function wdsCallTypeGetString(val: WdsCallType): string
+function wdsClientTypeGetString(val: WdsClientType): string
+function wdsConnectionStatusGetString(val: WdsConnectionStatus): string
+function wdsDataBearerTechnologyGetString(val: WdsDataBearerTechnology): string
+function wdsDataCallStatusGetString(val: WdsDataCallStatus): string
+function wdsDataCallTypeGetString(val: WdsDataCallType): string
+function wdsDataSystemGetString(val: WdsDataSystem): string
+function wdsDataSystemNetworkTypeGetString(val: WdsDataSystemNetworkType): string
+function wdsDeliveryOrderGetString(val: WdsDeliveryOrder): string
+function wdsDormancyStatusGetString(val: WdsDormancyStatus): string
+function wdsDsProfileErrorGetString(val: WdsDsProfileError): string
+function wdsExtendedDataBearerTechnology3gpp2BuildStringFromMask(mask: WdsExtendedDataBearerTechnology3gpp2): string
+function wdsExtendedDataBearerTechnology3gppBuildStringFromMask(mask: WdsExtendedDataBearerTechnology3gpp): string
+function wdsExtendedTechnologyPreferenceGetString(val: WdsExtendedTechnologyPreference): string
+function wdsGetCurrentSettingsRequestedSettingsBuildStringFromMask(mask: WdsGetCurrentSettingsRequestedSettings): string
+function wdsIpFamilyGetString(val: WdsIpFamily): string
+function wdsIpSupportTypeGetString(val: WdsIpSupportType): string
+function wdsNetworkTypeGetString(val: WdsNetworkType): string
+function wdsPacketStatisticsMaskFlagBuildStringFromMask(mask: WdsPacketStatisticsMaskFlag): string
+function wdsPdpDataCompressionTypeGetString(val: WdsPdpDataCompressionType): string
+function wdsPdpHeaderCompressionTypeGetString(val: WdsPdpHeaderCompressionType): string
+function wdsPdpTypeGetString(val: WdsPdpType): string
+function wdsProfileFamilyGetString(val: WdsProfileFamily): string
+function wdsProfileTypeGetString(val: WdsProfileType): string
+function wdsQosClassIdentifierGetString(val: WdsQosClassIdentifier): string
+function wdsRadioAccessTechnologyGetString(val: WdsRadioAccessTechnology): string
+function wdsRat3gpp2BuildStringFromMask(mask: WdsRat3gpp2): string
+function wdsRat3gppBuildStringFromMask(mask: WdsRat3gpp): string
+function wdsSduErroneousDeliveryGetString(val: WdsSduErroneousDelivery): string
+function wdsSduErrorRatioGetString(val: WdsSduErrorRatio): string
+function wdsSduResidualBitErrorRatioGetString(val: WdsSduResidualBitErrorRatio): string
+function wdsSetEventReportTransferStatisticsBuildStringFromMask(mask: WdsSetEventReportTransferStatistics): string
+function wdsSoCdma1xBuildStringFromMask(mask: WdsSoCdma1x): string
+function wdsSoEvdoRev0BuildStringFromMask(mask: WdsSoEvdoRev0): string
+function wdsSoEvdoRevaBuildStringFromMask(mask: WdsSoEvdoRevA): string
+function wdsSoEvdoRevbBuildStringFromMask(mask: WdsSoEvdoRevB): string
+function wdsTechnologyPreferenceBuildStringFromMask(mask: WdsTechnologyPreference): string
+function wdsTetheredCallTypeGetString(val: WdsTetheredCallType): string
+function wdsTrafficClassGetString(val: WdsTrafficClass): string
+function wdsVerboseCallEndReason3gppGetString(val: WdsVerboseCallEndReason3gpp): string
+function wdsVerboseCallEndReasonCmGetString(val: WdsVerboseCallEndReasonCm): string
+function wdsVerboseCallEndReasonEhrpdGetString(val: WdsVerboseCallEndReasonEhrpd): string
+function wdsVerboseCallEndReasonGetString(type: WdsVerboseCallEndReasonType, reason: number): string
+function wdsVerboseCallEndReasonInternalGetString(val: WdsVerboseCallEndReasonInternal): string
+function wdsVerboseCallEndReasonIpv6GetString(val: WdsVerboseCallEndReasonIpv6): string
+function wdsVerboseCallEndReasonMipGetString(val: WdsVerboseCallEndReasonMip): string
+function wdsVerboseCallEndReasonPppGetString(val: WdsVerboseCallEndReasonPpp): string
+function wdsVerboseCallEndReasonTypeGetString(val: WdsVerboseCallEndReasonType): string
+function wmsAckFailureCauseGetString(val: WmsAckFailureCause): string
+function wmsAckIndicatorGetString(val: WmsAckIndicator): string
+function wmsCdmaCauseCodeGetString(val: WmsCdmaCauseCode): string
+function wmsCdmaErrorClassGetString(val: WmsCdmaErrorClass): string
+function wmsCdmaServiceOptionGetString(val: WmsCdmaServiceOption): string
+function wmsGsmUmtsRpCauseGetString(val: WmsGsmUmtsRpCause): string
+function wmsGsmUmtsTpCauseGetString(val: WmsGsmUmtsTpCause): string
+function wmsMessageClassGetString(val: WmsMessageClass): string
+function wmsMessageDeliveryFailureTypeGetString(val: WmsMessageDeliveryFailureType): string
+function wmsMessageFormatGetString(val: WmsMessageFormat): string
+function wmsMessageModeGetString(val: WmsMessageMode): string
+function wmsMessageProtocolGetString(val: WmsMessageProtocol): string
+function wmsMessageTagTypeGetString(val: WmsMessageTagType): string
+function wmsMessageTypeGetString(val: WmsMessageType): string
+function wmsNotificationTypeGetString(val: WmsNotificationType): string
+function wmsReceiptActionGetString(val: WmsReceiptAction): string
+function wmsStorageTypeGetString(val: WmsStorageType): string
+function wmsTransferIndicationGetString(val: WmsTransferIndication): string
+interface DeviceCommandAbortableParseResponseFn {
     (self: Device, abortResponse: Message): boolean
 }
-export interface MessageForeachRawTlvFn {
+interface MessageForeachRawTlvFn {
     (type: number, value: number, length: number): void
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
@@ -3393,7 +3393,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     clientVersionMajor?: number
     clientVersionMinor?: number
 }
-export class Client {
+class Client {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -3484,7 +3484,7 @@ export class Client {
 }
 export interface ClientCtl_ConstructProps extends Client_ConstructProps {
 }
-export class ClientCtl {
+class ClientCtl {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -3596,7 +3596,7 @@ export class ClientCtl {
 }
 export interface ClientDms_ConstructProps extends Client_ConstructProps {
 }
-export class ClientDms {
+class ClientDms {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -3816,7 +3816,7 @@ export class ClientDms {
 }
 export interface ClientDpm_ConstructProps extends Client_ConstructProps {
 }
-export class ClientDpm {
+class ClientDpm {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -3912,7 +3912,7 @@ export class ClientDpm {
 }
 export interface ClientDsd_ConstructProps extends Client_ConstructProps {
 }
-export class ClientDsd {
+class ClientDsd {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4008,7 +4008,7 @@ export class ClientDsd {
 }
 export interface ClientGas_ConstructProps extends Client_ConstructProps {
 }
-export class ClientGas {
+class ClientGas {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4108,7 +4108,7 @@ export class ClientGas {
 }
 export interface ClientGms_ConstructProps extends Client_ConstructProps {
 }
-export class ClientGms {
+class ClientGms {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4204,7 +4204,7 @@ export class ClientGms {
 }
 export interface ClientLoc_ConstructProps extends Client_ConstructProps {
 }
-export class ClientLoc {
+class ClientLoc {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4412,7 +4412,7 @@ export class ClientLoc {
 }
 export interface ClientNas_ConstructProps extends Client_ConstructProps {
 }
-export class ClientNas {
+class ClientNas {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4598,7 +4598,7 @@ export class ClientNas {
 }
 export interface ClientOma_ConstructProps extends Client_ConstructProps {
 }
-export class ClientOma {
+class ClientOma {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4712,7 +4712,7 @@ export class ClientOma {
 }
 export interface ClientPbm_ConstructProps extends Client_ConstructProps {
 }
-export class ClientPbm {
+class ClientPbm {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4810,7 +4810,7 @@ export class ClientPbm {
 }
 export interface ClientPdc_ConstructProps extends Client_ConstructProps {
 }
-export class ClientPdc {
+class ClientPdc {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -4969,7 +4969,7 @@ export class ClientPdc {
 }
 export interface ClientPds_ConstructProps extends Client_ConstructProps {
 }
-export class ClientPds {
+class ClientPds {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5092,7 +5092,7 @@ export class ClientPds {
 }
 export interface ClientQos_ConstructProps extends Client_ConstructProps {
 }
-export class ClientQos {
+class ClientQos {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5203,7 +5203,7 @@ export class ClientQos {
 }
 export interface ClientSar_ConstructProps extends Client_ConstructProps {
 }
-export class ClientSar {
+class ClientSar {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5299,7 +5299,7 @@ export class ClientSar {
 }
 export interface ClientUim_ConstructProps extends Client_ConstructProps {
 }
-export class ClientUim {
+class ClientUim {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5449,7 +5449,7 @@ export class ClientUim {
 }
 export interface ClientVoice_ConstructProps extends Client_ConstructProps {
 }
-export class ClientVoice {
+class ClientVoice {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5595,7 +5595,7 @@ export class ClientVoice {
 }
 export interface ClientWda_ConstructProps extends Client_ConstructProps {
 }
-export class ClientWda {
+class ClientWda {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5693,7 +5693,7 @@ export class ClientWda {
 }
 export interface ClientWds_ConstructProps extends Client_ConstructProps {
 }
-export class ClientWds {
+class ClientWds {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -5867,7 +5867,7 @@ export class ClientWds {
 }
 export interface ClientWms_ConstructProps extends Client_ConstructProps {
 }
-export class ClientWms {
+class ClientWms {
     /* Properties of Qmi-1.0.Qmi.Client */
     clientCid: number
     clientDevice: Device
@@ -6001,7 +6001,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     deviceNoFileCheck?: boolean
     deviceProxyPath?: string
 }
-export class Device {
+class Device {
     /* Properties of Qmi-1.0.Qmi.Device */
     readonly deviceWwanIface: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -6106,7 +6106,7 @@ export class Device {
 }
 export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Proxy {
+class Proxy {
     /* Properties of Qmi-1.0.Qmi.Proxy */
     readonly qmiProxyNClients: number
     /* Fields of Qmi-1.0.Qmi.Proxy */
@@ -6163,91 +6163,91 @@ export class Proxy {
     static new(): Proxy
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Qmi-1.0.Qmi.ClientClass */
     processIndication: (self: Client, message: Message) => void
     static name: string
 }
-export abstract class ClientCtlClass {
+abstract class ClientCtlClass {
     static name: string
 }
-export abstract class ClientDmsClass {
+abstract class ClientDmsClass {
     static name: string
 }
-export abstract class ClientDpmClass {
+abstract class ClientDpmClass {
     static name: string
 }
-export abstract class ClientDsdClass {
+abstract class ClientDsdClass {
     static name: string
 }
-export abstract class ClientGasClass {
+abstract class ClientGasClass {
     static name: string
 }
-export abstract class ClientGmsClass {
+abstract class ClientGmsClass {
     static name: string
 }
-export abstract class ClientLocClass {
+abstract class ClientLocClass {
     static name: string
 }
-export abstract class ClientNasClass {
+abstract class ClientNasClass {
     static name: string
 }
-export abstract class ClientOmaClass {
+abstract class ClientOmaClass {
     static name: string
 }
-export abstract class ClientPbmClass {
+abstract class ClientPbmClass {
     static name: string
 }
-export abstract class ClientPdcClass {
+abstract class ClientPdcClass {
     static name: string
 }
-export abstract class ClientPdsClass {
+abstract class ClientPdsClass {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class ClientQosClass {
+abstract class ClientQosClass {
     static name: string
 }
-export abstract class ClientSarClass {
+abstract class ClientSarClass {
     static name: string
 }
-export abstract class ClientUimClass {
+abstract class ClientUimClass {
     static name: string
 }
-export abstract class ClientVoiceClass {
+abstract class ClientVoiceClass {
     static name: string
 }
-export abstract class ClientWdaClass {
+abstract class ClientWdaClass {
     static name: string
 }
-export abstract class ClientWdsClass {
+abstract class ClientWdsClass {
     static name: string
 }
-export abstract class ClientWmsClass {
+abstract class ClientWmsClass {
     static name: string
 }
-export class ConfigTypeAndId {
+class ConfigTypeAndId {
     /* Fields of Qmi-1.0.Qmi.ConfigTypeAndId */
     configType: PdcConfigurationType
     id: object[]
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export class DeviceServiceVersionInfo {
+class DeviceServiceVersionInfo {
     /* Fields of Qmi-1.0.Qmi.DeviceServiceVersionInfo */
     service: Service
     majorVersion: number
     minorVersion: number
     static name: string
 }
-export class IndicationDmsEventReportOutput {
+class IndicationDmsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationDmsEventReportOutput */
     getActivationState(): { returnType: boolean, valueActivationState: DmsActivationState | null }
     getOperatingMode(): { returnType: boolean, valueOperatingMode: DmsOperatingMode | null }
@@ -6261,28 +6261,28 @@ export class IndicationDmsEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocDeleteAssistanceDataOutput {
+class IndicationLocDeleteAssistanceDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocDeleteAssistanceDataOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocDeleteAssistanceDataOutput
     unref(): void
     static name: string
 }
-export class IndicationLocEngineStateOutput {
+class IndicationLocEngineStateOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocEngineStateOutput */
     getEngineState(): { returnType: boolean, valueEngineState: LocEngineState | null }
     ref(): IndicationLocEngineStateOutput
     unref(): void
     static name: string
 }
-export class IndicationLocFixRecurrenceTypeOutput {
+class IndicationLocFixRecurrenceTypeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocFixRecurrenceTypeOutput */
     getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType | null }
     ref(): IndicationLocFixRecurrenceTypeOutput
     unref(): void
     static name: string
 }
-export class IndicationLocGetEngineLockOutput {
+class IndicationLocGetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetEngineLockOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getLockType(): { returnType: boolean, valueLockType: LocLockType | null }
@@ -6290,7 +6290,7 @@ export class IndicationLocGetEngineLockOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGetNmeaTypesOutput {
+class IndicationLocGetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetNmeaTypesOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType | null }
@@ -6298,7 +6298,7 @@ export class IndicationLocGetNmeaTypesOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGetOperationModeOutput {
+class IndicationLocGetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetOperationModeOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode | null }
@@ -6306,7 +6306,7 @@ export class IndicationLocGetOperationModeOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGetPredictedOrbitsDataSourceOutput {
+class IndicationLocGetPredictedOrbitsDataSourceOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetPredictedOrbitsDataSourceOutput */
     getAllowedSizes(): { returnType: boolean, valueAllowedSizesMaxFileSize: number | null, valueAllowedSizesMaxPartSize: number | null }
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
@@ -6315,7 +6315,7 @@ export class IndicationLocGetPredictedOrbitsDataSourceOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGetServerOutput {
+class IndicationLocGetServerOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetServerOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number | null, valueIpv4Ipv4Port: number | null }
@@ -6326,7 +6326,7 @@ export class IndicationLocGetServerOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGnssSvInfoOutput {
+class IndicationLocGnssSvInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGnssSvInfoOutput */
     getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean | null }
     getList(): { returnType: boolean, valueList: IndicationLocGnssSvInfoOutputListElement[] | null }
@@ -6334,7 +6334,7 @@ export class IndicationLocGnssSvInfoOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocGnssSvInfoOutputListElement {
+class IndicationLocGnssSvInfoOutputListElement {
     /* Fields of Qmi-1.0.Qmi.IndicationLocGnssSvInfoOutputListElement */
     validInformation: LocSatelliteValidInformation
     system: LocSystem
@@ -6347,7 +6347,7 @@ export class IndicationLocGnssSvInfoOutputListElement {
     signalToNoiseRatioBhz: number
     static name: string
 }
-export class IndicationLocInjectPredictedOrbitsDataOutput {
+class IndicationLocInjectPredictedOrbitsDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocInjectPredictedOrbitsDataOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
@@ -6355,7 +6355,7 @@ export class IndicationLocInjectPredictedOrbitsDataOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocInjectXtraDataOutput {
+class IndicationLocInjectXtraDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocInjectXtraDataOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
@@ -6363,14 +6363,14 @@ export class IndicationLocInjectXtraDataOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocNmeaOutput {
+class IndicationLocNmeaOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocNmeaOutput */
     getNmeaString(): { returnType: boolean, valueNmeaString: string | null }
     ref(): IndicationLocNmeaOutput
     unref(): void
     static name: string
 }
-export class IndicationLocPositionReportOutput {
+class IndicationLocPositionReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocPositionReportOutput */
     getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean | null }
     getAltitudeFromEllipsoid(): { returnType: boolean, valueAltitudeFromEllipsoid: number | null }
@@ -6408,48 +6408,48 @@ export class IndicationLocPositionReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationLocPositionReportOutputDilutionOfPrecision {
+class IndicationLocPositionReportOutputDilutionOfPrecision {
     /* Fields of Qmi-1.0.Qmi.IndicationLocPositionReportOutputDilutionOfPrecision */
     positionDilutionOfPrecision: number
     horizontalDilutionOfPrecision: number
     verticalDilutionOfPrecision: number
     static name: string
 }
-export class IndicationLocPositionReportOutputGpsTime {
+class IndicationLocPositionReportOutputGpsTime {
     /* Fields of Qmi-1.0.Qmi.IndicationLocPositionReportOutputGpsTime */
     gpsWeeks: number
     gpsTimeOfWeekMilliseconds: number
     static name: string
 }
-export class IndicationLocSetEngineLockOutput {
+class IndicationLocSetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetEngineLockOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetEngineLockOutput
     unref(): void
     static name: string
 }
-export class IndicationLocSetNmeaTypesOutput {
+class IndicationLocSetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetNmeaTypesOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetNmeaTypesOutput
     unref(): void
     static name: string
 }
-export class IndicationLocSetOperationModeOutput {
+class IndicationLocSetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetOperationModeOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetOperationModeOutput
     unref(): void
     static name: string
 }
-export class IndicationLocSetServerOutput {
+class IndicationLocSetServerOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetServerOutput */
     getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetServerOutput
     unref(): void
     static name: string
 }
-export class IndicationNasEventReportOutput {
+class IndicationNasEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasEventReportOutput */
     getEcio(): { returnType: boolean, valueEcioEcio: number | null, valueEcioRadioInterface: NasRadioInterface | null }
     getErrorRate(): { returnType: boolean, valueErrorRateRate: number | null, valueErrorRateRadioInterface: NasRadioInterface | null }
@@ -6466,14 +6466,14 @@ export class IndicationNasEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasEventReportOutputRfBandInformationElement {
+class IndicationNasEventReportOutputRfBandInformationElement {
     /* Fields of Qmi-1.0.Qmi.IndicationNasEventReportOutputRfBandInformationElement */
     radioInterface: NasRadioInterface
     activeBandClass: NasActiveBand
     activeChannel: number
     static name: string
 }
-export class IndicationNasNetworkRejectOutput {
+class IndicationNasNetworkRejectOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasNetworkRejectOutput */
     getClosedSubscriberGroup(): { returnType: boolean, valueClosedSubscriberGroup: number | null }
     getPlmn(): { returnType: boolean, valuePlmnMcc: number | null, valuePlmnMnc: number | null, valuePlmnIncludesPcsDigit: boolean | null }
@@ -6484,7 +6484,7 @@ export class IndicationNasNetworkRejectOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasNetworkTimeOutput {
+class IndicationNasNetworkTimeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasNetworkTimeOutput */
     getDaylightSavingsAdjustment(): { returnType: boolean, valueDaylightSavingsAdjustment: NasDaylightSavingsAdjustment | null }
     getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface | null }
@@ -6494,7 +6494,7 @@ export class IndicationNasNetworkTimeOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasOperatorNameOutput {
+class IndicationNasOperatorNameOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasOperatorNameOutput */
     getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme | null, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials | null, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationLongName: any[] | null, valueNitzInformationShortName: any[] | null }
     getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: IndicationNasOperatorNameOutputOperatorPlmnListElement[] | null }
@@ -6505,7 +6505,7 @@ export class IndicationNasOperatorNameOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasOperatorNameOutputOperatorPlmnListElement {
+class IndicationNasOperatorNameOutputOperatorPlmnListElement {
     /* Fields of Qmi-1.0.Qmi.IndicationNasOperatorNameOutputOperatorPlmnListElement */
     mcc: string
     mnc: string
@@ -6514,7 +6514,7 @@ export class IndicationNasOperatorNameOutputOperatorPlmnListElement {
     plmnNameRecordIdentifier: number
     static name: string
 }
-export class IndicationNasOperatorNameOutputOperatorPlmnNameElement {
+class IndicationNasOperatorNameOutputOperatorPlmnNameElement {
     /* Fields of Qmi-1.0.Qmi.IndicationNasOperatorNameOutputOperatorPlmnNameElement */
     nameEncoding: NasPlmnEncodingScheme
     shortCountryInitials: NasPlmnNameCountryInitials
@@ -6524,7 +6524,7 @@ export class IndicationNasOperatorNameOutputOperatorPlmnNameElement {
     shortName: object[]
     static name: string
 }
-export class IndicationNasServingSystemOutput {
+class IndicationNasServingSystemOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasServingSystemOutput */
     getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus | null, valueCallBarringStatusPsStatus: NasCallBarringStatus | null }
     getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number | null, valueCdmaBaseStationInfoBaseStationLatitude: number | null, valueCdmaBaseStationInfoBaseStationLongitude: number | null }
@@ -6558,13 +6558,13 @@ export class IndicationNasServingSystemOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasServingSystemOutputRoamingIndicatorListElement {
+class IndicationNasServingSystemOutputRoamingIndicatorListElement {
     /* Fields of Qmi-1.0.Qmi.IndicationNasServingSystemOutputRoamingIndicatorListElement */
     radioInterface: NasRadioInterface
     roamingIndicator: NasRoamingIndicatorStatus
     static name: string
 }
-export class IndicationNasSignalInfoOutput {
+class IndicationNasSignalInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasSignalInfoOutput */
     get5gSignalStrength(): { returnType: boolean, value5gSignalStrengthRsrp: number | null, value5gSignalStrengthSnr: number | null }
     get5gSignalStrengthExtended(): { returnType: boolean, value5gSignalStrengthExtended: number | null }
@@ -6578,7 +6578,7 @@ export class IndicationNasSignalInfoOutput {
     unref(): void
     static name: string
 }
-export class IndicationNasSystemInfoOutput {
+class IndicationNasSystemInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasSystemInfoOutput */
     getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalCdmaSystemInfoRegistrationPeriod: number | null }
     getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number | null, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
@@ -6614,7 +6614,7 @@ export class IndicationNasSystemInfoOutput {
     unref(): void
     static name: string
 }
-export class IndicationOmaEventReportOutput {
+class IndicationOmaEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationOmaEventReportOutput */
     getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType | null, valueNetworkInitiatedAlertSessionId: number | null }
     getSessionFailReason(): { returnType: boolean, valueSessionFailReason: OmaSessionFailedReason | null }
@@ -6623,7 +6623,7 @@ export class IndicationOmaEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcActivateConfigOutput {
+class IndicationPdcActivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcActivateConfigOutput */
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -6631,7 +6631,7 @@ export class IndicationPdcActivateConfigOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcDeactivateConfigOutput {
+class IndicationPdcDeactivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcDeactivateConfigOutput */
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -6639,7 +6639,7 @@ export class IndicationPdcDeactivateConfigOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcGetConfigInfoOutput {
+class IndicationPdcGetConfigInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcGetConfigInfoOutput */
     getDescription(): { returnType: boolean, valueDescription: string | null }
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
@@ -6650,7 +6650,7 @@ export class IndicationPdcGetConfigInfoOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcGetSelectedConfigOutput {
+class IndicationPdcGetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcGetSelectedConfigOutput */
     getActiveId(): { returnType: boolean, valueActiveId: any[] | null }
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
@@ -6660,7 +6660,7 @@ export class IndicationPdcGetSelectedConfigOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcListConfigsOutput {
+class IndicationPdcListConfigsOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcListConfigsOutput */
     getConfigs(): { returnType: boolean, valueConfigs: IndicationPdcListConfigsOutputConfigsElement[] | null }
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
@@ -6669,13 +6669,13 @@ export class IndicationPdcListConfigsOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcListConfigsOutputConfigsElement {
+class IndicationPdcListConfigsOutputConfigsElement {
     /* Fields of Qmi-1.0.Qmi.IndicationPdcListConfigsOutputConfigsElement */
     configType: PdcConfigurationType
     id: object[]
     static name: string
 }
-export class IndicationPdcLoadConfigOutput {
+class IndicationPdcLoadConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcLoadConfigOutput */
     getFrameReset(): { returnType: boolean, valueFrameReset: boolean | null }
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
@@ -6686,7 +6686,7 @@ export class IndicationPdcLoadConfigOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcRefreshOutput {
+class IndicationPdcRefreshOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcRefreshOutput */
     getRefreshEvent(): { returnType: boolean, valueRefreshEvent: PdcRefreshEventType | null }
     getSlotId(): { returnType: boolean, valueSlotId: number | null }
@@ -6695,7 +6695,7 @@ export class IndicationPdcRefreshOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdcSetSelectedConfigOutput {
+class IndicationPdcSetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcSetSelectedConfigOutput */
     getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -6703,7 +6703,7 @@ export class IndicationPdcSetSelectedConfigOutput {
     unref(): void
     static name: string
 }
-export class IndicationPdsEventReportOutput {
+class IndicationPdsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdsEventReportOutput */
     getExtendedNmeaPosition(): { returnType: boolean, valueExtendedNmeaPositionOperationMode: PdsOperationMode | null, valueExtendedNmeaPositionNmea: string | null }
     getNmeaPosition(): { returnType: boolean, valueNmeaPosition: string | null }
@@ -6712,28 +6712,28 @@ export class IndicationPdsEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationQosFlowStatusOutput {
+class IndicationQosFlowStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationQosFlowStatusOutput */
     getValue(): { returnType: boolean, valueValueQosId: number | null, valueValueStatus: QosStatus | null, valueValueEvent: QosEvent | null }
     ref(): IndicationQosFlowStatusOutput
     unref(): void
     static name: string
 }
-export class IndicationQosNetworkStatusOutput {
+class IndicationQosNetworkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationQosNetworkStatusOutput */
     getQosSupported(): { returnType: boolean, valueQosSupported: boolean | null }
     ref(): IndicationQosNetworkStatusOutput
     unref(): void
     static name: string
 }
-export class IndicationUimCardStatusOutput {
+class IndicationUimCardStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimCardStatusOutput */
     getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number | null, valueCardStatusIndex1xPrimary: number | null, valueCardStatusIndexGwSecondary: number | null, valueCardStatusIndex1xSecondary: number | null, valueCardStatusCards: IndicationUimCardStatusOutputCardStatusCardsElement[] | null }
     ref(): IndicationUimCardStatusOutput
     unref(): void
     static name: string
 }
-export class IndicationUimCardStatusOutputCardStatusCardsElement {
+class IndicationUimCardStatusOutputCardStatusCardsElement {
     /* Fields of Qmi-1.0.Qmi.IndicationUimCardStatusOutputCardStatusCardsElement */
     cardState: UimCardState
     upinState: UimPinState
@@ -6743,7 +6743,7 @@ export class IndicationUimCardStatusOutputCardStatusCardsElement {
     applications: object[]
     static name: string
 }
-export class IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElement {
+class IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElement {
     /* Fields of Qmi-1.0.Qmi.IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElement */
     type: UimCardApplicationType
     state: UimCardApplicationState
@@ -6761,20 +6761,20 @@ export class IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElem
     puk2Retries: number
     static name: string
 }
-export class IndicationUimRefreshOutput {
+class IndicationUimRefreshOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimRefreshOutput */
     getEvent(): { returnType: boolean, valueEventStage: UimRefreshStage | null, valueEventMode: UimRefreshMode | null, valueEventSessionType: UimSessionType | null, valueEventApplicationIdentifier: any[] | null, valueEventFiles: IndicationUimRefreshOutputEventFilesElement[] | null }
     ref(): IndicationUimRefreshOutput
     unref(): void
     static name: string
 }
-export class IndicationUimRefreshOutputEventFilesElement {
+class IndicationUimRefreshOutputEventFilesElement {
     /* Fields of Qmi-1.0.Qmi.IndicationUimRefreshOutputEventFilesElement */
     fileId: number
     path: object[]
     static name: string
 }
-export class IndicationUimSlotStatusOutput {
+class IndicationUimSlotStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimSlotStatusOutput */
     getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] | null }
     getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] | null }
@@ -6783,7 +6783,7 @@ export class IndicationUimSlotStatusOutput {
     unref(): void
     static name: string
 }
-export class IndicationVoiceAllCallStatusOutput {
+class IndicationVoiceAllCallStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceAllCallStatusOutput */
     getCallInformation(): { returnType: boolean, valueCallInformation: IndicationVoiceAllCallStatusOutputCallInformationCall[] | null }
     getRemotePartyNumber(): { returnType: boolean, valueRemotePartyNumber: IndicationVoiceAllCallStatusOutputRemotePartyNumberCall[] | null }
@@ -6791,7 +6791,7 @@ export class IndicationVoiceAllCallStatusOutput {
     unref(): void
     static name: string
 }
-export class IndicationVoiceAllCallStatusOutputCallInformationCall {
+class IndicationVoiceAllCallStatusOutputCallInformationCall {
     /* Fields of Qmi-1.0.Qmi.IndicationVoiceAllCallStatusOutputCallInformationCall */
     id: number
     state: VoiceCallState
@@ -6802,14 +6802,14 @@ export class IndicationVoiceAllCallStatusOutputCallInformationCall {
     als: VoiceAls
     static name: string
 }
-export class IndicationVoiceAllCallStatusOutputRemotePartyNumberCall {
+class IndicationVoiceAllCallStatusOutputRemotePartyNumberCall {
     /* Fields of Qmi-1.0.Qmi.IndicationVoiceAllCallStatusOutputRemotePartyNumberCall */
     id: number
     presentationIndicator: VoicePresentation
     type: string
     static name: string
 }
-export class IndicationVoiceOriginateUssdNoWaitOutput {
+class IndicationVoiceOriginateUssdNoWaitOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceOriginateUssdNoWaitOutput */
     getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme | null, valueAlphaIdentifierAlpha: any[] | null }
     getErrorCode(): { returnType: boolean, valueErrorCode: number | null }
@@ -6820,14 +6820,14 @@ export class IndicationVoiceOriginateUssdNoWaitOutput {
     unref(): void
     static name: string
 }
-export class IndicationVoiceSupplementaryServiceOutput {
+class IndicationVoiceSupplementaryServiceOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceSupplementaryServiceOutput */
     getInfo(): { returnType: boolean, valueInfoCallId: number | null, valueInfoNotificationType: VoiceSupplementaryServiceNotificationType | null }
     ref(): IndicationVoiceSupplementaryServiceOutput
     unref(): void
     static name: string
 }
-export class IndicationVoiceUssdOutput {
+class IndicationVoiceUssdOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceUssdOutput */
     getUserAction(): { returnType: boolean, valueUserAction: VoiceUserAction | null }
     getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
@@ -6836,7 +6836,7 @@ export class IndicationVoiceUssdOutput {
     unref(): void
     static name: string
 }
-export class IndicationWdsEventReportOutput {
+class IndicationWdsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsEventReportOutput */
     getChannelRates(): { returnType: boolean, valueChannelRatesTxRateBps: number | null, valueChannelRatesRxRateBps: number | null }
     getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnologyNetworkType: WdsNetworkType | null, valueCurrentDataBearerTechnologyRatMask: number | null, valueCurrentDataBearerTechnologySoMask: number | null }
@@ -6866,14 +6866,14 @@ export class IndicationWdsEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationWdsEventReportOutputDataSystemsNetworksNetwork {
+class IndicationWdsEventReportOutputDataSystemsNetworksNetwork {
     /* Fields of Qmi-1.0.Qmi.IndicationWdsEventReportOutputDataSystemsNetworksNetwork */
     networkType: WdsDataSystemNetworkType
     ratMask: number
     soMask: number
     static name: string
 }
-export class IndicationWdsPacketServiceStatusOutput {
+class IndicationWdsPacketServiceStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsPacketServiceStatusOutput */
     getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason | null }
     getConnectionStatus(): { returnType: boolean, valueConnectionStatusStatus: WdsConnectionStatus | null, valueConnectionStatusReconfigurationRequired: boolean | null }
@@ -6884,7 +6884,7 @@ export class IndicationWdsPacketServiceStatusOutput {
     unref(): void
     static name: string
 }
-export class IndicationWdsSetLteAttachPdnListOutput {
+class IndicationWdsSetLteAttachPdnListOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsSetLteAttachPdnListOutput */
     getActionResult(): { returnType: boolean, valueActionResult: boolean | null }
     getResult(): boolean
@@ -6892,7 +6892,7 @@ export class IndicationWdsSetLteAttachPdnListOutput {
     unref(): void
     static name: string
 }
-export class IndicationWmsEventReportOutput {
+class IndicationWmsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWmsEventReportOutput */
     getEtwsMessage(): { returnType: boolean, valueEtwsMessageNotificationType: WmsNotificationType | null, valueEtwsMessageRawData: any[] | null }
     getEtwsPlmnInformation(): { returnType: boolean, valueEtwsPlmnInformationMcc: number | null, valueEtwsPlmnInformationMnc: number | null }
@@ -6905,14 +6905,14 @@ export class IndicationWmsEventReportOutput {
     unref(): void
     static name: string
 }
-export class IndicationWmsSmscAddressOutput {
+class IndicationWmsSmscAddressOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWmsSmscAddressOutput */
     getAddress(): { returnType: boolean, valueAddressType: string | null, valueAddressDigits: string | null }
     ref(): IndicationWmsSmscAddressOutput
     unref(): void
     static name: string
 }
-export class MessageContext {
+class MessageContext {
     /* Methods of Qmi-1.0.Qmi.MessageContext */
     getVendorId(): number
     ref(): MessageContext
@@ -6924,7 +6924,7 @@ export class MessageContext {
     /* Static methods and pseudo-constructors */
     static new(): MessageContext
 }
-export class MessageCtlAllocateCidInput {
+class MessageCtlAllocateCidInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlAllocateCidInput */
     getService(): { returnType: boolean, valueService: Service | null }
     ref(): MessageCtlAllocateCidInput
@@ -6936,7 +6936,7 @@ export class MessageCtlAllocateCidInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageCtlAllocateCidInput
 }
-export class MessageCtlAllocateCidOutput {
+class MessageCtlAllocateCidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlAllocateCidOutput */
     getAllocationInfo(): { returnType: boolean, valueAllocationInfoService: Service | null, valueAllocationInfoCid: number | null }
     getResult(): boolean
@@ -6944,7 +6944,7 @@ export class MessageCtlAllocateCidOutput {
     unref(): void
     static name: string
 }
-export class MessageCtlGetVersionInfoOutput {
+class MessageCtlGetVersionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlGetVersionInfoOutput */
     getResult(): boolean
     getServiceList(): { returnType: boolean, valueServiceList: MessageCtlGetVersionInfoOutputServiceListService[] | null }
@@ -6952,14 +6952,14 @@ export class MessageCtlGetVersionInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageCtlGetVersionInfoOutputServiceListService {
+class MessageCtlGetVersionInfoOutputServiceListService {
     /* Fields of Qmi-1.0.Qmi.MessageCtlGetVersionInfoOutputServiceListService */
     service: Service
     majorVersion: number
     minorVersion: number
     static name: string
 }
-export class MessageCtlInternalProxyOpenInput {
+class MessageCtlInternalProxyOpenInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlInternalProxyOpenInput */
     getDevicePath(): { returnType: boolean, valueDevicePath: string | null }
     ref(): MessageCtlInternalProxyOpenInput
@@ -6971,14 +6971,14 @@ export class MessageCtlInternalProxyOpenInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageCtlInternalProxyOpenInput
 }
-export class MessageCtlInternalProxyOpenOutput {
+class MessageCtlInternalProxyOpenOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlInternalProxyOpenOutput */
     getResult(): boolean
     ref(): MessageCtlInternalProxyOpenOutput
     unref(): void
     static name: string
 }
-export class MessageCtlReleaseCidInput {
+class MessageCtlReleaseCidInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlReleaseCidInput */
     getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service | null, valueReleaseInfoCid: number | null }
     ref(): MessageCtlReleaseCidInput
@@ -6990,7 +6990,7 @@ export class MessageCtlReleaseCidInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageCtlReleaseCidInput
 }
-export class MessageCtlReleaseCidOutput {
+class MessageCtlReleaseCidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlReleaseCidOutput */
     getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service | null, valueReleaseInfoCid: number | null }
     getResult(): boolean
@@ -6998,7 +6998,7 @@ export class MessageCtlReleaseCidOutput {
     unref(): void
     static name: string
 }
-export class MessageCtlSetDataFormatInput {
+class MessageCtlSetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetDataFormatInput */
     getFormat(): { returnType: boolean, valueFormat: CtlDataFormat | null }
     getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol | null }
@@ -7012,7 +7012,7 @@ export class MessageCtlSetDataFormatInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageCtlSetDataFormatInput
 }
-export class MessageCtlSetDataFormatOutput {
+class MessageCtlSetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetDataFormatOutput */
     getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol | null }
     getResult(): boolean
@@ -7020,7 +7020,7 @@ export class MessageCtlSetDataFormatOutput {
     unref(): void
     static name: string
 }
-export class MessageCtlSetInstanceIdInput {
+class MessageCtlSetInstanceIdInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetInstanceIdInput */
     getId(): { returnType: boolean, valueId: number | null }
     ref(): MessageCtlSetInstanceIdInput
@@ -7032,7 +7032,7 @@ export class MessageCtlSetInstanceIdInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageCtlSetInstanceIdInput
 }
-export class MessageCtlSetInstanceIdOutput {
+class MessageCtlSetInstanceIdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetInstanceIdOutput */
     getLinkId(): { returnType: boolean, valueLinkId: number | null }
     getResult(): boolean
@@ -7040,14 +7040,14 @@ export class MessageCtlSetInstanceIdOutput {
     unref(): void
     static name: string
 }
-export class MessageCtlSyncOutput {
+class MessageCtlSyncOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSyncOutput */
     getResult(): boolean
     ref(): MessageCtlSyncOutput
     unref(): void
     static name: string
 }
-export class MessageDmsActivateAutomaticInput {
+class MessageDmsActivateAutomaticInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateAutomaticInput */
     getActivationCode(): { returnType: boolean, valueActivationCode: string | null }
     ref(): MessageDmsActivateAutomaticInput
@@ -7059,14 +7059,14 @@ export class MessageDmsActivateAutomaticInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsActivateAutomaticInput
 }
-export class MessageDmsActivateAutomaticOutput {
+class MessageDmsActivateAutomaticOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateAutomaticOutput */
     getResult(): boolean
     ref(): MessageDmsActivateAutomaticOutput
     unref(): void
     static name: string
 }
-export class MessageDmsActivateManualInput {
+class MessageDmsActivateManualInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateManualInput */
     getInfo(): { returnType: boolean, valueInfoServiceProgrammingCode: string | null, valueInfoSystemIdentificationNumber: number | null, valueInfoMobileDirectoryNumber: string | null, valueInfoMobileIdentificationNumber: string | null }
     getMnAaaKey(): { returnType: boolean, valueMnAaaKey: string | null }
@@ -7084,14 +7084,14 @@ export class MessageDmsActivateManualInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsActivateManualInput
 }
-export class MessageDmsActivateManualOutput {
+class MessageDmsActivateManualOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateManualOutput */
     getResult(): boolean
     ref(): MessageDmsActivateManualOutput
     unref(): void
     static name: string
 }
-export class MessageDmsDeleteStoredImageInput {
+class MessageDmsDeleteStoredImageInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsDeleteStoredImageInput */
     getImage(): { returnType: boolean, valueImage: MessageDmsDeleteStoredImageInputImage | null }
     ref(): MessageDmsDeleteStoredImageInput
@@ -7103,21 +7103,21 @@ export class MessageDmsDeleteStoredImageInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsDeleteStoredImageInput
 }
-export class MessageDmsDeleteStoredImageInputImage {
+class MessageDmsDeleteStoredImageInputImage {
     /* Fields of Qmi-1.0.Qmi.MessageDmsDeleteStoredImageInputImage */
     type: DmsFirmwareImageType
     uniqueId: object[]
     buildId: string
     static name: string
 }
-export class MessageDmsDeleteStoredImageOutput {
+class MessageDmsDeleteStoredImageOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsDeleteStoredImageOutput */
     getResult(): boolean
     ref(): MessageDmsDeleteStoredImageOutput
     unref(): void
     static name: string
 }
-export class MessageDmsFoxconnChangeDeviceModeInput {
+class MessageDmsFoxconnChangeDeviceModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnChangeDeviceModeInput */
     getMode(): { returnType: boolean, valueMode: DmsFoxconnDeviceMode | null }
     ref(): MessageDmsFoxconnChangeDeviceModeInput
@@ -7129,14 +7129,14 @@ export class MessageDmsFoxconnChangeDeviceModeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsFoxconnChangeDeviceModeInput
 }
-export class MessageDmsFoxconnChangeDeviceModeOutput {
+class MessageDmsFoxconnChangeDeviceModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnChangeDeviceModeOutput */
     getResult(): boolean
     ref(): MessageDmsFoxconnChangeDeviceModeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsFoxconnGetFirmwareVersionInput {
+class MessageDmsFoxconnGetFirmwareVersionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnGetFirmwareVersionInput */
     getVersionType(): { returnType: boolean, valueVersionType: DmsFoxconnFirmwareVersionType | null }
     ref(): MessageDmsFoxconnGetFirmwareVersionInput
@@ -7148,7 +7148,7 @@ export class MessageDmsFoxconnGetFirmwareVersionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsFoxconnGetFirmwareVersionInput
 }
-export class MessageDmsFoxconnGetFirmwareVersionOutput {
+class MessageDmsFoxconnGetFirmwareVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnGetFirmwareVersionOutput */
     getResult(): boolean
     getVersion(): { returnType: boolean, valueVersion: string | null }
@@ -7156,7 +7156,7 @@ export class MessageDmsFoxconnGetFirmwareVersionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsFoxconnSetFccAuthenticationInput {
+class MessageDmsFoxconnSetFccAuthenticationInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnSetFccAuthenticationInput */
     getValue(): { returnType: boolean, valueValue: number | null }
     ref(): MessageDmsFoxconnSetFccAuthenticationInput
@@ -7168,14 +7168,14 @@ export class MessageDmsFoxconnSetFccAuthenticationInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsFoxconnSetFccAuthenticationInput
 }
-export class MessageDmsFoxconnSetFccAuthenticationOutput {
+class MessageDmsFoxconnSetFccAuthenticationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnSetFccAuthenticationOutput */
     getResult(): boolean
     ref(): MessageDmsFoxconnSetFccAuthenticationOutput
     unref(): void
     static name: string
 }
-export class MessageDmsGetActivationStateOutput {
+class MessageDmsGetActivationStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetActivationStateOutput */
     getInfo(): { returnType: boolean, valueInfo: DmsActivationState | null }
     getResult(): boolean
@@ -7183,7 +7183,7 @@ export class MessageDmsGetActivationStateOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetAltNetConfigOutput {
+class MessageDmsGetAltNetConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetAltNetConfigOutput */
     getConfig(): { returnType: boolean, valueConfig: boolean | null }
     getResult(): boolean
@@ -7191,7 +7191,7 @@ export class MessageDmsGetAltNetConfigOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetBandCapabilitiesOutput {
+class MessageDmsGetBandCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetBandCapabilitiesOutput */
     getBandCapability(): { returnType: boolean, valueBandCapability: DmsBandCapability | null }
     getExtendedLteBandCapability(): { returnType: boolean, valueExtendedLteBandCapability: number[] | null }
@@ -7202,7 +7202,7 @@ export class MessageDmsGetBandCapabilitiesOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetBootImageDownloadModeOutput {
+class MessageDmsGetBootImageDownloadModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetBootImageDownloadModeOutput */
     getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode | null }
     getResult(): boolean
@@ -7210,7 +7210,7 @@ export class MessageDmsGetBootImageDownloadModeOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetCapabilitiesOutput {
+class MessageDmsGetCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetCapabilitiesOutput */
     getInfo(): { returnType: boolean, valueInfoMaxTxChannelRate: number | null, valueInfoMaxRxChannelRate: number | null, valueInfoDataServiceCapability: DmsDataServiceCapability | null, valueInfoSimCapability: DmsSimCapability | null, valueInfoRadioInterfaceList: DmsRadioInterface[] | null }
     getResult(): boolean
@@ -7218,7 +7218,7 @@ export class MessageDmsGetCapabilitiesOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetFactorySkuOutput {
+class MessageDmsGetFactorySkuOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetFactorySkuOutput */
     getResult(): boolean
     getSku(): { returnType: boolean, valueSku: string | null }
@@ -7226,7 +7226,7 @@ export class MessageDmsGetFactorySkuOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetFirmwarePreferenceOutput {
+class MessageDmsGetFirmwarePreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetFirmwarePreferenceOutput */
     getList(): { returnType: boolean, valueList: MessageDmsGetFirmwarePreferenceOutputListImage[] | null }
     getResult(): boolean
@@ -7234,14 +7234,14 @@ export class MessageDmsGetFirmwarePreferenceOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetFirmwarePreferenceOutputListImage {
+class MessageDmsGetFirmwarePreferenceOutputListImage {
     /* Fields of Qmi-1.0.Qmi.MessageDmsGetFirmwarePreferenceOutputListImage */
     type: DmsFirmwareImageType
     uniqueId: object[]
     buildId: string
     static name: string
 }
-export class MessageDmsGetHardwareRevisionOutput {
+class MessageDmsGetHardwareRevisionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetHardwareRevisionOutput */
     getResult(): boolean
     getRevision(): { returnType: boolean, valueRevision: string | null }
@@ -7249,7 +7249,7 @@ export class MessageDmsGetHardwareRevisionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetIdsOutput {
+class MessageDmsGetIdsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetIdsOutput */
     getEsn(): { returnType: boolean, valueEsn: string | null }
     getImei(): { returnType: boolean, valueImei: string | null }
@@ -7260,7 +7260,7 @@ export class MessageDmsGetIdsOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetMacAddressInput {
+class MessageDmsGetMacAddressInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMacAddressInput */
     getDevice(): { returnType: boolean, valueDevice: DmsMacType | null }
     ref(): MessageDmsGetMacAddressInput
@@ -7272,7 +7272,7 @@ export class MessageDmsGetMacAddressInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsGetMacAddressInput
 }
-export class MessageDmsGetMacAddressOutput {
+class MessageDmsGetMacAddressOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMacAddressOutput */
     getMacAddress(): { returnType: boolean, valueMacAddress: any[] | null }
     getResult(): boolean
@@ -7280,7 +7280,7 @@ export class MessageDmsGetMacAddressOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetManufacturerOutput {
+class MessageDmsGetManufacturerOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetManufacturerOutput */
     getManufacturer(): { returnType: boolean, valueManufacturer: string | null }
     getResult(): boolean
@@ -7288,7 +7288,7 @@ export class MessageDmsGetManufacturerOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetModelOutput {
+class MessageDmsGetModelOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetModelOutput */
     getModel(): { returnType: boolean, valueModel: string | null }
     getResult(): boolean
@@ -7296,7 +7296,7 @@ export class MessageDmsGetModelOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetMsisdnOutput {
+class MessageDmsGetMsisdnOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMsisdnOutput */
     getMsisdn(): { returnType: boolean, valueMsisdn: string | null }
     getResult(): boolean
@@ -7304,7 +7304,7 @@ export class MessageDmsGetMsisdnOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetOperatingModeOutput {
+class MessageDmsGetOperatingModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetOperatingModeOutput */
     getHardwareRestrictedMode(): { returnType: boolean, valueHardwareRestrictedMode: boolean | null }
     getMode(): { returnType: boolean, valueMode: DmsOperatingMode | null }
@@ -7314,7 +7314,7 @@ export class MessageDmsGetOperatingModeOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetPowerStateOutput {
+class MessageDmsGetPowerStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetPowerStateOutput */
     getInfo(): { returnType: boolean, valueInfoPowerStateFlags: number | null, valueInfoBatteryLevel: number | null }
     getResult(): boolean
@@ -7322,7 +7322,7 @@ export class MessageDmsGetPowerStateOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetPrlVersionOutput {
+class MessageDmsGetPrlVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetPrlVersionOutput */
     getPrlOnlyPreference(): { returnType: boolean, valuePrlOnlyPreference: boolean | null }
     getResult(): boolean
@@ -7331,7 +7331,7 @@ export class MessageDmsGetPrlVersionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetRevisionOutput {
+class MessageDmsGetRevisionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetRevisionOutput */
     getResult(): boolean
     getRevision(): { returnType: boolean, valueRevision: string | null }
@@ -7339,7 +7339,7 @@ export class MessageDmsGetRevisionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetSoftwareVersionOutput {
+class MessageDmsGetSoftwareVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetSoftwareVersionOutput */
     getResult(): boolean
     getVersion(): { returnType: boolean, valueVersion: string | null }
@@ -7347,7 +7347,7 @@ export class MessageDmsGetSoftwareVersionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetStoredImageInfoInput {
+class MessageDmsGetStoredImageInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetStoredImageInfoInput */
     getImage(): { returnType: boolean, valueImage: MessageDmsGetStoredImageInfoInputImage | null }
     ref(): MessageDmsGetStoredImageInfoInput
@@ -7359,14 +7359,14 @@ export class MessageDmsGetStoredImageInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsGetStoredImageInfoInput
 }
-export class MessageDmsGetStoredImageInfoInputImage {
+class MessageDmsGetStoredImageInfoInputImage {
     /* Fields of Qmi-1.0.Qmi.MessageDmsGetStoredImageInfoInputImage */
     type: DmsFirmwareImageType
     uniqueId: object[]
     buildId: string
     static name: string
 }
-export class MessageDmsGetStoredImageInfoOutput {
+class MessageDmsGetStoredImageInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetStoredImageInfoOutput */
     getBootVersion(): { returnType: boolean, valueBootVersionMajorVersion: number | null, valueBootVersionMinorVersion: number | null }
     getOemLockId(): { returnType: boolean, valueOemLockId: number | null }
@@ -7376,7 +7376,7 @@ export class MessageDmsGetStoredImageInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetSupportedMessagesOutput {
+class MessageDmsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -7384,7 +7384,7 @@ export class MessageDmsGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetTimeOutput {
+class MessageDmsGetTimeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetTimeOutput */
     getDeviceTime(): { returnType: boolean, valueDeviceTimeTimeCount: number | null, valueDeviceTimeTimeSource: DmsTimeSource | null }
     getResult(): boolean
@@ -7394,7 +7394,7 @@ export class MessageDmsGetTimeOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsGetUserLockStateOutput {
+class MessageDmsGetUserLockStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetUserLockStateOutput */
     getEnabled(): { returnType: boolean, valueEnabled: boolean | null }
     getResult(): boolean
@@ -7402,7 +7402,7 @@ export class MessageDmsGetUserLockStateOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsHpChangeDeviceModeInput {
+class MessageDmsHpChangeDeviceModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsHpChangeDeviceModeInput */
     getMode(): { returnType: boolean, valueMode: DmsHpDeviceMode | null }
     ref(): MessageDmsHpChangeDeviceModeInput
@@ -7414,14 +7414,14 @@ export class MessageDmsHpChangeDeviceModeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsHpChangeDeviceModeInput
 }
-export class MessageDmsHpChangeDeviceModeOutput {
+class MessageDmsHpChangeDeviceModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsHpChangeDeviceModeOutput */
     getResult(): boolean
     ref(): MessageDmsHpChangeDeviceModeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsListStoredImagesOutput {
+class MessageDmsListStoredImagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsListStoredImagesOutput */
     getList(): { returnType: boolean, valueList: MessageDmsListStoredImagesOutputListImage[] | null }
     getResult(): boolean
@@ -7429,7 +7429,7 @@ export class MessageDmsListStoredImagesOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsListStoredImagesOutputListImage {
+class MessageDmsListStoredImagesOutputListImage {
     /* Fields of Qmi-1.0.Qmi.MessageDmsListStoredImagesOutputListImage */
     type: DmsFirmwareImageType
     maximumImages: number
@@ -7437,7 +7437,7 @@ export class MessageDmsListStoredImagesOutputListImage {
     sublist: object[]
     static name: string
 }
-export class MessageDmsListStoredImagesOutputListImageSublistSublistElement {
+class MessageDmsListStoredImagesOutputListImageSublistSublistElement {
     /* Fields of Qmi-1.0.Qmi.MessageDmsListStoredImagesOutputListImageSublistSublistElement */
     storageIndex: number
     failureCount: number
@@ -7445,7 +7445,7 @@ export class MessageDmsListStoredImagesOutputListImageSublistSublistElement {
     buildId: string
     static name: string
 }
-export class MessageDmsReadEriFileOutput {
+class MessageDmsReadEriFileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsReadEriFileOutput */
     getEriFile(): { returnType: boolean, valueEriFile: any[] | null }
     getResult(): boolean
@@ -7453,7 +7453,7 @@ export class MessageDmsReadEriFileOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsReadUserDataOutput {
+class MessageDmsReadUserDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsReadUserDataOutput */
     getResult(): boolean
     getUserData(): { returnType: boolean, valueUserData: any[] | null }
@@ -7461,14 +7461,14 @@ export class MessageDmsReadUserDataOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsResetOutput {
+class MessageDmsResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsResetOutput */
     getResult(): boolean
     ref(): MessageDmsResetOutput
     unref(): void
     static name: string
 }
-export class MessageDmsRestoreFactoryDefaultsInput {
+class MessageDmsRestoreFactoryDefaultsInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsRestoreFactoryDefaultsInput */
     getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string | null }
     ref(): MessageDmsRestoreFactoryDefaultsInput
@@ -7480,14 +7480,14 @@ export class MessageDmsRestoreFactoryDefaultsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsRestoreFactoryDefaultsInput
 }
-export class MessageDmsRestoreFactoryDefaultsOutput {
+class MessageDmsRestoreFactoryDefaultsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsRestoreFactoryDefaultsOutput */
     getResult(): boolean
     ref(): MessageDmsRestoreFactoryDefaultsOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetAltNetConfigInput {
+class MessageDmsSetAltNetConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetAltNetConfigInput */
     getConfig(): { returnType: boolean, valueConfig: boolean | null }
     ref(): MessageDmsSetAltNetConfigInput
@@ -7499,14 +7499,14 @@ export class MessageDmsSetAltNetConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetAltNetConfigInput
 }
-export class MessageDmsSetAltNetConfigOutput {
+class MessageDmsSetAltNetConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetAltNetConfigOutput */
     getResult(): boolean
     ref(): MessageDmsSetAltNetConfigOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetBootImageDownloadModeInput {
+class MessageDmsSetBootImageDownloadModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetBootImageDownloadModeInput */
     getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode | null }
     ref(): MessageDmsSetBootImageDownloadModeInput
@@ -7518,14 +7518,14 @@ export class MessageDmsSetBootImageDownloadModeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetBootImageDownloadModeInput
 }
-export class MessageDmsSetBootImageDownloadModeOutput {
+class MessageDmsSetBootImageDownloadModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetBootImageDownloadModeOutput */
     getResult(): boolean
     ref(): MessageDmsSetBootImageDownloadModeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetEventReportInput {
+class MessageDmsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetEventReportInput */
     getActivationStateReporting(): { returnType: boolean, valueActivationStateReporting: boolean | null }
     getBatteryLevelReportLimits(): { returnType: boolean, valueBatteryLevelReportLimitsLowerLimit: number | null, valueBatteryLevelReportLimitsUpperLimit: number | null }
@@ -7551,28 +7551,28 @@ export class MessageDmsSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetEventReportInput
 }
-export class MessageDmsSetEventReportOutput {
+class MessageDmsSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetEventReportOutput */
     getResult(): boolean
     ref(): MessageDmsSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetFccAuthenticationOutput {
+class MessageDmsSetFccAuthenticationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFccAuthenticationOutput */
     getResult(): boolean
     ref(): MessageDmsSetFccAuthenticationOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetFirmwareIdOutput {
+class MessageDmsSetFirmwareIdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFirmwareIdOutput */
     getResult(): boolean
     ref(): MessageDmsSetFirmwareIdOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetFirmwarePreferenceInput {
+class MessageDmsSetFirmwarePreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFirmwarePreferenceInput */
     getDownloadOverride(): { returnType: boolean, valueDownloadOverride: boolean | null }
     getList(): { returnType: boolean, valueList: MessageDmsSetFirmwarePreferenceInputListImage[] | null }
@@ -7588,14 +7588,14 @@ export class MessageDmsSetFirmwarePreferenceInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetFirmwarePreferenceInput
 }
-export class MessageDmsSetFirmwarePreferenceInputListImage {
+class MessageDmsSetFirmwarePreferenceInputListImage {
     /* Fields of Qmi-1.0.Qmi.MessageDmsSetFirmwarePreferenceInputListImage */
     type: DmsFirmwareImageType
     uniqueId: object[]
     buildId: string
     static name: string
 }
-export class MessageDmsSetFirmwarePreferenceOutput {
+class MessageDmsSetFirmwarePreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFirmwarePreferenceOutput */
     getImageDownloadList(): { returnType: boolean, valueImageDownloadList: DmsFirmwareImageType[] | null }
     getResult(): boolean
@@ -7603,7 +7603,7 @@ export class MessageDmsSetFirmwarePreferenceOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsSetOperatingModeInput {
+class MessageDmsSetOperatingModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetOperatingModeInput */
     getMode(): { returnType: boolean, valueMode: DmsOperatingMode | null }
     ref(): MessageDmsSetOperatingModeInput
@@ -7615,14 +7615,14 @@ export class MessageDmsSetOperatingModeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetOperatingModeInput
 }
-export class MessageDmsSetOperatingModeOutput {
+class MessageDmsSetOperatingModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetOperatingModeOutput */
     getResult(): boolean
     ref(): MessageDmsSetOperatingModeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetServiceProgrammingCodeInput {
+class MessageDmsSetServiceProgrammingCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetServiceProgrammingCodeInput */
     getCurrentCode(): { returnType: boolean, valueCurrentCode: string | null }
     getNewCode(): { returnType: boolean, valueNewCode: string | null }
@@ -7636,14 +7636,14 @@ export class MessageDmsSetServiceProgrammingCodeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetServiceProgrammingCodeInput
 }
-export class MessageDmsSetServiceProgrammingCodeOutput {
+class MessageDmsSetServiceProgrammingCodeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetServiceProgrammingCodeOutput */
     getResult(): boolean
     ref(): MessageDmsSetServiceProgrammingCodeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetTimeInput {
+class MessageDmsSetTimeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetTimeInput */
     getTimeReferenceType(): { returnType: boolean, valueTimeReferenceType: DmsTimeReferenceType | null }
     getTimeValue(): { returnType: boolean, valueTimeValue: number | null }
@@ -7657,14 +7657,14 @@ export class MessageDmsSetTimeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetTimeInput
 }
-export class MessageDmsSetTimeOutput {
+class MessageDmsSetTimeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetTimeOutput */
     getResult(): boolean
     ref(): MessageDmsSetTimeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetUserLockCodeInput {
+class MessageDmsSetUserLockCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockCodeInput */
     getInfo(): { returnType: boolean, valueInfoOldCode: string | null, valueInfoNewCode: string | null }
     ref(): MessageDmsSetUserLockCodeInput
@@ -7676,14 +7676,14 @@ export class MessageDmsSetUserLockCodeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetUserLockCodeInput
 }
-export class MessageDmsSetUserLockCodeOutput {
+class MessageDmsSetUserLockCodeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockCodeOutput */
     getResult(): boolean
     ref(): MessageDmsSetUserLockCodeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSetUserLockStateInput {
+class MessageDmsSetUserLockStateInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockStateInput */
     getInfo(): { returnType: boolean, valueInfoEnabled: boolean | null, valueInfoLockCode: string | null }
     ref(): MessageDmsSetUserLockStateInput
@@ -7695,14 +7695,14 @@ export class MessageDmsSetUserLockStateInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSetUserLockStateInput
 }
-export class MessageDmsSetUserLockStateOutput {
+class MessageDmsSetUserLockStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockStateOutput */
     getResult(): boolean
     ref(): MessageDmsSetUserLockStateOutput
     unref(): void
     static name: string
 }
-export class MessageDmsSwiGetCurrentFirmwareOutput {
+class MessageDmsSwiGetCurrentFirmwareOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiGetCurrentFirmwareOutput */
     getAmssVersion(): { returnType: boolean, valueAmssVersion: string | null }
     getBootVersion(): { returnType: boolean, valueBootVersion: string | null }
@@ -7718,7 +7718,7 @@ export class MessageDmsSwiGetCurrentFirmwareOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsSwiGetUsbCompositionOutput {
+class MessageDmsSwiGetUsbCompositionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiGetUsbCompositionOutput */
     getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition | null }
     getResult(): boolean
@@ -7727,7 +7727,7 @@ export class MessageDmsSwiGetUsbCompositionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsSwiSetUsbCompositionInput {
+class MessageDmsSwiSetUsbCompositionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiSetUsbCompositionInput */
     getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition | null }
     ref(): MessageDmsSwiSetUsbCompositionInput
@@ -7739,14 +7739,14 @@ export class MessageDmsSwiSetUsbCompositionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsSwiSetUsbCompositionInput
 }
-export class MessageDmsSwiSetUsbCompositionOutput {
+class MessageDmsSwiSetUsbCompositionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiSetUsbCompositionOutput */
     getResult(): boolean
     ref(): MessageDmsSwiSetUsbCompositionOutput
     unref(): void
     static name: string
 }
-export class MessageDmsUimChangePinInput {
+class MessageDmsUimChangePinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimChangePinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoOldPin: string | null, valueInfoNewPin: string | null }
     ref(): MessageDmsUimChangePinInput
@@ -7758,7 +7758,7 @@ export class MessageDmsUimChangePinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimChangePinInput
 }
-export class MessageDmsUimChangePinOutput {
+class MessageDmsUimChangePinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimChangePinOutput */
     getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
@@ -7766,7 +7766,7 @@ export class MessageDmsUimChangePinOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimGetCkStatusInput {
+class MessageDmsUimGetCkStatusInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetCkStatusInput */
     getFacility(): { returnType: boolean, valueFacility: DmsUimFacility | null }
     ref(): MessageDmsUimGetCkStatusInput
@@ -7778,7 +7778,7 @@ export class MessageDmsUimGetCkStatusInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimGetCkStatusInput
 }
-export class MessageDmsUimGetCkStatusOutput {
+class MessageDmsUimGetCkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetCkStatusOutput */
     getCkStatus(): { returnType: boolean, valueCkStatusFacilityState: DmsUimFacilityState | null, valueCkStatusVerifyRetriesLeft: number | null, valueCkStatusUnblockRetriesLeft: number | null }
     getOperationBlockingFacility(): { returnType: boolean, valueOperationBlockingFacility: boolean | null }
@@ -7787,7 +7787,7 @@ export class MessageDmsUimGetCkStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimGetIccidOutput {
+class MessageDmsUimGetIccidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetIccidOutput */
     getIccid(): { returnType: boolean, valueIccid: string | null }
     getResult(): boolean
@@ -7795,7 +7795,7 @@ export class MessageDmsUimGetIccidOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimGetImsiOutput {
+class MessageDmsUimGetImsiOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetImsiOutput */
     getImsi(): { returnType: boolean, valueImsi: string | null }
     getResult(): boolean
@@ -7803,7 +7803,7 @@ export class MessageDmsUimGetImsiOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimGetPinStatusOutput {
+class MessageDmsUimGetPinStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetPinStatusOutput */
     getPin1Status(): { returnType: boolean, valuePin1StatusCurrentStatus: DmsUimPinStatus | null, valuePin1StatusVerifyRetriesLeft: number | null, valuePin1StatusUnblockRetriesLeft: number | null }
     getPin2Status(): { returnType: boolean, valuePin2StatusCurrentStatus: DmsUimPinStatus | null, valuePin2StatusVerifyRetriesLeft: number | null, valuePin2StatusUnblockRetriesLeft: number | null }
@@ -7812,7 +7812,7 @@ export class MessageDmsUimGetPinStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimGetStateOutput {
+class MessageDmsUimGetStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetStateOutput */
     getResult(): boolean
     getState(): { returnType: boolean, valueState: DmsUimState | null }
@@ -7820,7 +7820,7 @@ export class MessageDmsUimGetStateOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimSetCkProtectionInput {
+class MessageDmsUimSetCkProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetCkProtectionInput */
     getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility | null, valueFacilityFacilityState: DmsUimFacilityState | null, valueFacilityFacilityDepersonalizationControlKey: string | null }
     ref(): MessageDmsUimSetCkProtectionInput
@@ -7832,7 +7832,7 @@ export class MessageDmsUimSetCkProtectionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimSetCkProtectionInput
 }
-export class MessageDmsUimSetCkProtectionOutput {
+class MessageDmsUimSetCkProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetCkProtectionOutput */
     getResult(): boolean
     getVerifyRetriesLeft(): { returnType: boolean, valueVerifyRetriesLeft: number | null }
@@ -7840,7 +7840,7 @@ export class MessageDmsUimSetCkProtectionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimSetPinProtectionInput {
+class MessageDmsUimSetPinProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetPinProtectionInput */
     getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoProtectionEnabled: boolean | null, valueInfoPin: string | null }
     ref(): MessageDmsUimSetPinProtectionInput
@@ -7852,7 +7852,7 @@ export class MessageDmsUimSetPinProtectionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimSetPinProtectionInput
 }
-export class MessageDmsUimSetPinProtectionOutput {
+class MessageDmsUimSetPinProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetPinProtectionOutput */
     getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
@@ -7860,7 +7860,7 @@ export class MessageDmsUimSetPinProtectionOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimUnblockCkInput {
+class MessageDmsUimUnblockCkInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockCkInput */
     getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility | null, valueFacilityFacilityControlKey: string | null }
     ref(): MessageDmsUimUnblockCkInput
@@ -7872,7 +7872,7 @@ export class MessageDmsUimUnblockCkInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimUnblockCkInput
 }
-export class MessageDmsUimUnblockCkOutput {
+class MessageDmsUimUnblockCkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockCkOutput */
     getResult(): boolean
     getUnblockRetriesLeft(): { returnType: boolean, valueUnblockRetriesLeft: number | null }
@@ -7880,7 +7880,7 @@ export class MessageDmsUimUnblockCkOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimUnblockPinInput {
+class MessageDmsUimUnblockPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockPinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoPuk: string | null, valueInfoNewPin: string | null }
     ref(): MessageDmsUimUnblockPinInput
@@ -7892,7 +7892,7 @@ export class MessageDmsUimUnblockPinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimUnblockPinInput
 }
-export class MessageDmsUimUnblockPinOutput {
+class MessageDmsUimUnblockPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockPinOutput */
     getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
@@ -7900,7 +7900,7 @@ export class MessageDmsUimUnblockPinOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsUimVerifyPinInput {
+class MessageDmsUimVerifyPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimVerifyPinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoPin: string | null }
     ref(): MessageDmsUimVerifyPinInput
@@ -7912,7 +7912,7 @@ export class MessageDmsUimVerifyPinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsUimVerifyPinInput
 }
-export class MessageDmsUimVerifyPinOutput {
+class MessageDmsUimVerifyPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimVerifyPinOutput */
     getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
@@ -7920,7 +7920,7 @@ export class MessageDmsUimVerifyPinOutput {
     unref(): void
     static name: string
 }
-export class MessageDmsValidateServiceProgrammingCodeInput {
+class MessageDmsValidateServiceProgrammingCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsValidateServiceProgrammingCodeInput */
     getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string | null }
     ref(): MessageDmsValidateServiceProgrammingCodeInput
@@ -7932,14 +7932,14 @@ export class MessageDmsValidateServiceProgrammingCodeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsValidateServiceProgrammingCodeInput
 }
-export class MessageDmsValidateServiceProgrammingCodeOutput {
+class MessageDmsValidateServiceProgrammingCodeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsValidateServiceProgrammingCodeOutput */
     getResult(): boolean
     ref(): MessageDmsValidateServiceProgrammingCodeOutput
     unref(): void
     static name: string
 }
-export class MessageDmsWriteUserDataInput {
+class MessageDmsWriteUserDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsWriteUserDataInput */
     getUserData(): { returnType: boolean, valueUserData: any[] | null }
     ref(): MessageDmsWriteUserDataInput
@@ -7951,21 +7951,21 @@ export class MessageDmsWriteUserDataInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDmsWriteUserDataInput
 }
-export class MessageDmsWriteUserDataOutput {
+class MessageDmsWriteUserDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsWriteUserDataOutput */
     getResult(): boolean
     ref(): MessageDmsWriteUserDataOutput
     unref(): void
     static name: string
 }
-export class MessageDpmClosePortOutput {
+class MessageDpmClosePortOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDpmClosePortOutput */
     getResult(): boolean
     ref(): MessageDpmClosePortOutput
     unref(): void
     static name: string
 }
-export class MessageDpmOpenPortInput {
+class MessageDpmOpenPortInput {
     /* Methods of Qmi-1.0.Qmi.MessageDpmOpenPortInput */
     getControlPorts(): { returnType: boolean, valueControlPorts: MessageDpmOpenPortInputControlPortsElement[] | null }
     getHardwareDataPorts(): { returnType: boolean, valueHardwareDataPorts: MessageDpmOpenPortInputHardwareDataPortsElement[] | null }
@@ -7981,14 +7981,14 @@ export class MessageDpmOpenPortInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDpmOpenPortInput
 }
-export class MessageDpmOpenPortInputControlPortsElement {
+class MessageDpmOpenPortInputControlPortsElement {
     /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputControlPortsElement */
     portName: string
     endpointType: DataEndpointType
     interfaceNumber: number
     static name: string
 }
-export class MessageDpmOpenPortInputHardwareDataPortsElement {
+class MessageDpmOpenPortInputHardwareDataPortsElement {
     /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputHardwareDataPortsElement */
     endpointType: DataEndpointType
     interfaceNumber: number
@@ -7996,21 +7996,21 @@ export class MessageDpmOpenPortInputHardwareDataPortsElement {
     txEndpointNumber: number
     static name: string
 }
-export class MessageDpmOpenPortInputSoftwareDataPortsElement {
+class MessageDpmOpenPortInputSoftwareDataPortsElement {
     /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputSoftwareDataPortsElement */
     endpointType: DataEndpointType
     interfaceNumber: number
     portName: string
     static name: string
 }
-export class MessageDpmOpenPortOutput {
+class MessageDpmOpenPortOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDpmOpenPortOutput */
     getResult(): boolean
     ref(): MessageDpmOpenPortOutput
     unref(): void
     static name: string
 }
-export class MessageDsdGetApnInfoInput {
+class MessageDsdGetApnInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdGetApnInfoInput */
     getApnType(): { returnType: boolean, valueApnType: DsdApnType | null }
     ref(): MessageDsdGetApnInfoInput
@@ -8022,7 +8022,7 @@ export class MessageDsdGetApnInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDsdGetApnInfoInput
 }
-export class MessageDsdGetApnInfoOutput {
+class MessageDsdGetApnInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdGetApnInfoOutput */
     getApnName(): { returnType: boolean, valueApnName: string | null }
     getResult(): boolean
@@ -8030,7 +8030,7 @@ export class MessageDsdGetApnInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageDsdSetApnTypeInput {
+class MessageDsdSetApnTypeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdSetApnTypeInput */
     getApnType(): { returnType: boolean, valueApnTypeName: string | null, valueApnTypeType: DsdApnTypePreference | null }
     getApnTypePreferenceMask(): { returnType: boolean, valueApnTypePreferenceMask: DsdApnTypePreference | null }
@@ -8044,14 +8044,14 @@ export class MessageDsdSetApnTypeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageDsdSetApnTypeInput
 }
-export class MessageDsdSetApnTypeOutput {
+class MessageDsdSetApnTypeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdSetApnTypeOutput */
     getResult(): boolean
     ref(): MessageDsdSetApnTypeOutput
     unref(): void
     static name: string
 }
-export class MessageGasDmsGetFirmwareListInput {
+class MessageGasDmsGetFirmwareListInput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetFirmwareListInput */
     getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode | null }
     getName(): { returnType: boolean, valueName: string | null }
@@ -8069,7 +8069,7 @@ export class MessageGasDmsGetFirmwareListInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageGasDmsGetFirmwareListInput
 }
-export class MessageGasDmsGetFirmwareListOutput {
+class MessageGasDmsGetFirmwareListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetFirmwareListOutput */
     getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode | null }
     getResult(): boolean
@@ -8081,7 +8081,7 @@ export class MessageGasDmsGetFirmwareListOutput {
     unref(): void
     static name: string
 }
-export class MessageGasDmsGetUsbCompositionOutput {
+class MessageGasDmsGetUsbCompositionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetUsbCompositionOutput */
     getCompositionPersistence(): { returnType: boolean, valueCompositionPersistence: boolean | null }
     getEndpointType(): { returnType: boolean, valueEndpointType: GasUsbCompositionEndpointType | null }
@@ -8093,7 +8093,7 @@ export class MessageGasDmsGetUsbCompositionOutput {
     unref(): void
     static name: string
 }
-export class MessageGasDmsSetActiveFirmwareInput {
+class MessageGasDmsSetActiveFirmwareInput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetActiveFirmwareInput */
     getCarrierName(): { returnType: boolean, valueCarrierName: string | null }
     getSlotIndex(): { returnType: boolean, valueSlotIndex: number | null }
@@ -8109,14 +8109,14 @@ export class MessageGasDmsSetActiveFirmwareInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageGasDmsSetActiveFirmwareInput
 }
-export class MessageGasDmsSetActiveFirmwareOutput {
+class MessageGasDmsSetActiveFirmwareOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetActiveFirmwareOutput */
     getResult(): boolean
     ref(): MessageGasDmsSetActiveFirmwareOutput
     unref(): void
     static name: string
 }
-export class MessageGasDmsSetUsbCompositionInput {
+class MessageGasDmsSetUsbCompositionInput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetUsbCompositionInput */
     getCompositionPersistence(): { returnType: boolean, valueCompositionPersistence: boolean | null }
     getEndpointType(): { returnType: boolean, valueEndpointType: GasUsbCompositionEndpointType | null }
@@ -8136,14 +8136,14 @@ export class MessageGasDmsSetUsbCompositionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageGasDmsSetUsbCompositionInput
 }
-export class MessageGasDmsSetUsbCompositionOutput {
+class MessageGasDmsSetUsbCompositionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetUsbCompositionOutput */
     getResult(): boolean
     ref(): MessageGasDmsSetUsbCompositionOutput
     unref(): void
     static name: string
 }
-export class MessageGmsTestGetValueOutput {
+class MessageGmsTestGetValueOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGmsTestGetValueOutput */
     getResult(): boolean
     getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number | null }
@@ -8152,7 +8152,7 @@ export class MessageGmsTestGetValueOutput {
     unref(): void
     static name: string
 }
-export class MessageGmsTestSetValueInput {
+class MessageGmsTestSetValueInput {
     /* Methods of Qmi-1.0.Qmi.MessageGmsTestSetValueInput */
     getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number | null }
     getTestOptionalValue(): { returnType: boolean, valueTestOptionalValue: number | null }
@@ -8166,14 +8166,14 @@ export class MessageGmsTestSetValueInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageGmsTestSetValueInput
 }
-export class MessageGmsTestSetValueOutput {
+class MessageGmsTestSetValueOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGmsTestSetValueOutput */
     getResult(): boolean
     ref(): MessageGmsTestSetValueOutput
     unref(): void
     static name: string
 }
-export class MessageLocDeleteAssistanceDataInput {
+class MessageLocDeleteAssistanceDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocDeleteAssistanceDataInput */
     getDeleteAll(): { returnType: boolean, valueDeleteAll: boolean | null }
     getDeleteCellDatabaseMask(): { returnType: boolean, valueDeleteCellDatabaseMask: LocDeleteCellDatabase | null }
@@ -8193,49 +8193,49 @@ export class MessageLocDeleteAssistanceDataInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocDeleteAssistanceDataInput
 }
-export class MessageLocDeleteAssistanceDataInputDeleteSvInfoElement {
+class MessageLocDeleteAssistanceDataInputDeleteSvInfoElement {
     /* Fields of Qmi-1.0.Qmi.MessageLocDeleteAssistanceDataInputDeleteSvInfoElement */
     gnssSvId: number
     system: LocSystem
     deleteSvInfoMask: LocDeleteSvInfo
     static name: string
 }
-export class MessageLocDeleteAssistanceDataOutput {
+class MessageLocDeleteAssistanceDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocDeleteAssistanceDataOutput */
     getResult(): boolean
     ref(): MessageLocDeleteAssistanceDataOutput
     unref(): void
     static name: string
 }
-export class MessageLocGetEngineLockOutput {
+class MessageLocGetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetEngineLockOutput */
     getResult(): boolean
     ref(): MessageLocGetEngineLockOutput
     unref(): void
     static name: string
 }
-export class MessageLocGetNmeaTypesOutput {
+class MessageLocGetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetNmeaTypesOutput */
     getResult(): boolean
     ref(): MessageLocGetNmeaTypesOutput
     unref(): void
     static name: string
 }
-export class MessageLocGetOperationModeOutput {
+class MessageLocGetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetOperationModeOutput */
     getResult(): boolean
     ref(): MessageLocGetOperationModeOutput
     unref(): void
     static name: string
 }
-export class MessageLocGetPredictedOrbitsDataSourceOutput {
+class MessageLocGetPredictedOrbitsDataSourceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetPredictedOrbitsDataSourceOutput */
     getResult(): boolean
     ref(): MessageLocGetPredictedOrbitsDataSourceOutput
     unref(): void
     static name: string
 }
-export class MessageLocGetServerInput {
+class MessageLocGetServerInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetServerInput */
     getServerAddressType(): { returnType: boolean, valueServerAddressType: LocServerAddressType | null }
     getServerType(): { returnType: boolean, valueServerType: LocServerType | null }
@@ -8249,14 +8249,14 @@ export class MessageLocGetServerInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocGetServerInput
 }
-export class MessageLocGetServerOutput {
+class MessageLocGetServerOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetServerOutput */
     getResult(): boolean
     ref(): MessageLocGetServerOutput
     unref(): void
     static name: string
 }
-export class MessageLocInjectPredictedOrbitsDataInput {
+class MessageLocInjectPredictedOrbitsDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectPredictedOrbitsDataInput */
     getFormatType(): { returnType: boolean, valueFormatType: LocPredictedOrbitsDataFormat | null }
     getPartData(): { returnType: boolean, valuePartData: any[] | null }
@@ -8276,14 +8276,14 @@ export class MessageLocInjectPredictedOrbitsDataInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocInjectPredictedOrbitsDataInput
 }
-export class MessageLocInjectPredictedOrbitsDataOutput {
+class MessageLocInjectPredictedOrbitsDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectPredictedOrbitsDataOutput */
     getResult(): boolean
     ref(): MessageLocInjectPredictedOrbitsDataOutput
     unref(): void
     static name: string
 }
-export class MessageLocInjectXtraDataInput {
+class MessageLocInjectXtraDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectXtraDataInput */
     getPartData(): { returnType: boolean, valuePartData: any[] | null }
     getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
@@ -8301,14 +8301,14 @@ export class MessageLocInjectXtraDataInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocInjectXtraDataInput
 }
-export class MessageLocInjectXtraDataOutput {
+class MessageLocInjectXtraDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectXtraDataOutput */
     getResult(): boolean
     ref(): MessageLocInjectXtraDataOutput
     unref(): void
     static name: string
 }
-export class MessageLocRegisterEventsInput {
+class MessageLocRegisterEventsInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocRegisterEventsInput */
     getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: LocEventRegistrationFlag | null }
     ref(): MessageLocRegisterEventsInput
@@ -8320,14 +8320,14 @@ export class MessageLocRegisterEventsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocRegisterEventsInput
 }
-export class MessageLocRegisterEventsOutput {
+class MessageLocRegisterEventsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocRegisterEventsOutput */
     getResult(): boolean
     ref(): MessageLocRegisterEventsOutput
     unref(): void
     static name: string
 }
-export class MessageLocSetEngineLockInput {
+class MessageLocSetEngineLockInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetEngineLockInput */
     getLockType(): { returnType: boolean, valueLockType: LocLockType | null }
     ref(): MessageLocSetEngineLockInput
@@ -8339,14 +8339,14 @@ export class MessageLocSetEngineLockInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocSetEngineLockInput
 }
-export class MessageLocSetEngineLockOutput {
+class MessageLocSetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetEngineLockOutput */
     getResult(): boolean
     ref(): MessageLocSetEngineLockOutput
     unref(): void
     static name: string
 }
-export class MessageLocSetNmeaTypesInput {
+class MessageLocSetNmeaTypesInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetNmeaTypesInput */
     getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType | null }
     ref(): MessageLocSetNmeaTypesInput
@@ -8358,14 +8358,14 @@ export class MessageLocSetNmeaTypesInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocSetNmeaTypesInput
 }
-export class MessageLocSetNmeaTypesOutput {
+class MessageLocSetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetNmeaTypesOutput */
     getResult(): boolean
     ref(): MessageLocSetNmeaTypesOutput
     unref(): void
     static name: string
 }
-export class MessageLocSetOperationModeInput {
+class MessageLocSetOperationModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetOperationModeInput */
     getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode | null }
     ref(): MessageLocSetOperationModeInput
@@ -8377,14 +8377,14 @@ export class MessageLocSetOperationModeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocSetOperationModeInput
 }
-export class MessageLocSetOperationModeOutput {
+class MessageLocSetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetOperationModeOutput */
     getResult(): boolean
     ref(): MessageLocSetOperationModeOutput
     unref(): void
     static name: string
 }
-export class MessageLocSetServerInput {
+class MessageLocSetServerInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetServerInput */
     getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number | null, valueIpv4Ipv4Port: number | null }
     getIpv6(): { returnType: boolean, valueIpv6Ipv6Address: number[] | null, valueIpv6Ipv6Port: number | null }
@@ -8402,14 +8402,14 @@ export class MessageLocSetServerInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocSetServerInput
 }
-export class MessageLocSetServerOutput {
+class MessageLocSetServerOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetServerOutput */
     getResult(): boolean
     ref(): MessageLocSetServerOutput
     unref(): void
     static name: string
 }
-export class MessageLocStartInput {
+class MessageLocStartInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStartInput */
     getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType | null }
     getIntermediateReportState(): { returnType: boolean, valueIntermediateReportState: LocIntermediateReportState | null }
@@ -8427,14 +8427,14 @@ export class MessageLocStartInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocStartInput
 }
-export class MessageLocStartOutput {
+class MessageLocStartOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStartOutput */
     getResult(): boolean
     ref(): MessageLocStartOutput
     unref(): void
     static name: string
 }
-export class MessageLocStopInput {
+class MessageLocStopInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStopInput */
     getSessionId(): { returnType: boolean, valueSessionId: number | null }
     ref(): MessageLocStopInput
@@ -8446,14 +8446,14 @@ export class MessageLocStopInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageLocStopInput
 }
-export class MessageLocStopOutput {
+class MessageLocStopOutput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStopOutput */
     getResult(): boolean
     ref(): MessageLocStopOutput
     unref(): void
     static name: string
 }
-export class MessageNasAttachDetachInput {
+class MessageNasAttachDetachInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasAttachDetachInput */
     getAction(): { returnType: boolean, valueAction: NasPsAttachAction | null }
     ref(): MessageNasAttachDetachInput
@@ -8465,14 +8465,14 @@ export class MessageNasAttachDetachInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasAttachDetachInput
 }
-export class MessageNasAttachDetachOutput {
+class MessageNasAttachDetachOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasAttachDetachOutput */
     getResult(): boolean
     ref(): MessageNasAttachDetachOutput
     unref(): void
     static name: string
 }
-export class MessageNasConfigSignalInfoInput {
+class MessageNasConfigSignalInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasConfigSignalInfoInput */
     getEcioThreshold(): { returnType: boolean, valueEcioThreshold: number[] | null }
     getIoThreshold(): { returnType: boolean, valueIoThreshold: number[] | null }
@@ -8500,21 +8500,21 @@ export class MessageNasConfigSignalInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasConfigSignalInfoInput
 }
-export class MessageNasConfigSignalInfoOutput {
+class MessageNasConfigSignalInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasConfigSignalInfoOutput */
     getResult(): boolean
     ref(): MessageNasConfigSignalInfoOutput
     unref(): void
     static name: string
 }
-export class MessageNasForceNetworkSearchOutput {
+class MessageNasForceNetworkSearchOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasForceNetworkSearchOutput */
     getResult(): boolean
     ref(): MessageNasForceNetworkSearchOutput
     unref(): void
     static name: string
 }
-export class MessageNasGetCdmaPositionInfoOutput {
+class MessageNasGetCdmaPositionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetCdmaPositionInfoOutput */
     getCdmaPositionInfo(): { returnType: boolean, valueCdmaPositionInfoUiInIdleMode: number | null, valueCdmaPositionInfoBasestations: MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation[] | null }
     getResult(): boolean
@@ -8522,7 +8522,7 @@ export class MessageNasGetCdmaPositionInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation {
+class MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation */
     pilotType: NasCdmaPilotType
     systemId: number
@@ -8535,7 +8535,7 @@ export class MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBase
     gpsTimeInMilliseconds: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutput {
+class MessageNasGetCellLocationInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutput */
     getCdmaInfo(): { returnType: boolean, valueCdmaInfoSystemId: number | null, valueCdmaInfoNetworkId: number | null, valueCdmaInfoBaseStationId: number | null, valueCdmaInfoReferencePn: number | null, valueCdmaInfoLatitude: number | null, valueCdmaInfoLongitude: number | null }
     getGeranInfoV2(): { returnType: boolean, valueGeranInfoV2CellId: number | null, valueGeranInfoV2Plmn: any[] | null, valueGeranInfoV2Lac: number | null, valueGeranInfoV2GeranAbsoluteRfChannelNumber: number | null, valueGeranInfoV2BaseStationIdentityCode: number | null, valueGeranInfoV2TimingAdvance: number | null, valueGeranInfoV2RxLevel: number | null, valueGeranInfoV2Cell: MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement[] | null }
@@ -8554,7 +8554,7 @@ export class MessageNasGetCellLocationInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement {
+class MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement */
     cellId: number
     plmn: object[]
@@ -8564,7 +8564,7 @@ export class MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement {
     rxLevel: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement {
+class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement */
     eutraAbsoluteRfChannelNumber: number
     cellSelectionRxLevelLowThreshold: number
@@ -8573,7 +8573,7 @@ export class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyEl
     cell: object[]
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElementCellElement {
+class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElementCellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElementCellElement */
     physicalCellId: number
     rsrq: number
@@ -8582,7 +8582,7 @@ export class MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyEl
     cellSelectionRxLevel: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement {
+class MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement */
     physicalCellId: number
     rsrq: number
@@ -8591,7 +8591,7 @@ export class MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellEleme
     cellSelectionRxLevel: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement {
+class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement */
     cellReselectionPriority: number
     cellReselectionHighThreshold: number
@@ -8600,7 +8600,7 @@ export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyEl
     cell: object[]
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElementCellElement {
+class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElementCellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElementCellElement */
     geranAbsoluteRfChannelNumber: number
     bandIs1900: boolean
@@ -8610,7 +8610,7 @@ export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyEl
     cellSelectionRxLevel: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement {
+class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement */
     utraAbsoluteRfChannelNumber: number
     cellReselectionPriority: number
@@ -8619,7 +8619,7 @@ export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequency
     cell: object[]
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElementCellElement {
+class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElementCellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElementCellElement */
     primaryScramblingCode: number
     cpichRscp: number
@@ -8627,7 +8627,7 @@ export class MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequency
     cellSelectionRxLevel: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement {
+class MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement */
     eutraAbsoluteRfChannelNumber: number
     physicalCellId: number
@@ -8637,7 +8637,7 @@ export class MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyE
     isTdd: boolean
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement {
+class MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement */
     utraAbsoluteRfChannelNumber: number
     primaryScramblingCode: number
@@ -8645,7 +8645,7 @@ export class MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement {
     ecio: number
     static name: string
 }
-export class MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement {
+class MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement */
     geranAbsoluteRfChannelNumber: number
     networkColorCode: number
@@ -8653,7 +8653,7 @@ export class MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElemen
     rssi: number
     static name: string
 }
-export class MessageNasGetDrxOutput {
+class MessageNasGetDrxOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetDrxOutput */
     getInfo(): { returnType: boolean, valueInfo: NasDrx | null }
     getResult(): boolean
@@ -8661,7 +8661,7 @@ export class MessageNasGetDrxOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetHomeNetworkOutput {
+class MessageNasGetHomeNetworkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetHomeNetworkOutput */
     getHomeNetwork(): { returnType: boolean, valueHomeNetworkMcc: number | null, valueHomeNetworkMnc: number | null, valueHomeNetworkDescription: string | null }
     getHomeNetwork3gpp2Ext(): { returnType: boolean, valueHomeNetwork3gpp2ExtMcc: number | null, valueHomeNetwork3gpp2ExtMnc: number | null, valueHomeNetwork3gpp2ExtDisplayDescription: NasNetworkDescriptionDisplay | null, valueHomeNetwork3gpp2ExtDescriptionEncoding: NasNetworkDescriptionEncoding | null, valueHomeNetwork3gpp2ExtDescription: any[] | null }
@@ -8673,7 +8673,7 @@ export class MessageNasGetHomeNetworkOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetLteCphyCaInfoOutput {
+class MessageNasGetLteCphyCaInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetLteCphyCaInfoOutput */
     getDlBandwidth(): { returnType: boolean, valueDlBandwidth: NasDLBandwidth | null }
     getPhyCaAggPcellInfo(): { returnType: boolean, valuePhyCaAggPcellInfoPhysicalCellId: number | null, valuePhyCaAggPcellInfoRxChannel: number | null, valuePhyCaAggPcellInfoDlBandwidth: NasDLBandwidth | null, valuePhyCaAggPcellInfoLteBand: NasActiveBand | null }
@@ -8685,7 +8685,7 @@ export class MessageNasGetLteCphyCaInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc {
+class MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc */
     physicalCellId: number
     rxChannel: number
@@ -8695,7 +8695,7 @@ export class MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc {
     cellIndex: number
     static name: string
 }
-export class MessageNasGetOperatorNameOutput {
+class MessageNasGetOperatorNameOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetOperatorNameOutput */
     getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme | null, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials | null, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationLongName: any[] | null, valueNitzInformationShortName: any[] | null }
     getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: MessageNasGetOperatorNameOutputOperatorPlmnListElement[] | null }
@@ -8707,7 +8707,7 @@ export class MessageNasGetOperatorNameOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetOperatorNameOutputOperatorPlmnListElement {
+class MessageNasGetOperatorNameOutputOperatorPlmnListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetOperatorNameOutputOperatorPlmnListElement */
     mcc: string
     mnc: string
@@ -8716,7 +8716,7 @@ export class MessageNasGetOperatorNameOutputOperatorPlmnListElement {
     plmnNameRecordIdentifier: number
     static name: string
 }
-export class MessageNasGetOperatorNameOutputOperatorPlmnNameElement {
+class MessageNasGetOperatorNameOutputOperatorPlmnNameElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetOperatorNameOutputOperatorPlmnNameElement */
     nameEncoding: NasPlmnEncodingScheme
     shortCountryInitials: NasPlmnNameCountryInitials
@@ -8726,7 +8726,7 @@ export class MessageNasGetOperatorNameOutputOperatorPlmnNameElement {
     shortName: object[]
     static name: string
 }
-export class MessageNasGetPlmnNameInput {
+class MessageNasGetPlmnNameInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetPlmnNameInput */
     getAlwaysSendPlmnName(): { returnType: boolean, valueAlwaysSendPlmnName: boolean | null }
     getCsgId(): { returnType: boolean, valueCsgId: number | null }
@@ -8752,7 +8752,7 @@ export class MessageNasGetPlmnNameInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasGetPlmnNameInput
 }
-export class MessageNasGetPlmnNameOutput {
+class MessageNasGetPlmnNameOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetPlmnNameOutput */
     get3gppEonsPlmnName(): { returnType: boolean, value3gppEonsPlmnNameServiceProviderNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameServiceProviderName: any[] | null, value3gppEonsPlmnNameShortNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameShortNameCountryInitials: NasPlmnNameCountryInitials | null, value3gppEonsPlmnNameShortNameSpareBits: NasPlmnNameSpareBits | null, value3gppEonsPlmnNameShortName: any[] | null, value3gppEonsPlmnNameLongNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameLongNameCountryInitials: NasPlmnNameCountryInitials | null, value3gppEonsPlmnNameLongNameSpareBits: NasPlmnNameSpareBits | null, value3gppEonsPlmnNameLongName: any[] | null }
     getAdditionalInformation(): { returnType: boolean, valueAdditionalInformation: number[] | null }
@@ -8765,14 +8765,14 @@ export class MessageNasGetPlmnNameOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement {
+class MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement */
     longName: object[]
     shortName: object[]
     languageId: NasPlmnLanguageId
     static name: string
 }
-export class MessageNasGetPreferredNetworksOutput {
+class MessageNasGetPreferredNetworksOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutput */
     getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement[] | null }
     getPreferredNetworks(): { returnType: boolean, valuePreferredNetworks: MessageNasGetPreferredNetworksOutputPreferredNetworksElement[] | null }
@@ -8781,21 +8781,21 @@ export class MessageNasGetPreferredNetworksOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement {
+class MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement */
     mcc: number
     mnc: number
     includesPcsDigit: boolean
     static name: string
 }
-export class MessageNasGetPreferredNetworksOutputPreferredNetworksElement {
+class MessageNasGetPreferredNetworksOutputPreferredNetworksElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutputPreferredNetworksElement */
     mcc: number
     mnc: number
     radioAccessTechnology: NasPlmnAccessTechnologyIdentifier
     static name: string
 }
-export class MessageNasGetRfBandInformationOutput {
+class MessageNasGetRfBandInformationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetRfBandInformationOutput */
     getBandwidthList(): { returnType: boolean, valueBandwidthList: MessageNasGetRfBandInformationOutputBandwidthListElement[] | null }
     getExtendedList(): { returnType: boolean, valueExtendedList: MessageNasGetRfBandInformationOutputExtendedListElement[] | null }
@@ -8805,27 +8805,27 @@ export class MessageNasGetRfBandInformationOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetRfBandInformationOutputBandwidthListElement {
+class MessageNasGetRfBandInformationOutputBandwidthListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetRfBandInformationOutputBandwidthListElement */
     radioInterface: NasRadioInterface
     bandwidth: NasDLBandwidth
     static name: string
 }
-export class MessageNasGetRfBandInformationOutputExtendedListElement {
+class MessageNasGetRfBandInformationOutputExtendedListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetRfBandInformationOutputExtendedListElement */
     radioInterface: NasRadioInterface
     activeBandClass: NasActiveBand
     activeChannel: number
     static name: string
 }
-export class MessageNasGetRfBandInformationOutputListElement {
+class MessageNasGetRfBandInformationOutputListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetRfBandInformationOutputListElement */
     radioInterface: NasRadioInterface
     activeBandClass: NasActiveBand
     activeChannel: number
     static name: string
 }
-export class MessageNasGetServingSystemOutput {
+class MessageNasGetServingSystemOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetServingSystemOutput */
     getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus | null, valueCallBarringStatusPsStatus: NasCallBarringStatus | null }
     getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number | null, valueCdmaBaseStationInfoBaseStationLatitude: number | null, valueCdmaBaseStationInfoBaseStationLongitude: number | null }
@@ -8857,13 +8857,13 @@ export class MessageNasGetServingSystemOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetServingSystemOutputRoamingIndicatorListElement {
+class MessageNasGetServingSystemOutputRoamingIndicatorListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetServingSystemOutputRoamingIndicatorListElement */
     radioInterface: NasRadioInterface
     roamingIndicator: NasRoamingIndicatorStatus
     static name: string
 }
-export class MessageNasGetSignalInfoOutput {
+class MessageNasGetSignalInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalInfoOutput */
     get5gSignalStrength(): { returnType: boolean, value5gSignalStrengthRsrp: number | null, value5gSignalStrengthSnr: number | null }
     get5gSignalStrengthExtended(): { returnType: boolean, value5gSignalStrengthExtended: number | null }
@@ -8879,7 +8879,7 @@ export class MessageNasGetSignalInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetSignalStrengthInput {
+class MessageNasGetSignalStrengthInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalStrengthInput */
     getRequestMask(): { returnType: boolean, valueRequestMask: NasSignalStrengthRequest | null }
     ref(): MessageNasGetSignalStrengthInput
@@ -8891,7 +8891,7 @@ export class MessageNasGetSignalStrengthInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasGetSignalStrengthInput
 }
-export class MessageNasGetSignalStrengthOutput {
+class MessageNasGetSignalStrengthOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutput */
     getEcioList(): { returnType: boolean, valueEcioList: MessageNasGetSignalStrengthOutputEcioListElement[] | null }
     getErrorRateList(): { returnType: boolean, valueErrorRateList: MessageNasGetSignalStrengthOutputErrorRateListElement[] | null }
@@ -8908,31 +8908,31 @@ export class MessageNasGetSignalStrengthOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetSignalStrengthOutputEcioListElement {
+class MessageNasGetSignalStrengthOutputEcioListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutputEcioListElement */
     ecio: number
     radioInterface: NasRadioInterface
     static name: string
 }
-export class MessageNasGetSignalStrengthOutputErrorRateListElement {
+class MessageNasGetSignalStrengthOutputErrorRateListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutputErrorRateListElement */
     rate: number
     radioInterface: NasRadioInterface
     static name: string
 }
-export class MessageNasGetSignalStrengthOutputRssiListElement {
+class MessageNasGetSignalStrengthOutputRssiListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutputRssiListElement */
     rssi: number
     radioInterface: NasRadioInterface
     static name: string
 }
-export class MessageNasGetSignalStrengthOutputStrengthListElement {
+class MessageNasGetSignalStrengthOutputStrengthListElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutputStrengthListElement */
     strength: number
     radioInterface: NasRadioInterface
     static name: string
 }
-export class MessageNasGetSupportedMessagesOutput {
+class MessageNasGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -8940,7 +8940,7 @@ export class MessageNasGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetSystemInfoOutput {
+class MessageNasGetSystemInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSystemInfoOutput */
     getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalCdmaSystemInfoRegistrationPeriod: number | null }
     getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number | null, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
@@ -8986,7 +8986,7 @@ export class MessageNasGetSystemInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetSystemSelectionPreferenceOutput {
+class MessageNasGetSystemSelectionPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSystemSelectionPreferenceOutput */
     getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] | null }
     getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference | null }
@@ -9012,7 +9012,7 @@ export class MessageNasGetSystemSelectionPreferenceOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetTechnologyPreferenceOutput {
+class MessageNasGetTechnologyPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTechnologyPreferenceOutput */
     getActive(): { returnType: boolean, valueActiveTechnologyPreference: NasRadioTechnologyPreference | null, valueActiveTechnologyPreferenceDuration: NasPreferenceDuration | null }
     getPersistent(): { returnType: boolean, valuePersistent: NasRadioTechnologyPreference | null }
@@ -9021,7 +9021,7 @@ export class MessageNasGetTechnologyPreferenceOutput {
     unref(): void
     static name: string
 }
-export class MessageNasGetTxRxInfoInput {
+class MessageNasGetTxRxInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTxRxInfoInput */
     getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface | null }
     ref(): MessageNasGetTxRxInfoInput
@@ -9033,7 +9033,7 @@ export class MessageNasGetTxRxInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasGetTxRxInfoInput
 }
-export class MessageNasGetTxRxInfoOutput {
+class MessageNasGetTxRxInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTxRxInfoOutput */
     getResult(): boolean
     getRxChain0Info(): { returnType: boolean, valueRxChain0InfoIsRadioTuned: boolean | null, valueRxChain0InfoRxPower: number | null, valueRxChain0InfoEcio: number | null, valueRxChain0InfoRscp: number | null, valueRxChain0InfoRsrp: number | null, valueRxChain0InfoPhase: number | null }
@@ -9045,7 +9045,7 @@ export class MessageNasGetTxRxInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageNasInitiateNetworkRegisterInput {
+class MessageNasInitiateNetworkRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasInitiateNetworkRegisterInput */
     getAction(): { returnType: boolean, valueAction: NasNetworkRegisterType | null }
     getChangeDuration(): { returnType: boolean, valueChangeDuration: NasChangeDuration | null }
@@ -9063,14 +9063,14 @@ export class MessageNasInitiateNetworkRegisterInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasInitiateNetworkRegisterInput
 }
-export class MessageNasInitiateNetworkRegisterOutput {
+class MessageNasInitiateNetworkRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasInitiateNetworkRegisterOutput */
     getResult(): boolean
     ref(): MessageNasInitiateNetworkRegisterOutput
     unref(): void
     static name: string
 }
-export class MessageNasNetworkScanInput {
+class MessageNasNetworkScanInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasNetworkScanInput */
     getNetworkType(): { returnType: boolean, valueNetworkType: NasNetworkScanType | null }
     ref(): MessageNasNetworkScanInput
@@ -9082,7 +9082,7 @@ export class MessageNasNetworkScanInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasNetworkScanInput
 }
-export class MessageNasNetworkScanOutput {
+class MessageNasNetworkScanOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasNetworkScanOutput */
     getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement[] | null }
     getNetworkInformation(): { returnType: boolean, valueNetworkInformation: MessageNasNetworkScanOutputNetworkInformationElement[] | null }
@@ -9093,14 +9093,14 @@ export class MessageNasNetworkScanOutput {
     unref(): void
     static name: string
 }
-export class MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement {
+class MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement */
     mcc: number
     mnc: number
     includesPcsDigit: boolean
     static name: string
 }
-export class MessageNasNetworkScanOutputNetworkInformationElement {
+class MessageNasNetworkScanOutputNetworkInformationElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasNetworkScanOutputNetworkInformationElement */
     mcc: number
     mnc: number
@@ -9108,14 +9108,14 @@ export class MessageNasNetworkScanOutputNetworkInformationElement {
     description: string
     static name: string
 }
-export class MessageNasNetworkScanOutputRadioAccessTechnologyElement {
+class MessageNasNetworkScanOutputRadioAccessTechnologyElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasNetworkScanOutputRadioAccessTechnologyElement */
     mcc: number
     mnc: number
     radioInterface: NasRadioInterface
     static name: string
 }
-export class MessageNasRegisterIndicationsInput {
+class MessageNasRegisterIndicationsInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasRegisterIndicationsInput */
     getCurrentPlmnName(): { returnType: boolean, valueCurrentPlmnName: boolean | null }
     getDdtmEvents(): { returnType: boolean, valueDdtmEvents: boolean | null }
@@ -9157,21 +9157,21 @@ export class MessageNasRegisterIndicationsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasRegisterIndicationsInput
 }
-export class MessageNasRegisterIndicationsOutput {
+class MessageNasRegisterIndicationsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasRegisterIndicationsOutput */
     getResult(): boolean
     ref(): MessageNasRegisterIndicationsOutput
     unref(): void
     static name: string
 }
-export class MessageNasResetOutput {
+class MessageNasResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasResetOutput */
     getResult(): boolean
     ref(): MessageNasResetOutput
     unref(): void
     static name: string
 }
-export class MessageNasSetEventReportInput {
+class MessageNasSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetEventReportInput */
     getEcioIndicator(): { returnType: boolean, valueEcioIndicatorReport: boolean | null, valueEcioIndicatorEcioDelta: number | null }
     getEcioThreshold(): { returnType: boolean, valueEcioThresholdReport: boolean | null, valueEcioThresholdThresholds: number[] | null }
@@ -9205,14 +9205,14 @@ export class MessageNasSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasSetEventReportInput
 }
-export class MessageNasSetEventReportOutput {
+class MessageNasSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetEventReportOutput */
     getResult(): boolean
     ref(): MessageNasSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessageNasSetPreferredNetworksInput {
+class MessageNasSetPreferredNetworksInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInput */
     getClearPreviousPreferredNetworks(): { returnType: boolean, valueClearPreviousPreferredNetworks: boolean | null }
     getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement[] | null }
@@ -9228,28 +9228,28 @@ export class MessageNasSetPreferredNetworksInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasSetPreferredNetworksInput
 }
-export class MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement {
+class MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement */
     mcc: number
     mnc: number
     includesPcsDigit: boolean
     static name: string
 }
-export class MessageNasSetPreferredNetworksInputPreferredNetworksElement {
+class MessageNasSetPreferredNetworksInputPreferredNetworksElement {
     /* Fields of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInputPreferredNetworksElement */
     mcc: number
     mnc: number
     radioAccessTechnology: NasPlmnAccessTechnologyIdentifier
     static name: string
 }
-export class MessageNasSetPreferredNetworksOutput {
+class MessageNasSetPreferredNetworksOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksOutput */
     getResult(): boolean
     ref(): MessageNasSetPreferredNetworksOutput
     unref(): void
     static name: string
 }
-export class MessageNasSetSystemSelectionPreferenceInput {
+class MessageNasSetSystemSelectionPreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetSystemSelectionPreferenceInput */
     getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] | null }
     getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference | null }
@@ -9297,14 +9297,14 @@ export class MessageNasSetSystemSelectionPreferenceInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasSetSystemSelectionPreferenceInput
 }
-export class MessageNasSetSystemSelectionPreferenceOutput {
+class MessageNasSetSystemSelectionPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetSystemSelectionPreferenceOutput */
     getResult(): boolean
     ref(): MessageNasSetSystemSelectionPreferenceOutput
     unref(): void
     static name: string
 }
-export class MessageNasSetTechnologyPreferenceInput {
+class MessageNasSetTechnologyPreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetTechnologyPreferenceInput */
     getCurrent(): { returnType: boolean, valueCurrentTechnologyPreference: NasRadioTechnologyPreference | null, valueCurrentTechnologyPreferenceDuration: NasPreferenceDuration | null }
     ref(): MessageNasSetTechnologyPreferenceInput
@@ -9316,14 +9316,14 @@ export class MessageNasSetTechnologyPreferenceInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageNasSetTechnologyPreferenceInput
 }
-export class MessageNasSetTechnologyPreferenceOutput {
+class MessageNasSetTechnologyPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetTechnologyPreferenceOutput */
     getResult(): boolean
     ref(): MessageNasSetTechnologyPreferenceOutput
     unref(): void
     static name: string
 }
-export class MessageNasSwiGetStatusOutput {
+class MessageNasSwiGetStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSwiGetStatusOutput */
     getCommonInfoV2(): { returnType: boolean, valueCommonInfoV2Temperature: number | null, valueCommonInfoV2ModemMode: NasSwiModemMode | null, valueCommonInfoV2SystemMode: NasSwiSystemMode | null, valueCommonInfoV2ImsRegistrationState: NasSwiImsRegState | null, valueCommonInfoV2PacketServiceState: NasSwiPsState | null }
     getLteInfo(): { returnType: boolean, valueLteInfoBand: NasActiveBand | null, valueLteInfoBandwidth: NasDLBandwidth | null, valueLteInfoRxChannel: number | null, valueLteInfoTxChannel: number | null, valueLteInfoEmmState: NasSwiEmmState | null, valueLteInfoEmmSubState: number | null, valueLteInfoEmmConnectionState: NasSwiEmmConnectionState | null }
@@ -9332,14 +9332,14 @@ export class MessageNasSwiGetStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageOmaCancelSessionOutput {
+class MessageOmaCancelSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaCancelSessionOutput */
     getResult(): boolean
     ref(): MessageOmaCancelSessionOutput
     unref(): void
     static name: string
 }
-export class MessageOmaGetFeatureSettingOutput {
+class MessageOmaGetFeatureSettingOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaGetFeatureSettingOutput */
     getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean | null }
     getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean | null }
@@ -9350,7 +9350,7 @@ export class MessageOmaGetFeatureSettingOutput {
     unref(): void
     static name: string
 }
-export class MessageOmaGetSessionInfoOutput {
+class MessageOmaGetSessionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaGetSessionInfoOutput */
     getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType | null, valueNetworkInitiatedAlertSessionId: number | null }
     getResult(): boolean
@@ -9361,14 +9361,14 @@ export class MessageOmaGetSessionInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageOmaResetOutput {
+class MessageOmaResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaResetOutput */
     getResult(): boolean
     ref(): MessageOmaResetOutput
     unref(): void
     static name: string
 }
-export class MessageOmaSendSelectionInput {
+class MessageOmaSendSelectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSendSelectionInput */
     getNetworkInitiatedAlertSelection(): { returnType: boolean, valueNetworkInitiatedAlertSelectionControlPointSelectionAccept: boolean | null, valueNetworkInitiatedAlertSelectionSessionId: number | null }
     ref(): MessageOmaSendSelectionInput
@@ -9380,14 +9380,14 @@ export class MessageOmaSendSelectionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageOmaSendSelectionInput
 }
-export class MessageOmaSendSelectionOutput {
+class MessageOmaSendSelectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSendSelectionOutput */
     getResult(): boolean
     ref(): MessageOmaSendSelectionOutput
     unref(): void
     static name: string
 }
-export class MessageOmaSetEventReportInput {
+class MessageOmaSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetEventReportInput */
     getNetworkInitiatedAlertReporting(): { returnType: boolean, valueNetworkInitiatedAlertReporting: boolean | null }
     getSessionStateReporting(): { returnType: boolean, valueSessionStateReporting: boolean | null }
@@ -9401,14 +9401,14 @@ export class MessageOmaSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageOmaSetEventReportInput
 }
-export class MessageOmaSetEventReportOutput {
+class MessageOmaSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetEventReportOutput */
     getResult(): boolean
     ref(): MessageOmaSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessageOmaSetFeatureSettingInput {
+class MessageOmaSetFeatureSettingInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetFeatureSettingInput */
     getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean | null }
     getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean | null }
@@ -9424,14 +9424,14 @@ export class MessageOmaSetFeatureSettingInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageOmaSetFeatureSettingInput
 }
-export class MessageOmaSetFeatureSettingOutput {
+class MessageOmaSetFeatureSettingOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetFeatureSettingOutput */
     getResult(): boolean
     ref(): MessageOmaSetFeatureSettingOutput
     unref(): void
     static name: string
 }
-export class MessageOmaStartSessionInput {
+class MessageOmaStartSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaStartSessionInput */
     getSessionType(): { returnType: boolean, valueSessionType: OmaSessionType | null }
     ref(): MessageOmaStartSessionInput
@@ -9443,14 +9443,14 @@ export class MessageOmaStartSessionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageOmaStartSessionInput
 }
-export class MessageOmaStartSessionOutput {
+class MessageOmaStartSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaStartSessionOutput */
     getResult(): boolean
     ref(): MessageOmaStartSessionOutput
     unref(): void
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutput {
+class MessagePbmGetAllCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutput */
     getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement[] | null }
     getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement[] | null }
@@ -9465,7 +9465,7 @@ export class MessagePbmGetAllCapabilitiesOutput {
     unref(): void
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement */
     sessionType: PbmSessionType
     maximumRecords: number
@@ -9473,7 +9473,7 @@ export class MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabi
     maximumStringLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement */
     sessionType: PbmSessionType
     maximumAdditionalNumbers: number
@@ -9481,13 +9481,13 @@ export class MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement
     maximumAdditionalNumberTagLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement {
+class MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement */
     sessionType: PbmSessionType
     phonebooks: object[]
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElementPhonebooksElement {
+class MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElementPhonebooksElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElementPhonebooksElement */
     phonebookType: PbmPhonebookType
     usedRecords: number
@@ -9496,21 +9496,21 @@ export class MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement
     maximumNameLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputEmailCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputEmailCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputEmailCapabilityElement */
     sessionType: PbmSessionType
     maximumEmails: number
     maximumEmailAddressLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputGroupCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputGroupCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputGroupCapabilityElement */
     sessionType: PbmSessionType
     maximumGroups: number
     maximumGroupTagLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCapabilityElement */
     sessionType: PbmSessionType
     maximumRecords: number
@@ -9518,19 +9518,19 @@ export class MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCap
     maximumStringLength: number
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputHiddenRecordsCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputHiddenRecordsCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputHiddenRecordsCapabilityElement */
     sessionType: PbmSessionType
     supported: boolean
     static name: string
 }
-export class MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement {
+class MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement {
     /* Fields of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement */
     sessionType: PbmSessionType
     maximumSecondNameLength: number
     static name: string
 }
-export class MessagePbmGetCapabilitiesInput {
+class MessagePbmGetCapabilitiesInput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetCapabilitiesInput */
     getPhonebookInformation(): { returnType: boolean, valuePhonebookInformationSessionType: PbmSessionType | null, valuePhonebookInformationPhonebookType: PbmPhonebookType | null }
     ref(): MessagePbmGetCapabilitiesInput
@@ -9542,7 +9542,7 @@ export class MessagePbmGetCapabilitiesInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePbmGetCapabilitiesInput
 }
-export class MessagePbmGetCapabilitiesOutput {
+class MessagePbmGetCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetCapabilitiesOutput */
     getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapabilityMaximumRecords: number | null, valueAdditionalNumberAlphaStringCapabilityUsedRecords: number | null, valueAdditionalNumberAlphaStringCapabilityMaximumStringLength: number | null }
     getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapabilityMaximumAdditionalNumbers: number | null, valueAdditionalNumberCapabilityMaximumAdditionalNumberLength: number | null, valueAdditionalNumberCapabilityMaximumAdditionalNumberTagLength: number | null }
@@ -9557,7 +9557,7 @@ export class MessagePbmGetCapabilitiesOutput {
     unref(): void
     static name: string
 }
-export class MessagePbmIndicationRegisterInput {
+class MessagePbmIndicationRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmIndicationRegisterInput */
     getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag | null }
     ref(): MessagePbmIndicationRegisterInput
@@ -9569,7 +9569,7 @@ export class MessagePbmIndicationRegisterInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePbmIndicationRegisterInput
 }
-export class MessagePbmIndicationRegisterOutput {
+class MessagePbmIndicationRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmIndicationRegisterOutput */
     getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag | null }
     getResult(): boolean
@@ -9577,7 +9577,7 @@ export class MessagePbmIndicationRegisterOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcActivateConfigInput {
+class MessagePdcActivateConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcActivateConfigInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9591,7 +9591,7 @@ export class MessagePdcActivateConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcActivateConfigInput
 }
-export class MessagePdcActivateConfigOutput {
+class MessagePdcActivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcActivateConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9599,7 +9599,7 @@ export class MessagePdcActivateConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcConfigChangeInput {
+class MessagePdcConfigChangeInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcConfigChangeInput */
     getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
     ref(): MessagePdcConfigChangeInput
@@ -9611,7 +9611,7 @@ export class MessagePdcConfigChangeInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcConfigChangeInput
 }
-export class MessagePdcConfigChangeOutput {
+class MessagePdcConfigChangeOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcConfigChangeOutput */
     getResult(): boolean
     getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
@@ -9619,7 +9619,7 @@ export class MessagePdcConfigChangeOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcDeactivateConfigInput {
+class MessagePdcDeactivateConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeactivateConfigInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9633,7 +9633,7 @@ export class MessagePdcDeactivateConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcDeactivateConfigInput
 }
-export class MessagePdcDeactivateConfigOutput {
+class MessagePdcDeactivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeactivateConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9641,7 +9641,7 @@ export class MessagePdcDeactivateConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcDeleteConfigInput {
+class MessagePdcDeleteConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeleteConfigInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getId(): { returnType: boolean, valueId: any[] | null }
@@ -9657,7 +9657,7 @@ export class MessagePdcDeleteConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcDeleteConfigInput
 }
-export class MessagePdcDeleteConfigOutput {
+class MessagePdcDeleteConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeleteConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9665,7 +9665,7 @@ export class MessagePdcDeleteConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcGetConfigInfoInput {
+class MessagePdcGetConfigInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigInfoInput */
     getToken(): { returnType: boolean, valueToken: number | null }
     getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
@@ -9679,14 +9679,14 @@ export class MessagePdcGetConfigInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcGetConfigInfoInput
 }
-export class MessagePdcGetConfigInfoOutput {
+class MessagePdcGetConfigInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigInfoOutput */
     getResult(): boolean
     ref(): MessagePdcGetConfigInfoOutput
     unref(): void
     static name: string
 }
-export class MessagePdcGetConfigLimitsInput {
+class MessagePdcGetConfigLimitsInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigLimitsInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9700,7 +9700,7 @@ export class MessagePdcGetConfigLimitsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcGetConfigLimitsInput
 }
-export class MessagePdcGetConfigLimitsOutput {
+class MessagePdcGetConfigLimitsOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigLimitsOutput */
     getCurrentSize(): { returnType: boolean, valueCurrentSize: number | null }
     getMaximumSize(): { returnType: boolean, valueMaximumSize: number | null }
@@ -9710,7 +9710,7 @@ export class MessagePdcGetConfigLimitsOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcGetDefaultConfigInfoInput {
+class MessagePdcGetDefaultConfigInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetDefaultConfigInfoInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9724,7 +9724,7 @@ export class MessagePdcGetDefaultConfigInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcGetDefaultConfigInfoInput
 }
-export class MessagePdcGetDefaultConfigInfoOutput {
+class MessagePdcGetDefaultConfigInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetDefaultConfigInfoOutput */
     getDescription(): { returnType: boolean, valueDescription: string | null }
     getResult(): boolean
@@ -9735,7 +9735,7 @@ export class MessagePdcGetDefaultConfigInfoOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcGetSelectedConfigInput {
+class MessagePdcGetSelectedConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetSelectedConfigInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9749,7 +9749,7 @@ export class MessagePdcGetSelectedConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcGetSelectedConfigInput
 }
-export class MessagePdcGetSelectedConfigOutput {
+class MessagePdcGetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetSelectedConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9757,7 +9757,7 @@ export class MessagePdcGetSelectedConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcListConfigsInput {
+class MessagePdcListConfigsInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcListConfigsInput */
     getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9771,14 +9771,14 @@ export class MessagePdcListConfigsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcListConfigsInput
 }
-export class MessagePdcListConfigsOutput {
+class MessagePdcListConfigsOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcListConfigsOutput */
     getResult(): boolean
     ref(): MessagePdcListConfigsOutput
     unref(): void
     static name: string
 }
-export class MessagePdcLoadConfigInput {
+class MessagePdcLoadConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcLoadConfigInput */
     getConfigChunk(): { returnType: boolean, valueConfigChunkType: PdcConfigurationType | null, valueConfigChunkId: any[] | null, valueConfigChunkTotalSize: number | null, valueConfigChunkChunk: any[] | null }
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9792,7 +9792,7 @@ export class MessagePdcLoadConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcLoadConfigInput
 }
-export class MessagePdcLoadConfigOutput {
+class MessagePdcLoadConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcLoadConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9800,7 +9800,7 @@ export class MessagePdcLoadConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdcRegisterInput {
+class MessagePdcRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcRegisterInput */
     getEnableRefresh(): { returnType: boolean, valueEnableRefresh: boolean | null }
     getEnableReporting(): { returnType: boolean, valueEnableReporting: boolean | null }
@@ -9814,21 +9814,21 @@ export class MessagePdcRegisterInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcRegisterInput
 }
-export class MessagePdcRegisterOutput {
+class MessagePdcRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcRegisterOutput */
     getResult(): boolean
     ref(): MessagePdcRegisterOutput
     unref(): void
     static name: string
 }
-export class MessagePdcResetOutput {
+class MessagePdcResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcResetOutput */
     getResult(): boolean
     ref(): MessagePdcResetOutput
     unref(): void
     static name: string
 }
-export class MessagePdcSetSelectedConfigInput {
+class MessagePdcSetSelectedConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcSetSelectedConfigInput */
     getToken(): { returnType: boolean, valueToken: number | null }
     getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
@@ -9842,7 +9842,7 @@ export class MessagePdcSetSelectedConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdcSetSelectedConfigInput
 }
-export class MessagePdcSetSelectedConfigOutput {
+class MessagePdcSetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcSetSelectedConfigOutput */
     getResult(): boolean
     getToken(): { returnType: boolean, valueToken: number | null }
@@ -9850,7 +9850,7 @@ export class MessagePdcSetSelectedConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdsGetAgpsConfigInput {
+class MessagePdsGetAgpsConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAgpsConfigInput */
     getNetworkMode(): { returnType: boolean, valueNetworkMode: PdsNetworkMode | null }
     ref(): MessagePdsGetAgpsConfigInput
@@ -9862,7 +9862,7 @@ export class MessagePdsGetAgpsConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsGetAgpsConfigInput
 }
-export class MessagePdsGetAgpsConfigOutput {
+class MessagePdsGetAgpsConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAgpsConfigOutput */
     getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number | null, valueLocationServerAddressPort: number | null }
     getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] | null }
@@ -9871,7 +9871,7 @@ export class MessagePdsGetAgpsConfigOutput {
     unref(): void
     static name: string
 }
-export class MessagePdsGetAutoTrackingStateOutput {
+class MessagePdsGetAutoTrackingStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAutoTrackingStateOutput */
     getResult(): boolean
     getState(): { returnType: boolean, valueStateAutoTrackingState: boolean | null }
@@ -9879,7 +9879,7 @@ export class MessagePdsGetAutoTrackingStateOutput {
     unref(): void
     static name: string
 }
-export class MessagePdsGetDefaultTrackingSessionOutput {
+class MessagePdsGetDefaultTrackingSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetDefaultTrackingSessionOutput */
     getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode | null, valueInfoPositionDataTimeout: number | null, valueInfoInterval: number | null, valueInfoAccuracyThreshold: number | null }
     getResult(): boolean
@@ -9887,7 +9887,7 @@ export class MessagePdsGetDefaultTrackingSessionOutput {
     unref(): void
     static name: string
 }
-export class MessagePdsGetGpsServiceStateOutput {
+class MessagePdsGetGpsServiceStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetGpsServiceStateOutput */
     getResult(): boolean
     getState(): { returnType: boolean, valueStateGpsServiceState: boolean | null, valueStateTrackingSessionState: PdsTrackingSessionState | null }
@@ -9895,14 +9895,14 @@ export class MessagePdsGetGpsServiceStateOutput {
     unref(): void
     static name: string
 }
-export class MessagePdsResetOutput {
+class MessagePdsResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsResetOutput */
     getResult(): boolean
     ref(): MessagePdsResetOutput
     unref(): void
     static name: string
 }
-export class MessagePdsSetAgpsConfigInput {
+class MessagePdsSetAgpsConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAgpsConfigInput */
     getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number | null, valueLocationServerAddressPort: number | null }
     getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] | null }
@@ -9918,14 +9918,14 @@ export class MessagePdsSetAgpsConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsSetAgpsConfigInput
 }
-export class MessagePdsSetAgpsConfigOutput {
+class MessagePdsSetAgpsConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAgpsConfigOutput */
     getResult(): boolean
     ref(): MessagePdsSetAgpsConfigOutput
     unref(): void
     static name: string
 }
-export class MessagePdsSetAutoTrackingStateInput {
+class MessagePdsSetAutoTrackingStateInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAutoTrackingStateInput */
     getState(): { returnType: boolean, valueStateAutoTrackingState: boolean | null }
     ref(): MessagePdsSetAutoTrackingStateInput
@@ -9937,14 +9937,14 @@ export class MessagePdsSetAutoTrackingStateInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsSetAutoTrackingStateInput
 }
-export class MessagePdsSetAutoTrackingStateOutput {
+class MessagePdsSetAutoTrackingStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAutoTrackingStateOutput */
     getResult(): boolean
     ref(): MessagePdsSetAutoTrackingStateOutput
     unref(): void
     static name: string
 }
-export class MessagePdsSetDefaultTrackingSessionInput {
+class MessagePdsSetDefaultTrackingSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetDefaultTrackingSessionInput */
     getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode | null, valueInfoPositionDataTimeout: number | null, valueInfoInterval: number | null, valueInfoAccuracyThreshold: number | null }
     ref(): MessagePdsSetDefaultTrackingSessionInput
@@ -9956,14 +9956,14 @@ export class MessagePdsSetDefaultTrackingSessionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsSetDefaultTrackingSessionInput
 }
-export class MessagePdsSetDefaultTrackingSessionOutput {
+class MessagePdsSetDefaultTrackingSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetDefaultTrackingSessionOutput */
     getResult(): boolean
     ref(): MessagePdsSetDefaultTrackingSessionOutput
     unref(): void
     static name: string
 }
-export class MessagePdsSetEventReportInput {
+class MessagePdsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetEventReportInput */
     getAccelerometerDataStreamingReadyReporting(): { returnType: boolean, valueAccelerometerDataStreamingReadyReporting: boolean | null }
     getExtendedExternalXtraDataRequestReporting(): { returnType: boolean, valueExtendedExternalXtraDataRequestReporting: boolean | null }
@@ -10013,14 +10013,14 @@ export class MessagePdsSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsSetEventReportInput
 }
-export class MessagePdsSetEventReportOutput {
+class MessagePdsSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetEventReportOutput */
     getResult(): boolean
     ref(): MessagePdsSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessagePdsSetGpsServiceStateInput {
+class MessagePdsSetGpsServiceStateInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetGpsServiceStateInput */
     getState(): { returnType: boolean, valueStateGpsServiceState: boolean | null }
     ref(): MessagePdsSetGpsServiceStateInput
@@ -10032,14 +10032,14 @@ export class MessagePdsSetGpsServiceStateInput {
     /* Static methods and pseudo-constructors */
     static new(): MessagePdsSetGpsServiceStateInput
 }
-export class MessagePdsSetGpsServiceStateOutput {
+class MessagePdsSetGpsServiceStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetGpsServiceStateOutput */
     getResult(): boolean
     ref(): MessagePdsSetGpsServiceStateOutput
     unref(): void
     static name: string
 }
-export class MessageQosGetFlowStatusInput {
+class MessageQosGetFlowStatusInput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetFlowStatusInput */
     getQosId(): { returnType: boolean, valueQosId: number | null }
     ref(): MessageQosGetFlowStatusInput
@@ -10051,7 +10051,7 @@ export class MessageQosGetFlowStatusInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageQosGetFlowStatusInput
 }
-export class MessageQosGetFlowStatusOutput {
+class MessageQosGetFlowStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetFlowStatusOutput */
     getResult(): boolean
     getValue(): { returnType: boolean, valueValue: QosStatus | null }
@@ -10059,7 +10059,7 @@ export class MessageQosGetFlowStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageQosGetNetworkStatusOutput {
+class MessageQosGetNetworkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetNetworkStatusOutput */
     getQosSupported(): { returnType: boolean, valueQosSupported: boolean | null }
     getResult(): boolean
@@ -10067,14 +10067,14 @@ export class MessageQosGetNetworkStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageQosResetOutput {
+class MessageQosResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosResetOutput */
     getResult(): boolean
     ref(): MessageQosResetOutput
     unref(): void
     static name: string
 }
-export class MessageQosSwiReadDataStatsInput {
+class MessageQosSwiReadDataStatsInput {
     /* Methods of Qmi-1.0.Qmi.MessageQosSwiReadDataStatsInput */
     getApnId(): { returnType: boolean, valueApnId: number | null }
     ref(): MessageQosSwiReadDataStatsInput
@@ -10086,7 +10086,7 @@ export class MessageQosSwiReadDataStatsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageQosSwiReadDataStatsInput
 }
-export class MessageQosSwiReadDataStatsOutput {
+class MessageQosSwiReadDataStatsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosSwiReadDataStatsOutput */
     getApn(): { returnType: boolean, valueApnApnId: number | null, valueApnTxPackets: number | null, valueApnTxPacketsDropped: number | null, valueApnRxPackets: number | null, valueApnTxBytes: number | null, valueApnTxBytesDropped: number | null, valueApnRxBytes: number | null }
     getFlow(): { returnType: boolean, valueFlow: MessageQosSwiReadDataStatsOutputFlowElement[] | null }
@@ -10095,7 +10095,7 @@ export class MessageQosSwiReadDataStatsOutput {
     unref(): void
     static name: string
 }
-export class MessageQosSwiReadDataStatsOutputFlowElement {
+class MessageQosSwiReadDataStatsOutputFlowElement {
     /* Fields of Qmi-1.0.Qmi.MessageQosSwiReadDataStatsOutputFlowElement */
     bearerId: number
     txPackets: number
@@ -10104,7 +10104,7 @@ export class MessageQosSwiReadDataStatsOutputFlowElement {
     txBytesDropped: number
     static name: string
 }
-export class MessageSarRfGetStateOutput {
+class MessageSarRfGetStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageSarRfGetStateOutput */
     getResult(): boolean
     getState(): { returnType: boolean, valueState: SarRfState | null }
@@ -10112,7 +10112,7 @@ export class MessageSarRfGetStateOutput {
     unref(): void
     static name: string
 }
-export class MessageSarRfSetStateInput {
+class MessageSarRfSetStateInput {
     /* Methods of Qmi-1.0.Qmi.MessageSarRfSetStateInput */
     getState(): { returnType: boolean, valueState: SarRfState | null }
     ref(): MessageSarRfSetStateInput
@@ -10124,14 +10124,14 @@ export class MessageSarRfSetStateInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageSarRfSetStateInput
 }
-export class MessageSarRfSetStateOutput {
+class MessageSarRfSetStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageSarRfSetStateOutput */
     getResult(): boolean
     ref(): MessageSarRfSetStateOutput
     unref(): void
     static name: string
 }
-export class MessageUimChangePinInput {
+class MessageUimChangePinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangePinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoOldPin: string | null, valueInfoNewPin: string | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10147,7 +10147,7 @@ export class MessageUimChangePinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimChangePinInput
 }
-export class MessageUimChangePinOutput {
+class MessageUimChangePinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangePinOutput */
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10157,7 +10157,7 @@ export class MessageUimChangePinOutput {
     unref(): void
     static name: string
 }
-export class MessageUimChangeProvisioningSessionInput {
+class MessageUimChangeProvisioningSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangeProvisioningSessionInput */
     getApplicationInformation(): { returnType: boolean, valueApplicationInformationSlot: number | null, valueApplicationInformationApplicationIdentifier: any[] | null }
     getSessionChange(): { returnType: boolean, valueSessionChangeSessionType: UimSessionType | null, valueSessionChangeActivate: boolean | null }
@@ -10171,14 +10171,14 @@ export class MessageUimChangeProvisioningSessionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimChangeProvisioningSessionInput
 }
-export class MessageUimChangeProvisioningSessionOutput {
+class MessageUimChangeProvisioningSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangeProvisioningSessionOutput */
     getResult(): boolean
     ref(): MessageUimChangeProvisioningSessionOutput
     unref(): void
     static name: string
 }
-export class MessageUimDepersonalizationInput {
+class MessageUimDepersonalizationInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimDepersonalizationInput */
     getInfo(): { returnType: boolean, valueInfoFeature: UimCardApplicationPersonalizationFeature | null, valueInfoOperation: UimDepersonalizationOperation | null, valueInfoControlKey: string | null }
     getSlot(): { returnType: boolean, valueSlot: number | null }
@@ -10192,7 +10192,7 @@ export class MessageUimDepersonalizationInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimDepersonalizationInput
 }
-export class MessageUimDepersonalizationOutput {
+class MessageUimDepersonalizationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimDepersonalizationOutput */
     getResult(): boolean
     getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyLeft: number | null, valueRetriesRemainingUnblockLeft: number | null }
@@ -10200,7 +10200,7 @@ export class MessageUimDepersonalizationOutput {
     unref(): void
     static name: string
 }
-export class MessageUimGetCardStatusOutput {
+class MessageUimGetCardStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetCardStatusOutput */
     getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number | null, valueCardStatusIndex1xPrimary: number | null, valueCardStatusIndexGwSecondary: number | null, valueCardStatusIndex1xSecondary: number | null, valueCardStatusCards: MessageUimGetCardStatusOutputCardStatusCardsElement[] | null }
     getResult(): boolean
@@ -10208,7 +10208,7 @@ export class MessageUimGetCardStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageUimGetCardStatusOutputCardStatusCardsElement {
+class MessageUimGetCardStatusOutputCardStatusCardsElement {
     /* Fields of Qmi-1.0.Qmi.MessageUimGetCardStatusOutputCardStatusCardsElement */
     cardState: UimCardState
     upinState: UimPinState
@@ -10218,7 +10218,7 @@ export class MessageUimGetCardStatusOutputCardStatusCardsElement {
     applications: object[]
     static name: string
 }
-export class MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElement {
+class MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElement {
     /* Fields of Qmi-1.0.Qmi.MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElement */
     type: UimCardApplicationType
     state: UimCardApplicationState
@@ -10236,7 +10236,7 @@ export class MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElem
     puk2Retries: number
     static name: string
 }
-export class MessageUimGetConfigurationInput {
+class MessageUimGetConfigurationInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetConfigurationInput */
     getConfigurationMask(): { returnType: boolean, valueConfigurationMask: UimConfiguration | null }
     ref(): MessageUimGetConfigurationInput
@@ -10248,7 +10248,7 @@ export class MessageUimGetConfigurationInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimGetConfigurationInput
 }
-export class MessageUimGetConfigurationOutput {
+class MessageUimGetConfigurationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetConfigurationOutput */
     getAutomaticSelection(): { returnType: boolean, valueAutomaticSelection: boolean | null }
     getHaltSubscription(): { returnType: boolean, valueHaltSubscription: boolean | null }
@@ -10259,21 +10259,21 @@ export class MessageUimGetConfigurationOutput {
     unref(): void
     static name: string
 }
-export class MessageUimGetConfigurationOutputPersonalizationStatusElement {
+class MessageUimGetConfigurationOutputPersonalizationStatusElement {
     /* Fields of Qmi-1.0.Qmi.MessageUimGetConfigurationOutputPersonalizationStatusElement */
     feature: UimCardApplicationPersonalizationFeature
     verifyLeft: number
     unblockLeft: number
     static name: string
 }
-export class MessageUimGetConfigurationOutputPersonalizationStatusOtherSlotsSlotsElement {
+class MessageUimGetConfigurationOutputPersonalizationStatusOtherSlotsSlotsElement {
     /* Fields of Qmi-1.0.Qmi.MessageUimGetConfigurationOutputPersonalizationStatusOtherSlotsSlotsElement */
     feature: UimCardApplicationPersonalizationFeature
     verifyLeft: number
     unblockLeft: number
     static name: string
 }
-export class MessageUimGetFileAttributesInput {
+class MessageUimGetFileAttributesInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetFileAttributesInput */
     getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10289,7 +10289,7 @@ export class MessageUimGetFileAttributesInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimGetFileAttributesInput
 }
-export class MessageUimGetFileAttributesOutput {
+class MessageUimGetFileAttributesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetFileAttributesOutput */
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
     getFileAttributes(): { returnType: boolean, valueFileAttributesFileSize: number | null, valueFileAttributesFileId: number | null, valueFileAttributesFileType: UimFileType | null, valueFileAttributesRecordSize: number | null, valueFileAttributesRecordCount: number | null, valueFileAttributesReadSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesReadSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesWriteSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesWriteSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesIncreaseSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesIncreaseSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesDeactivateSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesDeactivateSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesActivateSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesActivateSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesRawData: any[] | null }
@@ -10299,7 +10299,7 @@ export class MessageUimGetFileAttributesOutput {
     unref(): void
     static name: string
 }
-export class MessageUimGetSlotStatusOutput {
+class MessageUimGetSlotStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetSlotStatusOutput */
     getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] | null }
     getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] | null }
@@ -10309,7 +10309,7 @@ export class MessageUimGetSlotStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageUimGetSupportedMessagesOutput {
+class MessageUimGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -10317,7 +10317,7 @@ export class MessageUimGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageUimPowerOffSimInput {
+class MessageUimPowerOffSimInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOffSimInput */
     getSlot(): { returnType: boolean, valueSlot: number | null }
     ref(): MessageUimPowerOffSimInput
@@ -10329,14 +10329,14 @@ export class MessageUimPowerOffSimInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimPowerOffSimInput
 }
-export class MessageUimPowerOffSimOutput {
+class MessageUimPowerOffSimOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOffSimOutput */
     getResult(): boolean
     ref(): MessageUimPowerOffSimOutput
     unref(): void
     static name: string
 }
-export class MessageUimPowerOnSimInput {
+class MessageUimPowerOnSimInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOnSimInput */
     getSlot(): { returnType: boolean, valueSlot: number | null }
     ref(): MessageUimPowerOnSimInput
@@ -10348,14 +10348,14 @@ export class MessageUimPowerOnSimInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimPowerOnSimInput
 }
-export class MessageUimPowerOnSimOutput {
+class MessageUimPowerOnSimOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOnSimOutput */
     getResult(): boolean
     ref(): MessageUimPowerOnSimOutput
     unref(): void
     static name: string
 }
-export class MessageUimReadRecordInput {
+class MessageUimReadRecordInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadRecordInput */
     getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
     getLastRecord(): { returnType: boolean, valueLastRecord: number | null }
@@ -10375,7 +10375,7 @@ export class MessageUimReadRecordInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimReadRecordInput
 }
-export class MessageUimReadRecordOutput {
+class MessageUimReadRecordOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadRecordOutput */
     getAdditionalReadResult(): { returnType: boolean, valueAdditionalReadResult: any[] | null }
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
@@ -10386,7 +10386,7 @@ export class MessageUimReadRecordOutput {
     unref(): void
     static name: string
 }
-export class MessageUimReadTransparentInput {
+class MessageUimReadTransparentInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadTransparentInput */
     getEncryptData(): { returnType: boolean, valueEncryptData: boolean | null }
     getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
@@ -10406,7 +10406,7 @@ export class MessageUimReadTransparentInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimReadTransparentInput
 }
-export class MessageUimReadTransparentOutput {
+class MessageUimReadTransparentOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadTransparentOutput */
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
     getEncryptedData(): { returnType: boolean, valueEncryptedData: boolean | null }
@@ -10417,7 +10417,7 @@ export class MessageUimReadTransparentOutput {
     unref(): void
     static name: string
 }
-export class MessageUimRefreshCompleteInput {
+class MessageUimRefreshCompleteInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshCompleteInput */
     getInfo(): { returnType: boolean, valueInfoRefreshSuccess: boolean | null }
     getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
@@ -10431,14 +10431,14 @@ export class MessageUimRefreshCompleteInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimRefreshCompleteInput
 }
-export class MessageUimRefreshCompleteOutput {
+class MessageUimRefreshCompleteOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshCompleteOutput */
     getResult(): boolean
     ref(): MessageUimRefreshCompleteOutput
     unref(): void
     static name: string
 }
-export class MessageUimRefreshRegisterAllInput {
+class MessageUimRefreshRegisterAllInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterAllInput */
     getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean | null }
     getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
@@ -10452,14 +10452,14 @@ export class MessageUimRefreshRegisterAllInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimRefreshRegisterAllInput
 }
-export class MessageUimRefreshRegisterAllOutput {
+class MessageUimRefreshRegisterAllOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterAllOutput */
     getResult(): boolean
     ref(): MessageUimRefreshRegisterAllOutput
     unref(): void
     static name: string
 }
-export class MessageUimRefreshRegisterInput {
+class MessageUimRefreshRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterInput */
     getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean | null, valueInfoVoteForInit: boolean | null, valueInfoFiles: MessageUimRefreshRegisterInputInfoFilesElement[] | null }
     getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
@@ -10473,20 +10473,20 @@ export class MessageUimRefreshRegisterInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimRefreshRegisterInput
 }
-export class MessageUimRefreshRegisterInputInfoFilesElement {
+class MessageUimRefreshRegisterInputInfoFilesElement {
     /* Fields of Qmi-1.0.Qmi.MessageUimRefreshRegisterInputInfoFilesElement */
     fileId: number
     path: object[]
     static name: string
 }
-export class MessageUimRefreshRegisterOutput {
+class MessageUimRefreshRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterOutput */
     getResult(): boolean
     ref(): MessageUimRefreshRegisterOutput
     unref(): void
     static name: string
 }
-export class MessageUimRegisterEventsInput {
+class MessageUimRegisterEventsInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRegisterEventsInput */
     getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag | null }
     ref(): MessageUimRegisterEventsInput
@@ -10498,7 +10498,7 @@ export class MessageUimRegisterEventsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimRegisterEventsInput
 }
-export class MessageUimRegisterEventsOutput {
+class MessageUimRegisterEventsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRegisterEventsOutput */
     getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag | null }
     getResult(): boolean
@@ -10506,14 +10506,14 @@ export class MessageUimRegisterEventsOutput {
     unref(): void
     static name: string
 }
-export class MessageUimResetOutput {
+class MessageUimResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimResetOutput */
     getResult(): boolean
     ref(): MessageUimResetOutput
     unref(): void
     static name: string
 }
-export class MessageUimSetPinProtectionInput {
+class MessageUimSetPinProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSetPinProtectionInput */
     getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPinEnabled: boolean | null, valueInfoPinValue: string | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10529,7 +10529,7 @@ export class MessageUimSetPinProtectionInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimSetPinProtectionInput
 }
-export class MessageUimSetPinProtectionOutput {
+class MessageUimSetPinProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSetPinProtectionOutput */
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
@@ -10538,7 +10538,7 @@ export class MessageUimSetPinProtectionOutput {
     unref(): void
     static name: string
 }
-export class MessageUimSwitchSlotInput {
+class MessageUimSwitchSlotInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSwitchSlotInput */
     getLogicalSlot(): { returnType: boolean, valueLogicalSlot: number | null }
     getPhysicalSlot(): { returnType: boolean, valuePhysicalSlot: number | null }
@@ -10552,14 +10552,14 @@ export class MessageUimSwitchSlotInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimSwitchSlotInput
 }
-export class MessageUimSwitchSlotOutput {
+class MessageUimSwitchSlotOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSwitchSlotOutput */
     getResult(): boolean
     ref(): MessageUimSwitchSlotOutput
     unref(): void
     static name: string
 }
-export class MessageUimUnblockPinInput {
+class MessageUimUnblockPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimUnblockPinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPuk: string | null, valueInfoNewPin: string | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10575,7 +10575,7 @@ export class MessageUimUnblockPinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimUnblockPinInput
 }
-export class MessageUimUnblockPinOutput {
+class MessageUimUnblockPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimUnblockPinOutput */
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10585,7 +10585,7 @@ export class MessageUimUnblockPinOutput {
     unref(): void
     static name: string
 }
-export class MessageUimVerifyPinInput {
+class MessageUimVerifyPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimVerifyPinInput */
     getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPinValue: string | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10601,7 +10601,7 @@ export class MessageUimVerifyPinInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageUimVerifyPinInput
 }
-export class MessageUimVerifyPinOutput {
+class MessageUimVerifyPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimVerifyPinOutput */
     getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
     getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
@@ -10611,7 +10611,7 @@ export class MessageUimVerifyPinOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceAnswerCallInput {
+class MessageVoiceAnswerCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerCallInput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     ref(): MessageVoiceAnswerCallInput
@@ -10623,7 +10623,7 @@ export class MessageVoiceAnswerCallInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceAnswerCallInput
 }
-export class MessageVoiceAnswerCallOutput {
+class MessageVoiceAnswerCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerCallOutput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
@@ -10631,7 +10631,7 @@ export class MessageVoiceAnswerCallOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceAnswerUssdInput {
+class MessageVoiceAnswerUssdInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerUssdInput */
     getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceAnswerUssdInput
@@ -10643,21 +10643,21 @@ export class MessageVoiceAnswerUssdInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceAnswerUssdInput
 }
-export class MessageVoiceAnswerUssdOutput {
+class MessageVoiceAnswerUssdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerUssdOutput */
     getResult(): boolean
     ref(): MessageVoiceAnswerUssdOutput
     unref(): void
     static name: string
 }
-export class MessageVoiceCancelUssdOutput {
+class MessageVoiceCancelUssdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceCancelUssdOutput */
     getResult(): boolean
     ref(): MessageVoiceCancelUssdOutput
     unref(): void
     static name: string
 }
-export class MessageVoiceDialCallInput {
+class MessageVoiceDialCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceDialCallInput */
     getCallingNumber(): { returnType: boolean, valueCallingNumber: string | null }
     ref(): MessageVoiceDialCallInput
@@ -10669,7 +10669,7 @@ export class MessageVoiceDialCallInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceDialCallInput
 }
-export class MessageVoiceDialCallOutput {
+class MessageVoiceDialCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceDialCallOutput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
@@ -10677,7 +10677,7 @@ export class MessageVoiceDialCallOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceEndCallInput {
+class MessageVoiceEndCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceEndCallInput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     ref(): MessageVoiceEndCallInput
@@ -10689,7 +10689,7 @@ export class MessageVoiceEndCallInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceEndCallInput
 }
-export class MessageVoiceEndCallOutput {
+class MessageVoiceEndCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceEndCallOutput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
@@ -10697,7 +10697,7 @@ export class MessageVoiceEndCallOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceGetAllCallInfoOutput {
+class MessageVoiceGetAllCallInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutput */
     getCallInformation(): { returnType: boolean, valueCallInformation: MessageVoiceGetAllCallInfoOutputCallInformationCall[] | null }
     getRemotePartyNumber(): { returnType: boolean, valueRemotePartyNumber: MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall[] | null }
@@ -10706,7 +10706,7 @@ export class MessageVoiceGetAllCallInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceGetAllCallInfoOutputCallInformationCall {
+class MessageVoiceGetAllCallInfoOutputCallInformationCall {
     /* Fields of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutputCallInformationCall */
     id: number
     state: VoiceCallState
@@ -10717,14 +10717,14 @@ export class MessageVoiceGetAllCallInfoOutputCallInformationCall {
     als: VoiceAls
     static name: string
 }
-export class MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall {
+class MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall {
     /* Fields of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall */
     id: number
     presentationIndicator: VoicePresentation
     type: string
     static name: string
 }
-export class MessageVoiceGetCallWaitingInput {
+class MessageVoiceGetCallWaitingInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetCallWaitingInput */
     getServiceClass(): { returnType: boolean, valueServiceClass: number | null }
     ref(): MessageVoiceGetCallWaitingInput
@@ -10736,7 +10736,7 @@ export class MessageVoiceGetCallWaitingInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceGetCallWaitingInput
 }
-export class MessageVoiceGetCallWaitingOutput {
+class MessageVoiceGetCallWaitingOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetCallWaitingOutput */
     getResult(): boolean
     getServiceClass(): { returnType: boolean, valueServiceClass: number | null }
@@ -10744,7 +10744,7 @@ export class MessageVoiceGetCallWaitingOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceGetConfigInput {
+class MessageVoiceGetConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetConfigInput */
     getAirTimer(): { returnType: boolean, valueAirTimer: boolean | null }
     getAmrStatus(): { returnType: boolean, valueAmrStatus: boolean | null }
@@ -10772,7 +10772,7 @@ export class MessageVoiceGetConfigInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceGetConfigInput
 }
-export class MessageVoiceGetConfigOutput {
+class MessageVoiceGetConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetConfigOutput */
     getAirTimerCount(): { returnType: boolean, valueAirTimerCountNamId: number | null, valueAirTimerCountAirTimer: number | null }
     getAutoAnswerStatus(): { returnType: boolean, valueAutoAnswerStatus: boolean | null }
@@ -10787,7 +10787,7 @@ export class MessageVoiceGetConfigOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceGetSupportedMessagesOutput {
+class MessageVoiceGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -10795,7 +10795,7 @@ export class MessageVoiceGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceIndicationRegisterInput {
+class MessageVoiceIndicationRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceIndicationRegisterInput */
     getAocEvents(): { returnType: boolean, valueAocEvents: boolean | null }
     getCallNotificationEvents(): { returnType: boolean, valueCallNotificationEvents: boolean | null }
@@ -10831,14 +10831,14 @@ export class MessageVoiceIndicationRegisterInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceIndicationRegisterInput
 }
-export class MessageVoiceIndicationRegisterOutput {
+class MessageVoiceIndicationRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceIndicationRegisterOutput */
     getResult(): boolean
     ref(): MessageVoiceIndicationRegisterOutput
     unref(): void
     static name: string
 }
-export class MessageVoiceManageCallsInput {
+class MessageVoiceManageCallsInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceManageCallsInput */
     getCallId(): { returnType: boolean, valueCallId: number | null }
     getServiceType(): { returnType: boolean, valueServiceType: VoiceSupplementaryServiceType | null }
@@ -10852,14 +10852,14 @@ export class MessageVoiceManageCallsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceManageCallsInput
 }
-export class MessageVoiceManageCallsOutput {
+class MessageVoiceManageCallsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceManageCallsOutput */
     getResult(): boolean
     ref(): MessageVoiceManageCallsOutput
     unref(): void
     static name: string
 }
-export class MessageVoiceOriginateUssdInput {
+class MessageVoiceOriginateUssdInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdInput */
     getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceOriginateUssdInput
@@ -10871,7 +10871,7 @@ export class MessageVoiceOriginateUssdInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceOriginateUssdInput
 }
-export class MessageVoiceOriginateUssdNoWaitInput {
+class MessageVoiceOriginateUssdNoWaitInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdNoWaitInput */
     getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceOriginateUssdNoWaitInput
@@ -10883,14 +10883,14 @@ export class MessageVoiceOriginateUssdNoWaitInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceOriginateUssdNoWaitInput
 }
-export class MessageVoiceOriginateUssdNoWaitOutput {
+class MessageVoiceOriginateUssdNoWaitOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdNoWaitOutput */
     getResult(): boolean
     ref(): MessageVoiceOriginateUssdNoWaitOutput
     unref(): void
     static name: string
 }
-export class MessageVoiceOriginateUssdOutput {
+class MessageVoiceOriginateUssdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdOutput */
     getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme | null, valueAlphaIdentifierAlpha: any[] | null }
     getCallControlResultType(): { returnType: boolean, valueCallControlResultType: VoiceCallControlResultType | null }
@@ -10904,7 +10904,7 @@ export class MessageVoiceOriginateUssdOutput {
     unref(): void
     static name: string
 }
-export class MessageVoiceSetSupplementaryServiceInput {
+class MessageVoiceSetSupplementaryServiceInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceSetSupplementaryServiceInput */
     getSupplementaryServiceInformation(): { returnType: boolean, valueSupplementaryServiceInformationSupplementaryServiceAction: VoiceSupplementaryServiceAction | null, valueSupplementaryServiceInformationSupplementaryServiceReason: VoiceSupplementaryServiceReason | null }
     ref(): MessageVoiceSetSupplementaryServiceInput
@@ -10916,7 +10916,7 @@ export class MessageVoiceSetSupplementaryServiceInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageVoiceSetSupplementaryServiceInput
 }
-export class MessageVoiceSetSupplementaryServiceOutput {
+class MessageVoiceSetSupplementaryServiceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceSetSupplementaryServiceOutput */
     getResult(): boolean
     getServiceStatus(): { returnType: boolean, valueServiceStatusActive: boolean | null, valueServiceStatusProvisioned: boolean | null }
@@ -10924,7 +10924,7 @@ export class MessageVoiceSetSupplementaryServiceOutput {
     unref(): void
     static name: string
 }
-export class MessageWdaGetDataFormatInput {
+class MessageWdaGetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetDataFormatInput */
     getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType | null, valueEndpointInfoInterfaceNumber: number | null }
     ref(): MessageWdaGetDataFormatInput
@@ -10936,7 +10936,7 @@ export class MessageWdaGetDataFormatInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdaGetDataFormatInput
 }
-export class MessageWdaGetDataFormatOutput {
+class MessageWdaGetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetDataFormatOutput */
     getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
     getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
@@ -10954,7 +10954,7 @@ export class MessageWdaGetDataFormatOutput {
     unref(): void
     static name: string
 }
-export class MessageWdaGetSupportedMessagesOutput {
+class MessageWdaGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -10962,7 +10962,7 @@ export class MessageWdaGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageWdaSetDataFormatInput {
+class MessageWdaSetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaSetDataFormatInput */
     getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
     getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
@@ -10988,7 +10988,7 @@ export class MessageWdaSetDataFormatInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdaSetDataFormatInput
 }
-export class MessageWdaSetDataFormatOutput {
+class MessageWdaSetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaSetDataFormatOutput */
     getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
     getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
@@ -11006,7 +11006,7 @@ export class MessageWdaSetDataFormatOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsBindDataPortInput {
+class MessageWdsBindDataPortInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindDataPortInput */
     getDataPort(): { returnType: boolean, valueDataPort: SioPort | null }
     ref(): MessageWdsBindDataPortInput
@@ -11018,14 +11018,14 @@ export class MessageWdsBindDataPortInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsBindDataPortInput
 }
-export class MessageWdsBindDataPortOutput {
+class MessageWdsBindDataPortOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindDataPortOutput */
     getResult(): boolean
     ref(): MessageWdsBindDataPortOutput
     unref(): void
     static name: string
 }
-export class MessageWdsBindMuxDataPortInput {
+class MessageWdsBindMuxDataPortInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindMuxDataPortInput */
     getClientType(): { returnType: boolean, valueClientType: WdsClientType | null }
     getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType | null, valueEndpointInfoInterfaceNumber: number | null }
@@ -11041,14 +11041,14 @@ export class MessageWdsBindMuxDataPortInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsBindMuxDataPortInput
 }
-export class MessageWdsBindMuxDataPortOutput {
+class MessageWdsBindMuxDataPortOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindMuxDataPortOutput */
     getResult(): boolean
     ref(): MessageWdsBindMuxDataPortOutput
     unref(): void
     static name: string
 }
-export class MessageWdsCreateProfileInput {
+class MessageWdsCreateProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsCreateProfileInput */
     getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
     getApnName(): { returnType: boolean, valueApnName: string | null }
@@ -11120,7 +11120,7 @@ export class MessageWdsCreateProfileInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsCreateProfileInput
 }
-export class MessageWdsCreateProfileOutput {
+class MessageWdsCreateProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsCreateProfileOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
@@ -11129,7 +11129,7 @@ export class MessageWdsCreateProfileOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsDeleteProfileInput {
+class MessageWdsDeleteProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsDeleteProfileInput */
     getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
     ref(): MessageWdsDeleteProfileInput
@@ -11141,7 +11141,7 @@ export class MessageWdsDeleteProfileInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsDeleteProfileInput
 }
-export class MessageWdsDeleteProfileOutput {
+class MessageWdsDeleteProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsDeleteProfileOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
@@ -11149,7 +11149,7 @@ export class MessageWdsDeleteProfileOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetAutoconnectSettingsOutput {
+class MessageWdsGetAutoconnectSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetAutoconnectSettingsOutput */
     getResult(): boolean
     getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming | null }
@@ -11158,7 +11158,7 @@ export class MessageWdsGetAutoconnectSettingsOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetChannelRatesOutput {
+class MessageWdsGetChannelRatesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetChannelRatesOutput */
     getChannelRates(): { returnType: boolean, valueChannelRatesChannelTxRateBps: number | null, valueChannelRatesChannelRxRateBps: number | null, valueChannelRatesMaxChannelTxRateBps: number | null, valueChannelRatesMaxChannelRxRateBps: number | null }
     getResult(): boolean
@@ -11166,7 +11166,7 @@ export class MessageWdsGetChannelRatesOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetCurrentDataBearerTechnologyOutput {
+class MessageWdsGetCurrentDataBearerTechnologyOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentDataBearerTechnologyOutput */
     getCurrent(): { returnType: boolean, valueCurrentNetworkType: WdsNetworkType | null, valueCurrentRatMask: number | null, valueCurrentSoMask: number | null }
     getLast(): { returnType: boolean, valueLastNetworkType: WdsNetworkType | null, valueLastRatMask: number | null, valueLastSoMask: number | null }
@@ -11175,7 +11175,7 @@ export class MessageWdsGetCurrentDataBearerTechnologyOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetCurrentSettingsInput {
+class MessageWdsGetCurrentSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentSettingsInput */
     getRequestedSettings(): { returnType: boolean, valueRequestedSettings: WdsGetCurrentSettingsRequestedSettings | null }
     ref(): MessageWdsGetCurrentSettingsInput
@@ -11187,7 +11187,7 @@ export class MessageWdsGetCurrentSettingsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetCurrentSettingsInput
 }
-export class MessageWdsGetCurrentSettingsOutput {
+class MessageWdsGetCurrentSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentSettingsOutput */
     getApnName(): { returnType: boolean, valueApnName: string | null }
     getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
@@ -11219,7 +11219,7 @@ export class MessageWdsGetCurrentSettingsOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetDataBearerTechnologyOutput {
+class MessageWdsGetDataBearerTechnologyOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDataBearerTechnologyOutput */
     getCurrent(): { returnType: boolean, valueCurrent: WdsDataBearerTechnology | null }
     getLast(): { returnType: boolean, valueLast: WdsDataBearerTechnology | null }
@@ -11228,7 +11228,7 @@ export class MessageWdsGetDataBearerTechnologyOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetDefaultProfileNumberInput {
+class MessageWdsGetDefaultProfileNumberInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultProfileNumberInput */
     getProfileType(): { returnType: boolean, valueProfileTypeType: WdsProfileType | null, valueProfileTypeFamily: WdsProfileFamily | null }
     ref(): MessageWdsGetDefaultProfileNumberInput
@@ -11240,7 +11240,7 @@ export class MessageWdsGetDefaultProfileNumberInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetDefaultProfileNumberInput
 }
-export class MessageWdsGetDefaultProfileNumberOutput {
+class MessageWdsGetDefaultProfileNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultProfileNumberOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getIndex(): { returnType: boolean, valueIndex: number | null }
@@ -11249,7 +11249,7 @@ export class MessageWdsGetDefaultProfileNumberOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetDefaultSettingsInput {
+class MessageWdsGetDefaultSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultSettingsInput */
     getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType | null }
     ref(): MessageWdsGetDefaultSettingsInput
@@ -11261,7 +11261,7 @@ export class MessageWdsGetDefaultSettingsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetDefaultSettingsInput
 }
-export class MessageWdsGetDefaultSettingsOutput {
+class MessageWdsGetDefaultSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultSettingsOutput */
     getApnName(): { returnType: boolean, valueApnName: string | null }
     getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
@@ -11296,7 +11296,7 @@ export class MessageWdsGetDefaultSettingsOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetDormancyStatusOutput {
+class MessageWdsGetDormancyStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDormancyStatusOutput */
     getDormancyStatus(): { returnType: boolean, valueDormancyStatus: WdsDormancyStatus | null }
     getResult(): boolean
@@ -11304,7 +11304,7 @@ export class MessageWdsGetDormancyStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetLteAttachParametersOutput {
+class MessageWdsGetLteAttachParametersOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetLteAttachParametersOutput */
     getApn(): { returnType: boolean, valueApn: string | null }
     getIpSupportType(): { returnType: boolean, valueIpSupportType: WdsIpSupportType | null }
@@ -11314,7 +11314,7 @@ export class MessageWdsGetLteAttachParametersOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetLteAttachPdnListOutput {
+class MessageWdsGetLteAttachPdnListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetLteAttachPdnListOutput */
     getCurrentList(): { returnType: boolean, valueCurrentList: number[] | null }
     getPendingList(): { returnType: boolean, valuePendingList: number[] | null }
@@ -11323,7 +11323,7 @@ export class MessageWdsGetLteAttachPdnListOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetMaxLteAttachPdnNumberOutput {
+class MessageWdsGetMaxLteAttachPdnNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetMaxLteAttachPdnNumberOutput */
     getInfo(): { returnType: boolean, valueInfo: number | null }
     getResult(): boolean
@@ -11331,7 +11331,7 @@ export class MessageWdsGetMaxLteAttachPdnNumberOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetPacketServiceStatusOutput {
+class MessageWdsGetPacketServiceStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketServiceStatusOutput */
     getConnectionStatus(): { returnType: boolean, valueConnectionStatus: WdsConnectionStatus | null }
     getResult(): boolean
@@ -11339,7 +11339,7 @@ export class MessageWdsGetPacketServiceStatusOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetPacketStatisticsInput {
+class MessageWdsGetPacketStatisticsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketStatisticsInput */
     getMask(): { returnType: boolean, valueMask: WdsPacketStatisticsMaskFlag | null }
     ref(): MessageWdsGetPacketStatisticsInput
@@ -11351,7 +11351,7 @@ export class MessageWdsGetPacketStatisticsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetPacketStatisticsInput
 }
-export class MessageWdsGetPacketStatisticsOutput {
+class MessageWdsGetPacketStatisticsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketStatisticsOutput */
     getLastCallRxBytesOk(): { returnType: boolean, valueLastCallRxBytesOk: number | null }
     getLastCallTxBytesOk(): { returnType: boolean, valueLastCallTxBytesOk: number | null }
@@ -11370,7 +11370,7 @@ export class MessageWdsGetPacketStatisticsOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetPdnThrottleInfoInput {
+class MessageWdsGetPdnThrottleInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPdnThrottleInfoInput */
     getNetworkType(): { returnType: boolean, valueNetworkType: WdsDataSystemNetworkType | null }
     ref(): MessageWdsGetPdnThrottleInfoInput
@@ -11382,7 +11382,7 @@ export class MessageWdsGetPdnThrottleInfoInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetPdnThrottleInfoInput
 }
-export class MessageWdsGetPdnThrottleInfoOutput {
+class MessageWdsGetPdnThrottleInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPdnThrottleInfoOutput */
     getInfo(): { returnType: boolean, valueInfo: MessageWdsGetPdnThrottleInfoOutputInfoElement[] | null }
     getResult(): boolean
@@ -11390,7 +11390,7 @@ export class MessageWdsGetPdnThrottleInfoOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetPdnThrottleInfoOutputInfoElement {
+class MessageWdsGetPdnThrottleInfoOutputInfoElement {
     /* Fields of Qmi-1.0.Qmi.MessageWdsGetPdnThrottleInfoOutputInfoElement */
     ipv4Throttled: boolean
     ipv6Throttled: boolean
@@ -11399,7 +11399,7 @@ export class MessageWdsGetPdnThrottleInfoOutputInfoElement {
     apn: string
     static name: string
 }
-export class MessageWdsGetProfileListInput {
+class MessageWdsGetProfileListInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileListInput */
     getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType | null }
     ref(): MessageWdsGetProfileListInput
@@ -11411,7 +11411,7 @@ export class MessageWdsGetProfileListInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetProfileListInput
 }
-export class MessageWdsGetProfileListOutput {
+class MessageWdsGetProfileListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileListOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getProfileList(): { returnType: boolean, valueProfileList: MessageWdsGetProfileListOutputProfileListProfile[] | null }
@@ -11420,14 +11420,14 @@ export class MessageWdsGetProfileListOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetProfileListOutputProfileListProfile {
+class MessageWdsGetProfileListOutputProfileListProfile {
     /* Fields of Qmi-1.0.Qmi.MessageWdsGetProfileListOutputProfileListProfile */
     profileType: WdsProfileType
     profileIndex: number
     profileName: string
     static name: string
 }
-export class MessageWdsGetProfileSettingsInput {
+class MessageWdsGetProfileSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileSettingsInput */
     getProfileId(): { returnType: boolean, valueProfileIdProfileType: WdsProfileType | null, valueProfileIdProfileIndex: number | null }
     ref(): MessageWdsGetProfileSettingsInput
@@ -11439,7 +11439,7 @@ export class MessageWdsGetProfileSettingsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsGetProfileSettingsInput
 }
-export class MessageWdsGetProfileSettingsOutput {
+class MessageWdsGetProfileSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileSettingsOutput */
     getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
     getApnName(): { returnType: boolean, valueApnName: string | null }
@@ -11477,7 +11477,7 @@ export class MessageWdsGetProfileSettingsOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGetSupportedMessagesOutput {
+class MessageWdsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -11485,21 +11485,21 @@ export class MessageWdsGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsGoActiveOutput {
+class MessageWdsGoActiveOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGoActiveOutput */
     getResult(): boolean
     ref(): MessageWdsGoActiveOutput
     unref(): void
     static name: string
 }
-export class MessageWdsGoDormantOutput {
+class MessageWdsGoDormantOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGoDormantOutput */
     getResult(): boolean
     ref(): MessageWdsGoDormantOutput
     unref(): void
     static name: string
 }
-export class MessageWdsModifyProfileInput {
+class MessageWdsModifyProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsModifyProfileInput */
     getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
     getApnName(): { returnType: boolean, valueApnName: string | null }
@@ -11571,7 +11571,7 @@ export class MessageWdsModifyProfileInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsModifyProfileInput
 }
-export class MessageWdsModifyProfileOutput {
+class MessageWdsModifyProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsModifyProfileOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
@@ -11579,14 +11579,14 @@ export class MessageWdsModifyProfileOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsResetOutput {
+class MessageWdsResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsResetOutput */
     getResult(): boolean
     ref(): MessageWdsResetOutput
     unref(): void
     static name: string
 }
-export class MessageWdsSetAutoconnectSettingsInput {
+class MessageWdsSetAutoconnectSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetAutoconnectSettingsInput */
     getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming | null }
     getStatus(): { returnType: boolean, valueStatus: WdsAutoconnectSetting | null }
@@ -11600,14 +11600,14 @@ export class MessageWdsSetAutoconnectSettingsInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSetAutoconnectSettingsInput
 }
-export class MessageWdsSetAutoconnectSettingsOutput {
+class MessageWdsSetAutoconnectSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetAutoconnectSettingsOutput */
     getResult(): boolean
     ref(): MessageWdsSetAutoconnectSettingsOutput
     unref(): void
     static name: string
 }
-export class MessageWdsSetDefaultProfileNumberInput {
+class MessageWdsSetDefaultProfileNumberInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetDefaultProfileNumberInput */
     getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierType: WdsProfileType | null, valueProfileIdentifierFamily: WdsProfileFamily | null, valueProfileIdentifierIndex: number | null }
     ref(): MessageWdsSetDefaultProfileNumberInput
@@ -11619,7 +11619,7 @@ export class MessageWdsSetDefaultProfileNumberInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSetDefaultProfileNumberInput
 }
-export class MessageWdsSetDefaultProfileNumberOutput {
+class MessageWdsSetDefaultProfileNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetDefaultProfileNumberOutput */
     getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
@@ -11627,7 +11627,7 @@ export class MessageWdsSetDefaultProfileNumberOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsSetEventReportInput {
+class MessageWdsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetEventReportInput */
     getChannelRate(): { returnType: boolean, valueChannelRate: boolean | null }
     getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnology: boolean | null }
@@ -11665,14 +11665,14 @@ export class MessageWdsSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSetEventReportInput
 }
-export class MessageWdsSetEventReportOutput {
+class MessageWdsSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetEventReportOutput */
     getResult(): boolean
     ref(): MessageWdsSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessageWdsSetIpFamilyInput {
+class MessageWdsSetIpFamilyInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetIpFamilyInput */
     getPreference(): { returnType: boolean, valuePreference: WdsIpFamily | null }
     ref(): MessageWdsSetIpFamilyInput
@@ -11684,14 +11684,14 @@ export class MessageWdsSetIpFamilyInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSetIpFamilyInput
 }
-export class MessageWdsSetIpFamilyOutput {
+class MessageWdsSetIpFamilyOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetIpFamilyOutput */
     getResult(): boolean
     ref(): MessageWdsSetIpFamilyOutput
     unref(): void
     static name: string
 }
-export class MessageWdsSetLteAttachPdnListInput {
+class MessageWdsSetLteAttachPdnListInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetLteAttachPdnListInput */
     getAction(): { returnType: boolean, valueAction: WdsAttachPdnListAction | null }
     getList(): { returnType: boolean, valueList: number[] | null }
@@ -11705,14 +11705,14 @@ export class MessageWdsSetLteAttachPdnListInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSetLteAttachPdnListInput
 }
-export class MessageWdsSetLteAttachPdnListOutput {
+class MessageWdsSetLteAttachPdnListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetLteAttachPdnListOutput */
     getResult(): boolean
     ref(): MessageWdsSetLteAttachPdnListOutput
     unref(): void
     static name: string
 }
-export class MessageWdsStartNetworkInput {
+class MessageWdsStartNetworkInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStartNetworkInput */
     getApn(): { returnType: boolean, valueApn: string | null }
     getAuthenticationPreference(): { returnType: boolean, valueAuthenticationPreference: WdsAuthentication | null }
@@ -11754,7 +11754,7 @@ export class MessageWdsStartNetworkInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsStartNetworkInput
 }
-export class MessageWdsStartNetworkOutput {
+class MessageWdsStartNetworkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStartNetworkOutput */
     getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason | null }
     getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number | null }
@@ -11764,7 +11764,7 @@ export class MessageWdsStartNetworkOutput {
     unref(): void
     static name: string
 }
-export class MessageWdsStopNetworkInput {
+class MessageWdsStopNetworkInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStopNetworkInput */
     getDisableAutoconnect(): { returnType: boolean, valueDisableAutoconnect: boolean | null }
     getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number | null }
@@ -11778,14 +11778,14 @@ export class MessageWdsStopNetworkInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsStopNetworkInput
 }
-export class MessageWdsStopNetworkOutput {
+class MessageWdsStopNetworkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStopNetworkOutput */
     getResult(): boolean
     ref(): MessageWdsStopNetworkOutput
     unref(): void
     static name: string
 }
-export class MessageWdsSwiCreateProfileIndexedInput {
+class MessageWdsSwiCreateProfileIndexedInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSwiCreateProfileIndexedInput */
     getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
     getApnName(): { returnType: boolean, valueApnName: string | null }
@@ -11821,7 +11821,7 @@ export class MessageWdsSwiCreateProfileIndexedInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWdsSwiCreateProfileIndexedInput
 }
-export class MessageWdsSwiCreateProfileIndexedOutput {
+class MessageWdsSwiCreateProfileIndexedOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSwiCreateProfileIndexedOutput */
     getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
     getResult(): boolean
@@ -11829,7 +11829,7 @@ export class MessageWdsSwiCreateProfileIndexedOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsDeleteInput {
+class MessageWmsDeleteInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsDeleteInput */
     getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number | null }
     getMemoryStorage(): { returnType: boolean, valueMemoryStorage: WmsStorageType | null }
@@ -11847,14 +11847,14 @@ export class MessageWmsDeleteInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsDeleteInput
 }
-export class MessageWmsDeleteOutput {
+class MessageWmsDeleteOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsDeleteOutput */
     getResult(): boolean
     ref(): MessageWmsDeleteOutput
     unref(): void
     static name: string
 }
-export class MessageWmsGetMessageProtocolOutput {
+class MessageWmsGetMessageProtocolOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetMessageProtocolOutput */
     getMessageProtocol(): { returnType: boolean, valueMessageProtocol: WmsMessageProtocol | null }
     getResult(): boolean
@@ -11862,7 +11862,7 @@ export class MessageWmsGetMessageProtocolOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsGetRoutesOutput {
+class MessageWmsGetRoutesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetRoutesOutput */
     getResult(): boolean
     getRouteList(): { returnType: boolean, valueRouteList: MessageWmsGetRoutesOutputRouteListElement[] | null }
@@ -11871,7 +11871,7 @@ export class MessageWmsGetRoutesOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsGetRoutesOutputRouteListElement {
+class MessageWmsGetRoutesOutputRouteListElement {
     /* Fields of Qmi-1.0.Qmi.MessageWmsGetRoutesOutputRouteListElement */
     messageType: WmsMessageType
     messageClass: WmsMessageClass
@@ -11879,7 +11879,7 @@ export class MessageWmsGetRoutesOutputRouteListElement {
     receiptAction: WmsReceiptAction
     static name: string
 }
-export class MessageWmsGetSupportedMessagesOutput {
+class MessageWmsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetSupportedMessagesOutput */
     getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
@@ -11887,7 +11887,7 @@ export class MessageWmsGetSupportedMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsListMessagesInput {
+class MessageWmsListMessagesInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsListMessagesInput */
     getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
     getMessageTag(): { returnType: boolean, valueMessageTag: WmsMessageTagType | null }
@@ -11903,7 +11903,7 @@ export class MessageWmsListMessagesInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsListMessagesInput
 }
-export class MessageWmsListMessagesOutput {
+class MessageWmsListMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsListMessagesOutput */
     getMessageList(): { returnType: boolean, valueMessageList: MessageWmsListMessagesOutputMessageListElement[] | null }
     getResult(): boolean
@@ -11911,13 +11911,13 @@ export class MessageWmsListMessagesOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsListMessagesOutputMessageListElement {
+class MessageWmsListMessagesOutputMessageListElement {
     /* Fields of Qmi-1.0.Qmi.MessageWmsListMessagesOutputMessageListElement */
     memoryIndex: number
     messageTag: WmsMessageTagType
     static name: string
 }
-export class MessageWmsModifyTagInput {
+class MessageWmsModifyTagInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsModifyTagInput */
     getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
     getMessageTag(): { returnType: boolean, valueMessageTagStorageType: WmsStorageType | null, valueMessageTagMemoryIndex: number | null, valueMessageTagMessageTag: WmsMessageTagType | null }
@@ -11931,14 +11931,14 @@ export class MessageWmsModifyTagInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsModifyTagInput
 }
-export class MessageWmsModifyTagOutput {
+class MessageWmsModifyTagOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsModifyTagOutput */
     getResult(): boolean
     ref(): MessageWmsModifyTagOutput
     unref(): void
     static name: string
 }
-export class MessageWmsRawReadInput {
+class MessageWmsRawReadInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawReadInput */
     getMessageMemoryStorageId(): { returnType: boolean, valueMessageMemoryStorageIdStorageType: WmsStorageType | null, valueMessageMemoryStorageIdMemoryIndex: number | null }
     getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
@@ -11954,7 +11954,7 @@ export class MessageWmsRawReadInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsRawReadInput
 }
-export class MessageWmsRawReadOutput {
+class MessageWmsRawReadOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawReadOutput */
     getRawMessageData(): { returnType: boolean, valueRawMessageDataMessageTag: WmsMessageTagType | null, valueRawMessageDataFormat: WmsMessageFormat | null, valueRawMessageDataRawData: any[] | null }
     getResult(): boolean
@@ -11962,7 +11962,7 @@ export class MessageWmsRawReadOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsRawSendInput {
+class MessageWmsRawSendInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawSendInput */
     getCdmaFollowOnDc(): { returnType: boolean, valueCdmaFollowOnDcFollow: boolean | null }
     getCdmaForceOnDc(): { returnType: boolean, valueCdmaForceOnDcForce: boolean | null, valueCdmaForceOnDcServiceOption: WmsCdmaServiceOption | null }
@@ -11982,7 +11982,7 @@ export class MessageWmsRawSendInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsRawSendInput
 }
-export class MessageWmsRawSendOutput {
+class MessageWmsRawSendOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawSendOutput */
     getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode | null }
     getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass | null }
@@ -11994,7 +11994,7 @@ export class MessageWmsRawSendOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsRawWriteInput {
+class MessageWmsRawWriteInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawWriteInput */
     getRawMessageData(): { returnType: boolean, valueRawMessageDataStorageType: WmsStorageType | null, valueRawMessageDataFormat: WmsMessageFormat | null, valueRawMessageDataRawData: any[] | null }
     ref(): MessageWmsRawWriteInput
@@ -12006,7 +12006,7 @@ export class MessageWmsRawWriteInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsRawWriteInput
 }
-export class MessageWmsRawWriteOutput {
+class MessageWmsRawWriteOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawWriteOutput */
     getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number | null }
     getResult(): boolean
@@ -12014,14 +12014,14 @@ export class MessageWmsRawWriteOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsResetOutput {
+class MessageWmsResetOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsResetOutput */
     getResult(): boolean
     ref(): MessageWmsResetOutput
     unref(): void
     static name: string
 }
-export class MessageWmsSendAckInput {
+class MessageWmsSendAckInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendAckInput */
     get3gpp2FailureInformation(): { returnType: boolean, value3gpp2FailureInformationErrorClass: WmsCdmaErrorClass | null, value3gpp2FailureInformationCauseCode: WmsCdmaCauseCode | null }
     get3gppFailureInformation(): { returnType: boolean, value3gppFailureInformationRpCause: WmsGsmUmtsRpCause | null, value3gppFailureInformationTpCause: WmsGsmUmtsTpCause | null }
@@ -12039,7 +12039,7 @@ export class MessageWmsSendAckInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsSendAckInput
 }
-export class MessageWmsSendAckOutput {
+class MessageWmsSendAckOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendAckOutput */
     getFailureCause(): { returnType: boolean, valueFailureCause: WmsAckFailureCause | null }
     getResult(): boolean
@@ -12047,7 +12047,7 @@ export class MessageWmsSendAckOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsSendFromMemoryStorageInput {
+class MessageWmsSendFromMemoryStorageInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendFromMemoryStorageInput */
     getInformation(): { returnType: boolean, valueInformationStorageType: WmsStorageType | null, valueInformationMemoryIndex: number | null, valueInformationMessageMode: WmsMessageMode | null }
     getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
@@ -12061,7 +12061,7 @@ export class MessageWmsSendFromMemoryStorageInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsSendFromMemoryStorageInput
 }
-export class MessageWmsSendFromMemoryStorageOutput {
+class MessageWmsSendFromMemoryStorageOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendFromMemoryStorageOutput */
     getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode | null }
     getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass | null }
@@ -12073,7 +12073,7 @@ export class MessageWmsSendFromMemoryStorageOutput {
     unref(): void
     static name: string
 }
-export class MessageWmsSetEventReportInput {
+class MessageWmsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetEventReportInput */
     getNewMtMessageIndicator(): { returnType: boolean, valueNewMtMessageIndicatorReport: boolean | null }
     ref(): MessageWmsSetEventReportInput
@@ -12085,14 +12085,14 @@ export class MessageWmsSetEventReportInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsSetEventReportInput
 }
-export class MessageWmsSetEventReportOutput {
+class MessageWmsSetEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetEventReportOutput */
     getResult(): boolean
     ref(): MessageWmsSetEventReportOutput
     unref(): void
     static name: string
 }
-export class MessageWmsSetRoutesInput {
+class MessageWmsSetRoutesInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetRoutesInput */
     getRouteList(): { returnType: boolean, valueRouteList: MessageWmsSetRoutesInputRouteListElement[] | null }
     getTransferStatusReport(): { returnType: boolean, valueTransferStatusReport: WmsTransferIndication | null }
@@ -12106,7 +12106,7 @@ export class MessageWmsSetRoutesInput {
     /* Static methods and pseudo-constructors */
     static new(): MessageWmsSetRoutesInput
 }
-export class MessageWmsSetRoutesInputRouteListElement {
+class MessageWmsSetRoutesInputRouteListElement {
     /* Fields of Qmi-1.0.Qmi.MessageWmsSetRoutesInputRouteListElement */
     messageType: WmsMessageType
     messageClass: WmsMessageClass
@@ -12114,14 +12114,14 @@ export class MessageWmsSetRoutesInputRouteListElement {
     receiptAction: WmsReceiptAction
     static name: string
 }
-export class MessageWmsSetRoutesOutput {
+class MessageWmsSetRoutesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetRoutesOutput */
     getResult(): boolean
     ref(): MessageWmsSetRoutesOutput
     unref(): void
     static name: string
 }
-export class PhysicalSlotInformationSlot {
+class PhysicalSlotInformationSlot {
     /* Fields of Qmi-1.0.Qmi.PhysicalSlotInformationSlot */
     cardProtocol: UimCardProtocol
     validApplications: number
@@ -12129,7 +12129,7 @@ export class PhysicalSlotInformationSlot {
     isEuicc: boolean
     static name: string
 }
-export class PhysicalSlotStatusSlot {
+class PhysicalSlotStatusSlot {
     /* Fields of Qmi-1.0.Qmi.PhysicalSlotStatusSlot */
     physicalCardStatus: UimPhysicalCardState
     physicalSlotStatus: UimSlotState
@@ -12137,13 +12137,14 @@ export class PhysicalSlotStatusSlot {
     iccid: object[]
     static name: string
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of Qmi-1.0.Qmi.ProxyClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class ProxyPrivate {
+class ProxyPrivate {
     static name: string
 }
-export type Message = any
+type Message = any
 }
+export default Qmi

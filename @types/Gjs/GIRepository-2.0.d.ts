@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ArrayType {
+export namespace GIRepository {
+
+enum ArrayType {
     C,
     ARRAY,
     PTR_ARRAY,
     BYTE_ARRAY,
 }
-export enum Direction {
+enum Direction {
     IN,
     OUT,
     INOUT,
 }
-export enum InfoType {
+enum InfoType {
     INVALID,
     FUNCTION,
     CALLBACK,
@@ -39,24 +41,24 @@ export enum InfoType {
     TYPE,
     UNRESOLVED,
 }
-export enum RepositoryError {
+enum RepositoryError {
     TYPELIB_NOT_FOUND,
     NAMESPACE_MISMATCH,
     NAMESPACE_VERSION_CONFLICT,
     LIBRARY_NOT_FOUND,
 }
-export enum ScopeType {
+enum ScopeType {
     INVALID,
     CALL,
     ASYNC,
     NOTIFIED,
 }
-export enum Transfer {
+enum Transfer {
     NOTHING,
     CONTAINER,
     EVERYTHING,
 }
-export enum TypeTag {
+enum TypeTag {
     VOID,
     BOOLEAN,
     INT8,
@@ -80,16 +82,16 @@ export enum TypeTag {
     ERROR,
     UNICHAR,
 }
-export enum nvokeError {
+enum nvokeError {
     FAILED,
     SYMBOL_NOT_FOUND,
     ARGUMENT_MISMATCH,
 }
-export enum FieldInfoFlags {
+enum FieldInfoFlags {
     READABLE,
     WRITABLE,
 }
-export enum FunctionInfoFlags {
+enum FunctionInfoFlags {
     IS_METHOD,
     IS_CONSTRUCTOR,
     IS_GETTER,
@@ -97,10 +99,10 @@ export enum FunctionInfoFlags {
     WRAPS_VFUNC,
     THROWS,
 }
-export enum RepositoryLoadFlags {
+enum RepositoryLoadFlags {
     IREPOSITORY_LOAD_FLAG_LAZY,
 }
-export enum VFuncInfoFlags {
+enum VFuncInfoFlags {
     MUST_CHAIN_UP,
     MUST_OVERRIDE,
     MUST_NOT_OVERRIDE,
@@ -110,153 +112,153 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const TYPE_TAG_N_TYPES: number
-export function arg_info_get_closure(info: ArgInfo): number
-export function arg_info_get_destroy(info: ArgInfo): number
-export function arg_info_get_direction(info: ArgInfo): Direction
-export function arg_info_get_ownership_transfer(info: ArgInfo): Transfer
-export function arg_info_get_scope(info: ArgInfo): ScopeType
-export function arg_info_get_type(info: ArgInfo): TypeInfo
-export function arg_info_is_caller_allocates(info: ArgInfo): boolean
-export function arg_info_is_optional(info: ArgInfo): boolean
-export function arg_info_is_return_value(info: ArgInfo): boolean
-export function arg_info_is_skip(info: ArgInfo): boolean
-export function arg_info_load_type(info: ArgInfo): /* type */ TypeInfo
-export function arg_info_may_be_null(info: ArgInfo): boolean
-export function callable_info_can_throw_gerror(info: CallableInfo): boolean
-export function callable_info_get_arg(info: CallableInfo, n: number): ArgInfo
-export function callable_info_get_caller_owns(info: CallableInfo): Transfer
-export function callable_info_get_instance_ownership_transfer(info: CallableInfo): Transfer
-export function callable_info_get_n_args(info: CallableInfo): number
-export function callable_info_get_return_attribute(info: CallableInfo, name: string): string
-export function callable_info_get_return_type(info: CallableInfo): TypeInfo
-export function callable_info_invoke(info: CallableInfo, function_: object | null, in_args: Argument[], out_args: Argument[], return_value: Argument, is_method: boolean, throws: boolean): boolean
-export function callable_info_is_method(info: CallableInfo): boolean
-export function callable_info_iterate_return_attributes(info: CallableInfo, iterator: AttributeIter): [ /* returnType */ boolean, /* iterator */ AttributeIter, /* name */ string, /* value */ string ]
-export function callable_info_load_arg(info: CallableInfo, n: number): /* arg */ ArgInfo
-export function callable_info_load_return_type(info: CallableInfo): /* type */ TypeInfo
-export function callable_info_may_return_null(info: CallableInfo): boolean
-export function callable_info_skip_return(info: CallableInfo): boolean
-export function cclosure_marshal_generic(closure: Function, return_gvalue: any, n_param_values: number, param_values: any, invocation_hint?: object | null, marshal_data?: object | null): void
-export function constant_info_get_type(info: ConstantInfo): TypeInfo
-export function enum_info_get_error_domain(info: EnumInfo): string
-export function enum_info_get_method(info: EnumInfo, n: number): FunctionInfo
-export function enum_info_get_n_methods(info: EnumInfo): number
-export function enum_info_get_n_values(info: EnumInfo): number
-export function enum_info_get_storage_type(info: EnumInfo): TypeTag
-export function enum_info_get_value(info: EnumInfo, n: number): ValueInfo
-export function field_info_get_flags(info: FieldInfo): FieldInfoFlags
-export function field_info_get_offset(info: FieldInfo): number
-export function field_info_get_size(info: FieldInfo): number
-export function field_info_get_type(info: FieldInfo): TypeInfo
-export function function_info_get_flags(info: FunctionInfo): FunctionInfoFlags
-export function function_info_get_property(info: FunctionInfo): PropertyInfo
-export function function_info_get_symbol(info: FunctionInfo): string
-export function function_info_get_vfunc(info: FunctionInfo): VFuncInfo
-export function get_major_version(): number
-export function get_micro_version(): number
-export function get_minor_version(): number
-export function info_new(type: InfoType, container: BaseInfo, typelib: Typelib, offset: number): BaseInfo
-export function info_type_to_string(type: InfoType): string
-export function interface_info_find_method(info: InterfaceInfo, name: string): FunctionInfo
-export function interface_info_find_signal(info: InterfaceInfo, name: string): SignalInfo
-export function interface_info_find_vfunc(info: InterfaceInfo, name: string): VFuncInfo
-export function interface_info_get_constant(info: InterfaceInfo, n: number): ConstantInfo
-export function interface_info_get_iface_struct(info: InterfaceInfo): StructInfo
-export function interface_info_get_method(info: InterfaceInfo, n: number): FunctionInfo
-export function interface_info_get_n_constants(info: InterfaceInfo): number
-export function interface_info_get_n_methods(info: InterfaceInfo): number
-export function interface_info_get_n_prerequisites(info: InterfaceInfo): number
-export function interface_info_get_n_properties(info: InterfaceInfo): number
-export function interface_info_get_n_signals(info: InterfaceInfo): number
-export function interface_info_get_n_vfuncs(info: InterfaceInfo): number
-export function interface_info_get_prerequisite(info: InterfaceInfo, n: number): BaseInfo
-export function interface_info_get_property(info: InterfaceInfo, n: number): PropertyInfo
-export function interface_info_get_signal(info: InterfaceInfo, n: number): SignalInfo
-export function interface_info_get_vfunc(info: InterfaceInfo, n: number): VFuncInfo
-export function invoke_error_quark(): GLib.Quark
-export function object_info_find_method(info: ObjectInfo, name: string): FunctionInfo | null
-export function object_info_find_method_using_interfaces(info: ObjectInfo, name: string): [ /* returnType */ FunctionInfo | null, /* implementor */ ObjectInfo ]
-export function object_info_find_signal(info: ObjectInfo, name: string): SignalInfo | null
-export function object_info_find_vfunc(info: ObjectInfo, name: string): VFuncInfo | null
-export function object_info_find_vfunc_using_interfaces(info: ObjectInfo, name: string): [ /* returnType */ VFuncInfo | null, /* implementor */ ObjectInfo ]
-export function object_info_get_abstract(info: ObjectInfo): boolean
-export function object_info_get_class_struct(info: ObjectInfo): StructInfo | null
-export function object_info_get_constant(info: ObjectInfo, n: number): ConstantInfo
-export function object_info_get_field(info: ObjectInfo, n: number): FieldInfo
-export function object_info_get_final(info: ObjectInfo): boolean
-export function object_info_get_fundamental(info: ObjectInfo): boolean
-export function object_info_get_get_value_function(info: ObjectInfo): string | null
-export function object_info_get_interface(info: ObjectInfo, n: number): InterfaceInfo
-export function object_info_get_method(info: ObjectInfo, n: number): FunctionInfo
-export function object_info_get_n_constants(info: ObjectInfo): number
-export function object_info_get_n_fields(info: ObjectInfo): number
-export function object_info_get_n_interfaces(info: ObjectInfo): number
-export function object_info_get_n_methods(info: ObjectInfo): number
-export function object_info_get_n_properties(info: ObjectInfo): number
-export function object_info_get_n_signals(info: ObjectInfo): number
-export function object_info_get_n_vfuncs(info: ObjectInfo): number
-export function object_info_get_parent(info: ObjectInfo): ObjectInfo | null
-export function object_info_get_property(info: ObjectInfo, n: number): PropertyInfo
-export function object_info_get_ref_function(info: ObjectInfo): string | null
-export function object_info_get_set_value_function(info: ObjectInfo): string | null
-export function object_info_get_signal(info: ObjectInfo, n: number): SignalInfo
-export function object_info_get_type_init(info: ObjectInfo): string
-export function object_info_get_type_name(info: ObjectInfo): string
-export function object_info_get_unref_function(info: ObjectInfo): string | null
-export function object_info_get_vfunc(info: ObjectInfo, n: number): VFuncInfo
-export function property_info_get_flags(info: PropertyInfo): GObject.ParamFlags
-export function property_info_get_getter(info: PropertyInfo): FunctionInfo | null
-export function property_info_get_ownership_transfer(info: PropertyInfo): Transfer
-export function property_info_get_setter(info: PropertyInfo): FunctionInfo | null
-export function property_info_get_type(info: PropertyInfo): TypeInfo
-export function registered_type_info_get_g_type(info: RegisteredTypeInfo): GObject.Type
-export function registered_type_info_get_type_init(info: RegisteredTypeInfo): string
-export function registered_type_info_get_type_name(info: RegisteredTypeInfo): string
-export function signal_info_get_class_closure(info: SignalInfo): VFuncInfo
-export function signal_info_get_flags(info: SignalInfo): GObject.SignalFlags
-export function signal_info_true_stops_emit(info: SignalInfo): boolean
-export function struct_info_find_field(info: StructInfo, name: string): FieldInfo
-export function struct_info_find_method(info: StructInfo, name: string): FunctionInfo
-export function struct_info_get_alignment(info: StructInfo): number
-export function struct_info_get_field(info: StructInfo, n: number): FieldInfo
-export function struct_info_get_method(info: StructInfo, n: number): FunctionInfo
-export function struct_info_get_n_fields(info: StructInfo): number
-export function struct_info_get_n_methods(info: StructInfo): number
-export function struct_info_get_size(info: StructInfo): number
-export function struct_info_is_foreign(info: StructInfo): boolean
-export function struct_info_is_gtype_struct(info: StructInfo): boolean
-export function type_info_argument_from_hash_pointer(info: TypeInfo, hash_pointer: object | null, arg: Argument): void
-export function type_info_get_array_fixed_size(info: TypeInfo): number
-export function type_info_get_array_length(info: TypeInfo): number
-export function type_info_get_array_type(info: TypeInfo): ArrayType
-export function type_info_get_interface(info: TypeInfo): BaseInfo
-export function type_info_get_param_type(info: TypeInfo, n: number): TypeInfo
-export function type_info_get_storage_type(info: TypeInfo): TypeTag
-export function type_info_get_tag(info: TypeInfo): TypeTag
-export function type_info_hash_pointer_from_argument(info: TypeInfo, arg: Argument): object | null
-export function type_info_is_pointer(info: TypeInfo): boolean
-export function type_info_is_zero_terminated(info: TypeInfo): boolean
-export function type_tag_to_string(type: TypeTag): string
-export function union_info_find_method(info: UnionInfo, name: string): FunctionInfo
-export function union_info_get_alignment(info: UnionInfo): number
-export function union_info_get_discriminator(info: UnionInfo, n: number): ConstantInfo
-export function union_info_get_discriminator_offset(info: UnionInfo): number
-export function union_info_get_discriminator_type(info: UnionInfo): TypeInfo
-export function union_info_get_field(info: UnionInfo, n: number): FieldInfo
-export function union_info_get_method(info: UnionInfo, n: number): FunctionInfo
-export function union_info_get_n_fields(info: UnionInfo): number
-export function union_info_get_n_methods(info: UnionInfo): number
-export function union_info_get_size(info: UnionInfo): number
-export function union_info_is_discriminated(info: UnionInfo): boolean
-export function value_info_get_value(info: ValueInfo): number
-export function vfunc_info_get_address(info: VFuncInfo, implementor_gtype: GObject.Type): object | null
-export function vfunc_info_get_flags(info: VFuncInfo): VFuncInfoFlags
-export function vfunc_info_get_invoker(info: VFuncInfo): FunctionInfo
-export function vfunc_info_get_offset(info: VFuncInfo): number
-export function vfunc_info_get_signal(info: VFuncInfo): SignalInfo
+function arg_info_get_closure(info: ArgInfo): number
+function arg_info_get_destroy(info: ArgInfo): number
+function arg_info_get_direction(info: ArgInfo): Direction
+function arg_info_get_ownership_transfer(info: ArgInfo): Transfer
+function arg_info_get_scope(info: ArgInfo): ScopeType
+function arg_info_get_type(info: ArgInfo): TypeInfo
+function arg_info_is_caller_allocates(info: ArgInfo): boolean
+function arg_info_is_optional(info: ArgInfo): boolean
+function arg_info_is_return_value(info: ArgInfo): boolean
+function arg_info_is_skip(info: ArgInfo): boolean
+function arg_info_load_type(info: ArgInfo): /* type */ TypeInfo
+function arg_info_may_be_null(info: ArgInfo): boolean
+function callable_info_can_throw_gerror(info: CallableInfo): boolean
+function callable_info_get_arg(info: CallableInfo, n: number): ArgInfo
+function callable_info_get_caller_owns(info: CallableInfo): Transfer
+function callable_info_get_instance_ownership_transfer(info: CallableInfo): Transfer
+function callable_info_get_n_args(info: CallableInfo): number
+function callable_info_get_return_attribute(info: CallableInfo, name: string): string
+function callable_info_get_return_type(info: CallableInfo): TypeInfo
+function callable_info_invoke(info: CallableInfo, function_: object | null, in_args: Argument[], out_args: Argument[], return_value: Argument, is_method: boolean, throws: boolean): boolean
+function callable_info_is_method(info: CallableInfo): boolean
+function callable_info_iterate_return_attributes(info: CallableInfo, iterator: AttributeIter): [ /* returnType */ boolean, /* iterator */ AttributeIter, /* name */ string, /* value */ string ]
+function callable_info_load_arg(info: CallableInfo, n: number): /* arg */ ArgInfo
+function callable_info_load_return_type(info: CallableInfo): /* type */ TypeInfo
+function callable_info_may_return_null(info: CallableInfo): boolean
+function callable_info_skip_return(info: CallableInfo): boolean
+function cclosure_marshal_generic(closure: Function, return_gvalue: any, n_param_values: number, param_values: any, invocation_hint?: object | null, marshal_data?: object | null): void
+function constant_info_get_type(info: ConstantInfo): TypeInfo
+function enum_info_get_error_domain(info: EnumInfo): string
+function enum_info_get_method(info: EnumInfo, n: number): FunctionInfo
+function enum_info_get_n_methods(info: EnumInfo): number
+function enum_info_get_n_values(info: EnumInfo): number
+function enum_info_get_storage_type(info: EnumInfo): TypeTag
+function enum_info_get_value(info: EnumInfo, n: number): ValueInfo
+function field_info_get_flags(info: FieldInfo): FieldInfoFlags
+function field_info_get_offset(info: FieldInfo): number
+function field_info_get_size(info: FieldInfo): number
+function field_info_get_type(info: FieldInfo): TypeInfo
+function function_info_get_flags(info: FunctionInfo): FunctionInfoFlags
+function function_info_get_property(info: FunctionInfo): PropertyInfo
+function function_info_get_symbol(info: FunctionInfo): string
+function function_info_get_vfunc(info: FunctionInfo): VFuncInfo
+function get_major_version(): number
+function get_micro_version(): number
+function get_minor_version(): number
+function info_new(type: InfoType, container: BaseInfo, typelib: Typelib, offset: number): BaseInfo
+function info_type_to_string(type: InfoType): string
+function interface_info_find_method(info: InterfaceInfo, name: string): FunctionInfo
+function interface_info_find_signal(info: InterfaceInfo, name: string): SignalInfo
+function interface_info_find_vfunc(info: InterfaceInfo, name: string): VFuncInfo
+function interface_info_get_constant(info: InterfaceInfo, n: number): ConstantInfo
+function interface_info_get_iface_struct(info: InterfaceInfo): StructInfo
+function interface_info_get_method(info: InterfaceInfo, n: number): FunctionInfo
+function interface_info_get_n_constants(info: InterfaceInfo): number
+function interface_info_get_n_methods(info: InterfaceInfo): number
+function interface_info_get_n_prerequisites(info: InterfaceInfo): number
+function interface_info_get_n_properties(info: InterfaceInfo): number
+function interface_info_get_n_signals(info: InterfaceInfo): number
+function interface_info_get_n_vfuncs(info: InterfaceInfo): number
+function interface_info_get_prerequisite(info: InterfaceInfo, n: number): BaseInfo
+function interface_info_get_property(info: InterfaceInfo, n: number): PropertyInfo
+function interface_info_get_signal(info: InterfaceInfo, n: number): SignalInfo
+function interface_info_get_vfunc(info: InterfaceInfo, n: number): VFuncInfo
+function invoke_error_quark(): GLib.Quark
+function object_info_find_method(info: ObjectInfo, name: string): FunctionInfo | null
+function object_info_find_method_using_interfaces(info: ObjectInfo, name: string): [ /* returnType */ FunctionInfo | null, /* implementor */ ObjectInfo ]
+function object_info_find_signal(info: ObjectInfo, name: string): SignalInfo | null
+function object_info_find_vfunc(info: ObjectInfo, name: string): VFuncInfo | null
+function object_info_find_vfunc_using_interfaces(info: ObjectInfo, name: string): [ /* returnType */ VFuncInfo | null, /* implementor */ ObjectInfo ]
+function object_info_get_abstract(info: ObjectInfo): boolean
+function object_info_get_class_struct(info: ObjectInfo): StructInfo | null
+function object_info_get_constant(info: ObjectInfo, n: number): ConstantInfo
+function object_info_get_field(info: ObjectInfo, n: number): FieldInfo
+function object_info_get_final(info: ObjectInfo): boolean
+function object_info_get_fundamental(info: ObjectInfo): boolean
+function object_info_get_get_value_function(info: ObjectInfo): string | null
+function object_info_get_interface(info: ObjectInfo, n: number): InterfaceInfo
+function object_info_get_method(info: ObjectInfo, n: number): FunctionInfo
+function object_info_get_n_constants(info: ObjectInfo): number
+function object_info_get_n_fields(info: ObjectInfo): number
+function object_info_get_n_interfaces(info: ObjectInfo): number
+function object_info_get_n_methods(info: ObjectInfo): number
+function object_info_get_n_properties(info: ObjectInfo): number
+function object_info_get_n_signals(info: ObjectInfo): number
+function object_info_get_n_vfuncs(info: ObjectInfo): number
+function object_info_get_parent(info: ObjectInfo): ObjectInfo | null
+function object_info_get_property(info: ObjectInfo, n: number): PropertyInfo
+function object_info_get_ref_function(info: ObjectInfo): string | null
+function object_info_get_set_value_function(info: ObjectInfo): string | null
+function object_info_get_signal(info: ObjectInfo, n: number): SignalInfo
+function object_info_get_type_init(info: ObjectInfo): string
+function object_info_get_type_name(info: ObjectInfo): string
+function object_info_get_unref_function(info: ObjectInfo): string | null
+function object_info_get_vfunc(info: ObjectInfo, n: number): VFuncInfo
+function property_info_get_flags(info: PropertyInfo): GObject.ParamFlags
+function property_info_get_getter(info: PropertyInfo): FunctionInfo | null
+function property_info_get_ownership_transfer(info: PropertyInfo): Transfer
+function property_info_get_setter(info: PropertyInfo): FunctionInfo | null
+function property_info_get_type(info: PropertyInfo): TypeInfo
+function registered_type_info_get_g_type(info: RegisteredTypeInfo): GObject.Type
+function registered_type_info_get_type_init(info: RegisteredTypeInfo): string
+function registered_type_info_get_type_name(info: RegisteredTypeInfo): string
+function signal_info_get_class_closure(info: SignalInfo): VFuncInfo
+function signal_info_get_flags(info: SignalInfo): GObject.SignalFlags
+function signal_info_true_stops_emit(info: SignalInfo): boolean
+function struct_info_find_field(info: StructInfo, name: string): FieldInfo
+function struct_info_find_method(info: StructInfo, name: string): FunctionInfo
+function struct_info_get_alignment(info: StructInfo): number
+function struct_info_get_field(info: StructInfo, n: number): FieldInfo
+function struct_info_get_method(info: StructInfo, n: number): FunctionInfo
+function struct_info_get_n_fields(info: StructInfo): number
+function struct_info_get_n_methods(info: StructInfo): number
+function struct_info_get_size(info: StructInfo): number
+function struct_info_is_foreign(info: StructInfo): boolean
+function struct_info_is_gtype_struct(info: StructInfo): boolean
+function type_info_argument_from_hash_pointer(info: TypeInfo, hash_pointer: object | null, arg: Argument): void
+function type_info_get_array_fixed_size(info: TypeInfo): number
+function type_info_get_array_length(info: TypeInfo): number
+function type_info_get_array_type(info: TypeInfo): ArrayType
+function type_info_get_interface(info: TypeInfo): BaseInfo
+function type_info_get_param_type(info: TypeInfo, n: number): TypeInfo
+function type_info_get_storage_type(info: TypeInfo): TypeTag
+function type_info_get_tag(info: TypeInfo): TypeTag
+function type_info_hash_pointer_from_argument(info: TypeInfo, arg: Argument): object | null
+function type_info_is_pointer(info: TypeInfo): boolean
+function type_info_is_zero_terminated(info: TypeInfo): boolean
+function type_tag_to_string(type: TypeTag): string
+function union_info_find_method(info: UnionInfo, name: string): FunctionInfo
+function union_info_get_alignment(info: UnionInfo): number
+function union_info_get_discriminator(info: UnionInfo, n: number): ConstantInfo
+function union_info_get_discriminator_offset(info: UnionInfo): number
+function union_info_get_discriminator_type(info: UnionInfo): TypeInfo
+function union_info_get_field(info: UnionInfo, n: number): FieldInfo
+function union_info_get_method(info: UnionInfo, n: number): FunctionInfo
+function union_info_get_n_fields(info: UnionInfo): number
+function union_info_get_n_methods(info: UnionInfo): number
+function union_info_get_size(info: UnionInfo): number
+function union_info_is_discriminated(info: UnionInfo): boolean
+function value_info_get_value(info: ValueInfo): number
+function vfunc_info_get_address(info: VFuncInfo, implementor_gtype: GObject.Type): object | null
+function vfunc_info_get_flags(info: VFuncInfo): VFuncInfoFlags
+function vfunc_info_get_invoker(info: VFuncInfo): FunctionInfo
+function vfunc_info_get_offset(info: VFuncInfo): number
+function vfunc_info_get_signal(info: VFuncInfo): SignalInfo
 export interface Repository_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Repository {
+class Repository {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GIRepository-2.0.GIRepository.Repository */
@@ -329,10 +331,10 @@ export class Repository {
     static prepend_search_path(directory: string): void
     static $gtype: GObject.Type
 }
-export class AttributeIter {
+class AttributeIter {
     static name: string
 }
-export class BaseInfo {
+class BaseInfo {
     /* Methods of GIRepository-2.0.GIRepository.BaseInfo */
     equal(info2: BaseInfo): boolean
     get_attribute(name: string): string
@@ -345,23 +347,23 @@ export class BaseInfo {
     iterate_attributes(iterator: AttributeIter): [ /* returnType */ boolean, /* iterator */ AttributeIter, /* name */ string, /* value */ string ]
     static name: string
 }
-export abstract class RepositoryClass {
+abstract class RepositoryClass {
     static name: string
 }
-export class RepositoryPrivate {
+class RepositoryPrivate {
     static name: string
 }
-export class Typelib {
+class Typelib {
     /* Methods of GIRepository-2.0.GIRepository.Typelib */
     free(): void
     get_namespace(): string
     symbol(symbol_name: string, symbol?: object | null): boolean
     static name: string
 }
-export class UnresolvedInfo {
+class UnresolvedInfo {
     static name: string
 }
-export class Argument {
+class Argument {
     /* Fields of GIRepository-2.0.GIRepository.Argument */
     v_boolean: boolean
     v_int8: number
@@ -386,20 +388,22 @@ export class Argument {
     v_pointer: object
     static name: string
 }
-export type ArgInfo = BaseInfo
-export type CallableInfo = BaseInfo
-export type CallbackInfo = BaseInfo
-export type ConstantInfo = BaseInfo
-export type EnumInfo = BaseInfo
-export type FieldInfo = BaseInfo
-export type FunctionInfo = BaseInfo
-export type InterfaceInfo = BaseInfo
-export type ObjectInfo = BaseInfo
-export type PropertyInfo = BaseInfo
-export type RegisteredTypeInfo = BaseInfo
-export type SignalInfo = BaseInfo
-export type StructInfo = BaseInfo
-export type TypeInfo = BaseInfo
-export type UnionInfo = BaseInfo
-export type VFuncInfo = BaseInfo
-export type ValueInfo = BaseInfo
+type ArgInfo = BaseInfo
+type CallableInfo = BaseInfo
+type CallbackInfo = BaseInfo
+type ConstantInfo = BaseInfo
+type EnumInfo = BaseInfo
+type FieldInfo = BaseInfo
+type FunctionInfo = BaseInfo
+type InterfaceInfo = BaseInfo
+type ObjectInfo = BaseInfo
+type PropertyInfo = BaseInfo
+type RegisteredTypeInfo = BaseInfo
+type SignalInfo = BaseInfo
+type StructInfo = BaseInfo
+type TypeInfo = BaseInfo
+type UnionInfo = BaseInfo
+type VFuncInfo = BaseInfo
+type ValueInfo = BaseInfo
+}
+export default GIRepository

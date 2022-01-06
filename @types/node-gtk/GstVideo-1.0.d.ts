@@ -9,13 +9,13 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstVideo {
+declare namespace GstVideo {
 
-export enum ColorBalanceType {
+enum ColorBalanceType {
     HARDWARE,
     SOFTWARE,
 }
-export enum NavigationCommand {
+enum NavigationCommand {
     INVALID,
     MENU1,
     MENU2,
@@ -32,7 +32,7 @@ export enum NavigationCommand {
     PREV_ANGLE,
     NEXT_ANGLE,
 }
-export enum NavigationEventType {
+enum NavigationEventType {
     INVALID,
     KEY_PRESS,
     KEY_RELEASE,
@@ -42,24 +42,24 @@ export enum NavigationEventType {
     COMMAND,
     MOUSE_SCROLL,
 }
-export enum NavigationMessageType {
+enum NavigationMessageType {
     INVALID,
     MOUSE_OVER,
     COMMANDS_CHANGED,
     ANGLES_CHANGED,
     EVENT,
 }
-export enum NavigationQueryType {
+enum NavigationQueryType {
     INVALID,
     COMMANDS,
     ANGLES,
 }
-export enum VideoAFDSpec {
+enum VideoAFDSpec {
     DVB_ETSI,
     ATSC_A53,
     SMPTE_ST2016_1,
 }
-export enum VideoAFDValue {
+enum VideoAFDValue {
     UNAVAILABLE,
     /* 16_9_TOP_ALIGNED (invalid, starts with a number) */
     /* 14_9_TOP_ALIGNED (invalid, starts with a number) */
@@ -72,12 +72,12 @@ export enum VideoAFDValue {
     /* 16_9_LETTER_14_9_CENTER (invalid, starts with a number) */
     /* 16_9_LETTER_4_3_CENTER (invalid, starts with a number) */
 }
-export enum VideoAlphaMode {
+enum VideoAlphaMode {
     COPY,
     SET,
     MULT,
 }
-export enum VideoAncillaryDID {
+enum VideoAncillaryDID {
     UNDEFINED,
     DELETION,
     HANC_3G_AUDIO_DATA_FIRST,
@@ -91,29 +91,29 @@ export enum VideoAncillaryDID {
     HANC_SDTV_AUDIO_DATA_2_FIRST,
     HANC_SDTV_AUDIO_DATA_2_LAST,
 }
-export enum VideoAncillaryDID16 {
+enum VideoAncillaryDID16 {
     S334_EIA_708,
     S334_EIA_608,
     S2016_3_AFD_BAR,
 }
-export enum VideoCaptionType {
+enum VideoCaptionType {
     UNKNOWN,
     CEA608_RAW,
     CEA608_S334_1A,
     CEA708_RAW,
     CEA708_CDP,
 }
-export enum VideoChromaMethod {
+enum VideoChromaMethod {
     NEAREST,
     LINEAR,
 }
-export enum VideoChromaMode {
+enum VideoChromaMode {
     FULL,
     UPSAMPLE_ONLY,
     DOWNSAMPLE_ONLY,
     NONE,
 }
-export enum VideoColorMatrix {
+enum VideoColorMatrix {
     UNKNOWN,
     RGB,
     FCC,
@@ -122,7 +122,7 @@ export enum VideoColorMatrix {
     SMPTE240M,
     BT2020,
 }
-export enum VideoColorPrimaries {
+enum VideoColorPrimaries {
     UNKNOWN,
     BT709,
     BT470M,
@@ -137,24 +137,24 @@ export enum VideoColorPrimaries {
     SMPTEEG432,
     EBU3213,
 }
-export enum VideoColorRange {
+enum VideoColorRange {
     UNKNOWN,
     /* 0_255 (invalid, starts with a number) */
     /* 16_235 (invalid, starts with a number) */
 }
-export enum VideoDitherMethod {
+enum VideoDitherMethod {
     NONE,
     VERTERR,
     FLOYD_STEINBERG,
     SIERRA_LITE,
     BAYER,
 }
-export enum VideoFieldOrder {
+enum VideoFieldOrder {
     UNKNOWN,
     TOP_FIELD_FIRST,
     BOTTOM_FIELD_FIRST,
 }
-export enum VideoFormat {
+enum VideoFormat {
     UNKNOWN,
     ENCODED,
     I420,
@@ -266,13 +266,13 @@ export enum VideoFormat {
     ABGR64_LE,
     ABGR64_BE,
 }
-export enum VideoGLTextureOrientation {
+enum VideoGLTextureOrientation {
     NORMAL_Y_NORMAL,
     NORMAL_Y_FLIP,
     FLIP_Y_NORMAL,
     FLIP_Y_FLIP,
 }
-export enum VideoGLTextureType {
+enum VideoGLTextureType {
     LUMINANCE,
     LUMINANCE_ALPHA,
     RGB16,
@@ -281,24 +281,24 @@ export enum VideoGLTextureType {
     R,
     RG,
 }
-export enum VideoGammaMode {
+enum VideoGammaMode {
     NONE,
     REMAP,
 }
-export enum VideoInterlaceMode {
+enum VideoInterlaceMode {
     PROGRESSIVE,
     INTERLEAVED,
     MIXED,
     FIELDS,
     ALTERNATE,
 }
-export enum VideoMatrixMode {
+enum VideoMatrixMode {
     FULL,
     INPUT_ONLY,
     OUTPUT_ONLY,
     NONE,
 }
-export enum VideoMultiviewFramePacking {
+enum VideoMultiviewFramePacking {
     NONE,
     MONO,
     LEFT,
@@ -310,7 +310,7 @@ export enum VideoMultiviewFramePacking {
     TOP_BOTTOM,
     CHECKERBOARD,
 }
-export enum VideoMultiviewMode {
+enum VideoMultiviewMode {
     NONE,
     MONO,
     LEFT,
@@ -325,7 +325,7 @@ export enum VideoMultiviewMode {
     MULTIVIEW_FRAME_BY_FRAME,
     SEPARATED,
 }
-export enum VideoOrientationMethod {
+enum VideoOrientationMethod {
     IDENTITY,
     /* 90R (invalid, starts with a number) */
     /* 180 (invalid, starts with a number) */
@@ -337,27 +337,27 @@ export enum VideoOrientationMethod {
     AUTO,
     CUSTOM,
 }
-export enum VideoPrimariesMode {
+enum VideoPrimariesMode {
     NONE,
     MERGE_ONLY,
     FAST,
 }
-export enum VideoResamplerMethod {
+enum VideoResamplerMethod {
     NEAREST,
     LINEAR,
     CUBIC,
     SINC,
     LANCZOS,
 }
-export enum VideoTileMode {
+enum VideoTileMode {
     UNKNOWN,
     ZFLIPZ_2X2,
     LINEAR,
 }
-export enum VideoTileType {
+enum VideoTileType {
     INDEXED,
 }
-export enum VideoTransferFunction {
+enum VideoTransferFunction {
     UNKNOWN,
     GAMMA10,
     GAMMA18,
@@ -376,12 +376,12 @@ export enum VideoTransferFunction {
     ARIB_STD_B67,
     BT601,
 }
-export enum VideoVBIParserResult {
+enum VideoVBIParserResult {
     DONE,
     OK,
     ERROR,
 }
-export enum VideoBufferFlags {
+enum VideoBufferFlags {
     INTERLACED,
     TFF,
     RFF,
@@ -393,11 +393,11 @@ export enum VideoBufferFlags {
     MARKER,
     LAST,
 }
-export enum VideoChromaFlags {
+enum VideoChromaFlags {
     NONE,
     INTERLACED,
 }
-export enum VideoChromaSite {
+enum VideoChromaSite {
     UNKNOWN,
     NONE,
     H_COSITED,
@@ -408,28 +408,28 @@ export enum VideoChromaSite {
     MPEG2,
     DV,
 }
-export enum VideoCodecFrameFlags {
+enum VideoCodecFrameFlags {
     DECODE_ONLY,
     SYNC_POINT,
     FORCE_KEYFRAME,
     FORCE_KEYFRAME_HEADERS,
     CORRUPTED,
 }
-export enum VideoDecoderRequestSyncPointFlags {
+enum VideoDecoderRequestSyncPointFlags {
     DISCARD_INPUT,
     CORRUPT_OUTPUT,
 }
-export enum VideoDitherFlags {
+enum VideoDitherFlags {
     NONE,
     INTERLACED,
     QUANTIZE,
 }
-export enum VideoFlags {
+enum VideoFlags {
     NONE,
     VARIABLE_FPS,
     PREMULTIPLIED_ALPHA,
 }
-export enum VideoFormatFlags {
+enum VideoFormatFlags {
     YUV,
     RGB,
     GRAY,
@@ -440,7 +440,7 @@ export enum VideoFormatFlags {
     UNPACK,
     TILED,
 }
-export enum VideoFrameFlags {
+enum VideoFrameFlags {
     NONE,
     INTERLACED,
     TFF,
@@ -451,11 +451,11 @@ export enum VideoFrameFlags {
     TOP_FIELD,
     BOTTOM_FIELD,
 }
-export enum VideoFrameMapFlags {
+enum VideoFrameMapFlags {
     NO_REF,
     LAST,
 }
-export enum VideoMultiviewFlags {
+enum VideoMultiviewFlags {
     NONE,
     RIGHT_VIEW_FIRST,
     LEFT_FLIPPED,
@@ -465,25 +465,25 @@ export enum VideoMultiviewFlags {
     HALF_ASPECT,
     MIXED_MONO,
 }
-export enum VideoOverlayFormatFlags {
+enum VideoOverlayFormatFlags {
     NONE,
     PREMULTIPLIED_ALPHA,
     GLOBAL_ALPHA,
 }
-export enum VideoPackFlags {
+enum VideoPackFlags {
     NONE,
     TRUNCATE_RANGE,
     INTERLACED,
 }
-export enum VideoResamplerFlags {
+enum VideoResamplerFlags {
     NONE,
     HALF_TAPS,
 }
-export enum VideoScalerFlags {
+enum VideoScalerFlags {
     NONE,
     INTERLACED,
 }
-export enum VideoTimeCodeFlags {
+enum VideoTimeCodeFlags {
     NONE,
     DROP_FRAME,
     INTERLACED,
@@ -562,153 +562,153 @@ export const VIDEO_TILE_TYPE_MASK: number
 export const VIDEO_TILE_TYPE_SHIFT: number
 export const VIDEO_TILE_X_TILES_MASK: number
 export const VIDEO_TILE_Y_TILES_SHIFT: number
-export function bufferAddVideoAfdMeta(buffer: Gst.Buffer, field: number, spec: VideoAFDSpec, afd: VideoAFDValue): VideoAFDMeta
-export function bufferAddVideoAffineTransformationMeta(buffer: Gst.Buffer): VideoAffineTransformationMeta
-export function bufferAddVideoBarMeta(buffer: Gst.Buffer, field: number, isLetterbox: boolean, barData1: number, barData2: number): VideoBarMeta
-export function bufferAddVideoCaptionMeta(buffer: Gst.Buffer, captionType: VideoCaptionType, data: any[]): VideoCaptionMeta
-export function bufferAddVideoCodecAlphaMeta(buffer: Gst.Buffer, alphaBuffer: Gst.Buffer): VideoCodecAlphaMeta
-export function bufferAddVideoGlTextureUploadMeta(buffer: Gst.Buffer, textureOrientation: VideoGLTextureOrientation, nTextures: number, textureType: VideoGLTextureType, upload: VideoGLTextureUpload, userDataCopy: GObject.BoxedCopyFunc, userDataFree: GObject.BoxedFreeFunc): VideoGLTextureUploadMeta
-export function bufferAddVideoMeta(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number): VideoMeta
-export function bufferAddVideoMetaFull(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number, nPlanes: number, offset: number[], stride: number[]): VideoMeta
-export function bufferAddVideoOverlayCompositionMeta(buf: Gst.Buffer, comp?: VideoOverlayComposition | null): VideoOverlayCompositionMeta
-export function bufferAddVideoRegionOfInterestMeta(buffer: Gst.Buffer, roiType: string, x: number, y: number, w: number, h: number): VideoRegionOfInterestMeta
-export function bufferAddVideoRegionOfInterestMetaId(buffer: Gst.Buffer, roiType: GLib.Quark, x: number, y: number, w: number, h: number): VideoRegionOfInterestMeta
-export function bufferAddVideoTimeCodeMeta(buffer: Gst.Buffer, tc: VideoTimeCode): VideoTimeCodeMeta | null
-export function bufferAddVideoTimeCodeMetaFull(buffer: Gst.Buffer, fpsN: number, fpsD: number, latestDailyJam: GLib.DateTime, flags: VideoTimeCodeFlags, hours: number, minutes: number, seconds: number, frames: number, fieldCount: number): VideoTimeCodeMeta
-export function bufferGetVideoMeta(buffer: Gst.Buffer): VideoMeta
-export function bufferGetVideoMetaId(buffer: Gst.Buffer, id: number): VideoMeta
-export function bufferGetVideoRegionOfInterestMetaId(buffer: Gst.Buffer, id: number): VideoRegionOfInterestMeta
-export function bufferPoolConfigGetVideoAlignment(config: Gst.Structure, align: VideoAlignment): boolean
-export function bufferPoolConfigSetVideoAlignment(config: Gst.Structure, align: VideoAlignment): void
-export function isVideoOverlayPrepareWindowHandleMessage(msg: Gst.Message): boolean
-export function navigationEventGetType(event: Gst.Event): NavigationEventType
-export function navigationEventParseCommand(event: Gst.Event): { returnType: boolean, command: NavigationCommand | null }
-export function navigationEventParseKeyEvent(event: Gst.Event): { returnType: boolean, key: string | null }
-export function navigationEventParseMouseButtonEvent(event: Gst.Event): { returnType: boolean, button: number | null, x: number | null, y: number | null }
-export function navigationEventParseMouseMoveEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null }
-export function navigationEventParseMouseScrollEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null, deltaX: number | null, deltaY: number | null }
-export function navigationMessageGetType(message: Gst.Message): NavigationMessageType
-export function navigationMessageNewAnglesChanged(src: Gst.Object, curAngle: number, nAngles: number): Gst.Message
-export function navigationMessageNewCommandsChanged(src: Gst.Object): Gst.Message
-export function navigationMessageNewEvent(src: Gst.Object, event: Gst.Event): Gst.Message
-export function navigationMessageNewMouseOver(src: Gst.Object, active: boolean): Gst.Message
-export function navigationMessageParseAnglesChanged(message: Gst.Message): { returnType: boolean, curAngle: number | null, nAngles: number | null }
-export function navigationMessageParseEvent(message: Gst.Message): { returnType: boolean, event: Gst.Event | null }
-export function navigationMessageParseMouseOver(message: Gst.Message): { returnType: boolean, active: boolean | null }
-export function navigationQueryGetType(query: Gst.Query): NavigationQueryType
-export function navigationQueryNewAngles(): Gst.Query
-export function navigationQueryNewCommands(): Gst.Query
-export function navigationQueryParseAngles(query: Gst.Query): { returnType: boolean, curAngle: number | null, nAngles: number | null }
-export function navigationQueryParseCommandsLength(query: Gst.Query): { returnType: boolean, nCmds: number | null }
-export function navigationQueryParseCommandsNth(query: Gst.Query, nth: number): { returnType: boolean, cmd: NavigationCommand | null }
-export function navigationQuerySetAngles(query: Gst.Query, curAngle: number, nAngles: number): void
-export function navigationQuerySetCommandsv(query: Gst.Query, cmds: NavigationCommand[]): void
-export function videoAfdMetaApiGetType(): GObject.Type
-export function videoAfdMetaGetInfo(): Gst.MetaInfo
-export function videoAffineTransformationMetaApiGetType(): GObject.Type
-export function videoAffineTransformationMetaGetInfo(): Gst.MetaInfo
-export function videoBarMetaApiGetType(): GObject.Type
-export function videoBarMetaGetInfo(): Gst.MetaInfo
-export function videoBlend(dest: VideoFrame, src: VideoFrame, x: number, y: number, globalAlpha: number): boolean
-export function videoBlendScaleLinearRGBA(src: VideoInfo, srcBuffer: Gst.Buffer, destHeight: number, destWidth: number): { dest: VideoInfo, destBuffer: Gst.Buffer }
-export function videoCalculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: number, darD: number }
-export function videoCaptionMetaApiGetType(): GObject.Type
-export function videoCaptionMetaGetInfo(): Gst.MetaInfo
-export function videoCaptionTypeFromCaps(caps: Gst.Caps): VideoCaptionType
-export function videoCaptionTypeToCaps(type: VideoCaptionType): Gst.Caps
-export function videoCenterRect(src: VideoRectangle, dst: VideoRectangle, scaling: boolean): { result: VideoRectangle }
-export function videoChromaFromString(s: string): VideoChromaSite
-export function videoChromaResample(resample: VideoChromaResample, lines: object | null, width: number): void
-export function videoChromaSiteFromString(s: string): VideoChromaSite
-export function videoChromaSiteToString(site: VideoChromaSite): string | null
-export function videoChromaToString(site: VideoChromaSite): string
-export function videoCodecAlphaMetaApiGetType(): GObject.Type
-export function videoCodecAlphaMetaGetInfo(): Gst.MetaInfo
-export function videoColorMatrixFromIso(value: number): VideoColorMatrix
-export function videoColorMatrixGetKrKb(matrix: VideoColorMatrix): { returnType: boolean, kr: number, kb: number }
-export function videoColorMatrixToIso(matrix: VideoColorMatrix): number
-export function videoColorPrimariesFromIso(value: number): VideoColorPrimaries
-export function videoColorPrimariesGetInfo(primaries: VideoColorPrimaries): VideoColorPrimariesInfo
-export function videoColorPrimariesToIso(primaries: VideoColorPrimaries): number
-export function videoColorRangeOffsets(range: VideoColorRange, info: VideoFormatInfo): { offset: number[], scale: number[] }
-export function videoColorTransferDecode(func: VideoTransferFunction, val: number): number
-export function videoColorTransferEncode(func: VideoTransferFunction, val: number): number
-export function videoConvertSample(sample: Gst.Sample, toCaps: Gst.Caps, timeout: Gst.ClockTime): Gst.Sample
-export function videoConvertSampleAsync(sample: Gst.Sample, toCaps: Gst.Caps, timeout: Gst.ClockTime, callback: VideoConvertSampleCallback): void
-export function videoCropMetaApiGetType(): GObject.Type
-export function videoCropMetaGetInfo(): Gst.MetaInfo
-export function videoEventIsForceKeyUnit(event: Gst.Event): boolean
-export function videoEventNewDownstreamForceKeyUnit(timestamp: Gst.ClockTime, streamTime: Gst.ClockTime, runningTime: Gst.ClockTime, allHeaders: boolean, count: number): Gst.Event
-export function videoEventNewStillFrame(inStill: boolean): Gst.Event
-export function videoEventNewUpstreamForceKeyUnit(runningTime: Gst.ClockTime, allHeaders: boolean, count: number): Gst.Event
-export function videoEventParseDownstreamForceKeyUnit(event: Gst.Event): { returnType: boolean, timestamp: Gst.ClockTime, streamTime: Gst.ClockTime, runningTime: Gst.ClockTime, allHeaders: boolean, count: number }
-export function videoEventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: boolean }
-export function videoEventParseUpstreamForceKeyUnit(event: Gst.Event): { returnType: boolean, runningTime: Gst.ClockTime, allHeaders: boolean, count: number }
-export function videoFieldOrderFromString(order: string): VideoFieldOrder
-export function videoFieldOrderToString(order: VideoFieldOrder): string
-export function videoFormatFromFourcc(fourcc: number): VideoFormat
-export function videoFormatFromMasks(depth: number, bpp: number, endianness: number, redMask: number, greenMask: number, blueMask: number, alphaMask: number): VideoFormat
-export function videoFormatFromString(format: string): VideoFormat
-export function videoFormatGetInfo(format: VideoFormat): VideoFormatInfo
-export function videoFormatGetPalette(format: VideoFormat): { returnType: object | null, size: number }
-export function videoFormatToFourcc(format: VideoFormat): number
-export function videoFormatToString(format: VideoFormat): string
-export function videoFormatsRaw(): VideoFormat[]
-export function videoFrameMap(info: VideoInfo, buffer: Gst.Buffer, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
-export function videoFrameMapId(info: VideoInfo, buffer: Gst.Buffer, id: number, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
-export function videoGlTextureUploadMetaApiGetType(): GObject.Type
-export function videoGlTextureUploadMetaGetInfo(): Gst.MetaInfo
-export function videoGuessFramerate(duration: Gst.ClockTime): { returnType: boolean, destN: number | null, destD: number | null }
-export function videoInfoFromCaps(caps: Gst.Caps): { returnType: boolean, info: VideoInfo }
-export function videoInfoInit(): { info: VideoInfo }
-export function videoInterlaceModeFromString(mode: string): VideoInterlaceMode
-export function videoInterlaceModeToString(mode: VideoInterlaceMode): string
-export function videoMakeRawCaps(formats: VideoFormat[] | null): Gst.Caps
-export function videoMakeRawCapsWithFeatures(formats: VideoFormat[] | null, features?: Gst.CapsFeatures | null): Gst.Caps
-export function videoMasteringDisplayInfoFromString(mastering: string): { returnType: boolean, minfo: VideoMasteringDisplayInfo }
-export function videoMetaApiGetType(): GObject.Type
-export function videoMetaGetInfo(): Gst.MetaInfo
-export function videoMetaTransformScaleGetQuark(): GLib.Quark
-export function videoMultiviewGetDoubledHeightModes(): any
-export function videoMultiviewGetDoubledSizeModes(): any
-export function videoMultiviewGetDoubledWidthModes(): any
-export function videoMultiviewGetMonoModes(): any
-export function videoMultiviewGetUnpackedModes(): any
-export function videoMultiviewGuessHalfAspect(mvMode: VideoMultiviewMode, width: number, height: number, parN: number, parD: number): boolean
-export function videoMultiviewModeFromCapsString(capsMviewMode: string): VideoMultiviewMode
-export function videoMultiviewModeToCapsString(mviewMode: VideoMultiviewMode): string
-export function videoMultiviewVideoInfoChangeMode(info: VideoInfo, outMviewMode: VideoMultiviewMode, outMviewFlags: VideoMultiviewFlags): void
-export function videoOrientationFromTag(taglist: Gst.TagList): { returnType: boolean, method: VideoOrientationMethod }
-export function videoOverlayCompositionMetaApiGetType(): GObject.Type
-export function videoOverlayCompositionMetaGetInfo(): Gst.MetaInfo
-export function videoOverlayInstallProperties(oclass: GObject.ObjectClass, lastPropId: number): void
-export function videoOverlaySetProperty(object: GObject.Object, lastPropId: number, propertyId: number, value: any): boolean
-export function videoRegionOfInterestMetaApiGetType(): GObject.Type
-export function videoRegionOfInterestMetaGetInfo(): Gst.MetaInfo
-export function videoTileGetIndex(mode: VideoTileMode, x: number, y: number, xTiles: number, yTiles: number): number
-export function videoTimeCodeMetaApiGetType(): GObject.Type
-export function videoTimeCodeMetaGetInfo(): Gst.MetaInfo
-export function videoTransferFunctionDecode(func: VideoTransferFunction, val: number): number
-export function videoTransferFunctionEncode(func: VideoTransferFunction, val: number): number
-export function videoTransferFunctionFromIso(value: number): VideoTransferFunction
-export function videoTransferFunctionIsEquivalent(fromFunc: VideoTransferFunction, fromBpp: number, toFunc: VideoTransferFunction, toBpp: number): boolean
-export function videoTransferFunctionToIso(func: VideoTransferFunction): number
-export interface VideoAffineTransformationGetMatrix {
+function bufferAddVideoAfdMeta(buffer: Gst.Buffer, field: number, spec: VideoAFDSpec, afd: VideoAFDValue): VideoAFDMeta
+function bufferAddVideoAffineTransformationMeta(buffer: Gst.Buffer): VideoAffineTransformationMeta
+function bufferAddVideoBarMeta(buffer: Gst.Buffer, field: number, isLetterbox: boolean, barData1: number, barData2: number): VideoBarMeta
+function bufferAddVideoCaptionMeta(buffer: Gst.Buffer, captionType: VideoCaptionType, data: any[]): VideoCaptionMeta
+function bufferAddVideoCodecAlphaMeta(buffer: Gst.Buffer, alphaBuffer: Gst.Buffer): VideoCodecAlphaMeta
+function bufferAddVideoGlTextureUploadMeta(buffer: Gst.Buffer, textureOrientation: VideoGLTextureOrientation, nTextures: number, textureType: VideoGLTextureType, upload: VideoGLTextureUpload, userDataCopy: GObject.BoxedCopyFunc, userDataFree: GObject.BoxedFreeFunc): VideoGLTextureUploadMeta
+function bufferAddVideoMeta(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number): VideoMeta
+function bufferAddVideoMetaFull(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number, nPlanes: number, offset: number[], stride: number[]): VideoMeta
+function bufferAddVideoOverlayCompositionMeta(buf: Gst.Buffer, comp?: VideoOverlayComposition | null): VideoOverlayCompositionMeta
+function bufferAddVideoRegionOfInterestMeta(buffer: Gst.Buffer, roiType: string, x: number, y: number, w: number, h: number): VideoRegionOfInterestMeta
+function bufferAddVideoRegionOfInterestMetaId(buffer: Gst.Buffer, roiType: GLib.Quark, x: number, y: number, w: number, h: number): VideoRegionOfInterestMeta
+function bufferAddVideoTimeCodeMeta(buffer: Gst.Buffer, tc: VideoTimeCode): VideoTimeCodeMeta | null
+function bufferAddVideoTimeCodeMetaFull(buffer: Gst.Buffer, fpsN: number, fpsD: number, latestDailyJam: GLib.DateTime, flags: VideoTimeCodeFlags, hours: number, minutes: number, seconds: number, frames: number, fieldCount: number): VideoTimeCodeMeta
+function bufferGetVideoMeta(buffer: Gst.Buffer): VideoMeta
+function bufferGetVideoMetaId(buffer: Gst.Buffer, id: number): VideoMeta
+function bufferGetVideoRegionOfInterestMetaId(buffer: Gst.Buffer, id: number): VideoRegionOfInterestMeta
+function bufferPoolConfigGetVideoAlignment(config: Gst.Structure, align: VideoAlignment): boolean
+function bufferPoolConfigSetVideoAlignment(config: Gst.Structure, align: VideoAlignment): void
+function isVideoOverlayPrepareWindowHandleMessage(msg: Gst.Message): boolean
+function navigationEventGetType(event: Gst.Event): NavigationEventType
+function navigationEventParseCommand(event: Gst.Event): { returnType: boolean, command: NavigationCommand | null }
+function navigationEventParseKeyEvent(event: Gst.Event): { returnType: boolean, key: string | null }
+function navigationEventParseMouseButtonEvent(event: Gst.Event): { returnType: boolean, button: number | null, x: number | null, y: number | null }
+function navigationEventParseMouseMoveEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null }
+function navigationEventParseMouseScrollEvent(event: Gst.Event): { returnType: boolean, x: number | null, y: number | null, deltaX: number | null, deltaY: number | null }
+function navigationMessageGetType(message: Gst.Message): NavigationMessageType
+function navigationMessageNewAnglesChanged(src: Gst.Object, curAngle: number, nAngles: number): Gst.Message
+function navigationMessageNewCommandsChanged(src: Gst.Object): Gst.Message
+function navigationMessageNewEvent(src: Gst.Object, event: Gst.Event): Gst.Message
+function navigationMessageNewMouseOver(src: Gst.Object, active: boolean): Gst.Message
+function navigationMessageParseAnglesChanged(message: Gst.Message): { returnType: boolean, curAngle: number | null, nAngles: number | null }
+function navigationMessageParseEvent(message: Gst.Message): { returnType: boolean, event: Gst.Event | null }
+function navigationMessageParseMouseOver(message: Gst.Message): { returnType: boolean, active: boolean | null }
+function navigationQueryGetType(query: Gst.Query): NavigationQueryType
+function navigationQueryNewAngles(): Gst.Query
+function navigationQueryNewCommands(): Gst.Query
+function navigationQueryParseAngles(query: Gst.Query): { returnType: boolean, curAngle: number | null, nAngles: number | null }
+function navigationQueryParseCommandsLength(query: Gst.Query): { returnType: boolean, nCmds: number | null }
+function navigationQueryParseCommandsNth(query: Gst.Query, nth: number): { returnType: boolean, cmd: NavigationCommand | null }
+function navigationQuerySetAngles(query: Gst.Query, curAngle: number, nAngles: number): void
+function navigationQuerySetCommandsv(query: Gst.Query, cmds: NavigationCommand[]): void
+function videoAfdMetaApiGetType(): GObject.Type
+function videoAfdMetaGetInfo(): Gst.MetaInfo
+function videoAffineTransformationMetaApiGetType(): GObject.Type
+function videoAffineTransformationMetaGetInfo(): Gst.MetaInfo
+function videoBarMetaApiGetType(): GObject.Type
+function videoBarMetaGetInfo(): Gst.MetaInfo
+function videoBlend(dest: VideoFrame, src: VideoFrame, x: number, y: number, globalAlpha: number): boolean
+function videoBlendScaleLinearRGBA(src: VideoInfo, srcBuffer: Gst.Buffer, destHeight: number, destWidth: number): { dest: VideoInfo, destBuffer: Gst.Buffer }
+function videoCalculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: number, darD: number }
+function videoCaptionMetaApiGetType(): GObject.Type
+function videoCaptionMetaGetInfo(): Gst.MetaInfo
+function videoCaptionTypeFromCaps(caps: Gst.Caps): VideoCaptionType
+function videoCaptionTypeToCaps(type: VideoCaptionType): Gst.Caps
+function videoCenterRect(src: VideoRectangle, dst: VideoRectangle, scaling: boolean): { result: VideoRectangle }
+function videoChromaFromString(s: string): VideoChromaSite
+function videoChromaResample(resample: VideoChromaResample, lines: object | null, width: number): void
+function videoChromaSiteFromString(s: string): VideoChromaSite
+function videoChromaSiteToString(site: VideoChromaSite): string | null
+function videoChromaToString(site: VideoChromaSite): string
+function videoCodecAlphaMetaApiGetType(): GObject.Type
+function videoCodecAlphaMetaGetInfo(): Gst.MetaInfo
+function videoColorMatrixFromIso(value: number): VideoColorMatrix
+function videoColorMatrixGetKrKb(matrix: VideoColorMatrix): { returnType: boolean, kr: number, kb: number }
+function videoColorMatrixToIso(matrix: VideoColorMatrix): number
+function videoColorPrimariesFromIso(value: number): VideoColorPrimaries
+function videoColorPrimariesGetInfo(primaries: VideoColorPrimaries): VideoColorPrimariesInfo
+function videoColorPrimariesToIso(primaries: VideoColorPrimaries): number
+function videoColorRangeOffsets(range: VideoColorRange, info: VideoFormatInfo): { offset: number[], scale: number[] }
+function videoColorTransferDecode(func: VideoTransferFunction, val: number): number
+function videoColorTransferEncode(func: VideoTransferFunction, val: number): number
+function videoConvertSample(sample: Gst.Sample, toCaps: Gst.Caps, timeout: Gst.ClockTime): Gst.Sample
+function videoConvertSampleAsync(sample: Gst.Sample, toCaps: Gst.Caps, timeout: Gst.ClockTime, callback: VideoConvertSampleCallback): void
+function videoCropMetaApiGetType(): GObject.Type
+function videoCropMetaGetInfo(): Gst.MetaInfo
+function videoEventIsForceKeyUnit(event: Gst.Event): boolean
+function videoEventNewDownstreamForceKeyUnit(timestamp: Gst.ClockTime, streamTime: Gst.ClockTime, runningTime: Gst.ClockTime, allHeaders: boolean, count: number): Gst.Event
+function videoEventNewStillFrame(inStill: boolean): Gst.Event
+function videoEventNewUpstreamForceKeyUnit(runningTime: Gst.ClockTime, allHeaders: boolean, count: number): Gst.Event
+function videoEventParseDownstreamForceKeyUnit(event: Gst.Event): { returnType: boolean, timestamp: Gst.ClockTime, streamTime: Gst.ClockTime, runningTime: Gst.ClockTime, allHeaders: boolean, count: number }
+function videoEventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: boolean }
+function videoEventParseUpstreamForceKeyUnit(event: Gst.Event): { returnType: boolean, runningTime: Gst.ClockTime, allHeaders: boolean, count: number }
+function videoFieldOrderFromString(order: string): VideoFieldOrder
+function videoFieldOrderToString(order: VideoFieldOrder): string
+function videoFormatFromFourcc(fourcc: number): VideoFormat
+function videoFormatFromMasks(depth: number, bpp: number, endianness: number, redMask: number, greenMask: number, blueMask: number, alphaMask: number): VideoFormat
+function videoFormatFromString(format: string): VideoFormat
+function videoFormatGetInfo(format: VideoFormat): VideoFormatInfo
+function videoFormatGetPalette(format: VideoFormat): { returnType: object | null, size: number }
+function videoFormatToFourcc(format: VideoFormat): number
+function videoFormatToString(format: VideoFormat): string
+function videoFormatsRaw(): VideoFormat[]
+function videoFrameMap(info: VideoInfo, buffer: Gst.Buffer, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
+function videoFrameMapId(info: VideoInfo, buffer: Gst.Buffer, id: number, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
+function videoGlTextureUploadMetaApiGetType(): GObject.Type
+function videoGlTextureUploadMetaGetInfo(): Gst.MetaInfo
+function videoGuessFramerate(duration: Gst.ClockTime): { returnType: boolean, destN: number | null, destD: number | null }
+function videoInfoFromCaps(caps: Gst.Caps): { returnType: boolean, info: VideoInfo }
+function videoInfoInit(): { info: VideoInfo }
+function videoInterlaceModeFromString(mode: string): VideoInterlaceMode
+function videoInterlaceModeToString(mode: VideoInterlaceMode): string
+function videoMakeRawCaps(formats: VideoFormat[] | null): Gst.Caps
+function videoMakeRawCapsWithFeatures(formats: VideoFormat[] | null, features?: Gst.CapsFeatures | null): Gst.Caps
+function videoMasteringDisplayInfoFromString(mastering: string): { returnType: boolean, minfo: VideoMasteringDisplayInfo }
+function videoMetaApiGetType(): GObject.Type
+function videoMetaGetInfo(): Gst.MetaInfo
+function videoMetaTransformScaleGetQuark(): GLib.Quark
+function videoMultiviewGetDoubledHeightModes(): any
+function videoMultiviewGetDoubledSizeModes(): any
+function videoMultiviewGetDoubledWidthModes(): any
+function videoMultiviewGetMonoModes(): any
+function videoMultiviewGetUnpackedModes(): any
+function videoMultiviewGuessHalfAspect(mvMode: VideoMultiviewMode, width: number, height: number, parN: number, parD: number): boolean
+function videoMultiviewModeFromCapsString(capsMviewMode: string): VideoMultiviewMode
+function videoMultiviewModeToCapsString(mviewMode: VideoMultiviewMode): string
+function videoMultiviewVideoInfoChangeMode(info: VideoInfo, outMviewMode: VideoMultiviewMode, outMviewFlags: VideoMultiviewFlags): void
+function videoOrientationFromTag(taglist: Gst.TagList): { returnType: boolean, method: VideoOrientationMethod }
+function videoOverlayCompositionMetaApiGetType(): GObject.Type
+function videoOverlayCompositionMetaGetInfo(): Gst.MetaInfo
+function videoOverlayInstallProperties(oclass: GObject.ObjectClass, lastPropId: number): void
+function videoOverlaySetProperty(object: GObject.Object, lastPropId: number, propertyId: number, value: any): boolean
+function videoRegionOfInterestMetaApiGetType(): GObject.Type
+function videoRegionOfInterestMetaGetInfo(): Gst.MetaInfo
+function videoTileGetIndex(mode: VideoTileMode, x: number, y: number, xTiles: number, yTiles: number): number
+function videoTimeCodeMetaApiGetType(): GObject.Type
+function videoTimeCodeMetaGetInfo(): Gst.MetaInfo
+function videoTransferFunctionDecode(func: VideoTransferFunction, val: number): number
+function videoTransferFunctionEncode(func: VideoTransferFunction, val: number): number
+function videoTransferFunctionFromIso(value: number): VideoTransferFunction
+function videoTransferFunctionIsEquivalent(fromFunc: VideoTransferFunction, fromBpp: number, toFunc: VideoTransferFunction, toBpp: number): boolean
+function videoTransferFunctionToIso(func: VideoTransferFunction): number
+interface VideoAffineTransformationGetMatrix {
     (meta: VideoAffineTransformationMeta, matrix: number): boolean
 }
-export interface VideoConvertSampleCallback {
+interface VideoConvertSampleCallback {
     (sample: Gst.Sample, error: GLib.Error): void
 }
-export interface VideoFormatPack {
+interface VideoFormatPack {
     (info: VideoFormatInfo, flags: VideoPackFlags, src: object | null, sstride: number, data: object | null, stride: number, chromaSite: VideoChromaSite, y: number, width: number): void
 }
-export interface VideoFormatUnpack {
+interface VideoFormatUnpack {
     (info: VideoFormatInfo, flags: VideoPackFlags, dest: object | null, data: object | null, stride: number, x: number, y: number, width: number): void
 }
-export interface VideoGLTextureUpload {
+interface VideoGLTextureUpload {
     (meta: VideoGLTextureUploadMeta, textureId: number): boolean
 }
-export class ColorBalance {
+class ColorBalance {
     /* Methods of GstVideo-1.0.GstVideo.ColorBalance */
     getBalanceType(): ColorBalanceType
     getValue(channel: ColorBalanceChannel): number
@@ -723,7 +723,7 @@ export class ColorBalance {
     emit(sigName: "value-changed", channel: ColorBalanceChannel, value: number): void
     static name: string
 }
-export class Navigation {
+class Navigation {
     /* Methods of GstVideo-1.0.GstVideo.Navigation */
     sendCommand(command: NavigationCommand): void
     sendEvent(structure: Gst.Structure): void
@@ -755,12 +755,12 @@ export class Navigation {
     static querySetAngles(query: Gst.Query, curAngle: number, nAngles: number): void
     static querySetCommandsv(query: Gst.Query, cmds: NavigationCommand[]): void
 }
-export class VideoDirection {
+class VideoDirection {
     /* Properties of GstVideo-1.0.GstVideo.VideoDirection */
     videoDirection: VideoOrientationMethod
     static name: string
 }
-export class VideoOrientation {
+class VideoOrientation {
     /* Methods of GstVideo-1.0.GstVideo.VideoOrientation */
     getHcenter(): { returnType: boolean, center: number }
     getHflip(): { returnType: boolean, flip: boolean }
@@ -774,7 +774,7 @@ export class VideoOrientation {
     /* Static methods and pseudo-constructors */
     static fromTag(taglist: Gst.TagList): { returnType: boolean, method: VideoOrientationMethod }
 }
-export class VideoOverlay {
+class VideoOverlay {
     /* Methods of GstVideo-1.0.GstVideo.VideoOverlay */
     expose(): void
     gotWindowHandle(handle: number): void
@@ -789,7 +789,7 @@ export class VideoOverlay {
 }
 export interface ColorBalanceChannel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ColorBalanceChannel {
+class ColorBalanceChannel {
     /* Fields of GstVideo-1.0.GstVideo.ColorBalanceChannel */
     parent: GObject.Object
     label: string
@@ -845,7 +845,7 @@ export class ColorBalanceChannel {
 }
 export interface VideoAggregator_ConstructProps extends GstBase.Aggregator_ConstructProps {
 }
-export class VideoAggregator {
+class VideoAggregator {
     /* Properties of GstBase-1.0.GstBase.Aggregator */
     emitSignals: boolean
     latency: number
@@ -1100,7 +1100,7 @@ export class VideoAggregator {
 export interface VideoAggregatorConvertPad_ConstructProps extends VideoAggregatorPad_ConstructProps {
     converterConfig?: Gst.Structure
 }
-export class VideoAggregatorConvertPad {
+class VideoAggregatorConvertPad {
     /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorConvertPad */
     converterConfig: Gst.Structure
     /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorPad */
@@ -1367,7 +1367,7 @@ export interface VideoAggregatorPad_ConstructProps extends GstBase.AggregatorPad
     repeatAfterEos?: boolean
     zorder?: number
 }
-export class VideoAggregatorPad {
+class VideoAggregatorPad {
     /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorPad */
     maxLastBufferRepeat: number
     repeatAfterEos: boolean
@@ -1622,7 +1622,7 @@ export class VideoAggregatorPad {
 }
 export interface VideoAggregatorParallelConvertPad_ConstructProps extends VideoAggregatorConvertPad_ConstructProps {
 }
-export class VideoAggregatorParallelConvertPad {
+class VideoAggregatorParallelConvertPad {
     /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorConvertPad */
     converterConfig: Gst.Structure
     /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorPad */
@@ -1888,7 +1888,7 @@ export class VideoAggregatorParallelConvertPad {
 }
 export interface VideoBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
-export class VideoBufferPool {
+class VideoBufferPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2003,7 +2003,7 @@ export interface VideoDecoder_ConstructProps extends Gst.Element_ConstructProps 
     minForceKeyUnitInterval?: number
     qos?: boolean
 }
-export class VideoDecoder {
+class VideoDecoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -2282,7 +2282,7 @@ export interface VideoEncoder_ConstructProps extends Gst.Element_ConstructProps 
     minForceKeyUnitInterval?: number
     qos?: boolean
 }
-export class VideoEncoder {
+class VideoEncoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoEncoder */
     minForceKeyUnitInterval: number
     qos: boolean
@@ -2527,7 +2527,7 @@ export class VideoEncoder {
 }
 export interface VideoFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
-export class VideoFilter {
+class VideoFilter {
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -2755,13 +2755,13 @@ export class VideoFilter {
     _init (config?: VideoFilter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class VideoMultiviewFlagsSet {
+class VideoMultiviewFlagsSet {
     static name: string
 }
 export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProps {
     showPrerollFrame?: boolean
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of GstVideo-1.0.GstVideo.VideoSink */
     showPrerollFrame: boolean
     /* Properties of GstBase-1.0.GstBase.BaseSink */
@@ -3094,13 +3094,13 @@ export class VideoSink {
     static centerRect(src: VideoRectangle, dst: VideoRectangle, scaling: boolean): { result: VideoRectangle }
     static $gtype: GObject.Type
 }
-export abstract class ColorBalanceChannelClass {
+abstract class ColorBalanceChannelClass {
     /* Fields of GstVideo-1.0.GstVideo.ColorBalanceChannelClass */
     parent: GObject.ObjectClass
     valueChanged: (channel: ColorBalanceChannel, value: number) => void
     static name: string
 }
-export abstract class ColorBalanceInterface {
+abstract class ColorBalanceInterface {
     /* Fields of GstVideo-1.0.GstVideo.ColorBalanceInterface */
     iface: GObject.TypeInterface
     listChannels: (balance: ColorBalance) => ColorBalanceChannel[]
@@ -3110,13 +3110,13 @@ export abstract class ColorBalanceInterface {
     valueChanged: (balance: ColorBalance, channel: ColorBalanceChannel, value: number) => void
     static name: string
 }
-export abstract class NavigationInterface {
+abstract class NavigationInterface {
     /* Fields of GstVideo-1.0.GstVideo.NavigationInterface */
     iface: GObject.TypeInterface
     sendEvent: (navigation: Navigation, structure: Gst.Structure) => void
     static name: string
 }
-export class VideoAFDMeta {
+class VideoAFDMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoAFDMeta */
     meta: Gst.Meta
     field: number
@@ -3126,7 +3126,7 @@ export class VideoAFDMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoAffineTransformationMeta {
+class VideoAffineTransformationMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoAffineTransformationMeta */
     meta: Gst.Meta
     matrix: number[]
@@ -3136,7 +3136,7 @@ export class VideoAffineTransformationMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export abstract class VideoAggregatorClass {
+abstract class VideoAggregatorClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorClass */
     updateCaps: (videoaggregator: VideoAggregator, caps: Gst.Caps) => Gst.Caps
     aggregateFrames: (videoaggregator: VideoAggregator, outbuffer: Gst.Buffer) => Gst.FlowReturn
@@ -3144,16 +3144,16 @@ export abstract class VideoAggregatorClass {
     findBestFormat: (vagg: VideoAggregator, downstreamCaps: Gst.Caps, bestInfo: VideoInfo, atLeastOneAlpha: boolean) => void
     static name: string
 }
-export abstract class VideoAggregatorConvertPadClass {
+abstract class VideoAggregatorConvertPadClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorConvertPadClass */
     parentClass: VideoAggregatorPadClass
     createConversionInfo: (pad: VideoAggregatorConvertPad, agg: VideoAggregator, conversionInfo: VideoInfo) => void
     static name: string
 }
-export class VideoAggregatorConvertPadPrivate {
+class VideoAggregatorConvertPadPrivate {
     static name: string
 }
-export abstract class VideoAggregatorPadClass {
+abstract class VideoAggregatorPadClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorPadClass */
     parentClass: GstBase.AggregatorPadClass
     updateConversionInfo: (pad: VideoAggregatorPad) => void
@@ -3164,18 +3164,18 @@ export abstract class VideoAggregatorPadClass {
     gstReserved: object[]
     static name: string
 }
-export class VideoAggregatorPadPrivate {
+class VideoAggregatorPadPrivate {
     static name: string
 }
-export abstract class VideoAggregatorParallelConvertPadClass {
+abstract class VideoAggregatorParallelConvertPadClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorParallelConvertPadClass */
     parentClass: VideoAggregatorConvertPadClass
     static name: string
 }
-export class VideoAggregatorPrivate {
+class VideoAggregatorPrivate {
     static name: string
 }
-export class VideoAlignment {
+class VideoAlignment {
     /* Fields of GstVideo-1.0.GstVideo.VideoAlignment */
     paddingTop: number
     paddingBottom: number
@@ -3186,7 +3186,7 @@ export class VideoAlignment {
     reset(): void
     static name: string
 }
-export class VideoAncillary {
+class VideoAncillary {
     /* Fields of GstVideo-1.0.GstVideo.VideoAncillary */
     dID: number
     sDIDBlockNumber: number
@@ -3194,7 +3194,7 @@ export class VideoAncillary {
     data: any[]
     static name: string
 }
-export class VideoBarMeta {
+class VideoBarMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoBarMeta */
     meta: Gst.Meta
     field: number
@@ -3205,15 +3205,15 @@ export class VideoBarMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export abstract class VideoBufferPoolClass {
+abstract class VideoBufferPoolClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
-export class VideoBufferPoolPrivate {
+class VideoBufferPoolPrivate {
     static name: string
 }
-export class VideoCaptionMeta {
+class VideoCaptionMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoCaptionMeta */
     meta: Gst.Meta
     captionType: VideoCaptionType
@@ -3223,13 +3223,13 @@ export class VideoCaptionMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoChromaResample {
+class VideoChromaResample {
     /* Methods of GstVideo-1.0.GstVideo.VideoChromaResample */
     free(): void
     getInfo(nLines: number, offset: number): void
     static name: string
 }
-export class VideoCodecAlphaMeta {
+class VideoCodecAlphaMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoCodecAlphaMeta */
     meta: Gst.Meta
     buffer: Gst.Buffer
@@ -3237,7 +3237,7 @@ export class VideoCodecAlphaMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoCodecFrame {
+class VideoCodecFrame {
     /* Fields of GstVideo-1.0.GstVideo.VideoCodecFrame */
     systemFrameNumber: number
     dts: Gst.ClockTime
@@ -3254,7 +3254,7 @@ export class VideoCodecFrame {
     unref(): void
     static name: string
 }
-export class VideoCodecState {
+class VideoCodecState {
     /* Fields of GstVideo-1.0.GstVideo.VideoCodecState */
     info: VideoInfo
     caps: Gst.Caps
@@ -3267,7 +3267,7 @@ export class VideoCodecState {
     unref(): void
     static name: string
 }
-export class VideoColorPrimariesInfo {
+class VideoColorPrimariesInfo {
     /* Fields of GstVideo-1.0.GstVideo.VideoColorPrimariesInfo */
     primaries: VideoColorPrimaries
     wx: number
@@ -3280,7 +3280,7 @@ export class VideoColorPrimariesInfo {
     by: number
     static name: string
 }
-export class VideoColorimetry {
+class VideoColorimetry {
     /* Fields of GstVideo-1.0.GstVideo.VideoColorimetry */
     range: VideoColorRange
     matrix: VideoColorMatrix
@@ -3293,7 +3293,7 @@ export class VideoColorimetry {
     toString(): string | null
     static name: string
 }
-export class VideoContentLightLevel {
+class VideoContentLightLevel {
     /* Fields of GstVideo-1.0.GstVideo.VideoContentLightLevel */
     maxContentLightLevel: number
     maxFrameAverageLightLevel: number
@@ -3306,7 +3306,7 @@ export class VideoContentLightLevel {
     toString(): string
     static name: string
 }
-export class VideoConverter {
+class VideoConverter {
     /* Methods of GstVideo-1.0.GstVideo.VideoConverter */
     frame(src: VideoFrame, dest: VideoFrame): void
     frameFinish(): void
@@ -3315,7 +3315,7 @@ export class VideoConverter {
     setConfig(config: Gst.Structure): boolean
     static name: string
 }
-export class VideoCropMeta {
+class VideoCropMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoCropMeta */
     meta: Gst.Meta
     x: number
@@ -3326,7 +3326,7 @@ export class VideoCropMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export abstract class VideoDecoderClass {
+abstract class VideoDecoderClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoDecoderClass */
     open: (decoder: VideoDecoder) => boolean
     close: (decoder: VideoDecoder) => boolean
@@ -3351,21 +3351,21 @@ export abstract class VideoDecoderClass {
     handleMissingData: (decoder: VideoDecoder, timestamp: Gst.ClockTime, duration: Gst.ClockTime) => boolean
     static name: string
 }
-export class VideoDecoderPrivate {
+class VideoDecoderPrivate {
     static name: string
 }
-export abstract class VideoDirectionInterface {
+abstract class VideoDirectionInterface {
     /* Fields of GstVideo-1.0.GstVideo.VideoDirectionInterface */
     iface: GObject.TypeInterface
     static name: string
 }
-export class VideoDither {
+class VideoDither {
     /* Methods of GstVideo-1.0.GstVideo.VideoDither */
     free(): void
     line(line: object | null, x: number, y: number, width: number): void
     static name: string
 }
-export abstract class VideoEncoderClass {
+abstract class VideoEncoderClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoEncoderClass */
     open: (encoder: VideoEncoder) => boolean
     close: (encoder: VideoEncoder) => boolean
@@ -3388,10 +3388,10 @@ export abstract class VideoEncoderClass {
     transformMeta: (encoder: VideoEncoder, frame: VideoCodecFrame, meta: Gst.Meta) => boolean
     static name: string
 }
-export class VideoEncoderPrivate {
+class VideoEncoderPrivate {
     static name: string
 }
-export abstract class VideoFilterClass {
+abstract class VideoFilterClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoFilterClass */
     parentClass: GstBase.BaseTransformClass
     setInfo: (filter: VideoFilter, incaps: Gst.Caps, inInfo: VideoInfo, outcaps: Gst.Caps, outInfo: VideoInfo) => boolean
@@ -3399,7 +3399,7 @@ export abstract class VideoFilterClass {
     transformFrameIp: (trans: VideoFilter, frame: VideoFrame) => Gst.FlowReturn
     static name: string
 }
-export class VideoFormatInfo {
+class VideoFormatInfo {
     /* Fields of GstVideo-1.0.GstVideo.VideoFormatInfo */
     format: VideoFormat
     name: string
@@ -3426,7 +3426,7 @@ export class VideoFormatInfo {
     component(plane: number): { components: number }
     static name: string
 }
-export class VideoFrame {
+class VideoFrame {
     /* Fields of GstVideo-1.0.GstVideo.VideoFrame */
     info: VideoInfo
     flags: VideoFrameFlags
@@ -3444,7 +3444,7 @@ export class VideoFrame {
     static map(info: VideoInfo, buffer: Gst.Buffer, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
     static mapId(info: VideoInfo, buffer: Gst.Buffer, id: number, flags: Gst.MapFlags): { returnType: boolean, frame: VideoFrame }
 }
-export class VideoGLTextureUploadMeta {
+class VideoGLTextureUploadMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoGLTextureUploadMeta */
     meta: Gst.Meta
     textureOrientation: VideoGLTextureOrientation
@@ -3456,7 +3456,7 @@ export class VideoGLTextureUploadMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoInfo {
+class VideoInfo {
     /* Fields of GstVideo-1.0.GstVideo.VideoInfo */
     finfo: VideoFormatInfo
     interlaceMode: VideoInterlaceMode
@@ -3491,7 +3491,7 @@ export class VideoInfo {
     static fromCaps(caps: Gst.Caps): { returnType: boolean, info: VideoInfo }
     static init(): { info: VideoInfo }
 }
-export class VideoMasteringDisplayInfo {
+class VideoMasteringDisplayInfo {
     /* Fields of GstVideo-1.0.GstVideo.VideoMasteringDisplayInfo */
     displayPrimaries: VideoMasteringDisplayInfoCoordinates[]
     whitePoint: VideoMasteringDisplayInfoCoordinates
@@ -3507,13 +3507,13 @@ export class VideoMasteringDisplayInfo {
     /* Static methods and pseudo-constructors */
     static fromString(mastering: string): { returnType: boolean, minfo: VideoMasteringDisplayInfo }
 }
-export class VideoMasteringDisplayInfoCoordinates {
+class VideoMasteringDisplayInfoCoordinates {
     /* Fields of GstVideo-1.0.GstVideo.VideoMasteringDisplayInfoCoordinates */
     x: number
     y: number
     static name: string
 }
-export class VideoMeta {
+class VideoMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoMeta */
     meta: Gst.Meta
     buffer: Gst.Buffer
@@ -3536,7 +3536,7 @@ export class VideoMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoMetaTransform {
+class VideoMetaTransform {
     /* Fields of GstVideo-1.0.GstVideo.VideoMetaTransform */
     inInfo: VideoInfo
     outInfo: VideoInfo
@@ -3544,7 +3544,7 @@ export class VideoMetaTransform {
     /* Static methods and pseudo-constructors */
     static scaleGetQuark(): GLib.Quark
 }
-export abstract class VideoOrientationInterface {
+abstract class VideoOrientationInterface {
     /* Fields of GstVideo-1.0.GstVideo.VideoOrientationInterface */
     iface: GObject.TypeInterface
     getHflip: (videoOrientation: VideoOrientation) => { returnType: boolean, flip: boolean }
@@ -3557,7 +3557,7 @@ export abstract class VideoOrientationInterface {
     setVcenter: (videoOrientation: VideoOrientation, center: number) => boolean
     static name: string
 }
-export class VideoOverlayComposition {
+class VideoOverlayComposition {
     /* Methods of GstVideo-1.0.GstVideo.VideoOverlayComposition */
     addRectangle(rectangle: VideoOverlayRectangle): void
     blend(videoBuf: VideoFrame): boolean
@@ -3572,7 +3572,7 @@ export class VideoOverlayComposition {
     /* Static methods and pseudo-constructors */
     static new(rectangle?: VideoOverlayRectangle | null): VideoOverlayComposition
 }
-export class VideoOverlayCompositionMeta {
+class VideoOverlayCompositionMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoOverlayCompositionMeta */
     meta: Gst.Meta
     overlay: VideoOverlayComposition
@@ -3580,7 +3580,7 @@ export class VideoOverlayCompositionMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export abstract class VideoOverlayInterface {
+abstract class VideoOverlayInterface {
     /* Fields of GstVideo-1.0.GstVideo.VideoOverlayInterface */
     iface: GObject.TypeInterface
     expose: (overlay: VideoOverlay) => void
@@ -3589,7 +3589,7 @@ export abstract class VideoOverlayInterface {
     setWindowHandle: (overlay: VideoOverlay, handle: number) => void
     static name: string
 }
-export class VideoOverlayRectangle {
+class VideoOverlayRectangle {
     /* Methods of GstVideo-1.0.GstVideo.VideoOverlayRectangle */
     copy(): VideoOverlayRectangle
     getFlags(): VideoOverlayFormatFlags
@@ -3608,7 +3608,7 @@ export class VideoOverlayRectangle {
     /* Static methods and pseudo-constructors */
     static newRaw(pixels: Gst.Buffer, renderX: number, renderY: number, renderWidth: number, renderHeight: number, flags: VideoOverlayFormatFlags): VideoOverlayRectangle
 }
-export class VideoRectangle {
+class VideoRectangle {
     /* Fields of GstVideo-1.0.GstVideo.VideoRectangle */
     x: number
     y: number
@@ -3616,7 +3616,7 @@ export class VideoRectangle {
     h: number
     static name: string
 }
-export class VideoRegionOfInterestMeta {
+class VideoRegionOfInterestMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoRegionOfInterestMeta */
     meta: Gst.Meta
     roiType: GLib.Quark
@@ -3634,7 +3634,7 @@ export class VideoRegionOfInterestMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoResampler {
+class VideoResampler {
     /* Fields of GstVideo-1.0.GstVideo.VideoResampler */
     inSize: number
     outSize: number
@@ -3649,7 +3649,7 @@ export class VideoResampler {
     init(method: VideoResamplerMethod, flags: VideoResamplerFlags, nPhases: number, nTaps: number, shift: number, inSize: number, outSize: number, options: Gst.Structure): boolean
     static name: string
 }
-export class VideoScaler {
+class VideoScaler {
     /* Methods of GstVideo-1.0.GstVideo.VideoScaler */
     TODO_2d(vscale: VideoScaler, format: VideoFormat, src: object | null, srcStride: number, dest: object | null, destStride: number, x: number, y: number, width: number, height: number): void
     free(): void
@@ -3659,17 +3659,17 @@ export class VideoScaler {
     vertical(format: VideoFormat, srcLines: object | null, dest: object | null, destOffset: number, width: number): void
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoSinkClass */
     parentClass: GstBase.BaseSinkClass
     showFrame: (videoSink: VideoSink, buf: Gst.Buffer) => Gst.FlowReturn
     setInfo: (videoSink: VideoSink, caps: Gst.Caps, info: VideoInfo) => boolean
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
-export class VideoTimeCode {
+class VideoTimeCode {
     /* Fields of GstVideo-1.0.GstVideo.VideoTimeCode */
     config: VideoTimeCodeConfig
     hours: number
@@ -3703,7 +3703,7 @@ export class VideoTimeCode {
     static newFromDateTimeFull(fpsN: number, fpsD: number, dt: GLib.DateTime, flags: VideoTimeCodeFlags, fieldCount: number): VideoTimeCode
     static newFromString(tcStr: string): VideoTimeCode
 }
-export class VideoTimeCodeConfig {
+class VideoTimeCodeConfig {
     /* Fields of GstVideo-1.0.GstVideo.VideoTimeCodeConfig */
     fpsN: number
     fpsD: number
@@ -3711,7 +3711,7 @@ export class VideoTimeCodeConfig {
     latestDailyJam: GLib.DateTime
     static name: string
 }
-export class VideoTimeCodeInterval {
+class VideoTimeCodeInterval {
     /* Fields of GstVideo-1.0.GstVideo.VideoTimeCodeInterval */
     hours: number
     minutes: number
@@ -3729,7 +3729,7 @@ export class VideoTimeCodeInterval {
     static new(hours: number, minutes: number, seconds: number, frames: number): VideoTimeCodeInterval
     static newFromString(tcInterStr: string): VideoTimeCodeInterval
 }
-export class VideoTimeCodeMeta {
+class VideoTimeCodeMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoTimeCodeMeta */
     meta: Gst.Meta
     tc: VideoTimeCode
@@ -3737,7 +3737,7 @@ export class VideoTimeCodeMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class VideoVBIEncoder {
+class VideoVBIEncoder {
     /* Methods of GstVideo-1.0.GstVideo.VideoVBIEncoder */
     addAncillary(composite: boolean, dID: number, sDIDBlockNumber: number, data: any[]): boolean
     copy(): VideoVBIEncoder
@@ -3749,7 +3749,7 @@ export class VideoVBIEncoder {
     /* Static methods and pseudo-constructors */
     static new(format: VideoFormat, pixelWidth: number): VideoVBIEncoder
 }
-export class VideoVBIParser {
+class VideoVBIParser {
     /* Methods of GstVideo-1.0.GstVideo.VideoVBIParser */
     addLine(data: any[]): void
     copy(): VideoVBIParser
@@ -3762,3 +3762,4 @@ export class VideoVBIParser {
     static new(format: VideoFormat, pixelWidth: number): VideoVBIParser
 }
 }
+export default GstVideo

@@ -1,2 +1,1 @@
-imports.gi.versions.Gda = '6.0'
-module.exports = imports.gi.Gda
+export {default as default} from 'gi://Gda?version=6.0';

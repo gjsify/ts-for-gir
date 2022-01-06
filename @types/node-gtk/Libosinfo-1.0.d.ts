@@ -8,26 +8,26 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Libosinfo {
+declare namespace Libosinfo {
 
-export enum DeviceDriverSigningReq {
+enum DeviceDriverSigningReq {
     NONE,
     STRICT,
     WARN,
 }
-export enum Error {
+enum Error {
     GENERIC,
 }
-export enum InstallConfigParamPolicy {
+enum InstallConfigParamPolicy {
     NONE,
     REQUIRED,
     OPTIONAL,
 }
-export enum InstallScriptInstallationSource {
+enum InstallScriptInstallationSource {
     MEDIA,
     NETWORK,
 }
-export enum MediaError {
+enum MediaError {
     NO_DESCRIPTORS,
     NO_PVD,
     NO_SVD,
@@ -35,33 +35,33 @@ export enum MediaError {
     NOT_BOOTABLE,
     NO_DIRECTORY_RECORD_EXTENT,
 }
-export enum PathFormat {
+enum PathFormat {
     UNIX,
     DOS,
 }
-export enum ProductRelationship {
+enum ProductRelationship {
     DERIVES_FROM,
     UPGRADES,
     CLONES,
 }
-export enum ReleaseStatus {
+enum ReleaseStatus {
     RELEASED,
     SNAPSHOT,
     PRERELEASE,
     ROLLING,
 }
-export enum TreeError {
+enum TreeError {
     NO_TREEINFO,
     NOT_SUPPORTED_PROTOCOL,
 }
-export enum InstallScriptInjectionMethod {
+enum InstallScriptInjectionMethod {
     CDROM,
     DISK,
     FLOPPY,
     INITRD,
     WEB,
 }
-export enum MediaDetectFlags {
+enum MediaDetectFlags {
     BOOTABLE,
 }
 export const ARCHITECTURE_ALL: string
@@ -195,12 +195,12 @@ export const TREE_PROP_TREEINFO_VARIANT: string
 export const TREE_PROP_TREEINFO_VERSION: string
 export const TREE_PROP_URL: string
 export const TREE_PROP_VARIANT: string
-export function errorQuark(): GLib.Quark
-export function mediaErrorQuark(): GLib.Quark
-export function treeErrorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
+function mediaErrorQuark(): GLib.Quark
+function treeErrorQuark(): GLib.Quark
 export interface AvatarFormat_ConstructProps extends Entity_ConstructProps {
 }
-export class AvatarFormat {
+class AvatarFormat {
     /* Properties of Libosinfo-1.0.Libosinfo.AvatarFormat */
     readonly alpha: boolean
     readonly height: number
@@ -303,7 +303,7 @@ export class AvatarFormat {
 }
 export interface Datamap_ConstructProps extends Entity_ConstructProps {
 }
-export class Datamap {
+class Datamap {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.Datamap */
@@ -380,7 +380,7 @@ export class Datamap {
 }
 export interface DatamapList_ConstructProps extends List_ConstructProps {
 }
-export class DatamapList {
+class DatamapList {
     /* Fields of Libosinfo-1.0.Libosinfo.DatamapList */
     parentInstance: List
     priv: DatamapListPrivate
@@ -445,7 +445,7 @@ export class DatamapList {
 }
 export interface Db_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Db {
+class Db {
     /* Fields of Libosinfo-1.0.Libosinfo.Db */
     parentInstance: GObject.Object
     priv: DbPrivate
@@ -527,7 +527,7 @@ export interface Deployment_ConstructProps extends Entity_ConstructProps {
     os?: Os
     platform?: Platform
 }
-export class Deployment {
+class Deployment {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.Deployment */
@@ -608,7 +608,7 @@ export class Deployment {
 }
 export interface DeploymentList_ConstructProps extends List_ConstructProps {
 }
-export class DeploymentList {
+class DeploymentList {
     /* Fields of Libosinfo-1.0.Libosinfo.DeploymentList */
     parentInstance: List
     priv: DeploymentListPrivate
@@ -678,7 +678,7 @@ export class DeploymentList {
 }
 export interface Device_ConstructProps extends Entity_ConstructProps {
 }
-export class Device {
+class Device {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.Device */
@@ -760,7 +760,7 @@ export class Device {
 }
 export interface DeviceDriver_ConstructProps extends Entity_ConstructProps {
 }
-export class DeviceDriver {
+class DeviceDriver {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriver */
@@ -839,7 +839,7 @@ export class DeviceDriver {
 }
 export interface DeviceDriverList_ConstructProps extends List_ConstructProps {
 }
-export class DeviceDriverList {
+class DeviceDriverList {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverList */
     parentInstance: List
     priv: DeviceDriverListPrivate
@@ -905,7 +905,7 @@ export class DeviceDriverList {
 export interface DeviceLink_ConstructProps extends Entity_ConstructProps {
     target?: Device
 }
-export class DeviceLink {
+class DeviceLink {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLink */
@@ -982,7 +982,7 @@ export class DeviceLink {
 export interface DeviceLinkFilter_ConstructProps extends Filter_ConstructProps {
     targetFilter?: Filter
 }
-export class DeviceLinkFilter {
+class DeviceLinkFilter {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkFilter */
     parentInstance: Filter
     priv: DeviceLinkFilterPrivate
@@ -1042,7 +1042,7 @@ export class DeviceLinkFilter {
 }
 export interface DeviceLinkList_ConstructProps extends List_ConstructProps {
 }
-export class DeviceLinkList {
+class DeviceLinkList {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkList */
     parentInstance: List
     priv: DeviceLinkListPrivate
@@ -1113,7 +1113,7 @@ export class DeviceLinkList {
 }
 export interface DeviceList_ConstructProps extends List_ConstructProps {
 }
-export class DeviceList {
+class DeviceList {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceList */
     parentInstance: List
     priv: DeviceListPrivate
@@ -1184,7 +1184,7 @@ export class DeviceList {
 export interface Entity_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
-export class Entity {
+class Entity {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.Entity */
@@ -1255,7 +1255,7 @@ export class Entity {
 }
 export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Filter {
+class Filter {
     /* Fields of Libosinfo-1.0.Libosinfo.Filter */
     parentInstance: GObject.Object
     priv: FilterPrivate
@@ -1314,7 +1314,7 @@ export interface Firmware_ConstructProps extends Entity_ConstructProps {
     architecture?: string
     type?: string
 }
-export class Firmware {
+class Firmware {
     /* Properties of Libosinfo-1.0.Libosinfo.Firmware */
     architecture: string
     type: string
@@ -1404,7 +1404,7 @@ export class Firmware {
 }
 export interface FirmwareList_ConstructProps extends List_ConstructProps {
 }
-export class FirmwareList {
+class FirmwareList {
     /* Fields of Libosinfo-1.0.Libosinfo.FirmwareList */
     parentInstance: List
     priv: FirmwareListPrivate
@@ -1473,7 +1473,7 @@ export interface Image_ConstructProps extends Entity_ConstructProps {
     format?: string
     url?: string
 }
-export class Image {
+class Image {
     /* Properties of Libosinfo-1.0.Libosinfo.Image */
     architecture: string
     cloudInit: string
@@ -1579,7 +1579,7 @@ export class Image {
 }
 export interface ImageList_ConstructProps extends List_ConstructProps {
 }
-export class ImageList {
+class ImageList {
     /* Fields of Libosinfo-1.0.Libosinfo.ImageList */
     parentInstance: List
     priv: ImageListPrivate
@@ -1644,7 +1644,7 @@ export class ImageList {
 }
 export interface InstallConfig_ConstructProps extends Entity_ConstructProps {
 }
-export class InstallConfig {
+class InstallConfig {
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
     id: string
     /* Fields of Libosinfo-1.0.Libosinfo.InstallConfig */
@@ -1768,7 +1768,7 @@ export interface InstallConfigParam_ConstructProps extends Entity_ConstructProps
     name?: string
     valueMap?: Datamap
 }
-export class InstallConfigParam {
+class InstallConfigParam {
     /* Properties of Libosinfo-1.0.Libosinfo.InstallConfigParam */
     readonly policy: InstallConfigParamPolicy
     valueMap: Datamap
@@ -1861,7 +1861,7 @@ export class InstallConfigParam {
 }
 export interface InstallConfigParamList_ConstructProps extends List_ConstructProps {
 }
-export class InstallConfigParamList {
+class InstallConfigParamList {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamList */
     parentInstance: List
     priv: InstallConfigParamListPrivate
@@ -1930,7 +1930,7 @@ export interface InstallScript_ConstructProps extends Entity_ConstructProps {
     templateData?: string
     templateUri?: string
 }
-export class InstallScript {
+class InstallScript {
     /* Properties of Libosinfo-1.0.Libosinfo.InstallScript */
     readonly avatarFormat: AvatarFormat
     readonly installationSource: InstallScriptInstallationSource
@@ -2083,7 +2083,7 @@ export class InstallScript {
 }
 export interface InstallScriptList_ConstructProps extends List_ConstructProps {
 }
-export class InstallScriptList {
+class InstallScriptList {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptList */
     parentInstance: List
     priv: InstallScriptListPrivate
@@ -2154,7 +2154,7 @@ export class InstallScriptList {
 export interface List_ConstructProps extends GObject.Object_ConstructProps {
     elementType?: GObject.Type
 }
-export class List {
+class List {
     /* Fields of Libosinfo-1.0.Libosinfo.List */
     parentInstance: GObject.Object
     priv: ListPrivate
@@ -2217,7 +2217,7 @@ export class List {
 }
 export interface Loader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Loader {
+class Loader {
     /* Fields of Libosinfo-1.0.Libosinfo.Loader */
     parentInstance: GObject.Object
     priv: LoaderPrivate
@@ -2290,7 +2290,7 @@ export interface Media_ConstructProps extends Entity_ConstructProps {
     volumeId?: string
     volumeSize?: number
 }
-export class Media {
+class Media {
     /* Properties of Libosinfo-1.0.Libosinfo.Media */
     applicationId: string
     architecture: string
@@ -2487,7 +2487,7 @@ export class Media {
 }
 export interface MediaList_ConstructProps extends List_ConstructProps {
 }
-export class MediaList {
+class MediaList {
     /* Fields of Libosinfo-1.0.Libosinfo.MediaList */
     parentInstance: List
     priv: MediaListPrivate
@@ -2557,7 +2557,7 @@ export class MediaList {
 }
 export interface Os_ConstructProps extends Product_ConstructProps {
 }
-export class Os {
+class Os {
     /* Properties of Libosinfo-1.0.Libosinfo.Os */
     readonly cloudImageUsername: string
     readonly distro: string
@@ -2742,7 +2742,7 @@ export class Os {
 }
 export interface OsList_ConstructProps extends ProductList_ConstructProps {
 }
-export class OsList {
+class OsList {
     /* Fields of Libosinfo-1.0.Libosinfo.OsList */
     parentInstance: ProductList
     priv: OsListPrivate
@@ -2818,7 +2818,7 @@ export class OsList {
 export interface OsVariant_ConstructProps extends Entity_ConstructProps {
     name?: string
 }
-export class OsVariant {
+class OsVariant {
     /* Properties of Libosinfo-1.0.Libosinfo.OsVariant */
     name: string
     /* Properties of Libosinfo-1.0.Libosinfo.Entity */
@@ -2900,7 +2900,7 @@ export class OsVariant {
 }
 export interface OsVariantList_ConstructProps extends List_ConstructProps {
 }
-export class OsVariantList {
+class OsVariantList {
     /* Fields of Libosinfo-1.0.Libosinfo.OsVariantList */
     parentInstance: List
     priv: OsVariantListPrivate
@@ -2965,7 +2965,7 @@ export class OsVariantList {
 }
 export interface Platform_ConstructProps extends Product_ConstructProps {
 }
-export class Platform {
+class Platform {
     /* Properties of Libosinfo-1.0.Libosinfo.Product */
     readonly codename: string
     readonly logo: string
@@ -3094,7 +3094,7 @@ export class Platform {
 }
 export interface PlatformList_ConstructProps extends ProductList_ConstructProps {
 }
-export class PlatformList {
+class PlatformList {
     /* Fields of Libosinfo-1.0.Libosinfo.PlatformList */
     parentInstance: ProductList
     priv: PlatformListPrivate
@@ -3169,7 +3169,7 @@ export class PlatformList {
 }
 export interface Product_ConstructProps extends Entity_ConstructProps {
 }
-export class Product {
+class Product {
     /* Properties of Libosinfo-1.0.Libosinfo.Product */
     readonly codename: string
     readonly logo: string
@@ -3291,7 +3291,7 @@ export class Product {
 }
 export interface ProductFilter_ConstructProps extends Filter_ConstructProps {
 }
-export class ProductFilter {
+class ProductFilter {
     /* Fields of Libosinfo-1.0.Libosinfo.ProductFilter */
     parentInstance: Filter
     priv: ProductFilterPrivate
@@ -3354,7 +3354,7 @@ export class ProductFilter {
 }
 export interface ProductList_ConstructProps extends List_ConstructProps {
 }
-export class ProductList {
+class ProductList {
     /* Fields of Libosinfo-1.0.Libosinfo.ProductList */
     parentInstance: List
     priv: ProductListPrivate
@@ -3429,7 +3429,7 @@ export interface Resources_ConstructProps extends Entity_ConstructProps {
     ram?: number
     storage?: number
 }
-export class Resources {
+class Resources {
     /* Properties of Libosinfo-1.0.Libosinfo.Resources */
     cpu: number
     nCpus: number
@@ -3537,7 +3537,7 @@ export class Resources {
 }
 export interface ResourcesList_ConstructProps extends List_ConstructProps {
 }
-export class ResourcesList {
+class ResourcesList {
     /* Fields of Libosinfo-1.0.Libosinfo.ResourcesList */
     parentInstance: List
     priv: ResourcesListPrivate
@@ -3618,7 +3618,7 @@ export interface Tree_ConstructProps extends Entity_ConstructProps {
     treeinfoVersion?: string
     url?: string
 }
-export class Tree {
+class Tree {
     /* Properties of Libosinfo-1.0.Libosinfo.Tree */
     architecture: string
     bootIsoPath: string
@@ -3775,7 +3775,7 @@ export class Tree {
 }
 export interface TreeList_ConstructProps extends List_ConstructProps {
 }
-export class TreeList {
+class TreeList {
     /* Fields of Libosinfo-1.0.Libosinfo.TreeList */
     parentInstance: List
     priv: TreeListPrivate
@@ -3843,333 +3843,334 @@ export class TreeList {
     static new(): TreeList
     static $gtype: GObject.Type
 }
-export abstract class AvatarFormatClass {
+abstract class AvatarFormatClass {
     /* Fields of Libosinfo-1.0.Libosinfo.AvatarFormatClass */
     parentClass: EntityClass
     static name: string
 }
-export class AvatarFormatPrivate {
+class AvatarFormatPrivate {
     static name: string
 }
-export abstract class DatamapClass {
+abstract class DatamapClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DatamapClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class DatamapListClass {
+abstract class DatamapListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DatamapListClass */
     parentClass: ListClass
     static name: string
 }
-export class DatamapListPrivate {
+class DatamapListPrivate {
     static name: string
 }
-export class DatamapPrivate {
+class DatamapPrivate {
     static name: string
 }
-export abstract class DbClass {
+abstract class DbClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DbClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DbPrivate {
+class DbPrivate {
     static name: string
 }
-export abstract class DeploymentClass {
+abstract class DeploymentClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeploymentClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class DeploymentListClass {
+abstract class DeploymentListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeploymentListClass */
     parentClass: ListClass
     static name: string
 }
-export class DeploymentListPrivate {
+class DeploymentListPrivate {
     static name: string
 }
-export class DeploymentPrivate {
+class DeploymentPrivate {
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class DeviceDriverClass {
+abstract class DeviceDriverClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class DeviceDriverListClass {
+abstract class DeviceDriverListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceDriverListClass */
     parentClass: ListClass
     static name: string
 }
-export class DeviceDriverListPrivate {
+class DeviceDriverListPrivate {
     static name: string
 }
-export class DeviceDriverPrivate {
+class DeviceDriverPrivate {
     static name: string
 }
-export abstract class DeviceLinkClass {
+abstract class DeviceLinkClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class DeviceLinkFilterClass {
+abstract class DeviceLinkFilterClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkFilterClass */
     parentClass: FilterClass
     static name: string
 }
-export class DeviceLinkFilterPrivate {
+class DeviceLinkFilterPrivate {
     static name: string
 }
-export abstract class DeviceLinkListClass {
+abstract class DeviceLinkListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceLinkListClass */
     parentClass: ListClass
     static name: string
 }
-export class DeviceLinkListPrivate {
+class DeviceLinkListPrivate {
     static name: string
 }
-export class DeviceLinkPrivate {
+class DeviceLinkPrivate {
     static name: string
 }
-export abstract class DeviceListClass {
+abstract class DeviceListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.DeviceListClass */
     parentClass: ListClass
     static name: string
 }
-export class DeviceListPrivate {
+class DeviceListPrivate {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export abstract class EntityClass {
+abstract class EntityClass {
     /* Fields of Libosinfo-1.0.Libosinfo.EntityClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class EntityPrivate {
+class EntityPrivate {
     static name: string
 }
-export abstract class FilterClass {
+abstract class FilterClass {
     /* Fields of Libosinfo-1.0.Libosinfo.FilterClass */
     parentClass: GObject.ObjectClass
     matches: (filter: Filter, entity: Entity) => boolean
     static name: string
 }
-export class FilterPrivate {
+class FilterPrivate {
     static name: string
 }
-export abstract class FirmwareClass {
+abstract class FirmwareClass {
     /* Fields of Libosinfo-1.0.Libosinfo.FirmwareClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class FirmwareListClass {
+abstract class FirmwareListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.FirmwareListClass */
     parentClass: ListClass
     static name: string
 }
-export class FirmwareListPrivate {
+class FirmwareListPrivate {
     static name: string
 }
-export class FirmwarePrivate {
+class FirmwarePrivate {
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ImageClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class ImageListClass {
+abstract class ImageListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ImageListClass */
     parentClass: ListClass
     static name: string
 }
-export class ImageListPrivate {
+class ImageListPrivate {
     static name: string
 }
-export class ImagePrivate {
+class ImagePrivate {
     static name: string
 }
-export abstract class InstallConfigClass {
+abstract class InstallConfigClass {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class InstallConfigParamClass {
+abstract class InstallConfigParamClass {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class InstallConfigParamListClass {
+abstract class InstallConfigParamListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallConfigParamListClass */
     parentClass: ListClass
     static name: string
 }
-export class InstallConfigParamListPrivate {
+class InstallConfigParamListPrivate {
     static name: string
 }
-export class InstallConfigParamPrivate {
+class InstallConfigParamPrivate {
     static name: string
 }
-export class InstallConfigPrivate {
+class InstallConfigPrivate {
     static name: string
 }
-export abstract class InstallScriptClass {
+abstract class InstallScriptClass {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class InstallScriptListClass {
+abstract class InstallScriptListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.InstallScriptListClass */
     parentClass: ListClass
     static name: string
 }
-export class InstallScriptListPrivate {
+class InstallScriptListPrivate {
     static name: string
 }
-export class InstallScriptPrivate {
+class InstallScriptPrivate {
     static name: string
 }
-export abstract class ListClass {
+abstract class ListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ListPrivate {
+class ListPrivate {
     static name: string
 }
-export abstract class LoaderClass {
+abstract class LoaderClass {
     /* Fields of Libosinfo-1.0.Libosinfo.LoaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class LoaderPrivate {
+class LoaderPrivate {
     static name: string
 }
-export abstract class MediaClass {
+abstract class MediaClass {
     /* Fields of Libosinfo-1.0.Libosinfo.MediaClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class MediaListClass {
+abstract class MediaListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.MediaListClass */
     parentClass: ListClass
     static name: string
 }
-export class MediaListPrivate {
+class MediaListPrivate {
     static name: string
 }
-export class MediaPrivate {
+class MediaPrivate {
     static name: string
 }
-export abstract class OsClass {
+abstract class OsClass {
     /* Fields of Libosinfo-1.0.Libosinfo.OsClass */
     parentClass: ProductClass
     static name: string
 }
-export abstract class OsListClass {
+abstract class OsListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.OsListClass */
     parentClass: ProductListClass
     static name: string
 }
-export class OsListPrivate {
+class OsListPrivate {
     static name: string
 }
-export class OsPrivate {
+class OsPrivate {
     static name: string
 }
-export abstract class OsVariantClass {
+abstract class OsVariantClass {
     /* Fields of Libosinfo-1.0.Libosinfo.OsVariantClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class OsVariantListClass {
+abstract class OsVariantListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.OsVariantListClass */
     parentClass: ListClass
     static name: string
 }
-export class OsVariantListPrivate {
+class OsVariantListPrivate {
     static name: string
 }
-export class OsVariantPrivate {
+class OsVariantPrivate {
     static name: string
 }
-export abstract class PlatformClass {
+abstract class PlatformClass {
     /* Fields of Libosinfo-1.0.Libosinfo.PlatformClass */
     parentClass: ProductClass
     static name: string
 }
-export abstract class PlatformListClass {
+abstract class PlatformListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.PlatformListClass */
     parentClass: ProductListClass
     static name: string
 }
-export class PlatformListPrivate {
+class PlatformListPrivate {
     static name: string
 }
-export class PlatformPrivate {
+class PlatformPrivate {
     static name: string
 }
-export abstract class ProductClass {
+abstract class ProductClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ProductClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class ProductFilterClass {
+abstract class ProductFilterClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ProductFilterClass */
     parentClass: FilterClass
     static name: string
 }
-export class ProductFilterPrivate {
+class ProductFilterPrivate {
     static name: string
 }
-export abstract class ProductListClass {
+abstract class ProductListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ProductListClass */
     parentClass: ListClass
     static name: string
 }
-export class ProductListPrivate {
+class ProductListPrivate {
     static name: string
 }
-export class ProductPrivate {
+class ProductPrivate {
     static name: string
 }
-export abstract class ResourcesClass {
+abstract class ResourcesClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ResourcesClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class ResourcesListClass {
+abstract class ResourcesListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.ResourcesListClass */
     parentClass: ListClass
     static name: string
 }
-export class ResourcesListPrivate {
+class ResourcesListPrivate {
     static name: string
 }
-export class ResourcesPrivate {
+class ResourcesPrivate {
     static name: string
 }
-export abstract class TreeClass {
+abstract class TreeClass {
     /* Fields of Libosinfo-1.0.Libosinfo.TreeClass */
     parentClass: EntityClass
     static name: string
 }
-export abstract class TreeListClass {
+abstract class TreeListClass {
     /* Fields of Libosinfo-1.0.Libosinfo.TreeListClass */
     parentClass: ListClass
     static name: string
 }
-export class TreeListPrivate {
+class TreeListPrivate {
     static name: string
 }
-export class TreePrivate {
+class TreePrivate {
     static name: string
 }
 }
+export default Libosinfo

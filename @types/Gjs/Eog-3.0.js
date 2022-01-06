@@ -1,2 +1,1 @@
-imports.gi.versions.Eog = '3.0'
-module.exports = imports.gi.Eog
+export {default as default} from 'gi://Eog?version=3.0';

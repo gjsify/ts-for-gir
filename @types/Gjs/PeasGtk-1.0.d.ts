@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Peas from './Peas-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GIRepository from './GIRepository-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as Atk from './Atk-1.0';
+import type Peas from './Peas-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GIRepository from './GIRepository-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type Atk from './Atk-1.0';
 
-export class Configurable {
+export namespace PeasGtk {
+
+class Configurable {
     /* Methods of PeasGtk-1.0.PeasGtk.Configurable */
     create_configure_widget(): Gtk.Widget
     /* Virtual methods of PeasGtk-1.0.PeasGtk.Configurable */
@@ -30,7 +32,7 @@ export interface PluginManager_ConstructProps extends Gtk.Box_ConstructProps {
     view?: PluginManagerView
     orientation?: Gtk.Orientation
 }
-export class PluginManager {
+class PluginManager {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -879,7 +881,7 @@ export interface PluginManagerView_ConstructProps extends Gtk.TreeView_Construct
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class PluginManagerView {
+class PluginManagerView {
     /* Properties of PeasGtk-1.0.PeasGtk.PluginManagerView */
     show_builtin: boolean
     /* Properties of Gtk-3.0.Gtk.TreeView */
@@ -1932,26 +1934,28 @@ export class PluginManagerView {
     static new(): PluginManagerView
     static $gtype: GObject.Type
 }
-export abstract class ConfigurableInterface {
+abstract class ConfigurableInterface {
     /* Fields of PeasGtk-1.0.PeasGtk.ConfigurableInterface */
     g_iface: GObject.TypeInterface
     create_configure_widget: (configurable: Configurable) => Gtk.Widget
     static name: string
 }
-export abstract class PluginManagerClass {
+abstract class PluginManagerClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export class PluginManagerPrivate {
+class PluginManagerPrivate {
     static name: string
 }
-export abstract class PluginManagerViewClass {
+abstract class PluginManagerViewClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerViewClass */
     parent_class: Gtk.TreeViewClass
     populate_popup: (view: PluginManagerView, menu: Gtk.Menu) => void
     static name: string
 }
-export class PluginManagerViewPrivate {
+class PluginManagerViewPrivate {
     static name: string
 }
+}
+export default PeasGtk

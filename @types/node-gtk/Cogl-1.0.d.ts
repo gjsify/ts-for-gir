@@ -7,27 +7,27 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GL } from './GL-1.0';
 
-export declare namespace Cogl {
+declare namespace Cogl {
 
-export enum AttributeType {
+enum AttributeType {
     BYTE,
     UNSIGNED_BYTE,
     SHORT,
     UNSIGNED_SHORT,
     FLOAT,
 }
-export enum BitmapError {
+enum BitmapError {
     FAILED,
     UNKNOWN_TYPE,
     CORRUPT_IMAGE,
 }
-export enum BlendStringError {
+enum BlendStringError {
     PARSE_ERROR,
     ARGUMENT_PARSE_ERROR,
     INVALID_ERROR,
     GPU_UNSUPPORTED_ERROR,
 }
-export enum DepthTestFunction {
+enum DepthTestFunction {
     NEVER,
     LESS,
     EQUAL,
@@ -37,21 +37,21 @@ export enum DepthTestFunction {
     GEQUAL,
     ALWAYS,
 }
-export enum FilterReturn {
+enum FilterReturn {
     CONTINUE,
     REMOVE,
 }
-export enum FogMode {
+enum FogMode {
     LINEAR,
     EXPONENTIAL,
     EXPONENTIAL_SQUARED,
 }
-export enum IndicesType {
+enum IndicesType {
     BYTE,
     SHORT,
     INT,
 }
-export enum MaterialAlphaFunc {
+enum MaterialAlphaFunc {
     NEVER,
     LESS,
     EQUAL,
@@ -61,7 +61,7 @@ export enum MaterialAlphaFunc {
     GEQUAL,
     ALWAYS,
 }
-export enum MaterialFilter {
+enum MaterialFilter {
     NEAREST,
     LINEAR,
     NEAREST_MIPMAP_NEAREST,
@@ -69,15 +69,15 @@ export enum MaterialFilter {
     NEAREST_MIPMAP_LINEAR,
     LINEAR_MIPMAP_LINEAR,
 }
-export enum MaterialLayerType {
+enum MaterialLayerType {
     TEXTURE,
 }
-export enum MaterialWrapMode {
+enum MaterialWrapMode {
     REPEAT,
     CLAMP_TO_EDGE,
     AUTOMATIC,
 }
-export enum PixelFormat {
+enum PixelFormat {
     ANY,
     A_8,
     RGB_565,
@@ -110,42 +110,42 @@ export enum PixelFormat {
     DEPTH_32,
     DEPTH_24_STENCIL_8,
 }
-export enum RendererError {
+enum RendererError {
     XLIB_DISPLAY_OPEN,
     BAD_CONSTRAINT,
 }
-export enum ShaderType {
+enum ShaderType {
     VERTEX,
     FRAGMENT,
 }
-export enum StereoMode {
+enum StereoMode {
     BOTH,
     LEFT,
     RIGHT,
 }
-export enum SystemError {
+enum SystemError {
     COGL_SYSTEM_ERROR_UNSUPPORTED,
     COGL_SYSTEM_ERROR_NO_MEMORY,
 }
-export enum TextureComponents {
+enum TextureComponents {
     A,
     RG,
     RGB,
     RGBA,
     DEPTH,
 }
-export enum TextureError {
+enum TextureError {
     SIZE,
     FORMAT,
     BAD_PARAMETER,
     TYPE,
 }
-export enum TextureType {
+enum TextureType {
     /* 2D (invalid, starts with a number) */
     /* 3D (invalid, starts with a number) */
     RECTANGLE,
 }
-export enum VerticesMode {
+enum VerticesMode {
     POINTS,
     LINES,
     LINE_LOOP,
@@ -154,11 +154,11 @@ export enum VerticesMode {
     TRIANGLE_STRIP,
     TRIANGLE_FAN,
 }
-export enum Winding {
+enum Winding {
     CLOCKWISE,
     COUNTER_CLOCKWISE,
 }
-export enum WinsysFeature {
+enum WinsysFeature {
     MULTIPLE_ONSCREEN,
     SWAP_THROTTLE,
     VBLANK_COUNTER,
@@ -172,16 +172,16 @@ export enum WinsysFeature {
     SYNC_AND_COMPLETE_EVENT,
     N_FEATURES,
 }
-export enum BufferBit {
+enum BufferBit {
     COLOR,
     DEPTH,
     STENCIL,
 }
-export enum BufferTarget {
+enum BufferTarget {
     WINDOW_BUFFER,
     OFFSCREEN_BUFFER,
 }
-export enum ColorMask {
+enum ColorMask {
     NONE,
     RED,
     GREEN,
@@ -189,7 +189,7 @@ export enum ColorMask {
     ALPHA,
     ALL,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     TEXTURE_RECTANGLE,
     TEXTURE_NPOT,
     TEXTURE_YUV,
@@ -215,10 +215,10 @@ export enum FeatureFlags {
     ONSCREEN_MULTIPLE,
     DEPTH_TEXTURE,
 }
-export enum ReadPixelsFlags {
+enum ReadPixelsFlags {
     COLOR_BUFFER,
 }
-export enum TextureFlags {
+enum TextureFlags {
     NONE,
     NO_AUTO_MIPMAP,
     NO_SLICING,
@@ -246,133 +246,133 @@ export const SQRTI_ARG_5_PERCENT: number
 export const SQRTI_ARG_MAX: number
 export const STENCIL_BIT: number
 export const TEXTURE_MAX_WASTE: number
-export function beginGl(): void
-export function bitmapErrorQuark(): number
-export function blendStringErrorQuark(): number
-export function checkExtension(name: string, ext: string): Bool
-export function clear(color: Color, buffers: number): void
-export function clipEnsure(): void
-export function clipPop(): void
-export function clipPush(xOffset: number, yOffset: number, width: number, height: number): void
-export function clipPushRectangle(x0: number, y0: number, x1: number, y1: number): void
-export function clipPushWindowRect(xOffset: number, yOffset: number, width: number, height: number): void
-export function clipPushWindowRectangle(xOffset: number, yOffset: number, width: number, height: number): void
-export function clipStackRestore(): void
-export function clipStackSave(): void
-export function clutterCheckExtensionCLUTTER(name: string, ext: string): Bool
-export function clutterWinsysHasFeatureCLUTTER(feature: WinsysFeature): Bool
-export function colorEqual(v1?: object | null, v2?: object | null): Bool
-export function colorInitFromHsl(hue: number, saturation: number, luminance: number): { color: Color }
-export function createProgram(): Handle
-export function createShader(shaderType: ShaderType): Handle
-export function debugMatrixPrint(matrix: Matrix): void
-export function disableFog(): void
-export function doubleToInt(value: number): number
-export function doubleToUint(value: number): number
-export function endGl(): void
-export function featuresAvailable(features: FeatureFlags): Bool
-export function flush(): void
-export function frustum(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): void
-export function getBackfaceCullingEnabled(): Bool
-export function getBitmasks(): { red: number, green: number, blue: number, alpha: number }
-export function getDepthTestEnabled(): Bool
-export function getFeatures(): FeatureFlags
-export function getModelviewMatrix(): { matrix: Matrix }
-export function getOptionGroup(): GLib.OptionGroup
-export function getProjectionMatrix(): { matrix: Matrix }
-export function getSource(): object | null
-export function getViewport(): { v: number[] }
-export function gtypeMatrixGetType(): GObject.Type
-export function handleGetType(): GObject.Type
-export function handleRef(handle: Handle): Handle
-export function handleUnref(handle: Handle): void
-export function isBitmap(object?: object | null): Bool
-export function isMaterial(handle: Handle): Bool
-export function isOffscreen(object?: object | null): Bool
-export function isProgram(handle: Handle): Bool
-export function isShader(handle: Handle): Bool
-export function isTexture(object?: object | null): Bool
-export function isVertexBuffer(handle: Handle): Bool
-export function isVertexBufferIndices(handle: Handle): Bool
-export function materialRef(material: Handle): Handle
-export function materialUnref(material: Handle): void
-export function matrixEqual(v1?: object | null, v2?: object | null): Bool
-export function onscreenClutterBackendSetSizeCLUTTER(width: number, height: number): void
-export function ortho(left: number, right: number, bottom: number, top: number, near: number, far: number): void
-export function perspective(fovy: number, aspect: number, zNear: number, zFar: number): void
-export function polygon(vertices: TextureVertex, nVertices: number, useColor: Bool): void
-export function popDrawBuffer(): void
-export function popFramebuffer(): void
-export function popMatrix(): void
-export function popSource(): void
-export function programAttachShader(programHandle: Handle, shaderHandle: Handle): void
-export function programGetUniformLocation(handle: Handle, uniformName: string): number
-export function programLink(handle: Handle): void
-export function programRef(handle: Handle): Handle
-export function programSetUniform1f(program: Handle, uniformLocation: number, value: number): void
-export function programSetUniform1i(program: Handle, uniformLocation: number, value: number): void
-export function programSetUniformFloat(program: Handle, uniformLocation: number, nComponents: number, value: number[]): void
-export function programSetUniformInt(program: Handle, uniformLocation: number, nComponents: number, value: number[]): void
-export function programSetUniformMatrix(program: Handle, uniformLocation: number, dimensions: number, transpose: Bool, value: number[]): void
-export function programUniform1f(uniformNo: number, value: number): void
-export function programUniform1i(uniformNo: number, value: number): void
-export function programUniformFloat(uniformNo: number, size: number, value: number[]): void
-export function programUniformInt(uniformNo: number, size: number, value: number[]): void
-export function programUniformMatrix(uniformNo: number, size: number, transpose: Bool, value: number[]): void
-export function programUnref(handle: Handle): void
-export function programUse(handle: Handle): void
-export function pushDrawBuffer(): void
-export function pushMatrix(): void
-export function pushSource(material?: object | null): void
-export function readPixels(x: number, y: number, width: number, height: number, source: ReadPixelsFlags, format: PixelFormat, pixels: number): void
-export function rectangle(x1: number, y1: number, x2: number, y2: number): void
-export function rectangleWithMultitextureCoords(x1: number, y1: number, x2: number, y2: number, texCoords: number[], texCoordsLen: number): void
-export function rectangleWithTextureCoords(x1: number, y1: number, x2: number, y2: number, tx1: number, ty1: number, tx2: number, ty2: number): void
-export function rectangles(verts: number[], nRects: number): void
-export function rectanglesWithTextureCoords(verts: number[], nRects: number): void
-export function rotate(angle: number, x: number, y: number, z: number): void
-export function scale(x: number, y: number, z: number): void
-export function setBackfaceCullingEnabled(setting: Bool): void
-export function setDepthTestEnabled(setting: Bool): void
-export function setDrawBuffer(target: BufferTarget, offscreen: Handle): void
-export function setFog(fogColor: Color, mode: FogMode, density: number, zNear: number, zFar: number): void
-export function setModelviewMatrix(matrix: Matrix): void
-export function setProjectionMatrix(matrix: Matrix): void
-export function setSource(material?: object | null): void
-export function setSourceColor(color: Color): void
-export function setSourceColor4f(red: number, green: number, blue: number, alpha: number): void
-export function setSourceColor4ub(red: number, green: number, blue: number, alpha: number): void
-export function setSourceTexture(texture: Texture): void
-export function setViewport(x: number, y: number, width: number, height: number): void
-export function shaderCompile(handle: Handle): void
-export function shaderGetInfoLog(handle: Handle): string
-export function shaderGetType(handle: Handle): ShaderType
-export function shaderIsCompiled(handle: Handle): Bool
-export function shaderRef(handle: Handle): Handle
-export function shaderSource(shader: Handle, source: string): void
-export function shaderUnref(handle: Handle): void
-export function sqrti(x: number): number
-export function textureErrorQuark(): number
-export function transform(matrix: Matrix): void
-export function translate(x: number, y: number, z: number): void
-export function vertexBufferAdd(handle: Handle, attributeName: string, nComponents: number, type: AttributeType, normalized: Bool, stride: number, pointer?: object | null): void
-export function vertexBufferDelete(handle: Handle, attributeName: string): void
-export function vertexBufferDisable(handle: Handle, attributeName: string): void
-export function vertexBufferDraw(handle: Handle, mode: VerticesMode, first: number, count: number): void
-export function vertexBufferDrawElements(handle: Handle, mode: VerticesMode, indices: Handle, minIndex: number, maxIndex: number, indicesOffset: number, count: number): void
-export function vertexBufferEnable(handle: Handle, attributeName: string): void
-export function vertexBufferGetNVertices(handle: Handle): number
-export function vertexBufferIndicesGetForQuads(nIndices: number): Handle
-export function vertexBufferIndicesGetType(indices: Handle): IndicesType
-export function vertexBufferNew(nVertices: number): Handle
-export function vertexBufferRef(handle: Handle): Handle
-export function vertexBufferSubmit(handle: Handle): void
-export function vertexBufferUnref(handle: Handle): void
-export function viewport(width: number, height: number): void
-export interface FuncPtr {
+function beginGl(): void
+function bitmapErrorQuark(): number
+function blendStringErrorQuark(): number
+function checkExtension(name: string, ext: string): Bool
+function clear(color: Color, buffers: number): void
+function clipEnsure(): void
+function clipPop(): void
+function clipPush(xOffset: number, yOffset: number, width: number, height: number): void
+function clipPushRectangle(x0: number, y0: number, x1: number, y1: number): void
+function clipPushWindowRect(xOffset: number, yOffset: number, width: number, height: number): void
+function clipPushWindowRectangle(xOffset: number, yOffset: number, width: number, height: number): void
+function clipStackRestore(): void
+function clipStackSave(): void
+function clutterCheckExtensionCLUTTER(name: string, ext: string): Bool
+function clutterWinsysHasFeatureCLUTTER(feature: WinsysFeature): Bool
+function colorEqual(v1?: object | null, v2?: object | null): Bool
+function colorInitFromHsl(hue: number, saturation: number, luminance: number): { color: Color }
+function createProgram(): Handle
+function createShader(shaderType: ShaderType): Handle
+function debugMatrixPrint(matrix: Matrix): void
+function disableFog(): void
+function doubleToInt(value: number): number
+function doubleToUint(value: number): number
+function endGl(): void
+function featuresAvailable(features: FeatureFlags): Bool
+function flush(): void
+function frustum(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): void
+function getBackfaceCullingEnabled(): Bool
+function getBitmasks(): { red: number, green: number, blue: number, alpha: number }
+function getDepthTestEnabled(): Bool
+function getFeatures(): FeatureFlags
+function getModelviewMatrix(): { matrix: Matrix }
+function getOptionGroup(): GLib.OptionGroup
+function getProjectionMatrix(): { matrix: Matrix }
+function getSource(): object | null
+function getViewport(): { v: number[] }
+function gtypeMatrixGetType(): GObject.Type
+function handleGetType(): GObject.Type
+function handleRef(handle: Handle): Handle
+function handleUnref(handle: Handle): void
+function isBitmap(object?: object | null): Bool
+function isMaterial(handle: Handle): Bool
+function isOffscreen(object?: object | null): Bool
+function isProgram(handle: Handle): Bool
+function isShader(handle: Handle): Bool
+function isTexture(object?: object | null): Bool
+function isVertexBuffer(handle: Handle): Bool
+function isVertexBufferIndices(handle: Handle): Bool
+function materialRef(material: Handle): Handle
+function materialUnref(material: Handle): void
+function matrixEqual(v1?: object | null, v2?: object | null): Bool
+function onscreenClutterBackendSetSizeCLUTTER(width: number, height: number): void
+function ortho(left: number, right: number, bottom: number, top: number, near: number, far: number): void
+function perspective(fovy: number, aspect: number, zNear: number, zFar: number): void
+function polygon(vertices: TextureVertex, nVertices: number, useColor: Bool): void
+function popDrawBuffer(): void
+function popFramebuffer(): void
+function popMatrix(): void
+function popSource(): void
+function programAttachShader(programHandle: Handle, shaderHandle: Handle): void
+function programGetUniformLocation(handle: Handle, uniformName: string): number
+function programLink(handle: Handle): void
+function programRef(handle: Handle): Handle
+function programSetUniform1f(program: Handle, uniformLocation: number, value: number): void
+function programSetUniform1i(program: Handle, uniformLocation: number, value: number): void
+function programSetUniformFloat(program: Handle, uniformLocation: number, nComponents: number, value: number[]): void
+function programSetUniformInt(program: Handle, uniformLocation: number, nComponents: number, value: number[]): void
+function programSetUniformMatrix(program: Handle, uniformLocation: number, dimensions: number, transpose: Bool, value: number[]): void
+function programUniform1f(uniformNo: number, value: number): void
+function programUniform1i(uniformNo: number, value: number): void
+function programUniformFloat(uniformNo: number, size: number, value: number[]): void
+function programUniformInt(uniformNo: number, size: number, value: number[]): void
+function programUniformMatrix(uniformNo: number, size: number, transpose: Bool, value: number[]): void
+function programUnref(handle: Handle): void
+function programUse(handle: Handle): void
+function pushDrawBuffer(): void
+function pushMatrix(): void
+function pushSource(material?: object | null): void
+function readPixels(x: number, y: number, width: number, height: number, source: ReadPixelsFlags, format: PixelFormat, pixels: number): void
+function rectangle(x1: number, y1: number, x2: number, y2: number): void
+function rectangleWithMultitextureCoords(x1: number, y1: number, x2: number, y2: number, texCoords: number[], texCoordsLen: number): void
+function rectangleWithTextureCoords(x1: number, y1: number, x2: number, y2: number, tx1: number, ty1: number, tx2: number, ty2: number): void
+function rectangles(verts: number[], nRects: number): void
+function rectanglesWithTextureCoords(verts: number[], nRects: number): void
+function rotate(angle: number, x: number, y: number, z: number): void
+function scale(x: number, y: number, z: number): void
+function setBackfaceCullingEnabled(setting: Bool): void
+function setDepthTestEnabled(setting: Bool): void
+function setDrawBuffer(target: BufferTarget, offscreen: Handle): void
+function setFog(fogColor: Color, mode: FogMode, density: number, zNear: number, zFar: number): void
+function setModelviewMatrix(matrix: Matrix): void
+function setProjectionMatrix(matrix: Matrix): void
+function setSource(material?: object | null): void
+function setSourceColor(color: Color): void
+function setSourceColor4f(red: number, green: number, blue: number, alpha: number): void
+function setSourceColor4ub(red: number, green: number, blue: number, alpha: number): void
+function setSourceTexture(texture: Texture): void
+function setViewport(x: number, y: number, width: number, height: number): void
+function shaderCompile(handle: Handle): void
+function shaderGetInfoLog(handle: Handle): string
+function shaderGetType(handle: Handle): ShaderType
+function shaderIsCompiled(handle: Handle): Bool
+function shaderRef(handle: Handle): Handle
+function shaderSource(shader: Handle, source: string): void
+function shaderUnref(handle: Handle): void
+function sqrti(x: number): number
+function textureErrorQuark(): number
+function transform(matrix: Matrix): void
+function translate(x: number, y: number, z: number): void
+function vertexBufferAdd(handle: Handle, attributeName: string, nComponents: number, type: AttributeType, normalized: Bool, stride: number, pointer?: object | null): void
+function vertexBufferDelete(handle: Handle, attributeName: string): void
+function vertexBufferDisable(handle: Handle, attributeName: string): void
+function vertexBufferDraw(handle: Handle, mode: VerticesMode, first: number, count: number): void
+function vertexBufferDrawElements(handle: Handle, mode: VerticesMode, indices: Handle, minIndex: number, maxIndex: number, indicesOffset: number, count: number): void
+function vertexBufferEnable(handle: Handle, attributeName: string): void
+function vertexBufferGetNVertices(handle: Handle): number
+function vertexBufferIndicesGetForQuads(nIndices: number): Handle
+function vertexBufferIndicesGetType(indices: Handle): IndicesType
+function vertexBufferNew(nVertices: number): Handle
+function vertexBufferRef(handle: Handle): Handle
+function vertexBufferSubmit(handle: Handle): void
+function vertexBufferUnref(handle: Handle): void
+function viewport(width: number, height: number): void
+interface FuncPtr {
     (): void
 }
-export class Texture {
+class Texture {
     /* Methods of Cogl-1.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
@@ -388,20 +388,20 @@ export class Texture {
     setRegion(srcX: number, srcY: number, dstX: number, dstY: number, dstWidth: number, dstHeight: number, width: number, height: number, format: PixelFormat, rowstride: number, data: number): Bool
     static name: string
 }
-export class Bitmap {
+class Bitmap {
     static name: string
     /* Static methods and pseudo-constructors */
     static newFromFile(filename: string): Bitmap
     static getSizeFromFile(filename: string): { returnType: Bool, width: number, height: number }
 }
-export class Fixed {
+class Fixed {
     /* Methods of Cogl-1.0.Cogl.Fixed */
     pow2(): number
     static name: string
     /* Static methods and pseudo-constructors */
     static pow(x: number, y: Fixed): number
 }
-export class Offscreen {
+class Offscreen {
     static name: string
     /* Static methods and pseudo-constructors */
     static newToTexture(texture: Texture): Offscreen
@@ -409,7 +409,7 @@ export class Offscreen {
     static ref(offscreen?: object | null): object | null
     static unref(offscreen?: object | null): void
 }
-export class Color {
+class Color {
     /* Methods of Cogl-1.0.Cogl.Color */
     copy(): Color
     free(): void
@@ -453,10 +453,10 @@ export class Color {
     static equal(v1?: object | null, v2?: object | null): Bool
     static initFromHsl(hue: number, saturation: number, luminance: number): { color: Color }
 }
-export class Euler {
+class Euler {
     static name: string
 }
-export class Material {
+class Material {
     /* Methods of Cogl-1.0.Cogl.Material */
     getAmbient(ambient: Color): void
     getColor(): { color: Color }
@@ -502,7 +502,7 @@ export class Material {
     static ref(material: Handle): Handle
     static unref(material: Handle): void
 }
-export class MaterialLayer {
+class MaterialLayer {
     /* Methods of Cogl-1.0.Cogl.MaterialLayer */
     getMagFilter(): MaterialFilter
     getMinFilter(): MaterialFilter
@@ -513,7 +513,7 @@ export class MaterialLayer {
     getWrapModeT(): MaterialWrapMode
     static name: string
 }
-export class Matrix {
+class Matrix {
     /* Fields of Cogl-1.0.Cogl.Matrix */
     xx: number
     yx: number
@@ -554,10 +554,10 @@ export class Matrix {
     /* Static methods and pseudo-constructors */
     static equal(v1?: object | null, v2?: object | null): Bool
 }
-export class Quaternion {
+class Quaternion {
     static name: string
 }
-export class TextureVertex {
+class TextureVertex {
     /* Fields of Cogl-1.0.Cogl.TextureVertex */
     x: number
     y: number
@@ -567,22 +567,23 @@ export class TextureVertex {
     color: Color
     static name: string
 }
-export class _ColorSizeCheck {
+class _ColorSizeCheck {
     /* Fields of Cogl-1.0.Cogl._ColorSizeCheck */
     compileTimeAssertCoglColorSize: number[]
     static name: string
 }
-export class _MatrixSizeCheck {
+class _MatrixSizeCheck {
     /* Fields of Cogl-1.0.Cogl._MatrixSizeCheck */
     compileTimeAssertCoglMatrixSize: number[]
     static name: string
 }
-export class _TextureVertexSizeCheck {
+class _TextureVertexSizeCheck {
     /* Fields of Cogl-1.0.Cogl._TextureVertexSizeCheck */
     compileTimeAssertCoglTextureVertexSize: number[]
     static name: string
 }
-export type Angle = number
-export type Bool = number
-export type Handle = object
+type Angle = number
+type Bool = number
+type Handle = object
 }
+export default Cogl

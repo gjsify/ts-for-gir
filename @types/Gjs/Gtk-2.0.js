@@ -1,2 +1,1 @@
-imports.gi.versions.Gtk = '2.0'
-module.exports = imports.gi.Gtk
+export {default as default} from 'gi://Gtk?version=2.0';

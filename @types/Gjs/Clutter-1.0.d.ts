@@ -3,31 +3,33 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Atk from './Atk-1.0';
+import type cairo from './cairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Cogl from './Cogl-1.0';
+import type Atk from './Atk-1.0';
 
-export enum ActorAlign {
+export namespace Clutter {
+
+enum ActorAlign {
     FILL,
     START,
     CENTER,
     END,
 }
-export enum AlignAxis {
+enum AlignAxis {
     X_AXIS,
     Y_AXIS,
     BOTH,
 }
-export enum AnimationMode {
+enum AnimationMode {
     CUSTOM_MODE,
     LINEAR,
     EASE_IN_QUAD,
@@ -70,14 +72,14 @@ export enum AnimationMode {
     EASE_IN_OUT,
     ANIMATION_LAST,
 }
-export enum BinAlignment {
+enum BinAlignment {
     FIXED,
     FILL,
     START,
     END,
     CENTER,
 }
-export enum BindCoordinate {
+enum BindCoordinate {
     X,
     Y,
     WIDTH,
@@ -86,12 +88,12 @@ export enum BindCoordinate {
     SIZE,
     ALL,
 }
-export enum BoxAlignment {
+enum BoxAlignment {
     START,
     END,
     CENTER,
 }
-export enum ContentGravity {
+enum ContentGravity {
     TOP_LEFT,
     TOP,
     TOP_RIGHT,
@@ -104,12 +106,12 @@ export enum ContentGravity {
     RESIZE_FILL,
     RESIZE_ASPECT,
 }
-export enum DragAxis {
+enum DragAxis {
     AXIS_NONE,
     X_AXIS,
     Y_AXIS,
 }
-export enum EventType {
+enum EventType {
     NOTHING,
     KEY_PRESS,
     KEY_RELEASE,
@@ -131,16 +133,16 @@ export enum EventType {
     TOUCHPAD_SWIPE,
     EVENT_LAST,
 }
-export enum FlowOrientation {
+enum FlowOrientation {
     HORIZONTAL,
     VERTICAL,
 }
-export enum GestureTriggerEdge {
+enum GestureTriggerEdge {
     NONE,
     AFTER,
     BEFORE,
 }
-export enum Gravity {
+enum Gravity {
     NONE,
     NORTH,
     NORTH_EAST,
@@ -152,23 +154,23 @@ export enum Gravity {
     NORTH_WEST,
     CENTER,
 }
-export enum GridPosition {
+enum GridPosition {
     LEFT,
     RIGHT,
     TOP,
     BOTTOM,
 }
-export enum ImageError {
+enum ImageError {
     DATA,
 }
-export enum InitError {
+enum InitError {
     SUCCESS,
     ERROR_UNKNOWN,
     ERROR_THREADS,
     ERROR_BACKEND,
     ERROR_INTERNAL,
 }
-export enum InputAxis {
+enum InputAxis {
     IGNORE,
     X,
     Y,
@@ -179,7 +181,7 @@ export enum InputAxis {
     DISTANCE,
     LAST,
 }
-export enum InputDeviceType {
+enum InputDeviceType {
     POINTER_DEVICE,
     KEYBOARD_DEVICE,
     EXTENSION_DEVICE,
@@ -192,31 +194,31 @@ export enum InputDeviceType {
     CURSOR_DEVICE,
     N_DEVICE_TYPES,
 }
-export enum InputMode {
+enum InputMode {
     MASTER,
     SLAVE,
     FLOATING,
 }
-export enum Interpolation {
+enum Interpolation {
     LINEAR,
     CUBIC,
 }
-export enum LongPressState {
+enum LongPressState {
     QUERY,
     ACTIVATE,
     CANCEL,
 }
-export enum Orientation {
+enum Orientation {
     HORIZONTAL,
     VERTICAL,
 }
-export enum PanAxis {
+enum PanAxis {
     AXIS_NONE,
     X_AXIS,
     Y_AXIS,
     AXIS_AUTO,
 }
-export enum PathNodeType {
+enum PathNodeType {
     MOVE_TO,
     LINE_TO,
     CURVE_TO,
@@ -225,64 +227,64 @@ export enum PathNodeType {
     REL_LINE_TO,
     REL_CURVE_TO,
 }
-export enum PickMode {
+enum PickMode {
     NONE,
     REACTIVE,
     ALL,
 }
-export enum RequestMode {
+enum RequestMode {
     HEIGHT_FOR_WIDTH,
     WIDTH_FOR_HEIGHT,
     CONTENT_SIZE,
 }
-export enum RotateAxis {
+enum RotateAxis {
     X_AXIS,
     Y_AXIS,
     Z_AXIS,
 }
-export enum RotateDirection {
+enum RotateDirection {
     CW,
     CCW,
 }
-export enum ScalingFilter {
+enum ScalingFilter {
     LINEAR,
     NEAREST,
     TRILINEAR,
 }
-export enum ScriptError {
+enum ScriptError {
     TYPE_FUNCTION,
     PROPERTY,
     VALUE,
 }
-export enum ScrollDirection {
+enum ScrollDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
     SMOOTH,
 }
-export enum ScrollSource {
+enum ScrollSource {
     UNKNOWN,
     WHEEL,
     FINGER,
     CONTINUOUS,
 }
-export enum ShaderError {
+enum ShaderError {
     NO_ASM,
     NO_GLSL,
     COMPILE,
 }
-export enum ShaderType {
+enum ShaderType {
     VERTEX_SHADER,
     FRAGMENT_SHADER,
 }
-export enum SnapEdge {
+enum SnapEdge {
     TOP,
     RIGHT,
     BOTTOM,
     LEFT,
 }
-export enum StaticColor {
+enum StaticColor {
     WHITE,
     BLACK,
     RED,
@@ -329,78 +331,78 @@ export enum StaticColor {
     ALUMINIUM_6,
     TRANSPARENT,
 }
-export enum StepMode {
+enum StepMode {
     START,
     END,
 }
-export enum TableAlignment {
+enum TableAlignment {
     START,
     CENTER,
     END,
 }
-export enum TextDirection {
+enum TextDirection {
     DEFAULT,
     LTR,
     RTL,
 }
-export enum TextureError {
+enum TextureError {
     OUT_OF_MEMORY,
     NO_YUV,
     BAD_FORMAT,
 }
-export enum TextureQuality {
+enum TextureQuality {
     LOW,
     MEDIUM,
     HIGH,
 }
-export enum TimelineDirection {
+enum TimelineDirection {
     FORWARD,
     BACKWARD,
 }
-export enum TouchpadGesturePhase {
+enum TouchpadGesturePhase {
     BEGIN,
     UPDATE,
     END,
     CANCEL,
 }
-export enum UnitType {
+enum UnitType {
     PIXEL,
     EM,
     MM,
     POINT,
     CM,
 }
-export enum ZoomAxis {
+enum ZoomAxis {
     X_AXIS,
     Y_AXIS,
     BOTH,
 }
-export enum ActorFlags {
+enum ActorFlags {
     MAPPED,
     REALIZED,
     REACTIVE,
     VISIBLE,
     NO_LAYOUT,
 }
-export enum AllocationFlags {
+enum AllocationFlags {
     ALLOCATION_NONE,
     ABSOLUTE_ORIGIN_CHANGED,
     DELEGATE_LAYOUT,
 }
-export enum ContentRepeat {
+enum ContentRepeat {
     NONE,
     X_AXIS,
     Y_AXIS,
     BOTH,
 }
-export enum EffectPaintFlags {
+enum EffectPaintFlags {
     ACTOR_DIRTY,
 }
-export enum EventFlags {
+enum EventFlags {
     NONE,
     FLAG_SYNTHETIC,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     TEXTURE_NPOT,
     SYNC_TO_VBLANK,
     TEXTURE_YUV,
@@ -413,11 +415,11 @@ export enum FeatureFlags {
     STAGE_MULTIPLE,
     SWAP_EVENTS,
 }
-export enum FontFlags {
+enum FontFlags {
     MIPMAPPING,
     HINTING,
 }
-export enum ModifierType {
+enum ModifierType {
     SHIFT_MASK,
     LOCK_MASK,
     CONTROL_MASK,
@@ -451,38 +453,38 @@ export enum ModifierType {
     RELEASE_MASK,
     MODIFIER_MASK,
 }
-export enum OffscreenRedirect {
+enum OffscreenRedirect {
     AUTOMATIC_FOR_OPACITY,
     ALWAYS,
 }
-export enum RepaintFlags {
+enum RepaintFlags {
     PRE_PAINT,
     POST_PAINT,
     QUEUE_REDRAW_ON_ADD,
 }
-export enum ScrollFinishFlags {
+enum ScrollFinishFlags {
     NONE,
     HORIZONTAL,
     VERTICAL,
 }
-export enum ScrollMode {
+enum ScrollMode {
     NONE,
     HORIZONTALLY,
     VERTICALLY,
     BOTH,
 }
-export enum StageState {
+enum StageState {
     FULLSCREEN,
     OFFSCREEN,
     ACTIVATED,
 }
-export enum SwipeDirection {
+enum SwipeDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum TextureFlags {
+enum TextureFlags {
     NONE,
     RGB_FLAG_BGR,
     RGB_FLAG_PREMULT,
@@ -5065,149 +5067,149 @@ export const zcaron: number
 export const zerosubscript: number
 export const zerosuperior: number
 export const zstroke: number
-export function actor_box_alloc(): ActorBox
-export function base_init(): void
-export function cairo_clear(cr: cairo.Context): void
-export function cairo_set_source_color(cr: cairo.Context, color: Color): void
-export function check_version(major: number, minor: number, micro: number): boolean
-export function check_windowing_backend(backend_type: string): boolean
-export function clear_glyph_cache(): void
-export function color_from_hls(hue: number, luminance: number, saturation: number): /* color */ Color
-export function color_from_pixel(pixel: number): /* color */ Color
-export function color_from_string(str: string): [ /* returnType */ boolean, /* color */ Color ]
-export function color_get_static(color: StaticColor): Color
-export function container_class_find_child_property(klass: GObject.ObjectClass, property_name: string): GObject.ParamSpec
-export function container_class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
-export function disable_accessibility(): void
-export function do_event(event: Event): void
-export function event_add_filter(stage: Stage | null, func: EventFilterFunc): number
-export function event_get(): Event
-export function event_peek(): Event
-export function event_remove_filter(id: number): void
-export function events_pending(): boolean
-export function feature_available(feature: FeatureFlags): boolean
-export function feature_get_all(): FeatureFlags
-export function frame_source_add(priority: number, fps: number, func: GLib.SourceFunc): number
-export function get_accessibility_enabled(): boolean
-export function get_actor_by_gid(id_: number): Actor
-export function get_current_event(): Event
-export function get_current_event_time(): number
-export function get_debug_enabled(): boolean
-export function get_default_backend(): Backend
-export function get_default_frame_rate(): number
-export function get_default_text_direction(): TextDirection
-export function get_font_flags(): FontFlags
-export function get_font_map(): Pango.FontMap
-export function get_input_device_for_id(id_: number): InputDevice
-export function get_keyboard_grab(): Actor
-export function get_motion_events_enabled(): boolean
-export function get_pointer_grab(): Actor
-export function get_script_id(gobject: GObject.Object): string
-export function get_show_fps(): boolean
-export function get_timestamp(): number
-export function grab_keyboard(actor: Actor): void
-export function grab_pointer(actor: Actor): void
-export function grab_pointer_for_device(actor: Actor, id_: number): void
-export function image_error_quark(): GLib.Quark
-export function init(argv?: string[] | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
-export function init_error_quark(): GLib.Quark
-export function init_with_args(argv?: string[] | null, parameter_string?: string | null, entries?: GLib.OptionEntry[] | null, translation_domain?: string | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
-export function keysym_to_unicode(keyval: number): number
-export function main(): void
-export function main_level(): number
-export function main_quit(): void
-export function matrix_alloc(): Matrix
-export function point_zero(): Point
-export function rect_zero(): Rect
-export function redraw(stage: Stage): void
-export function script_error_quark(): GLib.Quark
-export function set_default_frame_rate(frames_per_sec: number): void
-export function set_font_flags(flags: FontFlags): void
-export function set_motion_events_enabled(enable: boolean): void
-export function set_windowing_backend(backend_type: string): void
-export function shader_error_quark(): GLib.Quark
-export function test_add_data_full(test_path: string, test_func: GLib.TestDataFunc): void
-export function test_check_actor_at_point(stage: Actor, point: Point, actor: Actor): [ /* returnType */ boolean, /* result */ Actor | null ]
-export function test_check_color_at_point(stage: Actor, point: Point, color: Color): [ /* returnType */ boolean, /* result */ Color ]
-export function test_get_stage(): Actor
-export function test_init(argc: number, argv: string): void
-export function test_run(): number
-export function texture_error_quark(): GLib.Quark
-export function threads_add_frame_source(priority: number, fps: number, func: GLib.SourceFunc): number
-export function threads_add_idle(priority: number, func: GLib.SourceFunc): number
-export function threads_add_repaint_func(func: GLib.SourceFunc): number
-export function threads_add_repaint_func_full(flags: RepaintFlags, func: GLib.SourceFunc): number
-export function threads_add_timeout(priority: number, interval: number, func: GLib.SourceFunc): number
-export function threads_enter(): void
-export function threads_init(): void
-export function threads_leave(): void
-export function threads_remove_repaint_func(handle_id: number): void
-export function ungrab_keyboard(): void
-export function ungrab_pointer(): void
-export function ungrab_pointer_for_device(id_: number): void
-export function unicode_to_keysym(wc: number): number
-export function units_from_cm(cm: number): /* units */ Units
-export function units_from_em(em: number): /* units */ Units
-export function units_from_em_for_font(font_name: string | null, em: number): /* units */ Units
-export function units_from_mm(mm: number): /* units */ Units
-export function units_from_pixels(px: number): /* units */ Units
-export function units_from_pt(pt: number): /* units */ Units
-export function units_from_string(str: string): [ /* returnType */ boolean, /* units */ Units ]
-export function util_next_p2(a: number): number
-export function value_dup_paint_node(value: any): PaintNode
-export function value_get_color(value: any): Color
-export function value_get_paint_node(value: any): PaintNode
-export function value_get_shader_float(value: any): number[]
-export function value_get_shader_int(value: any): number[]
-export function value_get_shader_matrix(value: any): number[]
-export function value_get_units(value: any): Units
-export function value_set_color(value: any, color: Color): void
-export function value_set_paint_node(value: any, node?: PaintNode | null): void
-export function value_set_shader_float(value: any, floats: number[]): void
-export function value_set_shader_int(value: any, ints: number[]): void
-export function value_set_shader_matrix(value: any, matrix: number[]): void
-export function value_set_units(value: any, units: Units): void
-export function value_take_paint_node(value: any, node?: PaintNode | null): void
-export interface ActorCreateChildFunc {
+function actor_box_alloc(): ActorBox
+function base_init(): void
+function cairo_clear(cr: cairo.Context): void
+function cairo_set_source_color(cr: cairo.Context, color: Color): void
+function check_version(major: number, minor: number, micro: number): boolean
+function check_windowing_backend(backend_type: string): boolean
+function clear_glyph_cache(): void
+function color_from_hls(hue: number, luminance: number, saturation: number): /* color */ Color
+function color_from_pixel(pixel: number): /* color */ Color
+function color_from_string(str: string): [ /* returnType */ boolean, /* color */ Color ]
+function color_get_static(color: StaticColor): Color
+function container_class_find_child_property(klass: GObject.ObjectClass, property_name: string): GObject.ParamSpec
+function container_class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
+function disable_accessibility(): void
+function do_event(event: Event): void
+function event_add_filter(stage: Stage | null, func: EventFilterFunc): number
+function event_get(): Event
+function event_peek(): Event
+function event_remove_filter(id: number): void
+function events_pending(): boolean
+function feature_available(feature: FeatureFlags): boolean
+function feature_get_all(): FeatureFlags
+function frame_source_add(priority: number, fps: number, func: GLib.SourceFunc): number
+function get_accessibility_enabled(): boolean
+function get_actor_by_gid(id_: number): Actor
+function get_current_event(): Event
+function get_current_event_time(): number
+function get_debug_enabled(): boolean
+function get_default_backend(): Backend
+function get_default_frame_rate(): number
+function get_default_text_direction(): TextDirection
+function get_font_flags(): FontFlags
+function get_font_map(): Pango.FontMap
+function get_input_device_for_id(id_: number): InputDevice
+function get_keyboard_grab(): Actor
+function get_motion_events_enabled(): boolean
+function get_pointer_grab(): Actor
+function get_script_id(gobject: GObject.Object): string
+function get_show_fps(): boolean
+function get_timestamp(): number
+function grab_keyboard(actor: Actor): void
+function grab_pointer(actor: Actor): void
+function grab_pointer_for_device(actor: Actor, id_: number): void
+function image_error_quark(): GLib.Quark
+function init(argv?: string[] | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
+function init_error_quark(): GLib.Quark
+function init_with_args(argv?: string[] | null, parameter_string?: string | null, entries?: GLib.OptionEntry[] | null, translation_domain?: string | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
+function keysym_to_unicode(keyval: number): number
+function main(): void
+function main_level(): number
+function main_quit(): void
+function matrix_alloc(): Matrix
+function point_zero(): Point
+function rect_zero(): Rect
+function redraw(stage: Stage): void
+function script_error_quark(): GLib.Quark
+function set_default_frame_rate(frames_per_sec: number): void
+function set_font_flags(flags: FontFlags): void
+function set_motion_events_enabled(enable: boolean): void
+function set_windowing_backend(backend_type: string): void
+function shader_error_quark(): GLib.Quark
+function test_add_data_full(test_path: string, test_func: GLib.TestDataFunc): void
+function test_check_actor_at_point(stage: Actor, point: Point, actor: Actor): [ /* returnType */ boolean, /* result */ Actor | null ]
+function test_check_color_at_point(stage: Actor, point: Point, color: Color): [ /* returnType */ boolean, /* result */ Color ]
+function test_get_stage(): Actor
+function test_init(argc: number, argv: string): void
+function test_run(): number
+function texture_error_quark(): GLib.Quark
+function threads_add_frame_source(priority: number, fps: number, func: GLib.SourceFunc): number
+function threads_add_idle(priority: number, func: GLib.SourceFunc): number
+function threads_add_repaint_func(func: GLib.SourceFunc): number
+function threads_add_repaint_func_full(flags: RepaintFlags, func: GLib.SourceFunc): number
+function threads_add_timeout(priority: number, interval: number, func: GLib.SourceFunc): number
+function threads_enter(): void
+function threads_init(): void
+function threads_leave(): void
+function threads_remove_repaint_func(handle_id: number): void
+function ungrab_keyboard(): void
+function ungrab_pointer(): void
+function ungrab_pointer_for_device(id_: number): void
+function unicode_to_keysym(wc: number): number
+function units_from_cm(cm: number): /* units */ Units
+function units_from_em(em: number): /* units */ Units
+function units_from_em_for_font(font_name: string | null, em: number): /* units */ Units
+function units_from_mm(mm: number): /* units */ Units
+function units_from_pixels(px: number): /* units */ Units
+function units_from_pt(pt: number): /* units */ Units
+function units_from_string(str: string): [ /* returnType */ boolean, /* units */ Units ]
+function util_next_p2(a: number): number
+function value_dup_paint_node(value: any): PaintNode
+function value_get_color(value: any): Color
+function value_get_paint_node(value: any): PaintNode
+function value_get_shader_float(value: any): number[]
+function value_get_shader_int(value: any): number[]
+function value_get_shader_matrix(value: any): number[]
+function value_get_units(value: any): Units
+function value_set_color(value: any, color: Color): void
+function value_set_paint_node(value: any, node?: PaintNode | null): void
+function value_set_shader_float(value: any, floats: number[]): void
+function value_set_shader_int(value: any, ints: number[]): void
+function value_set_shader_matrix(value: any, matrix: number[]): void
+function value_set_units(value: any, units: Units): void
+function value_take_paint_node(value: any, node?: PaintNode | null): void
+interface ActorCreateChildFunc {
     (item: GObject.Object): Actor
 }
-export interface AlphaFunc {
+interface AlphaFunc {
     (alpha: Alpha): number
 }
-export interface BehaviourForeachFunc {
+interface BehaviourForeachFunc {
     (behaviour: Behaviour, actor: Actor): void
 }
-export interface BindingActionFunc {
+interface BindingActionFunc {
     (gobject: GObject.Object, action_name: string, key_val: number, modifiers: ModifierType): boolean
 }
-export interface Callback {
+interface Callback {
     (actor: Actor): void
 }
-export interface EventFilterFunc {
+interface EventFilterFunc {
     (event: Event): boolean
 }
-export interface ModelFilterFunc {
+interface ModelFilterFunc {
     (model: Model, iter: ModelIter): boolean
 }
-export interface ModelForeachFunc {
+interface ModelForeachFunc {
     (model: Model, iter: ModelIter): boolean
 }
-export interface ModelSortFunc {
+interface ModelSortFunc {
     (model: Model, a: any, b: any): number
 }
-export interface PathCallback {
+interface PathCallback {
     (node: PathNode): void
 }
-export interface ProgressFunc {
+interface ProgressFunc {
     (a: any, b: any, progress: number, retval: any): boolean
 }
-export interface ScriptConnectFunc {
+interface ScriptConnectFunc {
     (script: Script, object: GObject.Object, signal_name: string, handler_name: string, connect_object: GObject.Object, flags: GObject.ConnectFlags): void
 }
-export interface TimelineProgressFunc {
+interface TimelineProgressFunc {
     (timeline: Timeline, elapsed: number, total: number): number
 }
-export class Animatable {
+class Animatable {
     /* Methods of Clutter-1.0.Clutter.Animatable */
     animate_property(animation: Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any): boolean
     find_property(property_name: string): GObject.ParamSpec
@@ -5222,7 +5224,7 @@ export class Animatable {
     vfunc_set_final_state(property_name: string, value: any): void
     static name: string
 }
-export class Container {
+class Container {
     /* Methods of Clutter-1.0.Clutter.Container */
     add_actor(actor: Actor): void
     child_get_property(child: Actor, property: string, value: any): void
@@ -5268,7 +5270,7 @@ export class Container {
     static class_find_child_property(klass: GObject.ObjectClass, property_name: string): GObject.ParamSpec
     static class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
 }
-export class Content {
+class Content {
     /* Methods of Clutter-1.0.Clutter.Content */
     get_preferred_size(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     invalidate(): void
@@ -5287,7 +5289,7 @@ export class Content {
     emit(sigName: "detached", actor: Actor): void
     static name: string
 }
-export class Media {
+class Media {
     /* Properties of Clutter-1.0.Clutter.Media */
     audio_volume: number
     readonly buffer_fill: number
@@ -5327,7 +5329,7 @@ export class Media {
     emit(sigName: "error", error: GLib.Error): void
     static name: string
 }
-export class Scriptable {
+class Scriptable {
     /* Methods of Clutter-1.0.Clutter.Scriptable */
     get_id(): string
     parse_custom_node(script: Script, value: any, name: string, node: Json.Node): boolean
@@ -5342,7 +5344,7 @@ export class Scriptable {
 }
 export interface Action_ConstructProps extends ActorMeta_ConstructProps {
 }
-export class Action {
+class Action {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -5479,7 +5481,7 @@ export interface Actor_ConstructProps extends GObject.InitiallyUnowned_Construct
     y_expand?: boolean
     z_position?: number
 }
-export class Actor {
+class Actor {
     /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
@@ -6191,7 +6193,7 @@ export interface ActorMeta_ConstructProps extends GObject.InitiallyUnowned_Const
     enabled?: boolean
     name?: string
 }
-export class ActorMeta {
+class ActorMeta {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -6260,7 +6262,7 @@ export interface AlignConstraint_ConstructProps extends Constraint_ConstructProp
     factor?: number
     source?: Actor
 }
-export class AlignConstraint {
+class AlignConstraint {
     /* Properties of Clutter-1.0.Clutter.AlignConstraint */
     align_axis: AlignAxis
     factor: number
@@ -6350,7 +6352,7 @@ export interface Alpha_ConstructProps extends GObject.InitiallyUnowned_Construct
     mode?: number
     timeline?: Timeline
 }
-export class Alpha {
+class Alpha {
     /* Properties of Clutter-1.0.Clutter.Alpha */
     readonly alpha: number
     mode: number
@@ -6437,7 +6439,7 @@ export interface Animation_ConstructProps extends GObject.Object_ConstructProps 
     object?: GObject.Object
     timeline?: Timeline
 }
-export class Animation {
+class Animation {
     /* Properties of Clutter-1.0.Clutter.Animation */
     alpha: Alpha
     duration: number
@@ -6548,7 +6550,7 @@ export interface Animator_ConstructProps extends GObject.Object_ConstructProps {
     duration?: number
     timeline?: Timeline
 }
-export class Animator {
+class Animator {
     /* Properties of Clutter-1.0.Clutter.Animator */
     duration: number
     timeline: Timeline
@@ -6629,7 +6631,7 @@ export class Animator {
 }
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.Backend */
@@ -6699,7 +6701,7 @@ export class Backend {
 export interface Behaviour_ConstructProps extends GObject.Object_ConstructProps {
     alpha?: Alpha
 }
-export class Behaviour {
+class Behaviour {
     /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
     /* Fields of GObject-2.0.GObject.Object */
@@ -6784,7 +6786,7 @@ export interface BehaviourDepth_ConstructProps extends Behaviour_ConstructProps 
     depth_end?: number
     depth_start?: number
 }
-export class BehaviourDepth {
+class BehaviourDepth {
     /* Properties of Clutter-1.0.Clutter.BehaviourDepth */
     depth_end: number
     depth_start: number
@@ -6888,7 +6890,7 @@ export interface BehaviourEllipse_ConstructProps extends Behaviour_ConstructProp
     height?: number
     width?: number
 }
-export class BehaviourEllipse {
+class BehaviourEllipse {
     /* Properties of Clutter-1.0.Clutter.BehaviourEllipse */
     angle_end: number
     angle_start: number
@@ -7020,7 +7022,7 @@ export interface BehaviourOpacity_ConstructProps extends Behaviour_ConstructProp
     opacity_end?: number
     opacity_start?: number
 }
-export class BehaviourOpacity {
+class BehaviourOpacity {
     /* Properties of Clutter-1.0.Clutter.BehaviourOpacity */
     opacity_end: number
     opacity_start: number
@@ -7116,7 +7118,7 @@ export class BehaviourOpacity {
 export interface BehaviourPath_ConstructProps extends Behaviour_ConstructProps {
     path?: Path
 }
-export class BehaviourPath {
+class BehaviourPath {
     /* Properties of Clutter-1.0.Clutter.BehaviourPath */
     path: Path
     /* Properties of Clutter-1.0.Clutter.Behaviour */
@@ -7223,7 +7225,7 @@ export interface BehaviourRotate_ConstructProps extends Behaviour_ConstructProps
     center_z?: number
     direction?: RotateDirection
 }
-export class BehaviourRotate {
+class BehaviourRotate {
     /* Properties of Clutter-1.0.Clutter.BehaviourRotate */
     angle_end: number
     angle_start: number
@@ -7343,7 +7345,7 @@ export interface BehaviourScale_ConstructProps extends Behaviour_ConstructProps 
     y_scale_end?: number
     y_scale_start?: number
 }
-export class BehaviourScale {
+class BehaviourScale {
     /* Properties of Clutter-1.0.Clutter.BehaviourScale */
     x_scale_end: number
     x_scale_start: number
@@ -7446,7 +7448,7 @@ export interface BinLayout_ConstructProps extends LayoutManager_ConstructProps {
     x_align?: BinAlignment
     y_align?: BinAlignment
 }
-export class BinLayout {
+class BinLayout {
     /* Properties of Clutter-1.0.Clutter.BinLayout */
     x_align: BinAlignment
     y_align: BinAlignment
@@ -7538,7 +7540,7 @@ export interface BindConstraint_ConstructProps extends Constraint_ConstructProps
     offset?: number
     source?: Actor
 }
-export class BindConstraint {
+class BindConstraint {
     /* Properties of Clutter-1.0.Clutter.BindConstraint */
     coordinate: BindCoordinate
     offset: number
@@ -7627,7 +7629,7 @@ export class BindConstraint {
 export interface BindingPool_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class BindingPool {
+class BindingPool {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.BindingPool */
@@ -7689,7 +7691,7 @@ export class BindingPool {
 }
 export interface BlurEffect_ConstructProps extends OffscreenEffect_ConstructProps {
 }
-export class BlurEffect {
+class BlurEffect {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -7777,7 +7779,7 @@ export interface Box_ConstructProps extends Actor_ConstructProps {
     color?: Color
     color_set?: boolean
 }
-export class Box {
+class Box {
     /* Properties of Clutter-1.0.Clutter.Box */
     color: Color
     color_set: boolean
@@ -8506,7 +8508,7 @@ export interface BoxLayout_ConstructProps extends LayoutManager_ConstructProps {
     use_animations?: boolean
     vertical?: boolean
 }
-export class BoxLayout {
+class BoxLayout {
     /* Properties of Clutter-1.0.Clutter.BoxLayout */
     easing_duration: number
     easing_mode: number
@@ -8635,7 +8637,7 @@ export interface BrightnessContrastEffect_ConstructProps extends OffscreenEffect
     brightness?: Color
     contrast?: Color
 }
-export class BrightnessContrastEffect {
+class BrightnessContrastEffect {
     /* Properties of Clutter-1.0.Clutter.BrightnessContrastEffect */
     brightness: Color
     contrast: Color
@@ -8738,7 +8740,7 @@ export interface CairoTexture_ConstructProps extends Texture_ConstructProps {
     surface_height?: number
     surface_width?: number
 }
-export class CairoTexture {
+class CairoTexture {
     /* Properties of Clutter-1.0.Clutter.CairoTexture */
     auto_resize: boolean
     surface_height: number
@@ -9554,7 +9556,7 @@ export interface Canvas_ConstructProps extends GObject.Object_ConstructProps {
     scale_factor?: number
     width?: number
 }
-export class Canvas {
+class Canvas {
     /* Properties of Clutter-1.0.Clutter.Canvas */
     height: number
     scale_factor: number
@@ -9642,7 +9644,7 @@ export interface ChildMeta_ConstructProps extends GObject.Object_ConstructProps 
     actor?: Actor
     container?: Container
 }
-export class ChildMeta {
+class ChildMeta {
     /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Container
     actor: Actor
@@ -9698,7 +9700,7 @@ export interface ClickAction_ConstructProps extends Action_ConstructProps {
     long_press_duration?: number
     long_press_threshold?: number
 }
-export class ClickAction {
+class ClickAction {
     /* Properties of Clutter-1.0.Clutter.ClickAction */
     readonly held: boolean
     long_press_duration: number
@@ -9792,7 +9794,7 @@ export class ClickAction {
     static new(): ClickAction
     static $gtype: GObject.Type
 }
-export class ClipNode {
+class ClipNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -9809,7 +9811,7 @@ export class ClipNode {
 export interface Clone_ConstructProps extends Actor_ConstructProps {
     source?: Actor
 }
-export class Clone {
+class Clone {
     /* Properties of Clutter-1.0.Clutter.Clone */
     source: Actor
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -10523,7 +10525,7 @@ export class Clone {
     static new(): Clone
     static $gtype: GObject.Type
 }
-export class ColorNode {
+class ColorNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -10540,7 +10542,7 @@ export class ColorNode {
 export interface ColorizeEffect_ConstructProps extends OffscreenEffect_ConstructProps {
     tint?: Color
 }
-export class ColorizeEffect {
+class ColorizeEffect {
     /* Properties of Clutter-1.0.Clutter.ColorizeEffect */
     tint: Color
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -10633,7 +10635,7 @@ export class ColorizeEffect {
 }
 export interface Constraint_ConstructProps extends ActorMeta_ConstructProps {
 }
-export class Constraint {
+class Constraint {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -10704,7 +10706,7 @@ export interface DeformEffect_ConstructProps extends OffscreenEffect_ConstructPr
     x_tiles?: number
     y_tiles?: number
 }
-export class DeformEffect {
+class DeformEffect {
     /* Properties of Clutter-1.0.Clutter.DeformEffect */
     x_tiles: number
     y_tiles: number
@@ -10804,7 +10806,7 @@ export class DeformEffect {
 export interface DesaturateEffect_ConstructProps extends OffscreenEffect_ConstructProps {
     factor?: number
 }
-export class DesaturateEffect {
+class DesaturateEffect {
     /* Properties of Clutter-1.0.Clutter.DesaturateEffect */
     factor: number
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -10898,7 +10900,7 @@ export class DesaturateEffect {
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
     backend?: Backend
 }
-export class DeviceManager {
+class DeviceManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.DeviceManager */
@@ -10971,7 +10973,7 @@ export interface DragAction_ConstructProps extends Action_ConstructProps {
     x_drag_threshold?: number
     y_drag_threshold?: number
 }
-export class DragAction {
+class DragAction {
     /* Properties of Clutter-1.0.Clutter.DragAction */
     drag_area: Rect
     readonly drag_area_set: boolean
@@ -11087,7 +11089,7 @@ export class DragAction {
 }
 export interface DropAction_ConstructProps extends Action_ConstructProps {
 }
-export class DropAction {
+class DropAction {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -11176,7 +11178,7 @@ export class DropAction {
 }
 export interface Effect_ConstructProps extends ActorMeta_ConstructProps {
 }
-export class Effect {
+class Effect {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -11250,7 +11252,7 @@ export class Effect {
 }
 export interface FixedLayout_ConstructProps extends LayoutManager_ConstructProps {
 }
-export class FixedLayout {
+class FixedLayout {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.LayoutManager */
@@ -11337,7 +11339,7 @@ export interface FlowLayout_ConstructProps extends LayoutManager_ConstructProps 
     row_spacing?: number
     snap_to_grid?: boolean
 }
-export class FlowLayout {
+class FlowLayout {
     /* Properties of Clutter-1.0.Clutter.FlowLayout */
     column_spacing: number
     homogeneous: boolean
@@ -11462,7 +11464,7 @@ export interface GestureAction_ConstructProps extends Action_ConstructProps {
     threshold_trigger_distance_y?: number
     threshold_trigger_edge?: GestureTriggerEdge
 }
-export class GestureAction {
+class GestureAction {
     /* Properties of Clutter-1.0.Clutter.GestureAction */
     n_touch_points: number
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -11576,7 +11578,7 @@ export interface GridLayout_ConstructProps extends LayoutManager_ConstructProps 
     row_homogeneous?: boolean
     row_spacing?: number
 }
-export class GridLayout {
+class GridLayout {
     /* Properties of Clutter-1.0.Clutter.GridLayout */
     column_homogeneous: boolean
     column_spacing: number
@@ -11687,7 +11689,7 @@ export class GridLayout {
 }
 export interface Group_ConstructProps extends Actor_ConstructProps {
 }
-export class Group {
+class Group {
     /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
@@ -12398,7 +12400,7 @@ export class Group {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.Image */
@@ -12476,7 +12478,7 @@ export interface InputDevice_ConstructProps extends GObject.Object_ConstructProp
     product_id?: string
     vendor_id?: string
 }
-export class InputDevice {
+class InputDevice {
     /* Properties of Clutter-1.0.Clutter.InputDevice */
     enabled: boolean
     readonly n_axes: number
@@ -12565,7 +12567,7 @@ export interface Interval_ConstructProps extends GObject.InitiallyUnowned_Constr
     initial?: any
     value_type?: GObject.Type
 }
-export class Interval {
+class Interval {
     /* Properties of Clutter-1.0.Clutter.Interval */
     final: any
     initial: any
@@ -12647,7 +12649,7 @@ export class Interval {
 }
 export interface KeyframeTransition_ConstructProps extends PropertyTransition_ConstructProps {
 }
-export class KeyframeTransition {
+class KeyframeTransition {
     /* Properties of Clutter-1.0.Clutter.PropertyTransition */
     property_name: string
     /* Properties of Clutter-1.0.Clutter.Transition */
@@ -12833,7 +12835,7 @@ export class KeyframeTransition {
 }
 export interface LayoutManager_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class LayoutManager {
+class LayoutManager {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Clutter-1.0.Clutter.LayoutManager */
@@ -12910,7 +12912,7 @@ export class LayoutManager {
 export interface LayoutMeta_ConstructProps extends ChildMeta_ConstructProps {
     manager?: LayoutManager
 }
-export class LayoutMeta {
+class LayoutMeta {
     /* Fields of Clutter-1.0.Clutter.LayoutMeta */
     manager: LayoutManager
     /* Fields of Clutter-1.0.Clutter.ChildMeta */
@@ -12968,7 +12970,7 @@ export class LayoutMeta {
 }
 export interface ListModel_ConstructProps extends Model_ConstructProps {
 }
-export class ListModel {
+class ListModel {
     /* Properties of Clutter-1.0.Clutter.Model */
     readonly filter_set: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -13084,7 +13086,7 @@ export class ListModel {
 }
 export interface Model_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Model {
+class Model {
     /* Properties of Clutter-1.0.Clutter.Model */
     readonly filter_set: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -13199,7 +13201,7 @@ export interface ModelIter_ConstructProps extends GObject.Object_ConstructProps 
     model?: Model
     row?: number
 }
-export class ModelIter {
+class ModelIter {
     /* Properties of Clutter-1.0.Clutter.ModelIter */
     model: Model
     row: number
@@ -13274,7 +13276,7 @@ export class ModelIter {
 }
 export interface OffscreenEffect_ConstructProps extends Effect_ConstructProps {
 }
-export class OffscreenEffect {
+class OffscreenEffect {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -13361,7 +13363,7 @@ export interface PageTurnEffect_ConstructProps extends DeformEffect_ConstructPro
     period?: number
     radius?: number
 }
-export class PageTurnEffect {
+class PageTurnEffect {
     /* Properties of Clutter-1.0.Clutter.PageTurnEffect */
     angle: number
     period: number
@@ -13477,7 +13479,7 @@ export class PageTurnEffect {
     static new(period: number, angle: number, radius: number): PageTurnEffect
     static $gtype: GObject.Type
 }
-export class PaintNode {
+class PaintNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -13493,7 +13495,7 @@ export interface PanAction_ConstructProps extends GestureAction_ConstructProps {
     interpolate?: boolean
     pan_axis?: PanAxis
 }
-export class PanAction {
+class PanAction {
     /* Properties of Clutter-1.0.Clutter.PanAction */
     acceleration_factor: number
     deceleration: number
@@ -13635,7 +13637,7 @@ export class PanAction {
     static new(): PanAction
     static $gtype: GObject.Type
 }
-export class ParamSpecColor {
+class ParamSpecColor {
     /* Fields of Clutter-1.0.Clutter.ParamSpecColor */
     default_value: Color
     /* Fields of GObject-2.0.GObject.ParamSpec */
@@ -13662,7 +13664,7 @@ export class ParamSpecColor {
     vfunc_values_cmp(value1: any, value2: any): number
     static name: string
 }
-export class ParamSpecFixed {
+class ParamSpecFixed {
     /* Fields of Clutter-1.0.Clutter.ParamSpecFixed */
     minimum: Cogl.Fixed
     maximum: Cogl.Fixed
@@ -13691,7 +13693,7 @@ export class ParamSpecFixed {
     vfunc_values_cmp(value1: any, value2: any): number
     static name: string
 }
-export class ParamSpecUnit {
+class ParamSpecUnit {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
@@ -13719,7 +13721,7 @@ export class ParamSpecUnit {
 export interface Path_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     description?: string
 }
-export class Path {
+class Path {
     /* Properties of Clutter-1.0.Clutter.Path */
     description: string
     readonly length: number
@@ -13803,7 +13805,7 @@ export interface PathConstraint_ConstructProps extends Constraint_ConstructProps
     offset?: number
     path?: Path
 }
-export class PathConstraint {
+class PathConstraint {
     /* Properties of Clutter-1.0.Clutter.PathConstraint */
     offset: number
     path: Path
@@ -13888,7 +13890,7 @@ export class PathConstraint {
     static new(path: Path | null, offset: number): PathConstraint
     static $gtype: GObject.Type
 }
-export class PipelineNode {
+class PipelineNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -13901,7 +13903,7 @@ export class PipelineNode {
 export interface PropertyTransition_ConstructProps extends Transition_ConstructProps {
     property_name?: string
 }
-export class PropertyTransition {
+class PropertyTransition {
     /* Properties of Clutter-1.0.Clutter.PropertyTransition */
     property_name: string
     /* Properties of Clutter-1.0.Clutter.Transition */
@@ -14082,7 +14084,7 @@ export interface Rectangle_ConstructProps extends Actor_ConstructProps {
     color?: Color
     has_border?: boolean
 }
-export class Rectangle {
+class Rectangle {
     /* Properties of Clutter-1.0.Clutter.Rectangle */
     border_color: Color
     border_width: number
@@ -14811,7 +14813,7 @@ export class Rectangle {
 }
 export interface RotateAction_ConstructProps extends GestureAction_ConstructProps {
 }
-export class RotateAction {
+class RotateAction {
     /* Properties of Clutter-1.0.Clutter.GestureAction */
     n_touch_points: number
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -14927,7 +14929,7 @@ export class RotateAction {
 export interface Score_ConstructProps extends GObject.Object_ConstructProps {
     loop?: boolean
 }
-export class Score {
+class Score {
     /* Properties of Clutter-1.0.Clutter.Score */
     loop: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -15018,7 +15020,7 @@ export class Score {
 export interface Script_ConstructProps extends GObject.Object_ConstructProps {
     translation_domain?: string
 }
-export class Script {
+class Script {
     /* Properties of Clutter-1.0.Clutter.Script */
     readonly filename: string
     readonly filename_set: boolean
@@ -15098,7 +15100,7 @@ export class Script {
 export interface ScrollActor_ConstructProps extends Actor_ConstructProps {
     scroll_mode?: ScrollMode
 }
-export class ScrollActor {
+class ScrollActor {
     /* Properties of Clutter-1.0.Clutter.ScrollActor */
     scroll_mode: ScrollMode
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -15830,7 +15832,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     unscaled_font_dpi?: number
     window_scaling_factor?: number
 }
-export class Settings {
+class Settings {
     /* Properties of Clutter-1.0.Clutter.Settings */
     dnd_drag_threshold: number
     double_click_distance: number
@@ -15926,7 +15928,7 @@ export interface Shader_ConstructProps extends GObject.Object_ConstructProps {
     fragment_source?: string
     vertex_source?: string
 }
-export class Shader {
+class Shader {
     /* Properties of Clutter-1.0.Clutter.Shader */
     readonly compiled: boolean
     enabled: boolean
@@ -16004,7 +16006,7 @@ export class Shader {
 export interface ShaderEffect_ConstructProps extends OffscreenEffect_ConstructProps {
     shader_type?: ShaderType
 }
-export class ShaderEffect {
+class ShaderEffect {
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
@@ -16095,13 +16097,13 @@ export class ShaderEffect {
     static new(shader_type: ShaderType): ShaderEffect
     static $gtype: GObject.Type
 }
-export class ShaderFloat {
+class ShaderFloat {
     static name: string
 }
-export class ShaderInt {
+class ShaderInt {
     static name: string
 }
-export class ShaderMatrix {
+class ShaderMatrix {
     static name: string
 }
 export interface SnapConstraint_ConstructProps extends Constraint_ConstructProps {
@@ -16110,7 +16112,7 @@ export interface SnapConstraint_ConstructProps extends Constraint_ConstructProps
     source?: Actor
     to_edge?: SnapEdge
 }
-export class SnapConstraint {
+class SnapConstraint {
     /* Properties of Clutter-1.0.Clutter.SnapConstraint */
     from_edge: SnapEdge
     offset: number
@@ -16213,7 +16215,7 @@ export interface Stage_ConstructProps extends Group_ConstructProps {
     use_fog?: boolean
     user_resizable?: boolean
 }
-export class Stage {
+class Stage {
     /* Properties of Clutter-1.0.Clutter.Stage */
     accept_focus: boolean
     color: Color
@@ -17029,7 +17031,7 @@ export class Stage {
 }
 export interface StageManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StageManager {
+class StageManager {
     /* Properties of Clutter-1.0.Clutter.StageManager */
     readonly default_stage: Stage
     /* Fields of GObject-2.0.GObject.Object */
@@ -17100,7 +17102,7 @@ export interface State_ConstructProps extends GObject.Object_ConstructProps {
     duration?: number
     state?: string
 }
-export class State {
+class State {
     /* Properties of Clutter-1.0.Clutter.State */
     duration: number
     state: string
@@ -17185,7 +17187,7 @@ export class State {
 }
 export interface SwipeAction_ConstructProps extends GestureAction_ConstructProps {
 }
-export class SwipeAction {
+class SwipeAction {
     /* Properties of Clutter-1.0.Clutter.GestureAction */
     n_touch_points: number
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -17309,7 +17311,7 @@ export interface TableLayout_ConstructProps extends LayoutManager_ConstructProps
     row_spacing?: number
     use_animations?: boolean
 }
-export class TableLayout {
+class TableLayout {
     /* Properties of Clutter-1.0.Clutter.TableLayout */
     column_spacing: number
     easing_duration: number
@@ -17425,7 +17427,7 @@ export class TableLayout {
 }
 export interface TapAction_ConstructProps extends GestureAction_ConstructProps {
 }
-export class TapAction {
+class TapAction {
     /* Properties of Clutter-1.0.Clutter.GestureAction */
     n_touch_points: number
     /* Properties of Clutter-1.0.Clutter.ActorMeta */
@@ -17566,7 +17568,7 @@ export interface Text_ConstructProps extends Actor_ConstructProps {
     text?: string
     use_markup?: boolean
 }
-export class Text {
+class Text {
     /* Properties of Clutter-1.0.Clutter.Text */
     activatable: boolean
     attributes: Pango.AttrList
@@ -18454,7 +18456,7 @@ export class Text {
 export interface TextBuffer_ConstructProps extends GObject.Object_ConstructProps {
     max_length?: number
 }
-export class TextBuffer {
+class TextBuffer {
     /* Properties of Clutter-1.0.Clutter.TextBuffer */
     readonly length: number
     max_length: number
@@ -18538,7 +18540,7 @@ export class TextBuffer {
     static new_with_text(text: string | null, text_len: number): TextBuffer
     static $gtype: GObject.Type
 }
-export class TextNode {
+class TextNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -18564,7 +18566,7 @@ export interface Texture_ConstructProps extends Actor_ConstructProps {
     repeat_y?: boolean
     sync_size?: boolean
 }
-export class Texture {
+class Texture {
     /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filter_quality: TextureQuality
@@ -19346,7 +19348,7 @@ export class Texture {
     static new_from_file(filename: string): Texture
     static $gtype: GObject.Type
 }
-export class TextureNode {
+class TextureNode {
     /* Methods of Clutter-1.0.Clutter.PaintNode */
     add_child(child: PaintNode): void
     add_rectangle(rect: ActorBox): void
@@ -19369,7 +19371,7 @@ export interface Timeline_ConstructProps extends GObject.Object_ConstructProps {
     progress_mode?: AnimationMode
     repeat_count?: number
 }
-export class Timeline {
+class Timeline {
     /* Properties of Clutter-1.0.Clutter.Timeline */
     auto_reverse: boolean
     delay: number
@@ -19518,7 +19520,7 @@ export interface Transition_ConstructProps extends Timeline_ConstructProps {
     interval?: Interval
     remove_on_complete?: boolean
 }
-export class Transition {
+class Transition {
     /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
@@ -19685,7 +19687,7 @@ export class Transition {
 }
 export interface TransitionGroup_ConstructProps extends Transition_ConstructProps {
 }
-export class TransitionGroup {
+class TransitionGroup {
     /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
@@ -19860,7 +19862,7 @@ export class TransitionGroup {
 export interface ZoomAction_ConstructProps extends GestureAction_ConstructProps {
     zoom_axis?: ZoomAxis
 }
-export class ZoomAction {
+class ZoomAction {
     /* Properties of Clutter-1.0.Clutter.ZoomAction */
     zoom_axis: ZoomAxis
     /* Properties of Clutter-1.0.Clutter.GestureAction */
@@ -19982,10 +19984,10 @@ export class ZoomAction {
     static new(): ZoomAction
     static $gtype: GObject.Type
 }
-export abstract class ActionClass {
+abstract class ActionClass {
     static name: string
 }
-export class ActorBox {
+class ActorBox {
     /* Fields of Clutter-1.0.Clutter.ActorBox */
     x1: number
     y1: number
@@ -20018,7 +20020,7 @@ export class ActorBox {
     static new(x_1: number, y_1: number, x_2: number, y_2: number): ActorBox
     static alloc(): ActorBox
 }
-export abstract class ActorClass {
+abstract class ActorClass {
     /* Fields of Clutter-1.0.Clutter.ActorClass */
     show: (self: Actor) => void
     show_all: (self: Actor) => void
@@ -20057,7 +20059,7 @@ export abstract class ActorClass {
     touch_event: (self: Actor, event: TouchEvent) => boolean
     static name: string
 }
-export class ActorIter {
+class ActorIter {
     /* Methods of Clutter-1.0.Clutter.ActorIter */
     destroy(): void
     init(root: Actor): void
@@ -20067,27 +20069,27 @@ export class ActorIter {
     remove(): void
     static name: string
 }
-export abstract class ActorMetaClass {
+abstract class ActorMetaClass {
     /* Fields of Clutter-1.0.Clutter.ActorMetaClass */
     set_actor: (meta: ActorMeta, actor?: Actor | null) => void
     static name: string
 }
-export class ActorMetaPrivate {
+class ActorMetaPrivate {
     static name: string
 }
-export class ActorPrivate {
+class ActorPrivate {
     static name: string
 }
-export abstract class AlignConstraintClass {
+abstract class AlignConstraintClass {
     static name: string
 }
-export abstract class AlphaClass {
+abstract class AlphaClass {
     static name: string
 }
-export class AlphaPrivate {
+class AlphaPrivate {
     static name: string
 }
-export abstract class AnimatableIface {
+abstract class AnimatableIface {
     /* Fields of Clutter-1.0.Clutter.AnimatableIface */
     animate_property: (animatable: Animatable, animation: Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any) => boolean
     find_property: (animatable: Animatable, property_name: string) => GObject.ParamSpec
@@ -20096,19 +20098,19 @@ export abstract class AnimatableIface {
     interpolate_value: (animatable: Animatable, property_name: string, interval: Interval, progress: number) => [ /* returnType */ boolean, /* value */ any ]
     static name: string
 }
-export abstract class AnimationClass {
+abstract class AnimationClass {
     /* Fields of Clutter-1.0.Clutter.AnimationClass */
     started: (animation: Animation) => void
     completed: (animation: Animation) => void
     static name: string
 }
-export class AnimationPrivate {
+class AnimationPrivate {
     static name: string
 }
-export abstract class AnimatorClass {
+abstract class AnimatorClass {
     static name: string
 }
-export class AnimatorKey {
+class AnimatorKey {
     /* Methods of Clutter-1.0.Clutter.AnimatorKey */
     get_mode(): number
     get_object(): GObject.Object
@@ -20118,10 +20120,10 @@ export class AnimatorKey {
     get_value(value: any): boolean
     static name: string
 }
-export class AnimatorPrivate {
+class AnimatorPrivate {
     static name: string
 }
-export class AnyEvent {
+class AnyEvent {
     /* Fields of Clutter-1.0.Clutter.AnyEvent */
     type: EventType
     time: number
@@ -20130,73 +20132,73 @@ export class AnyEvent {
     source: Actor
     static name: string
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     static name: string
 }
-export abstract class BehaviourClass {
+abstract class BehaviourClass {
     /* Fields of Clutter-1.0.Clutter.BehaviourClass */
     alpha_notify: (behave: Behaviour, alpha_value: number) => void
     applied: (behave: Behaviour, actor: Actor) => void
     removed: (behave: Behaviour, actor: Actor) => void
     static name: string
 }
-export abstract class BehaviourDepthClass {
+abstract class BehaviourDepthClass {
     static name: string
 }
-export class BehaviourDepthPrivate {
+class BehaviourDepthPrivate {
     static name: string
 }
-export abstract class BehaviourEllipseClass {
+abstract class BehaviourEllipseClass {
     static name: string
 }
-export class BehaviourEllipsePrivate {
+class BehaviourEllipsePrivate {
     static name: string
 }
-export abstract class BehaviourOpacityClass {
+abstract class BehaviourOpacityClass {
     static name: string
 }
-export class BehaviourOpacityPrivate {
+class BehaviourOpacityPrivate {
     static name: string
 }
-export abstract class BehaviourPathClass {
+abstract class BehaviourPathClass {
     /* Fields of Clutter-1.0.Clutter.BehaviourPathClass */
     knot_reached: (pathb: BehaviourPath, knot_num: number) => void
     static name: string
 }
-export class BehaviourPathPrivate {
+class BehaviourPathPrivate {
     static name: string
 }
-export class BehaviourPrivate {
+class BehaviourPrivate {
     static name: string
 }
-export abstract class BehaviourRotateClass {
+abstract class BehaviourRotateClass {
     static name: string
 }
-export class BehaviourRotatePrivate {
+class BehaviourRotatePrivate {
     static name: string
 }
-export abstract class BehaviourScaleClass {
+abstract class BehaviourScaleClass {
     static name: string
 }
-export class BehaviourScalePrivate {
+class BehaviourScalePrivate {
     static name: string
 }
-export abstract class BinLayoutClass {
+abstract class BinLayoutClass {
     static name: string
 }
-export class BinLayoutPrivate {
+class BinLayoutPrivate {
     static name: string
 }
-export abstract class BindConstraintClass {
+abstract class BindConstraintClass {
     static name: string
 }
-export abstract class BindingPoolClass {
+abstract class BindingPoolClass {
     static name: string
 }
-export abstract class BlurEffectClass {
+abstract class BlurEffectClass {
     static name: string
 }
-export abstract class BoxClass {
+abstract class BoxClass {
     /* Fields of Clutter-1.0.Clutter.BoxClass */
     clutter_padding_1: () => void
     clutter_padding_2: () => void
@@ -20206,19 +20208,19 @@ export abstract class BoxClass {
     clutter_padding_6: () => void
     static name: string
 }
-export abstract class BoxLayoutClass {
+abstract class BoxLayoutClass {
     static name: string
 }
-export class BoxLayoutPrivate {
+class BoxLayoutPrivate {
     static name: string
 }
-export class BoxPrivate {
+class BoxPrivate {
     static name: string
 }
-export abstract class BrightnessContrastEffectClass {
+abstract class BrightnessContrastEffectClass {
     static name: string
 }
-export class ButtonEvent {
+class ButtonEvent {
     /* Fields of Clutter-1.0.Clutter.ButtonEvent */
     type: EventType
     time: number
@@ -20234,45 +20236,45 @@ export class ButtonEvent {
     device: InputDevice
     static name: string
 }
-export abstract class CairoTextureClass {
+abstract class CairoTextureClass {
     /* Fields of Clutter-1.0.Clutter.CairoTextureClass */
     create_surface: (texture: CairoTexture, width: number, height: number) => cairo.Surface
     draw: (texture: CairoTexture, cr: cairo.Context) => boolean
     static name: string
 }
-export class CairoTexturePrivate {
+class CairoTexturePrivate {
     static name: string
 }
-export abstract class CanvasClass {
+abstract class CanvasClass {
     /* Fields of Clutter-1.0.Clutter.CanvasClass */
     draw: (canvas: Canvas, cr: cairo.Context, width: number, height: number) => boolean
     static name: string
 }
-export class CanvasPrivate {
+class CanvasPrivate {
     static name: string
 }
-export abstract class ChildMetaClass {
+abstract class ChildMetaClass {
     static name: string
 }
-export abstract class ClickActionClass {
+abstract class ClickActionClass {
     /* Fields of Clutter-1.0.Clutter.ClickActionClass */
     clicked: (action: ClickAction, actor: Actor) => void
     long_press: (action: ClickAction, actor: Actor, state: LongPressState) => boolean
     static name: string
 }
-export class ClickActionPrivate {
+class ClickActionPrivate {
     static name: string
 }
-export abstract class ClipNodeClass {
+abstract class ClipNodeClass {
     static name: string
 }
-export abstract class CloneClass {
+abstract class CloneClass {
     static name: string
 }
-export class ClonePrivate {
+class ClonePrivate {
     static name: string
 }
-export class Color {
+class Color {
     /* Fields of Clutter-1.0.Clutter.Color */
     red: number
     green: number
@@ -20304,19 +20306,19 @@ export class Color {
     static from_string(str: string): [ /* returnType */ boolean, /* color */ Color ]
     static get_static(color: StaticColor): Color
 }
-export abstract class ColorNodeClass {
+abstract class ColorNodeClass {
     static name: string
 }
-export abstract class ColorizeEffectClass {
+abstract class ColorizeEffectClass {
     static name: string
 }
-export abstract class ConstraintClass {
+abstract class ConstraintClass {
     /* Fields of Clutter-1.0.Clutter.ConstraintClass */
     update_allocation: (constraint: Constraint, actor: Actor, allocation: ActorBox) => void
     update_preferred_size: (constraint: Constraint, actor: Actor, direction: Orientation, for_size: number, minimum_size: number, natural_size: number) => void
     static name: string
 }
-export abstract class ContainerIface {
+abstract class ContainerIface {
     /* Fields of Clutter-1.0.Clutter.ContainerIface */
     add: (container: Container, actor: Actor) => void
     remove: (container: Container, actor: Actor) => void
@@ -20334,7 +20336,7 @@ export abstract class ContainerIface {
     child_notify: (container: Container, child: Actor, pspec: GObject.ParamSpec) => void
     static name: string
 }
-export abstract class ContentIface {
+abstract class ContentIface {
     /* Fields of Clutter-1.0.Clutter.ContentIface */
     get_preferred_size: (content: Content) => [ /* returnType */ boolean, /* width */ number, /* height */ number ]
     paint_content: (content: Content, actor: Actor, node: PaintNode) => void
@@ -20343,7 +20345,7 @@ export abstract class ContentIface {
     invalidate: (content: Content) => void
     static name: string
 }
-export class CrossingEvent {
+class CrossingEvent {
     /* Fields of Clutter-1.0.Clutter.CrossingEvent */
     type: EventType
     time: number
@@ -20356,18 +20358,18 @@ export class CrossingEvent {
     related: Actor
     static name: string
 }
-export abstract class DeformEffectClass {
+abstract class DeformEffectClass {
     /* Fields of Clutter-1.0.Clutter.DeformEffectClass */
     deform_vertex: (effect: DeformEffect, width: number, height: number, vertex: Cogl.TextureVertex) => void
     static name: string
 }
-export class DeformEffectPrivate {
+class DeformEffectPrivate {
     static name: string
 }
-export abstract class DesaturateEffectClass {
+abstract class DesaturateEffectClass {
     static name: string
 }
-export abstract class DeviceManagerClass {
+abstract class DeviceManagerClass {
     /* Fields of Clutter-1.0.Clutter.DeviceManagerClass */
     get_core_device: (device_manager: DeviceManager, device_type: InputDeviceType) => InputDevice
     get_device: (device_manager: DeviceManager, device_id: number) => InputDevice
@@ -20376,10 +20378,10 @@ export abstract class DeviceManagerClass {
     select_stage_events: (manager: DeviceManager, stage: Stage) => void
     static name: string
 }
-export class DeviceManagerPrivate {
+class DeviceManagerPrivate {
     static name: string
 }
-export abstract class DragActionClass {
+abstract class DragActionClass {
     /* Fields of Clutter-1.0.Clutter.DragActionClass */
     drag_begin: (action: DragAction, actor: Actor, event_x: number, event_y: number, modifiers: ModifierType) => void
     drag_motion: (action: DragAction, actor: Actor, delta_x: number, delta_y: number) => void
@@ -20387,10 +20389,10 @@ export abstract class DragActionClass {
     drag_progress: (action: DragAction, actor: Actor, delta_x: number, delta_y: number) => boolean
     static name: string
 }
-export class DragActionPrivate {
+class DragActionPrivate {
     static name: string
 }
-export abstract class DropActionClass {
+abstract class DropActionClass {
     /* Fields of Clutter-1.0.Clutter.DropActionClass */
     can_drop: (action: DropAction, actor: Actor, event_x: number, event_y: number) => boolean
     over_in: (action: DropAction, actor: Actor) => void
@@ -20398,10 +20400,10 @@ export abstract class DropActionClass {
     drop: (action: DropAction, actor: Actor, event_x: number, event_y: number) => void
     static name: string
 }
-export class DropActionPrivate {
+class DropActionPrivate {
     static name: string
 }
-export abstract class EffectClass {
+abstract class EffectClass {
     /* Fields of Clutter-1.0.Clutter.EffectClass */
     pre_paint: (effect: Effect) => boolean
     post_paint: (effect: Effect) => void
@@ -20410,25 +20412,25 @@ export abstract class EffectClass {
     pick: (effect: Effect, flags: EffectPaintFlags) => void
     static name: string
 }
-export class EventSequence {
+class EventSequence {
     static name: string
 }
-export abstract class FixedLayoutClass {
+abstract class FixedLayoutClass {
     static name: string
 }
-export abstract class FlowLayoutClass {
+abstract class FlowLayoutClass {
     static name: string
 }
-export class FlowLayoutPrivate {
+class FlowLayoutPrivate {
     static name: string
 }
-export class Fog {
+class Fog {
     /* Fields of Clutter-1.0.Clutter.Fog */
     z_near: number
     z_far: number
     static name: string
 }
-export class Geometry {
+class Geometry {
     /* Fields of Clutter-1.0.Clutter.Geometry */
     x: number
     y: number
@@ -20439,7 +20441,7 @@ export class Geometry {
     union(geometry_b: Geometry): /* result */ Geometry
     static name: string
 }
-export abstract class GestureActionClass {
+abstract class GestureActionClass {
     /* Fields of Clutter-1.0.Clutter.GestureActionClass */
     gesture_begin: (action: GestureAction, actor: Actor) => boolean
     gesture_progress: (action: GestureAction, actor: Actor) => boolean
@@ -20448,40 +20450,40 @@ export abstract class GestureActionClass {
     gesture_prepare: (action: GestureAction, actor: Actor) => boolean
     static name: string
 }
-export class GestureActionPrivate {
+class GestureActionPrivate {
     static name: string
 }
-export abstract class GridLayoutClass {
+abstract class GridLayoutClass {
     static name: string
 }
-export class GridLayoutPrivate {
+class GridLayoutPrivate {
     static name: string
 }
-export abstract class GroupClass {
+abstract class GroupClass {
     static name: string
 }
-export class GroupPrivate {
+class GroupPrivate {
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     static name: string
 }
-export class ImagePrivate {
+class ImagePrivate {
     static name: string
 }
-export abstract class InputDeviceClass {
+abstract class InputDeviceClass {
     static name: string
 }
-export abstract class IntervalClass {
+abstract class IntervalClass {
     /* Fields of Clutter-1.0.Clutter.IntervalClass */
     validate: (interval: Interval, pspec: GObject.ParamSpec) => boolean
     compute_value: (interval: Interval, factor: number) => [ /* returnType */ boolean, /* value */ any ]
     static name: string
 }
-export class IntervalPrivate {
+class IntervalPrivate {
     static name: string
 }
-export class KeyEvent {
+class KeyEvent {
     /* Fields of Clutter-1.0.Clutter.KeyEvent */
     type: EventType
     time: number
@@ -20495,13 +20497,13 @@ export class KeyEvent {
     device: InputDevice
     static name: string
 }
-export abstract class KeyframeTransitionClass {
+abstract class KeyframeTransitionClass {
     static name: string
 }
-export class KeyframeTransitionPrivate {
+class KeyframeTransitionPrivate {
     static name: string
 }
-export class Knot {
+class Knot {
     /* Fields of Clutter-1.0.Clutter.Knot */
     x: number
     y: number
@@ -20511,7 +20513,7 @@ export class Knot {
     free(): void
     static name: string
 }
-export abstract class LayoutManagerClass {
+abstract class LayoutManagerClass {
     /* Fields of Clutter-1.0.Clutter.LayoutManagerClass */
     get_preferred_width: (manager: LayoutManager, container: Container, for_height: number) => [ /* min_width_p */ number | null, /* nat_width_p */ number | null ]
     get_preferred_height: (manager: LayoutManager, container: Container, for_width: number) => [ /* min_height_p */ number | null, /* nat_height_p */ number | null ]
@@ -20524,16 +20526,16 @@ export abstract class LayoutManagerClass {
     layout_changed: (manager: LayoutManager) => void
     static name: string
 }
-export abstract class LayoutMetaClass {
+abstract class LayoutMetaClass {
     static name: string
 }
-export abstract class ListModelClass {
+abstract class ListModelClass {
     static name: string
 }
-export class ListModelPrivate {
+class ListModelPrivate {
     static name: string
 }
-export class Margin {
+class Margin {
     /* Fields of Clutter-1.0.Clutter.Margin */
     left: number
     right: number
@@ -20548,7 +20550,7 @@ export class Margin {
     /* Static methods and pseudo-constructors */
     static new(): Margin
 }
-export class Matrix {
+class Matrix {
     /* Methods of Clutter-1.0.Clutter.Matrix */
     free(): void
     init_from_array(values: number[]): Matrix
@@ -20558,13 +20560,13 @@ export class Matrix {
     /* Static methods and pseudo-constructors */
     static alloc(): Matrix
 }
-export abstract class MediaIface {
+abstract class MediaIface {
     /* Fields of Clutter-1.0.Clutter.MediaIface */
     eos: (media: Media) => void
     error: (media: Media, error: GLib.Error) => void
     static name: string
 }
-export abstract class ModelClass {
+abstract class ModelClass {
     /* Fields of Clutter-1.0.Clutter.ModelClass */
     get_n_rows: (model: Model) => number
     get_n_columns: (model: Model) => number
@@ -20579,7 +20581,7 @@ export abstract class ModelClass {
     filter_changed: (model: Model) => void
     static name: string
 }
-export abstract class ModelIterClass {
+abstract class ModelIterClass {
     /* Fields of Clutter-1.0.Clutter.ModelIterClass */
     get_value: (iter: ModelIter, column: number) => /* value */ any
     set_value: (iter: ModelIter, column: number, value: any) => void
@@ -20592,13 +20594,13 @@ export abstract class ModelIterClass {
     copy: (iter: ModelIter) => ModelIter
     static name: string
 }
-export class ModelIterPrivate {
+class ModelIterPrivate {
     static name: string
 }
-export class ModelPrivate {
+class ModelPrivate {
     static name: string
 }
-export class MotionEvent {
+class MotionEvent {
     /* Fields of Clutter-1.0.Clutter.MotionEvent */
     type: EventType
     time: number
@@ -20612,25 +20614,25 @@ export class MotionEvent {
     device: InputDevice
     static name: string
 }
-export abstract class OffscreenEffectClass {
+abstract class OffscreenEffectClass {
     /* Fields of Clutter-1.0.Clutter.OffscreenEffectClass */
     create_texture: (effect: OffscreenEffect, width: number, height: number) => Cogl.Handle
     paint_target: (effect: OffscreenEffect) => void
     static name: string
 }
-export class OffscreenEffectPrivate {
+class OffscreenEffectPrivate {
     static name: string
 }
-export abstract class PageTurnEffectClass {
+abstract class PageTurnEffectClass {
     static name: string
 }
-export abstract class PaintNodeClass {
+abstract class PaintNodeClass {
     static name: string
 }
-export class PaintNodePrivate {
+class PaintNodePrivate {
     static name: string
 }
-export class PaintVolume {
+class PaintVolume {
     /* Methods of Clutter-1.0.Clutter.PaintVolume */
     copy(): PaintVolume
     free(): void
@@ -20647,16 +20649,16 @@ export class PaintVolume {
     union_box(box: ActorBox): void
     static name: string
 }
-export abstract class PanActionClass {
+abstract class PanActionClass {
     /* Fields of Clutter-1.0.Clutter.PanActionClass */
     pan: (action: PanAction, actor: Actor, is_interpolated: boolean) => boolean
     pan_stopped: (action: PanAction, actor: Actor) => void
     static name: string
 }
-export class PanActionPrivate {
+class PanActionPrivate {
     static name: string
 }
-export class ParamSpecUnits {
+class ParamSpecUnits {
     /* Fields of Clutter-1.0.Clutter.ParamSpecUnits */
     default_type: UnitType
     default_value: number
@@ -20664,13 +20666,13 @@ export class ParamSpecUnits {
     maximum: number
     static name: string
 }
-export abstract class PathClass {
+abstract class PathClass {
     static name: string
 }
-export abstract class PathConstraintClass {
+abstract class PathConstraintClass {
     static name: string
 }
-export class PathNode {
+class PathNode {
     /* Fields of Clutter-1.0.Clutter.PathNode */
     type: PathNodeType
     points: Knot[]
@@ -20680,10 +20682,10 @@ export class PathNode {
     free(): void
     static name: string
 }
-export class PathPrivate {
+class PathPrivate {
     static name: string
 }
-export class Perspective {
+class Perspective {
     /* Fields of Clutter-1.0.Clutter.Perspective */
     fovy: number
     aspect: number
@@ -20691,10 +20693,10 @@ export class Perspective {
     z_far: number
     static name: string
 }
-export abstract class PipelineNodeClass {
+abstract class PipelineNodeClass {
     static name: string
 }
-export class Point {
+class Point {
     /* Fields of Clutter-1.0.Clutter.Point */
     x: number
     y: number
@@ -20709,13 +20711,13 @@ export class Point {
     static alloc(): Point
     static zero(): Point
 }
-export abstract class PropertyTransitionClass {
+abstract class PropertyTransitionClass {
     static name: string
 }
-export class PropertyTransitionPrivate {
+class PropertyTransitionPrivate {
     static name: string
 }
-export class Rect {
+class Rect {
     /* Fields of Clutter-1.0.Clutter.Rect */
     origin: Point
     size: Size
@@ -20742,21 +20744,21 @@ export class Rect {
     static alloc(): Rect
     static zero(): Rect
 }
-export abstract class RectangleClass {
+abstract class RectangleClass {
     static name: string
 }
-export class RectanglePrivate {
+class RectanglePrivate {
     static name: string
 }
-export abstract class RotateActionClass {
+abstract class RotateActionClass {
     /* Fields of Clutter-1.0.Clutter.RotateActionClass */
     rotate: (action: RotateAction, actor: Actor, angle: number) => boolean
     static name: string
 }
-export class RotateActionPrivate {
+class RotateActionPrivate {
     static name: string
 }
-export abstract class ScoreClass {
+abstract class ScoreClass {
     /* Fields of Clutter-1.0.Clutter.ScoreClass */
     timeline_started: (score: Score, timeline: Timeline) => void
     timeline_completed: (score: Score, timeline: Timeline) => void
@@ -20765,18 +20767,18 @@ export abstract class ScoreClass {
     paused: (score: Score) => void
     static name: string
 }
-export class ScorePrivate {
+class ScorePrivate {
     static name: string
 }
-export abstract class ScriptClass {
+abstract class ScriptClass {
     /* Fields of Clutter-1.0.Clutter.ScriptClass */
     get_type_from_name: (script: Script, type_name: string) => GObject.Type
     static name: string
 }
-export class ScriptPrivate {
+class ScriptPrivate {
     static name: string
 }
-export abstract class ScriptableIface {
+abstract class ScriptableIface {
     /* Fields of Clutter-1.0.Clutter.ScriptableIface */
     set_id: (scriptable: Scriptable, id_: string) => void
     get_id: (scriptable: Scriptable) => string
@@ -20784,13 +20786,13 @@ export abstract class ScriptableIface {
     set_custom_property: (scriptable: Scriptable, script: Script, name: string, value: any) => void
     static name: string
 }
-export abstract class ScrollActorClass {
+abstract class ScrollActorClass {
     static name: string
 }
-export class ScrollActorPrivate {
+class ScrollActorPrivate {
     static name: string
 }
-export class ScrollEvent {
+class ScrollEvent {
     /* Fields of Clutter-1.0.Clutter.ScrollEvent */
     type: EventType
     time: number
@@ -20807,24 +20809,24 @@ export class ScrollEvent {
     finish_flags: ScrollFinishFlags
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     static name: string
 }
-export abstract class ShaderClass {
+abstract class ShaderClass {
     static name: string
 }
-export abstract class ShaderEffectClass {
+abstract class ShaderEffectClass {
     /* Fields of Clutter-1.0.Clutter.ShaderEffectClass */
     get_static_shader_source: (effect: ShaderEffect) => string
     static name: string
 }
-export class ShaderEffectPrivate {
+class ShaderEffectPrivate {
     static name: string
 }
-export class ShaderPrivate {
+class ShaderPrivate {
     static name: string
 }
-export class Size {
+class Size {
     /* Fields of Clutter-1.0.Clutter.Size */
     width: number
     height: number
@@ -20837,10 +20839,10 @@ export class Size {
     /* Static methods and pseudo-constructors */
     static alloc(): Size
 }
-export abstract class SnapConstraintClass {
+abstract class SnapConstraintClass {
     static name: string
 }
-export abstract class StageClass {
+abstract class StageClass {
     /* Fields of Clutter-1.0.Clutter.StageClass */
     fullscreen: (stage: Stage) => void
     unfullscreen: (stage: Stage) => void
@@ -20849,16 +20851,16 @@ export abstract class StageClass {
     delete_event: (stage: Stage, event: Event) => boolean
     static name: string
 }
-export abstract class StageManagerClass {
+abstract class StageManagerClass {
     /* Fields of Clutter-1.0.Clutter.StageManagerClass */
     stage_added: (stage_manager: StageManager, stage: Stage) => void
     stage_removed: (stage_manager: StageManager, stage: Stage) => void
     static name: string
 }
-export class StagePrivate {
+class StagePrivate {
     static name: string
 }
-export class StageStateEvent {
+class StageStateEvent {
     /* Fields of Clutter-1.0.Clutter.StageStateEvent */
     type: EventType
     time: number
@@ -20869,12 +20871,12 @@ export class StageStateEvent {
     new_state: StageState
     static name: string
 }
-export abstract class StateClass {
+abstract class StateClass {
     /* Fields of Clutter-1.0.Clutter.StateClass */
     completed: (state: State) => void
     static name: string
 }
-export class StateKey {
+class StateKey {
     /* Methods of Clutter-1.0.Clutter.StateKey */
     get_mode(): number
     get_object(): GObject.Object
@@ -20887,33 +20889,33 @@ export class StateKey {
     get_value(value: any): boolean
     static name: string
 }
-export class StatePrivate {
+class StatePrivate {
     static name: string
 }
-export abstract class SwipeActionClass {
+abstract class SwipeActionClass {
     /* Fields of Clutter-1.0.Clutter.SwipeActionClass */
     swept: (action: SwipeAction, actor: Actor, direction: SwipeDirection) => void
     swipe: (action: SwipeAction, actor: Actor, direction: SwipeDirection) => boolean
     static name: string
 }
-export class SwipeActionPrivate {
+class SwipeActionPrivate {
     static name: string
 }
-export abstract class TableLayoutClass {
+abstract class TableLayoutClass {
     static name: string
 }
-export class TableLayoutPrivate {
+class TableLayoutPrivate {
     static name: string
 }
-export abstract class TapActionClass {
+abstract class TapActionClass {
     /* Fields of Clutter-1.0.Clutter.TapActionClass */
     tap: (action: TapAction, actor: Actor) => boolean
     static name: string
 }
-export class TapActionPrivate {
+class TapActionPrivate {
     static name: string
 }
-export abstract class TextBufferClass {
+abstract class TextBufferClass {
     /* Fields of Clutter-1.0.Clutter.TextBufferClass */
     inserted_text: (buffer: TextBuffer, position: number, chars: string, n_chars: number) => void
     deleted_text: (buffer: TextBuffer, position: number, n_chars: number) => void
@@ -20923,10 +20925,10 @@ export abstract class TextBufferClass {
     delete_text: (buffer: TextBuffer, position: number, n_chars: number) => number
     static name: string
 }
-export class TextBufferPrivate {
+class TextBufferPrivate {
     static name: string
 }
-export abstract class TextClass {
+abstract class TextClass {
     /* Fields of Clutter-1.0.Clutter.TextClass */
     text_changed: (self: Text) => void
     activate: (self: Text) => void
@@ -20934,26 +20936,26 @@ export abstract class TextClass {
     cursor_changed: (self: Text) => void
     static name: string
 }
-export abstract class TextNodeClass {
+abstract class TextNodeClass {
     static name: string
 }
-export class TextPrivate {
+class TextPrivate {
     static name: string
 }
-export abstract class TextureClass {
+abstract class TextureClass {
     /* Fields of Clutter-1.0.Clutter.TextureClass */
     size_change: (texture: Texture, width: number, height: number) => void
     pixbuf_change: (texture: Texture) => void
     load_finished: (texture: Texture, error: GLib.Error) => void
     static name: string
 }
-export abstract class TextureNodeClass {
+abstract class TextureNodeClass {
     static name: string
 }
-export class TexturePrivate {
+class TexturePrivate {
     static name: string
 }
-export abstract class TimelineClass {
+abstract class TimelineClass {
     /* Fields of Clutter-1.0.Clutter.TimelineClass */
     started: (timeline: Timeline) => void
     completed: (timeline: Timeline) => void
@@ -20963,16 +20965,16 @@ export abstract class TimelineClass {
     stopped: (timeline: Timeline, is_finished: boolean) => void
     static name: string
 }
-export class TimelinePrivate {
+class TimelinePrivate {
     static name: string
 }
-export class TimeoutPool {
+class TimeoutPool {
     /* Methods of Clutter-1.0.Clutter.TimeoutPool */
     add(fps: number, func: GLib.SourceFunc): number
     remove(id_: number): void
     static name: string
 }
-export class TouchEvent {
+class TouchEvent {
     /* Fields of Clutter-1.0.Clutter.TouchEvent */
     type: EventType
     time: number
@@ -20987,7 +20989,7 @@ export class TouchEvent {
     device: InputDevice
     static name: string
 }
-export class TouchpadPinchEvent {
+class TouchpadPinchEvent {
     /* Fields of Clutter-1.0.Clutter.TouchpadPinchEvent */
     type: EventType
     time: number
@@ -21003,7 +21005,7 @@ export class TouchpadPinchEvent {
     scale: number
     static name: string
 }
-export class TouchpadSwipeEvent {
+class TouchpadSwipeEvent {
     /* Fields of Clutter-1.0.Clutter.TouchpadSwipeEvent */
     type: EventType
     time: number
@@ -21018,23 +21020,23 @@ export class TouchpadSwipeEvent {
     dy: number
     static name: string
 }
-export abstract class TransitionClass {
+abstract class TransitionClass {
     /* Fields of Clutter-1.0.Clutter.TransitionClass */
     attached: (transition: Transition, animatable: Animatable) => void
     detached: (transition: Transition, animatable: Animatable) => void
     compute_value: (transition: Transition, animatable: Animatable, interval: Interval, progress: number) => void
     static name: string
 }
-export abstract class TransitionGroupClass {
+abstract class TransitionGroupClass {
     static name: string
 }
-export class TransitionGroupPrivate {
+class TransitionGroupPrivate {
     static name: string
 }
-export class TransitionPrivate {
+class TransitionPrivate {
     static name: string
 }
-export class Units {
+class Units {
     /* Methods of Clutter-1.0.Clutter.Units */
     copy(): Units
     free(): void
@@ -21052,7 +21054,7 @@ export class Units {
     static from_pt(pt: number): /* units */ Units
     static from_string(str: string): [ /* returnType */ boolean, /* units */ Units ]
 }
-export class Vertex {
+class Vertex {
     /* Fields of Clutter-1.0.Clutter.Vertex */
     x: number
     y: number
@@ -21069,15 +21071,15 @@ export class Vertex {
     static alloc(): Vertex
     static new(x: number, y: number, z: number): Vertex
 }
-export abstract class ZoomActionClass {
+abstract class ZoomActionClass {
     /* Fields of Clutter-1.0.Clutter.ZoomActionClass */
     zoom: (action: ZoomAction, actor: Actor, focal_point: Point, factor: number) => boolean
     static name: string
 }
-export class ZoomActionPrivate {
+class ZoomActionPrivate {
     static name: string
 }
-export class Event {
+class Event {
     /* Methods of Clutter-1.0.Clutter.Event */
     copy(): Event
     free(): void
@@ -21142,3 +21144,5 @@ export class Event {
     static peek(): Event
     static remove_filter(id: number): void
 }
+}
+export default Clutter

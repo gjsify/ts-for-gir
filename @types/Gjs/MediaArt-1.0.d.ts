@@ -3,37 +3,39 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum Error {
+export namespace MediaArt {
+
+enum Error {
     NO_STORAGE,
     NO_TITLE,
     SYMLINK_FAILED,
     RENAME_FAILED,
 }
-export enum Type {
+enum Type {
     NONE,
     ALBUM,
     VIDEO,
 }
-export enum ProcessFlags {
+enum ProcessFlags {
     NONE,
     FORCE,
 }
-export function buffer_to_jpeg(buffer: number, len: number, buffer_mime: string, target: string): boolean
-export function error_quark(): GLib.Quark
-export function file_to_jpeg(filename: string, target: string): boolean
-export function get_file(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): [ /* returnType */ boolean, /* cache_file */ Gio.File | null, /* local_file */ Gio.File | null ]
-export function get_path(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): [ /* returnType */ boolean, /* cache_path */ string | null, /* local_uri */ string | null ]
-export function plugin_init(max_width: number): void
-export function plugin_shutdown(): void
-export function remove(artist: string, album?: string | null): boolean
-export function strip_invalid_entities(original: string): string
+function buffer_to_jpeg(buffer: number, len: number, buffer_mime: string, target: string): boolean
+function error_quark(): GLib.Quark
+function file_to_jpeg(filename: string, target: string): boolean
+function get_file(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): [ /* returnType */ boolean, /* cache_file */ Gio.File | null, /* local_file */ Gio.File | null ]
+function get_path(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): [ /* returnType */ boolean, /* cache_path */ string | null, /* local_uri */ string | null ]
+function plugin_init(max_width: number): void
+function plugin_shutdown(): void
+function remove(artist: string, album?: string | null): boolean
+function strip_invalid_entities(original: string): string
 export interface Process_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Process {
+class Process {
     /* Fields of MediaArt-1.0.MediaArt.Process */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -92,8 +94,10 @@ export class Process {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class ProcessClass {
+abstract class ProcessClass {
     /* Fields of MediaArt-1.0.MediaArt.ProcessClass */
     parent: GObject.ObjectClass
     static name: string
 }
+}
+export default MediaArt

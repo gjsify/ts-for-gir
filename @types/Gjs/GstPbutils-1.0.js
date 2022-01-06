@@ -1,2 +1,1 @@
-imports.gi.versions.GstPbutils = '1.0'
-module.exports = imports.gi.GstPbutils
+export {default as default} from 'gi://GstPbutils?version=1.0';

@@ -6,21 +6,21 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Gegl {
+declare namespace Gegl {
 
-export enum AbyssPolicy {
+enum AbyssPolicy {
     NONE,
     CLAMP,
     LOOP,
     BLACK,
     WHITE,
 }
-export enum DistanceMetric {
+enum DistanceMetric {
     EUCLIDEAN,
     MANHATTAN,
     CHEBYSHEV,
 }
-export enum DitherMethod {
+enum DitherMethod {
     NONE,
     FLOYD_STEINBERG,
     BAYER,
@@ -31,23 +31,23 @@ export enum DitherMethod {
     XOR,
     XOR_COVARIANT,
 }
-export enum Orientation {
+enum Orientation {
     HORIZONTAL,
     VERTICAL,
 }
-export enum SamplerType {
+enum SamplerType {
     NEAREST,
     LINEAR,
     CUBIC,
     NOHALO,
     LOHALO,
 }
-export enum SplitStrategy {
+enum SplitStrategy {
     AUTO,
     HORIZONTAL,
     VERTICAL,
 }
-export enum TileCommand {
+enum TileCommand {
     IDLE,
     SET,
     GET,
@@ -59,21 +59,21 @@ export enum TileCommand {
     REINIT,
     LAST_COMMAND,
 }
-export enum AccessMode {
+enum AccessMode {
     READ,
     WRITE,
     READWRITE,
 }
-export enum BlitFlags {
+enum BlitFlags {
     DEFAULT,
     CACHE,
     DIRTY,
 }
-export enum PadType {
+enum PadType {
     OUTPUT,
     INPUT,
 }
-export enum SerializeFlag {
+enum SerializeFlag {
     TRIM_DEFAULTS,
     VERSION,
     INDENT,
@@ -140,62 +140,62 @@ export const MAX_AUDIO_CHANNELS: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const PARAM_NO_VALIDATE: number
-export function clDisable(): void
-export function clInit(): boolean
-export function clIsAccelerated(): boolean
-export function config(): Config
-export function createChain(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
-export function createChainArgv(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
-export function exit(): void
-export function format(formatName: string): any | null
-export function formatGetName(format: any): string | null
-export function getVersion(): { major: number, minor: number, micro: number }
-export function graphDumpOutputs(node: Node): void
-export function graphDumpRequest(node: Node, roi: Rectangle): void
-export function hasOperation(operationType: string): boolean
-export function init(argv?: string[] | null): { argv: string[] | null }
-export function isMainThread(): boolean
-export function listOperations(): string[]
-export function loadModuleDirectory(path: string): void
-export function paramSpecAudioFragment(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecColor(name: string, nick: string, blurb: string, defaultColor: Color, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecColorFromString(name: string, nick: string, blurb: string, defaultColorString: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecColorGetDefault(self: GObject.ParamSpec): Color
-export function paramSpecCurve(name: string, nick: string, blurb: string, defaultCurve: Curve, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecDouble(name: string, nick: string, blurb: string, minimum: number, maximum: number, defaultValue: number, uiMinimum: number, uiMaximum: number, uiGamma: number, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecEnum(name: string, nick: string, blurb: string, enumType: GObject.Type, defaultValue: number, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecFilePath(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecFormat(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecGetPropertyKey(pspec: GObject.ParamSpec, keyName: string): string
-export function paramSpecInt(name: string, nick: string, blurb: string, minimum: number, maximum: number, defaultValue: number, uiMinimum: number, uiMaximum: number, uiGamma: number, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecPath(name: string, nick: string, blurb: string, defaultPath: Path, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecSeed(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecSetPropertyKey(pspec: GObject.ParamSpec, keyName: string, value: string): void
-export function paramSpecString(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecUri(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
-export function rectangleInfinitePlane(): Rectangle
-export function resetStats(): void
-export function serialize(start: Node, end: Node, basepath: string, serializeFlags: SerializeFlag): string
-export function stats(): Stats
-export interface LookupFunction {
+function clDisable(): void
+function clInit(): boolean
+function clIsAccelerated(): boolean
+function config(): Config
+function createChain(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
+function createChainArgv(ops: string, opStart: Node, opEnd: Node, time: number, relDim: number, pathRoot: string): void
+function exit(): void
+function format(formatName: string): any | null
+function formatGetName(format: any): string | null
+function getVersion(): { major: number, minor: number, micro: number }
+function graphDumpOutputs(node: Node): void
+function graphDumpRequest(node: Node, roi: Rectangle): void
+function hasOperation(operationType: string): boolean
+function init(argv?: string[] | null): { argv: string[] | null }
+function isMainThread(): boolean
+function listOperations(): string[]
+function loadModuleDirectory(path: string): void
+function paramSpecAudioFragment(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecColor(name: string, nick: string, blurb: string, defaultColor: Color, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecColorFromString(name: string, nick: string, blurb: string, defaultColorString: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecColorGetDefault(self: GObject.ParamSpec): Color
+function paramSpecCurve(name: string, nick: string, blurb: string, defaultCurve: Curve, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecDouble(name: string, nick: string, blurb: string, minimum: number, maximum: number, defaultValue: number, uiMinimum: number, uiMaximum: number, uiGamma: number, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecEnum(name: string, nick: string, blurb: string, enumType: GObject.Type, defaultValue: number, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecFilePath(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecFormat(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecGetPropertyKey(pspec: GObject.ParamSpec, keyName: string): string
+function paramSpecInt(name: string, nick: string, blurb: string, minimum: number, maximum: number, defaultValue: number, uiMinimum: number, uiMaximum: number, uiGamma: number, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecPath(name: string, nick: string, blurb: string, defaultPath: Path, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecSeed(name: string, nick: string, blurb: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecSetPropertyKey(pspec: GObject.ParamSpec, keyName: string, value: string): void
+function paramSpecString(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecUri(name: string, nick: string, blurb: string, noValidate: boolean, nullOk: boolean, defaultValue: string, flags: GObject.ParamFlags): GObject.ParamSpec
+function rectangleInfinitePlane(): Rectangle
+function resetStats(): void
+function serialize(start: Node, end: Node, basepath: string, serializeFlags: SerializeFlag): string
+function stats(): Stats
+interface LookupFunction {
     (value: number, data?: object | null): number
 }
-export interface NodeFunction {
+interface NodeFunction {
     (node: PathItem): void
 }
-export interface SamplerGetFun {
+interface SamplerGetFun {
     (self: Sampler, x: number, y: number, scale: Matrix2, output: object | null, repeatMode: AbyssPolicy): void
 }
-export interface TileCallback {
+interface TileCallback {
     (tile: Tile): void
 }
-export interface TileSourceCommand {
+interface TileSourceCommand {
     (geglTileSource: TileSource, command: TileCommand, x: number, y: number, z: number, data?: object | null): object | null
 }
 export interface AudioFragment_ConstructProps extends GObject.Object_ConstructProps {
     string?: string
 }
-export class AudioFragment {
+class AudioFragment {
     /* Properties of Gegl-0.3.Gegl.AudioFragment */
     string: string
     /* Fields of Gegl-0.3.Gegl.AudioFragment */
@@ -281,7 +281,7 @@ export interface Buffer_ConstructProps extends TileHandler_ConstructProps {
     x?: number
     y?: number
 }
-export class Buffer {
+class Buffer {
     /* Properties of Gegl-0.3.Gegl.Buffer */
     format: object
     height: number
@@ -417,7 +417,7 @@ export class Buffer {
 export interface Color_ConstructProps extends GObject.Object_ConstructProps {
     string?: string
 }
-export class Color {
+class Color {
     /* Properties of Gegl-0.3.Gegl.Color */
     string: string
     /* Fields of Gegl-0.3.Gegl.Color */
@@ -490,7 +490,7 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     tileWidth?: number
     useOpencl?: boolean
 }
-export class Config {
+class Config {
     /* Properties of Gegl-0.3.Gegl.Config */
     applicationLicense: string
     chunkSize: number
@@ -596,7 +596,7 @@ export class Config {
 }
 export interface Curve_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Curve {
+class Curve {
     /* Fields of Gegl-0.3.Gegl.Curve */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -660,7 +660,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     passthrough?: boolean
     useOpencl?: boolean
 }
-export class Node {
+class Node {
     /* Properties of Gegl-0.3.Gegl.Node */
     dontCache: boolean
     geglOperation: Operation
@@ -794,7 +794,7 @@ export class Node {
 }
 export interface Operation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Operation {
+class Operation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -845,7 +845,7 @@ export class Operation {
     static listPropertyKeys(operationType: string, propertyName: string): string[]
     static $gtype: GObject.Type
 }
-export class ParamAudioFragment {
+class ParamAudioFragment {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -865,7 +865,7 @@ export class ParamAudioFragment {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamColor {
+class ParamColor {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -885,7 +885,7 @@ export class ParamColor {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamCurve {
+class ParamCurve {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -905,7 +905,7 @@ export class ParamCurve {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamDouble {
+class ParamDouble {
     /* Fields of GObject-2.0.GObject.ParamSpecDouble */
     parentInstance: GObject.ParamSpec
     minimum: number
@@ -931,7 +931,7 @@ export class ParamDouble {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamEnum {
+class ParamEnum {
     /* Fields of GObject-2.0.GObject.ParamSpecEnum */
     parentInstance: GObject.ParamSpec
     enumClass: GObject.EnumClass
@@ -955,7 +955,7 @@ export class ParamEnum {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamFilePath {
+class ParamFilePath {
     /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
@@ -983,7 +983,7 @@ export class ParamFilePath {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamFormat {
+class ParamFormat {
     /* Fields of GObject-2.0.GObject.ParamSpecPointer */
     parentInstance: GObject.ParamSpec
     /* Fields of GObject-2.0.GObject.ParamSpec */
@@ -1005,7 +1005,7 @@ export class ParamFormat {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamInt {
+class ParamInt {
     /* Fields of GObject-2.0.GObject.ParamSpecInt */
     parentInstance: GObject.ParamSpec
     minimum: number
@@ -1030,7 +1030,7 @@ export class ParamInt {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamPath {
+class ParamPath {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -1050,7 +1050,7 @@ export class ParamPath {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamSeed {
+class ParamSeed {
     /* Fields of GObject-2.0.GObject.ParamSpecUInt */
     parentInstance: GObject.ParamSpec
     minimum: number
@@ -1075,7 +1075,7 @@ export class ParamSeed {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamString {
+class ParamString {
     /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
@@ -1103,7 +1103,7 @@ export class ParamString {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamUri {
+class ParamUri {
     /* Fields of GObject-2.0.GObject.ParamSpecString */
     parentInstance: GObject.ParamSpec
     defaultValue: string
@@ -1133,7 +1133,7 @@ export class ParamUri {
 }
 export interface Path_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Path {
+class Path {
     /* Fields of Gegl-0.3.Gegl.Path */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1215,7 +1215,7 @@ export interface Processor_ConstructProps extends GObject.Object_ConstructProps 
     progress?: number
     rectangle?: object
 }
-export class Processor {
+class Processor {
     /* Properties of Gegl-0.3.Gegl.Processor */
     node: Node
     progress: number
@@ -1284,7 +1284,7 @@ export class Processor {
 }
 export interface Stats_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Stats {
+class Stats {
     /* Properties of Gegl-0.3.Gegl.Stats */
     readonly swapBusy: boolean
     readonly swapFileSize: number
@@ -1388,7 +1388,7 @@ export interface TileBackend_ConstructProps extends TileSource_ConstructProps {
     tileHeight?: number
     tileWidth?: number
 }
-export class TileBackend {
+class TileBackend {
     /* Properties of Gegl-0.3.Gegl.TileBackend */
     flushOnDestroy: boolean
     readonly pxSize: number
@@ -1470,7 +1470,7 @@ export class TileBackend {
 export interface TileHandler_ConstructProps extends TileSource_ConstructProps {
     source?: GObject.Object
 }
-export class TileHandler {
+class TileHandler {
     /* Properties of Gegl-0.3.Gegl.TileHandler */
     source: GObject.Object
     /* Fields of Gegl-0.3.Gegl.TileHandler */
@@ -1531,7 +1531,7 @@ export class TileHandler {
 }
 export interface TileSource_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TileSource {
+class TileSource {
     /* Fields of Gegl-0.3.Gegl.TileSource */
     parentInstance: GObject.Object
     command: TileSourceCommand
@@ -1578,15 +1578,15 @@ export class TileSource {
     _init (config?: TileSource_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AudioFragmentClass {
+abstract class AudioFragmentClass {
     /* Fields of Gegl-0.3.Gegl.AudioFragmentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AudioFragmentPrivate {
+class AudioFragmentPrivate {
     static name: string
 }
-export class BufferIterator {
+class BufferIterator {
     /* Fields of Gegl-0.3.Gegl.BufferIterator */
     length: number
     data: object[]
@@ -1594,23 +1594,23 @@ export class BufferIterator {
     priv: BufferIteratorPriv
     static name: string
 }
-export class BufferIteratorPriv {
+class BufferIteratorPriv {
     static name: string
 }
-export abstract class ColorClass {
+abstract class ColorClass {
     /* Fields of Gegl-0.3.Gegl.ColorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ColorPrivate {
+class ColorPrivate {
     static name: string
 }
-export abstract class CurveClass {
+abstract class CurveClass {
     /* Fields of Gegl-0.3.Gegl.CurveClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Lookup {
+class Lookup {
     /* Fields of Gegl-0.3.Gegl.Lookup */
     function_: LookupFunction
     data: object
@@ -1623,7 +1623,7 @@ export class Lookup {
     table: number[]
     static name: string
 }
-export class Matrix2 {
+class Matrix2 {
     /* Fields of Gegl-0.3.Gegl.Matrix2 */
     coeff: number[]
     /* Methods of Gegl-0.3.Gegl.Matrix2 */
@@ -1631,7 +1631,7 @@ export class Matrix2 {
     isScale(): boolean
     static name: string
 }
-export class Matrix3 {
+class Matrix3 {
     /* Fields of Gegl-0.3.Gegl.Matrix3 */
     coeff: number[]
     /* Methods of Gegl-0.3.Gegl.Matrix3 */
@@ -1655,10 +1655,10 @@ export class Matrix3 {
     /* Static methods and pseudo-constructors */
     static new(): Matrix3
 }
-export class OperationContext {
+class OperationContext {
     static name: string
 }
-export class ParamSpecDouble {
+class ParamSpecDouble {
     /* Fields of Gegl-0.3.Gegl.ParamSpecDouble */
     parentInstance: GObject.ParamSpecDouble
     uiMinimum: number
@@ -1672,7 +1672,7 @@ export class ParamSpecDouble {
     setSteps(smallStep: number, bigStep: number): void
     static name: string
 }
-export class ParamSpecEnum {
+class ParamSpecEnum {
     /* Fields of Gegl-0.3.Gegl.ParamSpecEnum */
     parentInstance: GObject.ParamSpecEnum
     excludedValues: object[]
@@ -1680,19 +1680,19 @@ export class ParamSpecEnum {
     excludeValue(value: number): void
     static name: string
 }
-export class ParamSpecFilePath {
+class ParamSpecFilePath {
     /* Fields of Gegl-0.3.Gegl.ParamSpecFilePath */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
     static name: string
 }
-export class ParamSpecFormat {
+class ParamSpecFormat {
     /* Fields of Gegl-0.3.Gegl.ParamSpecFormat */
     parentInstance: GObject.ParamSpecPointer
     static name: string
 }
-export class ParamSpecInt {
+class ParamSpecInt {
     /* Fields of Gegl-0.3.Gegl.ParamSpecInt */
     parentInstance: GObject.ParamSpecInt
     uiMinimum: number
@@ -1704,49 +1704,49 @@ export class ParamSpecInt {
     setSteps(smallStep: number, bigStep: number): void
     static name: string
 }
-export class ParamSpecSeed {
+class ParamSpecSeed {
     /* Fields of Gegl-0.3.Gegl.ParamSpecSeed */
     parentInstance: GObject.ParamSpecUInt
     uiMinimum: number
     uiMaximum: number
     static name: string
 }
-export class ParamSpecString {
+class ParamSpecString {
     /* Fields of Gegl-0.3.Gegl.ParamSpecString */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
     static name: string
 }
-export class ParamSpecUri {
+class ParamSpecUri {
     /* Fields of Gegl-0.3.Gegl.ParamSpecUri */
     parentInstance: GObject.ParamSpecString
     noValidate: number
     nullOk: number
     static name: string
 }
-export abstract class PathClass {
+abstract class PathClass {
     static name: string
 }
-export class PathItem {
+class PathItem {
     /* Fields of Gegl-0.3.Gegl.PathItem */
     type: number
     point: PathPoint[]
     static name: string
 }
-export class PathList {
+class PathList {
     /* Fields of Gegl-0.3.Gegl.PathList */
     next: object
     d: PathItem
     static name: string
 }
-export class PathPoint {
+class PathPoint {
     /* Fields of Gegl-0.3.Gegl.PathPoint */
     x: number
     y: number
     static name: string
 }
-export class Random {
+class Random {
     /* Methods of Gegl-0.3.Gegl.Random */
     duplicate(): Random
     float(x: number, y: number, z: number, n: number): number
@@ -1762,7 +1762,7 @@ export class Random {
     static new(): Random
     static newWithSeed(seed: number): Random
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Gegl-0.3.Gegl.Rectangle */
     x: number
     y: number
@@ -1788,36 +1788,37 @@ export class Rectangle {
     static new(x: number, y: number, width: number, height: number): Rectangle
     static infinitePlane(): Rectangle
 }
-export class Sampler {
+class Sampler {
     /* Methods of Gegl-0.3.Gegl.Sampler */
     get(x: number, y: number, scale: Matrix2, output: object | null, repeatMode: AbyssPolicy): void
     getContextRect(): Rectangle
     static name: string
 }
-export class Tile {
+class Tile {
     static name: string
 }
-export abstract class TileBackendClass {
+abstract class TileBackendClass {
     /* Fields of Gegl-0.3.Gegl.TileBackendClass */
     parentClass: TileSourceClass
     padding: object[]
     static name: string
 }
-export class TileBackendPrivate {
+class TileBackendPrivate {
     static name: string
 }
-export abstract class TileHandlerClass {
+abstract class TileHandlerClass {
     /* Fields of Gegl-0.3.Gegl.TileHandlerClass */
     parentClass: TileSourceClass
     static name: string
 }
-export class TileHandlerPrivate {
+class TileHandlerPrivate {
     static name: string
 }
-export abstract class TileSourceClass {
+abstract class TileSourceClass {
     /* Fields of Gegl-0.3.Gegl.TileSourceClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
 }
+export default Gegl

@@ -3,12 +3,16 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export function init(): void
-export class Pattern {
+export namespace fontconfig {
+
+function init(): void
+class Pattern {
     static name: string
 }
-export class CharSet {
+class CharSet {
     static name: string
 }
+}
+export default fontconfig

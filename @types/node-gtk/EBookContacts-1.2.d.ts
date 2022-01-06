@@ -14,36 +14,36 @@ import type { Json } from './Json-1.0';
 import type { Goa } from './Goa-1.0';
 import type { Camel } from './Camel-1.2';
 
-export declare namespace EBookContacts {
+declare namespace EBookContacts {
 
-export enum BookChangeType {
+enum BookChangeType {
     ADDED,
     DELETED,
     MODIFIED,
 }
-export enum BookClientError {
+enum BookClientError {
     NO_SUCH_BOOK,
     CONTACT_NOT_FOUND,
     CONTACT_ID_ALREADY_EXISTS,
     NO_SUCH_SOURCE,
     NO_SPACE,
 }
-export enum BookCursorOrigin {
+enum BookCursorOrigin {
     CURRENT,
     BEGIN,
     END,
 }
-export enum BookCursorSortType {
+enum BookCursorSortType {
     ASCENDING,
     DESCENDING,
 }
-export enum BookIndexType {
+enum BookIndexType {
     PREFIX,
     SUFFIX,
     PHONE,
     SORT_KEY,
 }
-export enum BookQueryTest {
+enum BookQueryTest {
     IS,
     CONTAINS,
     BEGINS_WITH,
@@ -55,7 +55,7 @@ export enum BookQueryTest {
     REGEX_RAW,
     LAST,
 }
-export enum BookViewStatus {
+enum BookViewStatus {
     STATUS_OK,
     STATUS_TIME_LIMIT_EXCEEDED,
     STATUS_SIZE_LIMIT_EXCEEDED,
@@ -63,7 +63,7 @@ export enum BookViewStatus {
     ERROR_QUERY_REFUSED,
     ERROR_OTHER_ERROR,
 }
-export enum ContactField {
+enum ContactField {
     UID,
     FILE_AS,
     BOOK_UID,
@@ -218,16 +218,16 @@ export enum ContactField {
     FIRST_LABEL_ID,
     LAST_LABEL_ID,
 }
-export enum ContactPhotoType {
+enum ContactPhotoType {
     INLINED,
     URI,
 }
-export enum PhoneNumberCountrySource {
+enum PhoneNumberCountrySource {
     FQTN,
     IDD,
     DEFAULT,
 }
-export enum PhoneNumberError {
+enum PhoneNumberError {
     NOT_IMPLEMENTED,
     UNKNOWN,
     NOT_A_NUMBER,
@@ -236,31 +236,31 @@ export enum PhoneNumberError {
     TOO_SHORT,
     TOO_LONG,
 }
-export enum PhoneNumberFormat {
+enum PhoneNumberFormat {
     E164,
     INTERNATIONAL,
     NATIONAL,
     RFC3966,
 }
-export enum PhoneNumberMatch {
+enum PhoneNumberMatch {
     NONE,
     EXACT,
     NATIONAL,
     SHORT,
 }
-export enum VCardFormat {
+enum VCardFormat {
     /* 21 (invalid, starts with a number) */
     /* 30 (invalid, starts with a number) */
 }
-export enum BookClientViewFlags {
+enum BookClientViewFlags {
     NONE,
     NOTIFY_INITIAL,
 }
-export enum BookCursorStepFlags {
+enum BookCursorStepFlags {
     MOVE,
     FETCH,
 }
-export enum BookOperationFlags {
+enum BookOperationFlags {
     NONE,
     CONFLICT_FAIL,
     CONFLICT_USE_NEWER,
@@ -344,33 +344,33 @@ export const EVC_X_YAHOO: string
 export const SOURCE_EXTENSION_BACKEND_SUMMARY_SETUP: string
 export const VCARD_21_VALID_PARAMETERS: string
 export const VCARD_21_VALID_PROPERTIES: string
-export function addressWesternParse(inAddress: string): AddressWestern
-export function bookClientErrorCreate(code: BookClientError, customMsg: string): GLib.Error
-export function bookClientErrorQuark(): GLib.Quark
-export function bookClientErrorToString(code: BookClientError): string
-export function bookQueryAnd(nqs: number, qs: BookQuery, unref: boolean): BookQuery
-export function bookQueryAnyFieldContains(value: string): BookQuery
-export function bookQueryFieldExists(field: ContactField): BookQuery
-export function bookQueryFieldTest(field: ContactField, test: BookQueryTest, value: string): BookQuery
-export function bookQueryFromString(queryString: string): BookQuery
-export function bookQueryOr(nqs: number, qs: BookQuery, unref: boolean): BookQuery
-export function bookQueryVcardFieldExists(field: string): BookQuery
-export function bookQueryVcardFieldTest(field: string, test: BookQueryTest, value: string): BookQuery
-export function bookUtilConflictResolutionToOperationFlags(conflictResolution: EDataServer.ConflictResolution): number
-export function bookUtilForeachAddress(emailAddress: string, func: GLib.HRFunc): void
-export function bookUtilOperationFlagsToConflictResolution(flags: number): EDataServer.ConflictResolution
-export function contactAttrListCopy(list: string[]): string[]
-export function contactAttrListFree(list: string[]): void
-export function contactDateFromString(str: string): ContactDate
-export function contactNameFromString(nameStr: string): ContactName
-export function nameWesternParse(fullName: string): NameWestern
-export function phoneNumberCompareStrings(firstNumber: string, secondNumber: string): PhoneNumberMatch
-export function phoneNumberCompareStringsWithRegion(firstNumber: string, secondNumber: string, regionCode?: string | null): PhoneNumberMatch
-export function phoneNumberErrorQuark(): GLib.Quark
-export function phoneNumberFromString(phoneNumber: string, regionCode?: string | null): PhoneNumber
-export function phoneNumberGetCountryCodeForRegion(regionCode?: string | null): number
-export function phoneNumberGetDefaultRegion(): string
-export function phoneNumberIsSupported(): boolean
+function addressWesternParse(inAddress: string): AddressWestern
+function bookClientErrorCreate(code: BookClientError, customMsg: string): GLib.Error
+function bookClientErrorQuark(): GLib.Quark
+function bookClientErrorToString(code: BookClientError): string
+function bookQueryAnd(nqs: number, qs: BookQuery, unref: boolean): BookQuery
+function bookQueryAnyFieldContains(value: string): BookQuery
+function bookQueryFieldExists(field: ContactField): BookQuery
+function bookQueryFieldTest(field: ContactField, test: BookQueryTest, value: string): BookQuery
+function bookQueryFromString(queryString: string): BookQuery
+function bookQueryOr(nqs: number, qs: BookQuery, unref: boolean): BookQuery
+function bookQueryVcardFieldExists(field: string): BookQuery
+function bookQueryVcardFieldTest(field: string, test: BookQueryTest, value: string): BookQuery
+function bookUtilConflictResolutionToOperationFlags(conflictResolution: EDataServer.ConflictResolution): number
+function bookUtilForeachAddress(emailAddress: string, func: GLib.HRFunc): void
+function bookUtilOperationFlagsToConflictResolution(flags: number): EDataServer.ConflictResolution
+function contactAttrListCopy(list: string[]): string[]
+function contactAttrListFree(list: string[]): void
+function contactDateFromString(str: string): ContactDate
+function contactNameFromString(nameStr: string): ContactName
+function nameWesternParse(fullName: string): NameWestern
+function phoneNumberCompareStrings(firstNumber: string, secondNumber: string): PhoneNumberMatch
+function phoneNumberCompareStringsWithRegion(firstNumber: string, secondNumber: string, regionCode?: string | null): PhoneNumberMatch
+function phoneNumberErrorQuark(): GLib.Quark
+function phoneNumberFromString(phoneNumber: string, regionCode?: string | null): PhoneNumber
+function phoneNumberGetCountryCodeForRegion(regionCode?: string | null): number
+function phoneNumberGetDefaultRegion(): string
+function phoneNumberIsSupported(): boolean
 export interface Contact_ConstructProps extends VCard_ConstructProps {
     rev?: string
     address?: any
@@ -514,7 +514,7 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     wantsHtml?: boolean
     x509Cert?: ContactCert
 }
-export class Contact {
+class Contact {
     /* Properties of EBookContacts-1.2.EBookContacts.Contact */
     rev: string
     address: any
@@ -1454,7 +1454,7 @@ export interface SourceBackendSummarySetup_ConstructProps extends EDataServer.So
     indexedFields?: string
     summaryFields?: string
 }
-export class SourceBackendSummarySetup {
+class SourceBackendSummarySetup {
     /* Properties of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetup */
     indexedFields: string
     summaryFields: string
@@ -1522,7 +1522,7 @@ export class SourceBackendSummarySetup {
 }
 export interface VCard_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VCard {
+class VCard {
     /* Fields of EBookContacts-1.2.EBookContacts.VCard */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1590,7 +1590,7 @@ export class VCard {
     static unescapeString(s: string): string
     static $gtype: GObject.Type
 }
-export class AddressWestern {
+class AddressWestern {
     /* Fields of EBookContacts-1.2.EBookContacts.AddressWestern */
     poBox: string
     extended: string
@@ -1606,13 +1606,13 @@ export class AddressWestern {
     /* Static methods and pseudo-constructors */
     static parse(inAddress: string): AddressWestern
 }
-export class BookChange {
+class BookChange {
     /* Fields of EBookContacts-1.2.EBookContacts.BookChange */
     changeType: BookChangeType
     contact: Contact
     static name: string
 }
-export class BookQuery {
+class BookQuery {
     /* Methods of EBookContacts-1.2.EBookContacts.BookQuery */
     copy(): BookQuery
     not(unref: boolean): BookQuery
@@ -1630,7 +1630,7 @@ export class BookQuery {
     static vcardFieldExists(field: string): BookQuery
     static vcardFieldTest(field: string, test: BookQueryTest, value: string): BookQuery
 }
-export class ContactAddress {
+class ContactAddress {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactAddress */
     addressFormat: string
     po: string
@@ -1648,7 +1648,7 @@ export class ContactAddress {
     /* Static methods and pseudo-constructors */
     static new(): ContactAddress
 }
-export class ContactCert {
+class ContactCert {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactCert */
     length: number
     data: string
@@ -1660,12 +1660,12 @@ export class ContactCert {
     /* Static methods and pseudo-constructors */
     static new(): ContactCert
 }
-export abstract class ContactClass {
+abstract class ContactClass {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactClass */
     parentClass: VCardClass
     static name: string
 }
-export class ContactDate {
+class ContactDate {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactDate */
     year: number
     month: number
@@ -1681,7 +1681,7 @@ export class ContactDate {
     static new(): ContactDate
     static fromString(str: string): ContactDate
 }
-export class ContactGeo {
+class ContactGeo {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactGeo */
     latitude: number
     longitude: number
@@ -1693,7 +1693,7 @@ export class ContactGeo {
     /* Static methods and pseudo-constructors */
     static new(): ContactGeo
 }
-export class ContactName {
+class ContactName {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactName */
     family: string
     given: string
@@ -1711,7 +1711,7 @@ export class ContactName {
     static new(): ContactName
     static fromString(nameStr: string): ContactName
 }
-export class ContactPhoto {
+class ContactPhoto {
     /* Fields of EBookContacts-1.2.EBookContacts.ContactPhoto */
     type: ContactPhotoType
     /* Methods of EBookContacts-1.2.EBookContacts.ContactPhoto */
@@ -1729,10 +1729,10 @@ export class ContactPhoto {
     /* Static methods and pseudo-constructors */
     static new(): ContactPhoto
 }
-export class ContactPrivate {
+class ContactPrivate {
     static name: string
 }
-export class NameWestern {
+class NameWestern {
     /* Fields of EBookContacts-1.2.EBookContacts.NameWestern */
     prefix: string
     first: string
@@ -1748,7 +1748,7 @@ export class NameWestern {
     /* Static methods and pseudo-constructors */
     static parse(fullName: string): NameWestern
 }
-export class PhoneNumber {
+class PhoneNumber {
     /* Methods of EBookContacts-1.2.EBookContacts.PhoneNumber */
     compare(secondNumber: PhoneNumber): PhoneNumberMatch
     copy(): PhoneNumber
@@ -1766,15 +1766,15 @@ export class PhoneNumber {
     static getDefaultRegion(): string
     static isSupported(): boolean
 }
-export abstract class SourceBackendSummarySetupClass {
+abstract class SourceBackendSummarySetupClass {
     /* Fields of EBookContacts-1.2.EBookContacts.SourceBackendSummarySetupClass */
     parentClass: EDataServer.SourceBackendClass
     static name: string
 }
-export class SourceBackendSummarySetupPrivate {
+class SourceBackendSummarySetupPrivate {
     static name: string
 }
-export class VCardAttribute {
+class VCardAttribute {
     /* Methods of EBookContacts-1.2.EBookContacts.VCardAttribute */
     addParam(param: VCardAttributeParam): void
     addParamWithValue(param: VCardAttributeParam, value: string): void
@@ -1803,7 +1803,7 @@ export class VCardAttribute {
     /* Static methods and pseudo-constructors */
     static new(attrGroup: string | null, attrName: string): VCardAttribute
 }
-export class VCardAttributeParam {
+class VCardAttributeParam {
     /* Methods of EBookContacts-1.2.EBookContacts.VCardAttributeParam */
     addValue(value: string): void
     copy(): VCardAttributeParam
@@ -1817,12 +1817,13 @@ export class VCardAttributeParam {
     /* Static methods and pseudo-constructors */
     static new(name: string): VCardAttributeParam
 }
-export abstract class VCardClass {
+abstract class VCardClass {
     /* Fields of EBookContacts-1.2.EBookContacts.VCardClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class VCardPrivate {
+class VCardPrivate {
     static name: string
 }
 }
+export default EBookContacts

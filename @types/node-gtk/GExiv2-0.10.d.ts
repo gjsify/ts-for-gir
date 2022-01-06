@@ -7,20 +7,20 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GExiv2 {
+declare namespace GExiv2 {
 
-export enum ByteOrder {
+enum ByteOrder {
     LITTLE,
     BIG,
 }
-export enum LogLevel {
+enum LogLevel {
     DEBUG,
     INFO,
     WARN,
     ERROR,
     MUTE,
 }
-export enum Orientation {
+enum Orientation {
     UNSPECIFIED,
     NORMAL,
     HFLIP,
@@ -31,14 +31,14 @@ export enum Orientation {
     ROT_90_VFLIP,
     ROT_270,
 }
-export enum StructureType {
+enum StructureType {
     NONE,
     ALT,
     BAG,
     SEQ,
     LANG,
 }
-export enum XmpFormatFlags {
+enum XmpFormatFlags {
     OMIT_PACKET_WRAPPER,
     READ_ONLY_PACKET,
     USE_COMPACT_FORMAT,
@@ -50,17 +50,17 @@ export enum XmpFormatFlags {
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function getVersion(): number
-export function initialize(): boolean
-export function logGetLevel(): LogLevel
-export function logSetLevel(level: LogLevel): void
-export function logUseGlibLogging(): void
-export interface LogHandler {
+function getVersion(): number
+function initialize(): boolean
+function logGetLevel(): LogLevel
+function logSetLevel(level: LogLevel): void
+function logUseGlibLogging(): void
+interface LogHandler {
     (level: LogLevel, msg: string): void
 }
 export interface Metadata_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Metadata {
+class Metadata {
     /* Fields of GExiv2-0.10.GExiv2.Metadata */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -230,7 +230,7 @@ export class Metadata {
 }
 export interface PreviewImage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PreviewImage {
+class PreviewImage {
     /* Fields of GExiv2-0.10.GExiv2.PreviewImage */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -286,7 +286,7 @@ export class PreviewImage {
 }
 export interface PreviewProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PreviewProperties {
+class PreviewProperties {
     /* Fields of GExiv2-0.10.GExiv2.PreviewProperties */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -337,28 +337,29 @@ export class PreviewProperties {
     _init (config?: PreviewProperties_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class MetadataClass {
+abstract class MetadataClass {
     /* Fields of GExiv2-0.10.GExiv2.MetadataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MetadataPrivate {
+class MetadataPrivate {
     static name: string
 }
-export abstract class PreviewImageClass {
+abstract class PreviewImageClass {
     /* Fields of GExiv2-0.10.GExiv2.PreviewImageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PreviewImagePrivate {
+class PreviewImagePrivate {
     static name: string
 }
-export abstract class PreviewPropertiesClass {
+abstract class PreviewPropertiesClass {
     /* Fields of GExiv2-0.10.GExiv2.PreviewPropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PreviewPropertiesPrivate {
+class PreviewPropertiesPrivate {
     static name: string
 }
 }
+export default GExiv2

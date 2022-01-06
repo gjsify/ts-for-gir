@@ -1,2 +1,1 @@
-imports.gi.versions.GitgExt = '1.0'
-module.exports = imports.gi.GitgExt
+export {default as default} from 'gi://GitgExt?version=1.0';

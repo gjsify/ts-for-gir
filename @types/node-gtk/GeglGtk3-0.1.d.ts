@@ -18,9 +18,9 @@ import type { Atk } from './Atk-1.0';
 import type { Gegl } from './Gegl-0.4';
 import type { Babl } from './Babl-0.1';
 
-export declare namespace GeglGtk3 {
+declare namespace GeglGtk3 {
 
-export enum ViewAutoscale {
+enum ViewAutoscale {
     DISABLED,
     WIDGET,
     CONTENT,
@@ -33,7 +33,7 @@ export interface View_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     x?: number
     y?: number
 }
-export class View {
+class View {
     /* Properties of GeglGtk3-0.1.GeglGtk3.View */
     autoscalePolicy: ViewAutoscale
     block: boolean
@@ -993,10 +993,11 @@ export class View {
     static newForNode(node: Gegl.Node): View
     static $gtype: GObject.Type
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
 }
+export default GeglGtk3

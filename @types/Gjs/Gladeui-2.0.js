@@ -1,2 +1,1 @@
-imports.gi.versions.Gladeui = '2.0'
-module.exports = imports.gi.Gladeui
+export {default as default} from 'gi://Gladeui?version=2.0';

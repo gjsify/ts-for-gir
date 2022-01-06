@@ -14,33 +14,33 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Gdk } from './Gdk-3.0';
 
-export declare namespace GdkX11 {
+declare namespace GdkX11 {
 
-export function x11AtomToXatom(atom: Gdk.Atom): xlib.Atom
-export function x11AtomToXatomForDisplay(display: X11Display, atom: Gdk.Atom): xlib.Atom
-export function x11DeviceGetId(device: X11DeviceCore): number
-export function x11DeviceManagerLookup(deviceManager: X11DeviceManagerCore, deviceId: number): X11DeviceCore | null
-export function x11FreeCompoundText(ctext: number): void
-export function x11FreeTextList(list: string): void
-export function x11GetDefaultRootXwindow(): xlib.Window
-export function x11GetDefaultScreen(): number
-export function x11GetDefaultXdisplay(): xlib.Display
-export function x11GetParentRelativePattern(): cairo.Pattern
-export function x11GetServerTime(window: X11Window): number
-export function x11GetXatomByName(atomName: string): xlib.Atom
-export function x11GetXatomByNameForDisplay(display: X11Display, atomName: string): xlib.Atom
-export function x11GetXatomName(xatom: xlib.Atom): string
-export function x11GetXatomNameForDisplay(display: X11Display, xatom: xlib.Atom): string
-export function x11GrabServer(): void
-export function x11LookupXdisplay(xdisplay: xlib.Display): X11Display
-export function x11RegisterStandardEventType(display: X11Display, eventBase: number, nEvents: number): void
-export function x11SetSmClientId(smClientId?: string | null): void
-export function x11UngrabServer(): void
-export function x11XatomToAtom(xatom: xlib.Atom): Gdk.Atom
-export function x11XatomToAtomForDisplay(display: X11Display, xatom: xlib.Atom): Gdk.Atom
+function x11AtomToXatom(atom: Gdk.Atom): xlib.Atom
+function x11AtomToXatomForDisplay(display: X11Display, atom: Gdk.Atom): xlib.Atom
+function x11DeviceGetId(device: X11DeviceCore): number
+function x11DeviceManagerLookup(deviceManager: X11DeviceManagerCore, deviceId: number): X11DeviceCore | null
+function x11FreeCompoundText(ctext: number): void
+function x11FreeTextList(list: string): void
+function x11GetDefaultRootXwindow(): xlib.Window
+function x11GetDefaultScreen(): number
+function x11GetDefaultXdisplay(): xlib.Display
+function x11GetParentRelativePattern(): cairo.Pattern
+function x11GetServerTime(window: X11Window): number
+function x11GetXatomByName(atomName: string): xlib.Atom
+function x11GetXatomByNameForDisplay(display: X11Display, atomName: string): xlib.Atom
+function x11GetXatomName(xatom: xlib.Atom): string
+function x11GetXatomNameForDisplay(display: X11Display, xatom: xlib.Atom): string
+function x11GrabServer(): void
+function x11LookupXdisplay(xdisplay: xlib.Display): X11Display
+function x11RegisterStandardEventType(display: X11Display, eventBase: number, nEvents: number): void
+function x11SetSmClientId(smClientId?: string | null): void
+function x11UngrabServer(): void
+function x11XatomToAtom(xatom: xlib.Atom): Gdk.Atom
+function x11XatomToAtomForDisplay(display: X11Display, xatom: xlib.Atom): Gdk.Atom
 export interface X11AppLaunchContext_ConstructProps extends Gdk.AppLaunchContext_ConstructProps {
 }
-export class X11AppLaunchContext {
+class X11AppLaunchContext {
     /* Fields of Gio-2.0.Gio.AppLaunchContext */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -117,7 +117,7 @@ export class X11AppLaunchContext {
 }
 export interface X11Cursor_ConstructProps extends Gdk.Cursor_ConstructProps {
 }
-export class X11Cursor {
+class X11Cursor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkX11-3.0.GdkX11.X11Cursor */
@@ -171,7 +171,7 @@ export class X11Cursor {
 }
 export interface X11DeviceCore_ConstructProps extends Gdk.Device_ConstructProps {
 }
-export class X11DeviceCore {
+class X11DeviceCore {
     /* Properties of Gdk-3.0.Gdk.Device */
     readonly associatedDevice: Gdk.Device
     readonly axes: Gdk.AxisFlags
@@ -293,7 +293,7 @@ export class X11DeviceCore {
 }
 export interface X11DeviceManagerCore_ConstructProps extends Gdk.DeviceManager_ConstructProps {
 }
-export class X11DeviceManagerCore {
+class X11DeviceManagerCore {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.DeviceManager */
@@ -361,7 +361,7 @@ export interface X11DeviceManagerXI2_ConstructProps extends X11DeviceManagerCore
     minor?: number
     opcode?: number
 }
-export class X11DeviceManagerXI2 {
+class X11DeviceManagerXI2 {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.DeviceManager */
@@ -427,7 +427,7 @@ export class X11DeviceManagerXI2 {
 export interface X11DeviceXI2_ConstructProps extends Gdk.Device_ConstructProps {
     deviceId?: number
 }
-export class X11DeviceXI2 {
+class X11DeviceXI2 {
     /* Properties of Gdk-3.0.Gdk.Device */
     readonly associatedDevice: Gdk.Device
     readonly axes: Gdk.AxisFlags
@@ -549,7 +549,7 @@ export class X11DeviceXI2 {
 }
 export interface X11Display_ConstructProps extends Gdk.Display_ConstructProps {
 }
-export class X11Display {
+class X11Display {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkX11-3.0.GdkX11.X11Display */
@@ -688,7 +688,7 @@ export class X11Display {
 }
 export interface X11DisplayManager_ConstructProps extends Gdk.DisplayManager_ConstructProps {
 }
-export class X11DisplayManager {
+class X11DisplayManager {
     /* Properties of Gdk-3.0.Gdk.DisplayManager */
     defaultDisplay: Gdk.Display
     /* Fields of GObject-2.0.GObject.Object */
@@ -751,7 +751,7 @@ export class X11DisplayManager {
 }
 export interface X11DragContext_ConstructProps extends Gdk.DragContext_ConstructProps {
 }
-export class X11DragContext {
+class X11DragContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.DragContext */
@@ -830,7 +830,7 @@ export class X11DragContext {
 }
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
-export class X11GLContext {
+class X11GLContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.GLContext */
@@ -891,7 +891,7 @@ export class X11GLContext {
 }
 export interface X11Keymap_ConstructProps extends Gdk.Keymap_ConstructProps {
 }
-export class X11Keymap {
+class X11Keymap {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkX11-3.0.GdkX11.X11Keymap */
@@ -969,7 +969,7 @@ export class X11Keymap {
 }
 export interface X11Monitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
-export class X11Monitor {
+class X11Monitor {
     /* Properties of Gdk-3.0.Gdk.Monitor */
     readonly geometry: Gdk.Rectangle
     readonly heightMm: number
@@ -1089,7 +1089,7 @@ export class X11Monitor {
 }
 export interface X11Screen_ConstructProps extends Gdk.Screen_ConstructProps {
 }
-export class X11Screen {
+class X11Screen {
     /* Properties of Gdk-3.0.Gdk.Screen */
     fontOptions: object
     resolution: number
@@ -1209,7 +1209,7 @@ export class X11Screen {
 }
 export interface X11Visual_ConstructProps extends Gdk.Visual_ConstructProps {
 }
-export class X11Visual {
+class X11Visual {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkX11-3.0.GdkX11.X11Visual */
@@ -1266,7 +1266,7 @@ export class X11Visual {
 }
 export interface X11Window_ConstructProps extends Gdk.Window_ConstructProps {
 }
-export class X11Window {
+class X11Window {
     /* Properties of Gdk-3.0.Gdk.Window */
     cursor: Gdk.Cursor
     /* Fields of GObject-2.0.GObject.Object */
@@ -1511,49 +1511,50 @@ export class X11Window {
     static lookupForDisplay(display: X11Display, window: xlib.Window): X11Window
     static $gtype: GObject.Type
 }
-export abstract class X11AppLaunchContextClass {
+abstract class X11AppLaunchContextClass {
     static name: string
 }
-export abstract class X11CursorClass {
+abstract class X11CursorClass {
     static name: string
 }
-export abstract class X11DeviceCoreClass {
+abstract class X11DeviceCoreClass {
     static name: string
 }
-export abstract class X11DeviceManagerCoreClass {
+abstract class X11DeviceManagerCoreClass {
     static name: string
 }
-export abstract class X11DeviceManagerXI2Class {
+abstract class X11DeviceManagerXI2Class {
     static name: string
 }
-export abstract class X11DeviceXI2Class {
+abstract class X11DeviceXI2Class {
     static name: string
 }
-export abstract class X11DisplayClass {
+abstract class X11DisplayClass {
     static name: string
 }
-export abstract class X11DisplayManagerClass {
+abstract class X11DisplayManagerClass {
     static name: string
 }
-export abstract class X11DragContextClass {
+abstract class X11DragContextClass {
     static name: string
 }
-export abstract class X11GLContextClass {
+abstract class X11GLContextClass {
     static name: string
 }
-export abstract class X11KeymapClass {
+abstract class X11KeymapClass {
     static name: string
 }
-export abstract class X11MonitorClass {
+abstract class X11MonitorClass {
     static name: string
 }
-export abstract class X11ScreenClass {
+abstract class X11ScreenClass {
     static name: string
 }
-export abstract class X11VisualClass {
+abstract class X11VisualClass {
     static name: string
 }
-export abstract class X11WindowClass {
+abstract class X11WindowClass {
     static name: string
 }
 }
+export default GdkX11

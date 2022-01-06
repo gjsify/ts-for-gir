@@ -10,9 +10,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace RestExtras {
+declare namespace RestExtras {
 
-export interface YoutubeProxyUploadCallback {
+interface YoutubeProxyUploadCallback {
     (proxy: YoutubeProxy, payload: string, total: number, uploaded: number, error: GLib.Error, weakObject: GObject.Object): void
 }
 export interface FlickrProxy_ConstructProps extends Rest.Proxy_ConstructProps {
@@ -20,7 +20,7 @@ export interface FlickrProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     sharedSecret?: string
     token?: string
 }
-export class FlickrProxy {
+class FlickrProxy {
     /* Properties of RestExtras-0.7.RestExtras.FlickrProxy */
     token: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -144,7 +144,7 @@ export class FlickrProxy {
 export interface FlickrProxyCall_ConstructProps extends Rest.ProxyCall_ConstructProps {
     upload?: boolean
 }
-export class FlickrProxyCall {
+class FlickrProxyCall {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCall */
     parent: Rest.ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -221,7 +221,7 @@ export interface LastfmProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     secret?: string
     sessionKey?: string
 }
-export class LastfmProxy {
+class LastfmProxy {
     /* Properties of RestExtras-0.7.RestExtras.LastfmProxy */
     sessionKey: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -342,7 +342,7 @@ export class LastfmProxy {
 }
 export interface LastfmProxyCall_ConstructProps extends Rest.ProxyCall_ConstructProps {
 }
-export class LastfmProxyCall {
+class LastfmProxyCall {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCall */
     parent: Rest.ProxyCall
     /* Fields of Rest-0.7.Rest.ProxyCall */
@@ -418,7 +418,7 @@ export interface YoutubeProxy_ConstructProps extends Rest.Proxy_ConstructProps {
     developerKey?: string
     userAuth?: string
 }
-export class YoutubeProxy {
+class YoutubeProxy {
     /* Properties of RestExtras-0.7.RestExtras.YoutubeProxy */
     userAuth: string
     /* Properties of Rest-0.7.Rest.Proxy */
@@ -532,38 +532,39 @@ export class YoutubeProxy {
     static newWithAuth(developerKey: string, userAuth: string): YoutubeProxy
     static $gtype: GObject.Type
 }
-export abstract class FlickrProxyCallClass {
+abstract class FlickrProxyCallClass {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyCallClass */
     parentClass: Rest.ProxyCallClass
     static name: string
 }
-export abstract class FlickrProxyClass {
+abstract class FlickrProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.FlickrProxyClass */
     parentClass: Rest.ProxyClass
     static name: string
 }
-export class FlickrProxyPrivate {
+class FlickrProxyPrivate {
     static name: string
 }
-export abstract class LastfmProxyCallClass {
+abstract class LastfmProxyCallClass {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyCallClass */
     parentClass: Rest.ProxyCallClass
     static name: string
 }
-export abstract class LastfmProxyClass {
+abstract class LastfmProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.LastfmProxyClass */
     parentClass: Rest.ProxyClass
     static name: string
 }
-export class LastfmProxyPrivate {
+class LastfmProxyPrivate {
     static name: string
 }
-export abstract class YoutubeProxyClass {
+abstract class YoutubeProxyClass {
     /* Fields of RestExtras-0.7.RestExtras.YoutubeProxyClass */
     parentClass: Rest.ProxyClass
     static name: string
 }
-export class YoutubeProxyPrivate {
+class YoutubeProxyPrivate {
     static name: string
 }
 }
+export default RestExtras

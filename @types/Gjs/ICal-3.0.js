@@ -1,2 +1,1 @@
-imports.gi.versions.ICal = '3.0'
-module.exports = imports.gi.ICal
+export {default as default} from 'gi://ICal?version=3.0';

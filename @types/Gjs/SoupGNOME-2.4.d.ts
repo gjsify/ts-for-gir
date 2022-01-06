@@ -3,16 +3,18 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace SoupGNOME {
 
 export const COOKIE_JAR_SQLITE_FILENAME: string
-export function gnome_features_2_26_get_type(): GObject.Type
+function gnome_features_2_26_get_type(): GObject.Type
 export interface CookieJarSqlite_ConstructProps extends Soup.CookieJarDB_ConstructProps {
 }
-export class CookieJarSqlite {
+class CookieJarSqlite {
     /* Properties of Soup-2.4.Soup.CookieJar */
     accept_policy: Soup.CookieJarAcceptPolicy
     /* Fields of SoupGNOME-2.4.SoupGNOME.CookieJarSqlite */
@@ -107,7 +109,7 @@ export class CookieJarSqlite {
 }
 export interface PasswordManagerGNOME_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PasswordManagerGNOME {
+class PasswordManagerGNOME {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -170,7 +172,7 @@ export class PasswordManagerGNOME {
 }
 export interface ProxyResolverGNOME_ConstructProps extends Soup.ProxyResolverDefault_ConstructProps {
 }
-export class ProxyResolverGNOME {
+class ProxyResolverGNOME {
     /* Properties of Soup-2.4.Soup.ProxyResolverDefault */
     gproxy_resolver: Gio.ProxyResolver
     /* Fields of Soup-2.4.Soup.ProxyResolverDefault */
@@ -242,8 +244,10 @@ export class ProxyResolverGNOME {
     _init (config?: ProxyResolverGNOME_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class CookieJarSqliteClass {
+abstract class CookieJarSqliteClass {
     /* Fields of SoupGNOME-2.4.SoupGNOME.CookieJarSqliteClass */
     parent_class: Soup.CookieJarDBClass
     static name: string
 }
+}
+export default SoupGNOME

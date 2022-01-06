@@ -7,12 +7,12 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GjsDBus {
+declare namespace GjsDBus {
 
 export interface Implementation_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     gInterfaceInfo?: Gio.DBusInterfaceInfo
 }
-export class Implementation {
+class Implementation {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GjsDBus-1.0.GjsDBus.Implementation */
@@ -106,12 +106,13 @@ export class Implementation {
     _init (config?: Implementation_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ImplementationClass {
+abstract class ImplementationClass {
     /* Fields of GjsDBus-1.0.GjsDBus.ImplementationClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ImplementationPrivate {
+class ImplementationPrivate {
     static name: string
 }
 }
+export default GjsDBus

@@ -17,36 +17,36 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { EvinceDocument } from './EvinceDocument-3.0';
 
-export declare namespace EvinceView {
+declare namespace EvinceView {
 
-export enum JobPriority {
+enum JobPriority {
     PRIORITY_URGENT,
     PRIORITY_HIGH,
     PRIORITY_LOW,
     PRIORITY_NONE,
     N_PRIORITIES,
 }
-export enum JobRunMode {
+enum JobRunMode {
     THREAD,
     MAIN_LOOP,
 }
-export enum JobThumbnailFormat {
+enum JobThumbnailFormat {
     PIXBUF,
     SURFACE,
 }
-export enum PageLayout {
+enum PageLayout {
     SINGLE,
     DUAL,
     AUTOMATIC,
 }
-export enum SizingMode {
+enum SizingMode {
     FIT_PAGE,
     BEST_FIT,
     FIT_WIDTH,
     FREE,
     AUTOMATIC,
 }
-export enum JobPageDataFlags {
+enum JobPageDataFlags {
     NONE,
     LINKS,
     TEXT,
@@ -80,9 +80,9 @@ export const STOCK_VISIBLE: string
 export const STOCK_ZOOM: string
 export const STOCK_ZOOM_PAGE: string
 export const STOCK_ZOOM_WIDTH: string
-export function stockIconsInit(): void
-export function stockIconsSetScreen(screen: Gdk.Screen): void
-export function stockIconsShutdown(): void
+function stockIconsInit(): void
+function stockIconsSetScreen(screen: Gdk.Screen): void
+function stockIconsShutdown(): void
 export interface DocumentModel_ConstructProps extends GObject.Object_ConstructProps {
     continuous?: boolean
     document?: EvinceDocument.Document
@@ -99,7 +99,7 @@ export interface DocumentModel_ConstructProps extends GObject.Object_ConstructPr
     scale?: number
     sizingMode?: SizingMode
 }
-export class DocumentModel {
+class DocumentModel {
     /* Properties of EvinceView-3.0.EvinceView.DocumentModel */
     continuous: boolean
     document: EvinceDocument.Document
@@ -268,7 +268,7 @@ export class DocumentModel {
 }
 export interface Job_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Job {
+class Job {
     /* Fields of EvinceView-3.0.EvinceView.Job */
     parent: GObject.Object
     document: EvinceDocument.Document
@@ -347,7 +347,7 @@ export class Job {
 }
 export interface JobAnnots_ConstructProps extends Job_ConstructProps {
 }
-export class JobAnnots {
+class JobAnnots {
     /* Fields of EvinceView-3.0.EvinceView.JobAnnots */
     parent: Job
     annots: object[]
@@ -428,7 +428,7 @@ export class JobAnnots {
 }
 export interface JobAttachments_ConstructProps extends Job_ConstructProps {
 }
-export class JobAttachments {
+class JobAttachments {
     /* Fields of EvinceView-3.0.EvinceView.JobAttachments */
     parent: Job
     attachments: object[]
@@ -509,7 +509,7 @@ export class JobAttachments {
 }
 export interface JobExport_ConstructProps extends Job_ConstructProps {
 }
-export class JobExport {
+class JobExport {
     /* Fields of EvinceView-3.0.EvinceView.JobExport */
     parent: Job
     page: number
@@ -593,7 +593,7 @@ export class JobExport {
 }
 export interface JobFind_ConstructProps extends Job_ConstructProps {
 }
-export class JobFind {
+class JobFind {
     /* Fields of EvinceView-3.0.EvinceView.JobFind */
     parent: Job
     startPage: number
@@ -692,7 +692,7 @@ export class JobFind {
 }
 export interface JobFonts_ConstructProps extends Job_ConstructProps {
 }
-export class JobFonts {
+class JobFonts {
     /* Fields of EvinceView-3.0.EvinceView.JobFonts */
     parent: Job
     scanCompleted: boolean
@@ -779,7 +779,7 @@ export class JobFonts {
 }
 export interface JobLayers_ConstructProps extends Job_ConstructProps {
 }
-export class JobLayers {
+class JobLayers {
     /* Fields of EvinceView-3.0.EvinceView.JobLayers */
     parent: Job
     model: Gtk.TreeModel
@@ -860,7 +860,7 @@ export class JobLayers {
 }
 export interface JobLinks_ConstructProps extends Job_ConstructProps {
 }
-export class JobLinks {
+class JobLinks {
     /* Fields of EvinceView-3.0.EvinceView.JobLinks */
     parent: Job
     model: Gtk.TreeModel
@@ -943,7 +943,7 @@ export class JobLinks {
 }
 export interface JobLoad_ConstructProps extends Job_ConstructProps {
 }
-export class JobLoad {
+class JobLoad {
     /* Fields of EvinceView-3.0.EvinceView.JobLoad */
     parent: Job
     uri: string
@@ -1028,7 +1028,7 @@ export class JobLoad {
 }
 export interface JobLoadGFile_ConstructProps extends Job_ConstructProps {
 }
-export class JobLoadGFile {
+class JobLoadGFile {
     /* Fields of EvinceView-3.0.EvinceView.JobLoadGFile */
     parent: Job
     password: string
@@ -1115,7 +1115,7 @@ export class JobLoadGFile {
 }
 export interface JobLoadStream_ConstructProps extends Job_ConstructProps {
 }
-export class JobLoadStream {
+class JobLoadStream {
     /* Fields of EvinceView-3.0.EvinceView.JobLoadStream */
     parent: Job
     password: string
@@ -1202,7 +1202,7 @@ export class JobLoadStream {
 }
 export interface JobPageData_ConstructProps extends Job_ConstructProps {
 }
-export class JobPageData {
+class JobPageData {
     /* Fields of EvinceView-3.0.EvinceView.JobPageData */
     parent: Job
     page: number
@@ -1296,7 +1296,7 @@ export class JobPageData {
 }
 export interface JobPrint_ConstructProps extends Job_ConstructProps {
 }
-export class JobPrint {
+class JobPrint {
     /* Fields of EvinceView-3.0.EvinceView.JobPrint */
     parent: Job
     page: number
@@ -1381,7 +1381,7 @@ export class JobPrint {
 }
 export interface JobRender_ConstructProps extends Job_ConstructProps {
 }
-export class JobRender {
+class JobRender {
     /* Fields of EvinceView-3.0.EvinceView.JobRender */
     parent: Job
     page: number
@@ -1477,7 +1477,7 @@ export class JobRender {
 }
 export interface JobSave_ConstructProps extends Job_ConstructProps {
 }
-export class JobSave {
+class JobSave {
     /* Fields of EvinceView-3.0.EvinceView.JobSave */
     parent: Job
     uri: string
@@ -1559,7 +1559,7 @@ export class JobSave {
 }
 export interface JobThumbnail_ConstructProps extends Job_ConstructProps {
 }
-export class JobThumbnail {
+class JobThumbnail {
     /* Fields of EvinceView-3.0.EvinceView.JobThumbnail */
     parent: Job
     page: number
@@ -1653,7 +1653,7 @@ export class JobThumbnail {
 export interface PrintOperation_ConstructProps extends GObject.Object_ConstructProps {
     document?: EvinceDocument.Document
 }
-export class PrintOperation {
+class PrintOperation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EvinceView-3.0.EvinceView.PrintOperation */
@@ -1736,7 +1736,7 @@ export interface View_ConstructProps extends Gtk.Container_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of EvinceView-3.0.EvinceView.View */
     readonly canZoomIn: boolean
     readonly canZoomOut: boolean
@@ -2873,7 +2873,7 @@ export interface ViewPresentation_ConstructProps extends Gtk.Widget_ConstructPro
     invertedColors?: boolean
     rotation?: number
 }
-export class ViewPresentation {
+class ViewPresentation {
     /* Properties of EvinceView-3.0.EvinceView.ViewPresentation */
     currentPage: number
     rotation: number
@@ -3804,22 +3804,22 @@ export class ViewPresentation {
     static new(document: EvinceDocument.Document, currentPage: number, rotation: number, invertedColors: boolean): ViewPresentation
     static $gtype: GObject.Type
 }
-export abstract class DocumentModelClass {
+abstract class DocumentModelClass {
     /* Fields of EvinceView-3.0.EvinceView.DocumentModelClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class JobAnnotsClass {
+abstract class JobAnnotsClass {
     /* Fields of EvinceView-3.0.EvinceView.JobAnnotsClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobAttachmentsClass {
+abstract class JobAttachmentsClass {
     /* Fields of EvinceView-3.0.EvinceView.JobAttachmentsClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobClass {
+abstract class JobClass {
     /* Fields of EvinceView-3.0.EvinceView.JobClass */
     parentClass: GObject.ObjectClass
     run: (job: Job) => boolean
@@ -3827,80 +3827,81 @@ export abstract class JobClass {
     finished: (job: Job) => void
     static name: string
 }
-export abstract class JobExportClass {
+abstract class JobExportClass {
     /* Fields of EvinceView-3.0.EvinceView.JobExportClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobFindClass {
+abstract class JobFindClass {
     /* Fields of EvinceView-3.0.EvinceView.JobFindClass */
     parentClass: JobClass
     updated: (job: JobFind, page: number) => void
     static name: string
 }
-export abstract class JobFontsClass {
+abstract class JobFontsClass {
     /* Fields of EvinceView-3.0.EvinceView.JobFontsClass */
     parentClass: JobClass
     updated: (job: JobFonts, progress: number) => void
     static name: string
 }
-export abstract class JobLayersClass {
+abstract class JobLayersClass {
     /* Fields of EvinceView-3.0.EvinceView.JobLayersClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobLinksClass {
+abstract class JobLinksClass {
     /* Fields of EvinceView-3.0.EvinceView.JobLinksClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobLoadClass {
+abstract class JobLoadClass {
     /* Fields of EvinceView-3.0.EvinceView.JobLoadClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobLoadGFileClass {
+abstract class JobLoadGFileClass {
     /* Fields of EvinceView-3.0.EvinceView.JobLoadGFileClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobLoadStreamClass {
+abstract class JobLoadStreamClass {
     /* Fields of EvinceView-3.0.EvinceView.JobLoadStreamClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobPageDataClass {
+abstract class JobPageDataClass {
     /* Fields of EvinceView-3.0.EvinceView.JobPageDataClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobPrintClass {
+abstract class JobPrintClass {
     /* Fields of EvinceView-3.0.EvinceView.JobPrintClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobRenderClass {
+abstract class JobRenderClass {
     /* Fields of EvinceView-3.0.EvinceView.JobRenderClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobSaveClass {
+abstract class JobSaveClass {
     /* Fields of EvinceView-3.0.EvinceView.JobSaveClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobThumbnailClass {
+abstract class JobThumbnailClass {
     /* Fields of EvinceView-3.0.EvinceView.JobThumbnailClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class PrintOperationClass {
+abstract class PrintOperationClass {
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     static name: string
 }
-export abstract class ViewPresentationClass {
+abstract class ViewPresentationClass {
     static name: string
 }
 }
+export default EvinceView

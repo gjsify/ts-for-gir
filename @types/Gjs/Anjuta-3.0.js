@@ -1,2 +1,1 @@
-imports.gi.versions.Anjuta = '3.0'
-module.exports = imports.gi.Anjuta
+export {default as default} from 'gi://Anjuta?version=3.0';

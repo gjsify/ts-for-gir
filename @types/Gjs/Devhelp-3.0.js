@@ -1,2 +1,1 @@
-imports.gi.versions.Devhelp = '3.0'
-module.exports = imports.gi.Devhelp
+export {default as default} from 'gi://Devhelp?version=3.0';

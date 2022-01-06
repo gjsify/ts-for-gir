@@ -1,2 +1,1 @@
-imports.gi.versions.EDataServer = '1.2'
-module.exports = imports.gi.EDataServer
+export {default as default} from 'gi://EDataServer?version=1.2';

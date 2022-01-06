@@ -3,10 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ClickBehavior {
+export namespace Bamf {
+
+enum ClickBehavior {
     NONE,
     OPEN,
     FOCUS,
@@ -16,13 +18,13 @@ export enum ClickBehavior {
     RESTORE_ALL,
     PICKER,
 }
-export enum WindowMaximizationType {
+enum WindowMaximizationType {
     FLOATING,
     HORIZONTAL_MAXIMIZED,
     VERTICAL_MAXIMIZED,
     MAXIMIZED,
 }
-export enum WindowType {
+enum WindowType {
     NORMAL,
     DESKTOP,
     DOCK,
@@ -54,12 +56,12 @@ export const VIEW_SIGNAL_URGENT_CHANGED: string
 export const VIEW_SIGNAL_USER_VISIBLE_CHANGED: string
 export const WINDOW_SIGNAL_MAXIMIZED_CHANGED: string
 export const WINDOW_SIGNAL_MONITOR_CHANGED: string
-export interface TabPreviewReadyCallback {
+interface TabPreviewReadyCallback {
     (self: Tab, preview_data: string): void
 }
 export interface Application_ConstructProps extends View_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Bamf-3.Bamf.View */
     readonly active: boolean
     readonly path: string
@@ -223,7 +225,7 @@ export class Application {
 }
 export interface Control_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Control {
+class Control {
     /* Fields of Bamf-3.Bamf.Control */
     parent: GObject.Object
     priv: ControlPrivate
@@ -281,7 +283,7 @@ export class Control {
 }
 export interface Matcher_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Matcher {
+class Matcher {
     /* Fields of Bamf-3.Bamf.Matcher */
     parent: GObject.Object
     priv: MatcherPrivate
@@ -365,7 +367,7 @@ export class Matcher {
 }
 export interface Tab_ConstructProps extends View_ConstructProps {
 }
-export class Tab {
+class Tab {
     /* Properties of Bamf-3.Bamf.Tab */
     readonly desktop_id: string
     readonly is_foreground_tab: boolean
@@ -535,7 +537,7 @@ export class Tab {
 }
 export interface View_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class View {
+class View {
     /* Properties of Bamf-3.Bamf.View */
     readonly active: boolean
     readonly path: string
@@ -679,7 +681,7 @@ export class View {
 }
 export interface Window_ConstructProps extends View_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of Bamf-3.Bamf.View */
     readonly active: boolean
     readonly path: string
@@ -848,31 +850,31 @@ export class Window {
     _init (config?: Window_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Bamf-3.Bamf.ApplicationClass */
     parent_class: ViewClass
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ControlClass {
+abstract class ControlClass {
     /* Fields of Bamf-3.Bamf.ControlClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ControlPrivate {
+class ControlPrivate {
     static name: string
 }
-export abstract class MatcherClass {
+abstract class MatcherClass {
     /* Fields of Bamf-3.Bamf.MatcherClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MatcherPrivate {
+class MatcherPrivate {
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Bamf-3.Bamf.TabClass */
     parent_class: ViewClass
     get_desktop_name: (self: Tab) => string
@@ -881,10 +883,10 @@ export abstract class TabClass {
     get_is_foreground_tab: (self: Tab) => boolean
     static name: string
 }
-export class TabPrivate {
+class TabPrivate {
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Bamf-3.Bamf.ViewClass */
     parent_class: GObject.InitiallyUnownedClass
     get_children: (view: View) => View[]
@@ -912,10 +914,10 @@ export abstract class ViewClass {
     starting_changed: (view: View, starting: boolean) => void
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Bamf-3.Bamf.WindowClass */
     parent_class: ViewClass
     get_transient: (self: Window) => Window
@@ -930,6 +932,8 @@ export abstract class WindowClass {
     maximized_changed: (window: Window, old_value: number, new_value: number) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
+}
+export default Bamf

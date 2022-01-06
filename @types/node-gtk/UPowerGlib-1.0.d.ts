@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace UPowerGlib {
+declare namespace UPowerGlib {
 
-export enum DeviceKind {
+enum DeviceKind {
     UNKNOWN,
     LINE_POWER,
     BATTERY,
@@ -24,7 +24,7 @@ export enum DeviceKind {
     COMPUTER,
     LAST,
 }
-export enum DeviceLevel {
+enum DeviceLevel {
     UNKNOWN,
     NONE,
     DISCHARGING,
@@ -33,7 +33,7 @@ export enum DeviceLevel {
     ACTION,
     LAST,
 }
-export enum DeviceState {
+enum DeviceState {
     UNKNOWN,
     CHARGING,
     DISCHARGING,
@@ -43,7 +43,7 @@ export enum DeviceState {
     PENDING_DISCHARGE,
     LAST,
 }
-export enum DeviceTechnology {
+enum DeviceTechnology {
     UNKNOWN,
     LITHIUM_ION,
     LITHIUM_POLYMER,
@@ -56,13 +56,13 @@ export enum DeviceTechnology {
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function clientGlueInterfaceInfo(): Gio.DBusInterfaceInfo
-export function clientGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function deviceGlueInterfaceInfo(): Gio.DBusInterfaceInfo
-export function deviceGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function wakeupsGlueInterfaceInfo(): Gio.DBusInterfaceInfo
-export function wakeupsGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export class ClientGlue {
+function clientGlueInterfaceInfo(): Gio.DBusInterfaceInfo
+function clientGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function deviceGlueInterfaceInfo(): Gio.DBusInterfaceInfo
+function deviceGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function wakeupsGlueInterfaceInfo(): Gio.DBusInterfaceInfo
+function wakeupsGlueOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+class ClientGlue {
     /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
     daemonVersion: string
     lidIsClosed: boolean
@@ -114,7 +114,7 @@ export class ClientGlue {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class DeviceGlue {
+class DeviceGlue {
     /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
     capacity: number
     energy: number
@@ -178,7 +178,7 @@ export class DeviceGlue {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class WakeupsGlue {
+class WakeupsGlue {
     /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
     hasCapability: boolean
     /* Methods of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
@@ -220,7 +220,7 @@ export class WakeupsGlue {
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of UPowerGlib-1.0.UPowerGlib.Client */
     readonly daemonVersion: string
     readonly lidIsClosed: boolean
@@ -318,7 +318,7 @@ export interface ClientGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     lidIsPresent?: boolean
     onBattery?: boolean
 }
-export class ClientGlueProxy {
+class ClientGlueProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -506,7 +506,7 @@ export interface ClientGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     lidIsPresent?: boolean
     onBattery?: boolean
 }
-export class ClientGlueSkeleton {
+class ClientGlueSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UPowerGlib-1.0.UPowerGlib.ClientGlue */
@@ -678,7 +678,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     voltage?: number
     warningLevel?: number
 }
-export class Device {
+class Device {
     /* Properties of UPowerGlib-1.0.UPowerGlib.Device */
     capacity: number
     energy: number
@@ -940,7 +940,7 @@ export interface DeviceGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     voltage?: number
     warningLevel?: number
 }
-export class DeviceGlueProxy {
+class DeviceGlueProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1284,7 +1284,7 @@ export interface DeviceGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     voltage?: number
     warningLevel?: number
 }
-export class DeviceGlueSkeleton {
+class DeviceGlueSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UPowerGlib-1.0.UPowerGlib.DeviceGlue */
@@ -1563,7 +1563,7 @@ export interface HistoryItem_ConstructProps extends GObject.Object_ConstructProp
     time?: number
     value?: number
 }
-export class HistoryItem {
+class HistoryItem {
     /* Properties of UPowerGlib-1.0.UPowerGlib.HistoryItem */
     state: number
     time: number
@@ -1644,7 +1644,7 @@ export interface StatsItem_ConstructProps extends GObject.Object_ConstructProps 
     accuracy?: number
     value?: number
 }
-export class StatsItem {
+class StatsItem {
     /* Properties of UPowerGlib-1.0.UPowerGlib.StatsItem */
     accuracy: number
     value: number
@@ -1718,7 +1718,7 @@ export interface WakeupItem_ConstructProps extends GObject.Object_ConstructProps
     old?: number
     value?: number
 }
-export class WakeupItem {
+class WakeupItem {
     /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupItem */
     cmdline: string
     details: string
@@ -1818,7 +1818,7 @@ export class WakeupItem {
 }
 export interface Wakeups_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Wakeups {
+class Wakeups {
     /* Fields of UPowerGlib-1.0.UPowerGlib.Wakeups */
     parent: GObject.Object
     priv: WakeupsPrivate
@@ -1885,7 +1885,7 @@ export class Wakeups {
 export interface WakeupsGlueProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     hasCapability?: boolean
 }
-export class WakeupsGlueProxy {
+class WakeupsGlueProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2043,7 +2043,7 @@ export class WakeupsGlueProxy {
 export interface WakeupsGlueSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     hasCapability?: boolean
 }
-export class WakeupsGlueSkeleton {
+class WakeupsGlueSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UPowerGlib-1.0.UPowerGlib.WakeupsGlue */
@@ -2158,14 +2158,14 @@ export class WakeupsGlueSkeleton {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (client: Client, device: Device) => void
     deviceRemoved: (client: Client, objectPath: string) => void
     static name: string
 }
-export abstract class ClientGlueIface {
+abstract class ClientGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueIface */
     parentIface: GObject.TypeInterface
     handleEnumerateDevices: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -2179,31 +2179,31 @@ export abstract class ClientGlueIface {
     deviceRemoved: (object: ClientGlue, argDevice: string) => void
     static name: string
 }
-export abstract class ClientGlueProxyClass {
+abstract class ClientGlueProxyClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ClientGlueProxyPrivate {
+class ClientGlueProxyPrivate {
     static name: string
 }
-export abstract class ClientGlueSkeletonClass {
+abstract class ClientGlueSkeletonClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ClientGlueSkeletonPrivate {
+class ClientGlueSkeletonPrivate {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DeviceGlueIface {
+abstract class DeviceGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueIface */
     parentIface: GObject.TypeInterface
     handleGetHistory: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean
@@ -2239,57 +2239,57 @@ export abstract class DeviceGlueIface {
     getWarningLevel: (object: DeviceGlue) => number
     static name: string
 }
-export abstract class DeviceGlueProxyClass {
+abstract class DeviceGlueProxyClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class DeviceGlueProxyPrivate {
+class DeviceGlueProxyPrivate {
     static name: string
 }
-export abstract class DeviceGlueSkeletonClass {
+abstract class DeviceGlueSkeletonClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class DeviceGlueSkeletonPrivate {
+class DeviceGlueSkeletonPrivate {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export abstract class HistoryItemClass {
+abstract class HistoryItemClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.HistoryItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class HistoryItemPrivate {
+class HistoryItemPrivate {
     static name: string
 }
-export abstract class StatsItemClass {
+abstract class StatsItemClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.StatsItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class StatsItemPrivate {
+class StatsItemPrivate {
     static name: string
 }
-export abstract class WakeupItemClass {
+abstract class WakeupItemClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WakeupItemPrivate {
+class WakeupItemPrivate {
     static name: string
 }
-export abstract class WakeupsClass {
+abstract class WakeupsClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsClass */
     parentClass: GObject.ObjectClass
     dataChanged: (wakeups: Wakeups) => void
     totalChanged: (wakeups: Wakeups, value: number) => void
     static name: string
 }
-export abstract class WakeupsGlueIface {
+abstract class WakeupsGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueIface */
     parentIface: GObject.TypeInterface
     handleGetData: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
@@ -2299,23 +2299,24 @@ export abstract class WakeupsGlueIface {
     totalChanged: (object: WakeupsGlue, argValue: number) => void
     static name: string
 }
-export abstract class WakeupsGlueProxyClass {
+abstract class WakeupsGlueProxyClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class WakeupsGlueProxyPrivate {
+class WakeupsGlueProxyPrivate {
     static name: string
 }
-export abstract class WakeupsGlueSkeletonClass {
+abstract class WakeupsGlueSkeletonClass {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class WakeupsGlueSkeletonPrivate {
+class WakeupsGlueSkeletonPrivate {
     static name: string
 }
-export class WakeupsPrivate {
+class WakeupsPrivate {
     static name: string
 }
 }
+export default UPowerGlib

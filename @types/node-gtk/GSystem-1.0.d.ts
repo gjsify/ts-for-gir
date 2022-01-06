@@ -7,61 +7,61 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GSystem {
+declare namespace GSystem {
 
-export enum SubprocessStreamDisposition {
+enum SubprocessStreamDisposition {
     NULL,
     INHERIT,
     PIPE,
     STDERR_MERGE,
 }
-export function dfdAndNameGetAllXattrs(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
-export function dfdAndNameSetAllXattrs(dfd: number, name: string, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
-export function dirfdIteratorClear(dfdIter: DirFdIterator): void
-export function dirfdIteratorInitAt(dfd: number, path: string, follow: boolean, dfdIter: DirFdIterator): boolean
-export function dirfdIteratorInitTakeFd(dfd: number, dfdIter: DirFdIterator): boolean
-export function fdGetAllXattrs(fd: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
-export function fdSetAllXattrs(fd: number, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
-export function fileChmod(path: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileChown(path: Gio.File, owner: number, group: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileCreate(file: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outStream: Gio.OutputStream | null }
-export function fileEnsureDirectory(dir: Gio.File, withParents: boolean, cancellable?: Gio.Cancellable | null): boolean
-export function fileEnsureDirectoryMode(dir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileEnumeratorIterate(direnum: Gio.FileEnumerator, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInfo: Gio.FileInfo | null, outChild: Gio.File | null }
-export function fileGetAllXattrs(f: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
-export function fileGetBasenameCached(file: Gio.File): string
-export function fileGetPathCached(file: Gio.File): string
-export function fileGetRelpath(one: Gio.File, two: Gio.File): string
-export function fileLchown(path: Gio.File, owner: number, group: number, cancellable?: Gio.Cancellable | null): boolean
-export function fileLinkcopy(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null): boolean
-export function fileLinkcopySyncData(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null): boolean
-export function fileLoadContentsUtf8(file: Gio.File, cancellable?: Gio.Cancellable | null): string
-export function fileMapReadonly(file: Gio.File, cancellable?: Gio.Cancellable | null): any
-export function fileOpenDirFd(path: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
-export function fileOpenDirFdAt(parentDfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
-export function fileOpenInTmpdir(tmpdir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFile: Gio.File, outStream: Gio.OutputStream | null }
-export function fileOpenInTmpdirAt(tmpdirFd: number, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outName: string, outStream: Gio.OutputStream | null }
-export function fileOpenatNoatime(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, retFd: number }
-export function fileReadNoatime(file: Gio.File, cancellable?: Gio.Cancellable | null): Gio.InputStream
-export function fileRealpath(file: Gio.File): Gio.File | null
-export function fileRename(from: Gio.File, to: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function fileSetAllXattrs(file: Gio.File, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
-export function fileSyncData(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function fileUnlink(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function fileutilGenTmpName(prefix?: string | null, suffix?: string | null): string
-export function logStructured(message: string, keys?: string[] | null): void
-export function logStructuredPrint(message: string, keys?: string[] | null): void
-export function opendirat(dfd: number, path: string, follow: boolean, outFd: number): boolean
-export function opendiratWithErrno(dfd: number, path: string, follow: boolean): number
-export function setErrorFromErrno(error: GLib.Error | null, savedErrno: number): void
-export function shutilCpA(src: Gio.File, dest: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function shutilCpAlOrFallback(src: Gio.File, dest: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function shutilRmRf(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
-export function shutilRmRfAt(dfd: number, path: string, cancellable?: Gio.Cancellable | null): boolean
-export function stdoutIsJournal(): boolean
+function dfdAndNameGetAllXattrs(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
+function dfdAndNameSetAllXattrs(dfd: number, name: string, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+function dirfdIteratorClear(dfdIter: DirFdIterator): void
+function dirfdIteratorInitAt(dfd: number, path: string, follow: boolean, dfdIter: DirFdIterator): boolean
+function dirfdIteratorInitTakeFd(dfd: number, dfdIter: DirFdIterator): boolean
+function fdGetAllXattrs(fd: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
+function fdSetAllXattrs(fd: number, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+function fileChmod(path: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
+function fileChown(path: Gio.File, owner: number, group: number, cancellable?: Gio.Cancellable | null): boolean
+function fileCreate(file: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outStream: Gio.OutputStream | null }
+function fileEnsureDirectory(dir: Gio.File, withParents: boolean, cancellable?: Gio.Cancellable | null): boolean
+function fileEnsureDirectoryMode(dir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): boolean
+function fileEnumeratorIterate(direnum: Gio.FileEnumerator, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInfo: Gio.FileInfo | null, outChild: Gio.File | null }
+function fileGetAllXattrs(f: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outXattrs: GLib.Variant }
+function fileGetBasenameCached(file: Gio.File): string
+function fileGetPathCached(file: Gio.File): string
+function fileGetRelpath(one: Gio.File, two: Gio.File): string
+function fileLchown(path: Gio.File, owner: number, group: number, cancellable?: Gio.Cancellable | null): boolean
+function fileLinkcopy(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null): boolean
+function fileLinkcopySyncData(src: Gio.File, dest: Gio.File, flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null): boolean
+function fileLoadContentsUtf8(file: Gio.File, cancellable?: Gio.Cancellable | null): string
+function fileMapReadonly(file: Gio.File, cancellable?: Gio.Cancellable | null): any
+function fileOpenDirFd(path: Gio.File, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
+function fileOpenDirFdAt(parentDfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFd: number }
+function fileOpenInTmpdir(tmpdir: Gio.File, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outFile: Gio.File, outStream: Gio.OutputStream | null }
+function fileOpenInTmpdirAt(tmpdirFd: number, mode: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outName: string, outStream: Gio.OutputStream | null }
+function fileOpenatNoatime(dfd: number, name: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, retFd: number }
+function fileReadNoatime(file: Gio.File, cancellable?: Gio.Cancellable | null): Gio.InputStream
+function fileRealpath(file: Gio.File): Gio.File | null
+function fileRename(from: Gio.File, to: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function fileSetAllXattrs(file: Gio.File, xattrs: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+function fileSyncData(file: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function fileUnlink(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function fileutilGenTmpName(prefix?: string | null, suffix?: string | null): string
+function logStructured(message: string, keys?: string[] | null): void
+function logStructuredPrint(message: string, keys?: string[] | null): void
+function opendirat(dfd: number, path: string, follow: boolean, outFd: number): boolean
+function opendiratWithErrno(dfd: number, path: string, follow: boolean): number
+function setErrorFromErrno(error: GLib.Error | null, savedErrno: number): void
+function shutilCpA(src: Gio.File, dest: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function shutilCpAlOrFallback(src: Gio.File, dest: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function shutilRmRf(path: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+function shutilRmRfAt(dfd: number, path: string, cancellable?: Gio.Cancellable | null): boolean
+function stdoutIsJournal(): boolean
 export interface Console_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Console {
+class Console {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GSystem-1.0.GSystem.Console */
@@ -116,7 +116,7 @@ export class Console {
 export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps {
     context?: SubprocessContext
 }
-export class Subprocess {
+class Subprocess {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GSystem-1.0.GSystem.Subprocess */
@@ -179,7 +179,7 @@ export class Subprocess {
 export interface SubprocessContext_ConstructProps extends GObject.Object_ConstructProps {
     argv?: string[]
 }
-export class SubprocessContext {
+class SubprocessContext {
     /* Properties of GSystem-1.0.GSystem.SubprocessContext */
     argv: string[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -249,7 +249,7 @@ export class SubprocessContext {
     static newArgv0(argv0: string, argv: string): SubprocessContext
     static $gtype: GObject.Type
 }
-export class DirFdIterator {
+class DirFdIterator {
     /* Fields of GSystem-1.0.GSystem.DirFdIterator */
     initialized: boolean
     fd: number
@@ -257,3 +257,4 @@ export class DirFdIterator {
     static name: string
 }
 }
+export default GSystem

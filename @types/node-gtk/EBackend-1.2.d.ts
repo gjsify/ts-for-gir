@@ -14,18 +14,18 @@ import type { Json } from './Json-1.0';
 import type { Goa } from './Goa-1.0';
 import type { Camel } from './Camel-1.2';
 
-export declare namespace EBackend {
+declare namespace EBackend {
 
-export enum AuthenticationSessionResult {
+enum AuthenticationSessionResult {
     ERROR,
     SUCCESS,
     DISMISSED,
 }
-export enum CacheDeletedFlag {
+enum CacheDeletedFlag {
     EXCLUDE_DELETED,
     INCLUDE_DELETED,
 }
-export enum CacheError {
+enum CacheError {
     ENGINE,
     CONSTRAINT,
     NOT_FOUND,
@@ -35,40 +35,40 @@ export enum CacheError {
     END_OF_LIST,
     LOAD,
 }
-export enum CacheLockType {
+enum CacheLockType {
     READ,
     WRITE,
 }
-export enum CacheOfflineFlag {
+enum CacheOfflineFlag {
     OFFLINE_UNKNOWN,
     IS_ONLINE,
     IS_OFFLINE,
 }
-export enum CacheUnlockAction {
+enum CacheUnlockAction {
     NONE,
     COMMIT,
     ROLLBACK,
 }
-export enum DBusServerExitCode {
+enum DBusServerExitCode {
     NONE,
     NORMAL,
     RELOAD,
 }
-export enum OfflineState {
+enum OfflineState {
     UNKNOWN,
     SYNCED,
     LOCALLY_CREATED,
     LOCALLY_MODIFIED,
     LOCALLY_DELETED,
 }
-export enum CollectionBackendParts {
+enum CollectionBackendParts {
     NONE,
     CALENDAR,
     CONTACTS,
     MAIL,
     ANY,
 }
-export enum SourcePermissionFlags {
+enum SourcePermissionFlags {
     NONE,
     WRITABLE,
     REMOVABLE,
@@ -82,19 +82,19 @@ export const CACHE_TABLE_OBJECTS: string
 export const EDS_REGISTRY_MODULES: string
 export const SOURCE_REGISTRY_SERVER_OBJECT_PATH: string
 export const USER_PROMPTER_SERVER_OBJECT_PATH: string
-export function cacheColumnInfoFree(info?: object | null): void
-export function cacheOfflineChangeFree(change?: object | null): void
-export function sqlite3VfsInit(): void
-export interface CacheForeachFunc {
+function cacheColumnInfoFree(info?: object | null): void
+function cacheOfflineChangeFree(change?: object | null): void
+function sqlite3VfsInit(): void
+interface CacheForeachFunc {
     (cache: Cache, uid: string, revision: string, object: string, offlineState: OfflineState, columnNames: string[], columnValues: string[]): boolean
 }
-export interface CacheSelectFunc {
+interface CacheSelectFunc {
     (cache: Cache, columnNames: string[], columnValues: string[]): boolean
 }
-export interface CacheUpdateFunc {
+interface CacheUpdateFunc {
     (cache: Cache, uid: string, revision: string, object: string, offlineState: OfflineState, columnNames: string[], columnValues: string[]): boolean
 }
-export class OAuth2Support {
+class OAuth2Support {
     /* Methods of EBackend-1.2.EBackend.OAuth2Support */
     getAccessToken(source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getAccessTokenFinish(result: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
@@ -106,7 +106,7 @@ export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
     online?: boolean
     source?: EDataServer.Source
 }
-export class Backend {
+class Backend {
     /* Properties of EBackend-1.2.EBackend.Backend */
     connectable: Gio.SocketConnectable
     readonly mainContext: GLib.MainContext
@@ -197,7 +197,7 @@ export class Backend {
 }
 export interface BackendFactory_ConstructProps extends EDataServer.Extension_ConstructProps {
 }
-export class BackendFactory {
+class BackendFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.BackendFactory */
@@ -249,7 +249,7 @@ export class BackendFactory {
 }
 export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Cache {
+class Cache {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.Cache */
@@ -351,7 +351,7 @@ export class Cache {
 }
 export interface CacheReaper_ConstructProps extends EDataServer.Extension_ConstructProps {
 }
-export class CacheReaper {
+class CacheReaper {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.CacheReaper */
@@ -407,7 +407,7 @@ export class CacheReaper {
 export interface CollectionBackend_ConstructProps extends Backend_ConstructProps {
     server?: SourceRegistryServer
 }
-export class CollectionBackend {
+class CollectionBackend {
     /* Properties of EBackend-1.2.EBackend.CollectionBackend */
     readonly proxyResolver: Gio.ProxyResolver
     /* Properties of EBackend-1.2.EBackend.Backend */
@@ -539,7 +539,7 @@ export class CollectionBackend {
 }
 export interface CollectionBackendFactory_ConstructProps extends BackendFactory_ConstructProps {
 }
-export class CollectionBackendFactory {
+class CollectionBackendFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.CollectionBackendFactory */
@@ -593,7 +593,7 @@ export class CollectionBackendFactory {
 }
 export interface DBusServer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DBusServer {
+class DBusServer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.DBusServer */
@@ -675,7 +675,7 @@ export interface DataFactory_ConstructProps extends DBusServer_ConstructProps {
     backendPerProcess?: number
     reloadSupported?: boolean
 }
-export class DataFactory {
+class DataFactory {
     /* Properties of EBackend-1.2.EBackend.DataFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of GObject-2.0.GObject.Object */
@@ -780,7 +780,7 @@ export class DataFactory {
 export interface FileCache_ConstructProps extends GObject.Object_ConstructProps {
     filename?: string
 }
-export class FileCache {
+class FileCache {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.FileCache */
@@ -847,7 +847,7 @@ export interface ServerSideSource_ConstructProps extends EDataServer.Source_Cons
     writable?: boolean
     writeDirectory?: string
 }
-export class ServerSideSource {
+class ServerSideSource {
     /* Properties of EBackend-1.2.EBackend.ServerSideSource */
     readonly exported: boolean
     oauth2Support: OAuth2Support
@@ -1085,7 +1085,7 @@ export class ServerSideSource {
 }
 export interface ServerSideSourceCredentialsProvider_ConstructProps extends EDataServer.SourceCredentialsProvider_ConstructProps {
 }
-export class ServerSideSourceCredentialsProvider {
+class ServerSideSourceCredentialsProvider {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCredentialsProvider */
@@ -1153,7 +1153,7 @@ export class ServerSideSourceCredentialsProvider {
 }
 export interface SourceRegistryServer_ConstructProps extends DataFactory_ConstructProps {
 }
-export class SourceRegistryServer {
+class SourceRegistryServer {
     /* Properties of EBackend-1.2.EBackend.DataFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of GObject-2.0.GObject.Object */
@@ -1302,7 +1302,7 @@ export class SourceRegistryServer {
 }
 export interface SubprocessFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SubprocessFactory {
+class SubprocessFactory {
     /* Properties of EBackend-1.2.EBackend.SubprocessFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of GObject-2.0.GObject.Object */
@@ -1366,7 +1366,7 @@ export class SubprocessFactory {
 }
 export interface UserPrompter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UserPrompter {
+class UserPrompter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.UserPrompter */
@@ -1420,7 +1420,7 @@ export class UserPrompter {
 }
 export interface UserPrompterServer_ConstructProps extends DBusServer_ConstructProps {
 }
-export class UserPrompterServer {
+class UserPrompterServer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.UserPrompterServer */
@@ -1511,7 +1511,7 @@ export class UserPrompterServer {
 }
 export interface UserPrompterServerExtension_ConstructProps extends EDataServer.Extension_ConstructProps {
 }
-export class UserPrompterServerExtension {
+class UserPrompterServerExtension {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.UserPrompterServerExtension */
@@ -1561,7 +1561,7 @@ export class UserPrompterServerExtension {
 }
 export interface WebDAVCollectionBackend_ConstructProps extends CollectionBackend_ConstructProps {
 }
-export class WebDAVCollectionBackend {
+class WebDAVCollectionBackend {
     /* Properties of EBackend-1.2.EBackend.CollectionBackend */
     readonly proxyResolver: Gio.ProxyResolver
     /* Properties of EBackend-1.2.EBackend.Backend */
@@ -1695,14 +1695,14 @@ export class WebDAVCollectionBackend {
     _init (config?: WebDAVCollectionBackend_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     /* Fields of EBackend-1.2.EBackend.BackendClass */
     getDestinationAddress: (backend: Backend) => { returnType: boolean, host: string, port: number }
     prepareShutdown: (backend: Backend) => void
     authenticateSync: (backend: Backend, credentials: EDataServer.NamedParameters, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null) => EDataServer.SourceAuthenticationResult
     static name: string
 }
-export abstract class BackendFactoryClass {
+abstract class BackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.BackendFactoryClass */
     getHashKey: (factory: BackendFactory) => string
     newBackend: (factory: BackendFactory, source: EDataServer.Source) => Backend
@@ -1710,13 +1710,13 @@ export abstract class BackendFactoryClass {
     shareSubprocess: boolean
     static name: string
 }
-export class BackendFactoryPrivate {
+class BackendFactoryPrivate {
     static name: string
 }
-export class BackendPrivate {
+class BackendPrivate {
     static name: string
 }
-export abstract class CacheClass {
+abstract class CacheClass {
     /* Fields of EBackend-1.2.EBackend.CacheClass */
     putLocked: (cache: Cache, uid: string, revision: string, object: string, otherColumns: CacheColumnValues, offlineState: OfflineState, isReplace: boolean, cancellable?: Gio.Cancellable | null) => boolean
     removeLocked: (cache: Cache, uid: string, cancellable?: Gio.Cancellable | null) => boolean
@@ -1727,7 +1727,7 @@ export abstract class CacheClass {
     revisionChanged: (cache: Cache) => void
     static name: string
 }
-export class CacheColumnInfo {
+class CacheColumnInfo {
     /* Fields of EBackend-1.2.EBackend.CacheColumnInfo */
     name: string
     type: string
@@ -1741,7 +1741,7 @@ export class CacheColumnInfo {
     static new(name: string, type: string, indexName?: string | null): CacheColumnInfo
     static free(info?: object | null): void
 }
-export class CacheColumnValues {
+class CacheColumnValues {
     /* Methods of EBackend-1.2.EBackend.CacheColumnValues */
     contains(name: string): boolean
     copy(): CacheColumnValues
@@ -1760,7 +1760,7 @@ export class CacheColumnValues {
     /* Static methods and pseudo-constructors */
     static new(): CacheColumnValues
 }
-export class CacheOfflineChange {
+class CacheOfflineChange {
     /* Fields of EBackend-1.2.EBackend.CacheOfflineChange */
     uid: string
     revision: string
@@ -1775,13 +1775,13 @@ export class CacheOfflineChange {
     static new(uid: string, revision: string | null, object: string | null, state: OfflineState): CacheOfflineChange
     static free(change?: object | null): void
 }
-export class CachePrivate {
+class CachePrivate {
     static name: string
 }
-export abstract class CacheReaperClass {
+abstract class CacheReaperClass {
     static name: string
 }
-export abstract class CollectionBackendClass {
+abstract class CollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendClass */
     populate: (backend: CollectionBackend) => void
     dupResourceId: (backend: CollectionBackend, childSource: EDataServer.Source) => string
@@ -1795,18 +1795,18 @@ export abstract class CollectionBackendClass {
     deleteResourceFinish: (backend: CollectionBackend, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class CollectionBackendFactoryClass {
+abstract class CollectionBackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendFactoryClass */
     prepareMail: (factory: CollectionBackendFactory, mailAccountSource: EDataServer.Source, mailIdentitySource: EDataServer.Source, mailTransportSource: EDataServer.Source) => void
     static name: string
 }
-export class CollectionBackendFactoryPrivate {
+class CollectionBackendFactoryPrivate {
     static name: string
 }
-export class CollectionBackendPrivate {
+class CollectionBackendPrivate {
     static name: string
 }
-export abstract class DBusServerClass {
+abstract class DBusServerClass {
     /* Fields of EBackend-1.2.EBackend.DBusServerClass */
     parentClass: GObject.ObjectClass
     busName: string
@@ -1819,10 +1819,10 @@ export abstract class DBusServerClass {
     reserved: object[]
     static name: string
 }
-export class DBusServerPrivate {
+class DBusServerPrivate {
     static name: string
 }
-export abstract class DataFactoryClass {
+abstract class DataFactoryClass {
     /* Fields of EBackend-1.2.EBackend.DataFactoryClass */
     parentClass: DBusServerClass
     backendFactoryType: GObject.Type
@@ -1837,41 +1837,41 @@ export abstract class DataFactoryClass {
     reserved: object[]
     static name: string
 }
-export class DataFactoryPrivate {
+class DataFactoryPrivate {
     static name: string
 }
-export abstract class FileCacheClass {
+abstract class FileCacheClass {
     /* Fields of EBackend-1.2.EBackend.FileCacheClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FileCachePrivate {
+class FileCachePrivate {
     static name: string
 }
-export abstract class OAuth2SupportInterface {
+abstract class OAuth2SupportInterface {
     /* Fields of EBackend-1.2.EBackend.OAuth2SupportInterface */
     getAccessTokenSync: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getAccessToken: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getAccessTokenFinish: (support: OAuth2Support, result: Gio.AsyncResult) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     static name: string
 }
-export abstract class ServerSideSourceClass {
+abstract class ServerSideSourceClass {
     /* Fields of EBackend-1.2.EBackend.ServerSideSourceClass */
     parentClass: EDataServer.SourceClass
     static name: string
 }
-export abstract class ServerSideSourceCredentialsProviderClass {
+abstract class ServerSideSourceCredentialsProviderClass {
     /* Fields of EBackend-1.2.EBackend.ServerSideSourceCredentialsProviderClass */
     parentClass: EDataServer.SourceCredentialsProviderClass
     static name: string
 }
-export class ServerSideSourceCredentialsProviderPrivate {
+class ServerSideSourceCredentialsProviderPrivate {
     static name: string
 }
-export class ServerSideSourcePrivate {
+class ServerSideSourcePrivate {
     static name: string
 }
-export abstract class SourceRegistryServerClass {
+abstract class SourceRegistryServerClass {
     /* Fields of EBackend-1.2.EBackend.SourceRegistryServerClass */
     parentClass: DataFactoryClass
     loadError: (server: SourceRegistryServer, file: Gio.File, error: GLib.Error) => void
@@ -1882,10 +1882,10 @@ export abstract class SourceRegistryServerClass {
     reserved: object[]
     static name: string
 }
-export class SourceRegistryServerPrivate {
+class SourceRegistryServerPrivate {
     static name: string
 }
-export abstract class SubprocessFactoryClass {
+abstract class SubprocessFactoryClass {
     /* Fields of EBackend-1.2.EBackend.SubprocessFactoryClass */
     parentClass: GObject.ObjectClass
     openData: (subprocessFactory: SubprocessFactory, backend: Backend, connection: Gio.DBusConnection, data?: object | null, cancellable?: Gio.Cancellable | null) => string
@@ -1893,43 +1893,44 @@ export abstract class SubprocessFactoryClass {
     backendClosed: (subprocessFactory: SubprocessFactory, backend: Backend) => void
     static name: string
 }
-export class SubprocessFactoryPrivate {
+class SubprocessFactoryPrivate {
     static name: string
 }
-export abstract class UserPrompterClass {
+abstract class UserPrompterClass {
     /* Fields of EBackend-1.2.EBackend.UserPrompterClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class UserPrompterPrivate {
+class UserPrompterPrivate {
     static name: string
 }
-export abstract class UserPrompterServerClass {
+abstract class UserPrompterServerClass {
     /* Fields of EBackend-1.2.EBackend.UserPrompterServerClass */
     parentClass: DBusServerClass
     static name: string
 }
-export abstract class UserPrompterServerExtensionClass {
+abstract class UserPrompterServerExtensionClass {
     /* Fields of EBackend-1.2.EBackend.UserPrompterServerExtensionClass */
     parentClass: EDataServer.ExtensionClass
     registerDialogs: (extension: EDataServer.Extension, server: object) => void
     prompt: (extension: UserPrompterServerExtension, promptId: number, dialogName: string, parameters?: EDataServer.NamedParameters | null) => boolean
     static name: string
 }
-export class UserPrompterServerExtensionPrivate {
+class UserPrompterServerExtensionPrivate {
     static name: string
 }
-export class UserPrompterServerPrivate {
+class UserPrompterServerPrivate {
     static name: string
 }
-export abstract class WebDAVCollectionBackendClass {
+abstract class WebDAVCollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.WebDAVCollectionBackendClass */
     parentClass: CollectionBackendClass
     getResourceId: (webdavBackend: WebDAVCollectionBackend, source: EDataServer.Source) => string | null
     isCustomSource: (webdavBackend: WebDAVCollectionBackend, source: EDataServer.Source) => boolean
     static name: string
 }
-export class WebDAVCollectionBackendPrivate {
+class WebDAVCollectionBackendPrivate {
     static name: string
 }
 }
+export default EBackend

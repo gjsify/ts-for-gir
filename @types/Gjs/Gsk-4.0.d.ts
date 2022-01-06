@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Graphene from './Graphene-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gdk from './Gdk-4.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type Graphene from './Graphene-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gdk from './Gdk-4.0';
+import type cairo from './cairo-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export enum BlendMode {
+export namespace Gsk {
+
+enum BlendMode {
     DEFAULT,
     MULTIPLY,
     SCREEN,
@@ -33,13 +35,13 @@ export enum BlendMode {
     SATURATION,
     LUMINOSITY,
 }
-export enum Corner {
+enum Corner {
     TOP_LEFT,
     TOP_RIGHT,
     BOTTOM_RIGHT,
     BOTTOM_LEFT,
 }
-export enum GLUniformType {
+enum GLUniformType {
     NONE,
     FLOAT,
     INT,
@@ -49,7 +51,7 @@ export enum GLUniformType {
     VEC3,
     VEC4,
 }
-export enum RenderNodeType {
+enum RenderNodeType {
     NOT_A_RENDER_NODE,
     CONTAINER_NODE,
     CAIRO_NODE,
@@ -77,17 +79,17 @@ export enum RenderNodeType {
     DEBUG_NODE,
     GL_SHADER_NODE,
 }
-export enum ScalingFilter {
+enum ScalingFilter {
     LINEAR,
     NEAREST,
     TRILINEAR,
 }
-export enum SerializationError {
+enum SerializationError {
     UNSUPPORTED_FORMAT,
     UNSUPPORTED_VERSION,
     INVALID_DATA,
 }
-export enum TransformCategory {
+enum TransformCategory {
     UNKNOWN,
     ANY,
     /* 3D (invalid, starts with a number) */
@@ -96,16 +98,16 @@ export enum TransformCategory {
     /* 2D_TRANSLATE (invalid, starts with a number) */
     IDENTITY,
 }
-export function serialization_error_quark(): GLib.Quark
-export function transform_parse(string: string): [ /* returnType */ boolean, /* out_transform */ Transform ]
-export function value_dup_render_node(value: any): RenderNode | null
-export function value_get_render_node(value: any): RenderNode | null
-export function value_set_render_node(value: any, node: RenderNode): void
-export function value_take_render_node(value: any, node?: RenderNode | null): void
-export interface ParseErrorFunc {
+function serialization_error_quark(): GLib.Quark
+function transform_parse(string: string): [ /* returnType */ boolean, /* out_transform */ Transform ]
+function value_dup_render_node(value: any): RenderNode | null
+function value_get_render_node(value: any): RenderNode | null
+function value_set_render_node(value: any, node: RenderNode): void
+function value_take_render_node(value: any, node?: RenderNode | null): void
+interface ParseErrorFunc {
     (start: ParseLocation, end: ParseLocation, error: GLib.Error): void
 }
-export class BlendNode {
+class BlendNode {
     /* Methods of Gsk-4.0.Gsk.BlendNode */
     get_blend_mode(): BlendMode
     get_bottom_child(): RenderNode
@@ -124,7 +126,7 @@ export class BlendNode {
     /* Static methods and pseudo-constructors */
     static new(bottom: RenderNode, top: RenderNode, blend_mode: BlendMode): BlendNode
 }
-export class BlurNode {
+class BlurNode {
     /* Methods of Gsk-4.0.Gsk.BlurNode */
     get_child(): RenderNode
     get_radius(): number
@@ -142,7 +144,7 @@ export class BlurNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, radius: number): BlurNode
 }
-export class BorderNode {
+class BorderNode {
     /* Methods of Gsk-4.0.Gsk.BorderNode */
     get_colors(): Gdk.RGBA
     get_outline(): RoundedRect
@@ -163,7 +165,7 @@ export class BorderNode {
 }
 export interface BroadwayRenderer_ConstructProps extends Renderer_ConstructProps {
 }
-export class BroadwayRenderer {
+class BroadwayRenderer {
     /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
@@ -225,7 +227,7 @@ export class BroadwayRenderer {
     static new(): BroadwayRenderer
     static $gtype: GObject.Type
 }
-export class CairoNode {
+class CairoNode {
     /* Methods of Gsk-4.0.Gsk.CairoNode */
     get_draw_context(): cairo.Context
     get_surface(): cairo.Surface
@@ -245,7 +247,7 @@ export class CairoNode {
 }
 export interface CairoRenderer_ConstructProps extends Renderer_ConstructProps {
 }
-export class CairoRenderer {
+class CairoRenderer {
     /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
@@ -307,7 +309,7 @@ export class CairoRenderer {
     static new(): CairoRenderer
     static $gtype: GObject.Type
 }
-export class ClipNode {
+class ClipNode {
     /* Methods of Gsk-4.0.Gsk.ClipNode */
     get_child(): RenderNode
     get_clip(): Graphene.Rect
@@ -325,7 +327,7 @@ export class ClipNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, clip: Graphene.Rect): ClipNode
 }
-export class ColorMatrixNode {
+class ColorMatrixNode {
     /* Methods of Gsk-4.0.Gsk.ColorMatrixNode */
     get_child(): RenderNode
     get_color_matrix(): Graphene.Matrix
@@ -344,7 +346,7 @@ export class ColorMatrixNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, color_matrix: Graphene.Matrix, color_offset: Graphene.Vec4): ColorMatrixNode
 }
-export class ColorNode {
+class ColorNode {
     /* Methods of Gsk-4.0.Gsk.ColorNode */
     get_color(): Gdk.RGBA
     /* Methods of Gsk-4.0.Gsk.RenderNode */
@@ -361,7 +363,7 @@ export class ColorNode {
     /* Static methods and pseudo-constructors */
     static new(rgba: Gdk.RGBA, bounds: Graphene.Rect): ColorNode
 }
-export class ConicGradientNode {
+class ConicGradientNode {
     /* Methods of Gsk-4.0.Gsk.ConicGradientNode */
     get_angle(): number
     get_center(): Graphene.Point
@@ -382,7 +384,7 @@ export class ConicGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, center: Graphene.Point, rotation: number, color_stops: ColorStop[]): ConicGradientNode
 }
-export class ContainerNode {
+class ContainerNode {
     /* Methods of Gsk-4.0.Gsk.ContainerNode */
     get_child(idx: number): RenderNode
     get_n_children(): number
@@ -400,7 +402,7 @@ export class ContainerNode {
     /* Static methods and pseudo-constructors */
     static new(children: RenderNode[]): ContainerNode
 }
-export class CrossFadeNode {
+class CrossFadeNode {
     /* Methods of Gsk-4.0.Gsk.CrossFadeNode */
     get_end_child(): RenderNode
     get_progress(): number
@@ -419,7 +421,7 @@ export class CrossFadeNode {
     /* Static methods and pseudo-constructors */
     static new(start: RenderNode, end: RenderNode, progress: number): CrossFadeNode
 }
-export class DebugNode {
+class DebugNode {
     /* Methods of Gsk-4.0.Gsk.DebugNode */
     get_child(): RenderNode
     get_message(): string
@@ -439,7 +441,7 @@ export class DebugNode {
 }
 export interface GLRenderer_ConstructProps extends Renderer_ConstructProps {
 }
-export class GLRenderer {
+class GLRenderer {
     /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
@@ -505,7 +507,7 @@ export interface GLShader_ConstructProps extends GObject.Object_ConstructProps {
     resource?: string
     source?: GLib.Bytes
 }
-export class GLShader {
+class GLShader {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gsk-4.0.Gsk.GLShader */
@@ -572,7 +574,7 @@ export class GLShader {
     static new_from_resource(resource_path: string): GLShader
     static $gtype: GObject.Type
 }
-export class GLShaderNode {
+class GLShaderNode {
     /* Methods of Gsk-4.0.Gsk.GLShaderNode */
     get_args(): GLib.Bytes
     get_child(idx: number): RenderNode
@@ -592,7 +594,7 @@ export class GLShaderNode {
     /* Static methods and pseudo-constructors */
     static new(shader: GLShader, bounds: Graphene.Rect, args: GLib.Bytes, children: RenderNode[]): GLShaderNode
 }
-export class InsetShadowNode {
+class InsetShadowNode {
     /* Methods of Gsk-4.0.Gsk.InsetShadowNode */
     get_blur_radius(): number
     get_color(): Gdk.RGBA
@@ -614,7 +616,7 @@ export class InsetShadowNode {
     /* Static methods and pseudo-constructors */
     static new(outline: RoundedRect, color: Gdk.RGBA, dx: number, dy: number, spread: number, blur_radius: number): InsetShadowNode
 }
-export class LinearGradientNode {
+class LinearGradientNode {
     /* Methods of Gsk-4.0.Gsk.LinearGradientNode */
     get_color_stops(): ColorStop[]
     get_end(): Graphene.Point
@@ -636,7 +638,7 @@ export class LinearGradientNode {
 }
 export interface NglRenderer_ConstructProps extends Renderer_ConstructProps {
 }
-export class NglRenderer {
+class NglRenderer {
     /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
@@ -698,7 +700,7 @@ export class NglRenderer {
     static new(): NglRenderer
     static $gtype: GObject.Type
 }
-export class OpacityNode {
+class OpacityNode {
     /* Methods of Gsk-4.0.Gsk.OpacityNode */
     get_child(): RenderNode
     get_opacity(): number
@@ -716,7 +718,7 @@ export class OpacityNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, opacity: number): OpacityNode
 }
-export class OutsetShadowNode {
+class OutsetShadowNode {
     /* Methods of Gsk-4.0.Gsk.OutsetShadowNode */
     get_blur_radius(): number
     get_color(): Gdk.RGBA
@@ -738,7 +740,7 @@ export class OutsetShadowNode {
     /* Static methods and pseudo-constructors */
     static new(outline: RoundedRect, color: Gdk.RGBA, dx: number, dy: number, spread: number, blur_radius: number): OutsetShadowNode
 }
-export class RadialGradientNode {
+class RadialGradientNode {
     /* Methods of Gsk-4.0.Gsk.RadialGradientNode */
     get_center(): Graphene.Point
     get_color_stops(): ColorStop[]
@@ -761,7 +763,7 @@ export class RadialGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, center: Graphene.Point, hradius: number, vradius: number, start: number, end: number, color_stops: ColorStop[]): RadialGradientNode
 }
-export class RenderNode {
+class RenderNode {
     /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
@@ -776,7 +778,7 @@ export class RenderNode {
 }
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Renderer {
+class Renderer {
     /* Properties of Gsk-4.0.Gsk.Renderer */
     readonly realized: boolean
     readonly surface: Gdk.Surface
@@ -838,7 +840,7 @@ export class Renderer {
     static new_for_surface(surface: Gdk.Surface): Renderer
     static $gtype: GObject.Type
 }
-export class RepeatNode {
+class RepeatNode {
     /* Methods of Gsk-4.0.Gsk.RepeatNode */
     get_child(): RenderNode
     get_child_bounds(): Graphene.Rect
@@ -856,7 +858,7 @@ export class RepeatNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, child: RenderNode, child_bounds?: Graphene.Rect | null): RepeatNode
 }
-export class RepeatingLinearGradientNode {
+class RepeatingLinearGradientNode {
     /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
@@ -871,7 +873,7 @@ export class RepeatingLinearGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, start: Graphene.Point, end: Graphene.Point, color_stops: ColorStop[]): RepeatingLinearGradientNode
 }
-export class RepeatingRadialGradientNode {
+class RepeatingRadialGradientNode {
     /* Methods of Gsk-4.0.Gsk.RenderNode */
     draw(cr: cairo.Context): void
     get_bounds(): /* bounds */ Graphene.Rect
@@ -886,7 +888,7 @@ export class RepeatingRadialGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, center: Graphene.Point, hradius: number, vradius: number, start: number, end: number, color_stops: ColorStop[]): RepeatingRadialGradientNode
 }
-export class RoundedClipNode {
+class RoundedClipNode {
     /* Methods of Gsk-4.0.Gsk.RoundedClipNode */
     get_child(): RenderNode
     get_clip(): RoundedRect
@@ -904,7 +906,7 @@ export class RoundedClipNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, clip: RoundedRect): RoundedClipNode
 }
-export class ShadowNode {
+class ShadowNode {
     /* Methods of Gsk-4.0.Gsk.ShadowNode */
     get_child(): RenderNode
     get_n_shadows(): number
@@ -923,7 +925,7 @@ export class ShadowNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, shadows: Shadow[]): ShadowNode
 }
-export class TextNode {
+class TextNode {
     /* Methods of Gsk-4.0.Gsk.TextNode */
     get_color(): Gdk.RGBA
     get_font(): Pango.Font
@@ -945,7 +947,7 @@ export class TextNode {
     /* Static methods and pseudo-constructors */
     static new(font: Pango.Font, glyphs: Pango.GlyphString, color: Gdk.RGBA, offset: Graphene.Point): TextNode
 }
-export class TextureNode {
+class TextureNode {
     /* Methods of Gsk-4.0.Gsk.TextureNode */
     get_texture(): Gdk.Texture
     /* Methods of Gsk-4.0.Gsk.RenderNode */
@@ -962,7 +964,7 @@ export class TextureNode {
     /* Static methods and pseudo-constructors */
     static new(texture: Gdk.Texture, bounds: Graphene.Rect): TextureNode
 }
-export class TransformNode {
+class TransformNode {
     /* Methods of Gsk-4.0.Gsk.TransformNode */
     get_child(): RenderNode
     get_transform(): Transform
@@ -980,27 +982,27 @@ export class TransformNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, transform: Transform): TransformNode
 }
-export abstract class BroadwayRendererClass {
+abstract class BroadwayRendererClass {
     static name: string
 }
-export abstract class CairoRendererClass {
+abstract class CairoRendererClass {
     static name: string
 }
-export class ColorStop {
+class ColorStop {
     /* Fields of Gsk-4.0.Gsk.ColorStop */
     offset: number
     color: Gdk.RGBA
     static name: string
 }
-export abstract class GLRendererClass {
+abstract class GLRendererClass {
     static name: string
 }
-export abstract class GLShaderClass {
+abstract class GLShaderClass {
     /* Fields of Gsk-4.0.Gsk.GLShaderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ParseLocation {
+class ParseLocation {
     /* Fields of Gsk-4.0.Gsk.ParseLocation */
     bytes: number
     chars: number
@@ -1009,10 +1011,10 @@ export class ParseLocation {
     line_chars: number
     static name: string
 }
-export abstract class RendererClass {
+abstract class RendererClass {
     static name: string
 }
-export class RoundedRect {
+class RoundedRect {
     /* Fields of Gsk-4.0.Gsk.RoundedRect */
     bounds: Graphene.Rect
     corner: Graphene.Size[]
@@ -1029,7 +1031,7 @@ export class RoundedRect {
     shrink(top: number, right: number, bottom: number, left: number): RoundedRect
     static name: string
 }
-export class ShaderArgsBuilder {
+class ShaderArgsBuilder {
     /* Methods of Gsk-4.0.Gsk.ShaderArgsBuilder */
     ref(): ShaderArgsBuilder
     set_bool(idx: number, value: boolean): void
@@ -1047,7 +1049,7 @@ export class ShaderArgsBuilder {
     /* Static methods and pseudo-constructors */
     static new(shader: GLShader, initial_values?: GLib.Bytes | null): ShaderArgsBuilder
 }
-export class Shadow {
+class Shadow {
     /* Fields of Gsk-4.0.Gsk.Shadow */
     color: Gdk.RGBA
     dx: number
@@ -1055,7 +1057,7 @@ export class Shadow {
     radius: number
     static name: string
 }
-export class Transform {
+class Transform {
     /* Methods of Gsk-4.0.Gsk.Transform */
     equal(second?: Transform | null): boolean
     get_category(): TransformCategory
@@ -1088,3 +1090,5 @@ export class Transform {
     static new(): Transform
     static parse(string: string): [ /* returnType */ boolean, /* out_transform */ Transform ]
 }
+}
+export default Gsk

@@ -1,2 +1,1 @@
-imports.gi.versions.GFBGraph = '0.3'
-module.exports = imports.gi.GFBGraph
+export {default as default} from 'gi://GFBGraph?version=0.3';

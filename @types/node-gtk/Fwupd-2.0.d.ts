@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Fwupd {
+declare namespace Fwupd {
 
-export enum Error {
+enum Error {
     INTERNAL,
     VERSION_NEWER,
     VERSION_SAME,
@@ -28,27 +28,27 @@ export enum Error {
     BATTERY_LEVEL_TOO_LOW,
     NEEDS_USER_ACTION,
 }
-export enum KeyringKind {
+enum KeyringKind {
     UNKNOWN,
     NONE,
     GPG,
     PKCS7,
     JCAT,
 }
-export enum ReleaseUrgency {
+enum ReleaseUrgency {
     UNKNOWN,
     LOW,
     MEDIUM,
     HIGH,
     CRITICAL,
 }
-export enum RemoteKind {
+enum RemoteKind {
     UNKNOWN,
     DOWNLOAD,
     LOCAL,
     DIRECTORY,
 }
-export enum SecurityAttrLevel {
+enum SecurityAttrLevel {
     NONE,
     CRITICAL,
     IMPORTANT,
@@ -56,7 +56,7 @@ export enum SecurityAttrLevel {
     SYSTEM_PROTECTION,
     SYSTEM_ATTESTATION,
 }
-export enum SecurityAttrResult {
+enum SecurityAttrResult {
     UNKNOWN,
     ENABLED,
     NOT_ENABLED,
@@ -73,7 +73,7 @@ export enum SecurityAttrResult {
     SUPPORTED,
     NOT_SUPPORTED,
 }
-export enum Status {
+enum Status {
     UNKNOWN,
     IDLE,
     LOADING,
@@ -89,7 +89,7 @@ export enum Status {
     DEVICE_BUSY,
     SHUTDOWN,
 }
-export enum UpdateState {
+enum UpdateState {
     UNKNOWN,
     PENDING,
     SUCCESS,
@@ -97,7 +97,7 @@ export enum UpdateState {
     NEEDS_REBOOT,
     FAILED_TRANSIENT,
 }
-export enum VersionFormat {
+enum VersionFormat {
     UNKNOWN,
     PLAIN,
     NUMBER,
@@ -112,27 +112,27 @@ export enum VersionFormat {
     DELL_BIOS,
     HEX,
 }
-export enum ClientDownloadFlags {
+enum ClientDownloadFlags {
     NONE,
     ONLY_IPFS,
 }
-export enum ClientUploadFlags {
+enum ClientUploadFlags {
     NONE,
     ALWAYS_MULTIPART,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     NONE,
     CAN_REPORT,
     DETACH_ACTION,
     UPDATE_ACTION,
     SWITCH_BRANCH,
 }
-export enum GuidFlags {
+enum GuidFlags {
     NONE,
     NAMESPACE_MICROSOFT,
     MIXED_ENDIAN,
 }
-export enum InstallFlags {
+enum InstallFlags {
     NONE,
     OFFLINE,
     ALLOW_REINSTALL,
@@ -145,7 +145,7 @@ export enum InstallFlags {
     IGNORE_POWER,
     NO_SEARCH,
 }
-export enum SecurityAttrFlags {
+enum SecurityAttrFlags {
     NONE,
     SUCCESS,
     OBSOLETED,
@@ -153,12 +153,12 @@ export enum SecurityAttrFlags {
     RUNTIME_ATTESTATION,
     RUNTIME_ISSUE,
 }
-export enum SelfSignFlags {
+enum SelfSignFlags {
     NONE,
     ADD_TIMESTAMP,
     ADD_CERT,
 }
-export enum TrustFlags {
+enum TrustFlags {
     NONE,
     PAYLOAD,
     METADATA,
@@ -313,39 +313,39 @@ export const SECURITY_ATTR_ID_TPM_RECONSTRUCTION_PCR0: string
 export const SECURITY_ATTR_ID_TPM_VERSION_20: string
 export const SECURITY_ATTR_ID_UEFI_PK: string
 export const SECURITY_ATTR_ID_UEFI_SECUREBOOT: string
-export function buildHistoryReportJson(devices: Device[]): string
-export function buildMachineId(salt: string): string
-export function buildUserAgent(packageName: string, packageVersion: string): string
-export function checksumFormatForDisplay(checksum: string): string
-export function checksumGetBest(checksums: string[]): string
-export function checksumGetByKind(checksums: string[], kind: GLib.ChecksumType): string
-export function checksumGuessKind(checksum: string): GLib.ChecksumType
-export function errorFromString(error: string): Error
-export function errorQuark(): GLib.Quark
-export function errorToString(error: Error): string
-export function featureFlagFromString(featureFlag: string): FeatureFlags
-export function featureFlagToString(featureFlag: FeatureFlags): string
-export function getOsRelease(): GLib.HashTable
-export function guidFromString(guidstr: string | null, guid: number, flags: GuidFlags): boolean
-export function guidHashData(data: number, datasz: number, flags: GuidFlags): string
-export function guidHashString(str: string): string
-export function guidIsValid(guid: string): boolean
-export function guidToString(guid: number, flags: GuidFlags): string
-export function keyringKindFromString(keyringKind: string): KeyringKind
-export function keyringKindToString(keyringKind: KeyringKind): string
-export function statusFromString(status: string): Status
-export function statusToString(status: Status): string
-export function trustFlagFromString(trustFlag: string): TrustFlags
-export function trustFlagToString(trustFlag: TrustFlags): string
-export function updateStateFromString(updateState: string): UpdateState
-export function updateStateToString(updateState: UpdateState): string
-export function versionFormatFromString(str: string): VersionFormat
-export function versionFormatToString(kind: VersionFormat): string
+function buildHistoryReportJson(devices: Device[]): string
+function buildMachineId(salt: string): string
+function buildUserAgent(packageName: string, packageVersion: string): string
+function checksumFormatForDisplay(checksum: string): string
+function checksumGetBest(checksums: string[]): string
+function checksumGetByKind(checksums: string[], kind: GLib.ChecksumType): string
+function checksumGuessKind(checksum: string): GLib.ChecksumType
+function errorFromString(error: string): Error
+function errorQuark(): GLib.Quark
+function errorToString(error: Error): string
+function featureFlagFromString(featureFlag: string): FeatureFlags
+function featureFlagToString(featureFlag: FeatureFlags): string
+function getOsRelease(): GLib.HashTable
+function guidFromString(guidstr: string | null, guid: number, flags: GuidFlags): boolean
+function guidHashData(data: number, datasz: number, flags: GuidFlags): string
+function guidHashString(str: string): string
+function guidIsValid(guid: string): boolean
+function guidToString(guid: number, flags: GuidFlags): string
+function keyringKindFromString(keyringKind: string): KeyringKind
+function keyringKindToString(keyringKind: KeyringKind): string
+function statusFromString(status: string): Status
+function statusToString(status: Status): string
+function trustFlagFromString(trustFlag: string): TrustFlags
+function trustFlagToString(trustFlag: TrustFlags): string
+function updateStateFromString(updateState: string): UpdateState
+function updateStateToString(updateState: UpdateState): string
+function versionFormatFromString(str: string): VersionFormat
+function versionFormatToString(kind: VersionFormat): string
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     percentage?: number
     status?: number
 }
-export class Client {
+class Client {
     /* Properties of Fwupd-2.0.Fwupd.Client */
     readonly daemonVersion: string
     readonly hostMachineId: string
@@ -609,7 +609,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     updateState?: number
     versionFormat?: number
 }
-export class Device {
+class Device {
     /* Properties of Fwupd-2.0.Fwupd.Device */
     flags: number
     parent: Device
@@ -789,7 +789,7 @@ export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
     flags?: number
     name?: string
 }
-export class Plugin {
+class Plugin {
     /* Properties of Fwupd-2.0.Fwupd.Plugin */
     flags: number
     name: string
@@ -865,7 +865,7 @@ export class Plugin {
 }
 export interface Release_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Release {
+class Release {
     /* Fields of Fwupd-2.0.Fwupd.Release */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -997,7 +997,7 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     enabled?: boolean
     id?: string
 }
-export class Remote {
+class Remote {
     /* Properties of Fwupd-2.0.Fwupd.Remote */
     approvalRequired: boolean
     automaticReports: boolean
@@ -1117,7 +1117,7 @@ export class Remote {
 }
 export interface SecurityAttr_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SecurityAttr {
+class SecurityAttr {
     /* Fields of Fwupd-2.0.Fwupd.SecurityAttr */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1193,7 +1193,7 @@ export class SecurityAttr {
     static resultToString(result: SecurityAttrResult): string
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Fwupd-2.0.Fwupd.ClientClass */
     parentClass: GObject.ObjectClass
     changed: (client: Client) => void
@@ -1203,32 +1203,33 @@ export abstract class ClientClass {
     deviceChanged: (client: Client, result: Device) => void
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Fwupd-2.0.Fwupd.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of Fwupd-2.0.Fwupd.PluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ReleaseClass {
+abstract class ReleaseClass {
     /* Fields of Fwupd-2.0.Fwupd.ReleaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RemoteClass {
+abstract class RemoteClass {
     /* Fields of Fwupd-2.0.Fwupd.RemoteClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SecurityAttrClass {
+abstract class SecurityAttrClass {
     /* Fields of Fwupd-2.0.Fwupd.SecurityAttrClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export type DeviceFlags = number
-export type PluginFlags = number
-export type ReleaseFlags = number
+type DeviceFlags = number
+type PluginFlags = number
+type ReleaseFlags = number
 }
+export default Fwupd

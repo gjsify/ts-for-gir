@@ -8,11 +8,11 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GVncPulse {
+declare namespace GVncPulse {
 
 export interface AudioPulse_ConstructProps extends GVnc.BaseAudio_ConstructProps {
 }
-export class AudioPulse {
+class AudioPulse {
     /* Fields of GVncPulse-1.0.GVncPulse.AudioPulse */
     parent: GVnc.BaseAudio
     priv: AudioPulsePrivate
@@ -80,12 +80,13 @@ export class AudioPulse {
     static new(): AudioPulse
     static $gtype: GObject.Type
 }
-export abstract class AudioPulseClass {
+abstract class AudioPulseClass {
     /* Fields of GVncPulse-1.0.GVncPulse.AudioPulseClass */
     parentClass: GVnc.BaseAudioClass
     static name: string
 }
-export class AudioPulsePrivate {
+class AudioPulsePrivate {
     static name: string
 }
 }
+export default GVncPulse

@@ -17,10 +17,11 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { GnomeAutoar } from './GnomeAutoar-0.1';
 
-export declare namespace GnomeAutoarGtk {
+declare namespace GnomeAutoarGtk {
 
-export function chooserAdvancedGet(advanced: Gtk.Widget, format: number, filter: number): boolean
-export function chooserAdvancedNew(defaultFormat: GnomeAutoar.Format, defaultFilter: GnomeAutoar.Filter): Gtk.Widget
-export function chooserSimpleGet(simple: Gtk.Widget, format: number, filter: number): boolean
-export function chooserSimpleNew(defaultFormat: GnomeAutoar.Format, defaultFilter: GnomeAutoar.Filter): Gtk.Widget
+function chooserAdvancedGet(advanced: Gtk.Widget, format: number, filter: number): boolean
+function chooserAdvancedNew(defaultFormat: GnomeAutoar.Format, defaultFilter: GnomeAutoar.Filter): Gtk.Widget
+function chooserSimpleGet(simple: Gtk.Widget, format: number, filter: number): boolean
+function chooserSimpleNew(defaultFormat: GnomeAutoar.Format, defaultFilter: GnomeAutoar.Filter): Gtk.Widget
 }
+export default GnomeAutoarGtk

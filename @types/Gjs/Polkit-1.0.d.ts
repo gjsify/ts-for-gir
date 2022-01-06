@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum Error {
+export namespace Polkit {
+
+enum Error {
     FAILED,
     CANCELLED,
     NOT_SUPPORTED,
     NOT_AUTHORIZED,
 }
-export enum ImplicitAuthorization {
+enum ImplicitAuthorization {
     UNKNOWN,
     NOT_AUTHORIZED,
     AUTHENTICATION_REQUIRED,
@@ -22,20 +24,20 @@ export enum ImplicitAuthorization {
     ADMINISTRATOR_AUTHENTICATION_REQUIRED_RETAINED,
     AUTHORIZED,
 }
-export enum AuthorityFeatures {
+enum AuthorityFeatures {
     NONE,
     TEMPORARY_AUTHORIZATION,
 }
-export enum CheckAuthorizationFlags {
+enum CheckAuthorizationFlags {
     NONE,
     ALLOW_USER_INTERACTION,
 }
-export function error_quark(): GLib.Quark
-export function identity_from_string(str: string): Identity | null
-export function implicit_authorization_from_string(string: string, out_implicit_authorization: ImplicitAuthorization): boolean
-export function implicit_authorization_to_string(implicit_authorization: ImplicitAuthorization): string
-export function subject_from_string(str: string): Subject
-export class Identity {
+function error_quark(): GLib.Quark
+function identity_from_string(str: string): Identity | null
+function implicit_authorization_from_string(string: string, out_implicit_authorization: ImplicitAuthorization): boolean
+function implicit_authorization_to_string(implicit_authorization: ImplicitAuthorization): string
+function subject_from_string(str: string): Subject
+class Identity {
     /* Methods of Polkit-1.0.Polkit.Identity */
     equal(b: Identity): boolean
     hash(): number
@@ -48,7 +50,7 @@ export class Identity {
     /* Static methods and pseudo-constructors */
     static from_string(str: string): Identity | null
 }
-export class Subject {
+class Subject {
     /* Methods of Polkit-1.0.Polkit.Subject */
     equal(b: Subject): boolean
     exists(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -69,7 +71,7 @@ export class Subject {
 }
 export interface ActionDescription_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionDescription {
+class ActionDescription {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Polkit-1.0.Polkit.ActionDescription */
@@ -129,7 +131,7 @@ export class ActionDescription {
 }
 export interface Authority_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Authority {
+class Authority {
     /* Properties of Polkit-1.0.Polkit.Authority */
     readonly backend_features: AuthorityFeatures
     readonly backend_name: string
@@ -243,7 +245,7 @@ export class Authority {
 }
 export interface AuthorizationResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthorizationResult {
+class AuthorizationResult {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Polkit-1.0.Polkit.AuthorizationResult */
@@ -300,7 +302,7 @@ export class AuthorizationResult {
 }
 export interface Details_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Details {
+class Details {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Polkit-1.0.Polkit.Details */
@@ -356,7 +358,7 @@ export interface Permission_ConstructProps extends Gio.Permission_ConstructProps
     action_id?: string
     subject?: Subject
 }
-export class Permission {
+class Permission {
     /* Properties of Gio-2.0.Gio.Permission */
     readonly allowed: boolean
     readonly can_acquire: boolean
@@ -453,7 +455,7 @@ export class Permission {
 export interface SystemBusName_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class SystemBusName {
+class SystemBusName {
     /* Properties of Polkit-1.0.Polkit.SystemBusName */
     name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -526,7 +528,7 @@ export class SystemBusName {
 }
 export interface TemporaryAuthorization_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TemporaryAuthorization {
+class TemporaryAuthorization {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Polkit-1.0.Polkit.TemporaryAuthorization */
@@ -581,7 +583,7 @@ export class TemporaryAuthorization {
 export interface UnixGroup_ConstructProps extends GObject.Object_ConstructProps {
     gid?: number
 }
-export class UnixGroup {
+class UnixGroup {
     /* Properties of Polkit-1.0.Polkit.UnixGroup */
     gid: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -648,7 +650,7 @@ export class UnixGroup {
 export interface UnixNetgroup_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class UnixNetgroup {
+class UnixNetgroup {
     /* Properties of Polkit-1.0.Polkit.UnixNetgroup */
     name: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -716,7 +718,7 @@ export interface UnixProcess_ConstructProps extends GObject.Object_ConstructProp
     start_time?: number
     uid?: number
 }
-export class UnixProcess {
+class UnixProcess {
     /* Properties of Polkit-1.0.Polkit.UnixProcess */
     pid: number
     start_time: number
@@ -802,7 +804,7 @@ export interface UnixSession_ConstructProps extends GObject.Object_ConstructProp
     pid?: number
     session_id?: string
 }
-export class UnixSession {
+class UnixSession {
     /* Properties of Polkit-1.0.Polkit.UnixSession */
     session_id: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -888,7 +890,7 @@ export class UnixSession {
 export interface UnixUser_ConstructProps extends GObject.Object_ConstructProps {
     uid?: number
 }
-export class UnixUser {
+class UnixUser {
     /* Properties of Polkit-1.0.Polkit.UnixUser */
     uid: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -953,19 +955,19 @@ export class UnixUser {
     static from_string(str: string): Identity | null
     static $gtype: GObject.Type
 }
-export abstract class ActionDescriptionClass {
+abstract class ActionDescriptionClass {
     static name: string
 }
-export abstract class AuthorityClass {
+abstract class AuthorityClass {
     static name: string
 }
-export abstract class AuthorizationResultClass {
+abstract class AuthorizationResultClass {
     static name: string
 }
-export abstract class DetailsClass {
+abstract class DetailsClass {
     static name: string
 }
-export abstract class IdentityIface {
+abstract class IdentityIface {
     /* Fields of Polkit-1.0.Polkit.IdentityIface */
     parent_iface: GObject.TypeInterface
     hash: (identity: Identity) => number
@@ -973,7 +975,7 @@ export abstract class IdentityIface {
     to_string: (identity: Identity) => string
     static name: string
 }
-export abstract class SubjectIface {
+abstract class SubjectIface {
     /* Fields of Polkit-1.0.Polkit.SubjectIface */
     parent_iface: GObject.TypeInterface
     hash: (subject: Subject) => number
@@ -984,24 +986,26 @@ export abstract class SubjectIface {
     exists_sync: (subject: Subject, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export abstract class SystemBusNameClass {
+abstract class SystemBusNameClass {
     static name: string
 }
-export abstract class TemporaryAuthorizationClass {
+abstract class TemporaryAuthorizationClass {
     static name: string
 }
-export abstract class UnixGroupClass {
+abstract class UnixGroupClass {
     static name: string
 }
-export abstract class UnixNetgroupClass {
+abstract class UnixNetgroupClass {
     static name: string
 }
-export abstract class UnixProcessClass {
+abstract class UnixProcessClass {
     static name: string
 }
-export abstract class UnixSessionClass {
+abstract class UnixSessionClass {
     static name: string
 }
-export abstract class UnixUserClass {
+abstract class UnixUserClass {
     static name: string
 }
+}
+export default Polkit

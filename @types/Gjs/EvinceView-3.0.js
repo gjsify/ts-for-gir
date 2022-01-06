@@ -1,2 +1,1 @@
-imports.gi.versions.EvinceView = '3.0'
-module.exports = imports.gi.EvinceView
+export {default as default} from 'gi://EvinceView?version=3.0';

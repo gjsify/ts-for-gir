@@ -1,2 +1,1 @@
-imports.gi.versions.Mbim = '1.0'
-module.exports = imports.gi.Mbim
+export {default as default} from 'gi://Mbim?version=1.0';

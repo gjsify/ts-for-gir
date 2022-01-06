@@ -8,19 +8,19 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GUdev } from './GUdev-1.0';
 
-export declare namespace Manette {
+declare namespace Manette {
 
-export enum EventType {
+enum EventType {
     EVENT_NOTHING,
     EVENT_BUTTON_PRESS,
     EVENT_BUTTON_RELEASE,
     EVENT_ABSOLUTE,
     EVENT_HAT,
 }
-export function getResource(): Gio.Resource
+function getResource(): Gio.Resource
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Device {
+class Device {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Manette-0.2.Manette.Device */
@@ -104,7 +104,7 @@ export class Device {
 }
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Monitor {
+class Monitor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Manette-0.2.Manette.Monitor */
@@ -162,22 +162,22 @@ export class Monitor {
     static new(): Monitor
     static $gtype: GObject.Type
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Manette-0.2.Manette.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class MonitorClass {
+abstract class MonitorClass {
     /* Fields of Manette-0.2.Manette.MonitorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MonitorIter {
+class MonitorIter {
     /* Methods of Manette-0.2.Manette.MonitorIter */
     next(): { returnType: boolean, device: Device | null }
     static name: string
 }
-export class Event {
+class Event {
     /* Methods of Manette-0.2.Manette.Event */
     getAbsolute(): { returnType: boolean, axis: number, value: number }
     getButton(): { returnType: boolean, button: number }
@@ -192,3 +192,4 @@ export class Event {
     static name: string
 }
 }
+export default Manette

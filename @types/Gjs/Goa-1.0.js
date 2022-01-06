@@ -1,2 +1,1 @@
-imports.gi.versions.Goa = '1.0'
-module.exports = imports.gi.Goa
+export {default as default} from 'gi://Goa?version=1.0';

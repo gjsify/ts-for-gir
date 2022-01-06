@@ -3,34 +3,36 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as ICalGLib from './ICalGLib-3.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
-import type * as ECal from './ECal-2.0';
-import type * as EBackend from './EBackend-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type ICalGLib from './ICalGLib-3.0';
+import type EDataServer from './EDataServer-1.2';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
+import type ECal from './ECal-2.0';
+import type EBackend from './EBackend-1.2';
+
+export namespace EDataCal {
 
 export const EDS_CALENDAR_MODULES: string
 export const EDS_SUBPROCESS_CAL_PATH: string
 export const INTERVALTREE_DEBUG: number
 export const LIBICAL_GLIB_UNSTABLE_API: number
-export function cal_cache_offline_change_free(change?: object | null): void
-export function cal_cache_search_data_free(ptr?: object | null): void
-export function cal_meta_backend_info_free(ptr?: object | null): void
-export interface CalBackendCustomOpFunc {
+function cal_cache_offline_change_free(change?: object | null): void
+function cal_cache_search_data_free(ptr?: object | null): void
+function cal_meta_backend_info_free(ptr?: object | null): void
+interface CalBackendCustomOpFunc {
     (cal_backend: CalBackend, cancellable?: Gio.Cancellable | null): void
 }
-export interface CalBackendForeachViewFunc {
+interface CalBackendForeachViewFunc {
     (backend: CalBackend, view: DataCalView): boolean
 }
-export interface CalCacheSearchFunc {
+interface CalCacheSearchFunc {
     (cal_cache: CalCache, uid: string, rid: string | null, revision: string, object: string, extra: string, custom_flags: number, offline_state: EBackend.OfflineState): boolean
 }
 export interface CalBackend_ConstructProps extends EBackend.Backend_ConstructProps {
@@ -39,7 +41,7 @@ export interface CalBackend_ConstructProps extends EBackend.Backend_ConstructPro
     registry?: EDataServer.SourceRegistry
     writable?: boolean
 }
-export class CalBackend {
+class CalBackend {
     /* Properties of EDataCal-2.0.EDataCal.CalBackend */
     cache_dir: string
     readonly proxy_resolver: Gio.ProxyResolver
@@ -243,7 +245,7 @@ export class CalBackend {
 }
 export interface CalBackendFactory_ConstructProps extends EBackend.BackendFactory_ConstructProps {
 }
-export class CalBackendFactory {
+class CalBackendFactory {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.BackendFactory */
@@ -301,7 +303,7 @@ export class CalBackendFactory {
 }
 export interface CalBackendSExp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CalBackendSExp {
+class CalBackendSExp {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataCal-2.0.EDataCal.CalBackendSExp */
@@ -358,7 +360,7 @@ export class CalBackendSExp {
 }
 export interface CalBackendSync_ConstructProps extends CalBackend_ConstructProps {
 }
-export class CalBackendSync {
+class CalBackendSync {
     /* Properties of EDataCal-2.0.EDataCal.CalBackend */
     cache_dir: string
     readonly proxy_resolver: Gio.ProxyResolver
@@ -581,7 +583,7 @@ export class CalBackendSync {
 }
 export interface CalCache_ConstructProps extends EBackend.Cache_ConstructProps {
 }
-export class CalCache {
+class CalCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataCal-2.0.EDataCal.CalCache */
@@ -742,7 +744,7 @@ export class CalCache {
 export interface CalMetaBackend_ConstructProps extends CalBackendSync_ConstructProps {
     cache?: CalCache
 }
-export class CalMetaBackend {
+class CalMetaBackend {
     /* Properties of EDataCal-2.0.EDataCal.CalMetaBackend */
     cache: CalCache
     /* Properties of EDataCal-2.0.EDataCal.CalBackend */
@@ -1021,7 +1023,7 @@ export interface DataCal_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Gio.DBusConnection
     object_path?: string
 }
-export class DataCal {
+class DataCal {
     /* Fields of EDataCal-2.0.EDataCal.DataCal */
     parent: GObject.Object
     priv: DataCalPrivate
@@ -1100,7 +1102,7 @@ export class DataCal {
 }
 export interface DataCalFactory_ConstructProps extends EBackend.DataFactory_ConstructProps {
 }
-export class DataCalFactory {
+class DataCalFactory {
     /* Properties of EBackend-1.2.EBackend.DataFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of EDataCal-2.0.EDataCal.DataCalFactory */
@@ -1212,7 +1214,7 @@ export interface DataCalView_ConstructProps extends GObject.Object_ConstructProp
     object_path?: string
     sexp?: CalBackendSExp
 }
-export class DataCalView {
+class DataCalView {
     /* Fields of EDataCal-2.0.EDataCal.DataCalView */
     parent: GObject.Object
     priv: DataCalViewPrivate
@@ -1291,7 +1293,7 @@ export class DataCalView {
 }
 export interface IntervalTree_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IntervalTree {
+class IntervalTree {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataCal-2.0.EDataCal.IntervalTree */
@@ -1347,7 +1349,7 @@ export class IntervalTree {
 }
 export interface SubprocessCalFactory_ConstructProps extends EBackend.SubprocessFactory_ConstructProps {
 }
-export class SubprocessCalFactory {
+class SubprocessCalFactory {
     /* Properties of EBackend-1.2.EBackend.SubprocessFactory */
     readonly registry: EDataServer.SourceRegistry
     /* Fields of EDataCal-2.0.EDataCal.SubprocessCalFactory */
@@ -1416,7 +1418,7 @@ export class SubprocessCalFactory {
     static new(cancellable?: Gio.Cancellable | null): SubprocessCalFactory
     static $gtype: GObject.Type
 }
-export abstract class CalBackendClass {
+abstract class CalBackendClass {
     /* Fields of EDataCal-2.0.EDataCal.CalBackendClass */
     use_serial_dispatch_queue: boolean
     impl_get_backend_property: (backend: CalBackend, prop_name: string) => string
@@ -1437,26 +1439,26 @@ export abstract class CalBackendClass {
     reserved_padding: object[]
     static name: string
 }
-export abstract class CalBackendFactoryClass {
+abstract class CalBackendFactoryClass {
     /* Fields of EDataCal-2.0.EDataCal.CalBackendFactoryClass */
     factory_name: string
     component_kind: ICalGLib.ComponentKind
     backend_type: GObject.Type
     static name: string
 }
-export class CalBackendFactoryPrivate {
+class CalBackendFactoryPrivate {
     static name: string
 }
-export class CalBackendPrivate {
+class CalBackendPrivate {
     static name: string
 }
-export abstract class CalBackendSExpClass {
+abstract class CalBackendSExpClass {
     static name: string
 }
-export class CalBackendSExpPrivate {
+class CalBackendSExpPrivate {
     static name: string
 }
-export abstract class CalBackendSyncClass {
+abstract class CalBackendSyncClass {
     /* Fields of EDataCal-2.0.EDataCal.CalBackendSyncClass */
     open_sync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
     refresh_sync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
@@ -1468,15 +1470,15 @@ export abstract class CalBackendSyncClass {
     reserved_padding: object[]
     static name: string
 }
-export class CalBackendSyncPrivate {
+class CalBackendSyncPrivate {
     static name: string
 }
-export abstract class CalCacheClass {
+abstract class CalCacheClass {
     /* Fields of EDataCal-2.0.EDataCal.CalCacheClass */
     dup_component_revision: (cal_cache: CalCache, icomp: ICalGLib.Component) => string
     static name: string
 }
-export class CalCacheOfflineChange {
+class CalCacheOfflineChange {
     /* Fields of EDataCal-2.0.EDataCal.CalCacheOfflineChange */
     uid: string
     rid: string
@@ -1492,10 +1494,10 @@ export class CalCacheOfflineChange {
     static new(uid: string, rid: string | null, revision: string | null, object: string | null, state: EBackend.OfflineState): CalCacheOfflineChange
     static free(change?: object | null): void
 }
-export class CalCachePrivate {
+class CalCachePrivate {
     static name: string
 }
-export class CalCacheSearchData {
+class CalCacheSearchData {
     /* Fields of EDataCal-2.0.EDataCal.CalCacheSearchData */
     uid: string
     rid: string
@@ -1510,7 +1512,7 @@ export class CalCacheSearchData {
     static new(uid: string, rid: string | null, object: string, extra?: string | null): CalCacheSearchData
     static free(ptr?: object | null): void
 }
-export abstract class CalMetaBackendClass {
+abstract class CalMetaBackendClass {
     /* Fields of EDataCal-2.0.EDataCal.CalMetaBackendClass */
     connect_sync: (meta_backend: CalMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_auth_result */ EDataServer.SourceAuthenticationResult, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     disconnect_sync: (meta_backend: CalMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
@@ -1526,7 +1528,7 @@ export abstract class CalMetaBackendClass {
     get_ssl_error_details: (meta_backend: CalMetaBackend) => [ /* returnType */ boolean, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
     static name: string
 }
-export class CalMetaBackendInfo {
+class CalMetaBackendInfo {
     /* Fields of EDataCal-2.0.EDataCal.CalMetaBackendInfo */
     uid: string
     revision: string
@@ -1541,44 +1543,46 @@ export class CalMetaBackendInfo {
     static new(uid: string, revision?: string | null, object?: string | null, extra?: string | null): CalMetaBackendInfo
     static free(ptr?: object | null): void
 }
-export class CalMetaBackendPrivate {
+class CalMetaBackendPrivate {
     static name: string
 }
-export abstract class DataCalClass {
+abstract class DataCalClass {
     /* Fields of EDataCal-2.0.EDataCal.DataCalClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DataCalFactoryClass {
+abstract class DataCalFactoryClass {
     /* Fields of EDataCal-2.0.EDataCal.DataCalFactoryClass */
     parent_class: EBackend.DataFactoryClass
     static name: string
 }
-export class DataCalFactoryPrivate {
+class DataCalFactoryPrivate {
     static name: string
 }
-export class DataCalPrivate {
+class DataCalPrivate {
     static name: string
 }
-export abstract class DataCalViewClass {
+abstract class DataCalViewClass {
     /* Fields of EDataCal-2.0.EDataCal.DataCalViewClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class DataCalViewPrivate {
+class DataCalViewPrivate {
     static name: string
 }
-export abstract class IntervalTreeClass {
+abstract class IntervalTreeClass {
     static name: string
 }
-export class IntervalTreePrivate {
+class IntervalTreePrivate {
     static name: string
 }
-export abstract class SubprocessCalFactoryClass {
+abstract class SubprocessCalFactoryClass {
     /* Fields of EDataCal-2.0.EDataCal.SubprocessCalFactoryClass */
     parent_class: EBackend.SubprocessFactoryClass
     static name: string
 }
-export class SubprocessCalFactoryPrivate {
+class SubprocessCalFactoryPrivate {
     static name: string
 }
+}
+export default EDataCal

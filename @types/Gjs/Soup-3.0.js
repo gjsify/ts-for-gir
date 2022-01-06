@@ -1,2 +1,1 @@
-imports.gi.versions.Soup = '3.0'
-module.exports = imports.gi.Soup
+export {default as default} from 'gi://Soup?version=3.0';

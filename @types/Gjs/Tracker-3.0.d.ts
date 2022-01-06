@@ -3,16 +3,18 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum NotifierEventType {
+export namespace Tracker {
+
+enum NotifierEventType {
     CREATE,
     DELETE,
     UPDATE,
 }
-export enum SparqlError {
+enum SparqlError {
     ERROR_CONSTRAINT,
     ERROR_INTERNAL,
     ERROR_NO_SPACE,
@@ -29,7 +31,7 @@ export enum SparqlError {
     ERROR_INCOMPLETE_PROPERTY_DEFINITION,
     N_ERRORS,
 }
-export enum SparqlValueType {
+enum SparqlValueType {
     UNBOUND,
     URI,
     STRING,
@@ -39,7 +41,7 @@ export enum SparqlValueType {
     BLANK_NODE,
     BOOLEAN,
 }
-export enum SparqlConnectionFlags {
+enum SparqlConnectionFlags {
     NONE,
     READONLY,
     FTS_ENABLE_STEMMER,
@@ -62,16 +64,16 @@ export const PREFIX_RDFS: string
 export const PREFIX_SLO: string
 export const PREFIX_TRACKER: string
 export const PREFIX_XSD: string
-export function check_version(required_major: number, required_minor: number, required_micro: number): string
-export function sparql_error_quark(): GLib.Quark
-export function sparql_escape_string(literal: string): string
-export function sparql_escape_uri(uri: string): string
-export function sparql_get_ontology_nepomuk(): Gio.File
-export function sparql_get_uuid_urn(): string
+function check_version(required_major: number, required_minor: number, required_micro: number): string
+function sparql_error_quark(): GLib.Quark
+function sparql_escape_string(literal: string): string
+function sparql_escape_uri(uri: string): string
+function sparql_get_ontology_nepomuk(): Gio.File
+function sparql_get_uuid_urn(): string
 export interface Batch_ConstructProps extends GObject.Object_ConstructProps {
     connection?: SparqlConnection
 }
-export class Batch {
+class Batch {
     /* Fields of Tracker-3.0.Tracker.Batch */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -129,7 +131,7 @@ export class Batch {
 export interface Endpoint_ConstructProps extends GObject.Object_ConstructProps {
     sparql_connection?: SparqlConnection
 }
-export class Endpoint {
+class Endpoint {
     /* Fields of Tracker-3.0.Tracker.Endpoint */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -183,7 +185,7 @@ export interface EndpointDBus_ConstructProps extends Endpoint_ConstructProps {
     dbus_connection?: Gio.DBusConnection
     object_path?: string
 }
-export class EndpointDBus {
+class EndpointDBus {
     /* Fields of Tracker-3.0.Tracker.Endpoint */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -244,7 +246,7 @@ export interface EndpointHttp_ConstructProps extends Endpoint_ConstructProps {
     http_certificate?: Gio.TlsCertificate
     http_port?: number
 }
-export class EndpointHttp {
+class EndpointHttp {
     /* Fields of Tracker-3.0.Tracker.Endpoint */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -307,7 +309,7 @@ export class EndpointHttp {
 }
 export interface NamespaceManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NamespaceManager {
+class NamespaceManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.NamespaceManager */
@@ -367,7 +369,7 @@ export class NamespaceManager {
 export interface Notifier_ConstructProps extends GObject.Object_ConstructProps {
     connection?: SparqlConnection
 }
-export class Notifier {
+class Notifier {
     /* Fields of Tracker-3.0.Tracker.Notifier */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -425,7 +427,7 @@ export class Notifier {
 export interface Resource_ConstructProps extends GObject.Object_ConstructProps {
     identifier?: string
 }
-export class Resource {
+class Resource {
     /* Properties of Tracker-3.0.Tracker.Resource */
     identifier: string
     /* Fields of Tracker-3.0.Tracker.Resource */
@@ -519,7 +521,7 @@ export class Resource {
 }
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SparqlConnection {
+class SparqlConnection {
     /* Fields of Tracker-3.0.Tracker.SparqlConnection */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -600,7 +602,7 @@ export class SparqlConnection {
 export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructProps {
     connection?: SparqlConnection
 }
-export class SparqlCursor {
+class SparqlCursor {
     /* Properties of Tracker-3.0.Tracker.SparqlCursor */
     readonly n_columns: number
     /* Fields of Tracker-3.0.Tracker.SparqlCursor */
@@ -672,7 +674,7 @@ export interface SparqlStatement_ConstructProps extends GObject.Object_Construct
     connection?: SparqlConnection
     sparql?: string
 }
-export class SparqlStatement {
+class SparqlStatement {
     /* Fields of Tracker-3.0.Tracker.SparqlStatement */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -732,36 +734,38 @@ export class SparqlStatement {
     _init (config?: SparqlStatement_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class BatchClass {
+abstract class BatchClass {
     static name: string
 }
-export abstract class EndpointClass {
+abstract class EndpointClass {
     static name: string
 }
-export abstract class NamespaceManagerClass {
+abstract class NamespaceManagerClass {
     /* Fields of Tracker-3.0.Tracker.NamespaceManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class NotifierClass {
+abstract class NotifierClass {
     static name: string
 }
-export class NotifierEvent {
+class NotifierEvent {
     /* Methods of Tracker-3.0.Tracker.NotifierEvent */
     get_event_type(): NotifierEventType
     get_id(): number
     get_urn(): string
     static name: string
 }
-export abstract class ResourceClass {
+abstract class ResourceClass {
     static name: string
 }
-export abstract class SparqlConnectionClass {
+abstract class SparqlConnectionClass {
     static name: string
 }
-export abstract class SparqlCursorClass {
+abstract class SparqlCursorClass {
     static name: string
 }
-export abstract class SparqlStatementClass {
+abstract class SparqlStatementClass {
     static name: string
 }
+}
+export default Tracker

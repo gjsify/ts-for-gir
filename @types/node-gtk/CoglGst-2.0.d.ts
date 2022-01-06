@@ -11,12 +11,12 @@ import type { GModule } from './GModule-2.0';
 import type { Cogl } from './Cogl-2.0';
 import type { GL } from './GL-1.0';
 
-export declare namespace CoglGst {
+declare namespace CoglGst {
 
 export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProps {
     updatePriority?: number
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of CoglGst-2.0.CoglGst.VideoSink */
     updatePriority: number
     /* Properties of GstBase-1.0.GstBase.BaseSink */
@@ -373,7 +373,7 @@ export class VideoSink {
     static new(ctx: Cogl.Context): VideoSink
     static $gtype: GObject.Type
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of CoglGst-2.0.CoglGst.Rectangle */
     x: number
     y: number
@@ -381,13 +381,14 @@ export class Rectangle {
     height: number
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     /* Fields of CoglGst-2.0.CoglGst.VideoSinkClass */
     newFrame: (sink: VideoSink) => void
     pipelineReady: (sink: VideoSink) => void
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
 }
+export default CoglGst

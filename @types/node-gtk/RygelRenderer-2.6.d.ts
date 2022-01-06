@@ -14,7 +14,7 @@ import type { Soup } from './Soup-2.4';
 import type { GSSDP } from './GSSDP-1.2';
 import type { GUPnPAV } from './GUPnPAV-1.0';
 
-export declare namespace RygelRenderer {
+declare namespace RygelRenderer {
 
 export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProps {
     playbackState?: string
@@ -26,7 +26,7 @@ export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProp
     contentFeatures?: string
     userAgent?: string
 }
-export class MediaPlayer {
+class MediaPlayer {
     /* Properties of RygelRenderer-2.6.RygelRenderer.MediaPlayer */
     playbackState: string
     readonly allowedPlaybackSpeeds: string[]
@@ -204,7 +204,7 @@ export interface PlayerController_ConstructProps extends GObject.Object_Construc
     nextMetadata?: string
     playMode?: string
 }
-export class PlayerController {
+class PlayerController {
     /* Properties of RygelRenderer-2.6.RygelRenderer.PlayerController */
     playbackState: string
     nTracks: number
@@ -354,7 +354,7 @@ export class PlayerController {
 export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
     supportedProfiles?: RygelCore.DLNAProfile[]
 }
-export class MediaRendererPlugin {
+class MediaRendererPlugin {
     /* Properties of RygelRenderer-2.6.RygelRenderer.MediaRendererPlugin */
     supportedProfiles: RygelCore.DLNAProfile[]
     /* Properties of RygelCore-2.6.RygelCore.Plugin */
@@ -477,7 +477,7 @@ export class MediaRendererPlugin {
 export interface MediaRenderer_ConstructProps extends RygelCore.MediaDevice_ConstructProps {
     player?: MediaPlayer
 }
-export class MediaRenderer {
+class MediaRenderer {
     /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
     /* Fields of GObject-2.0.GObject.Object */
@@ -537,22 +537,22 @@ export class MediaRenderer {
     static new(title: string, player: MediaPlayer, capabilities: RygelCore.PluginCapabilities): MediaRenderer
     static $gtype: GObject.Type
 }
-export abstract class MediaRendererPluginClass {
+abstract class MediaRendererPluginClass {
     /* Fields of RygelRenderer-2.6.RygelRenderer.MediaRendererPluginClass */
     getPlayer: (self: MediaRendererPlugin) => MediaPlayer | null
     getController: (self: MediaRendererPlugin) => PlayerController
     static name: string
 }
-export class MediaRendererPluginPrivate {
+class MediaRendererPluginPrivate {
     static name: string
 }
-export abstract class MediaRendererClass {
+abstract class MediaRendererClass {
     static name: string
 }
-export class MediaRendererPrivate {
+class MediaRendererPrivate {
     static name: string
 }
-export abstract class MediaPlayerIface {
+abstract class MediaPlayerIface {
     /* Fields of RygelRenderer-2.6.RygelRenderer.MediaPlayerIface */
     seek: (self: MediaPlayer, time: number) => boolean
     seekBytes: (self: MediaPlayer, bytes: number) => boolean
@@ -583,7 +583,7 @@ export abstract class MediaPlayerIface {
     setUserAgent: (self: MediaPlayer, value?: string | null) => void
     static name: string
 }
-export abstract class PlayerControllerIface {
+abstract class PlayerControllerIface {
     /* Fields of RygelRenderer-2.6.RygelRenderer.PlayerControllerIface */
     next: (self: PlayerController) => boolean
     previous: (self: PlayerController) => boolean
@@ -617,3 +617,4 @@ export abstract class PlayerControllerIface {
     static name: string
 }
 }
+export default RygelRenderer

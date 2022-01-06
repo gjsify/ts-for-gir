@@ -16,23 +16,23 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 
-export declare namespace GnomeRR {
+declare namespace GnomeRR {
 
-export enum DpmsMode {
+enum DpmsMode {
     ON,
     STANDBY,
     SUSPEND,
     OFF,
     UNKNOWN,
 }
-export enum DpmsModeType {
+enum DpmsModeType {
     ON,
     STANDBY,
     SUSPEND,
     OFF,
     UNKNOWN,
 }
-export enum Error {
+enum Error {
     UNKNOWN,
     NO_RANDR_EXTENSION,
     RANDR_ERROR,
@@ -41,7 +41,7 @@ export enum Error {
     NO_MATCHING_CONFIG,
     NO_DPMS_EXTENSION,
 }
-export enum Rotation {
+enum Rotation {
     ROTATION_NEXT,
     ROTATION_0,
     ROTATION_90,
@@ -51,11 +51,11 @@ export enum Rotation {
     REFLECT_Y,
 }
 export const CONNECTOR_TYPE_PANEL: string
-export function errorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     screen?: Screen
 }
-export class Config {
+class Config {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GnomeRR-4.0.GnomeRR.Config */
@@ -114,7 +114,7 @@ export class Config {
 }
 export interface OutputInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class OutputInfo {
+class OutputInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GnomeRR-4.0.GnomeRR.OutputInfo */
@@ -185,7 +185,7 @@ export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     dpmsMode?: DpmsModeType
     gdkDisplay?: Gdk.Display
 }
-export class Screen {
+class Screen {
     /* Properties of GnomeRR-4.0.GnomeRR.Screen */
     dpmsMode: DpmsModeType
     /* Fields of GnomeRR-4.0.GnomeRR.Screen */
@@ -277,15 +277,15 @@ export class Screen {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export class CTM {
+class CTM {
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of GnomeRR-4.0.GnomeRR.ConfigClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Crtc {
+class Crtc {
     /* Methods of GnomeRR-4.0.GnomeRR.Crtc */
     canDriveOutput(output: Output): boolean
     getCurrentMode(): Mode
@@ -298,7 +298,7 @@ export class Crtc {
     supportsRotation(rotation: Rotation): boolean
     static name: string
 }
-export class Mode {
+class Mode {
     /* Methods of GnomeRR-4.0.GnomeRR.Mode */
     getFreq(): number
     getFreqF(): number
@@ -309,7 +309,7 @@ export class Mode {
     getWidth(): number
     static name: string
 }
-export class Output {
+class Output {
     /* Methods of GnomeRR-4.0.GnomeRR.Output */
     canClone(clone: Output): boolean
     getBacklight(): number
@@ -336,12 +336,12 @@ export class Output {
     supportsUnderscanning(): boolean
     static name: string
 }
-export abstract class OutputInfoClass {
+abstract class OutputInfoClass {
     /* Fields of GnomeRR-4.0.GnomeRR.OutputInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ScreenClass {
+abstract class ScreenClass {
     /* Fields of GnomeRR-4.0.GnomeRR.ScreenClass */
     changed: (screen: Screen) => void
     outputConnected: (screen: Screen, output: Output) => void
@@ -349,3 +349,4 @@ export abstract class ScreenClass {
     static name: string
 }
 }
+export default GnomeRR

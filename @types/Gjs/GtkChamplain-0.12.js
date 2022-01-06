@@ -1,2 +1,1 @@
-imports.gi.versions.GtkChamplain = '0.12'
-module.exports = imports.gi.GtkChamplain
+export {default as default} from 'gi://GtkChamplain?version=0.12';

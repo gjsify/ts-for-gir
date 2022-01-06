@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum TreeItemType {
+export namespace GMenu {
+
+enum TreeItemType {
     INVALID,
     DIRECTORY,
     ENTRY,
@@ -15,7 +17,7 @@ export enum TreeItemType {
     HEADER,
     ALIAS,
 }
-export enum TreeFlags {
+enum TreeFlags {
     NONE,
     INCLUDE_EXCLUDED,
     SHOW_EMPTY,
@@ -29,7 +31,7 @@ export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
     menu_basename?: string
     menu_path?: string
 }
-export class Tree {
+class Tree {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMenu-3.0.GMenu.Tree */
@@ -90,7 +92,7 @@ export class Tree {
     static item_unref(item?: object | null): void
     static $gtype: GObject.Type
 }
-export class TreeAlias {
+class TreeAlias {
     /* Methods of GMenu-3.0.GMenu.TreeAlias */
     get_aliased_directory(): TreeDirectory
     get_aliased_entry(): TreeEntry
@@ -100,12 +102,12 @@ export class TreeAlias {
     get_tree(): Tree
     static name: string
 }
-export abstract class TreeClass {
+abstract class TreeClass {
     /* Fields of GMenu-3.0.GMenu.TreeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TreeDirectory {
+class TreeDirectory {
     /* Methods of GMenu-3.0.GMenu.TreeDirectory */
     get_comment(): string
     get_desktop_file_path(): string
@@ -120,7 +122,7 @@ export class TreeDirectory {
     make_path(entry: TreeEntry): string
     static name: string
 }
-export class TreeEntry {
+class TreeEntry {
     /* Methods of GMenu-3.0.GMenu.TreeEntry */
     get_app_info(): Gio.DesktopAppInfo
     get_desktop_file_id(): string
@@ -132,14 +134,14 @@ export class TreeEntry {
     get_tree(): Tree
     static name: string
 }
-export class TreeHeader {
+class TreeHeader {
     /* Methods of GMenu-3.0.GMenu.TreeHeader */
     get_directory(): TreeDirectory
     get_parent(): TreeDirectory
     get_tree(): Tree
     static name: string
 }
-export class TreeIter {
+class TreeIter {
     /* Methods of GMenu-3.0.GMenu.TreeIter */
     get_alias(): TreeAlias
     get_directory(): TreeDirectory
@@ -149,9 +151,11 @@ export class TreeIter {
     next(): TreeItemType
     static name: string
 }
-export class TreeSeparator {
+class TreeSeparator {
     /* Methods of GMenu-3.0.GMenu.TreeSeparator */
     get_parent(): TreeDirectory
     get_tree(): Tree
     static name: string
 }
+}
+export default GMenu

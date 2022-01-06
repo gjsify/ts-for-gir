@@ -3,8 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export type HWND = number
-export type HICON = number
-export type HGDIOBJ = number
+export namespace win32 {
+
+type HWND = number
+type HICON = number
+type HGDIOBJ = number
+}
+export default win32

@@ -1,2 +1,1 @@
-imports.gi.versions.PeasGtk = '1.0'
-module.exports = imports.gi.PeasGtk
+export {default as default} from 'gi://PeasGtk?version=1.0';

@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Gsf {
+declare namespace Gsf {
 
-export enum ClipFormat {
+enum ClipFormat {
     WINDOWS_CLIPBOARD,
     MACINTOSH_CLIPBOARD,
     GUID,
@@ -18,29 +18,29 @@ export enum ClipFormat {
     CLIPBOARD_FORMAT_NAME,
     UNKNOWN,
 }
-export enum ClipFormatWindows {
+enum ClipFormatWindows {
     ERROR,
     UNKNOWN,
     METAFILE,
     DIB,
     ENHANCED_METAFILE,
 }
-export enum Error {
+enum Error {
     OUT_OF_MEMORY,
     INVALID_DATA,
 }
-export enum OutputCsvQuotingMode {
+enum OutputCsvQuotingMode {
     NEVER,
     AUTO,
     ALWAYS,
 }
-export enum XMLContent {
+enum XMLContent {
     NO_CONTENT,
     CONTENT,
     SHARED_CONTENT,
     /* 2ND (invalid, starts with a number) */
 }
-export enum ZipCompressionMethod {
+enum ZipCompressionMethod {
     STORED,
     SHRUNK,
     REDUCEDX1,
@@ -107,66 +107,66 @@ export const META_NAME_TEMPLATE: string
 export const META_NAME_THUMBNAIL: string
 export const META_NAME_TITLE: string
 export const META_NAME_WORD_COUNT: string
-export function base64DecodeSimple(data: any[], len: number): number
-export function base64DecodeStep(in_: any[], len: number, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
-export function base64EncodeClose(in_: any[], breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
-export function base64EncodeSimple(data: any[], len: number): number
-export function base64EncodeStep(in_: any[], len: number, breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
-export function debugFlag(flag: string): boolean
-export function docMetaDump(meta: DocMetaData): void
-export function errorQuark(): GLib.Quark
-export function extensionPointer(path: string): string
-export function filenameToUtf8(filename: string, quoted: boolean): string
-export function init(): void
-export function initDynamic(module: GObject.TypeModule): void
-export function leGetDouble(p?: object | null): number
-export function leGetFloat(p?: object | null): number
-export function leGetGuint64(p?: object | null): number
-export function leSetDouble(p: object | null, d: number): void
-export function leSetFloat(p: object | null, f: number): void
-export function memDump(ptr: number, len: number): void
-export function msoleCodepageToLid(codepage: number): number
-export function msoleIconvWinCodepage(): number
-export function msoleInflate(input: Input, offset: gsf_off_t): any[]
-export function msoleLanguageForLid(lid: number): string
-export function msoleLidForLanguage(lang?: string | null): number
-export function msoleLidToCodepage(lid: number): number
-export function msoleLidToCodepageStr(lid: number): string
-export function odfGetNs(): XMLInNS
-export function odfGetVersion(): number
-export function odfGetVersionString(): string
-export function openPkgErrorId(): number
-export function openPkgForeachRel(opkg: Input, func: OpenPkgIter): void
-export function openPkgOpenRel(opkg: Input, rel: OpenPkgRel): Input
-export function openPkgOpenRelById(opkg: Input, id: string): Input
-export function openPkgOpenRelByType(opkg: Input, type: string): Input
-export function openPkgParseRelById(xin: XMLIn, id: string, dtd: XMLInNode, ns: XMLInNS): GLib.Error
-export function propertySettingsFind(name: string, params: GObject.Parameter[]): GObject.Parameter
-export function propertySettingsFree(params: GObject.Parameter[]): void
-export function shutdown(): void
-export function shutdownDynamic(module: GObject.TypeModule): void
-export function valueGetDocpropArray(value: any): any[] | null
-export function valueGetDocpropVarray(value: any): GObject.ValueArray
-export function valueGetDocpropVector(value: any): DocPropVector
-export function vbaInflate(input: Input, offset: gsf_off_t, size: number, addNullTerminator: boolean): number
-export function xmlDocFormatDump(output: Output, cur: libxml2.Doc, encoding: string | null, format: boolean): number
-export function xmlGvalueFromStr(res: any, t: GObject.Type, str: string): boolean
-export function xmlProbe(input: Input, func: XMLProbeFunc): boolean
-export interface OpenPkgIter {
+function base64DecodeSimple(data: any[], len: number): number
+function base64DecodeStep(in_: any[], len: number, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
+function base64EncodeClose(in_: any[], breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
+function base64EncodeSimple(data: any[], len: number): number
+function base64EncodeStep(in_: any[], len: number, breakLines: boolean, out: any[], state: number, save: number): { returnType: number, state: number, save: number }
+function debugFlag(flag: string): boolean
+function docMetaDump(meta: DocMetaData): void
+function errorQuark(): GLib.Quark
+function extensionPointer(path: string): string
+function filenameToUtf8(filename: string, quoted: boolean): string
+function init(): void
+function initDynamic(module: GObject.TypeModule): void
+function leGetDouble(p?: object | null): number
+function leGetFloat(p?: object | null): number
+function leGetGuint64(p?: object | null): number
+function leSetDouble(p: object | null, d: number): void
+function leSetFloat(p: object | null, f: number): void
+function memDump(ptr: number, len: number): void
+function msoleCodepageToLid(codepage: number): number
+function msoleIconvWinCodepage(): number
+function msoleInflate(input: Input, offset: gsf_off_t): any[]
+function msoleLanguageForLid(lid: number): string
+function msoleLidForLanguage(lang?: string | null): number
+function msoleLidToCodepage(lid: number): number
+function msoleLidToCodepageStr(lid: number): string
+function odfGetNs(): XMLInNS
+function odfGetVersion(): number
+function odfGetVersionString(): string
+function openPkgErrorId(): number
+function openPkgForeachRel(opkg: Input, func: OpenPkgIter): void
+function openPkgOpenRel(opkg: Input, rel: OpenPkgRel): Input
+function openPkgOpenRelById(opkg: Input, id: string): Input
+function openPkgOpenRelByType(opkg: Input, type: string): Input
+function openPkgParseRelById(xin: XMLIn, id: string, dtd: XMLInNode, ns: XMLInNS): GLib.Error
+function propertySettingsFind(name: string, params: GObject.Parameter[]): GObject.Parameter
+function propertySettingsFree(params: GObject.Parameter[]): void
+function shutdown(): void
+function shutdownDynamic(module: GObject.TypeModule): void
+function valueGetDocpropArray(value: any): any[] | null
+function valueGetDocpropVarray(value: any): GObject.ValueArray
+function valueGetDocpropVector(value: any): DocPropVector
+function vbaInflate(input: Input, offset: gsf_off_t, size: number, addNullTerminator: boolean): number
+function xmlDocFormatDump(output: Output, cur: libxml2.Doc, encoding: string | null, format: boolean): number
+function xmlGvalueFromStr(res: any, t: GObject.Type, str: string): boolean
+function xmlProbe(input: Input, func: XMLProbeFunc): boolean
+interface OpenPkgIter {
     (opkg: Input, rel: OpenPkgRel): void
 }
-export interface XMLInExtDtor {
+interface XMLInExtDtor {
     (xin: XMLIn, oldState?: object | null): void
 }
-export interface XMLInUnknownFunc {
+interface XMLInUnknownFunc {
     (xin: XMLIn, elem: libxml2.Char, attrs: libxml2.Char): boolean
 }
-export interface XMLProbeFunc {
+interface XMLProbeFunc {
     (name: libxml2.Char, prefix: libxml2.Char, uRI: libxml2.Char, nbNamespaces: number, namespaces: libxml2.Char, nbAttributes: number, nbDefaulted: number, attributes: libxml2.Char): boolean
 }
 export interface Blob_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Blob {
+class Blob {
     /* Fields of Gsf-1.Gsf.Blob */
     object: GObject.Object
     priv: BlobPrivate
@@ -219,7 +219,7 @@ export class Blob {
 }
 export interface ClipData_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ClipData {
+class ClipData {
     /* Fields of Gsf-1.Gsf.ClipData */
     object: GObject.Object
     priv: ClipDataPrivate
@@ -274,7 +274,7 @@ export class ClipData {
 }
 export interface DocMetaData_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DocMetaData {
+class DocMetaData {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf-1.Gsf.DocMetaData */
@@ -334,7 +334,7 @@ export class DocMetaData {
 }
 export interface DocPropVector_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DocPropVector {
+class DocPropVector {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gsf-1.Gsf.DocPropVector */
@@ -384,7 +384,7 @@ export class DocPropVector {
 }
 export interface Infile_ConstructProps extends Input_ConstructProps {
 }
-export class Infile {
+class Infile {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -501,7 +501,7 @@ export class Infile {
 }
 export interface InfileMSOle_ConstructProps extends Infile_ConstructProps {
 }
-export class InfileMSOle {
+class InfileMSOle {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -622,7 +622,7 @@ export class InfileMSOle {
 }
 export interface InfileMSVBA_ConstructProps extends Infile_ConstructProps {
 }
-export class InfileMSVBA {
+class InfileMSVBA {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -744,7 +744,7 @@ export class InfileMSVBA {
 }
 export interface InfileStdio_ConstructProps extends Infile_ConstructProps {
 }
-export class InfileStdio {
+class InfileStdio {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -864,7 +864,7 @@ export class InfileStdio {
 export interface InfileTar_ConstructProps extends Infile_ConstructProps {
     source?: Input
 }
-export class InfileTar {
+class InfileTar {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -985,7 +985,7 @@ export interface InfileZip_ConstructProps extends Infile_ConstructProps {
     internalParent?: InfileZip
     source?: Input
 }
-export class InfileZip {
+class InfileZip {
     /* Properties of Gsf-1.Gsf.InfileZip */
     readonly compressionLevel: number
     readonly zip64: boolean
@@ -1117,7 +1117,7 @@ export class InfileZip {
 }
 export interface Input_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Input {
+class Input {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1232,7 +1232,7 @@ export interface InputGZip_ConstructProps extends Input_ConstructProps {
     source?: Input
     uncompressedSize?: number
 }
-export class InputGZip {
+class InputGZip {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1343,7 +1343,7 @@ export class InputGZip {
 }
 export interface InputGio_ConstructProps extends Input_ConstructProps {
 }
-export class InputGio {
+class InputGio {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1458,7 +1458,7 @@ export interface InputHTTP_ConstructProps extends Input_ConstructProps {
     contentType?: string
     url?: string
 }
-export class InputHTTP {
+class InputHTTP {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1572,7 +1572,7 @@ export class InputHTTP {
 }
 export interface InputMemory_ConstructProps extends Input_ConstructProps {
 }
-export class InputMemory {
+class InputMemory {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1686,7 +1686,7 @@ export class InputMemory {
 }
 export interface InputProxy_ConstructProps extends Input_ConstructProps {
 }
-export class InputProxy {
+class InputProxy {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1798,7 +1798,7 @@ export class InputProxy {
 }
 export interface InputStdio_ConstructProps extends Input_ConstructProps {
 }
-export class InputStdio {
+class InputStdio {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1910,7 +1910,7 @@ export class InputStdio {
 }
 export interface InputTextline_ConstructProps extends Input_ConstructProps {
 }
-export class InputTextline {
+class InputTextline {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -2025,7 +2025,7 @@ export class InputTextline {
 export interface ODFOut_ConstructProps extends XMLOut_ConstructProps {
     odfVersion?: number
 }
-export class ODFOut {
+class ODFOut {
     /* Properties of Gsf-1.Gsf.XMLOut */
     prettyPrint: boolean
     /* Fields of Gsf-1.Gsf.ODFOut */
@@ -2105,7 +2105,7 @@ export class ODFOut {
 }
 export interface Outfile_ConstructProps extends Output_ConstructProps {
 }
-export class Outfile {
+class Outfile {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2209,7 +2209,7 @@ export interface OutfileMSOle_ConstructProps extends Outfile_ConstructProps {
     sink?: Output
     smallBlockSize?: number
 }
-export class OutfileMSOle {
+class OutfileMSOle {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2318,7 +2318,7 @@ export interface OutfileOpenPkg_ConstructProps extends Outfile_ConstructProps {
     isDir?: boolean
     sink?: Outfile
 }
-export class OutfileOpenPkg {
+class OutfileOpenPkg {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2426,7 +2426,7 @@ export class OutfileOpenPkg {
 }
 export interface OutfileStdio_ConstructProps extends Outfile_ConstructProps {
 }
-export class OutfileStdio {
+class OutfileStdio {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2534,7 +2534,7 @@ export interface OutfileZip_ConstructProps extends Outfile_ConstructProps {
     sink?: Output
     zip64?: number
 }
-export class OutfileZip {
+class OutfileZip {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2642,7 +2642,7 @@ export interface Output_ConstructProps extends GObject.Object_ConstructProps {
     modtime?: GLib.DateTime
     name?: string
 }
-export class Output {
+class Output {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2742,7 +2742,7 @@ export class Output {
 }
 export interface OutputBzip_ConstructProps extends Output_ConstructProps {
 }
-export class OutputBzip {
+class OutputBzip {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -2847,7 +2847,7 @@ export interface OutputCsv_ConstructProps extends Output_ConstructProps {
     separator?: string
     sink?: Output
 }
-export class OutputCsv {
+class OutputCsv {
     /* Properties of Gsf-1.Gsf.OutputCsv */
     eol: string
     quote: string
@@ -2999,7 +2999,7 @@ export interface OutputGZip_ConstructProps extends Output_ConstructProps {
     raw?: boolean
     sink?: Output
 }
-export class OutputGZip {
+class OutputGZip {
     /* Properties of Gsf-1.Gsf.OutputGZip */
     deflateLevel: number
     /* Properties of Gsf-1.Gsf.Output */
@@ -3104,7 +3104,7 @@ export class OutputGZip {
 }
 export interface OutputGio_ConstructProps extends Output_ConstructProps {
 }
-export class OutputGio {
+class OutputGio {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -3204,7 +3204,7 @@ export class OutputGio {
 }
 export interface OutputIOChannel_ConstructProps extends Output_ConstructProps {
 }
-export class OutputIOChannel {
+class OutputIOChannel {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -3306,7 +3306,7 @@ export interface OutputIconv_ConstructProps extends Output_ConstructProps {
     outputCharset?: string
     sink?: Output
 }
-export class OutputIconv {
+class OutputIconv {
     /* Properties of Gsf-1.Gsf.OutputIconv */
     fallback: string
     /* Properties of Gsf-1.Gsf.Output */
@@ -3411,7 +3411,7 @@ export class OutputIconv {
 }
 export interface OutputMemory_ConstructProps extends Output_ConstructProps {
 }
-export class OutputMemory {
+class OutputMemory {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -3512,7 +3512,7 @@ export class OutputMemory {
 }
 export interface OutputStdio_ConstructProps extends Output_ConstructProps {
 }
-export class OutputStdio {
+class OutputStdio {
     /* Properties of Gsf-1.Gsf.Output */
     container: Outfile
     readonly isClosed: boolean
@@ -3610,7 +3610,7 @@ export class OutputStdio {
 }
 export interface SharedMemory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SharedMemory {
+class SharedMemory {
     /* Fields of Gsf-1.Gsf.SharedMemory */
     gObject: GObject.Object
     buf: object
@@ -3664,7 +3664,7 @@ export class SharedMemory {
 }
 export interface StructuredBlob_ConstructProps extends Infile_ConstructProps {
 }
-export class StructuredBlob {
+class StructuredBlob {
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -3787,7 +3787,7 @@ export interface XMLOut_ConstructProps extends GObject.Object_ConstructProps {
     prettyPrint?: boolean
     sink?: Output
 }
-export class XMLOut {
+class XMLOut {
     /* Properties of Gsf-1.Gsf.XMLOut */
     prettyPrint: boolean
     /* Fields of Gsf-1.Gsf.XMLOut */
@@ -3863,19 +3863,19 @@ export class XMLOut {
     static new(output: Output): XMLOut
     static $gtype: GObject.Type
 }
-export abstract class BlobClass {
+abstract class BlobClass {
     static name: string
 }
-export class BlobPrivate {
+class BlobPrivate {
     static name: string
 }
-export abstract class ClipDataClass {
+abstract class ClipDataClass {
     static name: string
 }
-export class ClipDataPrivate {
+class ClipDataPrivate {
     static name: string
 }
-export class DocProp {
+class DocProp {
     /* Methods of Gsf-1.Gsf.DocProp */
     dump(): void
     free(): void
@@ -3891,14 +3891,14 @@ export class DocProp {
     /* Static methods and pseudo-constructors */
     static new(name: string): DocProp
 }
-export abstract class InfileClass {
+abstract class InfileClass {
     /* Fields of Gsf-1.Gsf.InfileClass */
     inputClass: InputClass
     numChildren: (infile: Infile) => number
     nameByIndex: (infile: Infile, i: number) => string | null
     static name: string
 }
-export abstract class InputClass {
+abstract class InputClass {
     /* Fields of Gsf-1.Gsf.InputClass */
     gObjectClass: GObject.ObjectClass
     dup: (input: Input) => Input | null
@@ -3907,7 +3907,7 @@ export abstract class InputClass {
     openSibling: (input: Input, name: string) => Input
     static name: string
 }
-export class MSOleSortingKey {
+class MSOleSortingKey {
     /* Methods of Gsf-1.Gsf.MSOleSortingKey */
     cmp(b: MSOleSortingKey): number
     free(): void
@@ -3917,27 +3917,27 @@ export class MSOleSortingKey {
     /* Static methods and pseudo-constructors */
     static new(name: string): MSOleSortingKey
 }
-export abstract class ODFOutClass {
+abstract class ODFOutClass {
     /* Fields of Gsf-1.Gsf.ODFOutClass */
     base: XMLOutClass
     static name: string
 }
-export class OpenPkgRel {
+class OpenPkgRel {
     /* Methods of Gsf-1.Gsf.OpenPkgRel */
     getTarget(): string
     getType(): string
     isExtern(): boolean
     static name: string
 }
-export class OpenPkgRels {
+class OpenPkgRels {
     static name: string
 }
-export abstract class OutfileClass {
+abstract class OutfileClass {
     /* Fields of Gsf-1.Gsf.OutfileClass */
     outputClass: OutputClass
     static name: string
 }
-export abstract class OutputClass {
+abstract class OutputClass {
     /* Fields of Gsf-1.Gsf.OutputClass */
     gObjectClass: GObject.ObjectClass
     close: (output: Output) => boolean
@@ -3945,17 +3945,17 @@ export abstract class OutputClass {
     write: (output: Output, data: any[]) => boolean
     static name: string
 }
-export abstract class OutputCsvClass {
+abstract class OutputCsvClass {
     /* Fields of Gsf-1.Gsf.OutputCsvClass */
     outputClass: OutputClass
     static name: string
 }
-export abstract class OutputIconvClass {
+abstract class OutputIconvClass {
     /* Fields of Gsf-1.Gsf.OutputIconvClass */
     outputClass: OutputClass
     static name: string
 }
-export class Timestamp {
+class Timestamp {
     /* Fields of Gsf-1.Gsf.Timestamp */
     date: GLib.Date
     seconds: number
@@ -3976,10 +3976,10 @@ export class Timestamp {
     /* Static methods and pseudo-constructors */
     static new(): Timestamp
 }
-export class XMLBlob {
+class XMLBlob {
     static name: string
 }
-export class XMLIn {
+class XMLIn {
     /* Fields of Gsf-1.Gsf.XMLIn */
     userState: object
     content: GLib.String
@@ -3993,7 +3993,7 @@ export class XMLIn {
     setSilentUnknowns(silent: boolean): void
     static name: string
 }
-export class XMLInDoc {
+class XMLInDoc {
     /* Methods of Gsf-1.Gsf.XMLInDoc */
     addNodes(nodes: XMLInNode[]): void
     free(): void
@@ -4005,13 +4005,13 @@ export class XMLInDoc {
     /* Static methods and pseudo-constructors */
     static new(nodes: XMLInNode[], ns: XMLInNS[]): XMLInDoc
 }
-export class XMLInNS {
+class XMLInNS {
     /* Fields of Gsf-1.Gsf.XMLInNS */
     uri: string
     nsId: number
     static name: string
 }
-export class XMLInNode {
+class XMLInNode {
     /* Fields of Gsf-1.Gsf.XMLInNode */
     id: string
     nsId: number
@@ -4024,10 +4024,11 @@ export class XMLInNode {
     shareChildrenWithParent: number
     static name: string
 }
-export abstract class XMLOutClass {
+abstract class XMLOutClass {
     /* Fields of Gsf-1.Gsf.XMLOutClass */
     base: GObject.ObjectClass
     static name: string
 }
-export type gsf_off_t = number
+type gsf_off_t = number
 }
+export default Gsf

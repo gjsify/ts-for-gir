@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Json from './Json-1.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Json from './Json-1.0';
 
-export enum Error {
+export namespace GeocodeGlib {
+
+enum Error {
     PARSE,
     NOT_SUPPORTED,
     NO_MATCHES,
     INVALID_ARGUMENTS,
     INTERNAL_SERVER,
 }
-export enum LocationCRS {
+enum LocationCRS {
     WGS84,
 }
-export enum LocationURIScheme {
+enum LocationURIScheme {
     GEO,
 }
-export enum PlaceOsmType {
+enum PlaceOsmType {
     UNKNOWN,
     NODE,
     RELATION,
     WAY,
 }
-export enum PlaceType {
+enum PlaceType {
     UNKNOWN,
     BUILDING,
     STREET,
@@ -71,8 +73,8 @@ export const LOCATION_ACCURACY_COUNTRY: number
 export const LOCATION_ACCURACY_REGION: number
 export const LOCATION_ACCURACY_STREET: number
 export const LOCATION_ACCURACY_UNKNOWN: number
-export function error_quark(): GLib.Quark
-export class Backend {
+function error_quark(): GLib.Quark
+class Backend {
     /* Methods of GeocodeGlib-1.0.GeocodeGlib.Backend */
     forward_search(params: GLib.HashTable, cancellable?: Gio.Cancellable | null): Place[]
     forward_search_async(params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -95,7 +97,7 @@ export interface BoundingBox_ConstructProps extends GObject.Object_ConstructProp
     right?: number
     top?: number
 }
-export class BoundingBox {
+class BoundingBox {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GeocodeGlib-1.0.GeocodeGlib.BoundingBox */
@@ -154,7 +156,7 @@ export interface Forward_ConstructProps extends GObject.Object_ConstructProps {
     bounded?: boolean
     search_area?: BoundingBox
 }
-export class Forward {
+class Forward {
     /* Properties of GeocodeGlib-1.0.GeocodeGlib.Forward */
     answer_count: number
     bounded: boolean
@@ -233,7 +235,7 @@ export interface Location_ConstructProps extends GObject.Object_ConstructProps {
     longitude?: number
     timestamp?: number
 }
-export class Location {
+class Location {
     /* Properties of GeocodeGlib-1.0.GeocodeGlib.Location */
     accuracy: number
     altitude: number
@@ -313,7 +315,7 @@ export class Location {
 }
 export interface MockBackend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MockBackend {
+class MockBackend {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GeocodeGlib-1.0.GeocodeGlib.MockBackend */
@@ -385,7 +387,7 @@ export interface Nominatim_ConstructProps extends GObject.Object_ConstructProps 
     maintainer_email_address?: string
     user_agent?: string
 }
-export class Nominatim {
+class Nominatim {
     /* Properties of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
     user_agent: string
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.Nominatim */
@@ -477,7 +479,7 @@ export interface Place_ConstructProps extends GObject.Object_ConstructProps {
     street_address?: string
     town?: string
 }
-export class Place {
+class Place {
     /* Properties of GeocodeGlib-1.0.GeocodeGlib.Place */
     administrative_area: string
     area: string
@@ -619,7 +621,7 @@ export class Place {
 }
 export interface Reverse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Reverse {
+class Reverse {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GeocodeGlib-1.0.GeocodeGlib.Reverse */
@@ -672,7 +674,7 @@ export class Reverse {
     static new_for_location(location: Location): Reverse
     static $gtype: GObject.Type
 }
-export abstract class BackendInterface {
+abstract class BackendInterface {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.BackendInterface */
     forward_search: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null) => Place[]
     forward_search_async: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
@@ -682,30 +684,30 @@ export abstract class BackendInterface {
     reverse_resolve_finish: (backend: Backend, result: Gio.AsyncResult) => Place[]
     static name: string
 }
-export abstract class BoundingBoxClass {
+abstract class BoundingBoxClass {
     static name: string
 }
-export class BoundingBoxPrivate {
+class BoundingBoxPrivate {
     static name: string
 }
-export abstract class ForwardClass {
+abstract class ForwardClass {
     static name: string
 }
-export class ForwardPrivate {
+class ForwardPrivate {
     static name: string
 }
-export abstract class LocationClass {
+abstract class LocationClass {
     static name: string
 }
-export class LocationPrivate {
+class LocationPrivate {
     static name: string
 }
-export abstract class MockBackendClass {
+abstract class MockBackendClass {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MockBackendQuery {
+class MockBackendQuery {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.MockBackendQuery */
     params: GLib.HashTable
     is_forward: boolean
@@ -713,7 +715,7 @@ export class MockBackendQuery {
     error: GLib.Error
     static name: string
 }
-export abstract class NominatimClass {
+abstract class NominatimClass {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.NominatimClass */
     parent_class: GObject.ObjectClass
     query: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null) => string
@@ -721,15 +723,17 @@ export abstract class NominatimClass {
     query_finish: (self: Nominatim, res: Gio.AsyncResult) => string
     static name: string
 }
-export abstract class PlaceClass {
+abstract class PlaceClass {
     static name: string
 }
-export class PlacePrivate {
+class PlacePrivate {
     static name: string
 }
-export abstract class ReverseClass {
+abstract class ReverseClass {
     static name: string
 }
-export class ReversePrivate {
+class ReversePrivate {
     static name: string
 }
+}
+export default GeocodeGlib

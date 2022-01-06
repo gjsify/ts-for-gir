@@ -1,2 +1,1 @@
-imports.gi.versions.GeglGtk3 = '0.1'
-module.exports = imports.gi.GeglGtk3
+export {default as default} from 'gi://GeglGtk3?version=0.1';

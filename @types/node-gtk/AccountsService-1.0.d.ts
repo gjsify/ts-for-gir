@@ -7,28 +7,28 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace AccountsService {
+declare namespace AccountsService {
 
-export enum UserAccountType {
+enum UserAccountType {
     STANDARD,
     ADMINISTRATOR,
 }
-export enum UserManagerError {
+enum UserManagerError {
     FAILED,
     USER_EXISTS,
     USER_DOES_NOT_EXIST,
     PERMISSION_DENIED,
     NOT_SUPPORTED,
 }
-export enum UserPasswordMode {
+enum UserPasswordMode {
     REGULAR,
     SET_AT_LOGIN,
     NONE,
 }
-export function userManagerErrorQuark(): GLib.Quark
+function userManagerErrorQuark(): GLib.Quark
 export interface User_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class User {
+class User {
     /* Properties of AccountsService-1.0.AccountsService.User */
     readonly accountType: number
     readonly automaticLogin: boolean
@@ -268,7 +268,7 @@ export interface UserManager_ConstructProps extends GObject.Object_ConstructProp
     hasMultipleUsers?: boolean
     includeUsernamesList?: object
 }
-export class UserManager {
+class UserManager {
     /* Properties of AccountsService-1.0.AccountsService.UserManager */
     excludeUsernamesList: object
     hasMultipleUsers: boolean
@@ -381,12 +381,12 @@ export class UserManager {
     static getDefault(): UserManager
     static $gtype: GObject.Type
 }
-export abstract class UserClass {
+abstract class UserClass {
     /* Fields of AccountsService-1.0.AccountsService.UserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class UserManagerClass {
+abstract class UserManagerClass {
     /* Fields of AccountsService-1.0.AccountsService.UserManagerClass */
     parentClass: GObject.ObjectClass
     userAdded: (userManager: UserManager, user: User) => void
@@ -396,3 +396,4 @@ export abstract class UserManagerClass {
     static name: string
 }
 }
+export default AccountsService

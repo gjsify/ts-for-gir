@@ -1,2 +1,1 @@
-imports.gi.versions.Zpj = '0.0'
-module.exports = imports.gi.Zpj
+export {default as default} from 'gi://Zpj?version=0.0';

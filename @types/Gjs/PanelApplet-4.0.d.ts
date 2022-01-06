@@ -3,34 +3,36 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as GConf from './GConf-2.0';
+import type xlib from './xlib-2.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type GConf from './GConf-2.0';
 
-export enum AppletOrient {
+export namespace PanelApplet {
+
+enum AppletOrient {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum AppletFlags {
+enum AppletFlags {
     FLAGS_NONE,
     EXPAND_MAJOR,
     EXPAND_MINOR,
     HAS_HANDLE,
 }
 export const APPLET_FLAGS_ALL: number
-export interface AppletFactoryCallback {
+interface AppletFactoryCallback {
     (applet: Applet, iid: string): boolean
 }
 export interface Applet_ConstructProps extends Gtk.EventBox_ConstructProps {
@@ -42,7 +44,7 @@ export interface Applet_ConstructProps extends Gtk.EventBox_ConstructProps {
     size?: number
     size_hints?: object
 }
-export class Applet {
+class Applet {
     /* Properties of PanelApplet-4.0.PanelApplet.Applet */
     flags: number
     locked_down: boolean
@@ -930,7 +932,7 @@ export class Applet {
     static factory_main(factory_id: string, applet_type: GObject.Type, callback: AppletFactoryCallback): number
     static $gtype: GObject.Type
 }
-export abstract class AppletClass {
+abstract class AppletClass {
     /* Fields of PanelApplet-4.0.PanelApplet.AppletClass */
     event_box_class: Gtk.EventBoxClass
     change_orient: (applet: Applet, orient: AppletOrient) => void
@@ -939,6 +941,8 @@ export abstract class AppletClass {
     move_focus_out_of_applet: (frame: Applet, direction: Gtk.DirectionType) => void
     static name: string
 }
-export class AppletPrivate {
+class AppletPrivate {
     static name: string
 }
+}
+export default PanelApplet

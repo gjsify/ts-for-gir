@@ -18,9 +18,9 @@ import type { Atk } from './Atk-1.0';
 import type { Gda } from './Gda-6.0';
 import type { libxml2 } from './libxml2-2.0';
 
-export declare namespace Gdaui {
+declare namespace Gdaui {
 
-export enum Action {
+enum Action {
     NEW_DATA,
     WRITE_MODIFIED_DATA,
     DELETE_SELECTED_DATA,
@@ -35,27 +35,27 @@ export enum Action {
     MOVE_NEXT_CHUNK,
     MOVE_LAST_CHUNK,
 }
-export enum BasicFormPart {
+enum BasicFormPart {
     LABELS,
     ENTRIES,
 }
-export enum DataEntryError {
+enum DataEntryError {
     FILE_NOT_FOUND_ERROR,
     INVALID_DATA_ERROR,
 }
-export enum DataProxyWriteMode {
+enum DataProxyWriteMode {
     DEMAND,
     ROW_CHANGE,
     VALUE_ACTIVATED,
     VALUE_CHANGE,
 }
-export enum PluginError {
+enum PluginError {
     PLUGIN_GENERAL_ERROR,
 }
-export enum RtEditorError {
+enum RtEditorError {
     RT_EDITOR_GENERAL_ERROR,
 }
-export enum ActionMode {
+enum ActionMode {
     NAVIGATION_ARROWS,
     NAVIGATION_SCROLL,
     MODIF_AUTO_COMMIT,
@@ -65,7 +65,7 @@ export enum ActionMode {
     ASK_CONFIRM_INSERT,
     REPORT_ERROR,
 }
-export enum DataProxyInfoFlag {
+enum DataProxyInfoFlag {
     NONE,
     CURRENT_ROW,
     ROW_MODIFY_BUTTONS,
@@ -73,7 +73,7 @@ export enum DataProxyInfoFlag {
     CHUNK_CHANGE_BUTTONS,
     NO_FILTER,
 }
-export enum LoginMode {
+enum LoginMode {
     ENABLE_CONTROL_CENTRE_MODE,
     HIDE_DSN_SELECTION_MODE,
     HIDE_DIRECT_CONNECTION_MODE,
@@ -93,21 +93,21 @@ export const HIG_FORM_HSPACE: number
 export const HIG_FORM_VBORDER: number
 export const HIG_FORM_VSEP: number
 export const HIG_FORM_VSPACE: number
-export function dataEntryErrorQuark(): GLib.Quark
-export function newDataEntry(type: GObject.Type, pluginName?: string | null): DataEntry
-export function pluginErrorQuark(): GLib.Quark
-export interface CloudWeightFunc {
+function dataEntryErrorQuark(): GLib.Quark
+function newDataEntry(type: GObject.Type, pluginName?: string | null): DataEntry
+function pluginErrorQuark(): GLib.Quark
+interface CloudWeightFunc {
     (model: Gda.DataModel, row: number, data?: object | null): number
 }
-export interface FormattedEntryInsertFunc {
+interface FormattedEntryInsertFunc {
     (entry: FormattedEntry, insertChar: number, virtPos: number, data?: object | null): void
 }
-export interface RawGridFormatFunc {
+interface RawGridFormatFunc {
     (cell: Gtk.CellRenderer, column: Gtk.TreeViewColumn, columnPos: number, model: Gda.DataModel, row: number, data?: object | null): void
 }
 export interface DataEntry_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class DataEntry {
+class DataEntry {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -1033,7 +1033,7 @@ export class DataEntry {
 }
 export interface DataProxy_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class DataProxy {
+class DataProxy {
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -1931,7 +1931,7 @@ export class DataProxy {
     _init (config?: DataProxy_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class DataSelector {
+class DataSelector {
     /* Methods of Gdaui-6.0.Gdaui.DataSelector */
     getDataSet(): Gda.DataModelIter
     getModel(): Gda.DataModel
@@ -1954,7 +1954,7 @@ export interface BasicForm_ConstructProps extends Gtk.Box_ConstructProps {
     xmlLayout?: object
     orientation?: Gtk.Orientation
 }
-export class BasicForm {
+class BasicForm {
     /* Properties of Gdaui-6.0.Gdaui.BasicForm */
     readonly canExpandV: boolean
     entriesAutoDefault: boolean
@@ -3040,7 +3040,7 @@ export interface Cloud_ConstructProps extends Gtk.Box_ConstructProps {
     weightColumn?: number
     orientation?: Gtk.Orientation
 }
-export class Cloud {
+class Cloud {
     /* Properties of Gdaui-6.0.Gdaui.Cloud */
     labelColumn: number
     maxScale: number
@@ -4114,7 +4114,7 @@ export interface Combo_ConstructProps extends Gtk.ComboBox_ConstructProps {
     model?: Gda.DataModel
     editingCanceled?: boolean
 }
-export class Combo {
+class Combo {
     /* Properties of Gdaui-6.0.Gdaui.Combo */
     asList: boolean
     model: Gda.DataModel
@@ -5295,7 +5295,7 @@ export interface DataCellRendererBin_ConstructProps extends Gtk.CellRendererPixb
     type?: GObject.Type
     value?: any
 }
-export class DataCellRendererBin {
+class DataCellRendererBin {
     /* Properties of Gdaui-6.0.Gdaui.DataCellRendererBin */
     editable: boolean
     toBeDeleted: boolean
@@ -5571,7 +5571,7 @@ export interface DataCellRendererBoolean_ConstructProps extends Gtk.CellRenderer
     type?: GObject.Type
     value?: any
 }
-export class DataCellRendererBoolean {
+class DataCellRendererBoolean {
     /* Properties of Gdaui-6.0.Gdaui.DataCellRendererBoolean */
     editable: boolean
     toBeDeleted: boolean
@@ -5832,7 +5832,7 @@ export interface DataCellRendererCombo_ConstructProps extends Gtk.CellRendererTe
     values?: object
     valuesDisplay?: object
 }
-export class DataCellRendererCombo {
+class DataCellRendererCombo {
     /* Properties of Gdaui-6.0.Gdaui.DataCellRendererCombo */
     setDefaultIfInvalid: boolean
     showExpander: boolean
@@ -6356,7 +6356,7 @@ export interface DataCellRendererInfo_ConstructProps extends Gtk.CellRenderer_Co
     store?: DataStore
     toBeDeleted?: boolean
 }
-export class DataCellRendererInfo {
+class DataCellRendererInfo {
     /* Properties of Gdaui-6.0.Gdaui.DataCellRendererInfo */
     editable: boolean
     toBeDeleted: boolean
@@ -6562,7 +6562,7 @@ export interface DataCellRendererTextual_ConstructProps extends Gtk.CellRenderer
     type?: GObject.Type
     value?: object
 }
-export class DataCellRendererTextual {
+class DataCellRendererTextual {
     /* Properties of Gdaui-6.0.Gdaui.DataCellRendererTextual */
     options: string
     toBeDeleted: boolean
@@ -7071,7 +7071,7 @@ export interface DataFilter_ConstructProps extends Gtk.Box_ConstructProps {
     dataWidget?: DataProxy
     orientation?: Gtk.Orientation
 }
-export class DataFilter {
+class DataFilter {
     /* Properties of Gdaui-6.0.Gdaui.DataFilter */
     dataWidget: DataProxy
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -8095,7 +8095,7 @@ export interface DataProxyInfo_ConstructProps extends Gtk.Toolbar_ConstructProps
     dataProxy?: DataProxy
     orientation?: Gtk.Orientation
 }
-export class DataProxyInfo {
+class DataProxyInfo {
     /* Properties of Gdaui-6.0.Gdaui.DataProxyInfo */
     dataProxy: DataProxy
     /* Properties of Gtk-3.0.Gtk.Toolbar */
@@ -9159,7 +9159,7 @@ export interface DataStore_ConstructProps extends GObject.Object_ConstructProps 
     model?: object
     prependNullEntry?: boolean
 }
-export class DataStore {
+class DataStore {
     /* Properties of Gdaui-6.0.Gdaui.DataStore */
     prependNullEntry: boolean
     readonly proxy: object
@@ -9282,7 +9282,7 @@ export interface Entry_ConstructProps extends Gtk.Entry_ConstructProps {
     suffix?: string
     editingCanceled?: boolean
 }
-export class Entry {
+class Entry {
     /* Properties of Gdaui-6.0.Gdaui.Entry */
     prefix: string
     suffix: string
@@ -10705,7 +10705,7 @@ export class Entry {
 export interface EntryBin_ConstructProps extends EntryWrapper_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EntryBin {
+class EntryBin {
     /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     setDefaultIfInvalid: boolean
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
@@ -11784,7 +11784,7 @@ export class EntryBin {
 export interface EntryBoolean_ConstructProps extends EntryWrapper_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EntryBoolean {
+class EntryBoolean {
     /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     setDefaultIfInvalid: boolean
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
@@ -12864,7 +12864,7 @@ export interface EntryCombo_ConstructProps extends EntryShell_ConstructProps {
     setDefaultIfInvalid?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryCombo {
+class EntryCombo {
     /* Properties of Gdaui-6.0.Gdaui.EntryCombo */
     setDefaultIfInvalid: boolean
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
@@ -13950,7 +13950,7 @@ export interface EntryCommonTime_ConstructProps extends EntryWrapper_ConstructPr
     type?: GObject.Type
     orientation?: Gtk.Orientation
 }
-export class EntryCommonTime {
+class EntryCommonTime {
     /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editingCanceled: boolean
     type: GObject.Type
@@ -15055,7 +15055,7 @@ export interface EntryDate_ConstructProps extends EntryCommonTime_ConstructProps
     editingCanceled?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryDate {
+class EntryDate {
     /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editingCanceled: boolean
     type: GObject.Type
@@ -16162,7 +16162,7 @@ export class EntryDate {
 export interface EntryNone_ConstructProps extends EntryWrapper_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EntryNone {
+class EntryNone {
     /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     setDefaultIfInvalid: boolean
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
@@ -17243,7 +17243,7 @@ export interface EntryNumber_ConstructProps extends EntryWrapper_ConstructProps 
     options?: string
     orientation?: Gtk.Orientation
 }
-export class EntryNumber {
+class EntryNumber {
     /* Properties of Gdaui-6.0.Gdaui.EntryNumber */
     editingCanceled: boolean
     options: string
@@ -18353,7 +18353,7 @@ export interface EntryShell_ConstructProps extends Gtk.Box_ConstructProps {
     isCellRenderer?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryShell {
+class EntryShell {
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
     handler: Gda.DataHandler
     isCellRenderer: boolean
@@ -19385,7 +19385,7 @@ export interface EntryString_ConstructProps extends EntryWrapper_ConstructProps 
     options?: string
     orientation?: Gtk.Orientation
 }
-export class EntryString {
+class EntryString {
     /* Properties of Gdaui-6.0.Gdaui.EntryString */
     editingCanceled: boolean
     multiline: boolean
@@ -20499,7 +20499,7 @@ export interface EntryTime_ConstructProps extends EntryCommonTime_ConstructProps
     editingCanceled?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryTime {
+class EntryTime {
     /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editingCanceled: boolean
     type: GObject.Type
@@ -21607,7 +21607,7 @@ export interface EntryTimestamp_ConstructProps extends EntryCommonTime_Construct
     editingCanceled?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryTimestamp {
+class EntryTimestamp {
     /* Properties of Gdaui-6.0.Gdaui.EntryCommonTime */
     editingCanceled: boolean
     type: GObject.Type
@@ -22715,7 +22715,7 @@ export interface EntryWrapper_ConstructProps extends EntryShell_ConstructProps {
     setDefaultIfInvalid?: boolean
     orientation?: Gtk.Orientation
 }
-export class EntryWrapper {
+class EntryWrapper {
     /* Properties of Gdaui-6.0.Gdaui.EntryWrapper */
     setDefaultIfInvalid: boolean
     /* Properties of Gdaui-6.0.Gdaui.EntryShell */
@@ -23794,7 +23794,7 @@ export interface Form_ConstructProps extends Gtk.Box_ConstructProps {
     model?: Gda.DataModel
     orientation?: Gtk.Orientation
 }
-export class Form {
+class Form {
     /* Properties of Gdaui-6.0.Gdaui.Form */
     readonly info: DataProxyInfo
     readonly rawForm: RawForm
@@ -24852,7 +24852,7 @@ export interface FormattedEntry_ConstructProps extends Entry_ConstructProps {
     mask?: string
     editingCanceled?: boolean
 }
-export class FormattedEntry {
+class FormattedEntry {
     /* Properties of Gdaui-6.0.Gdaui.FormattedEntry */
     format: string
     mask: string
@@ -26292,7 +26292,7 @@ export interface Grid_ConstructProps extends Gtk.Box_ConstructProps {
     model?: Gda.DataModel
     orientation?: Gtk.Orientation
 }
-export class Grid {
+class Grid {
     /* Properties of Gdaui-6.0.Gdaui.Grid */
     readonly info: DataProxyInfo
     model: Gda.DataModel
@@ -27357,7 +27357,7 @@ export interface Login_ConstructProps extends Gtk.Box_ConstructProps {
     dsn?: string
     orientation?: Gtk.Orientation
 }
-export class Login {
+class Login {
     /* Properties of Gdaui-6.0.Gdaui.Login */
     dsn: string
     readonly valid: boolean
@@ -28401,7 +28401,7 @@ export interface NumericEntry_ConstructProps extends Entry_ConstructProps {
     type?: GObject.Type
     editingCanceled?: boolean
 }
-export class NumericEntry {
+class NumericEntry {
     /* Properties of Gdaui-6.0.Gdaui.NumericEntry */
     decimalSep: number
     nDecimals: number
@@ -29852,7 +29852,7 @@ export class NumericEntry {
 export interface ProviderSelector_ConstructProps extends Combo_ConstructProps {
     editingCanceled?: boolean
 }
-export class ProviderSelector {
+class ProviderSelector {
     /* Properties of Gdaui-6.0.Gdaui.Combo */
     asList: boolean
     model: Gda.DataModel
@@ -31034,7 +31034,7 @@ export interface RawForm_ConstructProps extends BasicForm_ConstructProps {
     model?: Gda.DataModel
     orientation?: Gtk.Orientation
 }
-export class RawForm {
+class RawForm {
     /* Properties of Gdaui-6.0.Gdaui.RawForm */
     model: Gda.DataModel
     /* Properties of Gdaui-6.0.Gdaui.BasicForm */
@@ -32155,7 +32155,7 @@ export interface RawGrid_ConstructProps extends Gtk.TreeView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class RawGrid {
+class RawGrid {
     /* Properties of Gdaui-6.0.Gdaui.RawGrid */
     infoCellVisible: boolean
     model: Gda.DataModel
@@ -33500,7 +33500,7 @@ export interface RtEditor_ConstructProps extends Gtk.Box_ConstructProps {
     showMarkup?: boolean
     orientation?: Gtk.Orientation
 }
-export class RtEditor {
+class RtEditor {
     /* Properties of Gdaui-6.0.Gdaui.RtEditor */
     readonly buffer: Gtk.TextBuffer
     inScrolledWindow: boolean
@@ -34554,7 +34554,7 @@ export interface ServerOperation_ConstructProps extends Gtk.Box_ConstructProps {
     serverOperation?: Gda.ServerOperation
     orientation?: Gtk.Orientation
 }
-export class ServerOperation {
+class ServerOperation {
     /* Properties of Gdaui-6.0.Gdaui.ServerOperation */
     hideSingleHeader: boolean
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -35580,7 +35580,7 @@ export class ServerOperation {
 export interface Set_ConstructProps extends GObject.Object_ConstructProps {
     set?: Gda.Set
 }
-export class Set {
+class Set {
     /* Fields of Gdaui-6.0.Gdaui.Set */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -35645,7 +35645,7 @@ export class Set {
 export interface TreeStore_ConstructProps extends GObject.Object_ConstructProps {
     tree?: Gda.Tree
 }
-export class TreeStore {
+class TreeStore {
     /* Fields of Gdaui-6.0.Gdaui.TreeStore */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -35780,7 +35780,7 @@ export class TreeStore {
     static newv(tree: Gda.Tree, nColumns: number, types: GObject.Type, attributeNames: string): Gtk.TreeModel
     static $gtype: GObject.Type
 }
-export abstract class BasicFormClass {
+abstract class BasicFormClass {
     /* Fields of Gdaui-6.0.Gdaui.BasicFormClass */
     parentClass: Gtk.BoxClass
     holderChanged: (form: BasicForm, holder: Gda.Holder, isUserAction: boolean) => void
@@ -35788,49 +35788,49 @@ export abstract class BasicFormClass {
     layoutChanged: (form: BasicForm) => void
     static name: string
 }
-export abstract class CloudClass {
+abstract class CloudClass {
     /* Fields of Gdaui-6.0.Gdaui.CloudClass */
     parentClass: Gtk.BoxClass
     activate: (cloud: Cloud, row: number) => void
     padding: object[]
     static name: string
 }
-export abstract class ComboClass {
+abstract class ComboClass {
     /* Fields of Gdaui-6.0.Gdaui.ComboClass */
     parentClass: Gtk.ComboBoxClass
     padding: object[]
     static name: string
 }
-export abstract class DataCellRendererBinClass {
+abstract class DataCellRendererBinClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBinClass */
     parentClass: Gtk.CellRendererPixbufClass
     changed: (cellRenderer: DataCellRendererBin, path: string, newValue: any) => void
     static name: string
 }
-export abstract class DataCellRendererBooleanClass {
+abstract class DataCellRendererBooleanClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererBooleanClass */
     parentClass: Gtk.CellRendererToggleClass
     changed: (cellRenderer: DataCellRendererBoolean, path: string, newValue: any) => void
     static name: string
 }
-export abstract class DataCellRendererComboClass {
+abstract class DataCellRendererComboClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererComboClass */
     parentClass: Gtk.CellRendererTextClass
     static name: string
 }
-export abstract class DataCellRendererInfoClass {
+abstract class DataCellRendererInfoClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererInfoClass */
     parentClass: Gtk.CellRendererClass
     statusChanged: (cellRendererInfo: DataCellRendererInfo, path: string, requestedAction: Gda.ValueAttribute) => void
     static name: string
 }
-export abstract class DataCellRendererTextualClass {
+abstract class DataCellRendererTextualClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererTextualClass */
     parentClass: Gtk.CellRendererTextClass
     changed: (cellRendererTextual: DataCellRendererTextual, path: string, newValue: any) => void
     static name: string
 }
-export abstract class DataEntryInterface {
+abstract class DataEntryInterface {
     /* Fields of Gdaui-6.0.Gdaui.DataEntryInterface */
     gIface: GObject.TypeInterface
     contentsModified: (de: DataEntry) => void
@@ -35855,19 +35855,19 @@ export abstract class DataEntryInterface {
     validate: (de: DataEntry) => boolean
     static name: string
 }
-export abstract class DataFilterClass {
+abstract class DataFilterClass {
     /* Fields of Gdaui-6.0.Gdaui.DataFilterClass */
     parentClass: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class DataProxyInfoClass {
+abstract class DataProxyInfoClass {
     /* Fields of Gdaui-6.0.Gdaui.DataProxyInfoClass */
     parentClass: Gtk.ToolbarClass
     padding: object[]
     static name: string
 }
-export abstract class DataProxyInterface {
+abstract class DataProxyInterface {
     /* Fields of Gdaui-6.0.Gdaui.DataProxyInterface */
     gIface: GObject.TypeInterface
     getProxy: (iface: DataProxy) => Gda.DataProxy
@@ -35879,7 +35879,7 @@ export abstract class DataProxyInterface {
     proxyChanged: (iface: DataProxy, proxy: Gda.DataProxy) => void
     static name: string
 }
-export abstract class DataSelectorInterface {
+abstract class DataSelectorInterface {
     /* Fields of Gdaui-6.0.Gdaui.DataSelectorInterface */
     gIface: GObject.TypeInterface
     getModel: (iface: DataSelector) => Gda.DataModel
@@ -35893,23 +35893,23 @@ export abstract class DataSelectorInterface {
     padding: object[]
     static name: string
 }
-export abstract class DataStoreClass {
+abstract class DataStoreClass {
     /* Fields of Gdaui-6.0.Gdaui.DataStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class EntryBinClass {
+abstract class EntryBinClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryBinClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryBooleanClass {
+abstract class EntryBooleanClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryBooleanClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryClass {
+abstract class EntryClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryClass */
     parentClass: Gtk.EntryClass
     getEmptyText: (entry: Entry) => string
@@ -35917,52 +35917,52 @@ export abstract class EntryClass {
     assumeDelete: (entry: Entry, virtStartPos: number, virtEndPos: number, offset: number) => void
     static name: string
 }
-export abstract class EntryComboClass {
+abstract class EntryComboClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryComboClass */
     parentClass: EntryShellClass
     static name: string
 }
-export abstract class EntryCommonTimeClass {
+abstract class EntryCommonTimeClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryCommonTimeClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryDateClass {
+abstract class EntryDateClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryDateClass */
     parentClass: EntryCommonTimeClass
     static name: string
 }
-export abstract class EntryNoneClass {
+abstract class EntryNoneClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryNoneClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryNumberClass {
+abstract class EntryNumberClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryNumberClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryShellClass {
+abstract class EntryShellClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryShellClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export abstract class EntryStringClass {
+abstract class EntryStringClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryStringClass */
     parentClass: EntryWrapperClass
     static name: string
 }
-export abstract class EntryTimeClass {
+abstract class EntryTimeClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryTimeClass */
     parentClass: EntryCommonTimeClass
     static name: string
 }
-export abstract class EntryTimestampClass {
+abstract class EntryTimestampClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryTimestampClass */
     parentClass: EntryCommonTimeClass
     static name: string
 }
-export abstract class EntryWrapperClass {
+abstract class EntryWrapperClass {
     /* Fields of Gdaui-6.0.Gdaui.EntryWrapperClass */
     parentClass: EntryShellClass
     realSetValue: (wrapper: EntryWrapper, value: any) => void
@@ -35975,35 +35975,35 @@ export abstract class EntryWrapperClass {
     grabFocus: (wrapper: EntryWrapper) => void
     static name: string
 }
-export abstract class FormClass {
+abstract class FormClass {
     /* Fields of Gdaui-6.0.Gdaui.FormClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export abstract class FormattedEntryClass {
+abstract class FormattedEntryClass {
     /* Fields of Gdaui-6.0.Gdaui.FormattedEntryClass */
     parentClass: EntryClass
     static name: string
 }
-export abstract class GridClass {
+abstract class GridClass {
     /* Fields of Gdaui-6.0.Gdaui.GridClass */
     parentClass: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class LoginClass {
+abstract class LoginClass {
     /* Fields of Gdaui-6.0.Gdaui.LoginClass */
     parentClass: Gtk.BoxClass
     changed: (login: Login, isValid: boolean) => void
     padding: object[]
     static name: string
 }
-export abstract class NumericEntryClass {
+abstract class NumericEntryClass {
     /* Fields of Gdaui-6.0.Gdaui.NumericEntryClass */
     parentClass: EntryClass
     static name: string
 }
-export class Plugin {
+class Plugin {
     /* Fields of Gdaui-6.0.Gdaui.Plugin */
     pluginName: string
     pluginDescr: string
@@ -36017,46 +36017,46 @@ export class Plugin {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export abstract class ProviderSelectorClass {
+abstract class ProviderSelectorClass {
     /* Fields of Gdaui-6.0.Gdaui.ProviderSelectorClass */
     parentClass: ComboClass
     padding: object[]
     static name: string
 }
-export abstract class RawFormClass {
+abstract class RawFormClass {
     /* Fields of Gdaui-6.0.Gdaui.RawFormClass */
     parentClass: BasicFormClass
     padding: object[]
     static name: string
 }
-export abstract class RawGridClass {
+abstract class RawGridClass {
     /* Fields of Gdaui-6.0.Gdaui.RawGridClass */
     parentClass: Gtk.TreeViewClass
     doubleClicked: (grid: RawGrid, row: number) => void
     populatePopup: (grid: RawGrid, menu: Gtk.Menu) => void
     static name: string
 }
-export abstract class RtEditorClass {
+abstract class RtEditorClass {
     /* Fields of Gdaui-6.0.Gdaui.RtEditorClass */
     parentClass: Gtk.BoxClass
     changed: (editor: RtEditor) => void
     padding: object[]
     static name: string
 }
-export abstract class ServerOperationClass {
+abstract class ServerOperationClass {
     /* Fields of Gdaui-6.0.Gdaui.ServerOperationClass */
     parentClass: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class SetClass {
+abstract class SetClass {
     /* Fields of Gdaui-6.0.Gdaui.SetClass */
     parentClass: GObject.ObjectClass
     publicDataChanged: (set: Set) => void
     sourceModelChanged: (set: Set, source: SetSource) => void
     static name: string
 }
-export class SetGroup {
+class SetGroup {
     /* Methods of Gdaui-6.0.Gdaui.SetGroup */
     copy(): SetGroup
     free(): void
@@ -36070,7 +36070,7 @@ export class SetGroup {
     /* Static methods and pseudo-constructors */
     static new(group: Gda.SetGroup): SetGroup
 }
-export class SetSource {
+class SetSource {
     /* Methods of Gdaui-6.0.Gdaui.SetSource */
     copy(): SetSource
     free(): void
@@ -36088,7 +36088,7 @@ export class SetSource {
     /* Static methods and pseudo-constructors */
     static new(source: Gda.SetSource): SetSource
 }
-export abstract class TreeStoreClass {
+abstract class TreeStoreClass {
     /* Fields of Gdaui-6.0.Gdaui.TreeStoreClass */
     parentClass: GObject.ObjectClass
     dragCanDrag: (store: TreeStore, path: string) => boolean
@@ -36100,3 +36100,4 @@ export abstract class TreeStoreClass {
     static name: string
 }
 }
+export default Gdaui

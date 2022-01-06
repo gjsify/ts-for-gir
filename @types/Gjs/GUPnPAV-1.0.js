@@ -1,2 +1,1 @@
-imports.gi.versions.GUPnPAV = '1.0'
-module.exports = imports.gi.GUPnPAV
+export {default as default} from 'gi://GUPnPAV?version=1.0';

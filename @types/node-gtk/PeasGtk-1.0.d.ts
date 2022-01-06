@@ -18,9 +18,9 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace PeasGtk {
+declare namespace PeasGtk {
 
-export class Configurable {
+class Configurable {
     /* Methods of PeasGtk-1.0.PeasGtk.Configurable */
     createConfigureWidget(): Gtk.Widget
     static name: string
@@ -30,7 +30,7 @@ export interface PluginManager_ConstructProps extends Gtk.Box_ConstructProps {
     view?: PluginManagerView
     orientation?: Gtk.Orientation
 }
-export class PluginManager {
+class PluginManager {
     /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
@@ -1055,7 +1055,7 @@ export interface PluginManagerView_ConstructProps extends Gtk.TreeView_Construct
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class PluginManagerView {
+class PluginManagerView {
     /* Properties of PeasGtk-1.0.PeasGtk.PluginManagerView */
     showBuiltin: boolean
     /* Properties of Gtk-3.0.Gtk.TreeView */
@@ -2355,27 +2355,28 @@ export class PluginManagerView {
     static new(): PluginManagerView
     static $gtype: GObject.Type
 }
-export abstract class ConfigurableInterface {
+abstract class ConfigurableInterface {
     /* Fields of PeasGtk-1.0.PeasGtk.ConfigurableInterface */
     gIface: GObject.TypeInterface
     createConfigureWidget: (configurable: Configurable) => Gtk.Widget
     static name: string
 }
-export abstract class PluginManagerClass {
+abstract class PluginManagerClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export class PluginManagerPrivate {
+class PluginManagerPrivate {
     static name: string
 }
-export abstract class PluginManagerViewClass {
+abstract class PluginManagerViewClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerViewClass */
     parentClass: Gtk.TreeViewClass
     populatePopup: (view: PluginManagerView, menu: Gtk.Menu) => void
     static name: string
 }
-export class PluginManagerViewPrivate {
+class PluginManagerViewPrivate {
     static name: string
 }
 }
+export default PeasGtk

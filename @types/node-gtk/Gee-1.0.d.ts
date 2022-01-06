@@ -6,15 +6,15 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Gee {
+declare namespace Gee {
 
-export function functionsGetEqualFuncFor(t: GObject.Type): GLib.EqualFunc
-export function functionsGetHashFuncFor(t: GObject.Type): GLib.HashFunc
-export function functionsGetCompareFuncFor(t: GObject.Type): GLib.CompareFunc
-export function directCompare(val1?: object | null, val2?: object | null): number
+function functionsGetEqualFuncFor(t: GObject.Type): GLib.EqualFunc
+function functionsGetHashFuncFor(t: GObject.Type): GLib.HashFunc
+function functionsGetCompareFuncFor(t: GObject.Type): GLib.CompareFunc
+function directCompare(val1?: object | null, val2?: object | null): number
 export interface BidirIterator_ConstructProps extends Iterator_ConstructProps {
 }
-export class BidirIterator {
+class BidirIterator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.BidirIterator */
@@ -69,7 +69,7 @@ export class BidirIterator {
 }
 export interface Collection_ConstructProps extends Iterable_ConstructProps {
 }
-export class Collection {
+class Collection {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly isEmpty: boolean
@@ -154,7 +154,7 @@ export class Collection {
 }
 export interface Comparable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Comparable {
+class Comparable {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.Comparable */
@@ -201,7 +201,7 @@ export class Comparable {
 }
 export interface Deque_ConstructProps extends Queue_ConstructProps {
 }
-export class Deque {
+class Deque {
     /* Properties of Gee-1.0.Gee.Queue */
     readonly capacity: number
     readonly remainingCapacity: number
@@ -317,7 +317,7 @@ export class Deque {
 }
 export interface Iterable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Iterable {
+class Iterable {
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of GObject-2.0.GObject.Object */
@@ -371,7 +371,7 @@ export class Iterable {
 }
 export interface Iterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Iterator {
+class Iterator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.Iterator */
@@ -422,7 +422,7 @@ export class Iterator {
 }
 export interface List_ConstructProps extends Collection_ConstructProps {
 }
-export class List {
+class List {
     /* Properties of Gee-1.0.Gee.List */
     readonly readOnlyView: List
     /* Properties of Gee-1.0.Gee.Collection */
@@ -521,7 +521,7 @@ export class List {
 }
 export interface ListIterator_ConstructProps extends BidirIterator_ConstructProps {
 }
-export class ListIterator {
+class ListIterator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.ListIterator */
@@ -581,7 +581,7 @@ export class ListIterator {
 }
 export interface Map_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Map {
+class Map {
     /* Properties of Gee-1.0.Gee.Map */
     readonly size: number
     readonly isEmpty: boolean
@@ -692,7 +692,7 @@ export class Map {
 }
 export interface MapIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MapIterator {
+class MapIterator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.MapIterator */
@@ -745,7 +745,7 @@ export class MapIterator {
 }
 export interface MultiMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MultiMap {
+class MultiMap {
     /* Properties of Gee-1.0.Gee.MultiMap */
     readonly size: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -807,7 +807,7 @@ export class MultiMap {
 }
 export interface MultiSet_ConstructProps extends Collection_ConstructProps {
 }
-export class MultiSet {
+class MultiSet {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly isEmpty: boolean
@@ -894,7 +894,7 @@ export class MultiSet {
 }
 export interface Queue_ConstructProps extends Collection_ConstructProps {
 }
-export class Queue {
+class Queue {
     /* Properties of Gee-1.0.Gee.Queue */
     readonly capacity: number
     readonly remainingCapacity: number
@@ -1003,7 +1003,7 @@ export class Queue {
 }
 export interface Set_ConstructProps extends Collection_ConstructProps {
 }
-export class Set {
+class Set {
     /* Properties of Gee-1.0.Gee.Set */
     readonly readOnlyView: Set
     /* Properties of Gee-1.0.Gee.Collection */
@@ -1090,7 +1090,7 @@ export class Set {
 }
 export interface SortedSet_ConstructProps extends Set_ConstructProps {
 }
-export class SortedSet {
+class SortedSet {
     /* Properties of Gee-1.0.Gee.Set */
     readonly readOnlyView: Set
     /* Properties of Gee-1.0.Gee.Collection */
@@ -1189,7 +1189,7 @@ export class SortedSet {
 }
 export interface AbstractCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AbstractCollection {
+class AbstractCollection {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
@@ -1276,7 +1276,7 @@ export class AbstractCollection {
 }
 export interface AbstractList_ConstructProps extends AbstractCollection_ConstructProps {
 }
-export class AbstractList {
+class AbstractList {
     /* Properties of Gee-1.0.Gee.AbstractList */
     readonly readOnlyView: List
     /* Properties of Gee-1.0.Gee.AbstractCollection */
@@ -1377,7 +1377,7 @@ export class AbstractList {
 }
 export interface AbstractMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AbstractMap {
+class AbstractMap {
     /* Properties of Gee-1.0.Gee.AbstractMap */
     readonly size: number
     readonly isEmpty: boolean
@@ -1502,7 +1502,7 @@ export class AbstractMap {
 }
 export interface AbstractMultiMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AbstractMultiMap {
+class AbstractMultiMap {
     /* Properties of Gee-1.0.Gee.MultiMap */
     readonly size: number
     /* Fields of Gee-1.0.Gee.AbstractMultiMap */
@@ -1572,7 +1572,7 @@ export class AbstractMultiMap {
 }
 export interface AbstractMultiSet_ConstructProps extends AbstractCollection_ConstructProps {
 }
-export class AbstractMultiSet {
+class AbstractMultiSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
@@ -1660,7 +1660,7 @@ export class AbstractMultiSet {
 }
 export interface AbstractQueue_ConstructProps extends AbstractCollection_ConstructProps {
 }
-export class AbstractQueue {
+class AbstractQueue {
     /* Properties of Gee-1.0.Gee.AbstractQueue */
     readonly capacity: number
     readonly remainingCapacity: number
@@ -1769,7 +1769,7 @@ export class AbstractQueue {
 }
 export interface AbstractSet_ConstructProps extends AbstractCollection_ConstructProps {
 }
-export class AbstractSet {
+class AbstractSet {
     /* Properties of Gee-1.0.Gee.AbstractSet */
     readonly readOnlyView: Set
     /* Properties of Gee-1.0.Gee.AbstractCollection */
@@ -1858,7 +1858,7 @@ export class AbstractSet {
 export interface ArrayList_ConstructProps extends AbstractList_ConstructProps {
     equalFunc?: GLib.EqualFunc
 }
-export class ArrayList {
+class ArrayList {
     /* Properties of Gee-1.0.Gee.ArrayList */
     equalFunc: GLib.EqualFunc
     /* Properties of Gee-1.0.Gee.AbstractList */
@@ -1962,7 +1962,7 @@ export interface HashMap_ConstructProps extends AbstractMap_ConstructProps {
     keyEqualFunc?: GLib.EqualFunc
     valueEqualFunc?: GLib.EqualFunc
 }
-export class HashMap {
+class HashMap {
     /* Properties of Gee-1.0.Gee.HashMap */
     keyHashFunc: GLib.HashFunc
     keyEqualFunc: GLib.EqualFunc
@@ -2081,7 +2081,7 @@ export interface HashMultiMap_ConstructProps extends AbstractMultiMap_ConstructP
     valueHashFunc?: GLib.HashFunc
     valueEqualFunc?: GLib.EqualFunc
 }
-export class HashMultiMap {
+class HashMultiMap {
     /* Properties of Gee-1.0.Gee.HashMultiMap */
     readonly keyHashFunc: GLib.HashFunc
     readonly keyEqualFunc: GLib.EqualFunc
@@ -2162,7 +2162,7 @@ export class HashMultiMap {
 }
 export interface HashMultiSet_ConstructProps extends AbstractMultiSet_ConstructProps {
 }
-export class HashMultiSet {
+class HashMultiSet {
     /* Properties of Gee-1.0.Gee.HashMultiSet */
     readonly hashFunc: GLib.HashFunc
     readonly equalFunc: GLib.EqualFunc
@@ -2259,7 +2259,7 @@ export interface HashSet_ConstructProps extends AbstractSet_ConstructProps {
     hashFunc?: GLib.HashFunc
     equalFunc?: GLib.EqualFunc
 }
-export class HashSet {
+class HashSet {
     /* Properties of Gee-1.0.Gee.HashSet */
     hashFunc: GLib.HashFunc
     equalFunc: GLib.EqualFunc
@@ -2354,7 +2354,7 @@ export class HashSet {
 export interface LinkedList_ConstructProps extends AbstractList_ConstructProps {
     equalFunc?: GLib.EqualFunc
 }
-export class LinkedList {
+class LinkedList {
     /* Properties of Gee-1.0.Gee.LinkedList */
     equalFunc: GLib.EqualFunc
     /* Properties of Gee-1.0.Gee.AbstractList */
@@ -2494,7 +2494,7 @@ export class LinkedList {
 export interface PriorityQueue_ConstructProps extends AbstractQueue_ConstructProps {
     compareFunc?: GLib.CompareFunc
 }
-export class PriorityQueue {
+class PriorityQueue {
     /* Properties of Gee-1.0.Gee.PriorityQueue */
     compareFunc: GLib.CompareFunc
     /* Properties of Gee-1.0.Gee.AbstractQueue */
@@ -2607,7 +2607,7 @@ export interface TreeMap_ConstructProps extends AbstractMap_ConstructProps {
     keyCompareFunc?: GLib.CompareFunc
     valueEqualFunc?: GLib.EqualFunc
 }
-export class TreeMap {
+class TreeMap {
     /* Properties of Gee-1.0.Gee.TreeMap */
     keyCompareFunc: GLib.CompareFunc
     valueEqualFunc: GLib.EqualFunc
@@ -2719,7 +2719,7 @@ export class TreeMap {
 export interface TreeMultiMap_ConstructProps extends AbstractMultiMap_ConstructProps {
     valueCompareFunc?: GLib.CompareFunc
 }
-export class TreeMultiMap {
+class TreeMultiMap {
     /* Properties of Gee-1.0.Gee.TreeMultiMap */
     readonly keyCompareFunc: GLib.CompareFunc
     valueCompareFunc: GLib.CompareFunc
@@ -2788,7 +2788,7 @@ export class TreeMultiMap {
 }
 export interface TreeMultiSet_ConstructProps extends AbstractMultiSet_ConstructProps {
 }
-export class TreeMultiSet {
+class TreeMultiSet {
     /* Properties of Gee-1.0.Gee.TreeMultiSet */
     readonly compareFunc: GLib.CompareFunc
     /* Properties of Gee-1.0.Gee.AbstractCollection */
@@ -2878,7 +2878,7 @@ export class TreeMultiSet {
 export interface TreeSet_ConstructProps extends AbstractSet_ConstructProps {
     compareFunc?: GLib.CompareFunc
 }
-export class TreeSet {
+class TreeSet {
     /* Properties of Gee-1.0.Gee.TreeSet */
     compareFunc: GLib.CompareFunc
     /* Properties of Gee-1.0.Gee.AbstractSet */
@@ -2986,7 +2986,7 @@ export class TreeSet {
 export interface MapEntry_ConstructProps extends GObject.Object_ConstructProps {
     value?: object
 }
-export class MapEntry {
+class MapEntry {
     /* Properties of Gee-1.0.Gee.MapEntry */
     readonly key: object
     value: object
@@ -3045,7 +3045,7 @@ export class MapEntry {
     _init (config?: MapEntry_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AbstractCollectionClass {
+abstract class AbstractCollectionClass {
     /* Fields of Gee-1.0.Gee.AbstractCollectionClass */
     parentClass: GObject.ObjectClass
     contains: (self: AbstractCollection, item?: object | null) => boolean
@@ -3060,10 +3060,10 @@ export abstract class AbstractCollectionClass {
     iterator: (self: AbstractCollection) => Iterator
     static name: string
 }
-export class AbstractCollectionPrivate {
+class AbstractCollectionPrivate {
     static name: string
 }
-export abstract class AbstractListClass {
+abstract class AbstractListClass {
     /* Fields of Gee-1.0.Gee.AbstractListClass */
     parentClass: AbstractCollectionClass
     listIterator: (self: AbstractList) => ListIterator
@@ -3078,10 +3078,10 @@ export abstract class AbstractListClass {
     insertAll: (self: AbstractList, index: number, collection: Collection) => void
     static name: string
 }
-export class AbstractListPrivate {
+class AbstractListPrivate {
     static name: string
 }
-export abstract class AbstractMapClass {
+abstract class AbstractMapClass {
     /* Fields of Gee-1.0.Gee.AbstractMapClass */
     parentClass: GObject.ObjectClass
     hasKey: (self: AbstractMap, key?: object | null) => boolean
@@ -3096,10 +3096,10 @@ export abstract class AbstractMapClass {
     hasAll: (self: AbstractMap, map: Map) => boolean
     static name: string
 }
-export class AbstractMapPrivate {
+class AbstractMapPrivate {
     static name: string
 }
-export abstract class AbstractMultiMapClass {
+abstract class AbstractMultiMapClass {
     /* Fields of Gee-1.0.Gee.AbstractMultiMapClass */
     parentClass: GObject.ObjectClass
     createValueStorage: (self: AbstractMultiMap) => Collection
@@ -3107,18 +3107,18 @@ export abstract class AbstractMultiMapClass {
     getValueEqualFunc: (self: AbstractMultiMap) => GLib.EqualFunc
     static name: string
 }
-export class AbstractMultiMapPrivate {
+class AbstractMultiMapPrivate {
     static name: string
 }
-export abstract class AbstractMultiSetClass {
+abstract class AbstractMultiSetClass {
     /* Fields of Gee-1.0.Gee.AbstractMultiSetClass */
     parentClass: AbstractCollectionClass
     static name: string
 }
-export class AbstractMultiSetPrivate {
+class AbstractMultiSetPrivate {
     static name: string
 }
-export abstract class AbstractQueueClass {
+abstract class AbstractQueueClass {
     /* Fields of Gee-1.0.Gee.AbstractQueueClass */
     parentClass: AbstractCollectionClass
     offer: (self: AbstractQueue, element?: object | null) => boolean
@@ -3127,106 +3127,106 @@ export abstract class AbstractQueueClass {
     drain: (self: AbstractQueue, recipient: Collection, amount: number) => number
     static name: string
 }
-export class AbstractQueuePrivate {
+class AbstractQueuePrivate {
     static name: string
 }
-export abstract class AbstractSetClass {
+abstract class AbstractSetClass {
     /* Fields of Gee-1.0.Gee.AbstractSetClass */
     parentClass: AbstractCollectionClass
     static name: string
 }
-export class AbstractSetPrivate {
+class AbstractSetPrivate {
     static name: string
 }
-export abstract class ArrayListClass {
+abstract class ArrayListClass {
     /* Fields of Gee-1.0.Gee.ArrayListClass */
     parentClass: AbstractListClass
     static name: string
 }
-export class ArrayListPrivate {
+class ArrayListPrivate {
     static name: string
 }
-export abstract class HashMapClass {
+abstract class HashMapClass {
     /* Fields of Gee-1.0.Gee.HashMapClass */
     parentClass: AbstractMapClass
     static name: string
 }
-export class HashMapPrivate {
+class HashMapPrivate {
     static name: string
 }
-export abstract class HashMultiMapClass {
+abstract class HashMultiMapClass {
     /* Fields of Gee-1.0.Gee.HashMultiMapClass */
     parentClass: AbstractMultiMapClass
     static name: string
 }
-export class HashMultiMapPrivate {
+class HashMultiMapPrivate {
     static name: string
 }
-export abstract class HashMultiSetClass {
+abstract class HashMultiSetClass {
     /* Fields of Gee-1.0.Gee.HashMultiSetClass */
     parentClass: AbstractMultiSetClass
     static name: string
 }
-export class HashMultiSetPrivate {
+class HashMultiSetPrivate {
     static name: string
 }
-export abstract class HashSetClass {
+abstract class HashSetClass {
     /* Fields of Gee-1.0.Gee.HashSetClass */
     parentClass: AbstractSetClass
     static name: string
 }
-export class HashSetPrivate {
+class HashSetPrivate {
     static name: string
 }
-export abstract class LinkedListClass {
+abstract class LinkedListClass {
     /* Fields of Gee-1.0.Gee.LinkedListClass */
     parentClass: AbstractListClass
     static name: string
 }
-export class LinkedListPrivate {
+class LinkedListPrivate {
     static name: string
 }
-export abstract class PriorityQueueClass {
+abstract class PriorityQueueClass {
     /* Fields of Gee-1.0.Gee.PriorityQueueClass */
     parentClass: AbstractQueueClass
     static name: string
 }
-export class PriorityQueuePrivate {
+class PriorityQueuePrivate {
     static name: string
 }
-export abstract class TreeMapClass {
+abstract class TreeMapClass {
     /* Fields of Gee-1.0.Gee.TreeMapClass */
     parentClass: AbstractMapClass
     static name: string
 }
-export class TreeMapPrivate {
+class TreeMapPrivate {
     static name: string
 }
-export abstract class TreeMultiMapClass {
+abstract class TreeMultiMapClass {
     /* Fields of Gee-1.0.Gee.TreeMultiMapClass */
     parentClass: AbstractMultiMapClass
     static name: string
 }
-export class TreeMultiMapPrivate {
+class TreeMultiMapPrivate {
     static name: string
 }
-export abstract class TreeMultiSetClass {
+abstract class TreeMultiSetClass {
     /* Fields of Gee-1.0.Gee.TreeMultiSetClass */
     parentClass: AbstractMultiSetClass
     static name: string
 }
-export class TreeMultiSetPrivate {
+class TreeMultiSetPrivate {
     static name: string
 }
-export abstract class TreeSetClass {
+abstract class TreeSetClass {
     /* Fields of Gee-1.0.Gee.TreeSetClass */
     parentClass: AbstractSetClass
     static name: string
 }
-export class TreeSetPrivate {
+class TreeSetPrivate {
     static name: string
 }
-export abstract class BidirIteratorIface {
+abstract class BidirIteratorIface {
     /* Fields of Gee-1.0.Gee.BidirIteratorIface */
     parentIface: GObject.TypeInterface
     previous: (self: BidirIterator) => boolean
@@ -3234,7 +3234,7 @@ export abstract class BidirIteratorIface {
     last: (self: BidirIterator) => boolean
     static name: string
 }
-export abstract class CollectionIface {
+abstract class CollectionIface {
     /* Fields of Gee-1.0.Gee.CollectionIface */
     parentIface: GObject.TypeInterface
     contains: (self: Collection, item?: object | null) => boolean
@@ -3248,13 +3248,13 @@ export abstract class CollectionIface {
     toArray: (self: Collection) => object[]
     static name: string
 }
-export abstract class ComparableIface {
+abstract class ComparableIface {
     /* Fields of Gee-1.0.Gee.ComparableIface */
     parentIface: GObject.TypeInterface
     compareTo: (self: Comparable, object?: object | null) => number
     static name: string
 }
-export abstract class DequeIface {
+abstract class DequeIface {
     /* Fields of Gee-1.0.Gee.DequeIface */
     parentIface: GObject.TypeInterface
     offerHead: (self: Deque, element?: object | null) => boolean
@@ -3267,13 +3267,13 @@ export abstract class DequeIface {
     drainTail: (self: Deque, recipient: Collection, amount: number) => number
     static name: string
 }
-export abstract class IterableIface {
+abstract class IterableIface {
     /* Fields of Gee-1.0.Gee.IterableIface */
     parentIface: GObject.TypeInterface
     iterator: (self: Iterable) => Iterator
     static name: string
 }
-export abstract class IteratorIface {
+abstract class IteratorIface {
     /* Fields of Gee-1.0.Gee.IteratorIface */
     parentIface: GObject.TypeInterface
     next: (self: Iterator) => boolean
@@ -3283,7 +3283,7 @@ export abstract class IteratorIface {
     remove: (self: Iterator) => void
     static name: string
 }
-export abstract class ListIface {
+abstract class ListIface {
     /* Fields of Gee-1.0.Gee.ListIface */
     parentIface: GObject.TypeInterface
     listIterator: (self: List) => ListIterator
@@ -3299,7 +3299,7 @@ export abstract class ListIface {
     sort: (self: List, compareFunc?: GLib.CompareFunc | null) => void
     static name: string
 }
-export abstract class ListIteratorIface {
+abstract class ListIteratorIface {
     /* Fields of Gee-1.0.Gee.ListIteratorIface */
     parentIface: GObject.TypeInterface
     set: (self: ListIterator, item?: object | null) => void
@@ -3308,7 +3308,7 @@ export abstract class ListIteratorIface {
     index: (self: ListIterator) => number
     static name: string
 }
-export abstract class MapIface {
+abstract class MapIface {
     /* Fields of Gee-1.0.Gee.MapIface */
     parentIface: GObject.TypeInterface
     hasKey: (self: Map, key?: object | null) => boolean
@@ -3327,15 +3327,15 @@ export abstract class MapIface {
     containsAll: (self: Map, map: Map) => boolean
     static name: string
 }
-export abstract class MapEntryClass {
+abstract class MapEntryClass {
     /* Fields of Gee-1.0.Gee.MapEntryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class EntryPrivate {
+class EntryPrivate {
     static name: string
 }
-export abstract class MapIteratorIface {
+abstract class MapIteratorIface {
     /* Fields of Gee-1.0.Gee.MapIteratorIface */
     parentIface: GObject.TypeInterface
     next: (self: MapIterator) => boolean
@@ -3347,7 +3347,7 @@ export abstract class MapIteratorIface {
     unset: (self: MapIterator) => void
     static name: string
 }
-export abstract class MultiMapIface {
+abstract class MultiMapIface {
     /* Fields of Gee-1.0.Gee.MultiMapIface */
     parentIface: GObject.TypeInterface
     getKeys: (self: MultiMap) => Set
@@ -3361,13 +3361,13 @@ export abstract class MultiMapIface {
     clear: (self: MultiMap) => void
     static name: string
 }
-export abstract class MultiSetIface {
+abstract class MultiSetIface {
     /* Fields of Gee-1.0.Gee.MultiSetIface */
     parentIface: GObject.TypeInterface
     count: (self: MultiSet, item?: object | null) => number
     static name: string
 }
-export abstract class QueueIface {
+abstract class QueueIface {
     /* Fields of Gee-1.0.Gee.QueueIface */
     parentIface: GObject.TypeInterface
     offer: (self: Queue, element?: object | null) => boolean
@@ -3376,12 +3376,12 @@ export abstract class QueueIface {
     drain: (self: Queue, recipient: Collection, amount: number) => number
     static name: string
 }
-export abstract class SetIface {
+abstract class SetIface {
     /* Fields of Gee-1.0.Gee.SetIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class SortedSetIface {
+abstract class SortedSetIface {
     /* Fields of Gee-1.0.Gee.SortedSetIface */
     parentIface: GObject.TypeInterface
     first: (self: SortedSet) => object | null
@@ -3398,3 +3398,4 @@ export abstract class SortedSetIface {
     static name: string
 }
 }
+export default Gee

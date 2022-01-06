@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Arrow {
+declare namespace Arrow {
 
-export enum CompareOperator {
+enum CompareOperator {
     EQUAL,
     NOT_EQUAL,
     GREATER,
@@ -17,7 +17,7 @@ export enum CompareOperator {
     LESS,
     LESS_EQUAL,
 }
-export enum CompressionType {
+enum CompressionType {
     UNCOMPRESSED,
     SNAPPY,
     GZIP,
@@ -27,11 +27,11 @@ export enum CompressionType {
     LZO,
     BZ2,
 }
-export enum CountMode {
+enum CountMode {
     ALL,
     NULL,
 }
-export enum Error {
+enum Error {
     OUT_OF_MEMORY,
     KEY,
     TYPE,
@@ -47,42 +47,42 @@ export enum Error {
     EXECUTION,
     ALREADY_EXISTS,
 }
-export enum FileMode {
+enum FileMode {
     READ,
     WRITE,
     READWRITE,
 }
-export enum FileType {
+enum FileType {
     NOT_FOUND,
     UNKNOWN,
     FILE,
     DIR,
 }
-export enum FilterNullSelectionBehavior {
+enum FilterNullSelectionBehavior {
     DROP,
     EMIT_NULL,
 }
-export enum JSONReadUnexpectedFieldBehavior {
+enum JSONReadUnexpectedFieldBehavior {
     IGNORE,
     ERROR,
     INFER_TYPE,
 }
-export enum MetadataVersion {
+enum MetadataVersion {
     V1,
     V2,
     V3,
 }
-export enum SortOrder {
+enum SortOrder {
     ASCENDING,
     DESCENDING,
 }
-export enum TimeUnit {
+enum TimeUnit {
     SECOND,
     MILLI,
     MICRO,
     NANO,
 }
-export enum Type {
+enum Type {
     NA,
     BOOLEAN,
     UINT8,
@@ -125,8 +125,8 @@ export const VERSION_MAJOR: number
 export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export const VERSION_TAG: string
-export function errorQuark(): GLib.Quark
-export class File {
+function errorQuark(): GLib.Quark
+class File {
     /* Methods of Arrow-1.0.Arrow.File */
     close(): boolean
     getMode(): FileMode
@@ -134,22 +134,22 @@ export class File {
     tell(): number
     static name: string
 }
-export class FunctionOptions {
+class FunctionOptions {
     static name: string
 }
-export class Readable {
+class Readable {
     /* Methods of Arrow-1.0.Arrow.Readable */
     read(nBytes: number): Buffer | null
     readBytes(nBytes: number): any | null
     static name: string
 }
-export class Writable {
+class Writable {
     /* Methods of Arrow-1.0.Arrow.Writable */
     flush(): boolean
     write(data: any[]): boolean
     static name: string
 }
-export class WritableFile {
+class WritableFile {
     /* Methods of Arrow-1.0.Arrow.WritableFile */
     writeAt(position: number, data: any[]): boolean
     static name: string
@@ -162,7 +162,7 @@ export interface Array_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Array
     valueDataType?: DataType
 }
-export class Array {
+class Array {
     /* Fields of Arrow-1.0.Arrow.Array */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -238,7 +238,7 @@ export class Array {
 export interface ArrayBuilder_ConstructProps extends GObject.Object_ConstructProps {
     arrayBuilder?: object
 }
-export class ArrayBuilder {
+class ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.ArrayBuilder */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -300,7 +300,7 @@ export class ArrayBuilder {
 export interface ArrayDatum_ConstructProps extends Datum_ConstructProps {
     value?: Array
 }
-export class ArrayDatum {
+class ArrayDatum {
     /* Fields of Arrow-1.0.Arrow.ArrayDatum */
     parentInstance: Datum
     /* Fields of GObject-2.0.GObject.Object */
@@ -355,7 +355,7 @@ export class ArrayDatum {
 export interface ArraySortOptions_ConstructProps extends GObject.Object_ConstructProps {
     order?: SortOrder
 }
-export class ArraySortOptions {
+class ArraySortOptions {
     /* Properties of Arrow-1.0.Arrow.ArraySortOptions */
     order: SortOrder
     /* Fields of Arrow-1.0.Arrow.ArraySortOptions */
@@ -413,7 +413,7 @@ export class ArraySortOptions {
 }
 export interface BinaryArray_ConstructProps extends Array_ConstructProps {
 }
-export class BinaryArray {
+class BinaryArray {
     /* Fields of Arrow-1.0.Arrow.BinaryArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -495,7 +495,7 @@ export class BinaryArray {
 }
 export interface BinaryArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class BinaryArrayBuilder {
+class BinaryArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.BinaryArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -563,7 +563,7 @@ export class BinaryArrayBuilder {
 }
 export interface BinaryDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class BinaryDataType {
+class BinaryDataType {
     /* Fields of Arrow-1.0.Arrow.BinaryDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -617,7 +617,7 @@ export class BinaryDataType {
 }
 export interface BinaryDictionaryArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class BinaryDictionaryArrayBuilder {
+class BinaryDictionaryArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.BinaryDictionaryArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -689,7 +689,7 @@ export class BinaryDictionaryArrayBuilder {
 }
 export interface BooleanArray_ConstructProps extends PrimitiveArray_ConstructProps {
 }
-export class BooleanArray {
+class BooleanArray {
     /* Fields of Arrow-1.0.Arrow.BooleanArray */
     parentInstance: PrimitiveArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -776,7 +776,7 @@ export class BooleanArray {
 }
 export interface BooleanArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class BooleanArrayBuilder {
+class BooleanArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.BooleanArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -843,7 +843,7 @@ export class BooleanArrayBuilder {
 }
 export interface BooleanDataType_ConstructProps extends FixedWidthDataType_ConstructProps {
 }
-export class BooleanDataType {
+class BooleanDataType {
     /* Fields of Arrow-1.0.Arrow.BooleanDataType */
     parentInstance: FixedWidthDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -902,7 +902,7 @@ export interface Buffer_ConstructProps extends GObject.Object_ConstructProps {
     data?: any
     parent?: Buffer
 }
-export class Buffer {
+class Buffer {
     /* Fields of Arrow-1.0.Arrow.Buffer */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -964,7 +964,7 @@ export class Buffer {
 export interface BufferInputStream_ConstructProps extends SeekableInputStream_ConstructProps {
     buffer?: Buffer
 }
-export class BufferInputStream {
+class BufferInputStream {
     /* Fields of Arrow-1.0.Arrow.BufferInputStream */
     parentInstance: SeekableInputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -1053,7 +1053,7 @@ export class BufferInputStream {
 }
 export interface BufferOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
-export class BufferOutputStream {
+class BufferOutputStream {
     /* Fields of Arrow-1.0.Arrow.OutputStream */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1128,7 +1128,7 @@ export interface CSVReadOptions_ConstructProps extends GObject.Object_ConstructP
     quoteCharacter?: number
     useThreads?: boolean
 }
-export class CSVReadOptions {
+class CSVReadOptions {
     /* Properties of Arrow-1.0.Arrow.CSVReadOptions */
     allowNewlinesInValues: boolean
     allowNullStrings: boolean
@@ -1279,7 +1279,7 @@ export class CSVReadOptions {
 export interface CSVReader_ConstructProps extends GObject.Object_ConstructProps {
     csvTableReader?: object
 }
-export class CSVReader {
+class CSVReader {
     /* Fields of Arrow-1.0.Arrow.CSVReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1337,7 +1337,7 @@ export interface CastOptions_ConstructProps extends GObject.Object_ConstructProp
     allowTimeTruncate?: boolean
     toDataType?: DataType
 }
-export class CastOptions {
+class CastOptions {
     /* Properties of Arrow-1.0.Arrow.CastOptions */
     allowDecimalTruncate: boolean
     allowFloatTruncate: boolean
@@ -1430,7 +1430,7 @@ export class CastOptions {
 export interface ChunkedArray_ConstructProps extends GObject.Object_ConstructProps {
     chunkedArray?: object
 }
-export class ChunkedArray {
+class ChunkedArray {
     /* Fields of Arrow-1.0.Arrow.ChunkedArray */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1497,7 +1497,7 @@ export class ChunkedArray {
 export interface ChunkedArrayDatum_ConstructProps extends Datum_ConstructProps {
     value?: ChunkedArray
 }
-export class ChunkedArrayDatum {
+class ChunkedArrayDatum {
     /* Fields of Arrow-1.0.Arrow.ChunkedArrayDatum */
     parentInstance: Datum
     /* Fields of GObject-2.0.GObject.Object */
@@ -1552,7 +1552,7 @@ export class ChunkedArrayDatum {
 export interface Codec_ConstructProps extends GObject.Object_ConstructProps {
     codec?: object
 }
-export class Codec {
+class Codec {
     /* Fields of Arrow-1.0.Arrow.Codec */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1606,7 +1606,7 @@ export class Codec {
 export interface CompareOptions_ConstructProps extends GObject.Object_ConstructProps {
     operator?: CompareOperator
 }
-export class CompareOptions {
+class CompareOptions {
     /* Properties of Arrow-1.0.Arrow.CompareOptions */
     operator: CompareOperator
     /* Fields of Arrow-1.0.Arrow.CompareOptions */
@@ -1664,7 +1664,7 @@ export interface CompressedInputStream_ConstructProps extends InputStream_Constr
     codec?: Codec
     raw?: InputStream
 }
-export class CompressedInputStream {
+class CompressedInputStream {
     /* Fields of Arrow-1.0.Arrow.CompressedInputStream */
     parentInstance: InputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -1747,7 +1747,7 @@ export interface CompressedOutputStream_ConstructProps extends OutputStream_Cons
     codec?: Codec
     raw?: OutputStream
 }
-export class CompressedOutputStream {
+class CompressedOutputStream {
     /* Fields of Arrow-1.0.Arrow.CompressedOutputStream */
     parentInstance: OutputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -1809,7 +1809,7 @@ export class CompressedOutputStream {
 export interface CountOptions_ConstructProps extends GObject.Object_ConstructProps {
     mode?: CountMode
 }
-export class CountOptions {
+class CountOptions {
     /* Properties of Arrow-1.0.Arrow.CountOptions */
     mode: CountMode
     /* Fields of Arrow-1.0.Arrow.CountOptions */
@@ -1866,7 +1866,7 @@ export class CountOptions {
 export interface DataType_ConstructProps extends GObject.Object_ConstructProps {
     dataType?: object
 }
-export class DataType {
+class DataType {
     /* Fields of Arrow-1.0.Arrow.DataType */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1918,7 +1918,7 @@ export class DataType {
 }
 export interface Date32Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Date32Array {
+class Date32Array {
     /* Fields of Arrow-1.0.Arrow.Date32Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -2003,7 +2003,7 @@ export class Date32Array {
 }
 export interface Date32ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Date32ArrayBuilder {
+class Date32ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Date32ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -2070,7 +2070,7 @@ export class Date32ArrayBuilder {
 }
 export interface Date32DataType_ConstructProps extends DataType_ConstructProps {
 }
-export class Date32DataType {
+class Date32DataType {
     /* Fields of Arrow-1.0.Arrow.Date32DataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -2124,7 +2124,7 @@ export class Date32DataType {
 }
 export interface Date64Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Date64Array {
+class Date64Array {
     /* Fields of Arrow-1.0.Arrow.Date64Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -2209,7 +2209,7 @@ export class Date64Array {
 }
 export interface Date64ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Date64ArrayBuilder {
+class Date64ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Date64ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -2276,7 +2276,7 @@ export class Date64ArrayBuilder {
 }
 export interface Date64DataType_ConstructProps extends DataType_ConstructProps {
 }
-export class Date64DataType {
+class Date64DataType {
     /* Fields of Arrow-1.0.Arrow.Date64DataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -2331,7 +2331,7 @@ export class Date64DataType {
 export interface Datum_ConstructProps extends GObject.Object_ConstructProps {
     datum?: object
 }
-export class Datum {
+class Datum {
     /* Fields of Arrow-1.0.Arrow.Datum */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2384,7 +2384,7 @@ export class Datum {
 export interface Decimal128_ConstructProps extends GObject.Object_ConstructProps {
     decimal128?: object
 }
-export class Decimal128 {
+class Decimal128 {
     /* Fields of Arrow-1.0.Arrow.Decimal128 */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2453,7 +2453,7 @@ export class Decimal128 {
 }
 export interface Decimal128Array_ConstructProps extends FixedSizeBinaryArray_ConstructProps {
 }
-export class Decimal128Array {
+class Decimal128Array {
     /* Fields of Arrow-1.0.Arrow.Decimal128Array */
     parentInstance: FixedSizeBinaryArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -2538,7 +2538,7 @@ export class Decimal128Array {
 }
 export interface Decimal128ArrayBuilder_ConstructProps extends FixedSizeBinaryArrayBuilder_ConstructProps {
 }
-export class Decimal128ArrayBuilder {
+class Decimal128ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Decimal128ArrayBuilder */
     parentInstance: FixedSizeBinaryArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -2611,7 +2611,7 @@ export class Decimal128ArrayBuilder {
 }
 export interface Decimal128DataType_ConstructProps extends DecimalDataType_ConstructProps {
 }
-export class Decimal128DataType {
+class Decimal128DataType {
     /* Fields of Arrow-1.0.Arrow.Decimal128DataType */
     parentInstance: DecimalDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -2675,7 +2675,7 @@ export class Decimal128DataType {
 export interface Decimal256_ConstructProps extends GObject.Object_ConstructProps {
     decimal256?: object
 }
-export class Decimal256 {
+class Decimal256 {
     /* Fields of Arrow-1.0.Arrow.Decimal256 */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2742,7 +2742,7 @@ export class Decimal256 {
 }
 export interface Decimal256Array_ConstructProps extends FixedSizeBinaryArray_ConstructProps {
 }
-export class Decimal256Array {
+class Decimal256Array {
     /* Fields of Arrow-1.0.Arrow.Decimal256Array */
     parentInstance: FixedSizeBinaryArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -2827,7 +2827,7 @@ export class Decimal256Array {
 }
 export interface Decimal256ArrayBuilder_ConstructProps extends FixedSizeBinaryArrayBuilder_ConstructProps {
 }
-export class Decimal256ArrayBuilder {
+class Decimal256ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Decimal256ArrayBuilder */
     parentInstance: FixedSizeBinaryArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -2899,7 +2899,7 @@ export class Decimal256ArrayBuilder {
 }
 export interface Decimal256DataType_ConstructProps extends DecimalDataType_ConstructProps {
 }
-export class Decimal256DataType {
+class Decimal256DataType {
     /* Fields of Arrow-1.0.Arrow.Decimal256DataType */
     parentInstance: DecimalDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -2962,7 +2962,7 @@ export class Decimal256DataType {
 }
 export interface DecimalDataType_ConstructProps extends FixedSizeBinaryDataType_ConstructProps {
 }
-export class DecimalDataType {
+class DecimalDataType {
     /* Fields of Arrow-1.0.Arrow.DecimalDataType */
     parentInstance: FixedSizeBinaryDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -3025,7 +3025,7 @@ export class DecimalDataType {
 export interface DenseUnionArray_ConstructProps extends UnionArray_ConstructProps {
     valueOffsets?: Int32Array
 }
-export class DenseUnionArray {
+class DenseUnionArray {
     /* Fields of Arrow-1.0.Arrow.DenseUnionArray */
     parentInstance: UnionArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -3105,7 +3105,7 @@ export class DenseUnionArray {
 }
 export interface DenseUnionDataType_ConstructProps extends UnionDataType_ConstructProps {
 }
-export class DenseUnionDataType {
+class DenseUnionDataType {
     /* Fields of Arrow-1.0.Arrow.DenseUnionDataType */
     parentInstance: UnionDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -3166,7 +3166,7 @@ export interface DictionaryArray_ConstructProps extends Array_ConstructProps {
     dictionary?: Array
     indices?: Array
 }
-export class DictionaryArray {
+class DictionaryArray {
     /* Fields of Arrow-1.0.Arrow.DictionaryArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -3247,7 +3247,7 @@ export class DictionaryArray {
 }
 export interface DictionaryDataType_ConstructProps extends FixedWidthDataType_ConstructProps {
 }
-export class DictionaryDataType {
+class DictionaryDataType {
     /* Fields of Arrow-1.0.Arrow.DictionaryDataType */
     parentInstance: FixedWidthDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -3307,7 +3307,7 @@ export class DictionaryDataType {
 }
 export interface DoubleArray_ConstructProps extends NumericArray_ConstructProps {
 }
-export class DoubleArray {
+class DoubleArray {
     /* Fields of Arrow-1.0.Arrow.DoubleArray */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -3394,7 +3394,7 @@ export class DoubleArray {
 }
 export interface DoubleArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class DoubleArrayBuilder {
+class DoubleArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.DoubleArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -3461,7 +3461,7 @@ export class DoubleArrayBuilder {
 }
 export interface DoubleDataType_ConstructProps extends FloatingPointDataType_ConstructProps {
 }
-export class DoubleDataType {
+class DoubleDataType {
     /* Fields of Arrow-1.0.Arrow.DoubleDataType */
     parentInstance: FloatingPointDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -3517,7 +3517,7 @@ export class DoubleDataType {
 }
 export interface ExecuteContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ExecuteContext {
+class ExecuteContext {
     /* Fields of Arrow-1.0.Arrow.ExecuteContext */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3567,7 +3567,7 @@ export class ExecuteContext {
 export interface ExtensionArray_ConstructProps extends Array_ConstructProps {
     storage?: Array
 }
-export class ExtensionArray {
+class ExtensionArray {
     /* Fields of Arrow-1.0.Arrow.ExtensionArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -3645,7 +3645,7 @@ export class ExtensionArray {
 export interface ExtensionDataType_ConstructProps extends DataType_ConstructProps {
     storageDataType?: DataType
 }
-export class ExtensionDataType {
+class ExtensionDataType {
     /* Fields of Arrow-1.0.Arrow.ExtensionDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -3702,7 +3702,7 @@ export class ExtensionDataType {
 export interface ExtensionDataTypeRegistry_ConstructProps extends GObject.Object_ConstructProps {
     registry?: object
 }
-export class ExtensionDataTypeRegistry {
+class ExtensionDataTypeRegistry {
     /* Fields of Arrow-1.0.Arrow.ExtensionDataTypeRegistry */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3756,7 +3756,7 @@ export class ExtensionDataTypeRegistry {
 export interface FeatherFileReader_ConstructProps extends GObject.Object_ConstructProps {
     featherReader?: object
 }
-export class FeatherFileReader {
+class FeatherFileReader {
     /* Fields of Arrow-1.0.Arrow.FeatherFileReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3811,7 +3811,7 @@ export class FeatherFileReader {
 export interface FeatherWriteProperties_ConstructProps extends GObject.Object_ConstructProps {
     compression?: CompressionType
 }
-export class FeatherWriteProperties {
+class FeatherWriteProperties {
     /* Properties of Arrow-1.0.Arrow.FeatherWriteProperties */
     compression: CompressionType
     /* Fields of Arrow-1.0.Arrow.FeatherWriteProperties */
@@ -3869,7 +3869,7 @@ export interface Field_ConstructProps extends GObject.Object_ConstructProps {
     dataType?: DataType
     field?: object
 }
-export class Field {
+class Field {
     /* Fields of Arrow-1.0.Arrow.Field */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3935,7 +3935,7 @@ export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
     size?: number
     type?: FileType
 }
-export class FileInfo {
+class FileInfo {
     /* Properties of Arrow-1.0.Arrow.FileInfo */
     readonly baseName: string
     readonly dirName: string
@@ -4032,7 +4032,7 @@ export class FileInfo {
 }
 export interface FileOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
-export class FileOutputStream {
+class FileOutputStream {
     /* Fields of Arrow-1.0.Arrow.OutputStream */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4097,7 +4097,7 @@ export interface FileSelector_ConstructProps extends GObject.Object_ConstructPro
     maxRecursion?: number
     recursive?: boolean
 }
-export class FileSelector {
+class FileSelector {
     /* Properties of Arrow-1.0.Arrow.FileSelector */
     allowNotFound: boolean
     baseDir: string
@@ -4170,7 +4170,7 @@ export class FileSelector {
 export interface FileSystem_ConstructProps extends GObject.Object_ConstructProps {
     fileSystem?: object
 }
-export class FileSystem {
+class FileSystem {
     /* Fields of Arrow-1.0.Arrow.FileSystem */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4236,7 +4236,7 @@ export class FileSystem {
 export interface FilterOptions_ConstructProps extends GObject.Object_ConstructProps {
     nullSelectionBehavior?: FilterNullSelectionBehavior
 }
-export class FilterOptions {
+class FilterOptions {
     /* Properties of Arrow-1.0.Arrow.FilterOptions */
     nullSelectionBehavior: FilterNullSelectionBehavior
     /* Fields of Arrow-1.0.Arrow.FilterOptions */
@@ -4292,7 +4292,7 @@ export class FilterOptions {
 }
 export interface FixedSizeBinaryArray_ConstructProps extends PrimitiveArray_ConstructProps {
 }
-export class FixedSizeBinaryArray {
+class FixedSizeBinaryArray {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryArray */
     parentInstance: PrimitiveArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -4376,7 +4376,7 @@ export class FixedSizeBinaryArray {
 }
 export interface FixedSizeBinaryArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class FixedSizeBinaryArrayBuilder {
+class FixedSizeBinaryArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -4444,7 +4444,7 @@ export class FixedSizeBinaryArrayBuilder {
 }
 export interface FixedSizeBinaryDataType_ConstructProps extends FixedWidthDataType_ConstructProps {
 }
-export class FixedSizeBinaryDataType {
+class FixedSizeBinaryDataType {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -4502,7 +4502,7 @@ export class FixedSizeBinaryDataType {
 }
 export interface FixedWidthDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class FixedWidthDataType {
+class FixedWidthDataType {
     /* Fields of Arrow-1.0.Arrow.FixedWidthDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -4556,7 +4556,7 @@ export class FixedWidthDataType {
 }
 export interface FloatArray_ConstructProps extends NumericArray_ConstructProps {
 }
-export class FloatArray {
+class FloatArray {
     /* Fields of Arrow-1.0.Arrow.FloatArray */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -4643,7 +4643,7 @@ export class FloatArray {
 }
 export interface FloatArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class FloatArrayBuilder {
+class FloatArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.FloatArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -4710,7 +4710,7 @@ export class FloatArrayBuilder {
 }
 export interface FloatDataType_ConstructProps extends FloatingPointDataType_ConstructProps {
 }
-export class FloatDataType {
+class FloatDataType {
     /* Fields of Arrow-1.0.Arrow.FloatDataType */
     parentInstance: FloatingPointDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -4766,7 +4766,7 @@ export class FloatDataType {
 }
 export interface FloatingPointDataType_ConstructProps extends NumericDataType_ConstructProps {
 }
-export class FloatingPointDataType {
+class FloatingPointDataType {
     /* Fields of Arrow-1.0.Arrow.FloatingPointDataType */
     parentInstance: NumericDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -4821,7 +4821,7 @@ export class FloatingPointDataType {
 export interface Function_ConstructProps extends GObject.Object_ConstructProps {
     "function"?: object
 }
-export class Function {
+class Function {
     /* Fields of Arrow-1.0.Arrow.Function */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4873,7 +4873,7 @@ export class Function {
 export interface GIOInputStream_ConstructProps extends SeekableInputStream_ConstructProps {
     raw?: Gio.InputStream
 }
-export class GIOInputStream {
+class GIOInputStream {
     /* Fields of Arrow-1.0.Arrow.SeekableInputStream */
     parentInstance: InputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -4963,7 +4963,7 @@ export class GIOInputStream {
 export interface GIOOutputStream_ConstructProps extends OutputStream_ConstructProps {
     raw?: Gio.OutputStream
 }
-export class GIOOutputStream {
+class GIOOutputStream {
     /* Fields of Arrow-1.0.Arrow.OutputStream */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5026,7 +5026,7 @@ export class GIOOutputStream {
 }
 export interface HDFSFileSystem_ConstructProps extends FileSystem_ConstructProps {
 }
-export class HDFSFileSystem {
+class HDFSFileSystem {
     /* Fields of Arrow-1.0.Arrow.HDFSFileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -5090,7 +5090,7 @@ export class HDFSFileSystem {
 export interface InputStream_ConstructProps extends Gio.InputStream_ConstructProps {
     inputStream?: object
 }
-export class InputStream {
+class InputStream {
     /* Fields of Arrow-1.0.Arrow.InputStream */
     parentInstance: Gio.InputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -5169,7 +5169,7 @@ export class InputStream {
 }
 export interface Int16Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Int16Array {
+class Int16Array {
     /* Fields of Arrow-1.0.Arrow.Int16Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -5256,7 +5256,7 @@ export class Int16Array {
 }
 export interface Int16ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Int16ArrayBuilder {
+class Int16ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Int16ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -5323,7 +5323,7 @@ export class Int16ArrayBuilder {
 }
 export interface Int16DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class Int16DataType {
+class Int16DataType {
     /* Fields of Arrow-1.0.Arrow.Int16DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -5381,7 +5381,7 @@ export class Int16DataType {
 }
 export interface Int32Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Int32Array {
+class Int32Array {
     /* Fields of Arrow-1.0.Arrow.Int32Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -5468,7 +5468,7 @@ export class Int32Array {
 }
 export interface Int32ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Int32ArrayBuilder {
+class Int32ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Int32ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -5535,7 +5535,7 @@ export class Int32ArrayBuilder {
 }
 export interface Int32DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class Int32DataType {
+class Int32DataType {
     /* Fields of Arrow-1.0.Arrow.Int32DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -5593,7 +5593,7 @@ export class Int32DataType {
 }
 export interface Int64Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Int64Array {
+class Int64Array {
     /* Fields of Arrow-1.0.Arrow.Int64Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -5680,7 +5680,7 @@ export class Int64Array {
 }
 export interface Int64ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Int64ArrayBuilder {
+class Int64ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Int64ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -5747,7 +5747,7 @@ export class Int64ArrayBuilder {
 }
 export interface Int64DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class Int64DataType {
+class Int64DataType {
     /* Fields of Arrow-1.0.Arrow.Int64DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -5805,7 +5805,7 @@ export class Int64DataType {
 }
 export interface Int8Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Int8Array {
+class Int8Array {
     /* Fields of Arrow-1.0.Arrow.Int8Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -5892,7 +5892,7 @@ export class Int8Array {
 }
 export interface Int8ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Int8ArrayBuilder {
+class Int8ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Int8ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -5959,7 +5959,7 @@ export class Int8ArrayBuilder {
 }
 export interface Int8DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class Int8DataType {
+class Int8DataType {
     /* Fields of Arrow-1.0.Arrow.Int8DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -6017,7 +6017,7 @@ export class Int8DataType {
 }
 export interface IntArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class IntArrayBuilder {
+class IntArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.IntArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -6084,7 +6084,7 @@ export class IntArrayBuilder {
 }
 export interface IntegerDataType_ConstructProps extends NumericDataType_ConstructProps {
 }
-export class IntegerDataType {
+class IntegerDataType {
     /* Fields of Arrow-1.0.Arrow.IntegerDataType */
     parentInstance: NumericDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -6145,7 +6145,7 @@ export interface JSONReadOptions_ConstructProps extends GObject.Object_Construct
     unexpectedFieldBehavior?: JSONReadUnexpectedFieldBehavior
     useThreads?: boolean
 }
-export class JSONReadOptions {
+class JSONReadOptions {
     /* Properties of Arrow-1.0.Arrow.JSONReadOptions */
     allowNewlinesInValues: boolean
     blockSize: number
@@ -6226,7 +6226,7 @@ export class JSONReadOptions {
 export interface JSONReader_ConstructProps extends GObject.Object_ConstructProps {
     jsonTableReader?: object
 }
-export class JSONReader {
+class JSONReader {
     /* Fields of Arrow-1.0.Arrow.JSONReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -6277,7 +6277,7 @@ export class JSONReader {
 }
 export interface LargeBinaryArray_ConstructProps extends Array_ConstructProps {
 }
-export class LargeBinaryArray {
+class LargeBinaryArray {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -6359,7 +6359,7 @@ export class LargeBinaryArray {
 }
 export interface LargeBinaryArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class LargeBinaryArrayBuilder {
+class LargeBinaryArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -6426,7 +6426,7 @@ export class LargeBinaryArrayBuilder {
 }
 export interface LargeBinaryDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class LargeBinaryDataType {
+class LargeBinaryDataType {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -6481,7 +6481,7 @@ export class LargeBinaryDataType {
 export interface LargeListArray_ConstructProps extends Array_ConstructProps {
     rawValues?: Array
 }
-export class LargeListArray {
+class LargeListArray {
     /* Fields of Arrow-1.0.Arrow.LargeListArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -6565,7 +6565,7 @@ export class LargeListArray {
 }
 export interface LargeListArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class LargeListArrayBuilder {
+class LargeListArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.LargeListArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -6631,7 +6631,7 @@ export class LargeListArrayBuilder {
 }
 export interface LargeListDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class LargeListDataType {
+class LargeListDataType {
     /* Fields of Arrow-1.0.Arrow.LargeListDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -6687,7 +6687,7 @@ export class LargeListDataType {
 }
 export interface LargeStringArray_ConstructProps extends LargeBinaryArray_ConstructProps {
 }
-export class LargeStringArray {
+class LargeStringArray {
     /* Fields of Arrow-1.0.Arrow.LargeStringArray */
     parentInstance: LargeBinaryArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -6771,7 +6771,7 @@ export class LargeStringArray {
 }
 export interface LargeStringArrayBuilder_ConstructProps extends LargeBinaryArrayBuilder_ConstructProps {
 }
-export class LargeStringArrayBuilder {
+class LargeStringArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.LargeStringArrayBuilder */
     parentInstance: LargeBinaryArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -6841,7 +6841,7 @@ export class LargeStringArrayBuilder {
 }
 export interface LargeStringDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class LargeStringDataType {
+class LargeStringDataType {
     /* Fields of Arrow-1.0.Arrow.LargeStringDataType */
     parentInstance: LargeBinaryDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -6896,7 +6896,7 @@ export class LargeStringDataType {
 export interface ListArray_ConstructProps extends Array_ConstructProps {
     rawValues?: Array
 }
-export class ListArray {
+class ListArray {
     /* Fields of Arrow-1.0.Arrow.ListArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -6980,7 +6980,7 @@ export class ListArray {
 }
 export interface ListArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class ListArrayBuilder {
+class ListArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.ListArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -7047,7 +7047,7 @@ export class ListArrayBuilder {
 }
 export interface ListDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class ListDataType {
+class ListDataType {
     /* Fields of Arrow-1.0.Arrow.ListDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -7104,7 +7104,7 @@ export class ListDataType {
 }
 export interface LocalFileSystem_ConstructProps extends FileSystem_ConstructProps {
 }
-export class LocalFileSystem {
+class LocalFileSystem {
     /* Fields of Arrow-1.0.Arrow.LocalFileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -7170,7 +7170,7 @@ export class LocalFileSystem {
 export interface LocalFileSystemOptions_ConstructProps extends GObject.Object_ConstructProps {
     useMmap?: boolean
 }
-export class LocalFileSystemOptions {
+class LocalFileSystemOptions {
     /* Properties of Arrow-1.0.Arrow.LocalFileSystemOptions */
     useMmap: boolean
     /* Fields of Arrow-1.0.Arrow.LocalFileSystemOptions */
@@ -7229,7 +7229,7 @@ export interface MapArray_ConstructProps extends ListArray_ConstructProps {
     keys?: Array
     offsets?: Array
 }
-export class MapArray {
+class MapArray {
     /* Fields of Arrow-1.0.Arrow.MapArray */
     parentInstance: ListArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -7317,7 +7317,7 @@ export class MapArray {
 }
 export interface MapArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class MapArrayBuilder {
+class MapArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.MapArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -7386,7 +7386,7 @@ export class MapArrayBuilder {
 }
 export interface MapDataType_ConstructProps extends ListDataType_ConstructProps {
 }
-export class MapDataType {
+class MapDataType {
     /* Fields of Arrow-1.0.Arrow.MapDataType */
     parentInstance: ListDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -7447,7 +7447,7 @@ export class MapDataType {
 }
 export interface MemoryMappedInputStream_ConstructProps extends SeekableInputStream_ConstructProps {
 }
-export class MemoryMappedInputStream {
+class MemoryMappedInputStream {
     /* Fields of Arrow-1.0.Arrow.SeekableInputStream */
     parentInstance: InputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -7534,7 +7534,7 @@ export class MemoryMappedInputStream {
 }
 export interface MockFileSystem_ConstructProps extends FileSystem_ConstructProps {
 }
-export class MockFileSystem {
+class MockFileSystem {
     /* Fields of Arrow-1.0.Arrow.MockFileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -7597,7 +7597,7 @@ export class MockFileSystem {
 }
 export interface MutableBuffer_ConstructProps extends Buffer_ConstructProps {
 }
-export class MutableBuffer {
+class MutableBuffer {
     /* Fields of Arrow-1.0.Arrow.MutableBuffer */
     parentInstance: Buffer
     /* Fields of GObject-2.0.GObject.Object */
@@ -7661,7 +7661,7 @@ export class MutableBuffer {
 }
 export interface NullArray_ConstructProps extends Array_ConstructProps {
 }
-export class NullArray {
+class NullArray {
     /* Fields of Arrow-1.0.Arrow.NullArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -7738,7 +7738,7 @@ export class NullArray {
 }
 export interface NullArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class NullArrayBuilder {
+class NullArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.NullArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -7801,7 +7801,7 @@ export class NullArrayBuilder {
 }
 export interface NullDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class NullDataType {
+class NullDataType {
     /* Fields of Arrow-1.0.Arrow.NullDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -7855,7 +7855,7 @@ export class NullDataType {
 }
 export interface NumericArray_ConstructProps extends PrimitiveArray_ConstructProps {
 }
-export class NumericArray {
+class NumericArray {
     /* Fields of Arrow-1.0.Arrow.NumericArray */
     parentInstance: PrimitiveArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -7935,7 +7935,7 @@ export class NumericArray {
 }
 export interface NumericDataType_ConstructProps extends FixedWidthDataType_ConstructProps {
 }
-export class NumericDataType {
+class NumericDataType {
     /* Fields of Arrow-1.0.Arrow.NumericDataType */
     parentInstance: FixedWidthDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -7991,7 +7991,7 @@ export interface ORCFileReader_ConstructProps extends GObject.Object_ConstructPr
     input?: SeekableInputStream
     orcFileReader?: object
 }
-export class ORCFileReader {
+class ORCFileReader {
     /* Fields of Arrow-1.0.Arrow.ORCFileReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8051,7 +8051,7 @@ export class ORCFileReader {
 export interface OutputStream_ConstructProps extends GObject.Object_ConstructProps {
     outputStream?: object
 }
-export class OutputStream {
+class OutputStream {
     /* Fields of Arrow-1.0.Arrow.OutputStream */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8110,7 +8110,7 @@ export class OutputStream {
 }
 export interface PrimitiveArray_ConstructProps extends Array_ConstructProps {
 }
-export class PrimitiveArray {
+class PrimitiveArray {
     /* Fields of Arrow-1.0.Arrow.PrimitiveArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -8190,7 +8190,7 @@ export interface ReadOptions_ConstructProps extends GObject.Object_ConstructProp
     maxRecursionDepth?: number
     useThreads?: boolean
 }
-export class ReadOptions {
+class ReadOptions {
     /* Properties of Arrow-1.0.Arrow.ReadOptions */
     maxRecursionDepth: number
     useThreads: boolean
@@ -8256,7 +8256,7 @@ export class ReadOptions {
 export interface RecordBatch_ConstructProps extends GObject.Object_ConstructProps {
     recordBatch?: object
 }
-export class RecordBatch {
+class RecordBatch {
     /* Fields of Arrow-1.0.Arrow.RecordBatch */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8322,7 +8322,7 @@ export class RecordBatch {
 export interface RecordBatchBuilder_ConstructProps extends GObject.Object_ConstructProps {
     recordBatchBuilder?: object
 }
-export class RecordBatchBuilder {
+class RecordBatchBuilder {
     /* Fields of Arrow-1.0.Arrow.RecordBatchBuilder */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8381,7 +8381,7 @@ export class RecordBatchBuilder {
 export interface RecordBatchDatum_ConstructProps extends Datum_ConstructProps {
     value?: RecordBatch
 }
-export class RecordBatchDatum {
+class RecordBatchDatum {
     /* Fields of Arrow-1.0.Arrow.RecordBatchDatum */
     parentInstance: Datum
     /* Fields of GObject-2.0.GObject.Object */
@@ -8436,7 +8436,7 @@ export class RecordBatchDatum {
 export interface RecordBatchFileReader_ConstructProps extends GObject.Object_ConstructProps {
     recordBatchFileReader?: object
 }
-export class RecordBatchFileReader {
+class RecordBatchFileReader {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Arrow-1.0.Arrow.RecordBatchFileReader */
@@ -8489,7 +8489,7 @@ export class RecordBatchFileReader {
 }
 export interface RecordBatchFileWriter_ConstructProps extends RecordBatchStreamWriter_ConstructProps {
 }
-export class RecordBatchFileWriter {
+class RecordBatchFileWriter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Arrow-1.0.Arrow.RecordBatchWriter */
@@ -8541,7 +8541,7 @@ export class RecordBatchFileWriter {
 export interface RecordBatchIterator_ConstructProps extends GObject.Object_ConstructProps {
     iterator?: object
 }
-export class RecordBatchIterator {
+class RecordBatchIterator {
     /* Fields of Arrow-1.0.Arrow.RecordBatchIterator */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8595,7 +8595,7 @@ export class RecordBatchIterator {
 export interface RecordBatchReader_ConstructProps extends GObject.Object_ConstructProps {
     recordBatchReader?: object
 }
-export class RecordBatchReader {
+class RecordBatchReader {
     /* Fields of Arrow-1.0.Arrow.RecordBatchReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8647,7 +8647,7 @@ export class RecordBatchReader {
 }
 export interface RecordBatchStreamReader_ConstructProps extends RecordBatchReader_ConstructProps {
 }
-export class RecordBatchStreamReader {
+class RecordBatchStreamReader {
     /* Fields of Arrow-1.0.Arrow.RecordBatchReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8701,7 +8701,7 @@ export class RecordBatchStreamReader {
 }
 export interface RecordBatchStreamWriter_ConstructProps extends RecordBatchWriter_ConstructProps {
 }
-export class RecordBatchStreamWriter {
+class RecordBatchStreamWriter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Arrow-1.0.Arrow.RecordBatchWriter */
@@ -8753,7 +8753,7 @@ export class RecordBatchStreamWriter {
 export interface RecordBatchWriter_ConstructProps extends GObject.Object_ConstructProps {
     recordBatchWriter?: object
 }
-export class RecordBatchWriter {
+class RecordBatchWriter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Arrow-1.0.Arrow.RecordBatchWriter */
@@ -8802,7 +8802,7 @@ export class RecordBatchWriter {
 }
 export interface ResizableBuffer_ConstructProps extends MutableBuffer_ConstructProps {
 }
-export class ResizableBuffer {
+class ResizableBuffer {
     /* Fields of Arrow-1.0.Arrow.ResizableBuffer */
     parentInstance: MutableBuffer
     /* Fields of GObject-2.0.GObject.Object */
@@ -8869,7 +8869,7 @@ export class ResizableBuffer {
 }
 export interface S3FileSystem_ConstructProps extends FileSystem_ConstructProps {
 }
-export class S3FileSystem {
+class S3FileSystem {
     /* Fields of Arrow-1.0.Arrow.S3FileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -8933,7 +8933,7 @@ export class S3FileSystem {
 export interface Schema_ConstructProps extends GObject.Object_ConstructProps {
     schema?: object
 }
-export class Schema {
+class Schema {
     /* Fields of Arrow-1.0.Arrow.Schema */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -8997,7 +8997,7 @@ export class Schema {
 }
 export interface SeekableInputStream_ConstructProps extends InputStream_ConstructProps {
 }
-export class SeekableInputStream {
+class SeekableInputStream {
     /* Fields of Arrow-1.0.Arrow.SeekableInputStream */
     parentInstance: InputStream
     /* Fields of GObject-2.0.GObject.Object */
@@ -9083,7 +9083,7 @@ export class SeekableInputStream {
 export interface SlowFileSystem_ConstructProps extends FileSystem_ConstructProps {
     baseFileSystem?: FileSystem
 }
-export class SlowFileSystem {
+class SlowFileSystem {
     /* Fields of Arrow-1.0.Arrow.SlowFileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -9151,7 +9151,7 @@ export interface SortKey_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     order?: SortOrder
 }
-export class SortKey {
+class SortKey {
     /* Properties of Arrow-1.0.Arrow.SortKey */
     name: string
     order: SortOrder
@@ -9215,7 +9215,7 @@ export class SortKey {
 }
 export interface SortOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SortOptions {
+class SortOptions {
     /* Fields of Arrow-1.0.Arrow.SortOptions */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -9269,7 +9269,7 @@ export class SortOptions {
 }
 export interface SparseUnionArray_ConstructProps extends UnionArray_ConstructProps {
 }
-export class SparseUnionArray {
+class SparseUnionArray {
     /* Fields of Arrow-1.0.Arrow.SparseUnionArray */
     parentInstance: UnionArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -9349,7 +9349,7 @@ export class SparseUnionArray {
 }
 export interface SparseUnionDataType_ConstructProps extends UnionDataType_ConstructProps {
 }
-export class SparseUnionDataType {
+class SparseUnionDataType {
     /* Fields of Arrow-1.0.Arrow.SparseUnionDataType */
     parentInstance: UnionDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -9408,7 +9408,7 @@ export class SparseUnionDataType {
 }
 export interface StringArray_ConstructProps extends BinaryArray_ConstructProps {
 }
-export class StringArray {
+class StringArray {
     /* Fields of Arrow-1.0.Arrow.StringArray */
     parentInstance: BinaryArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -9492,7 +9492,7 @@ export class StringArray {
 }
 export interface StringArrayBuilder_ConstructProps extends BinaryArrayBuilder_ConstructProps {
 }
-export class StringArrayBuilder {
+class StringArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.StringArrayBuilder */
     parentInstance: BinaryArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -9564,7 +9564,7 @@ export class StringArrayBuilder {
 }
 export interface StringDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class StringDataType {
+class StringDataType {
     /* Fields of Arrow-1.0.Arrow.StringDataType */
     parentInstance: BinaryDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -9618,7 +9618,7 @@ export class StringDataType {
 }
 export interface StringDictionaryArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class StringDictionaryArrayBuilder {
+class StringDictionaryArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.StringDictionaryArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -9689,7 +9689,7 @@ export class StringDictionaryArrayBuilder {
 }
 export interface StructArray_ConstructProps extends Array_ConstructProps {
 }
-export class StructArray {
+class StructArray {
     /* Fields of Arrow-1.0.Arrow.StructArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -9770,7 +9770,7 @@ export class StructArray {
 }
 export interface StructArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class StructArrayBuilder {
+class StructArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.StructArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -9838,7 +9838,7 @@ export class StructArrayBuilder {
 }
 export interface StructDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class StructDataType {
+class StructDataType {
     /* Fields of Arrow-1.0.Arrow.StructDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -9899,7 +9899,7 @@ export class StructDataType {
 export interface SubTreeFileSystem_ConstructProps extends FileSystem_ConstructProps {
     baseFileSystem?: FileSystem
 }
-export class SubTreeFileSystem {
+class SubTreeFileSystem {
     /* Fields of Arrow-1.0.Arrow.SubTreeFileSystem */
     parentInstance: FileSystem
     /* Fields of GObject-2.0.GObject.Object */
@@ -9965,7 +9965,7 @@ export class SubTreeFileSystem {
 export interface Table_ConstructProps extends GObject.Object_ConstructProps {
     table?: object
 }
-export class Table {
+class Table {
     /* Fields of Arrow-1.0.Arrow.Table */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -10036,7 +10036,7 @@ export class Table {
 }
 export interface TableBatchReader_ConstructProps extends RecordBatchReader_ConstructProps {
 }
-export class TableBatchReader {
+class TableBatchReader {
     /* Fields of Arrow-1.0.Arrow.TableBatchReader */
     parentInstance: RecordBatchReader
     /* Fields of GObject-2.0.GObject.Object */
@@ -10091,7 +10091,7 @@ export class TableBatchReader {
 export interface TableDatum_ConstructProps extends Datum_ConstructProps {
     value?: Table
 }
-export class TableDatum {
+class TableDatum {
     /* Fields of Arrow-1.0.Arrow.TableDatum */
     parentInstance: Datum
     /* Fields of GObject-2.0.GObject.Object */
@@ -10145,7 +10145,7 @@ export class TableDatum {
 }
 export interface TakeOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TakeOptions {
+class TakeOptions {
     /* Fields of Arrow-1.0.Arrow.TakeOptions */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -10196,7 +10196,7 @@ export interface Tensor_ConstructProps extends GObject.Object_ConstructProps {
     buffer?: Buffer
     tensor?: object
 }
-export class Tensor {
+class Tensor {
     /* Fields of Arrow-1.0.Arrow.Tensor */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -10259,7 +10259,7 @@ export class Tensor {
 }
 export interface Time32Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Time32Array {
+class Time32Array {
     /* Fields of Arrow-1.0.Arrow.Time32Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -10344,7 +10344,7 @@ export class Time32Array {
 }
 export interface Time32ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Time32ArrayBuilder {
+class Time32ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Time32ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -10411,7 +10411,7 @@ export class Time32ArrayBuilder {
 }
 export interface Time32DataType_ConstructProps extends TimeDataType_ConstructProps {
 }
-export class Time32DataType {
+class Time32DataType {
     /* Fields of Arrow-1.0.Arrow.Time32DataType */
     parentInstance: TimeDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -10467,7 +10467,7 @@ export class Time32DataType {
 }
 export interface Time64Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class Time64Array {
+class Time64Array {
     /* Fields of Arrow-1.0.Arrow.Time64Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -10552,7 +10552,7 @@ export class Time64Array {
 }
 export interface Time64ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class Time64ArrayBuilder {
+class Time64ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.Time64ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -10619,7 +10619,7 @@ export class Time64ArrayBuilder {
 }
 export interface Time64DataType_ConstructProps extends TimeDataType_ConstructProps {
 }
-export class Time64DataType {
+class Time64DataType {
     /* Fields of Arrow-1.0.Arrow.Time64DataType */
     parentInstance: TimeDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -10675,7 +10675,7 @@ export class Time64DataType {
 }
 export interface TimeDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class TimeDataType {
+class TimeDataType {
     /* Fields of Arrow-1.0.Arrow.TimeDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -10729,7 +10729,7 @@ export class TimeDataType {
 }
 export interface TimestampArray_ConstructProps extends NumericArray_ConstructProps {
 }
-export class TimestampArray {
+class TimestampArray {
     /* Fields of Arrow-1.0.Arrow.TimestampArray */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -10814,7 +10814,7 @@ export class TimestampArray {
 }
 export interface TimestampArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class TimestampArrayBuilder {
+class TimestampArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.TimestampArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -10881,7 +10881,7 @@ export class TimestampArrayBuilder {
 }
 export interface TimestampDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class TimestampDataType {
+class TimestampDataType {
     /* Fields of Arrow-1.0.Arrow.TimestampDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -10937,7 +10937,7 @@ export class TimestampDataType {
 }
 export interface UInt16Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class UInt16Array {
+class UInt16Array {
     /* Fields of Arrow-1.0.Arrow.UInt16Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -11024,7 +11024,7 @@ export class UInt16Array {
 }
 export interface UInt16ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class UInt16ArrayBuilder {
+class UInt16ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.UInt16ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -11091,7 +11091,7 @@ export class UInt16ArrayBuilder {
 }
 export interface UInt16DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class UInt16DataType {
+class UInt16DataType {
     /* Fields of Arrow-1.0.Arrow.UInt16DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -11149,7 +11149,7 @@ export class UInt16DataType {
 }
 export interface UInt32Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class UInt32Array {
+class UInt32Array {
     /* Fields of Arrow-1.0.Arrow.UInt32Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -11236,7 +11236,7 @@ export class UInt32Array {
 }
 export interface UInt32ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class UInt32ArrayBuilder {
+class UInt32ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.UInt32ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -11303,7 +11303,7 @@ export class UInt32ArrayBuilder {
 }
 export interface UInt32DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class UInt32DataType {
+class UInt32DataType {
     /* Fields of Arrow-1.0.Arrow.UInt32DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -11361,7 +11361,7 @@ export class UInt32DataType {
 }
 export interface UInt64Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class UInt64Array {
+class UInt64Array {
     /* Fields of Arrow-1.0.Arrow.UInt64Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -11448,7 +11448,7 @@ export class UInt64Array {
 }
 export interface UInt64ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class UInt64ArrayBuilder {
+class UInt64ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.UInt64ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -11515,7 +11515,7 @@ export class UInt64ArrayBuilder {
 }
 export interface UInt64DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class UInt64DataType {
+class UInt64DataType {
     /* Fields of Arrow-1.0.Arrow.UInt64DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -11573,7 +11573,7 @@ export class UInt64DataType {
 }
 export interface UInt8Array_ConstructProps extends NumericArray_ConstructProps {
 }
-export class UInt8Array {
+class UInt8Array {
     /* Fields of Arrow-1.0.Arrow.UInt8Array */
     parentInstance: NumericArray
     /* Fields of GObject-2.0.GObject.Object */
@@ -11660,7 +11660,7 @@ export class UInt8Array {
 }
 export interface UInt8ArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class UInt8ArrayBuilder {
+class UInt8ArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.UInt8ArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -11727,7 +11727,7 @@ export class UInt8ArrayBuilder {
 }
 export interface UInt8DataType_ConstructProps extends IntegerDataType_ConstructProps {
 }
-export class UInt8DataType {
+class UInt8DataType {
     /* Fields of Arrow-1.0.Arrow.UInt8DataType */
     parentInstance: IntegerDataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -11785,7 +11785,7 @@ export class UInt8DataType {
 }
 export interface UIntArrayBuilder_ConstructProps extends ArrayBuilder_ConstructProps {
 }
-export class UIntArrayBuilder {
+class UIntArrayBuilder {
     /* Fields of Arrow-1.0.Arrow.UIntArrayBuilder */
     parentInstance: ArrayBuilder
     /* Fields of GObject-2.0.GObject.Object */
@@ -11853,7 +11853,7 @@ export class UIntArrayBuilder {
 export interface UnionArray_ConstructProps extends Array_ConstructProps {
     typeIds?: Int8Array
 }
-export class UnionArray {
+class UnionArray {
     /* Fields of Arrow-1.0.Arrow.UnionArray */
     parentInstance: Array
     /* Fields of GObject-2.0.GObject.Object */
@@ -11930,7 +11930,7 @@ export class UnionArray {
 }
 export interface UnionDataType_ConstructProps extends DataType_ConstructProps {
 }
-export class UnionDataType {
+class UnionDataType {
     /* Fields of Arrow-1.0.Arrow.UnionDataType */
     parentInstance: DataType
     /* Fields of GObject-2.0.GObject.Object */
@@ -11993,7 +11993,7 @@ export interface WriteOptions_ConstructProps extends GObject.Object_ConstructPro
     useThreads?: boolean
     writeLegacyIpcFormat?: boolean
 }
-export class WriteOptions {
+class WriteOptions {
     /* Properties of Arrow-1.0.Arrow.WriteOptions */
     alignment: number
     allow64bit: boolean
@@ -12077,257 +12077,257 @@ export class WriteOptions {
     static new(): WriteOptions
     static $gtype: GObject.Type
 }
-export abstract class ArrayBuilderClass {
+abstract class ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.ArrayBuilderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ArrayClass {
+abstract class ArrayClass {
     /* Fields of Arrow-1.0.Arrow.ArrayClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ArrayDatumClass {
+abstract class ArrayDatumClass {
     /* Fields of Arrow-1.0.Arrow.ArrayDatumClass */
     parentClass: DatumClass
     static name: string
 }
-export abstract class ArraySortOptionsClass {
+abstract class ArraySortOptionsClass {
     /* Fields of Arrow-1.0.Arrow.ArraySortOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class BinaryArrayBuilderClass {
+abstract class BinaryArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.BinaryArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class BinaryArrayClass {
+abstract class BinaryArrayClass {
     /* Fields of Arrow-1.0.Arrow.BinaryArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class BinaryDataTypeClass {
+abstract class BinaryDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.BinaryDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class BinaryDictionaryArrayBuilderClass {
+abstract class BinaryDictionaryArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.BinaryDictionaryArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class BooleanArrayBuilderClass {
+abstract class BooleanArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.BooleanArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class BooleanArrayClass {
+abstract class BooleanArrayClass {
     /* Fields of Arrow-1.0.Arrow.BooleanArrayClass */
     parentClass: PrimitiveArrayClass
     static name: string
 }
-export abstract class BooleanDataTypeClass {
+abstract class BooleanDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.BooleanDataTypeClass */
     parentClass: FixedWidthDataTypeClass
     static name: string
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Arrow-1.0.Arrow.BufferClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class BufferInputStreamClass {
+abstract class BufferInputStreamClass {
     /* Fields of Arrow-1.0.Arrow.BufferInputStreamClass */
     parentClass: SeekableInputStreamClass
     static name: string
 }
-export abstract class BufferOutputStreamClass {
+abstract class BufferOutputStreamClass {
     /* Fields of Arrow-1.0.Arrow.BufferOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
-export abstract class CSVReadOptionsClass {
+abstract class CSVReadOptionsClass {
     /* Fields of Arrow-1.0.Arrow.CSVReadOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CSVReaderClass {
+abstract class CSVReaderClass {
     /* Fields of Arrow-1.0.Arrow.CSVReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CastOptionsClass {
+abstract class CastOptionsClass {
     /* Fields of Arrow-1.0.Arrow.CastOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ChunkedArrayClass {
+abstract class ChunkedArrayClass {
     /* Fields of Arrow-1.0.Arrow.ChunkedArrayClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ChunkedArrayDatumClass {
+abstract class ChunkedArrayDatumClass {
     /* Fields of Arrow-1.0.Arrow.ChunkedArrayDatumClass */
     parentClass: DatumClass
     static name: string
 }
-export abstract class CodecClass {
+abstract class CodecClass {
     /* Fields of Arrow-1.0.Arrow.CodecClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CompareOptionsClass {
+abstract class CompareOptionsClass {
     /* Fields of Arrow-1.0.Arrow.CompareOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CompressedInputStreamClass {
+abstract class CompressedInputStreamClass {
     /* Fields of Arrow-1.0.Arrow.CompressedInputStreamClass */
     parentClass: InputStreamClass
     static name: string
 }
-export abstract class CompressedOutputStreamClass {
+abstract class CompressedOutputStreamClass {
     /* Fields of Arrow-1.0.Arrow.CompressedOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
-export abstract class CountOptionsClass {
+abstract class CountOptionsClass {
     /* Fields of Arrow-1.0.Arrow.CountOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataTypeClass {
+abstract class DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.DataTypeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class Date32ArrayBuilderClass {
+abstract class Date32ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Date32ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Date32ArrayClass {
+abstract class Date32ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Date32ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Date32DataTypeClass {
+abstract class Date32DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Date32DataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class Date64ArrayBuilderClass {
+abstract class Date64ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Date64ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Date64ArrayClass {
+abstract class Date64ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Date64ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Date64DataTypeClass {
+abstract class Date64DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Date64DataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class DatumClass {
+abstract class DatumClass {
     /* Fields of Arrow-1.0.Arrow.DatumClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class Decimal128ArrayBuilderClass {
+abstract class Decimal128ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Decimal128ArrayBuilderClass */
     parentClass: FixedSizeBinaryArrayBuilderClass
     static name: string
 }
-export abstract class Decimal128ArrayClass {
+abstract class Decimal128ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Decimal128ArrayClass */
     parentClass: FixedSizeBinaryArrayClass
     static name: string
 }
-export abstract class Decimal128Class {
+abstract class Decimal128Class {
     /* Fields of Arrow-1.0.Arrow.Decimal128Class */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class Decimal128DataTypeClass {
+abstract class Decimal128DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Decimal128DataTypeClass */
     parentClass: DecimalDataTypeClass
     static name: string
 }
-export abstract class Decimal256ArrayBuilderClass {
+abstract class Decimal256ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Decimal256ArrayBuilderClass */
     parentClass: FixedSizeBinaryArrayBuilderClass
     static name: string
 }
-export abstract class Decimal256ArrayClass {
+abstract class Decimal256ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Decimal256ArrayClass */
     parentClass: FixedSizeBinaryArrayClass
     static name: string
 }
-export abstract class Decimal256Class {
+abstract class Decimal256Class {
     /* Fields of Arrow-1.0.Arrow.Decimal256Class */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class Decimal256DataTypeClass {
+abstract class Decimal256DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Decimal256DataTypeClass */
     parentClass: DecimalDataTypeClass
     static name: string
 }
-export abstract class DecimalDataTypeClass {
+abstract class DecimalDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.DecimalDataTypeClass */
     parentClass: FixedSizeBinaryDataTypeClass
     static name: string
 }
-export abstract class DenseUnionArrayClass {
+abstract class DenseUnionArrayClass {
     /* Fields of Arrow-1.0.Arrow.DenseUnionArrayClass */
     parentClass: UnionArrayClass
     static name: string
 }
-export abstract class DenseUnionDataTypeClass {
+abstract class DenseUnionDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.DenseUnionDataTypeClass */
     parentClass: UnionDataTypeClass
     static name: string
 }
-export abstract class DictionaryArrayClass {
+abstract class DictionaryArrayClass {
     /* Fields of Arrow-1.0.Arrow.DictionaryArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class DictionaryDataTypeClass {
+abstract class DictionaryDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.DictionaryDataTypeClass */
     parentClass: FixedWidthDataTypeClass
     static name: string
 }
-export abstract class DoubleArrayBuilderClass {
+abstract class DoubleArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.DoubleArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class DoubleArrayClass {
+abstract class DoubleArrayClass {
     /* Fields of Arrow-1.0.Arrow.DoubleArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class DoubleDataTypeClass {
+abstract class DoubleDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.DoubleDataTypeClass */
     parentClass: FloatingPointDataTypeClass
     static name: string
 }
-export abstract class ExecuteContextClass {
+abstract class ExecuteContextClass {
     /* Fields of Arrow-1.0.Arrow.ExecuteContextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ExtensionArrayClass {
+abstract class ExtensionArrayClass {
     /* Fields of Arrow-1.0.Arrow.ExtensionArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class ExtensionDataTypeClass {
+abstract class ExtensionDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.ExtensionDataTypeClass */
     parentClass: DataTypeClass
     getExtensionName: (dataType: ExtensionDataType) => string
@@ -12336,645 +12336,646 @@ export abstract class ExtensionDataTypeClass {
     getArrayGtype: (dataType: ExtensionDataType) => GObject.Type
     static name: string
 }
-export abstract class ExtensionDataTypeRegistryClass {
+abstract class ExtensionDataTypeRegistryClass {
     /* Fields of Arrow-1.0.Arrow.ExtensionDataTypeRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FeatherFileReaderClass {
+abstract class FeatherFileReaderClass {
     /* Fields of Arrow-1.0.Arrow.FeatherFileReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FeatherWritePropertiesClass {
+abstract class FeatherWritePropertiesClass {
     /* Fields of Arrow-1.0.Arrow.FeatherWritePropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FieldClass {
+abstract class FieldClass {
     /* Fields of Arrow-1.0.Arrow.FieldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FileInfoClass {
+abstract class FileInfoClass {
     /* Fields of Arrow-1.0.Arrow.FileInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FileInterface {
+abstract class FileInterface {
     static name: string
 }
-export abstract class FileOutputStreamClass {
+abstract class FileOutputStreamClass {
     /* Fields of Arrow-1.0.Arrow.FileOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
-export abstract class FileSelectorClass {
+abstract class FileSelectorClass {
     /* Fields of Arrow-1.0.Arrow.FileSelectorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FileSystemClass {
+abstract class FileSystemClass {
     /* Fields of Arrow-1.0.Arrow.FileSystemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FilterOptionsClass {
+abstract class FilterOptionsClass {
     /* Fields of Arrow-1.0.Arrow.FilterOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FixedSizeBinaryArrayBuilderClass {
+abstract class FixedSizeBinaryArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class FixedSizeBinaryArrayClass {
+abstract class FixedSizeBinaryArrayClass {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryArrayClass */
     parentClass: PrimitiveArrayClass
     static name: string
 }
-export abstract class FixedSizeBinaryDataTypeClass {
+abstract class FixedSizeBinaryDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.FixedSizeBinaryDataTypeClass */
     parentClass: FixedWidthDataTypeClass
     static name: string
 }
-export abstract class FixedWidthDataTypeClass {
+abstract class FixedWidthDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.FixedWidthDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class FloatArrayBuilderClass {
+abstract class FloatArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.FloatArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class FloatArrayClass {
+abstract class FloatArrayClass {
     /* Fields of Arrow-1.0.Arrow.FloatArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class FloatDataTypeClass {
+abstract class FloatDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.FloatDataTypeClass */
     parentClass: FloatingPointDataTypeClass
     static name: string
 }
-export abstract class FloatingPointDataTypeClass {
+abstract class FloatingPointDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.FloatingPointDataTypeClass */
     parentClass: NumericDataTypeClass
     static name: string
 }
-export abstract class FunctionClass {
+abstract class FunctionClass {
     /* Fields of Arrow-1.0.Arrow.FunctionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FunctionOptionsInterface {
+abstract class FunctionOptionsInterface {
     static name: string
 }
-export abstract class GIOInputStreamClass {
+abstract class GIOInputStreamClass {
     /* Fields of Arrow-1.0.Arrow.GIOInputStreamClass */
     parentClass: SeekableInputStreamClass
     static name: string
 }
-export abstract class GIOOutputStreamClass {
+abstract class GIOOutputStreamClass {
     /* Fields of Arrow-1.0.Arrow.GIOOutputStreamClass */
     parentClass: OutputStreamClass
     static name: string
 }
-export abstract class HDFSFileSystemClass {
+abstract class HDFSFileSystemClass {
     /* Fields of Arrow-1.0.Arrow.HDFSFileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class InputStreamClass {
+abstract class InputStreamClass {
     /* Fields of Arrow-1.0.Arrow.InputStreamClass */
     parentClass: Gio.InputStreamClass
     static name: string
 }
-export abstract class Int16ArrayBuilderClass {
+abstract class Int16ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Int16ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Int16ArrayClass {
+abstract class Int16ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Int16ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Int16DataTypeClass {
+abstract class Int16DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Int16DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class Int32ArrayBuilderClass {
+abstract class Int32ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Int32ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Int32ArrayClass {
+abstract class Int32ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Int32ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Int32DataTypeClass {
+abstract class Int32DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Int32DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class Int64ArrayBuilderClass {
+abstract class Int64ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Int64ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Int64ArrayClass {
+abstract class Int64ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Int64ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Int64DataTypeClass {
+abstract class Int64DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Int64DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class Int8ArrayBuilderClass {
+abstract class Int8ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Int8ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Int8ArrayClass {
+abstract class Int8ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Int8ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Int8DataTypeClass {
+abstract class Int8DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Int8DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class IntArrayBuilderClass {
+abstract class IntArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.IntArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class IntegerDataTypeClass {
+abstract class IntegerDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.IntegerDataTypeClass */
     parentClass: NumericDataTypeClass
     static name: string
 }
-export abstract class JSONReadOptionsClass {
+abstract class JSONReadOptionsClass {
     /* Fields of Arrow-1.0.Arrow.JSONReadOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class JSONReaderClass {
+abstract class JSONReaderClass {
     /* Fields of Arrow-1.0.Arrow.JSONReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class LargeBinaryArrayBuilderClass {
+abstract class LargeBinaryArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class LargeBinaryArrayClass {
+abstract class LargeBinaryArrayClass {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class LargeBinaryDataTypeClass {
+abstract class LargeBinaryDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.LargeBinaryDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class LargeListArrayBuilderClass {
+abstract class LargeListArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.LargeListArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class LargeListArrayClass {
+abstract class LargeListArrayClass {
     /* Fields of Arrow-1.0.Arrow.LargeListArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class LargeListDataTypeClass {
+abstract class LargeListDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.LargeListDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class LargeStringArrayBuilderClass {
+abstract class LargeStringArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.LargeStringArrayBuilderClass */
     parentClass: LargeBinaryArrayBuilderClass
     static name: string
 }
-export abstract class LargeStringArrayClass {
+abstract class LargeStringArrayClass {
     /* Fields of Arrow-1.0.Arrow.LargeStringArrayClass */
     parentClass: LargeBinaryArrayClass
     static name: string
 }
-export abstract class LargeStringDataTypeClass {
+abstract class LargeStringDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.LargeStringDataTypeClass */
     parentClass: LargeBinaryDataTypeClass
     static name: string
 }
-export abstract class ListArrayBuilderClass {
+abstract class ListArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.ListArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class ListArrayClass {
+abstract class ListArrayClass {
     /* Fields of Arrow-1.0.Arrow.ListArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class ListDataTypeClass {
+abstract class ListDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.ListDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class LocalFileSystemClass {
+abstract class LocalFileSystemClass {
     /* Fields of Arrow-1.0.Arrow.LocalFileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class LocalFileSystemOptionsClass {
+abstract class LocalFileSystemOptionsClass {
     /* Fields of Arrow-1.0.Arrow.LocalFileSystemOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class MapArrayBuilderClass {
+abstract class MapArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.MapArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class MapArrayClass {
+abstract class MapArrayClass {
     /* Fields of Arrow-1.0.Arrow.MapArrayClass */
     parentClass: ListArrayClass
     static name: string
 }
-export abstract class MapDataTypeClass {
+abstract class MapDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.MapDataTypeClass */
     parentClass: ListDataTypeClass
     static name: string
 }
-export abstract class MemoryMappedInputStreamClass {
+abstract class MemoryMappedInputStreamClass {
     /* Fields of Arrow-1.0.Arrow.MemoryMappedInputStreamClass */
     parentClass: SeekableInputStreamClass
     static name: string
 }
-export abstract class MockFileSystemClass {
+abstract class MockFileSystemClass {
     /* Fields of Arrow-1.0.Arrow.MockFileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class MutableBufferClass {
+abstract class MutableBufferClass {
     /* Fields of Arrow-1.0.Arrow.MutableBufferClass */
     parentClass: BufferClass
     static name: string
 }
-export abstract class NullArrayBuilderClass {
+abstract class NullArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.NullArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class NullArrayClass {
+abstract class NullArrayClass {
     /* Fields of Arrow-1.0.Arrow.NullArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class NullDataTypeClass {
+abstract class NullDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.NullDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class NumericArrayClass {
+abstract class NumericArrayClass {
     /* Fields of Arrow-1.0.Arrow.NumericArrayClass */
     parentClass: PrimitiveArrayClass
     static name: string
 }
-export abstract class NumericDataTypeClass {
+abstract class NumericDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.NumericDataTypeClass */
     parentClass: FixedWidthDataTypeClass
     static name: string
 }
-export abstract class ORCFileReaderClass {
+abstract class ORCFileReaderClass {
     /* Fields of Arrow-1.0.Arrow.ORCFileReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class OutputStreamClass {
+abstract class OutputStreamClass {
     /* Fields of Arrow-1.0.Arrow.OutputStreamClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PrimitiveArrayClass {
+abstract class PrimitiveArrayClass {
     /* Fields of Arrow-1.0.Arrow.PrimitiveArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class ReadOptionsClass {
+abstract class ReadOptionsClass {
     /* Fields of Arrow-1.0.Arrow.ReadOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ReadableInterface {
+abstract class ReadableInterface {
     static name: string
 }
-export abstract class RecordBatchBuilderClass {
+abstract class RecordBatchBuilderClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchBuilderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordBatchClass {
+abstract class RecordBatchClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordBatchDatumClass {
+abstract class RecordBatchDatumClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchDatumClass */
     parentClass: DatumClass
     static name: string
 }
-export abstract class RecordBatchFileReaderClass {
+abstract class RecordBatchFileReaderClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchFileReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordBatchFileWriterClass {
+abstract class RecordBatchFileWriterClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchFileWriterClass */
     parentClass: RecordBatchStreamWriterClass
     static name: string
 }
-export abstract class RecordBatchIteratorClass {
+abstract class RecordBatchIteratorClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchIteratorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordBatchReaderClass {
+abstract class RecordBatchReaderClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RecordBatchStreamReaderClass {
+abstract class RecordBatchStreamReaderClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchStreamReaderClass */
     parentClass: RecordBatchReaderClass
     static name: string
 }
-export abstract class RecordBatchStreamWriterClass {
+abstract class RecordBatchStreamWriterClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchStreamWriterClass */
     parentClass: RecordBatchWriterClass
     static name: string
 }
-export abstract class RecordBatchWriterClass {
+abstract class RecordBatchWriterClass {
     /* Fields of Arrow-1.0.Arrow.RecordBatchWriterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ResizableBufferClass {
+abstract class ResizableBufferClass {
     /* Fields of Arrow-1.0.Arrow.ResizableBufferClass */
     parentClass: MutableBufferClass
     static name: string
 }
-export abstract class S3FileSystemClass {
+abstract class S3FileSystemClass {
     /* Fields of Arrow-1.0.Arrow.S3FileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class SchemaClass {
+abstract class SchemaClass {
     /* Fields of Arrow-1.0.Arrow.SchemaClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SeekableInputStreamClass {
+abstract class SeekableInputStreamClass {
     /* Fields of Arrow-1.0.Arrow.SeekableInputStreamClass */
     parentClass: InputStreamClass
     static name: string
 }
-export abstract class SlowFileSystemClass {
+abstract class SlowFileSystemClass {
     /* Fields of Arrow-1.0.Arrow.SlowFileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class SortKeyClass {
+abstract class SortKeyClass {
     /* Fields of Arrow-1.0.Arrow.SortKeyClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SortOptionsClass {
+abstract class SortOptionsClass {
     /* Fields of Arrow-1.0.Arrow.SortOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SparseUnionArrayClass {
+abstract class SparseUnionArrayClass {
     /* Fields of Arrow-1.0.Arrow.SparseUnionArrayClass */
     parentClass: UnionArrayClass
     static name: string
 }
-export abstract class SparseUnionDataTypeClass {
+abstract class SparseUnionDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.SparseUnionDataTypeClass */
     parentClass: UnionDataTypeClass
     static name: string
 }
-export abstract class StringArrayBuilderClass {
+abstract class StringArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.StringArrayBuilderClass */
     parentClass: BinaryArrayBuilderClass
     static name: string
 }
-export abstract class StringArrayClass {
+abstract class StringArrayClass {
     /* Fields of Arrow-1.0.Arrow.StringArrayClass */
     parentClass: BinaryArrayClass
     static name: string
 }
-export abstract class StringDataTypeClass {
+abstract class StringDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.StringDataTypeClass */
     parentClass: BinaryDataTypeClass
     static name: string
 }
-export abstract class StringDictionaryArrayBuilderClass {
+abstract class StringDictionaryArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.StringDictionaryArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class StructArrayBuilderClass {
+abstract class StructArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.StructArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class StructArrayClass {
+abstract class StructArrayClass {
     /* Fields of Arrow-1.0.Arrow.StructArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class StructDataTypeClass {
+abstract class StructDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.StructDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class SubTreeFileSystemClass {
+abstract class SubTreeFileSystemClass {
     /* Fields of Arrow-1.0.Arrow.SubTreeFileSystemClass */
     parentClass: FileSystemClass
     static name: string
 }
-export abstract class TableBatchReaderClass {
+abstract class TableBatchReaderClass {
     /* Fields of Arrow-1.0.Arrow.TableBatchReaderClass */
     parentClass: RecordBatchReaderClass
     static name: string
 }
-export abstract class TableClass {
+abstract class TableClass {
     /* Fields of Arrow-1.0.Arrow.TableClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TableDatumClass {
+abstract class TableDatumClass {
     /* Fields of Arrow-1.0.Arrow.TableDatumClass */
     parentClass: DatumClass
     static name: string
 }
-export abstract class TakeOptionsClass {
+abstract class TakeOptionsClass {
     /* Fields of Arrow-1.0.Arrow.TakeOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TensorClass {
+abstract class TensorClass {
     /* Fields of Arrow-1.0.Arrow.TensorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class Time32ArrayBuilderClass {
+abstract class Time32ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Time32ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Time32ArrayClass {
+abstract class Time32ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Time32ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Time32DataTypeClass {
+abstract class Time32DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Time32DataTypeClass */
     parentClass: TimeDataTypeClass
     static name: string
 }
-export abstract class Time64ArrayBuilderClass {
+abstract class Time64ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.Time64ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class Time64ArrayClass {
+abstract class Time64ArrayClass {
     /* Fields of Arrow-1.0.Arrow.Time64ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class Time64DataTypeClass {
+abstract class Time64DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.Time64DataTypeClass */
     parentClass: TimeDataTypeClass
     static name: string
 }
-export abstract class TimeDataTypeClass {
+abstract class TimeDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.TimeDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class TimestampArrayBuilderClass {
+abstract class TimestampArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.TimestampArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class TimestampArrayClass {
+abstract class TimestampArrayClass {
     /* Fields of Arrow-1.0.Arrow.TimestampArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class TimestampDataTypeClass {
+abstract class TimestampDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.TimestampDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class UInt16ArrayBuilderClass {
+abstract class UInt16ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.UInt16ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class UInt16ArrayClass {
+abstract class UInt16ArrayClass {
     /* Fields of Arrow-1.0.Arrow.UInt16ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class UInt16DataTypeClass {
+abstract class UInt16DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.UInt16DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class UInt32ArrayBuilderClass {
+abstract class UInt32ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.UInt32ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class UInt32ArrayClass {
+abstract class UInt32ArrayClass {
     /* Fields of Arrow-1.0.Arrow.UInt32ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class UInt32DataTypeClass {
+abstract class UInt32DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.UInt32DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class UInt64ArrayBuilderClass {
+abstract class UInt64ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.UInt64ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class UInt64ArrayClass {
+abstract class UInt64ArrayClass {
     /* Fields of Arrow-1.0.Arrow.UInt64ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class UInt64DataTypeClass {
+abstract class UInt64DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.UInt64DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class UInt8ArrayBuilderClass {
+abstract class UInt8ArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.UInt8ArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class UInt8ArrayClass {
+abstract class UInt8ArrayClass {
     /* Fields of Arrow-1.0.Arrow.UInt8ArrayClass */
     parentClass: NumericArrayClass
     static name: string
 }
-export abstract class UInt8DataTypeClass {
+abstract class UInt8DataTypeClass {
     /* Fields of Arrow-1.0.Arrow.UInt8DataTypeClass */
     parentClass: IntegerDataTypeClass
     static name: string
 }
-export abstract class UIntArrayBuilderClass {
+abstract class UIntArrayBuilderClass {
     /* Fields of Arrow-1.0.Arrow.UIntArrayBuilderClass */
     parentClass: ArrayBuilderClass
     static name: string
 }
-export abstract class UnionArrayClass {
+abstract class UnionArrayClass {
     /* Fields of Arrow-1.0.Arrow.UnionArrayClass */
     parentClass: ArrayClass
     static name: string
 }
-export abstract class UnionDataTypeClass {
+abstract class UnionDataTypeClass {
     /* Fields of Arrow-1.0.Arrow.UnionDataTypeClass */
     parentClass: DataTypeClass
     static name: string
 }
-export abstract class WritableFileInterface {
+abstract class WritableFileInterface {
     static name: string
 }
-export abstract class WritableInterface {
+abstract class WritableInterface {
     static name: string
 }
-export abstract class WriteOptionsClass {
+abstract class WriteOptionsClass {
     /* Fields of Arrow-1.0.Arrow.WriteOptionsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export type TimePoint = number
+type TimePoint = number
 }
+export default Arrow

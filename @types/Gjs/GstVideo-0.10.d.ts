@@ -3,14 +3,16 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GstBase from './GstBase-0.10';
-import type * as Gst from './Gst-0.10';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type libxml2 from './libxml2-2.0';
+import type GstBase from './GstBase-0.10';
+import type Gst from './Gst-0.10';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum Format {
+export namespace GstVideo {
+
+enum Format {
     UNKNOWN,
     I420,
     YV12,
@@ -66,34 +68,34 @@ export const RED_MASK_15_INT: any
 export const RED_MASK_16: string
 export const RED_MASK_16_INT: any
 export const SIZE_RANGE: string
-export function calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [ /* returnType */ boolean, /* dar_n */ number, /* dar_d */ number ]
-export function event_new_still_frame(in_still: boolean): Gst.Event
-export function event_parse_still_frame(event: Gst.Event): [ /* returnType */ boolean, /* in_still */ boolean ]
-export function format_convert(format: Format, width: number, height: number, fps_n: number, fps_d: number, src_format: Gst.Format, src_value: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_value */ number ]
-export function format_from_fourcc(fourcc: number): Format
-export function format_get_component_height(format: Format, component: number, height: number): number
-export function format_get_component_offset(format: Format, component: number, width: number, height: number): number
-export function format_get_component_width(format: Format, component: number, width: number): number
-export function format_get_pixel_stride(format: Format, component: number): number
-export function format_get_row_stride(format: Format, component: number, width: number): number
-export function format_get_size(format: Format, width: number, height: number): number
-export function format_has_alpha(format: Format): boolean
-export function format_is_rgb(format: Format): boolean
-export function format_is_yuv(format: Format): boolean
-export function format_new_caps(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number): Gst.Caps
-export function format_new_caps_interlaced(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number, interlaced: boolean): Gst.Caps
-export function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-export function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ boolean, /* interlaced */ boolean ]
-export function format_to_fourcc(format: Format): number
-export function frame_rate(pad: Gst.Pad): any
-export function get_size(pad: Gst.Pad): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-export function parse_caps_chroma_site(caps: Gst.Caps): string
-export function parse_caps_color_matrix(caps: Gst.Caps): string
-export function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ boolean, /* fps_n */ number, /* fps_d */ number ]
-export function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ boolean, /* par_n */ number, /* par_d */ number ]
+function calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [ /* returnType */ boolean, /* dar_n */ number, /* dar_d */ number ]
+function event_new_still_frame(in_still: boolean): Gst.Event
+function event_parse_still_frame(event: Gst.Event): [ /* returnType */ boolean, /* in_still */ boolean ]
+function format_convert(format: Format, width: number, height: number, fps_n: number, fps_d: number, src_format: Gst.Format, src_value: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_value */ number ]
+function format_from_fourcc(fourcc: number): Format
+function format_get_component_height(format: Format, component: number, height: number): number
+function format_get_component_offset(format: Format, component: number, width: number, height: number): number
+function format_get_component_width(format: Format, component: number, width: number): number
+function format_get_pixel_stride(format: Format, component: number): number
+function format_get_row_stride(format: Format, component: number, width: number): number
+function format_get_size(format: Format, width: number, height: number): number
+function format_has_alpha(format: Format): boolean
+function format_is_rgb(format: Format): boolean
+function format_is_yuv(format: Format): boolean
+function format_new_caps(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number): Gst.Caps
+function format_new_caps_interlaced(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number, interlaced: boolean): Gst.Caps
+function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ boolean, /* interlaced */ boolean ]
+function format_to_fourcc(format: Format): number
+function frame_rate(pad: Gst.Pad): any
+function get_size(pad: Gst.Pad): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+function parse_caps_chroma_site(caps: Gst.Caps): string
+function parse_caps_color_matrix(caps: Gst.Caps): string
+function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ boolean, /* fps_n */ number, /* fps_d */ number ]
+function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ boolean, /* par_n */ number, /* par_d */ number ]
 export interface Filter_ConstructProps extends GstBase.Transform_ConstructProps {
 }
-export class Filter {
+class Filter {
     /* Properties of GstBase-0.10.GstBase.Transform */
     qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
@@ -320,7 +322,7 @@ export class Filter {
 export interface Sink_ConstructProps extends GstBase.Sink_ConstructProps {
     show_preroll_frame?: boolean
 }
-export class Sink {
+class Sink {
     /* Properties of GstVideo-0.10.GstVideo.Sink */
     show_preroll_frame: boolean
     /* Properties of GstBase-0.10.GstBase.Sink */
@@ -598,12 +600,12 @@ export class Sink {
     static center_rect(src: Rectangle, dst: Rectangle, result: Rectangle, scaling: boolean): void
     static $gtype: GObject.Type
 }
-export abstract class FilterClass {
+abstract class FilterClass {
     /* Fields of GstVideo-0.10.GstVideo.FilterClass */
     parent_class: GstBase.TransformClass
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of GstVideo-0.10.GstVideo.Rectangle */
     x: number
     y: number
@@ -611,13 +613,15 @@ export class Rectangle {
     h: number
     static name: string
 }
-export abstract class SinkClass {
+abstract class SinkClass {
     /* Fields of GstVideo-0.10.GstVideo.SinkClass */
     parent_class: GstBase.SinkClass
     show_frame: (video_sink: Sink, buf: Gst.Buffer) => Gst.FlowReturn
     _gst_reserved: any[]
     static name: string
 }
-export class SinkPrivate {
+class SinkPrivate {
     static name: string
 }
+}
+export default GstVideo

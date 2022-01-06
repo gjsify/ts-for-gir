@@ -1,2 +1,1 @@
-imports.gi.versions.GcrUi = '3'
-module.exports = imports.gi.GcrUi
+export {default as default} from 'gi://GcrUi?version=3';

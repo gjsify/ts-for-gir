@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Goa {
+declare namespace Goa {
 
-export enum Error {
+enum Error {
     FAILED,
     NOT_SUPPORTED,
     DIALOG_DISMISSED,
@@ -18,49 +18,49 @@ export enum Error {
     SSL,
 }
 export const ERROR_NUM_ENTRIES: number
-export function accountInterfaceInfo(): Gio.DBusInterfaceInfo
-export function accountOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function calendarInterfaceInfo(): Gio.DBusInterfaceInfo
-export function calendarOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function chatInterfaceInfo(): Gio.DBusInterfaceInfo
-export function chatOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function checkVersion(requiredMajor: number, requiredMinor: number, requiredMicro: number): string
-export function contactsInterfaceInfo(): Gio.DBusInterfaceInfo
-export function contactsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function documentsInterfaceInfo(): Gio.DBusInterfaceInfo
-export function documentsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function errorQuark(): GLib.Quark
-export function exchangeInterfaceInfo(): Gio.DBusInterfaceInfo
-export function exchangeOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function filesInterfaceInfo(): Gio.DBusInterfaceInfo
-export function filesOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function mailInterfaceInfo(): Gio.DBusInterfaceInfo
-export function mailOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function managerInterfaceInfo(): Gio.DBusInterfaceInfo
-export function managerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function mapsInterfaceInfo(): Gio.DBusInterfaceInfo
-export function mapsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function mediaServerInterfaceInfo(): Gio.DBusInterfaceInfo
-export function mediaServerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function musicInterfaceInfo(): Gio.DBusInterfaceInfo
-export function musicOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function oauth2BasedInterfaceInfo(): Gio.DBusInterfaceInfo
-export function oauth2BasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function oauthBasedInterfaceInfo(): Gio.DBusInterfaceInfo
-export function oauthBasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function passwordBasedInterfaceInfo(): Gio.DBusInterfaceInfo
-export function passwordBasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function photosInterfaceInfo(): Gio.DBusInterfaceInfo
-export function photosOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function printersInterfaceInfo(): Gio.DBusInterfaceInfo
-export function printersOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function readLaterInterfaceInfo(): Gio.DBusInterfaceInfo
-export function readLaterOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function ticketingInterfaceInfo(): Gio.DBusInterfaceInfo
-export function ticketingOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function todoInterfaceInfo(): Gio.DBusInterfaceInfo
-export function todoOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export class Account {
+function accountInterfaceInfo(): Gio.DBusInterfaceInfo
+function accountOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function calendarInterfaceInfo(): Gio.DBusInterfaceInfo
+function calendarOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function chatInterfaceInfo(): Gio.DBusInterfaceInfo
+function chatOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function checkVersion(requiredMajor: number, requiredMinor: number, requiredMicro: number): string
+function contactsInterfaceInfo(): Gio.DBusInterfaceInfo
+function contactsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function documentsInterfaceInfo(): Gio.DBusInterfaceInfo
+function documentsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function errorQuark(): GLib.Quark
+function exchangeInterfaceInfo(): Gio.DBusInterfaceInfo
+function exchangeOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function filesInterfaceInfo(): Gio.DBusInterfaceInfo
+function filesOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function mailInterfaceInfo(): Gio.DBusInterfaceInfo
+function mailOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function managerInterfaceInfo(): Gio.DBusInterfaceInfo
+function managerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function mapsInterfaceInfo(): Gio.DBusInterfaceInfo
+function mapsOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function mediaServerInterfaceInfo(): Gio.DBusInterfaceInfo
+function mediaServerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function musicInterfaceInfo(): Gio.DBusInterfaceInfo
+function musicOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function oauth2BasedInterfaceInfo(): Gio.DBusInterfaceInfo
+function oauth2BasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function oauthBasedInterfaceInfo(): Gio.DBusInterfaceInfo
+function oauthBasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function passwordBasedInterfaceInfo(): Gio.DBusInterfaceInfo
+function passwordBasedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function photosInterfaceInfo(): Gio.DBusInterfaceInfo
+function photosOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function printersInterfaceInfo(): Gio.DBusInterfaceInfo
+function printersOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function readLaterInterfaceInfo(): Gio.DBusInterfaceInfo
+function readLaterOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function ticketingInterfaceInfo(): Gio.DBusInterfaceInfo
+function ticketingOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function todoInterfaceInfo(): Gio.DBusInterfaceInfo
+function todoOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+class Account {
     /* Properties of Goa-1.0.Goa.Account */
     attentionNeeded: boolean
     calendarDisabled: boolean
@@ -109,7 +109,7 @@ export class Account {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Calendar {
+class Calendar {
     /* Properties of Goa-1.0.Goa.Calendar */
     acceptSslErrors: boolean
     uri: string
@@ -118,13 +118,13 @@ export class Calendar {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Chat {
+class Chat {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Contacts {
+class Contacts {
     /* Properties of Goa-1.0.Goa.Contacts */
     acceptSslErrors: boolean
     uri: string
@@ -133,13 +133,13 @@ export class Contacts {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Documents {
+class Documents {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Exchange {
+class Exchange {
     /* Properties of Goa-1.0.Goa.Exchange */
     acceptSslErrors: boolean
     host: string
@@ -148,7 +148,7 @@ export class Exchange {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Files {
+class Files {
     /* Properties of Goa-1.0.Goa.Files */
     acceptSslErrors: boolean
     uri: string
@@ -157,7 +157,7 @@ export class Files {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Mail {
+class Mail {
     /* Properties of Goa-1.0.Goa.Mail */
     emailAddress: string
     imapAcceptSslErrors: boolean
@@ -182,7 +182,7 @@ export class Mail {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Manager {
+class Manager {
     /* Methods of Goa-1.0.Goa.Manager */
     callAddAccount(argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callAddAccountFinish(res: Gio.AsyncResult): { returnType: boolean, outAccountObjectPath: string | null }
@@ -208,13 +208,13 @@ export class Manager {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Maps {
+class Maps {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class MediaServer {
+class MediaServer {
     /* Properties of Goa-1.0.Goa.MediaServer */
     dlnaSupported: boolean
     udn: string
@@ -223,13 +223,13 @@ export class MediaServer {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Music {
+class Music {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class OAuth2Based {
+class OAuth2Based {
     /* Properties of Goa-1.0.Goa.OAuth2Based */
     clientId: string
     clientSecret: string
@@ -249,7 +249,7 @@ export class OAuth2Based {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class OAuthBased {
+class OAuthBased {
     /* Properties of Goa-1.0.Goa.OAuthBased */
     consumerKey: string
     consumerSecret: string
@@ -269,7 +269,7 @@ export class OAuthBased {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Object {
+class Object {
     /* Properties of Goa-1.0.Goa.Object */
     account: Account
     calendar: Calendar
@@ -329,7 +329,7 @@ export class Object {
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
     static name: string
 }
-export class PasswordBased {
+class PasswordBased {
     /* Methods of Goa-1.0.Goa.PasswordBased */
     callGetPassword(argId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     callGetPasswordFinish(res: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
@@ -346,25 +346,25 @@ export class PasswordBased {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Photos {
+class Photos {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Printers {
+class Printers {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class ReadLater {
+class ReadLater {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Ticketing {
+class Ticketing {
     /* Properties of Goa-1.0.Goa.Ticketing */
     details: GLib.Variant
     /* Methods of Goa-1.0.Goa.Ticketing */
@@ -383,7 +383,7 @@ export class Ticketing {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Todo {
+class Todo {
     static name: string
     /* Static methods and pseudo-constructors */
     static interfaceInfo(): Gio.DBusInterfaceInfo
@@ -413,7 +413,7 @@ export interface AccountProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     ticketingDisabled?: boolean
     todoDisabled?: boolean
 }
-export class AccountProxy {
+class AccountProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -706,7 +706,7 @@ export interface AccountSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     ticketingDisabled?: boolean
     todoDisabled?: boolean
 }
-export class AccountSkeleton {
+class AccountSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Account */
@@ -939,7 +939,7 @@ export interface CalendarProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     acceptSslErrors?: boolean
     uri?: string
 }
-export class CalendarProxy {
+class CalendarProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1072,7 +1072,7 @@ export interface CalendarSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     acceptSslErrors?: boolean
     uri?: string
 }
-export class CalendarSkeleton {
+class CalendarSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Calendar */
@@ -1163,7 +1163,7 @@ export class CalendarSkeleton {
 }
 export interface ChatProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class ChatProxy {
+class ChatProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1281,7 +1281,7 @@ export class ChatProxy {
 }
 export interface ChatSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class ChatSkeleton {
+class ChatSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -1359,7 +1359,7 @@ export class ChatSkeleton {
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of Goa-1.0.Goa.Client */
     readonly objectManager: Gio.DBusObjectManager
     /* Fields of GObject-2.0.GObject.Object */
@@ -1445,7 +1445,7 @@ export interface ContactsProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     acceptSslErrors?: boolean
     uri?: string
 }
-export class ContactsProxy {
+class ContactsProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1578,7 +1578,7 @@ export interface ContactsSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     acceptSslErrors?: boolean
     uri?: string
 }
-export class ContactsSkeleton {
+class ContactsSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Contacts */
@@ -1669,7 +1669,7 @@ export class ContactsSkeleton {
 }
 export interface DocumentsProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class DocumentsProxy {
+class DocumentsProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1787,7 +1787,7 @@ export class DocumentsProxy {
 }
 export interface DocumentsSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class DocumentsSkeleton {
+class DocumentsSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -1867,7 +1867,7 @@ export interface ExchangeProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     acceptSslErrors?: boolean
     host?: string
 }
-export class ExchangeProxy {
+class ExchangeProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2000,7 +2000,7 @@ export interface ExchangeSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     acceptSslErrors?: boolean
     host?: string
 }
-export class ExchangeSkeleton {
+class ExchangeSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Exchange */
@@ -2093,7 +2093,7 @@ export interface FilesProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     acceptSslErrors?: boolean
     uri?: string
 }
-export class FilesProxy {
+class FilesProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2226,7 +2226,7 @@ export interface FilesSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     acceptSslErrors?: boolean
     uri?: string
 }
-export class FilesSkeleton {
+class FilesSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Files */
@@ -2335,7 +2335,7 @@ export interface MailProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     smtpUseTls?: boolean
     smtpUserName?: string
 }
-export class MailProxy {
+class MailProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2580,7 +2580,7 @@ export interface MailSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_C
     smtpUseTls?: boolean
     smtpUserName?: string
 }
-export class MailSkeleton {
+class MailSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Mail */
@@ -2767,7 +2767,7 @@ export class MailSkeleton {
 }
 export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class ManagerProxy {
+class ManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2905,7 +2905,7 @@ export class ManagerProxy {
 }
 export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class ManagerSkeleton {
+class ManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -3003,7 +3003,7 @@ export class ManagerSkeleton {
 }
 export interface MapsProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class MapsProxy {
+class MapsProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3121,7 +3121,7 @@ export class MapsProxy {
 }
 export interface MapsSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class MapsSkeleton {
+class MapsSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -3201,7 +3201,7 @@ export interface MediaServerProxy_ConstructProps extends Gio.DBusProxy_Construct
     dlnaSupported?: boolean
     udn?: string
 }
-export class MediaServerProxy {
+class MediaServerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3334,7 +3334,7 @@ export interface MediaServerSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     dlnaSupported?: boolean
     udn?: string
 }
-export class MediaServerSkeleton {
+class MediaServerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.MediaServer */
@@ -3425,7 +3425,7 @@ export class MediaServerSkeleton {
 }
 export interface MusicProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class MusicProxy {
+class MusicProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3543,7 +3543,7 @@ export class MusicProxy {
 }
 export interface MusicSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class MusicSkeleton {
+class MusicSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -3623,7 +3623,7 @@ export interface OAuth2BasedProxy_ConstructProps extends Gio.DBusProxy_Construct
     clientId?: string
     clientSecret?: string
 }
-export class OAuth2BasedProxy {
+class OAuth2BasedProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3767,7 +3767,7 @@ export interface OAuth2BasedSkeleton_ConstructProps extends Gio.DBusInterfaceSke
     clientId?: string
     clientSecret?: string
 }
-export class OAuth2BasedSkeleton {
+class OAuth2BasedSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.OAuth2Based */
@@ -3871,7 +3871,7 @@ export interface OAuthBasedProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     consumerKey?: string
     consumerSecret?: string
 }
-export class OAuthBasedProxy {
+class OAuthBasedProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4015,7 +4015,7 @@ export interface OAuthBasedSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     consumerKey?: string
     consumerSecret?: string
 }
-export class OAuthBasedSkeleton {
+class OAuthBasedSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.OAuthBased */
@@ -4117,7 +4117,7 @@ export class OAuthBasedSkeleton {
 }
 export interface ObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
-export class ObjectManagerClient {
+class ObjectManagerClient {
     /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -4249,7 +4249,7 @@ export interface ObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Construc
     ticketing?: Ticketing
     todo?: Todo
 }
-export class ObjectProxy {
+class ObjectProxy {
     /* Properties of Goa-1.0.Goa.Object */
     account: Account
     calendar: Calendar
@@ -4475,7 +4475,7 @@ export interface ObjectSkeleton_ConstructProps extends Gio.DBusObjectSkeleton_Co
     ticketing?: Ticketing
     todo?: Todo
 }
-export class ObjectSkeleton {
+class ObjectSkeleton {
     /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
     /* Properties of Goa-1.0.Goa.Object */
@@ -4719,7 +4719,7 @@ export class ObjectSkeleton {
 }
 export interface PasswordBasedProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class PasswordBasedProxy {
+class PasswordBasedProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4848,7 +4848,7 @@ export class PasswordBasedProxy {
 }
 export interface PasswordBasedSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class PasswordBasedSkeleton {
+class PasswordBasedSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -4937,7 +4937,7 @@ export class PasswordBasedSkeleton {
 }
 export interface PhotosProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class PhotosProxy {
+class PhotosProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5055,7 +5055,7 @@ export class PhotosProxy {
 }
 export interface PhotosSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class PhotosSkeleton {
+class PhotosSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -5133,7 +5133,7 @@ export class PhotosSkeleton {
 }
 export interface PrintersProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class PrintersProxy {
+class PrintersProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5251,7 +5251,7 @@ export class PrintersProxy {
 }
 export interface PrintersSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class PrintersSkeleton {
+class PrintersSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -5329,7 +5329,7 @@ export class PrintersSkeleton {
 }
 export interface ReadLaterProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class ReadLaterProxy {
+class ReadLaterProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5447,7 +5447,7 @@ export class ReadLaterProxy {
 }
 export interface ReadLaterSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class ReadLaterSkeleton {
+class ReadLaterSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -5526,7 +5526,7 @@ export class ReadLaterSkeleton {
 export interface TicketingProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     details?: GLib.Variant
 }
-export class TicketingProxy {
+class TicketingProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5663,7 +5663,7 @@ export class TicketingProxy {
 export interface TicketingSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     details?: GLib.Variant
 }
-export class TicketingSkeleton {
+class TicketingSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Goa-1.0.Goa.Ticketing */
@@ -5759,7 +5759,7 @@ export class TicketingSkeleton {
 }
 export interface TodoProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class TodoProxy {
+class TodoProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5877,7 +5877,7 @@ export class TodoProxy {
 }
 export interface TodoSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class TodoSkeleton {
+class TodoSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -5953,7 +5953,7 @@ export class TodoSkeleton {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
     static $gtype: GObject.Type
 }
-export abstract class AccountIface {
+abstract class AccountIface {
     /* Fields of Goa-1.0.Goa.AccountIface */
     parentIface: GObject.TypeInterface
     handleEnsureCredentials: (object: Account, invocation: Gio.DBusMethodInvocation) => boolean
@@ -5982,162 +5982,162 @@ export abstract class AccountIface {
     getTodoDisabled: (object: Account) => boolean
     static name: string
 }
-export abstract class AccountProxyClass {
+abstract class AccountProxyClass {
     /* Fields of Goa-1.0.Goa.AccountProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class AccountProxyPrivate {
+class AccountProxyPrivate {
     static name: string
 }
-export abstract class AccountSkeletonClass {
+abstract class AccountSkeletonClass {
     /* Fields of Goa-1.0.Goa.AccountSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class AccountSkeletonPrivate {
+class AccountSkeletonPrivate {
     static name: string
 }
-export abstract class CalendarIface {
+abstract class CalendarIface {
     /* Fields of Goa-1.0.Goa.CalendarIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Calendar) => boolean
     getUri: (object: Calendar) => string | null
     static name: string
 }
-export abstract class CalendarProxyClass {
+abstract class CalendarProxyClass {
     /* Fields of Goa-1.0.Goa.CalendarProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class CalendarProxyPrivate {
+class CalendarProxyPrivate {
     static name: string
 }
-export abstract class CalendarSkeletonClass {
+abstract class CalendarSkeletonClass {
     /* Fields of Goa-1.0.Goa.CalendarSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class CalendarSkeletonPrivate {
+class CalendarSkeletonPrivate {
     static name: string
 }
-export abstract class ChatIface {
+abstract class ChatIface {
     /* Fields of Goa-1.0.Goa.ChatIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ChatProxyClass {
+abstract class ChatProxyClass {
     /* Fields of Goa-1.0.Goa.ChatProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ChatProxyPrivate {
+class ChatProxyPrivate {
     static name: string
 }
-export abstract class ChatSkeletonClass {
+abstract class ChatSkeletonClass {
     /* Fields of Goa-1.0.Goa.ChatSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ChatSkeletonPrivate {
+class ChatSkeletonPrivate {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Goa-1.0.Goa.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContactsIface {
+abstract class ContactsIface {
     /* Fields of Goa-1.0.Goa.ContactsIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Contacts) => boolean
     getUri: (object: Contacts) => string | null
     static name: string
 }
-export abstract class ContactsProxyClass {
+abstract class ContactsProxyClass {
     /* Fields of Goa-1.0.Goa.ContactsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ContactsProxyPrivate {
+class ContactsProxyPrivate {
     static name: string
 }
-export abstract class ContactsSkeletonClass {
+abstract class ContactsSkeletonClass {
     /* Fields of Goa-1.0.Goa.ContactsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ContactsSkeletonPrivate {
+class ContactsSkeletonPrivate {
     static name: string
 }
-export abstract class DocumentsIface {
+abstract class DocumentsIface {
     /* Fields of Goa-1.0.Goa.DocumentsIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class DocumentsProxyClass {
+abstract class DocumentsProxyClass {
     /* Fields of Goa-1.0.Goa.DocumentsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class DocumentsProxyPrivate {
+class DocumentsProxyPrivate {
     static name: string
 }
-export abstract class DocumentsSkeletonClass {
+abstract class DocumentsSkeletonClass {
     /* Fields of Goa-1.0.Goa.DocumentsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class DocumentsSkeletonPrivate {
+class DocumentsSkeletonPrivate {
     static name: string
 }
-export abstract class ExchangeIface {
+abstract class ExchangeIface {
     /* Fields of Goa-1.0.Goa.ExchangeIface */
     parentIface: GObject.TypeInterface
     getHost: (object: Exchange) => string | null
     getAcceptSslErrors: (object: Exchange) => boolean
     static name: string
 }
-export abstract class ExchangeProxyClass {
+abstract class ExchangeProxyClass {
     /* Fields of Goa-1.0.Goa.ExchangeProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ExchangeProxyPrivate {
+class ExchangeProxyPrivate {
     static name: string
 }
-export abstract class ExchangeSkeletonClass {
+abstract class ExchangeSkeletonClass {
     /* Fields of Goa-1.0.Goa.ExchangeSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ExchangeSkeletonPrivate {
+class ExchangeSkeletonPrivate {
     static name: string
 }
-export abstract class FilesIface {
+abstract class FilesIface {
     /* Fields of Goa-1.0.Goa.FilesIface */
     parentIface: GObject.TypeInterface
     getAcceptSslErrors: (object: Files) => boolean
     getUri: (object: Files) => string | null
     static name: string
 }
-export abstract class FilesProxyClass {
+abstract class FilesProxyClass {
     /* Fields of Goa-1.0.Goa.FilesProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class FilesProxyPrivate {
+class FilesProxyPrivate {
     static name: string
 }
-export abstract class FilesSkeletonClass {
+abstract class FilesSkeletonClass {
     /* Fields of Goa-1.0.Goa.FilesSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class FilesSkeletonPrivate {
+class FilesSkeletonPrivate {
     static name: string
 }
-export abstract class MailIface {
+abstract class MailIface {
     /* Fields of Goa-1.0.Goa.MailIface */
     parentIface: GObject.TypeInterface
     getEmailAddress: (object: Mail) => string | null
@@ -6160,111 +6160,111 @@ export abstract class MailIface {
     getSmtpAuthXoauth2: (object: Mail) => boolean
     static name: string
 }
-export abstract class MailProxyClass {
+abstract class MailProxyClass {
     /* Fields of Goa-1.0.Goa.MailProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class MailProxyPrivate {
+class MailProxyPrivate {
     static name: string
 }
-export abstract class MailSkeletonClass {
+abstract class MailSkeletonClass {
     /* Fields of Goa-1.0.Goa.MailSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class MailSkeletonPrivate {
+class MailSkeletonPrivate {
     static name: string
 }
-export abstract class ManagerIface {
+abstract class ManagerIface {
     /* Fields of Goa-1.0.Goa.ManagerIface */
     parentIface: GObject.TypeInterface
     handleAddAccount: (object: Manager, invocation: Gio.DBusMethodInvocation, argProvider: string, argIdentity: string, argPresentationIdentity: string, argCredentials: GLib.Variant, argDetails: GLib.Variant) => boolean
     handleIsSupportedProvider: (object: Manager, invocation: Gio.DBusMethodInvocation, argProviderType: string) => boolean
     static name: string
 }
-export abstract class ManagerProxyClass {
+abstract class ManagerProxyClass {
     /* Fields of Goa-1.0.Goa.ManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ManagerProxyPrivate {
+class ManagerProxyPrivate {
     static name: string
 }
-export abstract class ManagerSkeletonClass {
+abstract class ManagerSkeletonClass {
     /* Fields of Goa-1.0.Goa.ManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ManagerSkeletonPrivate {
+class ManagerSkeletonPrivate {
     static name: string
 }
-export abstract class MapsIface {
+abstract class MapsIface {
     /* Fields of Goa-1.0.Goa.MapsIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class MapsProxyClass {
+abstract class MapsProxyClass {
     /* Fields of Goa-1.0.Goa.MapsProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class MapsProxyPrivate {
+class MapsProxyPrivate {
     static name: string
 }
-export abstract class MapsSkeletonClass {
+abstract class MapsSkeletonClass {
     /* Fields of Goa-1.0.Goa.MapsSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class MapsSkeletonPrivate {
+class MapsSkeletonPrivate {
     static name: string
 }
-export abstract class MediaServerIface {
+abstract class MediaServerIface {
     /* Fields of Goa-1.0.Goa.MediaServerIface */
     parentIface: GObject.TypeInterface
     getDlnaSupported: (object: MediaServer) => boolean
     getUdn: (object: MediaServer) => string | null
     static name: string
 }
-export abstract class MediaServerProxyClass {
+abstract class MediaServerProxyClass {
     /* Fields of Goa-1.0.Goa.MediaServerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class MediaServerProxyPrivate {
+class MediaServerProxyPrivate {
     static name: string
 }
-export abstract class MediaServerSkeletonClass {
+abstract class MediaServerSkeletonClass {
     /* Fields of Goa-1.0.Goa.MediaServerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class MediaServerSkeletonPrivate {
+class MediaServerSkeletonPrivate {
     static name: string
 }
-export abstract class MusicIface {
+abstract class MusicIface {
     /* Fields of Goa-1.0.Goa.MusicIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class MusicProxyClass {
+abstract class MusicProxyClass {
     /* Fields of Goa-1.0.Goa.MusicProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class MusicProxyPrivate {
+class MusicProxyPrivate {
     static name: string
 }
-export abstract class MusicSkeletonClass {
+abstract class MusicSkeletonClass {
     /* Fields of Goa-1.0.Goa.MusicSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class MusicSkeletonPrivate {
+class MusicSkeletonPrivate {
     static name: string
 }
-export abstract class OAuth2BasedIface {
+abstract class OAuth2BasedIface {
     /* Fields of Goa-1.0.Goa.OAuth2BasedIface */
     parentIface: GObject.TypeInterface
     handleGetAccessToken: (object: OAuth2Based, invocation: Gio.DBusMethodInvocation) => boolean
@@ -6272,23 +6272,23 @@ export abstract class OAuth2BasedIface {
     getClientSecret: (object: OAuth2Based) => string | null
     static name: string
 }
-export abstract class OAuth2BasedProxyClass {
+abstract class OAuth2BasedProxyClass {
     /* Fields of Goa-1.0.Goa.OAuth2BasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class OAuth2BasedProxyPrivate {
+class OAuth2BasedProxyPrivate {
     static name: string
 }
-export abstract class OAuth2BasedSkeletonClass {
+abstract class OAuth2BasedSkeletonClass {
     /* Fields of Goa-1.0.Goa.OAuth2BasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class OAuth2BasedSkeletonPrivate {
+class OAuth2BasedSkeletonPrivate {
     static name: string
 }
-export abstract class OAuthBasedIface {
+abstract class OAuthBasedIface {
     /* Fields of Goa-1.0.Goa.OAuthBasedIface */
     parentIface: GObject.TypeInterface
     handleGetAccessToken: (object: OAuthBased, invocation: Gio.DBusMethodInvocation) => boolean
@@ -6296,178 +6296,179 @@ export abstract class OAuthBasedIface {
     getConsumerSecret: (object: OAuthBased) => string | null
     static name: string
 }
-export abstract class OAuthBasedProxyClass {
+abstract class OAuthBasedProxyClass {
     /* Fields of Goa-1.0.Goa.OAuthBasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class OAuthBasedProxyPrivate {
+class OAuthBasedProxyPrivate {
     static name: string
 }
-export abstract class OAuthBasedSkeletonClass {
+abstract class OAuthBasedSkeletonClass {
     /* Fields of Goa-1.0.Goa.OAuthBasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class OAuthBasedSkeletonPrivate {
+class OAuthBasedSkeletonPrivate {
     static name: string
 }
-export abstract class ObjectIface {
+abstract class ObjectIface {
     /* Fields of Goa-1.0.Goa.ObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ObjectManagerClientClass {
+abstract class ObjectManagerClientClass {
     /* Fields of Goa-1.0.Goa.ObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
-export class ObjectManagerClientPrivate {
+class ObjectManagerClientPrivate {
     static name: string
 }
-export abstract class ObjectProxyClass {
+abstract class ObjectProxyClass {
     /* Fields of Goa-1.0.Goa.ObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
-export class ObjectProxyPrivate {
+class ObjectProxyPrivate {
     static name: string
 }
-export abstract class ObjectSkeletonClass {
+abstract class ObjectSkeletonClass {
     /* Fields of Goa-1.0.Goa.ObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
-export class ObjectSkeletonPrivate {
+class ObjectSkeletonPrivate {
     static name: string
 }
-export abstract class PasswordBasedIface {
+abstract class PasswordBasedIface {
     /* Fields of Goa-1.0.Goa.PasswordBasedIface */
     parentIface: GObject.TypeInterface
     handleGetPassword: (object: PasswordBased, invocation: Gio.DBusMethodInvocation, argId: string) => boolean
     static name: string
 }
-export abstract class PasswordBasedProxyClass {
+abstract class PasswordBasedProxyClass {
     /* Fields of Goa-1.0.Goa.PasswordBasedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PasswordBasedProxyPrivate {
+class PasswordBasedProxyPrivate {
     static name: string
 }
-export abstract class PasswordBasedSkeletonClass {
+abstract class PasswordBasedSkeletonClass {
     /* Fields of Goa-1.0.Goa.PasswordBasedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class PasswordBasedSkeletonPrivate {
+class PasswordBasedSkeletonPrivate {
     static name: string
 }
-export abstract class PhotosIface {
+abstract class PhotosIface {
     /* Fields of Goa-1.0.Goa.PhotosIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class PhotosProxyClass {
+abstract class PhotosProxyClass {
     /* Fields of Goa-1.0.Goa.PhotosProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PhotosProxyPrivate {
+class PhotosProxyPrivate {
     static name: string
 }
-export abstract class PhotosSkeletonClass {
+abstract class PhotosSkeletonClass {
     /* Fields of Goa-1.0.Goa.PhotosSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class PhotosSkeletonPrivate {
+class PhotosSkeletonPrivate {
     static name: string
 }
-export abstract class PrintersIface {
+abstract class PrintersIface {
     /* Fields of Goa-1.0.Goa.PrintersIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class PrintersProxyClass {
+abstract class PrintersProxyClass {
     /* Fields of Goa-1.0.Goa.PrintersProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PrintersProxyPrivate {
+class PrintersProxyPrivate {
     static name: string
 }
-export abstract class PrintersSkeletonClass {
+abstract class PrintersSkeletonClass {
     /* Fields of Goa-1.0.Goa.PrintersSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class PrintersSkeletonPrivate {
+class PrintersSkeletonPrivate {
     static name: string
 }
-export abstract class ReadLaterIface {
+abstract class ReadLaterIface {
     /* Fields of Goa-1.0.Goa.ReadLaterIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ReadLaterProxyClass {
+abstract class ReadLaterProxyClass {
     /* Fields of Goa-1.0.Goa.ReadLaterProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ReadLaterProxyPrivate {
+class ReadLaterProxyPrivate {
     static name: string
 }
-export abstract class ReadLaterSkeletonClass {
+abstract class ReadLaterSkeletonClass {
     /* Fields of Goa-1.0.Goa.ReadLaterSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ReadLaterSkeletonPrivate {
+class ReadLaterSkeletonPrivate {
     static name: string
 }
-export abstract class TicketingIface {
+abstract class TicketingIface {
     /* Fields of Goa-1.0.Goa.TicketingIface */
     parentIface: GObject.TypeInterface
     handleGetTicket: (object: Ticketing, invocation: Gio.DBusMethodInvocation) => boolean
     getDetails: (object: Ticketing) => GLib.Variant | null
     static name: string
 }
-export abstract class TicketingProxyClass {
+abstract class TicketingProxyClass {
     /* Fields of Goa-1.0.Goa.TicketingProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class TicketingProxyPrivate {
+class TicketingProxyPrivate {
     static name: string
 }
-export abstract class TicketingSkeletonClass {
+abstract class TicketingSkeletonClass {
     /* Fields of Goa-1.0.Goa.TicketingSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class TicketingSkeletonPrivate {
+class TicketingSkeletonPrivate {
     static name: string
 }
-export abstract class TodoIface {
+abstract class TodoIface {
     /* Fields of Goa-1.0.Goa.TodoIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class TodoProxyClass {
+abstract class TodoProxyClass {
     /* Fields of Goa-1.0.Goa.TodoProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class TodoProxyPrivate {
+class TodoProxyPrivate {
     static name: string
 }
-export abstract class TodoSkeletonClass {
+abstract class TodoSkeletonClass {
     /* Fields of Goa-1.0.Goa.TodoSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class TodoSkeletonPrivate {
+class TodoSkeletonPrivate {
     static name: string
 }
 }
+export default Goa

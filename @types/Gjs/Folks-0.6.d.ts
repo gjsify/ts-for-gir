@@ -3,26 +3,28 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as Gee from './Gee-0.8';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type Gee from './Gee-0.8';
 
-export enum Gender {
+export namespace Folks {
+
+enum Gender {
     UNSPECIFIED,
     MALE,
     FEMALE,
 }
-export enum TrustLevel {
+enum TrustLevel {
     NONE,
     PERSONAS,
 }
-export enum PersonaStoreTrust {
+enum PersonaStoreTrust {
     NONE,
     PARTIAL,
     FULL,
 }
-export enum PersonaDetail {
+enum PersonaDetail {
     INVALID,
     ALIAS,
     AVATAR,
@@ -50,7 +52,7 @@ export enum PersonaDetail {
     ANTI_LINKS,
     EXTENDED_INFO,
 }
-export enum MatchResult {
+enum MatchResult {
     NONE,
     VERY_LOW,
     LOW,
@@ -60,7 +62,7 @@ export enum MatchResult {
     MIN,
     MAX,
 }
-export enum PresenceType {
+enum PresenceType {
     UNSET,
     OFFLINE,
     AVAILABLE,
@@ -71,22 +73,22 @@ export enum PresenceType {
     UNKNOWN,
     ERROR,
 }
-export enum MaybeBool {
+enum MaybeBool {
     UNSET,
     FALSE,
     TRUE,
 }
-export enum ImDetailsError {
+enum ImDetailsError {
     INVALID_IM_ADDRESS,
 }
-export enum IndividualAggregatorError {
+enum IndividualAggregatorError {
     ADD_FAILED,
     NO_WRITEABLE_STORE,
     STORE_OFFLINE,
     PROPERTY_NOT_WRITEABLE,
     NO_PRIMARY_STORE,
 }
-export enum PersonaStoreError {
+enum PersonaStoreError {
     INVALID_ARGUMENT,
     CREATE_FAILED,
     UNSUPPORTED_ON_USER,
@@ -96,13 +98,13 @@ export enum PersonaStoreError {
     REMOVE_FAILED,
     UNSUPPORTED_ON_NON_USER,
 }
-export enum PropertyError {
+enum PropertyError {
     NOT_WRITEABLE,
     INVALID_VALUE,
     UNKNOWN_ERROR,
     UNAVAILABLE,
 }
-export enum GroupDetailsChangeReason {
+enum GroupDetailsChangeReason {
     NONE,
     OFFLINE,
     KICKED,
@@ -119,7 +121,7 @@ export enum GroupDetailsChangeReason {
 export interface AliasDetails_ConstructProps extends GObject.Object_ConstructProps {
     alias?: string
 }
-export class AliasDetails {
+class AliasDetails {
     /* Properties of Folks-0.6.Folks.AliasDetails */
     alias: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -182,7 +184,7 @@ export class AliasDetails {
 export interface AntiLinkable_ConstructProps extends Persona_ConstructProps {
     anti_links?: Gee.Set
 }
-export class AntiLinkable {
+class AntiLinkable {
     /* Properties of Folks-0.6.Folks.AntiLinkable */
     anti_links: Gee.Set
     /* Properties of Folks-0.6.Folks.Persona */
@@ -279,7 +281,7 @@ export class AntiLinkable {
 export interface AvatarDetails_ConstructProps extends GObject.Object_ConstructProps {
     avatar?: Gio.LoadableIcon
 }
-export class AvatarDetails {
+class AvatarDetails {
     /* Properties of Folks-0.6.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
     /* Fields of GObject-2.0.GObject.Object */
@@ -343,7 +345,7 @@ export interface BirthdayDetails_ConstructProps extends GObject.Object_Construct
     birthday?: GLib.DateTime
     calendar_event_id?: string
 }
-export class BirthdayDetails {
+class BirthdayDetails {
     /* Properties of Folks-0.6.Folks.BirthdayDetails */
     birthday: GLib.DateTime
     calendar_event_id: string
@@ -417,7 +419,7 @@ export class BirthdayDetails {
 export interface EmailDetails_ConstructProps extends GObject.Object_ConstructProps {
     email_addresses?: Gee.Set
 }
-export class EmailDetails {
+class EmailDetails {
     /* Properties of Folks-0.6.Folks.EmailDetails */
     email_addresses: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -479,7 +481,7 @@ export class EmailDetails {
 }
 export interface ExtendedInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ExtendedInfo {
+class ExtendedInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Folks-0.6.Folks.ExtendedInfo */
@@ -540,7 +542,7 @@ export class ExtendedInfo {
 export interface FavouriteDetails_ConstructProps extends GObject.Object_ConstructProps {
     is_favourite?: boolean
 }
-export class FavouriteDetails {
+class FavouriteDetails {
     /* Properties of Folks-0.6.Folks.FavouriteDetails */
     is_favourite: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -603,7 +605,7 @@ export class FavouriteDetails {
 export interface GenderDetails_ConstructProps extends GObject.Object_ConstructProps {
     gender?: Gender
 }
-export class GenderDetails {
+class GenderDetails {
     /* Properties of Folks-0.6.Folks.GenderDetails */
     gender: Gender
     /* Fields of GObject-2.0.GObject.Object */
@@ -666,7 +668,7 @@ export class GenderDetails {
 export interface GroupDetails_ConstructProps extends GObject.Object_ConstructProps {
     groups?: Gee.Set
 }
-export class GroupDetails {
+class GroupDetails {
     /* Properties of Folks-0.6.Folks.GroupDetails */
     groups: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -737,7 +739,7 @@ export class GroupDetails {
 export interface ImDetails_ConstructProps extends GObject.Object_ConstructProps {
     im_addresses?: Gee.MultiMap
 }
-export class ImDetails {
+class ImDetails {
     /* Properties of Folks-0.6.Folks.ImDetails */
     im_addresses: Gee.MultiMap
     /* Fields of GObject-2.0.GObject.Object */
@@ -801,7 +803,7 @@ export class ImDetails {
 }
 export interface InteractionDetails_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class InteractionDetails {
+class InteractionDetails {
     /* Properties of Folks-0.6.Folks.InteractionDetails */
     readonly im_interaction_count: number
     readonly last_im_interaction_datetime: GLib.DateTime
@@ -873,7 +875,7 @@ export class InteractionDetails {
 export interface LocalIdDetails_ConstructProps extends GObject.Object_ConstructProps {
     local_ids?: Gee.Set
 }
-export class LocalIdDetails {
+class LocalIdDetails {
     /* Properties of Folks-0.6.Folks.LocalIdDetails */
     local_ids: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -936,7 +938,7 @@ export class LocalIdDetails {
 export interface LocationDetails_ConstructProps extends GObject.Object_ConstructProps {
     location?: Location
 }
-export class LocationDetails {
+class LocationDetails {
     /* Properties of Folks-0.6.Folks.LocationDetails */
     location: Location
     /* Fields of GObject-2.0.GObject.Object */
@@ -1001,7 +1003,7 @@ export interface NameDetails_ConstructProps extends GObject.Object_ConstructProp
     full_name?: string
     nickname?: string
 }
-export class NameDetails {
+class NameDetails {
     /* Properties of Folks-0.6.Folks.NameDetails */
     structured_name: StructuredName
     full_name: string
@@ -1086,7 +1088,7 @@ export class NameDetails {
 export interface NoteDetails_ConstructProps extends GObject.Object_ConstructProps {
     notes?: Gee.Set
 }
-export class NoteDetails {
+class NoteDetails {
     /* Properties of Folks-0.6.Folks.NoteDetails */
     notes: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -1149,7 +1151,7 @@ export class NoteDetails {
 export interface PhoneDetails_ConstructProps extends GObject.Object_ConstructProps {
     phone_numbers?: Gee.Set
 }
-export class PhoneDetails {
+class PhoneDetails {
     /* Properties of Folks-0.6.Folks.PhoneDetails */
     phone_numbers: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -1212,7 +1214,7 @@ export class PhoneDetails {
 export interface PostalAddressDetails_ConstructProps extends GObject.Object_ConstructProps {
     postal_addresses?: Gee.Set
 }
-export class PostalAddressDetails {
+class PostalAddressDetails {
     /* Properties of Folks-0.6.Folks.PostalAddressDetails */
     postal_addresses: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -1278,7 +1280,7 @@ export interface PresenceDetails_ConstructProps extends GObject.Object_Construct
     client_types?: string[]
     presence_status?: string
 }
-export class PresenceDetails {
+class PresenceDetails {
     /* Properties of Folks-0.6.Folks.PresenceDetails */
     presence_type: PresenceType
     presence_message: string
@@ -1362,7 +1364,7 @@ export class PresenceDetails {
 export interface RoleDetails_ConstructProps extends GObject.Object_ConstructProps {
     roles?: Gee.Set
 }
-export class RoleDetails {
+class RoleDetails {
     /* Properties of Folks-0.6.Folks.RoleDetails */
     roles: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -1425,7 +1427,7 @@ export class RoleDetails {
 export interface UrlDetails_ConstructProps extends GObject.Object_ConstructProps {
     urls?: Gee.Set
 }
-export class UrlDetails {
+class UrlDetails {
     /* Properties of Folks-0.6.Folks.UrlDetails */
     urls: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -1488,7 +1490,7 @@ export class UrlDetails {
 export interface WebServiceDetails_ConstructProps extends GObject.Object_ConstructProps {
     web_service_addresses?: Gee.MultiMap
 }
-export class WebServiceDetails {
+class WebServiceDetails {
     /* Properties of Folks-0.6.Folks.WebServiceDetails */
     web_service_addresses: Gee.MultiMap
     /* Fields of GObject-2.0.GObject.Object */
@@ -1556,7 +1558,7 @@ export interface AbstractFieldDetails_ConstructProps extends GObject.Object_Cons
     id?: string
     parameters?: Gee.MultiMap
 }
-export class AbstractFieldDetails {
+class AbstractFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -1648,7 +1650,7 @@ export class AbstractFieldDetails {
 }
 export interface AvatarCache_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AvatarCache {
+class AvatarCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Folks-0.6.Folks.AvatarCache */
@@ -1708,7 +1710,7 @@ export interface BackendStore_ConstructProps extends GObject.Object_ConstructPro
     enabled_backends?: Gee.Map
     is_prepared?: boolean
 }
-export class BackendStore {
+class BackendStore {
     /* Properties of Folks-0.6.Folks.BackendStore */
     enabled_backends: Gee.Map
     is_prepared: boolean
@@ -1785,7 +1787,7 @@ export class BackendStore {
 }
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Properties of Folks-0.6.Folks.Backend */
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
@@ -1879,7 +1881,7 @@ export interface Debug_ConstructProps extends GObject.Object_ConstructProps {
     colour_enabled?: boolean
     debug_output_enabled?: boolean
 }
-export class Debug {
+class Debug {
     /* Properties of Folks-0.6.Folks.Debug */
     colour_enabled: boolean
     debug_output_enabled: boolean
@@ -1949,7 +1951,7 @@ export class Debug {
 }
 export interface EmailFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class EmailFieldDetails {
+class EmailFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -2040,7 +2042,7 @@ export class EmailFieldDetails {
 }
 export interface ExtendedFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class ExtendedFieldDetails {
+class ExtendedFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -2131,7 +2133,7 @@ export class ExtendedFieldDetails {
 }
 export interface ImFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class ImFieldDetails {
+class ImFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -2225,7 +2227,7 @@ export interface IndividualAggregator_ConstructProps extends GObject.Object_Cons
     individuals?: Gee.Map
     user?: Individual
 }
-export class IndividualAggregator {
+class IndividualAggregator {
     /* Properties of Folks-0.6.Folks.IndividualAggregator */
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
@@ -2356,7 +2358,7 @@ export interface Individual_ConstructProps extends GObject.Object_ConstructProps
     urls?: Gee.Set
     web_service_addresses?: Gee.MultiMap
 }
-export class Individual {
+class Individual {
     /* Properties of Folks-0.6.Folks.Individual */
     trust_level: TrustLevel
     is_user: boolean
@@ -2768,7 +2770,7 @@ export class Individual {
 }
 export interface Location_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Location {
+class Location {
     /* Fields of Folks-0.6.Folks.Location */
     latitude: number
     longitude: number
@@ -2829,7 +2831,7 @@ export interface StructuredName_ConstructProps extends GObject.Object_ConstructP
     prefixes?: string
     suffixes?: string
 }
-export class StructuredName {
+class StructuredName {
     /* Properties of Folks-0.6.Folks.StructuredName */
     family_name: string
     given_name: string
@@ -2912,7 +2914,7 @@ export class StructuredName {
 export interface NoteFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
     uid?: string
 }
-export class NoteFieldDetails {
+class NoteFieldDetails {
     /* Properties of Folks-0.6.Folks.NoteFieldDetails */
     uid: string
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
@@ -3015,7 +3017,7 @@ export interface ObjectCache_ConstructProps extends GObject.Object_ConstructProp
     type_id?: string
     id?: string
 }
-export class ObjectCache {
+class ObjectCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Folks-0.6.Folks.ObjectCache */
@@ -3087,7 +3089,7 @@ export interface PersonaStore_ConstructProps extends GObject.Object_ConstructPro
     is_primary_store?: boolean
     is_user_set_default?: boolean
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly type_id: string
     readonly personas: Gee.Map
@@ -3235,7 +3237,7 @@ export interface Persona_ConstructProps extends GObject.Object_ConstructProps {
     store?: PersonaStore
     individual?: Individual
 }
-export class Persona {
+class Persona {
     /* Properties of Folks-0.6.Folks.Persona */
     individual: Individual
     readonly linkable_properties: string[]
@@ -3310,7 +3312,7 @@ export class Persona {
 }
 export interface PhoneFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class PhoneFieldDetails {
+class PhoneFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -3412,7 +3414,7 @@ export interface PostalAddress_ConstructProps extends GObject.Object_ConstructPr
     address_format?: string
     uid?: string
 }
-export class PostalAddress {
+class PostalAddress {
     /* Properties of Folks-0.6.Folks.PostalAddress */
     po_box: string
     extension: string
@@ -3512,7 +3514,7 @@ export class PostalAddress {
 }
 export interface PostalAddressFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class PostalAddressFieldDetails {
+class PostalAddressFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -3603,7 +3605,7 @@ export class PostalAddressFieldDetails {
 }
 export interface PotentialMatch_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PotentialMatch {
+class PotentialMatch {
     /* Fields of Folks-0.6.Folks.PotentialMatch */
     folks_potential_match_known_email_aliases: Gee.Set
     /* Fields of GObject-2.0.GObject.Object */
@@ -3658,7 +3660,7 @@ export class PotentialMatch {
 export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     match_fields?: string[]
 }
-export class Query {
+class Query {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Folks-0.6.Folks.Query */
@@ -3716,7 +3718,7 @@ export interface Role_ConstructProps extends GObject.Object_ConstructProps {
     role?: string
     uid?: string
 }
-export class Role {
+class Role {
     /* Properties of Folks-0.6.Folks.Role */
     organisation_name: string
     title: string
@@ -3792,7 +3794,7 @@ export class Role {
 }
 export interface RoleFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class RoleFieldDetails {
+class RoleFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -3884,7 +3886,7 @@ export class RoleFieldDetails {
 export interface SearchView_ConstructProps extends GObject.Object_ConstructProps {
     query?: Query
 }
-export class SearchView {
+class SearchView {
     /* Properties of Folks-0.6.Folks.SearchView */
     readonly aggregator: IndividualAggregator
     query: Query
@@ -3969,7 +3971,7 @@ export interface SimpleQuery_ConstructProps extends Query_ConstructProps {
     query_string?: string
     query_locale?: string
 }
-export class SimpleQuery {
+class SimpleQuery {
     /* Properties of Folks-0.6.Folks.SimpleQuery */
     query_string: string
     query_locale: string
@@ -4037,7 +4039,7 @@ export class SimpleQuery {
 }
 export interface UrlFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class UrlFieldDetails {
+class UrlFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -4128,7 +4130,7 @@ export class UrlFieldDetails {
 }
 export interface Utils_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Utils {
+class Utils {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4182,7 +4184,7 @@ export class Utils {
 }
 export interface WebServiceFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
-export class WebServiceFieldDetails {
+class WebServiceFieldDetails {
     /* Properties of Folks-0.6.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
@@ -4271,7 +4273,7 @@ export class WebServiceFieldDetails {
     static new(value: string, parameters?: Gee.MultiMap | null): WebServiceFieldDetails
     static $gtype: GObject.Type
 }
-export abstract class AbstractFieldDetailsClass {
+abstract class AbstractFieldDetailsClass {
     /* Fields of Folks-0.6.Folks.AbstractFieldDetailsClass */
     equal: (that: AbstractFieldDetails) => boolean
     parameters_equal: (that: AbstractFieldDetails) => boolean
@@ -4279,22 +4281,22 @@ export abstract class AbstractFieldDetailsClass {
     hash: () => number
     static name: string
 }
-export class AbstractFieldDetailsPrivate {
+class AbstractFieldDetailsPrivate {
     static name: string
 }
-export abstract class AvatarCacheClass {
+abstract class AvatarCacheClass {
     static name: string
 }
-export class AvatarCachePrivate {
+class AvatarCachePrivate {
     static name: string
 }
-export abstract class BackendStoreClass {
+abstract class BackendStoreClass {
     static name: string
 }
-export class BackendStorePrivate {
+class BackendStorePrivate {
     static name: string
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     /* Fields of Folks-0.6.Folks.BackendClass */
     disable_persona_store: (store: PersonaStore) => void
     enable_persona_store: (store: PersonaStore) => void
@@ -4305,64 +4307,64 @@ export abstract class BackendClass {
     unprepare_finish: (_res_: Gio.AsyncResult) => void
     static name: string
 }
-export class BackendPrivate {
+class BackendPrivate {
     static name: string
 }
-export abstract class DebugClass {
+abstract class DebugClass {
     static name: string
 }
-export class DebugPrivate {
+class DebugPrivate {
     static name: string
 }
-export abstract class EmailFieldDetailsClass {
+abstract class EmailFieldDetailsClass {
     static name: string
 }
-export class EmailFieldDetailsPrivate {
+class EmailFieldDetailsPrivate {
     static name: string
 }
-export abstract class ExtendedFieldDetailsClass {
+abstract class ExtendedFieldDetailsClass {
     static name: string
 }
-export class ExtendedFieldDetailsPrivate {
+class ExtendedFieldDetailsPrivate {
     static name: string
 }
-export abstract class ImFieldDetailsClass {
+abstract class ImFieldDetailsClass {
     static name: string
 }
-export class ImFieldDetailsPrivate {
+class ImFieldDetailsPrivate {
     static name: string
 }
-export abstract class IndividualAggregatorClass {
+abstract class IndividualAggregatorClass {
     static name: string
 }
-export class IndividualAggregatorPrivate {
+class IndividualAggregatorPrivate {
     static name: string
 }
-export abstract class IndividualClass {
+abstract class IndividualClass {
     static name: string
 }
-export class IndividualPrivate {
+class IndividualPrivate {
     static name: string
 }
-export abstract class LocationClass {
+abstract class LocationClass {
     static name: string
 }
-export class LocationPrivate {
+class LocationPrivate {
     static name: string
 }
-export abstract class StructuredNameClass {
+abstract class StructuredNameClass {
     static name: string
 }
-export class StructuredNamePrivate {
+class StructuredNamePrivate {
     static name: string
 }
-export abstract class NoteFieldDetailsClass {
+abstract class NoteFieldDetailsClass {
     static name: string
 }
-export class NoteFieldDetailsPrivate {
+class NoteFieldDetailsPrivate {
     static name: string
 }
-export abstract class ObjectCacheClass {
+abstract class ObjectCacheClass {
     /* Fields of Folks-0.6.Folks.ObjectCacheClass */
     get_serialised_object_type: (object_version: number) => GLib.VariantType | null
     get_serialised_object_version: () => number
@@ -4370,10 +4372,10 @@ export abstract class ObjectCacheClass {
     deserialise_object: (variant: GLib.Variant, object_version: number) => object | null
     static name: string
 }
-export class ObjectCachePrivate {
+class ObjectCachePrivate {
     static name: string
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     /* Fields of Folks-0.6.Folks.PersonaStoreClass */
     prepare: (_callback_?: Gio.AsyncReadyCallback | null) => void
     prepare_finish: (_res_: Gio.AsyncResult) => void
@@ -4385,92 +4387,92 @@ export abstract class PersonaStoreClass {
     remove_persona_finish: (_res_: Gio.AsyncResult) => void
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     /* Fields of Folks-0.6.Folks.PersonaClass */
     linkable_property_to_links: (prop_name: string, callback: any) => void
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
-export abstract class PhoneFieldDetailsClass {
+abstract class PhoneFieldDetailsClass {
     static name: string
 }
-export class PhoneFieldDetailsPrivate {
+class PhoneFieldDetailsPrivate {
     static name: string
 }
-export abstract class PostalAddressClass {
+abstract class PostalAddressClass {
     static name: string
 }
-export class PostalAddressPrivate {
+class PostalAddressPrivate {
     static name: string
 }
-export abstract class PostalAddressFieldDetailsClass {
+abstract class PostalAddressFieldDetailsClass {
     static name: string
 }
-export class PostalAddressFieldDetailsPrivate {
+class PostalAddressFieldDetailsPrivate {
     static name: string
 }
-export abstract class PotentialMatchClass {
+abstract class PotentialMatchClass {
     static name: string
 }
-export class PotentialMatchPrivate {
+class PotentialMatchPrivate {
     static name: string
 }
-export abstract class QueryClass {
+abstract class QueryClass {
     /* Fields of Folks-0.6.Folks.QueryClass */
     is_match: (individual: Individual) => number
     static name: string
 }
-export class QueryPrivate {
+class QueryPrivate {
     static name: string
 }
-export abstract class RoleClass {
+abstract class RoleClass {
     static name: string
 }
-export class RolePrivate {
+class RolePrivate {
     static name: string
 }
-export abstract class RoleFieldDetailsClass {
+abstract class RoleFieldDetailsClass {
     static name: string
 }
-export class RoleFieldDetailsPrivate {
+class RoleFieldDetailsPrivate {
     static name: string
 }
-export abstract class SearchViewClass {
+abstract class SearchViewClass {
     static name: string
 }
-export class SearchViewPrivate {
+class SearchViewPrivate {
     static name: string
 }
-export abstract class SimpleQueryClass {
+abstract class SimpleQueryClass {
     static name: string
 }
-export class SimpleQueryPrivate {
+class SimpleQueryPrivate {
     static name: string
 }
-export abstract class UrlFieldDetailsClass {
+abstract class UrlFieldDetailsClass {
     static name: string
 }
-export class UrlFieldDetailsPrivate {
+class UrlFieldDetailsPrivate {
     static name: string
 }
-export abstract class UtilsClass {
+abstract class UtilsClass {
     static name: string
 }
-export class UtilsPrivate {
+class UtilsPrivate {
     static name: string
 }
-export abstract class WebServiceFieldDetailsClass {
+abstract class WebServiceFieldDetailsClass {
     static name: string
 }
-export class WebServiceFieldDetailsPrivate {
+class WebServiceFieldDetailsPrivate {
     static name: string
 }
-export abstract class AliasDetailsIface {
+abstract class AliasDetailsIface {
     /* Fields of Folks-0.6.Folks.AliasDetailsIface */
     change_alias: (alias: string, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_alias_finish: (_res_: Gio.AsyncResult) => void
@@ -4478,7 +4480,7 @@ export abstract class AliasDetailsIface {
     set_alias: (value: string) => void
     static name: string
 }
-export abstract class AntiLinkableIface {
+abstract class AntiLinkableIface {
     /* Fields of Folks-0.6.Folks.AntiLinkableIface */
     change_anti_links: (anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_anti_links_finish: (_res_: Gio.AsyncResult) => void
@@ -4486,7 +4488,7 @@ export abstract class AntiLinkableIface {
     set_anti_links: (value: Gee.Set) => void
     static name: string
 }
-export abstract class AvatarDetailsIface {
+abstract class AvatarDetailsIface {
     /* Fields of Folks-0.6.Folks.AvatarDetailsIface */
     change_avatar: (avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_avatar_finish: (_res_: Gio.AsyncResult) => void
@@ -4494,7 +4496,7 @@ export abstract class AvatarDetailsIface {
     set_avatar: (value?: Gio.LoadableIcon | null) => void
     static name: string
 }
-export abstract class BirthdayDetailsIface {
+abstract class BirthdayDetailsIface {
     /* Fields of Folks-0.6.Folks.BirthdayDetailsIface */
     change_birthday: (birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_birthday_finish: (_res_: Gio.AsyncResult) => void
@@ -4506,7 +4508,7 @@ export abstract class BirthdayDetailsIface {
     set_calendar_event_id: (value?: string | null) => void
     static name: string
 }
-export abstract class EmailDetailsIface {
+abstract class EmailDetailsIface {
     /* Fields of Folks-0.6.Folks.EmailDetailsIface */
     change_email_addresses: (email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_email_addresses_finish: (_res_: Gio.AsyncResult) => void
@@ -4514,7 +4516,7 @@ export abstract class EmailDetailsIface {
     set_email_addresses: (value: Gee.Set) => void
     static name: string
 }
-export abstract class ExtendedInfoIface {
+abstract class ExtendedInfoIface {
     /* Fields of Folks-0.6.Folks.ExtendedInfoIface */
     get_extended_field: (name: string) => ExtendedFieldDetails | null
     change_extended_field: (name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -4523,7 +4525,7 @@ export abstract class ExtendedInfoIface {
     remove_extended_field_finish: (_res_: Gio.AsyncResult) => void
     static name: string
 }
-export abstract class FavouriteDetailsIface {
+abstract class FavouriteDetailsIface {
     /* Fields of Folks-0.6.Folks.FavouriteDetailsIface */
     change_is_favourite: (is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_is_favourite_finish: (_res_: Gio.AsyncResult) => void
@@ -4531,7 +4533,7 @@ export abstract class FavouriteDetailsIface {
     set_is_favourite: (value: boolean) => void
     static name: string
 }
-export abstract class GenderDetailsIface {
+abstract class GenderDetailsIface {
     /* Fields of Folks-0.6.Folks.GenderDetailsIface */
     change_gender: (gender: Gender, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_gender_finish: (_res_: Gio.AsyncResult) => void
@@ -4539,7 +4541,7 @@ export abstract class GenderDetailsIface {
     set_gender: (value: Gender) => void
     static name: string
 }
-export abstract class GroupDetailsIface {
+abstract class GroupDetailsIface {
     /* Fields of Folks-0.6.Folks.GroupDetailsIface */
     change_group: (group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_group_finish: (_res_: Gio.AsyncResult) => void
@@ -4549,7 +4551,7 @@ export abstract class GroupDetailsIface {
     set_groups: (value: Gee.Set) => void
     static name: string
 }
-export abstract class ImDetailsIface {
+abstract class ImDetailsIface {
     /* Fields of Folks-0.6.Folks.ImDetailsIface */
     change_im_addresses: (im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_im_addresses_finish: (_res_: Gio.AsyncResult) => void
@@ -4557,7 +4559,7 @@ export abstract class ImDetailsIface {
     set_im_addresses: (value: Gee.MultiMap) => void
     static name: string
 }
-export abstract class InteractionDetailsIface {
+abstract class InteractionDetailsIface {
     /* Fields of Folks-0.6.Folks.InteractionDetailsIface */
     get_im_interaction_count: () => number
     get_last_im_interaction_datetime: () => GLib.DateTime | null
@@ -4565,7 +4567,7 @@ export abstract class InteractionDetailsIface {
     get_last_call_interaction_datetime: () => GLib.DateTime | null
     static name: string
 }
-export abstract class LocalIdDetailsIface {
+abstract class LocalIdDetailsIface {
     /* Fields of Folks-0.6.Folks.LocalIdDetailsIface */
     change_local_ids: (local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_local_ids_finish: (_res_: Gio.AsyncResult) => void
@@ -4573,7 +4575,7 @@ export abstract class LocalIdDetailsIface {
     set_local_ids: (value: Gee.Set) => void
     static name: string
 }
-export abstract class LocationDetailsIface {
+abstract class LocationDetailsIface {
     /* Fields of Folks-0.6.Folks.LocationDetailsIface */
     change_location: (location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_location_finish: (_res_: Gio.AsyncResult) => void
@@ -4581,7 +4583,7 @@ export abstract class LocationDetailsIface {
     set_location: (value?: Location | null) => void
     static name: string
 }
-export abstract class NameDetailsIface {
+abstract class NameDetailsIface {
     /* Fields of Folks-0.6.Folks.NameDetailsIface */
     change_structured_name: (name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_structured_name_finish: (_res_: Gio.AsyncResult) => void
@@ -4597,7 +4599,7 @@ export abstract class NameDetailsIface {
     set_nickname: (value: string) => void
     static name: string
 }
-export abstract class NoteDetailsIface {
+abstract class NoteDetailsIface {
     /* Fields of Folks-0.6.Folks.NoteDetailsIface */
     change_notes: (notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_notes_finish: (_res_: Gio.AsyncResult) => void
@@ -4605,7 +4607,7 @@ export abstract class NoteDetailsIface {
     set_notes: (value: Gee.Set) => void
     static name: string
 }
-export abstract class PhoneDetailsIface {
+abstract class PhoneDetailsIface {
     /* Fields of Folks-0.6.Folks.PhoneDetailsIface */
     change_phone_numbers: (phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_phone_numbers_finish: (_res_: Gio.AsyncResult) => void
@@ -4613,7 +4615,7 @@ export abstract class PhoneDetailsIface {
     set_phone_numbers: (value: Gee.Set) => void
     static name: string
 }
-export abstract class PostalAddressDetailsIface {
+abstract class PostalAddressDetailsIface {
     /* Fields of Folks-0.6.Folks.PostalAddressDetailsIface */
     change_postal_addresses: (postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_postal_addresses_finish: (_res_: Gio.AsyncResult) => void
@@ -4621,7 +4623,7 @@ export abstract class PostalAddressDetailsIface {
     set_postal_addresses: (value: Gee.Set) => void
     static name: string
 }
-export abstract class PresenceDetailsIface {
+abstract class PresenceDetailsIface {
     /* Fields of Folks-0.6.Folks.PresenceDetailsIface */
     get_presence_type: () => PresenceType
     set_presence_type: (value: PresenceType) => void
@@ -4633,7 +4635,7 @@ export abstract class PresenceDetailsIface {
     set_presence_status: (value: string) => void
     static name: string
 }
-export abstract class RoleDetailsIface {
+abstract class RoleDetailsIface {
     /* Fields of Folks-0.6.Folks.RoleDetailsIface */
     change_roles: (roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_roles_finish: (_res_: Gio.AsyncResult) => void
@@ -4641,7 +4643,7 @@ export abstract class RoleDetailsIface {
     set_roles: (value: Gee.Set) => void
     static name: string
 }
-export abstract class UrlDetailsIface {
+abstract class UrlDetailsIface {
     /* Fields of Folks-0.6.Folks.UrlDetailsIface */
     change_urls: (urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_urls_finish: (_res_: Gio.AsyncResult) => void
@@ -4649,7 +4651,7 @@ export abstract class UrlDetailsIface {
     set_urls: (value: Gee.Set) => void
     static name: string
 }
-export abstract class WebServiceDetailsIface {
+abstract class WebServiceDetailsIface {
     /* Fields of Folks-0.6.Folks.WebServiceDetailsIface */
     change_web_service_addresses: (web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_web_service_addresses_finish: (_res_: Gio.AsyncResult) => void
@@ -4657,3 +4659,5 @@ export abstract class WebServiceDetailsIface {
     set_web_service_addresses: (value: Gee.MultiMap) => void
     static name: string
 }
+}
+export default Folks

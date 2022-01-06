@@ -3,16 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export function library_version(): void
-export class Bitmap {
+export namespace freetype2 {
+
+function library_version(): void
+class Bitmap {
     static name: string
 }
-export class Face {
+class Face {
     static name: string
 }
-export class Library {
+class Library {
     static name: string
 }
-export type Int32 = any
+type Int32 = any
+}
+export default freetype2

@@ -6,11 +6,11 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace DBusGLib {
+declare namespace DBusGLib {
 
 export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Proxy {
+class Proxy {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -53,13 +53,14 @@ export class Proxy {
     _init (config?: Proxy_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Connection {
+class Connection {
     static name: string
 }
-export class MethodInvocation {
+class MethodInvocation {
     static name: string
 }
-export class ProxyClass {
+class ProxyClass {
     static name: string
 }
 }
+export default DBusGLib

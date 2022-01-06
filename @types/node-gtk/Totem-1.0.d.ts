@@ -17,9 +17,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Totem {
+declare namespace Totem {
 
-export enum RemoteCommand {
+enum RemoteCommand {
     UNKNOWN,
     PLAY,
     PAUSE,
@@ -49,26 +49,26 @@ export enum RemoteCommand {
     MUTE,
     TOGGLE_ASPECT_RATIO,
 }
-export enum RemoteSetting {
+enum RemoteSetting {
     REPEAT,
 }
 export const GSETTINGS_SCHEMA: string
-export function getPluginPaths(): string[]
-export function interfaceCreateHeaderButton(header: Gtk.Widget, button: Gtk.Widget, iconName: string, packType: Gtk.PackType): Gtk.Widget
-export function interfaceError(title: string, reason: string, parent: Gtk.Window): void
-export function interfaceErrorBlocking(title: string, reason: string, parent: Gtk.Window): void
-export function interfaceErrorWithLink(title: string, reason: string, uri: string, label: string, parent: Gtk.Window): void
-export function interfaceGetFullPath(name: string): string
-export function interfaceLoad(name: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
-export function interfaceLoadPixbuf(name: string): GdkPixbuf.Pixbuf
-export function interfaceLoadWithFullPath(filename: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
-export function pluginFindFile(pluginName: string, file: string): string
-export function pluginLoadInterface(pluginName: string, name: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
-export function remoteCommandQuark(): GLib.Quark
-export function remoteSettingQuark(): GLib.Quark
+function getPluginPaths(): string[]
+function interfaceCreateHeaderButton(header: Gtk.Widget, button: Gtk.Widget, iconName: string, packType: Gtk.PackType): Gtk.Widget
+function interfaceError(title: string, reason: string, parent: Gtk.Window): void
+function interfaceErrorBlocking(title: string, reason: string, parent: Gtk.Window): void
+function interfaceErrorWithLink(title: string, reason: string, uri: string, label: string, parent: Gtk.Window): void
+function interfaceGetFullPath(name: string): string
+function interfaceLoad(name: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
+function interfaceLoadPixbuf(name: string): GdkPixbuf.Pixbuf
+function interfaceLoadWithFullPath(filename: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
+function pluginFindFile(pluginName: string, file: string): string
+function pluginLoadInterface(pluginName: string, name: string, fatal: boolean, parent?: Gtk.Window | null, userData?: object | null): Gtk.Builder
+function remoteCommandQuark(): GLib.Quark
+function remoteSettingQuark(): GLib.Quark
 export interface Object_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Object {
+class Object {
     /* Properties of Totem-1.0.Totem.Object */
     readonly currentContentType: string
     readonly currentDisplayName: string
@@ -470,7 +470,7 @@ export class Object {
     static getSupportedUriSchemes(): string[]
     static $gtype: GObject.Type
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Totem-1.0.Totem.ObjectClass */
     parentClass: Gtk.ApplicationClass
     fileOpened: (totem: Object, mrl: string) => void
@@ -482,3 +482,4 @@ export abstract class ObjectClass {
     static name: string
 }
 }
+export default Totem

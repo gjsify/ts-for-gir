@@ -1,2 +1,1 @@
-imports.gi.versions.GIRepository = '2.0'
-module.exports = imports.gi.GIRepository
+export {default as default} from 'gi://GIRepository?version=2.0';

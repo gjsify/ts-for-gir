@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstRtsp from './GstRtsp-1.0';
-import type * as GstSdp from './GstSdp-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GstNet from './GstNet-1.0';
+import type GstRtsp from './GstRtsp-1.0';
+import type GstSdp from './GstSdp-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gio from './Gio-2.0';
+import type GstNet from './GstNet-1.0';
 
-export enum RTSPAddressPoolResult {
+export namespace GstRtspServer {
+
+enum RTSPAddressPoolResult {
     OK,
     EINVAL,
     ERESERVED,
     ERANGE,
     ELAST,
 }
-export enum RTSPFilterResult {
+enum RTSPFilterResult {
     REMOVE,
     KEEP,
     REF,
 }
-export enum RTSPMediaStatus {
+enum RTSPMediaStatus {
     UNPREPARED,
     UNPREPARING,
     PREPARING,
@@ -33,21 +35,21 @@ export enum RTSPMediaStatus {
     SUSPENDED,
     ERROR,
 }
-export enum RTSPPublishClockMode {
+enum RTSPPublishClockMode {
     NONE,
     CLOCK,
     CLOCK_AND_OFFSET,
 }
-export enum RTSPSuspendMode {
+enum RTSPSuspendMode {
     NONE,
     PAUSE,
     RESET,
 }
-export enum RTSPThreadType {
+enum RTSPThreadType {
     CLIENT,
     MEDIA,
 }
-export enum RTSPAddressFlags {
+enum RTSPAddressFlags {
     NONE,
     IPV4,
     IPV6,
@@ -55,7 +57,7 @@ export enum RTSPAddressFlags {
     MULTICAST,
     UNICAST,
 }
-export enum RTSPTransportMode {
+enum RTSPTransportMode {
     PLAY,
     RECORD,
 }
@@ -72,54 +74,54 @@ export const RTSP_PERM_MEDIA_FACTORY_ACCESS: string
 export const RTSP_PERM_MEDIA_FACTORY_CONSTRUCT: string
 export const RTSP_TOKEN_MEDIA_FACTORY_ROLE: string
 export const RTSP_TOKEN_TRANSPORT_CLIENT_SETTINGS: string
-export function rtsp_context_get_type(): GObject.Type
-export function rtsp_params_get(client: RTSPClient, ctx: RTSPContext): GstRtsp.RTSPResult
-export function rtsp_params_set(client: RTSPClient, ctx: RTSPContext): GstRtsp.RTSPResult
-export function rtsp_sdp_from_media(sdp: GstSdp.SDPMessage, info: SDPInfo, media: RTSPMedia): boolean
-export function rtsp_sdp_from_stream(sdp: GstSdp.SDPMessage, info: SDPInfo, stream: RTSPStream): boolean
-export function rtsp_sdp_make_media(sdp: GstSdp.SDPMessage, info: SDPInfo, stream: RTSPStream, caps: Gst.Caps, profile: GstRtsp.RTSPProfile): boolean
-export interface RTSPClientSendFunc {
+function rtsp_context_get_type(): GObject.Type
+function rtsp_params_get(client: RTSPClient, ctx: RTSPContext): GstRtsp.RTSPResult
+function rtsp_params_set(client: RTSPClient, ctx: RTSPContext): GstRtsp.RTSPResult
+function rtsp_sdp_from_media(sdp: GstSdp.SDPMessage, info: SDPInfo, media: RTSPMedia): boolean
+function rtsp_sdp_from_stream(sdp: GstSdp.SDPMessage, info: SDPInfo, stream: RTSPStream): boolean
+function rtsp_sdp_make_media(sdp: GstSdp.SDPMessage, info: SDPInfo, stream: RTSPStream, caps: Gst.Caps, profile: GstRtsp.RTSPProfile): boolean
+interface RTSPClientSendFunc {
     (client: RTSPClient, message: GstRtsp.RTSPMessage, close: boolean): boolean
 }
-export interface RTSPClientSendMessagesFunc {
+interface RTSPClientSendMessagesFunc {
     (client: RTSPClient, messages: GstRtsp.RTSPMessage, n_messages: number, close: boolean): boolean
 }
-export interface RTSPClientSessionFilterFunc {
+interface RTSPClientSessionFilterFunc {
     (client: RTSPClient, sess: RTSPSession): RTSPFilterResult
 }
-export interface RTSPKeepAliveFunc {
+interface RTSPKeepAliveFunc {
     (): void
 }
-export interface RTSPMessageSentFunc {
+interface RTSPMessageSentFunc {
     (): void
 }
-export interface RTSPMessageSentFuncFull {
+interface RTSPMessageSentFuncFull {
     (trans: RTSPStreamTransport): void
 }
-export interface RTSPSendFunc {
+interface RTSPSendFunc {
     (buffer: Gst.Buffer, channel: number): boolean
 }
-export interface RTSPSendListFunc {
+interface RTSPSendListFunc {
     (buffer_list: Gst.BufferList, channel: number): boolean
 }
-export interface RTSPServerClientFilterFunc {
+interface RTSPServerClientFilterFunc {
     (server: RTSPServer, client: RTSPClient): RTSPFilterResult
 }
-export interface RTSPSessionFilterFunc {
+interface RTSPSessionFilterFunc {
     (sess: RTSPSession, media: RTSPSessionMedia): RTSPFilterResult
 }
-export interface RTSPSessionPoolFilterFunc {
+interface RTSPSessionPoolFilterFunc {
     (pool: RTSPSessionPool, session: RTSPSession): RTSPFilterResult
 }
-export interface RTSPSessionPoolFunc {
+interface RTSPSessionPoolFunc {
     (pool: RTSPSessionPool): boolean
 }
-export interface RTSPStreamTransportFilterFunc {
+interface RTSPStreamTransportFilterFunc {
     (stream: RTSPStream, trans: RTSPStreamTransport): RTSPFilterResult
 }
 export interface RTSPAddressPool_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RTSPAddressPool {
+class RTSPAddressPool {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPAddressPool */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -178,7 +180,7 @@ export class RTSPAddressPool {
 }
 export interface RTSPAuth_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RTSPAuth {
+class RTSPAuth {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPAuth */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -263,7 +265,7 @@ export interface RTSPClient_ConstructProps extends GObject.Object_ConstructProps
     post_session_timeout?: number
     session_pool?: RTSPSessionPool
 }
-export class RTSPClient {
+class RTSPClient {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPClient */
     drop_backlog: boolean
     mount_points: RTSPMountPoints
@@ -477,7 +479,7 @@ export interface RTSPMedia_ConstructProps extends GObject.Object_ConstructProps 
     time_provider?: boolean
     transport_mode?: RTSPTransportMode
 }
-export class RTSPMedia {
+class RTSPMedia {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPMedia */
     bind_mcast_address: boolean
     buffer_size: number
@@ -701,7 +703,7 @@ export interface RTSPMediaFactory_ConstructProps extends GObject.Object_Construc
     suspend_mode?: RTSPSuspendMode
     transport_mode?: RTSPTransportMode
 }
-export class RTSPMediaFactory {
+class RTSPMediaFactory {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactory */
     bind_mcast_address: boolean
     buffer_size: number
@@ -863,7 +865,7 @@ export interface RTSPMediaFactoryURI_ConstructProps extends RTSPMediaFactory_Con
     uri?: string
     use_gstpay?: boolean
 }
-export class RTSPMediaFactoryURI {
+class RTSPMediaFactoryURI {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactoryURI */
     uri: string
     use_gstpay: boolean
@@ -1033,7 +1035,7 @@ export class RTSPMediaFactoryURI {
 }
 export interface RTSPMountPoints_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RTSPMountPoints {
+class RTSPMountPoints {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMountPoints */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1092,7 +1094,7 @@ export class RTSPMountPoints {
 }
 export interface RTSPOnvifClient_ConstructProps extends RTSPClient_ConstructProps {
 }
-export class RTSPOnvifClient {
+class RTSPOnvifClient {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPClient */
     drop_backlog: boolean
     mount_points: RTSPMountPoints
@@ -1290,7 +1292,7 @@ export class RTSPOnvifClient {
 }
 export interface RTSPOnvifMedia_ConstructProps extends RTSPMedia_ConstructProps {
 }
-export class RTSPOnvifMedia {
+class RTSPOnvifMedia {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPMedia */
     bind_mcast_address: boolean
     buffer_size: number
@@ -1502,7 +1504,7 @@ export class RTSPOnvifMedia {
 }
 export interface RTSPOnvifMediaFactory_ConstructProps extends RTSPMediaFactory_ConstructProps {
 }
-export class RTSPOnvifMediaFactory {
+class RTSPOnvifMediaFactory {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactory */
     bind_mcast_address: boolean
     buffer_size: number
@@ -1674,7 +1676,7 @@ export class RTSPOnvifMediaFactory {
 }
 export interface RTSPOnvifServer_ConstructProps extends RTSPServer_ConstructProps {
 }
-export class RTSPOnvifServer {
+class RTSPOnvifServer {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPServer */
     address: string
     backlog: number
@@ -1783,7 +1785,7 @@ export interface RTSPServer_ConstructProps extends GObject.Object_ConstructProps
     service?: string
     session_pool?: RTSPSessionPool
 }
-export class RTSPServer {
+class RTSPServer {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPServer */
     address: string
     backlog: number
@@ -1891,7 +1893,7 @@ export interface RTSPSession_ConstructProps extends GObject.Object_ConstructProp
     timeout?: number
     timeout_always_visible?: boolean
 }
-export class RTSPSession {
+class RTSPSession {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPSession */
     extra_timeout: number
     timeout: number
@@ -1970,7 +1972,7 @@ export class RTSPSession {
 }
 export interface RTSPSessionMedia_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RTSPSessionMedia {
+class RTSPSessionMedia {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPSessionMedia */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2035,7 +2037,7 @@ export class RTSPSessionMedia {
 export interface RTSPSessionPool_ConstructProps extends GObject.Object_ConstructProps {
     max_sessions?: number
 }
-export class RTSPSessionPool {
+class RTSPSessionPool {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPSessionPool */
     max_sessions: number
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPSessionPool */
@@ -2111,7 +2113,7 @@ export interface RTSPStream_ConstructProps extends GObject.Object_ConstructProps
     profiles?: GstRtsp.RTSPProfile
     protocols?: GstRtsp.RTSPLowerTrans
 }
-export class RTSPStream {
+class RTSPStream {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPStream */
     control: string
     profiles: GstRtsp.RTSPProfile
@@ -2270,7 +2272,7 @@ export class RTSPStream {
 }
 export interface RTSPStreamTransport_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RTSPStreamTransport {
+class RTSPStreamTransport {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPStreamTransport */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2345,7 +2347,7 @@ export class RTSPStreamTransport {
 export interface RTSPThreadPool_ConstructProps extends GObject.Object_ConstructProps {
     max_threads?: number
 }
-export class RTSPThreadPool {
+class RTSPThreadPool {
     /* Properties of GstRtspServer-1.0.GstRtspServer.RTSPThreadPool */
     max_threads: number
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPThreadPool */
@@ -2409,7 +2411,7 @@ export class RTSPThreadPool {
     static cleanup(): void
     static $gtype: GObject.Type
 }
-export class RTSPAddress {
+class RTSPAddress {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPAddress */
     pool: RTSPAddressPool
     address: string
@@ -2421,15 +2423,15 @@ export class RTSPAddress {
     free(): void
     static name: string
 }
-export abstract class RTSPAddressPoolClass {
+abstract class RTSPAddressPoolClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPAddressPoolClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RTSPAddressPoolPrivate {
+class RTSPAddressPoolPrivate {
     static name: string
 }
-export abstract class RTSPAuthClass {
+abstract class RTSPAuthClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPAuthClass */
     parent_class: GObject.ObjectClass
     authenticate: (auth: RTSPAuth, ctx: RTSPContext) => boolean
@@ -2438,10 +2440,10 @@ export abstract class RTSPAuthClass {
     accept_certificate: (auth: RTSPAuth, connection: Gio.TlsConnection, peer_cert: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean
     static name: string
 }
-export class RTSPAuthPrivate {
+class RTSPAuthPrivate {
     static name: string
 }
-export abstract class RTSPClientClass {
+abstract class RTSPClientClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPClientClass */
     parent_class: GObject.ObjectClass
     create_sdp: (client: RTSPClient, media: RTSPMedia) => GstSdp.SDPMessage
@@ -2481,10 +2483,10 @@ export abstract class RTSPClientClass {
     pre_record_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
     static name: string
 }
-export class RTSPClientPrivate {
+class RTSPClientPrivate {
     static name: string
 }
-export class RTSPContext {
+class RTSPContext {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPContext */
     server: RTSPServer
     conn: GstRtsp.RTSPConnection
@@ -2506,7 +2508,7 @@ export class RTSPContext {
     push_current(): void
     static name: string
 }
-export abstract class RTSPMediaClass {
+abstract class RTSPMediaClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaClass */
     parent_class: GObject.ObjectClass
     handle_message: (media: RTSPMedia, message: Gst.Message) => boolean
@@ -2528,7 +2530,7 @@ export abstract class RTSPMediaClass {
     handle_sdp: (media: RTSPMedia, sdp: GstSdp.SDPMessage) => boolean
     static name: string
 }
-export abstract class RTSPMediaFactoryClass {
+abstract class RTSPMediaFactoryClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactoryClass */
     parent_class: GObject.ObjectClass
     gen_key: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => string
@@ -2539,57 +2541,57 @@ export abstract class RTSPMediaFactoryClass {
     media_configure: (factory: RTSPMediaFactory, media: RTSPMedia) => void
     static name: string
 }
-export class RTSPMediaFactoryPrivate {
+class RTSPMediaFactoryPrivate {
     static name: string
 }
-export abstract class RTSPMediaFactoryURIClass {
+abstract class RTSPMediaFactoryURIClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactoryURIClass */
     parent_class: RTSPMediaFactoryClass
     static name: string
 }
-export class RTSPMediaFactoryURIPrivate {
+class RTSPMediaFactoryURIPrivate {
     static name: string
 }
-export class RTSPMediaPrivate {
+class RTSPMediaPrivate {
     static name: string
 }
-export abstract class RTSPMountPointsClass {
+abstract class RTSPMountPointsClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMountPointsClass */
     parent_class: GObject.ObjectClass
     make_path: (mounts: RTSPMountPoints, url: GstRtsp.RTSPUrl) => string | null
     static name: string
 }
-export class RTSPMountPointsPrivate {
+class RTSPMountPointsPrivate {
     static name: string
 }
-export abstract class RTSPOnvifClientClass {
+abstract class RTSPOnvifClientClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPOnvifClientClass */
     parent: RTSPClientClass
     static name: string
 }
-export abstract class RTSPOnvifMediaClass {
+abstract class RTSPOnvifMediaClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPOnvifMediaClass */
     parent: RTSPMediaClass
     static name: string
 }
-export abstract class RTSPOnvifMediaFactoryClass {
+abstract class RTSPOnvifMediaFactoryClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPOnvifMediaFactoryClass */
     parent: RTSPMediaFactoryClass
     has_backchannel_support: (factory: RTSPOnvifMediaFactory) => boolean
     static name: string
 }
-export class RTSPOnvifMediaFactoryPrivate {
+class RTSPOnvifMediaFactoryPrivate {
     static name: string
 }
-export class RTSPOnvifMediaPrivate {
+class RTSPOnvifMediaPrivate {
     static name: string
 }
-export abstract class RTSPOnvifServerClass {
+abstract class RTSPOnvifServerClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPOnvifServerClass */
     parent: RTSPServerClass
     static name: string
 }
-export class RTSPPermissions {
+class RTSPPermissions {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPPermissions */
     mini_object: Gst.MiniObject
     /* Methods of GstRtspServer-1.0.GstRtspServer.RTSPPermissions */
@@ -2605,58 +2607,58 @@ export class RTSPPermissions {
     /* Static methods and pseudo-constructors */
     static new(): RTSPPermissions
 }
-export abstract class RTSPServerClass {
+abstract class RTSPServerClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPServerClass */
     parent_class: GObject.ObjectClass
     client_connected: (server: RTSPServer, client: RTSPClient) => void
     static name: string
 }
-export class RTSPServerPrivate {
+class RTSPServerPrivate {
     static name: string
 }
-export abstract class RTSPSessionClass {
+abstract class RTSPSessionClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPSessionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class RTSPSessionMediaClass {
+abstract class RTSPSessionMediaClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPSessionMediaClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RTSPSessionMediaPrivate {
+class RTSPSessionMediaPrivate {
     static name: string
 }
-export abstract class RTSPSessionPoolClass {
+abstract class RTSPSessionPoolClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPSessionPoolClass */
     parent_class: GObject.ObjectClass
     create_session_id: (pool: RTSPSessionPool) => string
     session_removed: (pool: RTSPSessionPool, session: RTSPSession) => void
     static name: string
 }
-export class RTSPSessionPoolPrivate {
+class RTSPSessionPoolPrivate {
     static name: string
 }
-export class RTSPSessionPrivate {
+class RTSPSessionPrivate {
     static name: string
 }
-export abstract class RTSPStreamClass {
+abstract class RTSPStreamClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPStreamClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RTSPStreamPrivate {
+class RTSPStreamPrivate {
     static name: string
 }
-export abstract class RTSPStreamTransportClass {
+abstract class RTSPStreamTransportClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPStreamTransportClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RTSPStreamTransportPrivate {
+class RTSPStreamTransportPrivate {
     static name: string
 }
-export class RTSPThread {
+class RTSPThread {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPThread */
     mini_object: Gst.MiniObject
     type: RTSPThreadType
@@ -2671,7 +2673,7 @@ export class RTSPThread {
     /* Static methods and pseudo-constructors */
     static new(type: RTSPThreadType): RTSPThread
 }
-export abstract class RTSPThreadPoolClass {
+abstract class RTSPThreadPoolClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPThreadPoolClass */
     parent_class: GObject.ObjectClass
     pool: GLib.ThreadPool
@@ -2681,10 +2683,10 @@ export abstract class RTSPThreadPoolClass {
     thread_leave: (pool: RTSPThreadPool, thread: RTSPThread) => void
     static name: string
 }
-export class RTSPThreadPoolPrivate {
+class RTSPThreadPoolPrivate {
     static name: string
 }
-export class RTSPToken {
+class RTSPToken {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPToken */
     mini_object: Gst.MiniObject
     /* Methods of GstRtspServer-1.0.GstRtspServer.RTSPToken */
@@ -2700,9 +2702,11 @@ export class RTSPToken {
     /* Static methods and pseudo-constructors */
     static new(): RTSPToken
 }
-export class SDPInfo {
+class SDPInfo {
     /* Fields of GstRtspServer-1.0.GstRtspServer.SDPInfo */
     is_ipv6: boolean
     server_ip: string
     static name: string
 }
+}
+export default GstRtspServer

@@ -3,39 +3,41 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export function context_get_font_options(context: Pango.Context): cairo.FontOptions | null
-export function context_get_resolution(context: Pango.Context): number
-export function context_set_font_options(context: Pango.Context, options?: cairo.FontOptions | null): void
-export function context_set_resolution(context: Pango.Context, dpi: number): void
-export function context_set_shape_renderer(context: Pango.Context, func?: ShapeRendererFunc | null): void
-export function create_context(cr: cairo.Context): Pango.Context
-export function create_layout(cr: cairo.Context): Pango.Layout
-export function error_underline_path(cr: cairo.Context, x: number, y: number, width: number, height: number): void
-export function font_map_get_default(): Pango.FontMap
-export function font_map_new(): Pango.FontMap
-export function font_map_new_for_font_type(fonttype: cairo.FontType): Pango.FontMap | null
-export function glyph_string_path(cr: cairo.Context, font: Pango.Font, glyphs: Pango.GlyphString): void
-export function layout_line_path(cr: cairo.Context, line: Pango.LayoutLine): void
-export function layout_path(cr: cairo.Context, layout: Pango.Layout): void
-export function show_error_underline(cr: cairo.Context, x: number, y: number, width: number, height: number): void
-export function show_glyph_item(cr: cairo.Context, text: string, glyph_item: Pango.GlyphItem): void
-export function show_glyph_string(cr: cairo.Context, font: Pango.Font, glyphs: Pango.GlyphString): void
-export function show_layout(cr: cairo.Context, layout: Pango.Layout): void
-export function show_layout_line(cr: cairo.Context, line: Pango.LayoutLine): void
-export function update_context(cr: cairo.Context, context: Pango.Context): void
-export function update_layout(cr: cairo.Context, layout: Pango.Layout): void
-export interface ShapeRendererFunc {
+export namespace PangoCairo {
+
+function context_get_font_options(context: Pango.Context): cairo.FontOptions | null
+function context_get_resolution(context: Pango.Context): number
+function context_set_font_options(context: Pango.Context, options?: cairo.FontOptions | null): void
+function context_set_resolution(context: Pango.Context, dpi: number): void
+function context_set_shape_renderer(context: Pango.Context, func?: ShapeRendererFunc | null): void
+function create_context(cr: cairo.Context): Pango.Context
+function create_layout(cr: cairo.Context): Pango.Layout
+function error_underline_path(cr: cairo.Context, x: number, y: number, width: number, height: number): void
+function font_map_get_default(): Pango.FontMap
+function font_map_new(): Pango.FontMap
+function font_map_new_for_font_type(fonttype: cairo.FontType): Pango.FontMap | null
+function glyph_string_path(cr: cairo.Context, font: Pango.Font, glyphs: Pango.GlyphString): void
+function layout_line_path(cr: cairo.Context, line: Pango.LayoutLine): void
+function layout_path(cr: cairo.Context, layout: Pango.Layout): void
+function show_error_underline(cr: cairo.Context, x: number, y: number, width: number, height: number): void
+function show_glyph_item(cr: cairo.Context, text: string, glyph_item: Pango.GlyphItem): void
+function show_glyph_string(cr: cairo.Context, font: Pango.Font, glyphs: Pango.GlyphString): void
+function show_layout(cr: cairo.Context, layout: Pango.Layout): void
+function show_layout_line(cr: cairo.Context, line: Pango.LayoutLine): void
+function update_context(cr: cairo.Context, context: Pango.Context): void
+function update_layout(cr: cairo.Context, layout: Pango.Layout): void
+interface ShapeRendererFunc {
     (cr: cairo.Context, attr: Pango.AttrShape, do_path: boolean): void
 }
 export interface Font_ConstructProps extends Pango.Font_ConstructProps {
 }
-export class Font {
+class Font {
     /* Fields of Pango-1.0.Pango.Font */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -108,7 +110,7 @@ export class Font {
 }
 export interface FontMap_ConstructProps extends Pango.FontMap_ConstructProps {
 }
-export class FontMap {
+class FontMap {
     /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -179,3 +181,5 @@ export class FontMap {
     static new_for_font_type(fonttype: cairo.FontType): Pango.FontMap | null
     static $gtype: GObject.Type
 }
+}
+export default PangoCairo

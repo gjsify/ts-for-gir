@@ -3,13 +3,15 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum AudioBaseSinkDiscontReason {
+export namespace GstAudio {
+
+enum AudioBaseSinkDiscontReason {
     NO_DISCONT,
     NEW_CAPS,
     FLUSH,
@@ -17,23 +19,23 @@ export enum AudioBaseSinkDiscontReason {
     ALIGNMENT,
     DEVICE_FAILURE,
 }
-export enum AudioBaseSinkSlaveMethod {
+enum AudioBaseSinkSlaveMethod {
     RESAMPLE,
     SKEW,
     NONE,
     CUSTOM,
 }
-export enum AudioBaseSrcSlaveMethod {
+enum AudioBaseSrcSlaveMethod {
     RESAMPLE,
     RE_TIMESTAMP,
     SKEW,
     NONE,
 }
-export enum AudioCdSrcMode {
+enum AudioCdSrcMode {
     NORMAL,
     CONTINUOUS,
 }
-export enum AudioChannelPosition {
+enum AudioChannelPosition {
     NONE,
     MONO,
     INVALID,
@@ -66,13 +68,13 @@ export enum AudioChannelPosition {
     SURROUND_LEFT,
     SURROUND_RIGHT,
 }
-export enum AudioDitherMethod {
+enum AudioDitherMethod {
     NONE,
     RPDF,
     TPDF,
     TPDF_HF,
 }
-export enum AudioFormat {
+enum AudioFormat {
     UNKNOWN,
     ENCODED,
     S8,
@@ -120,35 +122,35 @@ export enum AudioFormat {
     F32,
     F64,
 }
-export enum AudioLayout {
+enum AudioLayout {
     INTERLEAVED,
     NON_INTERLEAVED,
 }
-export enum AudioNoiseShapingMethod {
+enum AudioNoiseShapingMethod {
     NONE,
     ERROR_FEEDBACK,
     SIMPLE,
     MEDIUM,
     HIGH,
 }
-export enum AudioResamplerFilterInterpolation {
+enum AudioResamplerFilterInterpolation {
     NONE,
     LINEAR,
     CUBIC,
 }
-export enum AudioResamplerFilterMode {
+enum AudioResamplerFilterMode {
     INTERPOLATED,
     FULL,
     AUTO,
 }
-export enum AudioResamplerMethod {
+enum AudioResamplerMethod {
     NEAREST,
     LINEAR,
     CUBIC,
     BLACKMAN_NUTTALL,
     KAISER,
 }
-export enum AudioRingBufferFormatType {
+enum AudioRingBufferFormatType {
     RAW,
     MU_LAW,
     A_LAW,
@@ -165,49 +167,49 @@ export enum AudioRingBufferFormatType {
     MPEG4_AAC_RAW,
     FLAC,
 }
-export enum AudioRingBufferState {
+enum AudioRingBufferState {
     STOPPED,
     PAUSED,
     STARTED,
     ERROR,
 }
-export enum StreamVolumeFormat {
+enum StreamVolumeFormat {
     LINEAR,
     CUBIC,
     DB,
 }
-export enum AudioChannelMixerFlags {
+enum AudioChannelMixerFlags {
     NONE,
     NON_INTERLEAVED_IN,
     NON_INTERLEAVED_OUT,
     UNPOSITIONED_IN,
     UNPOSITIONED_OUT,
 }
-export enum AudioConverterFlags {
+enum AudioConverterFlags {
     NONE,
     IN_WRITABLE,
     VARIABLE_RATE,
 }
-export enum AudioFlags {
+enum AudioFlags {
     NONE,
     UNPOSITIONED,
 }
-export enum AudioFormatFlags {
+enum AudioFormatFlags {
     INTEGER,
     FLOAT,
     SIGNED,
     COMPLEX,
     UNPACK,
 }
-export enum AudioPackFlags {
+enum AudioPackFlags {
     NONE,
     TRUNCATE_RANGE,
 }
-export enum AudioQuantizeFlags {
+enum AudioQuantizeFlags {
     NONE,
     NON_INTERLEAVED,
 }
-export enum AudioResamplerFlags {
+enum AudioResamplerFlags {
     NONE,
     NON_INTERLEAVED_IN,
     NON_INTERLEAVED_OUT,
@@ -246,63 +248,63 @@ export const AUDIO_RESAMPLER_QUALITY_MIN: number
 export const META_TAG_AUDIO_CHANNELS_STR: string
 export const META_TAG_AUDIO_RATE_STR: string
 export const META_TAG_AUDIO_STR: string
-export function audio_buffer_clip(buffer: Gst.Buffer, segment: Gst.Segment, rate: number, bpf: number): Gst.Buffer
-export function audio_buffer_map(info: AudioInfo, gstbuffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* buffer */ AudioBuffer ]
-export function audio_buffer_reorder_channels(buffer: Gst.Buffer, format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
-export function audio_buffer_truncate(buffer: Gst.Buffer, bpf: number, trim: number, samples: number): Gst.Buffer
-export function audio_channel_get_fallback_mask(channels: number): number
-export function audio_channel_positions_from_mask(channel_mask: number, position: AudioChannelPosition[]): boolean
-export function audio_channel_positions_to_mask(position: AudioChannelPosition[], force_order: boolean): [ /* returnType */ boolean, /* channel_mask */ number ]
-export function audio_channel_positions_to_string(position: AudioChannelPosition[]): string
-export function audio_channel_positions_to_valid_order(position: AudioChannelPosition[]): boolean
-export function audio_check_valid_channel_positions(position: AudioChannelPosition[], force_order: boolean): boolean
-export function audio_clipping_meta_api_get_type(): GObject.Type
-export function audio_clipping_meta_get_info(): Gst.MetaInfo
-export function audio_downmix_meta_api_get_type(): GObject.Type
-export function audio_downmix_meta_get_info(): Gst.MetaInfo
-export function audio_format_build_integer(sign: boolean, endianness: number, width: number, depth: number): AudioFormat
-export function audio_format_fill_silence(info: AudioFormatInfo, dest: Uint8Array[]): void
-export function audio_format_from_string(format: string): AudioFormat
-export function audio_format_get_info(format: AudioFormat): AudioFormatInfo
-export function audio_format_info_get_type(): GObject.Type
-export function audio_format_to_string(format: AudioFormat): string
-export function audio_formats_raw(): AudioFormat[]
-export function audio_get_channel_reorder_map(from: AudioChannelPosition[], to: AudioChannelPosition[], reorder_map: number[]): boolean
-export function audio_iec61937_frame_size(spec: AudioRingBufferSpec): number
-export function audio_iec61937_payload(src: Uint8Array[], dst: Uint8Array[], spec: AudioRingBufferSpec, endianness: number): boolean
-export function audio_info_from_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* info */ AudioInfo ]
-export function audio_info_init(): /* info */ AudioInfo
-export function audio_level_meta_api_get_type(): GObject.Type
-export function audio_level_meta_get_info(): Gst.MetaInfo
-export function audio_make_raw_caps(formats: AudioFormat[] | null, layout: AudioLayout): Gst.Caps
-export function audio_meta_api_get_type(): GObject.Type
-export function audio_meta_get_info(): Gst.MetaInfo
-export function audio_reorder_channels(data: Uint8Array[], format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
-export function audio_resampler_new(method: AudioResamplerMethod, flags: AudioResamplerFlags, format: AudioFormat, channels: number, in_rate: number, out_rate: number, options: Gst.Structure): AudioResampler
-export function audio_resampler_options_set_quality(method: AudioResamplerMethod, quality: number, in_rate: number, out_rate: number, options: Gst.Structure): void
-export function buffer_add_audio_clipping_meta(buffer: Gst.Buffer, format: Gst.Format, start: number, end: number): AudioClippingMeta
-export function buffer_add_audio_downmix_meta(buffer: Gst.Buffer, from_position: AudioChannelPosition[], to_position: AudioChannelPosition[], matrix: number): AudioDownmixMeta
-export function buffer_add_audio_level_meta(buffer: Gst.Buffer, level: number, voice_activity: boolean): AudioLevelMeta | null
-export function buffer_add_audio_meta(buffer: Gst.Buffer, info: AudioInfo, samples: number, offsets?: number | null): AudioMeta
-export function buffer_get_audio_downmix_meta_for_channels(buffer: Gst.Buffer, to_position: AudioChannelPosition[]): AudioDownmixMeta
-export function buffer_get_audio_level_meta(buffer: Gst.Buffer): AudioLevelMeta | null
-export function stream_volume_convert_volume(from: StreamVolumeFormat, to: StreamVolumeFormat, val: number): number
-export interface AudioBaseSinkCustomSlavingCallback {
+function audio_buffer_clip(buffer: Gst.Buffer, segment: Gst.Segment, rate: number, bpf: number): Gst.Buffer
+function audio_buffer_map(info: AudioInfo, gstbuffer: Gst.Buffer, flags: Gst.MapFlags): [ /* returnType */ boolean, /* buffer */ AudioBuffer ]
+function audio_buffer_reorder_channels(buffer: Gst.Buffer, format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
+function audio_buffer_truncate(buffer: Gst.Buffer, bpf: number, trim: number, samples: number): Gst.Buffer
+function audio_channel_get_fallback_mask(channels: number): number
+function audio_channel_positions_from_mask(channel_mask: number, position: AudioChannelPosition[]): boolean
+function audio_channel_positions_to_mask(position: AudioChannelPosition[], force_order: boolean): [ /* returnType */ boolean, /* channel_mask */ number ]
+function audio_channel_positions_to_string(position: AudioChannelPosition[]): string
+function audio_channel_positions_to_valid_order(position: AudioChannelPosition[]): boolean
+function audio_check_valid_channel_positions(position: AudioChannelPosition[], force_order: boolean): boolean
+function audio_clipping_meta_api_get_type(): GObject.Type
+function audio_clipping_meta_get_info(): Gst.MetaInfo
+function audio_downmix_meta_api_get_type(): GObject.Type
+function audio_downmix_meta_get_info(): Gst.MetaInfo
+function audio_format_build_integer(sign: boolean, endianness: number, width: number, depth: number): AudioFormat
+function audio_format_fill_silence(info: AudioFormatInfo, dest: Uint8Array[]): void
+function audio_format_from_string(format: string): AudioFormat
+function audio_format_get_info(format: AudioFormat): AudioFormatInfo
+function audio_format_info_get_type(): GObject.Type
+function audio_format_to_string(format: AudioFormat): string
+function audio_formats_raw(): AudioFormat[]
+function audio_get_channel_reorder_map(from: AudioChannelPosition[], to: AudioChannelPosition[], reorder_map: number[]): boolean
+function audio_iec61937_frame_size(spec: AudioRingBufferSpec): number
+function audio_iec61937_payload(src: Uint8Array[], dst: Uint8Array[], spec: AudioRingBufferSpec, endianness: number): boolean
+function audio_info_from_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* info */ AudioInfo ]
+function audio_info_init(): /* info */ AudioInfo
+function audio_level_meta_api_get_type(): GObject.Type
+function audio_level_meta_get_info(): Gst.MetaInfo
+function audio_make_raw_caps(formats: AudioFormat[] | null, layout: AudioLayout): Gst.Caps
+function audio_meta_api_get_type(): GObject.Type
+function audio_meta_get_info(): Gst.MetaInfo
+function audio_reorder_channels(data: Uint8Array[], format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
+function audio_resampler_new(method: AudioResamplerMethod, flags: AudioResamplerFlags, format: AudioFormat, channels: number, in_rate: number, out_rate: number, options: Gst.Structure): AudioResampler
+function audio_resampler_options_set_quality(method: AudioResamplerMethod, quality: number, in_rate: number, out_rate: number, options: Gst.Structure): void
+function buffer_add_audio_clipping_meta(buffer: Gst.Buffer, format: Gst.Format, start: number, end: number): AudioClippingMeta
+function buffer_add_audio_downmix_meta(buffer: Gst.Buffer, from_position: AudioChannelPosition[], to_position: AudioChannelPosition[], matrix: number): AudioDownmixMeta
+function buffer_add_audio_level_meta(buffer: Gst.Buffer, level: number, voice_activity: boolean): AudioLevelMeta | null
+function buffer_add_audio_meta(buffer: Gst.Buffer, info: AudioInfo, samples: number, offsets?: number | null): AudioMeta
+function buffer_get_audio_downmix_meta_for_channels(buffer: Gst.Buffer, to_position: AudioChannelPosition[]): AudioDownmixMeta
+function buffer_get_audio_level_meta(buffer: Gst.Buffer): AudioLevelMeta | null
+function stream_volume_convert_volume(from: StreamVolumeFormat, to: StreamVolumeFormat, val: number): number
+interface AudioBaseSinkCustomSlavingCallback {
     (sink: AudioBaseSink, etime: Gst.ClockTime, itime: Gst.ClockTime, requested_skew: Gst.ClockTimeDiff, discont_reason: AudioBaseSinkDiscontReason): void
 }
-export interface AudioClockGetTimeFunc {
+interface AudioClockGetTimeFunc {
     (clock: Gst.Clock): Gst.ClockTime
 }
-export interface AudioFormatPack {
+interface AudioFormatPack {
     (info: AudioFormatInfo, flags: AudioPackFlags, src: Uint8Array[], data: Uint8Array[], length: number): void
 }
-export interface AudioFormatUnpack {
+interface AudioFormatUnpack {
     (info: AudioFormatInfo, flags: AudioPackFlags, dest: Uint8Array[], data: Uint8Array[], length: number): void
 }
-export interface AudioRingBufferCallback {
+interface AudioRingBufferCallback {
     (rbuf: AudioRingBuffer, data: Uint8Array[]): void
 }
-export class StreamVolume {
+class StreamVolume {
     /* Properties of GstAudio-1.0.GstAudio.StreamVolume */
     mute: boolean
     volume: number
@@ -322,7 +324,7 @@ export interface AudioAggregator_ConstructProps extends GstBase.Aggregator_Const
     output_buffer_duration?: number
     output_buffer_duration_fraction?: Gst.Fraction
 }
-export class AudioAggregator {
+class AudioAggregator {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregator */
     alignment_threshold: number
     discont_wait: number
@@ -609,7 +611,7 @@ export class AudioAggregator {
 export interface AudioAggregatorConvertPad_ConstructProps extends AudioAggregatorPad_ConstructProps {
     converter_config?: Gst.Structure
 }
-export class AudioAggregatorConvertPad {
+class AudioAggregatorConvertPad {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorConvertPad */
     converter_config: Gst.Structure
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
@@ -837,7 +839,7 @@ export class AudioAggregatorConvertPad {
 export interface AudioAggregatorPad_ConstructProps extends GstBase.AggregatorPad_ConstructProps {
     qos_messages?: boolean
 }
-export class AudioAggregatorPad {
+class AudioAggregatorPad {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
     qos_messages: boolean
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
@@ -1068,7 +1070,7 @@ export interface AudioBaseSink_ConstructProps extends GstBase.BaseSink_Construct
     provide_clock?: boolean
     slave_method?: AudioBaseSinkSlaveMethod
 }
-export class AudioBaseSink {
+class AudioBaseSink {
     /* Properties of GstAudio-1.0.GstAudio.AudioBaseSink */
     alignment_threshold: number
     buffer_time: number
@@ -1428,7 +1430,7 @@ export interface AudioBaseSrc_ConstructProps extends GstBase.PushSrc_ConstructPr
     provide_clock?: boolean
     slave_method?: AudioBaseSrcSlaveMethod
 }
-export class AudioBaseSrc {
+class AudioBaseSrc {
     /* Properties of GstAudio-1.0.GstAudio.AudioBaseSrc */
     readonly actual_buffer_time: number
     readonly actual_latency_time: number
@@ -1748,7 +1750,7 @@ export interface AudioCdSrc_ConstructProps extends GstBase.PushSrc_ConstructProp
     mode?: AudioCdSrcMode
     track?: number
 }
-export class AudioCdSrc {
+class AudioCdSrc {
     /* Properties of GstAudio-1.0.GstAudio.AudioCdSrc */
     device: string
     mode: AudioCdSrcMode
@@ -2062,7 +2064,7 @@ export class AudioCdSrc {
 }
 export interface AudioClock_ConstructProps extends Gst.SystemClock_ConstructProps {
 }
-export class AudioClock {
+class AudioClock {
     /* Properties of Gst-1.0.Gst.SystemClock */
     clock_type: Gst.ClockType
     /* Properties of Gst-1.0.Gst.Clock */
@@ -2216,7 +2218,7 @@ export interface AudioDecoder_ConstructProps extends Gst.Element_ConstructProps 
     plc?: boolean
     tolerance?: number
 }
-export class AudioDecoder {
+class AudioDecoder {
     /* Properties of GstAudio-1.0.GstAudio.AudioDecoder */
     max_errors: number
     min_latency: number
@@ -2495,7 +2497,7 @@ export interface AudioEncoder_ConstructProps extends Gst.Element_ConstructProps 
     perfect_timestamp?: boolean
     tolerance?: number
 }
-export class AudioEncoder {
+class AudioEncoder {
     /* Properties of GstAudio-1.0.GstAudio.AudioEncoder */
     hard_resync: boolean
     readonly mark_granule: boolean
@@ -2791,7 +2793,7 @@ export class AudioEncoder {
 }
 export interface AudioFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
-export class AudioFilter {
+class AudioFilter {
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -3055,7 +3057,7 @@ export class AudioFilter {
 }
 export interface AudioRingBuffer_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class AudioRingBuffer {
+class AudioRingBuffer {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -3202,7 +3204,7 @@ export class AudioRingBuffer {
 }
 export interface AudioSink_ConstructProps extends AudioBaseSink_ConstructProps {
 }
-export class AudioSink {
+class AudioSink {
     /* Properties of GstAudio-1.0.GstAudio.AudioBaseSink */
     alignment_threshold: number
     buffer_time: number
@@ -3572,7 +3574,7 @@ export class AudioSink {
 }
 export interface AudioSrc_ConstructProps extends AudioBaseSrc_ConstructProps {
 }
-export class AudioSrc {
+class AudioSrc {
     /* Properties of GstAudio-1.0.GstAudio.AudioBaseSrc */
     readonly actual_buffer_time: number
     readonly actual_latency_time: number
@@ -3902,54 +3904,54 @@ export class AudioSrc {
     _init (config?: AudioSrc_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AudioAggregatorClass {
+abstract class AudioAggregatorClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorClass */
     parent_class: GstBase.AggregatorClass
     create_output_buffer: (aagg: AudioAggregator, num_frames: number) => Gst.Buffer
     aggregate_one_buffer: (aagg: AudioAggregator, pad: AudioAggregatorPad, inbuf: Gst.Buffer, in_offset: number, outbuf: Gst.Buffer, out_offset: number, num_frames: number) => boolean
     static name: string
 }
-export abstract class AudioAggregatorConvertPadClass {
+abstract class AudioAggregatorConvertPadClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorConvertPadClass */
     parent_class: AudioAggregatorPadClass
     static name: string
 }
-export class AudioAggregatorConvertPadPrivate {
+class AudioAggregatorConvertPadPrivate {
     static name: string
 }
-export abstract class AudioAggregatorPadClass {
+abstract class AudioAggregatorPadClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorPadClass */
     parent_class: GstBase.AggregatorPadClass
     convert_buffer: (pad: AudioAggregatorPad, in_info: AudioInfo, out_info: AudioInfo, buffer: Gst.Buffer) => Gst.Buffer
     update_conversion_info: (pad: AudioAggregatorPad) => void
     static name: string
 }
-export class AudioAggregatorPadPrivate {
+class AudioAggregatorPadPrivate {
     static name: string
 }
-export class AudioAggregatorPrivate {
+class AudioAggregatorPrivate {
     static name: string
 }
-export abstract class AudioBaseSinkClass {
+abstract class AudioBaseSinkClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioBaseSinkClass */
     parent_class: GstBase.BaseSinkClass
     create_ringbuffer: (sink: AudioBaseSink) => AudioRingBuffer
     payload: (sink: AudioBaseSink, buffer: Gst.Buffer) => Gst.Buffer
     static name: string
 }
-export class AudioBaseSinkPrivate {
+class AudioBaseSinkPrivate {
     static name: string
 }
-export abstract class AudioBaseSrcClass {
+abstract class AudioBaseSrcClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioBaseSrcClass */
     parent_class: GstBase.PushSrcClass
     create_ringbuffer: (src: AudioBaseSrc) => AudioRingBuffer
     static name: string
 }
-export class AudioBaseSrcPrivate {
+class AudioBaseSrcPrivate {
     static name: string
 }
-export class AudioBuffer {
+class AudioBuffer {
     /* Fields of GstAudio-1.0.GstAudio.AudioBuffer */
     info: AudioInfo
     n_samples: number
@@ -3965,7 +3967,7 @@ export class AudioBuffer {
     static reorder_channels(buffer: Gst.Buffer, format: AudioFormat, from: AudioChannelPosition[], to: AudioChannelPosition[]): boolean
     static truncate(buffer: Gst.Buffer, bpf: number, trim: number, samples: number): Gst.Buffer
 }
-export abstract class AudioCdSrcClass {
+abstract class AudioCdSrcClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioCdSrcClass */
     pushsrc_class: GstBase.PushSrcClass
     open: (src: AudioCdSrc, device: string) => boolean
@@ -3973,10 +3975,10 @@ export abstract class AudioCdSrcClass {
     read_sector: (src: AudioCdSrc, sector: number) => Gst.Buffer
     static name: string
 }
-export class AudioCdSrcPrivate {
+class AudioCdSrcPrivate {
     static name: string
 }
-export class AudioCdSrcTrack {
+class AudioCdSrcTrack {
     /* Fields of GstAudio-1.0.GstAudio.AudioCdSrcTrack */
     is_audio: boolean
     num: number
@@ -3985,14 +3987,14 @@ export class AudioCdSrcTrack {
     tags: Gst.TagList
     static name: string
 }
-export class AudioChannelMixer {
+class AudioChannelMixer {
     /* Methods of GstAudio-1.0.GstAudio.AudioChannelMixer */
     free(): void
     is_passthrough(): boolean
     samples(in_: object | null, out: object | null, samples: number): void
     static name: string
 }
-export class AudioClippingMeta {
+class AudioClippingMeta {
     /* Fields of GstAudio-1.0.GstAudio.AudioClippingMeta */
     meta: Gst.Meta
     format: Gst.Format
@@ -4002,12 +4004,12 @@ export class AudioClippingMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
-export abstract class AudioClockClass {
+abstract class AudioClockClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioClockClass */
     parent_class: Gst.SystemClockClass
     static name: string
 }
-export class AudioConverter {
+class AudioConverter {
     /* Methods of GstAudio-1.0.GstAudio.AudioConverter */
     convert(flags: AudioConverterFlags, in_: Uint8Array[]): [ /* returnType */ boolean, /* out */ Uint8Array[] ]
     free(): void
@@ -4026,7 +4028,7 @@ export class AudioConverter {
     /* Static methods and pseudo-constructors */
     static new(flags: AudioConverterFlags, in_info: AudioInfo, out_info: AudioInfo, config?: Gst.Structure | null): AudioConverter
 }
-export abstract class AudioDecoderClass {
+abstract class AudioDecoderClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioDecoderClass */
     element_class: Gst.ElementClass
     start: (dec: AudioDecoder) => boolean
@@ -4049,10 +4051,10 @@ export abstract class AudioDecoderClass {
     transform_meta: (enc: AudioDecoder, outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer) => boolean
     static name: string
 }
-export class AudioDecoderPrivate {
+class AudioDecoderPrivate {
     static name: string
 }
-export class AudioDownmixMeta {
+class AudioDownmixMeta {
     /* Fields of GstAudio-1.0.GstAudio.AudioDownmixMeta */
     meta: Gst.Meta
     from_position: AudioChannelPosition
@@ -4064,7 +4066,7 @@ export class AudioDownmixMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
-export abstract class AudioEncoderClass {
+abstract class AudioEncoderClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioEncoderClass */
     element_class: Gst.ElementClass
     start: (enc: AudioEncoder) => boolean
@@ -4086,10 +4088,10 @@ export abstract class AudioEncoderClass {
     src_query: (encoder: AudioEncoder, query: Gst.Query) => boolean
     static name: string
 }
-export class AudioEncoderPrivate {
+class AudioEncoderPrivate {
     static name: string
 }
-export abstract class AudioFilterClass {
+abstract class AudioFilterClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioFilterClass */
     basetransformclass: GstBase.BaseTransformClass
     setup: (filter: AudioFilter, info: AudioInfo) => boolean
@@ -4097,7 +4099,7 @@ export abstract class AudioFilterClass {
     add_pad_templates(klass: AudioFilter | Function | GObject.Type, allowed_caps: Gst.Caps): void
     static name: string
 }
-export class AudioFormatInfo {
+class AudioFormatInfo {
     /* Fields of GstAudio-1.0.GstAudio.AudioFormatInfo */
     format: AudioFormat
     name: string
@@ -4114,7 +4116,7 @@ export class AudioFormatInfo {
     fill_silence(dest: Uint8Array[]): void
     static name: string
 }
-export class AudioInfo {
+class AudioInfo {
     /* Fields of GstAudio-1.0.GstAudio.AudioInfo */
     finfo: AudioFormatInfo
     flags: AudioFlags
@@ -4138,7 +4140,7 @@ export class AudioInfo {
     static from_caps(caps: Gst.Caps): [ /* returnType */ boolean, /* info */ AudioInfo ]
     static init(): /* info */ AudioInfo
 }
-export class AudioLevelMeta {
+class AudioLevelMeta {
     /* Fields of GstAudio-1.0.GstAudio.AudioLevelMeta */
     meta: Gst.Meta
     level: number
@@ -4147,7 +4149,7 @@ export class AudioLevelMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
-export class AudioMeta {
+class AudioMeta {
     /* Fields of GstAudio-1.0.GstAudio.AudioMeta */
     meta: Gst.Meta
     info: AudioInfo
@@ -4157,14 +4159,14 @@ export class AudioMeta {
     /* Static methods and pseudo-constructors */
     static get_info(): Gst.MetaInfo
 }
-export class AudioQuantize {
+class AudioQuantize {
     /* Methods of GstAudio-1.0.GstAudio.AudioQuantize */
     free(): void
     reset(): void
     samples(in_: object | null, out: object | null, samples: number): void
     static name: string
 }
-export class AudioResampler {
+class AudioResampler {
     /* Methods of GstAudio-1.0.GstAudio.AudioResampler */
     free(): void
     get_in_frames(out_frames: number): number
@@ -4177,7 +4179,7 @@ export class AudioResampler {
     /* Static methods and pseudo-constructors */
     static options_set_quality(method: AudioResamplerMethod, quality: number, in_rate: number, out_rate: number, options: Gst.Structure): void
 }
-export abstract class AudioRingBufferClass {
+abstract class AudioRingBufferClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioRingBufferClass */
     parent_class: Gst.ObjectClass
     open_device: (buf: AudioRingBuffer) => boolean
@@ -4194,7 +4196,7 @@ export abstract class AudioRingBufferClass {
     clear_all: (buf: AudioRingBuffer) => void
     static name: string
 }
-export class AudioRingBufferSpec {
+class AudioRingBufferSpec {
     /* Fields of GstAudio-1.0.GstAudio.AudioRingBufferSpec */
     caps: Gst.Caps
     type: AudioRingBufferFormatType
@@ -4206,7 +4208,7 @@ export class AudioRingBufferSpec {
     seglatency: number
     static name: string
 }
-export abstract class AudioSinkClass {
+abstract class AudioSinkClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioSinkClass */
     parent_class: AudioBaseSinkClass
     open: (sink: AudioSink) => boolean
@@ -4222,12 +4224,12 @@ export abstract class AudioSinkClass {
     extension: AudioSinkClassExtension
     static name: string
 }
-export class AudioSinkClassExtension {
+class AudioSinkClassExtension {
     /* Fields of GstAudio-1.0.GstAudio.AudioSinkClassExtension */
     clear_all: (sink: AudioSink) => void
     static name: string
 }
-export abstract class AudioSrcClass {
+abstract class AudioSrcClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioSrcClass */
     parent_class: AudioBaseSrcClass
     open: (src: AudioSrc) => boolean
@@ -4239,7 +4241,7 @@ export abstract class AudioSrcClass {
     reset: (src: AudioSrc) => void
     static name: string
 }
-export class AudioStreamAlign {
+class AudioStreamAlign {
     /* Methods of GstAudio-1.0.GstAudio.AudioStreamAlign */
     copy(): AudioStreamAlign
     free(): void
@@ -4259,8 +4261,10 @@ export class AudioStreamAlign {
     /* Static methods and pseudo-constructors */
     static new(rate: number, alignment_threshold: Gst.ClockTime, discont_wait: Gst.ClockTime): AudioStreamAlign
 }
-export abstract class StreamVolumeInterface {
+abstract class StreamVolumeInterface {
     /* Fields of GstAudio-1.0.GstAudio.StreamVolumeInterface */
     iface: GObject.TypeInterface
     static name: string
 }
+}
+export default GstAudio

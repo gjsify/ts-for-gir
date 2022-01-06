@@ -3,24 +3,26 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as EBookContacts from './EBookContacts-1.2';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as Soup from './Soup-2.4';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
-import type * as Gee from './Gee-0.8';
-import type * as Folks from './Folks-0.7';
+import type EBookContacts from './EBookContacts-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type EDataServer from './EDataServer-1.2';
+import type Soup from './Soup-2.4';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
+import type Gee from './Gee-0.8';
+import type Folks from './Folks-0.7';
+
+export namespace FolksEds {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     source?: EDataServer.Source
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.7.Folks.PersonaStore */
     readonly type_id: string
     readonly personas: Gee.Map
@@ -193,7 +195,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     postal_addresses?: Gee.Set
     web_service_addresses?: Gee.MultiMap
 }
-export class Persona {
+class Persona {
     /* Properties of FolksEds-0.7.FolksEds.Persona */
     system_groups: Gee.Set
     in_google_personal_group: boolean
@@ -568,15 +570,17 @@ export class Persona {
     static normalise_im_address(im_address: string, protocol: string): string
     static $gtype: GObject.Type
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
+}
+export default FolksEds

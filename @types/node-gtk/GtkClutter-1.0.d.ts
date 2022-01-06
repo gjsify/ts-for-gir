@@ -22,17 +22,17 @@ import type { CoglPango } from './CoglPango-1.0';
 import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 
-export declare namespace GtkClutter {
+declare namespace GtkClutter {
 
-export enum TextureError {
+enum TextureError {
     TEXTURE_ERROR_INVALID_STOCK_ID,
 }
-export function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
-export function initWithArgs(argv?: string[] | null, parameterString?: string | null, entries?: GLib.OptionEntry[] | null, translationDomain?: string | null): { returnType: Clutter.InitError, argv: string[] | null }
+function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
+function initWithArgs(argv?: string[] | null, parameterString?: string | null, entries?: GLib.OptionEntry[] | null, translationDomain?: string | null): { returnType: Clutter.InitError, argv: string[] | null }
 export interface Actor_ConstructProps extends Clutter.Actor_ConstructProps {
     contents?: Gtk.Widget
 }
-export class Actor {
+class Actor {
     /* Properties of GtkClutter-1.0.GtkClutter.Actor */
     contents: Gtk.Widget
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -997,7 +997,7 @@ export class Actor {
 export interface Embed_ConstructProps extends Gtk.Container_ConstructProps {
     useLayoutSize?: boolean
 }
-export class Embed {
+class Embed {
     /* Properties of GtkClutter-1.0.GtkClutter.Embed */
     useLayoutSize: boolean
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -1977,7 +1977,7 @@ export class Embed {
 }
 export interface Texture_ConstructProps extends Clutter.Texture_ConstructProps {
 }
-export class Texture {
+class Texture {
     /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filterQuality: Clutter.TextureQuality
@@ -3044,7 +3044,7 @@ export class Texture {
 }
 export interface Window_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -4344,25 +4344,26 @@ export class Window {
     static new(type: Gtk.WindowType): Window
     static $gtype: GObject.Type
 }
-export abstract class ActorClass {
+abstract class ActorClass {
     static name: string
 }
-export class ActorPrivate {
+class ActorPrivate {
     static name: string
 }
-export abstract class EmbedClass {
+abstract class EmbedClass {
     static name: string
 }
-export class EmbedPrivate {
+class EmbedPrivate {
     static name: string
 }
-export abstract class TextureClass {
+abstract class TextureClass {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
 }
+export default GtkClutter

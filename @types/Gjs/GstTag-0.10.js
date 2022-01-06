@@ -1,2 +1,1 @@
-imports.gi.versions.GstTag = '0.10'
-module.exports = imports.gi.GstTag
+export {default as default} from 'gi://GstTag?version=0.10';

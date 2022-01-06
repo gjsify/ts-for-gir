@@ -3,47 +3,49 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstSdp from './GstSdp-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstSdp from './GstSdp-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum WebRTCBundlePolicy {
+export namespace GstWebRTC {
+
+enum WebRTCBundlePolicy {
     NONE,
     BALANCED,
     MAX_COMPAT,
     MAX_BUNDLE,
 }
-export enum WebRTCDTLSSetup {
+enum WebRTCDTLSSetup {
     NONE,
     ACTPASS,
     ACTIVE,
     PASSIVE,
 }
-export enum WebRTCDTLSTransportState {
+enum WebRTCDTLSTransportState {
     NEW,
     CLOSED,
     FAILED,
     CONNECTING,
     CONNECTED,
 }
-export enum WebRTCDataChannelState {
+enum WebRTCDataChannelState {
     NEW,
     CONNECTING,
     OPEN,
     CLOSING,
     CLOSED,
 }
-export enum WebRTCFECType {
+enum WebRTCFECType {
     NONE,
     ULP_RED,
 }
-export enum WebRTCICEComponent {
+enum WebRTCICEComponent {
     RTP,
     RTCP,
 }
-export enum WebRTCICEConnectionState {
+enum WebRTCICEConnectionState {
     NEW,
     CHECKING,
     CONNECTED,
@@ -52,25 +54,25 @@ export enum WebRTCICEConnectionState {
     DISCONNECTED,
     CLOSED,
 }
-export enum WebRTCICEGatheringState {
+enum WebRTCICEGatheringState {
     NEW,
     GATHERING,
     COMPLETE,
 }
-export enum WebRTCICERole {
+enum WebRTCICERole {
     CONTROLLED,
     CONTROLLING,
 }
-export enum WebRTCICETransportPolicy {
+enum WebRTCICETransportPolicy {
     ALL,
     RELAY,
 }
-export enum WebRTCKind {
+enum WebRTCKind {
     UNKNOWN,
     AUDIO,
     VIDEO,
 }
-export enum WebRTCPeerConnectionState {
+enum WebRTCPeerConnectionState {
     NEW,
     CONNECTING,
     CONNECTED,
@@ -78,32 +80,32 @@ export enum WebRTCPeerConnectionState {
     FAILED,
     CLOSED,
 }
-export enum WebRTCPriorityType {
+enum WebRTCPriorityType {
     VERY_LOW,
     LOW,
     MEDIUM,
     HIGH,
 }
-export enum WebRTCRTPTransceiverDirection {
+enum WebRTCRTPTransceiverDirection {
     NONE,
     INACTIVE,
     SENDONLY,
     RECVONLY,
     SENDRECV,
 }
-export enum WebRTCSCTPTransportState {
+enum WebRTCSCTPTransportState {
     NEW,
     CONNECTING,
     CONNECTED,
     CLOSED,
 }
-export enum WebRTCSDPType {
+enum WebRTCSDPType {
     OFFER,
     PRANSWER,
     ANSWER,
     ROLLBACK,
 }
-export enum WebRTCSignalingState {
+enum WebRTCSignalingState {
     STABLE,
     CLOSED,
     HAVE_LOCAL_OFFER,
@@ -111,7 +113,7 @@ export enum WebRTCSignalingState {
     HAVE_LOCAL_PRANSWER,
     HAVE_REMOTE_PRANSWER,
 }
-export enum WebRTCStatsType {
+enum WebRTCStatsType {
     CODEC,
     INBOUND_RTP,
     OUTBOUND_RTP,
@@ -127,13 +129,13 @@ export enum WebRTCStatsType {
     REMOTE_CANDIDATE,
     CERTIFICATE,
 }
-export function webrtc_sdp_type_to_string(type: WebRTCSDPType): string
+function webrtc_sdp_type_to_string(type: WebRTCSDPType): string
 export interface WebRTCDTLSTransport_ConstructProps extends Gst.Object_ConstructProps {
     certificate?: string
     client?: boolean
     session_id?: number
 }
-export class WebRTCDTLSTransport {
+class WebRTCDTLSTransport {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCDTLSTransport */
     certificate: string
     client: boolean
@@ -247,7 +249,7 @@ export interface WebRTCDataChannel_ConstructProps extends GObject.Object_Constru
     priority?: WebRTCPriorityType
     protocol?: string
 }
-export class WebRTCDataChannel {
+class WebRTCDataChannel {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannel */
     readonly buffered_amount: number
     buffered_amount_low_threshold: number
@@ -338,7 +340,7 @@ export class WebRTCDataChannel {
 export interface WebRTCICETransport_ConstructProps extends Gst.Object_ConstructProps {
     component?: WebRTCICEComponent
 }
-export class WebRTCICETransport {
+class WebRTCICETransport {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCICETransport */
     readonly gathering_state: WebRTCICEGatheringState
     readonly state: WebRTCICEConnectionState
@@ -441,7 +443,7 @@ export class WebRTCICETransport {
 }
 export interface WebRTCRTPReceiver_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class WebRTCRTPReceiver {
+class WebRTCRTPReceiver {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPReceiver */
     readonly transport: WebRTCDTLSTransport
     /* Properties of Gst-1.0.Gst.Object */
@@ -535,7 +537,7 @@ export class WebRTCRTPReceiver {
 export interface WebRTCRTPSender_ConstructProps extends Gst.Object_ConstructProps {
     priority?: WebRTCPriorityType
 }
-export class WebRTCRTPSender {
+class WebRTCRTPSender {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPSender */
     priority: WebRTCPriorityType
     readonly transport: WebRTCDTLSTransport
@@ -638,7 +640,7 @@ export interface WebRTCRTPTransceiver_ConstructProps extends Gst.Object_Construc
     receiver?: WebRTCRTPReceiver
     sender?: WebRTCRTPSender
 }
-export class WebRTCRTPTransceiver {
+class WebRTCRTPTransceiver {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCRTPTransceiver */
     codec_preferences: Gst.Caps
     readonly current_direction: WebRTCRTPTransceiverDirection
@@ -743,7 +745,7 @@ export class WebRTCRTPTransceiver {
 }
 export interface WebRTCSCTPTransport_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class WebRTCSCTPTransport {
+class WebRTCSCTPTransport {
     /* Properties of GstWebRTC-1.0.GstWebRTC.WebRTCSCTPTransport */
     readonly max_channels: number
     readonly max_message_size: number
@@ -843,28 +845,28 @@ export class WebRTCSCTPTransport {
     _init (config?: WebRTCSCTPTransport_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class WebRTCDTLSTransportClass {
+abstract class WebRTCDTLSTransportClass {
     static name: string
 }
-export abstract class WebRTCDataChannelClass {
+abstract class WebRTCDataChannelClass {
     static name: string
 }
-export abstract class WebRTCICETransportClass {
+abstract class WebRTCICETransportClass {
     static name: string
 }
-export abstract class WebRTCRTPReceiverClass {
+abstract class WebRTCRTPReceiverClass {
     static name: string
 }
-export abstract class WebRTCRTPSenderClass {
+abstract class WebRTCRTPSenderClass {
     static name: string
 }
-export abstract class WebRTCRTPTransceiverClass {
+abstract class WebRTCRTPTransceiverClass {
     static name: string
 }
-export abstract class WebRTCSCTPTransportClass {
+abstract class WebRTCSCTPTransportClass {
     static name: string
 }
-export class WebRTCSessionDescription {
+class WebRTCSessionDescription {
     /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCSessionDescription */
     type: WebRTCSDPType
     sdp: GstSdp.SDPMessage
@@ -877,3 +879,5 @@ export class WebRTCSessionDescription {
     /* Static methods and pseudo-constructors */
     static new(type: WebRTCSDPType, sdp: GstSdp.SDPMessage): WebRTCSessionDescription
 }
+}
+export default GstWebRTC

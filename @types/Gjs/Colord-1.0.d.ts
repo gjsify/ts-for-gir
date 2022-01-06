@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ClientError {
+export namespace Colord {
+
+enum ClientError {
     INTERNAL,
     ALREADY_EXISTS,
     FAILED_TO_AUTHENTICATE,
@@ -16,11 +18,11 @@ export enum ClientError {
     INPUT_INVALID,
     FILE_INVALID,
 }
-export enum ColorBlackbodyFlags {
+enum ColorBlackbodyFlags {
     NONE,
     USE_PLANCKIAN,
 }
-export enum Colorspace {
+enum Colorspace {
     UNKNOWN,
     XYZ,
     LAB,
@@ -33,7 +35,7 @@ export enum Colorspace {
     CMYK,
     CMY,
 }
-export enum DeviceError {
+enum DeviceError {
     INTERNAL,
     PROFILE_DOES_NOT_EXIST,
     PROFILE_ALREADY_ADDED,
@@ -44,7 +46,7 @@ export enum DeviceError {
     FAILED_TO_AUTHENTICATE,
     NOT_ENABLED,
 }
-export enum DeviceKind {
+enum DeviceKind {
     UNKNOWN,
     DISPLAY,
     SCANNER,
@@ -52,17 +54,17 @@ export enum DeviceKind {
     CAMERA,
     WEBCAM,
 }
-export enum DeviceMode {
+enum DeviceMode {
     UNKNOWN,
     PHYSICAL,
     VIRTUAL,
 }
-export enum DeviceRelation {
+enum DeviceRelation {
     UNKNOWN,
     SOFT,
     HARD,
 }
-export enum IccError {
+enum IccError {
     FAILED_TO_OPEN,
     FAILED_TO_PARSE,
     INVALID_LOCALE,
@@ -73,15 +75,15 @@ export enum IccError {
     CORRUPTION_DETECTED,
     INTERNAL,
 }
-export enum IccSaveFlags {
+enum IccSaveFlags {
     NONE,
 }
-export enum It8Error {
+enum It8Error {
     FAILED,
     INVALID_FORMAT,
     UNKNOWN_KIND,
 }
-export enum It8Kind {
+enum It8Kind {
     UNKNOWN,
     TI1,
     TI3,
@@ -91,13 +93,13 @@ export enum It8Kind {
     SPECT,
     CMF,
 }
-export enum ObjectScope {
+enum ObjectScope {
     UNKNOWN,
     NORMAL,
     TEMP,
     DISK,
 }
-export enum ProfileError {
+enum ProfileError {
     INTERNAL,
     ALREADY_INSTALLED,
     FAILED_TO_WRITE,
@@ -107,7 +109,7 @@ export enum ProfileError {
     PROPERTY_INVALID,
     FAILED_TO_GET_UID,
 }
-export enum ProfileKind {
+enum ProfileKind {
     UNKNOWN,
     INPUT_DEVICE,
     DISPLAY_DEVICE,
@@ -117,12 +119,12 @@ export enum ProfileKind {
     ABSTRACT,
     NAMED_COLOR,
 }
-export enum ProfileQuality {
+enum ProfileQuality {
     LOW,
     MEDIUM,
     HIGH,
 }
-export enum ProfileWarning {
+enum ProfileWarning {
     NONE,
     DESCRIPTION_MISSING,
     COPYRIGHT_MISSING,
@@ -136,14 +138,14 @@ export enum ProfileWarning {
     WHITEPOINT_INVALID,
     WHITEPOINT_UNLIKELY,
 }
-export enum RenderingIntent {
+enum RenderingIntent {
     UNKNOWN,
     PERCEPTUAL,
     RELATIVE_COLORIMETRIC,
     SATURATION,
     ABSOLUTE_COLORIMETRIC,
 }
-export enum SensorCap {
+enum SensorCap {
     UNKNOWN,
     LCD,
     CRT,
@@ -163,7 +165,7 @@ export enum SensorCap {
     CALIBRATION_DARK,
     CALIBRATION_IRRADIANCE,
 }
-export enum SensorError {
+enum SensorError {
     NO_SUPPORT,
     NO_DATA,
     INTERNAL,
@@ -176,7 +178,7 @@ export enum SensorError {
     REQUIRED_DARK_CALIBRATION,
     REQUIRED_IRRADIANCE_CALIBRATION,
 }
-export enum SensorKind {
+enum SensorKind {
     UNKNOWN,
     DUMMY,
     HUEY,
@@ -206,20 +208,20 @@ export enum SensorKind {
     SPARK,
     SPYDERX,
 }
-export enum SensorState {
+enum SensorState {
     UNKNOWN,
     STARTING,
     IDLE,
     MEASURING,
     BUSY,
 }
-export enum StandardSpace {
+enum StandardSpace {
     UNKNOWN,
     SRGB,
     ADOBE_RGB,
     PROPHOTO_RGB,
 }
-export enum IccLoadFlags {
+enum IccLoadFlags {
     NONE,
     NAMED_COLORS,
     TRANSLATIONS,
@@ -329,38 +331,38 @@ export const SENSOR_PROPERTY_OPTIONS: string
 export const SENSOR_PROPERTY_SERIAL: string
 export const SENSOR_PROPERTY_STATE: string
 export const SENSOR_PROPERTY_VENDOR: string
-export function color_get_blackbody_rgb(temp: number, result: ColorRGB): boolean
-export function color_get_blackbody_rgb_full(temp: number, result: ColorRGB, flags: ColorBlackbodyFlags): boolean
-export function color_rgb8_to_rgb(src: ColorRGB8, dest: ColorRGB): void
-export function color_rgb_array_interpolate(array: ColorRGB[], new_length: number): ColorRGB[]
-export function color_rgb_array_is_monotonic(array: ColorRGB[]): boolean
-export function color_rgb_array_new(): ColorRGB[]
-export function colorspace_from_string(colorspace: string): Colorspace
-export function colorspace_to_string(colorspace: Colorspace): string
-export function mat33_clear(src: Mat3x3): void
-export function mat33_copy(src: Mat3x3, dest: Mat3x3): void
-export function mat33_determinant(src: Mat3x3): number
-export function mat33_get_data(src: Mat3x3): number
-export function mat33_init(dest: Mat3x3, m00: number, m01: number, m02: number, m10: number, m11: number, m12: number, m20: number, m21: number, m22: number): void
-export function mat33_is_finite(mat: Mat3x3): boolean
-export function mat33_matrix_multiply(mat_src1: Mat3x3, mat_src2: Mat3x3, mat_dest: Mat3x3): void
-export function mat33_normalize(src: Mat3x3, dest: Mat3x3): void
-export function mat33_reciprocal(src: Mat3x3, dest: Mat3x3): boolean
-export function mat33_scalar_multiply(mat_src: Mat3x3, value: number, mat_dest: Mat3x3): void
-export function mat33_set_identity(src: Mat3x3): void
-export function mat33_to_string(src: Mat3x3): string
-export function mat33_vector_multiply(mat_src: Mat3x3, vec_src: Vec3, vec_dest: Vec3): void
-export function object_scope_from_string(object_scope: string): ObjectScope
-export function object_scope_to_string(object_scope: ObjectScope): string
-export function pixel_format_from_string(pixel_format: string): PixelFormat
-export function pixel_format_to_string(pixel_format: PixelFormat): string
-export function rendering_intent_from_string(rendering_intent: string): RenderingIntent
-export function rendering_intent_to_string(rendering_intent: RenderingIntent): string
-export function standard_space_from_string(standard_space: string): StandardSpace
-export function standard_space_to_string(standard_space: StandardSpace): string
+function color_get_blackbody_rgb(temp: number, result: ColorRGB): boolean
+function color_get_blackbody_rgb_full(temp: number, result: ColorRGB, flags: ColorBlackbodyFlags): boolean
+function color_rgb8_to_rgb(src: ColorRGB8, dest: ColorRGB): void
+function color_rgb_array_interpolate(array: ColorRGB[], new_length: number): ColorRGB[]
+function color_rgb_array_is_monotonic(array: ColorRGB[]): boolean
+function color_rgb_array_new(): ColorRGB[]
+function colorspace_from_string(colorspace: string): Colorspace
+function colorspace_to_string(colorspace: Colorspace): string
+function mat33_clear(src: Mat3x3): void
+function mat33_copy(src: Mat3x3, dest: Mat3x3): void
+function mat33_determinant(src: Mat3x3): number
+function mat33_get_data(src: Mat3x3): number
+function mat33_init(dest: Mat3x3, m00: number, m01: number, m02: number, m10: number, m11: number, m12: number, m20: number, m21: number, m22: number): void
+function mat33_is_finite(mat: Mat3x3): boolean
+function mat33_matrix_multiply(mat_src1: Mat3x3, mat_src2: Mat3x3, mat_dest: Mat3x3): void
+function mat33_normalize(src: Mat3x3, dest: Mat3x3): void
+function mat33_reciprocal(src: Mat3x3, dest: Mat3x3): boolean
+function mat33_scalar_multiply(mat_src: Mat3x3, value: number, mat_dest: Mat3x3): void
+function mat33_set_identity(src: Mat3x3): void
+function mat33_to_string(src: Mat3x3): string
+function mat33_vector_multiply(mat_src: Mat3x3, vec_src: Vec3, vec_dest: Vec3): void
+function object_scope_from_string(object_scope: string): ObjectScope
+function object_scope_to_string(object_scope: ObjectScope): string
+function pixel_format_from_string(pixel_format: string): PixelFormat
+function pixel_format_to_string(pixel_format: PixelFormat): string
+function rendering_intent_from_string(rendering_intent: string): RenderingIntent
+function rendering_intent_to_string(rendering_intent: RenderingIntent): string
+function standard_space_from_string(standard_space: string): StandardSpace
+function standard_space_to_string(standard_space: StandardSpace): string
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of Colord-1.0.Colord.Client */
     readonly connected: string
     readonly daemon_version: string
@@ -531,7 +533,7 @@ export class Client {
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
-export class Device {
+class Device {
     /* Properties of Colord-1.0.Colord.Device */
     readonly colorspace: number
     readonly connected: string
@@ -717,7 +719,7 @@ export class Device {
 }
 export interface Edid_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Edid {
+class Edid {
     /* Fields of Colord-1.0.Colord.Edid */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -789,7 +791,7 @@ export interface Icc_ConstructProps extends GObject.Object_ConstructProps {
     kind?: number
     version?: number
 }
-export class Icc {
+class Icc {
     /* Properties of Colord-1.0.Colord.Icc */
     readonly blue: ColorXYZ
     readonly can_delete: boolean
@@ -939,7 +941,7 @@ export class Icc {
 export interface It8_ConstructProps extends GObject.Object_ConstructProps {
     kind?: number
 }
-export class It8 {
+class It8 {
     /* Properties of Colord-1.0.Colord.It8 */
     readonly instrument: string
     kind: number
@@ -1049,7 +1051,7 @@ export class It8 {
 export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
-export class Profile {
+class Profile {
     /* Properties of Colord-1.0.Colord.Profile */
     readonly colorspace: string
     readonly connected: string
@@ -1197,7 +1199,7 @@ export class Profile {
 export interface Sensor_ConstructProps extends GObject.Object_ConstructProps {
     object_path?: string
 }
-export class Sensor {
+class Sensor {
     /* Properties of Colord-1.0.Colord.Sensor */
     readonly connected: string
     readonly embedded: string
@@ -1340,7 +1342,7 @@ export class Sensor {
     static state_to_string(sensor_state: SensorState): string
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Colord-1.0.Colord.ClientClass */
     parent_class: GObject.ObjectClass
     device_added: (client: Client, device: Device) => void
@@ -1355,7 +1357,7 @@ export abstract class ClientClass {
     changed: (client: Client) => void
     static name: string
 }
-export class ColorLab {
+class ColorLab {
     /* Fields of Colord-1.0.Colord.ColorLab */
     L: number
     a: number
@@ -1372,7 +1374,7 @@ export class ColorLab {
     /* Static methods and pseudo-constructors */
     static new(): ColorLab
 }
-export class ColorRGB {
+class ColorRGB {
     /* Fields of Colord-1.0.Colord.ColorRGB */
     R: number
     G: number
@@ -1394,14 +1396,14 @@ export class ColorRGB {
     static array_is_monotonic(array: ColorRGB[]): boolean
     static array_new(): ColorRGB[]
 }
-export class ColorRGB8 {
+class ColorRGB8 {
     /* Fields of Colord-1.0.Colord.ColorRGB8 */
     R: number
     G: number
     B: number
     static name: string
 }
-export class ColorSwatch {
+class ColorSwatch {
     /* Methods of Colord-1.0.Colord.ColorSwatch */
     dup(): ColorSwatch
     free(): void
@@ -1415,7 +1417,7 @@ export class ColorSwatch {
     /* Static methods and pseudo-constructors */
     static new(): ColorSwatch
 }
-export class ColorUVW {
+class ColorUVW {
     /* Fields of Colord-1.0.Colord.ColorUVW */
     U: number
     V: number
@@ -1433,7 +1435,7 @@ export class ColorUVW {
     /* Static methods and pseudo-constructors */
     static new(): ColorUVW
 }
-export class ColorXYZ {
+class ColorXYZ {
     /* Fields of Colord-1.0.Colord.ColorXYZ */
     X: number
     Y: number
@@ -1454,7 +1456,7 @@ export class ColorXYZ {
     /* Static methods and pseudo-constructors */
     static new(): ColorXYZ
 }
-export class ColorYxy {
+class ColorYxy {
     /* Fields of Colord-1.0.Colord.ColorYxy */
     Y: number
     x: number
@@ -1472,28 +1474,28 @@ export class ColorYxy {
     /* Static methods and pseudo-constructors */
     static new(): ColorYxy
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Colord-1.0.Colord.DeviceClass */
     parent_class: GObject.ObjectClass
     changed: (device: Device) => void
     static name: string
 }
-export abstract class EdidClass {
+abstract class EdidClass {
     /* Fields of Colord-1.0.Colord.EdidClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class IccClass {
+abstract class IccClass {
     /* Fields of Colord-1.0.Colord.IccClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class It8Class {
+abstract class It8Class {
     /* Fields of Colord-1.0.Colord.It8Class */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Mat3x3 {
+class Mat3x3 {
     /* Fields of Colord-1.0.Colord.Mat3x3 */
     m00: number
     m01: number
@@ -1506,19 +1508,19 @@ export class Mat3x3 {
     m22: number
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of Colord-1.0.Colord.ProfileClass */
     parent_class: GObject.ObjectClass
     changed: (profile: Profile) => void
     static name: string
 }
-export abstract class SensorClass {
+abstract class SensorClass {
     /* Fields of Colord-1.0.Colord.SensorClass */
     parent_class: GObject.ObjectClass
     button_pressed: (sensor: Sensor) => void
     static name: string
 }
-export class Spectrum {
+class Spectrum {
     /* Methods of Colord-1.0.Colord.Spectrum */
     add_value(data: number): void
     dup(): Spectrum
@@ -1563,7 +1565,7 @@ export class Spectrum {
     static planckian_new_full(temperature: number, start: number, end: number, resolution: number): Spectrum
     static sized_new(reserved_size: number): Spectrum
 }
-export class Vec3 {
+class Vec3 {
     /* Fields of Colord-1.0.Colord.Vec3 */
     v0: number
     v1: number
@@ -1580,4 +1582,6 @@ export class Vec3 {
     to_string(): string
     static name: string
 }
-export type PixelFormat = number
+type PixelFormat = number
+}
+export default Colord

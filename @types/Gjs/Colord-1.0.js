@@ -1,2 +1,1 @@
-imports.gi.versions.Colord = '1.0'
-module.exports = imports.gi.Colord
+export {default as default} from 'gi://Colord?version=1.0';

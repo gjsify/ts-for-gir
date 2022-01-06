@@ -1,2 +1,1 @@
-imports.gi.versions.ClutterGst = '3.0'
-module.exports = imports.gi.ClutterGst
+export {default as default} from 'gi://ClutterGst?version=3.0';

@@ -3,9 +3,11 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export enum UriResult {
+export namespace P11Kit {
+
+enum UriResult {
     OK,
     UNEXPECTED,
     BAD_SCHEME,
@@ -14,7 +16,7 @@ export enum UriResult {
     BAD_VERSION,
     NOT_FOUND,
 }
-export enum PinFlags {
+enum PinFlags {
     USER_LOGIN,
     SO_LOGIN,
     CONTEXT_LOGIN,
@@ -22,7 +24,7 @@ export enum PinFlags {
     MANY_TRIES,
     FINAL_TRY,
 }
-export enum UriType {
+enum UriType {
     OBJECT,
     TOKEN,
     MODULE,
@@ -34,21 +36,21 @@ export enum UriType {
 export const PIN_FALLBACK: string
 export const URI_SCHEME: string
 export const URI_SCHEME_LEN: number
-export function space_strdup(string: number, max_length: number): string
-export function space_strlen(string: number, max_length: number): number
-export function uri_message(code: number): string
-export function uri_parse(string: string, uri_type: UriType, uri: Uri): number
-export interface pin_destroy_func {
+function space_strdup(string: number, max_length: number): string
+function space_strlen(string: number, max_length: number): number
+function uri_message(code: number): string
+function uri_parse(string: string, uri_type: UriType, uri: Uri): number
+interface pin_destroy_func {
     (data: object): void
 }
-export class Pin {
+class Pin {
     /* Methods of P11Kit-1.0.P11Kit.Pin */
     get_length(): number
     get_value(length: number): number
     unref(): void
     static name: string
 }
-export class Uri {
+class Uri {
     /* Methods of P11Kit-1.0.P11Kit.Uri */
     any_unrecognized(): number
     clear_attributes(): void
@@ -64,3 +66,5 @@ export class Uri {
     static message(code: number): string
     static parse(string: string, uri_type: UriType, uri: Uri): number
 }
+}
+export default P11Kit

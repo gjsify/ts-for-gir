@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum NotifierEventType {
+export namespace Tracker {
+
+enum NotifierEventType {
     CREATE,
     DELETE,
     UPDATE,
 }
-export enum SparqlConnectionFlags {
+enum SparqlConnectionFlags {
     NONE,
     READONLY,
 }
-export enum SparqlValueType {
+enum SparqlValueType {
     UNBOUND,
     URI,
     STRING,
@@ -26,7 +28,7 @@ export enum SparqlValueType {
     BLANK_NODE,
     BOOLEAN,
 }
-export enum SparqlError {
+enum SparqlError {
     PARSE,
     UNKNOWN_CLASS,
     UNKNOWN_PROPERTY,
@@ -36,7 +38,7 @@ export enum SparqlError {
     INTERNAL,
     UNSUPPORTED,
 }
-export enum SparqlBuilderState {
+enum SparqlBuilderState {
     UPDATE,
     INSERT,
     DELETE,
@@ -48,7 +50,7 @@ export enum SparqlBuilderState {
     EMBEDDED_INSERT,
     GRAPH,
 }
-export enum NotifierFlags {
+enum NotifierFlags {
     NONE,
     QUERY_URN,
     QUERY_LOCATION,
@@ -63,13 +65,13 @@ export const DBUS_INTERFACE_STATUS: string
 export const DBUS_OBJECT_STATUS: string
 export const DBUS_INTERFACE_STEROIDS: string
 export const DBUS_OBJECT_STEROIDS: string
-export function check_version(required_major: number, required_minor: number, required_micro: number): string
-export function sparql_escape_uri(uri: string): string
-export function sparql_escape_string(literal: string): string
-export function sparql_get_uuid_urn(): string
+function check_version(required_major: number, required_minor: number, required_micro: number): string
+function sparql_escape_uri(uri: string): string
+function sparql_escape_string(literal: string): string
+function sparql_get_uuid_urn(): string
 export interface NamespaceManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NamespaceManager {
+class NamespaceManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-2.0.Tracker.NamespaceManager */
@@ -128,7 +130,7 @@ export class NamespaceManager {
 export interface Notifier_ConstructProps extends GObject.Object_ConstructProps {
     classes?: string[]
 }
-export class Notifier {
+class Notifier {
     /* Fields of Tracker-2.0.Tracker.Notifier */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -190,7 +192,7 @@ export class Notifier {
 export interface Resource_ConstructProps extends GObject.Object_ConstructProps {
     identifier?: string
 }
-export class Resource {
+class Resource {
     /* Properties of Tracker-2.0.Tracker.Resource */
     identifier: string
     /* Fields of Tracker-2.0.Tracker.Resource */
@@ -278,7 +280,7 @@ export class Resource {
 export interface SparqlBuilder_ConstructProps extends GObject.Object_ConstructProps {
     length?: number
 }
-export class SparqlBuilder {
+class SparqlBuilder {
     /* Properties of Tracker-2.0.Tracker.SparqlBuilder */
     readonly result: string
     length: number
@@ -371,7 +373,7 @@ export class SparqlBuilder {
 }
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SparqlConnection {
+class SparqlConnection {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-2.0.Tracker.SparqlConnection */
@@ -472,7 +474,7 @@ export class SparqlConnection {
 export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructProps {
     connection?: any
 }
-export class SparqlCursor {
+class SparqlCursor {
     /* Properties of Tracker-2.0.Tracker.SparqlCursor */
     connection: any
     readonly n_columns: number
@@ -559,7 +561,7 @@ export interface SparqlStatement_ConstructProps extends GObject.Object_Construct
     sparql?: string
     connection?: any
 }
-export class SparqlStatement {
+class SparqlStatement {
     /* Properties of Tracker-2.0.Tracker.SparqlStatement */
     sparql: string
     connection: any
@@ -632,18 +634,18 @@ export class SparqlStatement {
     _init (config?: SparqlStatement_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class NamespaceManagerClass {
+abstract class NamespaceManagerClass {
     /* Fields of Tracker-2.0.Tracker.NamespaceManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class NotifierClass {
+abstract class NotifierClass {
     /* Fields of Tracker-2.0.Tracker.NotifierClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class NotifierEvent {
+class NotifierEvent {
     /* Methods of Tracker-2.0.Tracker.NotifierEvent */
     get_event_type(): NotifierEventType
     get_id(): number
@@ -652,18 +654,18 @@ export class NotifierEvent {
     get_urn(): string
     static name: string
 }
-export abstract class ResourceClass {
+abstract class ResourceClass {
     /* Fields of Tracker-2.0.Tracker.ResourceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SparqlBuilderClass {
+abstract class SparqlBuilderClass {
     static name: string
 }
-export class SparqlBuilderPrivate {
+class SparqlBuilderPrivate {
     static name: string
 }
-export abstract class SparqlConnectionClass {
+abstract class SparqlConnectionClass {
     /* Fields of Tracker-2.0.Tracker.SparqlConnectionClass */
     query: (self: any, sparql: string, cancellable?: Gio.Cancellable | null) => any
     query_async: (self: any, sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -686,10 +688,10 @@ export abstract class SparqlConnectionClass {
     query_statement: (self: any, sparql: string, cancellable?: Gio.Cancellable | null) => any | null
     static name: string
 }
-export class SparqlConnectionPrivate {
+class SparqlConnectionPrivate {
     static name: string
 }
-export abstract class SparqlCursorClass {
+abstract class SparqlCursorClass {
     /* Fields of Tracker-2.0.Tracker.SparqlCursorClass */
     get_value_type: (self: any, column: number) => any
     get_variable_name: (self: any, column: number) => string | null
@@ -705,10 +707,10 @@ export abstract class SparqlCursorClass {
     is_bound: (self: any, column: number) => boolean
     static name: string
 }
-export class SparqlCursorPrivate {
+class SparqlCursorPrivate {
     static name: string
 }
-export abstract class SparqlStatementClass {
+abstract class SparqlStatementClass {
     /* Fields of Tracker-2.0.Tracker.SparqlStatementClass */
     bind_int: (self: any, name: string, value: number) => void
     bind_boolean: (self: any, name: string, value: boolean) => void
@@ -719,6 +721,8 @@ export abstract class SparqlStatementClass {
     execute_finish: (self: any, _res_: Gio.AsyncResult) => any
     static name: string
 }
-export class SparqlStatementPrivate {
+class SparqlStatementPrivate {
     static name: string
 }
+}
+export default Tracker

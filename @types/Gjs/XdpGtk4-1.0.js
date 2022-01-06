@@ -1,2 +1,1 @@
-imports.gi.versions.XdpGtk4 = '1.0'
-module.exports = imports.gi.XdpGtk4
+export {default as default} from 'gi://XdpGtk4?version=1.0';

@@ -1,2 +1,1 @@
-imports.gi.versions.GUPnPDLNA = '2.0'
-module.exports = imports.gi.GUPnPDLNA
+export {default as default} from 'gi://GUPnPDLNA?version=2.0';

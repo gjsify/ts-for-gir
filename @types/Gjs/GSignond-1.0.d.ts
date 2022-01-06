@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum Error {
+export namespace GSignond {
+
+enum Error {
     NONE,
     UNKNOWN,
     INTERNAL_SERVER,
@@ -49,7 +51,7 @@ export enum Error {
     INCORRECT_DATE,
     USER_ERR,
 }
-export enum PluginState {
+enum PluginState {
     NONE,
     RESOLVING,
     CONNECTING,
@@ -63,7 +65,7 @@ export enum PluginState {
     DONE,
     HOLDING,
 }
-export enum SignonuiError {
+enum SignonuiError {
     NONE,
     GENERAL,
     NO_SIGNONUI,
@@ -77,7 +79,7 @@ export enum SignonuiError {
     FORBIDDEN,
     FORGOT_PASSWORD,
 }
-export enum UiPolicy {
+enum UiPolicy {
     DEFAULT,
     REQUEST_PASSWORD,
     NO_USER_INTERACTION,
@@ -85,17 +87,17 @@ export enum UiPolicy {
 }
 export const CONFIG_DBUS_TIMEOUTS: string
 export const CONFIG_GENERAL: string
-export function error_new_from_variant(var_: GLib.Variant): GLib.Error | null
-export function error_quark(): GLib.Quark
-export function error_to_variant(error: GLib.Error): GLib.Variant | null
-export function generate_nonce(): string
-export function is_host_in_domain(host: string, domain: string): boolean
-export function new_io_stream_from_fd(in_fd: number, out_fd: number, close_fds: boolean): Gio.IOStream
-export function security_context_from_variant(variant: GLib.Variant): SecurityContext
-export function sequence_to_array(seq: GLib.Sequence): string[]
-export function wipe_directory(dirname: string): boolean
-export function wipe_file(filename: string): boolean
-export class Plugin {
+function error_new_from_variant(var_: GLib.Variant): GLib.Error | null
+function error_quark(): GLib.Quark
+function error_to_variant(error: GLib.Error): GLib.Variant | null
+function generate_nonce(): string
+function is_host_in_domain(host: string, domain: string): boolean
+function new_io_stream_from_fd(in_fd: number, out_fd: number, close_fds: boolean): Gio.IOStream
+function security_context_from_variant(variant: GLib.Variant): SecurityContext
+function sequence_to_array(seq: GLib.Sequence): string[]
+function wipe_directory(dirname: string): boolean
+function wipe_file(filename: string): boolean
+class Plugin {
     /* Properties of GSignond-1.0.GSignond.Plugin */
     readonly mechanisms: string[]
     readonly type: string
@@ -145,7 +147,7 @@ export class Plugin {
 export interface AccessControlManager_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class AccessControlManager {
+class AccessControlManager {
     /* Fields of GSignond-1.0.GSignond.AccessControlManager */
     parent_instance: GObject.Object
     config: Config
@@ -209,7 +211,7 @@ export class AccessControlManager {
 }
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Config {
+class Config {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GSignond-1.0.GSignond.Config */
@@ -264,7 +266,7 @@ export class Config {
 }
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Credentials {
+class Credentials {
     /* Fields of GSignond-1.0.GSignond.Credentials */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -325,7 +327,7 @@ export class Credentials {
 }
 export interface Dictionary_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Dictionary {
+class Dictionary {
     /* Fields of GSignond-1.0.GSignond.Dictionary */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -399,7 +401,7 @@ export class Dictionary {
 }
 export interface Extension_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Extension {
+class Extension {
     /* Fields of GSignond-1.0.GSignond.Extension */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -462,7 +464,7 @@ export class Extension {
 export interface SecretStorage_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class SecretStorage {
+class SecretStorage {
     /* Fields of GSignond-1.0.GSignond.SecretStorage */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -538,7 +540,7 @@ export class SecretStorage {
 }
 export interface SessionData_ConstructProps extends Dictionary_ConstructProps {
 }
-export class SessionData {
+class SessionData {
     /* Fields of GSignond-1.0.GSignond.SessionData */
     parent_instance: Dictionary
     /* Fields of GObject-2.0.GObject.Object */
@@ -633,7 +635,7 @@ export class SessionData {
 }
 export interface SignonuiData_ConstructProps extends Dictionary_ConstructProps {
 }
-export class SignonuiData {
+class SignonuiData {
     /* Fields of GSignond-1.0.GSignond.SignonuiData */
     parent_instance: Dictionary
     /* Fields of GObject-2.0.GObject.Object */
@@ -748,7 +750,7 @@ export class SignonuiData {
 export interface StorageManager_ConstructProps extends GObject.Object_ConstructProps {
     config?: Config
 }
-export class StorageManager {
+class StorageManager {
     /* Fields of GSignond-1.0.GSignond.StorageManager */
     parent_instance: GObject.Object
     config: Config
@@ -813,7 +815,7 @@ export class StorageManager {
     _init (config?: StorageManager_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AccessControlManagerClass {
+abstract class AccessControlManagerClass {
     /* Fields of GSignond-1.0.GSignond.AccessControlManagerClass */
     parent_class: GObject.ObjectClass
     security_context_of_peer: (self: AccessControlManager, peer_ctx: SecurityContext, peer_fd: number, peer_service: string, peer_app_ctx: string) => void
@@ -823,21 +825,21 @@ export abstract class AccessControlManagerClass {
     security_context_of_keychain: (self: AccessControlManager) => SecurityContext
     static name: string
 }
-export class AccessControlManagerPrivate {
+class AccessControlManagerPrivate {
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of GSignond-1.0.GSignond.ConfigClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class CredentialsClass {
+abstract class CredentialsClass {
     static name: string
 }
-export abstract class DictionaryClass {
+abstract class DictionaryClass {
     static name: string
 }
-export abstract class ExtensionClass {
+abstract class ExtensionClass {
     /* Fields of GSignond-1.0.GSignond.ExtensionClass */
     parent_class: GObject.ObjectClass
     get_extension_name: (self: Extension) => string
@@ -847,7 +849,7 @@ export abstract class ExtensionClass {
     get_access_control_manager: (self: Extension, config: Config) => AccessControlManager
     static name: string
 }
-export abstract class PluginInterface {
+abstract class PluginInterface {
     /* Fields of GSignond-1.0.GSignond.PluginInterface */
     parent: GObject.TypeInterface
     cancel: (self: Plugin) => void
@@ -857,7 +859,7 @@ export abstract class PluginInterface {
     refresh: (self: Plugin, ui_data: SignonuiData) => void
     static name: string
 }
-export abstract class SecretStorageClass {
+abstract class SecretStorageClass {
     /* Fields of GSignond-1.0.GSignond.SecretStorageClass */
     parent_class: GObject.ObjectClass
     open_db: (self: SecretStorage) => boolean
@@ -874,10 +876,10 @@ export abstract class SecretStorageClass {
     get_last_error: (self: SecretStorage) => GLib.Error
     static name: string
 }
-export class SecretStoragePrivate {
+class SecretStoragePrivate {
     static name: string
 }
-export class SecurityContext {
+class SecurityContext {
     /* Fields of GSignond-1.0.GSignond.SecurityContext */
     sys_ctx: string
     app_ctx: string
@@ -900,13 +902,13 @@ export class SecurityContext {
     static new_from_values(system_context: string, application_context: string): SecurityContext
     static from_variant(variant: GLib.Variant): SecurityContext
 }
-export abstract class SessionDataClass {
+abstract class SessionDataClass {
     static name: string
 }
-export abstract class SignonuiDataClass {
+abstract class SignonuiDataClass {
     static name: string
 }
-export abstract class StorageManagerClass {
+abstract class StorageManagerClass {
     /* Fields of GSignond-1.0.GSignond.StorageManagerClass */
     parent_class: GObject.ObjectClass
     initialize_storage: (self: StorageManager) => boolean
@@ -917,6 +919,8 @@ export abstract class StorageManagerClass {
     filesystem_is_mounted: (self: StorageManager) => boolean
     static name: string
 }
-export class StorageManagerPrivate {
+class StorageManagerPrivate {
     static name: string
 }
+}
+export default GSignond

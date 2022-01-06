@@ -1,2 +1,1 @@
-imports.gi.versions.Geoclue = '2.0'
-module.exports = imports.gi.Geoclue
+export {default as default} from 'gi://Geoclue?version=2.0';

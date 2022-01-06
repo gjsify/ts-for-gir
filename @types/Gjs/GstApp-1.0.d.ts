@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum AppLeakyType {
+export namespace GstApp {
+
+enum AppLeakyType {
     NONE,
     UPSTREAM,
     DOWNSTREAM,
 }
-export enum AppStreamType {
+enum AppStreamType {
     STREAM,
     SEEKABLE,
     RANDOM_ACCESS,
@@ -27,7 +29,7 @@ export interface AppSink_ConstructProps extends GstBase.BaseSink_ConstructProps 
     max_buffers?: number
     wait_on_eos?: boolean
 }
-export class AppSink {
+class AppSink {
     /* Properties of GstApp-1.0.GstApp.AppSink */
     buffer_list: boolean
     caps: Gst.Caps
@@ -438,7 +440,7 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     size?: number
     stream_type?: AppStreamType
 }
-export class AppSrc {
+class AppSrc {
     /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
@@ -835,7 +837,7 @@ export class AppSrc {
     _init (config?: AppSrc_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class AppSinkCallbacks {
+class AppSinkCallbacks {
     /* Fields of GstApp-1.0.GstApp.AppSinkCallbacks */
     eos: (appsink: AppSink) => void
     new_preroll: (appsink: AppSink) => Gst.FlowReturn
@@ -843,7 +845,7 @@ export class AppSinkCallbacks {
     new_event: (appsink: AppSink) => boolean
     static name: string
 }
-export abstract class AppSinkClass {
+abstract class AppSinkClass {
     /* Fields of GstApp-1.0.GstApp.AppSinkClass */
     basesink_class: GstBase.BaseSinkClass
     eos: (appsink: AppSink) => void
@@ -856,17 +858,17 @@ export abstract class AppSinkClass {
     try_pull_object: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.MiniObject
     static name: string
 }
-export class AppSinkPrivate {
+class AppSinkPrivate {
     static name: string
 }
-export class AppSrcCallbacks {
+class AppSrcCallbacks {
     /* Fields of GstApp-1.0.GstApp.AppSrcCallbacks */
     need_data: (src: AppSrc, length: number) => void
     enough_data: (src: AppSrc) => void
     seek_data: (src: AppSrc, offset: number) => boolean
     static name: string
 }
-export abstract class AppSrcClass {
+abstract class AppSrcClass {
     /* Fields of GstApp-1.0.GstApp.AppSrcClass */
     basesrc_class: GstBase.BaseSrcClass
     need_data: (appsrc: AppSrc, length: number) => void
@@ -878,6 +880,8 @@ export abstract class AppSrcClass {
     push_buffer_list: (appsrc: AppSrc, buffer_list: Gst.BufferList) => Gst.FlowReturn
     static name: string
 }
-export class AppSrcPrivate {
+class AppSrcPrivate {
     static name: string
 }
+}
+export default GstApp

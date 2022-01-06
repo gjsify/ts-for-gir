@@ -13,12 +13,12 @@ import type { Json } from './Json-1.0';
 import type { GXml } from './GXml-0.20';
 import type { libxml2 } from './libxml2-2.0';
 
-export declare namespace Vgda {
+declare namespace Vgda {
 
 export interface GProvider_ConstructProps extends GObject.Object_ConstructProps {
     parameters?: Vda.ConnectionParameters
 }
-export class GProvider {
+class GProvider {
     /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
@@ -140,10 +140,11 @@ export class GProvider {
     static new(): GProvider
     static $gtype: GObject.Type
 }
-export abstract class GProviderClass {
+abstract class GProviderClass {
     static name: string
 }
-export class GProviderPrivate {
+class GProviderPrivate {
     static name: string
 }
 }
+export default Vgda

@@ -3,2372 +3,2376 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
+import type GObject from './GObject-2.0';
 
-export class Flags {
+export namespace Vulkan {
+
+class Flags {
     static name: string
 }
-export class Bool32 {
+class Bool32 {
     static name: string
 }
-export class DeviceSize {
+class DeviceSize {
     static name: string
 }
-export class SampleMask {
+class SampleMask {
     static name: string
 }
-export class Instance {
+class Instance {
     static name: string
 }
-export class PhysicalDevice {
+class PhysicalDevice {
     static name: string
 }
-export class Device {
+class Device {
     static name: string
 }
-export class Queue {
+class Queue {
     static name: string
 }
-export class Semaphore {
+class Semaphore {
     static name: string
 }
-export class CommandBuffer {
+class CommandBuffer {
     static name: string
 }
-export class Fence {
+class Fence {
     static name: string
 }
-export class DeviceMemory {
+class DeviceMemory {
     static name: string
 }
-export class Buffer {
+class Buffer {
     static name: string
 }
-export class Image {
+class Image {
     static name: string
 }
-export class Event {
+class Event {
     static name: string
 }
-export class QueryPool {
+class QueryPool {
     static name: string
 }
-export class BufferView {
+class BufferView {
     static name: string
 }
-export class ImageView {
+class ImageView {
     static name: string
 }
-export class ShaderModule {
+class ShaderModule {
     static name: string
 }
-export class PipelineCache {
+class PipelineCache {
     static name: string
 }
-export class PipelineLayout {
+class PipelineLayout {
     static name: string
 }
-export class RenderPass {
+class RenderPass {
     static name: string
 }
-export class Pipeline {
+class Pipeline {
     static name: string
 }
-export class DescriptorSetLayout {
+class DescriptorSetLayout {
     static name: string
 }
-export class Sampler {
+class Sampler {
     static name: string
 }
-export class DescriptorPool {
+class DescriptorPool {
     static name: string
 }
-export class DescriptorSet {
+class DescriptorSet {
     static name: string
 }
-export class Framebuffer {
+class Framebuffer {
     static name: string
 }
-export class CommandPool {
+class CommandPool {
     static name: string
 }
-export class PipelineCacheHeaderVersion {
+class PipelineCacheHeaderVersion {
     static name: string
 }
-export class Result {
+class Result {
     static name: string
 }
-export class StructureType {
+class StructureType {
     static name: string
 }
-export class SystemAllocationScope {
+class SystemAllocationScope {
     static name: string
 }
-export class InternalAllocationType {
+class InternalAllocationType {
     static name: string
 }
-export class Format {
+class Format {
     static name: string
 }
-export class ImageType {
+class ImageType {
     static name: string
 }
-export class ImageTiling {
+class ImageTiling {
     static name: string
 }
-export class PhysicalDeviceType {
+class PhysicalDeviceType {
     static name: string
 }
-export class QueryType {
+class QueryType {
     static name: string
 }
-export class SharingMode {
+class SharingMode {
     static name: string
 }
-export class ImageLayout {
+class ImageLayout {
     static name: string
 }
-export class ImageViewType {
+class ImageViewType {
     static name: string
 }
-export class ComponentSwizzle {
+class ComponentSwizzle {
     static name: string
 }
-export class VertexInputRate {
+class VertexInputRate {
     static name: string
 }
-export class PrimitiveTopology {
+class PrimitiveTopology {
     static name: string
 }
-export class PolygonMode {
+class PolygonMode {
     static name: string
 }
-export class FrontFace {
+class FrontFace {
     static name: string
 }
-export class CompareOp {
+class CompareOp {
     static name: string
 }
-export class StencilOp {
+class StencilOp {
     static name: string
 }
-export class LogicOp {
+class LogicOp {
     static name: string
 }
-export class BlendFactor {
+class BlendFactor {
     static name: string
 }
-export class BlendOp {
+class BlendOp {
     static name: string
 }
-export class DynamicState {
+class DynamicState {
     static name: string
 }
-export class Filter {
+class Filter {
     static name: string
 }
-export class SamplerMipmapMode {
+class SamplerMipmapMode {
     static name: string
 }
-export class SamplerAddressMode {
+class SamplerAddressMode {
     static name: string
 }
-export class BorderColor {
+class BorderColor {
     static name: string
 }
-export class DescriptorType {
+class DescriptorType {
     static name: string
 }
-export class AttachmentLoadOp {
+class AttachmentLoadOp {
     static name: string
 }
-export class AttachmentStoreOp {
+class AttachmentStoreOp {
     static name: string
 }
-export class PipelineBindPoint {
+class PipelineBindPoint {
     static name: string
 }
-export class CommandBufferLevel {
+class CommandBufferLevel {
     static name: string
 }
-export class IndexType {
+class IndexType {
     static name: string
 }
-export class SubpassContents {
+class SubpassContents {
     static name: string
 }
-export class ObjectType {
+class ObjectType {
     static name: string
 }
-export class VendorId {
+class VendorId {
     static name: string
 }
-export class InstanceCreateFlags {
+class InstanceCreateFlags {
     static name: string
 }
-export class FormatFeatureFlagBits {
+class FormatFeatureFlagBits {
     static name: string
 }
-export class FormatFeatureFlags {
+class FormatFeatureFlags {
     static name: string
 }
-export class ImageUsageFlagBits {
+class ImageUsageFlagBits {
     static name: string
 }
-export class ImageUsageFlags {
+class ImageUsageFlags {
     static name: string
 }
-export class ImageCreateFlagBits {
+class ImageCreateFlagBits {
     static name: string
 }
-export class ImageCreateFlags {
+class ImageCreateFlags {
     static name: string
 }
-export class SampleCountFlagBits {
+class SampleCountFlagBits {
     static name: string
 }
-export class SampleCountFlags {
+class SampleCountFlags {
     static name: string
 }
-export class QueueFlagBits {
+class QueueFlagBits {
     static name: string
 }
-export class QueueFlags {
+class QueueFlags {
     static name: string
 }
-export class MemoryPropertyFlagBits {
+class MemoryPropertyFlagBits {
     static name: string
 }
-export class MemoryPropertyFlags {
+class MemoryPropertyFlags {
     static name: string
 }
-export class MemoryHeapFlagBits {
+class MemoryHeapFlagBits {
     static name: string
 }
-export class MemoryHeapFlags {
+class MemoryHeapFlags {
     static name: string
 }
-export class DeviceCreateFlags {
+class DeviceCreateFlags {
     static name: string
 }
-export class DeviceQueueCreateFlagBits {
+class DeviceQueueCreateFlagBits {
     static name: string
 }
-export class DeviceQueueCreateFlags {
+class DeviceQueueCreateFlags {
     static name: string
 }
-export class PipelineStageFlagBits {
+class PipelineStageFlagBits {
     static name: string
 }
-export class PipelineStageFlags {
+class PipelineStageFlags {
     static name: string
 }
-export class MemoryMapFlags {
+class MemoryMapFlags {
     static name: string
 }
-export class ImageAspectFlagBits {
+class ImageAspectFlagBits {
     static name: string
 }
-export class ImageAspectFlags {
+class ImageAspectFlags {
     static name: string
 }
-export class SparseImageFormatFlagBits {
+class SparseImageFormatFlagBits {
     static name: string
 }
-export class SparseImageFormatFlags {
+class SparseImageFormatFlags {
     static name: string
 }
-export class SparseMemoryBindFlagBits {
+class SparseMemoryBindFlagBits {
     static name: string
 }
-export class SparseMemoryBindFlags {
+class SparseMemoryBindFlags {
     static name: string
 }
-export class FenceCreateFlagBits {
+class FenceCreateFlagBits {
     static name: string
 }
-export class FenceCreateFlags {
+class FenceCreateFlags {
     static name: string
 }
-export class SemaphoreCreateFlags {
+class SemaphoreCreateFlags {
     static name: string
 }
-export class EventCreateFlags {
+class EventCreateFlags {
     static name: string
 }
-export class QueryPoolCreateFlags {
+class QueryPoolCreateFlags {
     static name: string
 }
-export class QueryPipelineStatisticFlagBits {
+class QueryPipelineStatisticFlagBits {
     static name: string
 }
-export class QueryPipelineStatisticFlags {
+class QueryPipelineStatisticFlags {
     static name: string
 }
-export class QueryResultFlagBits {
+class QueryResultFlagBits {
     static name: string
 }
-export class QueryResultFlags {
+class QueryResultFlags {
     static name: string
 }
-export class BufferCreateFlagBits {
+class BufferCreateFlagBits {
     static name: string
 }
-export class BufferCreateFlags {
+class BufferCreateFlags {
     static name: string
 }
-export class BufferUsageFlagBits {
+class BufferUsageFlagBits {
     static name: string
 }
-export class BufferUsageFlags {
+class BufferUsageFlags {
     static name: string
 }
-export class BufferViewCreateFlags {
+class BufferViewCreateFlags {
     static name: string
 }
-export class ImageViewCreateFlagBits {
+class ImageViewCreateFlagBits {
     static name: string
 }
-export class ImageViewCreateFlags {
+class ImageViewCreateFlags {
     static name: string
 }
-export class ShaderModuleCreateFlags {
+class ShaderModuleCreateFlags {
     static name: string
 }
-export class PipelineCacheCreateFlags {
+class PipelineCacheCreateFlags {
     static name: string
 }
-export class PipelineCreateFlagBits {
+class PipelineCreateFlagBits {
     static name: string
 }
-export class PipelineCreateFlags {
+class PipelineCreateFlags {
     static name: string
 }
-export class PipelineShaderStageCreateFlags {
+class PipelineShaderStageCreateFlags {
     static name: string
 }
-export class ShaderStageFlagBits {
+class ShaderStageFlagBits {
     static name: string
 }
-export class PipelineVertexInputStateCreateFlags {
+class PipelineVertexInputStateCreateFlags {
     static name: string
 }
-export class PipelineInputAssemblyStateCreateFlags {
+class PipelineInputAssemblyStateCreateFlags {
     static name: string
 }
-export class PipelineTessellationStateCreateFlags {
+class PipelineTessellationStateCreateFlags {
     static name: string
 }
-export class PipelineViewportStateCreateFlags {
+class PipelineViewportStateCreateFlags {
     static name: string
 }
-export class PipelineRasterizationStateCreateFlags {
+class PipelineRasterizationStateCreateFlags {
     static name: string
 }
-export class CullModeFlagBits {
+class CullModeFlagBits {
     static name: string
 }
-export class CullModeFlags {
+class CullModeFlags {
     static name: string
 }
-export class PipelineMultisampleStateCreateFlags {
+class PipelineMultisampleStateCreateFlags {
     static name: string
 }
-export class PipelineDepthStencilStateCreateFlags {
+class PipelineDepthStencilStateCreateFlags {
     static name: string
 }
-export class PipelineColorBlendStateCreateFlags {
+class PipelineColorBlendStateCreateFlags {
     static name: string
 }
-export class ColorComponentFlagBits {
+class ColorComponentFlagBits {
     static name: string
 }
-export class ColorComponentFlags {
+class ColorComponentFlags {
     static name: string
 }
-export class PipelineDynamicStateCreateFlags {
+class PipelineDynamicStateCreateFlags {
     static name: string
 }
-export class PipelineLayoutCreateFlags {
+class PipelineLayoutCreateFlags {
     static name: string
 }
-export class ShaderStageFlags {
+class ShaderStageFlags {
     static name: string
 }
-export class SamplerCreateFlagBits {
+class SamplerCreateFlagBits {
     static name: string
 }
-export class SamplerCreateFlags {
+class SamplerCreateFlags {
     static name: string
 }
-export class DescriptorSetLayoutCreateFlagBits {
+class DescriptorSetLayoutCreateFlagBits {
     static name: string
 }
-export class DescriptorSetLayoutCreateFlags {
+class DescriptorSetLayoutCreateFlags {
     static name: string
 }
-export class DescriptorPoolCreateFlagBits {
+class DescriptorPoolCreateFlagBits {
     static name: string
 }
-export class DescriptorPoolCreateFlags {
+class DescriptorPoolCreateFlags {
     static name: string
 }
-export class DescriptorPoolResetFlags {
+class DescriptorPoolResetFlags {
     static name: string
 }
-export class FramebufferCreateFlags {
+class FramebufferCreateFlags {
     static name: string
 }
-export class RenderPassCreateFlags {
+class RenderPassCreateFlags {
     static name: string
 }
-export class AttachmentDescriptionFlagBits {
+class AttachmentDescriptionFlagBits {
     static name: string
 }
-export class AttachmentDescriptionFlags {
+class AttachmentDescriptionFlags {
     static name: string
 }
-export class SubpassDescriptionFlagBits {
+class SubpassDescriptionFlagBits {
     static name: string
 }
-export class SubpassDescriptionFlags {
+class SubpassDescriptionFlags {
     static name: string
 }
-export class AccessFlagBits {
+class AccessFlagBits {
     static name: string
 }
-export class AccessFlags {
+class AccessFlags {
     static name: string
 }
-export class DependencyFlagBits {
+class DependencyFlagBits {
     static name: string
 }
-export class DependencyFlags {
+class DependencyFlags {
     static name: string
 }
-export class CommandPoolCreateFlagBits {
+class CommandPoolCreateFlagBits {
     static name: string
 }
-export class CommandPoolCreateFlags {
+class CommandPoolCreateFlags {
     static name: string
 }
-export class CommandPoolResetFlagBits {
+class CommandPoolResetFlagBits {
     static name: string
 }
-export class CommandPoolResetFlags {
+class CommandPoolResetFlags {
     static name: string
 }
-export class CommandBufferUsageFlagBits {
+class CommandBufferUsageFlagBits {
     static name: string
 }
-export class CommandBufferUsageFlags {
+class CommandBufferUsageFlags {
     static name: string
 }
-export class QueryControlFlagBits {
+class QueryControlFlagBits {
     static name: string
 }
-export class QueryControlFlags {
+class QueryControlFlags {
     static name: string
 }
-export class CommandBufferResetFlagBits {
+class CommandBufferResetFlagBits {
     static name: string
 }
-export class CommandBufferResetFlags {
+class CommandBufferResetFlags {
     static name: string
 }
-export class StencilFaceFlagBits {
+class StencilFaceFlagBits {
     static name: string
 }
-export class StencilFaceFlags {
+class StencilFaceFlags {
     static name: string
 }
-export class ApplicationInfo {
+class ApplicationInfo {
     static name: string
 }
-export class InstanceCreateInfo {
+class InstanceCreateInfo {
     static name: string
 }
-export class AllocationCallbacks {
+class AllocationCallbacks {
     static name: string
 }
-export class PhysicalDeviceFeatures {
+class PhysicalDeviceFeatures {
     static name: string
 }
-export class FormatProperties {
+class FormatProperties {
     static name: string
 }
-export class Extent3D {
+class Extent3D {
     static name: string
 }
-export class ImageFormatProperties {
+class ImageFormatProperties {
     static name: string
 }
-export class PhysicalDeviceLimits {
+class PhysicalDeviceLimits {
     static name: string
 }
-export class PhysicalDeviceSparseProperties {
+class PhysicalDeviceSparseProperties {
     static name: string
 }
-export class PhysicalDeviceProperties {
+class PhysicalDeviceProperties {
     static name: string
 }
-export class QueueFamilyProperties {
+class QueueFamilyProperties {
     static name: string
 }
-export class MemoryType {
+class MemoryType {
     static name: string
 }
-export class MemoryHeap {
+class MemoryHeap {
     static name: string
 }
-export class PhysicalDeviceMemoryProperties {
+class PhysicalDeviceMemoryProperties {
     static name: string
 }
-export class DeviceQueueCreateInfo {
+class DeviceQueueCreateInfo {
     static name: string
 }
-export class DeviceCreateInfo {
+class DeviceCreateInfo {
     static name: string
 }
-export class ExtensionProperties {
+class ExtensionProperties {
     static name: string
 }
-export class LayerProperties {
+class LayerProperties {
     static name: string
 }
-export class SubmitInfo {
+class SubmitInfo {
     static name: string
 }
-export class MemoryAllocateInfo {
+class MemoryAllocateInfo {
     static name: string
 }
-export class MappedMemoryRange {
+class MappedMemoryRange {
     static name: string
 }
-export class MemoryRequirements {
+class MemoryRequirements {
     static name: string
 }
-export class SparseImageFormatProperties {
+class SparseImageFormatProperties {
     static name: string
 }
-export class SparseImageMemoryRequirements {
+class SparseImageMemoryRequirements {
     static name: string
 }
-export class SparseMemoryBind {
+class SparseMemoryBind {
     static name: string
 }
-export class SparseBufferMemoryBindInfo {
+class SparseBufferMemoryBindInfo {
     static name: string
 }
-export class SparseImageOpaqueMemoryBindInfo {
+class SparseImageOpaqueMemoryBindInfo {
     static name: string
 }
-export class ImageSubresource {
+class ImageSubresource {
     static name: string
 }
-export class Offset3D {
+class Offset3D {
     static name: string
 }
-export class SparseImageMemoryBind {
+class SparseImageMemoryBind {
     static name: string
 }
-export class SparseImageMemoryBindInfo {
+class SparseImageMemoryBindInfo {
     static name: string
 }
-export class BindSparseInfo {
+class BindSparseInfo {
     static name: string
 }
-export class FenceCreateInfo {
+class FenceCreateInfo {
     static name: string
 }
-export class SemaphoreCreateInfo {
+class SemaphoreCreateInfo {
     static name: string
 }
-export class EventCreateInfo {
+class EventCreateInfo {
     static name: string
 }
-export class QueryPoolCreateInfo {
+class QueryPoolCreateInfo {
     static name: string
 }
-export class BufferCreateInfo {
+class BufferCreateInfo {
     static name: string
 }
-export class BufferViewCreateInfo {
+class BufferViewCreateInfo {
     static name: string
 }
-export class ImageCreateInfo {
+class ImageCreateInfo {
     static name: string
 }
-export class SubresourceLayout {
+class SubresourceLayout {
     static name: string
 }
-export class ComponentMapping {
+class ComponentMapping {
     static name: string
 }
-export class ImageSubresourceRange {
+class ImageSubresourceRange {
     static name: string
 }
-export class ImageViewCreateInfo {
+class ImageViewCreateInfo {
     static name: string
 }
-export class ShaderModuleCreateInfo {
+class ShaderModuleCreateInfo {
     static name: string
 }
-export class PipelineCacheCreateInfo {
+class PipelineCacheCreateInfo {
     static name: string
 }
-export class SpecializationMapEntry {
+class SpecializationMapEntry {
     static name: string
 }
-export class SpecializationInfo {
+class SpecializationInfo {
     static name: string
 }
-export class PipelineShaderStageCreateInfo {
+class PipelineShaderStageCreateInfo {
     static name: string
 }
-export class VertexInputBindingDescription {
+class VertexInputBindingDescription {
     static name: string
 }
-export class VertexInputAttributeDescription {
+class VertexInputAttributeDescription {
     static name: string
 }
-export class PipelineVertexInputStateCreateInfo {
+class PipelineVertexInputStateCreateInfo {
     static name: string
 }
-export class PipelineInputAssemblyStateCreateInfo {
+class PipelineInputAssemblyStateCreateInfo {
     static name: string
 }
-export class PipelineTessellationStateCreateInfo {
+class PipelineTessellationStateCreateInfo {
     static name: string
 }
-export class Viewport {
+class Viewport {
     static name: string
 }
-export class Offset2D {
+class Offset2D {
     static name: string
 }
-export class Extent2D {
+class Extent2D {
     static name: string
 }
-export class Rect2D {
+class Rect2D {
     static name: string
 }
-export class PipelineViewportStateCreateInfo {
+class PipelineViewportStateCreateInfo {
     static name: string
 }
-export class PipelineRasterizationStateCreateInfo {
+class PipelineRasterizationStateCreateInfo {
     static name: string
 }
-export class PipelineMultisampleStateCreateInfo {
+class PipelineMultisampleStateCreateInfo {
     static name: string
 }
-export class StencilOpState {
+class StencilOpState {
     static name: string
 }
-export class PipelineDepthStencilStateCreateInfo {
+class PipelineDepthStencilStateCreateInfo {
     static name: string
 }
-export class PipelineColorBlendAttachmentState {
+class PipelineColorBlendAttachmentState {
     static name: string
 }
-export class PipelineColorBlendStateCreateInfo {
+class PipelineColorBlendStateCreateInfo {
     static name: string
 }
-export class PipelineDynamicStateCreateInfo {
+class PipelineDynamicStateCreateInfo {
     static name: string
 }
-export class GraphicsPipelineCreateInfo {
+class GraphicsPipelineCreateInfo {
     static name: string
 }
-export class ComputePipelineCreateInfo {
+class ComputePipelineCreateInfo {
     static name: string
 }
-export class PushConstantRange {
+class PushConstantRange {
     static name: string
 }
-export class PipelineLayoutCreateInfo {
+class PipelineLayoutCreateInfo {
     static name: string
 }
-export class SamplerCreateInfo {
+class SamplerCreateInfo {
     static name: string
 }
-export class DescriptorSetLayoutBinding {
+class DescriptorSetLayoutBinding {
     static name: string
 }
-export class DescriptorSetLayoutCreateInfo {
+class DescriptorSetLayoutCreateInfo {
     static name: string
 }
-export class DescriptorPoolSize {
+class DescriptorPoolSize {
     static name: string
 }
-export class DescriptorPoolCreateInfo {
+class DescriptorPoolCreateInfo {
     static name: string
 }
-export class DescriptorSetAllocateInfo {
+class DescriptorSetAllocateInfo {
     static name: string
 }
-export class DescriptorImageInfo {
+class DescriptorImageInfo {
     static name: string
 }
-export class DescriptorBufferInfo {
+class DescriptorBufferInfo {
     static name: string
 }
-export class WriteDescriptorSet {
+class WriteDescriptorSet {
     static name: string
 }
-export class CopyDescriptorSet {
+class CopyDescriptorSet {
     static name: string
 }
-export class FramebufferCreateInfo {
+class FramebufferCreateInfo {
     static name: string
 }
-export class AttachmentDescription {
+class AttachmentDescription {
     static name: string
 }
-export class AttachmentReference {
+class AttachmentReference {
     static name: string
 }
-export class SubpassDescription {
+class SubpassDescription {
     static name: string
 }
-export class SubpassDependency {
+class SubpassDependency {
     static name: string
 }
-export class RenderPassCreateInfo {
+class RenderPassCreateInfo {
     static name: string
 }
-export class CommandPoolCreateInfo {
+class CommandPoolCreateInfo {
     static name: string
 }
-export class CommandBufferAllocateInfo {
+class CommandBufferAllocateInfo {
     static name: string
 }
-export class CommandBufferInheritanceInfo {
+class CommandBufferInheritanceInfo {
     static name: string
 }
-export class CommandBufferBeginInfo {
+class CommandBufferBeginInfo {
     static name: string
 }
-export class BufferCopy {
+class BufferCopy {
     static name: string
 }
-export class ImageSubresourceLayers {
+class ImageSubresourceLayers {
     static name: string
 }
-export class ImageCopy {
+class ImageCopy {
     static name: string
 }
-export class ImageBlit {
+class ImageBlit {
     static name: string
 }
-export class BufferImageCopy {
+class BufferImageCopy {
     static name: string
 }
-export class ClearColorValue {
+class ClearColorValue {
     static name: string
 }
-export class ClearDepthStencilValue {
+class ClearDepthStencilValue {
     static name: string
 }
-export class ClearValue {
+class ClearValue {
     static name: string
 }
-export class ClearAttachment {
+class ClearAttachment {
     static name: string
 }
-export class ClearRect {
+class ClearRect {
     static name: string
 }
-export class ImageResolve {
+class ImageResolve {
     static name: string
 }
-export class MemoryBarrier {
+class MemoryBarrier {
     static name: string
 }
-export class BufferMemoryBarrier {
+class BufferMemoryBarrier {
     static name: string
 }
-export class ImageMemoryBarrier {
+class ImageMemoryBarrier {
     static name: string
 }
-export class RenderPassBeginInfo {
+class RenderPassBeginInfo {
     static name: string
 }
-export class DispatchIndirectCommand {
+class DispatchIndirectCommand {
     static name: string
 }
-export class DrawIndexedIndirectCommand {
+class DrawIndexedIndirectCommand {
     static name: string
 }
-export class DrawIndirectCommand {
+class DrawIndirectCommand {
     static name: string
 }
-export class BaseOutStructure {
+class BaseOutStructure {
     static name: string
 }
-export class BaseInStructure {
+class BaseInStructure {
     static name: string
 }
-export class SamplerYcbcrConversion {
+class SamplerYcbcrConversion {
     static name: string
 }
-export class DescriptorUpdateTemplate {
+class DescriptorUpdateTemplate {
     static name: string
 }
-export class PointClippingBehavior {
+class PointClippingBehavior {
     static name: string
 }
-export class TessellationDomainOrigin {
+class TessellationDomainOrigin {
     static name: string
 }
-export class SamplerYcbcrModelConversion {
+class SamplerYcbcrModelConversion {
     static name: string
 }
-export class SamplerYcbcrRange {
+class SamplerYcbcrRange {
     static name: string
 }
-export class ChromaLocation {
+class ChromaLocation {
     static name: string
 }
-export class DescriptorUpdateTemplateType {
+class DescriptorUpdateTemplateType {
     static name: string
 }
-export class SubgroupFeatureFlagBits {
+class SubgroupFeatureFlagBits {
     static name: string
 }
-export class SubgroupFeatureFlags {
+class SubgroupFeatureFlags {
     static name: string
 }
-export class PeerMemoryFeatureFlagBits {
+class PeerMemoryFeatureFlagBits {
     static name: string
 }
-export class PeerMemoryFeatureFlags {
+class PeerMemoryFeatureFlags {
     static name: string
 }
-export class MemoryAllocateFlagBits {
+class MemoryAllocateFlagBits {
     static name: string
 }
-export class MemoryAllocateFlags {
+class MemoryAllocateFlags {
     static name: string
 }
-export class CommandPoolTrimFlags {
+class CommandPoolTrimFlags {
     static name: string
 }
-export class DescriptorUpdateTemplateCreateFlags {
+class DescriptorUpdateTemplateCreateFlags {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlagBits {
+class ExternalMemoryHandleTypeFlagBits {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlags {
+class ExternalMemoryHandleTypeFlags {
     static name: string
 }
-export class ExternalMemoryFeatureFlagBits {
+class ExternalMemoryFeatureFlagBits {
     static name: string
 }
-export class ExternalMemoryFeatureFlags {
+class ExternalMemoryFeatureFlags {
     static name: string
 }
-export class ExternalFenceHandleTypeFlagBits {
+class ExternalFenceHandleTypeFlagBits {
     static name: string
 }
-export class ExternalFenceHandleTypeFlags {
+class ExternalFenceHandleTypeFlags {
     static name: string
 }
-export class ExternalFenceFeatureFlagBits {
+class ExternalFenceFeatureFlagBits {
     static name: string
 }
-export class ExternalFenceFeatureFlags {
+class ExternalFenceFeatureFlags {
     static name: string
 }
-export class FenceImportFlagBits {
+class FenceImportFlagBits {
     static name: string
 }
-export class FenceImportFlags {
+class FenceImportFlags {
     static name: string
 }
-export class SemaphoreImportFlagBits {
+class SemaphoreImportFlagBits {
     static name: string
 }
-export class SemaphoreImportFlags {
+class SemaphoreImportFlags {
     static name: string
 }
-export class ExternalSemaphoreHandleTypeFlagBits {
+class ExternalSemaphoreHandleTypeFlagBits {
     static name: string
 }
-export class ExternalSemaphoreHandleTypeFlags {
+class ExternalSemaphoreHandleTypeFlags {
     static name: string
 }
-export class ExternalSemaphoreFeatureFlagBits {
+class ExternalSemaphoreFeatureFlagBits {
     static name: string
 }
-export class ExternalSemaphoreFeatureFlags {
+class ExternalSemaphoreFeatureFlags {
     static name: string
 }
-export class PhysicalDeviceSubgroupProperties {
+class PhysicalDeviceSubgroupProperties {
     static name: string
 }
-export class BindBufferMemoryInfo {
+class BindBufferMemoryInfo {
     static name: string
 }
-export class BindImageMemoryInfo {
+class BindImageMemoryInfo {
     static name: string
 }
-export class PhysicalDevice16BitStorageFeatures {
+class PhysicalDevice16BitStorageFeatures {
     static name: string
 }
-export class MemoryDedicatedRequirements {
+class MemoryDedicatedRequirements {
     static name: string
 }
-export class MemoryDedicatedAllocateInfo {
+class MemoryDedicatedAllocateInfo {
     static name: string
 }
-export class MemoryAllocateFlagsInfo {
+class MemoryAllocateFlagsInfo {
     static name: string
 }
-export class DeviceGroupRenderPassBeginInfo {
+class DeviceGroupRenderPassBeginInfo {
     static name: string
 }
-export class DeviceGroupCommandBufferBeginInfo {
+class DeviceGroupCommandBufferBeginInfo {
     static name: string
 }
-export class DeviceGroupSubmitInfo {
+class DeviceGroupSubmitInfo {
     static name: string
 }
-export class DeviceGroupBindSparseInfo {
+class DeviceGroupBindSparseInfo {
     static name: string
 }
-export class BindBufferMemoryDeviceGroupInfo {
+class BindBufferMemoryDeviceGroupInfo {
     static name: string
 }
-export class BindImageMemoryDeviceGroupInfo {
+class BindImageMemoryDeviceGroupInfo {
     static name: string
 }
-export class PhysicalDeviceGroupProperties {
+class PhysicalDeviceGroupProperties {
     static name: string
 }
-export class DeviceGroupDeviceCreateInfo {
+class DeviceGroupDeviceCreateInfo {
     static name: string
 }
-export class BufferMemoryRequirementsInfo2 {
+class BufferMemoryRequirementsInfo2 {
     static name: string
 }
-export class ImageMemoryRequirementsInfo2 {
+class ImageMemoryRequirementsInfo2 {
     static name: string
 }
-export class ImageSparseMemoryRequirementsInfo2 {
+class ImageSparseMemoryRequirementsInfo2 {
     static name: string
 }
-export class MemoryRequirements2 {
+class MemoryRequirements2 {
     static name: string
 }
-export class MemoryRequirements2KHR {
+class MemoryRequirements2KHR {
     static name: string
 }
-export class SparseImageMemoryRequirements2 {
+class SparseImageMemoryRequirements2 {
     static name: string
 }
-export class PhysicalDeviceFeatures2 {
+class PhysicalDeviceFeatures2 {
     static name: string
 }
-export class PhysicalDeviceProperties2 {
+class PhysicalDeviceProperties2 {
     static name: string
 }
-export class FormatProperties2 {
+class FormatProperties2 {
     static name: string
 }
-export class ImageFormatProperties2 {
+class ImageFormatProperties2 {
     static name: string
 }
-export class PhysicalDeviceImageFormatInfo2 {
+class PhysicalDeviceImageFormatInfo2 {
     static name: string
 }
-export class QueueFamilyProperties2 {
+class QueueFamilyProperties2 {
     static name: string
 }
-export class PhysicalDeviceMemoryProperties2 {
+class PhysicalDeviceMemoryProperties2 {
     static name: string
 }
-export class SparseImageFormatProperties2 {
+class SparseImageFormatProperties2 {
     static name: string
 }
-export class PhysicalDeviceSparseImageFormatInfo2 {
+class PhysicalDeviceSparseImageFormatInfo2 {
     static name: string
 }
-export class PhysicalDevicePointClippingProperties {
+class PhysicalDevicePointClippingProperties {
     static name: string
 }
-export class InputAttachmentAspectReference {
+class InputAttachmentAspectReference {
     static name: string
 }
-export class RenderPassInputAttachmentAspectCreateInfo {
+class RenderPassInputAttachmentAspectCreateInfo {
     static name: string
 }
-export class ImageViewUsageCreateInfo {
+class ImageViewUsageCreateInfo {
     static name: string
 }
-export class PipelineTessellationDomainOriginStateCreateInfo {
+class PipelineTessellationDomainOriginStateCreateInfo {
     static name: string
 }
-export class RenderPassMultiviewCreateInfo {
+class RenderPassMultiviewCreateInfo {
     static name: string
 }
-export class PhysicalDeviceMultiviewFeatures {
+class PhysicalDeviceMultiviewFeatures {
     static name: string
 }
-export class PhysicalDeviceMultiviewProperties {
+class PhysicalDeviceMultiviewProperties {
     static name: string
 }
-export class PhysicalDeviceVariablePointersFeatures {
+class PhysicalDeviceVariablePointersFeatures {
     static name: string
 }
-export class PhysicalDeviceVariablePointerFeatures {
+class PhysicalDeviceVariablePointerFeatures {
     static name: string
 }
-export class PhysicalDeviceProtectedMemoryFeatures {
+class PhysicalDeviceProtectedMemoryFeatures {
     static name: string
 }
-export class PhysicalDeviceProtectedMemoryProperties {
+class PhysicalDeviceProtectedMemoryProperties {
     static name: string
 }
-export class DeviceQueueInfo2 {
+class DeviceQueueInfo2 {
     static name: string
 }
-export class ProtectedSubmitInfo {
+class ProtectedSubmitInfo {
     static name: string
 }
-export class SamplerYcbcrConversionCreateInfo {
+class SamplerYcbcrConversionCreateInfo {
     static name: string
 }
-export class SamplerYcbcrConversionInfo {
+class SamplerYcbcrConversionInfo {
     static name: string
 }
-export class BindImagePlaneMemoryInfo {
+class BindImagePlaneMemoryInfo {
     static name: string
 }
-export class ImagePlaneMemoryRequirementsInfo {
+class ImagePlaneMemoryRequirementsInfo {
     static name: string
 }
-export class PhysicalDeviceSamplerYcbcrConversionFeatures {
+class PhysicalDeviceSamplerYcbcrConversionFeatures {
     static name: string
 }
-export class SamplerYcbcrConversionImageFormatProperties {
+class SamplerYcbcrConversionImageFormatProperties {
     static name: string
 }
-export class DescriptorUpdateTemplateEntry {
+class DescriptorUpdateTemplateEntry {
     static name: string
 }
-export class DescriptorUpdateTemplateCreateInfo {
+class DescriptorUpdateTemplateCreateInfo {
     static name: string
 }
-export class ExternalMemoryProperties {
+class ExternalMemoryProperties {
     static name: string
 }
-export class PhysicalDeviceExternalImageFormatInfo {
+class PhysicalDeviceExternalImageFormatInfo {
     static name: string
 }
-export class ExternalImageFormatProperties {
+class ExternalImageFormatProperties {
     static name: string
 }
-export class PhysicalDeviceExternalBufferInfo {
+class PhysicalDeviceExternalBufferInfo {
     static name: string
 }
-export class ExternalBufferProperties {
+class ExternalBufferProperties {
     static name: string
 }
-export class PhysicalDeviceIDProperties {
+class PhysicalDeviceIDProperties {
     static name: string
 }
-export class ExternalMemoryImageCreateInfo {
+class ExternalMemoryImageCreateInfo {
     static name: string
 }
-export class ExternalMemoryBufferCreateInfo {
+class ExternalMemoryBufferCreateInfo {
     static name: string
 }
-export class ExportMemoryAllocateInfo {
+class ExportMemoryAllocateInfo {
     static name: string
 }
-export class PhysicalDeviceExternalFenceInfo {
+class PhysicalDeviceExternalFenceInfo {
     static name: string
 }
-export class ExternalFenceProperties {
+class ExternalFenceProperties {
     static name: string
 }
-export class ExportFenceCreateInfo {
+class ExportFenceCreateInfo {
     static name: string
 }
-export class ExportSemaphoreCreateInfo {
+class ExportSemaphoreCreateInfo {
     static name: string
 }
-export class PhysicalDeviceExternalSemaphoreInfo {
+class PhysicalDeviceExternalSemaphoreInfo {
     static name: string
 }
-export class ExternalSemaphoreProperties {
+class ExternalSemaphoreProperties {
     static name: string
 }
-export class PhysicalDeviceMaintenance3Properties {
+class PhysicalDeviceMaintenance3Properties {
     static name: string
 }
-export class DescriptorSetLayoutSupport {
+class DescriptorSetLayoutSupport {
     static name: string
 }
-export class PhysicalDeviceShaderDrawParametersFeatures {
+class PhysicalDeviceShaderDrawParametersFeatures {
     static name: string
 }
-export class PhysicalDeviceShaderDrawParameterFeatures {
+class PhysicalDeviceShaderDrawParameterFeatures {
     static name: string
 }
-export class SurfaceKHR {
+class SurfaceKHR {
     static name: string
 }
-export class ColorSpaceKHR {
+class ColorSpaceKHR {
     static name: string
 }
-export class PresentModeKHR {
+class PresentModeKHR {
     static name: string
 }
-export class SurfaceTransformFlagBitsKHR {
+class SurfaceTransformFlagBitsKHR {
     static name: string
 }
-export class SurfaceTransformFlagsKHR {
+class SurfaceTransformFlagsKHR {
     static name: string
 }
-export class CompositeAlphaFlagBitsKHR {
+class CompositeAlphaFlagBitsKHR {
     static name: string
 }
-export class CompositeAlphaFlagsKHR {
+class CompositeAlphaFlagsKHR {
     static name: string
 }
-export class SurfaceCapabilitiesKHR {
+class SurfaceCapabilitiesKHR {
     static name: string
 }
-export class SurfaceFormatKHR {
+class SurfaceFormatKHR {
     static name: string
 }
-export class SwapchainKHR {
+class SwapchainKHR {
     static name: string
 }
-export class SwapchainCreateFlagBitsKHR {
+class SwapchainCreateFlagBitsKHR {
     static name: string
 }
-export class SwapchainCreateFlagsKHR {
+class SwapchainCreateFlagsKHR {
     static name: string
 }
-export class DeviceGroupPresentModeFlagBitsKHR {
+class DeviceGroupPresentModeFlagBitsKHR {
     static name: string
 }
-export class DeviceGroupPresentModeFlagsKHR {
+class DeviceGroupPresentModeFlagsKHR {
     static name: string
 }
-export class SwapchainCreateInfoKHR {
+class SwapchainCreateInfoKHR {
     static name: string
 }
-export class PresentInfoKHR {
+class PresentInfoKHR {
     static name: string
 }
-export class ImageSwapchainCreateInfoKHR {
+class ImageSwapchainCreateInfoKHR {
     static name: string
 }
-export class BindImageMemorySwapchainInfoKHR {
+class BindImageMemorySwapchainInfoKHR {
     static name: string
 }
-export class AcquireNextImageInfoKHR {
+class AcquireNextImageInfoKHR {
     static name: string
 }
-export class DeviceGroupPresentCapabilitiesKHR {
+class DeviceGroupPresentCapabilitiesKHR {
     static name: string
 }
-export class DeviceGroupPresentInfoKHR {
+class DeviceGroupPresentInfoKHR {
     static name: string
 }
-export class DeviceGroupSwapchainCreateInfoKHR {
+class DeviceGroupSwapchainCreateInfoKHR {
     static name: string
 }
-export class DisplayKHR {
+class DisplayKHR {
     static name: string
 }
-export class DisplayModeKHR {
+class DisplayModeKHR {
     static name: string
 }
-export class DisplayPlaneAlphaFlagBitsKHR {
+class DisplayPlaneAlphaFlagBitsKHR {
     static name: string
 }
-export class DisplayPlaneAlphaFlagsKHR {
+class DisplayPlaneAlphaFlagsKHR {
     static name: string
 }
-export class DisplayModeCreateFlagsKHR {
+class DisplayModeCreateFlagsKHR {
     static name: string
 }
-export class DisplaySurfaceCreateFlagsKHR {
+class DisplaySurfaceCreateFlagsKHR {
     static name: string
 }
-export class DisplayPropertiesKHR {
+class DisplayPropertiesKHR {
     static name: string
 }
-export class DisplayModeParametersKHR {
+class DisplayModeParametersKHR {
     static name: string
 }
-export class DisplayModePropertiesKHR {
+class DisplayModePropertiesKHR {
     static name: string
 }
-export class DisplayModeCreateInfoKHR {
+class DisplayModeCreateInfoKHR {
     static name: string
 }
-export class DisplayPlaneCapabilitiesKHR {
+class DisplayPlaneCapabilitiesKHR {
     static name: string
 }
-export class DisplayPlanePropertiesKHR {
+class DisplayPlanePropertiesKHR {
     static name: string
 }
-export class DisplaySurfaceCreateInfoKHR {
+class DisplaySurfaceCreateInfoKHR {
     static name: string
 }
-export class DisplayPresentInfoKHR {
+class DisplayPresentInfoKHR {
     static name: string
 }
-export class RenderPassMultiviewCreateInfoKHR {
+class RenderPassMultiviewCreateInfoKHR {
     static name: string
 }
-export class PhysicalDeviceMultiviewFeaturesKHR {
+class PhysicalDeviceMultiviewFeaturesKHR {
     static name: string
 }
-export class PhysicalDeviceMultiviewPropertiesKHR {
+class PhysicalDeviceMultiviewPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceFeatures2KHR {
+class PhysicalDeviceFeatures2KHR {
     static name: string
 }
-export class PhysicalDeviceProperties2KHR {
+class PhysicalDeviceProperties2KHR {
     static name: string
 }
-export class FormatProperties2KHR {
+class FormatProperties2KHR {
     static name: string
 }
-export class ImageFormatProperties2KHR {
+class ImageFormatProperties2KHR {
     static name: string
 }
-export class PhysicalDeviceImageFormatInfo2KHR {
+class PhysicalDeviceImageFormatInfo2KHR {
     static name: string
 }
-export class QueueFamilyProperties2KHR {
+class QueueFamilyProperties2KHR {
     static name: string
 }
-export class PhysicalDeviceMemoryProperties2KHR {
+class PhysicalDeviceMemoryProperties2KHR {
     static name: string
 }
-export class SparseImageFormatProperties2KHR {
+class SparseImageFormatProperties2KHR {
     static name: string
 }
-export class PhysicalDeviceSparseImageFormatInfo2KHR {
+class PhysicalDeviceSparseImageFormatInfo2KHR {
     static name: string
 }
-export class PeerMemoryFeatureFlagsKHR {
+class PeerMemoryFeatureFlagsKHR {
     static name: string
 }
-export class PeerMemoryFeatureFlagBitsKHR {
+class PeerMemoryFeatureFlagBitsKHR {
     static name: string
 }
-export class MemoryAllocateFlagsKHR {
+class MemoryAllocateFlagsKHR {
     static name: string
 }
-export class MemoryAllocateFlagBitsKHR {
+class MemoryAllocateFlagBitsKHR {
     static name: string
 }
-export class MemoryAllocateFlagsInfoKHR {
+class MemoryAllocateFlagsInfoKHR {
     static name: string
 }
-export class DeviceGroupRenderPassBeginInfoKHR {
+class DeviceGroupRenderPassBeginInfoKHR {
     static name: string
 }
-export class DeviceGroupCommandBufferBeginInfoKHR {
+class DeviceGroupCommandBufferBeginInfoKHR {
     static name: string
 }
-export class DeviceGroupSubmitInfoKHR {
+class DeviceGroupSubmitInfoKHR {
     static name: string
 }
-export class DeviceGroupBindSparseInfoKHR {
+class DeviceGroupBindSparseInfoKHR {
     static name: string
 }
-export class BindBufferMemoryDeviceGroupInfoKHR {
+class BindBufferMemoryDeviceGroupInfoKHR {
     static name: string
 }
-export class BindImageMemoryDeviceGroupInfoKHR {
+class BindImageMemoryDeviceGroupInfoKHR {
     static name: string
 }
-export class CommandPoolTrimFlagsKHR {
+class CommandPoolTrimFlagsKHR {
     static name: string
 }
-export class PhysicalDeviceGroupPropertiesKHR {
+class PhysicalDeviceGroupPropertiesKHR {
     static name: string
 }
-export class DeviceGroupDeviceCreateInfoKHR {
+class DeviceGroupDeviceCreateInfoKHR {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlagsKHR {
+class ExternalMemoryHandleTypeFlagsKHR {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlagBitsKHR {
+class ExternalMemoryHandleTypeFlagBitsKHR {
     static name: string
 }
-export class ExternalMemoryFeatureFlagsKHR {
+class ExternalMemoryFeatureFlagsKHR {
     static name: string
 }
-export class ExternalMemoryFeatureFlagBitsKHR {
+class ExternalMemoryFeatureFlagBitsKHR {
     static name: string
 }
-export class ExternalMemoryPropertiesKHR {
+class ExternalMemoryPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceExternalImageFormatInfoKHR {
+class PhysicalDeviceExternalImageFormatInfoKHR {
     static name: string
 }
-export class ExternalImageFormatPropertiesKHR {
+class ExternalImageFormatPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceExternalBufferInfoKHR {
+class PhysicalDeviceExternalBufferInfoKHR {
     static name: string
 }
-export class ExternalBufferPropertiesKHR {
+class ExternalBufferPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceIDPropertiesKHR {
+class PhysicalDeviceIDPropertiesKHR {
     static name: string
 }
-export class ExternalMemoryImageCreateInfoKHR {
+class ExternalMemoryImageCreateInfoKHR {
     static name: string
 }
-export class ExternalMemoryBufferCreateInfoKHR {
+class ExternalMemoryBufferCreateInfoKHR {
     static name: string
 }
-export class ExportMemoryAllocateInfoKHR {
+class ExportMemoryAllocateInfoKHR {
     static name: string
 }
-export class ImportMemoryFdInfoKHR {
+class ImportMemoryFdInfoKHR {
     static name: string
 }
-export class MemoryFdPropertiesKHR {
+class MemoryFdPropertiesKHR {
     static name: string
 }
-export class MemoryGetFdInfoKHR {
+class MemoryGetFdInfoKHR {
     static name: string
 }
-export class ExternalSemaphoreHandleTypeFlagsKHR {
+class ExternalSemaphoreHandleTypeFlagsKHR {
     static name: string
 }
-export class ExternalSemaphoreHandleTypeFlagBitsKHR {
+class ExternalSemaphoreHandleTypeFlagBitsKHR {
     static name: string
 }
-export class ExternalSemaphoreFeatureFlagsKHR {
+class ExternalSemaphoreFeatureFlagsKHR {
     static name: string
 }
-export class ExternalSemaphoreFeatureFlagBitsKHR {
+class ExternalSemaphoreFeatureFlagBitsKHR {
     static name: string
 }
-export class PhysicalDeviceExternalSemaphoreInfoKHR {
+class PhysicalDeviceExternalSemaphoreInfoKHR {
     static name: string
 }
-export class ExternalSemaphorePropertiesKHR {
+class ExternalSemaphorePropertiesKHR {
     static name: string
 }
-export class SemaphoreImportFlagsKHR {
+class SemaphoreImportFlagsKHR {
     static name: string
 }
-export class SemaphoreImportFlagBitsKHR {
+class SemaphoreImportFlagBitsKHR {
     static name: string
 }
-export class ExportSemaphoreCreateInfoKHR {
+class ExportSemaphoreCreateInfoKHR {
     static name: string
 }
-export class ImportSemaphoreFdInfoKHR {
+class ImportSemaphoreFdInfoKHR {
     static name: string
 }
-export class SemaphoreGetFdInfoKHR {
+class SemaphoreGetFdInfoKHR {
     static name: string
 }
-export class PhysicalDevicePushDescriptorPropertiesKHR {
+class PhysicalDevicePushDescriptorPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceFloat16Int8FeaturesKHR {
+class PhysicalDeviceFloat16Int8FeaturesKHR {
     static name: string
 }
-export class PhysicalDevice16BitStorageFeaturesKHR {
+class PhysicalDevice16BitStorageFeaturesKHR {
     static name: string
 }
-export class RectLayerKHR {
+class RectLayerKHR {
     static name: string
 }
-export class PresentRegionKHR {
+class PresentRegionKHR {
     static name: string
 }
-export class PresentRegionsKHR {
+class PresentRegionsKHR {
     static name: string
 }
-export class DescriptorUpdateTemplateKHR {
+class DescriptorUpdateTemplateKHR {
     static name: string
 }
-export class DescriptorUpdateTemplateTypeKHR {
+class DescriptorUpdateTemplateTypeKHR {
     static name: string
 }
-export class DescriptorUpdateTemplateCreateFlagsKHR {
+class DescriptorUpdateTemplateCreateFlagsKHR {
     static name: string
 }
-export class DescriptorUpdateTemplateEntryKHR {
+class DescriptorUpdateTemplateEntryKHR {
     static name: string
 }
-export class DescriptorUpdateTemplateCreateInfoKHR {
+class DescriptorUpdateTemplateCreateInfoKHR {
     static name: string
 }
-export class AttachmentDescription2KHR {
+class AttachmentDescription2KHR {
     static name: string
 }
-export class AttachmentReference2KHR {
+class AttachmentReference2KHR {
     static name: string
 }
-export class SubpassDescription2KHR {
+class SubpassDescription2KHR {
     static name: string
 }
-export class SubpassDependency2KHR {
+class SubpassDependency2KHR {
     static name: string
 }
-export class RenderPassCreateInfo2KHR {
+class RenderPassCreateInfo2KHR {
     static name: string
 }
-export class SubpassBeginInfoKHR {
+class SubpassBeginInfoKHR {
     static name: string
 }
-export class SubpassEndInfoKHR {
+class SubpassEndInfoKHR {
     static name: string
 }
-export class SharedPresentSurfaceCapabilitiesKHR {
+class SharedPresentSurfaceCapabilitiesKHR {
     static name: string
 }
-export class ExternalFenceHandleTypeFlagsKHR {
+class ExternalFenceHandleTypeFlagsKHR {
     static name: string
 }
-export class ExternalFenceHandleTypeFlagBitsKHR {
+class ExternalFenceHandleTypeFlagBitsKHR {
     static name: string
 }
-export class ExternalFenceFeatureFlagsKHR {
+class ExternalFenceFeatureFlagsKHR {
     static name: string
 }
-export class ExternalFenceFeatureFlagBitsKHR {
+class ExternalFenceFeatureFlagBitsKHR {
     static name: string
 }
-export class PhysicalDeviceExternalFenceInfoKHR {
+class PhysicalDeviceExternalFenceInfoKHR {
     static name: string
 }
-export class ExternalFencePropertiesKHR {
+class ExternalFencePropertiesKHR {
     static name: string
 }
-export class FenceImportFlagsKHR {
+class FenceImportFlagsKHR {
     static name: string
 }
-export class FenceImportFlagBitsKHR {
+class FenceImportFlagBitsKHR {
     static name: string
 }
-export class ExportFenceCreateInfoKHR {
+class ExportFenceCreateInfoKHR {
     static name: string
 }
-export class ImportFenceFdInfoKHR {
+class ImportFenceFdInfoKHR {
     static name: string
 }
-export class FenceGetFdInfoKHR {
+class FenceGetFdInfoKHR {
     static name: string
 }
-export class PointClippingBehaviorKHR {
+class PointClippingBehaviorKHR {
     static name: string
 }
-export class TessellationDomainOriginKHR {
+class TessellationDomainOriginKHR {
     static name: string
 }
-export class PhysicalDevicePointClippingPropertiesKHR {
+class PhysicalDevicePointClippingPropertiesKHR {
     static name: string
 }
-export class RenderPassInputAttachmentAspectCreateInfoKHR {
+class RenderPassInputAttachmentAspectCreateInfoKHR {
     static name: string
 }
-export class InputAttachmentAspectReferenceKHR {
+class InputAttachmentAspectReferenceKHR {
     static name: string
 }
-export class ImageViewUsageCreateInfoKHR {
+class ImageViewUsageCreateInfoKHR {
     static name: string
 }
-export class PipelineTessellationDomainOriginStateCreateInfoKHR {
+class PipelineTessellationDomainOriginStateCreateInfoKHR {
     static name: string
 }
-export class PhysicalDeviceSurfaceInfo2KHR {
+class PhysicalDeviceSurfaceInfo2KHR {
     static name: string
 }
-export class SurfaceCapabilities2KHR {
+class SurfaceCapabilities2KHR {
     static name: string
 }
-export class SurfaceFormat2KHR {
+class SurfaceFormat2KHR {
     static name: string
 }
-export class PhysicalDeviceVariablePointerFeaturesKHR {
+class PhysicalDeviceVariablePointerFeaturesKHR {
     static name: string
 }
-export class PhysicalDeviceVariablePointersFeaturesKHR {
+class PhysicalDeviceVariablePointersFeaturesKHR {
     static name: string
 }
-export class DisplayProperties2KHR {
+class DisplayProperties2KHR {
     static name: string
 }
-export class DisplayPlaneProperties2KHR {
+class DisplayPlaneProperties2KHR {
     static name: string
 }
-export class DisplayModeProperties2KHR {
+class DisplayModeProperties2KHR {
     static name: string
 }
-export class DisplayPlaneInfo2KHR {
+class DisplayPlaneInfo2KHR {
     static name: string
 }
-export class DisplayPlaneCapabilities2KHR {
+class DisplayPlaneCapabilities2KHR {
     static name: string
 }
-export class MemoryDedicatedRequirementsKHR {
+class MemoryDedicatedRequirementsKHR {
     static name: string
 }
-export class MemoryDedicatedAllocateInfoKHR {
+class MemoryDedicatedAllocateInfoKHR {
     static name: string
 }
-export class BufferMemoryRequirementsInfo2KHR {
+class BufferMemoryRequirementsInfo2KHR {
     static name: string
 }
-export class ImageMemoryRequirementsInfo2KHR {
+class ImageMemoryRequirementsInfo2KHR {
     static name: string
 }
-export class ImageSparseMemoryRequirementsInfo2KHR {
+class ImageSparseMemoryRequirementsInfo2KHR {
     static name: string
 }
-export class SparseImageMemoryRequirements2KHR {
+class SparseImageMemoryRequirements2KHR {
     static name: string
 }
-export class ImageFormatListCreateInfoKHR {
+class ImageFormatListCreateInfoKHR {
     static name: string
 }
-export class SamplerYcbcrConversionKHR {
+class SamplerYcbcrConversionKHR {
     static name: string
 }
-export class SamplerYcbcrModelConversionKHR {
+class SamplerYcbcrModelConversionKHR {
     static name: string
 }
-export class SamplerYcbcrRangeKHR {
+class SamplerYcbcrRangeKHR {
     static name: string
 }
-export class ChromaLocationKHR {
+class ChromaLocationKHR {
     static name: string
 }
-export class SamplerYcbcrConversionCreateInfoKHR {
+class SamplerYcbcrConversionCreateInfoKHR {
     static name: string
 }
-export class SamplerYcbcrConversionInfoKHR {
+class SamplerYcbcrConversionInfoKHR {
     static name: string
 }
-export class BindImagePlaneMemoryInfoKHR {
+class BindImagePlaneMemoryInfoKHR {
     static name: string
 }
-export class ImagePlaneMemoryRequirementsInfoKHR {
+class ImagePlaneMemoryRequirementsInfoKHR {
     static name: string
 }
-export class PhysicalDeviceSamplerYcbcrConversionFeaturesKHR {
+class PhysicalDeviceSamplerYcbcrConversionFeaturesKHR {
     static name: string
 }
-export class SamplerYcbcrConversionImageFormatPropertiesKHR {
+class SamplerYcbcrConversionImageFormatPropertiesKHR {
     static name: string
 }
-export class BindBufferMemoryInfoKHR {
+class BindBufferMemoryInfoKHR {
     static name: string
 }
-export class BindImageMemoryInfoKHR {
+class BindImageMemoryInfoKHR {
     static name: string
 }
-export class PhysicalDeviceMaintenance3PropertiesKHR {
+class PhysicalDeviceMaintenance3PropertiesKHR {
     static name: string
 }
-export class DescriptorSetLayoutSupportKHR {
+class DescriptorSetLayoutSupportKHR {
     static name: string
 }
-export class PhysicalDevice8BitStorageFeaturesKHR {
+class PhysicalDevice8BitStorageFeaturesKHR {
     static name: string
 }
-export class PhysicalDeviceShaderAtomicInt64FeaturesKHR {
+class PhysicalDeviceShaderAtomicInt64FeaturesKHR {
     static name: string
 }
-export class DriverIdKHR {
+class DriverIdKHR {
     static name: string
 }
-export class ConformanceVersionKHR {
+class ConformanceVersionKHR {
     static name: string
 }
-export class PhysicalDeviceDriverPropertiesKHR {
+class PhysicalDeviceDriverPropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceFloatControlsPropertiesKHR {
+class PhysicalDeviceFloatControlsPropertiesKHR {
     static name: string
 }
-export class ResolveModeFlagBitsKHR {
+class ResolveModeFlagBitsKHR {
     static name: string
 }
-export class ResolveModeFlagsKHR {
+class ResolveModeFlagsKHR {
     static name: string
 }
-export class SubpassDescriptionDepthStencilResolveKHR {
+class SubpassDescriptionDepthStencilResolveKHR {
     static name: string
 }
-export class PhysicalDeviceDepthStencilResolvePropertiesKHR {
+class PhysicalDeviceDepthStencilResolvePropertiesKHR {
     static name: string
 }
-export class PhysicalDeviceVulkanMemoryModelFeaturesKHR {
+class PhysicalDeviceVulkanMemoryModelFeaturesKHR {
     static name: string
 }
-export class SurfaceProtectedCapabilitiesKHR {
+class SurfaceProtectedCapabilitiesKHR {
     static name: string
 }
-export class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR {
+class PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR {
     static name: string
 }
-export class DebugReportCallbackEXT {
+class DebugReportCallbackEXT {
     static name: string
 }
-export class DebugReportObjectTypeEXT {
+class DebugReportObjectTypeEXT {
     static name: string
 }
-export class DebugReportFlagBitsEXT {
+class DebugReportFlagBitsEXT {
     static name: string
 }
-export class DebugReportFlagsEXT {
+class DebugReportFlagsEXT {
     static name: string
 }
-export class DebugReportCallbackCreateInfoEXT {
+class DebugReportCallbackCreateInfoEXT {
     static name: string
 }
-export class RasterizationOrderAMD {
+class RasterizationOrderAMD {
     static name: string
 }
-export class PipelineRasterizationStateRasterizationOrderAMD {
+class PipelineRasterizationStateRasterizationOrderAMD {
     static name: string
 }
-export class DebugMarkerObjectNameInfoEXT {
+class DebugMarkerObjectNameInfoEXT {
     static name: string
 }
-export class DebugMarkerObjectTagInfoEXT {
+class DebugMarkerObjectTagInfoEXT {
     static name: string
 }
-export class DebugMarkerMarkerInfoEXT {
+class DebugMarkerMarkerInfoEXT {
     static name: string
 }
-export class DedicatedAllocationImageCreateInfoNV {
+class DedicatedAllocationImageCreateInfoNV {
     static name: string
 }
-export class DedicatedAllocationBufferCreateInfoNV {
+class DedicatedAllocationBufferCreateInfoNV {
     static name: string
 }
-export class DedicatedAllocationMemoryAllocateInfoNV {
+class DedicatedAllocationMemoryAllocateInfoNV {
     static name: string
 }
-export class PipelineRasterizationStateStreamCreateFlagsEXT {
+class PipelineRasterizationStateStreamCreateFlagsEXT {
     static name: string
 }
-export class PhysicalDeviceTransformFeedbackFeaturesEXT {
+class PhysicalDeviceTransformFeedbackFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceTransformFeedbackPropertiesEXT {
+class PhysicalDeviceTransformFeedbackPropertiesEXT {
     static name: string
 }
-export class PipelineRasterizationStateStreamCreateInfoEXT {
+class PipelineRasterizationStateStreamCreateInfoEXT {
     static name: string
 }
-export class ImageViewHandleInfoNVX {
+class ImageViewHandleInfoNVX {
     static name: string
 }
-export class TextureLODGatherFormatPropertiesAMD {
+class TextureLODGatherFormatPropertiesAMD {
     static name: string
 }
-export class ShaderInfoTypeAMD {
+class ShaderInfoTypeAMD {
     static name: string
 }
-export class ShaderResourceUsageAMD {
+class ShaderResourceUsageAMD {
     static name: string
 }
-export class ShaderStatisticsInfoAMD {
+class ShaderStatisticsInfoAMD {
     static name: string
 }
-export class PhysicalDeviceCornerSampledImageFeaturesNV {
+class PhysicalDeviceCornerSampledImageFeaturesNV {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlagBitsNV {
+class ExternalMemoryHandleTypeFlagBitsNV {
     static name: string
 }
-export class ExternalMemoryHandleTypeFlagsNV {
+class ExternalMemoryHandleTypeFlagsNV {
     static name: string
 }
-export class ExternalMemoryFeatureFlagBitsNV {
+class ExternalMemoryFeatureFlagBitsNV {
     static name: string
 }
-export class ExternalMemoryFeatureFlagsNV {
+class ExternalMemoryFeatureFlagsNV {
     static name: string
 }
-export class ExternalImageFormatPropertiesNV {
+class ExternalImageFormatPropertiesNV {
     static name: string
 }
-export class ExternalMemoryImageCreateInfoNV {
+class ExternalMemoryImageCreateInfoNV {
     static name: string
 }
-export class ExportMemoryAllocateInfoNV {
+class ExportMemoryAllocateInfoNV {
     static name: string
 }
-export class ValidationCheckEXT {
+class ValidationCheckEXT {
     static name: string
 }
-export class ValidationFlagsEXT {
+class ValidationFlagsEXT {
     static name: string
 }
-export class ImageViewASTCDecodeModeEXT {
+class ImageViewASTCDecodeModeEXT {
     static name: string
 }
-export class PhysicalDeviceASTCDecodeFeaturesEXT {
+class PhysicalDeviceASTCDecodeFeaturesEXT {
     static name: string
 }
-export class ConditionalRenderingFlagBitsEXT {
+class ConditionalRenderingFlagBitsEXT {
     static name: string
 }
-export class ConditionalRenderingFlagsEXT {
+class ConditionalRenderingFlagsEXT {
     static name: string
 }
-export class ConditionalRenderingBeginInfoEXT {
+class ConditionalRenderingBeginInfoEXT {
     static name: string
 }
-export class PhysicalDeviceConditionalRenderingFeaturesEXT {
+class PhysicalDeviceConditionalRenderingFeaturesEXT {
     static name: string
 }
-export class CommandBufferInheritanceConditionalRenderingInfoEXT {
+class CommandBufferInheritanceConditionalRenderingInfoEXT {
     static name: string
 }
-export class ObjectTableNVX {
+class ObjectTableNVX {
     static name: string
 }
-export class IndirectCommandsLayoutNVX {
+class IndirectCommandsLayoutNVX {
     static name: string
 }
-export class IndirectCommandsTokenTypeNVX {
+class IndirectCommandsTokenTypeNVX {
     static name: string
 }
-export class ObjectEntryTypeNVX {
+class ObjectEntryTypeNVX {
     static name: string
 }
-export class IndirectCommandsLayoutUsageFlagBitsNVX {
+class IndirectCommandsLayoutUsageFlagBitsNVX {
     static name: string
 }
-export class IndirectCommandsLayoutUsageFlagsNVX {
+class IndirectCommandsLayoutUsageFlagsNVX {
     static name: string
 }
-export class ObjectEntryUsageFlagBitsNVX {
+class ObjectEntryUsageFlagBitsNVX {
     static name: string
 }
-export class ObjectEntryUsageFlagsNVX {
+class ObjectEntryUsageFlagsNVX {
     static name: string
 }
-export class DeviceGeneratedCommandsFeaturesNVX {
+class DeviceGeneratedCommandsFeaturesNVX {
     static name: string
 }
-export class DeviceGeneratedCommandsLimitsNVX {
+class DeviceGeneratedCommandsLimitsNVX {
     static name: string
 }
-export class IndirectCommandsTokenNVX {
+class IndirectCommandsTokenNVX {
     static name: string
 }
-export class IndirectCommandsLayoutTokenNVX {
+class IndirectCommandsLayoutTokenNVX {
     static name: string
 }
-export class IndirectCommandsLayoutCreateInfoNVX {
+class IndirectCommandsLayoutCreateInfoNVX {
     static name: string
 }
-export class CmdProcessCommandsInfoNVX {
+class CmdProcessCommandsInfoNVX {
     static name: string
 }
-export class CmdReserveSpaceForCommandsInfoNVX {
+class CmdReserveSpaceForCommandsInfoNVX {
     static name: string
 }
-export class ObjectTableCreateInfoNVX {
+class ObjectTableCreateInfoNVX {
     static name: string
 }
-export class ObjectTableEntryNVX {
+class ObjectTableEntryNVX {
     static name: string
 }
-export class ObjectTablePipelineEntryNVX {
+class ObjectTablePipelineEntryNVX {
     static name: string
 }
-export class ObjectTableDescriptorSetEntryNVX {
+class ObjectTableDescriptorSetEntryNVX {
     static name: string
 }
-export class ObjectTableVertexBufferEntryNVX {
+class ObjectTableVertexBufferEntryNVX {
     static name: string
 }
-export class ObjectTableIndexBufferEntryNVX {
+class ObjectTableIndexBufferEntryNVX {
     static name: string
 }
-export class ObjectTablePushConstantEntryNVX {
+class ObjectTablePushConstantEntryNVX {
     static name: string
 }
-export class ViewportWScalingNV {
+class ViewportWScalingNV {
     static name: string
 }
-export class PipelineViewportWScalingStateCreateInfoNV {
+class PipelineViewportWScalingStateCreateInfoNV {
     static name: string
 }
-export class SurfaceCounterFlagBitsEXT {
+class SurfaceCounterFlagBitsEXT {
     static name: string
 }
-export class SurfaceCounterFlagsEXT {
+class SurfaceCounterFlagsEXT {
     static name: string
 }
-export class SurfaceCapabilities2EXT {
+class SurfaceCapabilities2EXT {
     static name: string
 }
-export class DisplayPowerStateEXT {
+class DisplayPowerStateEXT {
     static name: string
 }
-export class DeviceEventTypeEXT {
+class DeviceEventTypeEXT {
     static name: string
 }
-export class DisplayEventTypeEXT {
+class DisplayEventTypeEXT {
     static name: string
 }
-export class DisplayPowerInfoEXT {
+class DisplayPowerInfoEXT {
     static name: string
 }
-export class DeviceEventInfoEXT {
+class DeviceEventInfoEXT {
     static name: string
 }
-export class DisplayEventInfoEXT {
+class DisplayEventInfoEXT {
     static name: string
 }
-export class SwapchainCounterCreateInfoEXT {
+class SwapchainCounterCreateInfoEXT {
     static name: string
 }
-export class RefreshCycleDurationGOOGLE {
+class RefreshCycleDurationGOOGLE {
     static name: string
 }
-export class PastPresentationTimingGOOGLE {
+class PastPresentationTimingGOOGLE {
     static name: string
 }
-export class PresentTimeGOOGLE {
+class PresentTimeGOOGLE {
     static name: string
 }
-export class PresentTimesInfoGOOGLE {
+class PresentTimesInfoGOOGLE {
     static name: string
 }
-export class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
+class PhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
     static name: string
 }
-export class ViewportCoordinateSwizzleNV {
+class ViewportCoordinateSwizzleNV {
     static name: string
 }
-export class PipelineViewportSwizzleStateCreateFlagsNV {
+class PipelineViewportSwizzleStateCreateFlagsNV {
     static name: string
 }
-export class ViewportSwizzleNV {
+class ViewportSwizzleNV {
     static name: string
 }
-export class PipelineViewportSwizzleStateCreateInfoNV {
+class PipelineViewportSwizzleStateCreateInfoNV {
     static name: string
 }
-export class DiscardRectangleModeEXT {
+class DiscardRectangleModeEXT {
     static name: string
 }
-export class PipelineDiscardRectangleStateCreateFlagsEXT {
+class PipelineDiscardRectangleStateCreateFlagsEXT {
     static name: string
 }
-export class PhysicalDeviceDiscardRectanglePropertiesEXT {
+class PhysicalDeviceDiscardRectanglePropertiesEXT {
     static name: string
 }
-export class PipelineDiscardRectangleStateCreateInfoEXT {
+class PipelineDiscardRectangleStateCreateInfoEXT {
     static name: string
 }
-export class ConservativeRasterizationModeEXT {
+class ConservativeRasterizationModeEXT {
     static name: string
 }
-export class PipelineRasterizationConservativeStateCreateFlagsEXT {
+class PipelineRasterizationConservativeStateCreateFlagsEXT {
     static name: string
 }
-export class PhysicalDeviceConservativeRasterizationPropertiesEXT {
+class PhysicalDeviceConservativeRasterizationPropertiesEXT {
     static name: string
 }
-export class PipelineRasterizationConservativeStateCreateInfoEXT {
+class PipelineRasterizationConservativeStateCreateInfoEXT {
     static name: string
 }
-export class PipelineRasterizationDepthClipStateCreateFlagsEXT {
+class PipelineRasterizationDepthClipStateCreateFlagsEXT {
     static name: string
 }
-export class PhysicalDeviceDepthClipEnableFeaturesEXT {
+class PhysicalDeviceDepthClipEnableFeaturesEXT {
     static name: string
 }
-export class PipelineRasterizationDepthClipStateCreateInfoEXT {
+class PipelineRasterizationDepthClipStateCreateInfoEXT {
     static name: string
 }
-export class XYColorEXT {
+class XYColorEXT {
     static name: string
 }
-export class HdrMetadataEXT {
+class HdrMetadataEXT {
     static name: string
 }
-export class DebugUtilsMessengerEXT {
+class DebugUtilsMessengerEXT {
     static name: string
 }
-export class DebugUtilsMessengerCallbackDataFlagsEXT {
+class DebugUtilsMessengerCallbackDataFlagsEXT {
     static name: string
 }
-export class DebugUtilsMessengerCreateFlagsEXT {
+class DebugUtilsMessengerCreateFlagsEXT {
     static name: string
 }
-export class DebugUtilsMessageSeverityFlagBitsEXT {
+class DebugUtilsMessageSeverityFlagBitsEXT {
     static name: string
 }
-export class DebugUtilsMessageSeverityFlagsEXT {
+class DebugUtilsMessageSeverityFlagsEXT {
     static name: string
 }
-export class DebugUtilsMessageTypeFlagBitsEXT {
+class DebugUtilsMessageTypeFlagBitsEXT {
     static name: string
 }
-export class DebugUtilsMessageTypeFlagsEXT {
+class DebugUtilsMessageTypeFlagsEXT {
     static name: string
 }
-export class DebugUtilsObjectNameInfoEXT {
+class DebugUtilsObjectNameInfoEXT {
     static name: string
 }
-export class DebugUtilsObjectTagInfoEXT {
+class DebugUtilsObjectTagInfoEXT {
     static name: string
 }
-export class DebugUtilsLabelEXT {
+class DebugUtilsLabelEXT {
     static name: string
 }
-export class DebugUtilsMessengerCallbackDataEXT {
+class DebugUtilsMessengerCallbackDataEXT {
     static name: string
 }
-export class DebugUtilsMessengerCreateInfoEXT {
+class DebugUtilsMessengerCreateInfoEXT {
     static name: string
 }
-export class SamplerReductionModeEXT {
+class SamplerReductionModeEXT {
     static name: string
 }
-export class SamplerReductionModeCreateInfoEXT {
+class SamplerReductionModeCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
+class PhysicalDeviceSamplerFilterMinmaxPropertiesEXT {
     static name: string
 }
-export class PhysicalDeviceInlineUniformBlockFeaturesEXT {
+class PhysicalDeviceInlineUniformBlockFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceInlineUniformBlockPropertiesEXT {
+class PhysicalDeviceInlineUniformBlockPropertiesEXT {
     static name: string
 }
-export class WriteDescriptorSetInlineUniformBlockEXT {
+class WriteDescriptorSetInlineUniformBlockEXT {
     static name: string
 }
-export class DescriptorPoolInlineUniformBlockCreateInfoEXT {
+class DescriptorPoolInlineUniformBlockCreateInfoEXT {
     static name: string
 }
-export class SampleLocationEXT {
+class SampleLocationEXT {
     static name: string
 }
-export class SampleLocationsInfoEXT {
+class SampleLocationsInfoEXT {
     static name: string
 }
-export class AttachmentSampleLocationsEXT {
+class AttachmentSampleLocationsEXT {
     static name: string
 }
-export class SubpassSampleLocationsEXT {
+class SubpassSampleLocationsEXT {
     static name: string
 }
-export class RenderPassSampleLocationsBeginInfoEXT {
+class RenderPassSampleLocationsBeginInfoEXT {
     static name: string
 }
-export class PipelineSampleLocationsStateCreateInfoEXT {
+class PipelineSampleLocationsStateCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceSampleLocationsPropertiesEXT {
+class PhysicalDeviceSampleLocationsPropertiesEXT {
     static name: string
 }
-export class MultisamplePropertiesEXT {
+class MultisamplePropertiesEXT {
     static name: string
 }
-export class BlendOverlapEXT {
+class BlendOverlapEXT {
     static name: string
 }
-export class PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
+class PhysicalDeviceBlendOperationAdvancedFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
+class PhysicalDeviceBlendOperationAdvancedPropertiesEXT {
     static name: string
 }
-export class PipelineColorBlendAdvancedStateCreateInfoEXT {
+class PipelineColorBlendAdvancedStateCreateInfoEXT {
     static name: string
 }
-export class PipelineCoverageToColorStateCreateFlagsNV {
+class PipelineCoverageToColorStateCreateFlagsNV {
     static name: string
 }
-export class PipelineCoverageToColorStateCreateInfoNV {
+class PipelineCoverageToColorStateCreateInfoNV {
     static name: string
 }
-export class CoverageModulationModeNV {
+class CoverageModulationModeNV {
     static name: string
 }
-export class PipelineCoverageModulationStateCreateFlagsNV {
+class PipelineCoverageModulationStateCreateFlagsNV {
     static name: string
 }
-export class PipelineCoverageModulationStateCreateInfoNV {
+class PipelineCoverageModulationStateCreateInfoNV {
     static name: string
 }
-export class DrmFormatModifierPropertiesEXT {
+class DrmFormatModifierPropertiesEXT {
     static name: string
 }
-export class DrmFormatModifierPropertiesListEXT {
+class DrmFormatModifierPropertiesListEXT {
     static name: string
 }
-export class PhysicalDeviceImageDrmFormatModifierInfoEXT {
+class PhysicalDeviceImageDrmFormatModifierInfoEXT {
     static name: string
 }
-export class ImageDrmFormatModifierListCreateInfoEXT {
+class ImageDrmFormatModifierListCreateInfoEXT {
     static name: string
 }
-export class ImageDrmFormatModifierExplicitCreateInfoEXT {
+class ImageDrmFormatModifierExplicitCreateInfoEXT {
     static name: string
 }
-export class ImageDrmFormatModifierPropertiesEXT {
+class ImageDrmFormatModifierPropertiesEXT {
     static name: string
 }
-export class ValidationCacheEXT {
+class ValidationCacheEXT {
     static name: string
 }
-export class ValidationCacheHeaderVersionEXT {
+class ValidationCacheHeaderVersionEXT {
     static name: string
 }
-export class ValidationCacheCreateFlagsEXT {
+class ValidationCacheCreateFlagsEXT {
     static name: string
 }
-export class ValidationCacheCreateInfoEXT {
+class ValidationCacheCreateInfoEXT {
     static name: string
 }
-export class ShaderModuleValidationCacheCreateInfoEXT {
+class ShaderModuleValidationCacheCreateInfoEXT {
     static name: string
 }
-export class DescriptorBindingFlagBitsEXT {
+class DescriptorBindingFlagBitsEXT {
     static name: string
 }
-export class DescriptorBindingFlagsEXT {
+class DescriptorBindingFlagsEXT {
     static name: string
 }
-export class DescriptorSetLayoutBindingFlagsCreateInfoEXT {
+class DescriptorSetLayoutBindingFlagsCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceDescriptorIndexingFeaturesEXT {
+class PhysicalDeviceDescriptorIndexingFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceDescriptorIndexingPropertiesEXT {
+class PhysicalDeviceDescriptorIndexingPropertiesEXT {
     static name: string
 }
-export class DescriptorSetVariableDescriptorCountAllocateInfoEXT {
+class DescriptorSetVariableDescriptorCountAllocateInfoEXT {
     static name: string
 }
-export class DescriptorSetVariableDescriptorCountLayoutSupportEXT {
+class DescriptorSetVariableDescriptorCountLayoutSupportEXT {
     static name: string
 }
-export class ShadingRatePaletteEntryNV {
+class ShadingRatePaletteEntryNV {
     static name: string
 }
-export class CoarseSampleOrderTypeNV {
+class CoarseSampleOrderTypeNV {
     static name: string
 }
-export class ShadingRatePaletteNV {
+class ShadingRatePaletteNV {
     static name: string
 }
-export class PipelineViewportShadingRateImageStateCreateInfoNV {
+class PipelineViewportShadingRateImageStateCreateInfoNV {
     static name: string
 }
-export class PhysicalDeviceShadingRateImageFeaturesNV {
+class PhysicalDeviceShadingRateImageFeaturesNV {
     static name: string
 }
-export class PhysicalDeviceShadingRateImagePropertiesNV {
+class PhysicalDeviceShadingRateImagePropertiesNV {
     static name: string
 }
-export class CoarseSampleLocationNV {
+class CoarseSampleLocationNV {
     static name: string
 }
-export class CoarseSampleOrderCustomNV {
+class CoarseSampleOrderCustomNV {
     static name: string
 }
-export class PipelineViewportCoarseSampleOrderStateCreateInfoNV {
+class PipelineViewportCoarseSampleOrderStateCreateInfoNV {
     static name: string
 }
-export class AccelerationStructureNV {
+class AccelerationStructureNV {
     static name: string
 }
-export class RayTracingShaderGroupTypeNV {
+class RayTracingShaderGroupTypeNV {
     static name: string
 }
-export class GeometryTypeNV {
+class GeometryTypeNV {
     static name: string
 }
-export class AccelerationStructureTypeNV {
+class AccelerationStructureTypeNV {
     static name: string
 }
-export class CopyAccelerationStructureModeNV {
+class CopyAccelerationStructureModeNV {
     static name: string
 }
-export class AccelerationStructureMemoryRequirementsTypeNV {
+class AccelerationStructureMemoryRequirementsTypeNV {
     static name: string
 }
-export class GeometryFlagBitsNV {
+class GeometryFlagBitsNV {
     static name: string
 }
-export class GeometryFlagsNV {
+class GeometryFlagsNV {
     static name: string
 }
-export class GeometryInstanceFlagBitsNV {
+class GeometryInstanceFlagBitsNV {
     static name: string
 }
-export class GeometryInstanceFlagsNV {
+class GeometryInstanceFlagsNV {
     static name: string
 }
-export class BuildAccelerationStructureFlagBitsNV {
+class BuildAccelerationStructureFlagBitsNV {
     static name: string
 }
-export class BuildAccelerationStructureFlagsNV {
+class BuildAccelerationStructureFlagsNV {
     static name: string
 }
-export class RayTracingShaderGroupCreateInfoNV {
+class RayTracingShaderGroupCreateInfoNV {
     static name: string
 }
-export class RayTracingPipelineCreateInfoNV {
+class RayTracingPipelineCreateInfoNV {
     static name: string
 }
-export class GeometryTrianglesNV {
+class GeometryTrianglesNV {
     static name: string
 }
-export class GeometryAABBNV {
+class GeometryAABBNV {
     static name: string
 }
-export class GeometryDataNV {
+class GeometryDataNV {
     static name: string
 }
-export class GeometryNV {
+class GeometryNV {
     static name: string
 }
-export class AccelerationStructureInfoNV {
+class AccelerationStructureInfoNV {
     static name: string
 }
-export class AccelerationStructureCreateInfoNV {
+class AccelerationStructureCreateInfoNV {
     static name: string
 }
-export class BindAccelerationStructureMemoryInfoNV {
+class BindAccelerationStructureMemoryInfoNV {
     static name: string
 }
-export class WriteDescriptorSetAccelerationStructureNV {
+class WriteDescriptorSetAccelerationStructureNV {
     static name: string
 }
-export class AccelerationStructureMemoryRequirementsInfoNV {
+class AccelerationStructureMemoryRequirementsInfoNV {
     static name: string
 }
-export class PhysicalDeviceRayTracingPropertiesNV {
+class PhysicalDeviceRayTracingPropertiesNV {
     static name: string
 }
-export class PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
+class PhysicalDeviceRepresentativeFragmentTestFeaturesNV {
     static name: string
 }
-export class PipelineRepresentativeFragmentTestStateCreateInfoNV {
+class PipelineRepresentativeFragmentTestStateCreateInfoNV {
     static name: string
 }
-export class PhysicalDeviceImageViewImageFormatInfoEXT {
+class PhysicalDeviceImageViewImageFormatInfoEXT {
     static name: string
 }
-export class FilterCubicImageViewImageFormatPropertiesEXT {
+class FilterCubicImageViewImageFormatPropertiesEXT {
     static name: string
 }
-export class QueueGlobalPriorityEXT {
+class QueueGlobalPriorityEXT {
     static name: string
 }
-export class DeviceQueueGlobalPriorityCreateInfoEXT {
+class DeviceQueueGlobalPriorityCreateInfoEXT {
     static name: string
 }
-export class ImportMemoryHostPointerInfoEXT {
+class ImportMemoryHostPointerInfoEXT {
     static name: string
 }
-export class MemoryHostPointerPropertiesEXT {
+class MemoryHostPointerPropertiesEXT {
     static name: string
 }
-export class PhysicalDeviceExternalMemoryHostPropertiesEXT {
+class PhysicalDeviceExternalMemoryHostPropertiesEXT {
     static name: string
 }
-export class TimeDomainEXT {
+class TimeDomainEXT {
     static name: string
 }
-export class CalibratedTimestampInfoEXT {
+class CalibratedTimestampInfoEXT {
     static name: string
 }
-export class PhysicalDeviceShaderCorePropertiesAMD {
+class PhysicalDeviceShaderCorePropertiesAMD {
     static name: string
 }
-export class MemoryOverallocationBehaviorAMD {
+class MemoryOverallocationBehaviorAMD {
     static name: string
 }
-export class DeviceMemoryOverallocationCreateInfoAMD {
+class DeviceMemoryOverallocationCreateInfoAMD {
     static name: string
 }
-export class PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
+class PhysicalDeviceVertexAttributeDivisorPropertiesEXT {
     static name: string
 }
-export class VertexInputBindingDivisorDescriptionEXT {
+class VertexInputBindingDivisorDescriptionEXT {
     static name: string
 }
-export class PipelineVertexInputDivisorStateCreateInfoEXT {
+class PipelineVertexInputDivisorStateCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceVertexAttributeDivisorFeaturesEXT {
+class PhysicalDeviceVertexAttributeDivisorFeaturesEXT {
     static name: string
 }
-export class PipelineCreationFeedbackFlagBitsEXT {
+class PipelineCreationFeedbackFlagBitsEXT {
     static name: string
 }
-export class PipelineCreationFeedbackFlagsEXT {
+class PipelineCreationFeedbackFlagsEXT {
     static name: string
 }
-export class PipelineCreationFeedbackEXT {
+class PipelineCreationFeedbackEXT {
     static name: string
 }
-export class PipelineCreationFeedbackCreateInfoEXT {
+class PipelineCreationFeedbackCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceComputeShaderDerivativesFeaturesNV {
+class PhysicalDeviceComputeShaderDerivativesFeaturesNV {
     static name: string
 }
-export class PhysicalDeviceMeshShaderFeaturesNV {
+class PhysicalDeviceMeshShaderFeaturesNV {
     static name: string
 }
-export class PhysicalDeviceMeshShaderPropertiesNV {
+class PhysicalDeviceMeshShaderPropertiesNV {
     static name: string
 }
-export class DrawMeshTasksIndirectCommandNV {
+class DrawMeshTasksIndirectCommandNV {
     static name: string
 }
-export class PhysicalDeviceFragmentShaderBarycentricFeaturesNV {
+class PhysicalDeviceFragmentShaderBarycentricFeaturesNV {
     static name: string
 }
-export class PhysicalDeviceShaderImageFootprintFeaturesNV {
+class PhysicalDeviceShaderImageFootprintFeaturesNV {
     static name: string
 }
-export class PipelineViewportExclusiveScissorStateCreateInfoNV {
+class PipelineViewportExclusiveScissorStateCreateInfoNV {
     static name: string
 }
-export class PhysicalDeviceExclusiveScissorFeaturesNV {
+class PhysicalDeviceExclusiveScissorFeaturesNV {
     static name: string
 }
-export class QueueFamilyCheckpointPropertiesNV {
+class QueueFamilyCheckpointPropertiesNV {
     static name: string
 }
-export class CheckpointDataNV {
+class CheckpointDataNV {
     static name: string
 }
-export class PhysicalDevicePCIBusInfoPropertiesEXT {
+class PhysicalDevicePCIBusInfoPropertiesEXT {
     static name: string
 }
-export class DisplayNativeHdrSurfaceCapabilitiesAMD {
+class DisplayNativeHdrSurfaceCapabilitiesAMD {
     static name: string
 }
-export class SwapchainDisplayNativeHdrCreateInfoAMD {
+class SwapchainDisplayNativeHdrCreateInfoAMD {
     static name: string
 }
-export class PhysicalDeviceFragmentDensityMapFeaturesEXT {
+class PhysicalDeviceFragmentDensityMapFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceFragmentDensityMapPropertiesEXT {
+class PhysicalDeviceFragmentDensityMapPropertiesEXT {
     static name: string
 }
-export class RenderPassFragmentDensityMapCreateInfoEXT {
+class RenderPassFragmentDensityMapCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceScalarBlockLayoutFeaturesEXT {
+class PhysicalDeviceScalarBlockLayoutFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceMemoryBudgetPropertiesEXT {
+class PhysicalDeviceMemoryBudgetPropertiesEXT {
     static name: string
 }
-export class PhysicalDeviceMemoryPriorityFeaturesEXT {
+class PhysicalDeviceMemoryPriorityFeaturesEXT {
     static name: string
 }
-export class MemoryPriorityAllocateInfoEXT {
+class MemoryPriorityAllocateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
+class PhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
     static name: string
 }
-export class DeviceAddress {
+class DeviceAddress {
     static name: string
 }
-export class PhysicalDeviceBufferDeviceAddressFeaturesEXT {
+class PhysicalDeviceBufferDeviceAddressFeaturesEXT {
     static name: string
 }
-export class PhysicalDeviceBufferAddressFeaturesEXT {
+class PhysicalDeviceBufferAddressFeaturesEXT {
     static name: string
 }
-export class BufferDeviceAddressInfoEXT {
+class BufferDeviceAddressInfoEXT {
     static name: string
 }
-export class BufferDeviceAddressCreateInfoEXT {
+class BufferDeviceAddressCreateInfoEXT {
     static name: string
 }
-export class ImageStencilUsageCreateInfoEXT {
+class ImageStencilUsageCreateInfoEXT {
     static name: string
 }
-export class ValidationFeatureEnableEXT {
+class ValidationFeatureEnableEXT {
     static name: string
 }
-export class ValidationFeatureDisableEXT {
+class ValidationFeatureDisableEXT {
     static name: string
 }
-export class ValidationFeaturesEXT {
+class ValidationFeaturesEXT {
     static name: string
 }
-export class ComponentTypeNV {
+class ComponentTypeNV {
     static name: string
 }
-export class ScopeNV {
+class ScopeNV {
     static name: string
 }
-export class CooperativeMatrixPropertiesNV {
+class CooperativeMatrixPropertiesNV {
     static name: string
 }
-export class PhysicalDeviceCooperativeMatrixFeaturesNV {
+class PhysicalDeviceCooperativeMatrixFeaturesNV {
     static name: string
 }
-export class PhysicalDeviceCooperativeMatrixPropertiesNV {
+class PhysicalDeviceCooperativeMatrixPropertiesNV {
     static name: string
 }
-export class CoverageReductionModeNV {
+class CoverageReductionModeNV {
     static name: string
 }
-export class PipelineCoverageReductionStateCreateFlagsNV {
+class PipelineCoverageReductionStateCreateFlagsNV {
     static name: string
 }
-export class PhysicalDeviceCoverageReductionModeFeaturesNV {
+class PhysicalDeviceCoverageReductionModeFeaturesNV {
     static name: string
 }
-export class PipelineCoverageReductionStateCreateInfoNV {
+class PipelineCoverageReductionStateCreateInfoNV {
     static name: string
 }
-export class FramebufferMixedSamplesCombinationNV {
+class FramebufferMixedSamplesCombinationNV {
     static name: string
 }
-export class PhysicalDeviceYcbcrImageArraysFeaturesEXT {
+class PhysicalDeviceYcbcrImageArraysFeaturesEXT {
     static name: string
 }
-export class HeadlessSurfaceCreateFlagsEXT {
+class HeadlessSurfaceCreateFlagsEXT {
     static name: string
 }
-export class HeadlessSurfaceCreateInfoEXT {
+class HeadlessSurfaceCreateInfoEXT {
     static name: string
 }
-export class PhysicalDeviceHostQueryResetFeaturesEXT {
+class PhysicalDeviceHostQueryResetFeaturesEXT {
     static name: string
 }
+}
+export default Vulkan

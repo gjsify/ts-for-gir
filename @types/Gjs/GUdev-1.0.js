@@ -1,2 +1,1 @@
-imports.gi.versions.GUdev = '1.0'
-module.exports = imports.gi.GUdev
+export {default as default} from 'gi://GUdev?version=1.0';

@@ -1,2 +1,1 @@
-imports.gi.versions.Egg = '1.0'
-module.exports = imports.gi.Egg
+export {default as default} from 'gi://Egg?version=1.0';

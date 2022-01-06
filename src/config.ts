@@ -2,12 +2,12 @@
  * Default values, parse the config file and handle CLI flags
  */
 
-import { flags } from '@oclif/command'
+import { Flags } from '@oclif/core'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
 import { Utils } from './utils'
-import { Environment, BuildType, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types'
+import { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types'
 import { promises as fs } from 'fs'
 import { Logger } from './logger'
 
@@ -36,59 +36,59 @@ export class Config {
      * CLI flags used in commands/generate.ts and commands/list.ts
      */
     static defaultCliFlags = {
-        help: flags.help({ char: 'h' }),
-        girDirectories: flags.string({
+        help: Flags.help({ char: 'h' }),
+        girDirectories: Flags.string({
             char: 'g',
             description: 'GIR directory',
             multiple: true,
             default: Config.defaults.girDirectories,
         }),
-        outdir: flags.string({
+        outdir: Flags.string({
             char: 'o',
             description: 'directory to output to',
             default: Config.defaults.outdir,
         }),
-        environments: flags.string({
+        environments: Flags.string({
             char: 'e',
             description: 'javascript environment',
             multiple: true,
             options: ['gjs', 'node'],
             default: Config.defaults.environments,
         }),
-        ignore: flags.string({
+        ignore: Flags.string({
             char: 'i',
             description: 'modules that should be ignored',
             multiple: true,
             default: Config.defaults.ignore,
         }),
-        buildType: flags.string({
+        buildType: Flags.string({
             char: 'b',
             description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
             multiple: false,
             options: ['lib', 'types'],
         }),
-        pretty: flags.boolean({
+        pretty: Flags.boolean({
             description: 'prettifies the generated .d.ts files',
             default: Config.defaults.pretty,
         }),
-        verbose: flags.boolean({
+        verbose: Flags.boolean({
             char: 'v',
             description: 'Switch on/off the verbose mode',
             default: Config.defaults.verbose,
         }),
-        ignoreConflicts: flags.boolean({
+        ignoreConflicts: Flags.boolean({
             description: 'Do not ask for package versions if multiple versions are found',
             default: Config.defaults.ignoreConflicts,
         }),
-        print: flags.boolean({
+        print: Flags.boolean({
             char: 'p',
             description: 'print the output to console and create no files',
             default: Config.defaults.print,
         }),
-        configName: flags.string({
+        configName: Flags.string({
             description: 'name of the config if you want to use a different name',
         }),
-        exportDefault: flags.boolean({
+        exportDefault: Flags.boolean({
             char: 'd',
             description: 'Export all symbols for each module as a single entity using ES6 export default',
             default: Config.defaults.exportDefault,
@@ -174,8 +174,8 @@ export class Config {
     public static async load(flags: ConfigFlags, modules: string[]): Promise<UserConfig> {
         const configFile = await this.loadConfigFile(flags.configName)
         const config: UserConfig = {
-            environments: flags.environments as Environment[],
-            buildType: flags.buildType as BuildType | undefined,
+            environments: flags.environments,
+            buildType: flags.buildType,
             verbose: flags.verbose,
             ignoreConflicts: flags.ignoreConflicts,
             pretty: flags.pretty,

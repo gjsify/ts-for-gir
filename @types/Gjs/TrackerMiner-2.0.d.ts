@@ -3,40 +3,42 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum DecoratorError {
+export namespace TrackerMiner {
+
+enum DecoratorError {
     EMPTY,
     PAUSED,
 }
-export enum FilterPolicy {
+enum FilterPolicy {
     DENY,
     ACCEPT,
 }
-export enum FilterType {
+enum FilterType {
     FILE,
     DIRECTORY,
     PARENT_DIRECTORY,
 }
-export enum MinerError {
+enum MinerError {
     NAME_MISSING,
     NAME_UNAVAILABLE,
     PAUSED,
     PAUSED_ALREADY,
     INVALID_COOKIE,
 }
-export enum MinerFSError {
+enum MinerFSError {
     MINER_FS_ERROR_INIT,
 }
-export enum MinerFSEventType {
+enum MinerFSEventType {
     CREATED,
     UPDATED,
     DELETED,
     MOVED,
 }
-export enum NetworkType {
+enum NetworkType {
     NONE,
     UNKNOWN,
     GPRS,
@@ -44,7 +46,7 @@ export enum NetworkType {
     /* 3G (invalid, starts with a number) */
     LAN,
 }
-export enum DirectoryFlags {
+enum DirectoryFlags {
     NONE,
     RECURSE,
     CHECK_MTIME,
@@ -59,7 +61,7 @@ export const MINER_DBUS_INTERFACE: string
 export const MINER_DBUS_NAME_PREFIX: string
 export const MINER_DBUS_PATH_PREFIX: string
 export const MINER_ERROR_DOMAIN: string
-export class DataProvider {
+class DataProvider {
     /* Methods of TrackerMiner-2.0.TrackerMiner.DataProvider */
     begin(url: Gio.File, attributes: string, flags: DirectoryFlags, cancellable?: Gio.Cancellable | null): Gio.FileEnumerator
     begin_async(url: Gio.File, attributes: string, flags: DirectoryFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -76,7 +78,7 @@ export interface Decorator_ConstructProps extends Miner_ConstructProps {
     data_source?: string
     priority_rdf_types?: string[]
 }
-export class Decorator {
+class Decorator {
     /* Properties of TrackerMiner-2.0.TrackerMiner.Decorator */
     class_names: string[]
     commit_batch_size: number
@@ -200,7 +202,7 @@ export class Decorator {
 }
 export interface DecoratorFS_ConstructProps extends Decorator_ConstructProps {
 }
-export class DecoratorFS {
+class DecoratorFS {
     /* Properties of TrackerMiner-2.0.TrackerMiner.Decorator */
     class_names: string[]
     commit_batch_size: number
@@ -326,7 +328,7 @@ export interface IndexingTree_ConstructProps extends GObject.Object_ConstructPro
     filter_hidden?: boolean
     root?: Gio.File
 }
-export class IndexingTree {
+class IndexingTree {
     /* Properties of TrackerMiner-2.0.TrackerMiner.IndexingTree */
     filter_hidden: boolean
     /* Fields of TrackerMiner-2.0.TrackerMiner.IndexingTree */
@@ -422,7 +424,7 @@ export interface Miner_ConstructProps extends GObject.Object_ConstructProps {
     remaining_time?: number
     status?: string
 }
-export class Miner {
+class Miner {
     /* Properties of TrackerMiner-2.0.TrackerMiner.Miner */
     progress: number
     remaining_time: number
@@ -523,7 +525,7 @@ export interface MinerFS_ConstructProps extends Miner_ConstructProps {
     root?: Gio.File
     throttle?: number
 }
-export class MinerFS {
+class MinerFS {
     /* Properties of TrackerMiner-2.0.TrackerMiner.MinerFS */
     processing_pool_ready_limit: number
     processing_pool_wait_limit: number
@@ -671,7 +673,7 @@ export class MinerFS {
 }
 export interface MinerOnline_ConstructProps extends Miner_ConstructProps {
 }
-export class MinerOnline {
+class MinerOnline {
     /* Properties of TrackerMiner-2.0.TrackerMiner.Miner */
     progress: number
     remaining_time: number
@@ -780,7 +782,7 @@ export interface MinerProxy_ConstructProps extends GObject.Object_ConstructProps
     dbus_path?: string
     miner?: Miner
 }
-export class MinerProxy {
+class MinerProxy {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerProxy */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -835,7 +837,7 @@ export class MinerProxy {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class DataProviderIface {
+abstract class DataProviderIface {
     /* Fields of TrackerMiner-2.0.TrackerMiner.DataProviderIface */
     g_iface: GObject.TypeInterface
     begin: (data_provider: DataProvider, url: Gio.File, attributes: string, flags: DirectoryFlags, cancellable?: Gio.Cancellable | null) => Gio.FileEnumerator
@@ -843,7 +845,7 @@ export abstract class DataProviderIface {
     begin_finish: (data_provider: DataProvider, result: Gio.AsyncResult) => Gio.FileEnumerator
     static name: string
 }
-export abstract class DecoratorClass {
+abstract class DecoratorClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.DecoratorClass */
     parent_class: MinerClass
     items_available: (decorator: Decorator) => void
@@ -851,13 +853,13 @@ export abstract class DecoratorClass {
     padding: object[]
     static name: string
 }
-export abstract class DecoratorFSClass {
+abstract class DecoratorFSClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.DecoratorFSClass */
     parent_class: DecoratorClass
     padding: object[]
     static name: string
 }
-export class DecoratorInfo {
+class DecoratorInfo {
     /* Methods of TrackerMiner-2.0.TrackerMiner.DecoratorInfo */
     complete(sparql: string): void
     complete_error(error: GLib.Error): void
@@ -869,7 +871,7 @@ export class DecoratorInfo {
     unref(): void
     static name: string
 }
-export abstract class IndexingTreeClass {
+abstract class IndexingTreeClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.IndexingTreeClass */
     parent_class: GObject.ObjectClass
     directory_added: (indexing_tree: IndexingTree, directory: Gio.File) => void
@@ -879,7 +881,7 @@ export abstract class IndexingTreeClass {
     padding: object[]
     static name: string
 }
-export abstract class MinerClass {
+abstract class MinerClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerClass */
     parent_class: GObject.ObjectClass
     started: (miner: Miner) => void
@@ -890,7 +892,7 @@ export abstract class MinerClass {
     padding: object[]
     static name: string
 }
-export abstract class MinerFSClass {
+abstract class MinerFSClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerFSClass */
     parent: MinerClass
     process_file: (fs: MinerFS, file: Gio.File, task: Gio.Task) => boolean
@@ -904,10 +906,10 @@ export abstract class MinerFSClass {
     padding: object[]
     static name: string
 }
-export class MinerFSPrivate {
+class MinerFSPrivate {
     static name: string
 }
-export abstract class MinerOnlineClass {
+abstract class MinerOnlineClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerOnlineClass */
     parent_class: MinerClass
     connected: (miner: MinerOnline, network: NetworkType) => boolean
@@ -915,11 +917,13 @@ export abstract class MinerOnlineClass {
     padding: object[]
     static name: string
 }
-export class MinerPrivate {
+class MinerPrivate {
     static name: string
 }
-export abstract class MinerProxyClass {
+abstract class MinerProxyClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerProxyClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
+}
+export default TrackerMiner

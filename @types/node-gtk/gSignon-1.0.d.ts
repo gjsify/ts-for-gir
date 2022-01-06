@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace gSignon {
+declare namespace gSignon {
 
-export enum Error {
+enum Error {
     UNKNOWN,
     INTERNAL_SERVER,
     INTERNAL_COMMUNICATION,
@@ -46,13 +46,13 @@ export enum Error {
     INCORRECT_DATE,
     USER_ERROR,
 }
-export enum SessionDataUiPolicy {
+enum SessionDataUiPolicy {
     DEFAULT,
     REQUEST_PASSWORD,
     NO_USER_INTERACTION,
     VALIDATION,
 }
-export enum IdentityType {
+enum IdentityType {
     OTHER,
     APP,
     WEB,
@@ -67,46 +67,46 @@ export const SESSION_DATA_TIMEOUT: string
 export const SESSION_DATA_UI_POLICY: string
 export const SESSION_DATA_USERNAME: string
 export const SESSION_DATA_WINDOW_ID: string
-export function errorQuark(): GLib.Quark
-export function securityContextDeconstructVariant(variant: GLib.Variant): SecurityContext
-export function securityContextListBuildVariant(list: SecurityContext[]): GLib.Variant
-export function securityContextListDeconstructVariant(variant: GLib.Variant): SecurityContext[]
-export interface AuthSessionProcessCb {
+function errorQuark(): GLib.Quark
+function securityContextDeconstructVariant(variant: GLib.Variant): SecurityContext
+function securityContextListBuildVariant(list: SecurityContext[]): GLib.Variant
+function securityContextListDeconstructVariant(variant: GLib.Variant): SecurityContext[]
+interface AuthSessionProcessCb {
     (self: AuthSession, sessionData: GLib.HashTable, error: GLib.Error): void
 }
-export interface AuthSessionQueryAvailableMechanismsCb {
+interface AuthSessionQueryAvailableMechanismsCb {
     (self: AuthSession, mechanisms: string[], error: GLib.Error): void
 }
-export interface ClearCb {
+interface ClearCb {
     (authService: AuthService, success: boolean, error: GLib.Error): void
 }
-export interface IdentityInfoCb {
+interface IdentityInfoCb {
     (self: Identity, info: IdentityInfo, error: GLib.Error): void
 }
-export interface IdentitySessionReadyCb {
+interface IdentitySessionReadyCb {
     (self: AuthSession, error: GLib.Error, connection: Gio.DBusConnection, busName: string, objectPath: string): void
 }
-export interface IdentityStoreCredentialsCb {
+interface IdentityStoreCredentialsCb {
     (self: Identity, id: number, error: GLib.Error): void
 }
-export interface IdentityVerifyCb {
+interface IdentityVerifyCb {
     (self: Identity, valid: boolean, error: GLib.Error): void
 }
-export interface IdentityVoidCb {
+interface IdentityVoidCb {
     (self: Identity, error: GLib.Error): void
 }
-export interface QueryIdentitiesCb {
+interface QueryIdentitiesCb {
     (authService: AuthService, identities: Identity[], error: GLib.Error): void
 }
-export interface QueryMechanismCb {
+interface QueryMechanismCb {
     (authService: AuthService, method: string, mechanisms: string[], error: GLib.Error): void
 }
-export interface QueryMethodsCb {
+interface QueryMethodsCb {
     (authService: AuthService, methods: string[], error: GLib.Error): void
 }
 export interface AuthService_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthService {
+class AuthService {
     /* Fields of gSignon-1.0.gSignon.AuthService */
     parentInstance: GObject.Object
     priv: AuthServicePrivate
@@ -162,7 +162,7 @@ export class AuthService {
 export interface AuthSession_ConstructProps extends GObject.Object_ConstructProps {
     identity?: Identity
 }
-export class AuthSession {
+class AuthSession {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of gSignon-1.0.gSignon.AuthSession */
@@ -225,7 +225,7 @@ export interface Identity_ConstructProps extends GObject.Object_ConstructProps {
     appCtx?: string
     id?: number
 }
-export class Identity {
+class Identity {
     /* Properties of gSignon-1.0.gSignon.Identity */
     appCtx: string
     id: number
@@ -310,28 +310,28 @@ export class Identity {
     static newWithContextFromDb(id: number, applicationContext: string): Identity
     static $gtype: GObject.Type
 }
-export abstract class AuthServiceClass {
+abstract class AuthServiceClass {
     /* Fields of gSignon-1.0.gSignon.AuthServiceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AuthServicePrivate {
+class AuthServicePrivate {
     static name: string
 }
-export abstract class AuthSessionClass {
+abstract class AuthSessionClass {
     /* Fields of gSignon-1.0.gSignon.AuthSessionClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class AuthSessionPrivate {
+class AuthSessionPrivate {
     static name: string
 }
-export abstract class IdentityClass {
+abstract class IdentityClass {
     /* Fields of gSignon-1.0.gSignon.IdentityClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class IdentityInfo {
+class IdentityInfo {
     /* Methods of gSignon-1.0.gSignon.IdentityInfo */
     accessControlListAppend(securityContext: SecurityContext): void
     copy(): IdentityInfo
@@ -363,10 +363,10 @@ export class IdentityInfo {
     /* Static methods and pseudo-constructors */
     static new(): IdentityInfo
 }
-export class IdentityPrivate {
+class IdentityPrivate {
     static name: string
 }
-export class SecurityContext {
+class SecurityContext {
     /* Fields of gSignon-1.0.gSignon.SecurityContext */
     sysCtx: string
     appCtx: string
@@ -388,22 +388,23 @@ export class SecurityContext {
     static listBuildVariant(list: SecurityContext[]): GLib.Variant
     static listDeconstructVariant(variant: GLib.Variant): SecurityContext[]
 }
-export class _AuthSession {
+class _AuthSession {
     /* Fields of gSignon-1.0.gSignon._AuthSession */
     parent: GObject.Object
     priv: AuthSessionPrivate
     static name: string
 }
-export class _Identity {
+class _Identity {
     /* Fields of gSignon-1.0.gSignon._Identity */
     parentInstance: GObject.Object
     priv: IdentityPrivate
     static name: string
 }
-export type AuthSessionQueryAvailableMethodsCb = AuthSessionQueryAvailableMechanismsCb
-export type IdentityCredentialsUpdatedCb = IdentityVoidCb
-export type IdentityReferenceAddedCb = IdentityVoidCb
-export type IdentityReferenceRemovedCb = IdentityVoidCb
-export type IdentityRemovedCb = IdentityVoidCb
-export type IdentitySignedOutCb = IdentityVoidCb
+type AuthSessionQueryAvailableMethodsCb = AuthSessionQueryAvailableMechanismsCb
+type IdentityCredentialsUpdatedCb = IdentityVoidCb
+type IdentityReferenceAddedCb = IdentityVoidCb
+type IdentityReferenceRemovedCb = IdentityVoidCb
+type IdentityRemovedCb = IdentityVoidCb
+type IdentitySignedOutCb = IdentityVoidCb
 }
+export default gSignon

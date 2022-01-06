@@ -1,2 +1,1 @@
-imports.gi.versions.Handy = '0.0'
-module.exports = imports.gi.Handy
+export {default as default} from 'gi://Handy?version=0.0';

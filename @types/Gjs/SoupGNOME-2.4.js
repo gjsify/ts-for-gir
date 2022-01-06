@@ -1,2 +1,1 @@
-imports.gi.versions.SoupGNOME = '2.4'
-module.exports = imports.gi.SoupGNOME
+export {default as default} from 'gi://SoupGNOME?version=2.4';

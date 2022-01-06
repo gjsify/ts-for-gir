@@ -3,37 +3,39 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GL from './GL-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GL from './GL-1.0';
 
-export enum AttributeType {
+export namespace Cogl {
+
+enum AttributeType {
     BYTE,
     UNSIGNED_BYTE,
     SHORT,
     UNSIGNED_SHORT,
     FLOAT,
 }
-export enum BitmapError {
+enum BitmapError {
     FAILED,
     UNKNOWN_TYPE,
     CORRUPT_IMAGE,
 }
-export enum BlendStringError {
+enum BlendStringError {
     PARSE_ERROR,
     ARGUMENT_PARSE_ERROR,
     INVALID_ERROR,
     GPU_UNSUPPORTED_ERROR,
 }
-export enum BufferError {
+enum BufferError {
     BUFFER_ERROR_MAP,
 }
-export enum BufferUpdateHint {
+enum BufferUpdateHint {
     STATIC,
     DYNAMIC,
     STREAM,
 }
-export enum DepthTestFunction {
+enum DepthTestFunction {
     NEVER,
     LESS,
     EQUAL,
@@ -43,7 +45,7 @@ export enum DepthTestFunction {
     GEQUAL,
     ALWAYS,
 }
-export enum Driver {
+enum Driver {
     ANY,
     NOP,
     GL,
@@ -52,7 +54,7 @@ export enum Driver {
     GLES2,
     WEBGL,
 }
-export enum FeatureID {
+enum FeatureID {
     OGL_FEATURE_ID_TEXTURE_NPOT_BASIC,
     OGL_FEATURE_ID_TEXTURE_NPOT_MIPMAP,
     OGL_FEATURE_ID_TEXTURE_NPOT_REPEAT,
@@ -79,32 +81,32 @@ export enum FeatureID {
     OGL_FEATURE_ID_TEXTURE_RG,
     OGL_FEATURE_ID_BUFFER_AGE,
 }
-export enum FilterReturn {
+enum FilterReturn {
     CONTINUE,
     REMOVE,
 }
-export enum FogMode {
+enum FogMode {
     LINEAR,
     EXPONENTIAL,
     EXPONENTIAL_SQUARED,
 }
-export enum FrameEvent {
+enum FrameEvent {
     SYNC,
     COMPLETE,
 }
-export enum FramebufferError {
+enum FramebufferError {
     FRAMEBUFFER_ERROR_ALLOCATE,
 }
-export enum GLES2ContextError {
+enum GLES2ContextError {
     UNSUPPORTED,
     DRIVER,
 }
-export enum IndicesType {
+enum IndicesType {
     BYTE,
     SHORT,
     INT,
 }
-export enum MaterialAlphaFunc {
+enum MaterialAlphaFunc {
     NEVER,
     LESS,
     EQUAL,
@@ -114,7 +116,7 @@ export enum MaterialAlphaFunc {
     GEQUAL,
     ALWAYS,
 }
-export enum MaterialFilter {
+enum MaterialFilter {
     NEAREST,
     LINEAR,
     NEAREST_MIPMAP_NEAREST,
@@ -122,15 +124,15 @@ export enum MaterialFilter {
     NEAREST_MIPMAP_LINEAR,
     LINEAR_MIPMAP_LINEAR,
 }
-export enum MaterialLayerType {
+enum MaterialLayerType {
     TEXTURE,
 }
-export enum MaterialWrapMode {
+enum MaterialWrapMode {
     REPEAT,
     CLAMP_TO_EDGE,
     AUTOMATIC,
 }
-export enum PipelineAlphaFunc {
+enum PipelineAlphaFunc {
     NEVER,
     LESS,
     EQUAL,
@@ -140,13 +142,13 @@ export enum PipelineAlphaFunc {
     GEQUAL,
     ALWAYS,
 }
-export enum PipelineCullFaceMode {
+enum PipelineCullFaceMode {
     NONE,
     FRONT,
     BACK,
     BOTH,
 }
-export enum PipelineFilter {
+enum PipelineFilter {
     NEAREST,
     LINEAR,
     NEAREST_MIPMAP_NEAREST,
@@ -154,13 +156,13 @@ export enum PipelineFilter {
     NEAREST_MIPMAP_LINEAR,
     LINEAR_MIPMAP_LINEAR,
 }
-export enum PipelineWrapMode {
+enum PipelineWrapMode {
     REPEAT,
     MIRRORED_REPEAT,
     CLAMP_TO_EDGE,
     AUTOMATIC,
 }
-export enum PixelFormat {
+enum PixelFormat {
     ANY,
     A_8,
     RGB_565,
@@ -193,7 +195,7 @@ export enum PixelFormat {
     DEPTH_32,
     DEPTH_24_STENCIL_8,
 }
-export enum PollFDEvent {
+enum PollFDEvent {
     IN,
     PRI,
     OUT,
@@ -201,15 +203,15 @@ export enum PollFDEvent {
     HUP,
     NVAL,
 }
-export enum RendererError {
+enum RendererError {
     XLIB_DISPLAY_OPEN,
     BAD_CONSTRAINT,
 }
-export enum ShaderType {
+enum ShaderType {
     VERTEX,
     FRAGMENT,
 }
-export enum SnippetHook {
+enum SnippetHook {
     VERTEX,
     VERTEX_TRANSFORM,
     VERTEX_GLOBALS,
@@ -220,12 +222,12 @@ export enum SnippetHook {
     LAYER_FRAGMENT,
     TEXTURE_LOOKUP,
 }
-export enum StereoMode {
+enum StereoMode {
     BOTH,
     LEFT,
     RIGHT,
 }
-export enum SubpixelOrder {
+enum SubpixelOrder {
     UNKNOWN,
     NONE,
     HORIZONTAL_RGB,
@@ -233,38 +235,38 @@ export enum SubpixelOrder {
     VERTICAL_RGB,
     VERTICAL_BGR,
 }
-export enum SystemError {
+enum SystemError {
     COGL_SYSTEM_ERROR_UNSUPPORTED,
     COGL_SYSTEM_ERROR_NO_MEMORY,
 }
-export enum TextureComponents {
+enum TextureComponents {
     A,
     RG,
     RGB,
     RGBA,
     DEPTH,
 }
-export enum TextureError {
+enum TextureError {
     SIZE,
     FORMAT,
     BAD_PARAMETER,
     TYPE,
 }
-export enum TexturePixmapX11Error {
+enum TexturePixmapX11Error {
     TEXTURE_PIXMAP_X11_ERROR_X11,
 }
-export enum TexturePixmapX11ReportLevel {
+enum TexturePixmapX11ReportLevel {
     RAW_RECTANGLES,
     DELTA_RECTANGLES,
     BOUNDING_BOX,
     NON_EMPTY,
 }
-export enum TextureType {
+enum TextureType {
     /* 2D (invalid, starts with a number) */
     /* 3D (invalid, starts with a number) */
     RECTANGLE,
 }
-export enum VerticesMode {
+enum VerticesMode {
     POINTS,
     LINES,
     LINE_LOOP,
@@ -273,11 +275,11 @@ export enum VerticesMode {
     TRIANGLE_STRIP,
     TRIANGLE_FAN,
 }
-export enum Winding {
+enum Winding {
     CLOCKWISE,
     COUNTER_CLOCKWISE,
 }
-export enum WinsysFeature {
+enum WinsysFeature {
     MULTIPLE_ONSCREEN,
     SWAP_THROTTLE,
     VBLANK_COUNTER,
@@ -291,7 +293,7 @@ export enum WinsysFeature {
     SYNC_AND_COMPLETE_EVENT,
     N_FEATURES,
 }
-export enum WinsysID {
+enum WinsysID {
     ANY,
     STUB,
     GLX,
@@ -305,25 +307,25 @@ export enum WinsysID {
     WGL,
     SDL,
 }
-export enum BufferAccess {
+enum BufferAccess {
     READ,
     WRITE,
     READ_WRITE,
 }
-export enum BufferBit {
+enum BufferBit {
     COLOR,
     DEPTH,
     STENCIL,
 }
-export enum BufferMapHint {
+enum BufferMapHint {
     COGL_BUFFER_MAP_HINT_DISCARD,
     _RANGE,
 }
-export enum BufferTarget {
+enum BufferTarget {
     WINDOW_BUFFER,
     OFFSCREEN_BUFFER,
 }
-export enum ColorMask {
+enum ColorMask {
     NONE,
     RED,
     GREEN,
@@ -331,7 +333,7 @@ export enum ColorMask {
     ALPHA,
     ALL,
 }
-export enum FeatureFlags {
+enum FeatureFlags {
     TEXTURE_RECTANGLE,
     TEXTURE_NPOT,
     TEXTURE_YUV,
@@ -357,16 +359,16 @@ export enum FeatureFlags {
     ONSCREEN_MULTIPLE,
     DEPTH_TEXTURE,
 }
-export enum ReadPixelsFlags {
+enum ReadPixelsFlags {
     COLOR_BUFFER,
 }
-export enum RendererConstraint {
+enum RendererConstraint {
     USES_X11,
     USES_XLIB,
     USES_EGL,
     SUPPORTS_COGL_GLES2,
 }
-export enum TextureFlags {
+enum TextureFlags {
     NONE,
     NO_AUTO_MIPMAP,
     NO_SLICING,
@@ -381,150 +383,150 @@ export const STENCIL_BIT: number
 export const TEXTURE_MAX_WASTE: number
 export const VERSION_COMPONENT_BITS: number
 export const VERSION_MAX_COMPONENT_VALUE: number
-export function bitmap_error_quark(): number
-export function blend_string_error_quark(): number
-export function buffer_get_size(buffer: Buffer): number
-export function buffer_get_update_hint(buffer: Buffer): BufferUpdateHint
-export function buffer_map(buffer: Buffer, access: BufferAccess, hints: BufferMapHint): object | null
-export function buffer_map_range(buffer: Buffer, offset: number, size: number, access: BufferAccess, hints: BufferMapHint): object | null
-export function buffer_set_data(buffer: Buffer, offset: number, data: object | null, size: number): Bool
-export function buffer_set_update_hint(buffer: Buffer, hint: BufferUpdateHint): void
-export function buffer_unmap(buffer: Buffer): void
-export function color_equal(v1?: object | null, v2?: object | null): Bool
-export function color_init_from_hsl(hue: number, saturation: number, luminance: number): /* color */ Color
-export function debug_matrix_entry_print(entry: MatrixEntry): void
-export function debug_matrix_print(matrix: Matrix): void
-export function debug_object_foreach_type(func: DebugObjectForeachTypeCallback): void
-export function debug_object_print_instances(): void
-export function error_copy(error: GLib.Error): GLib.Error
-export function error_free(error: GLib.Error): void
-export function error_matches(error: GLib.Error, domain: number, code: number): Bool
-export function euler_equal(v1?: object | null, v2?: object | null): Bool
-export function foreach_feature(context: Context, callback: FeatureCallback): void
-export function framebuffer_error_quark(): number
-export function get_clock_time(context: Context): number
-export function get_draw_framebuffer(): Framebuffer
-export function get_static_identity_quaternion(): Quaternion
-export function get_static_zero_quaternion(): Quaternion
-export function gles2_texture_get_handle(texture: Texture, handle: number, target: number): Bool
-export function glib_renderer_source_new(renderer: Renderer, priority: number): GLib.Source
-export function glib_source_new(context: Context, priority: number): GLib.Source
-export function gtype_matrix_get_type(): GObject.Type
-export function handle_get_type(): GObject.Type
-export function handle_ref(handle: Handle): Handle
-export function handle_unref(handle: Handle): void
-export function has_feature(context: Context, feature: FeatureID): Bool
-export function is_atlas_texture(object?: object | null): Bool
-export function is_attribute(object?: object | null): Bool
-export function is_attribute_buffer(object?: object | null): Bool
-export function is_bitmap(object?: object | null): Bool
-export function is_buffer(object?: object | null): Bool
-export function is_context(object?: object | null): Bool
-export function is_display(object?: object | null): Bool
-export function is_frame_info(object?: object | null): Bool
-export function is_framebuffer(object?: object | null): Bool
-export function is_gles2_context(object?: object | null): Bool
-export function is_index_buffer(object?: object | null): Bool
-export function is_indices(object?: object | null): Bool
-export function is_matrix_stack(object?: object | null): Bool
-export function is_onscreen(object?: object | null): Bool
-export function is_onscreen_template(object?: object | null): Bool
-export function is_output(object?: object | null): Bool
-export function is_pipeline(object?: object | null): Bool
-export function is_pixel_buffer(object?: object | null): Bool
-export function is_primitive(object?: object | null): Bool
-export function is_primitive_texture(object?: object | null): Bool
-export function is_renderer(object?: object | null): Bool
-export function is_snippet(object?: object | null): Bool
-export function is_sub_texture(object?: object | null): Bool
-export function is_swap_chain(object?: object | null): Bool
-export function is_texture(object?: object | null): Bool
-export function is_texture_2d(object?: object | null): Bool
-export function is_texture_2d_sliced(object?: object | null): Bool
-export function is_texture_3d(object?: object | null): Bool
-export function is_texture_pixmap_x11(object?: object | null): Bool
-export function is_texture_rectangle(object?: object | null): Bool
-export function kms_display_queue_modes_reset(display: Display): void
-export function kms_display_set_ignore_crtc(display: Display, id: number, ignore: Bool): void
-export function kms_display_set_layout(display: Display, width: number, height: number, crtcs: KmsCrtc, n_crtcs: number): Bool
-export function kms_renderer_get_gbm(renderer: Renderer): object | null
-export function kms_renderer_get_kms_fd(renderer: Renderer): number
-export function kms_renderer_set_kms_fd(renderer: Renderer, fd: number): void
-export function matrix_equal(v1?: object | null, v2?: object | null): Bool
-export function poll_renderer_dispatch(renderer: Renderer, poll_fds: PollFD, n_poll_fds: number): void
-export function poll_renderer_get_info(renderer: Renderer, poll_fds: PollFD, n_poll_fds: number, timeout: number): number
-export function pop_gles2_context(ctx: Context): void
-export function push_gles2_context(ctx: Context, gles2_ctx: GLES2Context, read_buffer: Framebuffer, write_buffer: Framebuffer): Bool
-export function quaternion_equal(v1?: object | null, v2?: object | null): Bool
-export function renderer_error_quark(): number
-export function texture_error_quark(): number
-export function vector3_add(result: number, a: number, b: number): void
-export function vector3_copy(vector: number): number
-export function vector3_cross_product(result: number, u: number, v: number): void
-export function vector3_distance(a: number, b: number): number
-export function vector3_divide_scalar(vector: number, scalar: number): void
-export function vector3_dot_product(a: number, b: number): number
-export function vector3_equal(v1?: object | null, v2?: object | null): Bool
-export function vector3_equal_with_epsilon(vector0: number, vector1: number, epsilon: number): Bool
-export function vector3_free(vector: number): void
-export function vector3_init(vector: number, x: number, y: number, z: number): void
-export function vector3_init_zero(vector: number): void
-export function vector3_invert(vector: number): void
-export function vector3_magnitude(vector: number): number
-export function vector3_multiply_scalar(vector: number, scalar: number): void
-export function vector3_normalize(vector: number): void
-export function vector3_subtract(result: number, a: number, b: number): void
-export function wayland_display_set_compositor_display(display: Display, wayland_display?: object | null): void
-export function wayland_onscreen_get_shell_surface(onscreen: Onscreen): object | null
-export function wayland_onscreen_get_surface(onscreen: Onscreen): object | null
-export function wayland_onscreen_resize(onscreen: Onscreen, width: number, height: number, offset_x: number, offset_y: number): void
-export function wayland_onscreen_set_foreign_surface(onscreen: Onscreen, surface?: object | null): void
-export function wayland_renderer_get_display(renderer: Renderer): object | null
-export function wayland_renderer_set_event_dispatch_enabled(renderer: Renderer, enable: Bool): void
-export function wayland_renderer_set_foreign_display(renderer: Renderer, display?: object | null): void
-export function wayland_texture_set_region_from_shm_buffer(texture: Texture, src_x: number, src_y: number, width: number, height: number, shm_buffer: object | null, dst_x: number, dst_y: number, level: number): Bool
-export function x11_onscreen_get_visual_xid(onscreen: Onscreen): number
-export function x11_onscreen_get_window_xid(onscreen: Onscreen): number
-export interface DebugObjectForeachTypeCallback {
+function bitmap_error_quark(): number
+function blend_string_error_quark(): number
+function buffer_get_size(buffer: Buffer): number
+function buffer_get_update_hint(buffer: Buffer): BufferUpdateHint
+function buffer_map(buffer: Buffer, access: BufferAccess, hints: BufferMapHint): object | null
+function buffer_map_range(buffer: Buffer, offset: number, size: number, access: BufferAccess, hints: BufferMapHint): object | null
+function buffer_set_data(buffer: Buffer, offset: number, data: object | null, size: number): Bool
+function buffer_set_update_hint(buffer: Buffer, hint: BufferUpdateHint): void
+function buffer_unmap(buffer: Buffer): void
+function color_equal(v1?: object | null, v2?: object | null): Bool
+function color_init_from_hsl(hue: number, saturation: number, luminance: number): /* color */ Color
+function debug_matrix_entry_print(entry: MatrixEntry): void
+function debug_matrix_print(matrix: Matrix): void
+function debug_object_foreach_type(func: DebugObjectForeachTypeCallback): void
+function debug_object_print_instances(): void
+function error_copy(error: GLib.Error): GLib.Error
+function error_free(error: GLib.Error): void
+function error_matches(error: GLib.Error, domain: number, code: number): Bool
+function euler_equal(v1?: object | null, v2?: object | null): Bool
+function foreach_feature(context: Context, callback: FeatureCallback): void
+function framebuffer_error_quark(): number
+function get_clock_time(context: Context): number
+function get_draw_framebuffer(): Framebuffer
+function get_static_identity_quaternion(): Quaternion
+function get_static_zero_quaternion(): Quaternion
+function gles2_texture_get_handle(texture: Texture, handle: number, target: number): Bool
+function glib_renderer_source_new(renderer: Renderer, priority: number): GLib.Source
+function glib_source_new(context: Context, priority: number): GLib.Source
+function gtype_matrix_get_type(): GObject.Type
+function handle_get_type(): GObject.Type
+function handle_ref(handle: Handle): Handle
+function handle_unref(handle: Handle): void
+function has_feature(context: Context, feature: FeatureID): Bool
+function is_atlas_texture(object?: object | null): Bool
+function is_attribute(object?: object | null): Bool
+function is_attribute_buffer(object?: object | null): Bool
+function is_bitmap(object?: object | null): Bool
+function is_buffer(object?: object | null): Bool
+function is_context(object?: object | null): Bool
+function is_display(object?: object | null): Bool
+function is_frame_info(object?: object | null): Bool
+function is_framebuffer(object?: object | null): Bool
+function is_gles2_context(object?: object | null): Bool
+function is_index_buffer(object?: object | null): Bool
+function is_indices(object?: object | null): Bool
+function is_matrix_stack(object?: object | null): Bool
+function is_onscreen(object?: object | null): Bool
+function is_onscreen_template(object?: object | null): Bool
+function is_output(object?: object | null): Bool
+function is_pipeline(object?: object | null): Bool
+function is_pixel_buffer(object?: object | null): Bool
+function is_primitive(object?: object | null): Bool
+function is_primitive_texture(object?: object | null): Bool
+function is_renderer(object?: object | null): Bool
+function is_snippet(object?: object | null): Bool
+function is_sub_texture(object?: object | null): Bool
+function is_swap_chain(object?: object | null): Bool
+function is_texture(object?: object | null): Bool
+function is_texture_2d(object?: object | null): Bool
+function is_texture_2d_sliced(object?: object | null): Bool
+function is_texture_3d(object?: object | null): Bool
+function is_texture_pixmap_x11(object?: object | null): Bool
+function is_texture_rectangle(object?: object | null): Bool
+function kms_display_queue_modes_reset(display: Display): void
+function kms_display_set_ignore_crtc(display: Display, id: number, ignore: Bool): void
+function kms_display_set_layout(display: Display, width: number, height: number, crtcs: KmsCrtc, n_crtcs: number): Bool
+function kms_renderer_get_gbm(renderer: Renderer): object | null
+function kms_renderer_get_kms_fd(renderer: Renderer): number
+function kms_renderer_set_kms_fd(renderer: Renderer, fd: number): void
+function matrix_equal(v1?: object | null, v2?: object | null): Bool
+function poll_renderer_dispatch(renderer: Renderer, poll_fds: PollFD, n_poll_fds: number): void
+function poll_renderer_get_info(renderer: Renderer, poll_fds: PollFD, n_poll_fds: number, timeout: number): number
+function pop_gles2_context(ctx: Context): void
+function push_gles2_context(ctx: Context, gles2_ctx: GLES2Context, read_buffer: Framebuffer, write_buffer: Framebuffer): Bool
+function quaternion_equal(v1?: object | null, v2?: object | null): Bool
+function renderer_error_quark(): number
+function texture_error_quark(): number
+function vector3_add(result: number, a: number, b: number): void
+function vector3_copy(vector: number): number
+function vector3_cross_product(result: number, u: number, v: number): void
+function vector3_distance(a: number, b: number): number
+function vector3_divide_scalar(vector: number, scalar: number): void
+function vector3_dot_product(a: number, b: number): number
+function vector3_equal(v1?: object | null, v2?: object | null): Bool
+function vector3_equal_with_epsilon(vector0: number, vector1: number, epsilon: number): Bool
+function vector3_free(vector: number): void
+function vector3_init(vector: number, x: number, y: number, z: number): void
+function vector3_init_zero(vector: number): void
+function vector3_invert(vector: number): void
+function vector3_magnitude(vector: number): number
+function vector3_multiply_scalar(vector: number, scalar: number): void
+function vector3_normalize(vector: number): void
+function vector3_subtract(result: number, a: number, b: number): void
+function wayland_display_set_compositor_display(display: Display, wayland_display?: object | null): void
+function wayland_onscreen_get_shell_surface(onscreen: Onscreen): object | null
+function wayland_onscreen_get_surface(onscreen: Onscreen): object | null
+function wayland_onscreen_resize(onscreen: Onscreen, width: number, height: number, offset_x: number, offset_y: number): void
+function wayland_onscreen_set_foreign_surface(onscreen: Onscreen, surface?: object | null): void
+function wayland_renderer_get_display(renderer: Renderer): object | null
+function wayland_renderer_set_event_dispatch_enabled(renderer: Renderer, enable: Bool): void
+function wayland_renderer_set_foreign_display(renderer: Renderer, display?: object | null): void
+function wayland_texture_set_region_from_shm_buffer(texture: Texture, src_x: number, src_y: number, width: number, height: number, shm_buffer: object | null, dst_x: number, dst_y: number, level: number): Bool
+function x11_onscreen_get_visual_xid(onscreen: Onscreen): number
+function x11_onscreen_get_window_xid(onscreen: Onscreen): number
+interface DebugObjectForeachTypeCallback {
     (info: DebugObjectTypeInfo): void
 }
-export interface FeatureCallback {
+interface FeatureCallback {
     (feature: FeatureID): void
 }
-export interface FenceCallback {
+interface FenceCallback {
     (fence: Fence): void
 }
-export interface FrameCallback {
+interface FrameCallback {
     (onscreen: Onscreen, event: FrameEvent, info: FrameInfo): void
 }
-export interface FuncPtr {
+interface FuncPtr {
     (): void
 }
-export interface MetaTextureCallback {
+interface MetaTextureCallback {
     (sub_texture: Texture, sub_texture_coords: number, meta_coords: number): void
 }
-export interface OnscreenDirtyCallback {
+interface OnscreenDirtyCallback {
     (onscreen: Onscreen, info: OnscreenDirtyInfo): void
 }
-export interface OnscreenResizeCallback {
+interface OnscreenResizeCallback {
     (onscreen: Onscreen, width: number, height: number): void
 }
-export interface OnscreenX11MaskCallback {
+interface OnscreenX11MaskCallback {
     (onscreen: Onscreen, event_mask: number): void
 }
-export interface OutputCallback {
+interface OutputCallback {
     (output: Output): void
 }
-export interface PipelineLayerCallback {
+interface PipelineLayerCallback {
     (pipeline: Pipeline, layer_index: number): Bool
 }
-export interface PrimitiveAttributeCallback {
+interface PrimitiveAttributeCallback {
     (primitive: Primitive, attribute: Attribute): Bool
 }
-export interface SwapBuffersNotify {
+interface SwapBuffersNotify {
     (framebuffer: Framebuffer): void
 }
-export class Framebuffer {
+class Framebuffer {
     /* Methods of Cogl-2.0.Cogl.Framebuffer */
     allocate(): Bool
     cancel_fence_callback(closure: FenceClosure): void
@@ -596,7 +598,7 @@ export class Framebuffer {
     /* Static methods and pseudo-constructors */
     static error_quark(): number
 }
-export class Texture {
+class Texture {
     /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
@@ -614,7 +616,7 @@ export class Texture {
     set_region_from_bitmap(src_x: number, src_y: number, dst_x: number, dst_y: number, dst_width: number, dst_height: number, bitmap: Bitmap): Bool
     static name: string
 }
-export class AtlasTexture {
+class AtlasTexture {
     static name: string
     /* Static methods and pseudo-constructors */
     static new_from_bitmap(bmp: Bitmap): AtlasTexture
@@ -622,7 +624,7 @@ export class AtlasTexture {
     static new_from_file(ctx: Context, filename: string): AtlasTexture
     static new_with_size(ctx: Context, width: number, height: number): AtlasTexture
 }
-export class Attribute {
+class Attribute {
     /* Methods of Cogl-2.0.Cogl.Attribute */
     get_buffer(): AttributeBuffer
     get_normalized(): Bool
@@ -644,12 +646,12 @@ export class Attribute {
     static new_const_4fv(context: Context, name: string, value: number): Attribute
     static new_const_4x4fv(context: Context, name: string, matrix4x4: number, transpose: Bool): Attribute
 }
-export class AttributeBuffer {
+class AttributeBuffer {
     static name: string
     /* Static methods and pseudo-constructors */
     static new_with_size(context: Context, bytes: number): AttributeBuffer
 }
-export class Bitmap {
+class Bitmap {
     /* Methods of Cogl-2.0.Cogl.Bitmap */
     get_buffer(): PixelBuffer
     get_format(): PixelFormat
@@ -664,7 +666,7 @@ export class Bitmap {
     static new_with_size(context: Context, width: number, height: number, format: PixelFormat): Bitmap
     static get_size_from_file(filename: string): [ /* returnType */ Bool, /* width */ number, /* height */ number ]
 }
-export class Context {
+class Context {
     /* Methods of Cogl-2.0.Cogl.Context */
     get_display(): Display
     get_renderer(): Renderer
@@ -674,7 +676,7 @@ export class Context {
     /* Static methods and pseudo-constructors */
     static new(display?: Display | null): Context
 }
-export class Display {
+class Display {
     /* Methods of Cogl-2.0.Cogl.Display */
     get_renderer(): Renderer
     set_onscreen_template(onscreen_template: OnscreenTemplate): void
@@ -685,10 +687,10 @@ export class Display {
     /* Static methods and pseudo-constructors */
     static new(renderer: Renderer, onscreen_template: OnscreenTemplate): Display
 }
-export class Fixed {
+class Fixed {
     static name: string
 }
-export class FrameInfo {
+class FrameInfo {
     /* Methods of Cogl-2.0.Cogl.FrameInfo */
     get_frame_counter(): number
     get_output(): Output
@@ -696,7 +698,7 @@ export class FrameInfo {
     get_refresh_rate(): number
     static name: string
 }
-export class GLES2Context {
+class GLES2Context {
     /* Methods of Cogl-2.0.Cogl.GLES2Context */
     get_vtable(): GLES2Vtable
     static name: string
@@ -705,14 +707,14 @@ export class GLES2Context {
     /* Static methods and pseudo-constructors */
     static new(ctx: Context): GLES2Context
 }
-export class IndexBuffer {
+class IndexBuffer {
     static name: string
     static new(context: Context, bytes: number): IndexBuffer
     constructor(context: Context, bytes: number)
     /* Static methods and pseudo-constructors */
     static new(context: Context, bytes: number): IndexBuffer
 }
-export class Indices {
+class Indices {
     /* Methods of Cogl-2.0.Cogl.Indices */
     get_offset(): number
     get_type(): IndicesType
@@ -724,7 +726,7 @@ export class Indices {
     static new(context: Context, type: IndicesType, indices_data: object | null, n_indices: number): Indices
     static new_for_buffer(type: IndicesType, buffer: IndexBuffer, offset: number): Indices
 }
-export class MatrixStack {
+class MatrixStack {
     /* Methods of Cogl-2.0.Cogl.MatrixStack */
     frustum(left: number, right: number, bottom: number, top: number, z_near: number, z_far: number): void
     get(): [ /* returnType */ Matrix, /* matrix */ Matrix ]
@@ -748,13 +750,13 @@ export class MatrixStack {
     /* Static methods and pseudo-constructors */
     static new(ctx: Context): MatrixStack
 }
-export class Object {
+class Object {
     static name: string
     /* Static methods and pseudo-constructors */
     static value_get_object(value: any): object | null
     static value_set_object(value: any, object?: object | null): void
 }
-export class Onscreen {
+class Onscreen {
     /* Methods of Cogl-2.0.Cogl.Onscreen */
     add_dirty_callback(callback: OnscreenDirtyCallback, destroy?: UserDataDestroyCallback | null): OnscreenDirtyClosure
     add_frame_callback(callback: FrameCallback, destroy?: UserDataDestroyCallback | null): FrameClosure
@@ -848,7 +850,7 @@ export class Onscreen {
     static new(context: Context, width: number, height: number): Onscreen
     static error_quark(): number
 }
-export class OnscreenTemplate {
+class OnscreenTemplate {
     /* Methods of Cogl-2.0.Cogl.OnscreenTemplate */
     set_samples_per_pixel(n: number): void
     set_stereo_enabled(enabled: Bool): void
@@ -859,7 +861,7 @@ export class OnscreenTemplate {
     /* Static methods and pseudo-constructors */
     static new(swap_chain: SwapChain): OnscreenTemplate
 }
-export class Output {
+class Output {
     /* Methods of Cogl-2.0.Cogl.Output */
     get_height(): number
     get_mm_height(): number
@@ -871,7 +873,7 @@ export class Output {
     get_y(): number
     static name: string
 }
-export class Pipeline {
+class Pipeline {
     /* Methods of Cogl-2.0.Cogl.Pipeline */
     add_layer_snippet(layer: number, snippet: Snippet): void
     add_snippet(snippet: Snippet): void
@@ -943,14 +945,14 @@ export class Pipeline {
     /* Static methods and pseudo-constructors */
     static new(context: Context): Pipeline
 }
-export class PixelBuffer {
+class PixelBuffer {
     static name: string
     static new(context: Context, size: number, data?: object | null): PixelBuffer
     constructor(context: Context, size: number, data?: object | null)
     /* Static methods and pseudo-constructors */
     static new(context: Context, size: number, data?: object | null): PixelBuffer
 }
-export class Primitive {
+class Primitive {
     /* Methods of Cogl-2.0.Cogl.Primitive */
     copy(): Primitive
     draw(framebuffer: Framebuffer, pipeline: Pipeline): void
@@ -977,7 +979,7 @@ export class Primitive {
     static new_with_attributes(mode: VerticesMode, n_vertices: number, attributes: Attribute, n_attributes: number): Primitive
     static texture_set_auto_mipmap(primitive_texture: PrimitiveTexture, value: Bool): void
 }
-export class Renderer {
+class Renderer {
     /* Methods of Cogl-2.0.Cogl.Renderer */
     add_constraint(constraint: RendererConstraint): void
     check_onscreen_template(onscreen_template: OnscreenTemplate): Bool
@@ -995,7 +997,7 @@ export class Renderer {
     /* Static methods and pseudo-constructors */
     static new(): Renderer
 }
-export class Snippet {
+class Snippet {
     /* Methods of Cogl-2.0.Cogl.Snippet */
     get_declarations(): string
     get_hook(): SnippetHook
@@ -1012,7 +1014,7 @@ export class Snippet {
     /* Static methods and pseudo-constructors */
     static new(hook: SnippetHook, declarations: string, post: string): Snippet
 }
-export class SubTexture {
+class SubTexture {
     /* Methods of Cogl-2.0.Cogl.SubTexture */
     get_parent(): Texture
     static name: string
@@ -1021,7 +1023,7 @@ export class SubTexture {
     /* Static methods and pseudo-constructors */
     static new(ctx: Context, parent_texture: Texture, sub_x: number, sub_y: number, sub_width: number, sub_height: number): SubTexture
 }
-export class SwapChain {
+class SwapChain {
     /* Methods of Cogl-2.0.Cogl.SwapChain */
     set_has_alpha(has_alpha: Bool): void
     set_length(length: number): void
@@ -1031,7 +1033,7 @@ export class SwapChain {
     /* Static methods and pseudo-constructors */
     static new(): SwapChain
 }
-export class Texture2D {
+class Texture2D {
     /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
@@ -1055,7 +1057,7 @@ export class Texture2D {
     static new_from_file(ctx: Context, filename: string): Texture2D
     static new_with_size(ctx: Context, width: number, height: number): Texture2D
 }
-export class Texture2DSliced {
+class Texture2DSliced {
     /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
@@ -1078,7 +1080,7 @@ export class Texture2DSliced {
     static new_from_file(ctx: Context, filename: string, max_waste: number): Texture2DSliced
     static new_with_size(ctx: Context, width: number, height: number, max_waste: number): Texture2DSliced
 }
-export class Texture3D {
+class Texture3D {
     /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
@@ -1100,7 +1102,7 @@ export class Texture3D {
     static new_from_data(context: Context, width: number, height: number, depth: number, format: PixelFormat, rowstride: number, image_stride: number, data: number): Texture3D
     static new_with_size(context: Context, width: number, height: number, depth: number): Texture3D
 }
-export class TexturePixmapX11 {
+class TexturePixmapX11 {
     /* Methods of Cogl-2.0.Cogl.TexturePixmapX11 */
     is_using_tfp_extension(): Bool
     set_damage_object(damage: number, report_level: TexturePixmapX11ReportLevel): void
@@ -1113,7 +1115,7 @@ export class TexturePixmapX11 {
     static new_left(context: Context, pixmap: number, automatic_updates: Bool): TexturePixmapX11
     static error_quark(): number
 }
-export class TextureRectangle {
+class TextureRectangle {
     /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     get_components(): TextureComponents
@@ -1135,7 +1137,7 @@ export class TextureRectangle {
     static new_from_foreign(ctx: Context, gl_handle: number, width: number, height: number, format: PixelFormat): TextureRectangle
     static new_with_size(ctx: Context, width: number, height: number): TextureRectangle
 }
-export class Color {
+class Color {
     /* Methods of Cogl-2.0.Cogl.Color */
     copy(): Color
     free(): void
@@ -1179,13 +1181,13 @@ export class Color {
     static equal(v1?: object | null, v2?: object | null): Bool
     static init_from_hsl(hue: number, saturation: number, luminance: number): /* color */ Color
 }
-export class DebugObjectTypeInfo {
+class DebugObjectTypeInfo {
     /* Fields of Cogl-2.0.Cogl.DebugObjectTypeInfo */
     name: string
     instance_count: number
     static name: string
 }
-export class DepthState {
+class DepthState {
     /* Methods of Cogl-2.0.Cogl.DepthState */
     get_range(near_val: number, far_val: number): void
     get_test_enabled(): Bool
@@ -1198,7 +1200,7 @@ export class DepthState {
     set_write_enabled(enable: Bool): void
     static name: string
 }
-export class Euler {
+class Euler {
     /* Fields of Cogl-2.0.Cogl.Euler */
     heading: number
     pitch: number
@@ -1213,18 +1215,18 @@ export class Euler {
     /* Static methods and pseudo-constructors */
     static equal(v1?: object | null, v2?: object | null): Bool
 }
-export class Fence {
+class Fence {
     static name: string
 }
-export class FenceClosure {
+class FenceClosure {
     /* Methods of Cogl-2.0.Cogl.FenceClosure */
     get_user_data(): object | null
     static name: string
 }
-export class FrameClosure {
+class FrameClosure {
     static name: string
 }
-export class GLES2Vtable {
+class GLES2Vtable {
     /* Fields of Cogl-2.0.Cogl.GLES2Vtable */
     glBindTexture: (target: GL.enum_, texture: GL.uint) => void
     glBlendFunc: (sfactor: GL.enum_, dfactor: GL.enum_) => void
@@ -1352,19 +1354,19 @@ export class GLES2Vtable {
     glGetVertexAttribPointerv: (index: GL.uint, pname: GL.enum_, pointer: GL.void_) => void
     static name: string
 }
-export class GtypeClass {
+class GtypeClass {
     /* Fields of Cogl-2.0.Cogl.GtypeClass */
     base_class: GObject.TypeClass
     dummy: number
     static name: string
 }
-export class GtypeObject {
+class GtypeObject {
     /* Fields of Cogl-2.0.Cogl.GtypeObject */
     parent_instance: GObject.TypeInstance
     dummy: number
     static name: string
 }
-export class KmsCrtc {
+class KmsCrtc {
     /* Fields of Cogl-2.0.Cogl.KmsCrtc */
     id: number
     x: number
@@ -1374,7 +1376,7 @@ export class KmsCrtc {
     ignore: Bool
     static name: string
 }
-export class Matrix {
+class Matrix {
     /* Fields of Cogl-2.0.Cogl.Matrix */
     xx: number
     yx: number
@@ -1424,7 +1426,7 @@ export class Matrix {
     /* Static methods and pseudo-constructors */
     static equal(v1?: object | null, v2?: object | null): Bool
 }
-export class MatrixEntry {
+class MatrixEntry {
     /* Methods of Cogl-2.0.Cogl.MatrixEntry */
     calculate_translation(entry1: MatrixEntry): [ /* returnType */ Bool, /* x */ number, /* y */ number, /* z */ number ]
     equal(entry1: MatrixEntry): Bool
@@ -1434,10 +1436,10 @@ export class MatrixEntry {
     unref(): void
     static name: string
 }
-export class OnscreenDirtyClosure {
+class OnscreenDirtyClosure {
     static name: string
 }
-export class OnscreenDirtyInfo {
+class OnscreenDirtyInfo {
     /* Fields of Cogl-2.0.Cogl.OnscreenDirtyInfo */
     x: number
     y: number
@@ -1445,15 +1447,15 @@ export class OnscreenDirtyInfo {
     height: number
     static name: string
 }
-export class OnscreenResizeClosure {
+class OnscreenResizeClosure {
     static name: string
 }
-export class PollFD {
+class PollFD {
     /* Fields of Cogl-2.0.Cogl.PollFD */
     fd: number
     static name: string
 }
-export class Quaternion {
+class Quaternion {
     /* Fields of Cogl-2.0.Cogl.Quaternion */
     w: number
     x: number
@@ -1486,7 +1488,7 @@ export class Quaternion {
     /* Static methods and pseudo-constructors */
     static equal(v1?: object | null, v2?: object | null): Bool
 }
-export class TextureVertex {
+class TextureVertex {
     /* Fields of Cogl-2.0.Cogl.TextureVertex */
     x: number
     y: number
@@ -1496,18 +1498,18 @@ export class TextureVertex {
     color: Color
     static name: string
 }
-export class UserDataKey {
+class UserDataKey {
     /* Fields of Cogl-2.0.Cogl.UserDataKey */
     unused: number
     static name: string
 }
-export class VertexP2 {
+class VertexP2 {
     /* Fields of Cogl-2.0.Cogl.VertexP2 */
     x: number
     y: number
     static name: string
 }
-export class VertexP2C4 {
+class VertexP2C4 {
     /* Fields of Cogl-2.0.Cogl.VertexP2C4 */
     x: number
     y: number
@@ -1517,7 +1519,7 @@ export class VertexP2C4 {
     a: number
     static name: string
 }
-export class VertexP2T2 {
+class VertexP2T2 {
     /* Fields of Cogl-2.0.Cogl.VertexP2T2 */
     x: number
     y: number
@@ -1525,7 +1527,7 @@ export class VertexP2T2 {
     t: number
     static name: string
 }
-export class VertexP2T2C4 {
+class VertexP2T2C4 {
     /* Fields of Cogl-2.0.Cogl.VertexP2T2C4 */
     x: number
     y: number
@@ -1537,14 +1539,14 @@ export class VertexP2T2C4 {
     a: number
     static name: string
 }
-export class VertexP3 {
+class VertexP3 {
     /* Fields of Cogl-2.0.Cogl.VertexP3 */
     x: number
     y: number
     z: number
     static name: string
 }
-export class VertexP3C4 {
+class VertexP3C4 {
     /* Fields of Cogl-2.0.Cogl.VertexP3C4 */
     x: number
     y: number
@@ -1555,7 +1557,7 @@ export class VertexP3C4 {
     a: number
     static name: string
 }
-export class VertexP3T2 {
+class VertexP3T2 {
     /* Fields of Cogl-2.0.Cogl.VertexP3T2 */
     x: number
     y: number
@@ -1564,7 +1566,7 @@ export class VertexP3T2 {
     t: number
     static name: string
 }
-export class VertexP3T2C4 {
+class VertexP3T2C4 {
     /* Fields of Cogl-2.0.Cogl.VertexP3T2C4 */
     x: number
     y: number
@@ -1577,35 +1579,37 @@ export class VertexP3T2C4 {
     a: number
     static name: string
 }
-export class _ColorSizeCheck {
+class _ColorSizeCheck {
     /* Fields of Cogl-2.0.Cogl._ColorSizeCheck */
     compile_time_assert_CoglColor_size: number[]
     static name: string
 }
-export class _EulerSizeCheck {
+class _EulerSizeCheck {
     /* Fields of Cogl-2.0.Cogl._EulerSizeCheck */
     compile_time_assert_CoglEuler_size: number[]
     static name: string
 }
-export class _MatrixSizeCheck {
+class _MatrixSizeCheck {
     /* Fields of Cogl-2.0.Cogl._MatrixSizeCheck */
     compile_time_assert_CoglMatrix_size: number[]
     static name: string
 }
-export class _QuaternionSizeCheck {
+class _QuaternionSizeCheck {
     /* Fields of Cogl-2.0.Cogl._QuaternionSizeCheck */
     compile_time_assert_CoglQuaternion_size: number[]
     static name: string
 }
-export class _TextureVertexSizeCheck {
+class _TextureVertexSizeCheck {
     /* Fields of Cogl-2.0.Cogl._TextureVertexSizeCheck */
     compile_time_assert_CoglTextureVertex_size: number[]
     static name: string
 }
-export type Angle = number
-export type Bool = number
-export type Buffer = void
-export type Handle = object
-export type MetaTexture = void
-export type PrimitiveTexture = void
-export type UserDataDestroyCallback = GLib.DestroyNotify
+type Angle = number
+type Bool = number
+type Buffer = void
+type Handle = object
+type MetaTexture = void
+type PrimitiveTexture = void
+type UserDataDestroyCallback = GLib.DestroyNotify
+}
+export default Cogl

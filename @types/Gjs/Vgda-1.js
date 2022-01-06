@@ -1,2 +1,1 @@
-imports.gi.versions.Vgda = '1'
-module.exports = imports.gi.Vgda
+export {default as default} from 'gi://Vgda?version=1';

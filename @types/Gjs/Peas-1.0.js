@@ -1,2 +1,1 @@
-imports.gi.versions.Peas = '1.0'
-module.exports = imports.gi.Peas
+export {default as default} from 'gi://Peas?version=1.0';

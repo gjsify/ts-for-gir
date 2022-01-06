@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ServerError {
+export namespace Uhm {
+
+enum ServerError {
     SERVER_ERROR_MESSAGE_MISMATCH,
 }
 export const MAJOR_VERSION: number
@@ -16,7 +18,7 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export interface Resolver_ConstructProps extends Gio.Resolver_ConstructProps {
 }
-export class Resolver {
+class Resolver {
     /* Fields of Gio-2.0.Gio.Resolver */
     parent_instance: GObject.Object
     priv: Gio.ResolverPrivate
@@ -114,7 +116,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     tls_certificate?: Gio.TlsCertificate
     trace_directory?: Gio.File
 }
-export class Server {
+class Server {
     /* Properties of Uhm-0.0.Uhm.Server */
     readonly address: string
     enable_logging: boolean
@@ -223,18 +225,20 @@ export class Server {
     static received_message_chunk_from_soup(logger: Soup.Logger, level: Soup.LoggerLogLevel, direction: number, data: string, user_data?: object | null): void
     static $gtype: GObject.Type
 }
-export abstract class ResolverClass {
+abstract class ResolverClass {
     static name: string
 }
-export class ResolverPrivate {
+class ResolverPrivate {
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     /* Fields of Uhm-0.0.Uhm.ServerClass */
     handle_message: (self: Server, message: Soup.Message, client: Soup.ClientContext) => boolean
     compare_messages: (self: Server, expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext) => boolean
     static name: string
 }
-export class ServerPrivate {
+class ServerPrivate {
     static name: string
 }
+}
+export default Uhm

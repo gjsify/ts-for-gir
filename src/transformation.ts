@@ -3,7 +3,7 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, GType, GenerateConfig } from './types'
+import { Transformations, Environment, ConstructName, GenerateConfig } from './types'
 import Path from 'path'
 import { Utils } from './utils'
 import { Logger } from './logger'
@@ -26,12 +26,12 @@ export const POD_TYPE_MAP = {
     double: 'number',
     'double*': 'number',
     guint: 'number',
-    'guint*' : 'number',
+    'guint*': 'number',
     guint8: 'number',
     'guint8*': 'number',
     'guint8**': 'number',
     guint16: 'number',
-    'guint16*' : 'number',
+    'guint16*': 'number',
     gint16: 'number',
     'gint16*': 'number',
     guint32: 'number',
@@ -72,7 +72,7 @@ export const POD_TYPE_MAP = {
     guintptr: 'number',
 }
 
-export const C_TYPE_MAP = (value: string): string => {
+export const C_TYPE_MAP = (value: string): string | undefined => {
     const cTypeMap = {
         'char*': 'string',
         'gchar*': 'string',
@@ -85,9 +85,10 @@ export const C_TYPE_MAP = (value: string): string => {
         uint16: 'number',
         'int*': 'number',
         int: 'number',
-        boolean: 'boolean'
+        boolean: 'boolean',
     }
-    return cTypeMap[value]
+    const result = cTypeMap[value as keyof typeof cTypeMap]
+    return result
 }
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
@@ -126,7 +127,8 @@ export const FULL_TYPE_MAP = (
         GType: packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type',
     }
 
-    return fullTypeMap[value]
+    const result = fullTypeMap[value as keyof typeof fullTypeMap]
+    return result
 }
 
 export const RESERVED_VARIABLE_NAMES = [

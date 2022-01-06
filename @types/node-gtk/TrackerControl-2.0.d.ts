@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace TrackerControl {
+declare namespace TrackerControl {
 
-export enum MinerManagerError {
+enum MinerManagerError {
     NOT_AVAILABLE,
     NOENT,
 }
@@ -17,7 +17,7 @@ export interface MinerManager_ConstructProps extends GObject.Object_ConstructPro
     autoStart?: boolean
     domainOntology?: string
 }
-export class MinerManager {
+class MinerManager {
     /* Fields of TrackerControl-2.0.TrackerControl.MinerManager */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -113,7 +113,7 @@ export class MinerManager {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class MinerManagerClass {
+abstract class MinerManagerClass {
     /* Fields of TrackerControl-2.0.TrackerControl.MinerManagerClass */
     parentClass: GObject.ObjectClass
     minerProgress: (manager: MinerManager, minerName: string, status: string, progress: number) => void
@@ -124,3 +124,4 @@ export abstract class MinerManagerClass {
     static name: string
 }
 }
+export default TrackerControl

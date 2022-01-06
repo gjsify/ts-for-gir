@@ -8,17 +8,17 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GXPS {
+declare namespace GXPS {
 
-export enum Error {
+enum Error {
     SOURCE_NOT_FOUND,
     FONT,
     IMAGE,
 }
-export enum FileError {
+enum FileError {
     FILE_ERROR_INVALID,
 }
-export enum PageError {
+enum PageError {
     INVALID,
     RENDER,
     INVALID_ANCHOR,
@@ -27,11 +27,11 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_STRING: string
-export function errorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
 export interface CoreProperties_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
-export class CoreProperties {
+class CoreProperties {
     /* Fields of GXPS-0.1.GXPS.CoreProperties */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -100,7 +100,7 @@ export class CoreProperties {
 export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
-export class Document {
+class Document {
     /* Fields of GXPS-0.1.GXPS.Document */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -158,7 +158,7 @@ export class Document {
 export interface DocumentStructure_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
-export class DocumentStructure {
+class DocumentStructure {
     /* Fields of GXPS-0.1.GXPS.DocumentStructure */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -210,7 +210,7 @@ export class DocumentStructure {
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
-export class File {
+class File {
     /* Fields of GXPS-0.1.GXPS.File */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -269,7 +269,7 @@ export class File {
 export interface Page_ConstructProps extends GObject.Object_ConstructProps {
     source?: string
 }
-export class Page {
+class Page {
     /* Fields of GXPS-0.1.GXPS.Page */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -324,39 +324,39 @@ export class Page {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class CorePropertiesClass {
+abstract class CorePropertiesClass {
     /* Fields of GXPS-0.1.GXPS.CorePropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CorePropertiesPrivate {
+class CorePropertiesPrivate {
     static name: string
 }
-export abstract class DocumentClass {
+abstract class DocumentClass {
     /* Fields of GXPS-0.1.GXPS.DocumentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DocumentPrivate {
+class DocumentPrivate {
     static name: string
 }
-export abstract class DocumentStructureClass {
+abstract class DocumentStructureClass {
     /* Fields of GXPS-0.1.GXPS.DocumentStructureClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DocumentStructurePrivate {
+class DocumentStructurePrivate {
     static name: string
 }
-export abstract class FileClass {
+abstract class FileClass {
     /* Fields of GXPS-0.1.GXPS.FileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FilePrivate {
+class FilePrivate {
     static name: string
 }
-export class Link {
+class Link {
     /* Methods of GXPS-0.1.GXPS.Link */
     copy(): Link
     free(): void
@@ -364,7 +364,7 @@ export class Link {
     getTarget(): LinkTarget
     static name: string
 }
-export class LinkTarget {
+class LinkTarget {
     /* Methods of GXPS-0.1.GXPS.LinkTarget */
     copy(): LinkTarget
     free(): void
@@ -373,7 +373,7 @@ export class LinkTarget {
     isInternal(): boolean
     static name: string
 }
-export class OutlineIter {
+class OutlineIter {
     /* Methods of GXPS-0.1.GXPS.OutlineIter */
     children(parent: OutlineIter): boolean
     getDescription(): string
@@ -381,12 +381,13 @@ export class OutlineIter {
     next(): boolean
     static name: string
 }
-export abstract class PageClass {
+abstract class PageClass {
     /* Fields of GXPS-0.1.GXPS.PageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PagePrivate {
+class PagePrivate {
     static name: string
 }
 }
+export default GXPS

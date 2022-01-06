@@ -13,13 +13,13 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-export declare namespace GUPnPDLNA {
+declare namespace GUPnPDLNA {
 
 export interface Discoverer_ConstructProps extends GstPbutils.Discoverer_ConstructProps {
     extendedMode?: boolean
     relaxedMode?: boolean
 }
-export class Discoverer {
+class Discoverer {
     /* Properties of GstPbutils-1.0.GstPbutils.Discoverer */
     timeout: number
     useCache: boolean
@@ -124,7 +124,7 @@ export interface Information_ConstructProps extends GObject.Object_ConstructProp
     mime?: string
     name?: string
 }
-export class Information {
+class Information {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Information */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -180,7 +180,7 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     mime?: string
     name?: string
 }
-export class Profile {
+class Profile {
     /* Properties of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
     readonly encodingProfile: GstPbutils.EncodingProfile
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.Profile */
@@ -237,20 +237,21 @@ export class Profile {
     _init (config?: Profile_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DiscovererClass {
+abstract class DiscovererClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.DiscovererClass */
     parentClass: GstPbutils.DiscovererClass
     done: (discoverer: Discoverer, dlna: Information, err: GLib.Error) => void
     static name: string
 }
-export abstract class InformationClass {
+abstract class InformationClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.InformationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.ProfileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default GUPnPDLNA

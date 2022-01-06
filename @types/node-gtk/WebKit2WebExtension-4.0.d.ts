@@ -18,23 +18,23 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace WebKit2WebExtension {
+declare namespace WebKit2WebExtension {
 
-export enum ConsoleMessageLevel {
+enum ConsoleMessageLevel {
     INFO,
     LOG,
     WARNING,
     ERROR,
     DEBUG,
 }
-export enum ConsoleMessageSource {
+enum ConsoleMessageSource {
     JAVASCRIPT,
     NETWORK,
     CONSOLE_API,
     SECURITY,
     OTHER,
 }
-export enum ContextMenuAction {
+enum ContextMenuAction {
     NO_ACTION,
     OPEN_LINK,
     OPEN_LINK_IN_NEW_WINDOW,
@@ -83,14 +83,14 @@ export enum ContextMenuAction {
     PASTE_AS_PLAIN_TEXT,
     CUSTOM,
 }
-export enum FormSubmissionStep {
+enum FormSubmissionStep {
     SEND_DOM_EVENT,
     COMPLETE,
 }
-export enum UserMessageError {
+enum UserMessageError {
     USER_MESSAGE_UNHANDLED_MESSAGE,
 }
-export enum HitTestResultContext {
+enum HitTestResultContext {
     DOCUMENT,
     LINK,
     IMAGE,
@@ -186,32 +186,32 @@ export const DOM_XPATH_RESULT_ORDERED_NODE_SNAPSHOT_TYPE: number
 export const DOM_XPATH_RESULT_STRING_TYPE: number
 export const DOM_XPATH_RESULT_UNORDERED_NODE_ITERATOR_TYPE: number
 export const DOM_XPATH_RESULT_UNORDERED_NODE_SNAPSHOT_TYPE: number
-export interface WebExtensionInitializeFunction {
+interface WebExtensionInitializeFunction {
     (extension: WebExtension): void
 }
-export interface WebExtensionInitializeWithUserDataFunction {
+interface WebExtensionInitializeWithUserDataFunction {
     (extension: WebExtension, userData: GLib.Variant): void
 }
-export class DOMEventTarget {
+class DOMEventTarget {
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTarget */
     addEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     dispatchEvent(event: DOMEvent): boolean
     removeEventListener(eventName: string, handler: Function, useCapture: boolean): boolean
     static name: string
 }
-export class DOMNodeFilter {
+class DOMNodeFilter {
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeFilter */
     acceptNode(node: DOMNode): number
     static name: string
 }
-export class DOMXPathNSResolver {
+class DOMXPathNSResolver {
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathNSResolver */
     lookupNamespaceUri(prefix: string): string
     static name: string
 }
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContextMenu {
+class ContextMenu {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenu */
@@ -273,7 +273,7 @@ export class ContextMenu {
 }
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class ContextMenuItem {
+class ContextMenuItem {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuItem */
@@ -333,7 +333,7 @@ export class ContextMenuItem {
 export interface DOMAttr_ConstructProps extends DOMNode_ConstructProps {
     value?: string
 }
-export class DOMAttr {
+class DOMAttr {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttr */
     readonly localName: string
     readonly name: string
@@ -550,7 +550,7 @@ export class DOMAttr {
 }
 export interface DOMBlob_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMBlob {
+class DOMBlob {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
     readonly size: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
@@ -608,7 +608,7 @@ export class DOMBlob {
 }
 export interface DOMCDATASection_ConstructProps extends DOMText_ConstructProps {
 }
-export class DOMCDATASection {
+class DOMCDATASection {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     readonly wholeText: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
@@ -810,7 +810,7 @@ export class DOMCDATASection {
 export interface DOMCSSRule_ConstructProps extends DOMObject_ConstructProps {
     cssText?: string
 }
-export class DOMCSSRule {
+class DOMCSSRule {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRule */
     cssText: string
     readonly parentRule: DOMCSSRule
@@ -890,7 +890,7 @@ export class DOMCSSRule {
 }
 export interface DOMCSSRuleList_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMCSSRuleList {
+class DOMCSSRuleList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleList */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleList */
@@ -950,7 +950,7 @@ export class DOMCSSRuleList {
 export interface DOMCSSStyleDeclaration_ConstructProps extends DOMObject_ConstructProps {
     cssText?: string
 }
-export class DOMCSSStyleDeclaration {
+class DOMCSSStyleDeclaration {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclaration */
     cssText: string
     readonly length: number
@@ -1030,7 +1030,7 @@ export class DOMCSSStyleDeclaration {
 }
 export interface DOMCSSStyleSheet_ConstructProps extends DOMStyleSheet_ConstructProps {
 }
-export class DOMCSSStyleSheet {
+class DOMCSSStyleSheet {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheet */
     readonly cssRules: DOMCSSRuleList
     readonly ownerRule: DOMCSSRule
@@ -1159,7 +1159,7 @@ export class DOMCSSStyleSheet {
 export interface DOMCSSValue_ConstructProps extends DOMObject_ConstructProps {
     cssText?: string
 }
-export class DOMCSSValue {
+class DOMCSSValue {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValue */
     cssText: string
     readonly cssValueType: number
@@ -1226,7 +1226,7 @@ export class DOMCSSValue {
 export interface DOMCharacterData_ConstructProps extends DOMNode_ConstructProps {
     data?: string
 }
-export class DOMCharacterData {
+class DOMCharacterData {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
@@ -1416,7 +1416,7 @@ export class DOMCharacterData {
 }
 export interface DOMClientRect_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMClientRect {
+class DOMClientRect {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRect */
     readonly bottom: number
     readonly height: number
@@ -1509,7 +1509,7 @@ export class DOMClientRect {
 }
 export interface DOMClientRectList_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMClientRectList {
+class DOMClientRectList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectList */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectList */
@@ -1568,7 +1568,7 @@ export class DOMClientRectList {
 }
 export interface DOMComment_ConstructProps extends DOMCharacterData_ConstructProps {
 }
-export class DOMComment {
+class DOMComment {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
     data: string
     readonly length: number
@@ -1758,7 +1758,7 @@ export class DOMComment {
 }
 export interface DOMDOMImplementation_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMDOMImplementation {
+class DOMDOMImplementation {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMImplementation */
     parentInstance: DOMObject
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
@@ -1813,7 +1813,7 @@ export class DOMDOMImplementation {
 }
 export interface DOMDOMSelection_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMDOMSelection {
+class DOMDOMSelection {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelection */
     readonly anchorNode: DOMNode
     readonly anchorOffset: number
@@ -1956,7 +1956,7 @@ export class DOMDOMSelection {
 export interface DOMDOMTokenList_ConstructProps extends DOMObject_ConstructProps {
     value?: string
 }
-export class DOMDOMTokenList {
+class DOMDOMTokenList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenList */
     readonly length: number
     value: string
@@ -2029,7 +2029,7 @@ export interface DOMDOMWindow_ConstructProps extends DOMObject_ConstructProps {
     name?: string
     status?: string
 }
-export class DOMDOMWindow {
+class DOMDOMWindow {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindow */
     readonly closed: boolean
     defaultStatus: string
@@ -2312,7 +2312,7 @@ export interface DOMDocument_ConstructProps extends DOMNode_ConstructProps {
     xmlStandalone?: boolean
     xmlVersion?: string
 }
-export class DOMDocument {
+class DOMDocument {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocument */
     readonly activeElement: DOMElement
     readonly anchors: DOMHTMLCollection
@@ -2893,7 +2893,7 @@ export class DOMDocument {
 }
 export interface DOMDocumentFragment_ConstructProps extends DOMNode_ConstructProps {
 }
-export class DOMDocumentFragment {
+class DOMDocumentFragment {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragment */
     readonly childElementCount: number
     readonly children: DOMHTMLCollection
@@ -3094,7 +3094,7 @@ export class DOMDocumentFragment {
 }
 export interface DOMDocumentType_ConstructProps extends DOMNode_ConstructProps {
 }
-export class DOMDocumentType {
+class DOMDocumentType {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentType */
     readonly entities: DOMNamedNodeMap
     readonly internalSubset: string
@@ -3312,7 +3312,7 @@ export interface DOMElement_ConstructProps extends DOMNode_ConstructProps {
     scrollLeft?: number
     scrollTop?: number
 }
-export class DOMElement {
+class DOMElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElement */
     readonly attributes: DOMNamedNodeMap
     readonly childElementCount: number
@@ -3745,7 +3745,7 @@ export class DOMElement {
 }
 export interface DOMEntityReference_ConstructProps extends DOMNode_ConstructProps {
 }
-export class DOMEntityReference {
+class DOMEntityReference {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
@@ -3915,7 +3915,7 @@ export interface DOMEvent_ConstructProps extends DOMObject_ConstructProps {
     cancelBubble?: boolean
     returnValue?: boolean
 }
-export class DOMEvent {
+class DOMEvent {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEvent */
     readonly bubbles: boolean
     cancelBubble: boolean
@@ -4041,7 +4041,7 @@ export class DOMEvent {
 }
 export interface DOMFile_ConstructProps extends DOMBlob_ConstructProps {
 }
-export class DOMFile {
+class DOMFile {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFile */
     readonly name: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlob */
@@ -4108,7 +4108,7 @@ export class DOMFile {
 }
 export interface DOMFileList_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMFileList {
+class DOMFileList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileList */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileList */
@@ -4185,7 +4185,7 @@ export interface DOMHTMLAnchorElement_ConstructProps extends DOMHTMLElement_Cons
     text?: string
     type?: string
 }
-export class DOMHTMLAnchorElement {
+class DOMHTMLAnchorElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElement */
     charset: string
     coords: string
@@ -4891,7 +4891,7 @@ export interface DOMHTMLAppletElement_ConstructProps extends DOMHTMLElement_Cons
     vspace?: number
     width?: string
 }
-export class DOMHTMLAppletElement {
+class DOMHTMLAppletElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElement */
     align: string
     alt: string
@@ -5543,7 +5543,7 @@ export interface DOMHTMLAreaElement_ConstructProps extends DOMHTMLElement_Constr
     shape?: string
     target?: string
 }
-export class DOMHTMLAreaElement {
+class DOMHTMLAreaElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElement */
     alt: string
     coords: string
@@ -6199,7 +6199,7 @@ export class DOMHTMLAreaElement {
 export interface DOMHTMLBRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     clear?: string
 }
-export class DOMHTMLBRElement {
+class DOMHTMLBRElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElement */
     clear: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -6760,7 +6760,7 @@ export interface DOMHTMLBaseElement_ConstructProps extends DOMHTMLElement_Constr
     href?: string
     target?: string
 }
-export class DOMHTMLBaseElement {
+class DOMHTMLBaseElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElement */
     href: string
     target: string
@@ -7327,7 +7327,7 @@ export class DOMHTMLBaseElement {
 }
 export interface DOMHTMLBaseFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
-export class DOMHTMLBaseFontElement {
+class DOMHTMLBaseFontElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
@@ -7889,7 +7889,7 @@ export interface DOMHTMLBodyElement_ConstructProps extends DOMHTMLElement_Constr
     text?: string
     vLink?: string
 }
-export class DOMHTMLBodyElement {
+class DOMHTMLBodyElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElement */
     aLink: string
     background: string
@@ -8493,7 +8493,7 @@ export interface DOMHTMLButtonElement_ConstructProps extends DOMHTMLElement_Cons
     type?: string
     value?: string
 }
-export class DOMHTMLButtonElement {
+class DOMHTMLButtonElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElement */
     autofocus: boolean
     disabled: boolean
@@ -9100,7 +9100,7 @@ export interface DOMHTMLCanvasElement_ConstructProps extends DOMHTMLElement_Cons
     height?: number
     width?: number
 }
-export class DOMHTMLCanvasElement {
+class DOMHTMLCanvasElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElement */
     height: number
     width: number
@@ -9667,7 +9667,7 @@ export class DOMHTMLCanvasElement {
 }
 export interface DOMHTMLCollection_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMHTMLCollection {
+class DOMHTMLCollection {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollection */
@@ -9728,7 +9728,7 @@ export class DOMHTMLCollection {
 export interface DOMHTMLDListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     compact?: boolean
 }
-export class DOMHTMLDListElement {
+class DOMHTMLDListElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElement */
     compact: boolean
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -10288,7 +10288,7 @@ export class DOMHTMLDListElement {
 export interface DOMHTMLDirectoryElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     compact?: boolean
 }
-export class DOMHTMLDirectoryElement {
+class DOMHTMLDirectoryElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElement */
     compact: boolean
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -10848,7 +10848,7 @@ export class DOMHTMLDirectoryElement {
 export interface DOMHTMLDivElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     align?: string
 }
-export class DOMHTMLDivElement {
+class DOMHTMLDivElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElement */
     align: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -11413,7 +11413,7 @@ export interface DOMHTMLDocument_ConstructProps extends DOMDocument_ConstructPro
     linkColor?: string
     vlinkColor?: string
 }
-export class DOMHTMLDocument {
+class DOMHTMLDocument {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocument */
     alinkColor: string
     bgColor: string
@@ -12067,7 +12067,7 @@ export interface DOMHTMLElement_ConstructProps extends DOMElement_ConstructProps
     translate?: boolean
     webkitdropzone?: string
 }
-export class DOMHTMLElement {
+class DOMHTMLElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
@@ -12622,7 +12622,7 @@ export interface DOMHTMLEmbedElement_ConstructProps extends DOMHTMLElement_Const
     type?: string
     width?: number
 }
-export class DOMHTMLEmbedElement {
+class DOMHTMLEmbedElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElement */
     align: string
     height: number
@@ -13221,7 +13221,7 @@ export class DOMHTMLEmbedElement {
 }
 export interface DOMHTMLFieldSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
-export class DOMHTMLFieldSetElement {
+class DOMHTMLFieldSetElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElement */
     readonly form: DOMHTMLFormElement
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -13782,7 +13782,7 @@ export interface DOMHTMLFontElement_ConstructProps extends DOMHTMLElement_Constr
     face?: string
     size?: string
 }
-export class DOMHTMLFontElement {
+class DOMHTMLFontElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElement */
     color: string
     face: string
@@ -14364,7 +14364,7 @@ export interface DOMHTMLFormElement_ConstructProps extends DOMHTMLElement_Constr
     name?: string
     target?: string
 }
-export class DOMHTMLFormElement {
+class DOMHTMLFormElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElement */
     acceptCharset: string
     action: string
@@ -14995,7 +14995,7 @@ export interface DOMHTMLFrameElement_ConstructProps extends DOMHTMLElement_Const
     scrolling?: string
     src?: string
 }
-export class DOMHTMLFrameElement {
+class DOMHTMLFrameElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElement */
     readonly contentDocument: DOMDocument
     readonly contentWindow: DOMDOMWindow
@@ -15640,7 +15640,7 @@ export interface DOMHTMLFrameSetElement_ConstructProps extends DOMHTMLElement_Co
     cols?: string
     rows?: string
 }
-export class DOMHTMLFrameSetElement {
+class DOMHTMLFrameSetElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElement */
     cols: string
     rows: string
@@ -16211,7 +16211,7 @@ export interface DOMHTMLHRElement_ConstructProps extends DOMHTMLElement_Construc
     size?: string
     width?: string
 }
-export class DOMHTMLHRElement {
+class DOMHTMLHRElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElement */
     align: string
     noShade: boolean
@@ -16795,7 +16795,7 @@ export class DOMHTMLHRElement {
 export interface DOMHTMLHeadElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     profile?: string
 }
-export class DOMHTMLHeadElement {
+class DOMHTMLHeadElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElement */
     profile: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -17355,7 +17355,7 @@ export class DOMHTMLHeadElement {
 export interface DOMHTMLHeadingElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     align?: string
 }
-export class DOMHTMLHeadingElement {
+class DOMHTMLHeadingElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElement */
     align: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -17915,7 +17915,7 @@ export class DOMHTMLHeadingElement {
 export interface DOMHTMLHtmlElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     version?: string
 }
-export class DOMHTMLHtmlElement {
+class DOMHTMLHtmlElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElement */
     version: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -18484,7 +18484,7 @@ export interface DOMHTMLIFrameElement_ConstructProps extends DOMHTMLElement_Cons
     src?: string
     width?: string
 }
-export class DOMHTMLIFrameElement {
+class DOMHTMLIFrameElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElement */
     align: string
     readonly contentDocument: DOMDocument
@@ -19142,7 +19142,7 @@ export interface DOMHTMLImageElement_ConstructProps extends DOMHTMLElement_Const
     vspace?: number
     width?: number
 }
-export class DOMHTMLImageElement {
+class DOMHTMLImageElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElement */
     align: string
     alt: string
@@ -19853,7 +19853,7 @@ export interface DOMHTMLInputElement_ConstructProps extends DOMHTMLElement_Const
     value?: string
     width?: number
 }
-export class DOMHTMLInputElement {
+class DOMHTMLInputElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElement */
     accept: string
     align: string
@@ -20602,7 +20602,7 @@ export interface DOMHTMLLIElement_ConstructProps extends DOMHTMLElement_Construc
     type?: string
     value?: number
 }
-export class DOMHTMLLIElement {
+class DOMHTMLLIElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElement */
     type: string
     value: number
@@ -21170,7 +21170,7 @@ export class DOMHTMLLIElement {
 export interface DOMHTMLLabelElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     htmlFor?: string
 }
-export class DOMHTMLLabelElement {
+class DOMHTMLLabelElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElement */
     readonly form: DOMHTMLFormElement
     htmlFor: string
@@ -21737,7 +21737,7 @@ export class DOMHTMLLabelElement {
 export interface DOMHTMLLegendElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     align?: string
 }
-export class DOMHTMLLegendElement {
+class DOMHTMLLegendElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElement */
     align: string
     readonly form: DOMHTMLFormElement
@@ -22312,7 +22312,7 @@ export interface DOMHTMLLinkElement_ConstructProps extends DOMHTMLElement_Constr
     target?: string
     type?: string
 }
-export class DOMHTMLLinkElement {
+class DOMHTMLLinkElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElement */
     charset: string
     disabled: boolean
@@ -22951,7 +22951,7 @@ export class DOMHTMLLinkElement {
 export interface DOMHTMLMapElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     name?: string
 }
-export class DOMHTMLMapElement {
+class DOMHTMLMapElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElement */
     readonly areas: DOMHTMLCollection
     name: string
@@ -23517,7 +23517,7 @@ export class DOMHTMLMapElement {
 }
 export interface DOMHTMLMarqueeElement_ConstructProps extends DOMHTMLElement_ConstructProps {
 }
-export class DOMHTMLMarqueeElement {
+class DOMHTMLMarqueeElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
     accessKey: string
     contentEditable: string
@@ -24070,7 +24070,7 @@ export class DOMHTMLMarqueeElement {
 export interface DOMHTMLMenuElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     compact?: boolean
 }
-export class DOMHTMLMenuElement {
+class DOMHTMLMenuElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElement */
     compact: boolean
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -24633,7 +24633,7 @@ export interface DOMHTMLMetaElement_ConstructProps extends DOMHTMLElement_Constr
     name?: string
     scheme?: string
 }
-export class DOMHTMLMetaElement {
+class DOMHTMLMetaElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElement */
     content: string
     httpEquiv: string
@@ -25218,7 +25218,7 @@ export interface DOMHTMLModElement_ConstructProps extends DOMHTMLElement_Constru
     cite?: string
     dateTime?: string
 }
-export class DOMHTMLModElement {
+class DOMHTMLModElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElement */
     cite: string
     dateTime: string
@@ -25788,7 +25788,7 @@ export interface DOMHTMLOListElement_ConstructProps extends DOMHTMLElement_Const
     start?: number
     type?: string
 }
-export class DOMHTMLOListElement {
+class DOMHTMLOListElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElement */
     compact: boolean
     start: number
@@ -26379,7 +26379,7 @@ export interface DOMHTMLObjectElement_ConstructProps extends DOMHTMLElement_Cons
     vspace?: number
     width?: string
 }
-export class DOMHTMLObjectElement {
+class DOMHTMLObjectElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElement */
     align: string
     archive: string
@@ -27074,7 +27074,7 @@ export interface DOMHTMLOptGroupElement_ConstructProps extends DOMHTMLElement_Co
     disabled?: boolean
     label?: string
 }
-export class DOMHTMLOptGroupElement {
+class DOMHTMLOptGroupElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElement */
     disabled: boolean
     label: string
@@ -27646,7 +27646,7 @@ export interface DOMHTMLOptionElement_ConstructProps extends DOMHTMLElement_Cons
     selected?: boolean
     value?: string
 }
-export class DOMHTMLOptionElement {
+class DOMHTMLOptionElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElement */
     defaultSelected: boolean
     disabled: boolean
@@ -28259,7 +28259,7 @@ export class DOMHTMLOptionElement {
 export interface DOMHTMLOptionsCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
     selectedIndex?: number
 }
-export class DOMHTMLOptionsCollection {
+class DOMHTMLOptionsCollection {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollection */
     readonly length: number
     selectedIndex: number
@@ -28329,7 +28329,7 @@ export class DOMHTMLOptionsCollection {
 export interface DOMHTMLParagraphElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     align?: string
 }
-export class DOMHTMLParagraphElement {
+class DOMHTMLParagraphElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElement */
     align: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -28892,7 +28892,7 @@ export interface DOMHTMLParamElement_ConstructProps extends DOMHTMLElement_Const
     value?: string
     valueType?: string
 }
-export class DOMHTMLParamElement {
+class DOMHTMLParamElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElement */
     name: string
     type: string
@@ -29477,7 +29477,7 @@ export interface DOMHTMLPreElement_ConstructProps extends DOMHTMLElement_Constru
     width?: number
     wrap?: boolean
 }
-export class DOMHTMLPreElement {
+class DOMHTMLPreElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElement */
     width: number
     wrap: boolean
@@ -30045,7 +30045,7 @@ export class DOMHTMLPreElement {
 export interface DOMHTMLQuoteElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     cite?: string
 }
-export class DOMHTMLQuoteElement {
+class DOMHTMLQuoteElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElement */
     cite: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -30611,7 +30611,7 @@ export interface DOMHTMLScriptElement_ConstructProps extends DOMHTMLElement_Cons
     text?: string
     type?: string
 }
-export class DOMHTMLScriptElement {
+class DOMHTMLScriptElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElement */
     charset: string
     defer: boolean
@@ -31226,7 +31226,7 @@ export interface DOMHTMLSelectElement_ConstructProps extends DOMHTMLElement_Cons
     size?: number
     value?: string
 }
-export class DOMHTMLSelectElement {
+class DOMHTMLSelectElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElement */
     autofocus: boolean
     disabled: boolean
@@ -31876,7 +31876,7 @@ export interface DOMHTMLStyleElement_ConstructProps extends DOMHTMLElement_Const
     media?: string
     type?: string
 }
-export class DOMHTMLStyleElement {
+class DOMHTMLStyleElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElement */
     disabled: boolean
     media: string
@@ -32459,7 +32459,7 @@ export class DOMHTMLStyleElement {
 export interface DOMHTMLTableCaptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     align?: string
 }
-export class DOMHTMLTableCaptionElement {
+class DOMHTMLTableCaptionElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElement */
     align: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -33032,7 +33032,7 @@ export interface DOMHTMLTableCellElement_ConstructProps extends DOMHTMLElement_C
     vAlign?: string
     width?: string
 }
-export class DOMHTMLTableCellElement {
+class DOMHTMLTableCellElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElement */
     abbr: string
     align: string
@@ -33708,7 +33708,7 @@ export interface DOMHTMLTableColElement_ConstructProps extends DOMHTMLElement_Co
     vAlign?: string
     width?: string
 }
-export class DOMHTMLTableColElement {
+class DOMHTMLTableColElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElement */
     align: string
     ch: string
@@ -34315,7 +34315,7 @@ export interface DOMHTMLTableElement_ConstructProps extends DOMHTMLElement_Const
     summary?: string
     width?: string
 }
-export class DOMHTMLTableElement {
+class DOMHTMLTableElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElement */
     align: string
     bgColor: string
@@ -34981,7 +34981,7 @@ export interface DOMHTMLTableRowElement_ConstructProps extends DOMHTMLElement_Co
     chOff?: string
     vAlign?: string
 }
-export class DOMHTMLTableRowElement {
+class DOMHTMLTableRowElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElement */
     align: string
     bgColor: string
@@ -35599,7 +35599,7 @@ export interface DOMHTMLTableSectionElement_ConstructProps extends DOMHTMLElemen
     chOff?: string
     vAlign?: string
 }
-export class DOMHTMLTableSectionElement {
+class DOMHTMLTableSectionElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElement */
     align: string
     ch: string
@@ -36201,7 +36201,7 @@ export interface DOMHTMLTextAreaElement_ConstructProps extends DOMHTMLElement_Co
     selectionStart?: number
     value?: string
 }
-export class DOMHTMLTextAreaElement {
+class DOMHTMLTextAreaElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElement */
     autofocus: boolean
     cols: number
@@ -36857,7 +36857,7 @@ export class DOMHTMLTextAreaElement {
 export interface DOMHTMLTitleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     text?: string
 }
-export class DOMHTMLTitleElement {
+class DOMHTMLTitleElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElement */
     text: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElement */
@@ -37418,7 +37418,7 @@ export interface DOMHTMLUListElement_ConstructProps extends DOMHTMLElement_Const
     compact?: boolean
     type?: string
 }
-export class DOMHTMLUListElement {
+class DOMHTMLUListElement {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElement */
     compact: boolean
     type: string
@@ -37985,7 +37985,7 @@ export class DOMHTMLUListElement {
 }
 export interface DOMKeyboardEvent_ConstructProps extends DOMUIEvent_ConstructProps {
 }
-export class DOMKeyboardEvent {
+class DOMKeyboardEvent {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEvent */
     readonly altGraphKey: boolean
     readonly altKey: boolean
@@ -38224,7 +38224,7 @@ export class DOMKeyboardEvent {
 export interface DOMMediaList_ConstructProps extends DOMObject_ConstructProps {
     mediaText?: string
 }
-export class DOMMediaList {
+class DOMMediaList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaList */
     readonly length: number
     mediaText: string
@@ -38293,7 +38293,7 @@ export class DOMMediaList {
 }
 export interface DOMMouseEvent_ConstructProps extends DOMUIEvent_ConstructProps {
 }
-export class DOMMouseEvent {
+class DOMMouseEvent {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEvent */
     readonly altKey: boolean
     readonly button: number
@@ -38593,7 +38593,7 @@ export class DOMMouseEvent {
 }
 export interface DOMNamedNodeMap_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMNamedNodeMap {
+class DOMNamedNodeMap {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMap */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMap */
@@ -38660,7 +38660,7 @@ export interface DOMNode_ConstructProps extends DOMObject_ConstructProps {
     nodeValue?: string
     textContent?: string
 }
-export class DOMNode {
+class DOMNode {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNode */
     readonly baseUri: string
     readonly childNodes: DOMNodeList
@@ -38830,7 +38830,7 @@ export class DOMNode {
 }
 export interface DOMNodeIterator_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMNodeIterator {
+class DOMNodeIterator {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIterator */
     readonly filter: DOMNodeFilter
     readonly pointerBeforeReferenceNode: boolean
@@ -38920,7 +38920,7 @@ export class DOMNodeIterator {
 }
 export interface DOMNodeList_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMNodeList {
+class DOMNodeList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeList */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeList */
@@ -38980,7 +38980,7 @@ export class DOMNodeList {
 export interface DOMObject_ConstructProps extends GObject.Object_ConstructProps {
     coreObject?: object
 }
-export class DOMObject {
+class DOMObject {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
     parentInstance: GObject.Object
     coreObject: object
@@ -39028,7 +39028,7 @@ export class DOMObject {
 }
 export interface DOMProcessingInstruction_ConstructProps extends DOMCharacterData_ConstructProps {
 }
-export class DOMProcessingInstruction {
+class DOMProcessingInstruction {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstruction */
     readonly sheet: DOMStyleSheet
     readonly target: string
@@ -39234,7 +39234,7 @@ export class DOMProcessingInstruction {
 }
 export interface DOMRange_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMRange {
+class DOMRange {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRange */
     readonly collapsed: boolean
     readonly commonAncestorContainer: DOMNode
@@ -39359,7 +39359,7 @@ export class DOMRange {
 export interface DOMStyleSheet_ConstructProps extends DOMObject_ConstructProps {
     disabled?: boolean
 }
-export class DOMStyleSheet {
+class DOMStyleSheet {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheet */
     disabled: boolean
     readonly href: string
@@ -39460,7 +39460,7 @@ export class DOMStyleSheet {
 }
 export interface DOMStyleSheetList_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMStyleSheetList {
+class DOMStyleSheetList {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetList */
     readonly length: number
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetList */
@@ -39519,7 +39519,7 @@ export class DOMStyleSheetList {
 }
 export interface DOMText_ConstructProps extends DOMCharacterData_ConstructProps {
 }
-export class DOMText {
+class DOMText {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMText */
     readonly wholeText: string
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterData */
@@ -39720,7 +39720,7 @@ export class DOMText {
 }
 export interface DOMTreeWalker_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMTreeWalker {
+class DOMTreeWalker {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalker */
     readonly currentNode: DOMNode
     readonly filter: DOMNodeFilter
@@ -39808,7 +39808,7 @@ export class DOMTreeWalker {
 }
 export interface DOMUIEvent_ConstructProps extends DOMEvent_ConstructProps {
 }
-export class DOMUIEvent {
+class DOMUIEvent {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEvent */
     readonly charCode: number
     readonly detail: number
@@ -39993,7 +39993,7 @@ export class DOMUIEvent {
 }
 export interface DOMWheelEvent_ConstructProps extends DOMMouseEvent_ConstructProps {
 }
-export class DOMWheelEvent {
+class DOMWheelEvent {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEvent */
     readonly wheelDelta: number
     readonly wheelDeltaX: number
@@ -40317,7 +40317,7 @@ export class DOMWheelEvent {
 }
 export interface DOMXPathExpression_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMXPathExpression {
+class DOMXPathExpression {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathExpression */
     parentInstance: DOMObject
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObject */
@@ -40368,7 +40368,7 @@ export class DOMXPathExpression {
 }
 export interface DOMXPathResult_ConstructProps extends DOMObject_ConstructProps {
 }
-export class DOMXPathResult {
+class DOMXPathResult {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResult */
     readonly booleanValue: boolean
     readonly invalidIteratorState: boolean
@@ -40470,7 +40470,7 @@ export class DOMXPathResult {
 }
 export interface Frame_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Frame {
+class Frame {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.Frame */
     parent: GObject.Object
     priv: FramePrivate
@@ -40532,7 +40532,7 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     linkUri?: string
     mediaUri?: string
 }
-export class HitTestResult {
+class HitTestResult {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResult */
     parent: GObject.Object
     priv: HitTestResultPrivate
@@ -40593,7 +40593,7 @@ export class HitTestResult {
 }
 export interface ScriptWorld_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ScriptWorld {
+class ScriptWorld {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorld */
     parent: GObject.Object
     priv: ScriptWorldPrivate
@@ -40654,7 +40654,7 @@ export class ScriptWorld {
 export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps {
     uri?: string
 }
-export class URIRequest {
+class URIRequest {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequest */
     uri: string
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequest */
@@ -40715,7 +40715,7 @@ export class URIRequest {
 }
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class URIResponse {
+class URIResponse {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponse */
     readonly contentLength: number
     readonly httpHeaders: Soup.MessageHeaders
@@ -40809,7 +40809,7 @@ export interface UserMessage_ConstructProps extends GObject.InitiallyUnowned_Con
     name?: string
     parameters?: GLib.Variant
 }
-export class UserMessage {
+class UserMessage {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.UserMessage */
     parent: GObject.InitiallyUnowned
     priv: UserMessagePrivate
@@ -40866,7 +40866,7 @@ export class UserMessage {
 }
 export interface WebEditor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebEditor {
+class WebEditor {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditor */
     parent: GObject.Object
     priv: WebEditorPrivate
@@ -40922,7 +40922,7 @@ export class WebEditor {
 }
 export interface WebExtension_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebExtension {
+class WebExtension {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtension */
     parent: GObject.Object
     priv: WebExtensionPrivate
@@ -40986,7 +40986,7 @@ export class WebExtension {
 export interface WebHitTestResult_ConstructProps extends HitTestResult_ConstructProps {
     node?: DOMNode
 }
-export class WebHitTestResult {
+class WebHitTestResult {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebHitTestResult */
     parent: HitTestResult
     priv: WebHitTestResultPrivate
@@ -41049,7 +41049,7 @@ export class WebHitTestResult {
 }
 export interface WebPage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebPage {
+class WebPage {
     /* Properties of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
     readonly uri: string
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPage */
@@ -41151,7 +41151,7 @@ export class WebPage {
     _init (config?: WebPage_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class ConsoleMessage {
+class ConsoleMessage {
     /* Methods of WebKit2WebExtension-4.0.WebKit2WebExtension.ConsoleMessage */
     copy(): ConsoleMessage
     free(): void
@@ -41162,133 +41162,133 @@ export class ConsoleMessage {
     getText(): string
     static name: string
 }
-export abstract class ContextMenuClass {
+abstract class ContextMenuClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContextMenuItemClass {
+abstract class ContextMenuItemClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ContextMenuItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export class ContextMenuItemPrivate {
+class ContextMenuItemPrivate {
     static name: string
 }
-export class ContextMenuPrivate {
+class ContextMenuPrivate {
     static name: string
 }
-export abstract class DOMAttrClass {
+abstract class DOMAttrClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMAttrClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMBlobClass {
+abstract class DOMBlobClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMBlobClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCDATASectionClass {
+abstract class DOMCDATASectionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCDATASectionClass */
     parentClass: DOMTextClass
     static name: string
 }
-export abstract class DOMCSSRuleClass {
+abstract class DOMCSSRuleClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCSSRuleListClass {
+abstract class DOMCSSRuleListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSRuleListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCSSStyleDeclarationClass {
+abstract class DOMCSSStyleDeclarationClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleDeclarationClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCSSStyleSheetClass {
+abstract class DOMCSSStyleSheetClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSStyleSheetClass */
     parentClass: DOMStyleSheetClass
     static name: string
 }
-export abstract class DOMCSSValueClass {
+abstract class DOMCSSValueClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCSSValueClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCharacterDataClass {
+abstract class DOMCharacterDataClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCharacterDataClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMClientRectClass {
+abstract class DOMClientRectClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMClientRectListClass {
+abstract class DOMClientRectListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMClientRectListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMCommentClass {
+abstract class DOMCommentClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMCommentClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
-export abstract class DOMDOMImplementationClass {
+abstract class DOMDOMImplementationClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMImplementationClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMDOMSelectionClass {
+abstract class DOMDOMSelectionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMSelectionClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMDOMTokenListClass {
+abstract class DOMDOMTokenListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMTokenListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMDOMWindowClass {
+abstract class DOMDOMWindowClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDOMWindowClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMDocumentClass {
+abstract class DOMDocumentClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMDocumentFragmentClass {
+abstract class DOMDocumentFragmentClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentFragmentClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMDocumentTypeClass {
+abstract class DOMDocumentTypeClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMDocumentTypeClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMElementClass {
+abstract class DOMElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMElementClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMEntityReferenceClass {
+abstract class DOMEntityReferenceClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEntityReferenceClass */
     parentClass: DOMNodeClass
     static name: string
 }
-export abstract class DOMEventClass {
+abstract class DOMEventClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMEventTargetIface {
+abstract class DOMEventTargetIface {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMEventTargetIface */
     gIface: GObject.TypeInterface
     dispatchEvent: (target: DOMEventTarget, event: DOMEvent) => boolean
@@ -41296,498 +41296,499 @@ export abstract class DOMEventTargetIface {
     removeEventListener: (target: DOMEventTarget, eventName: string, handler: Function, useCapture: boolean) => boolean
     static name: string
 }
-export abstract class DOMFileClass {
+abstract class DOMFileClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileClass */
     parentClass: DOMBlobClass
     static name: string
 }
-export abstract class DOMFileListClass {
+abstract class DOMFileListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMFileListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMHTMLAnchorElementClass {
+abstract class DOMHTMLAnchorElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAnchorElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLAppletElementClass {
+abstract class DOMHTMLAppletElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAppletElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLAreaElementClass {
+abstract class DOMHTMLAreaElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLAreaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLBRElementClass {
+abstract class DOMHTMLBRElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBRElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLBaseElementClass {
+abstract class DOMHTMLBaseElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLBaseFontElementClass {
+abstract class DOMHTMLBaseFontElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBaseFontElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLBodyElementClass {
+abstract class DOMHTMLBodyElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLBodyElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLButtonElementClass {
+abstract class DOMHTMLButtonElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLButtonElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLCanvasElementClass {
+abstract class DOMHTMLCanvasElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCanvasElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLCollectionClass {
+abstract class DOMHTMLCollectionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLCollectionClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMHTMLDListElementClass {
+abstract class DOMHTMLDListElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLDirectoryElementClass {
+abstract class DOMHTMLDirectoryElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDirectoryElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLDivElementClass {
+abstract class DOMHTMLDivElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDivElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLDocumentClass {
+abstract class DOMHTMLDocumentClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLDocumentClass */
     parentClass: DOMDocumentClass
     static name: string
 }
-export abstract class DOMHTMLElementClass {
+abstract class DOMHTMLElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLElementClass */
     parentClass: DOMElementClass
     static name: string
 }
-export abstract class DOMHTMLEmbedElementClass {
+abstract class DOMHTMLEmbedElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLEmbedElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLFieldSetElementClass {
+abstract class DOMHTMLFieldSetElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFieldSetElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLFontElementClass {
+abstract class DOMHTMLFontElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFontElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLFormElementClass {
+abstract class DOMHTMLFormElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFormElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLFrameElementClass {
+abstract class DOMHTMLFrameElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLFrameSetElementClass {
+abstract class DOMHTMLFrameSetElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLFrameSetElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLHRElementClass {
+abstract class DOMHTMLHRElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHRElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLHeadElementClass {
+abstract class DOMHTMLHeadElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLHeadingElementClass {
+abstract class DOMHTMLHeadingElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHeadingElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLHtmlElementClass {
+abstract class DOMHTMLHtmlElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLHtmlElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLIFrameElementClass {
+abstract class DOMHTMLIFrameElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLIFrameElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLImageElementClass {
+abstract class DOMHTMLImageElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLImageElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLInputElementClass {
+abstract class DOMHTMLInputElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLInputElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLLIElementClass {
+abstract class DOMHTMLLIElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLIElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLLabelElementClass {
+abstract class DOMHTMLLabelElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLabelElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLLegendElementClass {
+abstract class DOMHTMLLegendElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLegendElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLLinkElementClass {
+abstract class DOMHTMLLinkElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLLinkElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLMapElementClass {
+abstract class DOMHTMLMapElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMapElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLMarqueeElementClass {
+abstract class DOMHTMLMarqueeElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMarqueeElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLMenuElementClass {
+abstract class DOMHTMLMenuElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMenuElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLMetaElementClass {
+abstract class DOMHTMLMetaElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLMetaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLModElementClass {
+abstract class DOMHTMLModElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLModElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLOListElementClass {
+abstract class DOMHTMLOListElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLObjectElementClass {
+abstract class DOMHTMLObjectElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLObjectElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLOptGroupElementClass {
+abstract class DOMHTMLOptGroupElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptGroupElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLOptionElementClass {
+abstract class DOMHTMLOptionElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLOptionsCollectionClass {
+abstract class DOMHTMLOptionsCollectionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLOptionsCollectionClass */
     parentClass: DOMHTMLCollectionClass
     static name: string
 }
-export abstract class DOMHTMLParagraphElementClass {
+abstract class DOMHTMLParagraphElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParagraphElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLParamElementClass {
+abstract class DOMHTMLParamElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLParamElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLPreElementClass {
+abstract class DOMHTMLPreElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLPreElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLQuoteElementClass {
+abstract class DOMHTMLQuoteElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLQuoteElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLScriptElementClass {
+abstract class DOMHTMLScriptElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLScriptElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLSelectElementClass {
+abstract class DOMHTMLSelectElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLSelectElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLStyleElementClass {
+abstract class DOMHTMLStyleElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLStyleElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableCaptionElementClass {
+abstract class DOMHTMLTableCaptionElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCaptionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableCellElementClass {
+abstract class DOMHTMLTableCellElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableCellElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableColElementClass {
+abstract class DOMHTMLTableColElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableColElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableElementClass {
+abstract class DOMHTMLTableElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableRowElementClass {
+abstract class DOMHTMLTableRowElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableRowElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTableSectionElementClass {
+abstract class DOMHTMLTableSectionElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTableSectionElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTextAreaElementClass {
+abstract class DOMHTMLTextAreaElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTextAreaElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLTitleElementClass {
+abstract class DOMHTMLTitleElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLTitleElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMHTMLUListElementClass {
+abstract class DOMHTMLUListElementClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMHTMLUListElementClass */
     parentClass: DOMHTMLElementClass
     static name: string
 }
-export abstract class DOMKeyboardEventClass {
+abstract class DOMKeyboardEventClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMKeyboardEventClass */
     parentClass: DOMUIEventClass
     static name: string
 }
-export abstract class DOMMediaListClass {
+abstract class DOMMediaListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMediaListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMMouseEventClass {
+abstract class DOMMouseEventClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMMouseEventClass */
     parentClass: DOMUIEventClass
     static name: string
 }
-export abstract class DOMNamedNodeMapClass {
+abstract class DOMNamedNodeMapClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNamedNodeMapClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMNodeClass {
+abstract class DOMNodeClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMNodeFilterIface {
+abstract class DOMNodeFilterIface {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeFilterIface */
     gIface: GObject.TypeInterface
     acceptNode: (filter: DOMNodeFilter, node: DOMNode) => number
     static name: string
 }
-export abstract class DOMNodeIteratorClass {
+abstract class DOMNodeIteratorClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeIteratorClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMNodeListClass {
+abstract class DOMNodeListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMNodeListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMObjectClass {
+abstract class DOMObjectClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMObjectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DOMProcessingInstructionClass {
+abstract class DOMProcessingInstructionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMProcessingInstructionClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
-export abstract class DOMRangeClass {
+abstract class DOMRangeClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMRangeClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMStyleSheetClass {
+abstract class DOMStyleSheetClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMStyleSheetListClass {
+abstract class DOMStyleSheetListClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMStyleSheetListClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMTextClass {
+abstract class DOMTextClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTextClass */
     parentClass: DOMCharacterDataClass
     static name: string
 }
-export abstract class DOMTreeWalkerClass {
+abstract class DOMTreeWalkerClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMTreeWalkerClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMUIEventClass {
+abstract class DOMUIEventClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMUIEventClass */
     parentClass: DOMEventClass
     static name: string
 }
-export abstract class DOMWheelEventClass {
+abstract class DOMWheelEventClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMWheelEventClass */
     parentClass: DOMMouseEventClass
     static name: string
 }
-export abstract class DOMXPathExpressionClass {
+abstract class DOMXPathExpressionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathExpressionClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class DOMXPathNSResolverIface {
+abstract class DOMXPathNSResolverIface {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathNSResolverIface */
     gIface: GObject.TypeInterface
     lookupNamespaceUri: (resolver: DOMXPathNSResolver, prefix: string) => string
     static name: string
 }
-export abstract class DOMXPathResultClass {
+abstract class DOMXPathResultClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.DOMXPathResultClass */
     parentClass: DOMObjectClass
     static name: string
 }
-export abstract class FrameClass {
+abstract class FrameClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.FrameClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FramePrivate {
+class FramePrivate {
     static name: string
 }
-export abstract class HitTestResultClass {
+abstract class HitTestResultClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.HitTestResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class HitTestResultPrivate {
+class HitTestResultPrivate {
     static name: string
 }
-export abstract class ScriptWorldClass {
+abstract class ScriptWorldClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.ScriptWorldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ScriptWorldPrivate {
+class ScriptWorldPrivate {
     static name: string
 }
-export abstract class URIRequestClass {
+abstract class URIRequestClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URIRequestPrivate {
+class URIRequestPrivate {
     static name: string
 }
-export abstract class URIResponseClass {
+abstract class URIResponseClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.URIResponseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URIResponsePrivate {
+class URIResponsePrivate {
     static name: string
 }
-export abstract class UserMessageClass {
+abstract class UserMessageClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.UserMessageClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export class UserMessagePrivate {
+class UserMessagePrivate {
     static name: string
 }
-export abstract class WebEditorClass {
+abstract class WebEditorClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebEditorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebEditorPrivate {
+class WebEditorPrivate {
     static name: string
 }
-export abstract class WebExtensionClass {
+abstract class WebExtensionClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebExtensionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebExtensionPrivate {
+class WebExtensionPrivate {
     static name: string
 }
-export abstract class WebHitTestResultClass {
+abstract class WebHitTestResultClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebHitTestResultClass */
     parentClass: HitTestResultClass
     static name: string
 }
-export class WebHitTestResultPrivate {
+class WebHitTestResultPrivate {
     static name: string
 }
-export abstract class WebPageClass {
+abstract class WebPageClass {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension.WebPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebPagePrivate {
+class WebPagePrivate {
     static name: string
 }
-export class _ContextMenu {
+class _ContextMenu {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension._ContextMenu */
     parent: GObject.Object
     priv: ContextMenuPrivate
     static name: string
 }
-export class _ContextMenuItem {
+class _ContextMenuItem {
     /* Fields of WebKit2WebExtension-4.0.WebKit2WebExtension._ContextMenuItem */
     parent: GObject.InitiallyUnowned
     priv: ContextMenuItemPrivate
     static name: string
 }
 }
+export default WebKit2WebExtension

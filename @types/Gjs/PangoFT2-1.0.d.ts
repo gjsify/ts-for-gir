@@ -3,31 +3,33 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as freetype2 from './freetype2-2.0';
-import type * as PangoFc from './PangoFc-1.0';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type freetype2 from './freetype2-2.0';
+import type PangoFc from './PangoFc-1.0';
+import type fontconfig from './fontconfig-2.0';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export function font_get_coverage(font: Pango.Font, language: Pango.Language): Pango.Coverage
-export function font_get_kerning(font: Pango.Font, left: Pango.Glyph, right: Pango.Glyph): number
-export function get_unknown_glyph(font: Pango.Font): Pango.Glyph
-export function render(bitmap: freetype2.Bitmap, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-export function render_layout(bitmap: freetype2.Bitmap, layout: Pango.Layout, x: number, y: number): void
-export function render_layout_line(bitmap: freetype2.Bitmap, line: Pango.LayoutLine, x: number, y: number): void
-export function render_layout_line_subpixel(bitmap: freetype2.Bitmap, line: Pango.LayoutLine, x: number, y: number): void
-export function render_layout_subpixel(bitmap: freetype2.Bitmap, layout: Pango.Layout, x: number, y: number): void
-export function render_transformed(bitmap: freetype2.Bitmap, matrix: Pango.Matrix | null, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-export function shutdown_display(): void
-export interface SubstituteFunc {
+export namespace PangoFT2 {
+
+function font_get_coverage(font: Pango.Font, language: Pango.Language): Pango.Coverage
+function font_get_kerning(font: Pango.Font, left: Pango.Glyph, right: Pango.Glyph): number
+function get_unknown_glyph(font: Pango.Font): Pango.Glyph
+function render(bitmap: freetype2.Bitmap, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
+function render_layout(bitmap: freetype2.Bitmap, layout: Pango.Layout, x: number, y: number): void
+function render_layout_line(bitmap: freetype2.Bitmap, line: Pango.LayoutLine, x: number, y: number): void
+function render_layout_line_subpixel(bitmap: freetype2.Bitmap, line: Pango.LayoutLine, x: number, y: number): void
+function render_layout_subpixel(bitmap: freetype2.Bitmap, layout: Pango.Layout, x: number, y: number): void
+function render_transformed(bitmap: freetype2.Bitmap, matrix: Pango.Matrix | null, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
+function shutdown_display(): void
+interface SubstituteFunc {
     (pattern: fontconfig.Pattern, data?: object | null): void
 }
 export interface FontMap_ConstructProps extends PangoFc.FontMap_ConstructProps {
 }
-export class FontMap {
+class FontMap {
     /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -102,3 +104,5 @@ export class FontMap {
     static new(): FontMap
     static $gtype: GObject.Type
 }
+}
+export default PangoFT2

@@ -20,14 +20,14 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Cheese {
+declare namespace Cheese {
 
-export enum CameraError {
+enum CameraError {
     UNKNOWN,
     ELEMENT_NOT_FOUND,
     NO_DEVICE,
 }
-export enum MediaMode {
+enum MediaMode {
     PHOTO,
     VIDEO,
     BURST,
@@ -39,7 +39,7 @@ export interface Camera_ConstructProps extends GObject.Object_ConstructProps {
     format?: VideoFormat
     videoTexture?: object
 }
-export class Camera {
+class Camera {
     /* Properties of Cheese-3.0.Cheese.Camera */
     device: CameraDevice
     format: VideoFormat
@@ -156,7 +156,7 @@ export interface CameraDevice_ConstructProps extends GObject.Object_ConstructPro
     name?: string
     path?: string
 }
-export class CameraDevice {
+class CameraDevice {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Cheese-3.0.Cheese.CameraDevice */
@@ -214,7 +214,7 @@ export class CameraDevice {
 }
 export interface CameraDeviceMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CameraDeviceMonitor {
+class CameraDeviceMonitor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Cheese-3.0.Cheese.CameraDeviceMonitor */
@@ -287,7 +287,7 @@ export interface Effect_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     pipelineDesc?: string
 }
-export class Effect {
+class Effect {
     /* Properties of Cheese-3.0.Cheese.Effect */
     controlValve: Gst.Element
     /* Fields of GObject-2.0.GObject.Object */
@@ -349,7 +349,7 @@ export class Effect {
 }
 export interface FileUtil_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FileUtil {
+class FileUtil {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Cheese-3.0.Cheese.FileUtil */
@@ -399,7 +399,7 @@ export class FileUtil {
     static new(): FileUtil
     static $gtype: GObject.Type
 }
-export abstract class CameraClass {
+abstract class CameraClass {
     /* Fields of Cheese-3.0.Cheese.CameraClass */
     photoSaved: (camera: Camera) => void
     photoTaken: (camera: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
@@ -407,37 +407,38 @@ export abstract class CameraClass {
     stateFlagsChanged: (camera: Camera, newState: Gst.State) => void
     static name: string
 }
-export abstract class CameraDeviceClass {
+abstract class CameraDeviceClass {
     /* Fields of Cheese-3.0.Cheese.CameraDeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CameraDeviceMonitorClass {
+abstract class CameraDeviceMonitorClass {
     /* Fields of Cheese-3.0.Cheese.CameraDeviceMonitorClass */
     added: (monitor: CameraDeviceMonitor, device: CameraDevice) => void
     removed: (monitor: CameraDeviceMonitor, device: CameraDevice) => void
     static name: string
 }
-export class CameraDeviceMonitorPrivate {
+class CameraDeviceMonitorPrivate {
     static name: string
 }
-export class CameraPrivate {
+class CameraPrivate {
     static name: string
 }
-export abstract class EffectClass {
+abstract class EffectClass {
     /* Fields of Cheese-3.0.Cheese.EffectClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class FileUtilClass {
+abstract class FileUtilClass {
     /* Fields of Cheese-3.0.Cheese.FileUtilClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class VideoFormat {
+class VideoFormat {
     /* Fields of Cheese-3.0.Cheese.VideoFormat */
     width: number
     height: number
     static name: string
 }
 }
+export default Cheese

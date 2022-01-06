@@ -6,13 +6,13 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Dbusmenu {
+declare namespace Dbusmenu {
 
-export enum Status {
+enum Status {
     NORMAL,
     NOTICE,
 }
-export enum TextDirection {
+enum TextDirection {
     NONE,
     LTR,
     RTL,
@@ -79,13 +79,13 @@ export const SERVER_SIGNAL_ID_PROP_UPDATE: string
 export const SERVER_SIGNAL_ID_UPDATE: string
 export const SERVER_SIGNAL_ITEM_ACTIVATION: string
 export const SERVER_SIGNAL_LAYOUT_UPDATED: string
-export interface ClientTypeHandler {
+interface ClientTypeHandler {
     (newitem: Menuitem, parent: Menuitem, client: Client): boolean
 }
-export interface menuitem_about_to_show_cb {
+interface menuitem_about_to_show_cb {
     (mi: Menuitem): void
 }
-export interface menuitem_buildvariant_slot_t {
+interface menuitem_buildvariant_slot_t {
     (mi: Menuitem, properties?: string | null): GLib.Variant
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
@@ -93,7 +93,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     dbusObject?: string
     groupEvents?: boolean
 }
-export class Client {
+class Client {
     /* Properties of Dbusmenu-0.4.Dbusmenu.Client */
     groupEvents: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -186,7 +186,7 @@ export class Client {
 export interface Menuitem_ConstructProps extends GObject.Object_ConstructProps {
     id?: number
 }
-export class Menuitem {
+class Menuitem {
     /* Fields of Dbusmenu-0.4.Dbusmenu.Menuitem */
     parent: GObject.Object
     priv: MenuitemPrivate
@@ -320,7 +320,7 @@ export class Menuitem {
 export interface MenuitemProxy_ConstructProps extends Menuitem_ConstructProps {
     menuItem?: Menuitem
 }
-export class MenuitemProxy {
+class MenuitemProxy {
     /* Fields of Dbusmenu-0.4.Dbusmenu.Menuitem */
     parent: GObject.Object
     priv: MenuitemPrivate
@@ -457,7 +457,7 @@ export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     dbusObject?: string
     rootNode?: Menuitem
 }
-export class Server {
+class Server {
     /* Properties of Dbusmenu-0.4.Dbusmenu.Server */
     rootNode: Menuitem
     readonly version: number
@@ -544,7 +544,7 @@ export class Server {
     static new(object: string): Server
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Dbusmenu-0.4.Dbusmenu.ClientClass */
     parentClass: GObject.ObjectClass
     layoutUpdated: () => void
@@ -560,10 +560,10 @@ export abstract class ClientClass {
     reserved5: () => void
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class MenuitemClass {
+abstract class MenuitemClass {
     /* Fields of Dbusmenu-0.4.Dbusmenu.MenuitemClass */
     parentClass: GObject.ObjectClass
     propertyChanged: (property: string, value: GLib.Variant) => void
@@ -583,10 +583,10 @@ export abstract class MenuitemClass {
     reserved5: () => void
     static name: string
 }
-export class MenuitemPrivate {
+class MenuitemPrivate {
     static name: string
 }
-export abstract class MenuitemProxyClass {
+abstract class MenuitemProxyClass {
     /* Fields of Dbusmenu-0.4.Dbusmenu.MenuitemProxyClass */
     parentClass: MenuitemClass
     reserved1: () => void
@@ -595,10 +595,10 @@ export abstract class MenuitemProxyClass {
     reserved4: () => void
     static name: string
 }
-export class MenuitemProxyPrivate {
+class MenuitemProxyPrivate {
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     /* Fields of Dbusmenu-0.4.Dbusmenu.ServerClass */
     parentClass: GObject.ObjectClass
     idPropUpdate: (id: number, property: string, value: string) => void
@@ -613,7 +613,8 @@ export abstract class ServerClass {
     reserved6: () => void
     static name: string
 }
-export class ServerPrivate {
+class ServerPrivate {
     static name: string
 }
 }
+export default Dbusmenu

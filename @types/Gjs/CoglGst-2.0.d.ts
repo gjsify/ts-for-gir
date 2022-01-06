@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Cogl from './Cogl-2.0';
-import type * as GL from './GL-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type Cogl from './Cogl-2.0';
+import type GL from './GL-1.0';
+
+export namespace CoglGst {
 
 export interface VideoSink_ConstructProps extends GstBase.BaseSink_ConstructProps {
     update_priority?: number
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of CoglGst-2.0.CoglGst.VideoSink */
     update_priority: number
     /* Properties of GstBase-1.0.GstBase.BaseSink */
@@ -355,7 +357,7 @@ export class VideoSink {
     static new(ctx: Cogl.Context): VideoSink
     static $gtype: GObject.Type
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of CoglGst-2.0.CoglGst.Rectangle */
     x: number
     y: number
@@ -363,12 +365,14 @@ export class Rectangle {
     height: number
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     /* Fields of CoglGst-2.0.CoglGst.VideoSinkClass */
     new_frame: (sink: VideoSink) => void
     pipeline_ready: (sink: VideoSink) => void
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
+}
+export default CoglGst

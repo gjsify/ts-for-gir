@@ -1,2 +1,1 @@
-imports.gi.versions.IAnjuta = '3.0'
-module.exports = imports.gi.IAnjuta
+export {default as default} from 'gi://IAnjuta?version=3.0';

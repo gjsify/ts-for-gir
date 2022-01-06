@@ -1,2 +1,1 @@
-imports.gi.versions.AccountsService = '1.0'
-module.exports = imports.gi.AccountsService
+export {default as default} from 'gi://AccountsService?version=1.0';

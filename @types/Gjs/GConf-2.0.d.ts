@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ClientErrorHandlingMode {
+export namespace GConf {
+
+enum ClientErrorHandlingMode {
     HANDLE_NONE,
     HANDLE_UNRETURNED,
     HANDLE_ALL,
 }
-export enum ClientPreloadType {
+enum ClientPreloadType {
     PRELOAD_NONE,
     PRELOAD_ONELEVEL,
     PRELOAD_RECURSIVE,
 }
-export enum Error {
+enum Error {
     SUCCESS,
     FAILED,
     NO_SERVER,
@@ -35,7 +37,7 @@ export enum Error {
     NO_WRITABLE_DATABASE,
     IN_SHUTDOWN,
 }
-export enum ValueType {
+enum ValueType {
     INVALID,
     STRING,
     INT,
@@ -45,42 +47,42 @@ export enum ValueType {
     LIST,
     PAIR,
 }
-export enum UnsetFlags {
+enum UnsetFlags {
     NAMES,
 }
-export function concat_dir_and_key(dir: string, key: string): string
-export function debug_shutdown(): number
-export function enum_to_string(lookup_table: EnumStringPair, enum_value: number): string
-export function error_quark(): GLib.Quark
-export function escape_key(arbitrary_text: string, len: number): string
-export function init(argc: number, argv: string): boolean
-export function is_initialized(): boolean
-export function key_is_below(above: string, below: string): boolean
-export function postinit(app?: object | null, mod_info?: object | null): void
-export function preinit(app?: object | null, mod_info?: object | null): void
-export function string_to_enum(lookup_table: EnumStringPair, str: string, enum_value_retloc: number): boolean
-export function unescape_key(escaped_key: string, len: number): string
-export function unique_key(): string
-export function valid_key(key: string, why_invalid: string): boolean
-export function value_decode(encoded: string): Value
-export interface ChangeSetForeachFunc {
+function concat_dir_and_key(dir: string, key: string): string
+function debug_shutdown(): number
+function enum_to_string(lookup_table: EnumStringPair, enum_value: number): string
+function error_quark(): GLib.Quark
+function escape_key(arbitrary_text: string, len: number): string
+function init(argc: number, argv: string): boolean
+function is_initialized(): boolean
+function key_is_below(above: string, below: string): boolean
+function postinit(app?: object | null, mod_info?: object | null): void
+function preinit(app?: object | null, mod_info?: object | null): void
+function string_to_enum(lookup_table: EnumStringPair, str: string, enum_value_retloc: number): boolean
+function unescape_key(escaped_key: string, len: number): string
+function unique_key(): string
+function valid_key(key: string, why_invalid: string): boolean
+function value_decode(encoded: string): Value
+interface ChangeSetForeachFunc {
     (cs: ChangeSet, key: string, value: Value): void
 }
-export interface ClientErrorHandlerFunc {
+interface ClientErrorHandlerFunc {
     (client: Client, error: GLib.Error): void
 }
-export interface ClientNotifyFunc {
+interface ClientNotifyFunc {
     (client: Client, cnxn_id: number, entry: Entry): void
 }
-export interface ListenersForeach {
+interface ListenersForeach {
     (location: string, cnxn_id: number, listener_data?: object | null): void
 }
-export interface ListenersPredicate {
+interface ListenersPredicate {
     (location: string, cnxn_id: number, listener_data?: object | null): boolean
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Fields of GConf-2.0.GConf.Client */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -181,7 +183,7 @@ export class Client {
     static get_default(): Client
     static $gtype: GObject.Type
 }
-export class ChangeSet {
+class ChangeSet {
     /* Methods of GConf-2.0.GConf.ChangeSet */
     check_value(key: string, value_retloc: Value): boolean
     clear(): void
@@ -204,7 +206,7 @@ export class ChangeSet {
     /* Static methods and pseudo-constructors */
     static new(): ChangeSet
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GConf-2.0.GConf.ClientClass */
     parent_class: GObject.ObjectClass
     value_changed: (client: Client, key: string, value: Value) => void
@@ -215,7 +217,7 @@ export abstract class ClientClass {
     pad3: GLib.Func
     static name: string
 }
-export class Engine {
+class Engine {
     /* Methods of GConf-2.0.GConf.Engine */
     all_dirs(dir: string): string[]
     all_entries(dir: string): Entry[]
@@ -254,7 +256,7 @@ export class Engine {
     unset(key: string): boolean
     static name: string
 }
-export class Entry {
+class Entry {
     /* Fields of GConf-2.0.GConf.Entry */
     key: string
     value: Value
@@ -282,13 +284,13 @@ export class Entry {
     static new(key: string, val: Value): Entry
     static new_nocopy(key: string, val: Value): Entry
 }
-export class EnumStringPair {
+class EnumStringPair {
     /* Fields of GConf-2.0.GConf.EnumStringPair */
     enum_value: number
     str: string
     static name: string
 }
-export class Listeners {
+class Listeners {
     /* Methods of GConf-2.0.GConf.Listeners */
     add(listen_point: string, listener_data: object | null, destroy_notify: GLib.FreeFunc): number
     count(): number
@@ -300,7 +302,7 @@ export class Listeners {
     remove_if(predicate: ListenersPredicate): void
     static name: string
 }
-export class MetaInfo {
+class MetaInfo {
     /* Fields of GConf-2.0.GConf.MetaInfo */
     schema: string
     mod_user: string
@@ -314,7 +316,7 @@ export class MetaInfo {
     set_schema(schema_name: string): void
     static name: string
 }
-export class Schema {
+class Schema {
     /* Methods of GConf-2.0.GConf.Schema */
     free(): void
     get_car_type(): ValueType
@@ -338,7 +340,7 @@ export class Schema {
     set_type(type: ValueType): void
     static name: string
 }
-export class Value {
+class Value {
     /* Fields of GConf-2.0.GConf.Value */
     type: ValueType
     /* Methods of GConf-2.0.GConf.Value */
@@ -372,3 +374,5 @@ export class Value {
     static new_from_string(type: ValueType, str: string): Value
     static decode(encoded: string): Value
 }
+}
+export default GConf

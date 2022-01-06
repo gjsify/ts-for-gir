@@ -1,2 +1,1 @@
-imports.gi.versions.Template = '1.0'
-module.exports = imports.gi.Template
+export {default as default} from 'gi://Template?version=1.0';

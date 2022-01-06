@@ -1,2 +1,1 @@
-imports.gi.versions.Wnck = '3.0'
-module.exports = imports.gi.Wnck
+export {default as default} from 'gi://Wnck?version=3.0';

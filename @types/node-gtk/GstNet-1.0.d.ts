@@ -9,7 +9,7 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Gio } from './Gio-2.0';
 
-export declare namespace GstNet {
+declare namespace GstNet {
 
 export const NET_TIME_PACKET_SIZE: number
 export const PTP_CLOCK_ID_NONE: number
@@ -17,22 +17,22 @@ export const PTP_STATISTICS_BEST_MASTER_CLOCK_SELECTED: string
 export const PTP_STATISTICS_NEW_DOMAIN_FOUND: string
 export const PTP_STATISTICS_PATH_DELAY_MEASURED: string
 export const PTP_STATISTICS_TIME_UPDATED: string
-export function bufferAddNetAddressMeta(buffer: Gst.Buffer, addr: Gio.SocketAddress): NetAddressMeta
-export function bufferAddNetControlMessageMeta(buffer: Gst.Buffer, message: Gio.SocketControlMessage): NetControlMessageMeta
-export function bufferGetNetAddressMeta(buffer: Gst.Buffer): NetAddressMeta
-export function netAddressMetaApiGetType(): GObject.Type
-export function netAddressMetaGetInfo(): Gst.MetaInfo
-export function netControlMessageMetaApiGetType(): GObject.Type
-export function netControlMessageMetaGetInfo(): Gst.MetaInfo
-export function netTimePacketReceive(socket: Gio.Socket): { returnType: NetTimePacket, srcAddress: Gio.SocketAddress }
-export function netUtilsSetSocketTos(socket: Gio.Socket, qosDscp: number): boolean
-export function ptpDeinit(): void
-export function ptpInit(clockId: number, interfaces?: string[] | null): boolean
-export function ptpIsInitialized(): boolean
-export function ptpIsSupported(): boolean
-export function ptpStatisticsCallbackAdd(callback: PtpStatisticsCallback): number
-export function ptpStatisticsCallbackRemove(id: number): void
-export interface PtpStatisticsCallback {
+function bufferAddNetAddressMeta(buffer: Gst.Buffer, addr: Gio.SocketAddress): NetAddressMeta
+function bufferAddNetControlMessageMeta(buffer: Gst.Buffer, message: Gio.SocketControlMessage): NetControlMessageMeta
+function bufferGetNetAddressMeta(buffer: Gst.Buffer): NetAddressMeta
+function netAddressMetaApiGetType(): GObject.Type
+function netAddressMetaGetInfo(): Gst.MetaInfo
+function netControlMessageMetaApiGetType(): GObject.Type
+function netControlMessageMetaGetInfo(): Gst.MetaInfo
+function netTimePacketReceive(socket: Gio.Socket): { returnType: NetTimePacket, srcAddress: Gio.SocketAddress }
+function netUtilsSetSocketTos(socket: Gio.Socket, qosDscp: number): boolean
+function ptpDeinit(): void
+function ptpInit(clockId: number, interfaces?: string[] | null): boolean
+function ptpIsInitialized(): boolean
+function ptpIsSupported(): boolean
+function ptpStatisticsCallbackAdd(callback: PtpStatisticsCallback): number
+function ptpStatisticsCallbackRemove(id: number): void
+interface PtpStatisticsCallback {
     (domain: number, stats: Gst.Structure): boolean
 }
 export interface NetClientClock_ConstructProps extends Gst.SystemClock_ConstructProps {
@@ -44,7 +44,7 @@ export interface NetClientClock_ConstructProps extends Gst.SystemClock_Construct
     qosDscp?: number
     roundTripLimit?: number
 }
-export class NetClientClock {
+class NetClientClock {
     /* Properties of GstNet-1.0.GstNet.NetClientClock */
     address: string
     bus: Gst.Bus
@@ -245,7 +245,7 @@ export interface NetTimeProvider_ConstructProps extends Gst.Object_ConstructProp
     port?: number
     qosDscp?: number
 }
-export class NetTimeProvider {
+class NetTimeProvider {
     /* Properties of GstNet-1.0.GstNet.NetTimeProvider */
     active: boolean
     qosDscp: number
@@ -355,7 +355,7 @@ export class NetTimeProvider {
 }
 export interface NtpClock_ConstructProps extends NetClientClock_ConstructProps {
 }
-export class NtpClock {
+class NtpClock {
     /* Properties of GstNet-1.0.GstNet.NetClientClock */
     address: string
     bus: Gst.Bus
@@ -552,7 +552,7 @@ export class NtpClock {
 export interface PtpClock_ConstructProps extends Gst.SystemClock_ConstructProps {
     domain?: number
 }
-export class PtpClock {
+class PtpClock {
     /* Properties of GstNet-1.0.GstNet.PtpClock */
     readonly grandmasterClockId: number
     readonly internalClock: Gst.Clock
@@ -722,7 +722,7 @@ export class PtpClock {
     static new(name: string, domain: number): PtpClock
     static $gtype: GObject.Type
 }
-export class NetAddressMeta {
+class NetAddressMeta {
     /* Fields of GstNet-1.0.GstNet.NetAddressMeta */
     meta: Gst.Meta
     addr: Gio.SocketAddress
@@ -730,15 +730,15 @@ export class NetAddressMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export abstract class NetClientClockClass {
+abstract class NetClientClockClass {
     /* Fields of GstNet-1.0.GstNet.NetClientClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }
-export class NetClientClockPrivate {
+class NetClientClockPrivate {
     static name: string
 }
-export class NetControlMessageMeta {
+class NetControlMessageMeta {
     /* Fields of GstNet-1.0.GstNet.NetControlMessageMeta */
     meta: Gst.Meta
     message: Gio.SocketControlMessage
@@ -746,7 +746,7 @@ export class NetControlMessageMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
 }
-export class NetTimePacket {
+class NetTimePacket {
     /* Fields of GstNet-1.0.GstNet.NetTimePacket */
     localTime: Gst.ClockTime
     remoteTime: Gst.ClockTime
@@ -762,26 +762,27 @@ export class NetTimePacket {
     static new(buffer: any[]): NetTimePacket
     static receive(socket: Gio.Socket): { returnType: NetTimePacket, srcAddress: Gio.SocketAddress }
 }
-export abstract class NetTimeProviderClass {
+abstract class NetTimeProviderClass {
     /* Fields of GstNet-1.0.GstNet.NetTimeProviderClass */
     parentClass: Gst.ObjectClass
     gstReserved: object[]
     static name: string
 }
-export class NetTimeProviderPrivate {
+class NetTimeProviderPrivate {
     static name: string
 }
-export abstract class NtpClockClass {
+abstract class NtpClockClass {
     /* Fields of GstNet-1.0.GstNet.NtpClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }
-export abstract class PtpClockClass {
+abstract class PtpClockClass {
     /* Fields of GstNet-1.0.GstNet.PtpClockClass */
     parentClass: Gst.SystemClockClass
     static name: string
 }
-export class PtpClockPrivate {
+class PtpClockPrivate {
     static name: string
 }
 }
+export default GstNet

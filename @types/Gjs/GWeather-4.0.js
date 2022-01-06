@@ -1,2 +1,1 @@
-imports.gi.versions.GWeather = '4.0'
-module.exports = imports.gi.GWeather
+export {default as default} from 'gi://GWeather?version=4.0';

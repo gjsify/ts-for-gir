@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type cairo from './cairo-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export enum AxisUse {
+export namespace Gdk {
+
+enum AxisUse {
     IGNORE,
     X,
     Y,
@@ -28,7 +30,7 @@ export enum AxisUse {
     SLIDER,
     LAST,
 }
-export enum CrossingMode {
+enum CrossingMode {
     NORMAL,
     GRAB,
     UNGRAB,
@@ -39,12 +41,12 @@ export enum CrossingMode {
     TOUCH_END,
     DEVICE_SWITCH,
 }
-export enum DevicePadFeature {
+enum DevicePadFeature {
     BUTTON,
     RING,
     STRIP,
 }
-export enum DeviceToolType {
+enum DeviceToolType {
     UNKNOWN,
     PEN,
     ERASER,
@@ -54,12 +56,12 @@ export enum DeviceToolType {
     MOUSE,
     LENS,
 }
-export enum DragCancelReason {
+enum DragCancelReason {
     NO_TARGET,
     USER_CANCELLED,
     ERROR,
 }
-export enum EventType {
+enum EventType {
     DELETE,
     MOTION_NOTIFY,
     BUTTON_PRESS,
@@ -90,18 +92,18 @@ export enum EventType {
     PAD_GROUP_MODE,
     EVENT_LAST,
 }
-export enum FullscreenMode {
+enum FullscreenMode {
     CURRENT_MONITOR,
     ALL_MONITORS,
 }
-export enum GLError {
+enum GLError {
     NOT_AVAILABLE,
     UNSUPPORTED_FORMAT,
     UNSUPPORTED_PROFILE,
     COMPILATION_FAILED,
     LINK_FAILED,
 }
-export enum Gravity {
+enum Gravity {
     NORTH_WEST,
     NORTH,
     NORTH_EAST,
@@ -113,7 +115,7 @@ export enum Gravity {
     SOUTH_EAST,
     STATIC,
 }
-export enum InputSource {
+enum InputSource {
     MOUSE,
     PEN,
     KEYBOARD,
@@ -122,12 +124,12 @@ export enum InputSource {
     TRACKPOINT,
     TABLET_PAD,
 }
-export enum KeyMatch {
+enum KeyMatch {
     NONE,
     PARTIAL,
     EXACT,
 }
-export enum MemoryFormat {
+enum MemoryFormat {
     B8G8R8A8_PREMULTIPLIED,
     A8R8G8B8_PREMULTIPLIED,
     R8G8B8A8_PREMULTIPLIED,
@@ -148,7 +150,7 @@ export enum MemoryFormat {
     R32G32B32A32_FLOAT,
     N_FORMATS,
 }
-export enum NotifyType {
+enum NotifyType {
     ANCESTOR,
     VIRTUAL,
     INFERIOR,
@@ -156,14 +158,14 @@ export enum NotifyType {
     NONLINEAR_VIRTUAL,
     UNKNOWN,
 }
-export enum ScrollDirection {
+enum ScrollDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
     SMOOTH,
 }
-export enum SubpixelLayout {
+enum SubpixelLayout {
     UNKNOWN,
     NONE,
     HORIZONTAL_RGB,
@@ -171,7 +173,7 @@ export enum SubpixelLayout {
     VERTICAL_RGB,
     VERTICAL_BGR,
 }
-export enum SurfaceEdge {
+enum SurfaceEdge {
     NORTH_WEST,
     NORTH,
     NORTH_EAST,
@@ -181,28 +183,28 @@ export enum SurfaceEdge {
     SOUTH,
     SOUTH_EAST,
 }
-export enum TextureError {
+enum TextureError {
     TOO_LARGE,
     CORRUPT_IMAGE,
     UNSUPPORTED_CONTENT,
     UNSUPPORTED_FORMAT,
 }
-export enum TitlebarGesture {
+enum TitlebarGesture {
     DOUBLE_CLICK,
     RIGHT_CLICK,
     MIDDLE_CLICK,
 }
-export enum TouchpadGesturePhase {
+enum TouchpadGesturePhase {
     BEGIN,
     UPDATE,
     END,
     CANCEL,
 }
-export enum VulkanError {
+enum VulkanError {
     UNSUPPORTED,
     NOT_AVAILABLE,
 }
-export enum AnchorHints {
+enum AnchorHints {
     FLIP_X,
     FLIP_Y,
     SLIDE_X,
@@ -213,7 +215,7 @@ export enum AnchorHints {
     SLIDE,
     RESIZE,
 }
-export enum AxisFlags {
+enum AxisFlags {
     X,
     Y,
     DELTA_X,
@@ -226,13 +228,13 @@ export enum AxisFlags {
     ROTATION,
     SLIDER,
 }
-export enum DragAction {
+enum DragAction {
     COPY,
     MOVE,
     LINK,
     ASK,
 }
-export enum FrameClockPhase {
+enum FrameClockPhase {
     NONE,
     FLUSH_EVENTS,
     BEFORE_PAINT,
@@ -242,11 +244,11 @@ export enum FrameClockPhase {
     RESUME_EVENTS,
     AFTER_PAINT,
 }
-export enum GLAPI {
+enum GLAPI {
     GL,
     GLES,
 }
-export enum ModifierType {
+enum ModifierType {
     SHIFT_MASK,
     LOCK_MASK,
     CONTROL_MASK,
@@ -260,11 +262,11 @@ export enum ModifierType {
     HYPER_MASK,
     META_MASK,
 }
-export enum PaintableFlags {
+enum PaintableFlags {
     SIZE,
     CONTENTS,
 }
-export enum SeatCapabilities {
+enum SeatCapabilities {
     NONE,
     POINTER,
     TOUCH,
@@ -274,7 +276,7 @@ export enum SeatCapabilities {
     ALL_POINTING,
     ALL,
 }
-export enum ToplevelState {
+enum ToplevelState {
     MINIMIZED,
     MAXIMIZED,
     STICKY,
@@ -2579,50 +2581,50 @@ export const KEY_zerosuperior: number
 export const KEY_zstroke: number
 export const MODIFIER_MASK: number
 export const PRIORITY_REDRAW: number
-export function cairo_draw_from_gl(cr: cairo.Context, surface: Surface, source: number, source_type: number, buffer_scale: number, x: number, y: number, width: number, height: number): void
-export function cairo_rectangle(cr: cairo.Context, rectangle: Rectangle): void
-export function cairo_region(cr: cairo.Context, region: cairo.Region): void
-export function cairo_region_create_from_surface(surface: cairo.Surface): cairo.Region
-export function cairo_set_source_pixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf, pixbuf_x: number, pixbuf_y: number): void
-export function cairo_set_source_rgba(cr: cairo.Context, rgba: RGBA): void
-export function content_deserialize_async(stream: Gio.InputStream, mime_type: string, type: GObject.Type, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function content_deserialize_finish(result: Gio.AsyncResult, value: any): boolean
-export function content_formats_parse(string: string): ContentFormats | null
-export function content_register_deserializer(mime_type: string, type: GObject.Type, deserialize: ContentDeserializeFunc): void
-export function content_register_serializer(type: GObject.Type, mime_type: string, serialize: ContentSerializeFunc): void
-export function content_serialize_async(stream: Gio.OutputStream, mime_type: string, value: any, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function content_serialize_finish(result: Gio.AsyncResult): boolean
-export function drag_action_is_unique(action: DragAction): boolean
-export function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
-export function events_get_center(event1: Event, event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-export function events_get_distance(event1: Event, event2: Event): [ /* returnType */ boolean, /* distance */ number ]
-export function gl_error_quark(): GLib.Quark
-export function intern_mime_type(string: string): string | null
-export function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
-export function keyval_from_name(keyval_name: string): number
-export function keyval_is_lower(keyval: number): boolean
-export function keyval_is_upper(keyval: number): boolean
-export function keyval_name(keyval: number): string | null
-export function keyval_to_lower(keyval: number): number
-export function keyval_to_unicode(keyval: number): number
-export function keyval_to_upper(keyval: number): number
-export function paintable_new_empty(intrinsic_width: number, intrinsic_height: number): Paintable
-export function pixbuf_get_from_surface(surface: cairo.Surface, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
-export function pixbuf_get_from_texture(texture: Texture): GdkPixbuf.Pixbuf | null
-export function set_allowed_backends(backends: string): void
-export function texture_error_quark(): GLib.Quark
-export function toplevel_size_get_type(): GObject.Type
-export function unicode_to_keyval(wc: number): number
-export function vulkan_error_quark(): GLib.Quark
-export interface ContentDeserializeFunc {
+function cairo_draw_from_gl(cr: cairo.Context, surface: Surface, source: number, source_type: number, buffer_scale: number, x: number, y: number, width: number, height: number): void
+function cairo_rectangle(cr: cairo.Context, rectangle: Rectangle): void
+function cairo_region(cr: cairo.Context, region: cairo.Region): void
+function cairo_region_create_from_surface(surface: cairo.Surface): cairo.Region
+function cairo_set_source_pixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf, pixbuf_x: number, pixbuf_y: number): void
+function cairo_set_source_rgba(cr: cairo.Context, rgba: RGBA): void
+function content_deserialize_async(stream: Gio.InputStream, mime_type: string, type: GObject.Type, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function content_deserialize_finish(result: Gio.AsyncResult, value: any): boolean
+function content_formats_parse(string: string): ContentFormats | null
+function content_register_deserializer(mime_type: string, type: GObject.Type, deserialize: ContentDeserializeFunc): void
+function content_register_serializer(type: GObject.Type, mime_type: string, serialize: ContentSerializeFunc): void
+function content_serialize_async(stream: Gio.OutputStream, mime_type: string, value: any, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function content_serialize_finish(result: Gio.AsyncResult): boolean
+function drag_action_is_unique(action: DragAction): boolean
+function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
+function events_get_center(event1: Event, event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
+function events_get_distance(event1: Event, event2: Event): [ /* returnType */ boolean, /* distance */ number ]
+function gl_error_quark(): GLib.Quark
+function intern_mime_type(string: string): string | null
+function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
+function keyval_from_name(keyval_name: string): number
+function keyval_is_lower(keyval: number): boolean
+function keyval_is_upper(keyval: number): boolean
+function keyval_name(keyval: number): string | null
+function keyval_to_lower(keyval: number): number
+function keyval_to_unicode(keyval: number): number
+function keyval_to_upper(keyval: number): number
+function paintable_new_empty(intrinsic_width: number, intrinsic_height: number): Paintable
+function pixbuf_get_from_surface(surface: cairo.Surface, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
+function pixbuf_get_from_texture(texture: Texture): GdkPixbuf.Pixbuf | null
+function set_allowed_backends(backends: string): void
+function texture_error_quark(): GLib.Quark
+function toplevel_size_get_type(): GObject.Type
+function unicode_to_keyval(wc: number): number
+function vulkan_error_quark(): GLib.Quark
+interface ContentDeserializeFunc {
     (deserializer: ContentDeserializer): void
 }
-export interface ContentSerializeFunc {
+interface ContentSerializeFunc {
     (serializer: ContentSerializer): void
 }
 export interface DevicePad_ConstructProps extends Device_ConstructProps {
 }
-export class DevicePad {
+class DevicePad {
     /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
@@ -2727,7 +2729,7 @@ export class DevicePad {
 }
 export interface DragSurface_ConstructProps extends Surface_ConstructProps {
 }
-export class DragSurface {
+class DragSurface {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Cursor
     readonly height: number
@@ -2832,7 +2834,7 @@ export class DragSurface {
     _init (config?: DragSurface_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Paintable {
+class Paintable {
     /* Methods of Gdk-4.0.Gdk.Paintable */
     compute_concrete_size(specified_width: number, specified_height: number, default_width: number, default_height: number): [ /* concrete_width */ number, /* concrete_height */ number ]
     get_current_image(): Paintable
@@ -2865,7 +2867,7 @@ export interface Popup_ConstructProps extends Surface_ConstructProps {
     autohide?: boolean
     parent?: Surface
 }
-export class Popup {
+class Popup {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Cursor
     readonly height: number
@@ -2986,7 +2988,7 @@ export interface Toplevel_ConstructProps extends Surface_ConstructProps {
     title?: string
     transient_for?: Surface
 }
-export class Toplevel {
+class Toplevel {
     /* Properties of Gdk-4.0.Gdk.Toplevel */
     decorated: boolean
     deletable: boolean
@@ -3147,7 +3149,7 @@ export class Toplevel {
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
     display?: Display
 }
-export class AppLaunchContext {
+class AppLaunchContext {
     /* Fields of Gio-2.0.Gio.AppLaunchContext */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3224,7 +3226,7 @@ export class AppLaunchContext {
     _init (config?: AppLaunchContext_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class ButtonEvent {
+class ButtonEvent {
     /* Methods of Gdk-4.0.Gdk.ButtonEvent */
     get_button(): number
     /* Methods of Gdk-4.0.Gdk.Event */
@@ -3252,7 +3254,7 @@ export class ButtonEvent {
 }
 export interface CairoContext_ConstructProps extends DrawContext_ConstructProps {
 }
-export class CairoContext {
+class CairoContext {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.CairoContext */
@@ -3310,7 +3312,7 @@ export class CairoContext {
 export interface Clipboard_ConstructProps extends GObject.Object_ConstructProps {
     display?: Display
 }
-export class Clipboard {
+class Clipboard {
     /* Properties of Gdk-4.0.Gdk.Clipboard */
     readonly content: ContentProvider
     readonly formats: ContentFormats
@@ -3389,7 +3391,7 @@ export class Clipboard {
 }
 export interface ContentDeserializer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentDeserializer {
+class ContentDeserializer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.ContentDeserializer */
@@ -3457,7 +3459,7 @@ export class ContentDeserializer {
 }
 export interface ContentProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentProvider {
+class ContentProvider {
     /* Properties of Gdk-4.0.Gdk.ContentProvider */
     readonly formats: ContentFormats
     readonly storable_formats: ContentFormats
@@ -3538,7 +3540,7 @@ export class ContentProvider {
 }
 export interface ContentSerializer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContentSerializer {
+class ContentSerializer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.ContentSerializer */
@@ -3604,7 +3606,7 @@ export class ContentSerializer {
     _init (config?: ContentSerializer_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class CrossingEvent {
+class CrossingEvent {
     /* Methods of Gdk-4.0.Gdk.CrossingEvent */
     get_detail(): NotifyType
     get_focus(): boolean
@@ -3639,7 +3641,7 @@ export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     texture?: Texture
 }
-export class Cursor {
+class Cursor {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Cursor */
@@ -3694,7 +3696,7 @@ export class Cursor {
     static new_from_texture(texture: Texture, hotspot_x: number, hotspot_y: number, fallback?: Cursor | null): Cursor
     static $gtype: GObject.Type
 }
-export class DNDEvent {
+class DNDEvent {
     /* Methods of Gdk-4.0.Gdk.DNDEvent */
     get_drop(): Drop | null
     /* Methods of Gdk-4.0.Gdk.Event */
@@ -3720,7 +3722,7 @@ export class DNDEvent {
     unref(): void
     static name: string
 }
-export class DeleteEvent {
+class DeleteEvent {
     /* Methods of Gdk-4.0.Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
@@ -3754,7 +3756,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     source?: InputSource
     vendor_id?: string
 }
-export class Device {
+class Device {
     /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
@@ -3858,7 +3860,7 @@ export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps
     serial?: number
     tool_type?: DeviceToolType
 }
-export class DeviceTool {
+class DeviceTool {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DeviceTool */
@@ -3911,7 +3913,7 @@ export class DeviceTool {
 }
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Display {
+class Display {
     /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly input_shapes: boolean
@@ -4016,7 +4018,7 @@ export class Display {
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
     default_display?: Display
 }
-export class DisplayManager {
+class DisplayManager {
     /* Properties of Gdk-4.0.Gdk.DisplayManager */
     default_display: Display
     /* Fields of GObject-2.0.GObject.Object */
@@ -4085,7 +4087,7 @@ export interface Drag_ConstructProps extends GObject.Object_ConstructProps {
     selected_action?: DragAction
     surface?: Surface
 }
-export class Drag {
+class Drag {
     /* Properties of Gdk-4.0.Gdk.Drag */
     actions: DragAction
     readonly display: Display
@@ -4168,7 +4170,7 @@ export interface DrawContext_ConstructProps extends GObject.Object_ConstructProp
     display?: Display
     surface?: Surface
 }
-export class DrawContext {
+class DrawContext {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -4228,7 +4230,7 @@ export interface Drop_ConstructProps extends GObject.Object_ConstructProps {
     formats?: ContentFormats
     surface?: Surface
 }
-export class Drop {
+class Drop {
     /* Properties of Gdk-4.0.Gdk.Drop */
     readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
@@ -4291,7 +4293,7 @@ export class Drop {
     _init (config?: Drop_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Event {
+class Event {
     /* Methods of Gdk-4.0.Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
@@ -4315,7 +4317,7 @@ export class Event {
     unref(): void
     static name: string
 }
-export class FocusEvent {
+class FocusEvent {
     /* Methods of Gdk-4.0.Gdk.FocusEvent */
     get_in(): boolean
     /* Methods of Gdk-4.0.Gdk.Event */
@@ -4343,7 +4345,7 @@ export class FocusEvent {
 }
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FrameClock {
+class FrameClock {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.FrameClock */
@@ -4426,7 +4428,7 @@ export interface GLContext_ConstructProps extends DrawContext_ConstructProps {
     allowed_apis?: GLAPI
     shared_context?: GLContext
 }
-export class GLContext {
+class GLContext {
     /* Properties of Gdk-4.0.Gdk.GLContext */
     allowed_apis: GLAPI
     readonly api: GLAPI
@@ -4509,7 +4511,7 @@ export class GLContext {
 }
 export interface GLTexture_ConstructProps extends Texture_ConstructProps {
 }
-export class GLTexture {
+class GLTexture {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.GLTexture */
@@ -4606,7 +4608,7 @@ export class GLTexture {
     static new(context: GLContext, id: number, width: number, height: number, destroy: GLib.DestroyNotify, data?: object | null): GLTexture
     static $gtype: GObject.Type
 }
-export class GrabBrokenEvent {
+class GrabBrokenEvent {
     /* Methods of Gdk-4.0.Gdk.GrabBrokenEvent */
     get_grab_surface(): Surface
     get_implicit(): boolean
@@ -4633,7 +4635,7 @@ export class GrabBrokenEvent {
     unref(): void
     static name: string
 }
-export class KeyEvent {
+class KeyEvent {
     /* Methods of Gdk-4.0.Gdk.KeyEvent */
     get_consumed_modifiers(): ModifierType
     get_keycode(): number
@@ -4668,7 +4670,7 @@ export class KeyEvent {
 }
 export interface MemoryTexture_ConstructProps extends Texture_ConstructProps {
 }
-export class MemoryTexture {
+class MemoryTexture {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
@@ -4766,7 +4768,7 @@ export class MemoryTexture {
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     display?: Display
 }
-export class Monitor {
+class Monitor {
     /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Rectangle
@@ -4859,7 +4861,7 @@ export class Monitor {
     _init (config?: Monitor_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class MotionEvent {
+class MotionEvent {
     /* Methods of Gdk-4.0.Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
@@ -4883,7 +4885,7 @@ export class MotionEvent {
     unref(): void
     static name: string
 }
-export class PadEvent {
+class PadEvent {
     /* Methods of Gdk-4.0.Gdk.PadEvent */
     get_axis_value(): [ /* index */ number, /* value */ number ]
     get_button(): number
@@ -4911,7 +4913,7 @@ export class PadEvent {
     unref(): void
     static name: string
 }
-export class ProximityEvent {
+class ProximityEvent {
     /* Methods of Gdk-4.0.Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
@@ -4935,7 +4937,7 @@ export class ProximityEvent {
     unref(): void
     static name: string
 }
-export class ScrollEvent {
+class ScrollEvent {
     /* Methods of Gdk-4.0.Gdk.ScrollEvent */
     get_deltas(): [ /* delta_x */ number, /* delta_y */ number ]
     get_direction(): ScrollDirection
@@ -4966,7 +4968,7 @@ export class ScrollEvent {
 export interface Seat_ConstructProps extends GObject.Object_ConstructProps {
     display?: Display
 }
-export class Seat {
+class Seat {
     /* Fields of Gdk-4.0.Gdk.Seat */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5036,7 +5038,7 @@ export class Seat {
 }
 export interface Snapshot_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Snapshot {
+class Snapshot {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5087,7 +5089,7 @@ export interface Surface_ConstructProps extends GObject.Object_ConstructProps {
     display?: Display
     frame_clock?: FrameClock
 }
-export class Surface {
+class Surface {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Cursor
     readonly height: number
@@ -5197,7 +5199,7 @@ export interface Texture_ConstructProps extends GObject.Object_ConstructProps {
     height?: number
     width?: number
 }
-export class Texture {
+class Texture {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
@@ -5300,7 +5302,7 @@ export class Texture {
     static new_for_string(str: string): Gio.Icon
     static $gtype: GObject.Type
 }
-export class TouchEvent {
+class TouchEvent {
     /* Methods of Gdk-4.0.Gdk.TouchEvent */
     get_emulating_pointer(): boolean
     /* Methods of Gdk-4.0.Gdk.Event */
@@ -5326,7 +5328,7 @@ export class TouchEvent {
     unref(): void
     static name: string
 }
-export class TouchpadEvent {
+class TouchpadEvent {
     /* Methods of Gdk-4.0.Gdk.TouchpadEvent */
     get_deltas(): [ /* dx */ number, /* dy */ number ]
     get_gesture_phase(): TouchpadGesturePhase
@@ -5358,7 +5360,7 @@ export class TouchpadEvent {
 }
 export interface VulkanContext_ConstructProps extends DrawContext_ConstructProps {
 }
-export class VulkanContext {
+class VulkanContext {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -5421,7 +5423,7 @@ export class VulkanContext {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export class ContentFormats {
+class ContentFormats {
     /* Methods of Gdk-4.0.Gdk.ContentFormats */
     contain_gtype(type: GObject.Type): boolean
     contain_mime_type(mime_type: string): boolean
@@ -5447,7 +5449,7 @@ export class ContentFormats {
     static new_for_gtype(type: GObject.Type): ContentFormats
     static parse(string: string): ContentFormats | null
 }
-export class ContentFormatsBuilder {
+class ContentFormatsBuilder {
     /* Methods of Gdk-4.0.Gdk.ContentFormatsBuilder */
     add_formats(formats: ContentFormats): void
     add_gtype(type: GObject.Type): void
@@ -5461,7 +5463,7 @@ export class ContentFormatsBuilder {
     /* Static methods and pseudo-constructors */
     static new(): ContentFormatsBuilder
 }
-export abstract class ContentProviderClass {
+abstract class ContentProviderClass {
     /* Fields of Gdk-4.0.Gdk.ContentProviderClass */
     parent_class: GObject.ObjectClass
     content_changed: (provider: ContentProvider) => void
@@ -5474,27 +5476,27 @@ export abstract class ContentProviderClass {
     get_value: (provider: ContentProvider, value: any) => boolean
     static name: string
 }
-export abstract class DevicePadInterface {
+abstract class DevicePadInterface {
     static name: string
 }
-export abstract class DragSurfaceInterface {
+abstract class DragSurfaceInterface {
     static name: string
 }
-export class EventSequence {
+class EventSequence {
     static name: string
 }
-export class FileList {
+class FileList {
     /* Methods of Gdk-4.0.Gdk.FileList */
     get_files(): Gio.File[]
     static name: string
 }
-export abstract class FrameClockClass {
+abstract class FrameClockClass {
     static name: string
 }
-export class FrameClockPrivate {
+class FrameClockPrivate {
     static name: string
 }
-export class FrameTimings {
+class FrameTimings {
     /* Methods of Gdk-4.0.Gdk.FrameTimings */
     get_complete(): boolean
     get_frame_counter(): number
@@ -5506,23 +5508,23 @@ export class FrameTimings {
     unref(): void
     static name: string
 }
-export abstract class GLTextureClass {
+abstract class GLTextureClass {
     static name: string
 }
-export class KeymapKey {
+class KeymapKey {
     /* Fields of Gdk-4.0.Gdk.KeymapKey */
     keycode: number
     group: number
     level: number
     static name: string
 }
-export abstract class MemoryTextureClass {
+abstract class MemoryTextureClass {
     static name: string
 }
-export abstract class MonitorClass {
+abstract class MonitorClass {
     static name: string
 }
-export abstract class PaintableInterface {
+abstract class PaintableInterface {
     /* Fields of Gdk-4.0.Gdk.PaintableInterface */
     snapshot: (paintable: Paintable, snapshot: Snapshot, width: number, height: number) => void
     get_current_image: (paintable: Paintable) => Paintable
@@ -5532,10 +5534,10 @@ export abstract class PaintableInterface {
     get_intrinsic_aspect_ratio: (paintable: Paintable) => number
     static name: string
 }
-export abstract class PopupInterface {
+abstract class PopupInterface {
     static name: string
 }
-export class PopupLayout {
+class PopupLayout {
     /* Methods of Gdk-4.0.Gdk.PopupLayout */
     copy(): PopupLayout
     equal(other: PopupLayout): boolean
@@ -5559,7 +5561,7 @@ export class PopupLayout {
     /* Static methods and pseudo-constructors */
     static new(anchor_rect: Rectangle, rect_anchor: Gravity, surface_anchor: Gravity): PopupLayout
 }
-export class RGBA {
+class RGBA {
     /* Fields of Gdk-4.0.Gdk.RGBA */
     red: number
     green: number
@@ -5576,7 +5578,7 @@ export class RGBA {
     to_string(): string
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Gdk-4.0.Gdk.Rectangle */
     x: number
     y: number
@@ -5589,26 +5591,26 @@ export class Rectangle {
     union(src2: Rectangle): /* dest */ Rectangle
     static name: string
 }
-export abstract class SnapshotClass {
+abstract class SnapshotClass {
     static name: string
 }
-export abstract class SurfaceClass {
+abstract class SurfaceClass {
     static name: string
 }
-export abstract class TextureClass {
+abstract class TextureClass {
     static name: string
 }
-export class TimeCoord {
+class TimeCoord {
     /* Fields of Gdk-4.0.Gdk.TimeCoord */
     time: number
     flags: AxisFlags
     axes: number[]
     static name: string
 }
-export abstract class ToplevelInterface {
+abstract class ToplevelInterface {
     static name: string
 }
-export class ToplevelLayout {
+class ToplevelLayout {
     /* Methods of Gdk-4.0.Gdk.ToplevelLayout */
     copy(): ToplevelLayout
     equal(other: ToplevelLayout): boolean
@@ -5627,7 +5629,7 @@ export class ToplevelLayout {
     /* Static methods and pseudo-constructors */
     static new(): ToplevelLayout
 }
-export class ToplevelSize {
+class ToplevelSize {
     /* Methods of Gdk-4.0.Gdk.ToplevelSize */
     get_bounds(): [ /* bounds_width */ number, /* bounds_height */ number ]
     set_min_size(min_width: number, min_height: number): void
@@ -5635,3 +5637,5 @@ export class ToplevelSize {
     set_size(width: number, height: number): void
     static name: string
 }
+}
+export default Gdk

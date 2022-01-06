@@ -1,2 +1,1 @@
-imports.gi.versions.EBookContacts = '1.2'
-module.exports = imports.gi.EBookContacts
+export {default as default} from 'gi://EBookContacts?version=1.2';

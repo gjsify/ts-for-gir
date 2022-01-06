@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as Soup from './Soup-2.4';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
-import type * as EBookContacts from './EBookContacts-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type EDataServer from './EDataServer-1.2';
+import type Soup from './Soup-2.4';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
+import type EBookContacts from './EBookContacts-1.2';
 
-export enum BookStatus {
+export namespace EBook {
+
+enum BookStatus {
     OK,
     INVALID_ARG,
     BUSY,
@@ -42,11 +44,11 @@ export enum BookStatus {
     NO_SPACE,
     NOT_SUPPORTED,
 }
-export function book_error_quark(): GLib.Quark
-export function book_utils_get_recipient_certificates_sync(registry: EDataServer.SourceRegistry, only_clients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificates */ string[] ]
+function book_error_quark(): GLib.Quark
+function book_utils_get_recipient_certificates_sync(registry: EDataServer.SourceRegistry, only_clients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificates */ string[] ]
 export interface BookClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
-export class BookClient {
+class BookClient {
     /* Properties of EBook-1.2.EBook.BookClient */
     readonly locale: string
     /* Properties of EDataServer-1.2.EDataServer.Client */
@@ -258,7 +260,7 @@ export interface BookClientCursor_ConstructProps extends GObject.Object_Construc
     object_path?: string
     sort_fields?: string[]
 }
-export class BookClientCursor {
+class BookClientCursor {
     /* Properties of EBook-1.2.EBook.BookClientCursor */
     readonly alphabet: string[]
     readonly position: number
@@ -345,7 +347,7 @@ export interface BookClientView_ConstructProps extends GObject.Object_ConstructP
     connection?: Gio.DBusConnection
     object_path?: string
 }
-export class BookClientView {
+class BookClientView {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClientView */
@@ -427,7 +429,7 @@ export class BookClientView {
 }
 export interface Destination_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Destination {
+class Destination {
     /* Fields of EBook-1.2.EBook.Destination */
     object: GObject.Object
     priv: DestinationPrivate
@@ -519,35 +521,37 @@ export class Destination {
     static importv(str: string): Destination[]
     static $gtype: GObject.Type
 }
-export abstract class BookClientClass {
+abstract class BookClientClass {
     static name: string
 }
-export abstract class BookClientCursorClass {
+abstract class BookClientCursorClass {
     /* Fields of EBook-1.2.EBook.BookClientCursorClass */
     refresh: (cursor: BookClientCursor) => void
     static name: string
 }
-export class BookClientCursorPrivate {
+class BookClientCursorPrivate {
     static name: string
 }
-export class BookClientPrivate {
+class BookClientPrivate {
     static name: string
 }
-export abstract class BookClientViewClass {
+abstract class BookClientViewClass {
     /* Fields of EBook-1.2.EBook.BookClientViewClass */
     progress: (client_view: BookClientView, percent: number, message: string) => void
     complete: (client_view: BookClientView, error: GLib.Error) => void
     static name: string
 }
-export class BookClientViewPrivate {
+class BookClientViewPrivate {
     static name: string
 }
-export abstract class DestinationClass {
+abstract class DestinationClass {
     /* Fields of EBook-1.2.EBook.DestinationClass */
     parent_class: GObject.ObjectClass
     changed: (destination: Destination) => void
     static name: string
 }
-export class DestinationPrivate {
+class DestinationPrivate {
     static name: string
 }
+}
+export default EBook

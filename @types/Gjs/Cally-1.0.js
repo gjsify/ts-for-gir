@@ -1,2 +1,1 @@
-imports.gi.versions.Cally = '1.0'
-module.exports = imports.gi.Cally
+export {default as default} from 'gi://Cally?version=1.0';

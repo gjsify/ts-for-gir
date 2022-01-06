@@ -1,2 +1,1 @@
-imports.gi.versions.GstInsertBin = '1.0'
-module.exports = imports.gi.GstInsertBin
+export {default as default} from 'gi://GstInsertBin?version=1.0';

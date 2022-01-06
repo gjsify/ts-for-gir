@@ -7,9 +7,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Grl {
+declare namespace Grl {
 
-export enum CoreError {
+enum CoreError {
     BROWSE_FAILED,
     SEARCH_FAILED,
     SEARCH_NULL_UNSUPPORTED,
@@ -30,7 +30,7 @@ export enum CoreError {
     NOTIFY_CHANGED_FAILED,
     OPERATION_CANCELLED,
 }
-export enum LogLevel {
+enum LogLevel {
     NONE,
     ERROR,
     WARNING,
@@ -39,34 +39,34 @@ export enum LogLevel {
     DEBUG,
     LAST,
 }
-export enum MediaSerializeType {
+enum MediaSerializeType {
     BASIC,
     PARTIAL,
     FULL,
 }
-export enum MediaSourceChangeType {
+enum MediaSourceChangeType {
     CHANGED,
     ADDED,
     REMOVED,
 }
-export enum PluginRank {
+enum PluginRank {
     LOWEST,
     LOW,
     DEFAULT,
     HIGH,
     HIGHEST,
 }
-export enum MetadataResolutionFlags {
+enum MetadataResolutionFlags {
     NORMAL,
     FULL,
     IDLE_RELAY,
     FAST_ONLY,
 }
-export enum MetadataWritingFlags {
+enum MetadataWritingFlags {
     NORMAL,
     FULL,
 }
-export enum SupportedOps {
+enum SupportedOps {
     NONE,
     METADATA,
     RESOLVE,
@@ -102,41 +102,41 @@ export const PLUGIN_LIST_VAR: string
 export const PLUGIN_PATH_VAR: string
 export const PLUGIN_RANKS_VAR: string
 export const SOURCE_REMAINING_UNKNOWN: number
-export function init(argv?: string[] | null): { argv: string[] | null }
-export function logConfigure(config: string): void
-export function marshalVOIDBOXEDENUMBOOLEAN(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint: object, marshalData: object): void
-export function metadataKeyGetDesc(key: GObject.ParamSpec): string
-export function metadataKeyGetName(key: GObject.ParamSpec): string
-export function metadataKeySetupSystemKeys(registry: PluginRegistry): void
-export function multipleCancel(searchId: number): void
-export function multipleGetMediaFromUri(uri: string, keys: KeyID[], flags: MetadataResolutionFlags, callback: MediaSourceMetadataCb): void
-export function multipleSearch(sources: MediaSource[] | null, text: string, keys: GObject.ParamSpec[], count: number, flags: MetadataResolutionFlags, callback: MediaSourceResultCb): number
-export function multipleSearchSync(sources: MediaSource[] | null, text: string, keys: GObject.ParamSpec[], count: number, flags: MetadataResolutionFlags): Media[]
-export function operationCancel(operationId: number): void
-export function operationGetData(operationId: number): object
-export function operationSetData(operationId: number, userData: object): void
-export function pagingTranslate(skip: number, count: number, maxPageSize: number, pageSize: number, pageNumber: number, internalOffset: number): void
-export interface MediaSourceMetadataCb {
+function init(argv?: string[] | null): { argv: string[] | null }
+function logConfigure(config: string): void
+function marshalVOIDBOXEDENUMBOOLEAN(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint: object, marshalData: object): void
+function metadataKeyGetDesc(key: GObject.ParamSpec): string
+function metadataKeyGetName(key: GObject.ParamSpec): string
+function metadataKeySetupSystemKeys(registry: PluginRegistry): void
+function multipleCancel(searchId: number): void
+function multipleGetMediaFromUri(uri: string, keys: KeyID[], flags: MetadataResolutionFlags, callback: MediaSourceMetadataCb): void
+function multipleSearch(sources: MediaSource[] | null, text: string, keys: GObject.ParamSpec[], count: number, flags: MetadataResolutionFlags, callback: MediaSourceResultCb): number
+function multipleSearchSync(sources: MediaSource[] | null, text: string, keys: GObject.ParamSpec[], count: number, flags: MetadataResolutionFlags): Media[]
+function operationCancel(operationId: number): void
+function operationGetData(operationId: number): object
+function operationSetData(operationId: number, userData: object): void
+function pagingTranslate(skip: number, count: number, maxPageSize: number, pageSize: number, pageNumber: number, internalOffset: number): void
+interface MediaSourceMetadataCb {
     (source: MediaSource, operationId: number, media: Media, error: number): void
 }
-export interface MediaSourceRemoveCb {
+interface MediaSourceRemoveCb {
     (source: MediaSource, media: Media, error: number): void
 }
-export interface MediaSourceResultCb {
+interface MediaSourceResultCb {
     (source: MediaSource, operationId: number, media: Media, remaining: number, error: number): void
 }
-export interface MediaSourceStoreCb {
+interface MediaSourceStoreCb {
     (source: MediaSource, parent: MediaBox, media: Media, error: number): void
 }
-export interface MetadataSourceResolveCb {
+interface MetadataSourceResolveCb {
     (source: MetadataSource, operationId: number, media: Media, error: number): void
 }
-export interface MetadataSourceSetMetadataCb {
+interface MetadataSourceSetMetadataCb {
     (source: MetadataSource, media: Media, failedKeys: GObject.ParamSpec[], error: number): void
 }
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Config {
+class Config {
     /* Fields of Grl-0.1.Grl.Config */
     parent: GObject.Object
     priv: ConfigPrivate
@@ -216,7 +216,7 @@ export class Config {
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
     overwrite?: boolean
 }
-export class Data {
+class Data {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.Data */
@@ -306,7 +306,7 @@ export class Data {
 }
 export interface Media_ConstructProps extends Data_ConstructProps {
 }
-export class Media {
+class Media {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.Media */
@@ -458,7 +458,7 @@ export class Media {
 }
 export interface MediaAudio_ConstructProps extends Media_ConstructProps {
 }
-export class MediaAudio {
+class MediaAudio {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.MediaAudio */
@@ -632,7 +632,7 @@ export class MediaAudio {
 }
 export interface MediaBox_ConstructProps extends Media_ConstructProps {
 }
-export class MediaBox {
+class MediaBox {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.MediaBox */
@@ -786,7 +786,7 @@ export class MediaBox {
 }
 export interface MediaImage_ConstructProps extends Media_ConstructProps {
 }
-export class MediaImage {
+class MediaImage {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.MediaImage */
@@ -957,7 +957,7 @@ export class MediaImage {
 }
 export interface MediaPlugin_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MediaPlugin {
+class MediaPlugin {
     /* Fields of Grl-0.1.Grl.MediaPlugin */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1018,7 +1018,7 @@ export class MediaPlugin {
 export interface MediaSource_ConstructProps extends MetadataSource_ConstructProps {
     autoSplitThreshold?: number
 }
-export class MediaSource {
+class MediaSource {
     /* Properties of Grl-0.1.Grl.MediaSource */
     autoSplitThreshold: number
     /* Properties of Grl-0.1.Grl.MetadataSource */
@@ -1158,7 +1158,7 @@ export class MediaSource {
 }
 export interface MediaVideo_ConstructProps extends Media_ConstructProps {
 }
-export class MediaVideo {
+class MediaVideo {
     /* Properties of Grl-0.1.Grl.Data */
     overwrite: boolean
     /* Fields of Grl-0.1.Grl.MediaVideo */
@@ -1330,7 +1330,7 @@ export interface MetadataSource_ConstructProps extends MediaPlugin_ConstructProp
     sourceId?: string
     sourceName?: string
 }
-export class MetadataSource {
+class MetadataSource {
     /* Properties of Grl-0.1.Grl.MetadataSource */
     sourceDesc: string
     sourceId: string
@@ -1435,7 +1435,7 @@ export class MetadataSource {
 }
 export interface PluginRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PluginRegistry {
+class PluginRegistry {
     /* Fields of Grl-0.1.Grl.PluginRegistry */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1515,7 +1515,7 @@ export class PluginRegistry {
 }
 export interface RelatedKeys_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RelatedKeys {
+class RelatedKeys {
     /* Fields of Grl-0.1.Grl.RelatedKeys */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1578,56 +1578,56 @@ export class RelatedKeys {
     static new(): RelatedKeys
     static $gtype: GObject.Type
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of Grl-0.1.Grl.ConfigClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ConfigPrivate {
+class ConfigPrivate {
     static name: string
 }
-export abstract class DataClass {
+abstract class DataClass {
     /* Fields of Grl-0.1.Grl.DataClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DataPrivate {
+class DataPrivate {
     static name: string
 }
-export class LogDomain {
+class LogDomain {
     /* Methods of Grl-0.1.Grl.LogDomain */
     free(): void
     static name: string
 }
-export abstract class MediaAudioClass {
+abstract class MediaAudioClass {
     /* Fields of Grl-0.1.Grl.MediaAudioClass */
     parentClass: MediaClass
     static name: string
 }
-export abstract class MediaBoxClass {
+abstract class MediaBoxClass {
     /* Fields of Grl-0.1.Grl.MediaBoxClass */
     parentClass: MediaClass
     static name: string
 }
-export abstract class MediaClass {
+abstract class MediaClass {
     /* Fields of Grl-0.1.Grl.MediaClass */
     parentClass: DataClass
     static name: string
 }
-export abstract class MediaImageClass {
+abstract class MediaImageClass {
     /* Fields of Grl-0.1.Grl.MediaImageClass */
     parentClass: MediaClass
     static name: string
 }
-export abstract class MediaPluginClass {
+abstract class MediaPluginClass {
     /* Fields of Grl-0.1.Grl.MediaPluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MediaPluginPrivate {
+class MediaPluginPrivate {
     static name: string
 }
-export class MediaSourceBrowseSpec {
+class MediaSourceBrowseSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceBrowseSpec */
     source: MediaSource
     browseId: number
@@ -1640,7 +1640,7 @@ export class MediaSourceBrowseSpec {
     userData: object
     static name: string
 }
-export abstract class MediaSourceClass {
+abstract class MediaSourceClass {
     /* Fields of Grl-0.1.Grl.MediaSourceClass */
     parentClass: MetadataSourceClass
     browse: (source: MediaSource, bs: MediaSourceBrowseSpec) => void
@@ -1656,7 +1656,7 @@ export abstract class MediaSourceClass {
     notifyChangeStop: (source: MediaSource) => boolean
     static name: string
 }
-export class MediaSourceMediaFromUriSpec {
+class MediaSourceMediaFromUriSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceMediaFromUriSpec */
     source: MediaSource
     mediaFromUriId: number
@@ -1667,7 +1667,7 @@ export class MediaSourceMediaFromUriSpec {
     userData: object
     static name: string
 }
-export class MediaSourceMetadataSpec {
+class MediaSourceMetadataSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceMetadataSpec */
     source: MediaSource
     metadataId: number
@@ -1678,10 +1678,10 @@ export class MediaSourceMetadataSpec {
     userData: object
     static name: string
 }
-export class MediaSourcePrivate {
+class MediaSourcePrivate {
     static name: string
 }
-export class MediaSourceQuerySpec {
+class MediaSourceQuerySpec {
     /* Fields of Grl-0.1.Grl.MediaSourceQuerySpec */
     source: MediaSource
     queryId: number
@@ -1694,7 +1694,7 @@ export class MediaSourceQuerySpec {
     userData: object
     static name: string
 }
-export class MediaSourceRemoveSpec {
+class MediaSourceRemoveSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceRemoveSpec */
     source: MediaSource
     mediaId: string
@@ -1703,7 +1703,7 @@ export class MediaSourceRemoveSpec {
     userData: object
     static name: string
 }
-export class MediaSourceSearchSpec {
+class MediaSourceSearchSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceSearchSpec */
     source: MediaSource
     searchId: number
@@ -1716,7 +1716,7 @@ export class MediaSourceSearchSpec {
     userData: object
     static name: string
 }
-export class MediaSourceStoreSpec {
+class MediaSourceStoreSpec {
     /* Fields of Grl-0.1.Grl.MediaSourceStoreSpec */
     source: MediaSource
     parent: MediaBox
@@ -1725,12 +1725,12 @@ export class MediaSourceStoreSpec {
     userData: object
     static name: string
 }
-export abstract class MediaVideoClass {
+abstract class MediaVideoClass {
     /* Fields of Grl-0.1.Grl.MediaVideoClass */
     parentClass: MediaClass
     static name: string
 }
-export abstract class MetadataSourceClass {
+abstract class MetadataSourceClass {
     /* Fields of Grl-0.1.Grl.MetadataSourceClass */
     parentClass: MediaPluginClass
     operationId: number
@@ -1745,10 +1745,10 @@ export abstract class MetadataSourceClass {
     cancel: (source: MetadataSource, operationId: number) => void
     static name: string
 }
-export class MetadataSourcePrivate {
+class MetadataSourcePrivate {
     static name: string
 }
-export class MetadataSourceResolveSpec {
+class MetadataSourceResolveSpec {
     /* Fields of Grl-0.1.Grl.MetadataSourceResolveSpec */
     source: MetadataSource
     resolveId: number
@@ -1759,7 +1759,7 @@ export class MetadataSourceResolveSpec {
     userData: object
     static name: string
 }
-export class MetadataSourceSetMetadataSpec {
+class MetadataSourceSetMetadataSpec {
     /* Fields of Grl-0.1.Grl.MetadataSourceSetMetadataSpec */
     source: MetadataSource
     media: Media
@@ -1770,14 +1770,14 @@ export class MetadataSourceSetMetadataSpec {
     failedKeys: object[]
     static name: string
 }
-export class PluginDescriptor {
+class PluginDescriptor {
     /* Fields of Grl-0.1.Grl.PluginDescriptor */
     pluginId: string
     pluginDeinit: () => void
     module: GModule.Module
     static name: string
 }
-export class PluginInfo {
+class PluginInfo {
     /* Fields of Grl-0.1.Grl.PluginInfo */
     id: string
     filename: string
@@ -1785,21 +1785,22 @@ export class PluginInfo {
     rank: number
     static name: string
 }
-export abstract class PluginRegistryClass {
+abstract class PluginRegistryClass {
     /* Fields of Grl-0.1.Grl.PluginRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PluginRegistryPrivate {
+class PluginRegistryPrivate {
     static name: string
 }
-export abstract class RelatedKeysClass {
+abstract class RelatedKeysClass {
     /* Fields of Grl-0.1.Grl.RelatedKeysClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class RelatedKeysPrivate {
+class RelatedKeysPrivate {
     static name: string
 }
-export type KeyID = object
+type KeyID = object
 }
+export default Grl

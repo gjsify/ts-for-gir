@@ -12,25 +12,25 @@ import type { GLib } from './GLib-2.0';
 import type { Cogl } from './Cogl-2.0';
 import type { GL } from './GL-1.0';
 
-export declare namespace CoglPango {
+declare namespace CoglPango {
 
-export function ensureGlyphCacheForLayout(layout: Pango.Layout): void
-export function fontMapClearGlyphCache(fontMap: FontMap): void
-export function fontMapCreateContext(fontMap: FontMap): Pango.Context
-export function fontMapGetRenderer(fontMap: FontMap): Pango.Renderer
-export function fontMapGetUseMipmapping(fontMap: FontMap): Cogl.Bool
-export function fontMapNew(): Pango.FontMap
-export function fontMapSetResolution(fontMap: FontMap, dpi: number): void
-export function fontMapSetUseMipmapping(fontMap: FontMap, value: Cogl.Bool): void
-export function renderLayout(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
-export function renderLayoutLine(line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
-export function renderLayoutSubpixel(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
-export function showLayout(framebuffer: Cogl.Framebuffer, layout: Pango.Layout, x: number, y: number, color: Cogl.Color): void
-export function showLayoutLine(framebuffer: Cogl.Framebuffer, line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
+function ensureGlyphCacheForLayout(layout: Pango.Layout): void
+function fontMapClearGlyphCache(fontMap: FontMap): void
+function fontMapCreateContext(fontMap: FontMap): Pango.Context
+function fontMapGetRenderer(fontMap: FontMap): Pango.Renderer
+function fontMapGetUseMipmapping(fontMap: FontMap): Cogl.Bool
+function fontMapNew(): Pango.FontMap
+function fontMapSetResolution(fontMap: FontMap, dpi: number): void
+function fontMapSetUseMipmapping(fontMap: FontMap, value: Cogl.Bool): void
+function renderLayout(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
+function renderLayoutLine(line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
+function renderLayoutSubpixel(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
+function showLayout(framebuffer: Cogl.Framebuffer, layout: Pango.Layout, x: number, y: number, color: Cogl.Color): void
+function showLayoutLine(framebuffer: Cogl.Framebuffer, line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
 export interface Renderer_ConstructProps extends Pango.Renderer_ConstructProps {
     context?: object
 }
-export class Renderer {
+class Renderer {
     /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
     /* Fields of GObject-2.0.GObject.Object */
@@ -95,8 +95,9 @@ export class Renderer {
     _init (config?: Renderer_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class RendererClass {
+abstract class RendererClass {
     static name: string
 }
-export type FontMap = PangoCairo.FontMap
+type FontMap = PangoCairo.FontMap
 }
+export default CoglPango

@@ -10,9 +10,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstVideo {
+declare namespace GstVideo {
 
-export enum Format {
+enum Format {
     UNKNOWN,
     I420,
     YV12,
@@ -68,34 +68,34 @@ export const RED_MASK_15_INT: any
 export const RED_MASK_16: string
 export const RED_MASK_16_INT: any
 export const SIZE_RANGE: string
-export function calculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: number, darD: number }
-export function eventNewStillFrame(inStill: boolean): Gst.Event
-export function eventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: boolean }
-export function formatConvert(format: Format, width: number, height: number, fpsN: number, fpsD: number, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format): { returnType: boolean, destValue: number }
-export function formatFromFourcc(fourcc: number): Format
-export function formatGetComponentHeight(format: Format, component: number, height: number): number
-export function formatGetComponentOffset(format: Format, component: number, width: number, height: number): number
-export function formatGetComponentWidth(format: Format, component: number, width: number): number
-export function formatGetPixelStride(format: Format, component: number): number
-export function formatGetRowStride(format: Format, component: number, width: number): number
-export function formatGetSize(format: Format, width: number, height: number): number
-export function formatHasAlpha(format: Format): boolean
-export function formatIsRgb(format: Format): boolean
-export function formatIsYuv(format: Format): boolean
-export function formatNewCaps(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number): Gst.Caps
-export function formatNewCapsInterlaced(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number, interlaced: boolean): Gst.Caps
-export function formatParseCaps(caps: Gst.Caps, format: Format): { returnType: boolean, width: number, height: number }
-export function formatParseCapsInterlaced(caps: Gst.Caps): { returnType: boolean, interlaced: boolean }
-export function formatToFourcc(format: Format): number
-export function frameRate(pad: Gst.Pad): any
-export function getSize(pad: Gst.Pad): { returnType: boolean, width: number, height: number }
-export function parseCapsChromaSite(caps: Gst.Caps): string
-export function parseCapsColorMatrix(caps: Gst.Caps): string
-export function parseCapsFramerate(caps: Gst.Caps): { returnType: boolean, fpsN: number, fpsD: number }
-export function parseCapsPixelAspectRatio(caps: Gst.Caps): { returnType: boolean, parN: number, parD: number }
+function calculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: number, darD: number }
+function eventNewStillFrame(inStill: boolean): Gst.Event
+function eventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: boolean }
+function formatConvert(format: Format, width: number, height: number, fpsN: number, fpsD: number, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format): { returnType: boolean, destValue: number }
+function formatFromFourcc(fourcc: number): Format
+function formatGetComponentHeight(format: Format, component: number, height: number): number
+function formatGetComponentOffset(format: Format, component: number, width: number, height: number): number
+function formatGetComponentWidth(format: Format, component: number, width: number): number
+function formatGetPixelStride(format: Format, component: number): number
+function formatGetRowStride(format: Format, component: number, width: number): number
+function formatGetSize(format: Format, width: number, height: number): number
+function formatHasAlpha(format: Format): boolean
+function formatIsRgb(format: Format): boolean
+function formatIsYuv(format: Format): boolean
+function formatNewCaps(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number): Gst.Caps
+function formatNewCapsInterlaced(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number, interlaced: boolean): Gst.Caps
+function formatParseCaps(caps: Gst.Caps, format: Format): { returnType: boolean, width: number, height: number }
+function formatParseCapsInterlaced(caps: Gst.Caps): { returnType: boolean, interlaced: boolean }
+function formatToFourcc(format: Format): number
+function frameRate(pad: Gst.Pad): any
+function getSize(pad: Gst.Pad): { returnType: boolean, width: number, height: number }
+function parseCapsChromaSite(caps: Gst.Caps): string
+function parseCapsColorMatrix(caps: Gst.Caps): string
+function parseCapsFramerate(caps: Gst.Caps): { returnType: boolean, fpsN: number, fpsD: number }
+function parseCapsPixelAspectRatio(caps: Gst.Caps): { returnType: boolean, parN: number, parD: number }
 export interface Filter_ConstructProps extends GstBase.Transform_ConstructProps {
 }
-export class Filter {
+class Filter {
     /* Properties of GstBase-0.10.GstBase.Transform */
     qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
@@ -322,7 +322,7 @@ export class Filter {
 export interface Sink_ConstructProps extends GstBase.Sink_ConstructProps {
     showPrerollFrame?: boolean
 }
-export class Sink {
+class Sink {
     /* Properties of GstVideo-0.10.GstVideo.Sink */
     showPrerollFrame: boolean
     /* Properties of GstBase-0.10.GstBase.Sink */
@@ -628,12 +628,12 @@ export class Sink {
     static centerRect(src: Rectangle, dst: Rectangle, result: Rectangle, scaling: boolean): void
     static $gtype: GObject.Type
 }
-export abstract class FilterClass {
+abstract class FilterClass {
     /* Fields of GstVideo-0.10.GstVideo.FilterClass */
     parentClass: GstBase.TransformClass
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of GstVideo-0.10.GstVideo.Rectangle */
     x: number
     y: number
@@ -641,14 +641,15 @@ export class Rectangle {
     h: number
     static name: string
 }
-export abstract class SinkClass {
+abstract class SinkClass {
     /* Fields of GstVideo-0.10.GstVideo.SinkClass */
     parentClass: GstBase.SinkClass
     showFrame: (videoSink: Sink, buf: Gst.Buffer) => Gst.FlowReturn
     gstReserved: any[]
     static name: string
 }
-export class SinkPrivate {
+class SinkPrivate {
     static name: string
 }
 }
+export default GstVideo

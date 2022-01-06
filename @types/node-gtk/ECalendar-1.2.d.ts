@@ -14,9 +14,9 @@ import type { Json } from './Json-1.0';
 import type { Goa } from './Goa-1.0';
 import type { Camel } from './Camel-1.2';
 
-export declare namespace ECalendar {
+declare namespace ECalendar {
 
-export enum CalClientError {
+enum CalClientError {
     NO_SUCH_CALENDAR,
     OBJECT_NOT_FOUND,
     INVALID_OBJECT,
@@ -24,19 +24,19 @@ export enum CalClientError {
     OBJECT_ID_ALREADY_EXISTS,
     INVALID_RANGE,
 }
-export enum CalClientSourceType {
+enum CalClientSourceType {
     EVENTS,
     TASKS,
     MEMOS,
     LAST,
 }
-export enum CalClientSourceTypeEnum {
+enum CalClientSourceTypeEnum {
     EVENTS,
     TASKS,
     MEMOS,
     INVALID,
 }
-export enum CalComponentAlarmAction {
+enum CalComponentAlarmAction {
     NONE,
     AUDIO,
     DISPLAY,
@@ -44,20 +44,20 @@ export enum CalComponentAlarmAction {
     PROCEDURE,
     UNKNOWN,
 }
-export enum CalComponentAlarmTriggerType {
+enum CalComponentAlarmTriggerType {
     NONE,
     RELATIVE_START,
     RELATIVE_END,
     ABSOLUTE,
 }
-export enum CalComponentClassification {
+enum CalComponentClassification {
     NONE,
     PUBLIC,
     PRIVATE,
     CONFIDENTIAL,
     UNKNOWN,
 }
-export enum CalComponentField {
+enum CalComponentField {
     CATEGORIES,
     CLASSIFICATION,
     COMPLETED,
@@ -81,22 +81,22 @@ export enum CalComponentField {
     LOCATION,
     NUM_FIELDS,
 }
-export enum CalComponentPeriodType {
+enum CalComponentPeriodType {
     DATETIME,
     DURATION,
 }
-export enum CalComponentRangeType {
+enum CalComponentRangeType {
     SINGLE,
     THISPRIOR,
     THISFUTURE,
 }
-export enum CalComponentTransparency {
+enum CalComponentTransparency {
     NONE,
     TRANSPARENT,
     OPAQUE,
     UNKNOWN,
 }
-export enum CalComponentVType {
+enum CalComponentVType {
     NO_TYPE,
     EVENT,
     TODO,
@@ -104,34 +104,34 @@ export enum CalComponentVType {
     FREEBUSY,
     TIMEZONE,
 }
-export enum CalLoadState {
+enum CalLoadState {
     NOT_LOADED,
     LOADING,
     LOADED,
 }
-export enum CalSetModeStatus {
+enum CalSetModeStatus {
     SUCCESS,
     ERROR,
     NOT_SUPPORTED,
 }
-export enum CalSetModeStatusEnum {
+enum CalSetModeStatusEnum {
     SUCCESS,
     ERROR,
     UNSUPPORTED,
 }
-export enum CalSourceType {
+enum CalSourceType {
     EVENT,
     TODO,
     JOURNAL,
     LAST,
 }
-export enum CalSourceTypeEnum {
+enum CalSourceTypeEnum {
     EVENT,
     TODO,
     JOURNAL,
     INVALID,
 }
-export enum CalendarStatus {
+enum CalendarStatus {
     OK,
     INVALID_ARG,
     BUSY,
@@ -154,7 +154,7 @@ export enum CalendarStatus {
     INVALID_SERVER_VERSION,
     NOT_SUPPORTED,
 }
-export enum DataCalCallStatus {
+enum DataCalCallStatus {
     SUCCESS,
     BUSY,
     REPOSITORYOFFLINE,
@@ -183,39 +183,39 @@ export enum DataCalCallStatus {
     NOTSUPPORTED,
     NOTOPENED,
 }
-export enum CalChangeType {
+enum CalChangeType {
     ADDED,
     MODIFIED,
     DELETED,
 }
-export enum CalClientViewFlags {
+enum CalClientViewFlags {
     NONE,
     NOTIFY_INITIAL,
 }
-export enum DataCalMode {
+enum DataCalMode {
     OCAL,
     EMOTE,
     NYMODE,
 }
-export enum DataCalObjModType {
+enum DataCalObjModType {
     THIS,
     THISANDPRIOR,
     THISANDFUTURE,
     ALL,
 }
-export enum DataCalObjType {
+enum DataCalObjType {
     EVENT,
     TODO,
     JOURNAL,
     ANYTYPE,
 }
-export function calendarErrorQuark(): GLib.Quark
-export interface CalRecurInstanceFn {
+function calendarErrorQuark(): GLib.Quark
+interface CalRecurInstanceFn {
     (comp: CalComponent, instanceStart: number, instanceEnd: number, data: object): boolean
 }
 export interface Cal_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Cal {
+class Cal {
     /* Fields of ECalendar-1.2.ECalendar.Cal */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -323,7 +323,7 @@ export class Cal {
 }
 export interface CalClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
-export class CalClient {
+class CalClient {
     /* Properties of EDataServer-1.2.EDataServer.Client */
     readonly capabilities: object
     readonly mainContext: GLib.MainContext
@@ -515,7 +515,7 @@ export interface CalClientView_ConstructProps extends GObject.Object_ConstructPr
     client?: CalClient
     view?: object
 }
-export class CalClientView {
+class CalClientView {
     /* Fields of ECalendar-1.2.ECalendar.CalClientView */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -595,7 +595,7 @@ export class CalClientView {
 }
 export interface CalComponent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CalComponent {
+class CalComponent {
     /* Fields of ECalendar-1.2.ECalendar.CalComponent */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -747,7 +747,7 @@ export interface CalView_ConstructProps extends GObject.Object_ConstructProps {
     client?: Cal
     view?: object
 }
-export class CalView {
+class CalView {
     /* Fields of ECalendar-1.2.ECalendar.CalView */
     object: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -826,13 +826,13 @@ export class CalView {
     _init (config?: CalView_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class CalChange {
+class CalChange {
     /* Fields of ECalendar-1.2.ECalendar.CalChange */
     comp: CalComponent
     type: CalChangeType
     static name: string
 }
-export abstract class CalClass {
+abstract class CalClass {
     /* Fields of ECalendar-1.2.ECalendar.CalClass */
     parentClass: GObject.ObjectClass
     calOpened: (ecal: Cal, status: CalendarStatus) => void
@@ -841,25 +841,25 @@ export abstract class CalClass {
     backendDied: (ecal: Cal) => void
     static name: string
 }
-export abstract class CalClientClass {
+abstract class CalClientClass {
     /* Fields of ECalendar-1.2.ECalendar.CalClientClass */
     parent: EDataServer.ClientClass
     static name: string
 }
-export class CalClientPrivate {
+class CalClientPrivate {
     static name: string
 }
-export abstract class CalClientViewClass {
+abstract class CalClientViewClass {
     /* Fields of ECalendar-1.2.ECalendar.CalClientViewClass */
     parentClass: GObject.ObjectClass
     progress: (view: CalClientView, percent: number, message: string) => void
     complete: (view: CalClientView, error: GLib.Error) => void
     static name: string
 }
-export class CalClientViewPrivate {
+class CalClientViewPrivate {
     static name: string
 }
-export class CalComponentAlarm {
+class CalComponentAlarm {
     /* Methods of ECalendar-1.2.ECalendar.CalComponentAlarm */
     free(): void
     getAction(action: CalComponentAlarmAction): void
@@ -876,7 +876,7 @@ export class CalComponentAlarm {
     setTrigger(trigger: CalComponentAlarmTrigger): void
     static name: string
 }
-export class CalComponentAlarmInstance {
+class CalComponentAlarmInstance {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmInstance */
     auid: string
     trigger: number
@@ -884,18 +884,18 @@ export class CalComponentAlarmInstance {
     occurEnd: number
     static name: string
 }
-export class CalComponentAlarmRepeat {
+class CalComponentAlarmRepeat {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmRepeat */
     repetitions: number
     duration: object
     static name: string
 }
-export class CalComponentAlarmTrigger {
+class CalComponentAlarmTrigger {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarmTrigger */
     type: CalComponentAlarmTriggerType
     static name: string
 }
-export class CalComponentAlarms {
+class CalComponentAlarms {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentAlarms */
     comp: CalComponent
     alarms: object[]
@@ -903,7 +903,7 @@ export class CalComponentAlarms {
     free(): void
     static name: string
 }
-export class CalComponentAttendee {
+class CalComponentAttendee {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentAttendee */
     value: string
     member: string
@@ -915,24 +915,24 @@ export class CalComponentAttendee {
     language: string
     static name: string
 }
-export abstract class CalComponentClass {
+abstract class CalComponentClass {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CalComponentDateTime {
+class CalComponentDateTime {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentDateTime */
     value: object
     tzid: string
     static name: string
 }
-export class CalComponentId {
+class CalComponentId {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentId */
     uid: string
     rid: string
     static name: string
 }
-export class CalComponentOrganizer {
+class CalComponentOrganizer {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentOrganizer */
     value: string
     sentby: string
@@ -940,31 +940,31 @@ export class CalComponentOrganizer {
     language: string
     static name: string
 }
-export class CalComponentPeriod {
+class CalComponentPeriod {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentPeriod */
     type: CalComponentPeriodType
     start: object
     static name: string
 }
-export class CalComponentPrivate {
+class CalComponentPrivate {
     static name: string
 }
-export class CalComponentRange {
+class CalComponentRange {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentRange */
     type: CalComponentRangeType
     datetime: CalComponentDateTime
     static name: string
 }
-export class CalComponentText {
+class CalComponentText {
     /* Fields of ECalendar-1.2.ECalendar.CalComponentText */
     value: string
     altrep: string
     static name: string
 }
-export class CalPrivate {
+class CalPrivate {
     static name: string
 }
-export abstract class CalViewClass {
+abstract class CalViewClass {
     /* Fields of ECalendar-1.2.ECalendar.CalViewClass */
     parentClass: GObject.ObjectClass
     viewProgress: (view: CalView, message: string, percent: number) => void
@@ -972,7 +972,8 @@ export abstract class CalViewClass {
     viewComplete: (view: CalView, status: CalendarStatus, errorMsg: string) => void
     static name: string
 }
-export class CalViewPrivate {
+class CalViewPrivate {
     static name: string
 }
 }
+export default ECalendar

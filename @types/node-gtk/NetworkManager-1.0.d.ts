@@ -7,36 +7,36 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { DBusGLib } from './DBusGLib-1.0';
 
-export declare namespace NetworkManager {
+declare namespace NetworkManager {
 
-export enum TODO_80211Mode {
+enum TODO_80211Mode {
     UNKNOWN,
     ADHOC,
     INFRA,
     AP,
 }
-export enum ActiveConnectionState {
+enum ActiveConnectionState {
     UNKNOWN,
     ACTIVATING,
     ACTIVATED,
     DEACTIVATING,
     DEACTIVATED,
 }
-export enum ConnectionError {
+enum ConnectionError {
     UNKNOWNERROR,
     CONNECTIONSETTINGNOTFOUND,
     CONNECTIONTYPEINVALID,
     SETTINGNOTFOUND,
     INVALIDSETTING,
 }
-export enum ConnectivityState {
+enum ConnectivityState {
     UNKNOWN,
     NONE,
     PORTAL,
     LIMITED,
     FULL,
 }
-export enum DeviceState {
+enum DeviceState {
     UNKNOWN,
     UNMANAGED,
     UNAVAILABLE,
@@ -51,7 +51,7 @@ export enum DeviceState {
     DEACTIVATING,
     FAILED,
 }
-export enum DeviceStateReason {
+enum DeviceStateReason {
     NONE,
     UNKNOWN,
     NOW_MANAGED,
@@ -117,7 +117,7 @@ export enum DeviceStateReason {
     PARENT_MANAGED_CHANGED,
     LAST,
 }
-export enum DeviceType {
+enum DeviceType {
     UNKNOWN,
     ETHERNET,
     WIFI,
@@ -140,57 +140,57 @@ export enum DeviceType {
     VXLAN,
     VETH,
 }
-export enum Setting8021xCKFormat {
+enum Setting8021xCKFormat {
     UNKNOWN,
     X509,
     RAW_KEY,
     PKCS12,
 }
-export enum Setting8021xCKScheme {
+enum Setting8021xCKScheme {
     UNKNOWN,
     BLOB,
     PATH,
 }
-export enum Setting8021xError {
+enum Setting8021xError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingAdslError {
+enum SettingAdslError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingBluetoothError {
+enum SettingBluetoothError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     TYPESETTINGNOTFOUND,
 }
-export enum SettingBondError {
+enum SettingBondError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     INVALIDOPTION,
     MISSINGOPTION,
 }
-export enum SettingBridgeError {
+enum SettingBridgeError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingBridgePortError {
+enum SettingBridgePortError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingCdmaError {
+enum SettingCdmaError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     MISSINGSERIALSETTING,
 }
-export enum SettingCompareFlags {
+enum SettingCompareFlags {
     EXACT,
     FUZZY,
     IGNORE_ID,
@@ -200,49 +200,49 @@ export enum SettingCompareFlags {
     DIFF_RESULT_WITH_DEFAULT,
     DIFF_RESULT_NO_DEFAULT,
 }
-export enum SettingConnectionError {
+enum SettingConnectionError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     TYPESETTINGNOTFOUND,
     IPCONFIGNOTALLOWED,
 }
-export enum SettingDcbError {
+enum SettingDcbError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingDcbFlags {
+enum SettingDcbFlags {
     NONE,
     ENABLE,
     ADVERTISE,
     WILLING,
 }
-export enum SettingDiffResult {
+enum SettingDiffResult {
     UNKNOWN,
     IN_A,
     IN_B,
     IN_A_DEFAULT,
     IN_B_DEFAULT,
 }
-export enum SettingError {
+enum SettingError {
     UNKNOWNERROR,
     PROPERTYNOTFOUND,
     PROPERTYNOTSECRET,
     PROPERTYTYPEMISMATCH,
 }
-export enum SettingGenericError {
+enum SettingGenericError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingGsmError {
+enum SettingGsmError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     MISSINGSERIALSETTING,
 }
-export enum SettingGsmNetworkBand {
+enum SettingGsmNetworkBand {
     UNKNOWN,
     ANY,
     EGSM,
@@ -259,7 +259,7 @@ export enum SettingGsmNetworkBand {
     U1900,
     U2600,
 }
-export enum SettingGsmNetworkType {
+enum SettingGsmNetworkType {
     ANY,
     UMTS_HSPA,
     GPRS_EDGE,
@@ -268,102 +268,102 @@ export enum SettingGsmNetworkType {
     PREFER_4G,
     /* 4G (invalid, starts with a number) */
 }
-export enum SettingHashFlags {
+enum SettingHashFlags {
     ALL,
     NO_SECRETS,
     ONLY_SECRETS,
 }
-export enum SettingIP4ConfigError {
+enum SettingIP4ConfigError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     NOTALLOWEDFORMETHOD,
 }
-export enum SettingIP6ConfigError {
+enum SettingIP6ConfigError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     NOTALLOWEDFORMETHOD,
 }
-export enum SettingIP6ConfigPrivacy {
+enum SettingIP6ConfigPrivacy {
     UNKNOWN,
     DISABLED,
     PREFER_PUBLIC_ADDR,
     PREFER_TEMP_ADDR,
 }
-export enum SettingInfinibandError {
+enum SettingInfinibandError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingOlpcMeshError {
+enum SettingOlpcMeshError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingPPPError {
+enum SettingPPPError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     REQUIREMPPENOTALLOWED,
 }
-export enum SettingPPPOEError {
+enum SettingPPPOEError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     MISSINGPPPSETTING,
 }
-export enum SettingSecretFlags {
+enum SettingSecretFlags {
     NONE,
     AGENT_OWNED,
     NOT_SAVED,
     NOT_REQUIRED,
 }
-export enum SettingSerialError {
+enum SettingSerialError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     MISSINGPPPSETTING,
 }
-export enum SettingTeamError {
+enum SettingTeamError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingTeamPortError {
+enum SettingTeamPortError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingVlanError {
+enum SettingVlanError {
     UNKNOWN,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     INVALIDPARENT,
 }
-export enum SettingVpnError {
+enum SettingVpnError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingWimaxError {
+enum SettingWimaxError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingWiredError {
+enum SettingWiredError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
 }
-export enum SettingWirelessError {
+enum SettingWirelessError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
     MISSINGSECURITYSETTING,
     CHANNELREQUIRESBAND,
 }
-export enum SettingWirelessSecurityError {
+enum SettingWirelessSecurityError {
     UNKNOWNERROR,
     INVALIDPROPERTY,
     MISSINGPROPERTY,
@@ -372,7 +372,7 @@ export enum SettingWirelessSecurityError {
     LEAPREQUIRESUSERNAME,
     SHAREDKEYREQUIRESWEP,
 }
-export enum State {
+enum State {
     UNKNOWN,
     ASLEEP,
     DISCONNECTED,
@@ -382,7 +382,7 @@ export enum State {
     CONNECTED_SITE,
     CONNECTED_GLOBAL,
 }
-export enum UtilsSecurityType {
+enum UtilsSecurityType {
     INVALID,
     NONE,
     STATIC_WEP,
@@ -393,7 +393,7 @@ export enum UtilsSecurityType {
     WPA2_PSK,
     WPA2_ENTERPRISE,
 }
-export enum VPNConnectionState {
+enum VPNConnectionState {
     UNKNOWN,
     PREPARE,
     NEED_AUTH,
@@ -403,7 +403,7 @@ export enum VPNConnectionState {
     FAILED,
     DISCONNECTED,
 }
-export enum VPNConnectionStateReason {
+enum VPNConnectionStateReason {
     UNKNOWN,
     NONE,
     USER_DISCONNECTED,
@@ -417,12 +417,12 @@ export enum VPNConnectionStateReason {
     LOGIN_FAILED,
     CONNECTION_REMOVED,
 }
-export enum VPNPluginFailure {
+enum VPNPluginFailure {
     LOGIN_FAILED,
     CONNECT_FAILED,
     BAD_IP_CONFIG,
 }
-export enum VPNServiceState {
+enum VPNServiceState {
     UNKNOWN,
     INIT,
     SHUTDOWN,
@@ -431,27 +431,27 @@ export enum VPNServiceState {
     STOPPING,
     STOPPED,
 }
-export enum VlanFlags {
+enum VlanFlags {
     REORDER_HEADERS,
     GVRP,
     LOOSE_BINDING,
     MVRP,
 }
-export enum VlanPriorityMap {
+enum VlanPriorityMap {
     INGRESS_MAP,
     EGRESS_MAP,
 }
-export enum WepKeyType {
+enum WepKeyType {
     UNKNOWN,
     KEY,
     PASSPHRASE,
     LAST,
 }
-export enum TODO_80211ApFlags {
+enum TODO_80211ApFlags {
     NONE,
     PRIVACY,
 }
-export enum TODO_80211ApSecurityFlags {
+enum TODO_80211ApSecurityFlags {
     NONE,
     PAIR_WEP40,
     PAIR_WEP104,
@@ -464,25 +464,25 @@ export enum TODO_80211ApSecurityFlags {
     KEY_MGMT_PSK,
     KEY_MGMT_802_1X,
 }
-export enum BluetoothCapabilities {
+enum BluetoothCapabilities {
     NONE,
     DUN,
     NAP,
 }
-export enum DeviceCapabilities {
+enum DeviceCapabilities {
     NONE,
     NM_SUPPORTED,
     CARRIER_DETECT,
     IS_SOFTWARE,
 }
-export enum DeviceModemCapabilities {
+enum DeviceModemCapabilities {
     NONE,
     POTS,
     CDMA_EVDO,
     GSM_UMTS,
     LTE,
 }
-export enum DeviceWifiCapabilities {
+enum DeviceWifiCapabilities {
     NONE,
     CIPHER_WEP40,
     CIPHER_WEP104,
@@ -856,96 +856,96 @@ export const VPN_PLUGIN_IP6_CONFIG_NEVER_DEFAULT: string
 export const VPN_PLUGIN_IP6_CONFIG_PREFIX: string
 export const VPN_PLUGIN_IP6_CONFIG_PTP: string
 export const VPN_PLUGIN_IP6_CONFIG_ROUTES: string
-export function connectionErrorQuark(): GLib.Quark
-export function setting8021xErrorQuark(): GLib.Quark
-export function settingAdslErrorQuark(): GLib.Quark
-export function settingBluetoothErrorQuark(): GLib.Quark
-export function settingBondErrorQuark(): GLib.Quark
-export function settingBridgeErrorQuark(): GLib.Quark
-export function settingBridgePortErrorQuark(): GLib.Quark
-export function settingCdmaErrorQuark(): GLib.Quark
-export function settingConnectionErrorQuark(): GLib.Quark
-export function settingDcbErrorQuark(): GLib.Quark
-export function settingErrorQuark(): GLib.Quark
-export function settingGenericErrorQuark(): GLib.Quark
-export function settingGsmErrorQuark(): GLib.Quark
-export function settingInfinibandErrorQuark(): GLib.Quark
-export function settingIp4ConfigErrorQuark(): GLib.Quark
-export function settingIp6ConfigErrorQuark(): GLib.Quark
-export function settingOlpcMeshErrorQuark(): GLib.Quark
-export function settingPppErrorQuark(): GLib.Quark
-export function settingPppoeErrorQuark(): GLib.Quark
-export function settingSerialErrorQuark(): GLib.Quark
-export function settingTeamErrorQuark(): GLib.Quark
-export function settingTeamPortErrorQuark(): GLib.Quark
-export function settingVlanErrorQuark(): GLib.Quark
-export function settingVpnErrorQuark(): GLib.Quark
-export function settingWimaxErrorQuark(): GLib.Quark
-export function settingWiredErrorQuark(): GLib.Quark
-export function settingWirelessErrorQuark(): GLib.Quark
-export function settingWirelessSecurityErrorQuark(): GLib.Quark
-export function utilsApModeSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities): boolean
-export function utilsBin2hexstr(bytes: string, len: number, finalLen: number): string
-export function utilsCheckVirtualDeviceCompatibility(virtualType: GObject.Type, otherType: GObject.Type): boolean
-export function utilsDeinit(): void
-export function utilsEscapeSsid(ssid: number, len: number): string
-export function utilsFileIsPkcs12(filename: string): boolean
-export function utilsFileSearchInPaths(progname: string, tryFirst: string | null, paths: string | null, fileTestFlags: GLib.FileTest, predicate: UtilsFileSearchInPathsPredicate): string
-export function utilsGvalueHashDup(hash: GLib.HashTable): GLib.HashTable
-export function utilsHex2byte(hex: string): number
-export function utilsHexstr2bin(hex: string, len: number): string
-export function utilsHwaddrAtoba(asc: string, type: number): any[]
-export function utilsHwaddrAton(asc: string, type: number, buffer?: object | null): number
-export function utilsHwaddrAtonLen(asc: string, buffer: object | null, length: number): number
-export function utilsHwaddrLen(type: number): number
-export function utilsHwaddrNtoa(addr: object | null, type: number): string
-export function utilsHwaddrNtoaLen(addr: object | null, length: number): string
-export function utilsHwaddrType(len: number): number
-export function utilsHwaddrValid(asc: string): boolean
-export function utilsIfaceValidName(name: string): boolean
-export function utilsInit(): boolean
-export function utilsIp4AddressesFromGvalue(value: any): IP4Address[]
-export function utilsIp4AddressesToGvalue(list: IP4Address[], value: any): void
-export function utilsIp4GetDefaultPrefix(ip: number): number
-export function utilsIp4NetmaskToPrefix(netmask: number): number
-export function utilsIp4PrefixToNetmask(prefix: number): number
-export function utilsIp4RoutesFromGvalue(value: any): IP4Route[]
-export function utilsIp4RoutesToGvalue(list: IP4Route[], value: any): void
-export function utilsIp6AddressesFromGvalue(value: any): IP6Address[]
-export function utilsIp6AddressesToGvalue(list: IP6Address[], value: any): void
-export function utilsIp6RoutesFromGvalue(value: any): IP6Route[]
-export function utilsIp6RoutesToGvalue(list: IP6Route[], value: any): void
-export function utilsIsEmptySsid(ssid: number, len: number): boolean
-export function utilsIsUuid(str: string): boolean
-export function utilsRsaKeyEncrypt(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
-export function utilsRsaKeyEncryptAes(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
-export function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
-export function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
-export function utilsSsidToUtf8(ssid: any[]): string
-export function utilsUuidGenerate(): string
-export function utilsUuidGenerateFromString(s: string): string
-export function utilsWepKeyValid(key: string, wepType: WepKeyType): boolean
-export function utilsWifiChannelToFreq(channel: number, band: string): number
-export function utilsWifiFindNextChannel(channel: number, direction: number, band: string): number
-export function utilsWifiFreqToChannel(freq: number): number
-export function utilsWifiIsChannelValid(channel: number, band: string): boolean
-export function utilsWpaPskValid(psk: string): boolean
-export interface SettingClearSecretsWithFlagsFn {
+function connectionErrorQuark(): GLib.Quark
+function setting8021xErrorQuark(): GLib.Quark
+function settingAdslErrorQuark(): GLib.Quark
+function settingBluetoothErrorQuark(): GLib.Quark
+function settingBondErrorQuark(): GLib.Quark
+function settingBridgeErrorQuark(): GLib.Quark
+function settingBridgePortErrorQuark(): GLib.Quark
+function settingCdmaErrorQuark(): GLib.Quark
+function settingConnectionErrorQuark(): GLib.Quark
+function settingDcbErrorQuark(): GLib.Quark
+function settingErrorQuark(): GLib.Quark
+function settingGenericErrorQuark(): GLib.Quark
+function settingGsmErrorQuark(): GLib.Quark
+function settingInfinibandErrorQuark(): GLib.Quark
+function settingIp4ConfigErrorQuark(): GLib.Quark
+function settingIp6ConfigErrorQuark(): GLib.Quark
+function settingOlpcMeshErrorQuark(): GLib.Quark
+function settingPppErrorQuark(): GLib.Quark
+function settingPppoeErrorQuark(): GLib.Quark
+function settingSerialErrorQuark(): GLib.Quark
+function settingTeamErrorQuark(): GLib.Quark
+function settingTeamPortErrorQuark(): GLib.Quark
+function settingVlanErrorQuark(): GLib.Quark
+function settingVpnErrorQuark(): GLib.Quark
+function settingWimaxErrorQuark(): GLib.Quark
+function settingWiredErrorQuark(): GLib.Quark
+function settingWirelessErrorQuark(): GLib.Quark
+function settingWirelessSecurityErrorQuark(): GLib.Quark
+function utilsApModeSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities): boolean
+function utilsBin2hexstr(bytes: string, len: number, finalLen: number): string
+function utilsCheckVirtualDeviceCompatibility(virtualType: GObject.Type, otherType: GObject.Type): boolean
+function utilsDeinit(): void
+function utilsEscapeSsid(ssid: number, len: number): string
+function utilsFileIsPkcs12(filename: string): boolean
+function utilsFileSearchInPaths(progname: string, tryFirst: string | null, paths: string | null, fileTestFlags: GLib.FileTest, predicate: UtilsFileSearchInPathsPredicate): string
+function utilsGvalueHashDup(hash: GLib.HashTable): GLib.HashTable
+function utilsHex2byte(hex: string): number
+function utilsHexstr2bin(hex: string, len: number): string
+function utilsHwaddrAtoba(asc: string, type: number): any[]
+function utilsHwaddrAton(asc: string, type: number, buffer?: object | null): number
+function utilsHwaddrAtonLen(asc: string, buffer: object | null, length: number): number
+function utilsHwaddrLen(type: number): number
+function utilsHwaddrNtoa(addr: object | null, type: number): string
+function utilsHwaddrNtoaLen(addr: object | null, length: number): string
+function utilsHwaddrType(len: number): number
+function utilsHwaddrValid(asc: string): boolean
+function utilsIfaceValidName(name: string): boolean
+function utilsInit(): boolean
+function utilsIp4AddressesFromGvalue(value: any): IP4Address[]
+function utilsIp4AddressesToGvalue(list: IP4Address[], value: any): void
+function utilsIp4GetDefaultPrefix(ip: number): number
+function utilsIp4NetmaskToPrefix(netmask: number): number
+function utilsIp4PrefixToNetmask(prefix: number): number
+function utilsIp4RoutesFromGvalue(value: any): IP4Route[]
+function utilsIp4RoutesToGvalue(list: IP4Route[], value: any): void
+function utilsIp6AddressesFromGvalue(value: any): IP6Address[]
+function utilsIp6AddressesToGvalue(list: IP6Address[], value: any): void
+function utilsIp6RoutesFromGvalue(value: any): IP6Route[]
+function utilsIp6RoutesToGvalue(list: IP6Route[], value: any): void
+function utilsIsEmptySsid(ssid: number, len: number): boolean
+function utilsIsUuid(str: string): boolean
+function utilsRsaKeyEncrypt(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
+function utilsRsaKeyEncryptAes(data: any[], inPassword?: string | null): { returnType: any[], outPassword: string | null }
+function utilsSameSsid(ssid1: any[], ssid2: any[], ignoreTrailingNull: boolean): boolean
+function utilsSecurityValid(type: UtilsSecurityType, wifiCaps: DeviceWifiCapabilities, haveAp: boolean, adhoc: boolean, apFlags: TODO_80211ApFlags, apWpa: TODO_80211ApSecurityFlags, apRsn: TODO_80211ApSecurityFlags): boolean
+function utilsSsidToUtf8(ssid: any[]): string
+function utilsUuidGenerate(): string
+function utilsUuidGenerateFromString(s: string): string
+function utilsWepKeyValid(key: string, wepType: WepKeyType): boolean
+function utilsWifiChannelToFreq(channel: number, band: string): number
+function utilsWifiFindNextChannel(channel: number, direction: number, band: string): number
+function utilsWifiFreqToChannel(freq: number): number
+function utilsWifiIsChannelValid(channel: number, band: string): boolean
+function utilsWpaPskValid(psk: string): boolean
+interface SettingClearSecretsWithFlagsFn {
     (setting: Setting, secret: string, flags: SettingSecretFlags): boolean
 }
-export interface SettingValueIterFn {
+interface SettingValueIterFn {
     (setting: Setting, key: string, value: any, flags: GObject.ParamFlags): void
 }
-export interface UtilsFileSearchInPathsPredicate {
+interface UtilsFileSearchInPathsPredicate {
     (filename: string): boolean
 }
-export interface VPNIterFunc {
+interface VPNIterFunc {
     (key: string, value: string): void
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     path?: string
 }
-export class Connection {
+class Connection {
     /* Properties of NetworkManager-1.0.NetworkManager.Connection */
     path: string
     /* Fields of NetworkManager-1.0.NetworkManager.Connection */
@@ -1076,7 +1076,7 @@ export class Connection {
 export interface Setting_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class Setting {
+class Setting {
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
     /* Fields of NetworkManager-1.0.NetworkManager.Setting */
@@ -1170,7 +1170,7 @@ export interface Setting8021x_ConstructProps extends Setting_ConstructProps {
     subjectMatch?: string
     systemCaCerts?: boolean
 }
-export class Setting8021x {
+class Setting8021x {
     /* Properties of NetworkManager-1.0.NetworkManager.Setting8021x */
     anonymousIdentity: string
     caPath: string
@@ -1450,7 +1450,7 @@ export interface SettingAdsl_ConstructProps extends Setting_ConstructProps {
     vci?: number
     vpi?: number
 }
-export class SettingAdsl {
+class SettingAdsl {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingAdsl */
     encapsulation: string
     password: string
@@ -1574,7 +1574,7 @@ export class SettingAdsl {
 export interface SettingBluetooth_ConstructProps extends Setting_ConstructProps {
     type?: string
 }
-export class SettingBluetooth {
+class SettingBluetooth {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingBluetooth */
     type: string
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
@@ -1657,7 +1657,7 @@ export class SettingBluetooth {
 export interface SettingBond_ConstructProps extends Setting_ConstructProps {
     interfaceName?: string
 }
-export class SettingBond {
+class SettingBond {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingBond */
     interfaceName: string
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
@@ -1753,7 +1753,7 @@ export interface SettingBridge_ConstructProps extends Setting_ConstructProps {
     priority?: number
     stp?: boolean
 }
-export class SettingBridge {
+class SettingBridge {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingBridge */
     ageingTime: number
     forwardDelay: number
@@ -1880,7 +1880,7 @@ export interface SettingBridgePort_ConstructProps extends Setting_ConstructProps
     pathCost?: number
     priority?: number
 }
-export class SettingBridgePort {
+class SettingBridgePort {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingBridgePort */
     hairpinMode: boolean
     pathCost: number
@@ -1979,7 +1979,7 @@ export interface SettingCdma_ConstructProps extends Setting_ConstructProps {
     passwordFlags?: number
     username?: string
 }
-export class SettingCdma {
+class SettingCdma {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingCdma */
     number: string
     password: string
@@ -2092,7 +2092,7 @@ export interface SettingConnection_ConstructProps extends Setting_ConstructProps
     uuid?: string
     zone?: string
 }
-export class SettingConnection {
+class SettingConnection {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingConnection */
     autoconnect: boolean
     gatewayPingTimeout: number
@@ -2264,7 +2264,7 @@ export interface SettingDcb_ConstructProps extends Setting_ConstructProps {
     priorityFlowControlFlags?: number
     priorityGroupFlags?: number
 }
-export class SettingDcb {
+class SettingDcb {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingDcb */
     appFcoeFlags: number
     appFcoeMode: string
@@ -2413,7 +2413,7 @@ export class SettingDcb {
 }
 export interface SettingGeneric_ConstructProps extends Setting_ConstructProps {
 }
-export class SettingGeneric {
+class SettingGeneric {
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
     name: string
     /* Fields of NetworkManager-1.0.NetworkManager.SettingGeneric */
@@ -2496,7 +2496,7 @@ export interface SettingGsm_ConstructProps extends Setting_ConstructProps {
     pinFlags?: number
     username?: string
 }
-export class SettingGsm {
+class SettingGsm {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingGsm */
     allowedBands: number
     apn: string
@@ -2657,7 +2657,7 @@ export interface SettingIP4Config_ConstructProps extends Setting_ConstructProps 
     neverDefault?: boolean
     routeMetric?: number
 }
-export class SettingIP4Config {
+class SettingIP4Config {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingIP4Config */
     dhcpClientId: string
     dhcpHostname: string
@@ -2833,7 +2833,7 @@ export interface SettingIP6Config_ConstructProps extends Setting_ConstructProps 
     neverDefault?: boolean
     routeMetric?: number
 }
-export class SettingIP6Config {
+class SettingIP6Config {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingIP6Config */
     dhcpHostname: string
     ignoreAutoDns: boolean
@@ -2991,7 +2991,7 @@ export interface SettingInfiniband_ConstructProps extends Setting_ConstructProps
     parent?: string
     transportMode?: string
 }
-export class SettingInfiniband {
+class SettingInfiniband {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingInfiniband */
     mtu: number
     pKey: number
@@ -3093,7 +3093,7 @@ export class SettingInfiniband {
 export interface SettingOlpcMesh_ConstructProps extends Setting_ConstructProps {
     channel?: number
 }
-export class SettingOlpcMesh {
+class SettingOlpcMesh {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingOlpcMesh */
     channel: number
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
@@ -3194,7 +3194,7 @@ export interface SettingPPP_ConstructProps extends Setting_ConstructProps {
     requireMppe?: boolean
     requireMppe128?: boolean
 }
-export class SettingPPP {
+class SettingPPP {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingPPP */
     baud: number
     crtscts: boolean
@@ -3398,7 +3398,7 @@ export interface SettingPPPOE_ConstructProps extends Setting_ConstructProps {
     service?: string
     username?: string
 }
-export class SettingPPPOE {
+class SettingPPPOE {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingPPPOE */
     password: string
     passwordFlags: number
@@ -3505,7 +3505,7 @@ export interface SettingSerial_ConstructProps extends Setting_ConstructProps {
     sendDelay?: number
     stopbits?: number
 }
-export class SettingSerial {
+class SettingSerial {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingSerial */
     baud: number
     bits: number
@@ -3616,7 +3616,7 @@ export interface SettingTeam_ConstructProps extends Setting_ConstructProps {
     config?: string
     interfaceName?: string
 }
-export class SettingTeam {
+class SettingTeam {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingTeam */
     config: string
     interfaceName: string
@@ -3705,7 +3705,7 @@ export class SettingTeam {
 export interface SettingTeamPort_ConstructProps extends Setting_ConstructProps {
     config?: string
 }
-export class SettingTeamPort {
+class SettingTeamPort {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingTeamPort */
     config: string
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
@@ -3789,7 +3789,7 @@ export interface SettingVPN_ConstructProps extends Setting_ConstructProps {
     serviceType?: string
     userName?: string
 }
-export class SettingVPN {
+class SettingVPN {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingVPN */
     persistent: boolean
     serviceType: string
@@ -3898,7 +3898,7 @@ export interface SettingVlan_ConstructProps extends Setting_ConstructProps {
     interfaceName?: string
     parent?: string
 }
-export class SettingVlan {
+class SettingVlan {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingVlan */
     flags: number
     id: number
@@ -4007,7 +4007,7 @@ export class SettingVlan {
 export interface SettingWimax_ConstructProps extends Setting_ConstructProps {
     networkName?: string
 }
-export class SettingWimax {
+class SettingWimax {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingWimax */
     networkName: string
     /* Properties of NetworkManager-1.0.NetworkManager.Setting */
@@ -4095,7 +4095,7 @@ export interface SettingWired_ConstructProps extends Setting_ConstructProps {
     s390Nettype?: string
     speed?: number
 }
-export class SettingWired {
+class SettingWired {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingWired */
     autoNegotiate: boolean
     duplex: string
@@ -4236,7 +4236,7 @@ export interface SettingWireless_ConstructProps extends Setting_ConstructProps {
     security?: string
     txPower?: number
 }
-export class SettingWireless {
+class SettingWireless {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingWireless */
     band: string
     channel: number
@@ -4402,7 +4402,7 @@ export interface SettingWirelessSecurity_ConstructProps extends Setting_Construc
     wepKey3?: string
     wepTxKeyidx?: number
 }
-export class SettingWirelessSecurity {
+class SettingWirelessSecurity {
     /* Properties of NetworkManager-1.0.NetworkManager.SettingWirelessSecurity */
     authAlg: string
     keyMgmt: string
@@ -4588,13 +4588,13 @@ export class SettingWirelessSecurity {
     static new(): SettingWirelessSecurity
     static $gtype: GObject.Type
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     /* Fields of NetworkManager-1.0.NetworkManager.ConnectionClass */
     parent: GObject.ObjectClass
     secretsUpdated: (connection: Connection, setting: string) => void
     static name: string
 }
-export class IP4Address {
+class IP4Address {
     /* Methods of NetworkManager-1.0.NetworkManager.IP4Address */
     compare(other: IP4Address): boolean
     dup(): IP4Address
@@ -4612,7 +4612,7 @@ export class IP4Address {
     /* Static methods and pseudo-constructors */
     static new(): IP4Address
 }
-export class IP4Route {
+class IP4Route {
     /* Methods of NetworkManager-1.0.NetworkManager.IP4Route */
     compare(other: IP4Route): boolean
     dup(): IP4Route
@@ -4632,7 +4632,7 @@ export class IP4Route {
     /* Static methods and pseudo-constructors */
     static new(): IP4Route
 }
-export class IP6Address {
+class IP6Address {
     /* Methods of NetworkManager-1.0.NetworkManager.IP6Address */
     compare(other: IP6Address): boolean
     dup(): IP6Address
@@ -4650,7 +4650,7 @@ export class IP6Address {
     /* Static methods and pseudo-constructors */
     static new(): IP6Address
 }
-export class IP6Route {
+class IP6Route {
     /* Methods of NetworkManager-1.0.NetworkManager.IP6Route */
     compare(other: IP6Route): boolean
     dup(): IP6Route
@@ -4670,42 +4670,42 @@ export class IP6Route {
     /* Static methods and pseudo-constructors */
     static new(): IP6Route
 }
-export abstract class Setting8021xClass {
+abstract class Setting8021xClass {
     /* Fields of NetworkManager-1.0.NetworkManager.Setting8021xClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingAdslClass {
+abstract class SettingAdslClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingAdslClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingBluetoothClass {
+abstract class SettingBluetoothClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingBluetoothClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingBondClass {
+abstract class SettingBondClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingBondClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingBridgeClass {
+abstract class SettingBridgeClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingBridgeClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingBridgePortClass {
+abstract class SettingBridgePortClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingBridgePortClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingCdmaClass {
+abstract class SettingCdmaClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingCdmaClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingClass {
+abstract class SettingClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingClass */
     parent: GObject.ObjectClass
     needSecrets: (setting: Setting) => string[]
@@ -4716,99 +4716,100 @@ export abstract class SettingClass {
     getVirtualIfaceName: (setting: Setting) => string
     static name: string
 }
-export abstract class SettingConnectionClass {
+abstract class SettingConnectionClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingConnectionClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingDcbClass {
+abstract class SettingDcbClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingDcbClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingGenericClass {
+abstract class SettingGenericClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingGenericClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingGsmClass {
+abstract class SettingGsmClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingGsmClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingIP4ConfigClass {
+abstract class SettingIP4ConfigClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingIP4ConfigClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingIP6ConfigClass {
+abstract class SettingIP6ConfigClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingIP6ConfigClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingInfinibandClass {
+abstract class SettingInfinibandClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingInfinibandClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingOlpcMeshClass {
+abstract class SettingOlpcMeshClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingOlpcMeshClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingPPPClass {
+abstract class SettingPPPClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingPPPClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingPPPOEClass {
+abstract class SettingPPPOEClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingPPPOEClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingSerialClass {
+abstract class SettingSerialClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingSerialClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingTeamClass {
+abstract class SettingTeamClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingTeamClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingTeamPortClass {
+abstract class SettingTeamPortClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingTeamPortClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingVPNClass {
+abstract class SettingVPNClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingVPNClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingVlanClass {
+abstract class SettingVlanClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingVlanClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingWimaxClass {
+abstract class SettingWimaxClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingWimaxClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingWiredClass {
+abstract class SettingWiredClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingWiredClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingWirelessClass {
+abstract class SettingWirelessClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingWirelessClass */
     parent: SettingClass
     static name: string
 }
-export abstract class SettingWirelessSecurityClass {
+abstract class SettingWirelessSecurityClass {
     /* Fields of NetworkManager-1.0.NetworkManager.SettingWirelessSecurityClass */
     parent: SettingClass
     static name: string
 }
 }
+export default NetworkManager

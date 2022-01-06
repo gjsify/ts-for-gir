@@ -1,2 +1,1 @@
-imports.gi.versions.Nice = '0.1'
-module.exports = imports.gi.Nice
+export {default as default} from 'gi://Nice?version=0.1';

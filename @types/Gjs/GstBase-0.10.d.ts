@@ -3,47 +3,49 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gst from './Gst-0.10';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Gst from './Gst-0.10';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum SrcFlags {
+export namespace GstBase {
+
+enum SrcFlags {
     STARTED,
     FLAG_LAST,
 }
 export const TRANSFORM_SINK_NAME: string
 export const TRANSFORM_SRC_NAME: string
-export function gst_type_find_helper(src: Gst.Pad, size: number): Gst.Caps
-export function gst_type_find_helper_for_buffer(obj: Gst.Object, buf: Gst.Buffer, prob: Gst.TypeFindProbability): Gst.Caps
-export function gst_type_find_helper_for_extension(obj: Gst.Object, extension: string): Gst.Caps
-export function gst_type_find_helper_get_range(obj: Gst.Object, func: Gst.TypeFindHelperGetRangeFunction, size: number, prob: Gst.TypeFindProbability): Gst.Caps
-export function gst_type_find_helper_get_range_ext(obj: Gst.Object, func: Gst.TypeFindHelperGetRangeFunction, size: number, extension: string, prob: Gst.TypeFindProbability): Gst.Caps
-export interface GstCollectDataDestroyNotify {
+function gst_type_find_helper(src: Gst.Pad, size: number): Gst.Caps
+function gst_type_find_helper_for_buffer(obj: Gst.Object, buf: Gst.Buffer, prob: Gst.TypeFindProbability): Gst.Caps
+function gst_type_find_helper_for_extension(obj: Gst.Object, extension: string): Gst.Caps
+function gst_type_find_helper_get_range(obj: Gst.Object, func: Gst.TypeFindHelperGetRangeFunction, size: number, prob: Gst.TypeFindProbability): Gst.Caps
+function gst_type_find_helper_get_range_ext(obj: Gst.Object, func: Gst.TypeFindHelperGetRangeFunction, size: number, extension: string, prob: Gst.TypeFindProbability): Gst.Caps
+interface GstCollectDataDestroyNotify {
     (data: Gst.CollectData): void
 }
-export interface GstCollectPadsClipFunction {
+interface GstCollectPadsClipFunction {
     (pads: Gst.CollectPads, data: Gst.CollectData, buffer: Gst.Buffer): Gst.Buffer
 }
-export interface GstCollectPadsFunction {
+interface GstCollectPadsFunction {
     (pads: Gst.CollectPads): Gst.FlowReturn
 }
-export interface GstDataQueueCheckFullFunction {
+interface GstDataQueueCheckFullFunction {
     (queue: Gst.DataQueue, visible: number, bytes: number, time: number, checkdata: object): boolean
 }
-export interface GstDataQueueEmptyCallback {
+interface GstDataQueueEmptyCallback {
     (queue: Gst.DataQueue, checkdata: object): void
 }
-export interface GstDataQueueFullCallback {
+interface GstDataQueueFullCallback {
     (queue: Gst.DataQueue, checkdata: object): void
 }
-export interface GstTypeFindHelperGetRangeFunction {
+interface GstTypeFindHelperGetRangeFunction {
     (obj: Gst.Object, offset: number, length: number, buffer: Gst.Buffer): Gst.FlowReturn
 }
 export interface GstAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GstAdapter {
+class GstAdapter {
     /* Fields of GstBase-0.10.GstBase.GstAdapter */
     object: GObject.Object
     buflist: object[]
@@ -117,7 +119,7 @@ export class GstAdapter {
 }
 export interface GstCollectPads_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class GstCollectPads {
+class GstCollectPads {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of GstBase-0.10.GstBase.GstCollectPads */
@@ -238,7 +240,7 @@ export class GstCollectPads {
 }
 export interface GstDataQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GstDataQueue {
+class GstDataQueue {
     /* Properties of GstBase-0.10.GstBase.GstDataQueue */
     readonly current_level_bytes: number
     readonly current_level_time: number
@@ -329,7 +331,7 @@ export class GstDataQueue {
 }
 export interface GstPushSrc_ConstructProps extends Src_ConstructProps {
 }
-export class GstPushSrc {
+class GstPushSrc {
     /* Properties of GstBase-0.10.GstBase.Src */
     blocksize: number
     do_timestamp: boolean
@@ -572,7 +574,7 @@ export interface Sink_ConstructProps extends Gst.Element_ConstructProps {
     sync?: boolean
     ts_offset?: number
 }
-export class Sink {
+class Sink {
     /* Properties of GstBase-0.10.GstBase.Sink */
     async: boolean
     blocksize: number
@@ -845,7 +847,7 @@ export interface Src_ConstructProps extends Gst.Element_ConstructProps {
     num_buffers?: number
     typefind?: boolean
 }
-export class Src {
+class Src {
     /* Properties of GstBase-0.10.GstBase.Src */
     blocksize: number
     do_timestamp: boolean
@@ -1079,7 +1081,7 @@ export class Src {
 export interface Transform_ConstructProps extends Gst.Element_ConstructProps {
     qos?: boolean
 }
-export class Transform {
+class Transform {
     /* Properties of GstBase-0.10.GstBase.Transform */
     qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
@@ -1301,16 +1303,16 @@ export class Transform {
     _init (config?: Transform_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class GstAdapterClass {
+abstract class GstAdapterClass {
     /* Fields of GstBase-0.10.GstBase.GstAdapterClass */
     parent_class: GObject.ObjectClass
     _gst_reserved: any[]
     static name: string
 }
-export class GstAdapterPrivate {
+class GstAdapterPrivate {
     static name: string
 }
-export class GstBitReader {
+class GstBitReader {
     /* Fields of GstBase-0.10.GstBase.GstBitReader */
     data: number
     size: number
@@ -1341,7 +1343,7 @@ export class GstBitReader {
     static new(data: any[], size: number): GstBitReader
     static new_from_buffer(buffer: Gst.Buffer): GstBitReader
 }
-export class GstByteReader {
+class GstByteReader {
     /* Fields of GstBase-0.10.GstBase.GstByteReader */
     data: number
     size: number
@@ -1418,7 +1420,7 @@ export class GstByteReader {
     static new(data: any[], size: number): GstByteReader
     static new_from_buffer(buffer: Gst.Buffer): GstByteReader
 }
-export class GstByteWriter {
+class GstByteWriter {
     /* Fields of GstBase-0.10.GstBase.GstByteWriter */
     parent: Gst.ByteReader
     alloc_size: number
@@ -1473,7 +1475,7 @@ export class GstByteWriter {
     static new_with_data(data: any[], size: number, initialized: boolean): GstByteWriter
     static new_with_buffer(buffer: Gst.Buffer, initialized: boolean): GstByteWriter
 }
-export class GstCollectData {
+class GstCollectData {
     /* Fields of GstBase-0.10.GstBase.GstCollectData */
     collect: Gst.CollectPads
     pad: Gst.Pad
@@ -1482,16 +1484,16 @@ export class GstCollectData {
     segment: Gst.Segment
     static name: string
 }
-export abstract class GstCollectPadsClass {
+abstract class GstCollectPadsClass {
     /* Fields of GstBase-0.10.GstBase.GstCollectPadsClass */
     parent_class: Gst.ObjectClass
     _gst_reserved: any[]
     static name: string
 }
-export class GstCollectPadsPrivate {
+class GstCollectPadsPrivate {
     static name: string
 }
-export abstract class GstDataQueueClass {
+abstract class GstDataQueueClass {
     /* Fields of GstBase-0.10.GstBase.GstDataQueueClass */
     parent_class: GObject.ObjectClass
     empty: (queue: Gst.DataQueue) => void
@@ -1499,7 +1501,7 @@ export abstract class GstDataQueueClass {
     _gst_reserved: any[]
     static name: string
 }
-export class GstDataQueueItem {
+class GstDataQueueItem {
     /* Fields of GstBase-0.10.GstBase.GstDataQueueItem */
     object: Gst.MiniObject
     size: number
@@ -1508,21 +1510,21 @@ export class GstDataQueueItem {
     destroy: GLib.DestroyNotify
     static name: string
 }
-export class GstDataQueueSize {
+class GstDataQueueSize {
     /* Fields of GstBase-0.10.GstBase.GstDataQueueSize */
     visible: number
     bytes: number
     time: number
     static name: string
 }
-export abstract class GstPushSrcClass {
+abstract class GstPushSrcClass {
     /* Fields of GstBase-0.10.GstBase.GstPushSrcClass */
     parent_class: Gst.BaseSrcClass
     create: (src: Gst.PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
     _gst_reserved: any[]
     static name: string
 }
-export abstract class SinkClass {
+abstract class SinkClass {
     /* Fields of GstBase-0.10.GstBase.SinkClass */
     parent_class: Gst.ElementClass
     get_caps: (sink: Gst.BaseSink) => Gst.Caps
@@ -1543,10 +1545,10 @@ export abstract class SinkClass {
     _gst_reserved: any[]
     static name: string
 }
-export class SinkPrivate {
+class SinkPrivate {
     static name: string
 }
-export abstract class SrcClass {
+abstract class SrcClass {
     /* Fields of GstBase-0.10.GstBase.SrcClass */
     parent_class: Gst.ElementClass
     get_caps: (src: Gst.BaseSrc) => Gst.Caps
@@ -1570,10 +1572,10 @@ export abstract class SrcClass {
     _gst_reserved: any[]
     static name: string
 }
-export class SrcPrivate {
+class SrcPrivate {
     static name: string
 }
-export abstract class TransformClass {
+abstract class TransformClass {
     /* Fields of GstBase-0.10.GstBase.TransformClass */
     parent_class: Gst.ElementClass
     transform_caps: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps) => Gst.Caps
@@ -1594,6 +1596,8 @@ export abstract class TransformClass {
     _gst_reserved: any[]
     static name: string
 }
-export class TransformPrivate {
+class TransformPrivate {
     static name: string
 }
+}
+export default GstBase

@@ -9,9 +9,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GdkPixdata {
+declare namespace GdkPixdata {
 
-export enum PixdataDumpType {
+enum PixdataDumpType {
     PIXDATA_STREAM,
     PIXDATA_STRUCT,
     MACROS,
@@ -21,7 +21,7 @@ export enum PixdataDumpType {
     CONST,
     RLE_DECODER,
 }
-export enum PixdataType {
+enum PixdataType {
     COLOR_TYPE_RGB,
     COLOR_TYPE_RGBA,
     COLOR_TYPE_MASK,
@@ -33,8 +33,8 @@ export enum PixdataType {
 }
 export const PIXBUF_MAGIC_NUMBER: number
 export const PIXDATA_HEADER_LENGTH: number
-export function pixbufFromPixdata(pixdata: Pixdata, copyPixels: boolean): GdkPixbuf.Pixbuf
-export class Pixdata {
+function pixbufFromPixdata(pixdata: Pixdata, copyPixels: boolean): GdkPixbuf.Pixbuf
+class Pixdata {
     /* Fields of GdkPixdata-2.0.GdkPixdata.Pixdata */
     magic: number
     length: number
@@ -50,3 +50,4 @@ export class Pixdata {
     static name: string
 }
 }
+export default GdkPixdata

@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as freetype2 from './freetype2-2.0';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoFT2 from './PangoFT2-1.0';
-import type * as PangoFc from './PangoFc-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as Atk from './Atk-1.0';
+import type freetype2 from './freetype2-2.0';
+import type fontconfig from './fontconfig-2.0';
+import type cairo from './cairo-1.0';
+import type PangoFT2 from './PangoFT2-1.0';
+import type PangoFc from './PangoFc-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type Cogl from './Cogl-1.0';
+import type Clutter from './Clutter-1.0';
+import type Atk from './Atk-1.0';
 
-export enum DataError {
+export namespace Mash {
+
+enum DataError {
     UNKNOWN_FORMAT,
     UNKNOWN,
     MISSING_PROPERTY,
     INVALID,
     UNSUPPORTED,
 }
-export enum DataFlags {
+enum DataFlags {
     NONE,
     NEGATE_X,
     NEGATE_Y,
@@ -36,7 +38,7 @@ export enum DataFlags {
 }
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Data {
+class Data {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.Data */
@@ -91,7 +93,7 @@ export class Data {
 }
 export interface DataLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataLoader {
+class DataLoader {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.DataLoader */
@@ -145,7 +147,7 @@ export class DataLoader {
 }
 export interface DirectionalLight_ConstructProps extends Light_ConstructProps {
 }
-export class DirectionalLight {
+class DirectionalLight {
     /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
@@ -882,7 +884,7 @@ export interface Light_ConstructProps extends Clutter.Actor_ConstructProps {
     diffuse?: Clutter.Color
     specular?: Clutter.Color
 }
-export class Light {
+class Light {
     /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
@@ -1617,7 +1619,7 @@ export class Light {
 }
 export interface LightSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LightSet {
+class LightSet {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.LightSet */
@@ -1673,7 +1675,7 @@ export interface Model_ConstructProps extends Clutter.Actor_ConstructProps {
     fit_to_allocation?: boolean
     light_set?: LightSet
 }
-export class Model {
+class Model {
     /* Properties of Mash-0.2.Mash.Model */
     data: Data
     fit_to_allocation: boolean
@@ -2401,7 +2403,7 @@ export class Model {
 }
 export interface PlyLoader_ConstructProps extends Data_ConstructProps {
 }
-export class PlyLoader {
+class PlyLoader {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.Data */
@@ -2456,7 +2458,7 @@ export interface PointLight_ConstructProps extends Light_ConstructProps {
     linear_attenuation?: number
     quadratic_attenuation?: number
 }
-export class PointLight {
+class PointLight {
     /* Properties of Mash-0.2.Mash.PointLight */
     constant_attenuation: number
     linear_attenuation: number
@@ -3209,7 +3211,7 @@ export interface SpotLight_ConstructProps extends PointLight_ConstructProps {
     spot_cutoff?: number
     spot_exponent?: number
 }
-export class SpotLight {
+class SpotLight {
     /* Properties of Mash-0.2.Mash.SpotLight */
     spot_cutoff: number
     spot_exponent: number
@@ -3970,16 +3972,16 @@ export class SpotLight {
     static new(): SpotLight
     static $gtype: GObject.Type
 }
-export abstract class DataClass {
+abstract class DataClass {
     static name: string
 }
-export abstract class DataLoaderClass {
+abstract class DataLoaderClass {
     /* Fields of Mash-0.2.Mash.DataLoaderClass */
     load: (data_loader: DataLoader, flags: DataFlags, filename: string) => boolean
     get_data: (data_loader: DataLoader, loader_data: DataLoaderData) => void
     static name: string
 }
-export class DataLoaderData {
+class DataLoaderData {
     /* Fields of Mash-0.2.Mash.DataLoaderData */
     vertices_vbo: Cogl.Handle
     indices: Cogl.Handle
@@ -3990,54 +3992,56 @@ export class DataLoaderData {
     max_vertex: Clutter.Vertex
     static name: string
 }
-export class DataLoaderPrivate {
+class DataLoaderPrivate {
     static name: string
 }
-export class DataPrivate {
+class DataPrivate {
     static name: string
 }
-export abstract class DirectionalLightClass {
+abstract class DirectionalLightClass {
     static name: string
 }
-export class DirectionalLightPrivate {
+class DirectionalLightPrivate {
     static name: string
 }
-export abstract class LightClass {
+abstract class LightClass {
     /* Fields of Mash-0.2.Mash.LightClass */
     generate_shader: (light: Light, uniform_source: GLib.String, main_source: GLib.String) => void
     update_uniforms: (light: Light, program: Cogl.Handle) => void
     static name: string
 }
-export class LightPrivate {
+class LightPrivate {
     static name: string
 }
-export abstract class LightSetClass {
+abstract class LightSetClass {
     static name: string
 }
-export class LightSetPrivate {
+class LightSetPrivate {
     static name: string
 }
-export abstract class ModelClass {
+abstract class ModelClass {
     static name: string
 }
-export class ModelPrivate {
+class ModelPrivate {
     static name: string
 }
-export abstract class PlyLoaderClass {
+abstract class PlyLoaderClass {
     static name: string
 }
-export class PlyLoaderPrivate {
+class PlyLoaderPrivate {
     static name: string
 }
-export abstract class PointLightClass {
+abstract class PointLightClass {
     static name: string
 }
-export class PointLightPrivate {
+class PointLightPrivate {
     static name: string
 }
-export abstract class SpotLightClass {
+abstract class SpotLightClass {
     static name: string
 }
-export class SpotLightPrivate {
+class SpotLightPrivate {
     static name: string
 }
+}
+export default Mash

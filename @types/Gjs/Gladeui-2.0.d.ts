@@ -3,27 +3,29 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum CreateReason {
+export namespace Gladeui {
+
+enum CreateReason {
     USER,
     COPY,
     LOAD,
     REBUILD,
     REASONS,
 }
-export enum CursorType {
+enum CursorType {
     SELECTOR,
     ADD_WIDGET,
     RESIZE_TOP_LEFT,
@@ -36,7 +38,7 @@ export enum CursorType {
     RESIZE_BOTTOM,
     DRAG,
 }
-export enum EditorPageType {
+enum EditorPageType {
     GENERAL,
     COMMON,
     PACKING,
@@ -44,19 +46,19 @@ export enum EditorPageType {
     QUERY,
     SIGNAL,
 }
-export enum ItemAppearance {
+enum ItemAppearance {
     ICON_AND_LABEL,
     ICON_ONLY,
     LABEL_ONLY,
 }
-export enum PointerMode {
+enum PointerMode {
     SELECT,
     ADD_WIDGET,
     DRAG_RESIZE,
     MARGIN_EDIT,
     ALIGN_EDIT,
 }
-export enum ProjectModelColumns {
+enum ProjectModelColumns {
     COLUMN_ICON_NAME,
     COLUMN_NAME,
     COLUMN_TYPE_NAME,
@@ -65,7 +67,7 @@ export enum ProjectModelColumns {
     COLUMN_WARNING,
     N_COLUMNS,
 }
-export enum SignalModelColumns {
+enum SignalModelColumns {
     COLUMN_NAME,
     COLUMN_SHOW_NAME,
     COLUMN_HANDLER,
@@ -77,42 +79,42 @@ export enum SignalModelColumns {
     COLUMN_DETAIL,
     N_COLUMNS,
 }
-export enum Stock {
+enum Stock {
     DUMMY,
 }
-export enum StockImage {
+enum StockImage {
     DUMMY,
 }
-export enum UIMessageType {
+enum UIMessageType {
     INFO,
     WARN,
     ERROR,
     ARE_YOU_SURE,
     YES_OR_NO,
 }
-export enum UtilFileDialogType {
+enum UtilFileDialogType {
     OPEN,
     SAVE,
 }
-export enum DebugFlag {
+enum DebugFlag {
     REF_COUNTS,
     WIDGET_EVENTS,
     COMMANDS,
     PROPERTIES,
     VERIFY,
 }
-export enum PropertyState {
+enum PropertyState {
     NORMAL,
     CHANGED,
     UNSUPPORTED,
     SUPPORT_DISABLED,
 }
-export enum SupportMask {
+enum SupportMask {
     OK,
     DEPRECATED,
     MISMATCH,
 }
-export enum VerifyFlags {
+enum VerifyFlags {
     NONE,
     VERSIONS,
     DEPRECATIONS,
@@ -283,180 +285,180 @@ export const XML_TAG_TYPE: string
 export const XML_TAG_TYPE_FUNC: string
 export const XML_TAG_VERSION: string
 export const XML_TAG_WIDGET: string
-export function catalog_add_path(path: string): void
-export function catalog_destroy_all(): void
-export function catalog_get_extra_paths(): string[]
-export function catalog_is_loaded(name: string): boolean
-export function catalog_load_all(): Catalog[]
-export function catalog_remove_path(path?: string | null): void
-export function cursor_get_add_widget_pixbuf(): GdkPixbuf.Pixbuf
-export function cursor_init(): void
-export function cursor_set(project: Project, window: Gdk.Window, type: CursorType): void
-export function displayable_value_is_disabled(type: GObject.Type, value: string): boolean
-export function displayable_value_set_disabled(type: GObject.Type, value: string, disabled: boolean): void
-export function get_debug_flags(): number
-export function get_displayable_value(type: GObject.Type, value: string): string
-export function get_value_from_displayable(type: GObject.Type, displayabe: string): string
-export function init(): void
-export function init_debug_flags(): void
-export function param_spec_objects(name: string, nick: string, blurb: string, accepted_type: GObject.Type, flags: GObject.ParamFlags): GObject.ParamSpec
-export function propert_get_insensitive_tooltip(property: Property): string
-export function property_def_get_default_from_spec(spec: GObject.ParamSpec): any
-export function property_def_make_flags_from_string(type: GObject.Type, string: string): number
-export function property_def_set_weights(properties: PropertyDef[], parent: GObject.Type): void
-export function property_def_update_from_node(node: XmlNode, object_type: GObject.Type, property_def_ref: PropertyDef | null, domain: string): [ /* returnType */ boolean, /* property_def_ref */ PropertyDef | null ]
-export function register_displayable_value(type: GObject.Type, value: string, domain: string, string: string): void
-export function register_translated_value(type: GObject.Type, value: string, string: string): void
-export function setup_log_handlers(): void
-export function standard_boolean_spec(): GObject.ParamSpec
-export function standard_float_spec(): GObject.ParamSpec
-export function standard_gdkcolor_spec(): GObject.ParamSpec
-export function standard_int_spec(): GObject.ParamSpec
-export function standard_objects_spec(): GObject.ParamSpec
-export function standard_pixbuf_spec(): GObject.ParamSpec
-export function standard_stock_append_prefix(prefix: string): void
-export function standard_stock_image_spec(): GObject.ParamSpec
-export function standard_stock_spec(): GObject.ParamSpec
-export function standard_string_spec(): GObject.ParamSpec
-export function standard_strv_spec(): GObject.ParamSpec
-export function standard_uint_spec(): GObject.ParamSpec
-export function type_has_displayable_values(type: GObject.Type): boolean
-export function util_canonical_path(path: string): string
-export function util_check_and_warn_scrollable(parent: Widget, child_adaptor: WidgetAdaptor, parent_widget: Gtk.Widget): boolean
-export function util_compare_stock_labels(a?: object | null, b?: object | null): number
-export function util_container_get_all_children(container: Gtk.Container): Gtk.Widget[]
-export function util_count_placeholders(parent: Widget): number
-export function util_duplicate_underscores(name: string): string
-export function util_file_dialog_new(title: string, project: Project, parent: Gtk.Window, action: UtilFileDialogType): Gtk.Widget
-export function util_file_is_writeable(path: string): boolean
-export function util_filename_to_icon_name(value: string): string
-export function util_find_iter_by_widget(model: Gtk.TreeModel, findme: Widget, column: number): Gtk.TreeIter
-export function util_get_devhelp_icon(size: Gtk.IconSize): Gtk.Widget
-export function util_get_file_mtime(filename: string): number
-export function util_get_placeholder_from_pointer(container: Gtk.Container): Gtk.Widget
-export function util_get_type_from_name(name: string, have_func: boolean): GObject.Type
-export function util_have_devhelp(): boolean
-export function util_icon_name_to_filename(value: string): string
-export function util_object_is_loading(object: GObject.Object): boolean
-export function util_read_prop_name(str: string): string
-export function util_remove_scroll_events(widget: Gtk.Widget): void
-export function util_replace(str: string, a: number, b: number): void
-export function util_search_devhelp(book: string, page: string, search: string): void
-export function util_url_show(url: string): boolean
-export function utils_boolean_from_string(string: string): [ /* returnType */ boolean, /* value */ boolean | null ]
-export function utils_cairo_draw_line(cr: cairo.Context, color: Gdk.Color, x1: number, y1: number, x2: number, y2: number): void
-export function utils_cairo_draw_rectangle(cr: cairo.Context, color: Gdk.Color, filled: boolean, x: number, y: number, width: number, height: number): void
-export function utils_enum_string_from_value(enum_type: GObject.Type, value: number): string
-export function utils_enum_string_from_value_displayable(flags_type: GObject.Type, value: number): string
-export function utils_enum_value_from_string(enum_type: GObject.Type, strval: string): number
-export function utils_flags_string_from_value(enum_type: GObject.Type, value: number): string
-export function utils_flags_string_from_value_displayable(flags_type: GObject.Type, value: number): string
-export function utils_flags_value_from_string(enum_type: GObject.Type, strval: string): number
-export function utils_get_pointer(widget: Gtk.Widget, window: Gdk.Window, device: Gdk.Device, x: number, y: number): void
-export function utils_get_pspec_from_funcname(funcname: string): GObject.ParamSpec | null
-export function utils_hijack_key_press(win: Gtk.Window, event: Gdk.EventKey, user_data?: object | null): number
-export function utils_liststore_from_enum_type(enum_type: GObject.Type, include_empty: boolean): Gtk.ListStore
-export function utils_pointer_mode_render_icon(mode: PointerMode, size: Gtk.IconSize): GdkPixbuf.Pixbuf
-export function utils_replace_home_dir_with_tilde(path: string): string
-export function utils_string_from_value(value: any): string
-export function utils_value_from_string(type: GObject.Type, string: string, project: Project): any
-export function xml_dump_from_context(context: XmlContext): string
-export function xml_get_boolean(node: XmlNode, name: string, _default: boolean): boolean
-export function xml_get_content(node_in: XmlNode): string
-export function xml_get_property_boolean(node_in: XmlNode, name: string, _default: boolean): boolean
-export function xml_get_property_double(node_in: XmlNode, name: string, _default: number): number
-export function xml_get_property_int(node_in: XmlNode, name: string, _default: number): number
-export function xml_get_property_string(node_in: XmlNode, name: string): string
-export function xml_get_property_string_required(node_in: XmlNode, name: string, xtra: string): string
-export function xml_get_property_targetable_versions(node_in: XmlNode, name: string): TargetableVersion[]
-export function xml_get_property_version(node_in: XmlNode, name: string, major: number, minor: number): boolean
-export function xml_get_value_int(node_in: XmlNode, name: string, val: number): boolean
-export function xml_get_value_int_required(node: XmlNode, name: string, val: number): boolean
-export function xml_get_value_string(node: XmlNode, name: string): string
-export function xml_get_value_string_required(node: XmlNode, name: string, xtra_info: string): string
-export function xml_load_sym_from_node(node_in: XmlNode, module: GModule.Module, tagname: string, sym_location?: object | null): boolean
-export function xml_search_child(node: XmlNode, name: string): XmlNode
-export function xml_search_child_required(tree: XmlNode, name: string): XmlNode | null
-export function xml_set_content(node_in: XmlNode, content: string): void
-export function xml_set_value(node_in: XmlNode, name: string, val: string): void
-export interface ActionActivateFunc {
+function catalog_add_path(path: string): void
+function catalog_destroy_all(): void
+function catalog_get_extra_paths(): string[]
+function catalog_is_loaded(name: string): boolean
+function catalog_load_all(): Catalog[]
+function catalog_remove_path(path?: string | null): void
+function cursor_get_add_widget_pixbuf(): GdkPixbuf.Pixbuf
+function cursor_init(): void
+function cursor_set(project: Project, window: Gdk.Window, type: CursorType): void
+function displayable_value_is_disabled(type: GObject.Type, value: string): boolean
+function displayable_value_set_disabled(type: GObject.Type, value: string, disabled: boolean): void
+function get_debug_flags(): number
+function get_displayable_value(type: GObject.Type, value: string): string
+function get_value_from_displayable(type: GObject.Type, displayabe: string): string
+function init(): void
+function init_debug_flags(): void
+function param_spec_objects(name: string, nick: string, blurb: string, accepted_type: GObject.Type, flags: GObject.ParamFlags): GObject.ParamSpec
+function propert_get_insensitive_tooltip(property: Property): string
+function property_def_get_default_from_spec(spec: GObject.ParamSpec): any
+function property_def_make_flags_from_string(type: GObject.Type, string: string): number
+function property_def_set_weights(properties: PropertyDef[], parent: GObject.Type): void
+function property_def_update_from_node(node: XmlNode, object_type: GObject.Type, property_def_ref: PropertyDef | null, domain: string): [ /* returnType */ boolean, /* property_def_ref */ PropertyDef | null ]
+function register_displayable_value(type: GObject.Type, value: string, domain: string, string: string): void
+function register_translated_value(type: GObject.Type, value: string, string: string): void
+function setup_log_handlers(): void
+function standard_boolean_spec(): GObject.ParamSpec
+function standard_float_spec(): GObject.ParamSpec
+function standard_gdkcolor_spec(): GObject.ParamSpec
+function standard_int_spec(): GObject.ParamSpec
+function standard_objects_spec(): GObject.ParamSpec
+function standard_pixbuf_spec(): GObject.ParamSpec
+function standard_stock_append_prefix(prefix: string): void
+function standard_stock_image_spec(): GObject.ParamSpec
+function standard_stock_spec(): GObject.ParamSpec
+function standard_string_spec(): GObject.ParamSpec
+function standard_strv_spec(): GObject.ParamSpec
+function standard_uint_spec(): GObject.ParamSpec
+function type_has_displayable_values(type: GObject.Type): boolean
+function util_canonical_path(path: string): string
+function util_check_and_warn_scrollable(parent: Widget, child_adaptor: WidgetAdaptor, parent_widget: Gtk.Widget): boolean
+function util_compare_stock_labels(a?: object | null, b?: object | null): number
+function util_container_get_all_children(container: Gtk.Container): Gtk.Widget[]
+function util_count_placeholders(parent: Widget): number
+function util_duplicate_underscores(name: string): string
+function util_file_dialog_new(title: string, project: Project, parent: Gtk.Window, action: UtilFileDialogType): Gtk.Widget
+function util_file_is_writeable(path: string): boolean
+function util_filename_to_icon_name(value: string): string
+function util_find_iter_by_widget(model: Gtk.TreeModel, findme: Widget, column: number): Gtk.TreeIter
+function util_get_devhelp_icon(size: Gtk.IconSize): Gtk.Widget
+function util_get_file_mtime(filename: string): number
+function util_get_placeholder_from_pointer(container: Gtk.Container): Gtk.Widget
+function util_get_type_from_name(name: string, have_func: boolean): GObject.Type
+function util_have_devhelp(): boolean
+function util_icon_name_to_filename(value: string): string
+function util_object_is_loading(object: GObject.Object): boolean
+function util_read_prop_name(str: string): string
+function util_remove_scroll_events(widget: Gtk.Widget): void
+function util_replace(str: string, a: number, b: number): void
+function util_search_devhelp(book: string, page: string, search: string): void
+function util_url_show(url: string): boolean
+function utils_boolean_from_string(string: string): [ /* returnType */ boolean, /* value */ boolean | null ]
+function utils_cairo_draw_line(cr: cairo.Context, color: Gdk.Color, x1: number, y1: number, x2: number, y2: number): void
+function utils_cairo_draw_rectangle(cr: cairo.Context, color: Gdk.Color, filled: boolean, x: number, y: number, width: number, height: number): void
+function utils_enum_string_from_value(enum_type: GObject.Type, value: number): string
+function utils_enum_string_from_value_displayable(flags_type: GObject.Type, value: number): string
+function utils_enum_value_from_string(enum_type: GObject.Type, strval: string): number
+function utils_flags_string_from_value(enum_type: GObject.Type, value: number): string
+function utils_flags_string_from_value_displayable(flags_type: GObject.Type, value: number): string
+function utils_flags_value_from_string(enum_type: GObject.Type, strval: string): number
+function utils_get_pointer(widget: Gtk.Widget, window: Gdk.Window, device: Gdk.Device, x: number, y: number): void
+function utils_get_pspec_from_funcname(funcname: string): GObject.ParamSpec | null
+function utils_hijack_key_press(win: Gtk.Window, event: Gdk.EventKey, user_data?: object | null): number
+function utils_liststore_from_enum_type(enum_type: GObject.Type, include_empty: boolean): Gtk.ListStore
+function utils_pointer_mode_render_icon(mode: PointerMode, size: Gtk.IconSize): GdkPixbuf.Pixbuf
+function utils_replace_home_dir_with_tilde(path: string): string
+function utils_string_from_value(value: any): string
+function utils_value_from_string(type: GObject.Type, string: string, project: Project): any
+function xml_dump_from_context(context: XmlContext): string
+function xml_get_boolean(node: XmlNode, name: string, _default: boolean): boolean
+function xml_get_content(node_in: XmlNode): string
+function xml_get_property_boolean(node_in: XmlNode, name: string, _default: boolean): boolean
+function xml_get_property_double(node_in: XmlNode, name: string, _default: number): number
+function xml_get_property_int(node_in: XmlNode, name: string, _default: number): number
+function xml_get_property_string(node_in: XmlNode, name: string): string
+function xml_get_property_string_required(node_in: XmlNode, name: string, xtra: string): string
+function xml_get_property_targetable_versions(node_in: XmlNode, name: string): TargetableVersion[]
+function xml_get_property_version(node_in: XmlNode, name: string, major: number, minor: number): boolean
+function xml_get_value_int(node_in: XmlNode, name: string, val: number): boolean
+function xml_get_value_int_required(node: XmlNode, name: string, val: number): boolean
+function xml_get_value_string(node: XmlNode, name: string): string
+function xml_get_value_string_required(node: XmlNode, name: string, xtra_info: string): string
+function xml_load_sym_from_node(node_in: XmlNode, module: GModule.Module, tagname: string, sym_location?: object | null): boolean
+function xml_search_child(node: XmlNode, name: string): XmlNode
+function xml_search_child_required(tree: XmlNode, name: string): XmlNode | null
+function xml_set_content(node_in: XmlNode, content: string): void
+function xml_set_value(node_in: XmlNode, name: string, val: string): void
+interface ActionActivateFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, action_path: string): void
 }
-export interface ActionSubmenuFunc {
+interface ActionSubmenuFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, action_path: string): Gtk.Widget | null
 }
-export interface AddChildFunc {
+interface AddChildFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object): void
 }
-export interface AddChildVerifyFunc {
+interface AddChildVerifyFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object, user_feedback: boolean): boolean
 }
-export interface CatalogInitFunc {
+interface CatalogInitFunc {
     (name: string): void
 }
-export interface ChildActionActivateFunc {
+interface ChildActionActivateFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, object: GObject.Object, action_path: string): void
 }
-export interface ChildGetPropertyFunc {
+interface ChildGetPropertyFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object, property_name: string, value: any): void
 }
-export interface ChildSetPropertyFunc {
+interface ChildSetPropertyFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object, property_name: string, value: any): void
 }
-export interface ChildVerifyPropertyFunc {
+interface ChildVerifyPropertyFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object, property_name: string, value: any): boolean
 }
-export interface ConstructObjectFunc {
+interface ConstructObjectFunc {
     (adaptor: WidgetAdaptor, n_parameters: number, parameters: GObject.Parameter): GObject.Object
 }
-export interface CreateEPropFunc {
+interface CreateEPropFunc {
     (adaptor: WidgetAdaptor, def: PropertyDef, use_command: boolean): EditorProperty
 }
-export interface CreateEditableFunc {
+interface CreateEditableFunc {
     (adaptor: WidgetAdaptor, type: EditorPageType): Editable
 }
-export interface DependsFunc {
+interface DependsFunc {
     (adaptor: WidgetAdaptor, widget: Widget, another: Widget): boolean
 }
-export interface DestroyObjectFunc {
+interface DestroyObjectFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object): void
 }
-export interface GetChildrenFunc {
+interface GetChildrenFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object): GObject.Object[]
 }
-export interface GetInternalFunc {
+interface GetInternalFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, internal_name: string): GObject.Object | null
 }
-export interface GetPropertyFunc {
+interface GetPropertyFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, property_name: string, value: any): void
 }
-export interface PostCreateFunc {
+interface PostCreateFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, reason: CreateReason): void
 }
-export interface ReadWidgetFunc {
+interface ReadWidgetFunc {
     (adaptor: WidgetAdaptor, widget: Widget, node: XmlNode): void
 }
-export interface RemoveChildFunc {
+interface RemoveChildFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, child: GObject.Object): void
 }
-export interface ReplaceChildFunc {
+interface ReplaceChildFunc {
     (adaptor: WidgetAdaptor, container: GObject.Object, old_obj: GObject.Object, new_obj: GObject.Object): void
 }
-export interface SetPropertyFunc {
+interface SetPropertyFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, property_name: string, value: any): void
 }
-export interface StringFromValueFunc {
+interface StringFromValueFunc {
     (adaptor: WidgetAdaptor, def: PropertyDef, value: any): string
 }
-export interface VerifyPropertyFunc {
+interface VerifyPropertyFunc {
     (adaptor: WidgetAdaptor, object: GObject.Object, property_name: string, value: any): boolean
 }
-export interface WriteWidgetFunc {
+interface WriteWidgetFunc {
     (adaptor: WidgetAdaptor, widget: Widget, context: XmlContext, node: XmlNode): void
 }
 export interface Editable_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Editable {
+class Editable {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -1186,7 +1188,7 @@ export interface AdaptorChooser_ConstructProps extends Gtk.Box_ConstructProps {
     project?: Project
     orientation?: Gtk.Orientation
 }
-export class AdaptorChooser {
+class AdaptorChooser {
     /* Properties of Gladeui-2.0.Gladeui.AdaptorChooser */
     project: Project
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -2032,7 +2034,7 @@ export class AdaptorChooser {
 }
 export interface App_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class App {
+class App {
     /* Fields of Gladeui-2.0.Gladeui.App */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2120,7 +2122,7 @@ export interface BaseEditor_ConstructProps extends Gtk.Box_ConstructProps {
     container?: GObject.Object
     orientation?: Gtk.Orientation
 }
-export class BaseEditor {
+class BaseEditor {
     /* Properties of Gladeui-2.0.Gladeui.BaseEditor */
     container: GObject.Object
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -2990,7 +2992,7 @@ export interface CellRendererIcon_ConstructProps extends Gtk.CellRendererPixbuf_
     activatable?: boolean
     active?: boolean
 }
-export class CellRendererIcon {
+class CellRendererIcon {
     /* Properties of Gladeui-2.0.Gladeui.CellRendererIcon */
     activatable: boolean
     active: boolean
@@ -3188,7 +3190,7 @@ export class CellRendererIcon {
 }
 export interface Clipboard_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Clipboard {
+class Clipboard {
     /* Properties of Gladeui-2.0.Gladeui.Clipboard */
     readonly has_selection: boolean
     /* Fields of Gladeui-2.0.Gladeui.Clipboard */
@@ -3249,7 +3251,7 @@ export class Clipboard {
 }
 export interface Command_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Command {
+class Command {
     /* Fields of Gladeui-2.0.Gladeui.Command */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3337,7 +3339,7 @@ export interface DesignView_ConstructProps extends Gtk.Box_ConstructProps {
     project?: Project
     orientation?: Gtk.Orientation
 }
-export class DesignView {
+class DesignView {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -4180,7 +4182,7 @@ export class DesignView {
 export interface EPropBool_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropBool {
+class EPropBool {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -5061,7 +5063,7 @@ export class EPropBool {
 export interface EPropCheck_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropCheck {
+class EPropCheck {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -5942,7 +5944,7 @@ export class EPropCheck {
 export interface EPropColor_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropColor {
+class EPropColor {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -6823,7 +6825,7 @@ export class EPropColor {
 export interface EPropEnum_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropEnum {
+class EPropEnum {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -7704,7 +7706,7 @@ export class EPropEnum {
 export interface EPropFlags_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropFlags {
+class EPropFlags {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -8585,7 +8587,7 @@ export class EPropFlags {
 export interface EPropNamedIcon_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropNamedIcon {
+class EPropNamedIcon {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -9466,7 +9468,7 @@ export class EPropNamedIcon {
 export interface EPropNumeric_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropNumeric {
+class EPropNumeric {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -10347,7 +10349,7 @@ export class EPropNumeric {
 export interface EPropObject_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropObject {
+class EPropObject {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -11228,7 +11230,7 @@ export class EPropObject {
 export interface EPropObjects_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropObjects {
+class EPropObjects {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -12109,7 +12111,7 @@ export class EPropObjects {
 export interface EPropText_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropText {
+class EPropText {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -12990,7 +12992,7 @@ export class EPropText {
 export interface EPropUnichar_ConstructProps extends EditorProperty_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EPropUnichar {
+class EPropUnichar {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -13874,7 +13876,7 @@ export interface Editor_ConstructProps extends Gtk.Box_ConstructProps {
     widget?: Widget
     orientation?: Gtk.Orientation
 }
-export class Editor {
+class Editor {
     /* Properties of Gladeui-2.0.Gladeui.Editor */
     readonly class_field: string
     show_boder: boolean
@@ -14742,7 +14744,7 @@ export interface EditorProperty_ConstructProps extends Gtk.Box_ConstructProps {
     use_command?: boolean
     orientation?: Gtk.Orientation
 }
-export class EditorProperty {
+class EditorProperty {
     /* Properties of Gladeui-2.0.Gladeui.EditorProperty */
     custom_text: string
     disable_check: boolean
@@ -15624,7 +15626,7 @@ export class EditorProperty {
 export interface EditorSkeleton_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EditorSkeleton {
+class EditorSkeleton {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -16476,7 +16478,7 @@ export interface EditorTable_ConstructProps extends Gtk.Grid_ConstructProps {
     page_type?: EditorPageType
     orientation?: Gtk.Orientation
 }
-export class EditorTable {
+class EditorTable {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -17337,7 +17339,7 @@ export interface Inspector_ConstructProps extends Gtk.Box_ConstructProps {
     project?: Project
     orientation?: Gtk.Orientation
 }
-export class Inspector {
+class Inspector {
     /* Properties of Gladeui-2.0.Gladeui.Inspector */
     project: Project
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -18194,7 +18196,7 @@ export class Inspector {
 }
 export interface NamedIconChooserDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class NamedIconChooserDialog {
+class NamedIconChooserDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -19272,7 +19274,7 @@ export interface Palette_ConstructProps extends Gtk.Box_ConstructProps {
     use_small_item_icons?: boolean
     orientation?: Gtk.Orientation
 }
-export class Palette {
+class Palette {
     /* Properties of Gladeui-2.0.Gladeui.Palette */
     item_appearance: ItemAppearance
     project: Project
@@ -20138,7 +20140,7 @@ export class Palette {
     static new(orientation: Gtk.Orientation, spacing: number): Palette
     static $gtype: GObject.Type
 }
-export class ParamObjects {
+class ParamObjects {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     g_type_instance: GObject.TypeInstance
     name: string
@@ -20169,7 +20171,7 @@ export interface Placeholder_ConstructProps extends Gtk.Widget_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class Placeholder {
+class Placeholder {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -20945,7 +20947,7 @@ export interface Project_ConstructProps extends GObject.Object_ConstructProps {
     template?: Widget
     translation_domain?: string
 }
-export class Project {
+class Project {
     /* Properties of Gladeui-2.0.Gladeui.Project */
     readonly add_item: WidgetAdaptor
     css_provider_path: string
@@ -21241,7 +21243,7 @@ export interface Property_ConstructProps extends GObject.Object_ConstructProps {
     precision?: number
     sensitive?: boolean
 }
-export class Property {
+class Property {
     /* Properties of Gladeui-2.0.Gladeui.Property */
     enabled: boolean
     i18n_comment: string
@@ -21378,7 +21380,7 @@ export interface PropertyLabel_ConstructProps extends Gtk.EventBox_ConstructProp
     property?: Property
     property_name?: string
 }
-export class PropertyLabel {
+class PropertyLabel {
     /* Properties of Gladeui-2.0.Gladeui.PropertyLabel */
     append_colon: boolean
     custom_text: string
@@ -22249,7 +22251,7 @@ export interface PropertyShell_ConstructProps extends Gtk.Box_ConstructProps {
     use_command?: boolean
     orientation?: Gtk.Orientation
 }
-export class PropertyShell {
+class PropertyShell {
     /* Properties of Gladeui-2.0.Gladeui.PropertyShell */
     custom_text: string
     disable_check: boolean
@@ -23138,7 +23140,7 @@ export interface Signal_ConstructProps extends GObject.Object_ConstructProps {
     swapped?: boolean
     userdata?: string
 }
-export class Signal {
+class Signal {
     /* Properties of Gladeui-2.0.Gladeui.Signal */
     after: boolean
     detail: string
@@ -23231,7 +23233,7 @@ export interface SignalEditor_ConstructProps extends Gtk.Box_ConstructProps {
     glade_widget?: Gtk.TreeModel
     orientation?: Gtk.Orientation
 }
-export class SignalEditor {
+class SignalEditor {
     /* Properties of Gladeui-2.0.Gladeui.SignalEditor */
     glade_widget: Gtk.TreeModel
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -24090,7 +24092,7 @@ export interface SignalModel_ConstructProps extends GObject.Object_ConstructProp
     signals?: object
     widget?: Widget
 }
-export class SignalModel {
+class SignalModel {
     /* Fields of Gladeui-2.0.Gladeui.SignalModel */
     parent_instance: GObject.Object
     priv: SignalModelPrivate
@@ -24225,7 +24227,7 @@ export interface Widget_ConstructProps extends GObject.InitiallyUnowned_Construc
     toplevel_height?: number
     toplevel_width?: number
 }
-export class Widget {
+class Widget {
     /* Properties of Gladeui-2.0.Gladeui.Widget */
     composite: boolean
     internal: string
@@ -24447,7 +24449,7 @@ export interface WidgetAction_ConstructProps extends GObject.Object_ConstructPro
     sensitive?: boolean
     visible?: boolean
 }
-export class WidgetAction {
+class WidgetAction {
     /* Properties of Gladeui-2.0.Gladeui.WidgetAction */
     sensitive: boolean
     visible: boolean
@@ -24521,7 +24523,7 @@ export interface WidgetAdaptor_ConstructProps extends GObject.Object_ConstructPr
     title?: string
     type?: GObject.Type
 }
-export class WidgetAdaptor {
+class WidgetAdaptor {
     /* Properties of Gladeui-2.0.Gladeui.WidgetAdaptor */
     readonly cursor: object
     query: boolean
@@ -24674,18 +24676,18 @@ export class WidgetAdaptor {
     static list_adaptors(): WidgetAdaptor[]
     static $gtype: GObject.Type
 }
-export abstract class AdaptorChooserClass {
+abstract class AdaptorChooserClass {
     /* Fields of Gladeui-2.0.Gladeui.AdaptorChooserClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of Gladeui-2.0.Gladeui.AppClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class BaseEditorClass {
+abstract class BaseEditorClass {
     /* Fields of Gladeui-2.0.Gladeui.BaseEditorClass */
     parent_class: Gtk.BoxClass
     child_selected: (editor: BaseEditor, gchild: Widget) => void
@@ -24696,7 +24698,7 @@ export abstract class BaseEditorClass {
     padding: object[]
     static name: string
 }
-export class Catalog {
+class Catalog {
     /* Methods of Gladeui-2.0.Gladeui.Catalog */
     get_adaptors(): WidgetAdaptor[]
     get_book(): string
@@ -24717,19 +24719,19 @@ export class Catalog {
     static load_all(): Catalog[]
     static remove_path(path?: string | null): void
 }
-export abstract class CellRendererIconClass {
+abstract class CellRendererIconClass {
     /* Fields of Gladeui-2.0.Gladeui.CellRendererIconClass */
     parent_class: Gtk.CellRendererPixbufClass
     activate: (cell_renderer_icon: CellRendererIcon, path: string) => void
     static name: string
 }
-export abstract class ClipboardClass {
+abstract class ClipboardClass {
     /* Fields of Gladeui-2.0.Gladeui.ClipboardClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class CommandClass {
+abstract class CommandClass {
     /* Fields of Gladeui-2.0.Gladeui.CommandClass */
     parent_class: GObject.ObjectClass
     execute: (command: Command) => boolean
@@ -24739,14 +24741,14 @@ export abstract class CommandClass {
     padding: object[]
     static name: string
 }
-export class CommandSetPropData {
+class CommandSetPropData {
     /* Fields of Gladeui-2.0.Gladeui.CommandSetPropData */
     property: Property
     new_value: any
     old_value: any
     static name: string
 }
-export class Cursor {
+class Cursor {
     /* Fields of Gladeui-2.0.Gladeui.Cursor */
     selector: Gdk.Cursor
     add_widget: Gdk.Cursor
@@ -24766,26 +24768,26 @@ export class Cursor {
     static init(): void
     static set(project: Project, window: Gdk.Window, type: CursorType): void
 }
-export abstract class DesignViewClass {
+abstract class DesignViewClass {
     /* Fields of Gladeui-2.0.Gladeui.DesignViewClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class EditableInterface {
+abstract class EditableInterface {
     /* Fields of Gladeui-2.0.Gladeui.EditableInterface */
     g_iface: GObject.TypeInterface
     load: (editable: Editable, widget: Widget) => void
     set_show_name: (editable: Editable, show_name: boolean) => void
     static name: string
 }
-export abstract class EditorClass {
+abstract class EditorClass {
     /* Fields of Gladeui-2.0.Gladeui.EditorClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class EditorPropertyClass {
+abstract class EditorPropertyClass {
     /* Fields of Gladeui-2.0.Gladeui.EditorPropertyClass */
     parent_class: Gtk.BoxClass
     load: (eprop: EditorProperty, property: Property) => void
@@ -24794,12 +24796,12 @@ export abstract class EditorPropertyClass {
     padding: object[]
     static name: string
 }
-export abstract class EditorSkeletonClass {
+abstract class EditorSkeletonClass {
     /* Fields of Gladeui-2.0.Gladeui.EditorSkeletonClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class EditorTableClass {
+abstract class EditorTableClass {
     /* Fields of Gladeui-2.0.Gladeui.EditorTableClass */
     parent: Gtk.GridClass
     glade_reserved1: () => void
@@ -24808,14 +24810,14 @@ export abstract class EditorTableClass {
     glade_reserved4: () => void
     static name: string
 }
-export class IDAllocator {
+class IDAllocator {
     /* Methods of Gladeui-2.0.Gladeui.IDAllocator */
     allocate(): number
     destroy(): void
     release(id: number): void
     static name: string
 }
-export abstract class InspectorClass {
+abstract class InspectorClass {
     /* Fields of Gladeui-2.0.Gladeui.InspectorClass */
     parent_class: Gtk.BoxClass
     selection_changed: (inspector: Inspector) => void
@@ -24823,7 +24825,7 @@ export abstract class InspectorClass {
     padding: object[]
     static name: string
 }
-export class NameContext {
+class NameContext {
     /* Methods of Gladeui-2.0.Gladeui.NameContext */
     add_name(name: string): boolean
     destroy(): void
@@ -24833,7 +24835,7 @@ export class NameContext {
     release_name(name: string): void
     static name: string
 }
-export abstract class NamedIconChooserDialogClass {
+abstract class NamedIconChooserDialogClass {
     /* Fields of Gladeui-2.0.Gladeui.NamedIconChooserDialogClass */
     parent_class: Gtk.DialogClass
     icon_activated: (dialog: NamedIconChooserDialog) => void
@@ -24841,7 +24843,7 @@ export abstract class NamedIconChooserDialogClass {
     padding: object[]
     static name: string
 }
-export abstract class PaletteClass {
+abstract class PaletteClass {
     /* Fields of Gladeui-2.0.Gladeui.PaletteClass */
     parent_class: Gtk.BoxClass
     refresh: (palette: Palette) => void
@@ -24851,16 +24853,16 @@ export abstract class PaletteClass {
     glade_reserved4: () => void
     static name: string
 }
-export class PalettePrivate {
+class PalettePrivate {
     static name: string
 }
-export class ParamSpecObjects {
+class ParamSpecObjects {
     /* Methods of Gladeui-2.0.Gladeui.ParamSpecObjects */
     get_type(): GObject.Type
     set_type(type: GObject.Type): void
     static name: string
 }
-export abstract class PlaceholderClass {
+abstract class PlaceholderClass {
     /* Fields of Gladeui-2.0.Gladeui.PlaceholderClass */
     parent_class: Gtk.WidgetClass
     glade_reserved1: () => void
@@ -24869,10 +24871,10 @@ export abstract class PlaceholderClass {
     glade_reserved4: () => void
     static name: string
 }
-export class PlaceholderPrivate {
+class PlaceholderPrivate {
     static name: string
 }
-export abstract class ProjectClass {
+abstract class ProjectClass {
     /* Fields of Gladeui-2.0.Gladeui.ProjectClass */
     parent_class: GObject.ObjectClass
     add_object: (project: Project, object: Widget) => void
@@ -24897,10 +24899,10 @@ export abstract class ProjectClass {
     glade_reserved8: () => void
     static name: string
 }
-export class ProjectPrivate {
+class ProjectPrivate {
     static name: string
 }
-export abstract class PropertyClass {
+abstract class PropertyClass {
     /* Fields of Gladeui-2.0.Gladeui.PropertyClass */
     parent_class: GObject.ObjectClass
     dup: (template_prop: Property, widget: Widget) => Property
@@ -24919,7 +24921,7 @@ export abstract class PropertyClass {
     glade_reserved6: () => void
     static name: string
 }
-export class PropertyDef {
+class PropertyDef {
     /* Methods of Gladeui-2.0.Gladeui.PropertyDef */
     atk(): boolean
     clone(): PropertyDef
@@ -24986,26 +24988,26 @@ export class PropertyDef {
     static set_weights(properties: PropertyDef[], parent: GObject.Type): void
     static update_from_node(node: XmlNode, object_type: GObject.Type, property_def_ref: PropertyDef | null, domain: string): [ /* returnType */ boolean, /* property_def_ref */ PropertyDef | null ]
 }
-export abstract class PropertyLabelClass {
+abstract class PropertyLabelClass {
     /* Fields of Gladeui-2.0.Gladeui.PropertyLabelClass */
     parent_class: Gtk.EventBoxClass
     static name: string
 }
-export class PropertyLabelPrivate {
+class PropertyLabelPrivate {
     static name: string
 }
-export class PropertyPrivate {
+class PropertyPrivate {
     static name: string
 }
-export abstract class PropertyShellClass {
+abstract class PropertyShellClass {
     /* Fields of Gladeui-2.0.Gladeui.PropertyShellClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export class PropertyShellPrivate {
+class PropertyShellPrivate {
     static name: string
 }
-export abstract class SignalClass {
+abstract class SignalClass {
     /* Fields of Gladeui-2.0.Gladeui.SignalClass */
     object_class: GObject.ObjectClass
     glade_reserved1: () => void
@@ -25014,7 +25016,7 @@ export abstract class SignalClass {
     glade_reserved4: () => void
     static name: string
 }
-export class SignalDef {
+class SignalDef {
     /* Methods of Gladeui-2.0.Gladeui.SignalDef */
     clone(): SignalDef
     deprecated(): boolean
@@ -25036,30 +25038,30 @@ export class SignalDef {
     /* Static methods and pseudo-constructors */
     static new(adaptor: WidgetAdaptor, for_type: GObject.Type, signal_id: number): SignalDef
 }
-export abstract class SignalEditorClass {
+abstract class SignalEditorClass {
     /* Fields of Gladeui-2.0.Gladeui.SignalEditorClass */
     parent_class: Gtk.BoxClass
     padding: object[]
     static name: string
 }
-export abstract class SignalModelClass {
+abstract class SignalModelClass {
     /* Fields of Gladeui-2.0.Gladeui.SignalModelClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SignalModelPrivate {
+class SignalModelPrivate {
     static name: string
 }
-export class SignalPrivate {
+class SignalPrivate {
     static name: string
 }
-export class TargetableVersion {
+class TargetableVersion {
     /* Fields of Gladeui-2.0.Gladeui.TargetableVersion */
     major: number
     minor: number
     static name: string
 }
-export abstract class WidgetActionClass {
+abstract class WidgetActionClass {
     /* Fields of Gladeui-2.0.Gladeui.WidgetActionClass */
     parent_class: GObject.ObjectClass
     glade_reserved1: () => void
@@ -25068,7 +25070,7 @@ export abstract class WidgetActionClass {
     glade_reserved4: () => void
     static name: string
 }
-export class WidgetActionDef {
+class WidgetActionDef {
     /* Fields of Gladeui-2.0.Gladeui.WidgetActionDef */
     id: string
     path: string
@@ -25088,10 +25090,10 @@ export class WidgetActionDef {
     /* Static methods and pseudo-constructors */
     static new(path: string): WidgetActionDef
 }
-export class WidgetActionPrivate {
+class WidgetActionPrivate {
     static name: string
 }
-export abstract class WidgetAdaptorClass {
+abstract class WidgetAdaptorClass {
     /* Fields of Gladeui-2.0.Gladeui.WidgetAdaptorClass */
     parent_class: GObject.ObjectClass
     version_since_major: number
@@ -25138,7 +25140,7 @@ export abstract class WidgetAdaptorClass {
     glade_reserved5: () => void
     static name: string
 }
-export abstract class WidgetClass {
+abstract class WidgetClass {
     /* Fields of Gladeui-2.0.Gladeui.WidgetClass */
     parent_class: GObject.InitiallyUnownedClass
     add_child: (parent: Widget, child: Widget, at_mouse: boolean) => void
@@ -25161,7 +25163,7 @@ export abstract class WidgetClass {
     glade_reserved8: () => void
     static name: string
 }
-export class WidgetGroup {
+class WidgetGroup {
     /* Methods of Gladeui-2.0.Gladeui.WidgetGroup */
     get_adaptors(): WidgetAdaptor[]
     get_expanded(): boolean
@@ -25169,10 +25171,10 @@ export class WidgetGroup {
     get_title(): string
     static name: string
 }
-export class WidgetPrivate {
+class WidgetPrivate {
     static name: string
 }
-export class XmlContext {
+class XmlContext {
     /* Methods of Gladeui-2.0.Gladeui.XmlContext */
     copy(): XmlContext
     free(): void
@@ -25184,7 +25186,7 @@ export class XmlContext {
     static new(doc: XmlDoc, name_space?: string | null): XmlContext
     static new_from_path(full_path: string, nspace?: string | null, root_name?: string | null): XmlContext
 }
-export class XmlDoc {
+class XmlDoc {
     /* Methods of Gladeui-2.0.Gladeui.XmlDoc */
     get_root(): XmlNode
     new_comment(comment: string): XmlNode
@@ -25198,7 +25200,7 @@ export class XmlDoc {
     /* Static methods and pseudo-constructors */
     static new(): XmlDoc
 }
-export class XmlNode {
+class XmlNode {
     /* Methods of Gladeui-2.0.Gladeui.XmlNode */
     add_next_sibling(new_node: XmlNode): XmlNode
     add_prev_sibling(new_node: XmlNode): XmlNode
@@ -25225,3 +25227,5 @@ export class XmlNode {
     static new(context: XmlContext, name: string): XmlNode
     static new_comment(context: XmlContext, comment: string): XmlNode
 }
+}
+export default Gladeui

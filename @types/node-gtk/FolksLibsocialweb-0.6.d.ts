@@ -10,7 +10,7 @@ import type { GLib } from './GLib-2.0';
 import type { Folks } from './Folks-0.6';
 import type { Gee } from './Gee-0.8';
 
-export declare namespace FolksLibsocialweb {
+declare namespace FolksLibsocialweb {
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     lswContact?: SocialWebClient.Contact
@@ -23,7 +23,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     urls?: Gee.Set
     webServiceAddresses?: Gee.MultiMap
 }
-export class Persona {
+class Persona {
     /* Properties of Folks-0.6.Folks.Persona */
     individual: Folks.Individual
     readonly linkableProperties: string[]
@@ -200,7 +200,7 @@ export class Persona {
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     service?: SocialWebClient.ClientService
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly typeId: string
     readonly personas: Gee.Map
@@ -367,20 +367,21 @@ export class PersonaStore {
     static new(service: SocialWebClient.ClientService): PersonaStore
     static $gtype: GObject.Type
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaClass */
     parentClass: Folks.PersonaClass
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStoreClass */
     parentClass: Folks.PersonaStoreClass
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
 }
+export default FolksLibsocialweb

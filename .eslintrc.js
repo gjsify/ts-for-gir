@@ -4,10 +4,10 @@ module.exports = {
     parser: '@typescript-eslint/parser', // Specifies the ESLint parser
     plugins: ['@typescript-eslint'],
     extends: [
-        'prettier',
         'plugin:prettier/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'prettier',
     ],
     rules: {
         semi: ['error', 'never'],
@@ -18,6 +18,10 @@ module.exports = {
         // For Gjs
         camelcase: 'off',
         '@typescript-eslint/camelcase': 'off',
+    },
+    parserOptions: {
+        files: ['*.ts', '*.tsx'],
+        project: "./tsconfig.json",
     },
     globals: {
         imports: true,

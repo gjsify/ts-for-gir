@@ -5,9 +5,10 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace JSCore {
+declare namespace JSCore {
 
-export function evaluateScript(): void
-export type GlobalContextRef = any
-export type ObjectRef = any
+function evaluateScript(): void
+type GlobalContextRef = any
+type ObjectRef = any
 }
+export default JSCore

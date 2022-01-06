@@ -8,34 +8,34 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Gst {
+declare namespace Gst {
 
-export enum ActivateMode {
+enum ActivateMode {
     NONE,
     PUSH,
     PULL,
 }
-export enum BufferListItem {
+enum BufferListItem {
     CONTINUE,
     SKIP_GROUP,
     END,
 }
-export enum BufferingMode {
+enum BufferingMode {
     STREAM,
     DOWNLOAD,
     TIMESHIFT,
     LIVE,
 }
-export enum BusSyncReply {
+enum BusSyncReply {
     DROP,
     PASS,
     ASYNC,
 }
-export enum ClockEntryType {
+enum ClockEntryType {
     SINGLE,
     PERIODIC,
 }
-export enum ClockReturn {
+enum ClockReturn {
     OK,
     EARLY,
     UNSCHEDULED,
@@ -44,11 +44,11 @@ export enum ClockReturn {
     ERROR,
     UNSUPPORTED,
 }
-export enum ClockType {
+enum ClockType {
     REALTIME,
     MONOTONIC,
 }
-export enum CoreError {
+enum CoreError {
     FAILED,
     TOO_LAZY,
     NOT_IMPLEMENTED,
@@ -65,7 +65,7 @@ export enum CoreError {
     DISABLED,
     NUM_ERRORS,
 }
-export enum DebugColorFlags {
+enum DebugColorFlags {
     FG_BLACK,
     FG_RED,
     FG_GREEN,
@@ -85,7 +85,7 @@ export enum DebugColorFlags {
     BOLD,
     UNDERLINE,
 }
-export enum DebugLevel {
+enum DebugLevel {
     NONE,
     ERROR,
     WARNING,
@@ -97,7 +97,7 @@ export enum DebugLevel {
     MEMDUMP,
     COUNT,
 }
-export enum EventType {
+enum EventType {
     UNKNOWN,
     FLUSH_START,
     FLUSH_STOP,
@@ -117,7 +117,7 @@ export enum EventType {
     CUSTOM_BOTH,
     CUSTOM_BOTH_OOB,
 }
-export enum FlowReturn {
+enum FlowReturn {
     CUSTOM_SUCCESS_2,
     CUSTOM_SUCCESS_1,
     CUSTOM_SUCCESS,
@@ -133,7 +133,7 @@ export enum FlowReturn {
     CUSTOM_ERROR_1,
     CUSTOM_ERROR_2,
 }
-export enum Format {
+enum Format {
     UNDEFINED,
     DEFAULT,
     BYTES,
@@ -141,39 +141,39 @@ export enum Format {
     BUFFERS,
     PERCENT,
 }
-export enum IndexCertainty {
+enum IndexCertainty {
     UNKNOWN,
     CERTAIN,
     FUZZY,
 }
-export enum IndexEntryType {
+enum IndexEntryType {
     ID,
     ASSOCIATION,
     OBJECT,
     FORMAT,
 }
-export enum IndexLookupMethod {
+enum IndexLookupMethod {
     EXACT,
     BEFORE,
     AFTER,
 }
-export enum IndexResolverMethod {
+enum IndexResolverMethod {
     CUSTOM,
     GTYPE,
     PATH,
 }
-export enum IteratorItem {
+enum IteratorItem {
     SKIP,
     PASS,
     END,
 }
-export enum IteratorResult {
+enum IteratorResult {
     DONE,
     OK,
     RESYNC,
     ERROR,
 }
-export enum LibraryError {
+enum LibraryError {
     FAILED,
     TOO_LAZY,
     INIT,
@@ -182,12 +182,12 @@ export enum LibraryError {
     ENCODE,
     NUM_ERRORS,
 }
-export enum PadDirection {
+enum PadDirection {
     UNKNOWN,
     SRC,
     SINK,
 }
-export enum PadLinkReturn {
+enum PadLinkReturn {
     OK,
     WRONG_HIERARCHY,
     WAS_LINKED,
@@ -196,12 +196,12 @@ export enum PadLinkReturn {
     NOSCHED,
     REFUSED,
 }
-export enum PadPresence {
+enum PadPresence {
     ALWAYS,
     SOMETIMES,
     REQUEST,
 }
-export enum ParseError {
+enum ParseError {
     SYNTAX,
     NO_SUCH_ELEMENT,
     NO_SUCH_PROPERTY,
@@ -210,12 +210,12 @@ export enum ParseError {
     EMPTY_BIN,
     EMPTY,
 }
-export enum PluginError {
+enum PluginError {
     MODULE,
     DEPENDENCIES,
     NAME_MISMATCH,
 }
-export enum QueryType {
+enum QueryType {
     NONE,
     POSITION,
     DURATION,
@@ -230,13 +230,13 @@ export enum QueryType {
     CUSTOM,
     URI,
 }
-export enum Rank {
+enum Rank {
     NONE,
     MARGINAL,
     SECONDARY,
     PRIMARY,
 }
-export enum ResourceError {
+enum ResourceError {
     FAILED,
     TOO_LAZY,
     NOT_FOUND,
@@ -253,25 +253,25 @@ export enum ResourceError {
     NO_SPACE_LEFT,
     NUM_ERRORS,
 }
-export enum SearchMode {
+enum SearchMode {
     EXACT,
     BEFORE,
     AFTER,
 }
-export enum SeekType {
+enum SeekType {
     NONE,
     CUR,
     SET,
     END,
 }
-export enum State {
+enum State {
     VOID_PENDING,
     NULL,
     READY,
     PAUSED,
     PLAYING,
 }
-export enum StateChange {
+enum StateChange {
     NULL_TO_READY,
     READY_TO_PAUSED,
     PAUSED_TO_PLAYING,
@@ -279,13 +279,13 @@ export enum StateChange {
     PAUSED_TO_READY,
     READY_TO_NULL,
 }
-export enum StateChangeReturn {
+enum StateChangeReturn {
     FAILURE,
     SUCCESS,
     ASYNC,
     NO_PREROLL,
 }
-export enum StreamError {
+enum StreamError {
     FAILED,
     TOO_LAZY,
     NOT_IMPLEMENTED,
@@ -301,7 +301,7 @@ export enum StreamError {
     DECRYPT_NOKEY,
     NUM_ERRORS,
 }
-export enum StreamStatusType {
+enum StreamStatusType {
     CREATE,
     ENTER,
     LEAVE,
@@ -310,18 +310,18 @@ export enum StreamStatusType {
     PAUSE,
     STOP,
 }
-export enum StructureChangeType {
+enum StructureChangeType {
     LINK,
     UNLINK,
 }
-export enum TagFlag {
+enum TagFlag {
     UNDEFINED,
     META,
     ENCODED,
     DECODED,
     COUNT,
 }
-export enum TagMergeMode {
+enum TagMergeMode {
     UNDEFINED,
     REPLACE_ALL,
     REPLACE,
@@ -331,46 +331,46 @@ export enum TagMergeMode {
     KEEP_ALL,
     COUNT,
 }
-export enum TaskState {
+enum TaskState {
     STARTED,
     STOPPED,
     PAUSED,
 }
-export enum TypeFindProbability {
+enum TypeFindProbability {
     MINIMUM,
     POSSIBLE,
     LIKELY,
     NEARLY_CERTAIN,
     MAXIMUM,
 }
-export enum URIType {
+enum URIType {
     UNKNOWN,
     SINK,
     SRC,
 }
-export enum AllocTraceFlags {
+enum AllocTraceFlags {
     LIVE,
     MEM_LIVE,
 }
-export enum AssocFlags {
+enum AssocFlags {
     NONE,
     KEY_UNIT,
     DELTA_UNIT,
     LAST,
 }
-export enum BaseSrcFlags {
+enum BaseSrcFlags {
     STARTED,
     FLAG_LAST,
 }
-export enum BinFlags {
+enum BinFlags {
     LAST,
 }
-export enum BufferCopyFlags {
+enum BufferCopyFlags {
     FLAGS,
     TIMESTAMPS,
     CAPS,
 }
-export enum BufferFlag {
+enum BufferFlag {
     READONLY,
     PREROLL,
     DISCONT,
@@ -382,14 +382,14 @@ export enum BufferFlag {
     MEDIA3,
     LAST,
 }
-export enum BusFlags {
+enum BusFlags {
     FLUSHING,
     FLAG_LAST,
 }
-export enum CapsFlags {
+enum CapsFlags {
     ANY,
 }
-export enum ClockFlags {
+enum ClockFlags {
     CAN_DO_SINGLE_SYNC,
     CAN_DO_SINGLE_ASYNC,
     CAN_DO_PERIODIC_SYNC,
@@ -398,30 +398,30 @@ export enum ClockFlags {
     CAN_SET_MASTER,
     LAST,
 }
-export enum DebugGraphDetails {
+enum DebugGraphDetails {
     MEDIA_TYPE,
     CAPS_DETAILS,
     NON_DEFAULT_PARAMS,
     STATES,
     ALL,
 }
-export enum ElementFlags {
+enum ElementFlags {
     LOCKED_STATE,
     IS_SINK,
     UNPARENTING,
     FLAG_LAST,
 }
-export enum EventTypeFlags {
+enum EventTypeFlags {
     UPSTREAM,
     DOWNSTREAM,
     SERIALIZED,
 }
-export enum IndexFlags {
+enum IndexFlags {
     WRITABLE,
     READABLE,
     FLAG_LAST,
 }
-export enum MessageType {
+enum MessageType {
     UNKNOWN,
     EOS,
     ERROR,
@@ -450,16 +450,16 @@ export enum MessageType {
     QOS,
     ANY,
 }
-export enum MiniObjectFlags {
+enum MiniObjectFlags {
     READONLY,
     LAST,
 }
-export enum ObjectFlags {
+enum ObjectFlags {
     DISPOSING,
     FLOATING,
     FLAG_LAST,
 }
-export enum PadFlags {
+enum PadFlags {
     BLOCKED,
     FLUSHING,
     IN_GETCAPS,
@@ -467,35 +467,35 @@ export enum PadFlags {
     BLOCKING,
     FLAG_LAST,
 }
-export enum PadLinkCheck {
+enum PadLinkCheck {
     NOTHING,
     HIERARCHY,
     TEMPLATE_CAPS,
     CAPS,
 }
-export enum PadTemplateFlags {
+enum PadTemplateFlags {
     FIXED,
     FLAG_LAST,
 }
-export enum ParseFlags {
+enum ParseFlags {
     NONE,
     FATAL_ERRORS,
 }
-export enum PipelineFlags {
+enum PipelineFlags {
     FIXED_CLOCK,
     LAST,
 }
-export enum PluginDependencyFlags {
+enum PluginDependencyFlags {
     NONE,
     RECURSE,
     PATHS_ARE_DEFAULT_ONLY,
     FILE_NAME_IS_SUFFIX,
 }
-export enum PluginFlags {
+enum PluginFlags {
     CACHED,
     BLACKLISTED,
 }
-export enum SeekFlags {
+enum SeekFlags {
     NONE,
     FLUSH,
     ACCURATE,
@@ -631,364 +631,364 @@ export const VERSION_MAJOR: any
 export const VERSION_MICRO: any
 export const VERSION_MINOR: any
 export const VERSION_NANO: any
-export function allocTraceAvailable(): boolean
-export function allocTraceGet(name: string): AllocTrace
-export function allocTraceLiveAll(): number
-export function allocTracePrintAll(): void
-export function allocTracePrintLive(): void
-export function allocTraceSetFlagsAll(flags: AllocTraceFlags): void
-export function atomicIntSet(value: number): { atomicInt: number }
-export function capsFromString(string: string): Caps
-export function capsLoadThyself(parent: libxml2.NodePtr): Caps
-export function childProxyChildAdded(object: Object, child: Object): void
-export function childProxyChildRemoved(object: Object, child: Object): void
-export function childProxyGetProperty(object: Object, name: string, value: any): void
-export function childProxyLookup(object: Object, name: string, target: Object, pspec: GObject.ParamSpec): boolean
-export function childProxySetProperty(object: Object, name: string, value: any): void
-export function classSignalConnect(klass: ObjectClass, name: string, func: object, funcData: object): number
-export function classSignalEmitByName(object: Object, name: string, self: libxml2.NodePtr): void
-export function debugAddLogFunction(func: LogFunction): void
-export function debugConstructTermColor(colorinfo: number): string
-export function debugConstructWinColor(colorinfo: number): number
-export function debugGetAllCategories(): object[]
-export function debugGetDefaultThreshold(): DebugLevel
-export function debugIsActive(): boolean
-export function debugIsColored(): boolean
-export function debugLevelGetName(level: DebugLevel): string
-export function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage, unused: object): void
-export function debugPrintStackTrace(): void
-export function debugRemoveLogFunction(func: LogFunction): number
-export function debugRemoveLogFunctionByData(data: object): number
-export function debugSetActive(active: boolean): void
-export function debugSetColored(colored: boolean): void
-export function debugSetDefaultThreshold(level: DebugLevel): void
-export function debugSetThresholdForName(name: string, level: DebugLevel): void
-export function debugUnsetThresholdForName(name: string): void
-export function defaultRegistryCheckFeatureVersion(featureName: string, minMajor: number, minMinor: number, minMicro: number): boolean
-export function deinit(): void
-export function errorGetMessage(domain: GLib.Quark, code: number): string
-export function flowGetName(ret: FlowReturn): string
-export function flowToQuark(ret: FlowReturn): GLib.Quark
-export function formatGetByNick(nick: string): Format
-export function formatGetDetails(format: Format): FormatDefinition
-export function formatGetName(format: Format): string
-export function formatIterateDefinitions(): Iterator
-export function formatRegister(nick: string, description: string): Format
-export function formatToQuark(format: Format): GLib.Quark
-export function formatsContains(formats: Format, format: Format): boolean
-export function implementsInterfaceCast(from: object, type: GObject.Type): object
-export function implementsInterfaceCheck(from: object, type: GObject.Type): boolean
-export function init(argv?: string[] | null): { argv: string[] | null }
-export function initCheck(argv: string[]): { returnType: boolean, argc: number }
-export function initGetOptionGroup(): GLib.OptionGroup
-export function isTagList(p: object): boolean
-export function paramSpecFraction(name: string, nick: string, blurb: string, minNum: number, minDenom: number, maxNum: number, maxDenom: number, defaultNum: number, defaultDenom: number, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecMiniObject(name: string, nick: string, blurb: string, objectType: GObject.Type, flags: GObject.ParamFlags): GObject.ParamSpec
-export function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: boolean): Element
-export function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: boolean, context: ParseContext, flags: ParseFlags): Element
-export function parseLaunch(pipelineDescription: string): Element
-export function parseLaunchFull(pipelineDescription: string, context: ParseContext, flags: ParseFlags): Element
-export function parseLaunchv(argv: string[]): Element
-export function parseLaunchvFull(argv: string[], context: ParseContext, flags: ParseFlags): Element
-export function printElementArgs(buf: GLib.String, indent: number, element: Element): void
-export function printPadCaps(buf: GLib.String, indent: number, pad: Pad): void
-export function segtrapIsEnabled(): boolean
-export function segtrapSetEnabled(enabled: boolean): void
-export function structureEmptyNew(name: string): Structure
-export function structureFromString(string: string, end: string[]): Structure
-export function structureIdEmptyNew(quark: GLib.Quark): Structure
-export function tagExists(tag: string): boolean
-export function tagGetDescription(tag: string): string
-export function tagGetFlag(tag: string): TagFlag
-export function tagGetNick(tag: string): string
-export function tagGetType(tag: string): GObject.Type
-export function tagIsFixed(tag: string): boolean
-export function tagListCopyValue(dest: any, list: TagList, tag: string): boolean
-export function tagMergeStringsWithComma(dest: any, src: any): void
-export function tagMergeUseFirst(dest: any, src: any): void
-export function tagRegister(name: string, flag: TagFlag, type: GObject.Type, nick: string, blurb: string, func: TagMergeFunc): void
-export function traceReadTsc(): { dst: number }
-export function typeFindHelper(src: Pad, size: number): Caps
-export function typeFindHelperForBuffer(obj: Object, buf: Buffer, prob: TypeFindProbability): Caps
-export function typeFindHelperForExtension(obj: Object, extension: string): Caps
-export function typeFindHelperGetRange(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, prob: TypeFindProbability): Caps
-export function typeFindHelperGetRangeExt(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, extension: string, prob: TypeFindProbability): Caps
-export function typeFindRegister(plugin: Plugin, name: string, rank: number, func: TypeFindFunction, extensions: string[], possibleCaps: Caps, data: object, dataNotify: GLib.DestroyNotify): boolean
-export function typeRegisterStaticFull(parentType: GObject.Type, typeName: string, classSize: number, baseInit: GObject.BaseInitFunc, baseFinalize: GObject.BaseFinalizeFunc, classInit: GObject.ClassInitFunc, classFinalize: GObject.ClassFinalizeFunc, instanceSize: number, nPreallocs: number, instanceInit: GObject.InstanceInitFunc, valueTable: GObject.TypeValueTable, flags: GObject.TypeFlags): GObject.Type
-export function updateRegistry(): boolean
-export function uriConstruct(protocol: string, location: string): string
-export function uriGetLocation(uri: string): string
-export function uriGetProtocol(uri: string): string
-export function uriHasProtocol(uri: string, protocol: string): boolean
-export function uriIsValid(uri: string): boolean
-export function uriProtocolIsSupported(type: URIType, protocol: string): boolean
-export function uriProtocolIsValid(protocol: string): boolean
-export function utilArrayBinarySearch(array: object, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData: object, userData: object): object
-export function utilDoubleToFraction(src: number): { destN: number, destD: number }
-export function utilDumpMem(mem: any[], size: number): void
-export function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
-export function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
-export function utilFractionToDouble(srcN: number, srcD: number): { dest: number }
-export function utilGdoubleToGuint64(value: number): number
-export function utilGetTimestamp(): ClockTime
-export function utilGreatestCommonDivisor(a: number, b: number): number
-export function utilGuint64ToGdouble(value: number): number
-export function utilSeqnumCompare(s1: number, s2: number): number
-export function utilSeqnumNext(): number
-export function utilSetObjectArg(object: GObject.Object, name: string, value: string): void
-export function utilSetValueFromString(value: any, valueStr: string): void
-export function utilUint64Scale(val: number, num: number, denom: number): number
-export function utilUint64ScaleCeil(val: number, num: number, denom: number): number
-export function utilUint64ScaleInt(val: number, num: number, denom: number): number
-export function utilUint64ScaleIntCeil(val: number, num: number, denom: number): number
-export function utilUint64ScaleIntRound(val: number, num: number, denom: number): number
-export function utilUint64ScaleRound(val: number, num: number, denom: number): number
-export function valueArrayAppendValue(value: any, appendValue: any): void
-export function valueArrayGetSize(value: any): number
-export function valueArrayGetValue(value: any, index: number): any
-export function valueArrayPrependValue(value: any, prependValue: any): void
-export function valueCanCompare(value1: any, value2: any): boolean
-export function valueCanIntersect(value1: any, value2: any): boolean
-export function valueCanSubtract(minuend: any, subtrahend: any): boolean
-export function valueCanUnion(value1: any, value2: any): boolean
-export function valueCompare(value1: any, value2: any): number
-export function valueDeserialize(dest: any, src: string): boolean
-export function valueDupMiniObject(value: any): MiniObject
-export function valueFractionMultiply(product: any, factor1: any, factor2: any): boolean
-export function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): boolean
-export function valueGetCaps(value: any): Caps
-export function valueGetDate(value: any): GLib.Date
-export function valueGetDoubleRangeMax(value: any): number
-export function valueGetDoubleRangeMin(value: any): number
-export function valueGetFourcc(value: any): number
-export function valueGetFractionDenominator(value: any): number
-export function valueGetFractionNumerator(value: any): number
-export function valueGetFractionRangeMax(value: any): any
-export function valueGetFractionRangeMin(value: any): any
-export function valueGetIntRangeMax(value: any): number
-export function valueGetIntRangeMin(value: any): number
-export function valueGetMiniObject(value: any): MiniObject
-export function valueGetStructure(value: any): Structure
-export function valueInitAndCopy(dest: any, src: any): void
-export function valueIntersect(dest: any, value1: any, value2: any): boolean
-export function valueIsFixed(value: any): boolean
-export function valueListAppendValue(value: any, appendValue: any): void
-export function valueListConcat(dest: any, value1: any, value2: any): void
-export function valueListGetSize(value: any): number
-export function valueListGetValue(value: any, index: number): any
-export function valueListPrependValue(value: any, prependValue: any): void
-export function valueRegister(table: ValueTable): void
-export function valueRegisterIntersectFunc(type1: GObject.Type, type2: GObject.Type, func: ValueIntersectFunc): void
-export function valueRegisterSubtractFunc(minuendType: GObject.Type, subtrahendType: GObject.Type, func: ValueSubtractFunc): void
-export function valueRegisterUnionFunc(type1: GObject.Type, type2: GObject.Type, func: ValueUnionFunc): void
-export function valueSerialize(value: any): string
-export function valueSetCaps(value: any, caps: Caps): void
-export function valueSetDate(value: any, date: GLib.Date): void
-export function valueSetDoubleRange(value: any, start: number, end: number): void
-export function valueSetFourcc(value: any, fourcc: number): void
-export function valueSetFraction(value: any, numerator: number, denominator: number): void
-export function valueSetFractionRange(value: any, start: any, end: any): void
-export function valueSetFractionRangeFull(value: any, numeratorStart: number, denominatorStart: number, numeratorEnd: number, denominatorEnd: number): void
-export function valueSetIntRange(value: any, start: number, end: number): void
-export function valueSetMiniObject(value: any, miniObject: MiniObject): void
-export function valueSetStructure(value: any, structure: Structure): void
-export function valueSubtract(dest: any, minuend: any, subtrahend: any): boolean
-export function valueTakeMiniObject(value: any, miniObject: MiniObject): void
-export function valueUnion(dest: any, value1: any, value2: any): boolean
-export function version(): { major: number, minor: number, micro: number, nano: number }
-export function versionString(): string
-export interface BufferListDoFunction {
+function allocTraceAvailable(): boolean
+function allocTraceGet(name: string): AllocTrace
+function allocTraceLiveAll(): number
+function allocTracePrintAll(): void
+function allocTracePrintLive(): void
+function allocTraceSetFlagsAll(flags: AllocTraceFlags): void
+function atomicIntSet(value: number): { atomicInt: number }
+function capsFromString(string: string): Caps
+function capsLoadThyself(parent: libxml2.NodePtr): Caps
+function childProxyChildAdded(object: Object, child: Object): void
+function childProxyChildRemoved(object: Object, child: Object): void
+function childProxyGetProperty(object: Object, name: string, value: any): void
+function childProxyLookup(object: Object, name: string, target: Object, pspec: GObject.ParamSpec): boolean
+function childProxySetProperty(object: Object, name: string, value: any): void
+function classSignalConnect(klass: ObjectClass, name: string, func: object, funcData: object): number
+function classSignalEmitByName(object: Object, name: string, self: libxml2.NodePtr): void
+function debugAddLogFunction(func: LogFunction): void
+function debugConstructTermColor(colorinfo: number): string
+function debugConstructWinColor(colorinfo: number): number
+function debugGetAllCategories(): object[]
+function debugGetDefaultThreshold(): DebugLevel
+function debugIsActive(): boolean
+function debugIsColored(): boolean
+function debugLevelGetName(level: DebugLevel): string
+function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage, unused: object): void
+function debugPrintStackTrace(): void
+function debugRemoveLogFunction(func: LogFunction): number
+function debugRemoveLogFunctionByData(data: object): number
+function debugSetActive(active: boolean): void
+function debugSetColored(colored: boolean): void
+function debugSetDefaultThreshold(level: DebugLevel): void
+function debugSetThresholdForName(name: string, level: DebugLevel): void
+function debugUnsetThresholdForName(name: string): void
+function defaultRegistryCheckFeatureVersion(featureName: string, minMajor: number, minMinor: number, minMicro: number): boolean
+function deinit(): void
+function errorGetMessage(domain: GLib.Quark, code: number): string
+function flowGetName(ret: FlowReturn): string
+function flowToQuark(ret: FlowReturn): GLib.Quark
+function formatGetByNick(nick: string): Format
+function formatGetDetails(format: Format): FormatDefinition
+function formatGetName(format: Format): string
+function formatIterateDefinitions(): Iterator
+function formatRegister(nick: string, description: string): Format
+function formatToQuark(format: Format): GLib.Quark
+function formatsContains(formats: Format, format: Format): boolean
+function implementsInterfaceCast(from: object, type: GObject.Type): object
+function implementsInterfaceCheck(from: object, type: GObject.Type): boolean
+function init(argv?: string[] | null): { argv: string[] | null }
+function initCheck(argv: string[]): { returnType: boolean, argc: number }
+function initGetOptionGroup(): GLib.OptionGroup
+function isTagList(p: object): boolean
+function paramSpecFraction(name: string, nick: string, blurb: string, minNum: number, minDenom: number, maxNum: number, maxDenom: number, defaultNum: number, defaultDenom: number, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecMiniObject(name: string, nick: string, blurb: string, objectType: GObject.Type, flags: GObject.ParamFlags): GObject.ParamSpec
+function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: boolean): Element
+function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: boolean, context: ParseContext, flags: ParseFlags): Element
+function parseLaunch(pipelineDescription: string): Element
+function parseLaunchFull(pipelineDescription: string, context: ParseContext, flags: ParseFlags): Element
+function parseLaunchv(argv: string[]): Element
+function parseLaunchvFull(argv: string[], context: ParseContext, flags: ParseFlags): Element
+function printElementArgs(buf: GLib.String, indent: number, element: Element): void
+function printPadCaps(buf: GLib.String, indent: number, pad: Pad): void
+function segtrapIsEnabled(): boolean
+function segtrapSetEnabled(enabled: boolean): void
+function structureEmptyNew(name: string): Structure
+function structureFromString(string: string, end: string[]): Structure
+function structureIdEmptyNew(quark: GLib.Quark): Structure
+function tagExists(tag: string): boolean
+function tagGetDescription(tag: string): string
+function tagGetFlag(tag: string): TagFlag
+function tagGetNick(tag: string): string
+function tagGetType(tag: string): GObject.Type
+function tagIsFixed(tag: string): boolean
+function tagListCopyValue(dest: any, list: TagList, tag: string): boolean
+function tagMergeStringsWithComma(dest: any, src: any): void
+function tagMergeUseFirst(dest: any, src: any): void
+function tagRegister(name: string, flag: TagFlag, type: GObject.Type, nick: string, blurb: string, func: TagMergeFunc): void
+function traceReadTsc(): { dst: number }
+function typeFindHelper(src: Pad, size: number): Caps
+function typeFindHelperForBuffer(obj: Object, buf: Buffer, prob: TypeFindProbability): Caps
+function typeFindHelperForExtension(obj: Object, extension: string): Caps
+function typeFindHelperGetRange(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, prob: TypeFindProbability): Caps
+function typeFindHelperGetRangeExt(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, extension: string, prob: TypeFindProbability): Caps
+function typeFindRegister(plugin: Plugin, name: string, rank: number, func: TypeFindFunction, extensions: string[], possibleCaps: Caps, data: object, dataNotify: GLib.DestroyNotify): boolean
+function typeRegisterStaticFull(parentType: GObject.Type, typeName: string, classSize: number, baseInit: GObject.BaseInitFunc, baseFinalize: GObject.BaseFinalizeFunc, classInit: GObject.ClassInitFunc, classFinalize: GObject.ClassFinalizeFunc, instanceSize: number, nPreallocs: number, instanceInit: GObject.InstanceInitFunc, valueTable: GObject.TypeValueTable, flags: GObject.TypeFlags): GObject.Type
+function updateRegistry(): boolean
+function uriConstruct(protocol: string, location: string): string
+function uriGetLocation(uri: string): string
+function uriGetProtocol(uri: string): string
+function uriHasProtocol(uri: string, protocol: string): boolean
+function uriIsValid(uri: string): boolean
+function uriProtocolIsSupported(type: URIType, protocol: string): boolean
+function uriProtocolIsValid(protocol: string): boolean
+function utilArrayBinarySearch(array: object, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData: object, userData: object): object
+function utilDoubleToFraction(src: number): { destN: number, destD: number }
+function utilDumpMem(mem: any[], size: number): void
+function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
+function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
+function utilFractionToDouble(srcN: number, srcD: number): { dest: number }
+function utilGdoubleToGuint64(value: number): number
+function utilGetTimestamp(): ClockTime
+function utilGreatestCommonDivisor(a: number, b: number): number
+function utilGuint64ToGdouble(value: number): number
+function utilSeqnumCompare(s1: number, s2: number): number
+function utilSeqnumNext(): number
+function utilSetObjectArg(object: GObject.Object, name: string, value: string): void
+function utilSetValueFromString(value: any, valueStr: string): void
+function utilUint64Scale(val: number, num: number, denom: number): number
+function utilUint64ScaleCeil(val: number, num: number, denom: number): number
+function utilUint64ScaleInt(val: number, num: number, denom: number): number
+function utilUint64ScaleIntCeil(val: number, num: number, denom: number): number
+function utilUint64ScaleIntRound(val: number, num: number, denom: number): number
+function utilUint64ScaleRound(val: number, num: number, denom: number): number
+function valueArrayAppendValue(value: any, appendValue: any): void
+function valueArrayGetSize(value: any): number
+function valueArrayGetValue(value: any, index: number): any
+function valueArrayPrependValue(value: any, prependValue: any): void
+function valueCanCompare(value1: any, value2: any): boolean
+function valueCanIntersect(value1: any, value2: any): boolean
+function valueCanSubtract(minuend: any, subtrahend: any): boolean
+function valueCanUnion(value1: any, value2: any): boolean
+function valueCompare(value1: any, value2: any): number
+function valueDeserialize(dest: any, src: string): boolean
+function valueDupMiniObject(value: any): MiniObject
+function valueFractionMultiply(product: any, factor1: any, factor2: any): boolean
+function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): boolean
+function valueGetCaps(value: any): Caps
+function valueGetDate(value: any): GLib.Date
+function valueGetDoubleRangeMax(value: any): number
+function valueGetDoubleRangeMin(value: any): number
+function valueGetFourcc(value: any): number
+function valueGetFractionDenominator(value: any): number
+function valueGetFractionNumerator(value: any): number
+function valueGetFractionRangeMax(value: any): any
+function valueGetFractionRangeMin(value: any): any
+function valueGetIntRangeMax(value: any): number
+function valueGetIntRangeMin(value: any): number
+function valueGetMiniObject(value: any): MiniObject
+function valueGetStructure(value: any): Structure
+function valueInitAndCopy(dest: any, src: any): void
+function valueIntersect(dest: any, value1: any, value2: any): boolean
+function valueIsFixed(value: any): boolean
+function valueListAppendValue(value: any, appendValue: any): void
+function valueListConcat(dest: any, value1: any, value2: any): void
+function valueListGetSize(value: any): number
+function valueListGetValue(value: any, index: number): any
+function valueListPrependValue(value: any, prependValue: any): void
+function valueRegister(table: ValueTable): void
+function valueRegisterIntersectFunc(type1: GObject.Type, type2: GObject.Type, func: ValueIntersectFunc): void
+function valueRegisterSubtractFunc(minuendType: GObject.Type, subtrahendType: GObject.Type, func: ValueSubtractFunc): void
+function valueRegisterUnionFunc(type1: GObject.Type, type2: GObject.Type, func: ValueUnionFunc): void
+function valueSerialize(value: any): string
+function valueSetCaps(value: any, caps: Caps): void
+function valueSetDate(value: any, date: GLib.Date): void
+function valueSetDoubleRange(value: any, start: number, end: number): void
+function valueSetFourcc(value: any, fourcc: number): void
+function valueSetFraction(value: any, numerator: number, denominator: number): void
+function valueSetFractionRange(value: any, start: any, end: any): void
+function valueSetFractionRangeFull(value: any, numeratorStart: number, denominatorStart: number, numeratorEnd: number, denominatorEnd: number): void
+function valueSetIntRange(value: any, start: number, end: number): void
+function valueSetMiniObject(value: any, miniObject: MiniObject): void
+function valueSetStructure(value: any, structure: Structure): void
+function valueSubtract(dest: any, minuend: any, subtrahend: any): boolean
+function valueTakeMiniObject(value: any, miniObject: MiniObject): void
+function valueUnion(dest: any, value1: any, value2: any): boolean
+function version(): { major: number, minor: number, micro: number, nano: number }
+function versionString(): string
+interface BufferListDoFunction {
     (buffer: Buffer): Buffer
 }
-export interface BufferListFunc {
+interface BufferListFunc {
     (buffer: Buffer, group: number, idx: number): BufferListItem
 }
-export interface BusFunc {
+interface BusFunc {
     (bus: Bus, message: Message, data: object): boolean
 }
-export interface BusSyncHandler {
+interface BusSyncHandler {
     (bus: Bus, message: Message, data: object): BusSyncReply
 }
-export interface ClockCallback {
+interface ClockCallback {
     (clock: Clock, time: ClockTime, id: ClockID): boolean
 }
-export interface CollectDataDestroyNotify {
+interface CollectDataDestroyNotify {
     (data: CollectData): void
 }
-export interface CollectPadsClipFunction {
+interface CollectPadsClipFunction {
     (pads: CollectPads, data: CollectData, buffer: Buffer): Buffer
 }
-export interface CollectPadsFunction {
+interface CollectPadsFunction {
     (pads: CollectPads): FlowReturn
 }
-export interface CopyFunction {
+interface CopyFunction {
     (object: object): object
 }
-export interface DataQueueCheckFullFunction {
+interface DataQueueCheckFullFunction {
     (queue: DataQueue, visible: number, bytes: number, time: number, checkdata: object): boolean
 }
-export interface DataQueueEmptyCallback {
+interface DataQueueEmptyCallback {
     (queue: DataQueue, checkdata: object): void
 }
-export interface DataQueueFullCallback {
+interface DataQueueFullCallback {
     (queue: DataQueue, checkdata: object): void
 }
-export interface DebugFuncPtr {
+interface DebugFuncPtr {
     (): void
 }
-export interface FilterFunc {
+interface FilterFunc {
     (obj: object): boolean
 }
-export interface IndexFilter {
+interface IndexFilter {
     (index: Index, entry: IndexEntry): boolean
 }
-export interface IndexResolver {
+interface IndexResolver {
     (index: Index, writer: Object, writerString: string[]): boolean
 }
-export interface IteratorDisposeFunction {
+interface IteratorDisposeFunction {
     (owner: object): void
 }
-export interface IteratorFoldFunction {
+interface IteratorFoldFunction {
     (item: object, ret: any): boolean
 }
-export interface IteratorFreeFunction {
+interface IteratorFreeFunction {
     (it: Iterator): void
 }
-export interface IteratorItemFunction {
+interface IteratorItemFunction {
     (it: Iterator, item: object): IteratorItem
 }
-export interface IteratorNextFunction {
+interface IteratorNextFunction {
     (it: Iterator, result: object): IteratorResult
 }
-export interface IteratorResyncFunction {
+interface IteratorResyncFunction {
     (it: Iterator): void
 }
-export interface LogFunction {
+interface LogFunction {
     (category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage, data: object): void
 }
-export interface MiniObjectCopyFunction {
+interface MiniObjectCopyFunction {
     (obj: MiniObject): MiniObject
 }
-export interface MiniObjectFinalizeFunction {
+interface MiniObjectFinalizeFunction {
     (obj: MiniObject): void
 }
-export interface PadAcceptCapsFunction {
+interface PadAcceptCapsFunction {
     (pad: Pad, caps: Caps): boolean
 }
-export interface PadActivateFunction {
+interface PadActivateFunction {
     (pad: Pad): boolean
 }
-export interface PadActivateModeFunction {
+interface PadActivateModeFunction {
     (pad: Pad, active: boolean): boolean
 }
-export interface PadBlockCallback {
+interface PadBlockCallback {
     (pad: Pad, blocked: boolean): void
 }
-export interface PadBufferAllocFunction {
+interface PadBufferAllocFunction {
     (pad: Pad, offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
 }
-export interface PadChainFunction {
+interface PadChainFunction {
     (pad: Pad, buffer: Buffer): FlowReturn
 }
-export interface PadChainListFunction {
+interface PadChainListFunction {
     (pad: Pad, list: BufferList): FlowReturn
 }
-export interface PadCheckGetRangeFunction {
+interface PadCheckGetRangeFunction {
     (pad: Pad): boolean
 }
-export interface PadDispatcherFunction {
+interface PadDispatcherFunction {
     (pad: Pad, data: object): boolean
 }
-export interface PadEventFunction {
+interface PadEventFunction {
     (pad: Pad, event: Event): boolean
 }
-export interface PadFixateCapsFunction {
+interface PadFixateCapsFunction {
     (pad: Pad, caps: Caps): void
 }
-export interface PadGetCapsFunction {
+interface PadGetCapsFunction {
     (pad: Pad): Caps
 }
-export interface PadGetRangeFunction {
+interface PadGetRangeFunction {
     (pad: Pad, offset: number, length: number, buffer: Buffer): FlowReturn
 }
-export interface PadIntLinkFunction {
+interface PadIntLinkFunction {
     (pad: Pad): Pad[]
 }
-export interface PadIterIntLinkFunction {
+interface PadIterIntLinkFunction {
     (pad: Pad): Iterator
 }
-export interface PadLinkFunction {
+interface PadLinkFunction {
     (pad: Pad, peer: Pad): PadLinkReturn
 }
-export interface PadQueryFunction {
+interface PadQueryFunction {
     (pad: Pad, query: Query): boolean
 }
-export interface PadQueryTypeFunction {
+interface PadQueryTypeFunction {
     (pad: Pad): QueryType
 }
-export interface PadSetCapsFunction {
+interface PadSetCapsFunction {
     (pad: Pad, caps: Caps): boolean
 }
-export interface PadUnlinkFunction {
+interface PadUnlinkFunction {
     (pad: Pad): void
 }
-export interface PluginFeatureFilter {
+interface PluginFeatureFilter {
     (feature: PluginFeature): boolean
 }
-export interface PluginFilter {
+interface PluginFilter {
     (plugin: Plugin): boolean
 }
-export interface PluginInitFullFunc {
+interface PluginInitFullFunc {
     (plugin: Plugin): boolean
 }
-export interface PluginInitFunc {
+interface PluginInitFunc {
     (plugin: Plugin): boolean
 }
-export interface StructureForeachFunc {
+interface StructureForeachFunc {
     (fieldId: GLib.Quark, value: any): boolean
 }
-export interface StructureMapFunc {
+interface StructureMapFunc {
     (fieldId: GLib.Quark, value: any): boolean
 }
-export interface TagForeachFunc {
+interface TagForeachFunc {
     (list: TagList, tag: string): void
 }
-export interface TagMergeFunc {
+interface TagMergeFunc {
     (dest: any, src: any): void
 }
-export interface TaskFunction {
+interface TaskFunction {
     (data: any): void
 }
-export interface TaskPoolFunction {
+interface TaskPoolFunction {
     (data: any): void
 }
-export interface TypeFindFunction {
+interface TypeFindFunction {
     (find: TypeFind, data: object): void
 }
-export interface TypeFindHelperGetRangeFunction {
+interface TypeFindHelperGetRangeFunction {
     (obj: Object, offset: number, length: number, buffer: Buffer): FlowReturn
 }
-export interface ValueCompareFunc {
+interface ValueCompareFunc {
     (value1: any, value2: any): number
 }
-export interface ValueDeserializeFunc {
+interface ValueDeserializeFunc {
     (dest: any, s: string): boolean
 }
-export interface ValueIntersectFunc {
+interface ValueIntersectFunc {
     (dest: any, value1: any, value2: any): boolean
 }
-export interface ValueSerializeFunc {
+interface ValueSerializeFunc {
     (value1: any): string
 }
-export interface ValueSubtractFunc {
+interface ValueSubtractFunc {
     (dest: any, minuend: any, subtrahend: any): boolean
 }
-export interface ValueUnionFunc {
+interface ValueUnionFunc {
     (dest: any, value1: any, value2: any): boolean
 }
 export interface ChildProxy_ConstructProps extends Object_ConstructProps {
 }
-export class ChildProxy {
+class ChildProxy {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Object */
@@ -1098,7 +1098,7 @@ export class ChildProxy {
 }
 export interface ImplementsInterface_ConstructProps extends Element_ConstructProps {
 }
-export class ImplementsInterface {
+class ImplementsInterface {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -1286,7 +1286,7 @@ export class ImplementsInterface {
 }
 export interface TagSetter_ConstructProps extends Element_ConstructProps {
 }
-export class TagSetter {
+class TagSetter {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -1479,7 +1479,7 @@ export class TagSetter {
     _init (config?: TagSetter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class URIHandler {
+class URIHandler {
     /* Methods of Gst-0.10.Gst.URIHandler */
     getUriType(): number
     getProtocols(): string[]
@@ -1496,7 +1496,7 @@ export class URIHandler {
 }
 export interface Adapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Adapter {
+class Adapter {
     /* Fields of Gst-0.10.Gst.Adapter */
     object: GObject.Object
     buflist: object[]
@@ -1576,7 +1576,7 @@ export interface BaseSink_ConstructProps extends Element_ConstructProps {
     sync?: boolean
     tsOffset?: number
 }
-export class BaseSink {
+class BaseSink {
     /* Properties of Gst-0.10.Gst.BaseSink */
     async: boolean
     blocksize: number
@@ -1876,7 +1876,7 @@ export interface BaseSrc_ConstructProps extends Element_ConstructProps {
     numBuffers?: number
     typefind?: boolean
 }
-export class BaseSrc {
+class BaseSrc {
     /* Properties of Gst-0.10.Gst.BaseSrc */
     blocksize: number
     doTimestamp: boolean
@@ -2119,7 +2119,7 @@ export class BaseSrc {
 export interface BaseTransform_ConstructProps extends Element_ConstructProps {
     qos?: boolean
 }
-export class BaseTransform {
+class BaseTransform {
     /* Properties of Gst-0.10.Gst.BaseTransform */
     qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
@@ -2344,7 +2344,7 @@ export class BaseTransform {
 export interface Bin_ConstructProps extends Element_ConstructProps {
     asyncHandling?: boolean
 }
-export class Bin {
+class Bin {
     /* Properties of Gst-0.10.Gst.Bin */
     asyncHandling: boolean
     /* Properties of Gst-0.10.Gst.Object */
@@ -2598,7 +2598,7 @@ export class Bin {
     static new(name: string): Bin
     static $gtype: GObject.Type
 }
-export class Buffer {
+class Buffer {
     /* Fields of Gst-0.10.Gst.Buffer */
     miniObject: MiniObject
     data: number
@@ -2644,7 +2644,7 @@ export class Buffer {
     static newAndAlloc(size: number): Buffer
     static tryNewAndAlloc(size: number): Buffer
 }
-export class BufferList {
+class BufferList {
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
     refcount: number
@@ -2671,7 +2671,7 @@ export class BufferList {
 }
 export interface Bus_ConstructProps extends Object_ConstructProps {
 }
-export class Bus {
+class Bus {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Bus */
@@ -2812,7 +2812,7 @@ export interface Clock_ConstructProps extends Object_ConstructProps {
     windowSize?: number
     windowThreshold?: number
 }
-export class Clock {
+class Clock {
     /* Properties of Gst-0.10.Gst.Clock */
     stats: boolean
     timeout: number
@@ -2970,7 +2970,7 @@ export class Clock {
 }
 export interface CollectPads_ConstructProps extends Object_ConstructProps {
 }
-export class CollectPads {
+class CollectPads {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.CollectPads */
@@ -3096,7 +3096,7 @@ export class CollectPads {
 }
 export interface DataQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataQueue {
+class DataQueue {
     /* Properties of Gst-0.10.Gst.DataQueue */
     readonly currentLevelBytes: number
     readonly currentLevelTime: number
@@ -3197,7 +3197,7 @@ export class DataQueue {
 }
 export interface Element_ConstructProps extends Object_ConstructProps {
 }
-export class Element {
+class Element {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Element */
@@ -3394,7 +3394,7 @@ export class Element {
 }
 export interface ElementFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class ElementFactory {
+class ElementFactory {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.ElementFactory */
@@ -3522,7 +3522,7 @@ export class ElementFactory {
     static make(factoryname: string, name: string): Element
     static $gtype: GObject.Type
 }
-export class Event {
+class Event {
     /* Fields of Gst-0.10.Gst.Event */
     miniObject: MiniObject
     type: EventType
@@ -3577,7 +3577,7 @@ export class Event {
 }
 export interface GParamSpecMiniObject_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GParamSpecMiniObject {
+class GParamSpecMiniObject {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3622,7 +3622,7 @@ export class GParamSpecMiniObject {
 }
 export interface GhostPad_ConstructProps extends ProxyPad_ConstructProps {
 }
-export class GhostPad {
+class GhostPad {
     /* Properties of Gst-0.10.Gst.Pad */
     readonly caps: Caps
     template: PadTemplate
@@ -3894,7 +3894,7 @@ export class GhostPad {
 export interface Index_ConstructProps extends Object_ConstructProps {
     resolver?: IndexResolver
 }
-export class Index {
+class Index {
     /* Properties of Gst-0.10.Gst.Index */
     resolver: IndexResolver
     /* Properties of Gst-0.10.Gst.Object */
@@ -4034,7 +4034,7 @@ export class Index {
 }
 export interface IndexFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class IndexFactory {
+class IndexFactory {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.IndexFactory */
@@ -4149,7 +4149,7 @@ export class IndexFactory {
     static make(name: string): Index
     static $gtype: GObject.Type
 }
-export class Message {
+class Message {
     /* Fields of Gst-0.10.Gst.Message */
     miniObject: MiniObject
     lock: GLib.Mutex
@@ -4234,7 +4234,7 @@ export class Message {
     static typeGetName(type: MessageType): string
     static typeToQuark(type: MessageType): GLib.Quark
 }
-export class MiniObject {
+class MiniObject {
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
     refcount: number
@@ -4256,7 +4256,7 @@ export class MiniObject {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class Object {
+class Object {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Object */
@@ -4359,7 +4359,7 @@ export interface Pad_ConstructProps extends Object_ConstructProps {
     direction?: PadDirection
     template?: PadTemplate
 }
-export class Pad {
+class Pad {
     /* Properties of Gst-0.10.Gst.Pad */
     readonly caps: Caps
     template: PadTemplate
@@ -4625,7 +4625,7 @@ export interface PadTemplate_ConstructProps extends Object_ConstructProps {
     nameTemplate?: string
     presence?: PadPresence
 }
-export class PadTemplate {
+class PadTemplate {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.PadTemplate */
@@ -4736,7 +4736,7 @@ export class PadTemplate {
 }
 export interface ParamFraction_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ParamFraction {
+class ParamFraction {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4783,7 +4783,7 @@ export interface Pipeline_ConstructProps extends Bin_ConstructProps {
     autoFlushBus?: boolean
     delay?: number
 }
-export class Pipeline {
+class Pipeline {
     /* Properties of Gst-0.10.Gst.Pipeline */
     autoFlushBus: boolean
     delay: number
@@ -5065,7 +5065,7 @@ export class Pipeline {
 }
 export interface Plugin_ConstructProps extends Object_ConstructProps {
 }
-export class Plugin {
+class Plugin {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Plugin */
@@ -5191,7 +5191,7 @@ export class Plugin {
 }
 export interface PluginFeature_ConstructProps extends Object_ConstructProps {
 }
-export class PluginFeature {
+class PluginFeature {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.PluginFeature */
@@ -5297,7 +5297,7 @@ export class PluginFeature {
 }
 export interface ProxyPad_ConstructProps extends Pad_ConstructProps {
 }
-export class ProxyPad {
+class ProxyPad {
     /* Properties of Gst-0.10.Gst.Pad */
     readonly caps: Caps
     template: PadTemplate
@@ -5557,7 +5557,7 @@ export class ProxyPad {
 }
 export interface PushSrc_ConstructProps extends BaseSrc_ConstructProps {
 }
-export class PushSrc {
+class PushSrc {
     /* Properties of Gst-0.10.Gst.BaseSrc */
     blocksize: number
     doTimestamp: boolean
@@ -5798,7 +5798,7 @@ export class PushSrc {
     _init (config?: PushSrc_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Query {
+class Query {
     /* Fields of Gst-0.10.Gst.Query */
     miniObject: MiniObject
     type: QueryType
@@ -5862,7 +5862,7 @@ export class Query {
 }
 export interface Registry_ConstructProps extends Object_ConstructProps {
 }
-export class Registry {
+class Registry {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Registry */
@@ -5995,7 +5995,7 @@ export class Registry {
 export interface SystemClock_ConstructProps extends Clock_ConstructProps {
     clockType?: ClockType
 }
-export class SystemClock {
+class SystemClock {
     /* Properties of Gst-0.10.Gst.SystemClock */
     clockType: ClockType
     /* Properties of Gst-0.10.Gst.Clock */
@@ -6158,7 +6158,7 @@ export class SystemClock {
 }
 export interface Task_ConstructProps extends Object_ConstructProps {
 }
-export class Task {
+class Task {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Task */
@@ -6275,7 +6275,7 @@ export class Task {
 }
 export interface TaskPool_ConstructProps extends Object_ConstructProps {
 }
-export class TaskPool {
+class TaskPool {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.TaskPool */
@@ -6379,7 +6379,7 @@ export class TaskPool {
 }
 export interface TypeFindFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class TypeFindFactory {
+class TypeFindFactory {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.TypeFindFactory */
@@ -6496,7 +6496,7 @@ export class TypeFindFactory {
 }
 export interface XML_ConstructProps extends Object_ConstructProps {
 }
-export class XML {
+class XML {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.XML */
@@ -6607,16 +6607,16 @@ export class XML {
     static makeElement(cur: libxml2.NodePtr, parent: Object): Element
     static $gtype: GObject.Type
 }
-export abstract class AdapterClass {
+abstract class AdapterClass {
     /* Fields of Gst-0.10.Gst.AdapterClass */
     parentClass: GObject.ObjectClass
     gstReserved: any[]
     static name: string
 }
-export class AdapterPrivate {
+class AdapterPrivate {
     static name: string
 }
-export class AllocTrace {
+class AllocTrace {
     /* Fields of Gst-0.10.Gst.AllocTrace */
     name: string
     flags: number
@@ -6627,7 +6627,7 @@ export class AllocTrace {
     setFlags(flags: AllocTraceFlags): void
     static name: string
 }
-export abstract class BaseSinkClass {
+abstract class BaseSinkClass {
     /* Fields of Gst-0.10.Gst.BaseSinkClass */
     parentClass: ElementClass
     getCaps: (sink: BaseSink) => Caps
@@ -6648,10 +6648,10 @@ export abstract class BaseSinkClass {
     gstReserved: any[]
     static name: string
 }
-export class BaseSinkPrivate {
+class BaseSinkPrivate {
     static name: string
 }
-export abstract class BaseSrcClass {
+abstract class BaseSrcClass {
     /* Fields of Gst-0.10.Gst.BaseSrcClass */
     parentClass: ElementClass
     getCaps: (src: BaseSrc) => Caps
@@ -6675,10 +6675,10 @@ export abstract class BaseSrcClass {
     gstReserved: any[]
     static name: string
 }
-export class BaseSrcPrivate {
+class BaseSrcPrivate {
     static name: string
 }
-export abstract class BaseTransformClass {
+abstract class BaseTransformClass {
     /* Fields of Gst-0.10.Gst.BaseTransformClass */
     parentClass: ElementClass
     transformCaps: (trans: BaseTransform, direction: PadDirection, caps: Caps) => Caps
@@ -6699,10 +6699,10 @@ export abstract class BaseTransformClass {
     gstReserved: any[]
     static name: string
 }
-export class BaseTransformPrivate {
+class BaseTransformPrivate {
     static name: string
 }
-export abstract class BinClass {
+abstract class BinClass {
     /* Fields of Gst-0.10.Gst.BinClass */
     parentClass: ElementClass
     pool: GLib.ThreadPool
@@ -6715,10 +6715,10 @@ export abstract class BinClass {
     gstReserved: any[]
     static name: string
 }
-export class BinPrivate {
+class BinPrivate {
     static name: string
 }
-export class BitReader {
+class BitReader {
     /* Fields of Gst-0.10.Gst.BitReader */
     data: number
     size: number
@@ -6749,15 +6749,15 @@ export class BitReader {
     static new(data: any[], size: number): BitReader
     static newFromBuffer(buffer: Buffer): BitReader
 }
-export abstract class BufferClass {
+abstract class BufferClass {
     /* Fields of Gst-0.10.Gst.BufferClass */
     miniObjectClass: MiniObjectClass
     static name: string
 }
-export abstract class BufferListClass {
+abstract class BufferListClass {
     static name: string
 }
-export class BufferListIterator {
+class BufferListIterator {
     /* Methods of Gst-0.10.Gst.BufferListIterator */
     free(): void
     nBuffers(): number
@@ -6772,7 +6772,7 @@ export class BufferListIterator {
     mergeGroup(): Buffer
     static name: string
 }
-export abstract class BusClass {
+abstract class BusClass {
     /* Fields of Gst-0.10.Gst.BusClass */
     parentClass: ObjectClass
     message: (bus: Bus, message: Message) => void
@@ -6780,10 +6780,10 @@ export abstract class BusClass {
     gstReserved: any[]
     static name: string
 }
-export class BusPrivate {
+class BusPrivate {
     static name: string
 }
-export class ByteReader {
+class ByteReader {
     /* Fields of Gst-0.10.Gst.ByteReader */
     data: number
     size: number
@@ -6860,7 +6860,7 @@ export class ByteReader {
     static new(data: any[], size: number): ByteReader
     static newFromBuffer(buffer: Buffer): ByteReader
 }
-export class ByteWriter {
+class ByteWriter {
     /* Fields of Gst-0.10.Gst.ByteWriter */
     parent: ByteReader
     allocSize: number
@@ -6915,7 +6915,7 @@ export class ByteWriter {
     static newWithData(data: any[], size: number, initialized: boolean): ByteWriter
     static newWithBuffer(buffer: Buffer, initialized: boolean): ByteWriter
 }
-export class Caps {
+class Caps {
     /* Fields of Gst-0.10.Gst.Caps */
     type: GObject.Type
     refcount: number
@@ -6959,7 +6959,7 @@ export class Caps {
     static newEmpty(): Caps
     static newAny(): Caps
 }
-export abstract class ChildProxyInterface {
+abstract class ChildProxyInterface {
     /* Fields of Gst-0.10.Gst.ChildProxyInterface */
     parent: GObject.TypeInterface
     getChildByIndex: (parent: ChildProxy, index: number) => Object
@@ -6969,7 +6969,7 @@ export abstract class ChildProxyInterface {
     gstReserved: any[]
     static name: string
 }
-export abstract class ClockClass {
+abstract class ClockClass {
     /* Fields of Gst-0.10.Gst.ClockClass */
     parentClass: ObjectClass
     changeResolution: (clock: Clock, oldResolution: ClockTime, newResolution: ClockTime) => ClockTime
@@ -6982,7 +6982,7 @@ export abstract class ClockClass {
     gstReserved: any[]
     static name: string
 }
-export class ClockEntry {
+class ClockEntry {
     /* Fields of Gst-0.10.Gst.ClockEntry */
     refcount: number
     clock: Clock
@@ -6995,10 +6995,10 @@ export class ClockEntry {
     destroyData: GLib.DestroyNotify
     static name: string
 }
-export class ClockPrivate {
+class ClockPrivate {
     static name: string
 }
-export class CollectData {
+class CollectData {
     /* Fields of Gst-0.10.Gst.CollectData */
     collect: CollectPads
     pad: Pad
@@ -7007,16 +7007,16 @@ export class CollectData {
     segment: Segment
     static name: string
 }
-export abstract class CollectPadsClass {
+abstract class CollectPadsClass {
     /* Fields of Gst-0.10.Gst.CollectPadsClass */
     parentClass: ObjectClass
     gstReserved: any[]
     static name: string
 }
-export class CollectPadsPrivate {
+class CollectPadsPrivate {
     static name: string
 }
-export abstract class DataQueueClass {
+abstract class DataQueueClass {
     /* Fields of Gst-0.10.Gst.DataQueueClass */
     parentClass: GObject.ObjectClass
     empty: (queue: DataQueue) => void
@@ -7024,7 +7024,7 @@ export abstract class DataQueueClass {
     gstReserved: any[]
     static name: string
 }
-export class DataQueueItem {
+class DataQueueItem {
     /* Fields of Gst-0.10.Gst.DataQueueItem */
     object: MiniObject
     size: number
@@ -7033,14 +7033,14 @@ export class DataQueueItem {
     destroy: GLib.DestroyNotify
     static name: string
 }
-export class DataQueueSize {
+class DataQueueSize {
     /* Fields of Gst-0.10.Gst.DataQueueSize */
     visible: number
     bytes: number
     time: number
     static name: string
 }
-export class DebugCategory {
+class DebugCategory {
     /* Fields of Gst-0.10.Gst.DebugCategory */
     threshold: number
     color: number
@@ -7056,12 +7056,12 @@ export class DebugCategory {
     getDescription(): string
     static name: string
 }
-export class DebugMessage {
+class DebugMessage {
     /* Methods of Gst-0.10.Gst.DebugMessage */
     get(): string
     static name: string
 }
-export abstract class ElementClass {
+abstract class ElementClass {
     /* Fields of Gst-0.10.Gst.ElementClass */
     parentClass: ObjectClass
     details: ElementDetails
@@ -7093,7 +7093,7 @@ export abstract class ElementClass {
     setDetailsSimple(longname: string, classification: string, description: string, author: string): void
     static name: string
 }
-export class ElementDetails {
+class ElementDetails {
     /* Fields of Gst-0.10.Gst.ElementDetails */
     longname: string
     klass: string
@@ -7102,19 +7102,19 @@ export class ElementDetails {
     gstReserved: any[]
     static name: string
 }
-export abstract class ElementFactoryClass {
+abstract class ElementFactoryClass {
     /* Fields of Gst-0.10.Gst.ElementFactoryClass */
     parentClass: PluginFeatureClass
     gstReserved: any[]
     static name: string
 }
-export abstract class EventClass {
+abstract class EventClass {
     /* Fields of Gst-0.10.Gst.EventClass */
     miniObjectClass: MiniObjectClass
     gstReserved: any[]
     static name: string
 }
-export class FormatDefinition {
+class FormatDefinition {
     /* Fields of Gst-0.10.Gst.FormatDefinition */
     value: Format
     nick: string
@@ -7122,29 +7122,29 @@ export class FormatDefinition {
     quark: GLib.Quark
     static name: string
 }
-export abstract class GhostPadClass {
+abstract class GhostPadClass {
     /* Fields of Gst-0.10.Gst.GhostPadClass */
     parentClass: ProxyPadClass
     gstReserved: any[]
     static name: string
 }
-export class GhostPadPrivate {
+class GhostPadPrivate {
     static name: string
 }
-export abstract class ImplementsInterfaceClass {
+abstract class ImplementsInterfaceClass {
     /* Fields of Gst-0.10.Gst.ImplementsInterfaceClass */
     parent: GObject.TypeInterface
     supported: (iface: ImplementsInterface, ifaceType: GObject.Type) => boolean
     gstReserved: any[]
     static name: string
 }
-export class IndexAssociation {
+class IndexAssociation {
     /* Fields of Gst-0.10.Gst.IndexAssociation */
     format: Format
     value: number
     static name: string
 }
-export abstract class IndexClass {
+abstract class IndexClass {
     /* Fields of Gst-0.10.Gst.IndexClass */
     parentClass: ObjectClass
     getWriterId: (index: Index, writerString: string) => { returnType: boolean, writerId: number }
@@ -7155,7 +7155,7 @@ export abstract class IndexClass {
     gstReserved: any[]
     static name: string
 }
-export class IndexEntry {
+class IndexEntry {
     /* Fields of Gst-0.10.Gst.IndexEntry */
     type: IndexEntryType
     id: number
@@ -7165,13 +7165,13 @@ export class IndexEntry {
     assocMap(format: Format): { returnType: boolean, value: number }
     static name: string
 }
-export abstract class IndexFactoryClass {
+abstract class IndexFactoryClass {
     /* Fields of Gst-0.10.Gst.IndexFactoryClass */
     parent: PluginFeatureClass
     gstReserved: any[]
     static name: string
 }
-export class IndexGroup {
+class IndexGroup {
     /* Fields of Gst-0.10.Gst.IndexGroup */
     groupnum: number
     entries: object[]
@@ -7179,7 +7179,7 @@ export class IndexGroup {
     peergroup: number
     static name: string
 }
-export class Iterator {
+class Iterator {
     /* Fields of Gst-0.10.Gst.Iterator */
     next: IteratorNextFunction
     item: IteratorItemFunction
@@ -7204,13 +7204,13 @@ export class Iterator {
     static new(size: number, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction): Iterator
     static newSingle(type: GObject.Type, object: object, copy: CopyFunction, free: GLib.FreeFunc): Iterator
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     /* Fields of Gst-0.10.Gst.MessageClass */
     miniObjectClass: MiniObjectClass
     gstReserved: any[]
     static name: string
 }
-export abstract class MiniObjectClass {
+abstract class MiniObjectClass {
     /* Fields of Gst-0.10.Gst.MiniObjectClass */
     typeClass: GObject.TypeClass
     copy: MiniObjectCopyFunction
@@ -7218,7 +7218,7 @@ export abstract class MiniObjectClass {
     gstReserved: object
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Gst-0.10.Gst.ObjectClass */
     parentClass: GObject.ObjectClass
     pathStringSeparator: string
@@ -7233,7 +7233,7 @@ export abstract class ObjectClass {
     gstReserved: any[]
     static name: string
 }
-export abstract class PadClass {
+abstract class PadClass {
     /* Fields of Gst-0.10.Gst.PadClass */
     parentClass: ObjectClass
     linked: (pad: Pad, peer: Pad) => void
@@ -7243,17 +7243,17 @@ export abstract class PadClass {
     gstReserved: any[]
     static name: string
 }
-export class PadPrivate {
+class PadPrivate {
     static name: string
 }
-export abstract class PadTemplateClass {
+abstract class PadTemplateClass {
     /* Fields of Gst-0.10.Gst.PadTemplateClass */
     parentClass: ObjectClass
     padCreated: (templ: PadTemplate, pad: Pad) => void
     gstReserved: any[]
     static name: string
 }
-export class ParamSpecFraction {
+class ParamSpecFraction {
     /* Fields of Gst-0.10.Gst.ParamSpecFraction */
     parentInstance: GObject.ParamSpec
     minNum: number
@@ -7264,12 +7264,12 @@ export class ParamSpecFraction {
     defDen: number
     static name: string
 }
-export class ParamSpecMiniObject {
+class ParamSpecMiniObject {
     /* Fields of Gst-0.10.Gst.ParamSpecMiniObject */
     parentInstance: GObject.ParamSpec
     static name: string
 }
-export class ParseContext {
+class ParseContext {
     /* Methods of Gst-0.10.Gst.ParseContext */
     getMissingElements(): string[]
     free(): void
@@ -7279,22 +7279,22 @@ export class ParseContext {
     /* Static methods and pseudo-constructors */
     static new(): ParseContext
 }
-export abstract class PipelineClass {
+abstract class PipelineClass {
     /* Fields of Gst-0.10.Gst.PipelineClass */
     parentClass: BinClass
     gstReserved: any[]
     static name: string
 }
-export class PipelinePrivate {
+class PipelinePrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of Gst-0.10.Gst.PluginClass */
     objectClass: ObjectClass
     gstReserved: any[]
     static name: string
 }
-export class PluginDesc {
+class PluginDesc {
     /* Fields of Gst-0.10.Gst.PluginDesc */
     majorVersion: number
     minorVersion: number
@@ -7309,16 +7309,16 @@ export class PluginDesc {
     gstReserved: any[]
     static name: string
 }
-export abstract class PluginFeatureClass {
+abstract class PluginFeatureClass {
     /* Fields of Gst-0.10.Gst.PluginFeatureClass */
     parentClass: ObjectClass
     gstReserved: any[]
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export class Poll {
+class Poll {
     /* Methods of Gst-0.10.Gst.Poll */
     free(): void
     addFd(fd: PollFD): boolean
@@ -7343,7 +7343,7 @@ export class Poll {
     static new(controllable: boolean): Poll
     static newTimer(): Poll
 }
-export class PollFD {
+class PollFD {
     /* Fields of Gst-0.10.Gst.PollFD */
     fd: number
     idx: number
@@ -7351,29 +7351,29 @@ export class PollFD {
     init(): void
     static name: string
 }
-export abstract class ProxyPadClass {
+abstract class ProxyPadClass {
     /* Fields of Gst-0.10.Gst.ProxyPadClass */
     parentClass: PadClass
     gstReserved: any[]
     static name: string
 }
-export class ProxyPadPrivate {
+class ProxyPadPrivate {
     static name: string
 }
-export abstract class PushSrcClass {
+abstract class PushSrcClass {
     /* Fields of Gst-0.10.Gst.PushSrcClass */
     parentClass: BaseSrcClass
     create: (src: PushSrc, buf: Buffer) => FlowReturn
     gstReserved: any[]
     static name: string
 }
-export abstract class QueryClass {
+abstract class QueryClass {
     /* Fields of Gst-0.10.Gst.QueryClass */
     miniObjectClass: MiniObjectClass
     gstReserved: any[]
     static name: string
 }
-export class QueryTypeDefinition {
+class QueryTypeDefinition {
     /* Fields of Gst-0.10.Gst.QueryTypeDefinition */
     value: QueryType
     nick: string
@@ -7381,7 +7381,7 @@ export class QueryTypeDefinition {
     quark: GLib.Quark
     static name: string
 }
-export abstract class RegistryClass {
+abstract class RegistryClass {
     /* Fields of Gst-0.10.Gst.RegistryClass */
     parentClass: ObjectClass
     pluginAdded: (registry: Registry, plugin: Plugin) => void
@@ -7389,10 +7389,10 @@ export abstract class RegistryClass {
     gstReserved: any[]
     static name: string
 }
-export class RegistryPrivate {
+class RegistryPrivate {
     static name: string
 }
-export class Segment {
+class Segment {
     /* Fields of Gst-0.10.Gst.Segment */
     rate: number
     absRate: number
@@ -7426,7 +7426,7 @@ export class Segment {
     /* Static methods and pseudo-constructors */
     static new(): Segment
 }
-export class StaticCaps {
+class StaticCaps {
     /* Fields of Gst-0.10.Gst.StaticCaps */
     caps: Caps
     string: string
@@ -7435,7 +7435,7 @@ export class StaticCaps {
     get(): Caps
     static name: string
 }
-export class StaticPadTemplate {
+class StaticPadTemplate {
     /* Fields of Gst-0.10.Gst.StaticPadTemplate */
     nameTemplate: string
     direction: PadDirection
@@ -7446,7 +7446,7 @@ export class StaticPadTemplate {
     getCaps(): Caps
     static name: string
 }
-export class Structure {
+class Structure {
     /* Fields of Gst-0.10.Gst.Structure */
     type: GObject.Type
     name: GLib.Quark
@@ -7494,28 +7494,28 @@ export class Structure {
     fixateFieldNearestFraction(fieldName: string, targetNumerator: number, targetDenominator: number): boolean
     static name: string
 }
-export abstract class SystemClockClass {
+abstract class SystemClockClass {
     /* Fields of Gst-0.10.Gst.SystemClockClass */
     parentClass: ClockClass
     gstReserved: any[]
     static name: string
 }
-export class SystemClockPrivate {
+class SystemClockPrivate {
     static name: string
 }
-export class TagSetterIFace {
+class TagSetterIFace {
     /* Fields of Gst-0.10.Gst.TagSetterIFace */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class TaskClass {
+abstract class TaskClass {
     /* Fields of Gst-0.10.Gst.TaskClass */
     parentClass: ObjectClass
     pool: TaskPool
     gstReserved: any[]
     static name: string
 }
-export abstract class TaskPoolClass {
+abstract class TaskPoolClass {
     /* Fields of Gst-0.10.Gst.TaskPoolClass */
     parentClass: ObjectClass
     prepare: (pool: TaskPool) => void
@@ -7525,17 +7525,17 @@ export abstract class TaskPoolClass {
     gstReserved: any[]
     static name: string
 }
-export class TaskPrivate {
+class TaskPrivate {
     static name: string
 }
-export class TaskThreadCallbacks {
+class TaskThreadCallbacks {
     /* Fields of Gst-0.10.Gst.TaskThreadCallbacks */
     enterThread: any
     leaveThread: any
     gstReserved: any[]
     static name: string
 }
-export class Trace {
+class Trace {
     /* Fields of Gst-0.10.Gst.Trace */
     filename: string
     fd: number
@@ -7553,7 +7553,7 @@ export class Trace {
     /* Static methods and pseudo-constructors */
     static new(filename: string, size: number): Trace
 }
-export class TraceEntry {
+class TraceEntry {
     /* Fields of Gst-0.10.Gst.TraceEntry */
     timestamp: number
     sequence: number
@@ -7561,7 +7561,7 @@ export class TraceEntry {
     message: any[]
     static name: string
 }
-export class TypeFind {
+class TypeFind {
     /* Fields of Gst-0.10.Gst.TypeFind */
     peek: any
     suggest: any
@@ -7570,19 +7570,19 @@ export class TypeFind {
     gstReserved: any[]
     static name: string
 }
-export abstract class TypeFindFactoryClass {
+abstract class TypeFindFactoryClass {
     /* Fields of Gst-0.10.Gst.TypeFindFactoryClass */
     parent: PluginFeatureClass
     gstReserved: any[]
     static name: string
 }
-export class TypeNameData {
+class TypeNameData {
     /* Fields of Gst-0.10.Gst.TypeNameData */
     name: string
     type: GObject.Type
     static name: string
 }
-export abstract class URIHandlerInterface {
+abstract class URIHandlerInterface {
     /* Fields of Gst-0.10.Gst.URIHandlerInterface */
     parent: GObject.TypeInterface
     newUri: (handler: URIHandler, uri: string) => void
@@ -7595,7 +7595,7 @@ export abstract class URIHandlerInterface {
     gstReserved: any[]
     static name: string
 }
-export class ValueTable {
+class ValueTable {
     /* Fields of Gst-0.10.Gst.ValueTable */
     type: GObject.Type
     compare: ValueCompareFunc
@@ -7604,7 +7604,7 @@ export class ValueTable {
     gstReserved: any[]
     static name: string
 }
-export abstract class XMLClass {
+abstract class XMLClass {
     /* Fields of Gst-0.10.Gst.XMLClass */
     parentClass: ObjectClass
     objectLoaded: (xml: XML, object: Object, self: libxml2.NodePtr) => void
@@ -7612,8 +7612,9 @@ export abstract class XMLClass {
     gstReserved: any[]
     static name: string
 }
-export type ClockID = any
-export type ClockTime = any
-export type ClockTimeDiff = any
-export type TagList = any
+type ClockID = any
+type ClockTime = any
+type ClockTimeDiff = any
+type TagList = any
 }
+export default Gst

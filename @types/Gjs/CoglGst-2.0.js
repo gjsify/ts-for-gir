@@ -1,2 +1,1 @@
-imports.gi.versions.CoglGst = '2.0'
-module.exports = imports.gi.CoglGst
+export {default as default} from 'gi://CoglGst?version=2.0';

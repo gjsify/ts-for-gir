@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Epc from './Epc-1.0';
+import type xlib from './xlib-2.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Epc from './Epc-1.0';
+
+export namespace EpcUi {
 
 export interface PasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
     anonymous?: boolean
@@ -24,7 +26,7 @@ export interface PasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps
     realm?: string
     username?: string
 }
-export class PasswordDialog {
+class PasswordDialog {
     /* Properties of EpcUi-1.0.EpcUi.PasswordDialog */
     anonymous: boolean
     anonymous_allowed: boolean
@@ -1114,7 +1116,7 @@ export interface ProgressWindow_ConstructProps extends Gtk.Window_ConstructProps
     progress?: number
     title?: string
 }
-export class ProgressWindow {
+class ProgressWindow {
     /* Properties of EpcUi-1.0.EpcUi.ProgressWindow */
     message: string
     progress: number
@@ -2158,15 +2160,17 @@ export class ProgressWindow {
     static install(parent: Gtk.Window): void
     static $gtype: GObject.Type
 }
-export abstract class PasswordDialogClass {
+abstract class PasswordDialogClass {
     static name: string
 }
-export class PasswordDialogPrivate {
+class PasswordDialogPrivate {
     static name: string
 }
-export abstract class ProgressWindowClass {
+abstract class ProgressWindowClass {
     static name: string
 }
-export class ProgressWindowPrivate {
+class ProgressWindowPrivate {
     static name: string
 }
+}
+export default EpcUi

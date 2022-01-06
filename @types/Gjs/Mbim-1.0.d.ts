@@ -3,44 +3,46 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AccessMediaType {
+export namespace Mbim {
+
+enum AccessMediaType {
     UNKNOWN,
     /* 3GPP (invalid, starts with a number) */
     /* 3GPP_PREFERRED (invalid, starts with a number) */
 }
-export enum ActivationCommand {
+enum ActivationCommand {
     DEACTIVATE,
     ACTIVATE,
 }
-export enum ActivationState {
+enum ActivationState {
     UNKNOWN,
     ACTIVATED,
     ACTIVATING,
     DEACTIVATED,
     DEACTIVATING,
 }
-export enum AtdsProviderPlmnMode {
+enum AtdsProviderPlmnMode {
     GSM,
     UTRAN,
     LTE,
 }
-export enum AtdsRatMode {
+enum AtdsRatMode {
     AUTOMATIC,
     /* 2G_ONLY (invalid, starts with a number) */
     /* 3G_ONLY (invalid, starts with a number) */
     /* 4G_ONLY (invalid, starts with a number) */
 }
-export enum AuthProtocol {
+enum AuthProtocol {
     NONE,
     PAP,
     CHAP,
     MSCHAPV2,
 }
-export enum CidAtds {
+enum CidAtds {
     UNKNOWN,
     SIGNAL,
     LOCATION,
@@ -48,13 +50,13 @@ export enum CidAtds {
     RAT,
     REGISTER_STATE,
 }
-export enum CidAuth {
+enum CidAuth {
     UNKNOWN,
     AKA,
     AKAP,
     SIM,
 }
-export enum CidBasicConnect {
+enum CidBasicConnect {
     UNKNOWN,
     DEVICE_CAPS,
     SUBSCRIBER_READY_STATUS,
@@ -79,15 +81,15 @@ export enum CidBasicConnect {
     IP_PACKET_FILTERS,
     MULTICARRIER_PROVIDERS,
 }
-export enum CidDss {
+enum CidDss {
     UNKNOWN,
     CONNECT,
 }
-export enum CidIntelFirmwareUpdate {
+enum CidIntelFirmwareUpdate {
     UNKNOWN,
     MODEM_REBOOT,
 }
-export enum CidMsBasicConnectExtensions {
+enum CidMsBasicConnectExtensions {
     UNKNOWN,
     PROVISIONED_CONTEXTS,
     NETWORK_DENYLIST,
@@ -106,20 +108,20 @@ export enum CidMsBasicConnectExtensions {
     REGISTRATION_PARAMETERS,
     WAKE_REASON,
 }
-export enum CidMsFirmwareId {
+enum CidMsFirmwareId {
     UNKNOWN,
     GET,
 }
-export enum CidMsHostShutdown {
+enum CidMsHostShutdown {
     UNKNOWN,
     NOTIFY,
 }
-export enum CidMsSar {
+enum CidMsSar {
     UNKNOWN,
     CONFIG,
     TRANSMISSION_STATUS,
 }
-export enum CidMsUiccLowLevelAccess {
+enum CidMsUiccLowLevelAccess {
     UNKNOWN,
     ATR,
     OPEN_CHANNEL,
@@ -128,33 +130,33 @@ export enum CidMsUiccLowLevelAccess {
     TERMINAL_CAPABILITY,
     RESET,
 }
-export enum CidPhonebook {
+enum CidPhonebook {
     UNKNOWN,
     CONFIGURATION,
     READ,
     DELETE,
     WRITE,
 }
-export enum CidProxyControl {
+enum CidProxyControl {
     UNKNOWN,
     CONFIGURATION,
     VERSION,
 }
-export enum CidQdu {
+enum CidQdu {
     UNKNOWN,
     UPDATE_SESSION,
     FILE_OPEN,
     FILE_WRITE,
 }
-export enum CidQmi {
+enum CidQmi {
     UNKNOWN,
     MSG,
 }
-export enum CidQuectel {
+enum CidQuectel {
     UNKNOWN,
     RADIO_STATE,
 }
-export enum CidSms {
+enum CidSms {
     UNKNOWN,
     CONFIGURATION,
     READ,
@@ -162,38 +164,38 @@ export enum CidSms {
     DELETE,
     MESSAGE_STORE_STATUS,
 }
-export enum CidStk {
+enum CidStk {
     UNKNOWN,
     PAC,
     TERMINAL_RESPONSE,
     ENVELOPE,
 }
-export enum CidUssd {
+enum CidUssd {
     USSD_UNKNOWN,
     USSD,
 }
-export enum Compression {
+enum Compression {
     NONE,
     ENABLE,
 }
-export enum ContextIpType {
+enum ContextIpType {
     DEFAULT,
     IPV4,
     IPV6,
     IPV4V6,
     IPV4_AND_IPV6,
 }
-export enum ContextMediaType {
+enum ContextMediaType {
     CELLULAR_ONLY,
     WIFI_ONLY,
     ALL,
 }
-export enum ContextOperation {
+enum ContextOperation {
     DEFAULT,
     DELETE,
     RESTORE_FACTORY,
 }
-export enum ContextRoamingControl {
+enum ContextRoamingControl {
     HOME_ONLY,
     PARTNER_ONLY,
     NON_PARTNER_ONLY,
@@ -202,18 +204,18 @@ export enum ContextRoamingControl {
     PARTNER_AND_NON_PARTNER,
     ALLOW_ALL,
 }
-export enum ContextSource {
+enum ContextSource {
     ADMIN,
     USER,
     OPERATOR,
     MODEM,
     DEVICE,
 }
-export enum ContextState {
+enum ContextState {
     DISABLED,
     ENABLED,
 }
-export enum ContextType {
+enum ContextType {
     INVALID,
     NONE,
     INTERNET,
@@ -230,7 +232,7 @@ export enum ContextType {
     TETHERING,
     EMERGENCY_CALLING,
 }
-export enum CoreError {
+enum CoreError {
     FAILED,
     WRONGSTATE,
     TIMEOUT,
@@ -240,17 +242,17 @@ export enum CoreError {
     ABORTED,
     UNKNOWNSTATE,
 }
-export enum DefaultPduActivationHint {
+enum DefaultPduActivationHint {
     UNLIKELY,
     LIKELY,
 }
-export enum DeviceType {
+enum DeviceType {
     UNKNOWN,
     EMBEDDED,
     REMOVABLE,
     REMOTE,
 }
-export enum DrxCycle {
+enum DrxCycle {
     NOT_SPECIFIED,
     NOT_SUPPORTED,
     /* 32 (invalid, starts with a number) */
@@ -258,37 +260,37 @@ export enum DrxCycle {
     /* 128 (invalid, starts with a number) */
     /* 256 (invalid, starts with a number) */
 }
-export enum DssLinkState {
+enum DssLinkState {
     DEACTIVATE,
     ACTIVATE,
 }
-export enum EmergencyModeState {
+enum EmergencyModeState {
     OFF,
     ON,
 }
-export enum LadnInfo {
+enum LadnInfo {
     NOT_NEEDED,
     REQUESTED,
 }
-export enum LteAttachContextOperation {
+enum LteAttachContextOperation {
     DEFAULT,
     RESTORE_FACTORY,
 }
-export enum LteAttachContextRoamingControl {
+enum LteAttachContextRoamingControl {
     HOME,
     PARTNER,
     NON_PARTNER,
 }
-export enum LteAttachState {
+enum LteAttachState {
     DETACHED,
     ATTACHED,
 }
-export enum MessageCommandType {
+enum MessageCommandType {
     UNKNOWN,
     QUERY,
     SET,
 }
-export enum MessageType {
+enum MessageType {
     INVALID,
     OPEN,
     CLOSE,
@@ -300,22 +302,22 @@ export enum MessageType {
     FUNCTION_ERROR,
     INDICATE_STATUS,
 }
-export enum MicoMode {
+enum MicoMode {
     DISABLED,
     ENABLED,
     UNSUPPORTED,
     DEFAULT,
 }
-export enum ModemConfigurationStatus {
+enum ModemConfigurationStatus {
     UNKNOWN,
     STARTED,
     COMPLETED,
 }
-export enum NetworkIdleHintState {
+enum NetworkIdleHintState {
     DISABLED,
     ENABLED,
 }
-export enum NwError {
+enum NwError {
     NONE,
     IMSI_UNKNOWN_IN_HLR,
     ILLEGAL_MS,
@@ -363,54 +365,54 @@ export enum NwError {
     APN_RESTRICTION_VALUE_INCOMPATIBLE_WITH_ACTIVE_PDP_CONTEXT,
     MULTIPLE_ACCESSES_TO_A_PDN_CONNECTION_NOT_ALLOWED,
 }
-export enum PacketServiceAction {
+enum PacketServiceAction {
     ATTACH,
     DETACH,
 }
-export enum PacketServiceState {
+enum PacketServiceState {
     UNKNOWN,
     ATTACHING,
     ATTACHED,
     DETACHING,
     DETACHED,
 }
-export enum PcoType {
+enum PcoType {
     COMPLETE,
     PARTIAL,
 }
-export enum PhonebookFlag {
+enum PhonebookFlag {
     ALL,
     INDEX,
 }
-export enum PhonebookState {
+enum PhonebookState {
     NOT_INITIALIZED,
     INITIALIZED,
 }
-export enum PhonebookWriteFlag {
+enum PhonebookWriteFlag {
     UNUSED,
     INDEX,
 }
-export enum PinFormat {
+enum PinFormat {
     UNKNOWN,
     NUMERIC,
     ALPHANUMERIC,
 }
-export enum PinMode {
+enum PinMode {
     NOT_SUPPORTED,
     ENABLED,
     DISABLED,
 }
-export enum PinOperation {
+enum PinOperation {
     ENTER,
     ENABLE,
     DISABLE,
     CHANGE,
 }
-export enum PinState {
+enum PinState {
     UNLOCKED,
     LOCKED,
 }
-export enum PinType {
+enum PinType {
     UNKNOWN,
     CUSTOM,
     PIN1,
@@ -430,7 +432,7 @@ export enum PinType {
     SERVICE_PROVIDER_PUK,
     CORPORATE_PUK,
 }
-export enum ProtocolError {
+enum ProtocolError {
     INVALID,
     TIMEOUTFRAGMENT,
     FRAGMENTOUTOFSEQUENCE,
@@ -441,45 +443,45 @@ export enum ProtocolError {
     CANCEL,
     MAXTRANSFER,
 }
-export enum QduFileType {
+enum QduFileType {
     PACKAGE,
 }
-export enum QduSessionAction {
+enum QduSessionAction {
     START,
     STOP,
 }
-export enum QduSessionResult {
+enum QduSessionResult {
     SUCCESS,
     FAILURE,
 }
-export enum QduSessionStatus {
+enum QduSessionStatus {
     INACTIVE,
     FILE_TRANSFER,
     APPLY_UPDATE,
 }
-export enum QduSessionType {
+enum QduSessionType {
     NONE,
     LE,
 }
-export enum QuectelRadioSwitchState {
+enum QuectelRadioSwitchState {
     OFF,
     ON,
     FCC_LOCKED,
 }
-export enum RadioSwitchState {
+enum RadioSwitchState {
     OFF,
     ON,
 }
-export enum RegisterAction {
+enum RegisterAction {
     AUTOMATIC,
     MANUAL,
 }
-export enum RegisterMode {
+enum RegisterMode {
     UNKNOWN,
     AUTOMATIC,
     MANUAL,
 }
-export enum RegisterState {
+enum RegisterState {
     UNKNOWN,
     DEREGISTERED,
     SEARCHING,
@@ -488,19 +490,19 @@ export enum RegisterState {
     PARTNER,
     DENIED,
 }
-export enum SarBackoffState {
+enum SarBackoffState {
     DISABLED,
     ENABLED,
 }
-export enum SarControlMode {
+enum SarControlMode {
     DEVICE,
     OS,
 }
-export enum SarWifiHardwareState {
+enum SarWifiHardwareState {
     INTEGRATED,
     NOT_INTEGRATED,
 }
-export enum Service {
+enum Service {
     INVALID,
     BASIC_CONNECT,
     SMS,
@@ -521,7 +523,7 @@ export enum Service {
     MS_UICC_LOW_LEVEL_ACCESS,
     QUECTEL,
 }
-export enum SmsCdmaEncoding {
+enum SmsCdmaEncoding {
     OCTET,
     EPM,
     /* 7BIT_ASCII (invalid, starts with a number) */
@@ -533,7 +535,7 @@ export enum SmsCdmaEncoding {
     LATIN,
     GSM_7BIT,
 }
-export enum SmsCdmaLang {
+enum SmsCdmaLang {
     UNKNOWN,
     ENGLISH,
     FRENCH,
@@ -543,7 +545,7 @@ export enum SmsCdmaLang {
     CHINESE,
     HEBREW,
 }
-export enum SmsFlag {
+enum SmsFlag {
     ALL,
     INDEX,
     NEW,
@@ -551,26 +553,26 @@ export enum SmsFlag {
     SENT,
     DRAFT,
 }
-export enum SmsFormat {
+enum SmsFormat {
     PDU,
     CDMA,
 }
-export enum SmsStatus {
+enum SmsStatus {
     NEW,
     OLD,
     DRAFT,
     SENT,
 }
-export enum SmsStatusFlag {
+enum SmsStatusFlag {
     NONE,
     MESSAGE_STORE_FULL,
     NEW_MESSAGE,
 }
-export enum SmsStorageState {
+enum SmsStorageState {
     NOT_INITIALIZED,
     INITIALIZED,
 }
-export enum StatusError {
+enum StatusError {
     NONE,
     BUSY,
     FAILURE,
@@ -615,7 +617,7 @@ export enum StatusError {
     SMSENCODINGNOTSUPPORTED,
     SMSFORMATNOTSUPPORTED,
 }
-export enum StkPacProfile {
+enum StkPacProfile {
     NOT_HANDLED_BY_FUNCTION_HANDLED_BY_HOST,
     NOT_HANDLED_BY_FUNCTION_MAY_BE_HANDLED_BY_HOST,
     HANDLED_BY_FUNCTION_ONLY_TRANSPARENT_TO_HOST,
@@ -625,11 +627,11 @@ export enum StkPacProfile {
     HANDLED_BY_HOST_FUNCTION_NOT_ABLE_TO_HANDLE,
     HANDLED_BY_HOST_FUNCTION_ABLE_TO_HANDLE,
 }
-export enum StkPacType {
+enum StkPacType {
     PROACTIVE_COMMAND,
     NOTIFICATION,
 }
-export enum SubscriberReadyState {
+enum SubscriberReadyState {
     NOT_INITIALIZED,
     INITIALIZED,
     SIM_NOT_INSERTED,
@@ -639,7 +641,7 @@ export enum SubscriberReadyState {
     DEVICE_LOCKED,
     NO_ESIM_PROFILE,
 }
-export enum TlvType {
+enum TlvType {
     INVALID,
     UE_POLICITES,
     SINGLE_NSSAI,
@@ -659,31 +661,31 @@ export enum TlvType {
     WAKE_COMMAND,
     WAKE_PACKET,
 }
-export enum TransmissionNotificationStatus {
+enum TransmissionNotificationStatus {
     DISABLED,
     ENABLED,
 }
-export enum TransmissionState {
+enum TransmissionState {
     INACTIVE,
     ACTIVE,
 }
-export enum UiccClassByteType {
+enum UiccClassByteType {
     INTER_INDUSTRY,
     EXTENDED,
 }
-export enum UiccPassThroughAction {
+enum UiccPassThroughAction {
     DISABLE,
     ENABLE,
 }
-export enum UiccPassThroughStatus {
+enum UiccPassThroughStatus {
     DISABLED,
     ENABLED,
 }
-export enum UiccSecureMessaging {
+enum UiccSecureMessaging {
     NONE,
     NO_HDR_AUTH,
 }
-export enum UiccSlotState {
+enum UiccSlotState {
     STATE_UNKNOWN,
     SATE_OFF_EMPTY,
     STATE_OFF,
@@ -694,12 +696,12 @@ export enum UiccSlotState {
     STATE_ACTIVE_ESIM,
     STATE_ACTIVE_ESIM_NO_PROFILES,
 }
-export enum UssdAction {
+enum UssdAction {
     INITIATE,
     CONTINUE,
     CANCEL,
 }
-export enum UssdResponse {
+enum UssdResponse {
     NO_ACTION_REQUIRED,
     ACTION_REQUIRED,
     TERMINATED_BY_NETWORK,
@@ -707,35 +709,35 @@ export enum UssdResponse {
     OPERATION_NOT_SUPPORTED,
     NETWORK_TIMEOUT,
 }
-export enum UssdSessionState {
+enum UssdSessionState {
     NEW_SESSION,
     EXISTING_SESSION,
 }
-export enum VisibleProvidersAction {
+enum VisibleProvidersAction {
     FULL_SCAN,
     RESTRICTED_SCAN,
 }
-export enum VoiceCallState {
+enum VoiceCallState {
     NONE,
     IN_PROGRESS,
     HANG_UP,
 }
-export enum VoiceClass {
+enum VoiceClass {
     UNKNOWN,
     NO_VOICE,
     SEPARATED_VOICE_DATA,
     SIMULTANEOUS_VOICE_DATA,
 }
-export enum WakeType {
+enum WakeType {
     CID_RESPONSE,
     CID_INDICATION,
     PACKET,
 }
-export enum CellularClass {
+enum CellularClass {
     GSM,
     CDMA,
 }
-export enum CtrlCaps {
+enum CtrlCaps {
     NONE,
     REG_MANUAL,
     HW_RADIO_SWITCH,
@@ -746,7 +748,7 @@ export enum CtrlCaps {
     UE_POLICY_ROUTE_SELECTION,
     SIM_HOT_SWAP_CAPABLE,
 }
-export enum DataClass {
+enum DataClass {
     GPRS,
     EDGE,
     UMTS,
@@ -764,7 +766,7 @@ export enum DataClass {
     UMB,
     CUSTOM,
 }
-export enum DataClassV3 {
+enum DataClassV3 {
     GPRS,
     EDGE,
     UMTS,
@@ -781,7 +783,7 @@ export enum DataClassV3 {
     UMB,
     CUSTOM,
 }
-export enum DataSubclass {
+enum DataSubclass {
     NONE,
     /* 5G_ENDC (invalid, starts with a number) */
     /* 5G_NR (invalid, starts with a number) */
@@ -789,25 +791,25 @@ export enum DataSubclass {
     /* 5G_ELTE (invalid, starts with a number) */
     /* 5G_NGENDC (invalid, starts with a number) */
 }
-export enum DeviceOpenFlags {
+enum DeviceOpenFlags {
     NONE,
     PROXY,
     MS_MBIMEX_V2,
     MS_MBIMEX_V3,
 }
-export enum FrequencyRange {
+enum FrequencyRange {
     UNKNOWN,
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
 }
-export enum IPConfigurationAvailableFlag {
+enum IPConfigurationAvailableFlag {
     NONE,
     ADDRESS,
     GATEWAY,
     DNS,
     MTU,
 }
-export enum ProviderState {
+enum ProviderState {
     UNKNOWN,
     HOME,
     FORBIDDEN,
@@ -816,26 +818,26 @@ export enum ProviderState {
     REGISTERED,
     PREFERRED_MULTICARRIER,
 }
-export enum ReadyInfoFlag {
+enum ReadyInfoFlag {
     NONE,
     PROTECT_UNIQUE_ID,
 }
-export enum RegistrationFlag {
+enum RegistrationFlag {
     NONE,
     MANUAL_SELECTION_NOT_AVAILABLE,
     PACKET_SERVICE_AUTOMATIC_ATTACH,
 }
-export enum SimClass {
+enum SimClass {
     LOGICAL,
     REMOVABLE,
 }
-export enum SmsCaps {
+enum SmsCaps {
     PDU_RECEIVE,
     PDU_SEND,
     TEXT_RECEIVE,
     TEXT_SEND,
 }
-export enum SubscriberReadyStatusFlag {
+enum SubscriberReadyStatusFlag {
     NONE,
     ESIM,
     SIM_REMOVABILITY_KNOWN,
@@ -856,166 +858,166 @@ export const MINOR_VERSION: number
 export const PROXY_N_CLIENTS: string
 export const PROXY_N_DEVICES: string
 export const PROXY_SOCKET_PATH: string
-export function access_media_type_get_string(val: AccessMediaType): string
-export function activation_command_get_string(val: ActivationCommand): string
-export function activation_state_get_string(val: ActivationState): string
-export function atds_provider_array_free(array: AtdsProviderArray): void
-export function atds_provider_plmn_mode_get_string(val: AtdsProviderPlmnMode): string
-export function atds_rat_mode_get_string(val: AtdsRatMode): string
-export function auth_protocol_get_string(val: AuthProtocol): string
-export function cell_info_cdma_array_free(array: CellInfoCdmaArray): void
-export function cell_info_neighboring_gsm_array_free(array: CellInfoNeighboringGsmArray): void
-export function cell_info_neighboring_lte_array_free(array: CellInfoNeighboringLteArray): void
-export function cell_info_neighboring_nr_array_free(array: CellInfoNeighboringNrArray): void
-export function cell_info_neighboring_tdscdma_array_free(array: CellInfoNeighboringTdscdmaArray): void
-export function cell_info_neighboring_umts_array_free(array: CellInfoNeighboringUmtsArray): void
-export function cell_info_serving_nr_array_free(array: CellInfoServingNrArray): void
-export function cellular_class_build_string_from_mask(mask: CellularClass): string
-export function cid_atds_get_string(val: CidAtds): string
-export function cid_auth_get_string(val: CidAuth): string
-export function cid_basic_connect_get_string(val: CidBasicConnect): string
-export function cid_can_notify(service: Service, cid: number): boolean
-export function cid_can_query(service: Service, cid: number): boolean
-export function cid_can_set(service: Service, cid: number): boolean
-export function cid_dss_get_string(val: CidDss): string
-export function cid_get_printable(service: Service, cid: number): string
-export function cid_intel_firmware_update_get_string(val: CidIntelFirmwareUpdate): string
-export function cid_ms_basic_connect_extensions_get_string(val: CidMsBasicConnectExtensions): string
-export function cid_ms_firmware_id_get_string(val: CidMsFirmwareId): string
-export function cid_ms_host_shutdown_get_string(val: CidMsHostShutdown): string
-export function cid_ms_sar_get_string(val: CidMsSar): string
-export function cid_ms_uicc_low_level_access_get_string(val: CidMsUiccLowLevelAccess): string
-export function cid_phonebook_get_string(val: CidPhonebook): string
-export function cid_proxy_control_get_string(val: CidProxyControl): string
-export function cid_qdu_get_string(val: CidQdu): string
-export function cid_qmi_get_string(val: CidQmi): string
-export function cid_quectel_get_string(val: CidQuectel): string
-export function cid_sms_get_string(val: CidSms): string
-export function cid_stk_get_string(val: CidStk): string
-export function cid_ussd_get_string(val: CidUssd): string
-export function compression_get_string(val: Compression): string
-export function context_ip_type_get_string(val: ContextIpType): string
-export function context_media_type_get_string(val: ContextMediaType): string
-export function context_operation_get_string(val: ContextOperation): string
-export function context_roaming_control_get_string(val: ContextRoamingControl): string
-export function context_source_get_string(val: ContextSource): string
-export function context_state_get_string(val: ContextState): string
-export function context_type_get_string(val: ContextType): string
-export function core_error_get_string(val: CoreError): string
-export function core_error_quark(): GLib.Quark
-export function ctrl_caps_build_string_from_mask(mask: CtrlCaps): string
-export function data_class_build_string_from_mask(mask: DataClass): string
-export function data_class_v3_build_string_from_mask(mask: DataClassV3): string
-export function data_subclass_build_string_from_mask(mask: DataSubclass): string
-export function default_pdu_activation_hint_get_string(val: DefaultPduActivationHint): string
-export function device_service_element_array_free(array: DeviceServiceElementArray): void
-export function device_type_get_string(val: DeviceType): string
-export function drx_cycle_get_string(val: DrxCycle): string
-export function dss_link_state_get_string(val: DssLinkState): string
-export function emergency_mode_state_get_string(val: EmergencyModeState): string
-export function event_entry_array_free(array: EventEntryArray): void
-export function frequency_range_build_string_from_mask(mask: FrequencyRange): string
-export function ip_configuration_available_flag_build_string_from_mask(mask: IPConfigurationAvailableFlag): string
-export function ipv4_element_array_free(array: IPv4ElementArray): void
-export function ipv6_element_array_free(array: IPv6ElementArray): void
-export function ladn_info_get_string(val: LadnInfo): string
-export function lte_attach_configuration_array_free(array: LteAttachConfigurationArray): void
-export function lte_attach_context_operation_get_string(val: LteAttachContextOperation): string
-export function lte_attach_context_roaming_control_get_string(val: LteAttachContextRoamingControl): string
-export function lte_attach_state_get_string(val: LteAttachState): string
-export function message_command_type_get_string(val: MessageCommandType): string
-export function message_type_get_string(val: MessageType): string
-export function mico_mode_get_string(val: MicoMode): string
-export function modem_configuration_status_get_string(val: ModemConfigurationStatus): string
-export function network_idle_hint_state_get_string(val: NetworkIdleHintState): string
-export function nw_error_get_string(val: NwError): string
-export function packet_filter_array_free(array: PacketFilterArray): void
-export function packet_filter_v3_array_free(array: PacketFilterV3Array): void
-export function packet_service_action_get_string(val: PacketServiceAction): string
-export function packet_service_state_get_string(val: PacketServiceState): string
-export function pco_type_get_string(val: PcoType): string
-export function phonebook_entry_array_free(array: PhonebookEntryArray): void
-export function phonebook_flag_get_string(val: PhonebookFlag): string
-export function phonebook_state_get_string(val: PhonebookState): string
-export function phonebook_write_flag_get_string(val: PhonebookWriteFlag): string
-export function pin_format_get_string(val: PinFormat): string
-export function pin_mode_get_string(val: PinMode): string
-export function pin_operation_get_string(val: PinOperation): string
-export function pin_state_get_string(val: PinState): string
-export function pin_type_get_string(val: PinType): string
-export function protocol_error_get_string(val: ProtocolError): string
-export function protocol_error_quark(): GLib.Quark
-export function provider_array_free(array: ProviderArray): void
-export function provider_state_build_string_from_mask(mask: ProviderState): string
-export function provisioned_context_element_array_free(array: ProvisionedContextElementArray): void
-export function provisioned_context_element_v2_array_free(array: ProvisionedContextElementV2Array): void
-export function qdu_file_type_get_string(val: QduFileType): string
-export function qdu_session_action_get_string(val: QduSessionAction): string
-export function qdu_session_result_get_string(val: QduSessionResult): string
-export function qdu_session_status_get_string(val: QduSessionStatus): string
-export function qdu_session_type_get_string(val: QduSessionType): string
-export function quectel_radio_switch_state_get_string(val: QuectelRadioSwitchState): string
-export function radio_switch_state_get_string(val: RadioSwitchState): string
-export function ready_info_flag_build_string_from_mask(mask: ReadyInfoFlag): string
-export function register_action_get_string(val: RegisterAction): string
-export function register_custom_service(uuid: Uuid, nickname: string): number
-export function register_mode_get_string(val: RegisterMode): string
-export function register_state_get_string(val: RegisterState): string
-export function registration_flag_build_string_from_mask(mask: RegistrationFlag): string
-export function rsrp_snr_info_array_free(array: RsrpSnrInfoArray): void
-export function sar_backoff_state_get_string(val: SarBackoffState): string
-export function sar_config_state_array_free(array: SarConfigStateArray): void
-export function sar_control_mode_get_string(val: SarControlMode): string
-export function sar_wifi_hardware_state_get_string(val: SarWifiHardwareState): string
-export function service_get_string(val: Service): string
-export function service_id_is_custom(id: number): boolean
-export function service_lookup_name(service: number): string
-export function sim_class_build_string_from_mask(mask: SimClass): string
-export function slot_array_free(array: SlotArray): void
-export function sms_caps_build_string_from_mask(mask: SmsCaps): string
-export function sms_cdma_encoding_get_string(val: SmsCdmaEncoding): string
-export function sms_cdma_lang_get_string(val: SmsCdmaLang): string
-export function sms_cdma_read_record_array_free(array: SmsCdmaReadRecordArray): void
-export function sms_flag_get_string(val: SmsFlag): string
-export function sms_format_get_string(val: SmsFormat): string
-export function sms_pdu_read_record_array_free(array: SmsPduReadRecordArray): void
-export function sms_status_flag_get_string(val: SmsStatusFlag): string
-export function sms_status_get_string(val: SmsStatus): string
-export function sms_storage_state_get_string(val: SmsStorageState): string
-export function status_error_get_string(val: StatusError): string
-export function status_error_quark(): GLib.Quark
-export function stk_pac_profile_get_string(val: StkPacProfile): string
-export function stk_pac_type_get_string(val: StkPacType): string
-export function subscriber_ready_state_get_string(val: SubscriberReadyState): string
-export function subscriber_ready_status_flag_build_string_from_mask(mask: SubscriberReadyStatusFlag): string
-export function terminal_capability_info_array_free(array: TerminalCapabilityInfoArray): void
-export function tlv_type_get_string(val: TlvType): string
-export function transmission_notification_status_get_string(val: TransmissionNotificationStatus): string
-export function transmission_state_get_string(val: TransmissionState): string
-export function uicc_class_byte_type_get_string(val: UiccClassByteType): string
-export function uicc_pass_through_action_get_string(val: UiccPassThroughAction): string
-export function uicc_pass_through_status_get_string(val: UiccPassThroughStatus): string
-export function uicc_secure_messaging_get_string(val: UiccSecureMessaging): string
-export function uicc_slot_state_get_string(val: UiccSlotState): string
-export function unregister_custom_service(id: number): boolean
-export function ussd_action_get_string(val: UssdAction): string
-export function ussd_response_get_string(val: UssdResponse): string
-export function ussd_session_state_get_string(val: UssdSessionState): string
-export function utils_get_traces_enabled(): boolean
-export function utils_set_traces_enabled(enabled: boolean): void
-export function uuid_from_context_type(context_type: ContextType): Uuid
-export function uuid_from_printable(str: string, uuid: Uuid): boolean
-export function uuid_from_service(service: Service): Uuid
-export function visible_providers_action_get_string(val: VisibleProvidersAction): string
-export function voice_call_state_get_string(val: VoiceCallState): string
-export function voice_class_get_string(val: VoiceClass): string
-export function wake_type_get_string(val: WakeType): string
+function access_media_type_get_string(val: AccessMediaType): string
+function activation_command_get_string(val: ActivationCommand): string
+function activation_state_get_string(val: ActivationState): string
+function atds_provider_array_free(array: AtdsProviderArray): void
+function atds_provider_plmn_mode_get_string(val: AtdsProviderPlmnMode): string
+function atds_rat_mode_get_string(val: AtdsRatMode): string
+function auth_protocol_get_string(val: AuthProtocol): string
+function cell_info_cdma_array_free(array: CellInfoCdmaArray): void
+function cell_info_neighboring_gsm_array_free(array: CellInfoNeighboringGsmArray): void
+function cell_info_neighboring_lte_array_free(array: CellInfoNeighboringLteArray): void
+function cell_info_neighboring_nr_array_free(array: CellInfoNeighboringNrArray): void
+function cell_info_neighboring_tdscdma_array_free(array: CellInfoNeighboringTdscdmaArray): void
+function cell_info_neighboring_umts_array_free(array: CellInfoNeighboringUmtsArray): void
+function cell_info_serving_nr_array_free(array: CellInfoServingNrArray): void
+function cellular_class_build_string_from_mask(mask: CellularClass): string
+function cid_atds_get_string(val: CidAtds): string
+function cid_auth_get_string(val: CidAuth): string
+function cid_basic_connect_get_string(val: CidBasicConnect): string
+function cid_can_notify(service: Service, cid: number): boolean
+function cid_can_query(service: Service, cid: number): boolean
+function cid_can_set(service: Service, cid: number): boolean
+function cid_dss_get_string(val: CidDss): string
+function cid_get_printable(service: Service, cid: number): string
+function cid_intel_firmware_update_get_string(val: CidIntelFirmwareUpdate): string
+function cid_ms_basic_connect_extensions_get_string(val: CidMsBasicConnectExtensions): string
+function cid_ms_firmware_id_get_string(val: CidMsFirmwareId): string
+function cid_ms_host_shutdown_get_string(val: CidMsHostShutdown): string
+function cid_ms_sar_get_string(val: CidMsSar): string
+function cid_ms_uicc_low_level_access_get_string(val: CidMsUiccLowLevelAccess): string
+function cid_phonebook_get_string(val: CidPhonebook): string
+function cid_proxy_control_get_string(val: CidProxyControl): string
+function cid_qdu_get_string(val: CidQdu): string
+function cid_qmi_get_string(val: CidQmi): string
+function cid_quectel_get_string(val: CidQuectel): string
+function cid_sms_get_string(val: CidSms): string
+function cid_stk_get_string(val: CidStk): string
+function cid_ussd_get_string(val: CidUssd): string
+function compression_get_string(val: Compression): string
+function context_ip_type_get_string(val: ContextIpType): string
+function context_media_type_get_string(val: ContextMediaType): string
+function context_operation_get_string(val: ContextOperation): string
+function context_roaming_control_get_string(val: ContextRoamingControl): string
+function context_source_get_string(val: ContextSource): string
+function context_state_get_string(val: ContextState): string
+function context_type_get_string(val: ContextType): string
+function core_error_get_string(val: CoreError): string
+function core_error_quark(): GLib.Quark
+function ctrl_caps_build_string_from_mask(mask: CtrlCaps): string
+function data_class_build_string_from_mask(mask: DataClass): string
+function data_class_v3_build_string_from_mask(mask: DataClassV3): string
+function data_subclass_build_string_from_mask(mask: DataSubclass): string
+function default_pdu_activation_hint_get_string(val: DefaultPduActivationHint): string
+function device_service_element_array_free(array: DeviceServiceElementArray): void
+function device_type_get_string(val: DeviceType): string
+function drx_cycle_get_string(val: DrxCycle): string
+function dss_link_state_get_string(val: DssLinkState): string
+function emergency_mode_state_get_string(val: EmergencyModeState): string
+function event_entry_array_free(array: EventEntryArray): void
+function frequency_range_build_string_from_mask(mask: FrequencyRange): string
+function ip_configuration_available_flag_build_string_from_mask(mask: IPConfigurationAvailableFlag): string
+function ipv4_element_array_free(array: IPv4ElementArray): void
+function ipv6_element_array_free(array: IPv6ElementArray): void
+function ladn_info_get_string(val: LadnInfo): string
+function lte_attach_configuration_array_free(array: LteAttachConfigurationArray): void
+function lte_attach_context_operation_get_string(val: LteAttachContextOperation): string
+function lte_attach_context_roaming_control_get_string(val: LteAttachContextRoamingControl): string
+function lte_attach_state_get_string(val: LteAttachState): string
+function message_command_type_get_string(val: MessageCommandType): string
+function message_type_get_string(val: MessageType): string
+function mico_mode_get_string(val: MicoMode): string
+function modem_configuration_status_get_string(val: ModemConfigurationStatus): string
+function network_idle_hint_state_get_string(val: NetworkIdleHintState): string
+function nw_error_get_string(val: NwError): string
+function packet_filter_array_free(array: PacketFilterArray): void
+function packet_filter_v3_array_free(array: PacketFilterV3Array): void
+function packet_service_action_get_string(val: PacketServiceAction): string
+function packet_service_state_get_string(val: PacketServiceState): string
+function pco_type_get_string(val: PcoType): string
+function phonebook_entry_array_free(array: PhonebookEntryArray): void
+function phonebook_flag_get_string(val: PhonebookFlag): string
+function phonebook_state_get_string(val: PhonebookState): string
+function phonebook_write_flag_get_string(val: PhonebookWriteFlag): string
+function pin_format_get_string(val: PinFormat): string
+function pin_mode_get_string(val: PinMode): string
+function pin_operation_get_string(val: PinOperation): string
+function pin_state_get_string(val: PinState): string
+function pin_type_get_string(val: PinType): string
+function protocol_error_get_string(val: ProtocolError): string
+function protocol_error_quark(): GLib.Quark
+function provider_array_free(array: ProviderArray): void
+function provider_state_build_string_from_mask(mask: ProviderState): string
+function provisioned_context_element_array_free(array: ProvisionedContextElementArray): void
+function provisioned_context_element_v2_array_free(array: ProvisionedContextElementV2Array): void
+function qdu_file_type_get_string(val: QduFileType): string
+function qdu_session_action_get_string(val: QduSessionAction): string
+function qdu_session_result_get_string(val: QduSessionResult): string
+function qdu_session_status_get_string(val: QduSessionStatus): string
+function qdu_session_type_get_string(val: QduSessionType): string
+function quectel_radio_switch_state_get_string(val: QuectelRadioSwitchState): string
+function radio_switch_state_get_string(val: RadioSwitchState): string
+function ready_info_flag_build_string_from_mask(mask: ReadyInfoFlag): string
+function register_action_get_string(val: RegisterAction): string
+function register_custom_service(uuid: Uuid, nickname: string): number
+function register_mode_get_string(val: RegisterMode): string
+function register_state_get_string(val: RegisterState): string
+function registration_flag_build_string_from_mask(mask: RegistrationFlag): string
+function rsrp_snr_info_array_free(array: RsrpSnrInfoArray): void
+function sar_backoff_state_get_string(val: SarBackoffState): string
+function sar_config_state_array_free(array: SarConfigStateArray): void
+function sar_control_mode_get_string(val: SarControlMode): string
+function sar_wifi_hardware_state_get_string(val: SarWifiHardwareState): string
+function service_get_string(val: Service): string
+function service_id_is_custom(id: number): boolean
+function service_lookup_name(service: number): string
+function sim_class_build_string_from_mask(mask: SimClass): string
+function slot_array_free(array: SlotArray): void
+function sms_caps_build_string_from_mask(mask: SmsCaps): string
+function sms_cdma_encoding_get_string(val: SmsCdmaEncoding): string
+function sms_cdma_lang_get_string(val: SmsCdmaLang): string
+function sms_cdma_read_record_array_free(array: SmsCdmaReadRecordArray): void
+function sms_flag_get_string(val: SmsFlag): string
+function sms_format_get_string(val: SmsFormat): string
+function sms_pdu_read_record_array_free(array: SmsPduReadRecordArray): void
+function sms_status_flag_get_string(val: SmsStatusFlag): string
+function sms_status_get_string(val: SmsStatus): string
+function sms_storage_state_get_string(val: SmsStorageState): string
+function status_error_get_string(val: StatusError): string
+function status_error_quark(): GLib.Quark
+function stk_pac_profile_get_string(val: StkPacProfile): string
+function stk_pac_type_get_string(val: StkPacType): string
+function subscriber_ready_state_get_string(val: SubscriberReadyState): string
+function subscriber_ready_status_flag_build_string_from_mask(mask: SubscriberReadyStatusFlag): string
+function terminal_capability_info_array_free(array: TerminalCapabilityInfoArray): void
+function tlv_type_get_string(val: TlvType): string
+function transmission_notification_status_get_string(val: TransmissionNotificationStatus): string
+function transmission_state_get_string(val: TransmissionState): string
+function uicc_class_byte_type_get_string(val: UiccClassByteType): string
+function uicc_pass_through_action_get_string(val: UiccPassThroughAction): string
+function uicc_pass_through_status_get_string(val: UiccPassThroughStatus): string
+function uicc_secure_messaging_get_string(val: UiccSecureMessaging): string
+function uicc_slot_state_get_string(val: UiccSlotState): string
+function unregister_custom_service(id: number): boolean
+function ussd_action_get_string(val: UssdAction): string
+function ussd_response_get_string(val: UssdResponse): string
+function ussd_session_state_get_string(val: UssdSessionState): string
+function utils_get_traces_enabled(): boolean
+function utils_set_traces_enabled(enabled: boolean): void
+function uuid_from_context_type(context_type: ContextType): Uuid
+function uuid_from_printable(str: string, uuid: Uuid): boolean
+function uuid_from_service(service: Service): Uuid
+function visible_providers_action_get_string(val: VisibleProvidersAction): string
+function voice_call_state_get_string(val: VoiceCallState): string
+function voice_class_get_string(val: VoiceClass): string
+function wake_type_get_string(val: WakeType): string
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     device_file?: Gio.File
     device_in_session?: boolean
     device_transaction_id?: number
 }
-export class Device {
+class Device {
     /* Properties of Mbim-1.0.Mbim.Device */
     device_in_session: boolean
     device_transaction_id: number
@@ -1116,7 +1118,7 @@ export class Device {
 }
 export interface Proxy_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Proxy {
+class Proxy {
     /* Properties of Mbim-1.0.Mbim.Proxy */
     readonly mbim_proxy_n_clients: number
     readonly mbim_proxy_n_devices: number
@@ -1174,7 +1176,7 @@ export class Proxy {
     static new(): Proxy
     static $gtype: GObject.Type
 }
-export class AtdsProvider {
+class AtdsProvider {
     /* Fields of Mbim-1.0.Mbim.AtdsProvider */
     provider_id: string
     provider_state: number
@@ -1186,7 +1188,7 @@ export class AtdsProvider {
     /* Static methods and pseudo-constructors */
     static array_free(array: AtdsProviderArray): void
 }
-export class CellInfoCdma {
+class CellInfoCdma {
     /* Fields of Mbim-1.0.Mbim.CellInfoCdma */
     serving_cell_flag: number
     nid: number
@@ -1201,7 +1203,7 @@ export class CellInfoCdma {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoCdmaArray): void
 }
-export class CellInfoNeighboringGsm {
+class CellInfoNeighboringGsm {
     /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringGsm */
     provider_id: string
     location_area_code: number
@@ -1213,7 +1215,7 @@ export class CellInfoNeighboringGsm {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoNeighboringGsmArray): void
 }
-export class CellInfoNeighboringLte {
+class CellInfoNeighboringLte {
     /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringLte */
     provider_id: string
     cell_id: number
@@ -1226,7 +1228,7 @@ export class CellInfoNeighboringLte {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoNeighboringLteArray): void
 }
-export class CellInfoNeighboringNr {
+class CellInfoNeighboringNr {
     /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringNr */
     system_sub_type: number
     provider_id: string
@@ -1240,7 +1242,7 @@ export class CellInfoNeighboringNr {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoNeighboringNrArray): void
 }
-export class CellInfoNeighboringTdscdma {
+class CellInfoNeighboringTdscdma {
     /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringTdscdma */
     provider_id: string
     location_area_code: number
@@ -1254,7 +1256,7 @@ export class CellInfoNeighboringTdscdma {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoNeighboringTdscdmaArray): void
 }
-export class CellInfoNeighboringUmts {
+class CellInfoNeighboringUmts {
     /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringUmts */
     provider_id: string
     location_area_code: number
@@ -1268,7 +1270,7 @@ export class CellInfoNeighboringUmts {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoNeighboringUmtsArray): void
 }
-export class CellInfoServingGsm {
+class CellInfoServingGsm {
     /* Fields of Mbim-1.0.Mbim.CellInfoServingGsm */
     provider_id: string
     location_area_code: number
@@ -1281,7 +1283,7 @@ export class CellInfoServingGsm {
     free(): void
     static name: string
 }
-export class CellInfoServingLte {
+class CellInfoServingLte {
     /* Fields of Mbim-1.0.Mbim.CellInfoServingLte */
     provider_id: string
     cell_id: number
@@ -1295,7 +1297,7 @@ export class CellInfoServingLte {
     free(): void
     static name: string
 }
-export class CellInfoServingNr {
+class CellInfoServingNr {
     /* Fields of Mbim-1.0.Mbim.CellInfoServingNr */
     provider_id: string
     nci: number
@@ -1310,7 +1312,7 @@ export class CellInfoServingNr {
     /* Static methods and pseudo-constructors */
     static array_free(array: CellInfoServingNrArray): void
 }
-export class CellInfoServingTdscdma {
+class CellInfoServingTdscdma {
     /* Fields of Mbim-1.0.Mbim.CellInfoServingTdscdma */
     provider_id: string
     location_area_code: number
@@ -1324,7 +1326,7 @@ export class CellInfoServingTdscdma {
     free(): void
     static name: string
 }
-export class CellInfoServingUmts {
+class CellInfoServingUmts {
     /* Fields of Mbim-1.0.Mbim.CellInfoServingUmts */
     provider_id: string
     location_area_code: number
@@ -1341,13 +1343,13 @@ export class CellInfoServingUmts {
     free(): void
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export class DeviceServiceElement {
+class DeviceServiceElement {
     /* Fields of Mbim-1.0.Mbim.DeviceServiceElement */
     device_service_id: Uuid
     dss_payload: number
@@ -1358,7 +1360,7 @@ export class DeviceServiceElement {
     /* Static methods and pseudo-constructors */
     static array_free(array: DeviceServiceElementArray): void
 }
-export class EventEntry {
+class EventEntry {
     /* Fields of Mbim-1.0.Mbim.EventEntry */
     device_service_id: Uuid
     cids_count: number
@@ -1367,12 +1369,12 @@ export class EventEntry {
     /* Static methods and pseudo-constructors */
     static array_free(array: EventEntryArray): void
 }
-export class IPv4 {
+class IPv4 {
     /* Fields of Mbim-1.0.Mbim.IPv4 */
     addr: Uint8Array[]
     static name: string
 }
-export class IPv4Element {
+class IPv4Element {
     /* Fields of Mbim-1.0.Mbim.IPv4Element */
     on_link_prefix_length: number
     ipv4_address: IPv4
@@ -1380,12 +1382,12 @@ export class IPv4Element {
     /* Static methods and pseudo-constructors */
     static array_free(array: IPv4ElementArray): void
 }
-export class IPv6 {
+class IPv6 {
     /* Fields of Mbim-1.0.Mbim.IPv6 */
     addr: Uint8Array[]
     static name: string
 }
-export class IPv6Element {
+class IPv6Element {
     /* Fields of Mbim-1.0.Mbim.IPv6Element */
     on_link_prefix_length: number
     ipv6_address: IPv6
@@ -1393,7 +1395,7 @@ export class IPv6Element {
     /* Static methods and pseudo-constructors */
     static array_free(array: IPv6ElementArray): void
 }
-export class LteAttachConfiguration {
+class LteAttachConfiguration {
     /* Fields of Mbim-1.0.Mbim.LteAttachConfiguration */
     ip_type: number
     roaming: number
@@ -1407,7 +1409,7 @@ export class LteAttachConfiguration {
     /* Static methods and pseudo-constructors */
     static array_free(array: LteAttachConfigurationArray): void
 }
-export class LteAttachStatus {
+class LteAttachStatus {
     /* Fields of Mbim-1.0.Mbim.LteAttachStatus */
     lte_attach_state: number
     ip_type: number
@@ -1420,7 +1422,7 @@ export class LteAttachStatus {
     free(): void
     static name: string
 }
-export class Message {
+class Message {
     /* Methods of Mbim-1.0.Mbim.Message */
     atds_location_response_parse(): [ /* returnType */ boolean, /* out_lac */ number | null, /* out_tac */ number | null, /* out_cell_id */ number | null ]
     atds_operators_response_parse(): [ /* returnType */ boolean, /* out_providers_count */ number | null, /* out_providers */ AtdsProvider[] | null ]
@@ -1698,7 +1700,7 @@ export class Message {
     static ussd_set_new(action: UssdAction, data_coding_scheme: number, payload: Uint8Array[]): Message
     static visible_providers_query_new(action: VisibleProvidersAction): Message
 }
-export class PacketFilter {
+class PacketFilter {
     /* Fields of Mbim-1.0.Mbim.PacketFilter */
     filter_size: number
     packet_filter: number
@@ -1707,7 +1709,7 @@ export class PacketFilter {
     /* Static methods and pseudo-constructors */
     static array_free(array: PacketFilterArray): void
 }
-export class PacketFilterV3 {
+class PacketFilterV3 {
     /* Fields of Mbim-1.0.Mbim.PacketFilterV3 */
     filter_size: number
     packet_filter: number
@@ -1717,7 +1719,7 @@ export class PacketFilterV3 {
     /* Static methods and pseudo-constructors */
     static array_free(array: PacketFilterV3Array): void
 }
-export class PcoValue {
+class PcoValue {
     /* Fields of Mbim-1.0.Mbim.PcoValue */
     session_id: number
     pco_data_size: number
@@ -1727,7 +1729,7 @@ export class PcoValue {
     free(): void
     static name: string
 }
-export class PhonebookEntry {
+class PhonebookEntry {
     /* Fields of Mbim-1.0.Mbim.PhonebookEntry */
     entry_index: number
     number: string
@@ -1736,7 +1738,7 @@ export class PhonebookEntry {
     /* Static methods and pseudo-constructors */
     static array_free(array: PhonebookEntryArray): void
 }
-export class PinDesc {
+class PinDesc {
     /* Fields of Mbim-1.0.Mbim.PinDesc */
     pin_mode: number
     pin_format: number
@@ -1746,7 +1748,7 @@ export class PinDesc {
     free(): void
     static name: string
 }
-export class Provider {
+class Provider {
     /* Fields of Mbim-1.0.Mbim.Provider */
     provider_id: string
     provider_state: number
@@ -1760,7 +1762,7 @@ export class Provider {
     /* Static methods and pseudo-constructors */
     static array_free(array: ProviderArray): void
 }
-export class ProvisionedContextElement {
+class ProvisionedContextElement {
     /* Fields of Mbim-1.0.Mbim.ProvisionedContextElement */
     context_id: number
     context_type: Uuid
@@ -1773,7 +1775,7 @@ export class ProvisionedContextElement {
     /* Static methods and pseudo-constructors */
     static array_free(array: ProvisionedContextElementArray): void
 }
-export class ProvisionedContextElementV2 {
+class ProvisionedContextElementV2 {
     /* Fields of Mbim-1.0.Mbim.ProvisionedContextElementV2 */
     context_id: number
     context_type: Uuid
@@ -1791,15 +1793,15 @@ export class ProvisionedContextElementV2 {
     /* Static methods and pseudo-constructors */
     static array_free(array: ProvisionedContextElementV2Array): void
 }
-export abstract class ProxyClass {
+abstract class ProxyClass {
     /* Fields of Mbim-1.0.Mbim.ProxyClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class ProxyPrivate {
+class ProxyPrivate {
     static name: string
 }
-export class RsrpSnrInfo {
+class RsrpSnrInfo {
     /* Fields of Mbim-1.0.Mbim.RsrpSnrInfo */
     rsrp: number
     snr: number
@@ -1810,7 +1812,7 @@ export class RsrpSnrInfo {
     /* Static methods and pseudo-constructors */
     static array_free(array: RsrpSnrInfoArray): void
 }
-export class SarConfigState {
+class SarConfigState {
     /* Fields of Mbim-1.0.Mbim.SarConfigState */
     antenna_index: number
     backoff_index: number
@@ -1818,14 +1820,14 @@ export class SarConfigState {
     /* Static methods and pseudo-constructors */
     static array_free(array: SarConfigStateArray): void
 }
-export class Slot {
+class Slot {
     /* Fields of Mbim-1.0.Mbim.Slot */
     slot: number
     static name: string
     /* Static methods and pseudo-constructors */
     static array_free(array: SlotArray): void
 }
-export class SmsCdmaReadRecord {
+class SmsCdmaReadRecord {
     /* Fields of Mbim-1.0.Mbim.SmsCdmaReadRecord */
     message_index: number
     message_status: number
@@ -1840,7 +1842,7 @@ export class SmsCdmaReadRecord {
     /* Static methods and pseudo-constructors */
     static array_free(array: SmsCdmaReadRecordArray): void
 }
-export class SmsCdmaSendRecord {
+class SmsCdmaSendRecord {
     /* Fields of Mbim-1.0.Mbim.SmsCdmaSendRecord */
     encoding: number
     language: number
@@ -1852,7 +1854,7 @@ export class SmsCdmaSendRecord {
     free(): void
     static name: string
 }
-export class SmsPduReadRecord {
+class SmsPduReadRecord {
     /* Fields of Mbim-1.0.Mbim.SmsPduReadRecord */
     message_index: number
     message_status: number
@@ -1862,7 +1864,7 @@ export class SmsPduReadRecord {
     /* Static methods and pseudo-constructors */
     static array_free(array: SmsPduReadRecordArray): void
 }
-export class SmsPduSendRecord {
+class SmsPduSendRecord {
     /* Fields of Mbim-1.0.Mbim.SmsPduSendRecord */
     pdu_data_size: number
     pdu_data: number
@@ -1870,7 +1872,7 @@ export class SmsPduSendRecord {
     free(): void
     static name: string
 }
-export class Tai {
+class Tai {
     /* Fields of Mbim-1.0.Mbim.Tai */
     plmn_mcc: number
     plmn_mnc: number
@@ -1879,7 +1881,7 @@ export class Tai {
     free(): void
     static name: string
 }
-export class TerminalCapabilityInfo {
+class TerminalCapabilityInfo {
     /* Fields of Mbim-1.0.Mbim.TerminalCapabilityInfo */
     terminal_capability_data_size: number
     terminal_capability_data: number
@@ -1887,7 +1889,7 @@ export class TerminalCapabilityInfo {
     /* Static methods and pseudo-constructors */
     static array_free(array: TerminalCapabilityInfoArray): void
 }
-export class Tlv {
+class Tlv {
     /* Methods of Mbim-1.0.Mbim.Tlv */
     dup(): Tlv
     get_raw(): [ /* returnType */ number, /* length */ number ]
@@ -1906,7 +1908,7 @@ export class Tlv {
     static new(type: TlvType, data: number, data_length: number): Tlv
     static string_new(str: string): Tlv
 }
-export class Uuid {
+class Uuid {
     /* Fields of Mbim-1.0.Mbim.Uuid */
     a: Uint8Array[]
     b: Uint8Array[]
@@ -1924,32 +1926,34 @@ export class Uuid {
     static from_printable(str: string, uuid: Uuid): boolean
     static from_service(service: Service): Uuid
 }
-export type AtdsProviderArray = AtdsProvider
-export type CellInfoCdmaArray = CellInfoCdma
-export type CellInfoNeighboringGsmArray = CellInfoNeighboringGsm
-export type CellInfoNeighboringLteArray = CellInfoNeighboringLte
-export type CellInfoNeighboringNrArray = CellInfoNeighboringNr
-export type CellInfoNeighboringTdscdmaArray = CellInfoNeighboringTdscdma
-export type CellInfoNeighboringUmtsArray = CellInfoNeighboringUmts
-export type CellInfoServingNrArray = CellInfoServingNr
-export type DeprecatedCidBasicConnect = number
-export type DeprecatedCidMsBasicConnectExtensions = number
-export type DeprecatedRegistrationFlag = number
-export type DeviceServiceElementArray = DeviceServiceElement
-export type EventEntryArray = EventEntry
-export type IPv4ElementArray = IPv4Element
-export type IPv6ElementArray = IPv6Element
-export type LteAttachConfigurationArray = LteAttachConfiguration
-export type NwErrorDeprecated = number
-export type PacketFilterArray = PacketFilter
-export type PacketFilterV3Array = PacketFilterV3
-export type PhonebookEntryArray = PhonebookEntry
-export type ProviderArray = Provider
-export type ProvisionedContextElementArray = ProvisionedContextElement
-export type ProvisionedContextElementV2Array = ProvisionedContextElementV2
-export type RsrpSnrInfoArray = RsrpSnrInfo
-export type SarConfigStateArray = SarConfigState
-export type SlotArray = Slot
-export type SmsCdmaReadRecordArray = SmsCdmaReadRecord
-export type SmsPduReadRecordArray = SmsPduReadRecord
-export type TerminalCapabilityInfoArray = TerminalCapabilityInfo
+type AtdsProviderArray = AtdsProvider
+type CellInfoCdmaArray = CellInfoCdma
+type CellInfoNeighboringGsmArray = CellInfoNeighboringGsm
+type CellInfoNeighboringLteArray = CellInfoNeighboringLte
+type CellInfoNeighboringNrArray = CellInfoNeighboringNr
+type CellInfoNeighboringTdscdmaArray = CellInfoNeighboringTdscdma
+type CellInfoNeighboringUmtsArray = CellInfoNeighboringUmts
+type CellInfoServingNrArray = CellInfoServingNr
+type DeprecatedCidBasicConnect = number
+type DeprecatedCidMsBasicConnectExtensions = number
+type DeprecatedRegistrationFlag = number
+type DeviceServiceElementArray = DeviceServiceElement
+type EventEntryArray = EventEntry
+type IPv4ElementArray = IPv4Element
+type IPv6ElementArray = IPv6Element
+type LteAttachConfigurationArray = LteAttachConfiguration
+type NwErrorDeprecated = number
+type PacketFilterArray = PacketFilter
+type PacketFilterV3Array = PacketFilterV3
+type PhonebookEntryArray = PhonebookEntry
+type ProviderArray = Provider
+type ProvisionedContextElementArray = ProvisionedContextElement
+type ProvisionedContextElementV2Array = ProvisionedContextElementV2
+type RsrpSnrInfoArray = RsrpSnrInfo
+type SarConfigStateArray = SarConfigState
+type SlotArray = Slot
+type SmsCdmaReadRecordArray = SmsCdmaReadRecord
+type SmsPduReadRecordArray = SmsPduReadRecord
+type TerminalCapabilityInfoArray = TerminalCapabilityInfo
+}
+export default Mbim

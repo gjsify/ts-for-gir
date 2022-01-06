@@ -19,9 +19,9 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace WebKit2 {
+declare namespace WebKit2 {
 
-export enum AuthenticationScheme {
+enum AuthenticationScheme {
     DEFAULT,
     HTTP_BASIC,
     HTTP_DIGEST,
@@ -33,21 +33,21 @@ export enum AuthenticationScheme {
     CLIENT_CERTIFICATE_PIN_REQUESTED,
     UNKNOWN,
 }
-export enum AutomationBrowsingContextPresentation {
+enum AutomationBrowsingContextPresentation {
     WINDOW,
     TAB,
 }
-export enum AutoplayPolicy {
+enum AutoplayPolicy {
     ALLOW,
     ALLOW_WITHOUT_SOUND,
     DENY,
 }
-export enum CacheModel {
+enum CacheModel {
     DOCUMENT_VIEWER,
     WEB_BROWSER,
     DOCUMENT_BROWSER,
 }
-export enum ContextMenuAction {
+enum ContextMenuAction {
     NO_ACTION,
     OPEN_LINK,
     OPEN_LINK_IN_NEW_WINDOW,
@@ -96,36 +96,36 @@ export enum ContextMenuAction {
     PASTE_AS_PLAIN_TEXT,
     CUSTOM,
 }
-export enum CookieAcceptPolicy {
+enum CookieAcceptPolicy {
     ALWAYS,
     NEVER,
     NO_THIRD_PARTY,
 }
-export enum CookiePersistentStorage {
+enum CookiePersistentStorage {
     TEXT,
     SQLITE,
 }
-export enum CredentialPersistence {
+enum CredentialPersistence {
     NONE,
     FOR_SESSION,
     PERMANENT,
 }
-export enum DownloadError {
+enum DownloadError {
     NETWORK,
     CANCELLED_BY_USER,
     DESTINATION,
 }
-export enum FaviconDatabaseError {
+enum FaviconDatabaseError {
     NOT_INITIALIZED,
     FAVICON_NOT_FOUND,
     FAVICON_UNKNOWN,
 }
-export enum HardwareAccelerationPolicy {
+enum HardwareAccelerationPolicy {
     ON_DEMAND,
     ALWAYS,
     NEVER,
 }
-export enum InputPurpose {
+enum InputPurpose {
     FREE_FORM,
     DIGITS,
     NUMBER,
@@ -134,25 +134,25 @@ export enum InputPurpose {
     EMAIL,
     PASSWORD,
 }
-export enum InsecureContentEvent {
+enum InsecureContentEvent {
     RUN,
     DISPLAYED,
 }
-export enum JavascriptError {
+enum JavascriptError {
     FAILED,
 }
-export enum LoadEvent {
+enum LoadEvent {
     STARTED,
     REDIRECTED,
     COMMITTED,
     FINISHED,
 }
-export enum MediaCaptureState {
+enum MediaCaptureState {
     NONE,
     ACTIVE,
     MUTED,
 }
-export enum NavigationType {
+enum NavigationType {
     LINK_CLICKED,
     FORM_SUBMITTED,
     BACK_FORWARD,
@@ -160,19 +160,19 @@ export enum NavigationType {
     FORM_RESUBMITTED,
     OTHER,
 }
-export enum NetworkError {
+enum NetworkError {
     FAILED,
     TRANSPORT,
     UNKNOWN_PROTOCOL,
     CANCELLED,
     FILE_DOES_NOT_EXIST,
 }
-export enum NetworkProxyMode {
+enum NetworkProxyMode {
     DEFAULT,
     NO_PROXY,
     CUSTOM,
 }
-export enum PluginError {
+enum PluginError {
     FAILED,
     CANNOT_FIND_PLUGIN,
     CANNOT_LOAD_PLUGIN,
@@ -180,83 +180,83 @@ export enum PluginError {
     CONNECTION_CANCELLED,
     WILL_HANDLE_LOAD,
 }
-export enum PolicyDecisionType {
+enum PolicyDecisionType {
     NAVIGATION_ACTION,
     NEW_WINDOW_ACTION,
     RESPONSE,
 }
-export enum PolicyError {
+enum PolicyError {
     FAILED,
     CANNOT_SHOW_MIME_TYPE,
     CANNOT_SHOW_URI,
     FRAME_LOAD_INTERRUPTED_BY_POLICY_CHANGE,
     CANNOT_USE_RESTRICTED_PORT,
 }
-export enum PrintError {
+enum PrintError {
     GENERAL,
     PRINTER_NOT_FOUND,
     INVALID_PAGE_RANGE,
 }
-export enum PrintOperationResponse {
+enum PrintOperationResponse {
     PRINT,
     CANCEL,
 }
-export enum ProcessModel {
+enum ProcessModel {
     SHARED_SECONDARY_PROCESS,
     MULTIPLE_SECONDARY_PROCESSES,
 }
-export enum SaveMode {
+enum SaveMode {
     MHTML,
 }
-export enum ScriptDialogType {
+enum ScriptDialogType {
     ALERT,
     CONFIRM,
     PROMPT,
     BEFORE_UNLOAD_CONFIRM,
 }
-export enum SnapshotError {
+enum SnapshotError {
     CREATE,
 }
-export enum SnapshotRegion {
+enum SnapshotRegion {
     VISIBLE,
     FULL_DOCUMENT,
 }
-export enum TLSErrorsPolicy {
+enum TLSErrorsPolicy {
     IGNORE,
     FAIL,
 }
-export enum UserContentFilterError {
+enum UserContentFilterError {
     INVALID_SOURCE,
     NOT_FOUND,
 }
-export enum UserContentInjectedFrames {
+enum UserContentInjectedFrames {
     ALL_FRAMES,
     TOP_FRAME,
 }
-export enum UserMessageError {
+enum UserMessageError {
     MESSAGE,
 }
-export enum UserScriptInjectionTime {
+enum UserScriptInjectionTime {
     START,
     END,
 }
-export enum UserStyleLevel {
+enum UserStyleLevel {
     USER,
     AUTHOR,
 }
-export enum WebProcessTerminationReason {
+enum WebProcessTerminationReason {
     CRASHED,
     EXCEEDED_MEMORY_LIMIT,
     TERMINATED_BY_API,
 }
-export enum EditorTypingAttributes {
+enum EditorTypingAttributes {
     NONE,
     BOLD,
     ITALIC,
     UNDERLINE,
     STRIKETHROUGH,
 }
-export enum FindOptions {
+enum FindOptions {
     NONE,
     CASE_INSENSITIVE,
     AT_WORD_STARTS,
@@ -264,7 +264,7 @@ export enum FindOptions {
     BACKWARDS,
     WRAP_AROUND,
 }
-export enum HitTestResultContext {
+enum HitTestResultContext {
     DOCUMENT,
     LINK,
     IMAGE,
@@ -273,7 +273,7 @@ export enum HitTestResultContext {
     SCROLLBAR,
     SELECTION,
 }
-export enum InputHints {
+enum InputHints {
     NONE,
     SPELLCHECK,
     LOWERCASE,
@@ -282,12 +282,12 @@ export enum InputHints {
     UPPERCASE_SENTENCES,
     INHIBIT_OSK,
 }
-export enum SnapshotOptions {
+enum SnapshotOptions {
     NONE,
     INCLUDE_SELECTION_HIGHLIGHTING,
     TRANSPARENT_BACKGROUND,
 }
-export enum WebsiteDataTypes {
+enum WebsiteDataTypes {
     MEMORY_CACHE,
     DISK_CACHE,
     OFFLINE_APPLICATION_CACHE,
@@ -316,28 +316,28 @@ export const EDITING_COMMAND_UNDO: string
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function downloadErrorQuark(): GLib.Quark
-export function faviconDatabaseErrorQuark(): GLib.Quark
-export function getMajorVersion(): number
-export function getMicroVersion(): number
-export function getMinorVersion(): number
-export function javascriptErrorQuark(): GLib.Quark
-export function mediaKeySystemPermissionGetName(request: MediaKeySystemPermissionRequest): string
-export function networkErrorQuark(): GLib.Quark
-export function pluginErrorQuark(): GLib.Quark
-export function policyErrorQuark(): GLib.Quark
-export function printErrorQuark(): GLib.Quark
-export function snapshotErrorQuark(): GLib.Quark
-export function uriForDisplay(uri: string): string | null
-export function userContentFilterErrorQuark(): GLib.Quark
-export function userMediaPermissionIsForAudioDevice(request: UserMediaPermissionRequest): boolean
-export function userMediaPermissionIsForDisplayDevice(request: UserMediaPermissionRequest): boolean
-export function userMediaPermissionIsForVideoDevice(request: UserMediaPermissionRequest): boolean
-export function userMessageErrorQuark(): GLib.Quark
-export interface URISchemeRequestCallback {
+function downloadErrorQuark(): GLib.Quark
+function faviconDatabaseErrorQuark(): GLib.Quark
+function getMajorVersion(): number
+function getMicroVersion(): number
+function getMinorVersion(): number
+function javascriptErrorQuark(): GLib.Quark
+function mediaKeySystemPermissionGetName(request: MediaKeySystemPermissionRequest): string
+function networkErrorQuark(): GLib.Quark
+function pluginErrorQuark(): GLib.Quark
+function policyErrorQuark(): GLib.Quark
+function printErrorQuark(): GLib.Quark
+function snapshotErrorQuark(): GLib.Quark
+function uriForDisplay(uri: string): string | null
+function userContentFilterErrorQuark(): GLib.Quark
+function userMediaPermissionIsForAudioDevice(request: UserMediaPermissionRequest): boolean
+function userMediaPermissionIsForDisplayDevice(request: UserMediaPermissionRequest): boolean
+function userMediaPermissionIsForVideoDevice(request: UserMediaPermissionRequest): boolean
+function userMessageErrorQuark(): GLib.Quark
+interface URISchemeRequestCallback {
     (request: URISchemeRequest): void
 }
-export class PermissionRequest {
+class PermissionRequest {
     /* Methods of WebKit2-5.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
@@ -345,7 +345,7 @@ export class PermissionRequest {
 }
 export interface AuthenticationRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AuthenticationRequest {
+class AuthenticationRequest {
     /* Fields of WebKit2-5.0.WebKit2.AuthenticationRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -419,7 +419,7 @@ export class AuthenticationRequest {
 export interface AutomationSession_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
-export class AutomationSession {
+class AutomationSession {
     /* Fields of WebKit2-5.0.WebKit2.AutomationSession */
     parent: GObject.Object
     priv: AutomationSessionPrivate
@@ -477,7 +477,7 @@ export class AutomationSession {
 }
 export interface BackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BackForwardList {
+class BackForwardList {
     /* Fields of WebKit2-5.0.WebKit2.BackForwardList */
     parent: GObject.Object
     priv: BackForwardListPrivate
@@ -541,7 +541,7 @@ export class BackForwardList {
 }
 export interface BackForwardListItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class BackForwardListItem {
+class BackForwardListItem {
     /* Fields of WebKit2-5.0.WebKit2.BackForwardListItem */
     parent: GObject.InitiallyUnowned
     priv: BackForwardListItemPrivate
@@ -594,7 +594,7 @@ export class BackForwardListItem {
 export interface ColorChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
     rgba?: Gdk.RGBA
 }
-export class ColorChooserRequest {
+class ColorChooserRequest {
     /* Properties of WebKit2-5.0.WebKit2.ColorChooserRequest */
     rgba: Gdk.RGBA
     /* Fields of WebKit2-5.0.WebKit2.ColorChooserRequest */
@@ -660,7 +660,7 @@ export class ColorChooserRequest {
 }
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContextMenu {
+class ContextMenu {
     /* Fields of WebKit2-5.0.WebKit2.ContextMenu */
     parent: GObject.Object
     priv: ContextMenuPrivate
@@ -725,7 +725,7 @@ export class ContextMenu {
 }
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class ContextMenuItem {
+class ContextMenuItem {
     /* Fields of WebKit2-5.0.WebKit2.ContextMenuItem */
     parent: GObject.InitiallyUnowned
     priv: ContextMenuItemPrivate
@@ -785,7 +785,7 @@ export class ContextMenuItem {
 }
 export interface CookieManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CookieManager {
+class CookieManager {
     /* Fields of WebKit2-5.0.WebKit2.CookieManager */
     parent: GObject.Object
     priv: CookieManagerPrivate
@@ -854,7 +854,7 @@ export class CookieManager {
 }
 export interface DeviceInfoPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DeviceInfoPermissionRequest {
+class DeviceInfoPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.DeviceInfoPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -905,7 +905,7 @@ export class DeviceInfoPermissionRequest {
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
     allowOverwrite?: boolean
 }
-export class Download {
+class Download {
     /* Properties of WebKit2-5.0.WebKit2.Download */
     allowOverwrite: boolean
     readonly destination: string
@@ -1016,7 +1016,7 @@ export class Download {
 }
 export interface EditorState_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EditorState {
+class EditorState {
     /* Properties of WebKit2-5.0.WebKit2.EditorState */
     readonly typingAttributes: number
     /* Fields of WebKit2-5.0.WebKit2.EditorState */
@@ -1078,7 +1078,7 @@ export class EditorState {
 }
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FaviconDatabase {
+class FaviconDatabase {
     /* Fields of WebKit2-5.0.WebKit2.FaviconDatabase */
     parent: GObject.Object
     priv: FaviconDatabasePrivate
@@ -1137,7 +1137,7 @@ export class FaviconDatabase {
 }
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FileChooserRequest {
+class FileChooserRequest {
     /* Properties of WebKit2-5.0.WebKit2.FileChooserRequest */
     readonly filter: Gtk.FileFilter
     readonly mimeTypes: string[]
@@ -1217,7 +1217,7 @@ export class FileChooserRequest {
 export interface FindController_ConstructProps extends GObject.Object_ConstructProps {
     webView?: WebView
 }
-export class FindController {
+class FindController {
     /* Properties of WebKit2-5.0.WebKit2.FindController */
     readonly maxMatchCount: number
     readonly options: FindOptions
@@ -1309,7 +1309,7 @@ export class FindController {
 }
 export interface FormSubmissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FormSubmissionRequest {
+class FormSubmissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.FormSubmissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1360,7 +1360,7 @@ export class FormSubmissionRequest {
 }
 export interface GeolocationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GeolocationManager {
+class GeolocationManager {
     /* Properties of WebKit2-5.0.WebKit2.GeolocationManager */
     readonly enableHighAccuracy: boolean
     /* Fields of WebKit2-5.0.WebKit2.GeolocationManager */
@@ -1429,7 +1429,7 @@ export class GeolocationManager {
 }
 export interface GeolocationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GeolocationPermissionRequest {
+class GeolocationPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.GeolocationPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1485,7 +1485,7 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     linkUri?: string
     mediaUri?: string
 }
-export class HitTestResult {
+class HitTestResult {
     /* Fields of WebKit2-5.0.WebKit2.HitTestResult */
     parent: GObject.Object
     priv: HitTestResultPrivate
@@ -1548,7 +1548,7 @@ export interface InputMethodContext_ConstructProps extends GObject.Object_Constr
     inputHints?: InputHints
     inputPurpose?: InputPurpose
 }
-export class InputMethodContext {
+class InputMethodContext {
     /* Properties of WebKit2-5.0.WebKit2.InputMethodContext */
     inputHints: InputHints
     inputPurpose: InputPurpose
@@ -1647,7 +1647,7 @@ export class InputMethodContext {
 }
 export interface InstallMissingMediaPluginsPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class InstallMissingMediaPluginsPermissionRequest {
+class InstallMissingMediaPluginsPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.InstallMissingMediaPluginsPermissionRequest */
     parent: GObject.Object
     priv: InstallMissingMediaPluginsPermissionRequestPrivate
@@ -1700,7 +1700,7 @@ export class InstallMissingMediaPluginsPermissionRequest {
 }
 export interface MediaKeySystemPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MediaKeySystemPermissionRequest {
+class MediaKeySystemPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.MediaKeySystemPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1750,7 +1750,7 @@ export class MediaKeySystemPermissionRequest {
 }
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
-export class NavigationPolicyDecision {
+class NavigationPolicyDecision {
     /* Properties of WebKit2-5.0.WebKit2.NavigationPolicyDecision */
     readonly frameName: string
     readonly modifiers: number
@@ -1846,7 +1846,7 @@ export class NavigationPolicyDecision {
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Notification {
+class Notification {
     /* Properties of WebKit2-5.0.WebKit2.Notification */
     readonly body: string
     readonly id: number
@@ -1937,7 +1937,7 @@ export class Notification {
 }
 export interface NotificationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NotificationPermissionRequest {
+class NotificationPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.NotificationPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1987,7 +1987,7 @@ export class NotificationPermissionRequest {
 }
 export interface OptionMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class OptionMenu {
+class OptionMenu {
     /* Fields of WebKit2-5.0.WebKit2.OptionMenu */
     parent: GObject.Object
     priv: OptionMenuPrivate
@@ -2047,7 +2047,7 @@ export class OptionMenu {
 }
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Plugin {
+class Plugin {
     /* Fields of WebKit2-5.0.WebKit2.Plugin */
     parent: GObject.Object
     priv: PluginPrivate
@@ -2100,7 +2100,7 @@ export class Plugin {
 }
 export interface PointerLockPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PointerLockPermissionRequest {
+class PointerLockPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.PointerLockPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2150,7 +2150,7 @@ export class PointerLockPermissionRequest {
 }
 export interface PolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PolicyDecision {
+class PolicyDecision {
     /* Fields of WebKit2-5.0.WebKit2.PolicyDecision */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2204,7 +2204,7 @@ export interface PrintCustomWidget_ConstructProps extends GObject.Object_Constru
     title?: string
     widget?: Gtk.Widget
 }
-export class PrintCustomWidget {
+class PrintCustomWidget {
     /* Fields of WebKit2-5.0.WebKit2.PrintCustomWidget */
     parent: GObject.Object
     priv: PrintCustomWidgetPrivate
@@ -2271,7 +2271,7 @@ export interface PrintOperation_ConstructProps extends GObject.Object_ConstructP
     printSettings?: Gtk.PrintSettings
     webView?: WebView
 }
-export class PrintOperation {
+class PrintOperation {
     /* Properties of WebKit2-5.0.WebKit2.PrintOperation */
     pageSetup: Gtk.PageSetup
     printSettings: Gtk.PrintSettings
@@ -2357,7 +2357,7 @@ export class PrintOperation {
 }
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
-export class ResponsePolicyDecision {
+class ResponsePolicyDecision {
     /* Properties of WebKit2-5.0.WebKit2.ResponsePolicyDecision */
     readonly request: URIRequest
     readonly response: URIResponse
@@ -2426,7 +2426,7 @@ export class ResponsePolicyDecision {
 }
 export interface SecurityManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SecurityManager {
+class SecurityManager {
     /* Fields of WebKit2-5.0.WebKit2.SecurityManager */
     parent: GObject.Object
     priv: SecurityManagerPrivate
@@ -2546,7 +2546,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     userAgent?: string
     zoomTextOnly?: boolean
 }
-export class Settings {
+class Settings {
     /* Properties of WebKit2-5.0.WebKit2.Settings */
     allowFileAccessFromFileUrls: boolean
     allowModalDialogs: boolean
@@ -3074,7 +3074,7 @@ export class Settings {
 export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps {
     uri?: string
 }
-export class URIRequest {
+class URIRequest {
     /* Properties of WebKit2-5.0.WebKit2.URIRequest */
     uri: string
     /* Fields of WebKit2-5.0.WebKit2.URIRequest */
@@ -3135,7 +3135,7 @@ export class URIRequest {
 }
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class URIResponse {
+class URIResponse {
     /* Properties of WebKit2-5.0.WebKit2.URIResponse */
     readonly contentLength: number
     readonly httpHeaders: Soup.MessageHeaders
@@ -3226,7 +3226,7 @@ export class URIResponse {
 }
 export interface URISchemeRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class URISchemeRequest {
+class URISchemeRequest {
     /* Fields of WebKit2-5.0.WebKit2.URISchemeRequest */
     parent: GObject.Object
     priv: URISchemeRequestPrivate
@@ -3286,7 +3286,7 @@ export interface URISchemeResponse_ConstructProps extends GObject.Object_Constru
     stream?: Gio.InputStream
     streamLength?: number
 }
-export class URISchemeResponse {
+class URISchemeResponse {
     /* Fields of WebKit2-5.0.WebKit2.URISchemeResponse */
     parent: GObject.Object
     priv: URISchemeResponsePrivate
@@ -3341,7 +3341,7 @@ export class URISchemeResponse {
 export interface UserContentFilterStore_ConstructProps extends GObject.Object_ConstructProps {
     path?: string
 }
-export class UserContentFilterStore {
+class UserContentFilterStore {
     /* Fields of WebKit2-5.0.WebKit2.UserContentFilterStore */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3402,7 +3402,7 @@ export class UserContentFilterStore {
 }
 export interface UserContentManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UserContentManager {
+class UserContentManager {
     /* Fields of WebKit2-5.0.WebKit2.UserContentManager */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3472,7 +3472,7 @@ export class UserContentManager {
 }
 export interface UserMediaPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UserMediaPermissionRequest {
+class UserMediaPermissionRequest {
     /* Properties of WebKit2-5.0.WebKit2.UserMediaPermissionRequest */
     readonly isForAudioDevice: boolean
     readonly isForVideoDevice: boolean
@@ -3538,7 +3538,7 @@ export interface UserMessage_ConstructProps extends GObject.InitiallyUnowned_Con
     name?: string
     parameters?: GLib.Variant
 }
-export class UserMessage {
+class UserMessage {
     /* Fields of WebKit2-5.0.WebKit2.UserMessage */
     parent: GObject.InitiallyUnowned
     priv: UserMessagePrivate
@@ -3598,7 +3598,7 @@ export interface WebContext_ConstructProps extends GObject.Object_ConstructProps
     processSwapOnCrossSiteNavigationEnabled?: boolean
     websiteDataManager?: WebsiteDataManager
 }
-export class WebContext {
+class WebContext {
     /* Fields of WebKit2-5.0.WebKit2.WebContext */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3719,7 +3719,7 @@ export class WebContext {
 }
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebInspector {
+class WebInspector {
     /* Properties of WebKit2-5.0.WebKit2.WebInspector */
     readonly attachedHeight: number
     readonly canAttach: boolean
@@ -3822,7 +3822,7 @@ export class WebInspector {
 }
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebResource {
+class WebResource {
     /* Properties of WebKit2-5.0.WebKit2.WebResource */
     readonly response: URIResponse
     readonly uri: string
@@ -3929,7 +3929,7 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     zoomLevel?: number
     accessibleRole?: Gtk.AccessibleRole
 }
-export class WebView {
+class WebView {
     /* Properties of WebKit2-5.0.WebKit2.WebView */
     cameraCaptureState: MediaCaptureState
     displayCaptureState: MediaCaptureState
@@ -4729,7 +4729,7 @@ export class WebView {
 export interface WebViewBase_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
 }
-export class WebViewBase {
+class WebViewBase {
     /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
@@ -5215,7 +5215,7 @@ export class WebViewBase {
 }
 export interface WebsiteDataAccessPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WebsiteDataAccessPermissionRequest {
+class WebsiteDataAccessPermissionRequest {
     /* Fields of WebKit2-5.0.WebKit2.WebsiteDataAccessPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5280,7 +5280,7 @@ export interface WebsiteDataManager_ConstructProps extends GObject.Object_Constr
     serviceWorkerRegistrationsDirectory?: string
     websqlDirectory?: string
 }
-export class WebsiteDataManager {
+class WebsiteDataManager {
     /* Fields of WebKit2-5.0.WebKit2.WebsiteDataManager */
     parent: GObject.Object
     priv: WebsiteDataManagerPrivate
@@ -5361,7 +5361,7 @@ export class WebsiteDataManager {
 export interface WebsitePolicies_ConstructProps extends GObject.Object_ConstructProps {
     autoplay?: AutoplayPolicy
 }
-export class WebsitePolicies {
+class WebsitePolicies {
     /* Fields of WebKit2-5.0.WebKit2.WebsitePolicies */
     parent: GObject.Object
     priv: WebsitePoliciesPrivate
@@ -5421,7 +5421,7 @@ export interface WindowProperties_ConstructProps extends GObject.Object_Construc
     statusbarVisible?: boolean
     toolbarVisible?: boolean
 }
-export class WindowProperties {
+class WindowProperties {
     /* Fields of WebKit2-5.0.WebKit2.WindowProperties */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5475,7 +5475,7 @@ export class WindowProperties {
     _init (config?: WindowProperties_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class ApplicationInfo {
+class ApplicationInfo {
     /* Methods of WebKit2-5.0.WebKit2.ApplicationInfo */
     getName(): string
     getVersion(): { major: number, minor: number | null, micro: number | null }
@@ -5489,71 +5489,71 @@ export class ApplicationInfo {
     /* Static methods and pseudo-constructors */
     static new(): ApplicationInfo
 }
-export abstract class AuthenticationRequestClass {
+abstract class AuthenticationRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.AuthenticationRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AuthenticationRequestPrivate {
+class AuthenticationRequestPrivate {
     static name: string
 }
-export abstract class AutomationSessionClass {
+abstract class AutomationSessionClass {
     /* Fields of WebKit2-5.0.WebKit2.AutomationSessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AutomationSessionPrivate {
+class AutomationSessionPrivate {
     static name: string
 }
-export abstract class BackForwardListClass {
+abstract class BackForwardListClass {
     /* Fields of WebKit2-5.0.WebKit2.BackForwardListClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class BackForwardListItemClass {
+abstract class BackForwardListItemClass {
     /* Fields of WebKit2-5.0.WebKit2.BackForwardListItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export class BackForwardListItemPrivate {
+class BackForwardListItemPrivate {
     static name: string
 }
-export class BackForwardListPrivate {
+class BackForwardListPrivate {
     static name: string
 }
-export abstract class ColorChooserRequestClass {
+abstract class ColorChooserRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.ColorChooserRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ColorChooserRequestPrivate {
+class ColorChooserRequestPrivate {
     static name: string
 }
-export abstract class ContextMenuClass {
+abstract class ContextMenuClass {
     /* Fields of WebKit2-5.0.WebKit2.ContextMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContextMenuItemClass {
+abstract class ContextMenuItemClass {
     /* Fields of WebKit2-5.0.WebKit2.ContextMenuItemClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export class ContextMenuItemPrivate {
+class ContextMenuItemPrivate {
     static name: string
 }
-export class ContextMenuPrivate {
+class ContextMenuPrivate {
     static name: string
 }
-export abstract class CookieManagerClass {
+abstract class CookieManagerClass {
     /* Fields of WebKit2-5.0.WebKit2.CookieManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CookieManagerPrivate {
+class CookieManagerPrivate {
     static name: string
 }
-export class Credential {
+class Credential {
     /* Methods of WebKit2-5.0.WebKit2.Credential */
     copy(): Credential
     free(): void
@@ -5570,80 +5570,80 @@ export class Credential {
     static newForCertificate(certificate: Gio.TlsCertificate | null, persistence: CredentialPersistence): Credential
     static newForCertificatePin(pin: string, persistence: CredentialPersistence): Credential
 }
-export abstract class DeviceInfoPermissionRequestClass {
+abstract class DeviceInfoPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.DeviceInfoPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DeviceInfoPermissionRequestPrivate {
+class DeviceInfoPermissionRequestPrivate {
     static name: string
 }
-export abstract class DownloadClass {
+abstract class DownloadClass {
     /* Fields of WebKit2-5.0.WebKit2.DownloadClass */
     parentClass: GObject.ObjectClass
     decideDestination: (download: Download, suggestedFilename: string) => boolean
     static name: string
 }
-export class DownloadPrivate {
+class DownloadPrivate {
     static name: string
 }
-export abstract class EditorStateClass {
+abstract class EditorStateClass {
     /* Fields of WebKit2-5.0.WebKit2.EditorStateClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class EditorStatePrivate {
+class EditorStatePrivate {
     static name: string
 }
-export abstract class FaviconDatabaseClass {
+abstract class FaviconDatabaseClass {
     /* Fields of WebKit2-5.0.WebKit2.FaviconDatabaseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FaviconDatabasePrivate {
+class FaviconDatabasePrivate {
     static name: string
 }
-export abstract class FileChooserRequestClass {
+abstract class FileChooserRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.FileChooserRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FileChooserRequestPrivate {
+class FileChooserRequestPrivate {
     static name: string
 }
-export abstract class FindControllerClass {
+abstract class FindControllerClass {
     /* Fields of WebKit2-5.0.WebKit2.FindControllerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FindControllerPrivate {
+class FindControllerPrivate {
     static name: string
 }
-export abstract class FormSubmissionRequestClass {
+abstract class FormSubmissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.FormSubmissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FormSubmissionRequestPrivate {
+class FormSubmissionRequestPrivate {
     static name: string
 }
-export abstract class GeolocationManagerClass {
+abstract class GeolocationManagerClass {
     /* Fields of WebKit2-5.0.WebKit2.GeolocationManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GeolocationManagerPrivate {
+class GeolocationManagerPrivate {
     static name: string
 }
-export abstract class GeolocationPermissionRequestClass {
+abstract class GeolocationPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.GeolocationPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GeolocationPermissionRequestPrivate {
+class GeolocationPermissionRequestPrivate {
     static name: string
 }
-export class GeolocationPosition {
+class GeolocationPosition {
     /* Methods of WebKit2-5.0.WebKit2.GeolocationPosition */
     copy(): GeolocationPosition
     free(): void
@@ -5658,15 +5658,15 @@ export class GeolocationPosition {
     /* Static methods and pseudo-constructors */
     static new(latitude: number, longitude: number, accuracy: number): GeolocationPosition
 }
-export abstract class HitTestResultClass {
+abstract class HitTestResultClass {
     /* Fields of WebKit2-5.0.WebKit2.HitTestResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class HitTestResultPrivate {
+class HitTestResultPrivate {
     static name: string
 }
-export class ITPFirstParty {
+class ITPFirstParty {
     /* Methods of WebKit2-5.0.WebKit2.ITPFirstParty */
     getDomain(): string
     getLastUpdateTime(): GLib.DateTime
@@ -5675,7 +5675,7 @@ export class ITPFirstParty {
     unref(): void
     static name: string
 }
-export class ITPThirdParty {
+class ITPThirdParty {
     /* Methods of WebKit2-5.0.WebKit2.ITPThirdParty */
     getDomain(): string
     getFirstParties(): ITPFirstParty[]
@@ -5683,7 +5683,7 @@ export class ITPThirdParty {
     unref(): void
     static name: string
 }
-export abstract class InputMethodContextClass {
+abstract class InputMethodContextClass {
     /* Fields of WebKit2-5.0.WebKit2.InputMethodContextClass */
     parentClass: GObject.ObjectClass
     preeditStarted: (context: InputMethodContext) => void
@@ -5701,10 +5701,10 @@ export abstract class InputMethodContextClass {
     reset: (context: InputMethodContext) => void
     static name: string
 }
-export class InputMethodContextPrivate {
+class InputMethodContextPrivate {
     static name: string
 }
-export class InputMethodUnderline {
+class InputMethodUnderline {
     /* Methods of WebKit2-5.0.WebKit2.InputMethodUnderline */
     copy(): InputMethodUnderline
     free(): void
@@ -5715,30 +5715,30 @@ export class InputMethodUnderline {
     /* Static methods and pseudo-constructors */
     static new(startOffset: number, endOffset: number): InputMethodUnderline
 }
-export abstract class InstallMissingMediaPluginsPermissionRequestClass {
+abstract class InstallMissingMediaPluginsPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.InstallMissingMediaPluginsPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class InstallMissingMediaPluginsPermissionRequestPrivate {
+class InstallMissingMediaPluginsPermissionRequestPrivate {
     static name: string
 }
-export class JavascriptResult {
+class JavascriptResult {
     /* Methods of WebKit2-5.0.WebKit2.JavascriptResult */
     getJsValue(): JavaScriptCore.Value
     ref(): JavascriptResult
     unref(): void
     static name: string
 }
-export abstract class MediaKeySystemPermissionRequestClass {
+abstract class MediaKeySystemPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.MediaKeySystemPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MediaKeySystemPermissionRequestPrivate {
+class MediaKeySystemPermissionRequestPrivate {
     static name: string
 }
-export class MemoryPressureSettings {
+class MemoryPressureSettings {
     /* Methods of WebKit2-5.0.WebKit2.MemoryPressureSettings */
     copy(): MemoryPressureSettings
     free(): void
@@ -5758,7 +5758,7 @@ export class MemoryPressureSettings {
     /* Static methods and pseudo-constructors */
     static new(): MemoryPressureSettings
 }
-export class MimeInfo {
+class MimeInfo {
     /* Methods of WebKit2-5.0.WebKit2.MimeInfo */
     getDescription(): string
     getExtensions(): string[]
@@ -5767,7 +5767,7 @@ export class MimeInfo {
     unref(): void
     static name: string
 }
-export class NavigationAction {
+class NavigationAction {
     /* Methods of WebKit2-5.0.WebKit2.NavigationAction */
     copy(): NavigationAction
     free(): void
@@ -5779,15 +5779,15 @@ export class NavigationAction {
     isUserGesture(): boolean
     static name: string
 }
-export abstract class NavigationPolicyDecisionClass {
+abstract class NavigationPolicyDecisionClass {
     /* Fields of WebKit2-5.0.WebKit2.NavigationPolicyDecisionClass */
     parentClass: PolicyDecisionClass
     static name: string
 }
-export class NavigationPolicyDecisionPrivate {
+class NavigationPolicyDecisionPrivate {
     static name: string
 }
-export class NetworkProxySettings {
+class NetworkProxySettings {
     /* Methods of WebKit2-5.0.WebKit2.NetworkProxySettings */
     addProxyForScheme(scheme: string, proxyUri: string): void
     copy(): NetworkProxySettings
@@ -5798,28 +5798,28 @@ export class NetworkProxySettings {
     /* Static methods and pseudo-constructors */
     static new(defaultProxyUri?: string | null, ignoreHosts?: string[] | null): NetworkProxySettings
 }
-export abstract class NotificationClass {
+abstract class NotificationClass {
     /* Fields of WebKit2-5.0.WebKit2.NotificationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class NotificationPermissionRequestClass {
+abstract class NotificationPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.NotificationPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class NotificationPermissionRequestPrivate {
+class NotificationPermissionRequestPrivate {
     static name: string
 }
-export class NotificationPrivate {
+class NotificationPrivate {
     static name: string
 }
-export abstract class OptionMenuClass {
+abstract class OptionMenuClass {
     /* Fields of WebKit2-5.0.WebKit2.OptionMenuClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class OptionMenuItem {
+class OptionMenuItem {
     /* Methods of WebKit2-5.0.WebKit2.OptionMenuItem */
     copy(): OptionMenuItem
     free(): void
@@ -5831,67 +5831,67 @@ export class OptionMenuItem {
     isSelected(): boolean
     static name: string
 }
-export class OptionMenuPrivate {
+class OptionMenuPrivate {
     static name: string
 }
-export abstract class PermissionRequestIface {
+abstract class PermissionRequestIface {
     /* Fields of WebKit2-5.0.WebKit2.PermissionRequestIface */
     parentInterface: GObject.TypeInterface
     allow: (request: PermissionRequest) => void
     deny: (request: PermissionRequest) => void
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of WebKit2-5.0.WebKit2.PluginClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export abstract class PointerLockPermissionRequestClass {
+abstract class PointerLockPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.PointerLockPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PointerLockPermissionRequestPrivate {
+class PointerLockPermissionRequestPrivate {
     static name: string
 }
-export abstract class PolicyDecisionClass {
+abstract class PolicyDecisionClass {
     /* Fields of WebKit2-5.0.WebKit2.PolicyDecisionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PolicyDecisionPrivate {
+class PolicyDecisionPrivate {
     static name: string
 }
-export abstract class PrintCustomWidgetClass {
+abstract class PrintCustomWidgetClass {
     /* Fields of WebKit2-5.0.WebKit2.PrintCustomWidgetClass */
     parentClass: GObject.ObjectClass
     apply: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget) => void
     update: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void
     static name: string
 }
-export class PrintCustomWidgetPrivate {
+class PrintCustomWidgetPrivate {
     static name: string
 }
-export abstract class PrintOperationClass {
+abstract class PrintOperationClass {
     /* Fields of WebKit2-5.0.WebKit2.PrintOperationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PrintOperationPrivate {
+class PrintOperationPrivate {
     static name: string
 }
-export abstract class ResponsePolicyDecisionClass {
+abstract class ResponsePolicyDecisionClass {
     /* Fields of WebKit2-5.0.WebKit2.ResponsePolicyDecisionClass */
     parentClass: PolicyDecisionClass
     static name: string
 }
-export class ResponsePolicyDecisionPrivate {
+class ResponsePolicyDecisionPrivate {
     static name: string
 }
-export class ScriptDialog {
+class ScriptDialog {
     /* Methods of WebKit2-5.0.WebKit2.ScriptDialog */
     close(): void
     confirmSetConfirmed(confirmed: boolean): void
@@ -5903,15 +5903,15 @@ export class ScriptDialog {
     unref(): void
     static name: string
 }
-export abstract class SecurityManagerClass {
+abstract class SecurityManagerClass {
     /* Fields of WebKit2-5.0.WebKit2.SecurityManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SecurityManagerPrivate {
+class SecurityManagerPrivate {
     static name: string
 }
-export class SecurityOrigin {
+class SecurityOrigin {
     /* Methods of WebKit2-5.0.WebKit2.SecurityOrigin */
     getHost(): string | null
     getPort(): number
@@ -5927,86 +5927,86 @@ export class SecurityOrigin {
     static new(protocol: string, host: string, port: number): SecurityOrigin
     static newForUri(uri: string): SecurityOrigin
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of WebKit2-5.0.WebKit2.SettingsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export abstract class URIRequestClass {
+abstract class URIRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.URIRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URIRequestPrivate {
+class URIRequestPrivate {
     static name: string
 }
-export abstract class URIResponseClass {
+abstract class URIResponseClass {
     /* Fields of WebKit2-5.0.WebKit2.URIResponseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URIResponsePrivate {
+class URIResponsePrivate {
     static name: string
 }
-export abstract class URISchemeRequestClass {
+abstract class URISchemeRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.URISchemeRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URISchemeRequestPrivate {
+class URISchemeRequestPrivate {
     static name: string
 }
-export abstract class URISchemeResponseClass {
+abstract class URISchemeResponseClass {
     /* Fields of WebKit2-5.0.WebKit2.URISchemeResponseClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class URISchemeResponsePrivate {
+class URISchemeResponsePrivate {
     static name: string
 }
-export class UserContentFilter {
+class UserContentFilter {
     /* Methods of WebKit2-5.0.WebKit2.UserContentFilter */
     getIdentifier(): string
     ref(): UserContentFilter
     unref(): void
     static name: string
 }
-export abstract class UserContentFilterStoreClass {
+abstract class UserContentFilterStoreClass {
     /* Fields of WebKit2-5.0.WebKit2.UserContentFilterStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class UserContentFilterStorePrivate {
+class UserContentFilterStorePrivate {
     static name: string
 }
-export abstract class UserContentManagerClass {
+abstract class UserContentManagerClass {
     /* Fields of WebKit2-5.0.WebKit2.UserContentManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class UserContentManagerPrivate {
+class UserContentManagerPrivate {
     static name: string
 }
-export abstract class UserMediaPermissionRequestClass {
+abstract class UserMediaPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.UserMediaPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class UserMediaPermissionRequestPrivate {
+class UserMediaPermissionRequestPrivate {
     static name: string
 }
-export abstract class UserMessageClass {
+abstract class UserMessageClass {
     /* Fields of WebKit2-5.0.WebKit2.UserMessageClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export class UserMessagePrivate {
+class UserMessagePrivate {
     static name: string
 }
-export class UserScript {
+class UserScript {
     /* Methods of WebKit2-5.0.WebKit2.UserScript */
     ref(): UserScript
     unref(): void
@@ -6017,7 +6017,7 @@ export class UserScript {
     static new(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, allowList?: string[] | null, blockList?: string[] | null): UserScript
     static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserScript
 }
-export class UserStyleSheet {
+class UserStyleSheet {
     /* Methods of WebKit2-5.0.WebKit2.UserStyleSheet */
     ref(): UserStyleSheet
     unref(): void
@@ -6028,7 +6028,7 @@ export class UserStyleSheet {
     static new(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
     static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
 }
-export abstract class WebContextClass {
+abstract class WebContextClass {
     /* Fields of WebKit2-5.0.WebKit2.WebContextClass */
     parent: GObject.ObjectClass
     downloadStarted: (context: WebContext, download: Download) => void
@@ -6038,34 +6038,34 @@ export abstract class WebContextClass {
     userMessageReceived: (context: WebContext, message: UserMessage) => boolean
     static name: string
 }
-export class WebContextPrivate {
+class WebContextPrivate {
     static name: string
 }
-export abstract class WebInspectorClass {
+abstract class WebInspectorClass {
     /* Fields of WebKit2-5.0.WebKit2.WebInspectorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebInspectorPrivate {
+class WebInspectorPrivate {
     static name: string
 }
-export abstract class WebResourceClass {
+abstract class WebResourceClass {
     /* Fields of WebKit2-5.0.WebKit2.WebResourceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebResourcePrivate {
+class WebResourcePrivate {
     static name: string
 }
-export abstract class WebViewBaseClass {
+abstract class WebViewBaseClass {
     /* Fields of WebKit2-5.0.WebKit2.WebViewBaseClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export class WebViewBasePrivate {
+class WebViewBasePrivate {
     static name: string
 }
-export abstract class WebViewClass {
+abstract class WebViewClass {
     /* Fields of WebKit2-5.0.WebKit2.WebViewClass */
     parent: WebViewBaseClass
     loadChanged: (webView: WebView, loadEvent: LoadEvent) => void
@@ -6096,10 +6096,10 @@ export abstract class WebViewClass {
     userMessageReceived: (webView: WebView, message: UserMessage) => boolean
     static name: string
 }
-export class WebViewPrivate {
+class WebViewPrivate {
     static name: string
 }
-export class WebViewSessionState {
+class WebViewSessionState {
     /* Methods of WebKit2-5.0.WebKit2.WebViewSessionState */
     ref(): WebViewSessionState
     serialize(): any
@@ -6110,7 +6110,7 @@ export class WebViewSessionState {
     /* Static methods and pseudo-constructors */
     static new(data: any): WebViewSessionState
 }
-export class WebsiteData {
+class WebsiteData {
     /* Methods of WebKit2-5.0.WebKit2.WebsiteData */
     getName(): string
     getSize(types: WebsiteDataTypes): number
@@ -6119,36 +6119,37 @@ export class WebsiteData {
     unref(): void
     static name: string
 }
-export abstract class WebsiteDataAccessPermissionRequestClass {
+abstract class WebsiteDataAccessPermissionRequestClass {
     /* Fields of WebKit2-5.0.WebKit2.WebsiteDataAccessPermissionRequestClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebsiteDataAccessPermissionRequestPrivate {
+class WebsiteDataAccessPermissionRequestPrivate {
     static name: string
 }
-export abstract class WebsiteDataManagerClass {
+abstract class WebsiteDataManagerClass {
     /* Fields of WebKit2-5.0.WebKit2.WebsiteDataManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebsiteDataManagerPrivate {
+class WebsiteDataManagerPrivate {
     static name: string
 }
-export abstract class WebsitePoliciesClass {
+abstract class WebsitePoliciesClass {
     /* Fields of WebKit2-5.0.WebKit2.WebsitePoliciesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WebsitePoliciesPrivate {
+class WebsitePoliciesPrivate {
     static name: string
 }
-export abstract class WindowPropertiesClass {
+abstract class WindowPropertiesClass {
     /* Fields of WebKit2-5.0.WebKit2.WindowPropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WindowPropertiesPrivate {
+class WindowPropertiesPrivate {
     static name: string
 }
 }
+export default WebKit2

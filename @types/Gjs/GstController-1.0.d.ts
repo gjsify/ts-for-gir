@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum InterpolationMode {
+export namespace GstController {
+
+enum InterpolationMode {
     NONE,
     LINEAR,
     CUBIC,
     CUBIC_MONOTONIC,
 }
-export enum LFOWaveform {
+enum LFOWaveform {
     SINE,
     SQUARE,
     SAW,
     REVERSE_SAW,
     TRIANGLE,
 }
-export function timed_value_control_invalidate_cache(self: TimedValueControlSource): void
-export interface DirectControlBindingConvertGValue {
+function timed_value_control_invalidate_cache(self: TimedValueControlSource): void
+interface DirectControlBindingConvertGValue {
     (self: DirectControlBinding, src_value: number, dest_value: any): void
 }
-export interface DirectControlBindingConvertValue {
+interface DirectControlBindingConvertValue {
     (self: DirectControlBinding, src_value: number, dest_value?: object | null): void
 }
 export interface ARGBControlBinding_ConstructProps extends Gst.ControlBinding_ConstructProps {
@@ -34,7 +36,7 @@ export interface ARGBControlBinding_ConstructProps extends Gst.ControlBinding_Co
     control_source_g?: Gst.ControlSource
     control_source_r?: Gst.ControlSource
 }
-export class ARGBControlBinding {
+class ARGBControlBinding {
     /* Properties of GstController-1.0.GstController.ARGBControlBinding */
     control_source_a: Gst.ControlSource
     control_source_b: Gst.ControlSource
@@ -152,7 +154,7 @@ export interface DirectControlBinding_ConstructProps extends Gst.ControlBinding_
     absolute?: boolean
     control_source?: Gst.ControlSource
 }
-export class DirectControlBinding {
+class DirectControlBinding {
     /* Properties of GstController-1.0.GstController.DirectControlBinding */
     control_source: Gst.ControlSource
     /* Properties of Gst-1.0.Gst.Object */
@@ -261,7 +263,7 @@ export class DirectControlBinding {
 export interface InterpolationControlSource_ConstructProps extends TimedValueControlSource_ConstructProps {
     mode?: InterpolationMode
 }
-export class InterpolationControlSource {
+class InterpolationControlSource {
     /* Properties of GstController-1.0.GstController.InterpolationControlSource */
     mode: InterpolationMode
     /* Properties of Gst-1.0.Gst.Object */
@@ -388,7 +390,7 @@ export interface LFOControlSource_ConstructProps extends Gst.ControlSource_Const
     timeshift?: number
     waveform?: LFOWaveform
 }
-export class LFOControlSource {
+class LFOControlSource {
     /* Properties of GstController-1.0.GstController.LFOControlSource */
     amplitude: number
     frequency: number
@@ -500,7 +502,7 @@ export class LFOControlSource {
 }
 export interface ProxyControlBinding_ConstructProps extends Gst.ControlBinding_ConstructProps {
 }
-export class ProxyControlBinding {
+class ProxyControlBinding {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -603,7 +605,7 @@ export class ProxyControlBinding {
 }
 export interface TimedValueControlSource_ConstructProps extends Gst.ControlSource_ConstructProps {
 }
-export class TimedValueControlSource {
+class TimedValueControlSource {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -720,7 +722,7 @@ export class TimedValueControlSource {
 export interface TriggerControlSource_ConstructProps extends TimedValueControlSource_ConstructProps {
     tolerance?: number
 }
-export class TriggerControlSource {
+class TriggerControlSource {
     /* Properties of GstController-1.0.GstController.TriggerControlSource */
     tolerance: number
     /* Properties of Gst-1.0.Gst.Object */
@@ -840,12 +842,12 @@ export class TriggerControlSource {
     static new(): TriggerControlSource
     static $gtype: GObject.Type
 }
-export abstract class ARGBControlBindingClass {
+abstract class ARGBControlBindingClass {
     /* Fields of GstController-1.0.GstController.ARGBControlBindingClass */
     parent_class: Gst.ControlBindingClass
     static name: string
 }
-export class ControlPoint {
+class ControlPoint {
     /* Fields of GstController-1.0.GstController.ControlPoint */
     timestamp: Gst.ClockTime
     value: number
@@ -854,43 +856,45 @@ export class ControlPoint {
     free(): void
     static name: string
 }
-export abstract class DirectControlBindingClass {
+abstract class DirectControlBindingClass {
     /* Fields of GstController-1.0.GstController.DirectControlBindingClass */
     parent_class: Gst.ControlBindingClass
     static name: string
 }
-export abstract class InterpolationControlSourceClass {
+abstract class InterpolationControlSourceClass {
     /* Fields of GstController-1.0.GstController.InterpolationControlSourceClass */
     parent_class: TimedValueControlSourceClass
     static name: string
 }
-export class InterpolationControlSourcePrivate {
+class InterpolationControlSourcePrivate {
     static name: string
 }
-export abstract class LFOControlSourceClass {
+abstract class LFOControlSourceClass {
     /* Fields of GstController-1.0.GstController.LFOControlSourceClass */
     parent_class: Gst.ControlSourceClass
     static name: string
 }
-export class LFOControlSourcePrivate {
+class LFOControlSourcePrivate {
     static name: string
 }
-export abstract class ProxyControlBindingClass {
+abstract class ProxyControlBindingClass {
     static name: string
 }
-export abstract class TimedValueControlSourceClass {
+abstract class TimedValueControlSourceClass {
     /* Fields of GstController-1.0.GstController.TimedValueControlSourceClass */
     parent_class: Gst.ControlSourceClass
     static name: string
 }
-export class TimedValueControlSourcePrivate {
+class TimedValueControlSourcePrivate {
     static name: string
 }
-export abstract class TriggerControlSourceClass {
+abstract class TriggerControlSourceClass {
     /* Fields of GstController-1.0.GstController.TriggerControlSourceClass */
     parent_class: TimedValueControlSourceClass
     static name: string
 }
-export class TriggerControlSourcePrivate {
+class TriggerControlSourcePrivate {
     static name: string
 }
+}
+export default GstController

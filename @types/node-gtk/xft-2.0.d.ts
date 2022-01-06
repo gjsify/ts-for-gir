@@ -6,19 +6,20 @@ import "node"
 import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 
-export declare namespace xft {
+declare namespace xft {
 
-export function init(): void
-export class Color {
+function init(): void
+class Color {
     static name: string
 }
-export class Draw {
+class Draw {
     static name: string
 }
-export class Font {
+class Font {
     static name: string
 }
-export class GlyphSpec {
+class GlyphSpec {
     static name: string
 }
 }
+export default xft

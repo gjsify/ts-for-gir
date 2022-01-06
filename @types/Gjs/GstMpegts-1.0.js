@@ -1,2 +1,1 @@
-imports.gi.versions.GstMpegts = '1.0'
-module.exports = imports.gi.GstMpegts
+export {default as default} from 'gi://GstMpegts?version=1.0';

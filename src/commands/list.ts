@@ -3,7 +3,7 @@
  */
 
 import { ModuleLoader } from '../module-loader'
-import { Command } from '@oclif/command'
+import { Command } from '@oclif/core'
 import chalk from 'chalk'
 import { Config } from '../config'
 import { ResolveType, ConfigFlags } from '../types'
@@ -30,15 +30,15 @@ export default class List extends Command {
     static args = [Config.defaultCliArgs.modules]
 
     async run(): Promise<void> {
-        const { argv, flags } = this.parse(List)
-        const config = await Config.load((flags as unknown) as ConfigFlags, argv)
+        const { argv, flags } = await this.parse(List)
+        const config = await Config.load(flags as unknown as ConfigFlags, argv)
         const generateConfig = Config.getGenerateConfig(config)
         const moduleLoader = new ModuleLoader(generateConfig)
         const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
         const moduleGroups = Object.values(grouped)
         if (Object.keys(grouped).length === 0) {
             // this.log(chalk.red('No modules found'))
-            return this.error('No modules found in ' + config.girDirectories)
+            return this.error('No modules found in ' + config.girDirectories.join(', '))
         }
 
         const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict)

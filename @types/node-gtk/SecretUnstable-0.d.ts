@@ -8,30 +8,30 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace SecretUnstable {
+declare namespace SecretUnstable {
 
-export enum CollectionCreateFlags {
+enum CollectionCreateFlags {
     COLLECTION_CREATE_NONE,
 }
-export enum CollectionFlags {
+enum CollectionFlags {
     NONE,
     LOAD_ITEMS,
 }
-export enum ItemCreateFlags {
+enum ItemCreateFlags {
     NONE,
     REPLACE,
 }
-export enum ItemFlags {
+enum ItemFlags {
     NONE,
     LOAD_SECRET,
 }
-export enum SearchFlags {
+enum SearchFlags {
     NONE,
     ALL,
     UNLOCK,
     LOAD_SECRETS,
 }
-export enum ServiceFlags {
+enum ServiceFlags {
     NONE,
     OPEN_SESSION,
     LOAD_COLLECTIONS,
@@ -42,7 +42,7 @@ export interface Collection_ConstructProps extends Gio.DBusProxy_ConstructProps 
     modified?: number
     service?: Service
 }
-export class Collection {
+class Collection {
     /* Properties of SecretUnstable-0.SecretUnstable.Collection */
     created: number
     label: string
@@ -215,7 +215,7 @@ export interface Item_ConstructProps extends Gio.DBusProxy_ConstructProps {
     modified?: number
     service?: Service
 }
-export class Item {
+class Item {
     /* Properties of SecretUnstable-0.SecretUnstable.Item */
     attributes: GLib.HashTable
     created: number
@@ -391,7 +391,7 @@ export class Item {
 }
 export interface Prompt_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class Prompt {
+class Prompt {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -506,7 +506,7 @@ export class Prompt {
 }
 export interface Service_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class Service {
+class Service {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -691,31 +691,31 @@ export class Service {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class CollectionClass {
+abstract class CollectionClass {
     /* Fields of SecretUnstable-0.SecretUnstable.CollectionClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class CollectionPrivate {
+class CollectionPrivate {
     static name: string
 }
-export abstract class ItemClass {
+abstract class ItemClass {
     /* Fields of SecretUnstable-0.SecretUnstable.ItemClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ItemPrivate {
+class ItemPrivate {
     static name: string
 }
-export abstract class PromptClass {
+abstract class PromptClass {
     /* Fields of SecretUnstable-0.SecretUnstable.PromptClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PromptPrivate {
+class PromptPrivate {
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of SecretUnstable-0.SecretUnstable.ServiceClass */
     parentClass: Gio.DBusProxyClass
     collectionGtype: GObject.Type
@@ -727,10 +727,10 @@ export abstract class ServiceClass {
     getItemGtype: (self: Service) => GObject.Type
     static name: string
 }
-export class ServicePrivate {
+class ServicePrivate {
     static name: string
 }
-export class Value {
+class Value {
     /* Methods of SecretUnstable-0.SecretUnstable.Value */
     get(): any[]
     getContentType(): string
@@ -745,3 +745,4 @@ export class Value {
     static newFull(secret: string, length: number, contentType: string, destroy: GLib.DestroyNotify): Value
 }
 }
+export default SecretUnstable

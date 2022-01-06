@@ -1,2 +1,1 @@
-imports.gi.versions.RygelCore = '2.6'
-module.exports = imports.gi.RygelCore
+export {default as default} from 'gi://RygelCore?version=2.6';

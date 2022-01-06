@@ -1,2 +1,1 @@
-imports.gi.versions.Libmsi = '1.0'
-module.exports = imports.gi.Libmsi
+export {default as default} from 'gi://Libmsi?version=1.0';

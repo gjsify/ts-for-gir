@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gst from './Gst-0.10';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Gst from './Gst-0.10';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum DemuxResult {
+export namespace GstTag {
+
+enum DemuxResult {
     BROKEN_TAG,
     AGAIN,
     OK,
 }
-export enum ImageType {
+enum ImageType {
     NONE,
     UNDEFINED,
     FRONT_COVER,
@@ -48,32 +50,32 @@ export const MUSICBRAINZ_ALBUMID: string
 export const MUSICBRAINZ_ARTISTID: string
 export const MUSICBRAINZ_TRACKID: string
 export const MUSICBRAINZ_TRMID: string
-export function freeform_string_to_utf8(data: string, size: number, env_vars: string[]): string
-export function from_id3_tag(id3_tag: string): string
-export function from_id3_user_tag(type: string, id3_user_tag: string): string
-export function from_vorbis_tag(vorbis_tag: string): string
-export function get_language_code_iso_639_1(lang_code: string): string
-export function get_language_code_iso_639_2B(lang_code: string): string
-export function get_language_code_iso_639_2T(lang_code: string): string
-export function get_language_codes(): string[]
-export function get_language_name(language_code: string): string
-export function gst_vorbis_tag_add(list: Gst.TagList, tag: string, value: string): void
-export function id3_genre_count(): number
-export function id3_genre_get(id: number): string
-export function image_data_to_image_buffer(image_data: any[], image_data_len: number, image_type: ImageType): Gst.Buffer
-export function list_add_id3_image(tag_list: Gst.TagList, image_data: any[], image_data_len: number, id3_picture_type: number): boolean
-export function list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: any[], id_data_length: number, vendor_string: string[]): Gst.TagList
-export function list_from_xmp_buffer(buffer: Gst.Buffer): Gst.TagList
-export function list_new_from_id3v1(data: any[]): Gst.TagList
-export function list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: any[], id_data_length: number, vendor_string: string): Gst.Buffer
-export function list_to_xmp_buffer(list: Gst.TagList, read_only: boolean): Gst.Buffer
-export function parse_extended_comment(ext_comment: string, key: string[], lang: string[], value: string[], fail_if_no_key: boolean): boolean
-export function register_musicbrainz_tags(): void
-export function to_id3_tag(gst_tag: string): string
-export function to_vorbis_tag(gst_tag: string): string
+function freeform_string_to_utf8(data: string, size: number, env_vars: string[]): string
+function from_id3_tag(id3_tag: string): string
+function from_id3_user_tag(type: string, id3_user_tag: string): string
+function from_vorbis_tag(vorbis_tag: string): string
+function get_language_code_iso_639_1(lang_code: string): string
+function get_language_code_iso_639_2B(lang_code: string): string
+function get_language_code_iso_639_2T(lang_code: string): string
+function get_language_codes(): string[]
+function get_language_name(language_code: string): string
+function gst_vorbis_tag_add(list: Gst.TagList, tag: string, value: string): void
+function id3_genre_count(): number
+function id3_genre_get(id: number): string
+function image_data_to_image_buffer(image_data: any[], image_data_len: number, image_type: ImageType): Gst.Buffer
+function list_add_id3_image(tag_list: Gst.TagList, image_data: any[], image_data_len: number, id3_picture_type: number): boolean
+function list_from_vorbiscomment_buffer(buffer: Gst.Buffer, id_data: any[], id_data_length: number, vendor_string: string[]): Gst.TagList
+function list_from_xmp_buffer(buffer: Gst.Buffer): Gst.TagList
+function list_new_from_id3v1(data: any[]): Gst.TagList
+function list_to_vorbiscomment_buffer(list: Gst.TagList, id_data: any[], id_data_length: number, vendor_string: string): Gst.Buffer
+function list_to_xmp_buffer(list: Gst.TagList, read_only: boolean): Gst.Buffer
+function parse_extended_comment(ext_comment: string, key: string[], lang: string[], value: string[], fail_if_no_key: boolean): boolean
+function register_musicbrainz_tags(): void
+function to_id3_tag(gst_tag: string): string
+function to_vorbis_tag(gst_tag: string): string
 export interface Demux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class Demux {
+class Demux {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of GstTag-0.10.GstTag.Demux */
@@ -270,7 +272,7 @@ export class Demux {
     _init (config?: Demux_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DemuxClass {
+abstract class DemuxClass {
     /* Fields of GstTag-0.10.GstTag.DemuxClass */
     parent_class: Gst.ElementClass
     min_start_size: number
@@ -281,6 +283,8 @@ export abstract class DemuxClass {
     reserved: any[]
     static name: string
 }
-export class DemuxPrivate {
+class DemuxPrivate {
     static name: string
 }
+}
+export default GstTag

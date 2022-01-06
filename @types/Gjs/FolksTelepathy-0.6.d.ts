@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as TelepathyGLib from './TelepathyGLib-0.12';
-import type * as Folks from './Folks-0.6';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type TelepathyGLib from './TelepathyGLib-0.12';
+import type Folks from './Folks-0.6';
+
+export namespace FolksTelepathy {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     account?: TelepathyGLib.Account
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly type_id: string
     readonly personas: Gee.Map
@@ -178,7 +180,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     presence_status?: string
     urls?: Gee.Set
 }
-export class Persona {
+class Persona {
     /* Properties of FolksTelepathy-0.6.FolksTelepathy.Persona */
     is_in_contact_list: boolean
     /* Properties of Folks-0.6.Folks.Persona */
@@ -490,15 +492,17 @@ export class Persona {
     static typecmp(type_a: Folks.PresenceType, type_b: Folks.PresenceType): number
     static $gtype: GObject.Type
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
+}
+export default FolksTelepathy

@@ -11,11 +11,11 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { GstGL } from './GstGL-1.0';
 
-export declare namespace GstGLX11 {
+declare namespace GstGLX11 {
 
 export interface GLDisplayX11_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
-export class GLDisplayX11 {
+class GLDisplayX11 {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -128,10 +128,11 @@ export class GLDisplayX11 {
     static new(): GLDisplayX11
     static $gtype: GObject.Type
 }
-export abstract class GLDisplayX11Class {
+abstract class GLDisplayX11Class {
     /* Fields of GstGLX11-1.0.GstGLX11.GLDisplayX11Class */
     objectClass: GstGL.GLDisplayClass
     padding: object[]
     static name: string
 }
 }
+export default GstGLX11

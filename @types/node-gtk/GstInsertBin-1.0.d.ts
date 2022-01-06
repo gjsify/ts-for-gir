@@ -8,14 +8,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstInsertBin {
+declare namespace GstInsertBin {
 
-export interface InsertBinCallback {
+interface InsertBinCallback {
     (insertbin: InsertBin, element: Gst.Element, success: boolean): void
 }
 export interface InsertBin_ConstructProps extends Gst.Bin_ConstructProps {
 }
-export class InsertBin {
+class InsertBin {
     /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
@@ -332,12 +332,13 @@ export class InsertBin {
     static new(name?: string | null): InsertBin
     static $gtype: GObject.Type
 }
-export abstract class InsertBinClass {
+abstract class InsertBinClass {
     /* Fields of GstInsertBin-1.0.GstInsertBin.InsertBinClass */
     parentClass: Gst.BinClass
     static name: string
 }
-export class InsertBinPrivate {
+class InsertBinPrivate {
     static name: string
 }
 }
+export default GstInsertBin

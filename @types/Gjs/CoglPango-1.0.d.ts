@@ -3,30 +3,32 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as GL from './GL-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Cogl from './Cogl-1.0';
+import type GL from './GL-1.0';
 
-export function ensure_glyph_cache_for_layout(layout: Pango.Layout): void
-export function font_map_clear_glyph_cache(font_map: FontMap): void
-export function font_map_create_context(font_map: FontMap): Pango.Context
-export function font_map_get_renderer(font_map: FontMap): Pango.Renderer
-export function font_map_get_use_mipmapping(font_map: FontMap): Cogl.Bool
-export function font_map_new(): Pango.FontMap
-export function font_map_set_resolution(font_map: FontMap, dpi: number): void
-export function font_map_set_use_mipmapping(font_map: FontMap, value: Cogl.Bool): void
-export function render_layout(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
-export function render_layout_line(line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
-export function render_layout_subpixel(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
+export namespace CoglPango {
+
+function ensure_glyph_cache_for_layout(layout: Pango.Layout): void
+function font_map_clear_glyph_cache(font_map: FontMap): void
+function font_map_create_context(font_map: FontMap): Pango.Context
+function font_map_get_renderer(font_map: FontMap): Pango.Renderer
+function font_map_get_use_mipmapping(font_map: FontMap): Cogl.Bool
+function font_map_new(): Pango.FontMap
+function font_map_set_resolution(font_map: FontMap, dpi: number): void
+function font_map_set_use_mipmapping(font_map: FontMap, value: Cogl.Bool): void
+function render_layout(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
+function render_layout_line(line: Pango.LayoutLine, x: number, y: number, color: Cogl.Color): void
+function render_layout_subpixel(layout: Pango.Layout, x: number, y: number, color: Cogl.Color, flags: number): void
 export interface Renderer_ConstructProps extends Pango.Renderer_ConstructProps {
     context?: object
 }
-export class Renderer {
+class Renderer {
     /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
     /* Fields of GObject-2.0.GObject.Object */
@@ -106,7 +108,9 @@ export class Renderer {
     _init (config?: Renderer_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class RendererClass {
+abstract class RendererClass {
     static name: string
 }
-export type FontMap = PangoCairo.FontMap
+type FontMap = PangoCairo.FontMap
+}
+export default CoglPango

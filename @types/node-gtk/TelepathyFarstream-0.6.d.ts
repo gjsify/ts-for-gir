@@ -11,12 +11,12 @@ import type { Gst } from './Gst-1.0';
 import type { GModule } from './GModule-2.0';
 import type { Farstream } from './Farstream-0.2';
 
-export declare namespace TelepathyFarstream {
+declare namespace TelepathyFarstream {
 
 export interface Channel_ConstructProps extends GObject.Object_ConstructProps {
     channel?: TelepathyGLib.Channel
 }
-export class Channel {
+class Channel {
     /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Channel */
     readonly fsConferences: object[]
     readonly objectPath: string
@@ -110,7 +110,7 @@ export class Channel {
 }
 export interface Content_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Content {
+class Content {
     /* Properties of TelepathyFarstream-0.6.TelepathyFarstream.Content */
     readonly fsConference: Farstream.Conference
     readonly fsSession: Farstream.Session
@@ -226,16 +226,17 @@ export class Content {
     _init (config?: Content_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ChannelClass {
+abstract class ChannelClass {
     static name: string
 }
-export class ChannelPrivate {
+class ChannelPrivate {
     static name: string
 }
-export abstract class ContentClass {
+abstract class ContentClass {
     static name: string
 }
-export class ContentPrivate {
+class ContentPrivate {
     static name: string
 }
 }
+export default TelepathyFarstream

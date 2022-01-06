@@ -1,2 +1,1 @@
-imports.gi.versions.EBackend = '1.2'
-module.exports = imports.gi.EBackend
+export {default as default} from 'gi://EBackend?version=1.2';

@@ -1,2 +1,1 @@
-imports.gi.versions.PolkitAgent = '1.0'
-module.exports = imports.gi.PolkitAgent
+export {default as default} from 'gi://PolkitAgent?version=1.0';

@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as ICalGLib from './ICalGLib-3.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type ICalGLib from './ICalGLib-3.0';
+import type EDataServer from './EDataServer-1.2';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
 
-export enum ClientError {
+export namespace ECal {
+
+enum ClientError {
     NO_SUCH_CALENDAR,
     OBJECT_NOT_FOUND,
     INVALID_OBJECT,
@@ -23,12 +25,12 @@ export enum ClientError {
     OBJECT_ID_ALREADY_EXISTS,
     INVALID_RANGE,
 }
-export enum ClientSourceType {
+enum ClientSourceType {
     EVENTS,
     TASKS,
     MEMOS,
 }
-export enum ComponentAlarmAction {
+enum ComponentAlarmAction {
     NONE,
     AUDIO,
     DISPLAY,
@@ -36,35 +38,35 @@ export enum ComponentAlarmAction {
     PROCEDURE,
     UNKNOWN,
 }
-export enum ComponentAlarmTriggerKind {
+enum ComponentAlarmTriggerKind {
     NONE,
     RELATIVE_START,
     RELATIVE_END,
     ABSOLUTE,
 }
-export enum ComponentClassification {
+enum ComponentClassification {
     NONE,
     PUBLIC,
     PRIVATE,
     CONFIDENTIAL,
     UNKNOWN,
 }
-export enum ComponentPeriodKind {
+enum ComponentPeriodKind {
     DATETIME,
     DURATION,
 }
-export enum ComponentRangeKind {
+enum ComponentRangeKind {
     SINGLE,
     THISPRIOR,
     THISFUTURE,
 }
-export enum ComponentTransparency {
+enum ComponentTransparency {
     NONE,
     TRANSPARENT,
     OPAQUE,
     UNKNOWN,
 }
-export enum ComponentVType {
+enum ComponentVType {
     NO_TYPE,
     EVENT,
     TODO,
@@ -72,18 +74,18 @@ export enum ComponentVType {
     FREEBUSY,
     TIMEZONE,
 }
-export enum ClientViewFlags {
+enum ClientViewFlags {
     NONE,
     NOTIFY_INITIAL,
 }
-export enum ObjModType {
+enum ObjModType {
     THIS,
     THIS_AND_PRIOR,
     THIS_AND_FUTURE,
     ALL,
     ONLY_THIS,
 }
-export enum OperationFlags {
+enum OperationFlags {
     NONE,
     CONFLICT_FAIL,
     CONFLICT_USE_NEWER,
@@ -92,12 +94,12 @@ export enum OperationFlags {
     CONFLICT_WRITE_COPY,
     DISABLE_ITIP_MESSAGE,
 }
-export enum RecurDescribeRecurrenceFlags {
+enum RecurDescribeRecurrenceFlags {
     NONE,
     PREFIXED,
     FALLBACK,
 }
-export enum ReminderWatcherDescribeFlags {
+enum ReminderWatcherDescribeFlags {
     NONE,
     MARKUP,
 }
@@ -150,98 +152,98 @@ export const STATIC_CAPABILITY_TASK_DATE_ONLY: string
 export const STATIC_CAPABILITY_TASK_ESTIMATED_DURATION: string
 export const STATIC_CAPABILITY_TASK_HANDLE_RECUR: string
 export const STATIC_CAPABILITY_TASK_NO_ALARM: string
-export function isodate_from_time_t(t: number): string
-export function match_tzid(tzid: string): string
-export function recur_describe_recurrence(icalcomp: ICalGLib.Component, week_start_day: GLib.DateWeekday, flags: number): string | null
-export function recur_describe_recurrence_ex(icalcomp: ICalGLib.Component, week_start_day: GLib.DateWeekday, flags: number, datetime_fmt_func?: RecurFormatDateTimeFunc | null): string | null
-export function recur_ensure_end_dates(comp: Component, refresh: boolean, tz_cb: RecurResolveTimezoneCb, cancellable?: Gio.Cancellable | null): boolean
-export function recur_generate_instances_sync(icalcomp: ICalGLib.Component, interval_start: ICalGLib.Time, interval_end: ICalGLib.Time, default_timezone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null): boolean
-export function recur_get_localized_nth(nth: number): string
-export function recur_obtain_enddate(ir: ICalGLib.Recurrence, prop: ICalGLib.Property, zone: ICalGLib.Timezone, convert_end_date: boolean): number
-export function system_timezone_get_location(): string
-export function time_add_day(time: number, days: number): number
-export function time_add_day_with_zone(time: number, days: number, zone: ICalGLib.Timezone): number
-export function time_add_month_with_zone(time: number, months: number, zone: ICalGLib.Timezone): number
-export function time_add_week(time: number, weeks: number): number
-export function time_add_week_with_zone(time: number, weeks: number, zone: ICalGLib.Timezone): number
-export function time_day_begin(t: number): number
-export function time_day_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
-export function time_day_end(t: number): number
-export function time_day_end_with_zone(time: number, zone: ICalGLib.Timezone): number
-export function time_day_of_week(day: number, month: number, year: number): number
-export function time_day_of_year(day: number, month: number, year: number): number
-export function time_days_in_month(year: number, month: number): number
-export function time_from_isodate(str: string): number
-export function time_is_leap_year(year: number): boolean
-export function time_leap_years_up_to(year: number): number
-export function time_month_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
-export function time_to_gdate_with_zone(date: GLib.Date, time: number, zone?: ICalGLib.Timezone | null): void
-export function time_week_begin_with_zone(time: number, week_start_day: number, zone: ICalGLib.Timezone): number
-export function time_year_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
-export function util_add_timezones_from_component(vcal_comp: ICalGLib.Component, icalcomp: ICalGLib.Component): void
-export function util_clamp_vtimezone(vtimezone: ICalGLib.Component, from: ICalGLib.Time, to?: ICalGLib.Time | null): /* vtimezone */ ICalGLib.Component
-export function util_clamp_vtimezone_by_component(vtimezone: ICalGLib.Component, component: ICalGLib.Component): /* vtimezone */ ICalGLib.Component
-export function util_component_dup_x_property(icalcomp: ICalGLib.Component, x_name: string): string | null
-export function util_component_find_x_property(icalcomp: ICalGLib.Component, x_name: string): ICalGLib.Property | null
-export function util_component_get_recurid_as_string(icalcomp: ICalGLib.Component): string | null
-export function util_component_has_alarms(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_attendee(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_organizer(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_property(icalcomp: ICalGLib.Component, prop_kind: ICalGLib.PropertyKind): boolean
-export function util_component_has_rdates(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_recurrences(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_rrules(icalcomp: ICalGLib.Component): boolean
-export function util_component_has_x_property(icalcomp: ICalGLib.Component, x_name: string): boolean
-export function util_component_is_instance(icalcomp: ICalGLib.Component): boolean
-export function util_component_remove_property_by_kind(icalcomp: ICalGLib.Component, kind: ICalGLib.PropertyKind, all: boolean): number
-export function util_component_remove_x_property(icalcomp: ICalGLib.Component, x_name: string): boolean
-export function util_component_set_x_property(icalcomp: ICalGLib.Component, x_name: string, value?: string | null): void
-export function util_conflict_resolution_to_operation_flags(conflict_resolution: EDataServer.ConflictResolution): number
-export function util_construct_instance(icalcomp: ICalGLib.Component, rid: ICalGLib.Time): ICalGLib.Component | null
-export function util_copy_timezone(zone: ICalGLib.Timezone): ICalGLib.Timezone
-export function util_generate_alarms_for_comp(comp: Component, start: number, end: number, omit: ComponentAlarmAction, resolve_tzid: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone): ComponentAlarms | null
-export function util_generate_alarms_for_list(comps: Component[], start: number, end: number, omit: ComponentAlarmAction, resolve_tzid: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone): [ /* returnType */ number, /* comp_alarms */ ComponentAlarms[] ]
-export function util_get_component_occur_times(comp: Component, tz_cb: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone, kind: ICalGLib.ComponentKind): [ /* out_start */ number, /* out_end */ number ]
-export function util_get_system_timezone(): ICalGLib.Timezone | null
-export function util_get_system_timezone_location(): string
-export function util_icaltime_to_tm(itt: ICalGLib.Time): object | null
-export function util_icaltime_to_tm_with_zone(itt: ICalGLib.Time, from_zone: ICalGLib.Timezone, to_zone: ICalGLib.Timezone): object | null
-export function util_init_recur_task_sync(vtodo: ICalGLib.Component, cal_client: Client, cancellable?: Gio.Cancellable | null): boolean
-export function util_inline_local_attachments_sync(component: ICalGLib.Component, cancellable?: Gio.Cancellable | null): boolean
-export function util_is_first_instance(comp: Component, rid: ICalGLib.Time, tz_cb: RecurResolveTimezoneCb): boolean
-export function util_mark_task_complete_sync(vtodo: ICalGLib.Component, completed_time: number, cal_client: Client, cancellable?: Gio.Cancellable | null): boolean
-export function util_new_component(kind: ICalGLib.ComponentKind): ICalGLib.Component
-export function util_new_top_level(): ICalGLib.Component
-export function util_normalize_rrule_until_value(icalcomp: ICalGLib.Component, ttuntil: ICalGLib.Time, tz_cb: RecurResolveTimezoneCb): void
-export function util_operation_flags_to_conflict_resolution(flags: number): EDataServer.ConflictResolution
-export function util_parse_ics_file(filename: string): ICalGLib.Component | null
-export function util_parse_ics_string(string: string): ICalGLib.Component | null
-export function util_priority_from_string(string: string): number
-export function util_priority_to_string(priority: number): string
-export function util_property_has_parameter(prop: ICalGLib.Property, param_kind: ICalGLib.ParameterKind): boolean
-export function util_remove_instances(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, mod: ObjModType): void
-export function util_remove_instances_ex(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, mod: ObjModType, tz_cb: RecurResolveTimezoneCb): void
-export function util_seconds_to_string(seconds: number): string
-export function util_set_alarm_acknowledged(component: Component, auid: string, when: number): boolean
-export function util_split_at_instance(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, master_dtstart?: ICalGLib.Time | null): ICalGLib.Component | null
-export function util_split_at_instance_ex(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, master_dtstart: ICalGLib.Time | null, tz_cb: RecurResolveTimezoneCb): ICalGLib.Component | null
-export function util_tm_to_icaltime(tm: object | null, is_date: boolean): ICalGLib.Time
-export interface ComponentParameterBagFilterFunc {
+function isodate_from_time_t(t: number): string
+function match_tzid(tzid: string): string
+function recur_describe_recurrence(icalcomp: ICalGLib.Component, week_start_day: GLib.DateWeekday, flags: number): string | null
+function recur_describe_recurrence_ex(icalcomp: ICalGLib.Component, week_start_day: GLib.DateWeekday, flags: number, datetime_fmt_func?: RecurFormatDateTimeFunc | null): string | null
+function recur_ensure_end_dates(comp: Component, refresh: boolean, tz_cb: RecurResolveTimezoneCb, cancellable?: Gio.Cancellable | null): boolean
+function recur_generate_instances_sync(icalcomp: ICalGLib.Component, interval_start: ICalGLib.Time, interval_end: ICalGLib.Time, default_timezone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null): boolean
+function recur_get_localized_nth(nth: number): string
+function recur_obtain_enddate(ir: ICalGLib.Recurrence, prop: ICalGLib.Property, zone: ICalGLib.Timezone, convert_end_date: boolean): number
+function system_timezone_get_location(): string
+function time_add_day(time: number, days: number): number
+function time_add_day_with_zone(time: number, days: number, zone: ICalGLib.Timezone): number
+function time_add_month_with_zone(time: number, months: number, zone: ICalGLib.Timezone): number
+function time_add_week(time: number, weeks: number): number
+function time_add_week_with_zone(time: number, weeks: number, zone: ICalGLib.Timezone): number
+function time_day_begin(t: number): number
+function time_day_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
+function time_day_end(t: number): number
+function time_day_end_with_zone(time: number, zone: ICalGLib.Timezone): number
+function time_day_of_week(day: number, month: number, year: number): number
+function time_day_of_year(day: number, month: number, year: number): number
+function time_days_in_month(year: number, month: number): number
+function time_from_isodate(str: string): number
+function time_is_leap_year(year: number): boolean
+function time_leap_years_up_to(year: number): number
+function time_month_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
+function time_to_gdate_with_zone(date: GLib.Date, time: number, zone?: ICalGLib.Timezone | null): void
+function time_week_begin_with_zone(time: number, week_start_day: number, zone: ICalGLib.Timezone): number
+function time_year_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
+function util_add_timezones_from_component(vcal_comp: ICalGLib.Component, icalcomp: ICalGLib.Component): void
+function util_clamp_vtimezone(vtimezone: ICalGLib.Component, from: ICalGLib.Time, to?: ICalGLib.Time | null): /* vtimezone */ ICalGLib.Component
+function util_clamp_vtimezone_by_component(vtimezone: ICalGLib.Component, component: ICalGLib.Component): /* vtimezone */ ICalGLib.Component
+function util_component_dup_x_property(icalcomp: ICalGLib.Component, x_name: string): string | null
+function util_component_find_x_property(icalcomp: ICalGLib.Component, x_name: string): ICalGLib.Property | null
+function util_component_get_recurid_as_string(icalcomp: ICalGLib.Component): string | null
+function util_component_has_alarms(icalcomp: ICalGLib.Component): boolean
+function util_component_has_attendee(icalcomp: ICalGLib.Component): boolean
+function util_component_has_organizer(icalcomp: ICalGLib.Component): boolean
+function util_component_has_property(icalcomp: ICalGLib.Component, prop_kind: ICalGLib.PropertyKind): boolean
+function util_component_has_rdates(icalcomp: ICalGLib.Component): boolean
+function util_component_has_recurrences(icalcomp: ICalGLib.Component): boolean
+function util_component_has_rrules(icalcomp: ICalGLib.Component): boolean
+function util_component_has_x_property(icalcomp: ICalGLib.Component, x_name: string): boolean
+function util_component_is_instance(icalcomp: ICalGLib.Component): boolean
+function util_component_remove_property_by_kind(icalcomp: ICalGLib.Component, kind: ICalGLib.PropertyKind, all: boolean): number
+function util_component_remove_x_property(icalcomp: ICalGLib.Component, x_name: string): boolean
+function util_component_set_x_property(icalcomp: ICalGLib.Component, x_name: string, value?: string | null): void
+function util_conflict_resolution_to_operation_flags(conflict_resolution: EDataServer.ConflictResolution): number
+function util_construct_instance(icalcomp: ICalGLib.Component, rid: ICalGLib.Time): ICalGLib.Component | null
+function util_copy_timezone(zone: ICalGLib.Timezone): ICalGLib.Timezone
+function util_generate_alarms_for_comp(comp: Component, start: number, end: number, omit: ComponentAlarmAction, resolve_tzid: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone): ComponentAlarms | null
+function util_generate_alarms_for_list(comps: Component[], start: number, end: number, omit: ComponentAlarmAction, resolve_tzid: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone): [ /* returnType */ number, /* comp_alarms */ ComponentAlarms[] ]
+function util_get_component_occur_times(comp: Component, tz_cb: RecurResolveTimezoneCb, default_timezone: ICalGLib.Timezone, kind: ICalGLib.ComponentKind): [ /* out_start */ number, /* out_end */ number ]
+function util_get_system_timezone(): ICalGLib.Timezone | null
+function util_get_system_timezone_location(): string
+function util_icaltime_to_tm(itt: ICalGLib.Time): object | null
+function util_icaltime_to_tm_with_zone(itt: ICalGLib.Time, from_zone: ICalGLib.Timezone, to_zone: ICalGLib.Timezone): object | null
+function util_init_recur_task_sync(vtodo: ICalGLib.Component, cal_client: Client, cancellable?: Gio.Cancellable | null): boolean
+function util_inline_local_attachments_sync(component: ICalGLib.Component, cancellable?: Gio.Cancellable | null): boolean
+function util_is_first_instance(comp: Component, rid: ICalGLib.Time, tz_cb: RecurResolveTimezoneCb): boolean
+function util_mark_task_complete_sync(vtodo: ICalGLib.Component, completed_time: number, cal_client: Client, cancellable?: Gio.Cancellable | null): boolean
+function util_new_component(kind: ICalGLib.ComponentKind): ICalGLib.Component
+function util_new_top_level(): ICalGLib.Component
+function util_normalize_rrule_until_value(icalcomp: ICalGLib.Component, ttuntil: ICalGLib.Time, tz_cb: RecurResolveTimezoneCb): void
+function util_operation_flags_to_conflict_resolution(flags: number): EDataServer.ConflictResolution
+function util_parse_ics_file(filename: string): ICalGLib.Component | null
+function util_parse_ics_string(string: string): ICalGLib.Component | null
+function util_priority_from_string(string: string): number
+function util_priority_to_string(priority: number): string
+function util_property_has_parameter(prop: ICalGLib.Property, param_kind: ICalGLib.ParameterKind): boolean
+function util_remove_instances(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, mod: ObjModType): void
+function util_remove_instances_ex(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, mod: ObjModType, tz_cb: RecurResolveTimezoneCb): void
+function util_seconds_to_string(seconds: number): string
+function util_set_alarm_acknowledged(component: Component, auid: string, when: number): boolean
+function util_split_at_instance(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, master_dtstart?: ICalGLib.Time | null): ICalGLib.Component | null
+function util_split_at_instance_ex(icalcomp: ICalGLib.Component, rid: ICalGLib.Time, master_dtstart: ICalGLib.Time | null, tz_cb: RecurResolveTimezoneCb): ICalGLib.Component | null
+function util_tm_to_icaltime(tm: object | null, is_date: boolean): ICalGLib.Time
+interface ComponentParameterBagFilterFunc {
     (parameter: ICalGLib.Parameter): boolean
 }
-export interface ComponentPropertyBagFilterFunc {
+interface ComponentPropertyBagFilterFunc {
     (property: ICalGLib.Property): boolean
 }
-export interface RecurFormatDateTimeFunc {
+interface RecurFormatDateTimeFunc {
     (itt: ICalGLib.Time, buffer: string, buffer_size: number): void
 }
-export interface RecurInstanceCb {
+interface RecurInstanceCb {
     (icomp: ICalGLib.Component, instance_start: ICalGLib.Time, instance_end: ICalGLib.Time, cancellable?: Gio.Cancellable | null): boolean
 }
-export interface RecurResolveTimezoneCb {
+interface RecurResolveTimezoneCb {
     (tzid: string, cancellable?: Gio.Cancellable | null): ICalGLib.Timezone | null
 }
-export class TimezoneCache {
+class TimezoneCache {
     /* Methods of ECal-2.0.ECal.TimezoneCache */
     add_timezone(zone: ICalGLib.Timezone): void
     get_timezone(tzid: string): ICalGLib.Timezone | null
@@ -259,7 +261,7 @@ export interface Client_ConstructProps extends EDataServer.Client_ConstructProps
     default_timezone?: ICalGLib.Timezone
     source_type?: ClientSourceType
 }
-export class Client {
+class Client {
     /* Properties of ECal-2.0.ECal.Client */
     default_timezone: ICalGLib.Timezone
     /* Properties of EDataServer-1.2.EDataServer.Client */
@@ -515,7 +517,7 @@ export interface ClientView_ConstructProps extends GObject.Object_ConstructProps
     connection?: Gio.DBusConnection
     object_path?: string
 }
-export class ClientView {
+class ClientView {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ECal-2.0.ECal.ClientView */
@@ -596,7 +598,7 @@ export class ClientView {
 }
 export interface Component_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Component {
+class Component {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ECal-2.0.ECal.Component */
@@ -746,7 +748,7 @@ export interface ReminderWatcher_ConstructProps extends GObject.Object_Construct
     registry?: EDataServer.SourceRegistry
     timers_enabled?: boolean
 }
-export class ReminderWatcher {
+class ReminderWatcher {
     /* Properties of ECal-2.0.ECal.ReminderWatcher */
     default_zone: ICalGLib.Timezone
     timers_enabled: boolean
@@ -834,13 +836,13 @@ export class ReminderWatcher {
     static new(registry: EDataServer.SourceRegistry): ReminderWatcher
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export class ClientTzlookupICalCompData {
+class ClientTzlookupICalCompData {
     /* Methods of ECal-2.0.ECal.ClientTzlookupICalCompData */
     copy(): ClientTzlookupICalCompData | null
     free(): void
@@ -851,16 +853,16 @@ export class ClientTzlookupICalCompData {
     /* Static methods and pseudo-constructors */
     static new(icomp: ICalGLib.Component): ClientTzlookupICalCompData
 }
-export abstract class ClientViewClass {
+abstract class ClientViewClass {
     /* Fields of ECal-2.0.ECal.ClientViewClass */
     progress: (client_view: ClientView, percent: number, message: string) => void
     complete: (client_view: ClientView, error: GLib.Error) => void
     static name: string
 }
-export class ClientViewPrivate {
+class ClientViewPrivate {
     static name: string
 }
-export class ComponentAlarm {
+class ComponentAlarm {
     /* Methods of ECal-2.0.ECal.ComponentAlarm */
     copy(): ComponentAlarm
     fill_component(component: ICalGLib.Component): void
@@ -895,7 +897,7 @@ export class ComponentAlarm {
     static new(): ComponentAlarm
     static new_from_component(component: ICalGLib.Component): ComponentAlarm
 }
-export class ComponentAlarmInstance {
+class ComponentAlarmInstance {
     /* Methods of ECal-2.0.ECal.ComponentAlarmInstance */
     copy(): ComponentAlarmInstance
     get_occur_end(): number
@@ -914,7 +916,7 @@ export class ComponentAlarmInstance {
     /* Static methods and pseudo-constructors */
     static new(uid: string, instance_time: number, occur_start: number, occur_end: number): ComponentAlarmInstance
 }
-export class ComponentAlarmRepeat {
+class ComponentAlarmRepeat {
     /* Methods of ECal-2.0.ECal.ComponentAlarmRepeat */
     copy(): ComponentAlarmRepeat
     get_interval(): ICalGLib.Duration
@@ -930,7 +932,7 @@ export class ComponentAlarmRepeat {
     static new(repetitions: number, interval: ICalGLib.Duration): ComponentAlarmRepeat
     static new_seconds(repetitions: number, interval_seconds: number): ComponentAlarmRepeat
 }
-export class ComponentAlarmTrigger {
+class ComponentAlarmTrigger {
     /* Methods of ECal-2.0.ECal.ComponentAlarmTrigger */
     copy(): ComponentAlarmTrigger
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
@@ -951,7 +953,7 @@ export class ComponentAlarmTrigger {
     static new_from_property(property: ICalGLib.Property): ComponentAlarmTrigger
     static new_relative(kind: ComponentAlarmTriggerKind, duration: ICalGLib.Duration): ComponentAlarmTrigger
 }
-export class ComponentAlarms {
+class ComponentAlarms {
     /* Methods of ECal-2.0.ECal.ComponentAlarms */
     add_instance(instance: ComponentAlarmInstance): void
     copy(): ComponentAlarms
@@ -967,7 +969,7 @@ export class ComponentAlarms {
     /* Static methods and pseudo-constructors */
     static new(comp: Component): ComponentAlarms
 }
-export class ComponentAttendee {
+class ComponentAttendee {
     /* Methods of ECal-2.0.ECal.ComponentAttendee */
     copy(): ComponentAttendee
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
@@ -1004,10 +1006,10 @@ export class ComponentAttendee {
     static new_from_property(property: ICalGLib.Property): ComponentAttendee
     static new_full(value: string | null, member: string | null, cutype: ICalGLib.ParameterCutype, role: ICalGLib.ParameterRole, partstat: ICalGLib.ParameterPartstat, rsvp: boolean, delegatedfrom?: string | null, delegatedto?: string | null, sentby?: string | null, cn?: string | null, language?: string | null): ComponentAttendee
 }
-export abstract class ComponentClass {
+abstract class ComponentClass {
     static name: string
 }
-export class ComponentDateTime {
+class ComponentDateTime {
     /* Methods of ECal-2.0.ECal.ComponentDateTime */
     copy(): ComponentDateTime
     get_tzid(): string | null
@@ -1024,7 +1026,7 @@ export class ComponentDateTime {
     static new(value: ICalGLib.Time, tzid?: string | null): ComponentDateTime
     static new_take(value: ICalGLib.Time, tzid?: string | null): ComponentDateTime
 }
-export class ComponentId {
+class ComponentId {
     /* Methods of ECal-2.0.ECal.ComponentId */
     copy(): ComponentId
     equal(id2: ComponentId): boolean
@@ -1040,7 +1042,7 @@ export class ComponentId {
     static new(uid: string, rid?: string | null): ComponentId
     static new_take(uid: string, rid?: string | null): ComponentId
 }
-export class ComponentOrganizer {
+class ComponentOrganizer {
     /* Methods of ECal-2.0.ECal.ComponentOrganizer */
     copy(): ComponentOrganizer
     fill_property(property: ICalGLib.Property): /* property */ ICalGLib.Property
@@ -1063,7 +1065,7 @@ export class ComponentOrganizer {
     static new_from_property(property: ICalGLib.Property): ComponentOrganizer
     static new_full(value?: string | null, sentby?: string | null, cn?: string | null, language?: string | null): ComponentOrganizer
 }
-export class ComponentParameterBag {
+class ComponentParameterBag {
     /* Methods of ECal-2.0.ECal.ComponentParameterBag */
     add(param: ICalGLib.Parameter): void
     assign(src_bag: ComponentParameterBag): void
@@ -1084,7 +1086,7 @@ export class ComponentParameterBag {
     static new(): ComponentParameterBag
     static new_from_property(property: ICalGLib.Property): ComponentParameterBag
 }
-export class ComponentPeriod {
+class ComponentPeriod {
     /* Methods of ECal-2.0.ECal.ComponentPeriod */
     copy(): ComponentPeriod
     get_duration(): ICalGLib.Duration
@@ -1101,10 +1103,10 @@ export class ComponentPeriod {
     static new_datetime(start: ICalGLib.Time, end?: ICalGLib.Time | null): ComponentPeriod
     static new_duration(start: ICalGLib.Time, duration: ICalGLib.Duration): ComponentPeriod
 }
-export class ComponentPrivate {
+class ComponentPrivate {
     static name: string
 }
-export class ComponentPropertyBag {
+class ComponentPropertyBag {
     /* Methods of ECal-2.0.ECal.ComponentPropertyBag */
     add(prop: ICalGLib.Property): void
     assign(src_bag: ComponentPropertyBag): void
@@ -1125,7 +1127,7 @@ export class ComponentPropertyBag {
     static new(): ComponentPropertyBag
     static new_from_component(component: ICalGLib.Component): ComponentPropertyBag
 }
-export class ComponentRange {
+class ComponentRange {
     /* Methods of ECal-2.0.ECal.ComponentRange */
     copy(): ComponentRange
     get_datetime(): ComponentDateTime
@@ -1138,7 +1140,7 @@ export class ComponentRange {
     /* Static methods and pseudo-constructors */
     static new(kind: ComponentRangeKind, datetime: ComponentDateTime): ComponentRange
 }
-export class ComponentText {
+class ComponentText {
     /* Methods of ECal-2.0.ECal.ComponentText */
     copy(): ComponentText
     get_altrep(): string
@@ -1151,7 +1153,7 @@ export class ComponentText {
     /* Static methods and pseudo-constructors */
     static new(value?: string | null, altrep?: string | null): ComponentText
 }
-export class ReminderData {
+class ReminderData {
     /* Methods of ECal-2.0.ECal.ReminderData */
     copy(): ReminderData
     free(): void
@@ -1167,7 +1169,7 @@ export class ReminderData {
     /* Static methods and pseudo-constructors */
     static new(source_uid: string, component: Component, instance: ComponentAlarmInstance): ReminderData
 }
-export abstract class ReminderWatcherClass {
+abstract class ReminderWatcherClass {
     /* Fields of ECal-2.0.ECal.ReminderWatcherClass */
     parent_class: GObject.ObjectClass
     schedule_timer: (watcher: ReminderWatcher, at_time: number) => void
@@ -1177,13 +1179,15 @@ export abstract class ReminderWatcherClass {
     reserved: object[]
     static name: string
 }
-export class ReminderWatcherPrivate {
+class ReminderWatcherPrivate {
     static name: string
 }
-export abstract class TimezoneCacheInterface {
+abstract class TimezoneCacheInterface {
     /* Fields of ECal-2.0.ECal.TimezoneCacheInterface */
     tzcache_add_timezone: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     timezone_added: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     reserved_signals: object[]
     static name: string
 }
+}
+export default ECal

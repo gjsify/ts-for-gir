@@ -3,25 +3,27 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstSdp from './GstSdp-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gio from './Gio-2.0';
+import type GstSdp from './GstSdp-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstBase from './GstBase-1.0';
+import type Gio from './Gio-2.0';
 
-export enum RTSPAuthMethod {
+export namespace GstRtsp {
+
+enum RTSPAuthMethod {
     NONE,
     BASIC,
     DIGEST,
 }
-export enum RTSPFamily {
+enum RTSPFamily {
     NONE,
     INET,
     INET6,
 }
-export enum RTSPHeaderField {
+enum RTSPHeaderField {
     INVALID,
     ACCEPT,
     ACCEPT_ENCODING,
@@ -113,7 +115,7 @@ export enum RTSPHeaderField {
     RATE_CONTROL,
     LAST,
 }
-export enum RTSPMsgType {
+enum RTSPMsgType {
     INVALID,
     REQUEST,
     RESPONSE,
@@ -121,14 +123,14 @@ export enum RTSPMsgType {
     HTTP_RESPONSE,
     DATA,
 }
-export enum RTSPRangeUnit {
+enum RTSPRangeUnit {
     SMPTE,
     SMPTE_30_DROP,
     SMPTE_25,
     NPT,
     CLOCK,
 }
-export enum RTSPResult {
+enum RTSPResult {
     OK,
     ERROR,
     EINVAL,
@@ -148,7 +150,7 @@ export enum RTSPResult {
     ETPOST,
     ELAST,
 }
-export enum RTSPState {
+enum RTSPState {
     INVALID,
     INIT,
     READY,
@@ -156,7 +158,7 @@ export enum RTSPState {
     PLAYING,
     RECORDING,
 }
-export enum RTSPStatusCode {
+enum RTSPStatusCode {
     INVALID,
     CONTINUE,
     OK,
@@ -204,24 +206,24 @@ export enum RTSPStatusCode {
     RTSP_VERSION_NOT_SUPPORTED,
     OPTION_NOT_SUPPORTED,
 }
-export enum RTSPTimeType {
+enum RTSPTimeType {
     SECONDS,
     NOW,
     END,
     FRAMES,
     UTC,
 }
-export enum RTSPVersion {
+enum RTSPVersion {
     INVALID,
     /* 1_0 (invalid, starts with a number) */
     /* 1_1 (invalid, starts with a number) */
     /* 2_0 (invalid, starts with a number) */
 }
-export enum RTSPEvent {
+enum RTSPEvent {
     READ,
     WRITE,
 }
-export enum RTSPLowerTrans {
+enum RTSPLowerTrans {
     UNKNOWN,
     UDP,
     UDP_MCAST,
@@ -229,7 +231,7 @@ export enum RTSPLowerTrans {
     HTTP,
     TLS,
 }
-export enum RTSPMethod {
+enum RTSPMethod {
     INVALID,
     DESCRIBE,
     ANNOUNCE,
@@ -245,53 +247,53 @@ export enum RTSPMethod {
     GET,
     POST,
 }
-export enum RTSPProfile {
+enum RTSPProfile {
     UNKNOWN,
     AVP,
     SAVP,
     AVPF,
     SAVPF,
 }
-export enum RTSPTransMode {
+enum RTSPTransMode {
     UNKNOWN,
     RTP,
     RDT,
 }
 export const RTSP_DEFAULT_PORT: number
-export function rtsp_auth_credentials_free(credentials: RTSPAuthCredential): void
-export function rtsp_connection_accept(socket: Gio.Socket, cancellable?: Gio.Cancellable | null): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
-export function rtsp_connection_create(url: RTSPUrl): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
-export function rtsp_connection_create_from_socket(socket: Gio.Socket, ip: string, port: number, initial_buffer: string): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
-export function rtsp_find_header_field(header: string): RTSPHeaderField
-export function rtsp_find_method(method: string): RTSPMethod
-export function rtsp_generate_digest_auth_response(algorithm: string | null, method: string, realm: string, username: string, password: string, uri: string, nonce: string): string
-export function rtsp_generate_digest_auth_response_from_md5(algorithm: string | null, method: string, md5: string, uri: string, nonce: string): string
-export function rtsp_header_allow_multiple(field: RTSPHeaderField): boolean
-export function rtsp_header_as_text(field: RTSPHeaderField): string
-export function rtsp_message_new(): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
-export function rtsp_message_new_data(channel: number): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
-export function rtsp_message_new_request(method: RTSPMethod, uri: string): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
-export function rtsp_message_new_response(code: RTSPStatusCode, reason?: string | null, request?: RTSPMessage | null): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
-export function rtsp_method_as_text(method: RTSPMethod): string
-export function rtsp_options_as_text(options: RTSPMethod): string
-export function rtsp_options_from_text(options: string): RTSPMethod
-export function rtsp_range_convert_units(range: RTSPTimeRange, unit: RTSPRangeUnit): boolean
-export function rtsp_range_free(range: RTSPTimeRange): void
-export function rtsp_range_get_times(range: RTSPTimeRange): [ /* returnType */ boolean, /* min */ Gst.ClockTime, /* max */ Gst.ClockTime ]
-export function rtsp_range_parse(rangestr: string): [ /* returnType */ RTSPResult, /* range */ RTSPTimeRange ]
-export function rtsp_range_to_string(range: RTSPTimeRange): string
-export function rtsp_status_as_text(code: RTSPStatusCode): string
-export function rtsp_strresult(result: RTSPResult): string
-export function rtsp_transport_get_manager(trans: RTSPTransMode, option: number): [ /* returnType */ RTSPResult, /* manager */ string | null ]
-export function rtsp_transport_get_mime(trans: RTSPTransMode, mime: string): RTSPResult
-export function rtsp_transport_new(transport: RTSPTransport): RTSPResult
-export function rtsp_transport_parse(str: string, transport: RTSPTransport): RTSPResult
-export function rtsp_url_parse(urlstr: string): [ /* returnType */ RTSPResult, /* url */ RTSPUrl ]
-export function rtsp_version_as_text(version: RTSPVersion): string
-export interface RTSPConnectionAcceptCertificateFunc {
+function rtsp_auth_credentials_free(credentials: RTSPAuthCredential): void
+function rtsp_connection_accept(socket: Gio.Socket, cancellable?: Gio.Cancellable | null): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
+function rtsp_connection_create(url: RTSPUrl): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
+function rtsp_connection_create_from_socket(socket: Gio.Socket, ip: string, port: number, initial_buffer: string): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
+function rtsp_find_header_field(header: string): RTSPHeaderField
+function rtsp_find_method(method: string): RTSPMethod
+function rtsp_generate_digest_auth_response(algorithm: string | null, method: string, realm: string, username: string, password: string, uri: string, nonce: string): string
+function rtsp_generate_digest_auth_response_from_md5(algorithm: string | null, method: string, md5: string, uri: string, nonce: string): string
+function rtsp_header_allow_multiple(field: RTSPHeaderField): boolean
+function rtsp_header_as_text(field: RTSPHeaderField): string
+function rtsp_message_new(): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
+function rtsp_message_new_data(channel: number): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
+function rtsp_message_new_request(method: RTSPMethod, uri: string): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
+function rtsp_message_new_response(code: RTSPStatusCode, reason?: string | null, request?: RTSPMessage | null): [ /* returnType */ RTSPResult, /* msg */ RTSPMessage ]
+function rtsp_method_as_text(method: RTSPMethod): string
+function rtsp_options_as_text(options: RTSPMethod): string
+function rtsp_options_from_text(options: string): RTSPMethod
+function rtsp_range_convert_units(range: RTSPTimeRange, unit: RTSPRangeUnit): boolean
+function rtsp_range_free(range: RTSPTimeRange): void
+function rtsp_range_get_times(range: RTSPTimeRange): [ /* returnType */ boolean, /* min */ Gst.ClockTime, /* max */ Gst.ClockTime ]
+function rtsp_range_parse(rangestr: string): [ /* returnType */ RTSPResult, /* range */ RTSPTimeRange ]
+function rtsp_range_to_string(range: RTSPTimeRange): string
+function rtsp_status_as_text(code: RTSPStatusCode): string
+function rtsp_strresult(result: RTSPResult): string
+function rtsp_transport_get_manager(trans: RTSPTransMode, option: number): [ /* returnType */ RTSPResult, /* manager */ string | null ]
+function rtsp_transport_get_mime(trans: RTSPTransMode, mime: string): RTSPResult
+function rtsp_transport_new(transport: RTSPTransport): RTSPResult
+function rtsp_transport_parse(str: string, transport: RTSPTransport): RTSPResult
+function rtsp_url_parse(urlstr: string): [ /* returnType */ RTSPResult, /* url */ RTSPUrl ]
+function rtsp_version_as_text(version: RTSPVersion): string
+interface RTSPConnectionAcceptCertificateFunc {
     (conn: Gio.TlsConnection, peer_cert: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): boolean
 }
-export class RTSPExtension {
+class RTSPExtension {
     /* Methods of GstRtsp-1.0.GstRtsp.RTSPExtension */
     after_send(req: RTSPMessage, resp: RTSPMessage): RTSPResult
     before_send(req: RTSPMessage): RTSPResult
@@ -320,14 +322,14 @@ export class RTSPExtension {
     emit(sigName: "send", object?: object | null, p0?: object | null): void
     static name: string
 }
-export class RTSPAuthCredential {
+class RTSPAuthCredential {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPAuthCredential */
     scheme: RTSPAuthMethod
     params: RTSPAuthParam
     authorization: string
     static name: string
 }
-export class RTSPAuthParam {
+class RTSPAuthParam {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPAuthParam */
     name: string
     value: string
@@ -336,7 +338,7 @@ export class RTSPAuthParam {
     free(): void
     static name: string
 }
-export class RTSPConnection {
+class RTSPConnection {
     /* Methods of GstRtsp-1.0.GstRtsp.RTSPConnection */
     clear_auth_params(): void
     close(): RTSPResult
@@ -394,7 +396,7 @@ export class RTSPConnection {
     static create(url: RTSPUrl): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
     static create_from_socket(socket: Gio.Socket, ip: string, port: number, initial_buffer: string): [ /* returnType */ RTSPResult, /* conn */ RTSPConnection ]
 }
-export abstract class RTSPExtensionInterface {
+abstract class RTSPExtensionInterface {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPExtensionInterface */
     parent: GObject.TypeInterface
     detect_server: (ext: RTSPExtension, resp: RTSPMessage) => boolean
@@ -409,7 +411,7 @@ export abstract class RTSPExtensionInterface {
     receive_request: (ext: RTSPExtension, req: RTSPMessage) => RTSPResult
     static name: string
 }
-export class RTSPMessage {
+class RTSPMessage {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPMessage */
     type: RTSPMsgType
     /* Methods of GstRtsp-1.0.GstRtsp.RTSPMessage */
@@ -446,7 +448,7 @@ export class RTSPMessage {
     unset(): RTSPResult
     static name: string
 }
-export class RTSPRange {
+class RTSPRange {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPRange */
     min: number
     max: number
@@ -458,13 +460,13 @@ export class RTSPRange {
     static parse(rangestr: string): [ /* returnType */ RTSPResult, /* range */ RTSPTimeRange ]
     static to_string(range: RTSPTimeRange): string
 }
-export class RTSPTime {
+class RTSPTime {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPTime */
     type: RTSPTimeType
     seconds: number
     static name: string
 }
-export class RTSPTime2 {
+class RTSPTime2 {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPTime2 */
     frames: number
     year: number
@@ -472,7 +474,7 @@ export class RTSPTime2 {
     day: number
     static name: string
 }
-export class RTSPTimeRange {
+class RTSPTimeRange {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPTimeRange */
     unit: RTSPRangeUnit
     min: RTSPTime
@@ -481,7 +483,7 @@ export class RTSPTimeRange {
     max2: RTSPTime2
     static name: string
 }
-export class RTSPTransport {
+class RTSPTransport {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPTransport */
     trans: RTSPTransMode
     profile: RTSPProfile
@@ -509,7 +511,7 @@ export class RTSPTransport {
     static get_mime(trans: RTSPTransMode, mime: string): RTSPResult
     static parse(str: string, transport: RTSPTransport): RTSPResult
 }
-export class RTSPUrl {
+class RTSPUrl {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPUrl */
     transports: RTSPLowerTrans
     family: RTSPFamily
@@ -531,7 +533,7 @@ export class RTSPUrl {
     /* Static methods and pseudo-constructors */
     static parse(urlstr: string): [ /* returnType */ RTSPResult, /* url */ RTSPUrl ]
 }
-export class RTSPWatch {
+class RTSPWatch {
     /* Methods of GstRtsp-1.0.GstRtsp.RTSPWatch */
     attach(context: GLib.MainContext): number
     get_send_backlog(): [ /* bytes */ number | null, /* messages */ number | null ]
@@ -546,7 +548,7 @@ export class RTSPWatch {
     write_data(data: Uint8Array[]): [ /* returnType */ RTSPResult, /* id */ number | null ]
     static name: string
 }
-export class RTSPWatchFuncs {
+class RTSPWatchFuncs {
     /* Fields of GstRtsp-1.0.GstRtsp.RTSPWatchFuncs */
     message_received: (watch: RTSPWatch, message: RTSPMessage) => RTSPResult
     message_sent: (watch: RTSPWatch, id: number) => RTSPResult
@@ -559,3 +561,5 @@ export class RTSPWatchFuncs {
     tunnel_http_response: (watch: RTSPWatch, request: RTSPMessage, response: RTSPMessage) => RTSPResult
     static name: string
 }
+}
+export default GstRtsp

@@ -1,2 +1,1 @@
-imports.gi.versions.LibvirtGLib = '1.0'
-module.exports = imports.gi.LibvirtGLib
+export {default as default} from 'gi://LibvirtGLib?version=1.0';

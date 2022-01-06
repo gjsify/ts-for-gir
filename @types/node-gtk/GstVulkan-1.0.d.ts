@@ -11,21 +11,21 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstVulkan {
+declare namespace GstVulkan {
 
-export enum VulkanBarrierFlags {
+enum VulkanBarrierFlags {
     NONE,
 }
-export enum VulkanBarrierType {
+enum VulkanBarrierType {
     NONE,
     TYPE_MEMORY,
     TYPE_BUFFER,
     TYPE_IMAGE,
 }
-export enum VulkanError {
+enum VulkanError {
     FAILED,
 }
-export enum VulkanFormatScaling {
+enum VulkanFormatScaling {
     UNORM,
     SNORM,
     USCALED,
@@ -34,7 +34,7 @@ export enum VulkanFormatScaling {
     SINT,
     SRGB,
 }
-export enum VulkanHandleType {
+enum VulkanHandleType {
     DESCRIPTOR_SET_LAYOUT,
     PIPELINE_LAYOUT,
     PIPELINE,
@@ -43,12 +43,12 @@ export enum VulkanHandleType {
     FRAMEBUFFER,
     SHADER,
 }
-export enum VulkanWindowError {
+enum VulkanWindowError {
     FAILED,
     OLD_LIBS,
     RESOURCE_UNAVAILABLE,
 }
-export enum VulkanDisplayType {
+enum VulkanDisplayType {
     NONE,
     XCB,
     WAYLAND,
@@ -58,7 +58,7 @@ export enum VulkanDisplayType {
     ANDROID,
     ANY,
 }
-export enum VulkanFormatFlags {
+enum VulkanFormatFlags {
     YUV,
     RGB,
     ALPHA,
@@ -77,67 +77,67 @@ export const VULKAN_MEMORY_ALLOCATOR_NAME: string
 export const VULKAN_NON_DISPATCHABLE_HANDLE_FORMAT: string
 export const VULKAN_QUEUE_CONTEXT_TYPE_STR: string
 export const VULKAN_SWAPPER_VIDEO_FORMATS: string
-export function contextGetVulkanDevice(context: Gst.Context, device: VulkanDevice): boolean
-export function contextGetVulkanDisplay(context: Gst.Context, display: VulkanDisplay): boolean
-export function contextGetVulkanInstance(context: Gst.Context, instance: VulkanInstance): boolean
-export function contextGetVulkanQueue(context: Gst.Context, queue: VulkanQueue): boolean
-export function contextSetVulkanDevice(context: Gst.Context, device: VulkanDevice): void
-export function contextSetVulkanDisplay(context: Gst.Context, display: VulkanDisplay): void
-export function contextSetVulkanInstance(context: Gst.Context, instance: VulkanInstance): void
-export function contextSetVulkanQueue(context: Gst.Context, queue: VulkanQueue): void
-export function isVulkanBufferMemory(mem: Gst.Memory): boolean
-export function isVulkanImageMemory(mem: Gst.Memory): boolean
-export function isVulkanMemory(mem: Gst.Memory): boolean
-export function vulkanBufferMemoryAlloc(device: VulkanDevice, size: number, usage: Vulkan.BufferUsageFlags, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
-export function vulkanBufferMemoryInitOnce(): void
-export function vulkanBufferMemoryWrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, userData?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
-export function vulkanCreateShader(device: VulkanDevice, code: string, size: number): VulkanHandle
-export function vulkanDisplayTypeToExtensionString(type: VulkanDisplayType): string
-export function vulkanEnsureElementData(element: Gst.Element, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance): { returnType: boolean, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance }
-export function vulkanErrorQuark(): GLib.Quark
-export function vulkanFormatGetInfo(format: Vulkan.Format): VulkanFormatInfo
-export function vulkanGetOrCreateImageView(image: VulkanImageMemory): VulkanImageView
-export function vulkanGlobalContextQuery(element: Gst.Element, contextType: string): void
-export function vulkanHandleContextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null, instance?: VulkanInstance | null, device?: VulkanDevice | null): boolean
-export function vulkanHandleSetContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): { returnType: boolean, display: VulkanDisplay | null, instance: VulkanInstance }
-export function vulkanImageMemoryAlloc(device: VulkanDevice, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
-export function vulkanImageMemoryInitOnce(): void
-export function vulkanImageMemoryWrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, userData: object | null, notify: GLib.DestroyNotify): Gst.Memory
-export function vulkanLocalContextQuery(element: Gst.Element, contextType: string): Gst.Query
-export function vulkanMemoryAlloc(device: VulkanDevice, memoryTypeIndex: number, params: Gst.AllocationParams, size: number, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
-export function vulkanMemoryFindMemoryTypeIndexWithTypeProperties(device: VulkanDevice, typeBits: number, properties: Vulkan.MemoryPropertyFlags, typeIndex: number): boolean
-export function vulkanMemoryHeapFlagsToString(propBits: Vulkan.MemoryHeapFlags): string
-export function vulkanMemoryInitOnce(): void
-export function vulkanMemoryPropertyFlagsToString(propBits: Vulkan.MemoryPropertyFlags): string
-export function vulkanRunQuery(element: Gst.Element, query: Gst.Query, direction: Gst.PadDirection): boolean
-export function vulkanSampleCountFlagsToString(sampleCountBits: Vulkan.SampleCountFlags): string
-export function vulkanTrashMiniObjectUnref(device: VulkanDevice, userData?: object | null): void
-export function vulkanTrashObjectUnref(device: VulkanDevice, userData?: object | null): void
-export function vulkanWindowErrorQuark(): GLib.Quark
-export interface VulkanDeviceForEachQueueFunc {
+function contextGetVulkanDevice(context: Gst.Context, device: VulkanDevice): boolean
+function contextGetVulkanDisplay(context: Gst.Context, display: VulkanDisplay): boolean
+function contextGetVulkanInstance(context: Gst.Context, instance: VulkanInstance): boolean
+function contextGetVulkanQueue(context: Gst.Context, queue: VulkanQueue): boolean
+function contextSetVulkanDevice(context: Gst.Context, device: VulkanDevice): void
+function contextSetVulkanDisplay(context: Gst.Context, display: VulkanDisplay): void
+function contextSetVulkanInstance(context: Gst.Context, instance: VulkanInstance): void
+function contextSetVulkanQueue(context: Gst.Context, queue: VulkanQueue): void
+function isVulkanBufferMemory(mem: Gst.Memory): boolean
+function isVulkanImageMemory(mem: Gst.Memory): boolean
+function isVulkanMemory(mem: Gst.Memory): boolean
+function vulkanBufferMemoryAlloc(device: VulkanDevice, size: number, usage: Vulkan.BufferUsageFlags, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
+function vulkanBufferMemoryInitOnce(): void
+function vulkanBufferMemoryWrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, userData?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
+function vulkanCreateShader(device: VulkanDevice, code: string, size: number): VulkanHandle
+function vulkanDisplayTypeToExtensionString(type: VulkanDisplayType): string
+function vulkanEnsureElementData(element: Gst.Element, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance): { returnType: boolean, displayPtr: VulkanDisplay | null, instancePtr: VulkanInstance }
+function vulkanErrorQuark(): GLib.Quark
+function vulkanFormatGetInfo(format: Vulkan.Format): VulkanFormatInfo
+function vulkanGetOrCreateImageView(image: VulkanImageMemory): VulkanImageView
+function vulkanGlobalContextQuery(element: Gst.Element, contextType: string): void
+function vulkanHandleContextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null, instance?: VulkanInstance | null, device?: VulkanDevice | null): boolean
+function vulkanHandleSetContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): { returnType: boolean, display: VulkanDisplay | null, instance: VulkanInstance }
+function vulkanImageMemoryAlloc(device: VulkanDevice, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
+function vulkanImageMemoryInitOnce(): void
+function vulkanImageMemoryWrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, userData: object | null, notify: GLib.DestroyNotify): Gst.Memory
+function vulkanLocalContextQuery(element: Gst.Element, contextType: string): Gst.Query
+function vulkanMemoryAlloc(device: VulkanDevice, memoryTypeIndex: number, params: Gst.AllocationParams, size: number, memPropFlags: Vulkan.MemoryPropertyFlags): Gst.Memory
+function vulkanMemoryFindMemoryTypeIndexWithTypeProperties(device: VulkanDevice, typeBits: number, properties: Vulkan.MemoryPropertyFlags, typeIndex: number): boolean
+function vulkanMemoryHeapFlagsToString(propBits: Vulkan.MemoryHeapFlags): string
+function vulkanMemoryInitOnce(): void
+function vulkanMemoryPropertyFlagsToString(propBits: Vulkan.MemoryPropertyFlags): string
+function vulkanRunQuery(element: Gst.Element, query: Gst.Query, direction: Gst.PadDirection): boolean
+function vulkanSampleCountFlagsToString(sampleCountBits: Vulkan.SampleCountFlags): string
+function vulkanTrashMiniObjectUnref(device: VulkanDevice, userData?: object | null): void
+function vulkanTrashObjectUnref(device: VulkanDevice, userData?: object | null): void
+function vulkanWindowErrorQuark(): GLib.Quark
+interface VulkanDeviceForEachQueueFunc {
     (device: VulkanDevice, queue: VulkanQueue): boolean
 }
-export interface VulkanHandleDestroyNotify {
+interface VulkanHandleDestroyNotify {
     (handle: VulkanHandle): void
 }
-export interface VulkanImageMemoryFindViewFunc {
+interface VulkanImageMemoryFindViewFunc {
     (view: VulkanImageView): boolean
 }
-export interface VulkanTrashListAdd {
+interface VulkanTrashListAdd {
     (trashList: VulkanTrashList, trash: VulkanTrash): boolean
 }
-export interface VulkanTrashListGC {
+interface VulkanTrashListGC {
     (trashList: VulkanTrashList): void
 }
-export interface VulkanTrashListWait {
+interface VulkanTrashListWait {
     (trashList: VulkanTrashList, timeout: number): boolean
 }
-export interface VulkanTrashNotify {
+interface VulkanTrashNotify {
     (device: VulkanDevice): void
 }
 export interface VulkanBufferMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class VulkanBufferMemoryAllocator {
+class VulkanBufferMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -242,7 +242,7 @@ export class VulkanBufferMemoryAllocator {
 }
 export interface VulkanBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
-export class VulkanBufferPool {
+class VulkanBufferPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -352,7 +352,7 @@ export class VulkanBufferPool {
 }
 export interface VulkanCommandPool_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanCommandPool {
+class VulkanCommandPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -451,7 +451,7 @@ export class VulkanCommandPool {
 }
 export interface VulkanDescriptorCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
-export class VulkanDescriptorCache {
+class VulkanDescriptorCache {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -557,7 +557,7 @@ export class VulkanDescriptorCache {
 }
 export interface VulkanDescriptorPool_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanDescriptorPool {
+class VulkanDescriptorPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -659,7 +659,7 @@ export class VulkanDescriptorPool {
 export interface VulkanDevice_ConstructProps extends Gst.Object_ConstructProps {
     physicalDevice?: VulkanPhysicalDevice
 }
-export class VulkanDevice {
+class VulkanDevice {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanDevice */
     readonly instance: VulkanInstance
     /* Properties of Gst-1.0.Gst.Object */
@@ -773,7 +773,7 @@ export class VulkanDevice {
 }
 export interface VulkanDisplay_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanDisplay {
+class VulkanDisplay {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -877,7 +877,7 @@ export class VulkanDisplay {
 }
 export interface VulkanFenceCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
-export class VulkanFenceCache {
+class VulkanFenceCache {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -979,7 +979,7 @@ export class VulkanFenceCache {
 }
 export interface VulkanFullScreenQuad_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanFullScreenQuad {
+class VulkanFullScreenQuad {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1101,7 +1101,7 @@ export class VulkanFullScreenQuad {
 }
 export interface VulkanHandlePool_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanHandlePool {
+class VulkanHandlePool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1201,7 +1201,7 @@ export class VulkanHandlePool {
 }
 export interface VulkanImageBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
-export class VulkanImageBufferPool {
+class VulkanImageBufferPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1311,7 +1311,7 @@ export class VulkanImageBufferPool {
 }
 export interface VulkanImageMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class VulkanImageMemoryAllocator {
+class VulkanImageMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1416,7 +1416,7 @@ export class VulkanImageMemoryAllocator {
 }
 export interface VulkanInstance_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanInstance {
+class VulkanInstance {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1527,7 +1527,7 @@ export class VulkanInstance {
 }
 export interface VulkanMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class VulkanMemoryAllocator {
+class VulkanMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1634,7 +1634,7 @@ export interface VulkanPhysicalDevice_ConstructProps extends Gst.Object_Construc
     deviceIndex?: number
     instance?: VulkanInstance
 }
-export class VulkanPhysicalDevice {
+class VulkanPhysicalDevice {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     readonly name: string
     /* Properties of Gst-1.0.Gst.Object */
@@ -1745,7 +1745,7 @@ export class VulkanPhysicalDevice {
 }
 export interface VulkanQueue_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanQueue {
+class VulkanQueue {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -1853,7 +1853,7 @@ export interface VulkanSwapper_ConstructProps extends Gst.Object_ConstructProps 
     forceAspectRatio?: boolean
     pixelAspectRatio?: Gst.Fraction
 }
-export class VulkanSwapper {
+class VulkanSwapper {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     forceAspectRatio: boolean
     pixelAspectRatio: Gst.Fraction
@@ -1971,7 +1971,7 @@ export class VulkanSwapper {
 }
 export interface VulkanTrashFenceList_ConstructProps extends VulkanTrashList_ConstructProps {
 }
-export class VulkanTrashFenceList {
+class VulkanTrashFenceList {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2078,7 +2078,7 @@ export class VulkanTrashFenceList {
 }
 export interface VulkanTrashList_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
-export class VulkanTrashList {
+class VulkanTrashList {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -2183,7 +2183,7 @@ export class VulkanTrashList {
 }
 export interface VulkanVideoFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
-export class VulkanVideoFilter {
+class VulkanVideoFilter {
     /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -2417,7 +2417,7 @@ export class VulkanVideoFilter {
 }
 export interface VulkanWindow_ConstructProps extends Gst.Object_ConstructProps {
 }
-export class VulkanWindow {
+class VulkanWindow {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanWindow */
     readonly display: VulkanDisplay
     /* Properties of Gst-1.0.Gst.Object */
@@ -2554,21 +2554,21 @@ export class VulkanWindow {
     static new(display: VulkanDisplay): VulkanWindow
     static $gtype: GObject.Type
 }
-export class VulkanBarrierBufferInfo {
+class VulkanBarrierBufferInfo {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierBufferInfo */
     parent: VulkanBarrierMemoryInfo
     offset: Vulkan.DeviceSize
     size: Vulkan.DeviceSize
     static name: string
 }
-export class VulkanBarrierImageInfo {
+class VulkanBarrierImageInfo {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierImageInfo */
     parent: VulkanBarrierMemoryInfo
     imageLayout: Vulkan.ImageLayout
     subresourceRange: Vulkan.ImageSubresourceRange
     static name: string
 }
-export class VulkanBarrierMemoryInfo {
+class VulkanBarrierMemoryInfo {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierMemoryInfo */
     type: VulkanBarrierType
     flags: VulkanBarrierFlags
@@ -2577,7 +2577,7 @@ export class VulkanBarrierMemoryInfo {
     accessFlags: Vulkan.AccessFlags
     static name: string
 }
-export class VulkanBufferMemory {
+class VulkanBufferMemory {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemory */
     parent: Gst.Memory
     device: VulkanDevice
@@ -2596,20 +2596,20 @@ export class VulkanBufferMemory {
     static initOnce(): void
     static wrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, userData?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
 }
-export abstract class VulkanBufferMemoryAllocatorClass {
+abstract class VulkanBufferMemoryAllocatorClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
-export abstract class VulkanBufferPoolClass {
+abstract class VulkanBufferPoolClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
-export class VulkanBufferPoolPrivate {
+class VulkanBufferPoolPrivate {
     static name: string
 }
-export class VulkanCommandBuffer {
+class VulkanCommandBuffer {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandBuffer */
     parent: Gst.MiniObject
     cmd: Vulkan.CommandBuffer
@@ -2620,31 +2620,31 @@ export class VulkanCommandBuffer {
     /* Static methods and pseudo-constructors */
     static newWrapped(cmd: Vulkan.CommandBuffer, level: Vulkan.CommandBufferLevel): VulkanCommandBuffer
 }
-export abstract class VulkanCommandPoolClass {
+abstract class VulkanCommandPoolClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandPoolClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanCommandPoolPrivate {
+class VulkanCommandPoolPrivate {
     static name: string
 }
-export abstract class VulkanDescriptorCacheClass {
+abstract class VulkanDescriptorCacheClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorCacheClass */
     parentClass: VulkanHandlePoolClass
     static name: string
 }
-export class VulkanDescriptorCachePrivate {
+class VulkanDescriptorCachePrivate {
     static name: string
 }
-export abstract class VulkanDescriptorPoolClass {
+abstract class VulkanDescriptorPoolClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorPoolClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanDescriptorPoolPrivate {
+class VulkanDescriptorPoolPrivate {
     static name: string
 }
-export class VulkanDescriptorSet {
+class VulkanDescriptorSet {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorSet */
     parent: Gst.MiniObject
     set: Vulkan.DescriptorSet
@@ -2657,31 +2657,31 @@ export class VulkanDescriptorSet {
     /* Static methods and pseudo-constructors */
     static newWrapped(pool: VulkanDescriptorPool, set: Vulkan.DescriptorSet, nLayouts: number, layouts: VulkanHandle): VulkanDescriptorSet
 }
-export class VulkanDescriptorSetClass {
+class VulkanDescriptorSetClass {
     static name: string
 }
-export class VulkanDescriptorSetPrivate {
+class VulkanDescriptorSetPrivate {
     static name: string
 }
-export abstract class VulkanDeviceClass {
+abstract class VulkanDeviceClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanDeviceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanDevicePrivate {
+class VulkanDevicePrivate {
     static name: string
 }
-export abstract class VulkanDisplayClass {
+abstract class VulkanDisplayClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanDisplayClass */
     objectClass: Gst.ObjectClass
     getHandle: (display: VulkanDisplay) => object | null
     createWindow: (display: VulkanDisplay) => VulkanWindow
     static name: string
 }
-export class VulkanDisplayPrivate {
+class VulkanDisplayPrivate {
     static name: string
 }
-export class VulkanFence {
+class VulkanFence {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanFence */
     parent: Gst.MiniObject
     device: VulkanDevice
@@ -2697,12 +2697,12 @@ export class VulkanFence {
     static new(device: VulkanDevice): VulkanFence
     static newAlwaysSignalled(device: VulkanDevice): VulkanFence
 }
-export abstract class VulkanFenceCacheClass {
+abstract class VulkanFenceCacheClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanFenceCacheClass */
     parentClass: VulkanHandlePoolClass
     static name: string
 }
-export class VulkanFormatInfo {
+class VulkanFormatInfo {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanFormatInfo */
     format: Vulkan.Format
     name: string
@@ -2720,15 +2720,15 @@ export class VulkanFormatInfo {
     hSub: any[]
     static name: string
 }
-export abstract class VulkanFullScreenQuadClass {
+abstract class VulkanFullScreenQuadClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuadClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanFullScreenQuadPrivate {
+class VulkanFullScreenQuadPrivate {
     static name: string
 }
-export class VulkanHandle {
+class VulkanHandle {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandle */
     parent: Gst.MiniObject
     device: VulkanDevice
@@ -2750,7 +2750,7 @@ export class VulkanHandle {
     static contextQuery(element: Gst.Element, query: Gst.Query, display?: VulkanDisplay | null, instance?: VulkanInstance | null, device?: VulkanDevice | null): boolean
     static setContext(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): { returnType: boolean, display: VulkanDisplay | null, instance: VulkanInstance }
 }
-export abstract class VulkanHandlePoolClass {
+abstract class VulkanHandlePoolClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePoolClass */
     parent: Gst.ObjectClass
     alloc: (pool: VulkanHandlePool) => object | null
@@ -2759,18 +2759,18 @@ export abstract class VulkanHandlePoolClass {
     free: (pool: VulkanHandlePool, handle?: object | null) => void
     static name: string
 }
-export class VulkanHandleTypedef {
+class VulkanHandleTypedef {
     static name: string
 }
-export abstract class VulkanImageBufferPoolClass {
+abstract class VulkanImageBufferPoolClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageBufferPoolClass */
     parentClass: Gst.BufferPoolClass
     static name: string
 }
-export class VulkanImageBufferPoolPrivate {
+class VulkanImageBufferPoolPrivate {
     static name: string
 }
-export class VulkanImageMemory {
+class VulkanImageMemory {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemory */
     parent: Gst.Memory
     device: VulkanDevice
@@ -2800,12 +2800,12 @@ export class VulkanImageMemory {
     static initOnce(): void
     static wrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, userData: object | null, notify: GLib.DestroyNotify): Gst.Memory
 }
-export abstract class VulkanImageMemoryAllocatorClass {
+abstract class VulkanImageMemoryAllocatorClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
-export class VulkanImageView {
+class VulkanImageView {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageView */
     parent: Gst.MiniObject
     device: VulkanDevice
@@ -2818,15 +2818,15 @@ export class VulkanImageView {
     /* Static methods and pseudo-constructors */
     static new(image: VulkanImageMemory, createInfo: Vulkan.ImageViewCreateInfo): VulkanImageView
 }
-export abstract class VulkanInstanceClass {
+abstract class VulkanInstanceClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanInstanceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanInstancePrivate {
+class VulkanInstancePrivate {
     static name: string
 }
-export class VulkanMemory {
+class VulkanMemory {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemory */
     mem: Gst.Memory
     device: VulkanDevice
@@ -2841,36 +2841,36 @@ export class VulkanMemory {
     static initOnce(): void
     static propertyFlagsToString(propBits: Vulkan.MemoryPropertyFlags): string
 }
-export abstract class VulkanMemoryAllocatorClass {
+abstract class VulkanMemoryAllocatorClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemoryAllocatorClass */
     parentClass: Gst.AllocatorClass
     static name: string
 }
-export abstract class VulkanPhysicalDeviceClass {
+abstract class VulkanPhysicalDeviceClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDeviceClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanPhysicalDevicePrivate {
+class VulkanPhysicalDevicePrivate {
     static name: string
 }
-export abstract class VulkanQueueClass {
+abstract class VulkanQueueClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanQueueClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanQueuePrivate {
+class VulkanQueuePrivate {
     static name: string
 }
-export abstract class VulkanSwapperClass {
+abstract class VulkanSwapperClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanSwapperClass */
     parentClass: Gst.ObjectClass
     static name: string
 }
-export class VulkanSwapperPrivate {
+class VulkanSwapperPrivate {
     static name: string
 }
-export class VulkanTrash {
+class VulkanTrash {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrash */
     parent: Gst.MiniObject
     cache: VulkanTrashList
@@ -2886,12 +2886,12 @@ export class VulkanTrash {
     static miniObjectUnref(device: VulkanDevice, userData?: object | null): void
     static objectUnref(device: VulkanDevice, userData?: object | null): void
 }
-export abstract class VulkanTrashFenceListClass {
+abstract class VulkanTrashFenceListClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashFenceListClass */
     parentClass: VulkanTrashListClass
     static name: string
 }
-export abstract class VulkanTrashListClass {
+abstract class VulkanTrashListClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashListClass */
     parentClass: VulkanHandlePoolClass
     addFunc: VulkanTrashListAdd
@@ -2900,12 +2900,12 @@ export abstract class VulkanTrashListClass {
     padding: object[]
     static name: string
 }
-export abstract class VulkanVideoFilterClass {
+abstract class VulkanVideoFilterClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanVideoFilterClass */
     videoSinkClass: GstBase.BaseTransformClass
     static name: string
 }
-export abstract class VulkanWindowClass {
+abstract class VulkanWindowClass {
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanWindowClass */
     parentClass: Gst.ObjectClass
     open: (window: VulkanWindow) => boolean
@@ -2916,7 +2916,8 @@ export abstract class VulkanWindowClass {
     handleEvents: (window: VulkanWindow, handleEvents: boolean) => void
     static name: string
 }
-export class VulkanWindowPrivate {
+class VulkanWindowPrivate {
     static name: string
 }
 }
+export default GstVulkan

@@ -1,2 +1,1 @@
-imports.gi.versions.GrlNet = '0.2'
-module.exports = imports.gi.GrlNet
+export {default as default} from 'gi://GrlNet?version=0.2';

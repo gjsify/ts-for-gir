@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
@@ -25,6 +26,7 @@ export class Utils {
     }
 
     public static isNumeric(str: string): boolean {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return !isNaN((str as any) - parseFloat(str))
     }
 

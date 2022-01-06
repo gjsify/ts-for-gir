@@ -8,9 +8,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstMpegts {
+declare namespace GstMpegts {
 
-export enum ATSCDescriptorType {
+enum ATSCDescriptorType {
     STUFFING,
     AC3,
     CAPTION_SERVICE,
@@ -34,7 +34,7 @@ export enum ATSCDescriptorType {
     CRC32,
     GROUP_LINK,
 }
-export enum ATSCStreamType {
+enum ATSCStreamType {
     DCII_VIDEO,
     AUDIO_AC3,
     SUBTITLING,
@@ -43,18 +43,18 @@ export enum ATSCStreamType {
     AUDIO_EAC3,
     AUDIO_DTS_HD,
 }
-export enum AtscMGTTableType {
+enum AtscMGTTableType {
     EIT0,
     EIT127,
     ETT0,
     ETT127,
 }
-export enum CableOuterFECScheme {
+enum CableOuterFECScheme {
     UNDEFINED,
     NONE,
     RS_204_188,
 }
-export enum ComponentStreamContent {
+enum ComponentStreamContent {
     MPEG2_VIDEO,
     MPEG1_LAYER2_AUDIO,
     TELETEXT_OR_SUBTITLE,
@@ -64,7 +64,7 @@ export enum ComponentStreamContent {
     DTS,
     SRM_CPCM,
 }
-export enum ContentNibbleHi {
+enum ContentNibbleHi {
     MOVIE_DRAMA,
     NEWS_CURRENT_AFFAIRS,
     SHOW_GAME_SHOW,
@@ -77,7 +77,7 @@ export enum ContentNibbleHi {
     LEISURE_HOBBIES,
     SPECIAL_CHARACTERISTICS,
 }
-export enum DVBCodeRate {
+enum DVBCodeRate {
     NONE,
     /* 1_2 (invalid, starts with a number) */
     /* 2_3 (invalid, starts with a number) */
@@ -92,7 +92,7 @@ export enum DVBCodeRate {
     /* 9_10 (invalid, starts with a number) */
     /* 2_5 (invalid, starts with a number) */
 }
-export enum DVBDescriptorType {
+enum DVBDescriptorType {
     NETWORK_NAME,
     SERVICE_LIST,
     STUFFING,
@@ -158,7 +158,7 @@ export enum DVBDescriptorType {
     FTA_CONTENT_MANAGEMENT,
     EXTENSION,
 }
-export enum DVBExtendedDescriptorType {
+enum DVBExtendedDescriptorType {
     IMAGE_ICON,
     CPCM_DELIVERY_SIGNALLING,
     CP,
@@ -181,13 +181,13 @@ export enum DVBExtendedDescriptorType {
     AC4,
     AUDIO_PRESELECTION,
 }
-export enum DVBLinkageHandOverType {
+enum DVBLinkageHandOverType {
     RESERVED,
     IDENTICAL,
     LOCAL_VARIATION,
     ASSOCIATED,
 }
-export enum DVBLinkageType {
+enum DVBLinkageType {
     RESERVED_00,
     INFORMATION,
     EPG,
@@ -204,7 +204,7 @@ export enum DVBLinkageType {
     EVENT,
     EXTENDED_EVENT,
 }
-export enum DVBScramblingModeType {
+enum DVBScramblingModeType {
     RESERVED,
     CSA1,
     CSA2,
@@ -215,7 +215,7 @@ export enum DVBScramblingModeType {
     ATIS_0,
     ATIS_F,
 }
-export enum DVBServiceType {
+enum DVBServiceType {
     RESERVED_00,
     DIGITAL_TELEVISION,
     DIGITAL_RADIO_SOUND,
@@ -245,14 +245,14 @@ export enum DVBServiceType {
     ADVANCED_CODEC_STEREO_HD_NVOD_REFERENCE,
     RESERVED_FF,
 }
-export enum DVBTeletextType {
+enum DVBTeletextType {
     NITIAL_PAGE,
     UBTITLE_PAGE,
     DDITIONAL_INFO_PAGE,
     ROGRAMME_SCHEDULE_PAGE,
     EARING_IMPAIRED_PAGE,
 }
-export enum DescriptorType {
+enum DescriptorType {
     RESERVED_00,
     RESERVED_01,
     VIDEO_STREAM,
@@ -308,7 +308,7 @@ export enum DescriptorType {
     STEREOSCOPIC_PROGRAM_INFO,
     STEREOSCOPIC_VIDEO_INFO,
 }
-export enum HdmvStreamType {
+enum HdmvStreamType {
     AUDIO_LPCM,
     AUDIO_AC3,
     AUDIO_DTS,
@@ -323,7 +323,7 @@ export enum HdmvStreamType {
     AUDIO_AC3_PLUS_SECONDARY,
     AUDIO_DTS_HD_SECONDARY,
 }
-export enum ISDBDescriptorType {
+enum ISDBDescriptorType {
     HIERARCHICAL_TRANSMISSION,
     DIGITAL_COPY_CONTROL,
     NETWORK_IDENTIFICATION,
@@ -357,16 +357,16 @@ export enum ISDBDescriptorType {
     CONTENT_AVAILABILITY,
     SERVICE_GROUP,
 }
-export enum Iso639AudioType {
+enum Iso639AudioType {
     UNDEFINED,
     CLEAN_EFFECTS,
     HEARING_IMPAIRED,
     VISUAL_IMPAIRED_COMMENTARY,
 }
-export enum MiscDescriptorType {
+enum MiscDescriptorType {
     MTS_DESC_DTG_LOGICAL_CHANNEL,
 }
-export enum ModulationType {
+enum ModulationType {
     QPSK,
     QAM_16,
     QAM_32,
@@ -383,7 +383,7 @@ export enum ModulationType {
     QAM_4_NR_,
     NONE,
 }
-export enum RunningStatus {
+enum RunningStatus {
     UNDEFINED,
     NOT_RUNNING,
     STARTS_IN_FEW_SECONDS,
@@ -391,7 +391,7 @@ export enum RunningStatus {
     RUNNING,
     OFF_AIR,
 }
-export enum SCTEDescriptorType {
+enum SCTEDescriptorType {
     STUFFING,
     AC3,
     FRAME_RATE,
@@ -401,7 +401,7 @@ export enum SCTEDescriptorType {
     MODULATION_PARAMS,
     TRANSPORT_STREAM_ID,
 }
-export enum SCTESpliceCommandType {
+enum SCTESpliceCommandType {
     NULL,
     SCHEDULE,
     INSERT,
@@ -409,27 +409,27 @@ export enum SCTESpliceCommandType {
     BANDWIDTH,
     PRIVATE,
 }
-export enum SCTESpliceDescriptor {
+enum SCTESpliceDescriptor {
     AVAIL,
     DTMF,
     SEGMENTATION,
     TIME,
     AUDIO,
 }
-export enum SatellitePolarizationType {
+enum SatellitePolarizationType {
     LINEAR_HORIZONTAL,
     LINEAR_VERTICAL,
     CIRCULAR_LEFT,
     CIRCULAR_RIGHT,
 }
-export enum SatelliteRolloff {
+enum SatelliteRolloff {
     /* 35 (invalid, starts with a number) */
     /* 20 (invalid, starts with a number) */
     /* 25 (invalid, starts with a number) */
     RESERVED,
     AUTO,
 }
-export enum ScteStreamType {
+enum ScteStreamType {
     SUBTITLING,
     ISOCH_DATA,
     SIT,
@@ -439,7 +439,7 @@ export enum ScteStreamType {
     SYNC_DATA,
     ASYNC_DATA,
 }
-export enum SectionATSCTableID {
+enum SectionATSCTableID {
     MASTER_GUIDE,
     TERRESTRIAL_VIRTUAL_CHANNEL,
     CABLE_VIRTUAL_CHANNEL,
@@ -459,7 +459,7 @@ export enum SectionATSCTableID {
     AGGREGATE_DATA_EVENT,
     SATELLITE_VIRTUAL_CHANNEL,
 }
-export enum SectionDVBTableID {
+enum SectionDVBTableID {
     NETWORK_INFORMATION_ACTUAL_NETWORK,
     NETWORK_INFORMATION_OTHER_NETWORK,
     SERVICE_DESCRIPTION_ACTUAL_TS,
@@ -502,7 +502,7 @@ export enum SectionDVBTableID {
     TIM,
     LL_FEC_PARITY_DATA_TABLE,
 }
-export enum SectionSCTETableID {
+enum SectionSCTETableID {
     EAS,
     EBIF,
     RESERVED,
@@ -511,7 +511,7 @@ export enum SectionSCTETableID {
     DDB,
     SPLICE,
 }
-export enum SectionTableID {
+enum SectionTableID {
     PROGRAM_ASSOCIATION,
     CONDITIONAL_ACCESS,
     TS_PROGRAM_MAP,
@@ -531,7 +531,7 @@ export enum SectionTableID {
     DSM_CC_ADDRESSABLE_SECTIONS,
     UNSET,
 }
-export enum SectionType {
+enum SectionType {
     UNKNOWN,
     PAT,
     PMT,
@@ -553,7 +553,7 @@ export enum SectionType {
     ATSC_RRT,
     SCTE_SIT,
 }
-export enum StreamType {
+enum StreamType {
     RESERVED_00,
     VIDEO_MPEG1,
     VIDEO_MPEG2,
@@ -594,7 +594,7 @@ export enum StreamType {
     IPMP_STREAM,
     USER_PRIVATE_EA,
 }
-export enum TerrestrialGuardInterval {
+enum TerrestrialGuardInterval {
     /* 1_32 (invalid, starts with a number) */
     /* 1_16 (invalid, starts with a number) */
     /* 1_8 (invalid, starts with a number) */
@@ -607,14 +607,14 @@ export enum TerrestrialGuardInterval {
     PN595,
     PN945,
 }
-export enum TerrestrialHierarchy {
+enum TerrestrialHierarchy {
     NONE,
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
     /* 4 (invalid, starts with a number) */
     AUTO,
 }
-export enum TerrestrialTransmissionMode {
+enum TerrestrialTransmissionMode {
     /* 2K (invalid, starts with a number) */
     /* 8K (invalid, starts with a number) */
     AUTO,
@@ -625,7 +625,7 @@ export enum TerrestrialTransmissionMode {
     C1,
     C3780,
 }
-export enum RegistrationId {
+enum RegistrationId {
     /* 0 (invalid, starts with a number) */
     AC_3,
     CUEI,
@@ -645,48 +645,48 @@ export enum RegistrationId {
     AC_4,
     OTHER_HEVC,
 }
-export function descriptorFromCustom(tag: number, data: any[]): Descriptor
-export function descriptorFromCustomWithExtension(tag: number, tagExtension: number, data: any[]): Descriptor
-export function descriptorFromDvbNetworkName(name: string): Descriptor
-export function descriptorFromDvbService(serviceType: DVBServiceType, serviceName?: string | null, serviceProvider?: string | null): Descriptor
-export function descriptorFromDvbSubtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
-export function descriptorFromIso639Language(language: string): Descriptor
-export function descriptorFromRegistration(formatIdentifier: string, additionalInfo: any[] | null): Descriptor
-export function descriptorParseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
-export function descriptorParseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
-export function dvbComponentDescriptorFree(source: ComponentDescriptor): void
-export function eventNewMpegtsSection(section: Section): Gst.Event
-export function eventParseMpegtsSection(event: Gst.Event): Section
-export function findDescriptor(descriptors: Descriptor[], tag: number): Descriptor
-export function findDescriptorWithExtension(descriptors: Descriptor[], tag: number, tagExtension: number): Descriptor
-export function initialize(): void
-export function messageNewMpegtsSection(parent: Gst.Object, section: Section): Gst.Message
-export function messageParseMpegtsSection(message: Gst.Message): Section
-export function parseDescriptors(buffer: number, bufLen: number): Descriptor[]
-export function patNew(): PatProgram[]
-export function scteCancelNew(eventId: number): SCTESIT
-export function scteNullNew(): SCTESIT
-export function scteSpliceInNew(eventId: number, spliceTime: Gst.ClockTime): SCTESIT
-export function scteSpliceOutNew(eventId: number, spliceTime: Gst.ClockTime, duration: Gst.ClockTime): SCTESIT
-export function sectionFromAtscMgt(mgt: AtscMGT): Section
-export function sectionFromAtscRrt(rrt: AtscRRT): Section
-export function sectionFromAtscStt(stt: AtscSTT): Section
-export function sectionFromNit(nit: NIT): Section
-export function sectionFromPat(programs: PatProgram[], tsId: number): Section
-export function sectionFromPmt(pmt: PMT, pid: number): Section
-export function sectionFromScteSit(sit: SCTESIT, pid: number): Section
-export function sectionFromSdt(sdt: SDT): Section
-export interface PacketizeFunc {
+function descriptorFromCustom(tag: number, data: any[]): Descriptor
+function descriptorFromCustomWithExtension(tag: number, tagExtension: number, data: any[]): Descriptor
+function descriptorFromDvbNetworkName(name: string): Descriptor
+function descriptorFromDvbService(serviceType: DVBServiceType, serviceName?: string | null, serviceProvider?: string | null): Descriptor
+function descriptorFromDvbSubtitling(lang: string, type: number, composition: number, ancillary: number): Descriptor
+function descriptorFromIso639Language(language: string): Descriptor
+function descriptorFromRegistration(formatIdentifier: string, additionalInfo: any[] | null): Descriptor
+function descriptorParseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
+function descriptorParseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
+function dvbComponentDescriptorFree(source: ComponentDescriptor): void
+function eventNewMpegtsSection(section: Section): Gst.Event
+function eventParseMpegtsSection(event: Gst.Event): Section
+function findDescriptor(descriptors: Descriptor[], tag: number): Descriptor
+function findDescriptorWithExtension(descriptors: Descriptor[], tag: number, tagExtension: number): Descriptor
+function initialize(): void
+function messageNewMpegtsSection(parent: Gst.Object, section: Section): Gst.Message
+function messageParseMpegtsSection(message: Gst.Message): Section
+function parseDescriptors(buffer: number, bufLen: number): Descriptor[]
+function patNew(): PatProgram[]
+function scteCancelNew(eventId: number): SCTESIT
+function scteNullNew(): SCTESIT
+function scteSpliceInNew(eventId: number, spliceTime: Gst.ClockTime): SCTESIT
+function scteSpliceOutNew(eventId: number, spliceTime: Gst.ClockTime, duration: Gst.ClockTime): SCTESIT
+function sectionFromAtscMgt(mgt: AtscMGT): Section
+function sectionFromAtscRrt(rrt: AtscRRT): Section
+function sectionFromAtscStt(stt: AtscSTT): Section
+function sectionFromNit(nit: NIT): Section
+function sectionFromPat(programs: PatProgram[], tsId: number): Section
+function sectionFromPmt(pmt: PMT, pid: number): Section
+function sectionFromScteSit(sit: SCTESIT, pid: number): Section
+function sectionFromSdt(sdt: SDT): Section
+interface PacketizeFunc {
     (section: Section): boolean
 }
-export class AtscEIT {
+class AtscEIT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscEIT */
     sourceId: number
     protocolVersion: number
     events: AtscEITEvent[]
     static name: string
 }
-export class AtscEITEvent {
+class AtscEITEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscEITEvent */
     eventId: number
     startTime: number
@@ -696,7 +696,7 @@ export class AtscEITEvent {
     descriptors: Descriptor[]
     static name: string
 }
-export class AtscETT {
+class AtscETT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscETT */
     ettTableIdExtension: number
     protocolVersion: number
@@ -704,7 +704,7 @@ export class AtscETT {
     messages: AtscMultString[]
     static name: string
 }
-export class AtscMGT {
+class AtscMGT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscMGT */
     protocolVersion: number
     tablesDefined: number
@@ -716,7 +716,7 @@ export class AtscMGT {
     /* Static methods and pseudo-constructors */
     static new(): AtscMGT
 }
-export class AtscMGTTable {
+class AtscMGTTable {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscMGTTable */
     tableType: number
     pid: number
@@ -725,13 +725,13 @@ export class AtscMGTTable {
     descriptors: Descriptor[]
     static name: string
 }
-export class AtscMultString {
+class AtscMultString {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscMultString */
     iso639Langcode: number[]
     segments: AtscStringSegment[]
     static name: string
 }
-export class AtscRRT {
+class AtscRRT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscRRT */
     protocolVersion: number
     names: AtscMultString[]
@@ -744,7 +744,7 @@ export class AtscRRT {
     /* Static methods and pseudo-constructors */
     static new(): AtscRRT
 }
-export class AtscRRTDimension {
+class AtscRRTDimension {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscRRTDimension */
     names: AtscMultString[]
     graduatedScale: boolean
@@ -756,7 +756,7 @@ export class AtscRRTDimension {
     /* Static methods and pseudo-constructors */
     static new(): AtscRRTDimension
 }
-export class AtscRRTDimensionValue {
+class AtscRRTDimensionValue {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscRRTDimensionValue */
     abbrevRatings: AtscMultString[]
     ratings: AtscMultString[]
@@ -766,7 +766,7 @@ export class AtscRRTDimensionValue {
     /* Static methods and pseudo-constructors */
     static new(): AtscRRTDimensionValue
 }
-export class AtscSTT {
+class AtscSTT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscSTT */
     protocolVersion: number
     systemTime: number
@@ -784,7 +784,7 @@ export class AtscSTT {
     /* Static methods and pseudo-constructors */
     static new(): AtscSTT
 }
-export class AtscStringSegment {
+class AtscStringSegment {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscStringSegment */
     compressionType: number
     mode: number
@@ -796,7 +796,7 @@ export class AtscStringSegment {
     setString(string: string, compressionType: number, mode: number): boolean
     static name: string
 }
-export class AtscVCT {
+class AtscVCT {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscVCT */
     transportStreamId: number
     protocolVersion: number
@@ -804,7 +804,7 @@ export class AtscVCT {
     descriptors: Descriptor[]
     static name: string
 }
-export class AtscVCTSource {
+class AtscVCTSource {
     /* Fields of GstMpegts-1.0.GstMpegts.AtscVCTSource */
     shortName: string
     majorChannelNumber: number
@@ -824,7 +824,7 @@ export class AtscVCTSource {
     descriptors: Descriptor[]
     static name: string
 }
-export class AudioPreselectionDescriptor {
+class AudioPreselectionDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.AudioPreselectionDescriptor */
     preselectionId: number
     audioRenderingIndication: number
@@ -840,20 +840,20 @@ export class AudioPreselectionDescriptor {
     messageId: number
     static name: string
 }
-export class BAT {
+class BAT {
     /* Fields of GstMpegts-1.0.GstMpegts.BAT */
     descriptors: Descriptor[]
     streams: BATStream[]
     static name: string
 }
-export class BATStream {
+class BATStream {
     /* Fields of GstMpegts-1.0.GstMpegts.BATStream */
     transportStreamId: number
     originalNetworkId: number
     descriptors: object[]
     static name: string
 }
-export class CableDeliverySystemDescriptor {
+class CableDeliverySystemDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.CableDeliverySystemDescriptor */
     frequency: number
     outerFec: CableOuterFECScheme
@@ -864,7 +864,7 @@ export class CableDeliverySystemDescriptor {
     free(): void
     static name: string
 }
-export class ComponentDescriptor {
+class ComponentDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.ComponentDescriptor */
     streamContent: number
     componentType: number
@@ -873,14 +873,14 @@ export class ComponentDescriptor {
     text: string
     static name: string
 }
-export class Content {
+class Content {
     /* Fields of GstMpegts-1.0.GstMpegts.Content */
     contentNibble1: ContentNibbleHi
     contentNibble2: number
     userByte: number
     static name: string
 }
-export class DVBLinkageDescriptor {
+class DVBLinkageDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageDescriptor */
     transportStreamId: number
     originalNetworkId: number
@@ -895,14 +895,14 @@ export class DVBLinkageDescriptor {
     getMobileHandOver(): DVBLinkageMobileHandOver
     static name: string
 }
-export class DVBLinkageEvent {
+class DVBLinkageEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageEvent */
     targetEventId: number
     targetListed: boolean
     eventSimulcast: boolean
     static name: string
 }
-export class DVBLinkageExtendedEvent {
+class DVBLinkageExtendedEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageExtendedEvent */
     targetEventId: number
     targetListed: boolean
@@ -917,7 +917,7 @@ export class DVBLinkageExtendedEvent {
     targetServiceId: number
     static name: string
 }
-export class DVBLinkageMobileHandOver {
+class DVBLinkageMobileHandOver {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBLinkageMobileHandOver */
     handOverType: DVBLinkageHandOverType
     originType: boolean
@@ -925,19 +925,19 @@ export class DVBLinkageMobileHandOver {
     initialServiceId: number
     static name: string
 }
-export class DVBParentalRatingItem {
+class DVBParentalRatingItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBParentalRatingItem */
     countryCode: string
     rating: number
     static name: string
 }
-export class DVBServiceListItem {
+class DVBServiceListItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DVBServiceListItem */
     serviceId: number
     type: DVBServiceType
     static name: string
 }
-export class DataBroadcastDescriptor {
+class DataBroadcastDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.DataBroadcastDescriptor */
     dataBroadcastId: number
     componentTag: number
@@ -949,7 +949,7 @@ export class DataBroadcastDescriptor {
     free(): void
     static name: string
 }
-export class Descriptor {
+class Descriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.Descriptor */
     tag: number
     tagExtension: number
@@ -1006,32 +1006,32 @@ export class Descriptor {
     static parseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
     static parseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
 }
-export class DvbMultilingualBouquetNameItem {
+class DvbMultilingualBouquetNameItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualBouquetNameItem */
     languageCode: string
     bouquetName: string
     static name: string
 }
-export class DvbMultilingualComponentItem {
+class DvbMultilingualComponentItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualComponentItem */
     languageCode: string
     description: string
     static name: string
 }
-export class DvbMultilingualNetworkNameItem {
+class DvbMultilingualNetworkNameItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualNetworkNameItem */
     languageCode: string
     networkName: string
     static name: string
 }
-export class DvbMultilingualServiceNameItem {
+class DvbMultilingualServiceNameItem {
     /* Fields of GstMpegts-1.0.GstMpegts.DvbMultilingualServiceNameItem */
     languageCode: string
     providerName: string
     serviceName: string
     static name: string
 }
-export class EIT {
+class EIT {
     /* Fields of GstMpegts-1.0.GstMpegts.EIT */
     transportStreamId: number
     originalNetworkId: number
@@ -1042,7 +1042,7 @@ export class EIT {
     events: EITEvent[]
     static name: string
 }
-export class EITEvent {
+class EITEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.EITEvent */
     eventId: number
     startTime: Gst.DateTime
@@ -1052,7 +1052,7 @@ export class EITEvent {
     descriptors: Descriptor[]
     static name: string
 }
-export class ExtendedEventDescriptor {
+class ExtendedEventDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.ExtendedEventDescriptor */
     descriptorNumber: number
     lastDescriptorNumber: number
@@ -1063,13 +1063,13 @@ export class ExtendedEventDescriptor {
     free(): void
     static name: string
 }
-export class ExtendedEventItem {
+class ExtendedEventItem {
     /* Fields of GstMpegts-1.0.GstMpegts.ExtendedEventItem */
     itemDescription: string
     item: string
     static name: string
 }
-export class ISO639LanguageDescriptor {
+class ISO639LanguageDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.ISO639LanguageDescriptor */
     nbLanguage: number
     language: string[]
@@ -1078,20 +1078,20 @@ export class ISO639LanguageDescriptor {
     descriptorFree(): void
     static name: string
 }
-export class LogicalChannel {
+class LogicalChannel {
     /* Fields of GstMpegts-1.0.GstMpegts.LogicalChannel */
     serviceId: number
     visibleService: boolean
     logicalChannelNumber: number
     static name: string
 }
-export class LogicalChannelDescriptor {
+class LogicalChannelDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.LogicalChannelDescriptor */
     nbChannels: number
     channels: LogicalChannel[]
     static name: string
 }
-export class NIT {
+class NIT {
     /* Fields of GstMpegts-1.0.GstMpegts.NIT */
     actualNetwork: boolean
     networkId: number
@@ -1103,7 +1103,7 @@ export class NIT {
     /* Static methods and pseudo-constructors */
     static new(): NIT
 }
-export class NITStream {
+class NITStream {
     /* Fields of GstMpegts-1.0.GstMpegts.NITStream */
     transportStreamId: number
     originalNetworkId: number
@@ -1114,7 +1114,7 @@ export class NITStream {
     /* Static methods and pseudo-constructors */
     static new(): NITStream
 }
-export class PMT {
+class PMT {
     /* Fields of GstMpegts-1.0.GstMpegts.PMT */
     pcrPid: number
     programNumber: number
@@ -1126,7 +1126,7 @@ export class PMT {
     /* Static methods and pseudo-constructors */
     static new(): PMT
 }
-export class PMTStream {
+class PMTStream {
     /* Fields of GstMpegts-1.0.GstMpegts.PMTStream */
     streamType: number
     pid: number
@@ -1137,7 +1137,7 @@ export class PMTStream {
     /* Static methods and pseudo-constructors */
     static new(): PMTStream
 }
-export class PatProgram {
+class PatProgram {
     /* Fields of GstMpegts-1.0.GstMpegts.PatProgram */
     programNumber: number
     networkOrProgramMapPID: number
@@ -1147,7 +1147,7 @@ export class PatProgram {
     /* Static methods and pseudo-constructors */
     static new(): PatProgram
 }
-export class SCTESIT {
+class SCTESIT {
     /* Fields of GstMpegts-1.0.GstMpegts.SCTESIT */
     encryptedPacket: boolean
     encryptionAlgorithm: number
@@ -1168,7 +1168,7 @@ export class SCTESIT {
     /* Static methods and pseudo-constructors */
     static new(): SCTESIT
 }
-export class SCTESpliceComponent {
+class SCTESpliceComponent {
     /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceComponent */
     tag: number
     spliceTimeSpecified: boolean
@@ -1180,7 +1180,7 @@ export class SCTESpliceComponent {
     /* Static methods and pseudo-constructors */
     static new(tag: number): SCTESpliceComponent
 }
-export class SCTESpliceEvent {
+class SCTESpliceEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceEvent */
     insertEvent: boolean
     spliceEventId: number
@@ -1204,7 +1204,7 @@ export class SCTESpliceEvent {
     /* Static methods and pseudo-constructors */
     static new(): SCTESpliceEvent
 }
-export class SDT {
+class SDT {
     /* Fields of GstMpegts-1.0.GstMpegts.SDT */
     originalNetworkId: number
     actualTs: boolean
@@ -1216,7 +1216,7 @@ export class SDT {
     /* Static methods and pseudo-constructors */
     static new(): SDT
 }
-export class SDTService {
+class SDTService {
     /* Fields of GstMpegts-1.0.GstMpegts.SDTService */
     serviceId: number
     eITScheduleFlag: boolean
@@ -1230,20 +1230,20 @@ export class SDTService {
     /* Static methods and pseudo-constructors */
     static new(): SDTService
 }
-export class SIT {
+class SIT {
     /* Fields of GstMpegts-1.0.GstMpegts.SIT */
     descriptors: Descriptor[]
     services: SITService[]
     static name: string
 }
-export class SITService {
+class SITService {
     /* Fields of GstMpegts-1.0.GstMpegts.SITService */
     serviceId: number
     runningStatus: RunningStatus
     descriptors: Descriptor[]
     static name: string
 }
-export class SatelliteDeliverySystemDescriptor {
+class SatelliteDeliverySystemDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.SatelliteDeliverySystemDescriptor */
     frequency: number
     orbitalPosition: number
@@ -1256,7 +1256,7 @@ export class SatelliteDeliverySystemDescriptor {
     fecInner: DVBCodeRate
     static name: string
 }
-export class Section {
+class Section {
     /* Fields of GstMpegts-1.0.GstMpegts.Section */
     sectionType: SectionType
     pid: number
@@ -1304,20 +1304,20 @@ export class Section {
     static fromScteSit(sit: SCTESIT, pid: number): Section
     static fromSdt(sdt: SDT): Section
 }
-export class T2DeliverySystemCell {
+class T2DeliverySystemCell {
     /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemCell */
     cellId: number
     centreFrequencies: number[]
     subCells: T2DeliverySystemCellExtension[]
     static name: string
 }
-export class T2DeliverySystemCellExtension {
+class T2DeliverySystemCellExtension {
     /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemCellExtension */
     cellIdExtension: number
     transposerFrequency: number
     static name: string
 }
-export class T2DeliverySystemDescriptor {
+class T2DeliverySystemDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.T2DeliverySystemDescriptor */
     plpId: number
     t2SystemId: number
@@ -1332,13 +1332,13 @@ export class T2DeliverySystemDescriptor {
     free(): void
     static name: string
 }
-export class TOT {
+class TOT {
     /* Fields of GstMpegts-1.0.GstMpegts.TOT */
     utcTime: Gst.DateTime
     descriptors: Descriptor[]
     static name: string
 }
-export class TerrestrialDeliverySystemDescriptor {
+class TerrestrialDeliverySystemDescriptor {
     /* Fields of GstMpegts-1.0.GstMpegts.TerrestrialDeliverySystemDescriptor */
     frequency: number
     bandwidth: number
@@ -1355,3 +1355,4 @@ export class TerrestrialDeliverySystemDescriptor {
     static name: string
 }
 }
+export default GstMpegts

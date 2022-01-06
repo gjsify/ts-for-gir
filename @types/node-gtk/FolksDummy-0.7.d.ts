@@ -9,11 +9,11 @@ import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 import type { Folks } from './Folks-0.7';
 
-export declare namespace FolksDummy {
+declare namespace FolksDummy {
 
 export interface Backend_ConstructProps extends Folks.Backend_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Properties of Folks-0.7.Folks.Backend */
     readonly isPrepared: boolean
     readonly isQuiescent: boolean
@@ -130,7 +130,7 @@ export interface FullPersona_ConstructProps extends Persona_ConstructProps {
     postalAddresses?: Gee.Set
     webServiceAddresses?: Gee.MultiMap
 }
-export class FullPersona {
+class FullPersona {
     /* Properties of FolksDummy-0.7.FolksDummy.Persona */
     propertyChangeDelay: number
     /* Properties of Folks-0.7.Folks.Persona */
@@ -482,7 +482,7 @@ export class FullPersona {
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     personaType?: GObject.Type
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of FolksDummy-0.7.FolksDummy.PersonaStore */
     personaType: GObject.Type
     /* Properties of Folks-0.7.Folks.PersonaStore */
@@ -668,7 +668,7 @@ export class PersonaStore {
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     propertyChangeDelay?: number
 }
-export class Persona {
+class Persona {
     /* Properties of FolksDummy-0.7.FolksDummy.Persona */
     propertyChangeDelay: number
     /* Properties of Folks-0.7.Folks.Persona */
@@ -756,28 +756,29 @@ export class Persona {
     static new(store: PersonaStore, contactId: string, isUser: boolean, linkableProperties: string[]): Persona
     static $gtype: GObject.Type
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     static name: string
 }
-export class BackendPrivate {
+class BackendPrivate {
     static name: string
 }
-export abstract class FullPersonaClass {
+abstract class FullPersonaClass {
     static name: string
 }
-export class FullPersonaPrivate {
+class FullPersonaPrivate {
     static name: string
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
 }
+export default FolksDummy

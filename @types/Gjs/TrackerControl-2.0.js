@@ -1,2 +1,1 @@
-imports.gi.versions.TrackerControl = '2.0'
-module.exports = imports.gi.TrackerControl
+export {default as default} from 'gi://TrackerControl?version=2.0';

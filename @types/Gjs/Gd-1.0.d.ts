@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum MainColumns {
+export namespace Gd {
+
+enum MainColumns {
     ID,
     URI,
     PRIMARY_TEXT,
@@ -27,23 +29,23 @@ export enum MainColumns {
     PULSE,
     LAST,
 }
-export enum MainViewType {
+enum MainViewType {
     ICON,
     LIST,
 }
-export enum StackTransitionType {
+enum StackTransitionType {
     NONE,
     CROSSFADE,
     SLIDE_RIGHT,
     SLIDE_LEFT,
 }
-export function ensure_types(): void
+function ensure_types(): void
 export interface HeaderButton_ConstructProps extends Gtk.Button_ConstructProps {
     label?: string
     symbolic_icon_name?: string
     use_markup?: boolean
 }
-export class HeaderButton {
+class HeaderButton {
     /* Properties of Gd-1.0.Gd.HeaderButton */
     label: string
     symbolic_icon_name: string
@@ -920,7 +922,7 @@ export class HeaderButton {
 }
 export interface MainViewGeneric_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class MainViewGeneric {
+class MainViewGeneric {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -1663,7 +1665,7 @@ export interface HeaderBar_ConstructProps extends Gtk.Container_ConstructProps {
     title?: string
     vpadding?: number
 }
-export class HeaderBar {
+class HeaderBar {
     /* Properties of Gd-1.0.Gd.HeaderBar */
     custom_title: Gtk.Widget
     hpadding: number
@@ -2505,7 +2507,7 @@ export interface HeaderMenuButton_ConstructProps extends Gtk.MenuButton_Construc
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class HeaderMenuButton {
+class HeaderMenuButton {
     /* Properties of Gtk-3.0.Gtk.MenuButton */
     align_widget: Gtk.Container
     direction: Gtk.ArrowType
@@ -3500,7 +3502,7 @@ export interface HeaderRadioButton_ConstructProps extends Gtk.RadioButton_Constr
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class HeaderRadioButton {
+class HeaderRadioButton {
     /* Properties of Gtk-3.0.Gtk.RadioButton */
     group: Gtk.RadioButton
     /* Properties of Gtk-3.0.Gtk.ToggleButton */
@@ -4488,7 +4490,7 @@ export interface HeaderSimpleButton_ConstructProps extends Gtk.Button_ConstructP
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class HeaderSimpleButton {
+class HeaderSimpleButton {
     /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
@@ -5427,7 +5429,7 @@ export interface HeaderToggleButton_ConstructProps extends Gtk.ToggleButton_Cons
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class HeaderToggleButton {
+class HeaderToggleButton {
     /* Properties of Gtk-3.0.Gtk.ToggleButton */
     active: boolean
     draw_indicator: boolean
@@ -6387,7 +6389,7 @@ export interface MainIconView_ConstructProps extends Gtk.IconView_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class MainIconView {
+class MainIconView {
     /* Properties of Gtk-3.0.Gtk.IconView */
     activate_on_single_click: boolean
     column_spacing: number
@@ -7398,7 +7400,7 @@ export interface MainListView_ConstructProps extends Gtk.TreeView_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class MainListView {
+class MainListView {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -8461,7 +8463,7 @@ export interface MainToolbar_ConstructProps extends Gtk.Toolbar_ConstructProps {
     show_modes?: boolean
     orientation?: Gtk.Orientation
 }
-export class MainToolbar {
+class MainToolbar {
     /* Properties of Gd-1.0.Gd.MainToolbar */
     show_modes: boolean
     /* Properties of Gtk-3.0.Gtk.Toolbar */
@@ -9358,7 +9360,7 @@ export interface MainView_ConstructProps extends Gtk.ScrolledWindow_ConstructPro
     selection_mode?: boolean
     view_type?: number
 }
-export class MainView {
+class MainView {
     /* Properties of Gd-1.0.Gd.MainView */
     model: Gtk.TreeModel
     selection_mode: boolean
@@ -10299,7 +10301,7 @@ export interface Revealer_ConstructProps extends Gtk.Bin_ConstructProps {
     reveal_child?: boolean
     transition_duration?: number
 }
-export class Revealer {
+class Revealer {
     /* Properties of Gd-1.0.Gd.Revealer */
     readonly child_revealed: boolean
     orientation: Gtk.Orientation
@@ -11135,7 +11137,7 @@ export interface Stack_ConstructProps extends Gtk.Container_ConstructProps {
     visible_child?: Gtk.Widget
     visible_child_name?: string
 }
-export class Stack {
+class Stack {
     /* Properties of Gd-1.0.Gd.Stack */
     homogeneous: boolean
     transition_duration: number
@@ -11972,7 +11974,7 @@ export interface StackSwitcher_ConstructProps extends Gtk.Box_ConstructProps {
     stack?: Stack
     orientation?: Gtk.Orientation
 }
-export class StackSwitcher {
+class StackSwitcher {
     /* Properties of Gd-1.0.Gd.StackSwitcher */
     stack: Stack
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -12818,7 +12820,7 @@ export class StackSwitcher {
 }
 export interface StyledTextRenderer_ConstructProps extends Gtk.CellRendererText_ConstructProps {
 }
-export class StyledTextRenderer {
+class StyledTextRenderer {
     /* Properties of Gtk-3.0.Gtk.CellRendererText */
     align_set: boolean
     alignment: Pango.Alignment
@@ -13125,7 +13127,7 @@ export interface TaggedEntry_ConstructProps extends Gtk.SearchEntry_ConstructPro
     tag_close_visible?: boolean
     editing_canceled?: boolean
 }
-export class TaggedEntry {
+class TaggedEntry {
     /* Properties of Gd-1.0.Gd.TaggedEntry */
     tag_close_visible: boolean
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -14245,7 +14247,7 @@ export interface TaggedEntryTag_ConstructProps extends GObject.Object_ConstructP
     label?: string
     style?: string
 }
-export class TaggedEntryTag {
+class TaggedEntryTag {
     /* Properties of Gd-1.0.Gd.TaggedEntryTag */
     has_close_button: boolean
     label: string
@@ -14319,7 +14321,7 @@ export interface TogglePixbufRenderer_ConstructProps extends Gtk.CellRendererPix
     pulse?: number
     toggle_visible?: boolean
 }
-export class TogglePixbufRenderer {
+class TogglePixbufRenderer {
     /* Properties of Gd-1.0.Gd.TogglePixbufRenderer */
     active: boolean
     pulse: number
@@ -14511,7 +14513,7 @@ export interface TwoLinesRenderer_ConstructProps extends Gtk.CellRendererText_Co
     line_two?: string
     text_lines?: number
 }
-export class TwoLinesRenderer {
+class TwoLinesRenderer {
     /* Properties of Gd-1.0.Gd.TwoLinesRenderer */
     line_two: string
     text_lines: number
@@ -14818,44 +14820,44 @@ export class TwoLinesRenderer {
     static new(): TwoLinesRenderer
     static $gtype: GObject.Type
 }
-export abstract class HeaderBarClass {
+abstract class HeaderBarClass {
     /* Fields of Gd-1.0.Gd.HeaderBarClass */
     parent_class: Gtk.ContainerClass
     static name: string
 }
-export class HeaderBarPrivate {
+class HeaderBarPrivate {
     static name: string
 }
-export abstract class MainIconViewClass {
+abstract class MainIconViewClass {
     /* Fields of Gd-1.0.Gd.MainIconViewClass */
     parent_class: Gtk.IconViewClass
     static name: string
 }
-export class MainIconViewPrivate {
+class MainIconViewPrivate {
     static name: string
 }
-export abstract class MainListViewClass {
+abstract class MainListViewClass {
     /* Fields of Gd-1.0.Gd.MainListViewClass */
     parent_class: Gtk.TreeViewClass
     static name: string
 }
-export class MainListViewPrivate {
+class MainListViewPrivate {
     static name: string
 }
-export abstract class MainToolbarClass {
+abstract class MainToolbarClass {
     /* Fields of Gd-1.0.Gd.MainToolbarClass */
     parent_class: Gtk.ToolbarClass
     static name: string
 }
-export class MainToolbarPrivate {
+class MainToolbarPrivate {
     static name: string
 }
-export abstract class MainViewClass {
+abstract class MainViewClass {
     /* Fields of Gd-1.0.Gd.MainViewClass */
     parent_class: Gtk.ScrolledWindowClass
     static name: string
 }
-export abstract class MainViewGenericIface {
+abstract class MainViewGenericIface {
     /* Fields of Gd-1.0.Gd.MainViewGenericIface */
     base_iface: GObject.TypeInterface
     set_model: (self: MainViewGeneric, model?: Gtk.TreeModel | null) => void
@@ -14865,70 +14867,72 @@ export abstract class MainViewGenericIface {
     set_selection_mode: (self: MainViewGeneric, selection_mode: boolean) => void
     static name: string
 }
-export class MainViewPrivate {
+class MainViewPrivate {
     static name: string
 }
-export abstract class RevealerClass {
+abstract class RevealerClass {
     /* Fields of Gd-1.0.Gd.RevealerClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export class RevealerPrivate {
+class RevealerPrivate {
     static name: string
 }
-export abstract class StackClass {
+abstract class StackClass {
     /* Fields of Gd-1.0.Gd.StackClass */
     parent_class: Gtk.ContainerClass
     static name: string
 }
-export class StackPrivate {
+class StackPrivate {
     static name: string
 }
-export abstract class StackSwitcherClass {
+abstract class StackSwitcherClass {
     /* Fields of Gd-1.0.Gd.StackSwitcherClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export class StackSwitcherPrivate {
+class StackSwitcherPrivate {
     static name: string
 }
-export abstract class StyledTextRendererClass {
+abstract class StyledTextRendererClass {
     /* Fields of Gd-1.0.Gd.StyledTextRendererClass */
     parent_class: Gtk.CellRendererTextClass
     static name: string
 }
-export class StyledTextRendererPrivate {
+class StyledTextRendererPrivate {
     static name: string
 }
-export abstract class TaggedEntryClass {
+abstract class TaggedEntryClass {
     /* Fields of Gd-1.0.Gd.TaggedEntryClass */
     parent_class: Gtk.SearchEntryClass
     static name: string
 }
-export class TaggedEntryPrivate {
+class TaggedEntryPrivate {
     static name: string
 }
-export abstract class TaggedEntryTagClass {
+abstract class TaggedEntryTagClass {
     /* Fields of Gd-1.0.Gd.TaggedEntryTagClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TaggedEntryTagPrivate {
+class TaggedEntryTagPrivate {
     static name: string
 }
-export abstract class TogglePixbufRendererClass {
+abstract class TogglePixbufRendererClass {
     /* Fields of Gd-1.0.Gd.TogglePixbufRendererClass */
     parent_class: Gtk.CellRendererPixbufClass
     static name: string
 }
-export class TogglePixbufRendererPrivate {
+class TogglePixbufRendererPrivate {
     static name: string
 }
-export abstract class TwoLinesRendererClass {
+abstract class TwoLinesRendererClass {
     /* Fields of Gd-1.0.Gd.TwoLinesRendererClass */
     parent_class: Gtk.CellRendererTextClass
     static name: string
 }
-export class TwoLinesRendererPrivate {
+class TwoLinesRendererPrivate {
     static name: string
 }
+}
+export default Gd

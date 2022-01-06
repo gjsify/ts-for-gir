@@ -3,26 +3,28 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstTag from './GstTag-1.0';
-import type * as GstPbutils from './GstPbutils-1.0';
-import type * as GstAudio from './GstAudio-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstTag from './GstTag-1.0';
+import type GstPbutils from './GstPbutils-1.0';
+import type GstAudio from './GstAudio-1.0';
 
-export enum PlayColorBalanceType {
+export namespace GstPlay {
+
+enum PlayColorBalanceType {
     HUE,
     BRIGHTNESS,
     SATURATION,
     CONTRAST,
 }
-export enum PlayError {
+enum PlayError {
     FAILED,
 }
-export enum PlayMessage {
+enum PlayMessage {
     URI_LOADED,
     POSITION_UPDATED,
     DURATION_CHANGED,
@@ -37,36 +39,36 @@ export enum PlayMessage {
     MUTE_CHANGED,
     SEEK_DONE,
 }
-export enum PlaySnapshotFormat {
+enum PlaySnapshotFormat {
     RAW_NATIVE,
     RAW_XRGB,
     RAW_BGRX,
     JPG,
     PNG,
 }
-export enum PlayState {
+enum PlayState {
     STOPPED,
     BUFFERING,
     PAUSED,
     PLAYING,
 }
-export function play_color_balance_type_get_name(type: PlayColorBalanceType): string
-export function play_error_get_name(error: PlayError): string
-export function play_error_quark(): GLib.Quark
-export function play_message_get_name(message_type: PlayMessage): string
-export function play_message_parse_buffering_percent(msg: Gst.Message): /* percent */ number | null
-export function play_message_parse_duration_updated(msg: Gst.Message): /* duration */ Gst.ClockTime | null
-export function play_message_parse_error(msg: Gst.Message): [ /* error */ GLib.Error | null, /* details */ Gst.Structure | null ]
-export function play_message_parse_media_info_updated(msg: Gst.Message): /* info */ PlayMediaInfo | null
-export function play_message_parse_muted_changed(msg: Gst.Message): /* muted */ boolean | null
-export function play_message_parse_position_updated(msg: Gst.Message): /* position */ Gst.ClockTime | null
-export function play_message_parse_state_changed(msg: Gst.Message): /* state */ PlayState | null
-export function play_message_parse_type(msg: Gst.Message): /* type */ PlayMessage | null
-export function play_message_parse_video_dimensions_changed(msg: Gst.Message): [ /* width */ number | null, /* height */ number | null ]
-export function play_message_parse_volume_changed(msg: Gst.Message): /* volume */ number | null
-export function play_message_parse_warning(msg: Gst.Message): [ /* error */ GLib.Error | null, /* details */ Gst.Structure | null ]
-export function play_state_get_name(state: PlayState): string
-export class PlayVideoRenderer {
+function play_color_balance_type_get_name(type: PlayColorBalanceType): string
+function play_error_get_name(error: PlayError): string
+function play_error_quark(): GLib.Quark
+function play_message_get_name(message_type: PlayMessage): string
+function play_message_parse_buffering_percent(msg: Gst.Message): /* percent */ number | null
+function play_message_parse_duration_updated(msg: Gst.Message): /* duration */ Gst.ClockTime | null
+function play_message_parse_error(msg: Gst.Message): [ /* error */ GLib.Error | null, /* details */ Gst.Structure | null ]
+function play_message_parse_media_info_updated(msg: Gst.Message): /* info */ PlayMediaInfo | null
+function play_message_parse_muted_changed(msg: Gst.Message): /* muted */ boolean | null
+function play_message_parse_position_updated(msg: Gst.Message): /* position */ Gst.ClockTime | null
+function play_message_parse_state_changed(msg: Gst.Message): /* state */ PlayState | null
+function play_message_parse_type(msg: Gst.Message): /* type */ PlayMessage | null
+function play_message_parse_video_dimensions_changed(msg: Gst.Message): [ /* width */ number | null, /* height */ number | null ]
+function play_message_parse_volume_changed(msg: Gst.Message): /* volume */ number | null
+function play_message_parse_warning(msg: Gst.Message): [ /* error */ GLib.Error | null, /* details */ Gst.Structure | null ]
+function play_state_get_name(state: PlayState): string
+class PlayVideoRenderer {
     static name: string
 }
 export interface Play_ConstructProps extends Gst.Object_ConstructProps {
@@ -81,7 +83,7 @@ export interface Play_ConstructProps extends Gst.Object_ConstructProps {
     video_renderer?: PlayVideoRenderer
     volume?: number
 }
-export class Play {
+class Play {
     /* Properties of GstPlay-1.0.GstPlay.Play */
     audio_video_offset: number
     readonly current_audio_track: PlayAudioInfo
@@ -282,7 +284,7 @@ export class Play {
 }
 export interface PlayAudioInfo_ConstructProps extends PlayStreamInfo_ConstructProps {
 }
-export class PlayAudioInfo {
+class PlayAudioInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlay-1.0.GstPlay.PlayAudioInfo */
@@ -342,7 +344,7 @@ export class PlayAudioInfo {
 }
 export interface PlayMediaInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlayMediaInfo {
+class PlayMediaInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlay-1.0.GstPlay.PlayMediaInfo */
@@ -407,7 +409,7 @@ export class PlayMediaInfo {
 }
 export interface PlaySignalAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlaySignalAdapter {
+class PlaySignalAdapter {
     /* Properties of GstPlay-1.0.GstPlay.PlaySignalAdapter */
     readonly play: Play
     /* Fields of GObject-2.0.GObject.Object */
@@ -505,7 +507,7 @@ export class PlaySignalAdapter {
 }
 export interface PlayStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlayStreamInfo {
+class PlayStreamInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlay-1.0.GstPlay.PlayStreamInfo */
@@ -559,7 +561,7 @@ export class PlayStreamInfo {
 }
 export interface PlaySubtitleInfo_ConstructProps extends PlayStreamInfo_ConstructProps {
 }
-export class PlaySubtitleInfo {
+class PlaySubtitleInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlay-1.0.GstPlay.PlaySubtitleInfo */
@@ -615,7 +617,7 @@ export class PlaySubtitleInfo {
 }
 export interface PlayVideoInfo_ConstructProps extends PlayStreamInfo_ConstructProps {
 }
-export class PlayVideoInfo {
+class PlayVideoInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlay-1.0.GstPlay.PlayVideoInfo */
@@ -678,7 +680,7 @@ export interface PlayVideoOverlayVideoRenderer_ConstructProps extends GObject.Ob
     video_sink?: Gst.Element
     window_handle?: object
 }
-export class PlayVideoOverlayVideoRenderer {
+class PlayVideoOverlayVideoRenderer {
     /* Properties of GstPlay-1.0.GstPlay.PlayVideoOverlayVideoRenderer */
     video_sink: Gst.Element
     window_handle: object
@@ -739,36 +741,36 @@ export class PlayVideoOverlayVideoRenderer {
     static new_with_sink(window_handle: object | null, video_sink: Gst.Element): PlayVideoRenderer
     static $gtype: GObject.Type
 }
-export abstract class PlayAudioInfoClass {
+abstract class PlayAudioInfoClass {
     static name: string
 }
-export abstract class PlayClass {
+abstract class PlayClass {
     static name: string
 }
-export abstract class PlayMediaInfoClass {
+abstract class PlayMediaInfoClass {
     static name: string
 }
-export abstract class PlaySignalAdapterClass {
+abstract class PlaySignalAdapterClass {
     static name: string
 }
-export abstract class PlayStreamInfoClass {
+abstract class PlayStreamInfoClass {
     static name: string
 }
-export abstract class PlaySubtitleInfoClass {
+abstract class PlaySubtitleInfoClass {
     static name: string
 }
-export abstract class PlayVideoInfoClass {
+abstract class PlayVideoInfoClass {
     static name: string
 }
-export abstract class PlayVideoOverlayVideoRendererClass {
+abstract class PlayVideoOverlayVideoRendererClass {
     static name: string
 }
-export abstract class PlayVideoRendererInterface {
+abstract class PlayVideoRendererInterface {
     /* Fields of GstPlay-1.0.GstPlay.PlayVideoRendererInterface */
     parent_iface: GObject.TypeInterface
     static name: string
 }
-export class PlayVisualization {
+class PlayVisualization {
     /* Fields of GstPlay-1.0.GstPlay.PlayVisualization */
     name: string
     description: string
@@ -777,3 +779,5 @@ export class PlayVisualization {
     free(): void
     static name: string
 }
+}
+export default GstPlay

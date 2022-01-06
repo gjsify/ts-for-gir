@@ -1,2 +1,1 @@
-imports.gi.versions.MediaArt = '1.0'
-module.exports = imports.gi.MediaArt
+export {default as default} from 'gi://MediaArt?version=1.0';

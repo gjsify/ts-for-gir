@@ -3,41 +3,43 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as GDesktopEnums from './GDesktopEnums-3.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type GDesktopEnums from './GDesktopEnums-3.0';
 
-export enum DesktopThumbnailSize {
+export namespace GnomeDesktop {
+
+enum DesktopThumbnailSize {
     NORMAL,
     LARGE,
     XLARGE,
     XXLARGE,
 }
-export enum RRDpmsMode {
+enum RRDpmsMode {
     ON,
     STANDBY,
     SUSPEND,
     OFF,
     UNKNOWN,
 }
-export enum RRDpmsModeType {
+enum RRDpmsModeType {
     ON,
     STANDBY,
     SUSPEND,
     OFF,
     UNKNOWN,
 }
-export enum RRError {
+enum RRError {
     UNKNOWN,
     NO_RANDR_EXTENSION,
     RANDR_ERROR,
@@ -46,7 +48,7 @@ export enum RRError {
     NO_MATCHING_CONFIG,
     NO_DPMS_EXTENSION,
 }
-export enum RRRotation {
+enum RRRotation {
     ROTATION_NEXT,
     ROTATION_0,
     ROTATION_90,
@@ -56,27 +58,27 @@ export enum RRRotation {
     REFLECT_Y,
 }
 export const RR_CONNECTOR_TYPE_PANEL: string
-export function desktop_thumbnail_is_valid(pixbuf: GdkPixbuf.Pixbuf, uri: string, mtime: number): boolean
-export function desktop_thumbnail_path_for_uri(uri: string, size: DesktopThumbnailSize): string
-export function get_all_locales(): string[]
-export function get_country_from_code(code: string, translation?: string | null): string
-export function get_country_from_locale(locale: string, translation?: string | null): string
-export function get_input_source_from_locale(locale: string): [ /* returnType */ boolean, /* type */ string, /* id */ string ]
-export function get_language_from_code(code: string, translation?: string | null): string
-export function get_language_from_locale(locale: string, translation?: string | null): string
-export function get_translated_modifier(modifier: string, translation?: string | null): string
-export function language_has_translations(code: string): boolean
-export function normalize_locale(locale: string): string
-export function parse_locale(locale: string): [ /* returnType */ boolean, /* language_codep */ string | null, /* country_codep */ string | null, /* codesetp */ string | null, /* modifierp */ string | null ]
-export function rr_error_quark(): GLib.Quark
-export function start_systemd_scope(name: string, pid: number, description?: string | null, connection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function start_systemd_scope_finish(res: Gio.AsyncResult): boolean
-export interface IdleMonitorWatchFunc {
+function desktop_thumbnail_is_valid(pixbuf: GdkPixbuf.Pixbuf, uri: string, mtime: number): boolean
+function desktop_thumbnail_path_for_uri(uri: string, size: DesktopThumbnailSize): string
+function get_all_locales(): string[]
+function get_country_from_code(code: string, translation?: string | null): string
+function get_country_from_locale(locale: string, translation?: string | null): string
+function get_input_source_from_locale(locale: string): [ /* returnType */ boolean, /* type */ string, /* id */ string ]
+function get_language_from_code(code: string, translation?: string | null): string
+function get_language_from_locale(locale: string, translation?: string | null): string
+function get_translated_modifier(modifier: string, translation?: string | null): string
+function language_has_translations(code: string): boolean
+function normalize_locale(locale: string): string
+function parse_locale(locale: string): [ /* returnType */ boolean, /* language_codep */ string | null, /* country_codep */ string | null, /* codesetp */ string | null, /* modifierp */ string | null ]
+function rr_error_quark(): GLib.Quark
+function start_systemd_scope(name: string, pid: number, description?: string | null, connection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function start_systemd_scope_finish(res: Gio.AsyncResult): boolean
+interface IdleMonitorWatchFunc {
     (monitor: IdleMonitor, id: number): void
 }
 export interface BG_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BG {
+class BG {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GnomeDesktop-3.0.GnomeDesktop.BG */
@@ -152,7 +154,7 @@ export interface BGCrossfade_ConstructProps extends GObject.Object_ConstructProp
     height?: number
     width?: number
 }
-export class BGCrossfade {
+class BGCrossfade {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGCrossfade */
     parent_object: GObject.Object
     priv: BGCrossfadePrivate
@@ -218,7 +220,7 @@ export class BGCrossfade {
 export interface BGSlideShow_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
-export class BGSlideShow {
+class BGSlideShow {
     /* Properties of GnomeDesktop-3.0.GnomeDesktop.BGSlideShow */
     readonly has_multiple_sizes: boolean
     readonly start_time: number
@@ -290,7 +292,7 @@ export class BGSlideShow {
 }
 export interface DesktopThumbnailFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DesktopThumbnailFactory {
+class DesktopThumbnailFactory {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.DesktopThumbnailFactory */
     parent: GObject.Object
     priv: DesktopThumbnailFactoryPrivate
@@ -350,7 +352,7 @@ export class DesktopThumbnailFactory {
 }
 export interface IdleMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IdleMonitor {
+class IdleMonitor {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.IdleMonitor */
     parent: GObject.Object
     priv: IdleMonitorPrivate
@@ -413,7 +415,7 @@ export class IdleMonitor {
 }
 export interface PnpIds_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PnpIds {
+class PnpIds {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.PnpIds */
     parent: GObject.Object
     priv: PnpIdsPrivate
@@ -469,7 +471,7 @@ export class PnpIds {
 export interface RRConfig_ConstructProps extends GObject.Object_ConstructProps {
     screen?: RRScreen
 }
-export class RRConfig {
+class RRConfig {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRConfig */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -533,7 +535,7 @@ export class RRConfig {
 }
 export interface RROutputInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RROutputInfo {
+class RROutputInfo {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RROutputInfo */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -609,7 +611,7 @@ export interface RRScreen_ConstructProps extends GObject.Object_ConstructProps {
     dpms_mode?: RRDpmsModeType
     gdk_screen?: Gdk.Screen
 }
-export class RRScreen {
+class RRScreen {
     /* Properties of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
     dpms_mode: RRDpmsModeType
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRScreen */
@@ -706,7 +708,7 @@ export class RRScreen {
 export interface WallClock_ConstructProps extends GObject.Object_ConstructProps {
     time_only?: boolean
 }
-export class WallClock {
+class WallClock {
     /* Properties of GnomeDesktop-3.0.GnomeDesktop.WallClock */
     readonly clock: string
     time_only: boolean
@@ -773,7 +775,7 @@ export class WallClock {
 }
 export interface XkbInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XkbInfo {
+class XkbInfo {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.XkbInfo */
     parent_object: GObject.Object
     priv: XkbInfoPrivate
@@ -838,64 +840,64 @@ export class XkbInfo {
     static new(): XkbInfo
     static $gtype: GObject.Type
 }
-export abstract class BGClass {
+abstract class BGClass {
     static name: string
 }
-export abstract class BGCrossfadeClass {
+abstract class BGCrossfadeClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGCrossfadeClass */
     parent_class: GObject.ObjectClass
     finished: (fade: BGCrossfade, window: Gdk.Window) => void
     static name: string
 }
-export class BGCrossfadePrivate {
+class BGCrossfadePrivate {
     static name: string
 }
-export abstract class BGSlideShowClass {
+abstract class BGSlideShowClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGSlideShowClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BGSlideShowPrivate {
+class BGSlideShowPrivate {
     static name: string
 }
-export abstract class DesktopThumbnailFactoryClass {
+abstract class DesktopThumbnailFactoryClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.DesktopThumbnailFactoryClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class DesktopThumbnailFactoryPrivate {
+class DesktopThumbnailFactoryPrivate {
     static name: string
 }
-export abstract class IdleMonitorClass {
+abstract class IdleMonitorClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.IdleMonitorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class IdleMonitorPrivate {
+class IdleMonitorPrivate {
     static name: string
 }
-export abstract class PnpIdsClass {
+abstract class PnpIdsClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.PnpIdsClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class PnpIdsPrivate {
+class PnpIdsPrivate {
     static name: string
 }
-export class RRCTM {
+class RRCTM {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRCTM */
     matrix: number[]
     static name: string
 }
-export abstract class RRConfigClass {
+abstract class RRConfigClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRConfigClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RRConfigPrivate {
+class RRConfigPrivate {
     static name: string
 }
-export class RRCrtc {
+class RRCrtc {
     /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRCrtc */
     can_drive_output(output: RROutput): boolean
     get_current_mode(): RRMode
@@ -908,7 +910,7 @@ export class RRCrtc {
     supports_rotation(rotation: RRRotation): boolean
     static name: string
 }
-export class RRMode {
+class RRMode {
     /* Methods of GnomeDesktop-3.0.GnomeDesktop.RRMode */
     get_freq(): number
     get_freq_f(): number
@@ -919,7 +921,7 @@ export class RRMode {
     get_width(): number
     static name: string
 }
-export class RROutput {
+class RROutput {
     /* Methods of GnomeDesktop-3.0.GnomeDesktop.RROutput */
     can_clone(clone: RROutput): boolean
     get_backlight(): number
@@ -946,15 +948,15 @@ export class RROutput {
     supports_underscanning(): boolean
     static name: string
 }
-export abstract class RROutputInfoClass {
+abstract class RROutputInfoClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RROutputInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RROutputInfoPrivate {
+class RROutputInfoPrivate {
     static name: string
 }
-export abstract class RRScreenClass {
+abstract class RRScreenClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.RRScreenClass */
     parent_class: GObject.ObjectClass
     changed: (screen: RRScreen) => void
@@ -962,22 +964,24 @@ export abstract class RRScreenClass {
     output_disconnected: (screen: RRScreen, output: RROutput) => void
     static name: string
 }
-export class RRScreenPrivate {
+class RRScreenPrivate {
     static name: string
 }
-export abstract class WallClockClass {
+abstract class WallClockClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.WallClockClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class WallClockPrivate {
+class WallClockPrivate {
     static name: string
 }
-export abstract class XkbInfoClass {
+abstract class XkbInfoClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.XkbInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class XkbInfoPrivate {
+class XkbInfoPrivate {
     static name: string
 }
+}
+export default GnomeDesktop

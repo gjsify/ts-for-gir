@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Gegl from './Gegl-0.4';
-import type * as Babl from './Babl-0.1';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Gegl from './Gegl-0.4';
+import type Babl from './Babl-0.1';
 
-export enum ViewAutoscale {
+export namespace GeglGtk3 {
+
+enum ViewAutoscale {
     DISABLED,
     WIDGET,
     CONTENT,
@@ -31,7 +33,7 @@ export interface View_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     x?: number
     y?: number
 }
-export class View {
+class View {
     /* Properties of GeglGtk3-0.1.GeglGtk3.View */
     autoscale_policy: ViewAutoscale
     block: boolean
@@ -811,9 +813,11 @@ export class View {
     static new_for_node(node: Gegl.Node): View
     static $gtype: GObject.Type
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
+}
+export default GeglGtk3

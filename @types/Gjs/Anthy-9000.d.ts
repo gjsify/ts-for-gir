@@ -3,8 +3,10 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace Anthy {
 
 export const COMPILED_ENCODING: number
 export const EUC_JP_ENCODING: number
@@ -16,32 +18,32 @@ export const RECONVERT_ALWAYS: number
 export const RECONVERT_AUTO: number
 export const RECONVERT_DISABLE: number
 export const UTF8_ENCODING: number
-export function commit_prediction(arg0: anthy_context_t, arg1: number): number
-export function commit_segment(arg0: anthy_context_t, arg1: number, arg2: number): number
-export function conf_override(arg0: string, arg1: string): void
-export function context_set_encoding(ac: anthy_context_t, encoding: number): number
-export function get_prediction(arg0: anthy_context_t, arg1: number, arg2: string, arg3: number): number
-export function get_prediction_stat(arg0: anthy_context_t, arg1: object): number
-export function get_segment(arg0: anthy_context_t, arg1: number, arg2: number, arg3: string, arg4: number): number
-export function get_segment_stat(arg0: anthy_context_t, arg1: number, arg2: object): number
-export function get_stat(arg0: anthy_context_t, arg1: object): number
-export function get_version_string(): string
-export function init(): number
-export function print_context(arg0: anthy_context_t): void
-export function quit(): void
-export function release_context(arg0: anthy_context_t): void
-export function reset_context(arg0: anthy_context_t): void
-export function resize_segment(arg0: anthy_context_t, arg1: number, arg2: number): void
-export function set_personality(arg0: string): number
-export function set_prediction_string(arg0: anthy_context_t, arg1: string): number
-export function set_reconversion_mode(ac: anthy_context_t, mode: number): number
-export function set_string(arg0: anthy_context_t, arg1: string): number
-export interface logger {
+function commit_prediction(arg0: anthy_context_t, arg1: number): number
+function commit_segment(arg0: anthy_context_t, arg1: number, arg2: number): number
+function conf_override(arg0: string, arg1: string): void
+function context_set_encoding(ac: anthy_context_t, encoding: number): number
+function get_prediction(arg0: anthy_context_t, arg1: number, arg2: string, arg3: number): number
+function get_prediction_stat(arg0: anthy_context_t, arg1: object): number
+function get_segment(arg0: anthy_context_t, arg1: number, arg2: number, arg3: string, arg4: number): number
+function get_segment_stat(arg0: anthy_context_t, arg1: number, arg2: object): number
+function get_stat(arg0: anthy_context_t, arg1: object): number
+function get_version_string(): string
+function init(): number
+function print_context(arg0: anthy_context_t): void
+function quit(): void
+function release_context(arg0: anthy_context_t): void
+function reset_context(arg0: anthy_context_t): void
+function resize_segment(arg0: anthy_context_t, arg1: number, arg2: number): void
+function set_personality(arg0: string): number
+function set_prediction_string(arg0: anthy_context_t, arg1: string): number
+function set_reconversion_mode(ac: anthy_context_t, mode: number): number
+function set_string(arg0: anthy_context_t, arg1: string): number
+interface logger {
     (level: number, arg1: string): void
 }
 export interface GContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class GContext {
+class GContext {
     /* Fields of Anthy-9000.Anthy.GContext */
     parent: GObject.InitiallyUnowned
     priv: GContextPrivate
@@ -106,30 +108,32 @@ export class GContext {
     static new(): GContext
     static $gtype: GObject.Type
 }
-export abstract class GContextClass {
+abstract class GContextClass {
     /* Fields of Anthy-9000.Anthy.GContextClass */
     parent: GObject.InitiallyUnownedClass
     static name: string
 }
-export class GContextPrivate {
+class GContextPrivate {
     static name: string
 }
-export class anthy_context_t {
+class anthy_context_t {
     static name: string
 }
-export class anthy_conv_stat {
+class anthy_conv_stat {
     /* Fields of Anthy-9000.Anthy.anthy_conv_stat */
     nr_segment: number
     static name: string
 }
-export class anthy_prediction_stat {
+class anthy_prediction_stat {
     /* Fields of Anthy-9000.Anthy.anthy_prediction_stat */
     nr_prediction: number
     static name: string
 }
-export class anthy_segment_stat {
+class anthy_segment_stat {
     /* Fields of Anthy-9000.Anthy.anthy_segment_stat */
     nr_candidate: number
     seg_len: number
     static name: string
 }
+}
+export default Anthy

@@ -8,7 +8,7 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Parquet {
+declare namespace Parquet {
 
 export const VERSION_MAJOR: number
 export const VERSION_MICRO: number
@@ -17,7 +17,7 @@ export const VERSION_TAG: string
 export interface ArrowFileReader_ConstructProps extends GObject.Object_ConstructProps {
     arrowFileReader?: object
 }
-export class ArrowFileReader {
+class ArrowFileReader {
     /* Fields of Parquet-1.0.Parquet.ArrowFileReader */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -75,7 +75,7 @@ export class ArrowFileReader {
 export interface ArrowFileWriter_ConstructProps extends GObject.Object_ConstructProps {
     arrowFileWriter?: object
 }
-export class ArrowFileWriter {
+class ArrowFileWriter {
     /* Fields of Parquet-1.0.Parquet.ArrowFileWriter */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -128,7 +128,7 @@ export class ArrowFileWriter {
 }
 export interface WriterProperties_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WriterProperties {
+class WriterProperties {
     /* Fields of Parquet-1.0.Parquet.WriterProperties */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -189,19 +189,20 @@ export class WriterProperties {
     static new(): WriterProperties
     static $gtype: GObject.Type
 }
-export abstract class ArrowFileReaderClass {
+abstract class ArrowFileReaderClass {
     /* Fields of Parquet-1.0.Parquet.ArrowFileReaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ArrowFileWriterClass {
+abstract class ArrowFileWriterClass {
     /* Fields of Parquet-1.0.Parquet.ArrowFileWriterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class WriterPropertiesClass {
+abstract class WriterPropertiesClass {
     /* Fields of Parquet-1.0.Parquet.WriterPropertiesClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default Parquet

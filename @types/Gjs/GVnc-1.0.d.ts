@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AudioFormatType {
+export namespace GVnc {
+
+enum AudioFormatType {
     U8,
     S8,
     U16,
@@ -15,7 +17,7 @@ export enum AudioFormatType {
     U32,
     S32,
 }
-export enum ConnectionAuth {
+enum ConnectionAuth {
     INVALID,
     NONE,
     VNC,
@@ -30,7 +32,7 @@ export enum ConnectionAuth {
     MSLOGONII,
     MSLOGON,
 }
-export enum ConnectionAuthVencrypt {
+enum ConnectionAuthVencrypt {
     PLAIN,
     TLSNONE,
     TLSVNC,
@@ -41,12 +43,12 @@ export enum ConnectionAuthVencrypt {
     X509SASL,
     TLSSASL,
 }
-export enum ConnectionCredential {
+enum ConnectionCredential {
     PASSWORD,
     USERNAME,
     CLIENTNAME,
 }
-export enum ConnectionEncoding {
+enum ConnectionEncoding {
     RAW,
     COPY_RECT,
     RRE,
@@ -79,12 +81,12 @@ export enum ConnectionEncoding {
     XVP,
     ALPHA_CURSOR,
 }
-export enum ConnectionPowerAction {
+enum ConnectionPowerAction {
     SHUTDOWN,
     REBOOT,
     RESET,
 }
-export enum ConnectionResizeStatus {
+enum ConnectionResizeStatus {
     UNSUPPORTED,
     OK,
     ADMIN_PROHIBITED,
@@ -100,12 +102,12 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const PADDING: number
 export const PADDING_LARGE: number
-export function util_check_version(major: number, minor: number, micro: number): boolean
-export function util_get_debug(): boolean
-export function util_get_version(): number
-export function util_get_version_string(): string
-export function util_set_debug(enabled: boolean): void
-export class Audio {
+function util_check_version(major: number, minor: number, micro: number): boolean
+function util_get_debug(): boolean
+function util_get_version(): number
+function util_get_version_string(): string
+function util_set_debug(enabled: boolean): void
+class Audio {
     /* Methods of GVnc-1.0.GVnc.Audio */
     playback_data(sample: AudioSample): void
     playback_start(format: AudioFormat): void
@@ -116,7 +118,7 @@ export class Audio {
     vfunc_playback_stop(): boolean
     static name: string
 }
-export class Framebuffer {
+class Framebuffer {
     /* Methods of GVnc-1.0.GVnc.Framebuffer */
     blt(src: number, rowstride: number, x: number, y: number, width: number, height: number): void
     copyrect(srcx: number, srcy: number, dstx: number, dsty: number, width: number, height: number): void
@@ -149,7 +151,7 @@ export class Framebuffer {
 }
 export interface BaseAudio_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BaseAudio {
+class BaseAudio {
     /* Fields of GVnc-1.0.GVnc.BaseAudio */
     parent: GObject.Object
     priv: BaseAudioPrivate
@@ -227,7 +229,7 @@ export interface BaseFramebuffer_ConstructProps extends GObject.Object_Construct
     rowstride?: number
     width?: number
 }
-export class BaseFramebuffer {
+class BaseFramebuffer {
     /* Properties of GVnc-1.0.GVnc.BaseFramebuffer */
     color_map: ColorMap
     /* Fields of GVnc-1.0.GVnc.BaseFramebuffer */
@@ -313,7 +315,7 @@ export class BaseFramebuffer {
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     framebuffer?: Framebuffer
 }
-export class Connection {
+class Connection {
     /* Properties of GVnc-1.0.GVnc.Connection */
     framebuffer: Framebuffer
     /* Fields of GVnc-1.0.GVnc.Connection */
@@ -494,7 +496,7 @@ export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     hoty?: number
     width?: number
 }
-export class Cursor {
+class Cursor {
     /* Properties of GVnc-1.0.GVnc.Cursor */
     data: object
     height: number
@@ -567,7 +569,7 @@ export class Cursor {
     static new(data: Uint8Array[], hotx: number, hoty: number, width: number, height: number): Cursor
     static $gtype: GObject.Type
 }
-export class AudioFormat {
+class AudioFormat {
     /* Fields of GVnc-1.0.GVnc.AudioFormat */
     format: number
     nchannels: number
@@ -581,7 +583,7 @@ export class AudioFormat {
     /* Static methods and pseudo-constructors */
     static new(): AudioFormat
 }
-export abstract class AudioInterface {
+abstract class AudioInterface {
     /* Fields of GVnc-1.0.GVnc.AudioInterface */
     parent: GObject.TypeInterface
     playback_start: (audio: Audio, format: AudioFormat) => boolean
@@ -589,7 +591,7 @@ export abstract class AudioInterface {
     playback_data: (audio: Audio, sample: AudioSample) => boolean
     static name: string
 }
-export class AudioSample {
+class AudioSample {
     /* Fields of GVnc-1.0.GVnc.AudioSample */
     data: number
     length: number
@@ -603,7 +605,7 @@ export class AudioSample {
     /* Static methods and pseudo-constructors */
     static new(capacity: number): AudioSample
 }
-export abstract class BaseAudioClass {
+abstract class BaseAudioClass {
     /* Fields of GVnc-1.0.GVnc.BaseAudioClass */
     parent_class: GObject.ObjectClass
     playback_start: (audio: BaseAudio, format: AudioFormat) => boolean
@@ -611,19 +613,19 @@ export abstract class BaseAudioClass {
     playback_data: (audio: BaseAudio, sample: AudioSample) => boolean
     static name: string
 }
-export class BaseAudioPrivate {
+class BaseAudioPrivate {
     static name: string
 }
-export abstract class BaseFramebufferClass {
+abstract class BaseFramebufferClass {
     /* Fields of GVnc-1.0.GVnc.BaseFramebufferClass */
     parent_class: GObject.ObjectClass
     _vnc_reserved: object[]
     static name: string
 }
-export class BaseFramebufferPrivate {
+class BaseFramebufferPrivate {
     static name: string
 }
-export class ColorMap {
+class ColorMap {
     /* Fields of GVnc-1.0.GVnc.ColorMap */
     offset: number
     size: number
@@ -639,14 +641,14 @@ export class ColorMap {
     /* Static methods and pseudo-constructors */
     static new(offset: number, size: number): ColorMap
 }
-export class ColorMapEntry {
+class ColorMapEntry {
     /* Fields of GVnc-1.0.GVnc.ColorMapEntry */
     red: number
     green: number
     blue: number
     static name: string
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     /* Fields of GVnc-1.0.GVnc.ConnectionClass */
     parent_class: GObject.ObjectClass
     vnc_cursor_changed: (conn: Connection, cursor: Cursor) => void
@@ -672,19 +674,19 @@ export abstract class ConnectionClass {
     _vnc_reserved: object[]
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
-export abstract class CursorClass {
+abstract class CursorClass {
     /* Fields of GVnc-1.0.GVnc.CursorClass */
     parent_class: GObject.ObjectClass
     _vnc_reserved: object[]
     static name: string
 }
-export class CursorPrivate {
+class CursorPrivate {
     static name: string
 }
-export abstract class FramebufferInterface {
+abstract class FramebufferInterface {
     /* Fields of GVnc-1.0.GVnc.FramebufferInterface */
     parent: GObject.TypeInterface
     get_width: (fb: Framebuffer) => number
@@ -702,7 +704,7 @@ export abstract class FramebufferInterface {
     set_color_map: (fb: Framebuffer, map: ColorMap) => void
     static name: string
 }
-export class PixelFormat {
+class PixelFormat {
     /* Fields of GVnc-1.0.GVnc.PixelFormat */
     bits_per_pixel: number
     depth: number
@@ -724,3 +726,5 @@ export class PixelFormat {
     /* Static methods and pseudo-constructors */
     static new(): PixelFormat
 }
+}
+export default GVnc

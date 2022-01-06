@@ -1,2 +1,1 @@
-imports.gi.versions.GES = '1.0'
-module.exports = imports.gi.GES
+export {default as default} from 'gi://GES?version=1.0';

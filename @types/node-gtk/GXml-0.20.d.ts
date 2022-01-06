@@ -9,9 +9,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gee } from './Gee-0.8';
 
-export declare namespace GXml {
+declare namespace GXml {
 
-export enum CssCombiner {
+enum CssCombiner {
     NULL,
     NONE,
     INSIDE,
@@ -20,7 +20,7 @@ export enum CssCombiner {
     AFTER,
     PRECEDED,
 }
-export enum CssSelectorType {
+enum CssSelectorType {
     CLASS,
     ID,
     ALL,
@@ -34,7 +34,7 @@ export enum CssSelectorType {
     ATTRIBUTE_ENDS_WITH,
     PSEUDO_CLASS,
 }
-export enum NodeType {
+enum NodeType {
     INVALID,
     ELEMENT,
     ATTRIBUTE,
@@ -49,7 +49,7 @@ export enum NodeType {
     DOCUMENT_FRAGMENT,
     NOTATION,
 }
-export enum XPathObjectType {
+enum XPathObjectType {
     UNDEFINED,
     NODESET,
     BOOLEAN,
@@ -61,7 +61,7 @@ export enum XPathObjectType {
     USERS,
     XSLT_TREE,
 }
-export enum CssSelectorError {
+enum CssSelectorError {
     NULL,
     EOF,
     NOT,
@@ -70,11 +70,11 @@ export enum CssSelectorError {
     IDENTIFIER,
     COMBINER,
 }
-export enum DomDocumentError {
+enum DomDocumentError {
     FILE_NOT_FOUND_ERROR,
     INVALID_DOCUMENT_ERROR,
 }
-export enum DomError {
+enum DomError {
     INDEX_SIZE_ERROR,
     DOMSTRING_SIZE_ERROR,
     HIERARCHY_REQUEST_ERROR,
@@ -101,24 +101,24 @@ export enum DomError {
     INVALID_NODE_TYPE_ERROR,
     DATA_CLONE_ERROR,
 }
-export enum EnumerationError {
+enum EnumerationError {
     INVALID_VALUE,
     INVALID_TEXT,
 }
-export enum IXsdSchemaError {
+enum IXsdSchemaError {
     INVALIDATION_ERROR,
 }
-export enum ParserError {
+enum ParserError {
     INVALID_DATA_ERROR,
     INVALID_FILE_ERROR,
     INVALID_STREAM_ERROR,
 }
-export enum Error {
+enum Error {
     NOT_SUPPORTED,
     PARSER,
     WRITER,
 }
-export enum XPathError {
+enum XPathError {
     EXPRESSION_OK,
     NUMBER_ERROR,
     UNFINISHED_LITERAL_ERROR,
@@ -143,21 +143,21 @@ export enum XPathError {
     INVALID_CHAR_ERROR,
     INVALID_CTXT,
 }
-export enum XPathObjectError {
+enum XPathObjectError {
     INVALID_NAMESPACE_ERROR,
 }
-export enum DomNodeFilterFilter {
+enum DomNodeFilterFilter {
     ACCEPT,
     REJECT,
     SKIP,
 }
-export enum DomEventPhase {
+enum DomEventPhase {
     NONE,
     CAPTURING_PHASE,
     AT_TARGET,
     BUBBLING_PHASE,
 }
-export enum DomNodeNodeType {
+enum DomNodeNodeType {
     INVALID,
     ELEMENT_NODE,
     ATTRIBUTE_NODE,
@@ -172,20 +172,20 @@ export enum DomNodeNodeType {
     DOCUMENT_FRAGMENT_NODE,
     NOTATION_NODE,
 }
-export enum DomRangeBoundaryPoints {
+enum DomRangeBoundaryPoints {
     START_TO_START,
     START_TO_END,
     END_TO_END,
     END_TO_START,
 }
-export enum DomEventFlags {
+enum DomEventFlags {
     STOP_PROPAGATION_FLAG,
     STOP_IMMEDIATE_PROPAGATION_FLAG,
     CANCELED_FLAG,
     INITIALIZED_FLAG,
     DISPATCH_FLAG,
 }
-export enum DomNodeDocumentPosition {
+enum DomNodeDocumentPosition {
     NONE,
     DISCONNECTED,
     PRECEDING,
@@ -194,14 +194,14 @@ export enum DomNodeDocumentPosition {
     CONTAINED_BY,
     IMPLEMENTATION_SPECIFIC,
 }
-export interface DomMutationCallback {
+interface DomMutationCallback {
     (mutations: Gee.List, observer: DomMutationObserver): void
 }
 export interface Collection_ConstructProps extends GObject.Object_ConstructProps {
     element?: DomElement
     itemsType?: GObject.Type
 }
-export class Collection {
+class Collection {
     /* Properties of GXml-0.20.GXml.Collection */
     readonly nodesIndex: GLib.Queue
     element: DomElement
@@ -286,7 +286,7 @@ export class Collection {
 }
 export interface List_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class List {
+class List {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -331,7 +331,7 @@ export class List {
 }
 export interface MappeableElement_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MappeableElement {
+class MappeableElement {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.MappeableElement */
@@ -379,7 +379,7 @@ export class MappeableElement {
 export interface Map_ConstructProps extends GObject.Object_ConstructProps {
     attributeKey?: string
 }
-export class Map {
+class Map {
     /* Properties of GXml-0.20.GXml.Map */
     attributeKey: string
     readonly keysSet: Gee.Set
@@ -443,7 +443,7 @@ export class Map {
 }
 export interface MappeableElementPairKey_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MappeableElementPairKey {
+class MappeableElementPairKey {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.MappeableElementPairKey */
@@ -493,7 +493,7 @@ export interface PairedMap_ConstructProps extends GObject.Object_ConstructProps 
     attributePrimaryKey?: string
     attributeSecondaryKey?: string
 }
-export class PairedMap {
+class PairedMap {
     /* Properties of GXml-0.20.GXml.PairedMap */
     attributePrimaryKey: string
     attributeSecondaryKey: string
@@ -567,7 +567,7 @@ export class PairedMap {
 }
 export interface MappeableElementThreeKey_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MappeableElementThreeKey {
+class MappeableElementThreeKey {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.MappeableElementThreeKey */
@@ -619,7 +619,7 @@ export interface ThreeMap_ConstructProps extends GObject.Object_ConstructProps {
     attributeSecondaryKey?: string
     attributeThirdKey?: string
 }
-export class ThreeMap {
+class ThreeMap {
     /* Properties of GXml-0.20.GXml.ThreeMap */
     attributePrimaryKey: string
     attributeSecondaryKey: string
@@ -703,7 +703,7 @@ export class ThreeMap {
 }
 export interface CollectionParent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CollectionParent {
+class CollectionParent {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.CollectionParent */
@@ -754,7 +754,7 @@ export class CollectionParent {
 export interface DomAttr_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
-export class DomAttr {
+class DomAttr {
     /* Properties of GXml-0.20.GXml.DomAttr */
     readonly namespaceUri: string
     readonly prefix: string
@@ -839,7 +839,7 @@ export class DomAttr {
 export interface DomCharacterData_ConstructProps extends GObject.Object_ConstructProps {
     data?: string
 }
-export class DomCharacterData {
+class DomCharacterData {
     /* Properties of GXml-0.20.GXml.DomCharacterData */
     data: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -900,7 +900,7 @@ export class DomCharacterData {
 }
 export interface DomText_ConstructProps extends DomCharacterData_ConstructProps {
 }
-export class DomText {
+class DomText {
     /* Properties of GXml-0.20.GXml.DomCharacterData */
     data: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -967,7 +967,7 @@ export class DomText {
 }
 export interface DomProcessingInstruction_ConstructProps extends DomCharacterData_ConstructProps {
 }
-export class DomProcessingInstruction {
+class DomProcessingInstruction {
     /* Properties of GXml-0.20.GXml.DomProcessingInstruction */
     readonly target: string
     /* Properties of GXml-0.20.GXml.DomCharacterData */
@@ -1040,7 +1040,7 @@ export class DomProcessingInstruction {
 }
 export interface DomComment_ConstructProps extends DomCharacterData_ConstructProps {
 }
-export class DomComment {
+class DomComment {
     /* Properties of GXml-0.20.GXml.DomCharacterData */
     data: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -1104,7 +1104,7 @@ export class DomComment {
 }
 export interface DomNonElementParentNode_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNonElementParentNode {
+class DomNonElementParentNode {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomNonElementParentNode */
@@ -1151,7 +1151,7 @@ export class DomNonElementParentNode {
 }
 export interface DomParentNode_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomParentNode {
+class DomParentNode {
     /* Properties of GXml-0.20.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly firstElementChild: DomElement
@@ -1229,7 +1229,7 @@ export class DomParentNode {
 }
 export interface DomNonDocumentTypeChildNode_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNonDocumentTypeChildNode {
+class DomNonDocumentTypeChildNode {
     /* Properties of GXml-0.20.GXml.DomNonDocumentTypeChildNode */
     readonly previousElementSibling: DomElement
     readonly nextElementSibling: DomElement
@@ -1290,7 +1290,7 @@ export class DomNonDocumentTypeChildNode {
 }
 export interface DomChildNode_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomChildNode {
+class DomChildNode {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomChildNode */
@@ -1337,7 +1337,7 @@ export class DomChildNode {
 }
 export interface DomNodeList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNodeList {
+class DomNodeList {
     /* Properties of GXml-0.20.GXml.DomNodeList */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1392,7 +1392,7 @@ export class DomNodeList {
 }
 export interface DomHTMLCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomHTMLCollection {
+class DomHTMLCollection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomHTMLCollection */
@@ -1443,7 +1443,7 @@ export class DomHTMLCollection {
 }
 export interface DomNodeIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNodeIterator {
+class DomNodeIterator {
     /* Properties of GXml-0.20.GXml.DomNodeIterator */
     readonly root: DomNode
     readonly referenceNode: DomNode
@@ -1527,7 +1527,7 @@ export class DomNodeIterator {
 }
 export interface DomTreeWalker_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomTreeWalker {
+class DomTreeWalker {
     /* Properties of GXml-0.20.GXml.DomTreeWalker */
     readonly root: DomNode
     readonly whatToShow: number
@@ -1608,7 +1608,7 @@ export class DomTreeWalker {
 }
 export interface DomNamedNodeMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNamedNodeMap {
+class DomNamedNodeMap {
     /* Properties of GXml-0.20.GXml.DomNamedNodeMap */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1669,7 +1669,7 @@ export class DomNamedNodeMap {
 }
 export interface DomTokenList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomTokenList {
+class DomTokenList {
     /* Properties of GXml-0.20.GXml.DomTokenList */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1730,7 +1730,7 @@ export class DomTokenList {
 export interface DomSettableTokenList_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
-export class DomSettableTokenList {
+class DomSettableTokenList {
     /* Properties of GXml-0.20.GXml.DomSettableTokenList */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -1785,7 +1785,7 @@ export class DomSettableTokenList {
 }
 export interface DomDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomDocument {
+class DomDocument {
     /* Properties of GXml-0.20.GXml.DomDocument */
     readonly implementation: DomImplementation
     readonly url: string
@@ -1933,7 +1933,7 @@ export class DomDocument {
 }
 export interface DomXMLDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomXMLDocument {
+class DomXMLDocument {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1978,7 +1978,7 @@ export class DomXMLDocument {
 }
 export interface DomImplementation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomImplementation {
+class DomImplementation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomImplementation */
@@ -2028,7 +2028,7 @@ export class DomImplementation {
 }
 export interface DomDocumentFragment_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomDocumentFragment {
+class DomDocumentFragment {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -2073,7 +2073,7 @@ export class DomDocumentFragment {
 }
 export interface DomDocumentType_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomDocumentType {
+class DomDocumentType {
     /* Properties of GXml-0.20.GXml.DomDocumentType */
     readonly name: string
     readonly publicId: string
@@ -2141,7 +2141,7 @@ export class DomDocumentType {
 }
 export interface DomHtmlDocument_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomHtmlDocument {
+class DomHtmlDocument {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomHtmlDocument */
@@ -2192,7 +2192,7 @@ export interface DomElement_ConstructProps extends GObject.Object_ConstructProps
     id?: string
     className?: string
 }
-export class DomElement {
+class DomElement {
     /* Properties of GXml-0.20.GXml.DomElement */
     readonly namespaceUri: string
     readonly prefix: string
@@ -2333,7 +2333,7 @@ export class DomElement {
 }
 export interface DomEventTarget_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomEventTarget {
+class DomEventTarget {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomEventTarget */
@@ -2382,7 +2382,7 @@ export class DomEventTarget {
 }
 export interface DomEventListener_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomEventListener {
+class DomEventListener {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomEventListener */
@@ -2429,7 +2429,7 @@ export class DomEventListener {
 }
 export interface DomEvent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomEvent {
+class DomEvent {
     /* Properties of GXml-0.20.GXml.DomEvent */
     readonly etype: string
     readonly eventTarget: DomEventTarget
@@ -2543,7 +2543,7 @@ export class DomEvent {
 }
 export interface DomCustomEvent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomCustomEvent {
+class DomCustomEvent {
     /* Properties of GXml-0.20.GXml.DomCustomEvent */
     readonly detail: any
     /* Fields of GObject-2.0.GObject.Object */
@@ -2598,7 +2598,7 @@ export class DomCustomEvent {
 }
 export interface DomMutationObserver_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomMutationObserver {
+class DomMutationObserver {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomMutationObserver */
@@ -2649,7 +2649,7 @@ export interface DomMutationRecord_ConstructProps extends GObject.Object_Constru
     addedNodes?: DomNodeList
     removedNodes?: DomNodeList
 }
-export class DomMutationRecord {
+class DomMutationRecord {
     /* Properties of GXml-0.20.GXml.DomMutationRecord */
     readonly mtype: string
     readonly target: DomNode
@@ -2764,7 +2764,7 @@ export interface DomNode_ConstructProps extends GObject.Object_ConstructProps {
     nodeValue?: string
     textContent?: string
 }
-export class DomNode {
+class DomNode {
     /* Properties of GXml-0.20.GXml.DomNode */
     readonly nodeType: DomNodeNodeType
     readonly nodeName: string
@@ -2919,7 +2919,7 @@ export class DomNode {
 }
 export interface DomRange_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomRange {
+class DomRange {
     /* Properties of GXml-0.20.GXml.DomRange */
     readonly startContainer: DomNode
     readonly startOffset: number
@@ -3032,7 +3032,7 @@ export interface IXsdSchema_ConstructProps extends GObject.Object_ConstructProps
     simpleTypeDefinitions?: IXsdListSimpleTypes
     complexTypeDefinitions?: IXsdListComplexTypes
 }
-export class IXsdSchema {
+class IXsdSchema {
     /* Properties of GXml-0.20.GXml.IXsdSchema */
     elementDefinitions: IXsdListElements
     simpleTypeDefinitions: IXsdListSimpleTypes
@@ -3104,7 +3104,7 @@ export class IXsdSchema {
 export interface IXsdBaseType_ConstructProps extends GObject.Object_ConstructProps {
     anotation?: IXsdAnnotation
 }
-export class IXsdBaseType {
+class IXsdBaseType {
     /* Properties of GXml-0.20.GXml.IXsdBaseType */
     anotation: IXsdAnnotation
     /* Fields of GObject-2.0.GObject.Object */
@@ -3166,7 +3166,7 @@ export interface IXsdSimpleType_ConstructProps extends GObject.Object_ConstructP
     union?: IXsdTypeUnion
     restriction?: IXsdTypeRestriction
 }
-export class IXsdSimpleType {
+class IXsdSimpleType {
     /* Properties of GXml-0.20.GXml.IXsdSimpleType */
     final: string
     id: string
@@ -3269,7 +3269,7 @@ export class IXsdSimpleType {
 }
 export interface IXsdTypeDef_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeDef {
+class IXsdTypeDef {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3319,7 +3319,7 @@ export interface IXsdTypeRestriction_ConstructProps extends GObject.Object_Const
     enumerations?: IXsdListTypeRestrictionEnumerations
     whiteSpaces?: IXsdListTypeRestrictionWhiteSpaces
 }
-export class IXsdTypeRestriction {
+class IXsdTypeRestriction {
     /* Properties of GXml-0.20.GXml.IXsdTypeRestriction */
     base: string
     id: string
@@ -3406,7 +3406,7 @@ export class IXsdTypeRestriction {
 }
 export interface IXsdTypeList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeList {
+class IXsdTypeList {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3451,7 +3451,7 @@ export class IXsdTypeList {
 }
 export interface IXsdTypeUnion_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeUnion {
+class IXsdTypeUnion {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3497,7 +3497,7 @@ export class IXsdTypeUnion {
 export interface IXsdTypeRestrictionDef_ConstructProps extends GObject.Object_ConstructProps {
     annotation?: IXsdAnnotation
 }
-export class IXsdTypeRestrictionDef {
+class IXsdTypeRestrictionDef {
     /* Properties of GXml-0.20.GXml.IXsdTypeRestrictionDef */
     annotation: IXsdAnnotation
     /* Fields of GObject-2.0.GObject.Object */
@@ -3552,7 +3552,7 @@ export class IXsdTypeRestrictionDef {
 }
 export interface IXsdTypeRestrictionMinExclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMinExclusive {
+class IXsdTypeRestrictionMinExclusive {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3597,7 +3597,7 @@ export class IXsdTypeRestrictionMinExclusive {
 }
 export interface IXsdTypeRestrictionMinInclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMinInclusive {
+class IXsdTypeRestrictionMinInclusive {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3642,7 +3642,7 @@ export class IXsdTypeRestrictionMinInclusive {
 }
 export interface IXsdTypeRestrictionMaxExclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMaxExclusive {
+class IXsdTypeRestrictionMaxExclusive {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3687,7 +3687,7 @@ export class IXsdTypeRestrictionMaxExclusive {
 }
 export interface IXsdTypeRestrictionMaxInclusive_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMaxInclusive {
+class IXsdTypeRestrictionMaxInclusive {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3732,7 +3732,7 @@ export class IXsdTypeRestrictionMaxInclusive {
 }
 export interface IXsdTypeRestrictionTotalDigits_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionTotalDigits {
+class IXsdTypeRestrictionTotalDigits {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3777,7 +3777,7 @@ export class IXsdTypeRestrictionTotalDigits {
 }
 export interface IXsdTypeRestrictionFractionDigits_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionFractionDigits {
+class IXsdTypeRestrictionFractionDigits {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3822,7 +3822,7 @@ export class IXsdTypeRestrictionFractionDigits {
 }
 export interface IXsdTypeRestrictionLength_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionLength {
+class IXsdTypeRestrictionLength {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3867,7 +3867,7 @@ export class IXsdTypeRestrictionLength {
 }
 export interface IXsdTypeRestrictionMinLength_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMinLength {
+class IXsdTypeRestrictionMinLength {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3912,7 +3912,7 @@ export class IXsdTypeRestrictionMinLength {
 }
 export interface IXsdTypeRestrictionMaxLength_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionMaxLength {
+class IXsdTypeRestrictionMaxLength {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -3959,7 +3959,7 @@ export interface IXsdTypeRestrictionEnumeration_ConstructProps extends GObject.O
     id?: string
     value?: string
 }
-export class IXsdTypeRestrictionEnumeration {
+class IXsdTypeRestrictionEnumeration {
     /* Properties of GXml-0.20.GXml.IXsdTypeRestrictionEnumeration */
     id: string
     value: string
@@ -4025,7 +4025,7 @@ export interface IXsdTypeRestrictionWhiteSpace_ConstructProps extends GObject.Ob
     id?: string
     value?: string
 }
-export class IXsdTypeRestrictionWhiteSpace {
+class IXsdTypeRestrictionWhiteSpace {
     /* Properties of GXml-0.20.GXml.IXsdTypeRestrictionWhiteSpace */
     fixed: boolean
     id: string
@@ -4096,7 +4096,7 @@ export class IXsdTypeRestrictionWhiteSpace {
 }
 export interface IXsdTypeRestrictionPattern_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionPattern {
+class IXsdTypeRestrictionPattern {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4141,7 +4141,7 @@ export class IXsdTypeRestrictionPattern {
 }
 export interface IXsdTypeRestrictionAssertion_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionAssertion {
+class IXsdTypeRestrictionAssertion {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4186,7 +4186,7 @@ export class IXsdTypeRestrictionAssertion {
 }
 export interface IXsdTypeRestrictionExplicitTimezone_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdTypeRestrictionExplicitTimezone {
+class IXsdTypeRestrictionExplicitTimezone {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4238,7 +4238,7 @@ export interface IXsdComplexType_ConstructProps extends GObject.Object_Construct
     defaultAttributesApply?: boolean
     contentType?: IXsdBaseContent
 }
-export class IXsdComplexType {
+class IXsdComplexType {
     /* Properties of GXml-0.20.GXml.IXsdComplexType */
     abstract: boolean
     block: string
@@ -4356,7 +4356,7 @@ export class IXsdComplexType {
 export interface IXsdExtension_ConstructProps extends GObject.Object_ConstructProps {
     base?: string
 }
-export class IXsdExtension {
+class IXsdExtension {
     /* Properties of GXml-0.20.GXml.IXsdExtension */
     base: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -4429,7 +4429,7 @@ export interface IXsdElement_ConstructProps extends GObject.Object_ConstructProp
     simpleType?: IXsdSimpleType
     complexType?: IXsdComplexType
 }
-export class IXsdElement {
+class IXsdElement {
     /* Properties of GXml-0.20.GXml.IXsdElement */
     abstract: boolean
     block: string
@@ -4619,7 +4619,7 @@ export class IXsdElement {
 }
 export interface IXsdAnnotation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdAnnotation {
+class IXsdAnnotation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4665,7 +4665,7 @@ export class IXsdAnnotation {
 export interface IXsdBaseContent_ConstructProps extends GObject.Object_ConstructProps {
     anotation?: IXsdAnnotation
 }
-export class IXsdBaseContent {
+class IXsdBaseContent {
     /* Properties of GXml-0.20.GXml.IXsdBaseContent */
     anotation: IXsdAnnotation
     /* Fields of GObject-2.0.GObject.Object */
@@ -4720,7 +4720,7 @@ export class IXsdBaseContent {
 }
 export interface IXsdSimpleContent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdSimpleContent {
+class IXsdSimpleContent {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4765,7 +4765,7 @@ export class IXsdSimpleContent {
 }
 export interface IXsdComplexContent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdComplexContent {
+class IXsdComplexContent {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4810,7 +4810,7 @@ export class IXsdComplexContent {
 }
 export interface IXsdOpenContent_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdOpenContent {
+class IXsdOpenContent {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4856,7 +4856,7 @@ export class IXsdOpenContent {
 export interface IXsdBaseAttribute_ConstructProps extends GObject.Object_ConstructProps {
     anotation?: IXsdAnnotation
 }
-export class IXsdBaseAttribute {
+class IXsdBaseAttribute {
     /* Properties of GXml-0.20.GXml.IXsdBaseAttribute */
     anotation: IXsdAnnotation
     /* Fields of GObject-2.0.GObject.Object */
@@ -4911,7 +4911,7 @@ export class IXsdBaseAttribute {
 }
 export interface IXsdAttribute_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdAttribute {
+class IXsdAttribute {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4956,7 +4956,7 @@ export class IXsdAttribute {
 }
 export interface IXsdAttributeGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdAttributeGroup {
+class IXsdAttributeGroup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5004,7 +5004,7 @@ export interface IXsdList_ConstructProps extends GObject.Object_ConstructProps {
     itemsType?: GObject.Type
     itemsName?: GObject.Type
 }
-export class IXsdList {
+class IXsdList {
     /* Properties of GXml-0.20.GXml.IXsdList */
     element: DomElement
     itemsType: GObject.Type
@@ -5086,7 +5086,7 @@ export class IXsdList {
 }
 export interface IXsdListElements_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListElements {
+class IXsdListElements {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5131,7 +5131,7 @@ export class IXsdListElements {
 }
 export interface IXsdListSimpleTypes_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListSimpleTypes {
+class IXsdListSimpleTypes {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5176,7 +5176,7 @@ export class IXsdListSimpleTypes {
 }
 export interface IXsdListComplexTypes_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListComplexTypes {
+class IXsdListComplexTypes {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5221,7 +5221,7 @@ export class IXsdListComplexTypes {
 }
 export interface IXsdListAttributes_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListAttributes {
+class IXsdListAttributes {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5266,7 +5266,7 @@ export class IXsdListAttributes {
 }
 export interface IXsdListAttributesGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListAttributesGroup {
+class IXsdListAttributesGroup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5311,7 +5311,7 @@ export class IXsdListAttributesGroup {
 }
 export interface IXsdListTypeRestrictionEnumerations_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListTypeRestrictionEnumerations {
+class IXsdListTypeRestrictionEnumerations {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5356,7 +5356,7 @@ export class IXsdListTypeRestrictionEnumerations {
 }
 export interface IXsdListTypeRestrictionWhiteSpaces_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IXsdListTypeRestrictionWhiteSpaces {
+class IXsdListTypeRestrictionWhiteSpaces {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5401,7 +5401,7 @@ export class IXsdListTypeRestrictionWhiteSpaces {
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Object {
+class Object {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.Object */
@@ -5463,7 +5463,7 @@ export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
     indent?: boolean
     cancellable?: Gio.Cancellable
 }
-export class Parser {
+class Parser {
     /* Properties of GXml-0.20.GXml.Parser */
     backup: boolean
     indent: boolean
@@ -5587,7 +5587,7 @@ export class Parser {
 export interface Property_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
-export class Property {
+class Property {
     /* Properties of GXml-0.20.GXml.Property */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -5643,7 +5643,7 @@ export class Property {
 }
 export interface XPathContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XPathContext {
+class XPathContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.XPathContext */
@@ -5690,7 +5690,7 @@ export class XPathContext {
 }
 export interface XPathObject_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XPathObject {
+class XPathObject {
     /* Properties of GXml-0.20.GXml.XPathObject */
     readonly objectType: XPathObjectType
     readonly booleanValue: boolean
@@ -5772,7 +5772,7 @@ export class XPathObject {
 }
 export interface ArrayList_ConstructProps extends BaseCollection_ConstructProps {
 }
-export class ArrayList {
+class ArrayList {
     /* Fields of GXml-0.20.GXml.BaseCollection */
     nodesIndex: GLib.Queue
     element: Element
@@ -5829,7 +5829,7 @@ export class ArrayList {
 export interface Attr_ConstructProps extends Node_ConstructProps {
     value?: string
 }
-export class Attr {
+class Attr {
     /* Properties of GXml-0.20.GXml.Attr */
     readonly isReferenced: boolean
     /* Properties of GXml-0.20.GXml.DomAttr */
@@ -5938,7 +5938,7 @@ export interface BaseCollection_ConstructProps extends GObject.Object_ConstructP
     element?: DomElement
     itemsType?: GObject.Type
 }
-export class BaseCollection {
+class BaseCollection {
     /* Properties of GXml-0.20.GXml.Collection */
     readonly nodesIndex: GLib.Queue
     element: DomElement
@@ -6048,7 +6048,7 @@ export interface CssSelector_ConstructProps extends GObject.Object_ConstructProp
     value?: string
     combiner?: CssCombiner
 }
-export class CssSelector {
+class CssSelector {
     /* Properties of GXml-0.20.GXml.CssSelector */
     selectorType: CssSelectorType
     name: string
@@ -6132,7 +6132,7 @@ export interface CssElementSelector_ConstructProps extends CssSelector_Construct
     prefix?: string
     localName?: string
 }
-export class CssElementSelector {
+class CssElementSelector {
     /* Properties of GXml-0.20.GXml.CssElementSelector */
     readonly prefixed: boolean
     prefix: string
@@ -6241,7 +6241,7 @@ export interface CssAttributeSelector_ConstructProps extends CssSelector_Constru
     prefix?: string
     localName?: string
 }
-export class CssAttributeSelector {
+class CssAttributeSelector {
     /* Properties of GXml-0.20.GXml.CssAttributeSelector */
     prefix: string
     localName: string
@@ -6341,7 +6341,7 @@ export class CssAttributeSelector {
 }
 export interface CssNotSelector_ConstructProps extends CssSelector_ConstructProps {
 }
-export class CssNotSelector {
+class CssNotSelector {
     /* Properties of GXml-0.20.GXml.CssNotSelector */
     readonly selectors: Gee.List
     /* Properties of GXml-0.20.GXml.CssSelector */
@@ -6432,7 +6432,7 @@ export class CssNotSelector {
 }
 export interface CssSelectorParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CssSelectorParser {
+class CssSelectorParser {
     /* Properties of GXml-0.20.GXml.CssSelectorParser */
     readonly selectors: Gee.List
     /* Fields of GObject-2.0.GObject.Object */
@@ -6491,7 +6491,7 @@ export class CssSelectorParser {
 }
 export interface Document_ConstructProps extends Node_ConstructProps {
 }
-export class Document {
+class Document {
     /* Properties of GXml-0.20.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly firstElementChild: DomElement
@@ -6695,7 +6695,7 @@ export class Document {
 }
 export interface Implementation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Implementation {
+class Implementation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6747,7 +6747,7 @@ export class Implementation {
 }
 export interface DocumentType_ConstructProps extends Node_ConstructProps {
 }
-export class DocumentType {
+class DocumentType {
     /* Properties of GXml-0.20.GXml.DomDocumentType */
     readonly name: string
     readonly publicId: string
@@ -6831,7 +6831,7 @@ export class DocumentType {
 }
 export interface DocumentFragment_ConstructProps extends Node_ConstructProps {
 }
-export class DocumentFragment {
+class DocumentFragment {
     /* Properties of GXml-0.20.GXml.DomParentNode */
     readonly children: DomHTMLCollection
     readonly firstElementChild: DomElement
@@ -6923,7 +6923,7 @@ export class DocumentFragment {
 }
 export interface DomNodeFilter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomNodeFilter {
+class DomNodeFilter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6970,7 +6970,7 @@ export class DomNodeFilter {
 }
 export interface DomElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class DomElementList {
+class DomElementList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -7084,7 +7084,7 @@ export interface DomEventInit_ConstructProps extends GObject.Object_ConstructPro
     bubbles?: boolean
     cancelable?: boolean
 }
-export class DomEventInit {
+class DomEventInit {
     /* Properties of GXml-0.20.GXml.DomEventInit */
     bubbles: boolean
     cancelable: boolean
@@ -7150,7 +7150,7 @@ export class DomEventInit {
 export interface DomCustomEventInit_ConstructProps extends DomEventInit_ConstructProps {
     detail?: any
 }
-export class DomCustomEventInit {
+class DomCustomEventInit {
     /* Properties of GXml-0.20.GXml.DomCustomEventInit */
     detail: any
     /* Properties of GXml-0.20.GXml.DomEventInit */
@@ -7226,7 +7226,7 @@ export class DomCustomEventInit {
 export interface DomTimeStamp_ConstructProps extends GObject.Object_ConstructProps {
     time?: GLib.DateTime
 }
-export class DomTimeStamp {
+class DomTimeStamp {
     /* Properties of GXml-0.20.GXml.DomTimeStamp */
     time: GLib.DateTime
     /* Fields of GObject-2.0.GObject.Object */
@@ -7291,7 +7291,7 @@ export interface DomMutationObserverInit_ConstructProps extends GObject.Object_C
     characterDataOldValue?: boolean
     attributeFilter?: Gee.List
 }
-export class DomMutationObserverInit {
+class DomMutationObserverInit {
     /* Properties of GXml-0.20.GXml.DomMutationObserverInit */
     childList: boolean
     attributes: boolean
@@ -7396,7 +7396,7 @@ export class DomMutationObserverInit {
 }
 export interface DomErrorName_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DomErrorName {
+class DomErrorName {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.DomErrorName */
@@ -7451,7 +7451,7 @@ export interface Element_ConstructProps extends Node_ConstructProps {
     id?: string
     className?: string
 }
-export class Element {
+class Element {
     /* Properties of GXml-0.20.GXml.Element */
     parseChildren: boolean
     unparsed: string
@@ -7702,7 +7702,7 @@ export class Element {
 }
 export interface ElementAttributes_ConstructProps extends Gee.HashMap_ConstructProps {
 }
-export class ElementAttributes {
+class ElementAttributes {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
@@ -7835,7 +7835,7 @@ export class ElementAttributes {
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyHashFunc: Gee.HashDataFunc | null, keyEqualFunc: Gee.EqualDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): ElementAttributes
     static $gtype: GObject.Type
 }
-export class Enumeration {
+class Enumeration {
     /* Fields of GXml-0.20.GXml.Enumeration */
     refCount: number
     static name: string
@@ -7853,7 +7853,7 @@ export class Enumeration {
 }
 export interface Event_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Event {
+class Event {
     /* Properties of GXml-0.20.GXml.DomEvent */
     readonly etype: string
     readonly eventTarget: DomEventTarget
@@ -7971,7 +7971,7 @@ export class Event {
 }
 export interface CustomEvent_ConstructProps extends Event_ConstructProps {
 }
-export class CustomEvent {
+class CustomEvent {
     /* Properties of GXml-0.20.GXml.CustomEvent */
     readonly detail: any
     /* Fields of GXml-0.20.GXml.Event */
@@ -8040,7 +8040,7 @@ export class CustomEvent {
 export interface HashMap_ConstructProps extends BaseCollection_ConstructProps {
     attributeKey?: string
 }
-export class HashMap {
+class HashMap {
     /* Properties of GXml-0.20.GXml.Map */
     attributeKey: string
     readonly keysSet: Gee.Set
@@ -8124,7 +8124,7 @@ export interface HashPairedMap_ConstructProps extends BaseCollection_ConstructPr
     attributePrimaryKey?: string
     attributeSecondaryKey?: string
 }
-export class HashPairedMap {
+class HashPairedMap {
     /* Properties of GXml-0.20.GXml.PairedMap */
     attributePrimaryKey: string
     attributeSecondaryKey: string
@@ -8220,7 +8220,7 @@ export interface HashThreeMap_ConstructProps extends BaseCollection_ConstructPro
     attributeSecondaryKey?: string
     attributeThirdKey?: string
 }
-export class HashThreeMap {
+class HashThreeMap {
     /* Properties of GXml-0.20.GXml.ThreeMap */
     attributePrimaryKey: string
     attributeSecondaryKey: string
@@ -8324,7 +8324,7 @@ export class HashThreeMap {
 }
 export interface HTMLCollection_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class HTMLCollection {
+class HTMLCollection {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8437,7 +8437,7 @@ export class HTMLCollection {
 export interface HtmlDocument_ConstructProps extends Document_ConstructProps {
     html?: DomElement
 }
-export class HtmlDocument {
+class HtmlDocument {
     /* Properties of GXml-0.20.GXml.HtmlDocument */
     html: DomElement
     /* Fields of GXml-0.20.GXml.Document */
@@ -8514,7 +8514,7 @@ export class HtmlDocument {
 }
 export interface HtmlElement_ConstructProps extends Element_ConstructProps {
 }
-export class HtmlElement {
+class HtmlElement {
     /* Properties of GXml-0.20.GXml.Element */
     parseChildren: boolean
     unparsed: string
@@ -8610,7 +8610,7 @@ export class HtmlElement {
 }
 export interface LXPathObject_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LXPathObject {
+class LXPathObject {
     /* Properties of GXml-0.20.GXml.XPathObject */
     readonly objectType: XPathObjectType
     readonly booleanValue: boolean
@@ -8697,7 +8697,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     nodeValue?: string
     textContent?: string
 }
-export class Node {
+class Node {
     /* Properties of GXml-0.20.GXml.DomNode */
     readonly nodeType: DomNodeNodeType
     readonly nodeName: string
@@ -8862,7 +8862,7 @@ export class Node {
 }
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class NodeList {
+class NodeList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8978,7 +8978,7 @@ export class NodeList {
 }
 export interface NodeIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NodeIterator {
+class NodeIterator {
     /* Properties of GXml-0.20.GXml.DomNodeIterator */
     readonly root: DomNode
     readonly referenceNode: DomNode
@@ -9065,7 +9065,7 @@ export class NodeIterator {
 export interface BaseProperty_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
-export class BaseProperty {
+class BaseProperty {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9121,7 +9121,7 @@ export class BaseProperty {
 }
 export interface String_ConstructProps extends BaseProperty_ConstructProps {
 }
-export class String {
+class String {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9180,7 +9180,7 @@ export class String {
 }
 export interface ArrayString_ConstructProps extends BaseProperty_ConstructProps {
 }
-export class ArrayString {
+class ArrayString {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GXml-0.20.GXml.ArrayString */
@@ -9249,7 +9249,7 @@ export interface XsdArrayString_ConstructProps extends ArrayString_ConstructProp
     simpleType?: string
     source?: Gio.File
 }
-export class XsdArrayString {
+class XsdArrayString {
     /* Properties of GXml-0.20.GXml.XsdArrayString */
     simpleType: string
     source: Gio.File
@@ -9336,7 +9336,7 @@ export class XsdArrayString {
 export interface Double_ConstructProps extends BaseProperty_ConstructProps {
     decimals?: number
 }
-export class Double {
+class Double {
     /* Properties of GXml-0.20.GXml.Double */
     decimals: number
     /* Properties of GXml-0.20.GXml.BaseProperty */
@@ -9406,7 +9406,7 @@ export class Double {
 }
 export interface Float_ConstructProps extends Double_ConstructProps {
 }
-export class Float {
+class Float {
     /* Properties of GXml-0.20.GXml.Double */
     decimals: number
     /* Properties of GXml-0.20.GXml.BaseProperty */
@@ -9479,7 +9479,7 @@ export class Float {
 }
 export interface Int_ConstructProps extends BaseProperty_ConstructProps {
 }
-export class Int {
+class Int {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9540,7 +9540,7 @@ export class Int {
 }
 export interface Boolean_ConstructProps extends BaseProperty_ConstructProps {
 }
-export class Boolean {
+class Boolean {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9605,7 +9605,7 @@ export interface Enum_ConstructProps extends BaseProperty_ConstructProps {
     upperCase?: boolean
     enumType?: GObject.Type
 }
-export class Enum {
+class Enum {
     /* Properties of GXml-0.20.GXml.Enum */
     useNick: boolean
     camelCase: boolean
@@ -9703,7 +9703,7 @@ export class Enum {
 }
 export interface Date_ConstructProps extends BaseProperty_ConstructProps {
 }
-export class Date {
+class Date {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -9765,7 +9765,7 @@ export class Date {
 export interface DateTime_ConstructProps extends BaseProperty_ConstructProps {
     format?: string
 }
-export class DateTime {
+class DateTime {
     /* Properties of GXml-0.20.GXml.DateTime */
     format: string
     /* Properties of GXml-0.20.GXml.BaseProperty */
@@ -9835,7 +9835,7 @@ export class DateTime {
 }
 export interface Range_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Range {
+class Range {
     /* Properties of GXml-0.20.GXml.DomRange */
     readonly startContainer: DomNode
     readonly startOffset: number
@@ -9950,7 +9950,7 @@ export class Range {
 export interface SettableTokenList_ConstructProps extends TokenList_ConstructProps {
     value?: string
 }
-export class SettableTokenList {
+class SettableTokenList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10072,7 +10072,7 @@ export class SettableTokenList {
 export interface StringRef_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
-export class StringRef {
+class StringRef {
     /* Properties of GXml-0.20.GXml.Property */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -10131,7 +10131,7 @@ export class StringRef {
 export interface CharacterData_ConstructProps extends Node_ConstructProps {
     data?: string
 }
-export class CharacterData {
+class CharacterData {
     /* Properties of GXml-0.20.GXml.DomNonDocumentTypeChildNode */
     readonly previousElementSibling: DomElement
     readonly nextElementSibling: DomElement
@@ -10222,7 +10222,7 @@ export class CharacterData {
 export interface Text_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
-export class Text {
+class Text {
     /* Properties of GXml-0.20.GXml.DomCharacterData */
     data: string
     /* Fields of GXml-0.20.GXml.Node */
@@ -10299,7 +10299,7 @@ export class Text {
 export interface ProcessingInstruction_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
-export class ProcessingInstruction {
+class ProcessingInstruction {
     /* Properties of GXml-0.20.GXml.DomProcessingInstruction */
     readonly target: string
     /* Properties of GXml-0.20.GXml.DomCharacterData */
@@ -10382,7 +10382,7 @@ export class ProcessingInstruction {
 export interface Comment_ConstructProps extends CharacterData_ConstructProps {
     data?: string
 }
-export class Comment {
+class Comment {
     /* Properties of GXml-0.20.GXml.DomCharacterData */
     data: string
     /* Fields of GXml-0.20.GXml.Node */
@@ -10455,7 +10455,7 @@ export class Comment {
 }
 export interface TokenList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class TokenList {
+class TokenList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10581,7 +10581,7 @@ export class TokenList {
 }
 export interface TreeWalker_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TreeWalker {
+class TreeWalker {
     /* Properties of GXml-0.20.GXml.DomTreeWalker */
     readonly root: DomNode
     readonly whatToShow: number
@@ -10665,7 +10665,7 @@ export class TreeWalker {
 export interface XAttribute_ConstructProps extends XNode_ConstructProps {
     value?: string
 }
-export class XAttribute {
+class XAttribute {
     /* Properties of GXml-0.20.GXml.XNode */
     readonly attrs: Gee.Map
     readonly childrenNodes: Gee.BidirList
@@ -10799,7 +10799,7 @@ export interface XCharacterData_ConstructProps extends XNonDocumentChildNode_Con
     str?: string
     data?: string
 }
-export class XCharacterData {
+class XCharacterData {
     /* Properties of GXml-0.20.GXml.XCharacterData */
     str: string
     /* Properties of GXml-0.20.GXml.XNode */
@@ -10933,7 +10933,7 @@ export class XCharacterData {
 }
 export interface XChildNode_ConstructProps extends XNode_ConstructProps {
 }
-export class XChildNode {
+class XChildNode {
     /* Properties of GXml-0.20.GXml.XNode */
     readonly attrs: Gee.Map
     readonly childrenNodes: Gee.BidirList
@@ -11043,7 +11043,7 @@ export class XChildNode {
 }
 export interface XNonDocumentChildNode_ConstructProps extends XChildNode_ConstructProps {
 }
-export class XNonDocumentChildNode {
+class XNonDocumentChildNode {
     /* Properties of GXml-0.20.GXml.XNode */
     readonly attrs: Gee.Map
     readonly childrenNodes: Gee.BidirList
@@ -11168,7 +11168,7 @@ export class XNonDocumentChildNode {
 export interface XComment_ConstructProps extends XCharacterData_ConstructProps {
     data?: string
 }
-export class XComment {
+class XComment {
     /* Properties of GXml-0.20.GXml.XCharacterData */
     str: string
     /* Properties of GXml-0.20.GXml.XNode */
@@ -11308,7 +11308,7 @@ export interface XDocument_ConstructProps extends XNode_ConstructProps {
     backup?: boolean
     file?: Gio.File
 }
-export class XDocument {
+class XDocument {
     /* Properties of GXml-0.20.GXml.XDocument */
     indent: boolean
     nsTop: boolean
@@ -11623,7 +11623,7 @@ export interface XElement_ConstructProps extends XNonDocumentChildNode_Construct
     id?: string
     className?: string
 }
-export class XElement {
+class XElement {
     /* Properties of GXml-0.20.GXml.XElement */
     content: string
     /* Properties of GXml-0.20.GXml.XNode */
@@ -11880,7 +11880,7 @@ export class XElement {
 }
 export interface XHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructProps {
 }
-export class XHashMapAttr {
+class XHashMapAttr {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
@@ -12006,7 +12006,7 @@ export class XHashMapAttr {
 }
 export interface XHashMapAttrEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
-export class XHashMapAttrEntry {
+class XHashMapAttrEntry {
     /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
@@ -12077,7 +12077,7 @@ export class XHashMapAttrEntry {
 }
 export interface XHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XHashMapAttrIterator {
+class XHashMapAttrIterator {
     /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
@@ -12155,7 +12155,7 @@ export class XHashMapAttrIterator {
 }
 export interface XHtmlDocument_ConstructProps extends XDocument_ConstructProps {
 }
-export class XHtmlDocument {
+class XHtmlDocument {
     /* Properties of GXml-0.20.GXml.XDocument */
     indent: boolean
     nsTop: boolean
@@ -12338,7 +12338,7 @@ export class XHtmlDocument {
 }
 export interface XListChildren_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
-export class XListChildren {
+class XListChildren {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -12452,7 +12452,7 @@ export class XListChildren {
 }
 export interface XListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XListChildrenIterator {
+class XListChildrenIterator {
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly readOnly: boolean
@@ -12553,7 +12553,7 @@ export interface XNode_ConstructProps extends GObject.Object_ConstructProps {
     nodeValue?: string
     textContent?: string
 }
-export class XNode {
+class XNode {
     /* Properties of GXml-0.20.GXml.XNode */
     readonly attrs: Gee.Map
     readonly childrenNodes: Gee.BidirList
@@ -12776,7 +12776,7 @@ export interface XParser_ConstructProps extends GObject.Object_ConstructProps {
     indent?: boolean
     cancellable?: Gio.Cancellable
 }
-export class XParser {
+class XParser {
     /* Properties of GXml-0.20.GXml.Parser */
     backup: boolean
     indent: boolean
@@ -12906,7 +12906,7 @@ export class XParser {
 export interface XProcessingInstruction_ConstructProps extends XCharacterData_ConstructProps {
     data?: string
 }
-export class XProcessingInstruction {
+class XProcessingInstruction {
     /* Properties of GXml-0.20.GXml.XProcessingInstruction */
     data: string
     /* Properties of GXml-0.20.GXml.XCharacterData */
@@ -13056,7 +13056,7 @@ export interface XsdSchema_ConstructProps extends Element_ConstructProps {
     simpleTypeDefinitions?: XsdListSimpleTypes
     complexTypeDefinitions?: XsdListComplexTypes
 }
-export class XsdSchema {
+class XsdSchema {
     /* Properties of GXml-0.20.GXml.XsdSchema */
     elementDefinitions: XsdListElements
     simpleTypeDefinitions: XsdListSimpleTypes
@@ -13184,7 +13184,7 @@ export interface XsdSimpleType_ConstructProps extends Element_ConstructProps {
     union?: XsdTypeUnion
     restriction?: XsdTypeRestriction
 }
-export class XsdSimpleType {
+class XsdSimpleType {
     /* Properties of GXml-0.20.GXml.XsdSimpleType */
     final: string
     name: string
@@ -13331,7 +13331,7 @@ export class XsdSimpleType {
 export interface XsdTypeDefinition_ConstructProps extends Element_ConstructProps {
     annotation?: XsdAnnotation
 }
-export class XsdTypeDefinition {
+class XsdTypeDefinition {
     /* Properties of GXml-0.20.GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -13437,7 +13437,7 @@ export class XsdTypeDefinition {
 }
 export interface XsdTypeList_ConstructProps extends XsdTypeDefinition_ConstructProps {
 }
-export class XsdTypeList {
+class XsdTypeList {
     /* Properties of GXml-0.20.GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -13543,7 +13543,7 @@ export class XsdTypeList {
 }
 export interface XsdTypeUnion_ConstructProps extends XsdTypeDefinition_ConstructProps {
 }
-export class XsdTypeUnion {
+class XsdTypeUnion {
     /* Properties of GXml-0.20.GXml.XsdTypeDefinition */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -13653,7 +13653,7 @@ export interface XsdTypeRestriction_ConstructProps extends XsdTypeDefinition_Con
     enumerations?: XsdListTypeRestrictionEnumerations
     whiteSpaces?: XsdListTypeRestrictionWhiteSpaces
 }
-export class XsdTypeRestriction {
+class XsdTypeRestriction {
     /* Properties of GXml-0.20.GXml.XsdTypeRestriction */
     base: string
     simpleType: XsdSimpleType
@@ -13794,7 +13794,7 @@ export class XsdTypeRestriction {
 export interface XsdTypeRestrictionDef_ConstructProps extends Element_ConstructProps {
     annotation?: XsdAnnotation
 }
-export class XsdTypeRestrictionDef {
+class XsdTypeRestrictionDef {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -13900,7 +13900,7 @@ export class XsdTypeRestrictionDef {
 }
 export interface XsdTypeRestrictionMinExclusive_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMinExclusive {
+class XsdTypeRestrictionMinExclusive {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14006,7 +14006,7 @@ export class XsdTypeRestrictionMinExclusive {
 }
 export interface XsdTypeRestrictionMinInclusive_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMinInclusive {
+class XsdTypeRestrictionMinInclusive {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14112,7 +14112,7 @@ export class XsdTypeRestrictionMinInclusive {
 }
 export interface XsdTypeRestrictionMaxExclusive_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMaxExclusive {
+class XsdTypeRestrictionMaxExclusive {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14218,7 +14218,7 @@ export class XsdTypeRestrictionMaxExclusive {
 }
 export interface XsdTypeRestrictionMaxInclusive_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMaxInclusive {
+class XsdTypeRestrictionMaxInclusive {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14324,7 +14324,7 @@ export class XsdTypeRestrictionMaxInclusive {
 }
 export interface XsdTypeRestrictionTotalDigits_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionTotalDigits {
+class XsdTypeRestrictionTotalDigits {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14430,7 +14430,7 @@ export class XsdTypeRestrictionTotalDigits {
 }
 export interface XsdTypeRestrictionFractionDigits_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionFractionDigits {
+class XsdTypeRestrictionFractionDigits {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14536,7 +14536,7 @@ export class XsdTypeRestrictionFractionDigits {
 }
 export interface XsdTypeRestrictionLength_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionLength {
+class XsdTypeRestrictionLength {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14642,7 +14642,7 @@ export class XsdTypeRestrictionLength {
 }
 export interface XsdTypeRestrictionMinLength_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMinLength {
+class XsdTypeRestrictionMinLength {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14748,7 +14748,7 @@ export class XsdTypeRestrictionMinLength {
 }
 export interface XsdTypeRestrictionMaxLength_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionMaxLength {
+class XsdTypeRestrictionMaxLength {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -14855,7 +14855,7 @@ export class XsdTypeRestrictionMaxLength {
 export interface XsdTypeRestrictionEnumeration_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
     value?: string
 }
-export class XsdTypeRestrictionEnumeration {
+class XsdTypeRestrictionEnumeration {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionEnumeration */
     value: string
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
@@ -14973,7 +14973,7 @@ export interface XsdTypeRestrictionWhiteSpace_ConstructProps extends XsdTypeRest
     fixed?: XsdTypeRestrictionWhiteSpaceFixed
     value?: string
 }
-export class XsdTypeRestrictionWhiteSpace {
+class XsdTypeRestrictionWhiteSpace {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionWhiteSpace */
     fixed: XsdTypeRestrictionWhiteSpaceFixed
     value: string
@@ -15097,7 +15097,7 @@ export class XsdTypeRestrictionWhiteSpace {
 }
 export interface XsdTypeRestrictionWhiteSpaceFixed_ConstructProps extends Boolean_ConstructProps {
 }
-export class XsdTypeRestrictionWhiteSpaceFixed {
+class XsdTypeRestrictionWhiteSpaceFixed {
     /* Properties of GXml-0.20.GXml.BaseProperty */
     value: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -15158,7 +15158,7 @@ export class XsdTypeRestrictionWhiteSpaceFixed {
 }
 export interface XsdTypeRestrictionPattern_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionPattern {
+class XsdTypeRestrictionPattern {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -15264,7 +15264,7 @@ export class XsdTypeRestrictionPattern {
 }
 export interface XsdTypeRestrictionAssertion_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionAssertion {
+class XsdTypeRestrictionAssertion {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -15370,7 +15370,7 @@ export class XsdTypeRestrictionAssertion {
 }
 export interface XsdTypeRestrictionExplicitTimezone_ConstructProps extends XsdTypeRestrictionDef_ConstructProps {
 }
-export class XsdTypeRestrictionExplicitTimezone {
+class XsdTypeRestrictionExplicitTimezone {
     /* Properties of GXml-0.20.GXml.XsdTypeRestrictionDef */
     annotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -15483,7 +15483,7 @@ export interface XsdComplexType_ConstructProps extends XsdBaseType_ConstructProp
     defaultAttributesApply?: boolean
     contentType?: XsdBaseContent
 }
-export class XsdComplexType {
+class XsdComplexType {
     /* Properties of GXml-0.20.GXml.XsdComplexType */
     abstract: boolean
     block: string
@@ -15662,7 +15662,7 @@ export class XsdComplexType {
 export interface XsdExtension_ConstructProps extends Element_ConstructProps {
     base?: string
 }
-export class XsdExtension {
+class XsdExtension {
     /* Properties of GXml-0.20.GXml.XsdExtension */
     base: string
     /* Properties of GXml-0.20.GXml.Element */
@@ -15785,7 +15785,7 @@ export interface XsdElement_ConstructProps extends Element_ConstructProps {
     simpleType?: XsdSimpleType
     complexType?: XsdComplexType
 }
-export class XsdElement {
+class XsdElement {
     /* Properties of GXml-0.20.GXml.XsdElement */
     abstract: boolean
     block: string
@@ -16018,7 +16018,7 @@ export class XsdElement {
 }
 export interface XsdAnnotation_ConstructProps extends Element_ConstructProps {
 }
-export class XsdAnnotation {
+class XsdAnnotation {
     /* Properties of GXml-0.20.GXml.Element */
     parseChildren: boolean
     unparsed: string
@@ -16115,7 +16115,7 @@ export class XsdAnnotation {
 export interface XsdBaseType_ConstructProps extends Element_ConstructProps {
     anotation?: XsdAnnotation
 }
-export class XsdBaseType {
+class XsdBaseType {
     /* Properties of GXml-0.20.GXml.XsdBaseType */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16222,7 +16222,7 @@ export class XsdBaseType {
 export interface XsdBaseContent_ConstructProps extends Element_ConstructProps {
     anotation?: XsdAnnotation
 }
-export class XsdBaseContent {
+class XsdBaseContent {
     /* Properties of GXml-0.20.GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16328,7 +16328,7 @@ export class XsdBaseContent {
 }
 export interface XsdSimpleContent_ConstructProps extends XsdBaseContent_ConstructProps {
 }
-export class XsdSimpleContent {
+class XsdSimpleContent {
     /* Properties of GXml-0.20.GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16434,7 +16434,7 @@ export class XsdSimpleContent {
 }
 export interface XsdComplexContent_ConstructProps extends XsdBaseContent_ConstructProps {
 }
-export class XsdComplexContent {
+class XsdComplexContent {
     /* Properties of GXml-0.20.GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16540,7 +16540,7 @@ export class XsdComplexContent {
 }
 export interface XsdOpenContent_ConstructProps extends XsdBaseContent_ConstructProps {
 }
-export class XsdOpenContent {
+class XsdOpenContent {
     /* Properties of GXml-0.20.GXml.XsdBaseContent */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16647,7 +16647,7 @@ export class XsdOpenContent {
 export interface XsdBaseAttribute_ConstructProps extends Element_ConstructProps {
     anotation?: XsdAnnotation
 }
-export class XsdBaseAttribute {
+class XsdBaseAttribute {
     /* Properties of GXml-0.20.GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16753,7 +16753,7 @@ export class XsdBaseAttribute {
 }
 export interface XsdAttribute_ConstructProps extends XsdBaseAttribute_ConstructProps {
 }
-export class XsdAttribute {
+class XsdAttribute {
     /* Properties of GXml-0.20.GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16859,7 +16859,7 @@ export class XsdAttribute {
 }
 export interface XsdAttributeGroup_ConstructProps extends XsdBaseAttribute_ConstructProps {
 }
-export class XsdAttributeGroup {
+class XsdAttributeGroup {
     /* Properties of GXml-0.20.GXml.XsdBaseAttribute */
     anotation: XsdAnnotation
     /* Properties of GXml-0.20.GXml.Element */
@@ -16965,7 +16965,7 @@ export class XsdAttributeGroup {
 }
 export interface XsdList_ConstructProps extends ArrayList_ConstructProps {
 }
-export class XsdList {
+class XsdList {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17032,7 +17032,7 @@ export class XsdList {
 }
 export interface XsdListElements_ConstructProps extends XsdList_ConstructProps {
 }
-export class XsdListElements {
+class XsdListElements {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17099,7 +17099,7 @@ export class XsdListElements {
 }
 export interface XsdListSimpleTypes_ConstructProps extends XsdList_ConstructProps {
 }
-export class XsdListSimpleTypes {
+class XsdListSimpleTypes {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17166,7 +17166,7 @@ export class XsdListSimpleTypes {
 }
 export interface XsdListComplexTypes_ConstructProps extends XsdList_ConstructProps {
 }
-export class XsdListComplexTypes {
+class XsdListComplexTypes {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17233,7 +17233,7 @@ export class XsdListComplexTypes {
 }
 export interface XsdListTypeRestrictionEnumerations_ConstructProps extends XsdList_ConstructProps {
 }
-export class XsdListTypeRestrictionEnumerations {
+class XsdListTypeRestrictionEnumerations {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17300,7 +17300,7 @@ export class XsdListTypeRestrictionEnumerations {
 }
 export interface XsdListTypeRestrictionWhiteSpaces_ConstructProps extends XsdList_ConstructProps {
 }
-export class XsdListTypeRestrictionWhiteSpaces {
+class XsdListTypeRestrictionWhiteSpaces {
     /* Properties of GXml-0.20.GXml.XsdList */
     readonly length: number
     /* Fields of GXml-0.20.GXml.BaseCollection */
@@ -17368,7 +17368,7 @@ export class XsdListTypeRestrictionWhiteSpaces {
 export interface XText_ConstructProps extends XCharacterData_ConstructProps {
     data?: string
 }
-export class XText {
+class XText {
     /* Properties of GXml-0.20.GXml.XCharacterData */
     str: string
     /* Properties of GXml-0.20.GXml.XNode */
@@ -17504,684 +17504,684 @@ export class XText {
     static new(): XText
     static $gtype: GObject.Type
 }
-export abstract class ArrayListClass {
+abstract class ArrayListClass {
     static name: string
 }
-export class ArrayListPrivate {
+class ArrayListPrivate {
     static name: string
 }
-export abstract class AttrClass {
+abstract class AttrClass {
     static name: string
 }
-export class AttrPrivate {
+class AttrPrivate {
     static name: string
 }
-export abstract class BaseCollectionClass {
+abstract class BaseCollectionClass {
     /* Fields of GXml-0.20.GXml.BaseCollectionClass */
     validateAppend: (self: BaseCollection, index: number, element: DomElement) => boolean
     clear: (self: BaseCollection) => void
     static name: string
 }
-export class BaseCollectionPrivate {
+class BaseCollectionPrivate {
     static name: string
 }
-export abstract class CssSelectorClass {
+abstract class CssSelectorClass {
     static name: string
 }
-export class CssSelectorPrivate {
+class CssSelectorPrivate {
     static name: string
 }
-export abstract class CssElementSelectorClass {
+abstract class CssElementSelectorClass {
     static name: string
 }
-export class CssElementSelectorPrivate {
+class CssElementSelectorPrivate {
     static name: string
 }
-export abstract class CssAttributeSelectorClass {
+abstract class CssAttributeSelectorClass {
     static name: string
 }
-export class CssAttributeSelectorPrivate {
+class CssAttributeSelectorPrivate {
     static name: string
 }
-export abstract class CssNotSelectorClass {
+abstract class CssNotSelectorClass {
     static name: string
 }
-export class CssNotSelectorPrivate {
+class CssNotSelectorPrivate {
     static name: string
 }
-export abstract class CssSelectorParserClass {
+abstract class CssSelectorParserClass {
     static name: string
 }
-export class CssSelectorParserPrivate {
+class CssSelectorParserPrivate {
     static name: string
 }
-export abstract class DocumentClass {
+abstract class DocumentClass {
     static name: string
 }
-export class DocumentPrivate {
+class DocumentPrivate {
     static name: string
 }
-export abstract class ImplementationClass {
+abstract class ImplementationClass {
     static name: string
 }
-export class ImplementationPrivate {
+class ImplementationPrivate {
     static name: string
 }
-export abstract class DocumentTypeClass {
+abstract class DocumentTypeClass {
     static name: string
 }
-export class DocumentTypePrivate {
+class DocumentTypePrivate {
     static name: string
 }
-export abstract class DocumentFragmentClass {
+abstract class DocumentFragmentClass {
     static name: string
 }
-export class DocumentFragmentPrivate {
+class DocumentFragmentPrivate {
     static name: string
 }
-export abstract class DomNodeFilterClass {
+abstract class DomNodeFilterClass {
     static name: string
 }
-export class DomNodeFilterPrivate {
+class DomNodeFilterPrivate {
     static name: string
 }
-export abstract class DomElementListClass {
+abstract class DomElementListClass {
     static name: string
 }
-export class DomElementListPrivate {
+class DomElementListPrivate {
     static name: string
 }
-export abstract class DomEventInitClass {
+abstract class DomEventInitClass {
     static name: string
 }
-export class DomEventInitPrivate {
+class DomEventInitPrivate {
     static name: string
 }
-export abstract class DomCustomEventInitClass {
+abstract class DomCustomEventInitClass {
     static name: string
 }
-export class DomCustomEventInitPrivate {
+class DomCustomEventInitPrivate {
     static name: string
 }
-export abstract class DomTimeStampClass {
+abstract class DomTimeStampClass {
     static name: string
 }
-export class DomTimeStampPrivate {
+class DomTimeStampPrivate {
     static name: string
 }
-export abstract class DomMutationObserverInitClass {
+abstract class DomMutationObserverInitClass {
     static name: string
 }
-export class DomMutationObserverInitPrivate {
+class DomMutationObserverInitPrivate {
     static name: string
 }
-export abstract class DomErrorNameClass {
+abstract class DomErrorNameClass {
     static name: string
 }
-export class DomErrorNamePrivate {
+class DomErrorNamePrivate {
     static name: string
 }
-export abstract class ElementClass {
+abstract class ElementClass {
     static name: string
 }
-export class ElementPrivate {
+class ElementPrivate {
     static name: string
 }
-export abstract class ElementAttributesClass {
+abstract class ElementAttributesClass {
     static name: string
 }
-export class ElementAttributesPrivate {
+class ElementAttributesPrivate {
     static name: string
 }
-export abstract class EnumerationClass {
+abstract class EnumerationClass {
     static name: string
 }
-export class EnumerationPrivate {
+class EnumerationPrivate {
     static name: string
 }
-export abstract class EventClass {
+abstract class EventClass {
     static name: string
 }
-export class EventPrivate {
+class EventPrivate {
     static name: string
 }
-export abstract class CustomEventClass {
+abstract class CustomEventClass {
     static name: string
 }
-export class CustomEventPrivate {
+class CustomEventPrivate {
     static name: string
 }
-export abstract class HashMapClass {
+abstract class HashMapClass {
     static name: string
 }
-export class HashMapPrivate {
+class HashMapPrivate {
     static name: string
 }
-export abstract class HashPairedMapClass {
+abstract class HashPairedMapClass {
     static name: string
 }
-export class HashPairedMapPrivate {
+class HashPairedMapPrivate {
     static name: string
 }
-export abstract class HashThreeMapClass {
+abstract class HashThreeMapClass {
     static name: string
 }
-export class HashThreeMapPrivate {
+class HashThreeMapPrivate {
     static name: string
 }
-export abstract class HTMLCollectionClass {
+abstract class HTMLCollectionClass {
     static name: string
 }
-export class HTMLCollectionPrivate {
+class HTMLCollectionPrivate {
     static name: string
 }
-export abstract class HtmlDocumentClass {
+abstract class HtmlDocumentClass {
     static name: string
 }
-export class HtmlDocumentPrivate {
+class HtmlDocumentPrivate {
     static name: string
 }
-export abstract class HtmlElementClass {
+abstract class HtmlElementClass {
     static name: string
 }
-export class HtmlElementPrivate {
+class HtmlElementPrivate {
     static name: string
 }
-export abstract class LXPathObjectClass {
+abstract class LXPathObjectClass {
     static name: string
 }
-export class LXPathObjectPrivate {
+class LXPathObjectPrivate {
     static name: string
 }
-export abstract class NodeClass {
+abstract class NodeClass {
     static name: string
 }
-export class NodePrivate {
+class NodePrivate {
     static name: string
 }
-export abstract class NodeListClass {
+abstract class NodeListClass {
     static name: string
 }
-export class NodeListPrivate {
+class NodeListPrivate {
     static name: string
 }
-export abstract class NodeIteratorClass {
+abstract class NodeIteratorClass {
     static name: string
 }
-export class NodeIteratorPrivate {
+class NodeIteratorPrivate {
     static name: string
 }
-export abstract class BasePropertyClass {
+abstract class BasePropertyClass {
     /* Fields of GXml-0.20.GXml.BasePropertyClass */
     validateValue: (self: BaseProperty, val?: string | null) => boolean
     static name: string
 }
-export class BasePropertyPrivate {
+class BasePropertyPrivate {
     static name: string
 }
-export abstract class StringClass {
+abstract class StringClass {
     static name: string
 }
-export class StringPrivate {
+class StringPrivate {
     static name: string
 }
-export abstract class ArrayStringClass {
+abstract class ArrayStringClass {
     static name: string
 }
-export class ArrayStringPrivate {
+class ArrayStringPrivate {
     static name: string
 }
-export abstract class XsdArrayStringClass {
+abstract class XsdArrayStringClass {
     static name: string
 }
-export class XsdArrayStringPrivate {
+class XsdArrayStringPrivate {
     static name: string
 }
-export abstract class DoubleClass {
+abstract class DoubleClass {
     static name: string
 }
-export class DoublePrivate {
+class DoublePrivate {
     static name: string
 }
-export abstract class FloatClass {
+abstract class FloatClass {
     static name: string
 }
-export class FloatPrivate {
+class FloatPrivate {
     static name: string
 }
-export abstract class IntClass {
+abstract class IntClass {
     static name: string
 }
-export class IntPrivate {
+class IntPrivate {
     static name: string
 }
-export abstract class BooleanClass {
+abstract class BooleanClass {
     static name: string
 }
-export class BooleanPrivate {
+class BooleanPrivate {
     static name: string
 }
-export abstract class EnumClass {
+abstract class EnumClass {
     static name: string
 }
-export class EnumPrivate {
+class EnumPrivate {
     static name: string
 }
-export abstract class DateClass {
+abstract class DateClass {
     static name: string
 }
-export class DatePrivate {
+class DatePrivate {
     static name: string
 }
-export abstract class DateTimeClass {
+abstract class DateTimeClass {
     static name: string
 }
-export class DateTimePrivate {
+class DateTimePrivate {
     static name: string
 }
-export abstract class RangeClass {
+abstract class RangeClass {
     static name: string
 }
-export class RangePrivate {
+class RangePrivate {
     static name: string
 }
-export abstract class SettableTokenListClass {
+abstract class SettableTokenListClass {
     static name: string
 }
-export class SettableTokenListPrivate {
+class SettableTokenListPrivate {
     static name: string
 }
-export abstract class StringRefClass {
+abstract class StringRefClass {
     static name: string
 }
-export class StringRefPrivate {
+class StringRefPrivate {
     static name: string
 }
-export abstract class CharacterDataClass {
+abstract class CharacterDataClass {
     static name: string
 }
-export class CharacterDataPrivate {
+class CharacterDataPrivate {
     static name: string
 }
-export abstract class TextClass {
+abstract class TextClass {
     static name: string
 }
-export class TextPrivate {
+class TextPrivate {
     static name: string
 }
-export abstract class ProcessingInstructionClass {
+abstract class ProcessingInstructionClass {
     static name: string
 }
-export class ProcessingInstructionPrivate {
+class ProcessingInstructionPrivate {
     static name: string
 }
-export abstract class CommentClass {
+abstract class CommentClass {
     static name: string
 }
-export class CommentPrivate {
+class CommentPrivate {
     static name: string
 }
-export abstract class TokenListClass {
+abstract class TokenListClass {
     static name: string
 }
-export class TokenListPrivate {
+class TokenListPrivate {
     static name: string
 }
-export abstract class TreeWalkerClass {
+abstract class TreeWalkerClass {
     static name: string
 }
-export class TreeWalkerPrivate {
+class TreeWalkerPrivate {
     static name: string
 }
-export abstract class XAttributeClass {
+abstract class XAttributeClass {
     static name: string
 }
-export class XAttributePrivate {
+class XAttributePrivate {
     static name: string
 }
-export abstract class XCharacterDataClass {
+abstract class XCharacterDataClass {
     static name: string
 }
-export class XCharacterDataPrivate {
+class XCharacterDataPrivate {
     static name: string
 }
-export abstract class XChildNodeClass {
+abstract class XChildNodeClass {
     static name: string
 }
-export class XChildNodePrivate {
+class XChildNodePrivate {
     static name: string
 }
-export abstract class XNonDocumentChildNodeClass {
+abstract class XNonDocumentChildNodeClass {
     static name: string
 }
-export class XNonDocumentChildNodePrivate {
+class XNonDocumentChildNodePrivate {
     static name: string
 }
-export abstract class XCommentClass {
+abstract class XCommentClass {
     static name: string
 }
-export class XCommentPrivate {
+class XCommentPrivate {
     static name: string
 }
-export abstract class XDocumentClass {
+abstract class XDocumentClass {
     /* Fields of GXml-0.20.GXml.XDocumentClass */
     save: (self: XDocument, cancellable?: Gio.Cancellable | null) => boolean
     saveAs: (self: XDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export class XDocumentPrivate {
+class XDocumentPrivate {
     static name: string
 }
-export abstract class XElementClass {
+abstract class XElementClass {
     static name: string
 }
-export class XElementPrivate {
+class XElementPrivate {
     static name: string
 }
-export abstract class XHashMapAttrClass {
+abstract class XHashMapAttrClass {
     static name: string
 }
-export class XHashMapAttrPrivate {
+class XHashMapAttrPrivate {
     static name: string
 }
-export abstract class XHashMapAttrEntryClass {
+abstract class XHashMapAttrEntryClass {
     static name: string
 }
-export class XHashMapAttrEntryPrivate {
+class XHashMapAttrEntryPrivate {
     static name: string
 }
-export abstract class XHashMapAttrIteratorClass {
+abstract class XHashMapAttrIteratorClass {
     static name: string
 }
-export class XHashMapAttrIteratorPrivate {
+class XHashMapAttrIteratorPrivate {
     static name: string
 }
-export abstract class XHtmlDocumentClass {
+abstract class XHtmlDocumentClass {
     static name: string
 }
-export class XHtmlDocumentPrivate {
+class XHtmlDocumentPrivate {
     static name: string
 }
-export abstract class XListChildrenClass {
+abstract class XListChildrenClass {
     static name: string
 }
-export class XListChildrenPrivate {
+class XListChildrenPrivate {
     static name: string
 }
-export abstract class XListChildrenIteratorClass {
+abstract class XListChildrenIteratorClass {
     static name: string
 }
-export class XListChildrenIteratorPrivate {
+class XListChildrenIteratorPrivate {
     static name: string
 }
-export abstract class XNodeClass {
+abstract class XNodeClass {
     /* Fields of GXml-0.20.GXml.XNodeClass */
     setNamespace: (self: XNode, uri: string, prefix?: string | null) => boolean
     toString: (self: XNode) => string
     static name: string
 }
-export class XNodePrivate {
+class XNodePrivate {
     static name: string
 }
-export abstract class XParserClass {
+abstract class XParserClass {
     static name: string
 }
-export class XParserPrivate {
+class XParserPrivate {
     static name: string
 }
-export abstract class XProcessingInstructionClass {
+abstract class XProcessingInstructionClass {
     static name: string
 }
-export class XProcessingInstructionPrivate {
+class XProcessingInstructionPrivate {
     static name: string
 }
-export abstract class XsdSchemaClass {
+abstract class XsdSchemaClass {
     static name: string
 }
-export class XsdSchemaPrivate {
+class XsdSchemaPrivate {
     static name: string
 }
-export abstract class XsdSimpleTypeClass {
+abstract class XsdSimpleTypeClass {
     static name: string
 }
-export class XsdSimpleTypePrivate {
+class XsdSimpleTypePrivate {
     static name: string
 }
-export abstract class XsdTypeDefinitionClass {
+abstract class XsdTypeDefinitionClass {
     static name: string
 }
-export class XsdTypeDefinitionPrivate {
+class XsdTypeDefinitionPrivate {
     static name: string
 }
-export abstract class XsdTypeListClass {
+abstract class XsdTypeListClass {
     static name: string
 }
-export class XsdTypeListPrivate {
+class XsdTypeListPrivate {
     static name: string
 }
-export abstract class XsdTypeUnionClass {
+abstract class XsdTypeUnionClass {
     static name: string
 }
-export class XsdTypeUnionPrivate {
+class XsdTypeUnionPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionClass {
+abstract class XsdTypeRestrictionClass {
     static name: string
 }
-export class XsdTypeRestrictionPrivate {
+class XsdTypeRestrictionPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionDefClass {
+abstract class XsdTypeRestrictionDefClass {
     static name: string
 }
-export class XsdTypeRestrictionDefPrivate {
+class XsdTypeRestrictionDefPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMinExclusiveClass {
+abstract class XsdTypeRestrictionMinExclusiveClass {
     static name: string
 }
-export class XsdTypeRestrictionMinExclusivePrivate {
+class XsdTypeRestrictionMinExclusivePrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMinInclusiveClass {
+abstract class XsdTypeRestrictionMinInclusiveClass {
     static name: string
 }
-export class XsdTypeRestrictionMinInclusivePrivate {
+class XsdTypeRestrictionMinInclusivePrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMaxExclusiveClass {
+abstract class XsdTypeRestrictionMaxExclusiveClass {
     static name: string
 }
-export class XsdTypeRestrictionMaxExclusivePrivate {
+class XsdTypeRestrictionMaxExclusivePrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMaxInclusiveClass {
+abstract class XsdTypeRestrictionMaxInclusiveClass {
     static name: string
 }
-export class XsdTypeRestrictionMaxInclusivePrivate {
+class XsdTypeRestrictionMaxInclusivePrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionTotalDigitsClass {
+abstract class XsdTypeRestrictionTotalDigitsClass {
     static name: string
 }
-export class XsdTypeRestrictionTotalDigitsPrivate {
+class XsdTypeRestrictionTotalDigitsPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionFractionDigitsClass {
+abstract class XsdTypeRestrictionFractionDigitsClass {
     static name: string
 }
-export class XsdTypeRestrictionFractionDigitsPrivate {
+class XsdTypeRestrictionFractionDigitsPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionLengthClass {
+abstract class XsdTypeRestrictionLengthClass {
     static name: string
 }
-export class XsdTypeRestrictionLengthPrivate {
+class XsdTypeRestrictionLengthPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMinLengthClass {
+abstract class XsdTypeRestrictionMinLengthClass {
     static name: string
 }
-export class XsdTypeRestrictionMinLengthPrivate {
+class XsdTypeRestrictionMinLengthPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionMaxLengthClass {
+abstract class XsdTypeRestrictionMaxLengthClass {
     static name: string
 }
-export class XsdTypeRestrictionMaxLengthPrivate {
+class XsdTypeRestrictionMaxLengthPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionEnumerationClass {
+abstract class XsdTypeRestrictionEnumerationClass {
     static name: string
 }
-export class XsdTypeRestrictionEnumerationPrivate {
+class XsdTypeRestrictionEnumerationPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionWhiteSpaceClass {
+abstract class XsdTypeRestrictionWhiteSpaceClass {
     static name: string
 }
-export class XsdTypeRestrictionWhiteSpacePrivate {
+class XsdTypeRestrictionWhiteSpacePrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionWhiteSpaceFixedClass {
+abstract class XsdTypeRestrictionWhiteSpaceFixedClass {
     static name: string
 }
-export class XsdTypeRestrictionWhiteSpaceFixedPrivate {
+class XsdTypeRestrictionWhiteSpaceFixedPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionPatternClass {
+abstract class XsdTypeRestrictionPatternClass {
     static name: string
 }
-export class XsdTypeRestrictionPatternPrivate {
+class XsdTypeRestrictionPatternPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionAssertionClass {
+abstract class XsdTypeRestrictionAssertionClass {
     static name: string
 }
-export class XsdTypeRestrictionAssertionPrivate {
+class XsdTypeRestrictionAssertionPrivate {
     static name: string
 }
-export abstract class XsdTypeRestrictionExplicitTimezoneClass {
+abstract class XsdTypeRestrictionExplicitTimezoneClass {
     static name: string
 }
-export class XsdTypeRestrictionExplicitTimezonePrivate {
+class XsdTypeRestrictionExplicitTimezonePrivate {
     static name: string
 }
-export abstract class XsdComplexTypeClass {
+abstract class XsdComplexTypeClass {
     static name: string
 }
-export class XsdComplexTypePrivate {
+class XsdComplexTypePrivate {
     static name: string
 }
-export abstract class XsdExtensionClass {
+abstract class XsdExtensionClass {
     static name: string
 }
-export class XsdExtensionPrivate {
+class XsdExtensionPrivate {
     static name: string
 }
-export abstract class XsdElementClass {
+abstract class XsdElementClass {
     static name: string
 }
-export class XsdElementPrivate {
+class XsdElementPrivate {
     static name: string
 }
-export abstract class XsdAnnotationClass {
+abstract class XsdAnnotationClass {
     static name: string
 }
-export class XsdAnnotationPrivate {
+class XsdAnnotationPrivate {
     static name: string
 }
-export abstract class XsdBaseTypeClass {
+abstract class XsdBaseTypeClass {
     static name: string
 }
-export class XsdBaseTypePrivate {
+class XsdBaseTypePrivate {
     static name: string
 }
-export abstract class XsdBaseContentClass {
+abstract class XsdBaseContentClass {
     static name: string
 }
-export class XsdBaseContentPrivate {
+class XsdBaseContentPrivate {
     static name: string
 }
-export abstract class XsdSimpleContentClass {
+abstract class XsdSimpleContentClass {
     static name: string
 }
-export class XsdSimpleContentPrivate {
+class XsdSimpleContentPrivate {
     static name: string
 }
-export abstract class XsdComplexContentClass {
+abstract class XsdComplexContentClass {
     static name: string
 }
-export class XsdComplexContentPrivate {
+class XsdComplexContentPrivate {
     static name: string
 }
-export abstract class XsdOpenContentClass {
+abstract class XsdOpenContentClass {
     static name: string
 }
-export class XsdOpenContentPrivate {
+class XsdOpenContentPrivate {
     static name: string
 }
-export abstract class XsdBaseAttributeClass {
+abstract class XsdBaseAttributeClass {
     static name: string
 }
-export class XsdBaseAttributePrivate {
+class XsdBaseAttributePrivate {
     static name: string
 }
-export abstract class XsdAttributeClass {
+abstract class XsdAttributeClass {
     static name: string
 }
-export class XsdAttributePrivate {
+class XsdAttributePrivate {
     static name: string
 }
-export abstract class XsdAttributeGroupClass {
+abstract class XsdAttributeGroupClass {
     static name: string
 }
-export class XsdAttributeGroupPrivate {
+class XsdAttributeGroupPrivate {
     static name: string
 }
-export abstract class XsdListClass {
+abstract class XsdListClass {
     static name: string
 }
-export class XsdListPrivate {
+class XsdListPrivate {
     static name: string
 }
-export abstract class XsdListElementsClass {
+abstract class XsdListElementsClass {
     static name: string
 }
-export class XsdListElementsPrivate {
+class XsdListElementsPrivate {
     static name: string
 }
-export abstract class XsdListSimpleTypesClass {
+abstract class XsdListSimpleTypesClass {
     static name: string
 }
-export class XsdListSimpleTypesPrivate {
+class XsdListSimpleTypesPrivate {
     static name: string
 }
-export abstract class XsdListComplexTypesClass {
+abstract class XsdListComplexTypesClass {
     static name: string
 }
-export class XsdListComplexTypesPrivate {
+class XsdListComplexTypesPrivate {
     static name: string
 }
-export abstract class XsdListTypeRestrictionEnumerationsClass {
+abstract class XsdListTypeRestrictionEnumerationsClass {
     static name: string
 }
-export class XsdListTypeRestrictionEnumerationsPrivate {
+class XsdListTypeRestrictionEnumerationsPrivate {
     static name: string
 }
-export abstract class XsdListTypeRestrictionWhiteSpacesClass {
+abstract class XsdListTypeRestrictionWhiteSpacesClass {
     static name: string
 }
-export class XsdListTypeRestrictionWhiteSpacesPrivate {
+class XsdListTypeRestrictionWhiteSpacesPrivate {
     static name: string
 }
-export abstract class XTextClass {
+abstract class XTextClass {
     static name: string
 }
-export class XTextPrivate {
+class XTextPrivate {
     static name: string
 }
-export abstract class CollectionIface {
+abstract class CollectionIface {
     /* Fields of GXml-0.20.GXml.CollectionIface */
     search: (self: Collection) => void
     getItem: (self: Collection, index: number) => DomElement | null
@@ -18199,15 +18199,15 @@ export abstract class CollectionIface {
     getLength: (self: Collection) => number
     static name: string
 }
-export abstract class ListIface {
+abstract class ListIface {
     static name: string
 }
-export abstract class MappeableElementIface {
+abstract class MappeableElementIface {
     /* Fields of GXml-0.20.GXml.MappeableElementIface */
     getMapKey: (self: MappeableElement) => string
     static name: string
 }
-export abstract class MapIface {
+abstract class MapIface {
     /* Fields of GXml-0.20.GXml.MapIface */
     item: (self: Map, key: string) => DomElement | null
     hasKey: (self: Map, key: string) => boolean
@@ -18216,13 +18216,13 @@ export abstract class MapIface {
     getKeysSet: (self: Map) => Gee.Set
     static name: string
 }
-export abstract class MappeableElementPairKeyIface {
+abstract class MappeableElementPairKeyIface {
     /* Fields of GXml-0.20.GXml.MappeableElementPairKeyIface */
     getMapPrimaryKey: (self: MappeableElementPairKey) => string
     getMapSecondaryKey: (self: MappeableElementPairKey) => string
     static name: string
 }
-export abstract class PairedMapIface {
+abstract class PairedMapIface {
     /* Fields of GXml-0.20.GXml.PairedMapIface */
     item: (self: PairedMap, primaryKey: string, secondaryKey: string) => DomElement | null
     hasPrimaryKey: (self: PairedMap, key: string) => boolean
@@ -18235,14 +18235,14 @@ export abstract class PairedMapIface {
     getPrimaryKeysSet: (self: PairedMap) => Gee.Set
     static name: string
 }
-export abstract class MappeableElementThreeKeyIface {
+abstract class MappeableElementThreeKeyIface {
     /* Fields of GXml-0.20.GXml.MappeableElementThreeKeyIface */
     getMapPkey: (self: MappeableElementThreeKey) => string
     getMapSkey: (self: MappeableElementThreeKey) => string
     getMapTkey: (self: MappeableElementThreeKey) => string
     static name: string
 }
-export abstract class ThreeMapIface {
+abstract class ThreeMapIface {
     /* Fields of GXml-0.20.GXml.ThreeMapIface */
     item: (self: ThreeMap, primaryKey: string, secondaryKey: string, thirdKey: string) => DomElement | null
     hasPrimaryKey: (self: ThreeMap, key: string) => boolean
@@ -18259,12 +18259,12 @@ export abstract class ThreeMapIface {
     getPrimaryKeysSet: (self: ThreeMap) => Gee.Set
     static name: string
 }
-export abstract class CollectionParentIface {
+abstract class CollectionParentIface {
     /* Fields of GXml-0.20.GXml.CollectionParentIface */
     getTypes: (self: CollectionParent) => GLib.HashTable
     static name: string
 }
-export abstract class DomAttrIface {
+abstract class DomAttrIface {
     /* Fields of GXml-0.20.GXml.DomAttrIface */
     getNamespaceUri: (self: DomAttr) => string | null
     getPrefix: (self: DomAttr) => string | null
@@ -18275,7 +18275,7 @@ export abstract class DomAttrIface {
     getSpecified: (self: DomAttr) => boolean
     static name: string
 }
-export abstract class DomCharacterDataIface {
+abstract class DomCharacterDataIface {
     /* Fields of GXml-0.20.GXml.DomCharacterDataIface */
     substringData: (self: DomCharacterData, offset: number, count: number) => string
     appendData: (self: DomCharacterData, data: string) => void
@@ -18287,26 +18287,26 @@ export abstract class DomCharacterDataIface {
     getLength: (self: DomCharacterData) => number
     static name: string
 }
-export abstract class DomTextIface {
+abstract class DomTextIface {
     /* Fields of GXml-0.20.GXml.DomTextIface */
     splitText: (self: DomText, offset: number) => DomText
     getWholeText: (self: DomText) => string
     static name: string
 }
-export abstract class DomProcessingInstructionIface {
+abstract class DomProcessingInstructionIface {
     /* Fields of GXml-0.20.GXml.DomProcessingInstructionIface */
     getTarget: (self: DomProcessingInstruction) => string
     static name: string
 }
-export abstract class DomCommentIface {
+abstract class DomCommentIface {
     static name: string
 }
-export abstract class DomNonElementParentNodeIface {
+abstract class DomNonElementParentNodeIface {
     /* Fields of GXml-0.20.GXml.DomNonElementParentNodeIface */
     getElementById: (self: DomNonElementParentNode, elementId: string) => DomElement | null
     static name: string
 }
-export abstract class DomParentNodeIface {
+abstract class DomParentNodeIface {
     /* Fields of GXml-0.20.GXml.DomParentNodeIface */
     querySelector: (self: DomParentNode, selectors: string) => DomElement | null
     querySelectorAll: (self: DomParentNode, selectors: string) => DomNodeList
@@ -18317,24 +18317,24 @@ export abstract class DomParentNodeIface {
     getChildElementCount: (self: DomParentNode) => number
     static name: string
 }
-export abstract class DomNonDocumentTypeChildNodeIface {
+abstract class DomNonDocumentTypeChildNodeIface {
     /* Fields of GXml-0.20.GXml.DomNonDocumentTypeChildNodeIface */
     getPreviousElementSibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
     getNextElementSibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
     static name: string
 }
-export abstract class DomChildNodeIface {
+abstract class DomChildNodeIface {
     /* Fields of GXml-0.20.GXml.DomChildNodeIface */
     remove: (self: DomChildNode) => void
     static name: string
 }
-export abstract class DomNodeListIface {
+abstract class DomNodeListIface {
     /* Fields of GXml-0.20.GXml.DomNodeListIface */
     item: (self: DomNodeList, index: number) => DomNode | null
     getLength: (self: DomNodeList) => number
     static name: string
 }
-export abstract class DomHTMLCollectionIface {
+abstract class DomHTMLCollectionIface {
     /* Fields of GXml-0.20.GXml.DomHTMLCollectionIface */
     getElement: (self: DomHTMLCollection, index: number) => DomElement | null
     toArray: () => { returnType: DomElement[], resultLength1: number }
@@ -18343,7 +18343,7 @@ export abstract class DomHTMLCollectionIface {
     getLength: (self: DomHTMLCollection) => number
     static name: string
 }
-export abstract class DomNodeIteratorIface {
+abstract class DomNodeIteratorIface {
     /* Fields of GXml-0.20.GXml.DomNodeIteratorIface */
     nextNode: (self: DomNodeIterator) => DomNode | null
     previousNode: (self: DomNodeIterator) => DomNode | null
@@ -18354,7 +18354,7 @@ export abstract class DomNodeIteratorIface {
     getWhatToShow: (self: DomNodeIterator) => number
     static name: string
 }
-export abstract class DomTreeWalkerIface {
+abstract class DomTreeWalkerIface {
     /* Fields of GXml-0.20.GXml.DomTreeWalkerIface */
     parentNode: (self: DomTreeWalker) => DomNode | null
     firstChild: (self: DomTreeWalker) => DomNode | null
@@ -18368,7 +18368,7 @@ export abstract class DomTreeWalkerIface {
     getCurrentNode: (self: DomTreeWalker) => DomNode
     static name: string
 }
-export abstract class DomNamedNodeMapIface {
+abstract class DomNamedNodeMapIface {
     /* Fields of GXml-0.20.GXml.DomNamedNodeMapIface */
     item: (self: DomNamedNodeMap, index: number) => DomNode | null
     getNamedItem: (self: DomNamedNodeMap, name: string) => DomNode | null
@@ -18380,7 +18380,7 @@ export abstract class DomNamedNodeMapIface {
     getLength: (self: DomNamedNodeMap) => number
     static name: string
 }
-export abstract class DomTokenListIface {
+abstract class DomTokenListIface {
     /* Fields of GXml-0.20.GXml.DomTokenListIface */
     item: (self: DomTokenList, index: number) => string | null
     contains: (self: DomTokenList, token: string) => boolean
@@ -18391,13 +18391,13 @@ export abstract class DomTokenListIface {
     getLength: (self: DomTokenList) => number
     static name: string
 }
-export abstract class DomSettableTokenListIface {
+abstract class DomSettableTokenListIface {
     /* Fields of GXml-0.20.GXml.DomSettableTokenListIface */
     getValue: (self: DomSettableTokenList) => string
     setValue: (self: DomSettableTokenList, value: string) => void
     static name: string
 }
-export abstract class DomDocumentIface {
+abstract class DomDocumentIface {
     /* Fields of GXml-0.20.GXml.DomDocumentIface */
     getElementsByTagName: (self: DomDocument, localName: string) => DomHTMLCollection
     getElementsByTagNameNs: (self: DomDocument, namespace: string | null, localName: string) => DomHTMLCollection
@@ -18448,10 +18448,10 @@ export abstract class DomDocumentIface {
     getDocumentElement: (self: DomDocument) => DomElement | null
     static name: string
 }
-export abstract class DomXMLDocumentIface {
+abstract class DomXMLDocumentIface {
     static name: string
 }
-export abstract class DomImplementationIface {
+abstract class DomImplementationIface {
     /* Fields of GXml-0.20.GXml.DomImplementationIface */
     createDocumentType: (self: DomImplementation, qualifiedName: string, publicId: string, systemId: string) => DomDocumentType
     createDocument: (self: DomImplementation, nspace?: string | null, qualifiedName?: string | null, doctype?: DomDocumentType | null) => DomXMLDocument
@@ -18459,24 +18459,24 @@ export abstract class DomImplementationIface {
     hasFeature: (self: DomImplementation) => boolean
     static name: string
 }
-export abstract class DomDocumentFragmentIface {
+abstract class DomDocumentFragmentIface {
     static name: string
 }
-export abstract class DomDocumentTypeIface {
+abstract class DomDocumentTypeIface {
     /* Fields of GXml-0.20.GXml.DomDocumentTypeIface */
     getName: (self: DomDocumentType) => string
     getPublicId: (self: DomDocumentType) => string
     getSystemId: (self: DomDocumentType) => string
     static name: string
 }
-export abstract class DomHtmlDocumentIface {
+abstract class DomHtmlDocumentIface {
     /* Fields of GXml-0.20.GXml.DomHtmlDocumentIface */
     readFromString: (self: DomHtmlDocument, str: string) => void
     readFromStringTolerant: (self: DomHtmlDocument, str: string) => void
     toHtml: (self: DomHtmlDocument) => string
     static name: string
 }
-export abstract class DomElementIface {
+abstract class DomElementIface {
     /* Fields of GXml-0.20.GXml.DomElementIface */
     getAttribute: (self: DomElement, name: string) => string | null
     getAttributeNs: (self: DomElement, namespace: string | null, localName: string) => string | null
@@ -18526,19 +18526,19 @@ export abstract class DomElementIface {
     getAttributes: (self: DomElement) => DomNamedNodeMap
     static name: string
 }
-export abstract class DomEventTargetIface {
+abstract class DomEventTargetIface {
     /* Fields of GXml-0.20.GXml.DomEventTargetIface */
     addEventListener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
     removeEventListener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
     dispatchEvent: (self: DomEventTarget, event: DomEvent) => boolean
     static name: string
 }
-export abstract class DomEventListenerIface {
+abstract class DomEventListenerIface {
     /* Fields of GXml-0.20.GXml.DomEventListenerIface */
     handleEvent: (self: DomEventListener, event: DomEvent) => void
     static name: string
 }
-export abstract class DomEventIface {
+abstract class DomEventIface {
     /* Fields of GXml-0.20.GXml.DomEventIface */
     stopPropagation: (self: DomEvent) => void
     stopImmediatePropagation: (self: DomEvent) => void
@@ -18555,20 +18555,20 @@ export abstract class DomEventIface {
     getEventPhase: (self: DomEvent) => DomEventPhase
     static name: string
 }
-export abstract class DomCustomEventIface {
+abstract class DomCustomEventIface {
     /* Fields of GXml-0.20.GXml.DomCustomEventIface */
     initCustomEvent: (self: DomCustomEvent, type: string, bubbles: boolean, cancelable: boolean, detail: any) => void
     getDetail: (self: DomCustomEvent) => { result: any }
     static name: string
 }
-export abstract class DomMutationObserverIface {
+abstract class DomMutationObserverIface {
     /* Fields of GXml-0.20.GXml.DomMutationObserverIface */
     observe: (self: DomMutationObserver, target: Node, options: DomMutationObserverInit) => void
     disconnect: (self: DomMutationObserver) => void
     takeRecords: (self: DomMutationObserver) => Gee.List
     static name: string
 }
-export abstract class DomMutationRecordIface {
+abstract class DomMutationRecordIface {
     /* Fields of GXml-0.20.GXml.DomMutationRecordIface */
     getMtype: (self: DomMutationRecord) => string
     getTarget: (self: DomMutationRecord) => DomNode
@@ -18583,7 +18583,7 @@ export abstract class DomMutationRecordIface {
     getOldValue: (self: DomMutationRecord) => string | null
     static name: string
 }
-export abstract class DomNodeIface {
+abstract class DomNodeIface {
     /* Fields of GXml-0.20.GXml.DomNodeIface */
     hasChildNodes: (self: DomNode) => boolean
     normalize: (self: DomNode) => void
@@ -18615,7 +18615,7 @@ export abstract class DomNodeIface {
     setTextContent: (self: DomNode, value?: string | null) => void
     static name: string
 }
-export abstract class DomRangeIface {
+abstract class DomRangeIface {
     /* Fields of GXml-0.20.GXml.DomRangeIface */
     setStart: (self: DomRange, node: DomNode, offset: number) => void
     setEnd: (self: DomRange, node: DomNode, offset: number) => void
@@ -18646,7 +18646,7 @@ export abstract class DomRangeIface {
     getCommonAncestorContainer: (self: DomRange) => DomNode
     static name: string
 }
-export abstract class IXsdSchemaIface {
+abstract class IXsdSchemaIface {
     /* Fields of GXml-0.20.GXml.IXsdSchemaIface */
     getElementDefinitions: (self: IXsdSchema) => IXsdListElements
     setElementDefinitions: (self: IXsdSchema, value: IXsdListElements) => void
@@ -18656,13 +18656,13 @@ export abstract class IXsdSchemaIface {
     setComplexTypeDefinitions: (self: IXsdSchema, value: IXsdListComplexTypes) => void
     static name: string
 }
-export abstract class IXsdBaseTypeIface {
+abstract class IXsdBaseTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseTypeIface */
     getAnotation: (self: IXsdBaseType) => IXsdAnnotation
     setAnotation: (self: IXsdBaseType, value: IXsdAnnotation) => void
     static name: string
 }
-export abstract class IXsdSimpleTypeIface {
+abstract class IXsdSimpleTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdSimpleTypeIface */
     getFinal: (self: IXsdSimpleType) => string
     setFinal: (self: IXsdSimpleType, value: string) => void
@@ -18680,10 +18680,10 @@ export abstract class IXsdSimpleTypeIface {
     setRestriction: (self: IXsdSimpleType, value: IXsdTypeRestriction) => void
     static name: string
 }
-export abstract class IXsdTypeDefIface {
+abstract class IXsdTypeDefIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionIface {
+abstract class IXsdTypeRestrictionIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionIface */
     getBase: (self: IXsdTypeRestriction) => string
     setBase: (self: IXsdTypeRestriction, value: string) => void
@@ -18697,46 +18697,46 @@ export abstract class IXsdTypeRestrictionIface {
     setWhiteSpaces: (self: IXsdTypeRestriction, value: IXsdListTypeRestrictionWhiteSpaces) => void
     static name: string
 }
-export abstract class IXsdTypeListIface {
+abstract class IXsdTypeListIface {
     static name: string
 }
-export abstract class IXsdTypeUnionIface {
+abstract class IXsdTypeUnionIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionDefIface {
+abstract class IXsdTypeRestrictionDefIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionDefIface */
     getAnnotation: (self: IXsdTypeRestrictionDef) => IXsdAnnotation
     setAnnotation: (self: IXsdTypeRestrictionDef, value: IXsdAnnotation) => void
     static name: string
 }
-export abstract class IXsdTypeRestrictionMinExclusiveIface {
+abstract class IXsdTypeRestrictionMinExclusiveIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionMinInclusiveIface {
+abstract class IXsdTypeRestrictionMinInclusiveIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionMaxExclusiveIface {
+abstract class IXsdTypeRestrictionMaxExclusiveIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionMaxInclusiveIface {
+abstract class IXsdTypeRestrictionMaxInclusiveIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionTotalDigitsIface {
+abstract class IXsdTypeRestrictionTotalDigitsIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionFractionDigitsIface {
+abstract class IXsdTypeRestrictionFractionDigitsIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionLengthIface {
+abstract class IXsdTypeRestrictionLengthIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionMinLengthIface {
+abstract class IXsdTypeRestrictionMinLengthIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionMaxLengthIface {
+abstract class IXsdTypeRestrictionMaxLengthIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionEnumerationIface {
+abstract class IXsdTypeRestrictionEnumerationIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionEnumerationIface */
     getId: (self: IXsdTypeRestrictionEnumeration) => string
     setId: (self: IXsdTypeRestrictionEnumeration, value: string) => void
@@ -18744,7 +18744,7 @@ export abstract class IXsdTypeRestrictionEnumerationIface {
     setValue: (self: IXsdTypeRestrictionEnumeration, value: string) => void
     static name: string
 }
-export abstract class IXsdTypeRestrictionWhiteSpaceIface {
+abstract class IXsdTypeRestrictionWhiteSpaceIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionWhiteSpaceIface */
     getFixed: (self: IXsdTypeRestrictionWhiteSpace) => boolean
     setFixed: (self: IXsdTypeRestrictionWhiteSpace, value: boolean) => void
@@ -18754,16 +18754,16 @@ export abstract class IXsdTypeRestrictionWhiteSpaceIface {
     setValue: (self: IXsdTypeRestrictionWhiteSpace, value: string) => void
     static name: string
 }
-export abstract class IXsdTypeRestrictionPatternIface {
+abstract class IXsdTypeRestrictionPatternIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionAssertionIface {
+abstract class IXsdTypeRestrictionAssertionIface {
     static name: string
 }
-export abstract class IXsdTypeRestrictionExplicitTimezoneIface {
+abstract class IXsdTypeRestrictionExplicitTimezoneIface {
     static name: string
 }
-export abstract class IXsdComplexTypeIface {
+abstract class IXsdComplexTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdComplexTypeIface */
     getAbstract: (self: IXsdComplexType) => boolean
     setAbstract: (self: IXsdComplexType, value: boolean) => void
@@ -18783,13 +18783,13 @@ export abstract class IXsdComplexTypeIface {
     getGroupAttributes: (self: IXsdComplexType) => IXsdListAttributesGroup
     static name: string
 }
-export abstract class IXsdExtensionIface {
+abstract class IXsdExtensionIface {
     /* Fields of GXml-0.20.GXml.IXsdExtensionIface */
     getBase: (self: IXsdExtension) => string
     setBase: (self: IXsdExtension, value: string) => void
     static name: string
 }
-export abstract class IXsdElementIface {
+abstract class IXsdElementIface {
     /* Fields of GXml-0.20.GXml.IXsdElementIface */
     getAbstract: (self: IXsdElement) => boolean
     setAbstract: (self: IXsdElement, value: boolean) => void
@@ -18829,37 +18829,37 @@ export abstract class IXsdElementIface {
     setComplexType: (self: IXsdElement, value: IXsdComplexType) => void
     static name: string
 }
-export abstract class IXsdAnnotationIface {
+abstract class IXsdAnnotationIface {
     static name: string
 }
-export abstract class IXsdBaseContentIface {
+abstract class IXsdBaseContentIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseContentIface */
     getAnotation: (self: IXsdBaseContent) => IXsdAnnotation
     setAnotation: (self: IXsdBaseContent, value: IXsdAnnotation) => void
     static name: string
 }
-export abstract class IXsdSimpleContentIface {
+abstract class IXsdSimpleContentIface {
     static name: string
 }
-export abstract class IXsdComplexContentIface {
+abstract class IXsdComplexContentIface {
     static name: string
 }
-export abstract class IXsdOpenContentIface {
+abstract class IXsdOpenContentIface {
     static name: string
 }
-export abstract class IXsdBaseAttributeIface {
+abstract class IXsdBaseAttributeIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseAttributeIface */
     getAnotation: (self: IXsdBaseAttribute) => IXsdAnnotation
     setAnotation: (self: IXsdBaseAttribute, value: IXsdAnnotation) => void
     static name: string
 }
-export abstract class IXsdAttributeIface {
+abstract class IXsdAttributeIface {
     static name: string
 }
-export abstract class IXsdAttributeGroupIface {
+abstract class IXsdAttributeGroupIface {
     static name: string
 }
-export abstract class IXsdListIface {
+abstract class IXsdListIface {
     /* Fields of GXml-0.20.GXml.IXsdListIface */
     getItem: (self: IXsdList, index: number) => DomElement | null
     append: (self: IXsdList, element: DomElement) => void
@@ -18874,28 +18874,28 @@ export abstract class IXsdListIface {
     getLength: (self: IXsdList) => number
     static name: string
 }
-export abstract class IXsdListElementsIface {
+abstract class IXsdListElementsIface {
     static name: string
 }
-export abstract class IXsdListSimpleTypesIface {
+abstract class IXsdListSimpleTypesIface {
     static name: string
 }
-export abstract class IXsdListComplexTypesIface {
+abstract class IXsdListComplexTypesIface {
     static name: string
 }
-export abstract class IXsdListAttributesIface {
+abstract class IXsdListAttributesIface {
     static name: string
 }
-export abstract class IXsdListAttributesGroupIface {
+abstract class IXsdListAttributesGroupIface {
     static name: string
 }
-export abstract class IXsdListTypeRestrictionEnumerationsIface {
+abstract class IXsdListTypeRestrictionEnumerationsIface {
     static name: string
 }
-export abstract class IXsdListTypeRestrictionWhiteSpacesIface {
+abstract class IXsdListTypeRestrictionWhiteSpacesIface {
     static name: string
 }
-export abstract class ObjectIface {
+abstract class ObjectIface {
     /* Fields of GXml-0.20.GXml.ObjectIface */
     getPropertiesList: (self: Object) => GObject.ParamSpec[]
     findPropertyName: (self: Object, nick: string) => GObject.ParamSpec | null
@@ -18912,7 +18912,7 @@ export abstract class ObjectIface {
     cleanPropertyElements: (self: Object, name: string) => void
     static name: string
 }
-export abstract class ParserIface {
+abstract class ParserIface {
     /* Fields of GXml-0.20.GXml.ParserIface */
     writeFile: (self: Parser, file: Gio.File) => void
     writeFileAsync: (self: Parser, file: Gio.File, callback?: Gio.AsyncReadyCallback | null) => void
@@ -18962,19 +18962,19 @@ export abstract class ParserIface {
     getTypes: (self: Parser) => GLib.HashTable
     static name: string
 }
-export abstract class PropertyIface {
+abstract class PropertyIface {
     /* Fields of GXml-0.20.GXml.PropertyIface */
     validateValue: (self: Property, val?: string | null) => boolean
     getValue: (self: Property) => string | null
     setValue: (self: Property, value?: string | null) => void
     static name: string
 }
-export abstract class XPathContextIface {
+abstract class XPathContextIface {
     /* Fields of GXml-0.20.GXml.XPathContextIface */
     evaluate: (self: XPathContext, expression: string, resolver?: Gee.Map | null) => XPathObject
     static name: string
 }
-export abstract class XPathObjectIface {
+abstract class XPathObjectIface {
     /* Fields of GXml-0.20.GXml.XPathObjectIface */
     getObjectType: (self: XPathObject) => XPathObjectType
     getBooleanValue: (self: XPathObject) => boolean
@@ -18984,3 +18984,4 @@ export abstract class XPathObjectIface {
     static name: string
 }
 }
+export default GXml

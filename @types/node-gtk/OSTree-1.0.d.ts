@@ -7,14 +7,14 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace OSTree {
+declare namespace OSTree {
 
-export enum DeploymentUnlockedState {
+enum DeploymentUnlockedState {
     NONE,
     DEVELOPMENT,
     HOTFIX,
 }
-export enum GpgSignatureAttr {
+enum GpgSignatureAttr {
     VALID,
     SIG_EXPIRED,
     KEY_EXPIRED,
@@ -28,10 +28,10 @@ export enum GpgSignatureAttr {
     USER_NAME,
     USER_EMAIL,
 }
-export enum GpgSignatureFormatFlags {
+enum GpgSignatureFormatFlags {
     GPG_SIGNATURE_FORMAT_DEFAULT,
 }
-export enum ObjectType {
+enum ObjectType {
     FILE,
     DIR_TREE,
     DIR_META,
@@ -39,92 +39,92 @@ export enum ObjectType {
     TOMBSTONE_COMMIT,
     COMMIT_META,
 }
-export enum RepoCheckoutMode {
+enum RepoCheckoutMode {
     NONE,
     USER,
 }
-export enum RepoCheckoutOverwriteMode {
+enum RepoCheckoutOverwriteMode {
     NONE,
     UNION_FILES,
 }
-export enum RepoCommitFilterResult {
+enum RepoCommitFilterResult {
     ALLOW,
     SKIP,
 }
-export enum RepoCommitIterResult {
+enum RepoCommitIterResult {
     ERROR,
     END,
     FILE,
     DIR,
 }
-export enum RepoListRefsExtFlags {
+enum RepoListRefsExtFlags {
     REPO_LIST_REFS_EXT_NONE,
 }
-export enum RepoMode {
+enum RepoMode {
     BARE,
     ARCHIVE_Z2,
     BARE_USER,
 }
-export enum RepoPruneFlags {
+enum RepoPruneFlags {
     NONE,
     NO_PRUNE,
     REFS_ONLY,
 }
-export enum RepoRemoteChange {
+enum RepoRemoteChange {
     ADD,
     ADD_IF_NOT_EXISTS,
     DELETE,
     DELETE_IF_EXISTS,
 }
-export enum RepoResolveRevExtFlags {
+enum RepoResolveRevExtFlags {
     REPO_RESOLVE_REV_EXT_NONE,
 }
-export enum StaticDeltaGenerateOpt {
+enum StaticDeltaGenerateOpt {
     LOWLATENCY,
     MAJOR,
 }
-export enum DiffFlags {
+enum DiffFlags {
     NONE,
     IGNORE_XATTRS,
 }
-export enum RepoCommitModifierFlags {
+enum RepoCommitModifierFlags {
     NONE,
     SKIP_XATTRS,
     GENERATE_SIZES,
 }
-export enum RepoCommitState {
+enum RepoCommitState {
     REPO_COMMIT_STATE_PARTIAL,
 }
-export enum RepoCommitTraverseFlags {
+enum RepoCommitTraverseFlags {
     REPO_COMMIT_TRAVERSE_FLAG_NONE,
 }
-export enum RepoListObjectsFlags {
+enum RepoListObjectsFlags {
     LOOSE,
     PACKED,
     ALL,
     NO_PARENTS,
 }
-export enum RepoPullFlags {
+enum RepoPullFlags {
     NONE,
     MIRROR,
     COMMIT_ONLY,
     UNTRUSTED,
 }
-export enum SePolicyRestoreconFlags {
+enum SePolicyRestoreconFlags {
     NONE,
     ALLOW_NOLABEL,
     KEEP_EXISTING,
 }
-export enum SysrootSimpleWriteDeploymentFlags {
+enum SysrootSimpleWriteDeploymentFlags {
     NONE,
     RETAIN,
     NOT_DEFAULT,
     NO_CLEAN,
 }
-export enum SysrootUpgraderFlags {
+enum SysrootUpgraderFlags {
     IGNORE_UNCONFIGURED,
 }
-export enum SysrootUpgraderPullFlags {
+enum SysrootUpgraderPullFlags {
     NONE,
     ALLOW_OLDER,
 }
@@ -141,59 +141,59 @@ export const SUMMARY_SIG_GVARIANT_STRING: string
 export const TIMESTAMP: number
 export const TREE_GVARIANT_STRING: string
 export const WITH_AUTOCLEANUPS: number
-export function checksumB64FromBytes(csum: any[]): string
-export function checksumB64ToBytes(checksum: string): any[]
-export function checksumBytesPeek(bytes: GLib.Variant): any[]
-export function checksumBytesPeekValidate(bytes: GLib.Variant): any[]
-export function checksumFile(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
-export function checksumFileAsync(f: Gio.File, objtype: ObjectType, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function checksumFileAsyncFinish(f: Gio.File, result: Gio.AsyncResult): { returnType: boolean, outCsum: any[] }
-export function checksumFileFromInput(fileInfo: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
-export function checksumFromBytes(csum: any[]): string
-export function checksumFromBytesV(csumV: GLib.Variant): string
-export function checksumInplaceToBytes(checksum: string, buf: number): void
-export function checksumToBytes(checksum: string): any[]
-export function checksumToBytesV(checksum: string): GLib.Variant
-export function cmdprivate(): CmdPrivateVTable
-export function cmpChecksumBytes(a: number, b: number): number
-export function commitGetParent(commitVariant: GLib.Variant): string
-export function commitGetTimestamp(commitVariant: GLib.Variant): number
-export function contentFileParse(compressed: boolean, contentPath: Gio.File, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
-export function contentFileParseAt(compressed: boolean, parentDfd: number, path: string, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
-export function contentStreamParse(compressed: boolean, input: Gio.InputStream, inputLength: number, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
-export function createDirectoryMetadata(dirInfo: Gio.FileInfo, xattrs?: GLib.Variant | null): GLib.Variant
-export function diffDirs(flags: DiffFlags, a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[], cancellable?: Gio.Cancellable | null): boolean
-export function diffPrint(a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[]): void
-export function hashObjectName(a?: object | null): number
-export function metadataVariantType(objtype: ObjectType): GLib.VariantType
-export function objectFromString(str: string): { outChecksum: string, outObjtype: ObjectType }
-export function objectNameDeserialize(variant: GLib.Variant): { outChecksum: string, outObjtype: ObjectType }
-export function objectNameSerialize(checksum: string, objtype: ObjectType): GLib.Variant
-export function objectToString(checksum: string, objtype: ObjectType): string
-export function objectTypeFromString(str: string): ObjectType
-export function objectTypeToString(objtype: ObjectType): string
-export function parseRefspec(refspec: string): { returnType: boolean, outRemote: string | null, outRef: string | null }
-export function rawFileToArchiveZ2Stream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream }
-export function rawFileToContentStream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outLength: number }
-export function repoCommitTraverseIterCleanup(p?: object | null): void
-export function validateChecksumString(sha256: string): boolean
-export function validateRev(rev: string): boolean
-export function validateStructureofChecksumString(checksum: string): boolean
-export function validateStructureofCommit(commit: GLib.Variant): boolean
-export function validateStructureofCsumV(checksum: GLib.Variant): boolean
-export function validateStructureofDirmeta(dirmeta: GLib.Variant): boolean
-export function validateStructureofDirtree(dirtree: GLib.Variant): boolean
-export function validateStructureofFileMode(mode: number): boolean
-export function validateStructureofObjtype(objtype: number): boolean
-export interface RepoCommitFilter {
+function checksumB64FromBytes(csum: any[]): string
+function checksumB64ToBytes(checksum: string): any[]
+function checksumBytesPeek(bytes: GLib.Variant): any[]
+function checksumBytesPeekValidate(bytes: GLib.Variant): any[]
+function checksumFile(f: Gio.File, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
+function checksumFileAsync(f: Gio.File, objtype: ObjectType, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function checksumFileAsyncFinish(f: Gio.File, result: Gio.AsyncResult): { returnType: boolean, outCsum: any[] }
+function checksumFileFromInput(fileInfo: Gio.FileInfo, xattrs: GLib.Variant | null, in_: Gio.InputStream | null, objtype: ObjectType, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCsum: any[] }
+function checksumFromBytes(csum: any[]): string
+function checksumFromBytesV(csumV: GLib.Variant): string
+function checksumInplaceToBytes(checksum: string, buf: number): void
+function checksumToBytes(checksum: string): any[]
+function checksumToBytesV(checksum: string): GLib.Variant
+function cmdprivate(): CmdPrivateVTable
+function cmpChecksumBytes(a: number, b: number): number
+function commitGetParent(commitVariant: GLib.Variant): string
+function commitGetTimestamp(commitVariant: GLib.Variant): number
+function contentFileParse(compressed: boolean, contentPath: Gio.File, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
+function contentFileParseAt(compressed: boolean, parentDfd: number, path: string, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
+function contentStreamParse(compressed: boolean, input: Gio.InputStream, inputLength: number, trusted: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outFileInfo: Gio.FileInfo, outXattrs: GLib.Variant }
+function createDirectoryMetadata(dirInfo: Gio.FileInfo, xattrs?: GLib.Variant | null): GLib.Variant
+function diffDirs(flags: DiffFlags, a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[], cancellable?: Gio.Cancellable | null): boolean
+function diffPrint(a: Gio.File, b: Gio.File, modified: DiffItem[], removed: Gio.File[], added: Gio.File[]): void
+function hashObjectName(a?: object | null): number
+function metadataVariantType(objtype: ObjectType): GLib.VariantType
+function objectFromString(str: string): { outChecksum: string, outObjtype: ObjectType }
+function objectNameDeserialize(variant: GLib.Variant): { outChecksum: string, outObjtype: ObjectType }
+function objectNameSerialize(checksum: string, objtype: ObjectType): GLib.Variant
+function objectToString(checksum: string, objtype: ObjectType): string
+function objectTypeFromString(str: string): ObjectType
+function objectTypeToString(objtype: ObjectType): string
+function parseRefspec(refspec: string): { returnType: boolean, outRemote: string | null, outRef: string | null }
+function rawFileToArchiveZ2Stream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream }
+function rawFileToContentStream(input: Gio.InputStream, fileInfo: Gio.FileInfo, xattrs?: GLib.Variant | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outInput: Gio.InputStream, outLength: number }
+function repoCommitTraverseIterCleanup(p?: object | null): void
+function validateChecksumString(sha256: string): boolean
+function validateRev(rev: string): boolean
+function validateStructureofChecksumString(checksum: string): boolean
+function validateStructureofCommit(commit: GLib.Variant): boolean
+function validateStructureofCsumV(checksum: GLib.Variant): boolean
+function validateStructureofDirmeta(dirmeta: GLib.Variant): boolean
+function validateStructureofDirtree(dirtree: GLib.Variant): boolean
+function validateStructureofFileMode(mode: number): boolean
+function validateStructureofObjtype(objtype: number): boolean
+interface RepoCommitFilter {
     (repo: Repo, path: string, fileInfo: Gio.FileInfo): RepoCommitFilterResult
 }
-export interface RepoCommitModifierXattrCallback {
+interface RepoCommitModifierXattrCallback {
     (repo: Repo, path: string, fileInfo: Gio.FileInfo): GLib.Variant
 }
 export interface AsyncProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AsyncProgress {
+class AsyncProgress {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.AsyncProgress */
@@ -255,7 +255,7 @@ export class AsyncProgress {
 }
 export interface BootconfigParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BootconfigParser {
+class BootconfigParser {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.BootconfigParser */
@@ -311,7 +311,7 @@ export class BootconfigParser {
 export interface ChecksumInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
     checksum?: object
 }
-export class ChecksumInputStream {
+class ChecksumInputStream {
     /* Properties of Gio-2.0.Gio.FilterInputStream */
     closeBaseStream: boolean
     /* Fields of OSTree-1.0.OSTree.ChecksumInputStream */
@@ -393,7 +393,7 @@ export class ChecksumInputStream {
 }
 export interface Deployment_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Deployment {
+class Deployment {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.Deployment */
@@ -459,7 +459,7 @@ export class Deployment {
 }
 export interface GpgVerifyResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GpgVerifyResult {
+class GpgVerifyResult {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.GpgVerifyResult */
@@ -517,7 +517,7 @@ export class GpgVerifyResult {
 }
 export interface MutableTree_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MutableTree {
+class MutableTree {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.MutableTree */
@@ -579,7 +579,7 @@ export interface Repo_ConstructProps extends GObject.Object_ConstructProps {
     remotesConfigDir?: string
     sysrootPath?: Gio.File
 }
-export class Repo {
+class Repo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.Repo */
@@ -728,7 +728,7 @@ export class Repo {
 }
 export interface RepoFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RepoFile {
+class RepoFile {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.RepoFile */
@@ -917,7 +917,7 @@ export class RepoFile {
 export interface SePolicy_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
-export class SePolicy {
+class SePolicy {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.SePolicy */
@@ -976,7 +976,7 @@ export class SePolicy {
 export interface Sysroot_ConstructProps extends GObject.Object_ConstructProps {
     path?: Gio.File
 }
-export class Sysroot {
+class Sysroot {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.Sysroot */
@@ -1059,7 +1059,7 @@ export interface SysrootUpgrader_ConstructProps extends GObject.Object_Construct
     osname?: string
     sysroot?: Sysroot
 }
-export class SysrootUpgrader {
+class SysrootUpgrader {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of OSTree-1.0.OSTree.SysrootUpgrader */
@@ -1118,19 +1118,19 @@ export class SysrootUpgrader {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class AsyncProgressClass {
+abstract class AsyncProgressClass {
     /* Fields of OSTree-1.0.OSTree.AsyncProgressClass */
     parentClass: GObject.ObjectClass
     changed: (self: AsyncProgress) => void
     static name: string
 }
-export class Bootloader {
+class Bootloader {
     static name: string
 }
-export class BootloaderGrub2 {
+class BootloaderGrub2 {
     static name: string
 }
-export class BootloaderInterface {
+class BootloaderInterface {
     /* Fields of OSTree-1.0.OSTree.BootloaderInterface */
     gIface: GObject.TypeInterface
     query: (bootloader: Bootloader, outIsActive: boolean, cancellable: Gio.Cancellable) => boolean
@@ -1139,21 +1139,21 @@ export class BootloaderInterface {
     isAtomic: (self: Bootloader) => boolean
     static name: string
 }
-export class BootloaderSyslinux {
+class BootloaderSyslinux {
     static name: string
 }
-export class BootloaderUboot {
+class BootloaderUboot {
     static name: string
 }
-export abstract class ChecksumInputStreamClass {
+abstract class ChecksumInputStreamClass {
     /* Fields of OSTree-1.0.OSTree.ChecksumInputStreamClass */
     parentClass: Gio.FilterInputStreamClass
     static name: string
 }
-export class ChecksumInputStreamPrivate {
+class ChecksumInputStreamPrivate {
     static name: string
 }
-export class CmdPrivateVTable {
+class CmdPrivateVTable {
     /* Fields of OSTree-1.0.OSTree.CmdPrivateVTable */
     ostreeGenerateGrub2Config: (sysroot: Sysroot, bootversion: number, targetFd: number, cancellable: Gio.Cancellable) => boolean
     ostreeStaticDeltaDump: (repo: Repo, deltaId: string, cancellable: Gio.Cancellable) => boolean
@@ -1161,7 +1161,7 @@ export class CmdPrivateVTable {
     ostreeStaticDeltaDelete: (repo: Repo, deltaId: string, cancellable: Gio.Cancellable) => boolean
     static name: string
 }
-export class DiffItem {
+class DiffItem {
     /* Fields of OSTree-1.0.OSTree.DiffItem */
     refcount: number
     src: Gio.File
@@ -1175,50 +1175,50 @@ export class DiffItem {
     unref(): void
     static name: string
 }
-export class GpgVerifier {
+class GpgVerifier {
     static name: string
 }
-export class LibarchiveInputStream {
+class LibarchiveInputStream {
     /* Fields of OSTree-1.0.OSTree.LibarchiveInputStream */
     parentInstance: Gio.InputStream
     static name: string
 }
-export class LibarchiveInputStreamClass {
+class LibarchiveInputStreamClass {
     /* Fields of OSTree-1.0.OSTree.LibarchiveInputStreamClass */
     parentClass: Gio.InputStreamClass
     static name: string
 }
-export class LibarchiveInputStreamPrivate {
+class LibarchiveInputStreamPrivate {
     static name: string
 }
-export class LzmaCompressor {
+class LzmaCompressor {
     static name: string
 }
-export class LzmaCompressorClass {
+class LzmaCompressorClass {
     /* Fields of OSTree-1.0.OSTree.LzmaCompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class LzmaDecompressor {
+class LzmaDecompressor {
     static name: string
 }
-export class LzmaDecompressorClass {
+class LzmaDecompressorClass {
     /* Fields of OSTree-1.0.OSTree.LzmaDecompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class MutableTreeClass {
+abstract class MutableTreeClass {
     /* Fields of OSTree-1.0.OSTree.MutableTreeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MutableTreeIter {
+class MutableTreeIter {
     /* Fields of OSTree-1.0.OSTree.MutableTreeIter */
     inFiles: boolean
     iter: GLib.HashTableIter
     static name: string
 }
-export class RepoCheckoutAtOptions {
+class RepoCheckoutAtOptions {
     /* Fields of OSTree-1.0.OSTree.RepoCheckoutAtOptions */
     mode: RepoCheckoutMode
     overwriteMode: RepoCheckoutOverwriteMode
@@ -1233,7 +1233,7 @@ export class RepoCheckoutAtOptions {
     unusedPtrs: object[]
     static name: string
 }
-export class RepoCheckoutOptions {
+class RepoCheckoutOptions {
     /* Fields of OSTree-1.0.OSTree.RepoCheckoutOptions */
     mode: RepoCheckoutMode
     overwriteMode: RepoCheckoutOverwriteMode
@@ -1248,7 +1248,7 @@ export class RepoCheckoutOptions {
     unusedPtrs: object[]
     static name: string
 }
-export class RepoCommitModifier {
+class RepoCommitModifier {
     /* Methods of OSTree-1.0.OSTree.RepoCommitModifier */
     ref(): RepoCommitModifier
     setDevinoCache(cache: RepoDevInoCache): void
@@ -1261,7 +1261,7 @@ export class RepoCommitModifier {
     /* Static methods and pseudo-constructors */
     static new(flags: RepoCommitModifierFlags, commitFilter: RepoCommitFilter | null): RepoCommitModifier
 }
-export class RepoCommitTraverseIter {
+class RepoCommitTraverseIter {
     /* Fields of OSTree-1.0.OSTree.RepoCommitTraverseIter */
     initialized: boolean
     dummy: object[]
@@ -1277,7 +1277,7 @@ export class RepoCommitTraverseIter {
     /* Static methods and pseudo-constructors */
     static cleanup(p?: object | null): void
 }
-export class RepoDevInoCache {
+class RepoDevInoCache {
     /* Methods of OSTree-1.0.OSTree.RepoDevInoCache */
     ref(): RepoDevInoCache
     unref(): void
@@ -1287,7 +1287,7 @@ export class RepoDevInoCache {
     /* Static methods and pseudo-constructors */
     static new(): RepoDevInoCache
 }
-export class RepoExportArchiveOptions {
+class RepoExportArchiveOptions {
     /* Fields of OSTree-1.0.OSTree.RepoExportArchiveOptions */
     disableXattrs: number
     reserved: number
@@ -1297,20 +1297,20 @@ export class RepoExportArchiveOptions {
     unusedPtrs: object[]
     static name: string
 }
-export abstract class RepoFileClass {
+abstract class RepoFileClass {
     /* Fields of OSTree-1.0.OSTree.RepoFileClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class RepoFileEnumerator {
+class RepoFileEnumerator {
     static name: string
 }
-export class RepoFileEnumeratorClass {
+class RepoFileEnumeratorClass {
     /* Fields of OSTree-1.0.OSTree.RepoFileEnumeratorClass */
     parentClass: Gio.FileEnumeratorClass
     static name: string
 }
-export class RepoImportArchiveOptions {
+class RepoImportArchiveOptions {
     /* Fields of OSTree-1.0.OSTree.RepoImportArchiveOptions */
     ignoreUnsupportedContent: number
     autocreateParents: number
@@ -1321,7 +1321,7 @@ export class RepoImportArchiveOptions {
     unusedPtrs: object[]
     static name: string
 }
-export class RepoTransactionStats {
+class RepoTransactionStats {
     /* Fields of OSTree-1.0.OSTree.RepoTransactionStats */
     metadataObjectsTotal: number
     metadataObjectsWritten: number
@@ -1334,7 +1334,7 @@ export class RepoTransactionStats {
     padding4: number
     static name: string
 }
-export class RollsumMatches {
+class RollsumMatches {
     /* Fields of OSTree-1.0.OSTree.RollsumMatches */
     fromRollsums: GLib.HashTable
     toRollsums: GLib.HashTable
@@ -1345,10 +1345,11 @@ export class RollsumMatches {
     matches: object[]
     static name: string
 }
-export class TlsCertInteraction {
+class TlsCertInteraction {
     static name: string
 }
-export class TlsCertInteractionClass {
+class TlsCertInteractionClass {
     static name: string
 }
 }
+export default OSTree

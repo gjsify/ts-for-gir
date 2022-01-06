@@ -8,19 +8,19 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GSSDP {
+declare namespace GSSDP {
 
-export enum Error {
+enum Error {
     NO_IP_ADDRESS,
     FAILED,
 }
-export enum UDAVersion {
+enum UDAVersion {
     VERSION_UNSPECIFIED,
     VERSION_1_0,
     VERSION_1_1,
 }
 export const ALL_RESOURCES: string
-export function errorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     active?: boolean
     addressFamily?: Gio.SocketFamily
@@ -35,7 +35,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     socketTtl?: number
     udaVersion?: UDAVersion
 }
-export class Client {
+class Client {
     /* Properties of GSSDP-1.2.GSSDP.Client */
     active: boolean
     bootId: number
@@ -162,7 +162,7 @@ export interface ResourceBrowser_ConstructProps extends GObject.Object_Construct
     mx?: number
     target?: string
 }
-export class ResourceBrowser {
+class ResourceBrowser {
     /* Properties of GSSDP-1.2.GSSDP.ResourceBrowser */
     active: boolean
     mx: number
@@ -259,7 +259,7 @@ export interface ResourceGroup_ConstructProps extends GObject.Object_ConstructPr
     maxAge?: number
     messageDelay?: number
 }
-export class ResourceGroup {
+class ResourceGroup {
     /* Properties of GSSDP-1.2.GSSDP.ResourceGroup */
     available: boolean
     maxAge: number
@@ -337,21 +337,22 @@ export class ResourceGroup {
     static new(client: Client): ResourceGroup
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GSSDP-1.2.GSSDP.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ResourceBrowserClass {
+abstract class ResourceBrowserClass {
     /* Fields of GSSDP-1.2.GSSDP.ResourceBrowserClass */
     parentClass: GObject.ObjectClass
     resourceUpdate: (resourceBrowser: ResourceBrowser, usn: string, bootId: number, nextBootId: number) => void
     resourceUnavailable: (resourceBrowser: ResourceBrowser, usn: string) => void
     static name: string
 }
-export abstract class ResourceGroupClass {
+abstract class ResourceGroupClass {
     /* Fields of GSSDP-1.2.GSSDP.ResourceGroupClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default GSSDP

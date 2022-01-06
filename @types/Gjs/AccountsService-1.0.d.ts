@@ -3,30 +3,32 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum UserAccountType {
+export namespace AccountsService {
+
+enum UserAccountType {
     STANDARD,
     ADMINISTRATOR,
 }
-export enum UserManagerError {
+enum UserManagerError {
     FAILED,
     USER_EXISTS,
     USER_DOES_NOT_EXIST,
     PERMISSION_DENIED,
     NOT_SUPPORTED,
 }
-export enum UserPasswordMode {
+enum UserPasswordMode {
     REGULAR,
     SET_AT_LOGIN,
     NONE,
 }
-export function user_manager_error_quark(): GLib.Quark
+function user_manager_error_quark(): GLib.Quark
 export interface User_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class User {
+class User {
     /* Properties of AccountsService-1.0.AccountsService.User */
     readonly account_type: number
     readonly automatic_login: boolean
@@ -199,7 +201,7 @@ export interface UserManager_ConstructProps extends GObject.Object_ConstructProp
     has_multiple_users?: boolean
     include_usernames_list?: object
 }
-export class UserManager {
+class UserManager {
     /* Properties of AccountsService-1.0.AccountsService.UserManager */
     exclude_usernames_list: object
     has_multiple_users: boolean
@@ -300,12 +302,12 @@ export class UserManager {
     static get_default(): UserManager
     static $gtype: GObject.Type
 }
-export abstract class UserClass {
+abstract class UserClass {
     /* Fields of AccountsService-1.0.AccountsService.UserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class UserManagerClass {
+abstract class UserManagerClass {
     /* Fields of AccountsService-1.0.AccountsService.UserManagerClass */
     parent_class: GObject.ObjectClass
     user_added: (user_manager: UserManager, user: User) => void
@@ -314,3 +316,5 @@ export abstract class UserManagerClass {
     user_changed: (user_manager: UserManager, user: User) => void
     static name: string
 }
+}
+export default AccountsService

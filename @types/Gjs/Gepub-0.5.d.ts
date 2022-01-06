@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as WebKit2 from './WebKit2-4.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as JavaScriptCore from './JavaScriptCore-4.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type libxml2 from './libxml2-2.0';
+import type WebKit2 from './WebKit2-4.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type JavaScriptCore from './JavaScriptCore-4.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+
+export namespace Gepub {
 
 export const META_AUTHOR: string
 export const META_DESC: string
@@ -30,7 +32,7 @@ export interface Doc_ConstructProps extends GObject.Object_ConstructProps {
     page?: number
     path?: string
 }
-export class Doc {
+class Doc {
     /* Properties of Gepub-0.5.Gepub.Doc */
     page: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -108,7 +110,7 @@ export class Doc {
 export interface Widget_ConstructProps extends WebKit2.WebView_ConstructProps {
     doc?: Doc
 }
-export class Widget {
+class Widget {
     /* Properties of Gepub-0.5.Gepub.Widget */
     doc: Doc
     /* Properties of WebKit2-4.0.WebKit2.WebView */
@@ -1155,9 +1157,11 @@ export class Widget {
     static new(): Widget
     static $gtype: GObject.Type
 }
-export abstract class DocClass {
+abstract class DocClass {
     static name: string
 }
-export abstract class WidgetClass {
+abstract class WidgetClass {
     static name: string
 }
+}
+export default Gepub

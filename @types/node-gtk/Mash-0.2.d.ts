@@ -21,16 +21,16 @@ import type { Cogl } from './Cogl-1.0';
 import type { Clutter } from './Clutter-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Mash {
+declare namespace Mash {
 
-export enum DataError {
+enum DataError {
     UNKNOWN_FORMAT,
     UNKNOWN,
     MISSING_PROPERTY,
     INVALID,
     UNSUPPORTED,
 }
-export enum DataFlags {
+enum DataFlags {
     NONE,
     NEGATE_X,
     NEGATE_Y,
@@ -38,7 +38,7 @@ export enum DataFlags {
 }
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Data {
+class Data {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.Data */
@@ -90,7 +90,7 @@ export class Data {
 }
 export interface DataLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataLoader {
+class DataLoader {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.DataLoader */
@@ -138,7 +138,7 @@ export class DataLoader {
 }
 export interface DirectionalLight_ConstructProps extends Light_ConstructProps {
 }
-export class DirectionalLight {
+class DirectionalLight {
     /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
@@ -1124,7 +1124,7 @@ export interface Light_ConstructProps extends Clutter.Actor_ConstructProps {
     diffuse?: Clutter.Color
     specular?: Clutter.Color
 }
-export class Light {
+class Light {
     /* Properties of Mash-0.2.Mash.Light */
     ambient: Clutter.Color
     diffuse: Clutter.Color
@@ -2108,7 +2108,7 @@ export class Light {
 }
 export interface LightSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LightSet {
+class LightSet {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.LightSet */
@@ -2161,7 +2161,7 @@ export interface Model_ConstructProps extends Clutter.Actor_ConstructProps {
     fitToAllocation?: boolean
     lightSet?: LightSet
 }
-export class Model {
+class Model {
     /* Properties of Mash-0.2.Mash.Model */
     data: Data
     fitToAllocation: boolean
@@ -3140,7 +3140,7 @@ export class Model {
 }
 export interface PlyLoader_ConstructProps extends Data_ConstructProps {
 }
-export class PlyLoader {
+class PlyLoader {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Mash-0.2.Mash.Data */
@@ -3192,7 +3192,7 @@ export interface PointLight_ConstructProps extends Light_ConstructProps {
     linearAttenuation?: number
     quadraticAttenuation?: number
 }
-export class PointLight {
+class PointLight {
     /* Properties of Mash-0.2.Mash.PointLight */
     constantAttenuation: number
     linearAttenuation: number
@@ -4203,7 +4203,7 @@ export interface SpotLight_ConstructProps extends PointLight_ConstructProps {
     spotCutoff?: number
     spotExponent?: number
 }
-export class SpotLight {
+class SpotLight {
     /* Properties of Mash-0.2.Mash.SpotLight */
     spotCutoff: number
     spotExponent: number
@@ -5228,16 +5228,16 @@ export class SpotLight {
     static new(): SpotLight
     static $gtype: GObject.Type
 }
-export abstract class DataClass {
+abstract class DataClass {
     static name: string
 }
-export abstract class DataLoaderClass {
+abstract class DataLoaderClass {
     /* Fields of Mash-0.2.Mash.DataLoaderClass */
     load: (dataLoader: DataLoader, flags: DataFlags, filename: string) => boolean
     getData: (dataLoader: DataLoader, loaderData: DataLoaderData) => void
     static name: string
 }
-export class DataLoaderData {
+class DataLoaderData {
     /* Fields of Mash-0.2.Mash.DataLoaderData */
     verticesVbo: Cogl.Handle
     indices: Cogl.Handle
@@ -5248,55 +5248,56 @@ export class DataLoaderData {
     maxVertex: Clutter.Vertex
     static name: string
 }
-export class DataLoaderPrivate {
+class DataLoaderPrivate {
     static name: string
 }
-export class DataPrivate {
+class DataPrivate {
     static name: string
 }
-export abstract class DirectionalLightClass {
+abstract class DirectionalLightClass {
     static name: string
 }
-export class DirectionalLightPrivate {
+class DirectionalLightPrivate {
     static name: string
 }
-export abstract class LightClass {
+abstract class LightClass {
     /* Fields of Mash-0.2.Mash.LightClass */
     generateShader: (light: Light, uniformSource: GLib.String, mainSource: GLib.String) => void
     updateUniforms: (light: Light, program: Cogl.Handle) => void
     static name: string
 }
-export class LightPrivate {
+class LightPrivate {
     static name: string
 }
-export abstract class LightSetClass {
+abstract class LightSetClass {
     static name: string
 }
-export class LightSetPrivate {
+class LightSetPrivate {
     static name: string
 }
-export abstract class ModelClass {
+abstract class ModelClass {
     static name: string
 }
-export class ModelPrivate {
+class ModelPrivate {
     static name: string
 }
-export abstract class PlyLoaderClass {
+abstract class PlyLoaderClass {
     static name: string
 }
-export class PlyLoaderPrivate {
+class PlyLoaderPrivate {
     static name: string
 }
-export abstract class PointLightClass {
+abstract class PointLightClass {
     static name: string
 }
-export class PointLightPrivate {
+class PointLightPrivate {
     static name: string
 }
-export abstract class SpotLightClass {
+abstract class SpotLightClass {
     static name: string
 }
-export class SpotLightPrivate {
+class SpotLightPrivate {
     static name: string
 }
 }
+export default Mash

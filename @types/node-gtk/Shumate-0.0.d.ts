@@ -17,35 +17,35 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Shumate {
+declare namespace Shumate {
 
-export enum FileCacheError {
+enum FileCacheError {
     FAILED,
 }
-export enum MapProjection {
+enum MapProjection {
     MERCATOR,
 }
-export enum State {
+enum State {
     NONE,
     LOADING,
     LOADED,
     DONE,
 }
-export enum StyleError {
+enum StyleError {
     FAILED,
     MALFORMED_STYLE,
     UNSUPPORTED_LAYER,
     INVALID_EXPRESSION,
     SUPPORT_OMITTED,
 }
-export enum TileDownloaderError {
+enum TileDownloaderError {
     FAILED,
     BAD_RESPONSE,
     COULD_NOT_CONNECT,
     MALFORMED_URL,
     OFFLINE,
 }
-export enum Unit {
+enum Unit {
     BOTH,
     METRIC,
     IMPERIAL,
@@ -66,10 +66,10 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const MIN_LATITUDE: number
 export const MIN_LONGITUDE: number
-export function fileCacheErrorQuark(): GLib.Quark
-export function styleErrorQuark(): GLib.Quark
-export function tileDownloaderErrorQuark(): GLib.Quark
-export class Location {
+function fileCacheErrorQuark(): GLib.Quark
+function styleErrorQuark(): GLib.Quark
+function tileDownloaderErrorQuark(): GLib.Quark
+class Location {
     /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
@@ -83,7 +83,7 @@ export interface Compass_ConstructProps extends Gtk.Widget_ConstructProps {
     viewport?: Viewport
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Compass {
+class Compass {
     /* Properties of Shumate-0.0.Shumate.Compass */
     viewport: Viewport
     /* Properties of Gtk-4.0.Gtk.Widget */
@@ -583,7 +583,7 @@ export interface Coordinate_ConstructProps extends GObject.InitiallyUnowned_Cons
     latitude?: number
     longitude?: number
 }
-export class Coordinate {
+class Coordinate {
     /* Properties of Shumate-0.0.Shumate.Location */
     latitude: number
     longitude: number
@@ -650,7 +650,7 @@ export class Coordinate {
 }
 export interface DataSource_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataSource {
+class DataSource {
     /* Fields of Shumate-0.0.Shumate.DataSource */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -709,7 +709,7 @@ export interface FileCache_ConstructProps extends GObject.Object_ConstructProps 
     cacheKey?: string
     sizeLimit?: number
 }
-export class FileCache {
+class FileCache {
     /* Properties of Shumate-0.0.Shumate.FileCache */
     sizeLimit: number
     /* Fields of Shumate-0.0.Shumate.FileCache */
@@ -779,7 +779,7 @@ export interface Layer_ConstructProps extends Gtk.Widget_ConstructProps {
     viewport?: Viewport
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Layer {
+class Layer {
     /* Properties of Shumate-0.0.Shumate.Layer */
     readonly license: string
     readonly licenseUri: string
@@ -1286,7 +1286,7 @@ export interface License_ConstructProps extends Gtk.Widget_ConstructProps {
     xalign?: number
     accessibleRole?: Gtk.AccessibleRole
 }
-export class License {
+class License {
     /* Properties of Shumate-0.0.Shumate.License */
     extraText: string
     map: Map
@@ -1803,7 +1803,7 @@ export interface Map_ConstructProps extends Gtk.Widget_ConstructProps {
     zoomOnDoubleClick?: boolean
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Map {
+class Map {
     /* Properties of Shumate-0.0.Shumate.Map */
     animateZoom: boolean
     goToDuration: number
@@ -2354,7 +2354,7 @@ export interface MapLayer_ConstructProps extends Layer_ConstructProps {
     mapSource?: MapSource
     accessibleRole?: Gtk.AccessibleRole
 }
-export class MapLayer {
+class MapLayer {
     /* Properties of Shumate-0.0.Shumate.Layer */
     readonly license: string
     readonly licenseUri: string
@@ -2867,7 +2867,7 @@ export interface MapSource_ConstructProps extends GObject.Object_ConstructProps 
     projection?: MapProjection
     tileSize?: number
 }
-export class MapSource {
+class MapSource {
     /* Properties of Shumate-0.0.Shumate.MapSource */
     id: string
     license: string
@@ -2990,7 +2990,7 @@ export class MapSource {
 }
 export interface MapSourceRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MapSourceRegistry {
+class MapSourceRegistry {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Shumate-0.0.Shumate.MapSourceRegistry */
@@ -3060,7 +3060,7 @@ export interface Marker_ConstructProps extends Gtk.Widget_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Marker {
+class Marker {
     /* Properties of Shumate-0.0.Shumate.Marker */
     child: Gtk.Widget
     draggable: boolean
@@ -3598,7 +3598,7 @@ export interface MarkerLayer_ConstructProps extends Layer_ConstructProps {
     selectionMode?: Gtk.SelectionMode
     accessibleRole?: Gtk.AccessibleRole
 }
-export class MarkerLayer {
+class MarkerLayer {
     /* Properties of Shumate-0.0.Shumate.MarkerLayer */
     selectionMode: Gtk.SelectionMode
     /* Properties of Shumate-0.0.Shumate.Layer */
@@ -4141,7 +4141,7 @@ export class MarkerLayer {
 export interface MemoryCache_ConstructProps extends GObject.Object_ConstructProps {
     sizeLimit?: number
 }
-export class MemoryCache {
+class MemoryCache {
     /* Properties of Shumate-0.0.Shumate.MemoryCache */
     sizeLimit: number
     /* Fields of Shumate-0.0.Shumate.MemoryCache */
@@ -4212,7 +4212,7 @@ export interface PathLayer_ConstructProps extends Layer_ConstructProps {
     strokeWidth?: number
     accessibleRole?: Gtk.AccessibleRole
 }
-export class PathLayer {
+class PathLayer {
     /* Properties of Shumate-0.0.Shumate.PathLayer */
     closed: boolean
     fill: boolean
@@ -4793,7 +4793,7 @@ export interface Point_ConstructProps extends Marker_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Point {
+class Point {
     /* Properties of Shumate-0.0.Shumate.Marker */
     child: Gtk.Widget
     draggable: boolean
@@ -5330,7 +5330,7 @@ export class Point {
 export interface RasterRenderer_ConstructProps extends MapSource_ConstructProps {
     dataSource?: DataSource
 }
-export class RasterRenderer {
+class RasterRenderer {
     /* Properties of Shumate-0.0.Shumate.MapSource */
     id: string
     license: string
@@ -5462,7 +5462,7 @@ export interface Scale_ConstructProps extends Gtk.Widget_ConstructProps {
     viewport?: Viewport
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Scale {
+class Scale {
     /* Properties of Shumate-0.0.Shumate.Scale */
     maxWidth: number
     unit: Unit
@@ -5984,7 +5984,7 @@ export interface Tile_ConstructProps extends Gtk.Widget_ConstructProps {
     zoomLevel?: number
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Tile {
+class Tile {
     /* Properties of Shumate-0.0.Shumate.Tile */
     fadeIn: boolean
     size: number
@@ -6536,7 +6536,7 @@ export class Tile {
 export interface TileDownloader_ConstructProps extends DataSource_ConstructProps {
     urlTemplate?: string
 }
-export class TileDownloader {
+class TileDownloader {
     /* Fields of Shumate-0.0.Shumate.DataSource */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -6596,7 +6596,7 @@ export interface VectorRenderer_ConstructProps extends MapSource_ConstructProps 
     dataSource?: DataSource
     styleJson?: string
 }
-export class VectorRenderer {
+class VectorRenderer {
     /* Properties of Shumate-0.0.Shumate.MapSource */
     id: string
     license: string
@@ -6735,7 +6735,7 @@ export interface Viewport_ConstructProps extends GObject.Object_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Viewport {
+class Viewport {
     /* Properties of Shumate-0.0.Shumate.Viewport */
     maxZoomLevel: number
     minZoomLevel: number
@@ -6843,121 +6843,122 @@ export class Viewport {
     static new(): Viewport
     static $gtype: GObject.Type
 }
-export abstract class CompassClass {
+abstract class CompassClass {
     /* Fields of Shumate-0.0.Shumate.CompassClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class CoordinateClass {
+abstract class CoordinateClass {
     /* Fields of Shumate-0.0.Shumate.CoordinateClass */
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
-export abstract class DataSourceClass {
+abstract class DataSourceClass {
     /* Fields of Shumate-0.0.Shumate.DataSourceClass */
     parentClass: GObject.ObjectClass
     getTileDataAsync: (self: DataSource, x: number, y: number, zoomLevel: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getTileDataFinish: (self: DataSource, result: Gio.AsyncResult) => any | null
     static name: string
 }
-export abstract class FileCacheClass {
+abstract class FileCacheClass {
     /* Fields of Shumate-0.0.Shumate.FileCacheClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class LayerClass {
+abstract class LayerClass {
     /* Fields of Shumate-0.0.Shumate.LayerClass */
     parentClass: Gtk.WidgetClass
     getLicense: (self: Layer) => string | null
     getLicenseUri: (self: Layer) => string | null
     static name: string
 }
-export abstract class LicenseClass {
+abstract class LicenseClass {
     /* Fields of Shumate-0.0.Shumate.LicenseClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class LocationInterface {
+abstract class LocationInterface {
     /* Fields of Shumate-0.0.Shumate.LocationInterface */
     getLatitude: (location: Location) => number
     getLongitude: (location: Location) => number
     setLocation: (location: Location, latitude: number, longitude: number) => void
     static name: string
 }
-export abstract class MapClass {
+abstract class MapClass {
     /* Fields of Shumate-0.0.Shumate.MapClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class MapLayerClass {
+abstract class MapLayerClass {
     /* Fields of Shumate-0.0.Shumate.MapLayerClass */
     parentClass: LayerClass
     static name: string
 }
-export abstract class MapSourceClass {
+abstract class MapSourceClass {
     /* Fields of Shumate-0.0.Shumate.MapSourceClass */
     parentClass: GObject.ObjectClass
     fillTileAsync: (self: MapSource, tile: Tile, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     static name: string
 }
-export abstract class MapSourceRegistryClass {
+abstract class MapSourceRegistryClass {
     /* Fields of Shumate-0.0.Shumate.MapSourceRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class MarkerClass {
+abstract class MarkerClass {
     /* Fields of Shumate-0.0.Shumate.MarkerClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class MarkerLayerClass {
+abstract class MarkerLayerClass {
     /* Fields of Shumate-0.0.Shumate.MarkerLayerClass */
     parentClass: LayerClass
     static name: string
 }
-export abstract class MemoryCacheClass {
+abstract class MemoryCacheClass {
     /* Fields of Shumate-0.0.Shumate.MemoryCacheClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PathLayerClass {
+abstract class PathLayerClass {
     /* Fields of Shumate-0.0.Shumate.PathLayerClass */
     parentClass: LayerClass
     static name: string
 }
-export abstract class PointClass {
+abstract class PointClass {
     /* Fields of Shumate-0.0.Shumate.PointClass */
     parentClass: MarkerClass
     static name: string
 }
-export abstract class RasterRendererClass {
+abstract class RasterRendererClass {
     /* Fields of Shumate-0.0.Shumate.RasterRendererClass */
     parentClass: MapSourceClass
     static name: string
 }
-export abstract class ScaleClass {
+abstract class ScaleClass {
     /* Fields of Shumate-0.0.Shumate.ScaleClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class TileClass {
+abstract class TileClass {
     /* Fields of Shumate-0.0.Shumate.TileClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class TileDownloaderClass {
+abstract class TileDownloaderClass {
     /* Fields of Shumate-0.0.Shumate.TileDownloaderClass */
     parentClass: DataSourceClass
     static name: string
 }
-export abstract class VectorRendererClass {
+abstract class VectorRendererClass {
     /* Fields of Shumate-0.0.Shumate.VectorRendererClass */
     parentClass: MapSourceClass
     static name: string
 }
-export abstract class ViewportClass {
+abstract class ViewportClass {
     /* Fields of Shumate-0.0.Shumate.ViewportClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default Shumate

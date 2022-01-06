@@ -3,47 +3,49 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as EDataServer from './EDataServer-1.2';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GData from './GData-0.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
-import type * as Camel from './Camel-1.2';
-import type * as ECal from './ECal-2.0';
-import type * as ICalGLib from './ICalGLib-3.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type EDataServer from './EDataServer-1.2';
+import type libxml2 from './libxml2-2.0';
+import type GData from './GData-0.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
+import type Camel from './Camel-1.2';
+import type ECal from './ECal-2.0';
+import type ICalGLib from './ICalGLib-3.0';
 
-export enum CredentialsPrompterPromptFlags {
+export namespace EDataServerUI {
+
+enum CredentialsPrompterPromptFlags {
     NONE,
     ALLOW_SOURCE_SAVE,
     ALLOW_STORED_CREDENTIALS,
 }
-export function buffer_tagger_connect(textview: Gtk.TextView): void
-export function buffer_tagger_disconnect(textview: Gtk.TextView): void
-export function buffer_tagger_update_tags(textview: Gtk.TextView): void
-export function trust_prompt_describe_certificate_errors(flags: Gio.TlsCertificateFlags): string
-export function trust_prompt_run_for_source(parent: Gtk.Window, source: EDataServer.Source, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, error_text: string | null, allow_source_save: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function trust_prompt_run_for_source_finish(source: EDataServer.Source, result: Gio.AsyncResult, response: EDataServer.TrustPromptResponse): boolean
-export function trust_prompt_run_modal(parent: Gtk.Window, source_extension: string | null, source_display_name: string | null, host: string, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, error_text?: string | null): EDataServer.TrustPromptResponse
-export interface CredentialsPrompterLoopPromptFunc {
+function buffer_tagger_connect(textview: Gtk.TextView): void
+function buffer_tagger_disconnect(textview: Gtk.TextView): void
+function buffer_tagger_update_tags(textview: Gtk.TextView): void
+function trust_prompt_describe_certificate_errors(flags: Gio.TlsCertificateFlags): string
+function trust_prompt_run_for_source(parent: Gtk.Window, source: EDataServer.Source, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, error_text: string | null, allow_source_save: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function trust_prompt_run_for_source_finish(source: EDataServer.Source, result: Gio.AsyncResult, response: EDataServer.TrustPromptResponse): boolean
+function trust_prompt_run_modal(parent: Gtk.Window, source_extension: string | null, source_display_name: string | null, host: string, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, error_text?: string | null): EDataServer.TrustPromptResponse
+interface CredentialsPrompterLoopPromptFunc {
     (prompter: CredentialsPrompter, source: EDataServer.Source, credentials: EDataServer.NamedParameters, cancellable?: Gio.Cancellable | null): boolean
 }
 export interface CellRendererColor_ConstructProps extends Gtk.CellRenderer_ConstructProps {
     rgba?: Gdk.RGBA
 }
-export class CellRendererColor {
+class CellRendererColor {
     /* Properties of EDataServerUI-1.2.EDataServerUI.CellRendererColor */
     rgba: Gdk.RGBA
     /* Properties of Gtk-3.0.Gtk.CellRenderer */
@@ -198,7 +200,7 @@ export interface CredentialsPrompter_ConstructProps extends GObject.Object_Const
     auto_prompt?: boolean
     registry?: EDataServer.SourceRegistry
 }
-export class CredentialsPrompter {
+class CredentialsPrompter {
     /* Properties of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
     auto_prompt: boolean
     readonly provider: EDataServer.SourceCredentialsProvider
@@ -287,7 +289,7 @@ export class CredentialsPrompter {
 }
 export interface CredentialsPrompterImpl_ConstructProps extends EDataServer.Extension_ConstructProps {
 }
-export class CredentialsPrompterImpl {
+class CredentialsPrompterImpl {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImpl */
     parent: EDataServer.Extension
     priv: CredentialsPrompterImplPrivate
@@ -353,7 +355,7 @@ export class CredentialsPrompterImpl {
 }
 export interface CredentialsPrompterImplOAuth2_ConstructProps extends CredentialsPrompterImpl_ConstructProps {
 }
-export class CredentialsPrompterImplOAuth2 {
+class CredentialsPrompterImplOAuth2 {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplOAuth2 */
     parent: CredentialsPrompterImpl
     priv: CredentialsPrompterImplOAuth2Private
@@ -421,7 +423,7 @@ export class CredentialsPrompterImplOAuth2 {
 }
 export interface CredentialsPrompterImplPassword_ConstructProps extends CredentialsPrompterImpl_ConstructProps {
 }
-export class CredentialsPrompterImplPassword {
+class CredentialsPrompterImplPassword {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplPassword */
     parent: CredentialsPrompterImpl
     priv: CredentialsPrompterImplPasswordPrivate
@@ -491,7 +493,7 @@ export interface RemindersWidget_ConstructProps extends Gtk.Grid_ConstructProps 
     watcher?: ECal.ReminderWatcher
     orientation?: Gtk.Orientation
 }
-export class RemindersWidget {
+class RemindersWidget {
     /* Properties of EDataServerUI-1.2.EDataServerUI.RemindersWidget */
     readonly empty: boolean
     /* Properties of Gtk-3.0.Gtk.Grid */
@@ -1365,7 +1367,7 @@ export class RemindersWidget {
 export interface WebDAVDiscoverContent_ConstructProps extends Gtk.Grid_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class WebDAVDiscoverContent {
+class WebDAVDiscoverContent {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -2226,7 +2228,7 @@ export class WebDAVDiscoverContent {
 }
 export interface WebDAVDiscoverDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class WebDAVDiscoverDialog {
+class WebDAVDiscoverDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -3287,21 +3289,21 @@ export class WebDAVDiscoverDialog {
     static new(type: Gtk.WindowType): WebDAVDiscoverDialog
     static $gtype: GObject.Type
 }
-export abstract class CellRendererColorClass {
+abstract class CellRendererColorClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CellRendererColorClass */
     parent_class: Gtk.CellRendererClass
     static name: string
 }
-export class CellRendererColorPrivate {
+class CellRendererColorPrivate {
     static name: string
 }
-export abstract class CredentialsPrompterClass {
+abstract class CredentialsPrompterClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterClass */
     parent_class: GObject.ObjectClass
     get_dialog_parent: (prompter: CredentialsPrompter) => Gtk.Window
     static name: string
 }
-export abstract class CredentialsPrompterImplClass {
+abstract class CredentialsPrompterImplClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplClass */
     parent_class: EDataServer.ExtensionClass
     authentication_methods: string
@@ -3310,44 +3312,46 @@ export abstract class CredentialsPrompterImplClass {
     prompt_finished: (prompter_impl: CredentialsPrompterImpl, prompt_id: object | null, credentials: EDataServer.NamedParameters) => void
     static name: string
 }
-export abstract class CredentialsPrompterImplOAuth2Class {
+abstract class CredentialsPrompterImplOAuth2Class {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplOAuth2Class */
     parent_class: CredentialsPrompterImplClass
     static name: string
 }
-export class CredentialsPrompterImplOAuth2Private {
+class CredentialsPrompterImplOAuth2Private {
     static name: string
 }
-export abstract class CredentialsPrompterImplPasswordClass {
+abstract class CredentialsPrompterImplPasswordClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplPasswordClass */
     parent_class: CredentialsPrompterImplClass
     static name: string
 }
-export class CredentialsPrompterImplPasswordPrivate {
+class CredentialsPrompterImplPasswordPrivate {
     static name: string
 }
-export class CredentialsPrompterImplPrivate {
+class CredentialsPrompterImplPrivate {
     static name: string
 }
-export class CredentialsPrompterPrivate {
+class CredentialsPrompterPrivate {
     static name: string
 }
-export abstract class RemindersWidgetClass {
+abstract class RemindersWidgetClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.RemindersWidgetClass */
     changed: (reminders: RemindersWidget) => void
     activated: (reminders: RemindersWidget, rd: ECal.ReminderData) => boolean
     static name: string
 }
-export class RemindersWidgetPrivate {
+class RemindersWidgetPrivate {
     static name: string
 }
-export abstract class WebDAVDiscoverContentClass {
+abstract class WebDAVDiscoverContentClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverContentClass */
     parent_class: Gtk.GridClass
     static name: string
 }
-export abstract class WebDAVDiscoverDialogClass {
+abstract class WebDAVDiscoverDialogClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.WebDAVDiscoverDialogClass */
     parent_class: Gtk.DialogClass
     static name: string
 }
+}
+export default EDataServerUI

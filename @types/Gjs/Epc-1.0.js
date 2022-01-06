@@ -1,2 +1,1 @@
-imports.gi.versions.Epc = '1.0'
-module.exports = imports.gi.Epc
+export {default as default} from 'gi://Epc?version=1.0';

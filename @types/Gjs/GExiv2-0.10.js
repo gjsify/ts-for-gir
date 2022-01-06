@@ -1,2 +1,1 @@
-imports.gi.versions.GExiv2 = '0.10'
-module.exports = imports.gi.GExiv2
+export {default as default} from 'gi://GExiv2?version=0.10';

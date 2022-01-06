@@ -17,22 +17,22 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { GConf } from './GConf-2.0';
 
-export declare namespace PanelApplet {
+declare namespace PanelApplet {
 
-export enum AppletOrient {
+enum AppletOrient {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum AppletFlags {
+enum AppletFlags {
     FLAGS_NONE,
     EXPAND_MAJOR,
     EXPAND_MINOR,
     HAS_HANDLE,
 }
 export const APPLET_FLAGS_ALL: number
-export interface AppletFactoryCallback {
+interface AppletFactoryCallback {
     (applet: Applet, iid: string): boolean
 }
 export interface Applet_ConstructProps extends Gtk.EventBox_ConstructProps {
@@ -44,7 +44,7 @@ export interface Applet_ConstructProps extends Gtk.EventBox_ConstructProps {
     size?: number
     sizeHints?: object
 }
-export class Applet {
+class Applet {
     /* Properties of PanelApplet-4.0.PanelApplet.Applet */
     flags: number
     lockedDown: boolean
@@ -1127,7 +1127,7 @@ export class Applet {
     static factoryMain(factoryId: string, appletType: GObject.Type, callback: AppletFactoryCallback): number
     static $gtype: GObject.Type
 }
-export abstract class AppletClass {
+abstract class AppletClass {
     /* Fields of PanelApplet-4.0.PanelApplet.AppletClass */
     eventBoxClass: Gtk.EventBoxClass
     changeOrient: (applet: Applet, orient: AppletOrient) => void
@@ -1136,7 +1136,8 @@ export abstract class AppletClass {
     moveFocusOutOfApplet: (frame: Applet, direction: Gtk.DirectionType) => void
     static name: string
 }
-export class AppletPrivate {
+class AppletPrivate {
     static name: string
 }
 }
+export default PanelApplet

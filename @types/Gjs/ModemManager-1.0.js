@@ -1,2 +1,1 @@
-imports.gi.versions.ModemManager = '1.0'
-module.exports = imports.gi.ModemManager
+export {default as default} from 'gi://ModemManager?version=1.0';

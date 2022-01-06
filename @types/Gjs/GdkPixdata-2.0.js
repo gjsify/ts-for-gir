@@ -1,2 +1,1 @@
-imports.gi.versions.GdkPixdata = '2.0'
-module.exports = imports.gi.GdkPixdata
+export {default as default} from 'gi://GdkPixdata?version=2.0';

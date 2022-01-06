@@ -187,14 +187,16 @@ export class TemplateProcessor {
         return destPath
     }
 
-    protected async render(templateString: string, additionalData: any = {}): Promise<string> {
+    protected async render(templateString: string, additionalData: Partial<ejs.Options> = {}): Promise<string> {
         try {
-            const renderedCode = await ejs.render(templateString, {
-                async: true,
-                ...this.config,
-                ...this.data,
-                ...additionalData,
-            })
+            const renderedCode = await Promise.resolve(
+                ejs.render(templateString, {
+                    async: true,
+                    ...this.config,
+                    ...this.data,
+                    ...additionalData,
+                }),
+            )
             return renderedCode
         } catch (error) {
             this.log.error(error)

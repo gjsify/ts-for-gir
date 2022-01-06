@@ -1,2 +1,1 @@
-imports.gi.versions.Gxps = '1.0'
-module.exports = imports.gi.Gxps
+export {default as default} from 'gi://Gxps?version=1.0';

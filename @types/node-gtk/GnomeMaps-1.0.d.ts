@@ -21,20 +21,20 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace GnomeMaps {
+declare namespace GnomeMaps {
 
-export enum ContactStoreState {
+enum ContactStoreState {
     INITIAL,
     LOADING,
     LOADED,
 }
-export function osmFinalize(): void
-export function osmInit(): void
-export function osmParse(content: string, length: number): OSMObject
-export interface ContactGeocodeCallback {
+function osmFinalize(): void
+function osmInit(): void
+function osmParse(content: string, length: number): OSMObject
+interface ContactGeocodeCallback {
     (contact: Contact): void
 }
-export interface ContactStoreLookupCallback {
+interface ContactStoreLookupCallback {
     (contact: Contact): void
 }
 export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
@@ -42,7 +42,7 @@ export interface Contact_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
     name?: string
 }
-export class Contact {
+class Contact {
     /* Properties of GnomeMaps-1.0.GnomeMaps.Contact */
     readonly boundingBox: Champlain.BoundingBox
     icon: Gio.Icon
@@ -121,7 +121,7 @@ export class Contact {
 }
 export interface ContactStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ContactStore {
+class ContactStore {
     /* Properties of GnomeMaps-1.0.GnomeMaps.ContactStore */
     readonly state: ContactStoreState
     /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStore */
@@ -183,7 +183,7 @@ export class ContactStore {
 export interface FileTileSource_ConstructProps extends Champlain.TileSource_ConstructProps {
     path?: string
 }
-export class FileTileSource {
+class FileTileSource {
     /* Properties of GnomeMaps-1.0.GnomeMaps.FileTileSource */
     readonly maxZoom: number
     readonly minZoom: number
@@ -360,7 +360,7 @@ export interface OSMChangeset_ConstructProps extends GObject.Object_ConstructPro
     comment?: string
     createdBy?: string
 }
-export class OSMChangeset {
+class OSMChangeset {
     /* Properties of GnomeMaps-1.0.GnomeMaps.OSMChangeset */
     comment: string
     createdBy: string
@@ -427,7 +427,7 @@ export interface OSMNode_ConstructProps extends OSMObject_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class OSMNode {
+class OSMNode {
     /* Properties of GnomeMaps-1.0.GnomeMaps.OSMNode */
     latitude: number
     longitude: number
@@ -514,7 +514,7 @@ export class OSMNode {
 }
 export interface OSMOAuthProxyCall_ConstructProps extends Rest.OAuthProxyCall_ConstructProps {
 }
-export class OSMOAuthProxyCall {
+class OSMOAuthProxyCall {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCall */
     parent: Rest.OAuthProxyCall
     priv: OSMOAuthProxyCallPrivate
@@ -595,7 +595,7 @@ export interface OSMObject_ConstructProps extends GObject.Object_ConstructProps 
     id?: number
     version?: number
 }
-export class OSMObject {
+class OSMObject {
     /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
@@ -666,7 +666,7 @@ export class OSMObject {
 }
 export interface OSMRelation_ConstructProps extends OSMObject_ConstructProps {
 }
-export class OSMRelation {
+class OSMRelation {
     /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
@@ -742,7 +742,7 @@ export class OSMRelation {
 }
 export interface OSMWay_ConstructProps extends OSMObject_ConstructProps {
 }
-export class OSMWay {
+class OSMWay {
     /* Properties of GnomeMaps-1.0.GnomeMaps.OSMObject */
     changeset: number
     id: number
@@ -816,107 +816,108 @@ export class OSMWay {
     static new(id: number, version: number, changeset: number): OSMWay
     static $gtype: GObject.Type
 }
-export abstract class ContactClass {
+abstract class ContactClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.ContactClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ContactPrivate {
+class ContactPrivate {
     static name: string
 }
-export abstract class ContactStoreClass {
+abstract class ContactStoreClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.ContactStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ContactStorePrivate {
+class ContactStorePrivate {
     static name: string
 }
-export abstract class FileTileSourceClass {
+abstract class FileTileSourceClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.FileTileSourceClass */
     parentClass: Champlain.TileSourceClass
     static name: string
 }
-export class FileTileSourcePrivate {
+class FileTileSourcePrivate {
     static name: string
 }
-export abstract class OSMChangesetClass {
+abstract class OSMChangesetClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMChangesetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class OSMChangesetPrivate {
+class OSMChangesetPrivate {
     static name: string
 }
-export abstract class OSMNodeClass {
+abstract class OSMNodeClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMNodeClass */
     parentClass: OSMObjectClass
     static name: string
 }
-export class OSMNodePrivate {
+class OSMNodePrivate {
     static name: string
 }
-export abstract class OSMOAuthProxyCallClass {
+abstract class OSMOAuthProxyCallClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMOAuthProxyCallClass */
     parentClass: Rest.OAuthProxyCallClass
     static name: string
 }
-export class OSMOAuthProxyCallPrivate {
+class OSMOAuthProxyCallPrivate {
     static name: string
 }
-export abstract class OSMObjectClass {
+abstract class OSMObjectClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMObjectClass */
     parentClass: GObject.ObjectClass
     getXmlTagName: () => string
     static name: string
 }
-export class OSMObjectPrivate {
+class OSMObjectPrivate {
     static name: string
 }
-export abstract class OSMRelationClass {
+abstract class OSMRelationClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMRelationClass */
     parentClass: OSMObjectClass
     static name: string
 }
-export class OSMRelationPrivate {
+class OSMRelationPrivate {
     static name: string
 }
-export abstract class OSMWayClass {
+abstract class OSMWayClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps.OSMWayClass */
     parentClass: OSMObjectClass
     static name: string
 }
-export class OSMWayPrivate {
+class OSMWayPrivate {
     static name: string
 }
-export class _ContactClass {
+class _ContactClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._ContactClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class _ContactStoreClass {
+class _ContactStoreClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._ContactStoreClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class _OSMChangesetClass {
+class _OSMChangesetClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._OSMChangesetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class _OSMNodeClass {
+class _OSMNodeClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._OSMNodeClass */
     parentClass: OSMObjectClass
     static name: string
 }
-export class _OSMRelationClass {
+class _OSMRelationClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._OSMRelationClass */
     parentClass: OSMObjectClass
     static name: string
 }
-export class _OSMWayClass {
+class _OSMWayClass {
     /* Fields of GnomeMaps-1.0.GnomeMaps._OSMWayClass */
     parentClass: OSMObjectClass
     static name: string
 }
 }
+export default GnomeMaps

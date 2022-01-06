@@ -16,9 +16,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Amtk {
+declare namespace Amtk {
 
-export enum FactoryFlags {
+enum FactoryFlags {
     FLAGS_NONE,
     IGNORE_GACTION,
     IGNORE_ICON,
@@ -28,18 +28,18 @@ export enum FactoryFlags {
     IGNORE_ACCELS_FOR_DOC,
     IGNORE_ACCELS_FOR_APP,
 }
-export function actionMapAddActionEntriesCheckDups(actionMap: Gio.ActionMap, entries: Gio.ActionEntry[], userData?: object | null): void
-export function finalize(): void
-export function init(): void
-export function menuItemGetLongDescription(menuItem: Gtk.MenuItem): string | null
-export function menuItemSetIconName(item: Gtk.MenuItem, iconName: string): void
-export function menuItemSetLongDescription(menuItem: Gtk.MenuItem, longDescription?: string | null): void
-export function utilsBindGActionToGtkAction(gActionMap: Gio.ActionMap, detailedGActionNameWithoutPrefix: string, gtkActionGroup: Gtk.ActionGroup, gtkActionName: string): void
-export function utilsCreateGtkAction(gActionMap: Gio.ActionMap, detailedGActionNameWithPrefix: string, gtkActionGroup: Gtk.ActionGroup, gtkActionName: string): void
-export function utilsRecentChooserMenuGetItemUri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
+function actionMapAddActionEntriesCheckDups(actionMap: Gio.ActionMap, entries: Gio.ActionEntry[], userData?: object | null): void
+function finalize(): void
+function init(): void
+function menuItemGetLongDescription(menuItem: Gtk.MenuItem): string | null
+function menuItemSetIconName(item: Gtk.MenuItem, iconName: string): void
+function menuItemSetLongDescription(menuItem: Gtk.MenuItem, longDescription?: string | null): void
+function utilsBindGActionToGtkAction(gActionMap: Gio.ActionMap, detailedGActionNameWithoutPrefix: string, gtkActionGroup: Gtk.ActionGroup, gtkActionName: string): void
+function utilsCreateGtkAction(gActionMap: Gio.ActionMap, detailedGActionNameWithPrefix: string, gtkActionGroup: Gtk.ActionGroup, gtkActionName: string): void
+function utilsRecentChooserMenuGetItemUri(menu: Gtk.RecentChooserMenu, item: Gtk.MenuItem): string
 export interface ActionInfoCentralStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoCentralStore {
+class ActionInfoCentralStore {
     /* Fields of Amtk-4.Amtk.ActionInfoCentralStore */
     parent: GObject.Object
     priv: ActionInfoCentralStorePrivate
@@ -91,7 +91,7 @@ export class ActionInfoCentralStore {
 }
 export interface ActionInfoStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ActionInfoStore {
+class ActionInfoStore {
     /* Fields of Amtk-4.Amtk.ActionInfoStore */
     parent: GObject.Object
     priv: ActionInfoStorePrivate
@@ -148,7 +148,7 @@ export interface ApplicationWindow_ConstructProps extends GObject.Object_Constru
     applicationWindow?: Gtk.ApplicationWindow
     statusbar?: Gtk.Statusbar
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Amtk-4.Amtk.ApplicationWindow */
     statusbar: Gtk.Statusbar
     /* Fields of Amtk-4.Amtk.ApplicationWindow */
@@ -215,7 +215,7 @@ export interface Factory_ConstructProps extends GObject.Object_ConstructProps {
     application?: Gtk.Application
     defaultFlags?: FactoryFlags
 }
-export class Factory {
+class Factory {
     /* Properties of Amtk-4.Amtk.Factory */
     defaultFlags: FactoryFlags
     /* Fields of Amtk-4.Amtk.Factory */
@@ -286,7 +286,7 @@ export class Factory {
 export interface MenuShell_ConstructProps extends GObject.Object_ConstructProps {
     menuShell?: Gtk.MenuShell
 }
-export class MenuShell {
+class MenuShell {
     /* Fields of Amtk-4.Amtk.MenuShell */
     parent: GObject.Object
     priv: MenuShellPrivate
@@ -347,7 +347,7 @@ export class MenuShell {
     static getFromGtkMenuShell(gtkMenuShell: Gtk.MenuShell): MenuShell
     static $gtype: GObject.Type
 }
-export class ActionInfo {
+class ActionInfo {
     /* Methods of Amtk-4.Amtk.ActionInfo */
     copy(): ActionInfo
     getAccels(): string[]
@@ -371,16 +371,16 @@ export class ActionInfo {
     static new(): ActionInfo
     static newFromEntry(infoEntry: ActionInfoEntry, translationDomain?: string | null): ActionInfo
 }
-export abstract class ActionInfoCentralStoreClass {
+abstract class ActionInfoCentralStoreClass {
     /* Fields of Amtk-4.Amtk.ActionInfoCentralStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoCentralStorePrivate {
+class ActionInfoCentralStorePrivate {
     static name: string
 }
-export class ActionInfoEntry {
+class ActionInfoEntry {
     /* Fields of Amtk-4.Amtk.ActionInfoEntry */
     actionName: string
     iconName: string
@@ -389,34 +389,34 @@ export class ActionInfoEntry {
     tooltip: string
     static name: string
 }
-export abstract class ActionInfoStoreClass {
+abstract class ActionInfoStoreClass {
     /* Fields of Amtk-4.Amtk.ActionInfoStoreClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ActionInfoStorePrivate {
+class ActionInfoStorePrivate {
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Amtk-4.Amtk.ApplicationWindowClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ApplicationWindowPrivate {
+class ApplicationWindowPrivate {
     static name: string
 }
-export abstract class FactoryClass {
+abstract class FactoryClass {
     /* Fields of Amtk-4.Amtk.FactoryClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class FactoryPrivate {
+class FactoryPrivate {
     static name: string
 }
-export abstract class MenuShellClass {
+abstract class MenuShellClass {
     /* Fields of Amtk-4.Amtk.MenuShellClass */
     parentClass: GObject.ObjectClass
     menuItemSelected: (amtkMenuShell: MenuShell, menuItem: Gtk.MenuItem) => void
@@ -424,7 +424,8 @@ export abstract class MenuShellClass {
     padding: object[]
     static name: string
 }
-export class MenuShellPrivate {
+class MenuShellPrivate {
     static name: string
 }
 }
+export default Amtk

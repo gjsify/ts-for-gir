@@ -3,23 +3,25 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as WebKit2 from './WebKit2-4.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as JavaScriptCore from './JavaScriptCore-4.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type WebKit2 from './WebKit2-4.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type JavaScriptCore from './JavaScriptCore-4.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum LinkType {
+export namespace Devhelp {
+
+enum LinkType {
     BOOK,
     PAGE,
     KEYWORD,
@@ -31,17 +33,17 @@ export enum LinkType {
     PROPERTY,
     SIGNAL,
 }
-export enum LinkFlags {
+enum LinkFlags {
     NONE,
     DEPRECATED,
 }
-export function application_window_bind_sidebar_and_notebook(sidebar: Sidebar, notebook: Notebook): void
-export function finalize(): void
-export function init(): void
-export function link_type_to_string(link_type: LinkType): string
+function application_window_bind_sidebar_and_notebook(sidebar: Sidebar, notebook: Notebook): void
+function finalize(): void
+function init(): void
+function link_type_to_string(link_type: LinkType): string
 export interface AssistantView_ConstructProps extends WebKit2.WebView_ConstructProps {
 }
-export class AssistantView {
+class AssistantView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
     camera_capture_state: WebKit2.MediaCaptureState
     display_capture_state: WebKit2.MediaCaptureState
@@ -1090,7 +1092,7 @@ export class AssistantView {
 }
 export interface Book_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Book {
+class Book {
     /* Fields of Devhelp-3.0.Devhelp.Book */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1159,7 +1161,7 @@ export class Book {
 }
 export interface BookList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookList {
+class BookList {
     /* Fields of Devhelp-3.0.Devhelp.BookList */
     parent: GObject.Object
     priv: BookListPrivate
@@ -1228,7 +1230,7 @@ export class BookList {
 }
 export interface BookListBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookListBuilder {
+class BookListBuilder {
     /* Fields of Devhelp-3.0.Devhelp.BookListBuilder */
     parent: GObject.Object
     priv: BookListBuilderPrivate
@@ -1287,7 +1289,7 @@ export class BookListBuilder {
 export interface BookListDirectory_ConstructProps extends BookList_ConstructProps {
     directory?: Gio.File
 }
-export class BookListDirectory {
+class BookListDirectory {
     /* Fields of Devhelp-3.0.Devhelp.BookListDirectory */
     parent: BookList
     priv: BookListDirectoryPrivate
@@ -1358,7 +1360,7 @@ export class BookListDirectory {
 }
 export interface BookManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookManager {
+class BookManager {
     /* Fields of Devhelp-3.0.Devhelp.BookManager */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1417,7 +1419,7 @@ export interface BookTree_ConstructProps extends Gtk.TreeView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class BookTree {
+class BookTree {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -2466,7 +2468,7 @@ export class BookTree {
 }
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Completion {
+class Completion {
     /* Fields of Devhelp-3.0.Devhelp.Completion */
     parent: GObject.Object
     priv: CompletionPrivate
@@ -2524,7 +2526,7 @@ export class Completion {
 }
 export interface KeywordModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeywordModel {
+class KeywordModel {
     /* Fields of Devhelp-3.0.Devhelp.KeywordModel */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2641,7 +2643,7 @@ export class KeywordModel {
 export interface Notebook_ConstructProps extends Gtk.Notebook_ConstructProps {
     profile?: Profile
 }
-export class Notebook {
+class Notebook {
     /* Properties of Gtk-3.0.Gtk.Notebook */
     enable_popup: boolean
     group_name: string
@@ -3564,7 +3566,7 @@ export class Notebook {
 }
 export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Profile {
+class Profile {
     /* Fields of Devhelp-3.0.Devhelp.Profile */
     parent: GObject.Object
     priv: ProfilePrivate
@@ -3620,7 +3622,7 @@ export class Profile {
 }
 export interface ProfileBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ProfileBuilder {
+class ProfileBuilder {
     /* Fields of Devhelp-3.0.Devhelp.ProfileBuilder */
     parent: GObject.Object
     priv: ProfileBuilderPrivate
@@ -3678,7 +3680,7 @@ export class ProfileBuilder {
 export interface SearchBar_ConstructProps extends Gtk.SearchBar_ConstructProps {
     notebook?: Notebook
 }
-export class SearchBar {
+class SearchBar {
     /* Properties of Gtk-3.0.Gtk.SearchBar */
     search_mode_enabled: boolean
     show_close_button: boolean
@@ -4511,7 +4513,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     use_system_fonts?: boolean
     variable_font?: string
 }
-export class Settings {
+class Settings {
     /* Properties of Devhelp-3.0.Devhelp.Settings */
     fixed_font: string
     group_books_by_language: boolean
@@ -4604,7 +4606,7 @@ export class Settings {
 }
 export interface SettingsBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SettingsBuilder {
+class SettingsBuilder {
     /* Fields of Devhelp-3.0.Devhelp.SettingsBuilder */
     parent: GObject.Object
     priv: SettingsBuilderPrivate
@@ -4663,7 +4665,7 @@ export interface Sidebar_ConstructProps extends Gtk.Grid_ConstructProps {
     profile?: Profile
     orientation?: Gtk.Orientation
 }
-export class Sidebar {
+class Sidebar {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -5527,7 +5529,7 @@ export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     web_view?: WebView
     orientation?: Gtk.Orientation
 }
-export class Tab {
+class Tab {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -6383,7 +6385,7 @@ export interface TabLabel_ConstructProps extends Gtk.Grid_ConstructProps {
     tab?: Tab
     orientation?: Gtk.Orientation
 }
-export class TabLabel {
+class TabLabel {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baseline_row: number
     column_homogeneous: boolean
@@ -7238,7 +7240,7 @@ export class TabLabel {
 export interface WebView_ConstructProps extends WebKit2.WebView_ConstructProps {
     profile?: Profile
 }
-export class WebView {
+class WebView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
     camera_capture_state: WebKit2.MediaCaptureState
     display_capture_state: WebKit2.MediaCaptureState
@@ -8299,28 +8301,28 @@ export class WebView {
     static new(): WebView
     static $gtype: GObject.Type
 }
-export abstract class AssistantViewClass {
+abstract class AssistantViewClass {
     /* Fields of Devhelp-3.0.Devhelp.AssistantViewClass */
     parent_class: WebKit2.WebViewClass
     padding: object[]
     static name: string
 }
-export abstract class BookClass {
+abstract class BookClass {
     /* Fields of Devhelp-3.0.Devhelp.BookClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class BookListBuilderClass {
+abstract class BookListBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListBuilderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class BookListBuilderPrivate {
+class BookListBuilderPrivate {
     static name: string
 }
-export abstract class BookListClass {
+abstract class BookListClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListClass */
     parent_class: GObject.ObjectClass
     add_book: (book_list: BookList, book: Book) => void
@@ -8328,46 +8330,46 @@ export abstract class BookListClass {
     get_books: (book_list: BookList) => Book[]
     static name: string
 }
-export abstract class BookListDirectoryClass {
+abstract class BookListDirectoryClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListDirectoryClass */
     parent_class: BookListClass
     padding: object[]
     static name: string
 }
-export class BookListDirectoryPrivate {
+class BookListDirectoryPrivate {
     static name: string
 }
-export class BookListPrivate {
+class BookListPrivate {
     static name: string
 }
-export abstract class BookManagerClass {
+abstract class BookManagerClass {
     /* Fields of Devhelp-3.0.Devhelp.BookManagerClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class BookTreeClass {
+abstract class BookTreeClass {
     /* Fields of Devhelp-3.0.Devhelp.BookTreeClass */
     parent_class: Gtk.TreeViewClass
     padding: object[]
     static name: string
 }
-export abstract class CompletionClass {
+abstract class CompletionClass {
     /* Fields of Devhelp-3.0.Devhelp.CompletionClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class CompletionPrivate {
+class CompletionPrivate {
     static name: string
 }
-export abstract class KeywordModelClass {
+abstract class KeywordModelClass {
     /* Fields of Devhelp-3.0.Devhelp.KeywordModelClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class Link {
+class Link {
     /* Methods of Devhelp-3.0.Devhelp.Link */
     belongs_to_page(page_id: string): boolean
     compare(b: Link): number
@@ -8388,52 +8390,52 @@ export class Link {
     static new(type: LinkType, book_link: Link, name: string, relative_url: string): Link
     static new_book(base_path: string, book_id: string, book_title: string, relative_url: string): Link
 }
-export abstract class NotebookClass {
+abstract class NotebookClass {
     /* Fields of Devhelp-3.0.Devhelp.NotebookClass */
     parent_class: Gtk.NotebookClass
     padding: object[]
     static name: string
 }
-export class NotebookPrivate {
+class NotebookPrivate {
     static name: string
 }
-export abstract class ProfileBuilderClass {
+abstract class ProfileBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.ProfileBuilderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ProfileBuilderPrivate {
+class ProfileBuilderPrivate {
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of Devhelp-3.0.Devhelp.ProfileClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ProfilePrivate {
+class ProfilePrivate {
     static name: string
 }
-export abstract class SearchBarClass {
+abstract class SearchBarClass {
     /* Fields of Devhelp-3.0.Devhelp.SearchBarClass */
     parent_class: Gtk.SearchBarClass
     padding: object[]
     static name: string
 }
-export class SearchBarPrivate {
+class SearchBarPrivate {
     static name: string
 }
-export abstract class SettingsBuilderClass {
+abstract class SettingsBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.SettingsBuilderClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class SettingsBuilderPrivate {
+class SettingsBuilderPrivate {
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of Devhelp-3.0.Devhelp.SettingsClass */
     parent: GObject.ObjectClass
     books_disabled_changed: (settings: Settings) => void
@@ -8441,41 +8443,43 @@ export abstract class SettingsClass {
     padding: object[]
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export abstract class SidebarClass {
+abstract class SidebarClass {
     /* Fields of Devhelp-3.0.Devhelp.SidebarClass */
     parent_class: Gtk.GridClass
     link_selected: (sidebar: Sidebar, link: Link) => void
     padding: object[]
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Devhelp-3.0.Devhelp.TabClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export abstract class TabLabelClass {
+abstract class TabLabelClass {
     /* Fields of Devhelp-3.0.Devhelp.TabLabelClass */
     parent_class: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class TabLabelPrivate {
+class TabLabelPrivate {
     static name: string
 }
-export class TabPrivate {
+class TabPrivate {
     static name: string
 }
-export abstract class WebViewClass {
+abstract class WebViewClass {
     /* Fields of Devhelp-3.0.Devhelp.WebViewClass */
     parent_class: WebKit2.WebViewClass
     open_new_tab: (view: WebView, uri: string) => void
     padding: object[]
     static name: string
 }
-export class WebViewPrivate {
+class WebViewPrivate {
     static name: string
 }
+}
+export default Devhelp

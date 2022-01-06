@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-0.10';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GstBase from './GstBase-0.10';
-import type * as Gst from './Gst-0.10';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstInterfaces from './GstInterfaces-0.10';
+import type GstVideo from './GstVideo-0.10';
+import type libxml2 from './libxml2-2.0';
+import type GstBase from './GstBase-0.10';
+import type Gst from './Gst-0.10';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstInterfaces from './GstInterfaces-0.10';
 // WARN: Dependency not found: 'GstAudio-0.10'
-import type * as Clutter from './Clutter-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Atk from './Atk-1.0';
+import type Clutter from './Clutter-1.0';
+import type cairo from './cairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Cogl from './Cogl-1.0';
+import type Atk from './Atk-1.0';
 
-export enum BufferingMode {
+export namespace ClutterGst {
+
+enum BufferingMode {
     STREAM,
     DOWNLOAD,
 }
-export enum SeekFlags {
+enum SeekFlags {
     NONE,
     ACCURATE,
 }
@@ -37,10 +39,10 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function player_class_init(object_class: GObject.ObjectClass): void
-export class Player {
+function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+function player_class_init(object_class: GObject.ObjectClass): void
+class Player {
     /* Properties of ClutterGst-1.0.ClutterGst.Player */
     audio_stream: number
     readonly audio_streams: object
@@ -130,7 +132,7 @@ export class Player {
     /* Static methods and pseudo-constructors */
     static class_init(object_class: GObject.ObjectClass): void
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     update_priority: number
@@ -161,7 +163,7 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     subtitle_track?: number
     user_agent?: string
 }
-export class VideoTexture {
+class VideoTexture {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoTexture */
     pixel_aspect_ratio: any
     /* Properties of Clutter-1.0.Clutter.Texture */
@@ -1071,7 +1073,7 @@ export class VideoTexture {
     static class_init(object_class: GObject.ObjectClass): void
     static $gtype: GObject.Type
 }
-export abstract class PlayerIface {
+abstract class PlayerIface {
     /* Fields of ClutterGst-1.0.ClutterGst.PlayerIface */
     get_pipeline: (player: Player) => Gst.Element
     get_user_agent: (player: Player) => string
@@ -1091,18 +1093,20 @@ export abstract class PlayerIface {
     download_buffering: (player: Player, start: number, stop: number) => void
     static name: string
 }
-export class PlayerIfacePrivate {
+class PlayerIfacePrivate {
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
-export abstract class VideoTextureClass {
+abstract class VideoTextureClass {
     static name: string
 }
-export class VideoTexturePrivate {
+class VideoTexturePrivate {
     static name: string
 }
+}
+export default ClutterGst

@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
 
-export enum SparqlValueType {
+export namespace Tracker {
+
+enum SparqlValueType {
     UNBOUND,
     URI,
     STRING,
@@ -17,7 +19,7 @@ export enum SparqlValueType {
     BLANK_NODE,
     BOOLEAN,
 }
-export enum Error {
+enum Error {
     PARSE,
     UNKNOWN_CLASS,
     UNKNOWN_PROPERTY,
@@ -27,7 +29,7 @@ export enum Error {
     INTERNAL,
     UNSUPPORTED,
 }
-export enum SparqlBuilderState {
+enum SparqlBuilderState {
     UPDATE,
     INSERT,
     DELETE,
@@ -48,13 +50,13 @@ export const DBUS_INTERFACE_STATUS: string
 export const DBUS_OBJECT_STATUS: string
 export const DBUS_INTERFACE_STEROIDS: string
 export const DBUS_OBJECT_STEROIDS: string
-export function sparql_escape_uri(uri: string): string
-export function sparql_escape_string(literal: string): string
-export function sparql_get_uuid_urn(): string
+function sparql_escape_uri(uri: string): string
+function sparql_escape_string(literal: string): string
+function sparql_get_uuid_urn(): string
 export interface SparqlBuilder_ConstructProps extends GObject.Object_ConstructProps {
     length?: number
 }
-export class SparqlBuilder {
+class SparqlBuilder {
     /* Properties of Tracker-1.0.Tracker.SparqlBuilder */
     readonly result: string
     length: number
@@ -150,7 +152,7 @@ export class SparqlBuilder {
 }
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SparqlConnection {
+class SparqlConnection {
     /* Fields of Tracker-1.0.Tracker.SparqlConnection */
     parent_instance: GObject.Object
     priv: SparqlConnectionPrivate
@@ -246,7 +248,7 @@ export class SparqlConnection {
 export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructProps {
     connection?: SparqlConnection
 }
-export class SparqlCursor {
+class SparqlCursor {
     /* Properties of Tracker-1.0.Tracker.SparqlCursor */
     connection: SparqlConnection
     readonly n_columns: number
@@ -332,15 +334,15 @@ export class SparqlCursor {
     _init (config?: SparqlCursor_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class SparqlBuilderClass {
+abstract class SparqlBuilderClass {
     /* Fields of Tracker-1.0.Tracker.SparqlBuilderClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SparqlBuilderPrivate {
+class SparqlBuilderPrivate {
     static name: string
 }
-export abstract class SparqlConnectionClass {
+abstract class SparqlConnectionClass {
     /* Fields of Tracker-1.0.Tracker.SparqlConnectionClass */
     parent_class: GObject.ObjectClass
     query: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null) => SparqlCursor
@@ -362,10 +364,10 @@ export abstract class SparqlConnectionClass {
     statistics_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => SparqlCursor | null
     static name: string
 }
-export class SparqlConnectionPrivate {
+class SparqlConnectionPrivate {
     static name: string
 }
-export abstract class SparqlCursorClass {
+abstract class SparqlCursorClass {
     /* Fields of Tracker-1.0.Tracker.SparqlCursorClass */
     parent_class: GObject.ObjectClass
     get_value_type: (self: SparqlCursor, column: number) => SparqlValueType
@@ -382,6 +384,8 @@ export abstract class SparqlCursorClass {
     is_bound: (self: SparqlCursor, column: number) => boolean
     static name: string
 }
-export class SparqlCursorPrivate {
+class SparqlCursorPrivate {
     static name: string
 }
+}
+export default Tracker

@@ -1,2 +1,1 @@
-imports.gi.versions.GVnc = '1.0'
-module.exports = imports.gi.GVnc
+export {default as default} from 'gi://GVnc?version=1.0';

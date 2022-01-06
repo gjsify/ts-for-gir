@@ -7,9 +7,9 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 
-export declare namespace Zeitgeist {
+declare namespace Zeitgeist {
 
-export enum ResultType {
+enum ResultType {
     MOST_RECENT_EVENTS,
     LEAST_RECENT_EVENTS,
     MOST_RECENT_SUBJECTS,
@@ -47,16 +47,16 @@ export enum ResultType {
     LEAST_POPULAR_CURRENT_ORIGIN,
     RELEVANCY,
 }
-export enum RelevantResultType {
+enum RelevantResultType {
     RECENT,
     RELATED,
 }
-export enum StorageState {
+enum StorageState {
     NOT_AVAILABLE,
     AVAILABLE,
     ANY,
 }
-export enum EngineError {
+enum EngineError {
     BACKUP_FAILED,
     DATABASE_BUSY,
     DATABASE_CANTOPEN,
@@ -68,7 +68,7 @@ export enum EngineError {
     INVALID_EVENT,
     INVALID_KEY,
 }
-export enum DataModelError {
+enum DataModelError {
     INVALID_SIGNATURE,
     NULL_EVENT,
     TOO_MANY_RESULTS,
@@ -177,51 +177,51 @@ export const UtilsENGINE_DBUS_PATH: string
 export const UtilsSIG_EVENT: string
 export const UtilsMAX_DBUS_RESULT_SIZE: number
 export const UtilsCACHE_SIZE: number
-export function dataSourcesFromVariant(sourcesVariant: GLib.Variant): DataSource[]
-export function dataSourcesToVariant(sources: GLib.HashTable): GLib.Variant
-export function eventsFromVariant(vevents: GLib.Variant): Event[]
-export function eventsToVariant(events: Event[]): GLib.Variant
-export function eventsToVariantWithLimit(events: Event[], limit: number): GLib.Variant
-export function timestampFromTimeval(timeval: GLib.TimeVal): number
-export function timestampToTimeval(timestamp: number): { result: GLib.TimeVal }
-export function timestampFromNow(): number
-export function timestampFromIso8601(datetime: string): number
-export function timestampToIso8601(timestamp: number): string
-export function timestampFromDate(date: GLib.Date): number
-export function timestampFromDmy(day: GLib.DateDay, month: GLib.DateMonth, year: GLib.DateYear): number
-export function timestampToDate(timestamp: number): { result: GLib.Date }
-export function timestampNextMidnight(timestamp: number): number
-export function timestampPrevMidnight(timestamp: number): number
-export function symbolGetDisplayName(symbolUri: string): string
-export function symbolGetDescription(symbolUri: string): string
-export function symbolGetAllParents(symbolUri: string): string[]
-export function symbolGetAllChildren(symbolUri: string): string[]
-export function symbolGetChildren(symbolUri: string): string[]
-export function symbolGetParents(symbolUri: string): string[]
-export function symbolIsA(symbolUri?: string | null, parentUri?: string | null): boolean
-export function utilsGetDataPath(): string
-export function utilsGetDefaultDataPath(): string
-export function utilsGetDatabaseFilePath(): string
-export function utilsSetDatabaseFilePath(path: string): void
-export function utilsGetDatabaseFileBackupPath(): string
-export function utilsGetDatabaseFileRetireName(): string
-export function utilsGetLocalExtensionsPath(): string
-export function utilsUsingInMemoryDatabase(): boolean
-export function utilsBackupDatabase(): void
-export function utilsParseNegation(val: string): { returnType: boolean, val: string }
-export function utilsParseNoexpand(val: string): { returnType: boolean, val: string }
-export function utilsParseWildcard(val: string): { returnType: boolean, val: string }
-export function utilsIsEmptyString(s?: string | null): boolean
-export function utilsLogMayReadDirectly(): boolean
-export function resultTypeIsSortOrderAsc(resultType: ResultType): boolean
-export function registerMimetype(mimetype: string, interpretationUri: string): void
-export function registerMimetypeRegex(mimetypeRegex: string, interpretationUri: string): void
-export function interpretationForMimetype(mimetype?: string | null): string | null
-export function registerUriScheme(uriScheme: string, manifestationType: string): void
-export function manifestationForUri(uri: string): string | null
+function dataSourcesFromVariant(sourcesVariant: GLib.Variant): DataSource[]
+function dataSourcesToVariant(sources: GLib.HashTable): GLib.Variant
+function eventsFromVariant(vevents: GLib.Variant): Event[]
+function eventsToVariant(events: Event[]): GLib.Variant
+function eventsToVariantWithLimit(events: Event[], limit: number): GLib.Variant
+function timestampFromTimeval(timeval: GLib.TimeVal): number
+function timestampToTimeval(timestamp: number): { result: GLib.TimeVal }
+function timestampFromNow(): number
+function timestampFromIso8601(datetime: string): number
+function timestampToIso8601(timestamp: number): string
+function timestampFromDate(date: GLib.Date): number
+function timestampFromDmy(day: GLib.DateDay, month: GLib.DateMonth, year: GLib.DateYear): number
+function timestampToDate(timestamp: number): { result: GLib.Date }
+function timestampNextMidnight(timestamp: number): number
+function timestampPrevMidnight(timestamp: number): number
+function symbolGetDisplayName(symbolUri: string): string
+function symbolGetDescription(symbolUri: string): string
+function symbolGetAllParents(symbolUri: string): string[]
+function symbolGetAllChildren(symbolUri: string): string[]
+function symbolGetChildren(symbolUri: string): string[]
+function symbolGetParents(symbolUri: string): string[]
+function symbolIsA(symbolUri?: string | null, parentUri?: string | null): boolean
+function utilsGetDataPath(): string
+function utilsGetDefaultDataPath(): string
+function utilsGetDatabaseFilePath(): string
+function utilsSetDatabaseFilePath(path: string): void
+function utilsGetDatabaseFileBackupPath(): string
+function utilsGetDatabaseFileRetireName(): string
+function utilsGetLocalExtensionsPath(): string
+function utilsUsingInMemoryDatabase(): boolean
+function utilsBackupDatabase(): void
+function utilsParseNegation(val: string): { returnType: boolean, val: string }
+function utilsParseNoexpand(val: string): { returnType: boolean, val: string }
+function utilsParseWildcard(val: string): { returnType: boolean, val: string }
+function utilsIsEmptyString(s?: string | null): boolean
+function utilsLogMayReadDirectly(): boolean
+function resultTypeIsSortOrderAsc(resultType: ResultType): boolean
+function registerMimetype(mimetype: string, interpretationUri: string): void
+function registerMimetypeRegex(mimetypeRegex: string, interpretationUri: string): void
+function interpretationForMimetype(mimetype?: string | null): string | null
+function registerUriScheme(uriScheme: string, manifestationType: string): void
+function manifestationForUri(uri: string): string | null
 export interface RemoteRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteRegistry {
+class RemoteRegistry {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
@@ -291,7 +291,7 @@ export class RemoteRegistry {
 }
 export interface RemoteLog_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteLog {
+class RemoteLog {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
@@ -358,7 +358,7 @@ export class RemoteLog {
 }
 export interface RemoteMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteMonitor {
+class RemoteMonitor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteMonitor */
@@ -408,7 +408,7 @@ export class RemoteMonitor {
 }
 export interface RemoteSimpleIndexer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteSimpleIndexer {
+class RemoteSimpleIndexer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexer */
@@ -458,7 +458,7 @@ export class RemoteSimpleIndexer {
 }
 export interface NetworkManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class NetworkManagerDBus {
+class NetworkManagerDBus {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBus */
@@ -511,7 +511,7 @@ export class NetworkManagerDBus {
 }
 export interface ConnmanManagerDBus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConnmanManagerDBus {
+class ConnmanManagerDBus {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBus */
@@ -564,7 +564,7 @@ export class ConnmanManagerDBus {
 }
 export interface ResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ResultSet {
+class ResultSet {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.ResultSet */
@@ -617,7 +617,7 @@ export class ResultSet {
 }
 export interface DataSourceRegistry_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
-export class DataSourceRegistry {
+class DataSourceRegistry {
     /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
@@ -713,7 +713,7 @@ export class DataSourceRegistry {
 }
 export interface Index_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
-export class Index {
+class Index {
     /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
@@ -789,7 +789,7 @@ export class Index {
 }
 export interface Log_ConstructProps extends QueuedProxyWrapper_ConstructProps {
 }
-export class Log {
+class Log {
     /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
@@ -887,7 +887,7 @@ export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     timeRange?: TimeRange
     eventTemplates?: Event[]
 }
-export class Monitor {
+class Monitor {
     /* Properties of Zeitgeist-2.0.Zeitgeist.Monitor */
     timeRange: TimeRange
     eventTemplates: Event[]
@@ -972,7 +972,7 @@ export interface QueuedProxyWrapper_ConstructProps extends GObject.Object_Constr
     proxyCreated?: boolean
     isConnected?: boolean
 }
-export class QueuedProxyWrapper {
+class QueuedProxyWrapper {
     /* Properties of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapper */
     proxyCreated: boolean
     isConnected: boolean
@@ -1039,7 +1039,7 @@ export class QueuedProxyWrapper {
     _init (config?: QueuedProxyWrapper_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class QueuedProxyWrapperQueuedMethod {
+class QueuedProxyWrapperQueuedMethod {
     /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
     refCount: number
     /* Methods of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperQueuedMethod */
@@ -1059,7 +1059,7 @@ export interface DataSource_ConstructProps extends GObject.Object_ConstructProps
     running?: boolean
     timestamp?: number
 }
-export class DataSource {
+class DataSource {
     /* Properties of Zeitgeist-2.0.Zeitgeist.DataSource */
     uniqueId: string
     name: string
@@ -1175,7 +1175,7 @@ export interface Event_ConstructProps extends GObject.Object_ConstructProps {
     subjects?: Subject[]
     payload?: any
 }
-export class Event {
+class Event {
     /* Properties of Zeitgeist-2.0.Zeitgeist.Event */
     id: number
     timestamp: number
@@ -1306,7 +1306,7 @@ export interface Subject_ConstructProps extends GObject.Object_ConstructProps {
     interpretation?: string
     manifestation?: string
 }
-export class Subject {
+class Subject {
     /* Properties of Zeitgeist-2.0.Zeitgeist.Subject */
     uri: string
     origin: string
@@ -1434,7 +1434,7 @@ export interface TimeRange_ConstructProps extends GObject.Object_ConstructProps 
     start?: number
     end?: number
 }
-export class TimeRange {
+class TimeRange {
     /* Properties of Zeitgeist-2.0.Zeitgeist.TimeRange */
     start: number
     end: number
@@ -1503,7 +1503,7 @@ export class TimeRange {
 }
 export interface SimpleResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleResultSet {
+class SimpleResultSet {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1557,76 +1557,76 @@ export class SimpleResultSet {
     static withNumMatches(events: Event[], matches: number): SimpleResultSet
     static $gtype: GObject.Type
 }
-export abstract class DataSourceRegistryClass {
+abstract class DataSourceRegistryClass {
     static name: string
 }
-export class DataSourceRegistryPrivate {
+class DataSourceRegistryPrivate {
     static name: string
 }
-export abstract class IndexClass {
+abstract class IndexClass {
     static name: string
 }
-export class IndexPrivate {
+class IndexPrivate {
     static name: string
 }
-export abstract class LogClass {
+abstract class LogClass {
     static name: string
 }
-export class LogPrivate {
+class LogPrivate {
     static name: string
 }
-export abstract class MonitorClass {
+abstract class MonitorClass {
     static name: string
 }
-export class MonitorPrivate {
+class MonitorPrivate {
     static name: string
 }
-export abstract class QueuedProxyWrapperClass {
+abstract class QueuedProxyWrapperClass {
     /* Fields of Zeitgeist-2.0.Zeitgeist.QueuedProxyWrapperClass */
     onConnectionEstablished: (self: QueuedProxyWrapper) => void
     onConnectionLost: (self: QueuedProxyWrapper) => void
     static name: string
 }
-export class QueuedProxyWrapperPrivate {
+class QueuedProxyWrapperPrivate {
     static name: string
 }
-export abstract class QueuedProxyWrapperQueuedMethodClass {
+abstract class QueuedProxyWrapperQueuedMethodClass {
     static name: string
 }
-export class QueuedProxyWrapperQueuedMethodPrivate {
+class QueuedProxyWrapperQueuedMethodPrivate {
     static name: string
 }
-export abstract class DataSourceClass {
+abstract class DataSourceClass {
     static name: string
 }
-export class DataSourcePrivate {
+class DataSourcePrivate {
     static name: string
 }
-export abstract class EventClass {
+abstract class EventClass {
     static name: string
 }
-export class EventPrivate {
+class EventPrivate {
     static name: string
 }
-export abstract class SubjectClass {
+abstract class SubjectClass {
     static name: string
 }
-export class SubjectPrivate {
+class SubjectPrivate {
     static name: string
 }
-export abstract class TimeRangeClass {
+abstract class TimeRangeClass {
     static name: string
 }
-export class TimeRangePrivate {
+class TimeRangePrivate {
     static name: string
 }
-export abstract class SimpleResultSetClass {
+abstract class SimpleResultSetClass {
     static name: string
 }
-export class SimpleResultSetPrivate {
+class SimpleResultSetPrivate {
     static name: string
 }
-export abstract class RemoteRegistryIface {
+abstract class RemoteRegistryIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteRegistryIface */
     getDataSources: (self: RemoteRegistry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getDataSourcesFinish: (self: RemoteRegistry, res: Gio.AsyncResult) => GLib.Variant
@@ -1638,7 +1638,7 @@ export abstract class RemoteRegistryIface {
     getDataSourceFromIdFinish: (self: RemoteRegistry, res: Gio.AsyncResult) => GLib.Variant
     static name: string
 }
-export abstract class RemoteLogIface {
+abstract class RemoteLogIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteLogIface */
     deleteEvents: (self: RemoteLog, eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
     deleteEventsFinish: (self: RemoteLog, res: Gio.AsyncResult) => GLib.Variant
@@ -1663,7 +1663,7 @@ export abstract class RemoteLogIface {
     getDatapath: (self: RemoteLog) => string
     static name: string
 }
-export abstract class RemoteMonitorIface {
+abstract class RemoteMonitorIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteMonitorIface */
     notifyInsert: (self: RemoteMonitor, timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null) => void
     notifyInsertFinish: (self: RemoteMonitor, res: Gio.AsyncResult) => void
@@ -1671,7 +1671,7 @@ export abstract class RemoteMonitorIface {
     notifyDeleteFinish: (self: RemoteMonitor, res: Gio.AsyncResult) => void
     static name: string
 }
-export abstract class RemoteSimpleIndexerIface {
+abstract class RemoteSimpleIndexerIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexerIface */
     search: (self: RemoteSimpleIndexer, queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     searchFinish: (self: RemoteSimpleIndexer, res: Gio.AsyncResult) => { events: GLib.Variant, matches: number }
@@ -1679,17 +1679,17 @@ export abstract class RemoteSimpleIndexerIface {
     searchWithRelevanciesFinish: (self: RemoteSimpleIndexer, res: Gio.AsyncResult) => { events: GLib.Variant, relevancies: number[], matches: number }
     static name: string
 }
-export abstract class NetworkManagerDBusIface {
+abstract class NetworkManagerDBusIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.NetworkManagerDBusIface */
     state: (self: NetworkManagerDBus) => number
     static name: string
 }
-export abstract class ConnmanManagerDBusIface {
+abstract class ConnmanManagerDBusIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.ConnmanManagerDBusIface */
     getState: (self: ConnmanManagerDBus) => string
     static name: string
 }
-export abstract class ResultSetIface {
+abstract class ResultSetIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.ResultSetIface */
     size: (self: ResultSet) => number
     estimatedMatches: (self: ResultSet) => number
@@ -1699,7 +1699,7 @@ export abstract class ResultSetIface {
     reset: (self: ResultSet) => void
     static name: string
 }
-export class VersionStruct {
+class VersionStruct {
     /* Fields of Zeitgeist-2.0.Zeitgeist.VersionStruct */
     major: number
     minor: number
@@ -1707,3 +1707,4 @@ export class VersionStruct {
     static name: string
 }
 }
+export default Zeitgeist

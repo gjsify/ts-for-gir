@@ -1,2 +1,1 @@
-imports.gi.versions.Libosinfo = '1.0'
-module.exports = imports.gi.Libosinfo
+export {default as default} from 'gi://Libosinfo?version=1.0';

@@ -1,2 +1,1 @@
-imports.gi.versions.Grl = '0.2'
-module.exports = imports.gi.Grl
+export {default as default} from 'gi://Grl?version=0.2';

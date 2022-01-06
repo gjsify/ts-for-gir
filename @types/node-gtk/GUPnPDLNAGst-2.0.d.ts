@@ -13,7 +13,8 @@ import type { GModule } from './GModule-2.0';
 import type { GstAudio } from './GstAudio-1.0';
 import type { GUPnPDLNA } from './GUPnPDLNA-2.0';
 
-export declare namespace GUPnPDLNAGst {
+declare namespace GUPnPDLNAGst {
 
-export function utilsInformationFromDiscovererInfo(info: GstPbutils.DiscovererInfo): GUPnPDLNA.Information
+function utilsInformationFromDiscovererInfo(info: GstPbutils.DiscovererInfo): GUPnPDLNA.Information
 }
+export default GUPnPDLNAGst

@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AuthenticationResult {
+export namespace Camel {
+
+enum AuthenticationResult {
     ERROR,
     ACCEPTED,
     REJECTED,
 }
-export enum CertTrust {
+enum CertTrust {
     UNKNOWN,
     NEVER,
     MARGINAL,
@@ -21,7 +23,7 @@ export enum CertTrust {
     ULTIMATE,
     TEMPORARY,
 }
-export enum CipherHash {
+enum CipherHash {
     DEFAULT,
     MD2,
     MD5,
@@ -33,28 +35,28 @@ export enum CipherHash {
     TIGER192,
     HAVAL5160,
 }
-export enum CipherValidityEncrypt {
+enum CipherValidityEncrypt {
     NONE,
     WEAK,
     ENCRYPTED,
     STRONG,
 }
-export enum CipherValidityMode {
+enum CipherValidityMode {
     SIGN,
     ENCRYPT,
 }
-export enum CipherValiditySign {
+enum CipherValiditySign {
     NONE,
     GOOD,
     BAD,
     UNKNOWN,
     NEED_PUBLIC_KEY,
 }
-export enum CompareType {
+enum CompareType {
     INSENSITIVE,
     SENSITIVE,
 }
-export enum DBKnownColumnNames {
+enum DBKnownColumnNames {
     UNKNOWN,
     ATTACHMENT,
     BDATA,
@@ -94,19 +96,19 @@ export enum DBKnownColumnNames {
     VISIBLE_COUNT,
     VUID,
 }
-export enum Error {
+enum Error {
     ERROR_GENERIC,
 }
-export enum FetchHeadersType {
+enum FetchHeadersType {
     BASIC,
     BASIC_AND_MAILING_LIST,
     ALL,
 }
-export enum FetchType {
+enum FetchType {
     OLD_MESSAGES,
     NEW_MESSAGES,
 }
-export enum FolderError {
+enum FolderError {
     INVALID,
     INVALID_STATE,
     NON_EMPTY,
@@ -116,7 +118,7 @@ export enum FolderError {
     INVALID_UID,
     SUMMARY_INVALID,
 }
-export enum HTMLParserState {
+enum HTMLParserState {
     DATA,
     ENT,
     ELEMENT,
@@ -132,28 +134,28 @@ export enum HTMLParserState {
     EOD,
     EOF,
 }
-export enum HeaderAddressType {
+enum HeaderAddressType {
     NONE,
     NAME,
     GROUP,
 }
-export enum JunkStatus {
+enum JunkStatus {
     ERROR,
     INCONCLUSIVE,
     MESSAGE_IS_JUNK,
     MESSAGE_IS_NOT_JUNK,
 }
-export enum LockType {
+enum LockType {
     READ,
     WRITE,
 }
-export enum MemPoolFlags {
+enum MemPoolFlags {
     STRUCT,
     WORD,
     BYTE,
     MASK,
 }
-export enum MimeFilterBasicType {
+enum MimeFilterBasicType {
     INVALID,
     BASE64_ENC,
     BASE64_DEC,
@@ -162,23 +164,23 @@ export enum MimeFilterBasicType {
     UU_ENC,
     UU_DEC,
 }
-export enum MimeFilterCRLFDirection {
+enum MimeFilterCRLFDirection {
     ENCODE,
     DECODE,
 }
-export enum MimeFilterCRLFMode {
+enum MimeFilterCRLFMode {
     DOTS,
     ONLY,
 }
-export enum MimeFilterGZipMode {
+enum MimeFilterGZipMode {
     ZIP,
     UNZIP,
 }
-export enum MimeFilterYencDirection {
+enum MimeFilterYencDirection {
     ENCODE,
     DECODE,
 }
-export enum MimeParserState {
+enum MimeParserState {
     INITIAL,
     PRE_FROM,
     FROM,
@@ -196,12 +198,12 @@ export enum MimeParserState {
     MULTIPART_END,
     MESSAGE_END,
 }
-export enum NetworkSecurityMethod {
+enum NetworkSecurityMethod {
     NONE,
     SSL_ON_ALTERNATE_PORT,
     STARTTLS_ON_STANDARD_PORT,
 }
-export enum ProviderConfType {
+enum ProviderConfType {
     END,
     SECTION_START,
     SECTION_END,
@@ -213,11 +215,11 @@ export enum ProviderConfType {
     OPTIONS,
     PLACEHOLDER,
 }
-export enum ProviderType {
+enum ProviderType {
     STORE,
     TRANSPORT,
 }
-export enum SExpResultType {
+enum SExpResultType {
     ARRAY_PTR,
     INT,
     STRING,
@@ -225,7 +227,7 @@ export enum SExpResultType {
     TIME,
     UNDEFINED,
 }
-export enum SExpTermType {
+enum SExpTermType {
     INT,
     BOOL,
     STRING,
@@ -234,60 +236,60 @@ export enum SExpTermType {
     IFUNC,
     VAR,
 }
-export enum SMIMESign {
+enum SMIMESign {
     CLEARSIGN,
     ENVELOPED,
 }
-export enum SaslAnonTraceType {
+enum SaslAnonTraceType {
     EMAIL,
     OPAQUE,
     EMPTY,
 }
-export enum ServiceConnectionStatus {
+enum ServiceConnectionStatus {
     DISCONNECTED,
     CONNECTING,
     CONNECTED,
     DISCONNECTING,
 }
-export enum ServiceError {
+enum ServiceError {
     INVALID,
     URL_INVALID,
     UNAVAILABLE,
     CANT_AUTHENTICATE,
     NOT_CONNECTED,
 }
-export enum SessionAlertType {
+enum SessionAlertType {
     INFO,
     WARNING,
     ERROR,
 }
-export enum SortType {
+enum SortType {
     ASCENDING,
     DESCENDING,
 }
-export enum StoreError {
+enum StoreError {
     INVALID,
     NO_FOLDER,
 }
-export enum StreamBufferMode {
+enum StreamBufferMode {
     BUFFER,
     NONE,
     READ,
     WRITE,
     MODE,
 }
-export enum ThreeState {
+enum ThreeState {
     OFF,
     ON,
     INCONSISTENT,
 }
-export enum TimeUnit {
+enum TimeUnit {
     DAYS,
     WEEKS,
     MONTHS,
     YEARS,
 }
-export enum TransferEncoding {
+enum TransferEncoding {
     ENCODING_DEFAULT,
     ENCODING_7BIT,
     ENCODING_8BIT,
@@ -297,12 +299,12 @@ export enum TransferEncoding {
     ENCODING_UUENCODE,
     NUM_ENCODINGS,
 }
-export enum VTrashFolderType {
+enum VTrashFolderType {
     TRASH,
     JUNK,
     LAST,
 }
-export enum _search_match_t {
+enum _search_match_t {
     EXACT,
     CONTAINS,
     WORD,
@@ -310,38 +312,38 @@ export enum _search_match_t {
     ENDS,
     SOUNDEX,
 }
-export enum _search_t {
+enum _search_t {
     ASIS,
     ENCODED,
     ADDRESS,
     ADDRESS_ENCODED,
     MLIST,
 }
-export enum _search_word_t {
+enum _search_word_t {
     SIMPLE,
     COMPLEX,
     /* 8BIT (invalid, starts with a number) */
 }
-export enum BestencEncoding {
+enum BestencEncoding {
     /* 7BIT (invalid, starts with a number) */
     /* 8BIT (invalid, starts with a number) */
     BINARY,
     TEXT,
 }
-export enum BestencRequired {
+enum BestencRequired {
     GET_ENCODING,
     GET_CHARSET,
     LF_IS_CRLF,
     NO_FROM,
 }
-export enum BlockFileFlags {
+enum BlockFileFlags {
     BLOCK_FILE_SYNC,
 }
-export enum BlockFlags {
+enum BlockFlags {
     DIRTY,
     DETACHED,
 }
-export enum FolderFlags {
+enum FolderFlags {
     HAS_SUMMARY_CAPABILITY,
     FILTER_RECENT,
     HAS_BEEN_DELETED,
@@ -349,7 +351,7 @@ export enum FolderFlags {
     IS_JUNK,
     FILTER_JUNK,
 }
-export enum FolderInfoFlags {
+enum FolderInfoFlags {
     NOSELECT,
     NOINFERIORS,
     CHILDREN,
@@ -378,11 +380,11 @@ export enum FolderInfoFlags {
     FLAGGED,
     FLAGS_LAST,
 }
-export enum FolderSummaryFlags {
+enum FolderSummaryFlags {
     DIRTY,
     IN_MEMORY_ONLY,
 }
-export enum MessageFlags {
+enum MessageFlags {
     ANSWERED,
     DELETED,
     DRAFT,
@@ -398,16 +400,16 @@ export enum MessageFlags {
     JUNK_LEARN,
     USER,
 }
-export enum MimeFilterCanonFlags {
+enum MimeFilterCanonFlags {
     CRLF,
     FROM,
     STRIP,
 }
-export enum MimeFilterEnrichedFlags {
+enum MimeFilterEnrichedFlags {
     NONE,
     IS_RICHTEXT,
 }
-export enum MimeFilterToHTMLFlags {
+enum MimeFilterToHTMLFlags {
     PRE,
     CONVERT_NL,
     CONVERT_SPACES,
@@ -422,10 +424,10 @@ export enum MimeFilterToHTMLFlags {
     DIV,
     PRESERVE_TABS,
 }
-export enum ParamFlags {
+enum ParamFlags {
     PARAM_PERSISTENT,
 }
-export enum ProviderFlags {
+enum ProviderFlags {
     IS_REMOTE,
     IS_LOCAL,
     IS_EXTERNAL,
@@ -440,7 +442,7 @@ export enum ProviderFlags {
     SUPPORTS_BATCH_FETCH,
     SUPPORTS_PURGE_MESSAGE_CACHE,
 }
-export enum ProviderURLFlags {
+enum ProviderURLFlags {
     ALLOW_USER,
     ALLOW_AUTH,
     ALLOW_PASSWORD,
@@ -463,17 +465,17 @@ export enum ProviderURLFlags {
     FRAGMENT_IS_PATH,
     PATH_IS_ABSOLUTE,
 }
-export enum RecipientCertificateFlags {
+enum RecipientCertificateFlags {
     SMIME,
     PGP,
 }
-export enum SMIMEDescribe {
+enum SMIMEDescribe {
     SIGNED,
     ENCRYPTED,
     CERTS,
     CRLS,
 }
-export enum StoreFlags {
+enum StoreFlags {
     VTRASH,
     VJUNK,
     PROXY,
@@ -484,14 +486,14 @@ export enum StoreFlags {
     CAN_DELETE_FOLDERS_AT_ONCE,
     SUPPORTS_INITIAL_SETUP,
 }
-export enum StoreGetFolderFlags {
+enum StoreGetFolderFlags {
     NONE,
     CREATE,
     EXCL,
     BODY_INDEX,
     PRIVATE,
 }
-export enum StoreGetFolderInfoFlags {
+enum StoreGetFolderInfoFlags {
     FAST,
     RECURSIVE,
     SUBSCRIBED,
@@ -499,7 +501,7 @@ export enum StoreGetFolderInfoFlags {
     SUBSCRIPTION_LIST,
     REFRESH,
 }
-export enum StoreInfoFlags {
+enum StoreInfoFlags {
     NOSELECT,
     NOINFERIORS,
     CHILDREN,
@@ -527,20 +529,20 @@ export enum StoreInfoFlags {
     WRITEONLY,
     FLAGGED,
 }
-export enum StorePermissionFlags {
+enum StorePermissionFlags {
     READ,
     WRITE,
 }
-export enum URLFlags {
+enum URLFlags {
     PARAMS,
     AUTH,
 }
-export enum UUDecodeState {
+enum UUDecodeState {
     INIT,
     BEGIN,
     END,
 }
-export enum _search_flags_t {
+enum _search_flags_t {
     START,
     END,
     REGEX,
@@ -633,237 +635,237 @@ export const UTILS_MAX_USER_HEADERS: number
 export const UUDECODE_STATE_MASK: number
 export const VJUNK_NAME: string
 export const VTRASH_NAME: string
-export function binding_bind_property(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-export function binding_bind_property_full(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-export function charset_best(in_: number[]): string | null
-export function charset_iso_to_windows(isocharset: string): string
-export function cipher_can_load_photos(): boolean
-export function cipher_canonical_to_stream(part: MimePart, flags: number, ostream: Stream, cancellable?: Gio.Cancellable | null): number
-export function cipher_certinfo_get_property(cert_info: CipherCertInfo, name: string): object | null
-export function cipher_certinfo_set_property(cert_info: CipherCertInfo, name: string, value?: object | null, value_clone?: CipherCloneFunc | null): void
-export function content_disposition_decode(in_: string): ContentDisposition
-export function content_transfer_encoding_decode(in_: string): string
-export function content_type_decode(in_: string): ContentType
-export function debug(mode: string): boolean
-export function debug_demangle_backtrace(bt?: GLib.String | null): /* bt */ GLib.String | null
-export function debug_end(): void
-export function debug_get_backtrace(): GLib.String
-export function debug_get_raw_backtrace(): GLib.String
-export function debug_init(): void
-export function debug_ref_unref_dump_backtraces(): void
-export function debug_ref_unref_push_backtrace(backtrace: GLib.String, object_ref_count: number): void
-export function debug_ref_unref_push_backtrace_for_object(_object?: object | null): void
-export function debug_start(mode: string): boolean
-export function enriched_to_html(in_: string, flags: MimeFilterEnrichedFlags): string
-export function error_quark(): GLib.Quark
-export function file_util_decode_fixed_int32(in_: object | null, dest: number): number
-export function file_util_decode_fixed_string(in_: object | null, str: string, len: number): number
-export function file_util_decode_gsize(in_: object | null, dest: number): number
-export function file_util_decode_off_t(in_: object | null, dest: number): number
-export function file_util_decode_string(in_: object | null, str: string): number
-export function file_util_decode_time_t(in_: object | null, dest: number): number
-export function file_util_decode_uint32(in_: object | null, dest: number): number
-export function file_util_encode_fixed_int32(out: object | null, value: number): number
-export function file_util_encode_fixed_string(out: object | null, str: string, len: number): number
-export function file_util_encode_gsize(out: object | null, value: number): number
-export function file_util_encode_off_t(out: object | null, value: number): number
-export function file_util_encode_string(out: object | null, str: string): number
-export function file_util_encode_time_t(out: object | null, value: number): number
-export function file_util_encode_uint32(out: object | null, value: number): number
-export function file_util_safe_filename(name: string): string
-export function file_util_savename(filename: string): string
-export function folder_error_quark(): GLib.Quark
-export function folder_info_build(folders: FolderInfo[], namespace_: string, separator: number, short_names: boolean): FolderInfo
-export function freeaddrinfo(host?: object | null): void
-export function getaddrinfo(name: string, service: string, hints?: object | null, cancellable?: Gio.Cancellable | null): object | null
-export function header_address_decode(in_: string, charset: string): HeaderAddress
-export function header_address_fold(in_: string, headerlen: number): string
-export function header_address_list_append(addrlistp: HeaderAddress[], addr: HeaderAddress): void
-export function header_address_list_append_list(addrlistp: HeaderAddress[], addrs: HeaderAddress[]): void
-export function header_address_list_clear(addrlistp: HeaderAddress[]): void
-export function header_address_list_encode(addrlist: HeaderAddress[]): string
-export function header_address_list_format(addrlist: HeaderAddress[]): string
-export function header_contentid_decode(in_: string): string
-export function header_decode_date(str: string, tz_offset: number): number
-export function header_decode_int(in_: string): number
-export function header_decode_string(in_: string, default_charset: string): string
-export function header_encode_phrase(in_: number): string
-export function header_encode_string(in_: number): string
-export function header_fold(in_: string, headerlen: number): string
-export function header_format_ctext(in_: string, default_charset: string): string
-export function header_format_date(date: number, tz_offset: number): string
-export function header_location_decode(in_: string): string
-export function header_mailbox_decode(in_: string, charset: string): HeaderAddress
-export function header_mime_decode(in_: string, maj: number, min: number): void
-export function header_msgid_decode(in_: string): string
-export function header_msgid_generate(domain: string): string
-export function header_newsgroups_decode(in_: string): string[]
-export function header_param(params: object | null, name: string): string
-export function header_param_list_decode(in_?: string | null): object | null
-export function header_param_list_format(params?: object | null): string
-export function header_param_list_format_append(out: GLib.String, params?: object | null): void
-export function header_param_list_free(params?: object | null): void
-export function header_references_decode(in_: string): string[]
-export function header_set_param(paramsp: object | null, name: string, value: string): object | null
-export function header_token_decode(in_: string): string
-export function header_unfold(in_: string): string
-export function headers_dup_mailing_list(headers: NameValueArray): string | null
-export function host_idna_to_ascii(host: string): string
-export function hostname_utils_requires_ascii(hostname: string): boolean
-export function iconv_charset_language(charset: string): string
-export function iconv_charset_name(charset: string): string
-export function iconv_locale_charset(): string
-export function iconv_locale_language(): string
-export function init(certdb_dir: string, nss_init: boolean): number
-export function localtime_with_offset(tt: number, tm: object | null, offset: number): void
-export function lock_dot(path: string): number
-export function lock_fcntl(fd: number, type: LockType): number
-export function lock_flock(fd: number, type: LockType): number
-export function lock_folder(path: string, fd: number, type: LockType): number
-export function lock_helper_lock(path: string): number
-export function lock_helper_unlock(lockid: number): number
-export function mktime_utc(tm?: object | null): number
-export function movemail(source: string, dest: string): number
-export function pointer_tracker_dump(): void
-export function pointer_tracker_track_with_info(ptr: object | null, info: string): void
-export function pointer_tracker_untrack(ptr?: object | null): void
-export function provider_get(protocol: string): Provider
-export function provider_init(): void
-export function provider_list(load: boolean): Provider[]
-export function provider_load(path: string): boolean
-export function provider_module_init(): void
-export function pstring_add(string: string, own: boolean): string
-export function pstring_contains(string: string): boolean
-export function pstring_dump_stat(): void
-export function pstring_free(string: string): void
-export function pstring_peek(string: string): string
-export function pstring_strdup(string: string): string
-export function quoted_decode_step(in_: Uint8Array[], out: Uint8Array[], saveme: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* saveme */ number[] ]
-export function quoted_encode_close(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
-export function quoted_encode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
-export function read(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
-export function search_camel_header_soundex(header: string, match: string): boolean
-export function search_get_all_headers_decoded(message: MimeMessage): string
-export function search_get_default_charset_from_headers(headers: NameValueArray): string
-export function search_get_default_charset_from_message(message: MimeMessage): string
-export function search_get_header_decoded(header_name: string, header_value: string, default_charset?: string | null): string
-export function search_get_headers_decoded(headers: NameValueArray, default_charset?: string | null): string
-export function search_header_is_address(header_name: string): boolean
-export function search_header_match(value: string, match: string, how: _search_match_t, type: _search_t, default_charset: string): boolean
-export function search_words_free(words?: object | null): void
-export function search_words_simple(words?: object | null): object | null
-export function search_words_split(in_: number): object | null
-export function service_error_quark(): GLib.Quark
-export function shutdown(): void
-export function store_error_quark(): GLib.Quark
-export function store_info_name(summary: StoreSummary, info: StoreInfo): string
-export function store_info_path(summary: StoreSummary, info: StoreInfo): string
-export function store_info_set_string(summary: StoreSummary, info: StoreInfo, type: number, value: string): void
-export function strcase_equal(a?: object | null, b?: object | null): number
-export function strcase_hash(v?: object | null): number
-export function strdown(str: string): string
-export function string_is_all_ascii(str?: string | null): boolean
-export function strstrcase(haystack: string, needle: string): string
-export function system_flag(name: string): MessageFlags
-export function system_flag_get(flags: MessageFlags, name: string): boolean
-export function text_to_html(in_: string, flags: MimeFilterToHTMLFlags, color: number): string
-export function time_value_apply(src_time: number, unit: TimeUnit, value: number): number
-export function transfer_encoding_from_string(string: string): TransferEncoding
-export function transfer_encoding_to_string(encoding: TransferEncoding): string
-export function ucs2_utf8(ptr: string): string
-export function uid_cache_free_uids(uids: string[]): void
-export function unlock_dot(path: string): void
-export function unlock_fcntl(fd: number): void
-export function unlock_flock(fd: number): void
-export function unlock_folder(path: string, fd: number): void
-export function url_addrspec_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function url_addrspec_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function url_decode(part: string): void
-export function url_decode_path(path: string): string
-export function url_encode(part: string, escape_extra: string): string
-export function url_file_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function url_file_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function url_web_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function url_web_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
-export function ustrstrcase(haystack: string, needle: string): string
-export function utf7_utf8(ptr: string): string
-export function utf8_getc(ptr: number): [ /* returnType */ number, /* ptr */ number ]
-export function utf8_getc_limit(ptr: number, end: number): [ /* returnType */ number, /* ptr */ number ]
-export function utf8_make_valid(text: string): string
-export function utf8_make_valid_len(text: string, text_len: number): string
-export function utf8_putc(ptr: number, c: number): /* ptr */ number
-export function utf8_ucs2(ptr: string): string
-export function utf8_utf7(ptr: string): string
-export function util_bdata_get_number(bdata_ptr: string, default_value: number): number
-export function util_bdata_get_string(bdata_ptr: string, default_value: string): string
-export function util_bdata_put_number(bdata_str: GLib.String, value: number): void
-export function util_bdata_put_string(bdata_str: GLib.String, value: string): void
-export function util_decode_user_header_setting(setting_value: string): [ /* out_display_name */ string | null, /* out_header_name */ string ]
-export function util_encode_user_header_setting(display_name: string | null, header_name: string): string
-export function util_fill_message_info_user_headers(info: MessageInfo, headers: NameValueArray): boolean
-export function util_get_directory_variants(main_path: string, replace_prefix: string, with_modules_dir: boolean): string[]
-export function utils_sanitize_ascii_domain_in_address(email_address: string, do_format: boolean): string | null
-export function utils_sanitize_ascii_domain_in_url(url: URL): boolean
-export function utils_sanitize_ascii_domain_in_url_str(url_str: string): string | null
-export function uudecode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
-export function uuencode_close(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
-export function uuencode_step(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
-export function write(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
-export function ydecode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencode_close(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
-export function yencode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
-export interface CipherCloneFunc {
+function binding_bind_property(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+function binding_bind_property_full(source: GObject.Object, source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+function charset_best(in_: number[]): string | null
+function charset_iso_to_windows(isocharset: string): string
+function cipher_can_load_photos(): boolean
+function cipher_canonical_to_stream(part: MimePart, flags: number, ostream: Stream, cancellable?: Gio.Cancellable | null): number
+function cipher_certinfo_get_property(cert_info: CipherCertInfo, name: string): object | null
+function cipher_certinfo_set_property(cert_info: CipherCertInfo, name: string, value?: object | null, value_clone?: CipherCloneFunc | null): void
+function content_disposition_decode(in_: string): ContentDisposition
+function content_transfer_encoding_decode(in_: string): string
+function content_type_decode(in_: string): ContentType
+function debug(mode: string): boolean
+function debug_demangle_backtrace(bt?: GLib.String | null): /* bt */ GLib.String | null
+function debug_end(): void
+function debug_get_backtrace(): GLib.String
+function debug_get_raw_backtrace(): GLib.String
+function debug_init(): void
+function debug_ref_unref_dump_backtraces(): void
+function debug_ref_unref_push_backtrace(backtrace: GLib.String, object_ref_count: number): void
+function debug_ref_unref_push_backtrace_for_object(_object?: object | null): void
+function debug_start(mode: string): boolean
+function enriched_to_html(in_: string, flags: MimeFilterEnrichedFlags): string
+function error_quark(): GLib.Quark
+function file_util_decode_fixed_int32(in_: object | null, dest: number): number
+function file_util_decode_fixed_string(in_: object | null, str: string, len: number): number
+function file_util_decode_gsize(in_: object | null, dest: number): number
+function file_util_decode_off_t(in_: object | null, dest: number): number
+function file_util_decode_string(in_: object | null, str: string): number
+function file_util_decode_time_t(in_: object | null, dest: number): number
+function file_util_decode_uint32(in_: object | null, dest: number): number
+function file_util_encode_fixed_int32(out: object | null, value: number): number
+function file_util_encode_fixed_string(out: object | null, str: string, len: number): number
+function file_util_encode_gsize(out: object | null, value: number): number
+function file_util_encode_off_t(out: object | null, value: number): number
+function file_util_encode_string(out: object | null, str: string): number
+function file_util_encode_time_t(out: object | null, value: number): number
+function file_util_encode_uint32(out: object | null, value: number): number
+function file_util_safe_filename(name: string): string
+function file_util_savename(filename: string): string
+function folder_error_quark(): GLib.Quark
+function folder_info_build(folders: FolderInfo[], namespace_: string, separator: number, short_names: boolean): FolderInfo
+function freeaddrinfo(host?: object | null): void
+function getaddrinfo(name: string, service: string, hints?: object | null, cancellable?: Gio.Cancellable | null): object | null
+function header_address_decode(in_: string, charset: string): HeaderAddress
+function header_address_fold(in_: string, headerlen: number): string
+function header_address_list_append(addrlistp: HeaderAddress[], addr: HeaderAddress): void
+function header_address_list_append_list(addrlistp: HeaderAddress[], addrs: HeaderAddress[]): void
+function header_address_list_clear(addrlistp: HeaderAddress[]): void
+function header_address_list_encode(addrlist: HeaderAddress[]): string
+function header_address_list_format(addrlist: HeaderAddress[]): string
+function header_contentid_decode(in_: string): string
+function header_decode_date(str: string, tz_offset: number): number
+function header_decode_int(in_: string): number
+function header_decode_string(in_: string, default_charset: string): string
+function header_encode_phrase(in_: number): string
+function header_encode_string(in_: number): string
+function header_fold(in_: string, headerlen: number): string
+function header_format_ctext(in_: string, default_charset: string): string
+function header_format_date(date: number, tz_offset: number): string
+function header_location_decode(in_: string): string
+function header_mailbox_decode(in_: string, charset: string): HeaderAddress
+function header_mime_decode(in_: string, maj: number, min: number): void
+function header_msgid_decode(in_: string): string
+function header_msgid_generate(domain: string): string
+function header_newsgroups_decode(in_: string): string[]
+function header_param(params: object | null, name: string): string
+function header_param_list_decode(in_?: string | null): object | null
+function header_param_list_format(params?: object | null): string
+function header_param_list_format_append(out: GLib.String, params?: object | null): void
+function header_param_list_free(params?: object | null): void
+function header_references_decode(in_: string): string[]
+function header_set_param(paramsp: object | null, name: string, value: string): object | null
+function header_token_decode(in_: string): string
+function header_unfold(in_: string): string
+function headers_dup_mailing_list(headers: NameValueArray): string | null
+function host_idna_to_ascii(host: string): string
+function hostname_utils_requires_ascii(hostname: string): boolean
+function iconv_charset_language(charset: string): string
+function iconv_charset_name(charset: string): string
+function iconv_locale_charset(): string
+function iconv_locale_language(): string
+function init(certdb_dir: string, nss_init: boolean): number
+function localtime_with_offset(tt: number, tm: object | null, offset: number): void
+function lock_dot(path: string): number
+function lock_fcntl(fd: number, type: LockType): number
+function lock_flock(fd: number, type: LockType): number
+function lock_folder(path: string, fd: number, type: LockType): number
+function lock_helper_lock(path: string): number
+function lock_helper_unlock(lockid: number): number
+function mktime_utc(tm?: object | null): number
+function movemail(source: string, dest: string): number
+function pointer_tracker_dump(): void
+function pointer_tracker_track_with_info(ptr: object | null, info: string): void
+function pointer_tracker_untrack(ptr?: object | null): void
+function provider_get(protocol: string): Provider
+function provider_init(): void
+function provider_list(load: boolean): Provider[]
+function provider_load(path: string): boolean
+function provider_module_init(): void
+function pstring_add(string: string, own: boolean): string
+function pstring_contains(string: string): boolean
+function pstring_dump_stat(): void
+function pstring_free(string: string): void
+function pstring_peek(string: string): string
+function pstring_strdup(string: string): string
+function quoted_decode_step(in_: Uint8Array[], out: Uint8Array[], saveme: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* saveme */ number[] ]
+function quoted_encode_close(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
+function quoted_encode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
+function read(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
+function search_camel_header_soundex(header: string, match: string): boolean
+function search_get_all_headers_decoded(message: MimeMessage): string
+function search_get_default_charset_from_headers(headers: NameValueArray): string
+function search_get_default_charset_from_message(message: MimeMessage): string
+function search_get_header_decoded(header_name: string, header_value: string, default_charset?: string | null): string
+function search_get_headers_decoded(headers: NameValueArray, default_charset?: string | null): string
+function search_header_is_address(header_name: string): boolean
+function search_header_match(value: string, match: string, how: _search_match_t, type: _search_t, default_charset: string): boolean
+function search_words_free(words?: object | null): void
+function search_words_simple(words?: object | null): object | null
+function search_words_split(in_: number): object | null
+function service_error_quark(): GLib.Quark
+function shutdown(): void
+function store_error_quark(): GLib.Quark
+function store_info_name(summary: StoreSummary, info: StoreInfo): string
+function store_info_path(summary: StoreSummary, info: StoreInfo): string
+function store_info_set_string(summary: StoreSummary, info: StoreInfo, type: number, value: string): void
+function strcase_equal(a?: object | null, b?: object | null): number
+function strcase_hash(v?: object | null): number
+function strdown(str: string): string
+function string_is_all_ascii(str?: string | null): boolean
+function strstrcase(haystack: string, needle: string): string
+function system_flag(name: string): MessageFlags
+function system_flag_get(flags: MessageFlags, name: string): boolean
+function text_to_html(in_: string, flags: MimeFilterToHTMLFlags, color: number): string
+function time_value_apply(src_time: number, unit: TimeUnit, value: number): number
+function transfer_encoding_from_string(string: string): TransferEncoding
+function transfer_encoding_to_string(encoding: TransferEncoding): string
+function ucs2_utf8(ptr: string): string
+function uid_cache_free_uids(uids: string[]): void
+function unlock_dot(path: string): void
+function unlock_fcntl(fd: number): void
+function unlock_flock(fd: number): void
+function unlock_folder(path: string, fd: number): void
+function url_addrspec_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function url_addrspec_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function url_decode(part: string): void
+function url_decode_path(path: string): string
+function url_encode(part: string, escape_extra: string): string
+function url_file_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function url_file_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function url_web_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function url_web_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
+function ustrstrcase(haystack: string, needle: string): string
+function utf7_utf8(ptr: string): string
+function utf8_getc(ptr: number): [ /* returnType */ number, /* ptr */ number ]
+function utf8_getc_limit(ptr: number, end: number): [ /* returnType */ number, /* ptr */ number ]
+function utf8_make_valid(text: string): string
+function utf8_make_valid_len(text: string, text_len: number): string
+function utf8_putc(ptr: number, c: number): /* ptr */ number
+function utf8_ucs2(ptr: string): string
+function utf8_utf7(ptr: string): string
+function util_bdata_get_number(bdata_ptr: string, default_value: number): number
+function util_bdata_get_string(bdata_ptr: string, default_value: string): string
+function util_bdata_put_number(bdata_str: GLib.String, value: number): void
+function util_bdata_put_string(bdata_str: GLib.String, value: string): void
+function util_decode_user_header_setting(setting_value: string): [ /* out_display_name */ string | null, /* out_header_name */ string ]
+function util_encode_user_header_setting(display_name: string | null, header_name: string): string
+function util_fill_message_info_user_headers(info: MessageInfo, headers: NameValueArray): boolean
+function util_get_directory_variants(main_path: string, replace_prefix: string, with_modules_dir: boolean): string[]
+function utils_sanitize_ascii_domain_in_address(email_address: string, do_format: boolean): string | null
+function utils_sanitize_ascii_domain_in_url(url: URL): boolean
+function utils_sanitize_ascii_domain_in_url_str(url_str: string): string | null
+function uudecode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
+function uuencode_close(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
+function uuencode_step(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
+function write(fd: number, buf: string, n: number, cancellable?: Gio.Cancellable | null): number
+function ydecode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+function yencode_close(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+function yencode_step(in_: Uint8Array[]): [ /* returnType */ number, /* out */ Uint8Array[], /* state */ number, /* pcrc */ number, /* crc */ number ]
+interface CipherCloneFunc {
     (value?: object | null): object | null
 }
-export interface CopyFunc {
+interface CopyFunc {
     (object?: object | null): object | null
 }
-export interface DBCollate {
+interface DBCollate {
     (enc: object | null, length1: number, data1: object | null, length2: number, data2?: object | null): number
 }
-export interface DBSelectCB {
+interface DBSelectCB {
     (colvalues: string[], colnames: string[]): number
 }
-export interface DataCacheRemoveFunc {
+interface DataCacheRemoveFunc {
     (cdc: DataCache, filename: string): boolean
 }
-export interface FilterPlaySoundFunc {
+interface FilterPlaySoundFunc {
     (driver: FilterDriver, filename: string): void
 }
-export interface FilterShellFunc {
+interface FilterShellFunc {
     (driver: FilterDriver, argc: number, argv: string): void
 }
-export interface FilterStatusFunc {
+interface FilterStatusFunc {
     (driver: FilterDriver, status: object | null, pc: number, desc: string): void
 }
-export interface FilterSystemBeepFunc {
+interface FilterSystemBeepFunc {
     (driver: FilterDriver): void
 }
-export interface ForeachInfoData {
+interface ForeachInfoData {
     (mi_data: VeeMessageInfoData, subfolder: Folder): void
 }
-export interface ForeachPartFunc {
+interface ForeachPartFunc {
     (message: MimeMessage, part: MimePart, parent_part?: MimePart | null): boolean
 }
-export interface IndexNorm {
+interface IndexNorm {
     (index: Index, word: string): string
 }
-export interface MessageContentInfoTraverseCallback {
+interface MessageContentInfoTraverseCallback {
     (ci: MessageContentInfo, depth: number): boolean
 }
-export interface ProviderAutoDetectFunc {
+interface ProviderAutoDetectFunc {
     (url: URL): number
 }
-export interface SessionCallback {
+interface SessionCallback {
     (session: Session, cancellable?: Gio.Cancellable | null): void
 }
-export interface TextIndexFunc {
+interface TextIndexFunc {
     (idx: TextIndex, word: string, buffer: string): void
 }
-export interface UrlScanFunc {
+interface UrlScanFunc {
     (in_: string, pos: string, inend: string, match: UrlMatch): boolean
 }
-export class JunkFilter {
+class JunkFilter {
     /* Methods of Camel-1.2.Camel.JunkFilter */
     classify(message: MimeMessage, cancellable?: Gio.Cancellable | null): JunkStatus
     learn_junk(message: MimeMessage, cancellable?: Gio.Cancellable | null): boolean
@@ -879,7 +881,7 @@ export class JunkFilter {
 export interface NetworkService_ConstructProps extends Service_ConstructProps {
     connectable?: Gio.SocketConnectable
 }
-export class NetworkService {
+class NetworkService {
     /* Properties of Camel-1.2.Camel.NetworkService */
     connectable: Gio.SocketConnectable
     readonly host_reachable: boolean
@@ -1026,7 +1028,7 @@ export interface NetworkSettings_ConstructProps extends Settings_ConstructProps 
     security_method?: NetworkSecurityMethod
     user?: string
 }
-export class NetworkSettings {
+class NetworkSettings {
     /* Properties of Camel-1.2.Camel.NetworkSettings */
     auth_mechanism: string
     host: string
@@ -1111,7 +1113,7 @@ export class NetworkSettings {
 }
 export interface Subscribable_ConstructProps extends Store_ConstructProps {
 }
-export class Subscribable {
+class Subscribable {
     /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
@@ -1334,7 +1336,7 @@ export class Subscribable {
 }
 export interface Address_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Address {
+class Address {
     /* Fields of Camel-1.2.Camel.Address */
     parent: GObject.Object
     priv: AddressPrivate
@@ -1405,7 +1407,7 @@ export class Address {
 }
 export interface BlockFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BlockFile {
+class BlockFile {
     /* Fields of Camel-1.2.Camel.BlockFile */
     parent: GObject.Object
     priv: BlockFilePrivate
@@ -1475,7 +1477,7 @@ export class BlockFile {
 }
 export interface CertDB_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CertDB {
+class CertDB {
     /* Fields of Camel-1.2.Camel.CertDB */
     parent: GObject.Object
     priv: CertDBPrivate
@@ -1546,7 +1548,7 @@ export class CertDB {
 export interface CipherContext_ConstructProps extends GObject.Object_ConstructProps {
     session?: Session
 }
-export class CipherContext {
+class CipherContext {
     /* Fields of Camel-1.2.Camel.CipherContext */
     parent: GObject.Object
     priv: CipherContextPrivate
@@ -1622,7 +1624,7 @@ export class CipherContext {
 }
 export interface DB_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DB {
+class DB {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.DB */
@@ -1717,7 +1719,7 @@ export interface DataCache_ConstructProps extends GObject.Object_ConstructProps 
     expire_enabled?: boolean
     path?: string
 }
-export class DataCache {
+class DataCache {
     /* Properties of Camel-1.2.Camel.DataCache */
     expire_enabled: boolean
     path: string
@@ -1790,7 +1792,7 @@ export class DataCache {
 }
 export interface DataWrapper_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataWrapper {
+class DataWrapper {
     /* Fields of Camel-1.2.Camel.DataWrapper */
     parent: GObject.Object
     priv: DataWrapperPrivate
@@ -1886,7 +1888,7 @@ export class DataWrapper {
 }
 export interface FilterDriver_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FilterDriver {
+class FilterDriver {
     /* Fields of Camel-1.2.Camel.FilterDriver */
     parent: GObject.Object
     priv: FilterDriverPrivate
@@ -1953,7 +1955,7 @@ export class FilterDriver {
 export interface FilterInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
     filter?: MimeFilter
 }
-export class FilterInputStream {
+class FilterInputStream {
     /* Properties of Gio-2.0.Gio.FilterInputStream */
     close_base_stream: boolean
     /* Fields of Camel-1.2.Camel.FilterInputStream */
@@ -2050,7 +2052,7 @@ export class FilterInputStream {
 export interface FilterOutputStream_ConstructProps extends Gio.FilterOutputStream_ConstructProps {
     filter?: MimeFilter
 }
-export class FilterOutputStream {
+class FilterOutputStream {
     /* Fields of Camel-1.2.Camel.FilterOutputStream */
     parent: Gio.FilterOutputStream
     priv: FilterOutputStreamPrivate
@@ -2164,7 +2166,7 @@ export interface Folder_ConstructProps extends Object_ConstructProps {
     mark_seen_timeout?: number
     parent_store?: Store
 }
-export class Folder {
+class Folder {
     /* Properties of Camel-1.2.Camel.Folder */
     description: string
     display_name: string
@@ -2381,7 +2383,7 @@ export class Folder {
 }
 export interface FolderSearch_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FolderSearch {
+class FolderSearch {
     /* Fields of Camel-1.2.Camel.FolderSearch */
     parent: GObject.Object
     priv: FolderSearchPrivate
@@ -2455,7 +2457,7 @@ export class FolderSearch {
 export interface FolderSummary_ConstructProps extends GObject.Object_ConstructProps {
     folder?: Folder
 }
-export class FolderSummary {
+class FolderSummary {
     /* Properties of Camel-1.2.Camel.FolderSummary */
     readonly deleted_count: number
     readonly junk_count: number
@@ -2588,7 +2590,7 @@ export interface GpgContext_ConstructProps extends CipherContext_ConstructProps 
     always_trust?: boolean
     prefer_inline?: boolean
 }
-export class GpgContext {
+class GpgContext {
     /* Properties of Camel-1.2.Camel.GpgContext */
     always_trust: boolean
     prefer_inline: boolean
@@ -2676,7 +2678,7 @@ export class GpgContext {
 }
 export interface HTMLParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HTMLParser {
+class HTMLParser {
     /* Fields of Camel-1.2.Camel.HTMLParser */
     parent: GObject.Object
     priv: HTMLParserPrivate
@@ -2736,7 +2738,7 @@ export class HTMLParser {
 }
 export interface Index_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Index {
+class Index {
     /* Fields of Camel-1.2.Camel.Index */
     parent: GObject.Object
     priv: IndexPrivate
@@ -2819,7 +2821,7 @@ export class Index {
 }
 export interface IndexCursor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IndexCursor {
+class IndexCursor {
     /* Fields of Camel-1.2.Camel.IndexCursor */
     parent: GObject.Object
     priv: IndexCursorPrivate
@@ -2875,7 +2877,7 @@ export class IndexCursor {
 }
 export interface IndexName_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IndexName {
+class IndexName {
     /* Fields of Camel-1.2.Camel.IndexName */
     parent: GObject.Object
     priv: IndexNamePrivate
@@ -2936,7 +2938,7 @@ export class IndexName {
 }
 export interface InternetAddress_ConstructProps extends Address_ConstructProps {
 }
-export class InternetAddress {
+class InternetAddress {
     /* Fields of Camel-1.2.Camel.InternetAddress */
     parent: Address
     priv: InternetAddressPrivate
@@ -3016,7 +3018,7 @@ export class InternetAddress {
 }
 export interface KeyFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeyFile {
+class KeyFile {
     /* Fields of Camel-1.2.Camel.KeyFile */
     parent: GObject.Object
     priv: KeyFilePrivate
@@ -3074,7 +3076,7 @@ export class KeyFile {
 }
 export interface KeyTable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeyTable {
+class KeyTable {
     /* Fields of Camel-1.2.Camel.KeyTable */
     parent: GObject.Object
     priv: KeyTablePrivate
@@ -3138,7 +3140,7 @@ export interface LocalSettings_ConstructProps extends StoreSettings_ConstructPro
     maildir_alt_flag_sep?: boolean
     path?: string
 }
-export class LocalSettings {
+class LocalSettings {
     /* Properties of Camel-1.2.Camel.LocalSettings */
     filter_all: boolean
     filter_junk: boolean
@@ -3228,7 +3230,7 @@ export class LocalSettings {
 export interface Medium_ConstructProps extends DataWrapper_ConstructProps {
     content?: DataWrapper
 }
-export class Medium {
+class Medium {
     /* Properties of Camel-1.2.Camel.Medium */
     content: DataWrapper
     /* Fields of Camel-1.2.Camel.Medium */
@@ -3365,7 +3367,7 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     user_headers?: NameValueArray
     user_tags?: NameValueArray
 }
-export class MessageInfo {
+class MessageInfo {
     /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
@@ -3594,7 +3596,7 @@ export class MessageInfo {
 }
 export interface MessageInfoBase_ConstructProps extends MessageInfo_ConstructProps {
 }
-export class MessageInfoBase {
+class MessageInfoBase {
     /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
@@ -3820,7 +3822,7 @@ export class MessageInfoBase {
 }
 export interface MimeFilter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MimeFilter {
+class MimeFilter {
     /* Fields of Camel-1.2.Camel.MimeFilter */
     parent: GObject.Object
     priv: MimeFilterPrivate
@@ -3891,7 +3893,7 @@ export class MimeFilter {
 }
 export interface MimeFilterBasic_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterBasic {
+class MimeFilterBasic {
     /* Fields of Camel-1.2.Camel.MimeFilterBasic */
     parent: MimeFilter
     priv: MimeFilterBasicPrivate
@@ -3964,7 +3966,7 @@ export class MimeFilterBasic {
 }
 export interface MimeFilterBestenc_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterBestenc {
+class MimeFilterBestenc {
     /* Fields of Camel-1.2.Camel.MimeFilterBestenc */
     parent: MimeFilter
     priv: MimeFilterBestencPrivate
@@ -4041,7 +4043,7 @@ export class MimeFilterBestenc {
 }
 export interface MimeFilterCRLF_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterCRLF {
+class MimeFilterCRLF {
     /* Fields of Camel-1.2.Camel.MimeFilterCRLF */
     parent: MimeFilter
     priv: MimeFilterCRLFPrivate
@@ -4117,7 +4119,7 @@ export class MimeFilterCRLF {
 }
 export interface MimeFilterCanon_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterCanon {
+class MimeFilterCanon {
     /* Fields of Camel-1.2.Camel.MimeFilterCanon */
     parent: MimeFilter
     priv: MimeFilterCanonPrivate
@@ -4190,7 +4192,7 @@ export class MimeFilterCanon {
 }
 export interface MimeFilterCharset_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterCharset {
+class MimeFilterCharset {
     /* Fields of Camel-1.2.Camel.MimeFilterCharset */
     parent: MimeFilter
     priv: MimeFilterCharsetPrivate
@@ -4263,7 +4265,7 @@ export class MimeFilterCharset {
 }
 export interface MimeFilterEnriched_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterEnriched {
+class MimeFilterEnriched {
     /* Fields of Camel-1.2.Camel.MimeFilterEnriched */
     parent: MimeFilter
     priv: MimeFilterEnrichedPrivate
@@ -4336,7 +4338,7 @@ export class MimeFilterEnriched {
 }
 export interface MimeFilterFrom_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterFrom {
+class MimeFilterFrom {
     /* Fields of Camel-1.2.Camel.MimeFilterFrom */
     parent: MimeFilter
     priv: MimeFilterFromPrivate
@@ -4408,7 +4410,7 @@ export class MimeFilterFrom {
 }
 export interface MimeFilterGZip_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterGZip {
+class MimeFilterGZip {
     /* Fields of Camel-1.2.Camel.MimeFilterGZip */
     parent: MimeFilter
     priv: MimeFilterGZipPrivate
@@ -4481,7 +4483,7 @@ export class MimeFilterGZip {
 }
 export interface MimeFilterHTML_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterHTML {
+class MimeFilterHTML {
     /* Fields of Camel-1.2.Camel.MimeFilterHTML */
     parent: MimeFilter
     priv: MimeFilterHTMLPrivate
@@ -4553,7 +4555,7 @@ export class MimeFilterHTML {
 }
 export interface MimeFilterIndex_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterIndex {
+class MimeFilterIndex {
     /* Fields of Camel-1.2.Camel.MimeFilterIndex */
     parent: MimeFilter
     priv: MimeFilterIndexPrivate
@@ -4629,7 +4631,7 @@ export class MimeFilterIndex {
 }
 export interface MimeFilterLinewrap_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterLinewrap {
+class MimeFilterLinewrap {
     /* Fields of Camel-1.2.Camel.MimeFilterLinewrap */
     parent: MimeFilter
     priv: MimeFilterLinewrapPrivate
@@ -4702,7 +4704,7 @@ export class MimeFilterLinewrap {
 }
 export interface MimeFilterPgp_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterPgp {
+class MimeFilterPgp {
     /* Fields of Camel-1.2.Camel.MimeFilterPgp */
     parent: MimeFilter
     priv: MimeFilterPgpPrivate
@@ -4774,7 +4776,7 @@ export class MimeFilterPgp {
 }
 export interface MimeFilterProgress_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterProgress {
+class MimeFilterProgress {
     /* Fields of Camel-1.2.Camel.MimeFilter */
     parent: GObject.Object
     priv: MimeFilterPrivate
@@ -4846,7 +4848,7 @@ export class MimeFilterProgress {
 }
 export interface MimeFilterToHTML_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterToHTML {
+class MimeFilterToHTML {
     /* Fields of Camel-1.2.Camel.MimeFilterToHTML */
     parent: MimeFilter
     priv: MimeFilterToHTMLPrivate
@@ -4919,7 +4921,7 @@ export class MimeFilterToHTML {
 }
 export interface MimeFilterWindows_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterWindows {
+class MimeFilterWindows {
     /* Fields of Camel-1.2.Camel.MimeFilterWindows */
     parent: MimeFilter
     priv: MimeFilterWindowsPrivate
@@ -4995,7 +4997,7 @@ export class MimeFilterWindows {
 }
 export interface MimeFilterYenc_ConstructProps extends MimeFilter_ConstructProps {
 }
-export class MimeFilterYenc {
+class MimeFilterYenc {
     /* Fields of Camel-1.2.Camel.MimeFilterYenc */
     parent: MimeFilter
     priv: MimeFilterYencPrivate
@@ -5073,7 +5075,7 @@ export class MimeFilterYenc {
 }
 export interface MimeMessage_ConstructProps extends MimePart_ConstructProps {
 }
-export class MimeMessage {
+class MimeMessage {
     /* Properties of Camel-1.2.Camel.MimePart */
     content_id: string
     content_md5: string
@@ -5253,7 +5255,7 @@ export class MimeMessage {
 }
 export interface MimeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MimeParser {
+class MimeParser {
     /* Fields of Camel-1.2.Camel.MimeParser */
     parent: GObject.Object
     priv: MimeParserPrivate
@@ -5343,7 +5345,7 @@ export interface MimePart_ConstructProps extends Medium_ConstructProps {
     description?: string
     disposition?: string
 }
-export class MimePart {
+class MimePart {
     /* Properties of Camel-1.2.Camel.MimePart */
     content_id: string
     content_md5: string
@@ -5499,7 +5501,7 @@ export class MimePart {
 }
 export interface Multipart_ConstructProps extends DataWrapper_ConstructProps {
 }
-export class Multipart {
+class Multipart {
     /* Fields of Camel-1.2.Camel.Multipart */
     parent: DataWrapper
     priv: MultipartPrivate
@@ -5613,7 +5615,7 @@ export class Multipart {
 }
 export interface MultipartEncrypted_ConstructProps extends Multipart_ConstructProps {
 }
-export class MultipartEncrypted {
+class MultipartEncrypted {
     /* Fields of Camel-1.2.Camel.MultipartEncrypted */
     parent: Multipart
     priv: MultipartEncryptedPrivate
@@ -5727,7 +5729,7 @@ export class MultipartEncrypted {
 }
 export interface MultipartSigned_ConstructProps extends Multipart_ConstructProps {
 }
-export class MultipartSigned {
+class MultipartSigned {
     /* Fields of Camel-1.2.Camel.MultipartSigned */
     parent: Multipart
     priv: MultipartSignedPrivate
@@ -5845,7 +5847,7 @@ export class MultipartSigned {
 }
 export interface NNTPAddress_ConstructProps extends Address_ConstructProps {
 }
-export class NNTPAddress {
+class NNTPAddress {
     /* Fields of Camel-1.2.Camel.NNTPAddress */
     parent: Address
     priv: NNTPAddressPrivate
@@ -5919,7 +5921,7 @@ export class NNTPAddress {
 }
 export interface NullOutputStream_ConstructProps extends Gio.OutputStream_ConstructProps {
 }
-export class NullOutputStream {
+class NullOutputStream {
     /* Fields of Camel-1.2.Camel.NullOutputStream */
     parent: Gio.OutputStream
     priv: NullOutputStreamPrivate
@@ -6024,7 +6026,7 @@ export class NullOutputStream {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     state_filename?: string
 }
-export class Object {
+class Object {
     /* Properties of Camel-1.2.Camel.Object */
     state_filename: string
     /* Fields of Camel-1.2.Camel.Object */
@@ -6088,7 +6090,7 @@ export class Object {
 export interface OfflineFolder_ConstructProps extends Folder_ConstructProps {
     offline_sync?: ThreeState
 }
-export class OfflineFolder {
+class OfflineFolder {
     /* Properties of Camel-1.2.Camel.OfflineFolder */
     offline_sync: ThreeState
     /* Properties of Camel-1.2.Camel.Folder */
@@ -6320,7 +6322,7 @@ export interface OfflineSettings_ConstructProps extends StoreSettings_ConstructP
     limit_value?: number
     stay_synchronized?: boolean
 }
-export class OfflineSettings {
+class OfflineSettings {
     /* Properties of Camel-1.2.Camel.OfflineSettings */
     limit_by_age: boolean
     limit_unit: TimeUnit
@@ -6408,7 +6410,7 @@ export class OfflineSettings {
 }
 export interface OfflineStore_ConstructProps extends Store_ConstructProps {
 }
-export class OfflineStore {
+class OfflineStore {
     /* Properties of Camel-1.2.Camel.OfflineStore */
     readonly online: boolean
     /* Properties of Camel-1.2.Camel.Service */
@@ -6624,7 +6626,7 @@ export class OfflineStore {
 }
 export interface Operation_ConstructProps extends Gio.Cancellable_ConstructProps {
 }
-export class Operation {
+class Operation {
     /* Fields of Camel-1.2.Camel.Operation */
     parent: Gio.Cancellable
     priv: OperationPrivate
@@ -6717,7 +6719,7 @@ export class Operation {
 }
 export interface PartitionTable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PartitionTable {
+class PartitionTable {
     /* Fields of Camel-1.2.Camel.PartitionTable */
     parent: GObject.Object
     priv: PartitionTablePrivate
@@ -6775,7 +6777,7 @@ export class PartitionTable {
 }
 export interface SExp_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SExp {
+class SExp {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.SExp */
@@ -6839,7 +6841,7 @@ export class SExp {
 }
 export interface SMIMEContext_ConstructProps extends CipherContext_ConstructProps {
 }
-export class SMIMEContext {
+class SMIMEContext {
     /* Fields of Camel-1.2.Camel.SMIMEContext */
     parent: CipherContext
     priv: SMIMEContextPrivate
@@ -6923,7 +6925,7 @@ export interface Sasl_ConstructProps extends GObject.Object_ConstructProps {
     service?: Service
     service_name?: string
 }
-export class Sasl {
+class Sasl {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.Sasl */
@@ -7001,7 +7003,7 @@ export class Sasl {
 }
 export interface SaslAnonymous_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslAnonymous {
+class SaslAnonymous {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslAnonymous */
@@ -7077,7 +7079,7 @@ export class SaslAnonymous {
 }
 export interface SaslCramMd5_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslCramMd5 {
+class SaslCramMd5 {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslCramMd5 */
@@ -7150,7 +7152,7 @@ export class SaslCramMd5 {
 }
 export interface SaslDigestMd5_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslDigestMd5 {
+class SaslDigestMd5 {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslDigestMd5 */
@@ -7223,7 +7225,7 @@ export class SaslDigestMd5 {
 }
 export interface SaslGssapi_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslGssapi {
+class SaslGssapi {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslGssapi */
@@ -7300,7 +7302,7 @@ export class SaslGssapi {
 }
 export interface SaslLogin_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslLogin {
+class SaslLogin {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslLogin */
@@ -7373,7 +7375,7 @@ export class SaslLogin {
 }
 export interface SaslNTLM_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslNTLM {
+class SaslNTLM {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslNTLM */
@@ -7446,7 +7448,7 @@ export class SaslNTLM {
 }
 export interface SaslPOPB4SMTP_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslPOPB4SMTP {
+class SaslPOPB4SMTP {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslPOPB4SMTP */
@@ -7519,7 +7521,7 @@ export class SaslPOPB4SMTP {
 }
 export interface SaslPlain_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslPlain {
+class SaslPlain {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslPlain */
@@ -7592,7 +7594,7 @@ export class SaslPlain {
 }
 export interface SaslXOAuth2_ConstructProps extends Sasl_ConstructProps {
 }
-export class SaslXOAuth2 {
+class SaslXOAuth2 {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslXOAuth2 */
@@ -7665,7 +7667,7 @@ export class SaslXOAuth2 {
 }
 export interface SaslXOAuth2Google_ConstructProps extends SaslXOAuth2_ConstructProps {
 }
-export class SaslXOAuth2Google {
+class SaslXOAuth2Google {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslXOAuth2Google */
@@ -7738,7 +7740,7 @@ export class SaslXOAuth2Google {
 }
 export interface SaslXOAuth2Outlook_ConstructProps extends SaslXOAuth2_ConstructProps {
 }
-export class SaslXOAuth2Outlook {
+class SaslXOAuth2Outlook {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslXOAuth2Outlook */
@@ -7811,7 +7813,7 @@ export class SaslXOAuth2Outlook {
 }
 export interface SaslXOAuth2Yahoo_ConstructProps extends SaslXOAuth2_ConstructProps {
 }
-export class SaslXOAuth2Yahoo {
+class SaslXOAuth2Yahoo {
     /* Properties of Camel-1.2.Camel.Sasl */
     authenticated: boolean
     /* Fields of Camel-1.2.Camel.SaslXOAuth2Yahoo */
@@ -7891,7 +7893,7 @@ export interface Service_ConstructProps extends Object_ConstructProps {
     settings?: Settings
     uid?: string
 }
-export class Service {
+class Service {
     /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
@@ -8019,7 +8021,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     user_cache_dir?: string
     user_data_dir?: string
 }
-export class Session {
+class Session {
     /* Properties of Camel-1.2.Camel.Session */
     junk_filter: JunkFilter
     readonly main_context: GLib.MainContext
@@ -8150,7 +8152,7 @@ export class Session {
 }
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Settings {
+class Settings {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.Settings */
@@ -8206,7 +8208,7 @@ export class Settings {
 }
 export interface Store_ConstructProps extends Service_ConstructProps {
 }
-export class Store {
+class Store {
     /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
@@ -8410,7 +8412,7 @@ export interface StoreSettings_ConstructProps extends Settings_ConstructProps {
     filter_inbox?: boolean
     store_changes_interval?: number
 }
-export class StoreSettings {
+class StoreSettings {
     /* Properties of Camel-1.2.Camel.StoreSettings */
     filter_inbox: boolean
     store_changes_interval: number
@@ -8476,7 +8478,7 @@ export class StoreSettings {
 }
 export interface StoreSummary_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StoreSummary {
+class StoreSummary {
     /* Fields of Camel-1.2.Camel.StoreSummary */
     parent: GObject.Object
     priv: StoreSummaryPrivate
@@ -8551,7 +8553,7 @@ export class StoreSummary {
 export interface Stream_ConstructProps extends GObject.Object_ConstructProps {
     base_stream?: Gio.IOStream
 }
-export class Stream {
+class Stream {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.Stream */
@@ -8635,7 +8637,7 @@ export class Stream {
 }
 export interface StreamBuffer_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamBuffer {
+class StreamBuffer {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamBuffer */
@@ -8727,7 +8729,7 @@ export class StreamBuffer {
 }
 export interface StreamFilter_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamFilter {
+class StreamFilter {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamFilter */
@@ -8816,7 +8818,7 @@ export class StreamFilter {
 }
 export interface StreamFs_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamFs {
+class StreamFs {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamFs */
@@ -8903,7 +8905,7 @@ export class StreamFs {
 }
 export interface StreamMem_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamMem {
+class StreamMem {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamMem */
@@ -8995,7 +8997,7 @@ export class StreamMem {
 }
 export interface StreamNull_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamNull {
+class StreamNull {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamNull */
@@ -9083,7 +9085,7 @@ export class StreamNull {
 }
 export interface StreamProcess_ConstructProps extends Stream_ConstructProps {
 }
-export class StreamProcess {
+class StreamProcess {
     /* Properties of Camel-1.2.Camel.Stream */
     base_stream: Gio.IOStream
     /* Fields of Camel-1.2.Camel.StreamProcess */
@@ -9170,7 +9172,7 @@ export class StreamProcess {
 }
 export interface TextIndex_ConstructProps extends Index_ConstructProps {
 }
-export class TextIndex {
+class TextIndex {
     /* Fields of Camel-1.2.Camel.TextIndex */
     parent: Index
     priv: TextIndexPrivate
@@ -9263,7 +9265,7 @@ export class TextIndex {
 }
 export interface TextIndexCursor_ConstructProps extends IndexCursor_ConstructProps {
 }
-export class TextIndexCursor {
+class TextIndexCursor {
     /* Fields of Camel-1.2.Camel.TextIndexCursor */
     parent: IndexCursor
     priv: TextIndexCursorPrivate
@@ -9320,7 +9322,7 @@ export class TextIndexCursor {
 }
 export interface TextIndexKeyCursor_ConstructProps extends IndexCursor_ConstructProps {
 }
-export class TextIndexKeyCursor {
+class TextIndexKeyCursor {
     /* Fields of Camel-1.2.Camel.TextIndexKeyCursor */
     parent: IndexCursor
     priv: TextIndexKeyCursorPrivate
@@ -9377,7 +9379,7 @@ export class TextIndexKeyCursor {
 }
 export interface TextIndexName_ConstructProps extends IndexName_ConstructProps {
 }
-export class TextIndexName {
+class TextIndexName {
     /* Fields of Camel-1.2.Camel.TextIndexName */
     parent: IndexName
     priv: TextIndexNamePrivate
@@ -9439,7 +9441,7 @@ export class TextIndexName {
 }
 export interface Transport_ConstructProps extends Service_ConstructProps {
 }
-export class Transport {
+class Transport {
     /* Properties of Camel-1.2.Camel.Service */
     readonly connection_status: ServiceConnectionStatus
     display_name: string
@@ -9566,7 +9568,7 @@ export class Transport {
 }
 export interface VTrashFolder_ConstructProps extends VeeFolder_ConstructProps {
 }
-export class VTrashFolder {
+class VTrashFolder {
     /* Properties of Camel-1.2.Camel.VeeFolder */
     auto_update: boolean
     /* Properties of Camel-1.2.Camel.Folder */
@@ -9814,7 +9816,7 @@ export class VTrashFolder {
 }
 export interface VeeDataCache_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VeeDataCache {
+class VeeDataCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.VeeDataCache */
@@ -9874,7 +9876,7 @@ export class VeeDataCache {
 export interface VeeFolder_ConstructProps extends Folder_ConstructProps {
     auto_update?: boolean
 }
-export class VeeFolder {
+class VeeFolder {
     /* Properties of Camel-1.2.Camel.VeeFolder */
     auto_update: boolean
     /* Properties of Camel-1.2.Camel.Folder */
@@ -10119,7 +10121,7 @@ export class VeeFolder {
 }
 export interface VeeMessageInfo_ConstructProps extends MessageInfo_ConstructProps {
 }
-export class VeeMessageInfo {
+class VeeMessageInfo {
     /* Properties of Camel-1.2.Camel.MessageInfo */
     abort_notifications: boolean
     cc: string
@@ -10351,7 +10353,7 @@ export class VeeMessageInfo {
 }
 export interface VeeMessageInfoData_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VeeMessageInfoData {
+class VeeMessageInfoData {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.VeeMessageInfoData */
@@ -10406,7 +10408,7 @@ export class VeeMessageInfoData {
 export interface VeeStore_ConstructProps extends Store_ConstructProps {
     unmatched_enabled?: boolean
 }
-export class VeeStore {
+class VeeStore {
     /* Properties of Camel-1.2.Camel.VeeStore */
     unmatched_enabled: boolean
     /* Properties of Camel-1.2.Camel.Service */
@@ -10624,7 +10626,7 @@ export class VeeStore {
 }
 export interface VeeSubfolderData_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class VeeSubfolderData {
+class VeeSubfolderData {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.VeeSubfolderData */
@@ -10677,7 +10679,7 @@ export class VeeSubfolderData {
 }
 export interface VeeSummary_ConstructProps extends FolderSummary_ConstructProps {
 }
-export class VeeSummary {
+class VeeSummary {
     /* Properties of Camel-1.2.Camel.FolderSummary */
     readonly deleted_count: number
     readonly junk_count: number
@@ -10810,7 +10812,7 @@ export class VeeSummary {
     static new(parent: Folder): VeeSummary
     static $gtype: GObject.Type
 }
-export abstract class AddressClass {
+abstract class AddressClass {
     /* Fields of Camel-1.2.Camel.AddressClass */
     parent_class: GObject.ObjectClass
     length: (addr: Address) => number
@@ -10823,13 +10825,13 @@ export abstract class AddressClass {
     reserved: object[]
     static name: string
 }
-export class AddressPrivate {
+class AddressPrivate {
     static name: string
 }
-export class AsyncClosure {
+class AsyncClosure {
     static name: string
 }
-export class Block {
+class Block {
     /* Fields of Camel-1.2.Camel.Block */
     id: _block_t
     flags: BlockFlags
@@ -10838,7 +10840,7 @@ export class Block {
     data: Uint8Array[]
     static name: string
 }
-export abstract class BlockFileClass {
+abstract class BlockFileClass {
     /* Fields of Camel-1.2.Camel.BlockFileClass */
     parent_class: GObject.ObjectClass
     validate_root: (bs: BlockFile) => number
@@ -10846,10 +10848,10 @@ export abstract class BlockFileClass {
     reserved: object[]
     static name: string
 }
-export class BlockFilePrivate {
+class BlockFilePrivate {
     static name: string
 }
-export class BlockRoot {
+class BlockRoot {
     /* Fields of Camel-1.2.Camel.BlockRoot */
     version: number[]
     flags: number
@@ -10858,7 +10860,7 @@ export class BlockRoot {
     last: _block_t
     static name: string
 }
-export class Cert {
+class Cert {
     /* Fields of Camel-1.2.Camel.Cert */
     refcount: number
     issuer: string
@@ -10878,7 +10880,7 @@ export class Cert {
     /* Static methods and pseudo-constructors */
     static new(): Cert
 }
-export abstract class CertDBClass {
+abstract class CertDBClass {
     /* Fields of Camel-1.2.Camel.CertDBClass */
     parent_class: GObject.ObjectClass
     header_load: (certdb: CertDB, istream?: object | null) => number
@@ -10888,10 +10890,10 @@ export abstract class CertDBClass {
     reserved: object[]
     static name: string
 }
-export class CertDBPrivate {
+class CertDBPrivate {
     static name: string
 }
-export class Charset {
+class Charset {
     /* Fields of Camel-1.2.Camel.Charset */
     mask: number
     level: number
@@ -10904,7 +10906,7 @@ export class Charset {
     static best(in_: number[]): string | null
     static iso_to_windows(isocharset: string): string
 }
-export class CipherCertInfo {
+class CipherCertInfo {
     /* Fields of Camel-1.2.Camel.CipherCertInfo */
     name: string
     email: string
@@ -10914,7 +10916,7 @@ export class CipherCertInfo {
     properties: object[]
     static name: string
 }
-export class CipherCertInfoProperty {
+class CipherCertInfoProperty {
     /* Fields of Camel-1.2.Camel.CipherCertInfoProperty */
     name: string
     value: object
@@ -10922,7 +10924,7 @@ export class CipherCertInfoProperty {
     value_clone: CipherCloneFunc
     static name: string
 }
-export abstract class CipherContextClass {
+abstract class CipherContextClass {
     /* Fields of Camel-1.2.Camel.CipherContextClass */
     parent_class: GObject.ObjectClass
     sign_protocol: string
@@ -10937,10 +10939,10 @@ export abstract class CipherContextClass {
     reserved: object[]
     static name: string
 }
-export class CipherContextPrivate {
+class CipherContextPrivate {
     static name: string
 }
-export class CipherValidity {
+class CipherValidity {
     /* Fields of Camel-1.2.Camel.CipherValidity */
     children: GLib.Queue
     sign: object
@@ -10965,7 +10967,7 @@ export class CipherValidity {
     /* Static methods and pseudo-constructors */
     static new(): CipherValidity
 }
-export class ContentDisposition {
+class ContentDisposition {
     /* Fields of Camel-1.2.Camel.ContentDisposition */
     disposition: string
     params: object
@@ -10983,7 +10985,7 @@ export class ContentDisposition {
     static new(): ContentDisposition
     static decode(in_: string): ContentDisposition
 }
-export class ContentType {
+class ContentType {
     /* Fields of Camel-1.2.Camel.ContentType */
     type: string
     subtype: string
@@ -11005,22 +11007,22 @@ export class ContentType {
     static new(type: string, subtype: string): ContentType
     static decode(in_: string): ContentType
 }
-export abstract class DBClass {
+abstract class DBClass {
     static name: string
 }
-export class DBPrivate {
+class DBPrivate {
     static name: string
 }
-export abstract class DataCacheClass {
+abstract class DataCacheClass {
     /* Fields of Camel-1.2.Camel.DataCacheClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class DataCachePrivate {
+class DataCachePrivate {
     static name: string
 }
-export abstract class DataWrapperClass {
+abstract class DataWrapperClass {
     /* Fields of Camel-1.2.Camel.DataWrapperClass */
     parent_class: GObject.ObjectClass
     set_mime_type: (data_wrapper: DataWrapper, mime_type: string) => void
@@ -11037,10 +11039,10 @@ export abstract class DataWrapperClass {
     reserved: object[]
     static name: string
 }
-export class DataWrapperPrivate {
+class DataWrapperPrivate {
     static name: string
 }
-export class FIRecord {
+class FIRecord {
     /* Fields of Camel-1.2.Camel.FIRecord */
     folder_name: string
     version: number
@@ -11056,34 +11058,34 @@ export class FIRecord {
     bdata: string
     static name: string
 }
-export abstract class FilterDriverClass {
+abstract class FilterDriverClass {
     /* Fields of Camel-1.2.Camel.FilterDriverClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class FilterDriverPrivate {
+class FilterDriverPrivate {
     static name: string
 }
-export abstract class FilterInputStreamClass {
+abstract class FilterInputStreamClass {
     /* Fields of Camel-1.2.Camel.FilterInputStreamClass */
     parent_class: Gio.FilterInputStreamClass
     reserved: object[]
     static name: string
 }
-export class FilterInputStreamPrivate {
+class FilterInputStreamPrivate {
     static name: string
 }
-export abstract class FilterOutputStreamClass {
+abstract class FilterOutputStreamClass {
     /* Fields of Camel-1.2.Camel.FilterOutputStreamClass */
     parent_class: Gio.FilterOutputStreamClass
     reserved: object[]
     static name: string
 }
-export class FilterOutputStreamPrivate {
+class FilterOutputStreamPrivate {
     static name: string
 }
-export class FolderChangeInfo {
+class FolderChangeInfo {
     /* Fields of Camel-1.2.Camel.FolderChangeInfo */
     uid_added: object[]
     uid_removed: object[]
@@ -11114,10 +11116,10 @@ export class FolderChangeInfo {
     /* Static methods and pseudo-constructors */
     static new(): FolderChangeInfo
 }
-export class FolderChangeInfoPrivate {
+class FolderChangeInfoPrivate {
     static name: string
 }
-export abstract class FolderClass {
+abstract class FolderClass {
     /* Fields of Camel-1.2.Camel.FolderClass */
     parent_class: ObjectClass
     get_message_count: (folder: Folder) => number
@@ -11165,7 +11167,7 @@ export abstract class FolderClass {
     reserved_signals: object[]
     static name: string
 }
-export class FolderInfo {
+class FolderInfo {
     /* Fields of Camel-1.2.Camel.FolderInfo */
     next: object
     parent: object
@@ -11185,10 +11187,10 @@ export class FolderInfo {
     static new(): FolderInfo
     static build(folders: FolderInfo[], namespace_: string, separator: number, short_names: boolean): FolderInfo
 }
-export class FolderPrivate {
+class FolderPrivate {
     static name: string
 }
-export class FolderQuotaInfo {
+class FolderQuotaInfo {
     /* Fields of Camel-1.2.Camel.FolderQuotaInfo */
     name: string
     used: number
@@ -11203,16 +11205,16 @@ export class FolderQuotaInfo {
     /* Static methods and pseudo-constructors */
     static new(name: string, used: number, total: number): FolderQuotaInfo
 }
-export abstract class FolderSearchClass {
+abstract class FolderSearchClass {
     /* Fields of Camel-1.2.Camel.FolderSearchClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class FolderSearchPrivate {
+class FolderSearchPrivate {
     static name: string
 }
-export abstract class FolderSummaryClass {
+abstract class FolderSummaryClass {
     /* Fields of Camel-1.2.Camel.FolderSummaryClass */
     parent_class: GObject.ObjectClass
     message_info_type: GObject.Type
@@ -11229,10 +11231,10 @@ export abstract class FolderSummaryClass {
     reserved: object[]
     static name: string
 }
-export class FolderSummaryPrivate {
+class FolderSummaryPrivate {
     static name: string
 }
-export class FolderThread {
+class FolderThread {
     /* Fields of Camel-1.2.Camel.FolderThread */
     refcount: number
     subject: number
@@ -11250,7 +11252,7 @@ export class FolderThread {
     /* Static methods and pseudo-constructors */
     static new(folder: Folder, uids: string[], thread_subject: boolean): FolderThread
 }
-export class FolderThreadNode {
+class FolderThreadNode {
     /* Fields of Camel-1.2.Camel.FolderThreadNode */
     next: object
     parent: object
@@ -11261,25 +11263,25 @@ export class FolderThreadNode {
     re: number
     static name: string
 }
-export abstract class GpgContextClass {
+abstract class GpgContextClass {
     /* Fields of Camel-1.2.Camel.GpgContextClass */
     parent_class: CipherContextClass
     reserved: object[]
     static name: string
 }
-export class GpgContextPrivate {
+class GpgContextPrivate {
     static name: string
 }
-export abstract class HTMLParserClass {
+abstract class HTMLParserClass {
     /* Fields of Camel-1.2.Camel.HTMLParserClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class HTMLParserPrivate {
+class HTMLParserPrivate {
     static name: string
 }
-export class HeaderAddress {
+class HeaderAddress {
     /* Fields of Camel-1.2.Camel.HeaderAddress */
     next: object
     type: HeaderAddressType
@@ -11307,7 +11309,7 @@ export class HeaderAddress {
     static list_encode(addrlist: HeaderAddress[]): string
     static list_format(addrlist: HeaderAddress[]): string
 }
-export class HeaderParam {
+class HeaderParam {
     /* Fields of Camel-1.2.Camel.HeaderParam */
     next: object
     name: string
@@ -11319,7 +11321,7 @@ export class HeaderParam {
     static list_format_append(out: GLib.String, params?: object | null): void
     static list_free(params?: object | null): void
 }
-export abstract class IndexClass {
+abstract class IndexClass {
     /* Fields of Camel-1.2.Camel.IndexClass */
     parent_class: GObject.ObjectClass
     sync: (index: Index) => number
@@ -11335,39 +11337,39 @@ export abstract class IndexClass {
     words: (index: Index) => IndexCursor | null
     static name: string
 }
-export abstract class IndexCursorClass {
+abstract class IndexCursorClass {
     /* Fields of Camel-1.2.Camel.IndexCursorClass */
     parent: GObject.ObjectClass
     next: (idc: IndexCursor) => string
     reserved: object[]
     static name: string
 }
-export class IndexCursorPrivate {
+class IndexCursorPrivate {
     static name: string
 }
-export abstract class IndexNameClass {
+abstract class IndexNameClass {
     /* Fields of Camel-1.2.Camel.IndexNameClass */
     parent: GObject.ObjectClass
     add_word: (name: IndexName, word: string) => void
     add_buffer: (name: IndexName, buffer: string, len: number) => number
     static name: string
 }
-export class IndexNamePrivate {
+class IndexNamePrivate {
     static name: string
 }
-export class IndexPrivate {
+class IndexPrivate {
     static name: string
 }
-export abstract class InternetAddressClass {
+abstract class InternetAddressClass {
     /* Fields of Camel-1.2.Camel.InternetAddressClass */
     parent_class: AddressClass
     reserved: object[]
     static name: string
 }
-export class InternetAddressPrivate {
+class InternetAddressPrivate {
     static name: string
 }
-export abstract class JunkFilterInterface {
+abstract class JunkFilterInterface {
     /* Fields of Camel-1.2.Camel.JunkFilterInterface */
     parent_interface: GObject.TypeInterface
     classify: (junk_filter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => JunkStatus
@@ -11377,44 +11379,44 @@ export abstract class JunkFilterInterface {
     reserved: object[]
     static name: string
 }
-export class KeyBlock {
+class KeyBlock {
     /* Fields of Camel-1.2.Camel.KeyBlock */
     next: _block_t
     used: number
     static name: string
 }
-export abstract class KeyFileClass {
+abstract class KeyFileClass {
     /* Fields of Camel-1.2.Camel.KeyFileClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class KeyFilePrivate {
+class KeyFilePrivate {
     static name: string
 }
-export class KeyRootBlock {
+class KeyRootBlock {
     /* Fields of Camel-1.2.Camel.KeyRootBlock */
     first: _block_t
     last: _block_t
     free: _key_t
     static name: string
 }
-export abstract class KeyTableClass {
+abstract class KeyTableClass {
     /* Fields of Camel-1.2.Camel.KeyTableClass */
     parent: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class KeyTablePrivate {
+class KeyTablePrivate {
     static name: string
 }
-export abstract class LocalSettingsClass {
+abstract class LocalSettingsClass {
     static name: string
 }
-export class LocalSettingsPrivate {
+class LocalSettingsPrivate {
     static name: string
 }
-export class MIRecord {
+class MIRecord {
     /* Fields of Camel-1.2.Camel.MIRecord */
     uid: string
     flags: number
@@ -11446,7 +11448,7 @@ export class MIRecord {
     preview: string
     static name: string
 }
-export abstract class MediumClass {
+abstract class MediumClass {
     /* Fields of Camel-1.2.Camel.MediumClass */
     parent_class: DataWrapperClass
     add_header: (medium: Medium, name: string, value: string) => void
@@ -11460,16 +11462,16 @@ export abstract class MediumClass {
     reserved: object[]
     static name: string
 }
-export class MediumPrivate {
+class MediumPrivate {
     static name: string
 }
-export class MemChunk {
+class MemChunk {
     static name: string
 }
-export class MemPool {
+class MemPool {
     static name: string
 }
-export class MessageContentInfo {
+class MessageContentInfo {
     /* Fields of Camel-1.2.Camel.MessageContentInfo */
     next: MessageContentInfo
     childs: MessageContentInfo
@@ -11494,16 +11496,16 @@ export class MessageContentInfo {
     static new_from_message(mime_part: MimePart): MessageContentInfo
     static new_from_parser(parser: MimeParser): MessageContentInfo
 }
-export abstract class MessageInfoBaseClass {
+abstract class MessageInfoBaseClass {
     /* Fields of Camel-1.2.Camel.MessageInfoBaseClass */
     parent_class: MessageInfoClass
     reserved: object[]
     static name: string
 }
-export class MessageInfoBasePrivate {
+class MessageInfoBasePrivate {
     static name: string
 }
-export abstract class MessageInfoClass {
+abstract class MessageInfoClass {
     /* Fields of Camel-1.2.Camel.MessageInfoClass */
     parent_class: GObject.ObjectClass
     clone: (mi: MessageInfo, assign_summary?: FolderSummary | null) => MessageInfo
@@ -11552,55 +11554,55 @@ export abstract class MessageInfoClass {
     reserved: object[]
     static name: string
 }
-export class MessageInfoPrivate {
+class MessageInfoPrivate {
     static name: string
 }
-export abstract class MimeFilterBasicClass {
+abstract class MimeFilterBasicClass {
     /* Fields of Camel-1.2.Camel.MimeFilterBasicClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterBasicPrivate {
+class MimeFilterBasicPrivate {
     static name: string
 }
-export abstract class MimeFilterBestencClass {
+abstract class MimeFilterBestencClass {
     /* Fields of Camel-1.2.Camel.MimeFilterBestencClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterBestencPrivate {
+class MimeFilterBestencPrivate {
     static name: string
 }
-export abstract class MimeFilterCRLFClass {
+abstract class MimeFilterCRLFClass {
     /* Fields of Camel-1.2.Camel.MimeFilterCRLFClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterCRLFPrivate {
+class MimeFilterCRLFPrivate {
     static name: string
 }
-export abstract class MimeFilterCanonClass {
+abstract class MimeFilterCanonClass {
     /* Fields of Camel-1.2.Camel.MimeFilterCanonClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterCanonPrivate {
+class MimeFilterCanonPrivate {
     static name: string
 }
-export abstract class MimeFilterCharsetClass {
+abstract class MimeFilterCharsetClass {
     /* Fields of Camel-1.2.Camel.MimeFilterCharsetClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterCharsetPrivate {
+class MimeFilterCharsetPrivate {
     static name: string
 }
-export abstract class MimeFilterClass {
+abstract class MimeFilterClass {
     /* Fields of Camel-1.2.Camel.MimeFilterClass */
     parent_class: GObject.ObjectClass
     filter: (filter: MimeFilter, in_: Uint8Array[], prespace: number) => [ /* out */ Uint8Array[], /* outprespace */ number ]
@@ -11609,118 +11611,118 @@ export abstract class MimeFilterClass {
     reserved: object[]
     static name: string
 }
-export abstract class MimeFilterEnrichedClass {
+abstract class MimeFilterEnrichedClass {
     /* Fields of Camel-1.2.Camel.MimeFilterEnrichedClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterEnrichedPrivate {
+class MimeFilterEnrichedPrivate {
     static name: string
 }
-export abstract class MimeFilterFromClass {
+abstract class MimeFilterFromClass {
     /* Fields of Camel-1.2.Camel.MimeFilterFromClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterFromPrivate {
+class MimeFilterFromPrivate {
     static name: string
 }
-export abstract class MimeFilterGZipClass {
+abstract class MimeFilterGZipClass {
     /* Fields of Camel-1.2.Camel.MimeFilterGZipClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterGZipPrivate {
+class MimeFilterGZipPrivate {
     static name: string
 }
-export abstract class MimeFilterHTMLClass {
+abstract class MimeFilterHTMLClass {
     /* Fields of Camel-1.2.Camel.MimeFilterHTMLClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterHTMLPrivate {
+class MimeFilterHTMLPrivate {
     static name: string
 }
-export abstract class MimeFilterIndexClass {
+abstract class MimeFilterIndexClass {
     /* Fields of Camel-1.2.Camel.MimeFilterIndexClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterIndexPrivate {
+class MimeFilterIndexPrivate {
     static name: string
 }
-export abstract class MimeFilterLinewrapClass {
+abstract class MimeFilterLinewrapClass {
     /* Fields of Camel-1.2.Camel.MimeFilterLinewrapClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterLinewrapPrivate {
+class MimeFilterLinewrapPrivate {
     static name: string
 }
-export abstract class MimeFilterPgpClass {
+abstract class MimeFilterPgpClass {
     /* Fields of Camel-1.2.Camel.MimeFilterPgpClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterPgpPrivate {
+class MimeFilterPgpPrivate {
     static name: string
 }
-export class MimeFilterPrivate {
+class MimeFilterPrivate {
     static name: string
 }
-export abstract class MimeFilterProgressClass {
+abstract class MimeFilterProgressClass {
     /* Fields of Camel-1.2.Camel.MimeFilterProgressClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterProgressPrivate {
+class MimeFilterProgressPrivate {
     static name: string
 }
-export abstract class MimeFilterToHTMLClass {
+abstract class MimeFilterToHTMLClass {
     /* Fields of Camel-1.2.Camel.MimeFilterToHTMLClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterToHTMLPrivate {
+class MimeFilterToHTMLPrivate {
     static name: string
 }
-export abstract class MimeFilterWindowsClass {
+abstract class MimeFilterWindowsClass {
     /* Fields of Camel-1.2.Camel.MimeFilterWindowsClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterWindowsPrivate {
+class MimeFilterWindowsPrivate {
     static name: string
 }
-export abstract class MimeFilterYencClass {
+abstract class MimeFilterYencClass {
     /* Fields of Camel-1.2.Camel.MimeFilterYencClass */
     parent_class: MimeFilterClass
     reserved: object[]
     static name: string
 }
-export class MimeFilterYencPrivate {
+class MimeFilterYencPrivate {
     static name: string
 }
-export abstract class MimeMessageClass {
+abstract class MimeMessageClass {
     /* Fields of Camel-1.2.Camel.MimeMessageClass */
     parent_class: MimePartClass
     reserved: object[]
     static name: string
 }
-export class MimeMessagePrivate {
+class MimeMessagePrivate {
     static name: string
 }
-export abstract class MimeParserClass {
+abstract class MimeParserClass {
     /* Fields of Camel-1.2.Camel.MimeParserClass */
     parent_class: GObject.ObjectClass
     message: (parser: MimeParser, headers?: object | null) => void
@@ -11729,28 +11731,28 @@ export abstract class MimeParserClass {
     reserved: object[]
     static name: string
 }
-export class MimeParserPrivate {
+class MimeParserPrivate {
     static name: string
 }
-export abstract class MimePartClass {
+abstract class MimePartClass {
     /* Fields of Camel-1.2.Camel.MimePartClass */
     parent_class: MediumClass
     construct_from_parser_sync: (mime_part: MimePart, parser: MimeParser, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
-export class MimePartPrivate {
+class MimePartPrivate {
     static name: string
 }
-export class Msg {
+class Msg {
     /* Fields of Camel-1.2.Camel.Msg */
     reply_port: MsgPort
     static name: string
 }
-export class MsgPort {
+class MsgPort {
     static name: string
 }
-export abstract class MultipartClass {
+abstract class MultipartClass {
     /* Fields of Camel-1.2.Camel.MultipartClass */
     parent_class: DataWrapperClass
     add_part: (multipart: Multipart, part: MimePart) => void
@@ -11762,37 +11764,37 @@ export abstract class MultipartClass {
     reserved: object[]
     static name: string
 }
-export abstract class MultipartEncryptedClass {
+abstract class MultipartEncryptedClass {
     /* Fields of Camel-1.2.Camel.MultipartEncryptedClass */
     parent_class: MultipartClass
     reserved: object[]
     static name: string
 }
-export class MultipartEncryptedPrivate {
+class MultipartEncryptedPrivate {
     static name: string
 }
-export class MultipartPrivate {
+class MultipartPrivate {
     static name: string
 }
-export abstract class MultipartSignedClass {
+abstract class MultipartSignedClass {
     /* Fields of Camel-1.2.Camel.MultipartSignedClass */
     parent_class: MultipartClass
     reserved: object[]
     static name: string
 }
-export class MultipartSignedPrivate {
+class MultipartSignedPrivate {
     static name: string
 }
-export abstract class NNTPAddressClass {
+abstract class NNTPAddressClass {
     /* Fields of Camel-1.2.Camel.NNTPAddressClass */
     parent_class: AddressClass
     reserved: object[]
     static name: string
 }
-export class NNTPAddressPrivate {
+class NNTPAddressPrivate {
     static name: string
 }
-export class NameValueArray {
+class NameValueArray {
     /* Methods of Camel-1.2.Camel.NameValueArray */
     append(name: string, value: string): void
     clear(): void
@@ -11817,7 +11819,7 @@ export class NameValueArray {
     static new(): NameValueArray
     static new_sized(reserve_size: number): NameValueArray
 }
-export class NamedFlags {
+class NamedFlags {
     /* Methods of Camel-1.2.Camel.NamedFlags */
     clear(): void
     contains(name: string): boolean
@@ -11835,7 +11837,7 @@ export class NamedFlags {
     static new(): NamedFlags
     static new_sized(reserve_size: number): NamedFlags
 }
-export abstract class NetworkServiceInterface {
+abstract class NetworkServiceInterface {
     /* Fields of Camel-1.2.Camel.NetworkServiceInterface */
     parent_interface: GObject.TypeInterface
     get_service_name: (service: NetworkService, method: NetworkSecurityMethod) => string
@@ -11844,22 +11846,22 @@ export abstract class NetworkServiceInterface {
     reserved: object[]
     static name: string
 }
-export abstract class NetworkSettingsInterface {
+abstract class NetworkSettingsInterface {
     /* Fields of Camel-1.2.Camel.NetworkSettingsInterface */
     parent_interface: GObject.TypeInterface
     reserved: object[]
     static name: string
 }
-export abstract class NullOutputStreamClass {
+abstract class NullOutputStreamClass {
     /* Fields of Camel-1.2.Camel.NullOutputStreamClass */
     parent_class: Gio.OutputStreamClass
     reserved: object[]
     static name: string
 }
-export class NullOutputStreamPrivate {
+class NullOutputStreamPrivate {
     static name: string
 }
-export class ObjectBag {
+class ObjectBag {
     /* Methods of Camel-1.2.Camel.ObjectBag */
     abort(key?: object | null): void
     add(key?: object | null, object?: object | null): void
@@ -11872,7 +11874,7 @@ export class ObjectBag {
     reserve(key?: object | null): object | null
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Camel-1.2.Camel.ObjectClass */
     parent_class: GObject.ObjectClass
     state_read: (object: Object, fp?: object | null) => number
@@ -11880,83 +11882,83 @@ export abstract class ObjectClass {
     reserved: object[]
     static name: string
 }
-export class ObjectPrivate {
+class ObjectPrivate {
     static name: string
 }
-export abstract class OfflineFolderClass {
+abstract class OfflineFolderClass {
     /* Fields of Camel-1.2.Camel.OfflineFolderClass */
     parent_class: FolderClass
     downsync_sync: (folder: OfflineFolder, expression: string, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
-export class OfflineFolderPrivate {
+class OfflineFolderPrivate {
     static name: string
 }
-export abstract class OfflineSettingsClass {
+abstract class OfflineSettingsClass {
     /* Fields of Camel-1.2.Camel.OfflineSettingsClass */
     parent_class: StoreSettingsClass
     reserved: object[]
     static name: string
 }
-export class OfflineSettingsPrivate {
+class OfflineSettingsPrivate {
     static name: string
 }
-export abstract class OfflineStoreClass {
+abstract class OfflineStoreClass {
     /* Fields of Camel-1.2.Camel.OfflineStoreClass */
     parent_class: StoreClass
     dup_downsync_folders: (store: OfflineStore) => Folder[]
     reserved: object[]
     static name: string
 }
-export class OfflineStorePrivate {
+class OfflineStorePrivate {
     static name: string
 }
-export abstract class OperationClass {
+abstract class OperationClass {
     /* Fields of Camel-1.2.Camel.OperationClass */
     parent_class: Gio.CancellableClass
     status: (operation: Operation, what: string, pc: number) => void
     reserved: object[]
     static name: string
 }
-export class OperationPrivate {
+class OperationPrivate {
     static name: string
 }
-export class PartitionKey {
+class PartitionKey {
     /* Fields of Camel-1.2.Camel.PartitionKey */
     hashid: _hash_t
     keyid: _key_t
     static name: string
 }
-export class PartitionKeyBlock {
+class PartitionKeyBlock {
     /* Fields of Camel-1.2.Camel.PartitionKeyBlock */
     used: number
     keys: object[]
     static name: string
 }
-export class PartitionMap {
+class PartitionMap {
     /* Fields of Camel-1.2.Camel.PartitionMap */
     hashid: _hash_t
     blockid: _block_t
     static name: string
 }
-export class PartitionMapBlock {
+class PartitionMapBlock {
     /* Fields of Camel-1.2.Camel.PartitionMapBlock */
     next: _block_t
     used: number
     partition: object[]
     static name: string
 }
-export abstract class PartitionTableClass {
+abstract class PartitionTableClass {
     /* Fields of Camel-1.2.Camel.PartitionTableClass */
     parent: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class PartitionTablePrivate {
+class PartitionTablePrivate {
     static name: string
 }
-export class Provider {
+class Provider {
     /* Fields of Camel-1.2.Camel.Provider */
     protocol: string
     name: string
@@ -11982,7 +11984,7 @@ export class Provider {
     static list(load: boolean): Provider[]
     static load(path: string): boolean
 }
-export class ProviderConfEntry {
+class ProviderConfEntry {
     /* Fields of Camel-1.2.Camel.ProviderConfEntry */
     type: ProviderConfType
     name: string
@@ -11991,7 +11993,7 @@ export class ProviderConfEntry {
     value: string
     static name: string
 }
-export class ProviderModule {
+class ProviderModule {
     /* Fields of Camel-1.2.Camel.ProviderModule */
     path: string
     types: object[]
@@ -12000,23 +12002,23 @@ export class ProviderModule {
     /* Static methods and pseudo-constructors */
     static init(): void
 }
-export class ProviderPortEntry {
+class ProviderPortEntry {
     /* Fields of Camel-1.2.Camel.ProviderPortEntry */
     port: number
     desc: string
     is_ssl: boolean
     static name: string
 }
-export abstract class SExpClass {
+abstract class SExpClass {
     /* Fields of Camel-1.2.Camel.SExpClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class SExpPrivate {
+class SExpPrivate {
     static name: string
 }
-export class SExpResult {
+class SExpResult {
     /* Fields of Camel-1.2.Camel.SExpResult */
     type: SExpResultType
     time_generator: boolean
@@ -12024,37 +12026,37 @@ export class SExpResult {
     occuring_end: number
     static name: string
 }
-export class SExpSymbol {
+class SExpSymbol {
     /* Fields of Camel-1.2.Camel.SExpSymbol */
     type: number
     name: string
     data: object
     static name: string
 }
-export class SExpTerm {
+class SExpTerm {
     /* Fields of Camel-1.2.Camel.SExpTerm */
     type: SExpTermType
     static name: string
 }
-export abstract class SMIMEContextClass {
+abstract class SMIMEContextClass {
     /* Fields of Camel-1.2.Camel.SMIMEContextClass */
     parent_class: CipherContextClass
     reserved: object[]
     static name: string
 }
-export class SMIMEContextPrivate {
+class SMIMEContextPrivate {
     static name: string
 }
-export abstract class SaslAnonymousClass {
+abstract class SaslAnonymousClass {
     /* Fields of Camel-1.2.Camel.SaslAnonymousClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslAnonymousPrivate {
+class SaslAnonymousPrivate {
     static name: string
 }
-export abstract class SaslClass {
+abstract class SaslClass {
     /* Fields of Camel-1.2.Camel.SaslClass */
     parent_class: GObject.ObjectClass
     auth_type: ServiceAuthType
@@ -12063,105 +12065,105 @@ export abstract class SaslClass {
     reserved: object[]
     static name: string
 }
-export abstract class SaslCramMd5Class {
+abstract class SaslCramMd5Class {
     /* Fields of Camel-1.2.Camel.SaslCramMd5Class */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslCramMd5Private {
+class SaslCramMd5Private {
     static name: string
 }
-export abstract class SaslDigestMd5Class {
+abstract class SaslDigestMd5Class {
     /* Fields of Camel-1.2.Camel.SaslDigestMd5Class */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslDigestMd5Private {
+class SaslDigestMd5Private {
     static name: string
 }
-export abstract class SaslGssapiClass {
+abstract class SaslGssapiClass {
     /* Fields of Camel-1.2.Camel.SaslGssapiClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslGssapiPrivate {
+class SaslGssapiPrivate {
     static name: string
 }
-export abstract class SaslLoginClass {
+abstract class SaslLoginClass {
     /* Fields of Camel-1.2.Camel.SaslLoginClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslLoginPrivate {
+class SaslLoginPrivate {
     static name: string
 }
-export abstract class SaslNTLMClass {
+abstract class SaslNTLMClass {
     /* Fields of Camel-1.2.Camel.SaslNTLMClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslNTLMPrivate {
+class SaslNTLMPrivate {
     static name: string
 }
-export abstract class SaslPOPB4SMTPClass {
+abstract class SaslPOPB4SMTPClass {
     /* Fields of Camel-1.2.Camel.SaslPOPB4SMTPClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslPOPB4SMTPPrivate {
+class SaslPOPB4SMTPPrivate {
     static name: string
 }
-export abstract class SaslPlainClass {
+abstract class SaslPlainClass {
     /* Fields of Camel-1.2.Camel.SaslPlainClass */
     parent_class: SaslClass
     reserved: object[]
     static name: string
 }
-export class SaslPlainPrivate {
+class SaslPlainPrivate {
     static name: string
 }
-export class SaslPrivate {
+class SaslPrivate {
     static name: string
 }
-export abstract class SaslXOAuth2Class {
+abstract class SaslXOAuth2Class {
     /* Fields of Camel-1.2.Camel.SaslXOAuth2Class */
     parent_class: SaslClass
     static name: string
 }
-export abstract class SaslXOAuth2GoogleClass {
+abstract class SaslXOAuth2GoogleClass {
     /* Fields of Camel-1.2.Camel.SaslXOAuth2GoogleClass */
     parent_class: SaslXOAuth2Class
     static name: string
 }
-export class SaslXOAuth2GooglePrivate {
+class SaslXOAuth2GooglePrivate {
     static name: string
 }
-export abstract class SaslXOAuth2OutlookClass {
+abstract class SaslXOAuth2OutlookClass {
     /* Fields of Camel-1.2.Camel.SaslXOAuth2OutlookClass */
     parent_class: SaslXOAuth2Class
     static name: string
 }
-export class SaslXOAuth2OutlookPrivate {
+class SaslXOAuth2OutlookPrivate {
     static name: string
 }
-export class SaslXOAuth2Private {
+class SaslXOAuth2Private {
     static name: string
 }
-export abstract class SaslXOAuth2YahooClass {
+abstract class SaslXOAuth2YahooClass {
     /* Fields of Camel-1.2.Camel.SaslXOAuth2YahooClass */
     parent_class: SaslXOAuth2Class
     static name: string
 }
-export class SaslXOAuth2YahooPrivate {
+class SaslXOAuth2YahooPrivate {
     static name: string
 }
-export class ServiceAuthType {
+class ServiceAuthType {
     /* Fields of Camel-1.2.Camel.ServiceAuthType */
     name: string
     description: string
@@ -12172,7 +12174,7 @@ export class ServiceAuthType {
     free(): void
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of Camel-1.2.Camel.ServiceClass */
     parent_class: ObjectClass
     settings_type: GObject.Type
@@ -12184,10 +12186,10 @@ export abstract class ServiceClass {
     reserved: object[]
     static name: string
 }
-export class ServicePrivate {
+class ServicePrivate {
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Camel-1.2.Camel.SessionClass */
     parent_class: GObject.ObjectClass
     add_service: (session: Session, uid: string, protocol: string, type: ProviderType) => Service
@@ -12209,10 +12211,10 @@ export abstract class SessionClass {
     reserved_signals: object[]
     static name: string
 }
-export class SessionPrivate {
+class SessionPrivate {
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of Camel-1.2.Camel.SettingsClass */
     parent_class: GObject.ObjectClass
     clone: (settings: Settings) => Settings
@@ -12222,10 +12224,10 @@ export abstract class SettingsClass {
     list_settings(settings_class: Settings | Function | GObject.Type, n_settings: number): GObject.ParamSpec
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export abstract class StoreClass {
+abstract class StoreClass {
     /* Fields of Camel-1.2.Camel.StoreClass */
     parent_class: ServiceClass
     hash_folder_name: GLib.HashFunc
@@ -12251,7 +12253,7 @@ export abstract class StoreClass {
     reserved_signals: object[]
     static name: string
 }
-export class StoreInfo {
+class StoreInfo {
     /* Fields of Camel-1.2.Camel.StoreInfo */
     refcount: number
     path: string
@@ -12263,19 +12265,19 @@ export class StoreInfo {
     static path(summary: StoreSummary, info: StoreInfo): string
     static set_string(summary: StoreSummary, info: StoreInfo, type: number, value: string): void
 }
-export class StorePrivate {
+class StorePrivate {
     static name: string
 }
-export abstract class StoreSettingsClass {
+abstract class StoreSettingsClass {
     /* Fields of Camel-1.2.Camel.StoreSettingsClass */
     parent_class: SettingsClass
     reserved: object[]
     static name: string
 }
-export class StoreSettingsPrivate {
+class StoreSettingsPrivate {
     static name: string
 }
-export abstract class StoreSummaryClass {
+abstract class StoreSummaryClass {
     /* Fields of Camel-1.2.Camel.StoreSummaryClass */
     parent_class: GObject.ObjectClass
     store_info_size: number
@@ -12287,10 +12289,10 @@ export abstract class StoreSummaryClass {
     reserved: object[]
     static name: string
 }
-export class StoreSummaryPrivate {
+class StoreSummaryPrivate {
     static name: string
 }
-export abstract class StreamBufferClass {
+abstract class StreamBufferClass {
     /* Fields of Camel-1.2.Camel.StreamBufferClass */
     parent_class: StreamClass
     init: (stream_buffer: StreamBuffer, stream: Stream, mode: StreamBufferMode) => void
@@ -12298,10 +12300,10 @@ export abstract class StreamBufferClass {
     reserved: object[]
     static name: string
 }
-export class StreamBufferPrivate {
+class StreamBufferPrivate {
     static name: string
 }
-export abstract class StreamClass {
+abstract class StreamClass {
     /* Fields of Camel-1.2.Camel.StreamClass */
     parent_class: GObject.ObjectClass
     read: (stream: Stream, buffer: number[], cancellable?: Gio.Cancellable | null) => number
@@ -12312,55 +12314,55 @@ export abstract class StreamClass {
     reserved: object[]
     static name: string
 }
-export abstract class StreamFilterClass {
+abstract class StreamFilterClass {
     /* Fields of Camel-1.2.Camel.StreamFilterClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
 }
-export class StreamFilterPrivate {
+class StreamFilterPrivate {
     static name: string
 }
-export abstract class StreamFsClass {
+abstract class StreamFsClass {
     /* Fields of Camel-1.2.Camel.StreamFsClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
 }
-export class StreamFsPrivate {
+class StreamFsPrivate {
     static name: string
 }
-export abstract class StreamMemClass {
+abstract class StreamMemClass {
     /* Fields of Camel-1.2.Camel.StreamMemClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
 }
-export class StreamMemPrivate {
+class StreamMemPrivate {
     static name: string
 }
-export abstract class StreamNullClass {
+abstract class StreamNullClass {
     /* Fields of Camel-1.2.Camel.StreamNullClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
 }
-export class StreamNullPrivate {
+class StreamNullPrivate {
     static name: string
 }
-export class StreamPrivate {
+class StreamPrivate {
     static name: string
 }
-export abstract class StreamProcessClass {
+abstract class StreamProcessClass {
     /* Fields of Camel-1.2.Camel.StreamProcessClass */
     parent_class: StreamClass
     reserved: object[]
     static name: string
 }
-export class StreamProcessPrivate {
+class StreamProcessPrivate {
     static name: string
 }
-export abstract class SubscribableInterface {
+abstract class SubscribableInterface {
     /* Fields of Camel-1.2.Camel.SubscribableInterface */
     parent_interface: GObject.TypeInterface
     folder_is_subscribed: (subscribable: Subscribable, folder_name: string) => boolean
@@ -12372,59 +12374,59 @@ export abstract class SubscribableInterface {
     reserved_signals: object[]
     static name: string
 }
-export class SummaryMessageID {
+class SummaryMessageID {
     static name: string
 }
-export abstract class TextIndexClass {
+abstract class TextIndexClass {
     /* Fields of Camel-1.2.Camel.TextIndexClass */
     parent_class: IndexClass
     reserved: object[]
     static name: string
 }
-export abstract class TextIndexCursorClass {
+abstract class TextIndexCursorClass {
     /* Fields of Camel-1.2.Camel.TextIndexCursorClass */
     parent_class: IndexCursorClass
     reserved: object[]
     static name: string
 }
-export class TextIndexCursorPrivate {
+class TextIndexCursorPrivate {
     static name: string
 }
-export abstract class TextIndexKeyCursorClass {
+abstract class TextIndexKeyCursorClass {
     /* Fields of Camel-1.2.Camel.TextIndexKeyCursorClass */
     parent_class: IndexCursorClass
     reserved: object[]
     static name: string
 }
-export class TextIndexKeyCursorPrivate {
+class TextIndexKeyCursorPrivate {
     static name: string
 }
-export abstract class TextIndexNameClass {
+abstract class TextIndexNameClass {
     /* Fields of Camel-1.2.Camel.TextIndexNameClass */
     parent_class: IndexNameClass
     reserved: object[]
     static name: string
 }
-export class TextIndexNamePrivate {
+class TextIndexNamePrivate {
     static name: string
 }
-export class TextIndexPrivate {
+class TextIndexPrivate {
     static name: string
 }
-export abstract class TransportClass {
+abstract class TransportClass {
     /* Fields of Camel-1.2.Camel.TransportClass */
     parent_class: ServiceClass
     send_to_sync: (transport: Transport, message: MimeMessage, from: Address, recipients: Address, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_sent_message_saved */ boolean ]
     reserved: object[]
     static name: string
 }
-export class TransportPrivate {
+class TransportPrivate {
     static name: string
 }
-export class Trie {
+class Trie {
     static name: string
 }
-export class UIDCache {
+class UIDCache {
     /* Fields of Camel-1.2.Camel.UIDCache */
     filename: string
     uids: GLib.HashTable
@@ -12441,7 +12443,7 @@ export class UIDCache {
     /* Static methods and pseudo-constructors */
     static free_uids(uids: string[]): void
 }
-export class URL {
+class URL {
     /* Fields of Camel-1.2.Camel.URL */
     protocol: string
     user: string
@@ -12484,7 +12486,7 @@ export class URL {
     static web_end(in_: string, pos: string, inend: string, match: UrlMatch): boolean
     static web_start(in_: string, pos: string, inend: string, match: UrlMatch): boolean
 }
-export class UrlMatch {
+class UrlMatch {
     /* Fields of Camel-1.2.Camel.UrlMatch */
     pattern: string
     prefix: string
@@ -12492,7 +12494,7 @@ export class UrlMatch {
     um_eo: number
     static name: string
 }
-export class UrlPattern {
+class UrlPattern {
     /* Fields of Camel-1.2.Camel.UrlPattern */
     pattern: string
     prefix: string
@@ -12500,28 +12502,28 @@ export class UrlPattern {
     end: UrlScanFunc
     static name: string
 }
-export class UrlScanner {
+class UrlScanner {
     static name: string
 }
-export abstract class VTrashFolderClass {
+abstract class VTrashFolderClass {
     /* Fields of Camel-1.2.Camel.VTrashFolderClass */
     parent_class: VeeFolderClass
     reserved: object[]
     static name: string
 }
-export class VTrashFolderPrivate {
+class VTrashFolderPrivate {
     static name: string
 }
-export abstract class VeeDataCacheClass {
+abstract class VeeDataCacheClass {
     /* Fields of Camel-1.2.Camel.VeeDataCacheClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class VeeDataCachePrivate {
+class VeeDataCachePrivate {
     static name: string
 }
-export abstract class VeeFolderClass {
+abstract class VeeFolderClass {
     /* Fields of Camel-1.2.Camel.VeeFolderClass */
     parent_class: FolderClass
     add_folder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
@@ -12532,55 +12534,55 @@ export abstract class VeeFolderClass {
     reserved: object[]
     static name: string
 }
-export class VeeFolderPrivate {
+class VeeFolderPrivate {
     static name: string
 }
-export abstract class VeeMessageInfoClass {
+abstract class VeeMessageInfoClass {
     /* Fields of Camel-1.2.Camel.VeeMessageInfoClass */
     parent_class: MessageInfoClass
     reserved: object[]
     static name: string
 }
-export abstract class VeeMessageInfoDataClass {
+abstract class VeeMessageInfoDataClass {
     /* Fields of Camel-1.2.Camel.VeeMessageInfoDataClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class VeeMessageInfoDataPrivate {
+class VeeMessageInfoDataPrivate {
     static name: string
 }
-export class VeeMessageInfoPrivate {
+class VeeMessageInfoPrivate {
     static name: string
 }
-export abstract class VeeStoreClass {
+abstract class VeeStoreClass {
     /* Fields of Camel-1.2.Camel.VeeStoreClass */
     parent_class: StoreClass
     reserved: object[]
     static name: string
 }
-export class VeeStorePrivate {
+class VeeStorePrivate {
     static name: string
 }
-export abstract class VeeSubfolderDataClass {
+abstract class VeeSubfolderDataClass {
     /* Fields of Camel-1.2.Camel.VeeSubfolderDataClass */
     parent_class: GObject.ObjectClass
     reserved: object[]
     static name: string
 }
-export class VeeSubfolderDataPrivate {
+class VeeSubfolderDataPrivate {
     static name: string
 }
-export abstract class VeeSummaryClass {
+abstract class VeeSummaryClass {
     /* Fields of Camel-1.2.Camel.VeeSummaryClass */
     parent_class: FolderSummaryClass
     reserved: object[]
     static name: string
 }
-export class VeeSummaryPrivate {
+class VeeSummaryPrivate {
     static name: string
 }
-export class WeakRefGroup {
+class WeakRefGroup {
     /* Methods of Camel-1.2.Camel.WeakRefGroup */
     get(): object | null
     ref(): WeakRefGroup
@@ -12592,14 +12594,14 @@ export class WeakRefGroup {
     /* Static methods and pseudo-constructors */
     static new(): WeakRefGroup
 }
-export class _KeyKey {
+class _KeyKey {
     /* Fields of Camel-1.2.Camel._KeyKey */
     data: _block_t
     offset: number
     flags: number
     static name: string
 }
-export class _LockHelperMsg {
+class _LockHelperMsg {
     /* Fields of Camel-1.2.Camel._LockHelperMsg */
     magic: number
     seq: number
@@ -12607,33 +12609,35 @@ export class _LockHelperMsg {
     data: number
     static name: string
 }
-export class __search_word {
+class __search_word {
     /* Fields of Camel-1.2.Camel.__search_word */
     type: _search_word_t
     word: string
     static name: string
 }
-export class __search_words {
+class __search_words {
     /* Fields of Camel-1.2.Camel.__search_words */
     len: number
     type: _search_word_t
     words: object
     static name: string
 }
-export class _encrypt {
+class _encrypt {
     /* Fields of Camel-1.2.Camel._encrypt */
     status: CipherValidityEncrypt
     description: string
     encrypters: GLib.Queue
     static name: string
 }
-export class _sign {
+class _sign {
     /* Fields of Camel-1.2.Camel._sign */
     status: CipherValiditySign
     description: string
     signers: GLib.Queue
     static name: string
 }
-export type _block_t = number
-export type _hash_t = number
-export type _key_t = number
+type _block_t = number
+type _hash_t = number
+type _key_t = number
+}
+export default Camel

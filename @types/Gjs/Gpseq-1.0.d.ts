@@ -3,125 +3,127 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ChannelError {
+export namespace Gpseq {
+
+enum ChannelError {
     CLOSED,
     TIMEOUT,
     TRY_FAILED,
 }
-export enum MapError {
+enum MapError {
     DUPLICATE_KEY,
 }
-export enum OptionalError {
+enum OptionalError {
     NOT_PRESENT,
 }
-export enum CollectorFeatures {
+enum CollectorFeatures {
     CONCURRENT,
     UNORDERED,
 }
-export function collectors_to_generic_array(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
-export function collectors_to_collection(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, factory: Supplier): Collector
-export function collectors_to_list(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
-export function collectors_to_set(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, hash: Gee.HashDataFunc | null, equal: Gee.EqualDataFunc | null): Collector
-export function collectors_to_map(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, key_mapper: MapFunc, val_mapper: MapFunc, merger: CombineFunc | null, key_hash: Gee.HashDataFunc | null, key_equal: Gee.EqualDataFunc | null, value_equal: Gee.EqualDataFunc | null): Collector
-export function collectors_sum_int(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_uint(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_long(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_ulong(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_float(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_double(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_int32(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_uint32(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_int64(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_sum_uint64(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_average_float(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_average_double(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
-export function collectors_group_by(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, classifier: MapFunc): Collector
-export function collectors_group_by_with(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, classifier: MapFunc, downstream: Collector): Collector
-export function collectors_partition(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate): Collector
-export function collectors_partition_with(v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate, downstream: Collector): Collector
-export function collectors_max(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, compare: GLib.CompareDataFunc | null): Collector
-export function collectors_min(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, compare: GLib.CompareDataFunc | null): Collector
-export function collectors_count(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
-export function collectors_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, accumulator: FoldFunc, combiner: CombineFunc, identity?: object | null): Collector
-export function collectors_reduce(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, accumulator: CombineFunc): Collector
-export function collectors_join(delimiter: string): Collector
-export function collectors_filter(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate, downstream: Collector): Collector
-export function collectors_tee(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, downstreams: Collector[], merger: TeeMergeFunc): Collector
-export function collectors_map(r_type: GObject.Type, r_dup_func: GObject.BoxedCopyFunc, r_destroy_func: GLib.DestroyNotify, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc, downstream: Collector): Collector
-export function collectors_wrap(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, collector: Collector): Collector
-export function compares_reverse(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, cmp: GLib.CompareDataFunc | null): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
-export function compares_join(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, cmp: GLib.CompareDataFunc, cmp2: GLib.CompareDataFunc): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
-export function overflow_int_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_long_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_long_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_long_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int32_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int32_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int32_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int64_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int64_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function overflow_int64_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
-export function parallel_sort(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, array: object[], compare: GLib.CompareDataFunc | null): Future
-export function task(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, func: TaskFunc): Future
-export function run(func: VoidTaskFunc): Future
-export function blocking(func: VoidTaskFunc): void
-export function blocking_get(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, func: TaskFunc): object | null
-export function join(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, left: TaskFunc): [ /* returnType */ object[], /* result_length1 */ number ]
-export function atomic_int64_get(atomic: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomic_int64_set(atomic: number, newval: number): /* atomic */ number
-export function atomic_int64_inc(atomic: number): /* atomic */ number
-export function atomic_int64_dec_and_test(atomic: number): [ /* returnType */ boolean, /* atomic */ number ]
-export function atomic_int64_compare_and_exchange(atomic: number, oldval: number, newval: number): [ /* returnType */ boolean, /* atomic */ number ]
-export function atomic_int64_add(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomic_int64_and(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomic_int64_or(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export function atomic_int64_xor(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
-export interface CombineFunc {
+function collectors_to_generic_array(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
+function collectors_to_collection(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, factory: Supplier): Collector
+function collectors_to_list(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
+function collectors_to_set(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, hash: Gee.HashDataFunc | null, equal: Gee.EqualDataFunc | null): Collector
+function collectors_to_map(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, key_mapper: MapFunc, val_mapper: MapFunc, merger: CombineFunc | null, key_hash: Gee.HashDataFunc | null, key_equal: Gee.EqualDataFunc | null, value_equal: Gee.EqualDataFunc | null): Collector
+function collectors_sum_int(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_uint(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_long(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_ulong(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_float(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_double(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_int32(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_uint32(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_int64(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_sum_uint64(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_average_float(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_average_double(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc): Collector
+function collectors_group_by(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, classifier: MapFunc): Collector
+function collectors_group_by_with(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, classifier: MapFunc, downstream: Collector): Collector
+function collectors_partition(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate): Collector
+function collectors_partition_with(v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate, downstream: Collector): Collector
+function collectors_max(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, compare: GLib.CompareDataFunc | null): Collector
+function collectors_min(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, compare: GLib.CompareDataFunc | null): Collector
+function collectors_count(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Collector
+function collectors_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, accumulator: FoldFunc, combiner: CombineFunc, identity?: object | null): Collector
+function collectors_reduce(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, accumulator: CombineFunc): Collector
+function collectors_join(delimiter: string): Collector
+function collectors_filter(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, pred: Predicate, downstream: Collector): Collector
+function collectors_tee(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, downstreams: Collector[], merger: TeeMergeFunc): Collector
+function collectors_map(r_type: GObject.Type, r_dup_func: GObject.BoxedCopyFunc, r_destroy_func: GLib.DestroyNotify, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, mapper: MapFunc, downstream: Collector): Collector
+function collectors_wrap(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, collector: Collector): Collector
+function compares_reverse(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, cmp: GLib.CompareDataFunc | null): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+function compares_join(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, cmp: GLib.CompareDataFunc, cmp2: GLib.CompareDataFunc): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+function overflow_int_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_long_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_long_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_long_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int32_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int32_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int32_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int64_add(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int64_sub(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function overflow_int64_mul(a: number, b: number): [ /* returnType */ boolean, /* result */ number ]
+function parallel_sort(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, array: object[], compare: GLib.CompareDataFunc | null): Future
+function task(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, func: TaskFunc): Future
+function run(func: VoidTaskFunc): Future
+function blocking(func: VoidTaskFunc): void
+function blocking_get(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, func: TaskFunc): object | null
+function join(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, left: TaskFunc): [ /* returnType */ object[], /* result_length1 */ number ]
+function atomic_int64_get(atomic: number): [ /* returnType */ number, /* atomic */ number ]
+function atomic_int64_set(atomic: number, newval: number): /* atomic */ number
+function atomic_int64_inc(atomic: number): /* atomic */ number
+function atomic_int64_dec_and_test(atomic: number): [ /* returnType */ boolean, /* atomic */ number ]
+function atomic_int64_compare_and_exchange(atomic: number, oldval: number, newval: number): [ /* returnType */ boolean, /* atomic */ number ]
+function atomic_int64_add(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
+function atomic_int64_and(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
+function atomic_int64_or(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
+function atomic_int64_xor(atomic: number, val: number): [ /* returnType */ number, /* atomic */ number ]
+interface CombineFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, a: object | null, b: object | null): object | null
 }
-export interface EachChunkFunc {
+interface EachChunkFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, chunk: object[]): boolean
 }
-export interface FlatMapFunc {
+interface FlatMapFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): Gee.Iterator
 }
-export interface FoldFunc {
+interface FoldFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null, a: object | null): object | null
 }
-export interface Func {
+interface Func {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): void
 }
-export interface MapFunc {
+interface MapFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): object | null
 }
-export interface Predicate {
+interface Predicate {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): boolean
 }
-export interface SupplyFunc {
+interface SupplyFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): object | null
 }
-export interface TaskFunc {
+interface TaskFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): object | null
 }
-export interface TeeMergeFunc {
+interface TeeMergeFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, results: GObject.Object[]): object | null
 }
-export interface VoidFunc {
+interface VoidFunc {
     (): void
 }
-export interface VoidTaskFunc {
+interface VoidTaskFunc {
     (): void
 }
 export interface Channel_ConstructProps extends Sender_ConstructProps {
 }
-export class Channel {
+class Channel {
     /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
@@ -208,7 +210,7 @@ export class Channel {
 }
 export interface ChannelBase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ChannelBase {
+class ChannelBase {
     /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
@@ -275,7 +277,7 @@ export class ChannelBase {
 }
 export interface Collector_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Collector {
+class Collector {
     /* Properties of Gpseq-1.0.Gpseq.Collector */
     readonly features: CollectorFeatures
     /* Fields of GObject-2.0.GObject.Object */
@@ -339,7 +341,7 @@ export class Collector {
 }
 export interface Executor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Executor {
+class Executor {
     /* Properties of Gpseq-1.0.Gpseq.Executor */
     readonly parallels: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -397,7 +399,7 @@ export class Executor {
 }
 export interface Receiver_ConstructProps extends ChannelBase_ConstructProps {
 }
-export class Receiver {
+class Receiver {
     /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
@@ -477,7 +479,7 @@ export class Receiver {
 }
 export interface Result_ConstructProps extends Gee.Hashable_ConstructProps {
 }
-export class Result {
+class Result {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gpseq-1.0.Gpseq.Result */
@@ -562,7 +564,7 @@ export class Result {
 }
 export interface Sender_ConstructProps extends ChannelBase_ConstructProps {
 }
-export class Sender {
+class Sender {
     /* Properties of Gpseq-1.0.Gpseq.ChannelBase */
     readonly capacity: Optional
     readonly length: number
@@ -642,7 +644,7 @@ export class Sender {
 }
 export interface Spliterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Spliterator {
+class Spliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -714,7 +716,7 @@ export class Spliterator {
 }
 export interface Supplier_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Supplier {
+class Supplier {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gpseq-1.0.Gpseq.Supplier */
@@ -768,7 +770,7 @@ export class Supplier {
 }
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Task {
+class Task {
     /* Properties of Gpseq-1.0.Gpseq.Task */
     readonly future: Future
     /* Fields of GObject-2.0.GObject.Object */
@@ -827,7 +829,7 @@ export class Task {
 }
 export interface ThreadFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ThreadFactory {
+class ThreadFactory {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gpseq-1.0.Gpseq.ThreadFactory */
@@ -882,7 +884,7 @@ export interface ArraySpliterator_ConstructProps extends GObject.Object_Construc
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ArraySpliterator {
+class ArraySpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -959,7 +961,7 @@ export interface ForkJoinTask_ConstructProps extends GObject.Object_ConstructPro
     g_destroy_func?: GLib.DestroyNotify
     depth?: number
 }
-export class ForkJoinTask {
+class ForkJoinTask {
     /* Properties of Gpseq-1.0.Gpseq.ForkJoinTask */
     readonly parent: ForkJoinTask
     readonly root: ForkJoinTask
@@ -1062,7 +1064,7 @@ export class ForkJoinTask {
     _init (config?: ForkJoinTask_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class ForkJoinTaskSharedResult {
+class ForkJoinTaskSharedResult {
     /* Fields of Gpseq-1.0.Gpseq.ForkJoinTaskSharedResult */
     ref_count: number
     /* Methods of Gpseq-1.0.Gpseq.ForkJoinTaskSharedResult */
@@ -1083,7 +1085,7 @@ export interface FuncTask_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class FuncTask {
+class FuncTask {
     /* Properties of Gpseq-1.0.Gpseq.Task */
     readonly future: Future
     /* Fields of GObject-2.0.GObject.Object */
@@ -1147,7 +1149,7 @@ export interface Future_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class Future {
+class Future {
     /* Properties of Gpseq-1.0.Gpseq.Future */
     readonly ready: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -1246,7 +1248,7 @@ export interface GenericArraySpliterator_ConstructProps extends GObject.Object_C
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class GenericArraySpliterator {
+class GenericArraySpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -1322,7 +1324,7 @@ export interface IteratorSpliterator_ConstructProps extends GObject.Object_Const
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class IteratorSpliterator {
+class IteratorSpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -1399,7 +1401,7 @@ export interface ListSpliterator_ConstructProps extends GObject.Object_Construct
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ListSpliterator {
+class ListSpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -1475,7 +1477,7 @@ export interface Optional_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class Optional {
+class Optional {
     /* Properties of Gpseq-1.0.Gpseq.Optional */
     readonly value_type: GObject.Type
     readonly value: object
@@ -1547,7 +1549,7 @@ export class Optional {
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): Optional
     static $gtype: GObject.Type
 }
-export class Promise {
+class Promise {
     /* Fields of Gpseq-1.0.Gpseq.Promise */
     ref_count: number
     /* Methods of Gpseq-1.0.Gpseq.Promise */
@@ -1565,7 +1567,7 @@ export interface Seq_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class Seq {
+class Seq {
     /* Properties of Gpseq-1.0.Gpseq.Seq */
     readonly element_type: GObject.Type
     readonly task_env: TaskEnv
@@ -1685,7 +1687,7 @@ export interface SpliteratorTask_ConstructProps extends ForkJoinTask_ConstructPr
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class SpliteratorTask {
+class SpliteratorTask {
     /* Properties of Gpseq-1.0.Gpseq.SpliteratorTask */
     readonly spliterator: Spliterator
     readonly left_child: SpliteratorTask
@@ -1821,7 +1823,7 @@ export interface SubArray_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class SubArray {
+class SubArray {
     /* Properties of Gpseq-1.0.Gpseq.SubArray */
     readonly size: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -1925,7 +1927,7 @@ export interface SubArraySpliterator_ConstructProps extends GObject.Object_Const
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class SubArraySpliterator {
+class SubArraySpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -2001,7 +2003,7 @@ export interface SupplierSpliterator_ConstructProps extends GObject.Object_Const
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class SupplierSpliterator {
+class SupplierSpliterator {
     /* Properties of Gpseq-1.0.Gpseq.Spliterator */
     readonly estimated_size: number
     readonly is_size_known: boolean
@@ -2074,7 +2076,7 @@ export class SupplierSpliterator {
 }
 export interface TaskEnv_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TaskEnv {
+class TaskEnv {
     /* Properties of Gpseq-1.0.Gpseq.TaskEnv */
     readonly executor: Executor
     /* Fields of GObject-2.0.GObject.Object */
@@ -2141,7 +2143,7 @@ export class TaskEnv {
 }
 export interface WaitGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WaitGroup {
+class WaitGroup {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gpseq-1.0.Gpseq.WaitGroup */
@@ -2199,7 +2201,7 @@ export class WaitGroup {
 export interface WorkerPool_ConstructProps extends GObject.Object_ConstructProps {
     max_threads?: number
 }
-export class WorkerPool {
+class WorkerPool {
     /* Properties of Gpseq-1.0.Gpseq.WorkerPool */
     max_threads: number
     readonly num_threads: number
@@ -2292,7 +2294,7 @@ export class WorkerPool {
 }
 export interface WorkerThread_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class WorkerThread {
+class WorkerThread {
     /* Properties of Gpseq-1.0.Gpseq.WorkerThread */
     readonly thread: GLib.Thread
     readonly pool: WorkerPool
@@ -2376,7 +2378,7 @@ export interface Wrapper_ConstructProps extends GObject.Object_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class Wrapper {
+class Wrapper {
     /* Properties of Gpseq-1.0.Gpseq.Wrapper */
     readonly value: object
     readonly value_type: GObject.Type
@@ -2434,143 +2436,143 @@ export class Wrapper {
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, value?: object | null): Wrapper
     static $gtype: GObject.Type
 }
-export abstract class ArraySpliteratorClass {
+abstract class ArraySpliteratorClass {
     static name: string
 }
-export class ArraySpliteratorPrivate {
+class ArraySpliteratorPrivate {
     static name: string
 }
-export abstract class ForkJoinTaskClass {
+abstract class ForkJoinTaskClass {
     /* Fields of Gpseq-1.0.Gpseq.ForkJoinTaskClass */
     compute: (self: ForkJoinTask) => void
     static name: string
 }
-export class ForkJoinTaskPrivate {
+class ForkJoinTaskPrivate {
     static name: string
 }
-export abstract class ForkJoinTaskSharedResultClass {
+abstract class ForkJoinTaskSharedResultClass {
     static name: string
 }
-export class ForkJoinTaskSharedResultPrivate {
+class ForkJoinTaskSharedResultPrivate {
     static name: string
 }
-export abstract class FuncTaskClass {
+abstract class FuncTaskClass {
     static name: string
 }
-export class FuncTaskPrivate {
+class FuncTaskPrivate {
     static name: string
 }
-export abstract class FutureClass {
+abstract class FutureClass {
     /* Fields of Gpseq-1.0.Gpseq.FutureClass */
     wait: (self: Future) => object | null
     wait_until: (self: Future, end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
     transform: (self: Future, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Result
     static name: string
 }
-export class FuturePrivate {
+class FuturePrivate {
     static name: string
 }
-export abstract class GenericArraySpliteratorClass {
+abstract class GenericArraySpliteratorClass {
     static name: string
 }
-export class GenericArraySpliteratorPrivate {
+class GenericArraySpliteratorPrivate {
     static name: string
 }
-export abstract class IteratorSpliteratorClass {
+abstract class IteratorSpliteratorClass {
     static name: string
 }
-export class IteratorSpliteratorPrivate {
+class IteratorSpliteratorPrivate {
     static name: string
 }
-export abstract class ListSpliteratorClass {
+abstract class ListSpliteratorClass {
     static name: string
 }
-export class ListSpliteratorPrivate {
+class ListSpliteratorPrivate {
     static name: string
 }
-export abstract class OptionalClass {
+abstract class OptionalClass {
     static name: string
 }
-export class OptionalPrivate {
+class OptionalPrivate {
     static name: string
 }
-export abstract class PromiseClass {
+abstract class PromiseClass {
     static name: string
 }
-export class PromisePrivate {
+class PromisePrivate {
     static name: string
 }
-export abstract class SeqClass {
+abstract class SeqClass {
     static name: string
 }
-export class SeqPrivate {
+class SeqPrivate {
     static name: string
 }
-export abstract class SpliteratorTaskClass {
+abstract class SpliteratorTaskClass {
     /* Fields of Gpseq-1.0.Gpseq.SpliteratorTaskClass */
     leaf_compute: (self: SpliteratorTask) => object | null
     merge_results: (self: SpliteratorTask, left?: object | null, right?: object | null) => object | null
     make_child: (self: SpliteratorTask, spliterator: Spliterator) => SpliteratorTask
     static name: string
 }
-export class SpliteratorTaskPrivate {
+class SpliteratorTaskPrivate {
     static name: string
 }
-export abstract class SubArrayClass {
+abstract class SubArrayClass {
     static name: string
 }
-export class SubArrayPrivate {
+class SubArrayPrivate {
     static name: string
 }
-export abstract class SubArraySpliteratorClass {
+abstract class SubArraySpliteratorClass {
     static name: string
 }
-export class SubArraySpliteratorPrivate {
+class SubArraySpliteratorPrivate {
     static name: string
 }
-export abstract class SupplierSpliteratorClass {
+abstract class SupplierSpliteratorClass {
     static name: string
 }
-export class SupplierSpliteratorPrivate {
+class SupplierSpliteratorPrivate {
     static name: string
 }
-export abstract class TaskEnvClass {
+abstract class TaskEnvClass {
     /* Fields of Gpseq-1.0.Gpseq.TaskEnvClass */
     resolve_threshold: (self: TaskEnv, elements: number, threads: number) => number
     resolve_max_depth: (self: TaskEnv, elements: number, threads: number) => number
     static name: string
 }
-export class TaskEnvPrivate {
+class TaskEnvPrivate {
     static name: string
 }
-export abstract class WaitGroupClass {
+abstract class WaitGroupClass {
     static name: string
 }
-export class WaitGroupPrivate {
+class WaitGroupPrivate {
     static name: string
 }
-export abstract class WorkerPoolClass {
+abstract class WorkerPoolClass {
     static name: string
 }
-export class WorkerPoolPrivate {
+class WorkerPoolPrivate {
     static name: string
 }
-export abstract class WorkerThreadClass {
+abstract class WorkerThreadClass {
     static name: string
 }
-export class WorkerThreadPrivate {
+class WorkerThreadPrivate {
     static name: string
 }
-export abstract class WrapperClass {
+abstract class WrapperClass {
     static name: string
 }
-export class WrapperPrivate {
+class WrapperPrivate {
     static name: string
 }
-export abstract class ChannelIface {
+abstract class ChannelIface {
     static name: string
 }
-export abstract class ChannelBaseIface {
+abstract class ChannelBaseIface {
     /* Fields of Gpseq-1.0.Gpseq.ChannelBaseIface */
     close: (self: ChannelBase) => void
     get_capacity: (self: ChannelBase) => Optional
@@ -2579,7 +2581,7 @@ export abstract class ChannelBaseIface {
     get_is_empty: (self: ChannelBase) => boolean
     static name: string
 }
-export abstract class CollectorIface {
+abstract class CollectorIface {
     /* Fields of Gpseq-1.0.Gpseq.CollectorIface */
     create_accumulator: (self: Collector) => object | null
     accumulate: (self: Collector, g?: object | null, a?: object | null) => void
@@ -2588,20 +2590,20 @@ export abstract class CollectorIface {
     get_features: (self: Collector) => CollectorFeatures
     static name: string
 }
-export abstract class ExecutorIface {
+abstract class ExecutorIface {
     /* Fields of Gpseq-1.0.Gpseq.ExecutorIface */
     submit: (self: Executor, task: Task) => void
     get_parallels: (self: Executor) => number
     static name: string
 }
-export abstract class ReceiverIface {
+abstract class ReceiverIface {
     /* Fields of Gpseq-1.0.Gpseq.ReceiverIface */
     recv: (self: Receiver) => Result
     recv_until: (self: Receiver, end_time: number) => Result
     try_recv: (self: Receiver) => Result
     static name: string
 }
-export abstract class ResultIface {
+abstract class ResultIface {
     /* Fields of Gpseq-1.0.Gpseq.ResultIface */
     future: (self: Result) => Future
     get: (self: Result) => object | null
@@ -2614,14 +2616,14 @@ export abstract class ResultIface {
     and_then: (self: Result, func: Func) => Result
     static name: string
 }
-export abstract class SenderIface {
+abstract class SenderIface {
     /* Fields of Gpseq-1.0.Gpseq.SenderIface */
     send: (self: Sender, data?: object | null) => Result
     send_until: (self: Sender, data: object | null, end_time: number) => Result
     try_send: (self: Sender, data?: object | null) => Result
     static name: string
 }
-export abstract class SpliteratorIface {
+abstract class SpliteratorIface {
     /* Fields of Gpseq-1.0.Gpseq.SpliteratorIface */
     try_split: (self: Spliterator) => Spliterator | null
     try_advance: (self: Spliterator, consumer: Func) => boolean
@@ -2631,22 +2633,24 @@ export abstract class SpliteratorIface {
     get_is_size_known: (self: Spliterator) => boolean
     static name: string
 }
-export abstract class SupplierIface {
+abstract class SupplierIface {
     /* Fields of Gpseq-1.0.Gpseq.SupplierIface */
     supply: (self: Supplier) => object | null
     static name: string
 }
-export abstract class TaskIface {
+abstract class TaskIface {
     /* Fields of Gpseq-1.0.Gpseq.TaskIface */
     compute: (self: Task) => void
     get_future: (self: Task) => Future
     static name: string
 }
-export abstract class ThreadFactoryIface {
+abstract class ThreadFactoryIface {
     /* Fields of Gpseq-1.0.Gpseq.ThreadFactoryIface */
     create_thread: (self: ThreadFactory, pool: WorkerPool) => WorkerThread
     static name: string
 }
-export class CacheLinePad {
+class CacheLinePad {
     static name: string
 }
+}
+export default Gpseq

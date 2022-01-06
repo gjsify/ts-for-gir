@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type xlib from './xlib-2.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type Gtk from './Gtk-3.0';
+import type Gdk from './Gdk-3.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+
+export namespace TimezoneMap {
 
 export const TIMEZONE_COMPLETION_ADMIN1: number
 export const TIMEZONE_COMPLETION_COUNTRY: number
@@ -26,7 +28,7 @@ export const TIMEZONE_COMPLETION_NAME: number
 export const TIMEZONE_COMPLETION_ZONE: number
 export interface TimezoneCompletion_ConstructProps extends Gtk.EntryCompletion_ConstructProps {
 }
-export class TimezoneCompletion {
+class TimezoneCompletion {
     /* Properties of Gtk-3.0.Gtk.EntryCompletion */
     inline_completion: boolean
     inline_selection: boolean
@@ -203,7 +205,7 @@ export interface TimezoneLocation_ConstructProps extends GObject.Object_Construc
     longitude?: number
     zone?: string
 }
-export class TimezoneLocation {
+class TimezoneLocation {
     /* Properties of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     Comment: string
     country: string
@@ -275,7 +277,7 @@ export class TimezoneLocation {
 }
 export interface TimezoneMap_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class TimezoneMap {
+class TimezoneMap {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -1024,27 +1026,29 @@ export class TimezoneMap {
     static new(): TimezoneMap
     static $gtype: GObject.Type
 }
-export abstract class TimezoneCompletionClass {
+abstract class TimezoneCompletionClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletionClass */
     parent_class: Gtk.EntryCompletionClass
     static name: string
 }
-export class TimezoneCompletionPrivate {
+class TimezoneCompletionPrivate {
     static name: string
 }
-export abstract class TimezoneLocationClass {
+abstract class TimezoneLocationClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TimezoneLocationPrivate {
+class TimezoneLocationPrivate {
     static name: string
 }
-export abstract class TimezoneMapClass {
+abstract class TimezoneMapClass {
     /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMapClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }
-export class TimezoneMapPrivate {
+class TimezoneMapPrivate {
     static name: string
 }
+}
+export default TimezoneMap

@@ -18,34 +18,34 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace ClutterX11 {
+declare namespace ClutterX11 {
 
-export enum FilterReturn {
+enum FilterReturn {
     CONTINUE,
     TRANSLATE,
     REMOVE,
 }
-export function disableEventRetrieval(): void
-export function enableXinput(): void
-export function eventGetKeyGroup(event: Clutter.Event): number
-export function eventSequenceGetTouchDetail(sequence: Clutter.EventSequence): number
-export function getDefaultDisplay(): xlib.Display
-export function getDefaultScreen(): number
-export function getInputDevices(): Clutter.InputDevice[]
-export function getStageFromWindow(win: xlib.Window): Clutter.Stage
-export function getUseArgbVisual(): boolean
-export function getUseStereoStage(): boolean
-export function handleEvent(xevent: xlib.XEvent): FilterReturn
-export function hasCompositeExtension(): boolean
-export function hasEventRetrieval(): boolean
-export function hasXinput(): boolean
-export function setDisplay(xdpy: xlib.Display): void
-export function setStageForeign(stage: Clutter.Stage, xwindow: xlib.Window): boolean
-export function setUseArgbVisual(useArgb: boolean): void
-export function setUseStereoStage(useStereo: boolean): void
-export function trapXErrors(): void
-export function untrapXErrors(): number
-export interface FilterFunc {
+function disableEventRetrieval(): void
+function enableXinput(): void
+function eventGetKeyGroup(event: Clutter.Event): number
+function eventSequenceGetTouchDetail(sequence: Clutter.EventSequence): number
+function getDefaultDisplay(): xlib.Display
+function getDefaultScreen(): number
+function getInputDevices(): Clutter.InputDevice[]
+function getStageFromWindow(win: xlib.Window): Clutter.Stage
+function getUseArgbVisual(): boolean
+function getUseStereoStage(): boolean
+function handleEvent(xevent: xlib.XEvent): FilterReturn
+function hasCompositeExtension(): boolean
+function hasEventRetrieval(): boolean
+function hasXinput(): boolean
+function setDisplay(xdpy: xlib.Display): void
+function setStageForeign(stage: Clutter.Stage, xwindow: xlib.Window): boolean
+function setUseArgbVisual(useArgb: boolean): void
+function setUseStereoStage(useStereo: boolean): void
+function trapXErrors(): void
+function untrapXErrors(): number
+interface FilterFunc {
     (xev: xlib.XEvent, cev: Clutter.Event): FilterReturn
 }
 export interface TexturePixmap_ConstructProps extends Clutter.Texture_ConstructProps {
@@ -54,7 +54,7 @@ export interface TexturePixmap_ConstructProps extends Clutter.Texture_ConstructP
     window?: number
     windowRedirectAutomatic?: boolean
 }
-export class TexturePixmap {
+class TexturePixmap {
     /* Properties of ClutterX11-1.0.ClutterX11.TexturePixmap */
     automaticUpdates: boolean
     readonly destroyed: boolean
@@ -1206,15 +1206,16 @@ export class TexturePixmap {
     static classListChildProperties(klass: GObject.ObjectClass): GObject.ParamSpec[]
     static $gtype: GObject.Type
 }
-export abstract class TexturePixmapClass {
+abstract class TexturePixmapClass {
     /* Fields of ClutterX11-1.0.ClutterX11.TexturePixmapClass */
     updateArea: (texture: TexturePixmap, x: number, y: number, width: number, height: number) => void
     static name: string
 }
-export class TexturePixmapPrivate {
+class TexturePixmapPrivate {
     static name: string
 }
-export class XInputDevice {
+class XInputDevice {
     static name: string
 }
 }
+export default ClutterX11

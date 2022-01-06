@@ -19,9 +19,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Devhelp {
+declare namespace Devhelp {
 
-export enum LinkType {
+enum LinkType {
     BOOK,
     PAGE,
     KEYWORD,
@@ -33,17 +33,17 @@ export enum LinkType {
     PROPERTY,
     SIGNAL,
 }
-export enum LinkFlags {
+enum LinkFlags {
     NONE,
     DEPRECATED,
 }
-export function applicationWindowBindSidebarAndNotebook(sidebar: Sidebar, notebook: Notebook): void
-export function finalize(): void
-export function init(): void
-export function linkTypeToString(linkType: LinkType): string
+function applicationWindowBindSidebarAndNotebook(sidebar: Sidebar, notebook: Notebook): void
+function finalize(): void
+function init(): void
+function linkTypeToString(linkType: LinkType): string
 export interface AssistantView_ConstructProps extends WebKit2.WebView_ConstructProps {
 }
-export class AssistantView {
+class AssistantView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
     cameraCaptureState: WebKit2.MediaCaptureState
     displayCaptureState: WebKit2.MediaCaptureState
@@ -1328,7 +1328,7 @@ export class AssistantView {
 }
 export interface Book_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Book {
+class Book {
     /* Fields of Devhelp-3.0.Devhelp.Book */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1398,7 +1398,7 @@ export class Book {
 }
 export interface BookList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookList {
+class BookList {
     /* Fields of Devhelp-3.0.Devhelp.BookList */
     parent: GObject.Object
     priv: BookListPrivate
@@ -1464,7 +1464,7 @@ export class BookList {
 }
 export interface BookListBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookListBuilder {
+class BookListBuilder {
     /* Fields of Devhelp-3.0.Devhelp.BookListBuilder */
     parent: GObject.Object
     priv: BookListBuilderPrivate
@@ -1520,7 +1520,7 @@ export class BookListBuilder {
 export interface BookListDirectory_ConstructProps extends BookList_ConstructProps {
     directory?: Gio.File
 }
-export class BookListDirectory {
+class BookListDirectory {
     /* Fields of Devhelp-3.0.Devhelp.BookListDirectory */
     parent: BookList
     priv: BookListDirectoryPrivate
@@ -1588,7 +1588,7 @@ export class BookListDirectory {
 }
 export interface BookManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BookManager {
+class BookManager {
     /* Fields of Devhelp-3.0.Devhelp.BookManager */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1644,7 +1644,7 @@ export interface BookTree_ConstructProps extends Gtk.TreeView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class BookTree {
+class BookTree {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activateOnSingleClick: boolean
     enableGridLines: Gtk.TreeViewGridLines
@@ -2938,7 +2938,7 @@ export class BookTree {
 }
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Completion {
+class Completion {
     /* Fields of Devhelp-3.0.Devhelp.Completion */
     parent: GObject.Object
     priv: CompletionPrivate
@@ -2993,7 +2993,7 @@ export class Completion {
 }
 export interface KeywordModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeywordModel {
+class KeywordModel {
     /* Fields of Devhelp-3.0.Devhelp.KeywordModel */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3097,7 +3097,7 @@ export class KeywordModel {
 export interface Notebook_ConstructProps extends Gtk.Notebook_ConstructProps {
     profile?: Profile
 }
-export class Notebook {
+class Notebook {
     /* Properties of Gtk-3.0.Gtk.Notebook */
     enablePopup: boolean
     groupName: string
@@ -4214,7 +4214,7 @@ export class Notebook {
 }
 export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Profile {
+class Profile {
     /* Fields of Devhelp-3.0.Devhelp.Profile */
     parent: GObject.Object
     priv: ProfilePrivate
@@ -4267,7 +4267,7 @@ export class Profile {
 }
 export interface ProfileBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ProfileBuilder {
+class ProfileBuilder {
     /* Fields of Devhelp-3.0.Devhelp.ProfileBuilder */
     parent: GObject.Object
     priv: ProfileBuilderPrivate
@@ -4322,7 +4322,7 @@ export class ProfileBuilder {
 export interface SearchBar_ConstructProps extends Gtk.SearchBar_ConstructProps {
     notebook?: Notebook
 }
-export class SearchBar {
+class SearchBar {
     /* Properties of Gtk-3.0.Gtk.SearchBar */
     searchModeEnabled: boolean
     showCloseButton: boolean
@@ -5325,7 +5325,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     useSystemFonts?: boolean
     variableFont?: string
 }
-export class Settings {
+class Settings {
     /* Properties of Devhelp-3.0.Devhelp.Settings */
     fixedFont: string
     groupBooksByLanguage: boolean
@@ -5428,7 +5428,7 @@ export class Settings {
 }
 export interface SettingsBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SettingsBuilder {
+class SettingsBuilder {
     /* Fields of Devhelp-3.0.Devhelp.SettingsBuilder */
     parent: GObject.Object
     priv: SettingsBuilderPrivate
@@ -5484,7 +5484,7 @@ export interface Sidebar_ConstructProps extends Gtk.Grid_ConstructProps {
     profile?: Profile
     orientation?: Gtk.Orientation
 }
-export class Sidebar {
+class Sidebar {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
@@ -6531,7 +6531,7 @@ export interface Tab_ConstructProps extends Gtk.Grid_ConstructProps {
     webView?: WebView
     orientation?: Gtk.Orientation
 }
-export class Tab {
+class Tab {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
@@ -7569,7 +7569,7 @@ export interface TabLabel_ConstructProps extends Gtk.Grid_ConstructProps {
     tab?: Tab
     orientation?: Gtk.Orientation
 }
-export class TabLabel {
+class TabLabel {
     /* Properties of Gtk-3.0.Gtk.Grid */
     baselineRow: number
     columnHomogeneous: boolean
@@ -8606,7 +8606,7 @@ export class TabLabel {
 export interface WebView_ConstructProps extends WebKit2.WebView_ConstructProps {
     profile?: Profile
 }
-export class WebView {
+class WebView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
     cameraCaptureState: WebKit2.MediaCaptureState
     displayCaptureState: WebKit2.MediaCaptureState
@@ -9901,28 +9901,28 @@ export class WebView {
     static new(): WebView
     static $gtype: GObject.Type
 }
-export abstract class AssistantViewClass {
+abstract class AssistantViewClass {
     /* Fields of Devhelp-3.0.Devhelp.AssistantViewClass */
     parentClass: WebKit2.WebViewClass
     padding: object[]
     static name: string
 }
-export abstract class BookClass {
+abstract class BookClass {
     /* Fields of Devhelp-3.0.Devhelp.BookClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class BookListBuilderClass {
+abstract class BookListBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListBuilderClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class BookListBuilderPrivate {
+class BookListBuilderPrivate {
     static name: string
 }
-export abstract class BookListClass {
+abstract class BookListClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListClass */
     parentClass: GObject.ObjectClass
     addBook: (bookList: BookList, book: Book) => void
@@ -9930,46 +9930,46 @@ export abstract class BookListClass {
     getBooks: (bookList: BookList) => Book[]
     static name: string
 }
-export abstract class BookListDirectoryClass {
+abstract class BookListDirectoryClass {
     /* Fields of Devhelp-3.0.Devhelp.BookListDirectoryClass */
     parentClass: BookListClass
     padding: object[]
     static name: string
 }
-export class BookListDirectoryPrivate {
+class BookListDirectoryPrivate {
     static name: string
 }
-export class BookListPrivate {
+class BookListPrivate {
     static name: string
 }
-export abstract class BookManagerClass {
+abstract class BookManagerClass {
     /* Fields of Devhelp-3.0.Devhelp.BookManagerClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class BookTreeClass {
+abstract class BookTreeClass {
     /* Fields of Devhelp-3.0.Devhelp.BookTreeClass */
     parentClass: Gtk.TreeViewClass
     padding: object[]
     static name: string
 }
-export abstract class CompletionClass {
+abstract class CompletionClass {
     /* Fields of Devhelp-3.0.Devhelp.CompletionClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class CompletionPrivate {
+class CompletionPrivate {
     static name: string
 }
-export abstract class KeywordModelClass {
+abstract class KeywordModelClass {
     /* Fields of Devhelp-3.0.Devhelp.KeywordModelClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class Link {
+class Link {
     /* Methods of Devhelp-3.0.Devhelp.Link */
     belongsToPage(pageId: string): boolean
     compare(b: Link): number
@@ -9990,52 +9990,52 @@ export class Link {
     static new(type: LinkType, bookLink: Link, name: string, relativeUrl: string): Link
     static newBook(basePath: string, bookId: string, bookTitle: string, relativeUrl: string): Link
 }
-export abstract class NotebookClass {
+abstract class NotebookClass {
     /* Fields of Devhelp-3.0.Devhelp.NotebookClass */
     parentClass: Gtk.NotebookClass
     padding: object[]
     static name: string
 }
-export class NotebookPrivate {
+class NotebookPrivate {
     static name: string
 }
-export abstract class ProfileBuilderClass {
+abstract class ProfileBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.ProfileBuilderClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ProfileBuilderPrivate {
+class ProfileBuilderPrivate {
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of Devhelp-3.0.Devhelp.ProfileClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class ProfilePrivate {
+class ProfilePrivate {
     static name: string
 }
-export abstract class SearchBarClass {
+abstract class SearchBarClass {
     /* Fields of Devhelp-3.0.Devhelp.SearchBarClass */
     parentClass: Gtk.SearchBarClass
     padding: object[]
     static name: string
 }
-export class SearchBarPrivate {
+class SearchBarPrivate {
     static name: string
 }
-export abstract class SettingsBuilderClass {
+abstract class SettingsBuilderClass {
     /* Fields of Devhelp-3.0.Devhelp.SettingsBuilderClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export class SettingsBuilderPrivate {
+class SettingsBuilderPrivate {
     static name: string
 }
-export abstract class SettingsClass {
+abstract class SettingsClass {
     /* Fields of Devhelp-3.0.Devhelp.SettingsClass */
     parent: GObject.ObjectClass
     booksDisabledChanged: (settings: Settings) => void
@@ -10043,42 +10043,43 @@ export abstract class SettingsClass {
     padding: object[]
     static name: string
 }
-export class SettingsPrivate {
+class SettingsPrivate {
     static name: string
 }
-export abstract class SidebarClass {
+abstract class SidebarClass {
     /* Fields of Devhelp-3.0.Devhelp.SidebarClass */
     parentClass: Gtk.GridClass
     linkSelected: (sidebar: Sidebar, link: Link) => void
     padding: object[]
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Devhelp-3.0.Devhelp.TabClass */
     parentClass: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export abstract class TabLabelClass {
+abstract class TabLabelClass {
     /* Fields of Devhelp-3.0.Devhelp.TabLabelClass */
     parentClass: Gtk.GridClass
     padding: object[]
     static name: string
 }
-export class TabLabelPrivate {
+class TabLabelPrivate {
     static name: string
 }
-export class TabPrivate {
+class TabPrivate {
     static name: string
 }
-export abstract class WebViewClass {
+abstract class WebViewClass {
     /* Fields of Devhelp-3.0.Devhelp.WebViewClass */
     parentClass: WebKit2.WebViewClass
     openNewTab: (view: WebView, uri: string) => void
     padding: object[]
     static name: string
 }
-export class WebViewPrivate {
+class WebViewPrivate {
     static name: string
 }
 }
+export default Devhelp

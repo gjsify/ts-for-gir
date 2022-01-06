@@ -1,2 +1,1 @@
-imports.gi.versions.ICalGLib = '3.0'
-module.exports = imports.gi.ICalGLib
+export {default as default} from 'gi://ICalGLib?version=3.0';

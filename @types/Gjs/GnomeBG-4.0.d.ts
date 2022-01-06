@@ -3,22 +3,24 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GnomeDesktop from './GnomeDesktop-4.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GDesktopEnums from './GDesktopEnums-3.0';
-import type * as Gdk from './Gdk-4.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
+import type GnomeDesktop from './GnomeDesktop-4.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type GDesktopEnums from './GDesktopEnums-3.0';
+import type Gdk from './Gdk-4.0';
+import type cairo from './cairo-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+
+export namespace GnomeBG {
 
 export interface BG_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BG {
+class BG {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GnomeBG-4.0.GnomeBG.BG */
@@ -93,7 +95,7 @@ export class BG {
 export interface BGSlideShow_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
-export class BGSlideShow {
+class BGSlideShow {
     /* Properties of GnomeBG-4.0.GnomeBG.BGSlideShow */
     readonly has_multiple_sizes: boolean
     readonly start_time: number
@@ -163,14 +165,16 @@ export class BGSlideShow {
     static new(filename: string): BGSlideShow
     static $gtype: GObject.Type
 }
-export abstract class BGClass {
+abstract class BGClass {
     static name: string
 }
-export abstract class BGSlideShowClass {
+abstract class BGSlideShowClass {
     /* Fields of GnomeBG-4.0.GnomeBG.BGSlideShowClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class BGSlideShowPrivate {
+class BGSlideShowPrivate {
     static name: string
 }
+}
+export default GnomeBG

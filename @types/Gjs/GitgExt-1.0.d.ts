@@ -3,43 +3,45 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gitg from './Gitg-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Ggit from './Ggit-1.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gitg from './Gitg-1.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type Gdk from './Gdk-3.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Ggit from './Ggit-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Atk from './Atk-1.0';
 
-export enum SelectionMode {
+export namespace GitgExt {
+
+enum SelectionMode {
     NORMAL,
     SELECTION,
 }
-export enum ExternalChangeHint {
+enum ExternalChangeHint {
     NONE,
     REFS,
     INDEX,
 }
-export interface ForeachCommitSelectionFunc {
+interface ForeachCommitSelectionFunc {
     (object: Ggit.Commit): boolean
 }
-export interface MessageCallback {
+interface MessageCallback {
     (message: Message): void
 }
-export interface RefNameEditingDone {
+interface RefNameEditingDone {
     (new_name: string, cancelled: boolean): void
 }
 export interface Action_ConstructProps extends UIElement_ConstructProps {
 }
-export class Action {
+class Action {
     /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
@@ -149,7 +151,7 @@ export class Action {
 }
 export interface Activity_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Activity {
+class Activity {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.Activity */
@@ -205,7 +207,7 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     repository?: Gitg.Repository
     busy?: boolean
 }
-export class Application {
+class Application {
     /* Properties of GitgExt-1.0.GitgExt.Application */
     repository: Gitg.Repository
     readonly message_bus: MessageBus
@@ -320,7 +322,7 @@ export class Application {
 }
 export interface CommandLine_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CommandLine {
+class CommandLine {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.CommandLine */
@@ -378,7 +380,7 @@ export interface CommitAction_ConstructProps extends Action_ConstructProps {
     action_interface?: RefActionInterface
     commit?: Gitg.Commit
 }
-export class CommitAction {
+class CommitAction {
     /* Properties of GitgExt-1.0.GitgExt.CommitAction */
     action_interface: RefActionInterface
     commit: Gitg.Commit
@@ -511,7 +513,7 @@ export class CommitAction {
 export interface HistoryPanel_ConstructProps extends GObject.Object_ConstructProps {
     history?: History
 }
-export class HistoryPanel {
+class HistoryPanel {
     /* Properties of GitgExt-1.0.GitgExt.HistoryPanel */
     history: History
     /* Fields of GObject-2.0.GObject.Object */
@@ -569,7 +571,7 @@ export class HistoryPanel {
 }
 export interface History_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class History {
+class History {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.History */
@@ -627,7 +629,7 @@ export class History {
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Notification {
+class Notification {
     /* Properties of GitgExt-1.0.GitgExt.Notification */
     readonly widget: Gtk.Widget
     /* Fields of GObject-2.0.GObject.Object */
@@ -687,7 +689,7 @@ export class Notification {
 }
 export interface Notifications_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Notifications {
+class Notifications {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.Notifications */
@@ -741,7 +743,7 @@ export class Notifications {
 }
 export interface Preferences_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Preferences {
+class Preferences {
     /* Properties of GitgExt-1.0.GitgExt.Preferences */
     readonly id: string
     readonly display_name: string
@@ -808,7 +810,7 @@ export class Preferences {
 export interface RefActionInterface_ConstructProps extends GObject.Object_ConstructProps {
     application?: Application
 }
-export class RefActionInterface {
+class RefActionInterface {
     /* Properties of GitgExt-1.0.GitgExt.RefActionInterface */
     application: Application
     readonly references: Gee.List
@@ -885,7 +887,7 @@ export interface RefAction_ConstructProps extends Action_ConstructProps {
     action_interface?: RefActionInterface
     reference?: Gitg.Ref
 }
-export class RefAction {
+class RefAction {
     /* Properties of GitgExt-1.0.GitgExt.RefAction */
     action_interface: RefActionInterface
     reference: Gitg.Ref
@@ -1013,7 +1015,7 @@ export class RefAction {
 }
 export interface RemoteLookup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteLookup {
+class RemoteLookup {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.RemoteLookup */
@@ -1068,7 +1070,7 @@ export interface Searchable_ConstructProps extends GObject.Object_ConstructProps
     search_visible?: boolean
     search_entry?: Gtk.Entry
 }
-export class Searchable {
+class Searchable {
     /* Properties of GitgExt-1.0.GitgExt.Searchable */
     search_text: string
     search_visible: boolean
@@ -1144,7 +1146,7 @@ export class Searchable {
 export interface Selectable_ConstructProps extends GObject.Object_ConstructProps {
     selectable_mode?: SelectionMode
 }
-export class Selectable {
+class Selectable {
     /* Properties of GitgExt-1.0.GitgExt.Selectable */
     selectable_mode: SelectionMode
     readonly selectable_available: boolean
@@ -1218,7 +1220,7 @@ export class Selectable {
 export interface UIElement_ConstructProps extends GObject.Object_ConstructProps {
     application?: Application
 }
-export class UIElement {
+class UIElement {
     /* Properties of GitgExt-1.0.GitgExt.UIElement */
     application: Application
     readonly id: string
@@ -1308,7 +1310,7 @@ export class UIElement {
 }
 export interface CommandLines_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CommandLines {
+class CommandLines {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.CommandLines */
@@ -1362,7 +1364,7 @@ export class CommandLines {
 }
 export interface MessageBus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MessageBus {
+class MessageBus {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GitgExt-1.0.GitgExt.MessageBus */
@@ -1438,7 +1440,7 @@ export interface MessageId_ConstructProps extends GObject.Object_ConstructProps 
     object_path?: string
     method?: string
 }
-export class MessageId {
+class MessageId {
     /* Properties of GitgExt-1.0.GitgExt.MessageId */
     object_path: string
     method: string
@@ -1509,7 +1511,7 @@ export class MessageId {
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     id?: MessageId
 }
-export class Message {
+class Message {
     /* Properties of GitgExt-1.0.GitgExt.Message */
     id: MessageId
     /* Fields of GObject-2.0.GObject.Object */
@@ -1566,7 +1568,7 @@ export class Message {
     static type_check(type: GObject.Type, propname: string, value_type: GObject.Type): boolean
     static $gtype: GObject.Type
 }
-export class UI {
+class UI {
     /* Fields of GitgExt-1.0.GitgExt.UI */
     ref_count: number
     static name: string
@@ -1577,7 +1579,7 @@ export class UI {
 }
 export interface UserQueryResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class UserQueryResponse {
+class UserQueryResponse {
     /* Fields of GitgExt-1.0.GitgExt.UserQueryResponse */
     text: string
     response_type: Gtk.ResponseType
@@ -1636,7 +1638,7 @@ export interface UserQuery_ConstructProps extends GObject.Object_ConstructProps 
     default_is_destructive?: boolean
     message_use_markup?: boolean
 }
-export class UserQuery {
+class UserQuery {
     /* Properties of GitgExt-1.0.GitgExt.UserQuery */
     title: string
     message: string
@@ -1728,62 +1730,62 @@ export class UserQuery {
     static new(): UserQuery
     static $gtype: GObject.Type
 }
-export abstract class CommandLinesClass {
+abstract class CommandLinesClass {
     static name: string
 }
-export class CommandLinesPrivate {
+class CommandLinesPrivate {
     static name: string
 }
-export abstract class MessageBusClass {
+abstract class MessageBusClass {
     /* Fields of GitgExt-1.0.GitgExt.MessageBusClass */
     dispatch: (self: MessageBus, message: Message) => void
     static name: string
 }
-export class MessageBusPrivate {
+class MessageBusPrivate {
     static name: string
 }
-export abstract class MessageIdClass {
+abstract class MessageIdClass {
     static name: string
 }
-export class MessageIdPrivate {
+class MessageIdPrivate {
     static name: string
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     static name: string
 }
-export class MessagePrivate {
+class MessagePrivate {
     static name: string
 }
-export abstract class UIClass {
+abstract class UIClass {
     static name: string
 }
-export class UIPrivate {
+class UIPrivate {
     static name: string
 }
-export abstract class UserQueryResponseClass {
+abstract class UserQueryResponseClass {
     static name: string
 }
-export class UserQueryResponsePrivate {
+class UserQueryResponsePrivate {
     static name: string
 }
-export abstract class UserQueryClass {
+abstract class UserQueryClass {
     static name: string
 }
-export class UserQueryPrivate {
+class UserQueryPrivate {
     static name: string
 }
-export abstract class ActionIface {
+abstract class ActionIface {
     /* Fields of GitgExt-1.0.GitgExt.ActionIface */
     populate_menu: (self: Action, menu: Gtk.Menu) => void
     static name: string
 }
-export abstract class ActivityIface {
+abstract class ActivityIface {
     /* Fields of GitgExt-1.0.GitgExt.ActivityIface */
     is_default_for: (self: Activity, action: string) => boolean
     on_key_pressed: (self: Activity, event: Gdk.EventKey) => boolean
     static name: string
 }
-export abstract class ApplicationIface {
+abstract class ApplicationIface {
     /* Fields of GitgExt-1.0.GitgExt.ApplicationIface */
     get_verified_committer: (self: Application) => Ggit.Signature | null
     get_activity_by_id: (self: Application, id: string) => Activity | null
@@ -1805,14 +1807,14 @@ export abstract class ApplicationIface {
     get_remote_lookup: (self: Application) => RemoteLookup
     static name: string
 }
-export abstract class CommandLineIface {
+abstract class CommandLineIface {
     /* Fields of GitgExt-1.0.GitgExt.CommandLineIface */
     get_option_group: (self: CommandLine) => GLib.OptionGroup
     parse_finished: (self: CommandLine) => void
     apply: (self: CommandLine, application: Application) => void
     static name: string
 }
-export abstract class CommitActionIface {
+abstract class CommitActionIface {
     /* Fields of GitgExt-1.0.GitgExt.CommitActionIface */
     get_action_interface: (self: CommitAction) => RefActionInterface
     set_action_interface: (self: CommitAction, value: RefActionInterface) => void
@@ -1820,37 +1822,37 @@ export abstract class CommitActionIface {
     set_commit: (self: CommitAction, value: Gitg.Commit) => void
     static name: string
 }
-export abstract class HistoryPanelIface {
+abstract class HistoryPanelIface {
     /* Fields of GitgExt-1.0.GitgExt.HistoryPanelIface */
     get_history: (self: HistoryPanel) => History | null
     set_history: (self: HistoryPanel, value?: History | null) => void
     static name: string
 }
-export abstract class HistoryIface {
+abstract class HistoryIface {
     /* Fields of GitgExt-1.0.GitgExt.HistoryIface */
     foreach_selected: (self: History, func: ForeachCommitSelectionFunc) => void
     select: (self: History, commit: Gitg.Commit) => void
     static name: string
 }
-export abstract class NotificationIface {
+abstract class NotificationIface {
     /* Fields of GitgExt-1.0.GitgExt.NotificationIface */
     get_widget: (self: Notification) => Gtk.Widget | null
     static name: string
 }
-export abstract class NotificationsIface {
+abstract class NotificationsIface {
     /* Fields of GitgExt-1.0.GitgExt.NotificationsIface */
     add: (self: Notifications, notification: Notification) => void
     remove: (self: Notifications, notification: Notification, delay: number) => void
     static name: string
 }
-export abstract class PreferencesIface {
+abstract class PreferencesIface {
     /* Fields of GitgExt-1.0.GitgExt.PreferencesIface */
     get_id: (self: Preferences) => string
     get_display_name: (self: Preferences) => string
     get_widget: (self: Preferences) => Gtk.Widget
     static name: string
 }
-export abstract class RefActionInterfaceIface {
+abstract class RefActionInterfaceIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionInterfaceIface */
     add_ref: (self: RefActionInterface, reference: Gitg.Ref) => void
     remove_ref: (self: RefActionInterface, reference: Gitg.Ref) => void
@@ -1863,7 +1865,7 @@ export abstract class RefActionInterfaceIface {
     get_references: (self: RefActionInterface) => Gee.List
     static name: string
 }
-export abstract class RefActionIface {
+abstract class RefActionIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionIface */
     get_action_interface: (self: RefAction) => RefActionInterface
     set_action_interface: (self: RefAction, value: RefActionInterface) => void
@@ -1871,12 +1873,12 @@ export abstract class RefActionIface {
     set_reference: (self: RefAction, value: Gitg.Ref) => void
     static name: string
 }
-export abstract class RemoteLookupIface {
+abstract class RemoteLookupIface {
     /* Fields of GitgExt-1.0.GitgExt.RemoteLookupIface */
     lookup: (self: RemoteLookup, name: string) => Gitg.Remote | null
     static name: string
 }
-export abstract class SearchableIface {
+abstract class SearchableIface {
     /* Fields of GitgExt-1.0.GitgExt.SearchableIface */
     get_search_text: (self: Searchable) => string
     set_search_text: (self: Searchable, value: string) => void
@@ -1886,7 +1888,7 @@ export abstract class SearchableIface {
     set_search_entry: (self: Searchable, value?: Gtk.Entry | null) => void
     static name: string
 }
-export abstract class SelectableIface {
+abstract class SelectableIface {
     /* Fields of GitgExt-1.0.GitgExt.SelectableIface */
     get_selectable_mode: (self: Selectable) => SelectionMode
     set_selectable_mode: (self: Selectable, value: SelectionMode) => void
@@ -1895,7 +1897,7 @@ export abstract class SelectableIface {
     get_action_widget: (self: Selectable) => Gtk.Widget | null
     static name: string
 }
-export abstract class UIElementIface {
+abstract class UIElementIface {
     /* Fields of GitgExt-1.0.GitgExt.UIElementIface */
     negotiate_order: (self: UIElement, other: UIElement) => number
     get_application: (self: UIElement) => Application | null
@@ -1910,3 +1912,5 @@ export abstract class UIElementIface {
     get_enabled: (self: UIElement) => boolean
     static name: string
 }
+}
+export default GitgExt

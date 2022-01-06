@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as AppStreamGlib from './AppStreamGlib-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type AppStreamGlib from './AppStreamGlib-1.0';
 
-export enum AppSaveFlags {
+export namespace AppStreamBuilder {
+
+enum AppSaveFlags {
     NONE,
     ICONS,
     SCREENSHOTS,
 }
-export enum PackageKind {
+enum PackageKind {
     DEFAULT,
     BUNDLE,
     FIRMWARE,
     LAST,
 }
-export enum PackageLogLevel {
+enum PackageLogLevel {
     NONE,
     DEBUG,
     INFO,
     WARNING,
     LAST,
 }
-export enum ContextFlags {
+enum ContextFlags {
     NONE,
     IGNORE_MISSING_INFO,
     IGNORE_MISSING_PARENTS,
@@ -56,7 +58,7 @@ export const PACKAGE_ENSURE_URL: number
 export const PACKAGE_ENSURE_VCS: number
 export interface App_ConstructProps extends AppStreamGlib.App_ConstructProps {
 }
-export class App {
+class App {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.App */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -264,7 +266,7 @@ export class App {
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Context {
+class Context {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Context */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -345,7 +347,7 @@ export class Context {
 }
 export interface Package_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Package {
+class Package {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Package */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -451,7 +453,7 @@ export class Package {
 }
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Task {
+class Task {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.Task */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -504,17 +506,17 @@ export class Task {
     static new(ctx: Context): Task
     static $gtype: GObject.Type
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.AppClass */
     parent_class: AppStreamGlib.AppClass
     static name: string
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.ContextClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class PackageClass {
+abstract class PackageClass {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.PackageClass */
     parent_class: GObject.ObjectClass
     open: (pkg: Package, filename: string) => boolean
@@ -524,9 +526,11 @@ export abstract class PackageClass {
     close: (pkg: Package) => boolean
     static name: string
 }
-export abstract class TaskClass {
+abstract class TaskClass {
     /* Fields of AppStreamBuilder-1.0.AppStreamBuilder.TaskClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export type PackageEnsureFlags = number
+type PackageEnsureFlags = number
+}
+export default AppStreamBuilder

@@ -5,13 +5,14 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace fontconfig {
+declare namespace fontconfig {
 
-export function init(): void
-export class Pattern {
+function init(): void
+class Pattern {
     static name: string
 }
-export class CharSet {
+class CharSet {
     static name: string
 }
 }
+export default fontconfig

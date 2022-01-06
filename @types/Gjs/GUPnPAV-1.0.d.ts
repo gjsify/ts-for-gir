@@ -3,18 +3,20 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type libxml2 from './libxml2-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum CDSLastChangeEvent {
+export namespace GUPnPAV {
+
+enum CDSLastChangeEvent {
     INVALID,
     OBJECT_ADDED,
     OBJECT_REMOVED,
     OBJECT_MODIFIED,
     ST_DONE,
 }
-export enum DIDLLiteFragmentResult {
+enum DIDLLiteFragmentResult {
     OK,
     CURRENT_BAD_XML,
     NEW_BAD_XML,
@@ -25,11 +27,11 @@ export enum DIDLLiteFragmentResult {
     MISMATCH,
     UNKNOWN_ERROR,
 }
-export enum ProtocolError {
+enum ProtocolError {
     INVALID_SYNTAX,
     OTHER,
 }
-export enum SearchCriteriaOp {
+enum SearchCriteriaOp {
     EQ,
     NEQ,
     LESS,
@@ -41,14 +43,14 @@ export enum SearchCriteriaOp {
     DERIVED_FROM,
     EXISTS,
 }
-export enum SearchCriteriaParserError {
+enum SearchCriteriaParserError {
     SEARCH_CRITERIA_PARSER_ERROR_FAILED,
 }
-export enum DLNAConversion {
+enum DLNAConversion {
     NONE,
     TRANSCODED,
 }
-export enum DLNAFlags {
+enum DLNAFlags {
     NONE,
     SENDER_PACED,
     TIME_BASED_SEEK,
@@ -66,12 +68,12 @@ export enum DLNAFlags {
     CLEARTEXT_BYTESEEK_FULL,
     LOP_CLEARTEXT_BYTESEEK,
 }
-export enum DLNAOperation {
+enum DLNAOperation {
     NONE,
     RANGE,
     TIMESEEK,
 }
-export enum OCMFlags {
+enum OCMFlags {
     NONE,
     UPLOAD,
     CREATE_CONTAINER,
@@ -83,10 +85,10 @@ export const DIDL_LITE_WRITER_NAMESPACE_DC: string
 export const DIDL_LITE_WRITER_NAMESPACE_DLNA: string
 export const DIDL_LITE_WRITER_NAMESPACE_PV: string
 export const DIDL_LITE_WRITER_NAMESPACE_UPNP: string
-export function protocol_error_quark(): GLib.Quark
+function protocol_error_quark(): GLib.Quark
 export interface CDSLastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CDSLastChangeParser {
+class CDSLastChangeParser {
     /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParser */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -145,7 +147,7 @@ export interface DIDLLiteContainer_ConstructProps extends DIDLLiteObject_Constru
     storage_used?: number
     total_deleted_child_count?: number
 }
-export class DIDLLiteContainer {
+class DIDLLiteContainer {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainer */
     child_count: number
     container_update_id: number
@@ -352,7 +354,7 @@ export interface DIDLLiteContributor_ConstructProps extends GObject.Object_Const
     role?: string
     xml_node?: object
 }
-export class DIDLLiteContributor {
+class DIDLLiteContributor {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributor */
     name: string
     role: string
@@ -419,7 +421,7 @@ export interface DIDLLiteCreateClass_ConstructProps extends GObject.Object_Const
     include_derived?: boolean
     xml_node?: object
 }
-export class DIDLLiteCreateClass {
+class DIDLLiteCreateClass {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClass */
     content: string
     friendly_name: string
@@ -492,7 +494,7 @@ export interface DIDLLiteDescriptor_ConstructProps extends GObject.Object_Constr
     name_space?: string
     xml_node?: object
 }
-export class DIDLLiteDescriptor {
+class DIDLLiteDescriptor {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptor */
     content: string
     id: string
@@ -569,7 +571,7 @@ export interface DIDLLiteItem_ConstructProps extends DIDLLiteObject_ConstructPro
     lifetime?: number
     ref_id?: string
 }
-export class DIDLLiteItem {
+class DIDLLiteItem {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteItem */
     lifetime: number
     ref_id: string
@@ -769,7 +771,7 @@ export interface DIDLLiteObject_ConstructProps extends GObject.Object_ConstructP
     write_status?: string
     xml_node?: object
 }
-export class DIDLLiteObject {
+class DIDLLiteObject {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteObject */
     album: string
     album_art: string
@@ -935,7 +937,7 @@ export class DIDLLiteObject {
 }
 export interface DIDLLiteParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DIDLLiteParser {
+class DIDLLiteParser {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParser */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1025,7 +1027,7 @@ export interface DIDLLiteResource_ConstructProps extends GObject.Object_Construc
     width?: number
     xml_node?: object
 }
-export class DIDLLiteResource {
+class DIDLLiteResource {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteResource */
     audio_channels: number
     bitrate: number
@@ -1180,7 +1182,7 @@ export class DIDLLiteResource {
 export interface DIDLLiteWriter_ConstructProps extends GObject.Object_ConstructProps {
     language?: string
 }
-export class DIDLLiteWriter {
+class DIDLLiteWriter {
     /* Properties of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
     readonly xml_node: object
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriter */
@@ -1247,7 +1249,7 @@ export interface Feature_ConstructProps extends GObject.Object_ConstructProps {
     object_ids?: string
     version?: string
 }
-export class Feature {
+class Feature {
     /* Fields of GUPnPAV-1.0.GUPnPAV.Feature */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1301,7 +1303,7 @@ export class Feature {
 }
 export interface FeatureListParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeatureListParser {
+class FeatureListParser {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GUPnPAV-1.0.GUPnPAV.FeatureListParser */
@@ -1353,7 +1355,7 @@ export class FeatureListParser {
 }
 export interface LastChangeParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LastChangeParser {
+class LastChangeParser {
     /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParser */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1408,7 +1410,7 @@ export interface MediaCollection_ConstructProps extends GObject.Object_Construct
     data?: string
     title?: string
 }
-export class MediaCollection {
+class MediaCollection {
     /* Properties of GUPnPAV-1.0.GUPnPAV.MediaCollection */
     author: string
     readonly mutable: boolean
@@ -1488,7 +1490,7 @@ export interface ProtocolInfo_ConstructProps extends GObject.Object_ConstructPro
     play_speeds?: string[]
     protocol?: string
 }
-export class ProtocolInfo {
+class ProtocolInfo {
     /* Properties of GUPnPAV-1.0.GUPnPAV.ProtocolInfo */
     dlna_conversion: DLNAConversion
     dlna_flags: DLNAFlags
@@ -1585,7 +1587,7 @@ export class ProtocolInfo {
 }
 export interface SearchCriteriaParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SearchCriteriaParser {
+class SearchCriteriaParser {
     /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParser */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1660,7 +1662,7 @@ export class SearchCriteriaParser {
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export class CDSLastChangeEntry {
+class CDSLastChangeEntry {
     /* Methods of GUPnPAV-1.0.GUPnPAV.CDSLastChangeEntry */
     get_class(): string
     get_event(): CDSLastChangeEvent
@@ -1672,45 +1674,45 @@ export class CDSLastChangeEntry {
     unref(): void
     static name: string
 }
-export abstract class CDSLastChangeParserClass {
+abstract class CDSLastChangeParserClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.CDSLastChangeParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DIDLLiteContainerClass {
+abstract class DIDLLiteContainerClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContainerClass */
     parent_class: DIDLLiteObjectClass
     static name: string
 }
-export abstract class DIDLLiteContributorClass {
+abstract class DIDLLiteContributorClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteContributorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DIDLLiteCreateClassClass {
+abstract class DIDLLiteCreateClassClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteCreateClassClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DIDLLiteDescriptorClass {
+abstract class DIDLLiteDescriptorClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteDescriptorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DIDLLiteItemClass {
+abstract class DIDLLiteItemClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteItemClass */
     parent_class: DIDLLiteObjectClass
     static name: string
 }
-export abstract class DIDLLiteObjectClass {
+abstract class DIDLLiteObjectClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteObjectClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class DIDLLiteObjectPrivate {
+class DIDLLiteObjectPrivate {
     static name: string
 }
-export abstract class DIDLLiteParserClass {
+abstract class DIDLLiteParserClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteParserClass */
     parent_class: GObject.ObjectClass
     object_available: (parser: DIDLLiteParser, object: DIDLLiteObject) => void
@@ -1718,42 +1720,42 @@ export abstract class DIDLLiteParserClass {
     container_available: (parser: DIDLLiteParser, container: DIDLLiteContainer) => void
     static name: string
 }
-export abstract class DIDLLiteResourceClass {
+abstract class DIDLLiteResourceClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteResourceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class DIDLLiteWriterClass {
+abstract class DIDLLiteWriterClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.DIDLLiteWriterClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FeatureClass {
+abstract class FeatureClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FeatureListParserClass {
+abstract class FeatureListParserClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.FeatureListParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class LastChangeParserClass {
+abstract class LastChangeParserClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.LastChangeParserClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MediaCollectionClass {
+abstract class MediaCollectionClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.MediaCollectionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ProtocolInfoClass {
+abstract class ProtocolInfoClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.ProtocolInfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class SearchCriteriaParserClass {
+abstract class SearchCriteriaParserClass {
     /* Fields of GUPnPAV-1.0.GUPnPAV.SearchCriteriaParserClass */
     parent_class: GObject.ObjectClass
     begin_parens: (parser: SearchCriteriaParser) => void
@@ -1763,3 +1765,5 @@ export abstract class SearchCriteriaParserClass {
     expression: (parser: SearchCriteriaParser, property: string, op: SearchCriteriaOp, value: string) => boolean
     static name: string
 }
+}
+export default GUPnPAV

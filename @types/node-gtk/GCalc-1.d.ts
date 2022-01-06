@@ -8,36 +8,36 @@ import type { GLib } from './GLib-2.0';
 import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
 
-export declare namespace GCalc {
+declare namespace GCalc {
 
-export enum AssigError {
+enum AssigError {
     INVALID_STRUCTURE_ERROR,
 }
-export enum FunctionError {
+enum FunctionError {
     INVALID_PARAMETERS_ERROR,
     INVOCATION_ERROR,
 }
-export enum ParserError {
+enum ParserError {
     INVALID_TOKEN_ERROR,
     INVALID_EXPRESSION_ERROR,
 }
-export enum GroupError {
+enum GroupError {
     INVALID_POLYNOMIAL,
     INVALID_INTERNAL_TERM,
 }
-export enum SolverError {
+enum SolverError {
     EXPRESSION_ERROR,
 }
-export enum TermError {
+enum TermError {
     INVALID_OPERATOR,
     EVALUATION_FAIL,
 }
-export enum VariableError {
+enum VariableError {
     INVALID_PARENT,
     INVALID_EXPRESSION_DEFINITION,
     EVALUATION_FAIL,
 }
-export enum GParserTokenType {
+enum GParserTokenType {
     NONE,
     EOF,
     IDENTIFIER,
@@ -80,14 +80,14 @@ export enum GParserTokenType {
     INTERR,
     HASH,
 }
-export enum GroupLevel {
+enum GroupLevel {
     ONE,
     TWO,
     THREE,
 }
 export interface Assign_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Assign {
+class Assign {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc-1.GCalc.Assign */
@@ -134,7 +134,7 @@ export class Assign {
 }
 export interface BinaryOperator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BinaryOperator {
+class BinaryOperator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -179,7 +179,7 @@ export class BinaryOperator {
 }
 export interface Constant_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Constant {
+class Constant {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc-1.GCalc.Constant */
@@ -233,7 +233,7 @@ export class Constant {
 }
 export interface Division_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Division {
+class Division {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -279,7 +279,7 @@ export class Division {
 export interface Expression_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Expression
 }
-export class Expression {
+class Expression {
     /* Properties of GCalc-1.GCalc.Expression */
     parent: Expression
     readonly expressions: ExpressionContainer
@@ -343,7 +343,7 @@ export class Expression {
 }
 export interface ErrorExpression_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ErrorExpression {
+class ErrorExpression {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -391,7 +391,7 @@ export interface Function_ConstructProps extends GObject.Object_ConstructProps {
     nParams?: number
     closed?: boolean
 }
-export class Function {
+class Function {
     /* Properties of GCalc-1.GCalc.Function */
     readonly paramTypes: ExpressionContainer
     name: string
@@ -471,7 +471,7 @@ export class Function {
 }
 export interface ErrorResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ErrorResult {
+class ErrorResult {
     /* Properties of GCalc-1.GCalc.ErrorResult */
     readonly message: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -527,7 +527,7 @@ export interface Group_ConstructProps extends GObject.Object_ConstructProps {
     level?: GroupLevel
     closed?: boolean
 }
-export class Group {
+class Group {
     /* Properties of GCalc-1.GCalc.Group */
     level: GroupLevel
     closed: boolean
@@ -591,7 +591,7 @@ export class Group {
 }
 export interface Hashable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Hashable {
+class Hashable {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc-1.GCalc.Hashable */
@@ -638,7 +638,7 @@ export class Hashable {
 }
 export interface MathEquation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MathEquation {
+class MathEquation {
     /* Properties of GCalc-1.GCalc.MathEquation */
     readonly variables: ExpressionHashMap
     /* Fields of GObject-2.0.GObject.Object */
@@ -692,7 +692,7 @@ export class MathEquation {
 }
 export interface MathEquationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MathEquationManager {
+class MathEquationManager {
     /* Properties of GCalc-1.GCalc.MathEquationManager */
     readonly equations: ExpressionContainer
     readonly functions: ExpressionContainer
@@ -754,7 +754,7 @@ export class MathEquationManager {
 }
 export interface Minus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Minus {
+class Minus {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -799,7 +799,7 @@ export class Minus {
 }
 export interface Multiply_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Multiply {
+class Multiply {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -844,7 +844,7 @@ export class Multiply {
 }
 export interface Operator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Operator {
+class Operator {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -889,7 +889,7 @@ export class Operator {
 }
 export interface Plus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Plus {
+class Plus {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -934,7 +934,7 @@ export class Plus {
 }
 export interface Polynomial_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Polynomial {
+class Polynomial {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc-1.GCalc.Polynomial */
@@ -981,7 +981,7 @@ export class Polynomial {
 }
 export interface Pow_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Pow {
+class Pow {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1026,7 +1026,7 @@ export class Pow {
 }
 export interface Result_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Result {
+class Result {
     /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
     /* Fields of GObject-2.0.GObject.Object */
@@ -1082,7 +1082,7 @@ export class Result {
 export interface Solver_ConstructProps extends GObject.Object_ConstructProps {
     equationManager?: MathEquationManager
 }
-export class Solver {
+class Solver {
     /* Properties of GCalc-1.GCalc.Solver */
     equationManager: MathEquationManager
     /* Fields of GObject-2.0.GObject.Object */
@@ -1138,7 +1138,7 @@ export class Solver {
 }
 export interface Term_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Term {
+class Term {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GCalc-1.GCalc.Term */
@@ -1191,7 +1191,7 @@ export interface Variable_ConstructProps extends GObject.Object_ConstructProps {
     value?: Constant
     bind?: Variable
 }
-export class Variable {
+class Variable {
     /* Properties of GCalc-1.GCalc.Variable */
     name: string
     value: Constant
@@ -1265,7 +1265,7 @@ export class Variable {
 export interface ExpressionContainer_ConstructProps extends Gee.ArrayList_ConstructProps {
     parent?: Expression
 }
-export class ExpressionContainer {
+class ExpressionContainer {
     /* Properties of GCalc-1.GCalc.ExpressionContainer */
     parent: Expression
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
@@ -1402,7 +1402,7 @@ export class ExpressionContainer {
 export interface ExpressionHashMap_ConstructProps extends Gee.HashMap_ConstructProps {
     parent?: Expression
 }
-export class ExpressionHashMap {
+class ExpressionHashMap {
     /* Properties of GCalc-1.GCalc.ExpressionHashMap */
     parent: Expression
     /* Properties of Gee-0.8.Gee.AbstractMap */
@@ -1533,7 +1533,7 @@ export class ExpressionHashMap {
 }
 export interface GFunctionAcos_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAcos {
+class GFunctionAcos {
     /* Fields of GCalc-1.GCalc.GFunctionAcos */
     parentInstance: GFunction
     priv: GFunctionAcosPrivate
@@ -1588,7 +1588,7 @@ export class GFunctionAcos {
 }
 export interface GFunctionAcosh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAcosh {
+class GFunctionAcosh {
     /* Fields of GCalc-1.GCalc.GFunctionAcosh */
     parentInstance: GFunction
     priv: GFunctionAcoshPrivate
@@ -1643,7 +1643,7 @@ export class GFunctionAcosh {
 }
 export interface GFunctionAsin_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAsin {
+class GFunctionAsin {
     /* Fields of GCalc-1.GCalc.GFunctionAsin */
     parentInstance: GFunction
     priv: GFunctionAsinPrivate
@@ -1698,7 +1698,7 @@ export class GFunctionAsin {
 }
 export interface GFunctionAsinh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAsinh {
+class GFunctionAsinh {
     /* Fields of GCalc-1.GCalc.GFunctionAsinh */
     parentInstance: GFunction
     priv: GFunctionAsinhPrivate
@@ -1753,7 +1753,7 @@ export class GFunctionAsinh {
 }
 export interface GFunctionAtan_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAtan {
+class GFunctionAtan {
     /* Fields of GCalc-1.GCalc.GFunctionAtan */
     parentInstance: GFunction
     priv: GFunctionAtanPrivate
@@ -1808,7 +1808,7 @@ export class GFunctionAtan {
 }
 export interface GFunctionAtanh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionAtanh {
+class GFunctionAtanh {
     /* Fields of GCalc-1.GCalc.GFunctionAtanh */
     parentInstance: GFunction
     priv: GFunctionAtanhPrivate
@@ -1863,7 +1863,7 @@ export class GFunctionAtanh {
 }
 export interface GFunctionCos_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionCos {
+class GFunctionCos {
     /* Fields of GCalc-1.GCalc.GFunctionCos */
     parentInstance: GFunction
     priv: GFunctionCosPrivate
@@ -1918,7 +1918,7 @@ export class GFunctionCos {
 }
 export interface GFunctionCosh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionCosh {
+class GFunctionCosh {
     /* Fields of GCalc-1.GCalc.GFunctionCosh */
     parentInstance: GFunction
     priv: GFunctionCoshPrivate
@@ -1973,7 +1973,7 @@ export class GFunctionCosh {
 }
 export interface GFunctionExp_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionExp {
+class GFunctionExp {
     /* Fields of GCalc-1.GCalc.GFunctionExp */
     parentInstance: GFunction
     priv: GFunctionExpPrivate
@@ -2028,7 +2028,7 @@ export class GFunctionExp {
 }
 export interface GFunctionLog_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionLog {
+class GFunctionLog {
     /* Fields of GCalc-1.GCalc.GFunctionLog */
     parentInstance: GFunction
     priv: GFunctionLogPrivate
@@ -2083,7 +2083,7 @@ export class GFunctionLog {
 }
 export interface GFunctionSin_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionSin {
+class GFunctionSin {
     /* Fields of GCalc-1.GCalc.GFunctionSin */
     parentInstance: GFunction
     priv: GFunctionSinPrivate
@@ -2138,7 +2138,7 @@ export class GFunctionSin {
 }
 export interface GFunctionSinh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionSinh {
+class GFunctionSinh {
     /* Fields of GCalc-1.GCalc.GFunctionSinh */
     parentInstance: GFunction
     priv: GFunctionSinhPrivate
@@ -2193,7 +2193,7 @@ export class GFunctionSinh {
 }
 export interface GFunctionSqrt_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionSqrt {
+class GFunctionSqrt {
     /* Fields of GCalc-1.GCalc.GFunctionSqrt */
     parentInstance: GFunction
     priv: GFunctionSqrtPrivate
@@ -2248,7 +2248,7 @@ export class GFunctionSqrt {
 }
 export interface GFunctionTan_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionTan {
+class GFunctionTan {
     /* Fields of GCalc-1.GCalc.GFunctionTan */
     parentInstance: GFunction
     priv: GFunctionTanPrivate
@@ -2303,7 +2303,7 @@ export class GFunctionTan {
 }
 export interface GFunctionTanh_ConstructProps extends GFunction_ConstructProps {
 }
-export class GFunctionTanh {
+class GFunctionTanh {
     /* Fields of GCalc-1.GCalc.GFunctionTanh */
     parentInstance: GFunction
     priv: GFunctionTanhPrivate
@@ -2359,7 +2359,7 @@ export class GFunctionTanh {
 export interface GExpression_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Expression
 }
-export class GExpression {
+class GExpression {
     /* Properties of GCalc-1.GCalc.Expression */
     parent: Expression
     readonly expressions: ExpressionContainer
@@ -2429,7 +2429,7 @@ export class GExpression {
 }
 export interface GErrorExpression_ConstructProps extends GExpression_ConstructProps {
 }
-export class GErrorExpression {
+class GErrorExpression {
     /* Fields of GCalc-1.GCalc.GErrorExpression */
     parentInstance: GExpression
     priv: GErrorExpressionPrivate
@@ -2482,7 +2482,7 @@ export class GErrorExpression {
 }
 export interface GAssign_ConstructProps extends GExpression_ConstructProps {
 }
-export class GAssign {
+class GAssign {
     /* Fields of GCalc-1.GCalc.GAssign */
     parentInstance: GExpression
     priv: GAssignPrivate
@@ -2537,7 +2537,7 @@ export class GAssign {
 }
 export interface GConstant_ConstructProps extends GExpression_ConstructProps {
 }
-export class GConstant {
+class GConstant {
     /* Fields of GCalc-1.GCalc.GConstant */
     parentInstance: GExpression
     priv: GConstantPrivate
@@ -2605,7 +2605,7 @@ export class GConstant {
 }
 export interface GDivision_ConstructProps extends GExpression_ConstructProps {
 }
-export class GDivision {
+class GDivision {
     /* Fields of GCalc-1.GCalc.GDivision */
     parentInstance: GExpression
     priv: GDivisionPrivate
@@ -2658,7 +2658,7 @@ export class GDivision {
 }
 export interface GErrorResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GErrorResult {
+class GErrorResult {
     /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
     /* Properties of GCalc-1.GCalc.ErrorResult */
@@ -2730,7 +2730,7 @@ export interface GFunction_ConstructProps extends GExpression_ConstructProps {
     nParams?: number
     closed?: boolean
 }
-export class GFunction {
+class GFunction {
     /* Properties of GCalc-1.GCalc.Function */
     readonly paramTypes: ExpressionContainer
     name: string
@@ -2822,7 +2822,7 @@ export class GFunction {
 }
 export interface GMathEquation_ConstructProps extends GExpression_ConstructProps {
 }
-export class GMathEquation {
+class GMathEquation {
     /* Properties of GCalc-1.GCalc.MathEquation */
     readonly variables: ExpressionHashMap
     /* Fields of GCalc-1.GCalc.GMathEquation */
@@ -2884,7 +2884,7 @@ export class GMathEquation {
 }
 export interface GMathEquationManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GMathEquationManager {
+class GMathEquationManager {
     /* Properties of GCalc-1.GCalc.MathEquationManager */
     readonly equations: ExpressionContainer
     readonly functions: ExpressionContainer
@@ -2951,7 +2951,7 @@ export class GMathEquationManager {
 }
 export interface GMinus_ConstructProps extends GExpression_ConstructProps {
 }
-export class GMinus {
+class GMinus {
     /* Fields of GCalc-1.GCalc.GMinus */
     parentInstance: GExpression
     priv: GMinusPrivate
@@ -3004,7 +3004,7 @@ export class GMinus {
 }
 export interface GMultiply_ConstructProps extends GExpression_ConstructProps {
 }
-export class GMultiply {
+class GMultiply {
     /* Fields of GCalc-1.GCalc.GMultiply */
     parentInstance: GExpression
     priv: GMultiplyPrivate
@@ -3057,7 +3057,7 @@ export class GMultiply {
 }
 export interface GParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GParser {
+class GParser {
     /* Fields of GCalc-1.GCalc.GParser */
     parentInstance: GObject.Object
     priv: GParserPrivate
@@ -3111,7 +3111,7 @@ export class GParser {
 }
 export interface GPlus_ConstructProps extends GExpression_ConstructProps {
 }
-export class GPlus {
+class GPlus {
     /* Fields of GCalc-1.GCalc.GPlus */
     parentInstance: GExpression
     priv: GPlusPrivate
@@ -3164,7 +3164,7 @@ export class GPlus {
 }
 export interface GPolynomial_ConstructProps extends GExpression_ConstructProps {
 }
-export class GPolynomial {
+class GPolynomial {
     /* Fields of GCalc-1.GCalc.GPolynomial */
     parentInstance: GExpression
     priv: GPolynomialPrivate
@@ -3219,7 +3219,7 @@ export class GPolynomial {
 }
 export interface GPow_ConstructProps extends GExpression_ConstructProps {
 }
-export class GPow {
+class GPow {
     /* Fields of GCalc-1.GCalc.GPow */
     parentInstance: GExpression
     priv: GPowPrivate
@@ -3272,7 +3272,7 @@ export class GPow {
 }
 export interface GResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GResult {
+class GResult {
     /* Properties of GCalc-1.GCalc.Result */
     readonly expression: Expression
     /* Fields of GCalc-1.GCalc.GResult */
@@ -3334,7 +3334,7 @@ export interface GGroup_ConstructProps extends GExpression_ConstructProps {
     level?: GroupLevel
     closed?: boolean
 }
-export class GGroup {
+class GGroup {
     /* Properties of GCalc-1.GCalc.Group */
     level: GroupLevel
     closed: boolean
@@ -3407,7 +3407,7 @@ export class GGroup {
 export interface GSolver_ConstructProps extends GObject.Object_ConstructProps {
     equationManager?: MathEquationManager
 }
-export class GSolver {
+class GSolver {
     /* Properties of GCalc-1.GCalc.Solver */
     equationManager: MathEquationManager
     /* Fields of GCalc-1.GCalc.GSolver */
@@ -3468,7 +3468,7 @@ export class GSolver {
 }
 export interface GTerm_ConstructProps extends GExpression_ConstructProps {
 }
-export class GTerm {
+class GTerm {
     /* Fields of GCalc-1.GCalc.GTerm */
     parentInstance: GExpression
     priv: GTermPrivate
@@ -3528,7 +3528,7 @@ export interface GVariable_ConstructProps extends GExpression_ConstructProps {
     value?: Constant
     bind?: Variable
 }
-export class GVariable {
+class GVariable {
     /* Properties of GCalc-1.GCalc.Variable */
     name: string
     value: Constant
@@ -3610,316 +3610,316 @@ export class GVariable {
     static new(): GVariable
     static $gtype: GObject.Type
 }
-export abstract class ExpressionContainerClass {
+abstract class ExpressionContainerClass {
     /* Fields of GCalc-1.GCalc.ExpressionContainerClass */
     parentClass: Gee.ArrayListClass
     static name: string
 }
-export class ExpressionContainerPrivate {
+class ExpressionContainerPrivate {
     static name: string
 }
-export abstract class ExpressionHashMapClass {
+abstract class ExpressionHashMapClass {
     /* Fields of GCalc-1.GCalc.ExpressionHashMapClass */
     parentClass: Gee.HashMapClass
     static name: string
 }
-export class ExpressionHashMapPrivate {
+class ExpressionHashMapPrivate {
     static name: string
 }
-export abstract class GFunctionAcosClass {
+abstract class GFunctionAcosClass {
     /* Fields of GCalc-1.GCalc.GFunctionAcosClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAcosPrivate {
+class GFunctionAcosPrivate {
     static name: string
 }
-export abstract class GFunctionAcoshClass {
+abstract class GFunctionAcoshClass {
     /* Fields of GCalc-1.GCalc.GFunctionAcoshClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAcoshPrivate {
+class GFunctionAcoshPrivate {
     static name: string
 }
-export abstract class GFunctionAsinClass {
+abstract class GFunctionAsinClass {
     /* Fields of GCalc-1.GCalc.GFunctionAsinClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAsinPrivate {
+class GFunctionAsinPrivate {
     static name: string
 }
-export abstract class GFunctionAsinhClass {
+abstract class GFunctionAsinhClass {
     /* Fields of GCalc-1.GCalc.GFunctionAsinhClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAsinhPrivate {
+class GFunctionAsinhPrivate {
     static name: string
 }
-export abstract class GFunctionAtanClass {
+abstract class GFunctionAtanClass {
     /* Fields of GCalc-1.GCalc.GFunctionAtanClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAtanPrivate {
+class GFunctionAtanPrivate {
     static name: string
 }
-export abstract class GFunctionAtanhClass {
+abstract class GFunctionAtanhClass {
     /* Fields of GCalc-1.GCalc.GFunctionAtanhClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionAtanhPrivate {
+class GFunctionAtanhPrivate {
     static name: string
 }
-export abstract class GFunctionCosClass {
+abstract class GFunctionCosClass {
     /* Fields of GCalc-1.GCalc.GFunctionCosClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionCosPrivate {
+class GFunctionCosPrivate {
     static name: string
 }
-export abstract class GFunctionCoshClass {
+abstract class GFunctionCoshClass {
     /* Fields of GCalc-1.GCalc.GFunctionCoshClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionCoshPrivate {
+class GFunctionCoshPrivate {
     static name: string
 }
-export abstract class GFunctionExpClass {
+abstract class GFunctionExpClass {
     /* Fields of GCalc-1.GCalc.GFunctionExpClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionExpPrivate {
+class GFunctionExpPrivate {
     static name: string
 }
-export abstract class GFunctionLogClass {
+abstract class GFunctionLogClass {
     /* Fields of GCalc-1.GCalc.GFunctionLogClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionLogPrivate {
+class GFunctionLogPrivate {
     static name: string
 }
-export abstract class GFunctionSinClass {
+abstract class GFunctionSinClass {
     /* Fields of GCalc-1.GCalc.GFunctionSinClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionSinPrivate {
+class GFunctionSinPrivate {
     static name: string
 }
-export abstract class GFunctionSinhClass {
+abstract class GFunctionSinhClass {
     /* Fields of GCalc-1.GCalc.GFunctionSinhClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionSinhPrivate {
+class GFunctionSinhPrivate {
     static name: string
 }
-export abstract class GFunctionSqrtClass {
+abstract class GFunctionSqrtClass {
     /* Fields of GCalc-1.GCalc.GFunctionSqrtClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionSqrtPrivate {
+class GFunctionSqrtPrivate {
     static name: string
 }
-export abstract class GFunctionTanClass {
+abstract class GFunctionTanClass {
     /* Fields of GCalc-1.GCalc.GFunctionTanClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionTanPrivate {
+class GFunctionTanPrivate {
     static name: string
 }
-export abstract class GFunctionTanhClass {
+abstract class GFunctionTanhClass {
     /* Fields of GCalc-1.GCalc.GFunctionTanhClass */
     parentClass: GFunctionClass
     static name: string
 }
-export class GFunctionTanhPrivate {
+class GFunctionTanhPrivate {
     static name: string
 }
-export abstract class GExpressionClass {
+abstract class GExpressionClass {
     /* Fields of GCalc-1.GCalc.GExpressionClass */
     parentClass: GObject.ObjectClass
     toString: (self: GExpression) => string
     solve: (self: GExpression) => Result
     static name: string
 }
-export class GExpressionPrivate {
+class GExpressionPrivate {
     static name: string
 }
-export abstract class GErrorExpressionClass {
+abstract class GErrorExpressionClass {
     /* Fields of GCalc-1.GCalc.GErrorExpressionClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GErrorExpressionPrivate {
+class GErrorExpressionPrivate {
     static name: string
 }
-export abstract class GAssignClass {
+abstract class GAssignClass {
     /* Fields of GCalc-1.GCalc.GAssignClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GAssignPrivate {
+class GAssignPrivate {
     static name: string
 }
-export abstract class GConstantClass {
+abstract class GConstantClass {
     /* Fields of GCalc-1.GCalc.GConstantClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GConstantPrivate {
+class GConstantPrivate {
     static name: string
 }
-export abstract class GDivisionClass {
+abstract class GDivisionClass {
     /* Fields of GCalc-1.GCalc.GDivisionClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GDivisionPrivate {
+class GDivisionPrivate {
     static name: string
 }
-export abstract class GErrorResultClass {
+abstract class GErrorResultClass {
     /* Fields of GCalc-1.GCalc.GErrorResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GErrorResultPrivate {
+class GErrorResultPrivate {
     static name: string
 }
-export abstract class GFunctionClass {
+abstract class GFunctionClass {
     /* Fields of GCalc-1.GCalc.GFunctionClass */
     parentClass: GExpressionClass
     evaluate: (self: GFunction) => Expression
     static name: string
 }
-export class GFunctionPrivate {
+class GFunctionPrivate {
     static name: string
 }
-export abstract class GMathEquationClass {
+abstract class GMathEquationClass {
     /* Fields of GCalc-1.GCalc.GMathEquationClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GMathEquationPrivate {
+class GMathEquationPrivate {
     static name: string
 }
-export abstract class GMathEquationManagerClass {
+abstract class GMathEquationManagerClass {
     /* Fields of GCalc-1.GCalc.GMathEquationManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GMathEquationManagerPrivate {
+class GMathEquationManagerPrivate {
     static name: string
 }
-export abstract class GMinusClass {
+abstract class GMinusClass {
     /* Fields of GCalc-1.GCalc.GMinusClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GMinusPrivate {
+class GMinusPrivate {
     static name: string
 }
-export abstract class GMultiplyClass {
+abstract class GMultiplyClass {
     /* Fields of GCalc-1.GCalc.GMultiplyClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GMultiplyPrivate {
+class GMultiplyPrivate {
     static name: string
 }
-export abstract class GParserClass {
+abstract class GParserClass {
     /* Fields of GCalc-1.GCalc.GParserClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GParserPrivate {
+class GParserPrivate {
     static name: string
 }
-export abstract class GPlusClass {
+abstract class GPlusClass {
     /* Fields of GCalc-1.GCalc.GPlusClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GPlusPrivate {
+class GPlusPrivate {
     static name: string
 }
-export abstract class GPolynomialClass {
+abstract class GPolynomialClass {
     /* Fields of GCalc-1.GCalc.GPolynomialClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GPolynomialPrivate {
+class GPolynomialPrivate {
     static name: string
 }
-export abstract class GPowClass {
+abstract class GPowClass {
     /* Fields of GCalc-1.GCalc.GPowClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GPowPrivate {
+class GPowPrivate {
     static name: string
 }
-export abstract class GResultClass {
+abstract class GResultClass {
     /* Fields of GCalc-1.GCalc.GResultClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GResultPrivate {
+class GResultPrivate {
     static name: string
 }
-export abstract class GGroupClass {
+abstract class GGroupClass {
     /* Fields of GCalc-1.GCalc.GGroupClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GGroupPrivate {
+class GGroupPrivate {
     static name: string
 }
-export abstract class GSolverClass {
+abstract class GSolverClass {
     /* Fields of GCalc-1.GCalc.GSolverClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GSolverPrivate {
+class GSolverPrivate {
     static name: string
 }
-export abstract class GTermClass {
+abstract class GTermClass {
     /* Fields of GCalc-1.GCalc.GTermClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GTermPrivate {
+class GTermPrivate {
     static name: string
 }
-export abstract class GVariableClass {
+abstract class GVariableClass {
     /* Fields of GCalc-1.GCalc.GVariableClass */
     parentClass: GExpressionClass
     static name: string
 }
-export class GVariablePrivate {
+class GVariablePrivate {
     static name: string
 }
-export abstract class AssignIface {
+abstract class AssignIface {
     /* Fields of GCalc-1.GCalc.AssignIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class BinaryOperatorIface {
+abstract class BinaryOperatorIface {
     /* Fields of GCalc-1.GCalc.BinaryOperatorIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ConstantIface {
+abstract class ConstantIface {
     /* Fields of GCalc-1.GCalc.ConstantIface */
     parentIface: GObject.TypeInterface
     real: (self: Constant) => number
@@ -3932,12 +3932,12 @@ export abstract class ConstantIface {
     pow: (self: Constant, c: Constant) => Constant
     static name: string
 }
-export abstract class DivisionIface {
+abstract class DivisionIface {
     /* Fields of GCalc-1.GCalc.DivisionIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ExpressionIface {
+abstract class ExpressionIface {
     /* Fields of GCalc-1.GCalc.ExpressionIface */
     parentIface: GObject.TypeInterface
     toString: (self: Expression) => string
@@ -3947,12 +3947,12 @@ export abstract class ExpressionIface {
     getExpressions: (self: Expression) => ExpressionContainer
     static name: string
 }
-export abstract class ErrorExpressionIface {
+abstract class ErrorExpressionIface {
     /* Fields of GCalc-1.GCalc.ErrorExpressionIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class FunctionIface {
+abstract class FunctionIface {
     /* Fields of GCalc-1.GCalc.FunctionIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Function) => Expression
@@ -3966,13 +3966,13 @@ export abstract class FunctionIface {
     setClosed: (self: Function, value: boolean) => void
     static name: string
 }
-export abstract class ErrorResultIface {
+abstract class ErrorResultIface {
     /* Fields of GCalc-1.GCalc.ErrorResultIface */
     parentIface: GObject.TypeInterface
     getMessage: (self: ErrorResult) => string
     static name: string
 }
-export abstract class GroupIface {
+abstract class GroupIface {
     /* Fields of GCalc-1.GCalc.GroupIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Group) => Expression
@@ -3982,19 +3982,19 @@ export abstract class GroupIface {
     setClosed: (self: Group, value: boolean) => void
     static name: string
 }
-export abstract class HashableIface {
+abstract class HashableIface {
     /* Fields of GCalc-1.GCalc.HashableIface */
     parentIface: GObject.TypeInterface
     hash: (self: Hashable) => number
     static name: string
 }
-export abstract class MathEquationIface {
+abstract class MathEquationIface {
     /* Fields of GCalc-1.GCalc.MathEquationIface */
     parentIface: GObject.TypeInterface
     getVariables: (self: MathEquation) => ExpressionHashMap
     static name: string
 }
-export abstract class MathEquationManagerIface {
+abstract class MathEquationManagerIface {
     /* Fields of GCalc-1.GCalc.MathEquationManagerIface */
     parentIface: GObject.TypeInterface
     findVariable: (self: MathEquationManager, name: string) => Variable
@@ -4002,45 +4002,45 @@ export abstract class MathEquationManagerIface {
     getFunctions: (self: MathEquationManager) => ExpressionContainer
     static name: string
 }
-export abstract class MinusIface {
+abstract class MinusIface {
     /* Fields of GCalc-1.GCalc.MinusIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class MultiplyIface {
+abstract class MultiplyIface {
     /* Fields of GCalc-1.GCalc.MultiplyIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class OperatorIface {
+abstract class OperatorIface {
     /* Fields of GCalc-1.GCalc.OperatorIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class PlusIface {
+abstract class PlusIface {
     /* Fields of GCalc-1.GCalc.PlusIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class PolynomialIface {
+abstract class PolynomialIface {
     /* Fields of GCalc-1.GCalc.PolynomialIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Polynomial) => Expression
     static name: string
 }
-export abstract class PowIface {
+abstract class PowIface {
     /* Fields of GCalc-1.GCalc.PowIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ResultIface {
+abstract class ResultIface {
     /* Fields of GCalc-1.GCalc.ResultIface */
     parentIface: GObject.TypeInterface
     toString: (self: Result) => string
     getExpression: (self: Result) => Expression
     static name: string
 }
-export abstract class SolverIface {
+abstract class SolverIface {
     /* Fields of GCalc-1.GCalc.SolverIface */
     parentIface: GObject.TypeInterface
     solve: (self: Solver, str: string) => Result
@@ -4048,14 +4048,14 @@ export abstract class SolverIface {
     setEquationManager: (self: Solver, value: MathEquationManager) => void
     static name: string
 }
-export abstract class TermIface {
+abstract class TermIface {
     /* Fields of GCalc-1.GCalc.TermIface */
     parentIface: GObject.TypeInterface
     add: (self: Term, t: Term) => Expression
     evaluate: (self: Term) => Expression
     static name: string
 }
-export abstract class VariableIface {
+abstract class VariableIface {
     /* Fields of GCalc-1.GCalc.VariableIface */
     parentIface: GObject.TypeInterface
     evaluate: (self: Variable) => Expression
@@ -4069,3 +4069,4 @@ export abstract class VariableIface {
     static name: string
 }
 }
+export default GCalc

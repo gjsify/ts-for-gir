@@ -7,16 +7,16 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace PackageKitGlib {
+declare namespace PackageKitGlib {
 
-export enum AuthorizeEnum {
+enum AuthorizeEnum {
     UNKNOWN,
     YES,
     NO,
     INTERACTIVE,
     LAST,
 }
-export enum ClientError {
+enum ClientError {
     FAILED,
     FAILED_AUTH,
     NO_TID,
@@ -30,17 +30,17 @@ export enum ClientError {
     DECLINED_INTERACTION,
     LAST,
 }
-export enum ControlError {
+enum ControlError {
     FAILED,
     CANNOT_START_DAEMON,
 }
-export enum DistroUpgradeEnum {
+enum DistroUpgradeEnum {
     UNKNOWN,
     STABLE,
     UNSTABLE,
     LAST,
 }
-export enum ErrorEnum {
+enum ErrorEnum {
     UNKNOWN,
     OOM,
     NO_NETWORK,
@@ -112,7 +112,7 @@ export enum ErrorEnum {
     REPO_ALREADY_SET,
     LAST,
 }
-export enum ExitEnum {
+enum ExitEnum {
     UNKNOWN,
     SUCCESS,
     FAILED,
@@ -127,7 +127,7 @@ export enum ExitEnum {
     REPAIR_REQUIRED,
     LAST,
 }
-export enum FilterEnum {
+enum FilterEnum {
     UNKNOWN,
     NONE,
     INSTALLED,
@@ -158,7 +158,7 @@ export enum FilterEnum {
     NOT_DOWNLOADED,
     LAST,
 }
-export enum GroupEnum {
+enum GroupEnum {
     UNKNOWN,
     ACCESSIBILITY,
     ACCESSORIES,
@@ -196,7 +196,7 @@ export enum GroupEnum {
     NEWEST,
     LAST,
 }
-export enum InfoEnum {
+enum InfoEnum {
     UNKNOWN,
     INSTALLED,
     AVAILABLE,
@@ -226,14 +226,14 @@ export enum InfoEnum {
     CRITICAL,
     LAST,
 }
-export enum MediaTypeEnum {
+enum MediaTypeEnum {
     UNKNOWN,
     CD,
     DVD,
     DISC,
     LAST,
 }
-export enum NetworkEnum {
+enum NetworkEnum {
     UNKNOWN,
     OFFLINE,
     ONLINE,
@@ -242,25 +242,25 @@ export enum NetworkEnum {
     MOBILE,
     LAST,
 }
-export enum OfflineAction {
+enum OfflineAction {
     UNKNOWN,
     REBOOT,
     POWER_OFF,
     UNSET,
 }
-export enum OfflineError {
+enum OfflineError {
     FAILED,
     INVALID_VALUE,
     NO_DATA,
 }
-export enum PackageSackSortType {
+enum PackageSackSortType {
     NAME,
     INFO,
     PACKAGE_ID,
     SUMMARY,
     LAST,
 }
-export enum ProgressType {
+enum ProgressType {
     PACKAGE_ID,
     TRANSACTION_ID,
     PERCENTAGE,
@@ -278,7 +278,7 @@ export enum ProgressType {
     TRANSACTION_FLAGS,
     INVALID,
 }
-export enum RestartEnum {
+enum RestartEnum {
     UNKNOWN,
     NONE,
     APPLICATION,
@@ -288,7 +288,7 @@ export enum RestartEnum {
     SECURITY_SYSTEM,
     LAST,
 }
-export enum RoleEnum {
+enum RoleEnum {
     UNKNOWN,
     CANCEL,
     DEPENDS_ON,
@@ -325,12 +325,12 @@ export enum RoleEnum {
     UPGRADE_SYSTEM,
     LAST,
 }
-export enum SigTypeEnum {
+enum SigTypeEnum {
     UNKNOWN,
     GPG,
     LAST,
 }
-export enum StatusEnum {
+enum StatusEnum {
     UNKNOWN,
     WAIT,
     SETUP,
@@ -370,7 +370,7 @@ export enum StatusEnum {
     RUN_HOOK,
     LAST,
 }
-export enum TransactionFlagEnum {
+enum TransactionFlagEnum {
     NONE,
     ONLY_TRUSTED,
     SIMULATE,
@@ -380,21 +380,21 @@ export enum TransactionFlagEnum {
     ALLOW_DOWNGRADE,
     LAST,
 }
-export enum UpdateStateEnum {
+enum UpdateStateEnum {
     UNKNOWN,
     STABLE,
     UNSTABLE,
     TESTING,
     LAST,
 }
-export enum UpgradeKindEnum {
+enum UpgradeKindEnum {
     UNKNOWN,
     MINIMAL,
     DEFAULT,
     COMPLETE,
     LAST,
 }
-export enum OfflineFlags {
+enum OfflineFlags {
     NONE,
     INTERACTIVE,
 }
@@ -416,98 +416,98 @@ export const PACKAGE_ID_NAME: number
 export const PACKAGE_ID_VERSION: number
 export const SYSTEM_PACKAGE_CACHE_FILENAME: string
 export const SYSTEM_PACKAGE_LIST_FILENAME: string
-export function authorizeTypeEnumFromString(authorizeType: string): AuthorizeEnum
-export function authorizeTypeEnumToString(authorizeType: AuthorizeEnum): string
-export function clientErrorQuark(): GLib.Quark
-export function controlErrorQuark(): GLib.Quark
-export function debugAddLogDomain(logDomain: string): void
-export function debugIsVerbose(): boolean
-export function debugSetVerbose(verbose: boolean): void
-export function distroUpgradeEnumFromString(upgrade: string): DistroUpgradeEnum
-export function distroUpgradeEnumToString(upgrade: DistroUpgradeEnum): string
-export function enumFindString(table: EnumMatch, value: number): string
-export function enumFindValue(table: EnumMatch, string: string): number
-export function errorEnumFromString(code: string): ErrorEnum
-export function errorEnumToString(code: ErrorEnum): string
-export function exitEnumFromString(exit: string): ExitEnum
-export function exitEnumToString(exit: ExitEnum): string
-export function filterBitfieldFromString(filters: string): Bitfield
-export function filterBitfieldToString(filters: Bitfield): string
-export function filterEnumFromString(filter: string): FilterEnum
-export function filterEnumToString(filter: FilterEnum): string
-export function getDistroId(): string
-export function groupBitfieldFromString(groups: string): Bitfield
-export function groupBitfieldToString(groups: Bitfield): string
-export function groupEnumFromString(group: string): GroupEnum
-export function groupEnumToString(group: GroupEnum): string
-export function infoEnumFromString(info: string): InfoEnum
-export function infoEnumToLocalisedPast(info: InfoEnum): string
-export function infoEnumToLocalisedPresent(info: InfoEnum): string
-export function infoEnumToString(info: InfoEnum): string
-export function iso8601FromDate(date: GLib.Date): string
-export function iso8601Present(): string
-export function mediaTypeEnumFromString(mediaType: string): MediaTypeEnum
-export function mediaTypeEnumToString(mediaType: MediaTypeEnum): string
-export function networkEnumFromString(network: string): NetworkEnum
-export function networkEnumToString(network: NetworkEnum): string
-export function offlineActionFromString(action: string): OfflineAction
-export function offlineActionToString(action: OfflineAction): string
-export function offlineAuthCancel(): boolean
-export function offlineAuthClearResults(): boolean
-export function offlineAuthInvalidate(): boolean
-export function offlineAuthSetAction(action: OfflineAction): boolean
-export function offlineAuthSetPreparedIds(packageIds: string): boolean
-export function offlineAuthSetPreparedUpgrade(name: string, releaseVer: string): boolean
-export function offlineAuthSetResults(results: Results): boolean
-export function offlineAuthTrigger(action: OfflineAction): boolean
-export function offlineAuthTriggerUpgrade(action: OfflineAction): boolean
-export function offlineCancel(cancellable?: Gio.Cancellable | null): boolean
-export function offlineCancelWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
-export function offlineClearResults(cancellable?: Gio.Cancellable | null): boolean
-export function offlineClearResultsWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
-export function offlineErrorQuark(): GLib.Quark
-export function offlineGetAction(): OfflineAction
-export function offlineGetActionMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
-export function offlineGetPreparedIds(): string[]
-export function offlineGetPreparedMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
-export function offlineGetPreparedSack(): PackageSack
-export function offlineGetPreparedUpgrade(name: string, releaseVer: string): boolean
-export function offlineGetPreparedUpgradeMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
-export function offlineGetPreparedUpgradeName(): string
-export function offlineGetPreparedUpgradeVersion(): string
-export function offlineGetResults(): Results
-export function offlineGetResultsMtime(): number
-export function offlineTrigger(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
-export function offlineTriggerUpgrade(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
-export function offlineTriggerUpgradeWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
-export function offlineTriggerWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
-export function polkitAgentClose(): void
-export function polkitAgentOpen(): number
-export function ptrArrayToStrv(array: string[]): string[]
-export function restartEnumFromString(restart: string): RestartEnum
-export function restartEnumToString(restart: RestartEnum): string
-export function roleBitfieldFromString(roles: string): Bitfield
-export function roleBitfieldToString(roles: Bitfield): string
-export function roleEnumFromString(role: string): RoleEnum
-export function roleEnumToLocalisedPresent(role: RoleEnum): string
-export function roleEnumToString(role: RoleEnum): string
-export function sigTypeEnumFromString(sigType: string): SigTypeEnum
-export function sigTypeEnumToString(sigType: SigTypeEnum): string
-export function statusEnumFromString(status: string): StatusEnum
-export function statusEnumToLocalisedText(status: StatusEnum): string
-export function statusEnumToString(status: StatusEnum): string
-export function transactionFlagBitfieldFromString(transactionFlags: string): Bitfield
-export function transactionFlagBitfieldToString(transactionFlags: Bitfield): string
-export function transactionFlagEnumFromString(transactionFlag: string): TransactionFlagEnum
-export function transactionFlagEnumToString(transactionFlag: TransactionFlagEnum): string
-export function updateStateEnumFromString(updateState: string): UpdateStateEnum
-export function updateStateEnumToString(updateState: UpdateStateEnum): string
-export function upgradeKindEnumFromString(upgradeKind: string): UpgradeKindEnum
-export function upgradeKindEnumToString(upgradeKind: UpgradeKindEnum): string
-export interface PackageSackFilterFunc {
+function authorizeTypeEnumFromString(authorizeType: string): AuthorizeEnum
+function authorizeTypeEnumToString(authorizeType: AuthorizeEnum): string
+function clientErrorQuark(): GLib.Quark
+function controlErrorQuark(): GLib.Quark
+function debugAddLogDomain(logDomain: string): void
+function debugIsVerbose(): boolean
+function debugSetVerbose(verbose: boolean): void
+function distroUpgradeEnumFromString(upgrade: string): DistroUpgradeEnum
+function distroUpgradeEnumToString(upgrade: DistroUpgradeEnum): string
+function enumFindString(table: EnumMatch, value: number): string
+function enumFindValue(table: EnumMatch, string: string): number
+function errorEnumFromString(code: string): ErrorEnum
+function errorEnumToString(code: ErrorEnum): string
+function exitEnumFromString(exit: string): ExitEnum
+function exitEnumToString(exit: ExitEnum): string
+function filterBitfieldFromString(filters: string): Bitfield
+function filterBitfieldToString(filters: Bitfield): string
+function filterEnumFromString(filter: string): FilterEnum
+function filterEnumToString(filter: FilterEnum): string
+function getDistroId(): string
+function groupBitfieldFromString(groups: string): Bitfield
+function groupBitfieldToString(groups: Bitfield): string
+function groupEnumFromString(group: string): GroupEnum
+function groupEnumToString(group: GroupEnum): string
+function infoEnumFromString(info: string): InfoEnum
+function infoEnumToLocalisedPast(info: InfoEnum): string
+function infoEnumToLocalisedPresent(info: InfoEnum): string
+function infoEnumToString(info: InfoEnum): string
+function iso8601FromDate(date: GLib.Date): string
+function iso8601Present(): string
+function mediaTypeEnumFromString(mediaType: string): MediaTypeEnum
+function mediaTypeEnumToString(mediaType: MediaTypeEnum): string
+function networkEnumFromString(network: string): NetworkEnum
+function networkEnumToString(network: NetworkEnum): string
+function offlineActionFromString(action: string): OfflineAction
+function offlineActionToString(action: OfflineAction): string
+function offlineAuthCancel(): boolean
+function offlineAuthClearResults(): boolean
+function offlineAuthInvalidate(): boolean
+function offlineAuthSetAction(action: OfflineAction): boolean
+function offlineAuthSetPreparedIds(packageIds: string): boolean
+function offlineAuthSetPreparedUpgrade(name: string, releaseVer: string): boolean
+function offlineAuthSetResults(results: Results): boolean
+function offlineAuthTrigger(action: OfflineAction): boolean
+function offlineAuthTriggerUpgrade(action: OfflineAction): boolean
+function offlineCancel(cancellable?: Gio.Cancellable | null): boolean
+function offlineCancelWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+function offlineClearResults(cancellable?: Gio.Cancellable | null): boolean
+function offlineClearResultsWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+function offlineErrorQuark(): GLib.Quark
+function offlineGetAction(): OfflineAction
+function offlineGetActionMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
+function offlineGetPreparedIds(): string[]
+function offlineGetPreparedMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
+function offlineGetPreparedSack(): PackageSack
+function offlineGetPreparedUpgrade(name: string, releaseVer: string): boolean
+function offlineGetPreparedUpgradeMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
+function offlineGetPreparedUpgradeName(): string
+function offlineGetPreparedUpgradeVersion(): string
+function offlineGetResults(): Results
+function offlineGetResultsMtime(): number
+function offlineTrigger(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
+function offlineTriggerUpgrade(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
+function offlineTriggerUpgradeWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+function offlineTriggerWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+function polkitAgentClose(): void
+function polkitAgentOpen(): number
+function ptrArrayToStrv(array: string[]): string[]
+function restartEnumFromString(restart: string): RestartEnum
+function restartEnumToString(restart: RestartEnum): string
+function roleBitfieldFromString(roles: string): Bitfield
+function roleBitfieldToString(roles: Bitfield): string
+function roleEnumFromString(role: string): RoleEnum
+function roleEnumToLocalisedPresent(role: RoleEnum): string
+function roleEnumToString(role: RoleEnum): string
+function sigTypeEnumFromString(sigType: string): SigTypeEnum
+function sigTypeEnumToString(sigType: SigTypeEnum): string
+function statusEnumFromString(status: string): StatusEnum
+function statusEnumToLocalisedText(status: StatusEnum): string
+function statusEnumToString(status: StatusEnum): string
+function transactionFlagBitfieldFromString(transactionFlags: string): Bitfield
+function transactionFlagBitfieldToString(transactionFlags: Bitfield): string
+function transactionFlagEnumFromString(transactionFlag: string): TransactionFlagEnum
+function transactionFlagEnumToString(transactionFlag: TransactionFlagEnum): string
+function updateStateEnumFromString(updateState: string): UpdateStateEnum
+function updateStateEnumToString(updateState: UpdateStateEnum): string
+function upgradeKindEnumFromString(upgradeKind: string): UpgradeKindEnum
+function upgradeKindEnumToString(upgradeKind: UpgradeKindEnum): string
+interface PackageSackFilterFunc {
     (package: Package): boolean
 }
-export interface ProgressCallback {
+interface ProgressCallback {
     (progress: Progress, type: ProgressType): void
 }
 export interface Category_ConstructProps extends Source_ConstructProps {
@@ -517,7 +517,7 @@ export interface Category_ConstructProps extends Source_ConstructProps {
     parentId?: string
     summary?: string
 }
-export class Category {
+class Category {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Category */
     catId: string
     icon: string
@@ -626,7 +626,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     interactive?: boolean
     locale?: string
 }
-export class Client {
+class Client {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Client */
     background: boolean
     cacheAge: number
@@ -788,7 +788,7 @@ export class Client {
 }
 export interface ClientHelper_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ClientHelper {
+class ClientHelper {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientHelper */
     parent: GObject.Object
     priv: ClientHelperPrivate
@@ -855,7 +855,7 @@ export interface Control_ConstructProps extends GObject.Object_ConstructProps {
     provides?: number
     roles?: number
 }
-export class Control {
+class Control {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Control */
     backendAuthor: string
     backendDescription: string
@@ -1040,7 +1040,7 @@ export class Control {
 }
 export interface Desktop_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Desktop {
+class Desktop {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.Desktop */
     parent: GObject.Object
     priv: DesktopPrivate
@@ -1103,7 +1103,7 @@ export interface Details_ConstructProps extends Source_ConstructProps {
     summary?: string
     url?: string
 }
-export class Details {
+class Details {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Details */
     description: string
     downloadSize: number
@@ -1227,7 +1227,7 @@ export interface DistroUpgrade_ConstructProps extends Source_ConstructProps {
     state?: DistroUpgradeEnum
     summary?: string
 }
-export class DistroUpgrade {
+class DistroUpgrade {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.DistroUpgrade */
     name: string
     state: DistroUpgradeEnum
@@ -1315,7 +1315,7 @@ export interface Error_ConstructProps extends Source_ConstructProps {
     code?: ErrorEnum
     details?: string
 }
-export class Error {
+class Error {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Error */
     code: ErrorEnum
     details: string
@@ -1398,7 +1398,7 @@ export interface EulaRequired_ConstructProps extends Source_ConstructProps {
     packageId?: string
     vendorName?: string
 }
-export class EulaRequired {
+class EulaRequired {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.EulaRequired */
     eulaId: string
     licenseAgreement: string
@@ -1493,7 +1493,7 @@ export interface Files_ConstructProps extends Source_ConstructProps {
     files?: string[]
     packageId?: string
 }
-export class Files {
+class Files {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Files */
     files: string[]
     packageId: string
@@ -1575,7 +1575,7 @@ export interface ItemProgress_ConstructProps extends Source_ConstructProps {
     percentage?: number
     status?: number
 }
-export class ItemProgress {
+class ItemProgress {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.ItemProgress */
     packageId: string
     percentage: number
@@ -1664,7 +1664,7 @@ export interface MediaChangeRequired_ConstructProps extends Source_ConstructProp
     mediaText?: string
     mediaType?: MediaTypeEnum
 }
-export class MediaChangeRequired {
+class MediaChangeRequired {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.MediaChangeRequired */
     mediaId: string
     mediaText: string
@@ -1765,7 +1765,7 @@ export interface Package_ConstructProps extends Source_ConstructProps {
     updateVendorUrls?: string[]
     url?: string
 }
-export class Package {
+class Package {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Package */
     description: string
     group: GroupEnum
@@ -1985,7 +1985,7 @@ export class Package {
 }
 export interface PackageSack_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PackageSack {
+class PackageSack {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageSack */
     parent: GObject.Object
     priv: PackageSackPrivate
@@ -2075,7 +2075,7 @@ export interface Progress_ConstructProps extends GObject.Object_ConstructProps {
     transactionId?: string
     uid?: number
 }
-export class Progress {
+class Progress {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Progress */
     allowCancel: boolean
     callerActive: boolean
@@ -2250,7 +2250,7 @@ export interface RepoDetail_ConstructProps extends Source_ConstructProps {
     enabled?: boolean
     repoId?: string
 }
-export class RepoDetail {
+class RepoDetail {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.RepoDetail */
     description: string
     enabled: boolean
@@ -2344,7 +2344,7 @@ export interface RepoSignatureRequired_ConstructProps extends Source_ConstructPr
     repositoryName?: string
     type?: SigTypeEnum
 }
-export class RepoSignatureRequired {
+class RepoSignatureRequired {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.RepoSignatureRequired */
     keyFingerprint: string
     keyId: string
@@ -2458,7 +2458,7 @@ export interface RequireRestart_ConstructProps extends Source_ConstructProps {
     packageId?: string
     restart?: RestartEnum
 }
-export class RequireRestart {
+class RequireRestart {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.RequireRestart */
     packageId: string
     restart: RestartEnum
@@ -2538,7 +2538,7 @@ export interface Results_ConstructProps extends GObject.Object_ConstructProps {
     role?: RoleEnum
     transactionFlags?: number
 }
-export class Results {
+class Results {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Results */
     inputs: number
     progress: Progress
@@ -2649,7 +2649,7 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     role?: RoleEnum
     transactionId?: string
 }
-export class Source {
+class Source {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Source */
     role: RoleEnum
     transactionId: string
@@ -2717,7 +2717,7 @@ export interface Task_ConstructProps extends Client_ConstructProps {
     onlyTrusted?: boolean
     simulate?: boolean
 }
-export class Task {
+class Task {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Task */
     allowDowngrade: boolean
     allowReinstall: boolean
@@ -2952,7 +2952,7 @@ export class Task {
 }
 export interface TransactionList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TransactionList {
+class TransactionList {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionList */
     parent: GObject.Object
     priv: TransactionListPrivate
@@ -3023,7 +3023,7 @@ export interface TransactionPast_ConstructProps extends Source_ConstructProps {
     timespec?: string
     uid?: number
 }
-export class TransactionPast {
+class TransactionPast {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.TransactionPast */
     cmdline: string
     data: string
@@ -3152,7 +3152,7 @@ export interface UpdateDetail_ConstructProps extends Source_ConstructProps {
     updates?: string[]
     vendorUrls?: string[]
 }
-export class UpdateDetail {
+class UpdateDetail {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.UpdateDetail */
     bugzillaUrls: string[]
     changelog: string
@@ -3299,32 +3299,32 @@ export class UpdateDetail {
     static new(): UpdateDetail
     static $gtype: GObject.Type
 }
-export abstract class CategoryClass {
+abstract class CategoryClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.CategoryClass */
     parentClass: SourceClass
     static name: string
 }
-export class CategoryPrivate {
+class CategoryPrivate {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientClass */
     parentClass: GObject.ObjectClass
     changed: (client: Client) => void
     static name: string
 }
-export abstract class ClientHelperClass {
+abstract class ClientHelperClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ClientHelperClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ClientHelperPrivate {
+class ClientHelperPrivate {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class ControlClass {
+abstract class ControlClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ControlClass */
     parentClass: GObject.ObjectClass
     transactionListChanged: (control: Control, transactionIds: string) => void
@@ -3336,149 +3336,149 @@ export abstract class ControlClass {
     connectionChanged: (control: Control, connected: boolean) => void
     static name: string
 }
-export class ControlPrivate {
+class ControlPrivate {
     static name: string
 }
-export abstract class DesktopClass {
+abstract class DesktopClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.DesktopClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class DesktopPrivate {
+class DesktopPrivate {
     static name: string
 }
-export abstract class DetailsClass {
+abstract class DetailsClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.DetailsClass */
     parentClass: SourceClass
     static name: string
 }
-export class DetailsPrivate {
+class DetailsPrivate {
     static name: string
 }
-export abstract class DistroUpgradeClass {
+abstract class DistroUpgradeClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.DistroUpgradeClass */
     parentClass: SourceClass
     static name: string
 }
-export class DistroUpgradePrivate {
+class DistroUpgradePrivate {
     static name: string
 }
-export class EnumMatch {
+class EnumMatch {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.EnumMatch */
     value: number
     string: string
     static name: string
 }
-export abstract class ErrorClass {
+abstract class ErrorClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ErrorClass */
     parentClass: SourceClass
     static name: string
 }
-export class ErrorPrivate {
+class ErrorPrivate {
     static name: string
 }
-export abstract class EulaRequiredClass {
+abstract class EulaRequiredClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.EulaRequiredClass */
     parentClass: SourceClass
     static name: string
 }
-export class EulaRequiredPrivate {
+class EulaRequiredPrivate {
     static name: string
 }
-export abstract class FilesClass {
+abstract class FilesClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.FilesClass */
     parentClass: SourceClass
     static name: string
 }
-export class FilesPrivate {
+class FilesPrivate {
     static name: string
 }
-export abstract class ItemProgressClass {
+abstract class ItemProgressClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ItemProgressClass */
     parentClass: SourceClass
     static name: string
 }
-export class ItemProgressPrivate {
+class ItemProgressPrivate {
     static name: string
 }
-export abstract class MediaChangeRequiredClass {
+abstract class MediaChangeRequiredClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.MediaChangeRequiredClass */
     parentClass: SourceClass
     static name: string
 }
-export class MediaChangeRequiredPrivate {
+class MediaChangeRequiredPrivate {
     static name: string
 }
-export abstract class PackageClass {
+abstract class PackageClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageClass */
     parentClass: SourceClass
     changed: (package: Package) => void
     static name: string
 }
-export class PackagePrivate {
+class PackagePrivate {
     static name: string
 }
-export abstract class PackageSackClass {
+abstract class PackageSackClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.PackageSackClass */
     parentClass: GObject.ObjectClass
     changed: (sack: PackageSack) => void
     static name: string
 }
-export class PackageSackPrivate {
+class PackageSackPrivate {
     static name: string
 }
-export class PackageSackResults {
+class PackageSackResults {
     static name: string
 }
-export abstract class ProgressClass {
+abstract class ProgressClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ProgressClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ProgressPrivate {
+class ProgressPrivate {
     static name: string
 }
-export abstract class RepoDetailClass {
+abstract class RepoDetailClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoDetailClass */
     parentClass: SourceClass
     static name: string
 }
-export class RepoDetailPrivate {
+class RepoDetailPrivate {
     static name: string
 }
-export abstract class RepoSignatureRequiredClass {
+abstract class RepoSignatureRequiredClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.RepoSignatureRequiredClass */
     parentClass: SourceClass
     static name: string
 }
-export class RepoSignatureRequiredPrivate {
+class RepoSignatureRequiredPrivate {
     static name: string
 }
-export abstract class RequireRestartClass {
+abstract class RequireRestartClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.RequireRestartClass */
     parentClass: SourceClass
     static name: string
 }
-export class RequireRestartPrivate {
+class RequireRestartPrivate {
     static name: string
 }
-export abstract class ResultsClass {
+abstract class ResultsClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.ResultsClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ResultsPrivate {
+class ResultsPrivate {
     static name: string
 }
-export abstract class SourceClass {
+abstract class SourceClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.SourceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SourcePrivate {
+class SourcePrivate {
     static name: string
 }
-export abstract class TaskClass {
+abstract class TaskClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.TaskClass */
     parentClass: ClientClass
     untrustedQuestion: (task: Task, request: number, results: Results) => void
@@ -3489,34 +3489,35 @@ export abstract class TaskClass {
     repairQuestion: (task: Task, request: number, results: Results) => void
     static name: string
 }
-export class TaskPrivate {
+class TaskPrivate {
     static name: string
 }
-export abstract class TransactionListClass {
+abstract class TransactionListClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionListClass */
     parentClass: GObject.ObjectClass
     added: (tlist: TransactionList, tid: string) => void
     removed: (tlist: TransactionList, tid: string) => void
     static name: string
 }
-export class TransactionListPrivate {
+class TransactionListPrivate {
     static name: string
 }
-export abstract class TransactionPastClass {
+abstract class TransactionPastClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.TransactionPastClass */
     parentClass: SourceClass
     static name: string
 }
-export class TransactionPastPrivate {
+class TransactionPastPrivate {
     static name: string
 }
-export abstract class UpdateDetailClass {
+abstract class UpdateDetailClass {
     /* Fields of PackageKitGlib-1.0.PackageKitGlib.UpdateDetailClass */
     parentClass: SourceClass
     static name: string
 }
-export class UpdateDetailPrivate {
+class UpdateDetailPrivate {
     static name: string
 }
-export type Bitfield = number
+type Bitfield = number
 }
+export default PackageKitGlib

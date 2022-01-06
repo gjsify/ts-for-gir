@@ -6,9 +6,9 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace ICalGLib {
+declare namespace ICalGLib {
 
-export enum ComponentKind {
+enum ComponentKind {
     NO_COMPONENT,
     ANY_COMPONENT,
     XROOT_COMPONENT,
@@ -41,7 +41,7 @@ export enum ComponentKind {
     VVOTER_COMPONENT,
     XVOTE_COMPONENT,
 }
-export enum ErrorEnum {
+enum ErrorEnum {
     NO_ERROR,
     BADARG_ERROR,
     NEWFAILED_ERROR,
@@ -54,19 +54,19 @@ export enum ErrorEnum {
     UNIMPLEMENTED_ERROR,
     UNKNOWN_ERROR,
 }
-export enum ErrorState {
+enum ErrorState {
     FATAL,
     NONFATAL,
     DEFAULT,
     UNKNOWN,
 }
-export enum ParameterAction {
+enum ParameterAction {
     X,
     ASK,
     ABORT,
     NONE,
 }
-export enum ParameterCutype {
+enum ParameterCutype {
     X,
     INDIVIDUAL,
     GROUP,
@@ -75,19 +75,19 @@ export enum ParameterCutype {
     UNKNOWN,
     NONE,
 }
-export enum ParameterEnable {
+enum ParameterEnable {
     X,
     TRUE,
     FALSE,
     NONE,
 }
-export enum ParameterEncoding {
+enum ParameterEncoding {
     X,
     /* 8BIT (invalid, starts with a number) */
     BASE64,
     NONE,
 }
-export enum ParameterFbtype {
+enum ParameterFbtype {
     X,
     FREE,
     BUSY,
@@ -95,7 +95,7 @@ export enum ParameterFbtype {
     BUSYTENTATIVE,
     NONE,
 }
-export enum ParameterKind {
+enum ParameterKind {
     ANY_PARAMETER,
     ACTIONPARAM_PARAMETER,
     ALTREP_PARAMETER,
@@ -144,13 +144,13 @@ export enum ParameterKind {
     XLICERRORTYPE_PARAMETER,
     NO_PARAMETER,
 }
-export enum ParameterLocal {
+enum ParameterLocal {
     X,
     TRUE,
     FALSE,
     NONE,
 }
-export enum ParameterPartstat {
+enum ParameterPartstat {
     X,
     NEEDSACTION,
     ACCEPTED,
@@ -162,19 +162,19 @@ export enum ParameterPartstat {
     FAILED,
     NONE,
 }
-export enum ParameterRange {
+enum ParameterRange {
     X,
     THISANDPRIOR,
     THISANDFUTURE,
     NONE,
 }
-export enum ParameterRelated {
+enum ParameterRelated {
     X,
     START,
     END,
     NONE,
 }
-export enum ParameterReltype {
+enum ParameterReltype {
     X,
     PARENT,
     CHILD,
@@ -182,13 +182,13 @@ export enum ParameterReltype {
     POLL,
     NONE,
 }
-export enum ParameterRequired {
+enum ParameterRequired {
     X,
     TRUE,
     FALSE,
     NONE,
 }
-export enum ParameterRole {
+enum ParameterRole {
     X,
     CHAIR,
     REQPARTICIPANT,
@@ -196,38 +196,38 @@ export enum ParameterRole {
     NONPARTICIPANT,
     NONE,
 }
-export enum ParameterRsvp {
+enum ParameterRsvp {
     X,
     TRUE,
     FALSE,
     NONE,
 }
-export enum ParameterScheduleagent {
+enum ParameterScheduleagent {
     X,
     SERVER,
     CLIENT,
     NONE,
 }
-export enum ParameterScheduleforcesend {
+enum ParameterScheduleforcesend {
     X,
     REQUEST,
     REPLY,
     NONE,
 }
-export enum ParameterStayinformed {
+enum ParameterStayinformed {
     X,
     TRUE,
     FALSE,
     NONE,
 }
-export enum ParameterSubstate {
+enum ParameterSubstate {
     X,
     OK,
     ERROR,
     SUSPENDED,
     NONE,
 }
-export enum ParameterValue {
+enum ParameterValue {
     X,
     BINARY,
     BOOLEAN,
@@ -245,7 +245,7 @@ export enum ParameterValue {
     CALADDRESS,
     NONE,
 }
-export enum ParameterXliccomparetype {
+enum ParameterXliccomparetype {
     X,
     EQUAL,
     NOTEQUAL,
@@ -258,7 +258,7 @@ export enum ParameterXliccomparetype {
     ISNOTNULL,
     NONE,
 }
-export enum ParameterXlicerrortype {
+enum ParameterXlicerrortype {
     X,
     COMPONENTPARSEERROR,
     PROPERTYPARSEERROR,
@@ -271,14 +271,14 @@ export enum ParameterXlicerrortype {
     VCALPROPPARSEERROR,
     NONE,
 }
-export enum ParserState {
+enum ParserState {
     ERROR,
     SUCCESS,
     BEGIN_COMP,
     END_COMP,
     IN_PROGRESS,
 }
-export enum PropertyAction {
+enum PropertyAction {
     X,
     AUDIO,
     DISPLAY,
@@ -286,21 +286,21 @@ export enum PropertyAction {
     PROCEDURE,
     NONE,
 }
-export enum PropertyBusytype {
+enum PropertyBusytype {
     X,
     BUSY,
     BUSYUNAVAILABLE,
     BUSYTENTATIVE,
     NONE,
 }
-export enum PropertyCarlevel {
+enum PropertyCarlevel {
     X,
     CARNONE,
     CARMIN,
     CARFULL1,
     NONE,
 }
-export enum PropertyCmd {
+enum PropertyCmd {
     X,
     ABORT,
     CONTINUE,
@@ -316,7 +316,7 @@ export enum PropertyCmd {
     SETLOCALE,
     NONE,
 }
-export enum PropertyKind {
+enum PropertyKind {
     ANY_PROPERTY,
     ACCEPTRESPONSE_PROPERTY,
     ACKNOWLEDGED_PROPERTY,
@@ -434,7 +434,7 @@ export enum PropertyKind {
     XLICMIMEOPTINFO_PROPERTY,
     NO_PROPERTY,
 }
-export enum PropertyMethod {
+enum PropertyMethod {
     X,
     PUBLISH,
     REQUEST,
@@ -453,7 +453,7 @@ export enum PropertyMethod {
     DELETE,
     NONE,
 }
-export enum PropertyPollcompletion {
+enum PropertyPollcompletion {
     X,
     SERVER,
     SERVERSUBMIT,
@@ -461,18 +461,18 @@ export enum PropertyPollcompletion {
     CLIENT,
     NONE,
 }
-export enum PropertyPollmode {
+enum PropertyPollmode {
     X,
     BASIC,
     NONE,
 }
-export enum PropertyQuerylevel {
+enum PropertyQuerylevel {
     X,
     CALQL1,
     CALQLNONE,
     NONE,
 }
-export enum PropertyStatus {
+enum PropertyStatus {
     X,
     TENTATIVE,
     CONFIRMED,
@@ -488,14 +488,14 @@ export enum PropertyStatus {
     DELETED,
     NONE,
 }
-export enum PropertyTaskmode {
+enum PropertyTaskmode {
     X,
     AUTOMATICCOMPLETION,
     AUTOMATICFAILURE,
     AUTOMATICSTATUS,
     NONE,
 }
-export enum PropertyTransp {
+enum PropertyTransp {
     X,
     OPAQUE,
     OPAQUENOCONFLICT,
@@ -503,7 +503,7 @@ export enum PropertyTransp {
     TRANSPARENTNOCONFLICT,
     NONE,
 }
-export enum PropertyXlicclass {
+enum PropertyXlicclass {
     X,
     PUBLISHNEW,
     PUBLISHUPDATE,
@@ -534,17 +534,17 @@ export enum PropertyXlicclass {
     UNKNOWN,
     NONE,
 }
-export enum Property_Class {
+enum Property_Class {
     X,
     PUBLIC,
     PRIVATE,
     CONFIDENTIAL,
     NONE,
 }
-export enum RecurrenceArrayMaxValues {
+enum RecurrenceArrayMaxValues {
     RECURRENCE_ARRAY_MAX,
 }
-export enum RecurrenceArraySizes {
+enum RecurrenceArraySizes {
     SECOND_SIZE,
     MINUTE_SIZE,
     HOUR_SIZE,
@@ -555,7 +555,7 @@ export enum RecurrenceArraySizes {
     SETPOS_SIZE,
     DAY_SIZE,
 }
-export enum RecurrenceFrequency {
+enum RecurrenceFrequency {
     SECONDLY_RECURRENCE,
     MINUTELY_RECURRENCE,
     HOURLY_RECURRENCE,
@@ -565,13 +565,13 @@ export enum RecurrenceFrequency {
     YEARLY_RECURRENCE,
     NO_RECURRENCE,
 }
-export enum RecurrenceSkip {
+enum RecurrenceSkip {
     BACKWARD,
     FORWARD,
     OMIT,
     UNDEFINED,
 }
-export enum RecurrenceWeekday {
+enum RecurrenceWeekday {
     NO_WEEKDAY,
     SUNDAY_WEEKDAY,
     MONDAY_WEEKDAY,
@@ -581,7 +581,7 @@ export enum RecurrenceWeekday {
     FRIDAY_WEEKDAY,
     SATURDAY_WEEKDAY,
 }
-export enum RequestStatus {
+enum RequestStatus {
     UNKNOWN_STATUS,
     /* 2_0_SUCCESS_STATUS (invalid, starts with a number) */
     /* 2_1_FALLBACK_STATUS (invalid, starts with a number) */
@@ -622,7 +622,7 @@ export enum RequestStatus {
     /* 6_1_CONTAINER_NOT_FOUND (invalid, starts with a number) */
     /* 9_0_UNRECOGNIZED_COMMAND (invalid, starts with a number) */
 }
-export enum RestrictionKind {
+enum RestrictionKind {
     NONE,
     ZERO,
     ONE,
@@ -633,12 +633,12 @@ export enum RestrictionKind {
     ONEMUTUAL,
     UNKNOWN,
 }
-export enum Unknowntokenhandling {
+enum Unknowntokenhandling {
     ASSUME_IANA_TOKEN,
     DISCARD_TOKEN,
     TREAT_AS_ERROR,
 }
-export enum ValueKind {
+enum ValueKind {
     ANY_VALUE,
     ACTION_VALUE,
     ATTACH_VALUE,
@@ -677,53 +677,53 @@ export enum ValueKind {
     XLICCLASS_VALUE,
     NO_VALUE,
 }
-export function bt(): void
-export function errnoReturn(): ErrorEnum
-export function errorClearErrno(): void
-export function errorCrashHere(): void
-export function errorGetErrorState(error: ErrorEnum): ErrorState
-export function errorPerror(): string
-export function errorRestore(error: string, es: ErrorState): void
-export function errorSetErrno(x: ErrorEnum): void
-export function errorSetErrorState(error: ErrorEnum, state: ErrorState): void
-export function errorStopHere(): void
-export function errorStrerror(e: ErrorEnum): string
-export function errorSupress(error: string): ErrorState
-export function getUnknownTokenHandlingSetting(): Unknowntokenhandling
-export function memoryAddTmpBuffer(buf?: object | null): void
-export function memoryAppendChar(buf: number[], pos: number[], ch: number): { buf: number[], pos: number[] }
-export function memoryAppendString(buf: number[], pos: number[], str: string): { buf: number[], pos: number[] }
-export function memoryFreeBuffer(buf?: object | null): void
-export function memoryNewBuffer(size: number): object | null
-export function memoryResizeBuffer(buf: object | null, size: number): object | null
-export function memoryStrdup(s: string): string
-export function memoryTmpBuffer(size: number): object | null
-export function memoryTmpCopy(str: string): string
-export function mimeParse(func: MimeParseFunc): Component
-export function recurExpandRecurrence(rule: string, start: number, count: number): number[]
-export function requestStatusCode(stat: RequestStatus): string
-export function requestStatusDesc(stat: RequestStatus): string
-export function requestStatusFromNum(major: number, minor: number): RequestStatus
-export function requestStatusMajor(stat: RequestStatus): number
-export function requestStatusMinor(stat: RequestStatus): number
-export function restrictionCheck(comp: Component): number
-export function restrictionCompare(restr: RestrictionKind, count: number): number
-export function setUnknownTokenHandlingSetting(newSetting: Unknowntokenhandling): void
-export interface ComponentForeachRecurrenceFunc {
+function bt(): void
+function errnoReturn(): ErrorEnum
+function errorClearErrno(): void
+function errorCrashHere(): void
+function errorGetErrorState(error: ErrorEnum): ErrorState
+function errorPerror(): string
+function errorRestore(error: string, es: ErrorState): void
+function errorSetErrno(x: ErrorEnum): void
+function errorSetErrorState(error: ErrorEnum, state: ErrorState): void
+function errorStopHere(): void
+function errorStrerror(e: ErrorEnum): string
+function errorSupress(error: string): ErrorState
+function getUnknownTokenHandlingSetting(): Unknowntokenhandling
+function memoryAddTmpBuffer(buf?: object | null): void
+function memoryAppendChar(buf: number[], pos: number[], ch: number): { buf: number[], pos: number[] }
+function memoryAppendString(buf: number[], pos: number[], str: string): { buf: number[], pos: number[] }
+function memoryFreeBuffer(buf?: object | null): void
+function memoryNewBuffer(size: number): object | null
+function memoryResizeBuffer(buf: object | null, size: number): object | null
+function memoryStrdup(s: string): string
+function memoryTmpBuffer(size: number): object | null
+function memoryTmpCopy(str: string): string
+function mimeParse(func: MimeParseFunc): Component
+function recurExpandRecurrence(rule: string, start: number, count: number): number[]
+function requestStatusCode(stat: RequestStatus): string
+function requestStatusDesc(stat: RequestStatus): string
+function requestStatusFromNum(major: number, minor: number): RequestStatus
+function requestStatusMajor(stat: RequestStatus): number
+function requestStatusMinor(stat: RequestStatus): number
+function restrictionCheck(comp: Component): number
+function restrictionCompare(restr: RestrictionKind, count: number): number
+function setUnknownTokenHandlingSetting(newSetting: Unknowntokenhandling): void
+interface ComponentForeachRecurrenceFunc {
     (comp: Component, span: TimeSpan): void
 }
-export interface ComponentForeachTZIDFunc {
+interface ComponentForeachTZIDFunc {
     (param: Parameter): void
 }
-export interface MimeParseFunc {
+interface MimeParseFunc {
     (bytes: number[]): string
 }
-export interface ParserLineGenFunc {
+interface ParserLineGenFunc {
     (bytes: number[]): string
 }
 export interface Array_ConstructProps extends Object_ConstructProps {
 }
-export class Array {
+class Array {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -802,7 +802,7 @@ export class Array {
 }
 export interface Attach_ConstructProps extends Object_ConstructProps {
 }
-export class Attach {
+class Attach {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -885,7 +885,7 @@ export class Attach {
 }
 export interface CompIter_ConstructProps extends Object_ConstructProps {
 }
-export class CompIter {
+class CompIter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -964,7 +964,7 @@ export class CompIter {
 }
 export interface Component_ConstructProps extends Object_ConstructProps {
 }
-export class Component {
+class Component {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1125,7 +1125,7 @@ export class Component {
 }
 export interface Datetimeperiod_ConstructProps extends Object_ConstructProps {
 }
-export class Datetimeperiod {
+class Datetimeperiod {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1207,7 +1207,7 @@ export class Datetimeperiod {
 }
 export interface Duration_ConstructProps extends Object_ConstructProps {
 }
-export class Duration {
+class Duration {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1304,7 +1304,7 @@ export class Duration {
 }
 export interface Geo_ConstructProps extends Object_ConstructProps {
 }
-export class Geo {
+class Geo {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1392,7 +1392,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     nativeDestroyFunc?: object
     owner?: GObject.Object
 }
-export class Object {
+class Object {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1469,7 +1469,7 @@ export class Object {
 }
 export interface Parameter_ConstructProps extends Object_ConstructProps {
 }
-export class Parameter {
+class Parameter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1703,7 +1703,7 @@ export class Parameter {
 }
 export interface Parser_ConstructProps extends Object_ConstructProps {
 }
-export class Parser {
+class Parser {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1788,7 +1788,7 @@ export class Parser {
 }
 export interface Period_ConstructProps extends Object_ConstructProps {
 }
-export class Period {
+class Period {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -1876,7 +1876,7 @@ export class Period {
 }
 export interface Property_ConstructProps extends Object_ConstructProps {
 }
-export class Property {
+class Property {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2333,7 +2333,7 @@ export class Property {
 }
 export interface RecurIterator_ConstructProps extends Object_ConstructProps {
 }
-export class RecurIterator {
+class RecurIterator {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2413,7 +2413,7 @@ export class RecurIterator {
 }
 export interface Recurrence_ConstructProps extends Object_ConstructProps {
 }
-export class Recurrence {
+class Recurrence {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2552,7 +2552,7 @@ export class Recurrence {
 }
 export interface Reqstat_ConstructProps extends Object_ConstructProps {
 }
-export class Reqstat {
+class Reqstat {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2635,7 +2635,7 @@ export class Reqstat {
 }
 export interface Time_ConstructProps extends Object_ConstructProps {
 }
-export class Time {
+class Time {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2769,7 +2769,7 @@ export class Time {
 }
 export interface TimeSpan_ConstructProps extends Object_ConstructProps {
 }
-export class TimeSpan {
+class TimeSpan {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2857,7 +2857,7 @@ export class TimeSpan {
 }
 export interface Timezone_ConstructProps extends Object_ConstructProps {
 }
-export class Timezone {
+class Timezone {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -2964,7 +2964,7 @@ export class Timezone {
 }
 export interface Trigger_ConstructProps extends Object_ConstructProps {
 }
-export class Trigger {
+class Trigger {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -3049,7 +3049,7 @@ export class Trigger {
 }
 export interface Value_ConstructProps extends Object_ConstructProps {
 }
-export class Value {
+class Value {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
     alwaysDestroy: boolean
     nativeDestroyFunc: object
@@ -3246,124 +3246,125 @@ export class Value {
     static kindToString(kind: ValueKind): string
     static $gtype: GObject.Type
 }
-export abstract class ArrayClass {
+abstract class ArrayClass {
     static name: string
 }
-export abstract class AttachClass {
+abstract class AttachClass {
     static name: string
 }
-export abstract class CompIterClass {
+abstract class CompIterClass {
     static name: string
 }
-export abstract class ComponentClass {
+abstract class ComponentClass {
     static name: string
 }
-export abstract class DatetimeperiodClass {
+abstract class DatetimeperiodClass {
     static name: string
 }
-export abstract class DurationClass {
+abstract class DurationClass {
     static name: string
 }
-export abstract class GeoClass {
+abstract class GeoClass {
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     static name: string
 }
-export class ObjectPrivate {
+class ObjectPrivate {
     static name: string
 }
-export abstract class ParameterClass {
+abstract class ParameterClass {
     static name: string
 }
-export abstract class ParserClass {
+abstract class ParserClass {
     static name: string
 }
-export abstract class PeriodClass {
+abstract class PeriodClass {
     static name: string
 }
-export abstract class PropertyClass {
+abstract class PropertyClass {
     static name: string
 }
-export abstract class RecurIteratorClass {
+abstract class RecurIteratorClass {
     static name: string
 }
-export abstract class RecurrenceClass {
+abstract class RecurrenceClass {
     static name: string
 }
-export abstract class ReqstatClass {
+abstract class ReqstatClass {
     static name: string
 }
-export abstract class TimeClass {
+abstract class TimeClass {
     static name: string
 }
-export abstract class TimeSpanClass {
+abstract class TimeSpanClass {
     static name: string
 }
-export abstract class TimezoneClass {
+abstract class TimezoneClass {
     static name: string
 }
-export abstract class TriggerClass {
+abstract class TriggerClass {
     static name: string
 }
-export abstract class ValueClass {
+abstract class ValueClass {
     static name: string
 }
-export class _Array {
+class _Array {
     static name: string
 }
-export class _Attach {
+class _Attach {
     static name: string
 }
-export class _CompIter {
+class _CompIter {
     static name: string
 }
-export class _Component {
+class _Component {
     static name: string
 }
-export class _Datetimeperiod {
+class _Datetimeperiod {
     static name: string
 }
-export class _Duration {
+class _Duration {
     static name: string
 }
-export class _Geo {
+class _Geo {
     static name: string
 }
-export class _Parameter {
+class _Parameter {
     static name: string
 }
-export class _Parser {
+class _Parser {
     static name: string
 }
-export class _Period {
+class _Period {
     static name: string
 }
-export class _Property {
+class _Property {
     static name: string
 }
-export class _RecurIterator {
+class _RecurIterator {
     static name: string
 }
-export class _Recurrence {
+class _Recurrence {
     static name: string
 }
-export class _Reqstat {
+class _Reqstat {
     static name: string
 }
-export class _Time {
+class _Time {
     static name: string
 }
-export class _TimeSpan {
+class _TimeSpan {
     static name: string
 }
-export class _Timezone {
+class _Timezone {
     static name: string
 }
-export class _Trigger {
+class _Trigger {
     static name: string
 }
-export class _Value {
+class _Value {
     static name: string
 }
 }
+export default ICalGLib

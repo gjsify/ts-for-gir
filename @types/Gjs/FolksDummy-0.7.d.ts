@@ -3,15 +3,17 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Folks from './Folks-0.7';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type Gee from './Gee-0.8';
+import type Folks from './Folks-0.7';
+
+export namespace FolksDummy {
 
 export interface Backend_ConstructProps extends Folks.Backend_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Properties of Folks-0.7.Folks.Backend */
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
@@ -127,7 +129,7 @@ export interface FullPersona_ConstructProps extends Persona_ConstructProps {
     postal_addresses?: Gee.Set
     web_service_addresses?: Gee.MultiMap
 }
-export class FullPersona {
+class FullPersona {
     /* Properties of FolksDummy-0.7.FolksDummy.Persona */
     property_change_delay: number
     /* Properties of Folks-0.7.Folks.Persona */
@@ -494,7 +496,7 @@ export class FullPersona {
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     persona_type?: GObject.Type
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of FolksDummy-0.7.FolksDummy.PersonaStore */
     persona_type: GObject.Type
     /* Properties of Folks-0.7.Folks.PersonaStore */
@@ -655,7 +657,7 @@ export class PersonaStore {
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     property_change_delay?: number
 }
-export class Persona {
+class Persona {
     /* Properties of FolksDummy-0.7.FolksDummy.Persona */
     property_change_delay: number
     /* Properties of Folks-0.7.Folks.Persona */
@@ -738,27 +740,29 @@ export class Persona {
     static new(store: PersonaStore, contact_id: string, is_user: boolean, linkable_properties: string[]): Persona
     static $gtype: GObject.Type
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     static name: string
 }
-export class BackendPrivate {
+class BackendPrivate {
     static name: string
 }
-export abstract class FullPersonaClass {
+abstract class FullPersonaClass {
     static name: string
 }
-export class FullPersonaPrivate {
+class FullPersonaPrivate {
     static name: string
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
+}
+export default FolksDummy

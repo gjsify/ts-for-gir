@@ -3,17 +3,19 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as NetworkManager from './NetworkManager-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as DBusGLib from './DBusGLib-1.0';
-import type * as Gio from './Gio-2.0';
+import type NetworkManager from './NetworkManager-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type DBusGLib from './DBusGLib-1.0';
+import type Gio from './Gio-2.0';
 
-export enum ClientError {
+export namespace NMClient {
+
+enum ClientError {
     UNKNOWNERROR,
     MANAGERNOTRUNNING,
 }
-export enum ClientPermission {
+enum ClientPermission {
     NONE,
     ENABLE_DISABLE_NETWORK,
     ENABLE_DISABLE_WIFI,
@@ -32,30 +34,30 @@ export enum ClientPermission {
     ENABLE_DISABLE_STATISTICS,
     LAST,
 }
-export enum ClientPermissionResult {
+enum ClientPermissionResult {
     UNKNOWN,
     YES,
     AUTH,
     NO,
 }
-export enum DeviceAdslError {
+enum DeviceAdslError {
     UNKNOWNERROR,
     NOTADSLCONNECTION,
     INVALIDADSLCONNECTION,
 }
-export enum DeviceBondError {
+enum DeviceBondError {
     UNKNOWNERROR,
     NOTBONDCONNECTION,
     INVALIDBONDCONNECTION,
     INTERFACEMISMATCH,
 }
-export enum DeviceBridgeError {
+enum DeviceBridgeError {
     UNKNOWNERROR,
     NOTBRIDGECONNECTION,
     INVALIDBRIDGECONNECTION,
     INTERFACEMISMATCH,
 }
-export enum DeviceBtError {
+enum DeviceBtError {
     UNKNOWNERROR,
     NOTBTCONNECTION,
     INVALIDBTCONNECTION,
@@ -63,47 +65,47 @@ export enum DeviceBtError {
     MACMISMATCH,
     MISSINGDEVICECAPS,
 }
-export enum DeviceError {
+enum DeviceError {
     UNKNOWNERROR,
     INTERFACEMISMATCH,
 }
-export enum DeviceEthernetError {
+enum DeviceEthernetError {
     UNKNOWNERROR,
     NOTETHERNETCONNECTION,
     INVALIDETHERNETCONNECTION,
     INVALIDDEVICEMAC,
     MACMISMATCH,
 }
-export enum DeviceGenericError {
+enum DeviceGenericError {
     UNKNOWNERROR,
     NOTGENERICCONNECTION,
     MISSINGINTERFACENAME,
 }
-export enum DeviceInfinibandError {
+enum DeviceInfinibandError {
     UNKNOWNERROR,
     NOTINFINIBANDCONNECTION,
     INVALIDINFINIBANDCONNECTION,
     INVALIDDEVICEMAC,
     MACMISMATCH,
 }
-export enum DeviceModemError {
+enum DeviceModemError {
     UNKNOWNERROR,
     NOTMODEMCONNECTION,
     INVALIDMODEMCONNECTION,
     MISSINGDEVICECAPS,
 }
-export enum DeviceOlpcMeshError {
+enum DeviceOlpcMeshError {
     UNKNOWNERROR,
     NOTOLPCMESHCONNECTION,
     INVALIDOLPCMESHCONNECTION,
 }
-export enum DeviceTeamError {
+enum DeviceTeamError {
     UNKNOWNERROR,
     NOTTEAMCONNECTION,
     INVALIDTEAMCONNECTION,
     INTERFACEMISMATCH,
 }
-export enum DeviceVlanError {
+enum DeviceVlanError {
     UNKNOWNERROR,
     NOTVLANCONNECTION,
     INVALIDVLANCONNECTION,
@@ -111,7 +113,7 @@ export enum DeviceVlanError {
     INTERFACEMISMATCH,
     MACMISMATCH,
 }
-export enum DeviceWifiError {
+enum DeviceWifiError {
     UNKNOWNERROR,
     NOTWIFICONNECTION,
     INVALIDWIFICONNECTION,
@@ -120,28 +122,28 @@ export enum DeviceWifiError {
     MISSINGDEVICEWPACAPS,
     MISSINGDEVICERSNCAPS,
 }
-export enum DeviceWimaxError {
+enum DeviceWimaxError {
     UNKNOWNERROR,
     NOTWIMAXCONNECTION,
     INVALIDWIMAXCONNECTION,
     INVALIDDEVICEMAC,
     MACMISMATCH,
 }
-export enum ObjectError {
+enum ObjectError {
     UNKNOWN,
     OBJECT_CREATION_FAILURE,
 }
-export enum RemoteConnectionError {
+enum RemoteConnectionError {
     UNKNOWNERROR,
     DISCONNECTED,
 }
-export enum RemoteSettingsError {
+enum RemoteSettingsError {
     UNKNOWNERROR,
     CONNECTIONREMOVED,
     CONNECTIONUNAVAILABLE,
     SERVICEUNAVAILABLE,
 }
-export enum SecretAgentError {
+enum SecretAgentError {
     NOTAUTHORIZED,
     INVALIDCONNECTION,
     USERCANCELED,
@@ -149,18 +151,18 @@ export enum SecretAgentError {
     INTERNALERROR,
     NOSECRETS,
 }
-export enum WimaxNspNetworkType {
+enum WimaxNspNetworkType {
     UNKNOWN,
     HOME,
     PARTNER,
     ROAMING_PARTNER,
 }
-export enum SecretAgentCapabilities {
+enum SecretAgentCapabilities {
     NONE,
     VPN_HINTS,
     LAST,
 }
-export enum SecretAgentGetSecretsFlags {
+enum SecretAgentGetSecretsFlags {
     NONE,
     ALLOW_INTERACTION,
     REQUEST_NEW,
@@ -314,67 +316,67 @@ export const VPN_CONNECTION_VPN_STATE: string
 export const WIMAX_NSP_NAME: string
 export const WIMAX_NSP_NETWORK_TYPE: string
 export const WIMAX_NSP_SIGNAL_QUALITY: string
-export function client_error_quark(): GLib.Quark
-export function device_adsl_error_quark(): GLib.Quark
-export function device_bond_error_quark(): GLib.Quark
-export function device_bridge_error_quark(): GLib.Quark
-export function device_bt_error_quark(): GLib.Quark
-export function device_error_quark(): GLib.Quark
-export function device_ethernet_error_quark(): GLib.Quark
-export function device_generic_error_quark(): GLib.Quark
-export function device_infiniband_error_quark(): GLib.Quark
-export function device_modem_error_quark(): GLib.Quark
-export function device_olpc_mesh_error_quark(): GLib.Quark
-export function device_team_error_quark(): GLib.Quark
-export function device_vlan_error_quark(): GLib.Quark
-export function device_wifi_error_quark(): GLib.Quark
-export function device_wimax_error_quark(): GLib.Quark
-export function object_error_quark(): GLib.Quark
-export function remote_connection_error_quark(): GLib.Quark
-export function remote_settings_error_quark(): GLib.Quark
-export function secret_agent_error_quark(): GLib.Quark
-export interface ClientActivateFn {
+function client_error_quark(): GLib.Quark
+function device_adsl_error_quark(): GLib.Quark
+function device_bond_error_quark(): GLib.Quark
+function device_bridge_error_quark(): GLib.Quark
+function device_bt_error_quark(): GLib.Quark
+function device_error_quark(): GLib.Quark
+function device_ethernet_error_quark(): GLib.Quark
+function device_generic_error_quark(): GLib.Quark
+function device_infiniband_error_quark(): GLib.Quark
+function device_modem_error_quark(): GLib.Quark
+function device_olpc_mesh_error_quark(): GLib.Quark
+function device_team_error_quark(): GLib.Quark
+function device_vlan_error_quark(): GLib.Quark
+function device_wifi_error_quark(): GLib.Quark
+function device_wimax_error_quark(): GLib.Quark
+function object_error_quark(): GLib.Quark
+function remote_connection_error_quark(): GLib.Quark
+function remote_settings_error_quark(): GLib.Quark
+function secret_agent_error_quark(): GLib.Quark
+interface ClientActivateFn {
     (client: Client, active_connection: ActiveConnection, error: GLib.Error): void
 }
-export interface ClientAddActivateFn {
+interface ClientAddActivateFn {
     (client: Client, connection: ActiveConnection, new_connection_path: string, error: GLib.Error): void
 }
-export interface DeviceCallbackFn {
+interface DeviceCallbackFn {
     (device: Device, error: GLib.Error): void
 }
-export interface DeviceDeactivateFn {
+interface DeviceDeactivateFn {
     (device: Device, error: GLib.Error): void
 }
-export interface DeviceWifiRequestScanFn {
+interface DeviceWifiRequestScanFn {
     (device: DeviceWifi, error: GLib.Error): void
 }
-export interface RemoteConnectionGetSecretsFunc {
+interface RemoteConnectionGetSecretsFunc {
     (connection: RemoteConnection, secrets: GLib.HashTable, error: GLib.Error): void
 }
-export interface RemoteConnectionResultFunc {
+interface RemoteConnectionResultFunc {
     (connection: RemoteConnection, error: GLib.Error): void
 }
-export interface RemoteSettingsAddConnectionFunc {
+interface RemoteSettingsAddConnectionFunc {
     (settings: RemoteSettings, connection: RemoteConnection, error: GLib.Error): void
 }
-export interface RemoteSettingsLoadConnectionsFunc {
+interface RemoteSettingsLoadConnectionsFunc {
     (settings: RemoteSettings, failures: string, error: GLib.Error): void
 }
-export interface RemoteSettingsSaveHostnameFunc {
+interface RemoteSettingsSaveHostnameFunc {
     (settings: RemoteSettings, error: GLib.Error): void
 }
-export interface SecretAgentDeleteSecretsFunc {
+interface SecretAgentDeleteSecretsFunc {
     (agent: SecretAgent, connection: NetworkManager.Connection, error: GLib.Error): void
 }
-export interface SecretAgentGetSecretsFunc {
+interface SecretAgentGetSecretsFunc {
     (agent: SecretAgent, connection: NetworkManager.Connection, secrets: GLib.HashTable, error: GLib.Error): void
 }
-export interface SecretAgentSaveSecretsFunc {
+interface SecretAgentSaveSecretsFunc {
     (agent: SecretAgent, connection: NetworkManager.Connection, error: GLib.Error): void
 }
 export interface AccessPoint_ConstructProps extends Object_ConstructProps {
 }
-export class AccessPoint {
+class AccessPoint {
     /* Properties of NMClient-1.0.NMClient.AccessPoint */
     readonly bssid: string
     readonly flags: number
@@ -492,7 +494,7 @@ export class AccessPoint {
 }
 export interface ActiveConnection_ConstructProps extends Object_ConstructProps {
 }
-export class ActiveConnection {
+class ActiveConnection {
     /* Properties of NMClient-1.0.NMClient.ActiveConnection */
     readonly connection: string
     readonly "default": boolean
@@ -628,7 +630,7 @@ export interface Client_ConstructProps extends Object_ConstructProps {
     wireless_enabled?: boolean
     wwan_enabled?: boolean
 }
-export class Client {
+class Client {
     /* Properties of NMClient-1.0.NMClient.Client */
     readonly activating_connection: ActiveConnection
     readonly active_connections: object[]
@@ -806,7 +808,7 @@ export class Client {
 }
 export interface DHCP4Config_ConstructProps extends Object_ConstructProps {
 }
-export class DHCP4Config {
+class DHCP4Config {
     /* Properties of NMClient-1.0.NMClient.DHCP4Config */
     readonly options: GLib.HashTable
     /* Fields of NMClient-1.0.NMClient.DHCP4Config */
@@ -883,7 +885,7 @@ export class DHCP4Config {
 }
 export interface DHCP6Config_ConstructProps extends Object_ConstructProps {
 }
-export class DHCP6Config {
+class DHCP6Config {
     /* Properties of NMClient-1.0.NMClient.DHCP6Config */
     readonly options: GLib.HashTable
     /* Fields of NMClient-1.0.NMClient.DHCP6Config */
@@ -961,7 +963,7 @@ export class DHCP6Config {
 export interface Device_ConstructProps extends Object_ConstructProps {
     autoconnect?: boolean
 }
-export class Device {
+class Device {
     /* Properties of NMClient-1.0.NMClient.Device */
     readonly active_connection: ActiveConnection
     autoconnect: boolean
@@ -1149,7 +1151,7 @@ export class Device {
 }
 export interface DeviceAdsl_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceAdsl {
+class DeviceAdsl {
     /* Properties of NMClient-1.0.NMClient.DeviceAdsl */
     readonly carrier: boolean
     /* Properties of NMClient-1.0.NMClient.Device */
@@ -1342,7 +1344,7 @@ export class DeviceAdsl {
 }
 export interface DeviceBond_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBond {
+class DeviceBond {
     /* Properties of NMClient-1.0.NMClient.DeviceBond */
     readonly carrier: boolean
     readonly hw_address: string
@@ -1542,7 +1544,7 @@ export class DeviceBond {
 }
 export interface DeviceBridge_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBridge {
+class DeviceBridge {
     /* Properties of NMClient-1.0.NMClient.DeviceBridge */
     readonly carrier: boolean
     readonly hw_address: string
@@ -1742,7 +1744,7 @@ export class DeviceBridge {
 }
 export interface DeviceBt_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceBt {
+class DeviceBt {
     /* Properties of NMClient-1.0.NMClient.DeviceBt */
     readonly bt_capabilities: number
     readonly hw_address: string
@@ -1942,7 +1944,7 @@ export class DeviceBt {
 }
 export interface DeviceEthernet_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceEthernet {
+class DeviceEthernet {
     /* Properties of NMClient-1.0.NMClient.DeviceEthernet */
     readonly carrier: boolean
     readonly hw_address: string
@@ -2146,7 +2148,7 @@ export class DeviceEthernet {
 }
 export interface DeviceGeneric_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceGeneric {
+class DeviceGeneric {
     /* Properties of NMClient-1.0.NMClient.DeviceGeneric */
     readonly hw_address: string
     readonly type_description: string
@@ -2341,7 +2343,7 @@ export class DeviceGeneric {
 }
 export interface DeviceInfiniband_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceInfiniband {
+class DeviceInfiniband {
     /* Properties of NMClient-1.0.NMClient.DeviceInfiniband */
     readonly carrier: boolean
     readonly hw_address: string
@@ -2537,7 +2539,7 @@ export class DeviceInfiniband {
 }
 export interface DeviceModem_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceModem {
+class DeviceModem {
     /* Properties of NMClient-1.0.NMClient.DeviceModem */
     readonly current_capabilities: number
     readonly modem_capabilities: number
@@ -2732,7 +2734,7 @@ export class DeviceModem {
 }
 export interface DeviceOlpcMesh_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceOlpcMesh {
+class DeviceOlpcMesh {
     /* Properties of NMClient-1.0.NMClient.DeviceOlpcMesh */
     readonly active_channel: number
     readonly companion: DeviceWifi
@@ -2932,7 +2934,7 @@ export class DeviceOlpcMesh {
 }
 export interface DeviceTeam_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceTeam {
+class DeviceTeam {
     /* Properties of NMClient-1.0.NMClient.DeviceTeam */
     readonly carrier: boolean
     readonly hw_address: string
@@ -3132,7 +3134,7 @@ export class DeviceTeam {
 }
 export interface DeviceVlan_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceVlan {
+class DeviceVlan {
     /* Properties of NMClient-1.0.NMClient.DeviceVlan */
     readonly carrier: boolean
     readonly hw_address: string
@@ -3334,7 +3336,7 @@ export class DeviceVlan {
 }
 export interface DeviceWifi_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWifi {
+class DeviceWifi {
     /* Properties of NMClient-1.0.NMClient.DeviceWifi */
     readonly access_points: any
     readonly active_access_point: AccessPoint
@@ -3562,7 +3564,7 @@ export class DeviceWifi {
 }
 export interface DeviceWimax_ConstructProps extends Device_ConstructProps {
 }
-export class DeviceWimax {
+class DeviceWimax {
     /* Properties of NMClient-1.0.NMClient.DeviceWimax */
     readonly active_nsp: WimaxNsp
     readonly bsid: string
@@ -3793,7 +3795,7 @@ export class DeviceWimax {
 }
 export interface IP4Config_ConstructProps extends Object_ConstructProps {
 }
-export class IP4Config {
+class IP4Config {
     /* Properties of NMClient-1.0.NMClient.IP4Config */
     readonly addresses: object
     readonly domains: any
@@ -3893,7 +3895,7 @@ export class IP4Config {
 }
 export interface IP6Config_ConstructProps extends Object_ConstructProps {
 }
-export class IP6Config {
+class IP6Config {
     /* Properties of NMClient-1.0.NMClient.IP6Config */
     readonly addresses: any
     readonly domains: any
@@ -3991,7 +3993,7 @@ export class IP6Config {
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     dbus_path?: string
 }
-export class Object {
+class Object {
     /* Fields of NMClient-1.0.NMClient.Object */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4063,7 +4065,7 @@ export class Object {
 export interface RemoteConnection_ConstructProps extends NetworkManager.Connection_ConstructProps {
     dbus_path?: string
 }
-export class RemoteConnection {
+class RemoteConnection {
     /* Properties of NMClient-1.0.NMClient.RemoteConnection */
     readonly unsaved: boolean
     /* Properties of NetworkManager-1.0.NetworkManager.Connection */
@@ -4221,7 +4223,7 @@ export class RemoteConnection {
 }
 export interface RemoteSettings_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RemoteSettings {
+class RemoteSettings {
     /* Properties of NMClient-1.0.NMClient.RemoteSettings */
     readonly can_modify: boolean
     readonly hostname: string
@@ -4319,7 +4321,7 @@ export interface SecretAgent_ConstructProps extends GObject.Object_ConstructProp
     capabilities?: SecretAgentCapabilities
     identifier?: string
 }
-export class SecretAgent {
+class SecretAgent {
     /* Properties of NMClient-1.0.NMClient.SecretAgent */
     auto_register: boolean
     capabilities: SecretAgentCapabilities
@@ -4396,7 +4398,7 @@ export class SecretAgent {
 }
 export interface VPNConnection_ConstructProps extends ActiveConnection_ConstructProps {
 }
-export class VPNConnection {
+class VPNConnection {
     /* Properties of NMClient-1.0.NMClient.VPNConnection */
     readonly banner: string
     readonly vpn_state: number
@@ -4544,7 +4546,7 @@ export class VPNConnection {
 }
 export interface WimaxNsp_ConstructProps extends Object_ConstructProps {
 }
-export class WimaxNsp {
+class WimaxNsp {
     /* Properties of NMClient-1.0.NMClient.WimaxNsp */
     readonly name: string
     readonly network_type: number
@@ -4628,17 +4630,17 @@ export class WimaxNsp {
     static new(connection: DBusGLib.Connection, path: string): WimaxNsp
     static $gtype: GObject.Type
 }
-export abstract class AccessPointClass {
+abstract class AccessPointClass {
     /* Fields of NMClient-1.0.NMClient.AccessPointClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class ActiveConnectionClass {
+abstract class ActiveConnectionClass {
     /* Fields of NMClient-1.0.NMClient.ActiveConnectionClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of NMClient-1.0.NMClient.ClientClass */
     parent: ObjectClass
     device_added: (client: Client, device: Device) => void
@@ -4646,37 +4648,37 @@ export abstract class ClientClass {
     permission_changed: (client: Client, permission: ClientPermission, result: ClientPermissionResult) => void
     static name: string
 }
-export abstract class DHCP4ConfigClass {
+abstract class DHCP4ConfigClass {
     /* Fields of NMClient-1.0.NMClient.DHCP4ConfigClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class DHCP6ConfigClass {
+abstract class DHCP6ConfigClass {
     /* Fields of NMClient-1.0.NMClient.DHCP6ConfigClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class DeviceAdslClass {
+abstract class DeviceAdslClass {
     /* Fields of NMClient-1.0.NMClient.DeviceAdslClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceBondClass {
+abstract class DeviceBondClass {
     /* Fields of NMClient-1.0.NMClient.DeviceBondClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceBridgeClass {
+abstract class DeviceBridgeClass {
     /* Fields of NMClient-1.0.NMClient.DeviceBridgeClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceBtClass {
+abstract class DeviceBtClass {
     /* Fields of NMClient-1.0.NMClient.DeviceBtClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of NMClient-1.0.NMClient.DeviceClass */
     parent: ObjectClass
     state_changed: (device: Device, new_state: NetworkManager.DeviceState, old_state: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason) => void
@@ -4686,86 +4688,86 @@ export abstract class DeviceClass {
     get_setting_type: (device: Device) => GObject.Type
     static name: string
 }
-export abstract class DeviceEthernetClass {
+abstract class DeviceEthernetClass {
     /* Fields of NMClient-1.0.NMClient.DeviceEthernetClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceGenericClass {
+abstract class DeviceGenericClass {
     /* Fields of NMClient-1.0.NMClient.DeviceGenericClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceInfinibandClass {
+abstract class DeviceInfinibandClass {
     /* Fields of NMClient-1.0.NMClient.DeviceInfinibandClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceModemClass {
+abstract class DeviceModemClass {
     /* Fields of NMClient-1.0.NMClient.DeviceModemClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceOlpcMeshClass {
+abstract class DeviceOlpcMeshClass {
     /* Fields of NMClient-1.0.NMClient.DeviceOlpcMeshClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceTeamClass {
+abstract class DeviceTeamClass {
     /* Fields of NMClient-1.0.NMClient.DeviceTeamClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceVlanClass {
+abstract class DeviceVlanClass {
     /* Fields of NMClient-1.0.NMClient.DeviceVlanClass */
     parent: DeviceClass
     static name: string
 }
-export abstract class DeviceWifiClass {
+abstract class DeviceWifiClass {
     /* Fields of NMClient-1.0.NMClient.DeviceWifiClass */
     parent: DeviceClass
     access_point_added: (device: DeviceWifi, ap: AccessPoint) => void
     access_point_removed: (device: DeviceWifi, ap: AccessPoint) => void
     static name: string
 }
-export abstract class DeviceWimaxClass {
+abstract class DeviceWimaxClass {
     /* Fields of NMClient-1.0.NMClient.DeviceWimaxClass */
     parent: DeviceClass
     nsp_added: (self: DeviceWimax, nsp: WimaxNsp) => void
     nsp_removed: (self: DeviceWimax, nsp: WimaxNsp) => void
     static name: string
 }
-export abstract class IP4ConfigClass {
+abstract class IP4ConfigClass {
     /* Fields of NMClient-1.0.NMClient.IP4ConfigClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class IP6ConfigClass {
+abstract class IP6ConfigClass {
     /* Fields of NMClient-1.0.NMClient.IP6ConfigClass */
     parent: ObjectClass
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of NMClient-1.0.NMClient.ObjectClass */
     parent: GObject.ObjectClass
     object_creation_failed: (master_object: Object, error: GLib.Error, failed_path: string) => void
     static name: string
 }
-export abstract class RemoteConnectionClass {
+abstract class RemoteConnectionClass {
     /* Fields of NMClient-1.0.NMClient.RemoteConnectionClass */
     parent_class: NetworkManager.ConnectionClass
     updated: (connection: RemoteConnection, new_settings: GLib.HashTable) => void
     removed: (connection: RemoteConnection) => void
     static name: string
 }
-export abstract class RemoteSettingsClass {
+abstract class RemoteSettingsClass {
     /* Fields of NMClient-1.0.NMClient.RemoteSettingsClass */
     parent: GObject.ObjectClass
     new_connection: (settings: RemoteSettings, connection: RemoteConnection) => void
     connections_read: (settings: RemoteSettings) => void
     static name: string
 }
-export abstract class SecretAgentClass {
+abstract class SecretAgentClass {
     /* Fields of NMClient-1.0.NMClient.SecretAgentClass */
     parent: GObject.ObjectClass
     get_secrets: (self: SecretAgent, connection: NetworkManager.Connection, connection_path: string, setting_name: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc) => void
@@ -4775,16 +4777,18 @@ export abstract class SecretAgentClass {
     registration_result: (agent: SecretAgent, error: GLib.Error) => void
     static name: string
 }
-export abstract class VPNConnectionClass {
+abstract class VPNConnectionClass {
     /* Fields of NMClient-1.0.NMClient.VPNConnectionClass */
     parent: ActiveConnectionClass
     vpn_state_changed: (connection: VPNConnection, state: NetworkManager.VPNConnectionState, reason: NetworkManager.VPNConnectionStateReason) => void
     static name: string
 }
-export abstract class WimaxNspClass {
+abstract class WimaxNspClass {
     /* Fields of NMClient-1.0.NMClient.WimaxNspClass */
     parent: ObjectClass
     static name: string
 }
-export type RemoteConnectionCommitFunc = RemoteConnectionResultFunc
-export type RemoteConnectionDeleteFunc = RemoteConnectionResultFunc
+type RemoteConnectionCommitFunc = RemoteConnectionResultFunc
+type RemoteConnectionDeleteFunc = RemoteConnectionResultFunc
+}
+export default NMClient

@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AccuracyLevel {
+export namespace Geoclue {
+
+enum AccuracyLevel {
     NONE,
     COUNTRY,
     CITY,
@@ -15,17 +17,17 @@ export enum AccuracyLevel {
     STREET,
     EXACT,
 }
-export enum ClientProxyCreateFlags {
+enum ClientProxyCreateFlags {
     NONE,
     AUTO_DELETE,
 }
-export function client_interface_info(): Gio.DBusInterfaceInfo
-export function client_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function location_interface_info(): Gio.DBusInterfaceInfo
-export function location_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function manager_interface_info(): Gio.DBusInterfaceInfo
-export function manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export class Client {
+function client_interface_info(): Gio.DBusInterfaceInfo
+function client_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function location_interface_info(): Gio.DBusInterfaceInfo
+function location_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function manager_interface_info(): Gio.DBusInterfaceInfo
+function manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+class Client {
     /* Properties of Geoclue-2.0.Geoclue.Client */
     active: boolean
     desktop_id: string
@@ -62,7 +64,7 @@ export class Client {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class Location {
+class Location {
     /* Properties of Geoclue-2.0.Geoclue.Location */
     accuracy: number
     altitude: number
@@ -77,7 +79,7 @@ export class Location {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class Manager {
+class Manager {
     /* Properties of Geoclue-2.0.Geoclue.Manager */
     available_accuracy_level: number
     in_use: boolean
@@ -129,7 +131,7 @@ export interface ClientProxy_ConstructProps extends Gio.DBusProxy_ConstructProps
     requested_accuracy_level?: number
     time_threshold?: number
 }
-export class ClientProxy {
+class ClientProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -301,7 +303,7 @@ export interface ClientSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton
     requested_accuracy_level?: number
     time_threshold?: number
 }
-export class ClientSkeleton {
+class ClientSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Geoclue-2.0.Geoclue.Client */
@@ -436,7 +438,7 @@ export interface LocationProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     speed?: number
     timestamp?: GLib.Variant
 }
-export class LocationProxy {
+class LocationProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -587,7 +589,7 @@ export interface LocationSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     speed?: number
     timestamp?: GLib.Variant
 }
-export class LocationSkeleton {
+class LocationSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Geoclue-2.0.Geoclue.Location */
@@ -699,7 +701,7 @@ export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     available_accuracy_level?: number
     in_use?: boolean
 }
-export class ManagerProxy {
+class ManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -860,7 +862,7 @@ export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     available_accuracy_level?: number
     in_use?: boolean
 }
-export class ManagerSkeleton {
+class ManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Geoclue-2.0.Geoclue.Manager */
@@ -990,7 +992,7 @@ export interface Simple_ConstructProps extends GObject.Object_ConstructProps {
     distance_threshold?: number
     time_threshold?: number
 }
-export class Simple {
+class Simple {
     /* Properties of Geoclue-2.0.Geoclue.Simple */
     readonly client: ClientProxy
     readonly location: LocationProxy
@@ -1061,7 +1063,7 @@ export class Simple {
     static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
 }
-export abstract class ClientIface {
+abstract class ClientIface {
     /* Fields of Geoclue-2.0.Geoclue.ClientIface */
     parent_iface: GObject.TypeInterface
     handle_start: (object: Client, invocation: Gio.DBusMethodInvocation) => boolean
@@ -1075,23 +1077,23 @@ export abstract class ClientIface {
     location_updated: (object: Client, arg_old: string, arg_new: string) => void
     static name: string
 }
-export abstract class ClientProxyClass {
+abstract class ClientProxyClass {
     /* Fields of Geoclue-2.0.Geoclue.ClientProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class ClientProxyPrivate {
+class ClientProxyPrivate {
     static name: string
 }
-export abstract class ClientSkeletonClass {
+abstract class ClientSkeletonClass {
     /* Fields of Geoclue-2.0.Geoclue.ClientSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ClientSkeletonPrivate {
+class ClientSkeletonPrivate {
     static name: string
 }
-export abstract class LocationIface {
+abstract class LocationIface {
     /* Fields of Geoclue-2.0.Geoclue.LocationIface */
     parent_iface: GObject.TypeInterface
     get_accuracy: (object: Location) => number
@@ -1104,23 +1106,23 @@ export abstract class LocationIface {
     get_timestamp: (object: Location) => GLib.Variant | null
     static name: string
 }
-export abstract class LocationProxyClass {
+abstract class LocationProxyClass {
     /* Fields of Geoclue-2.0.Geoclue.LocationProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class LocationProxyPrivate {
+class LocationProxyPrivate {
     static name: string
 }
-export abstract class LocationSkeletonClass {
+abstract class LocationSkeletonClass {
     /* Fields of Geoclue-2.0.Geoclue.LocationSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class LocationSkeletonPrivate {
+class LocationSkeletonPrivate {
     static name: string
 }
-export abstract class ManagerIface {
+abstract class ManagerIface {
     /* Fields of Geoclue-2.0.Geoclue.ManagerIface */
     parent_iface: GObject.TypeInterface
     handle_add_agent: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_id: string) => boolean
@@ -1131,27 +1133,29 @@ export abstract class ManagerIface {
     get_in_use: (object: Manager) => boolean
     static name: string
 }
-export abstract class ManagerProxyClass {
+abstract class ManagerProxyClass {
     /* Fields of Geoclue-2.0.Geoclue.ManagerProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class ManagerProxyPrivate {
+class ManagerProxyPrivate {
     static name: string
 }
-export abstract class ManagerSkeletonClass {
+abstract class ManagerSkeletonClass {
     /* Fields of Geoclue-2.0.Geoclue.ManagerSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ManagerSkeletonPrivate {
+class ManagerSkeletonPrivate {
     static name: string
 }
-export abstract class SimpleClass {
+abstract class SimpleClass {
     /* Fields of Geoclue-2.0.Geoclue.SimpleClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class SimplePrivate {
+class SimplePrivate {
     static name: string
 }
+}
+export default Geoclue

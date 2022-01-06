@@ -33,22 +33,22 @@ import type { CoglPango } from './CoglPango-1.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Clutter } from './Clutter-1.0';
 
-export declare namespace Sushi {
+declare namespace Sushi {
 
-export enum SoundPlayerState {
+enum SoundPlayerState {
     UNKNOWN,
     IDLE,
     PLAYING,
     DONE,
     ERROR,
 }
-export function createForeignWindow(xid: number): Gdk.Window
-export function createRoundedBackground(): Clutter.Actor
-export function querySupportedDocumentTypes(): string[]
+function createForeignWindow(xid: number): Gdk.Window
+function createRoundedBackground(): Clutter.Actor
+function querySupportedDocumentTypes(): string[]
 export interface CoverArtFetcher_ConstructProps extends GObject.Object_ConstructProps {
     taglist?: Gst.TagList
 }
-export class CoverArtFetcher {
+class CoverArtFetcher {
     /* Properties of Sushi-1.0.Sushi.CoverArtFetcher */
     readonly cover: GdkPixbuf.Pixbuf
     taglist: Gst.TagList
@@ -112,7 +112,7 @@ export class CoverArtFetcher {
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
-export class FileLoader {
+class FileLoader {
     /* Properties of Sushi-1.0.Sushi.FileLoader */
     readonly contentType: string
     file: Gio.File
@@ -208,7 +208,7 @@ export class FileLoader {
 export interface FontWidget_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     uri?: string
 }
-export class FontWidget {
+class FontWidget {
     /* Properties of Sushi-1.0.Sushi.FontWidget */
     uri: string
     /* Properties of Gtk-3.0.Gtk.Widget */
@@ -1124,7 +1124,7 @@ export class FontWidget {
 export interface PdfLoader_ConstructProps extends GObject.Object_ConstructProps {
     uri?: string
 }
-export class PdfLoader {
+class PdfLoader {
     /* Properties of Sushi-1.0.Sushi.PdfLoader */
     readonly document: EvinceDocument.Document
     uri: string
@@ -1193,7 +1193,7 @@ export interface SoundPlayer_ConstructProps extends GObject.Object_ConstructProp
     progress?: number
     uri?: string
 }
-export class SoundPlayer {
+class SoundPlayer {
     /* Properties of Sushi-1.0.Sushi.SoundPlayer */
     readonly duration: number
     playing: boolean
@@ -1279,7 +1279,7 @@ export class SoundPlayer {
 export interface TextLoader_ConstructProps extends GObject.Object_ConstructProps {
     uri?: string
 }
-export class TextLoader {
+class TextLoader {
     /* Properties of Sushi-1.0.Sushi.TextLoader */
     uri: string
     /* Fields of Sushi-1.0.Sushi.TextLoader */
@@ -1340,52 +1340,53 @@ export class TextLoader {
     static new(uri: string): TextLoader
     static $gtype: GObject.Type
 }
-export abstract class CoverArtFetcherClass {
+abstract class CoverArtFetcherClass {
     /* Fields of Sushi-1.0.Sushi.CoverArtFetcherClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CoverArtFetcherPrivate {
+class CoverArtFetcherPrivate {
     static name: string
 }
-export abstract class FileLoaderClass {
+abstract class FileLoaderClass {
     /* Fields of Sushi-1.0.Sushi.FileLoaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class FileLoaderPrivate {
+class FileLoaderPrivate {
     static name: string
 }
-export abstract class FontWidgetClass {
+abstract class FontWidgetClass {
     /* Fields of Sushi-1.0.Sushi.FontWidgetClass */
     parentClass: Gtk.DrawingAreaClass
     static name: string
 }
-export class FontWidgetPrivate {
+class FontWidgetPrivate {
     static name: string
 }
-export abstract class PdfLoaderClass {
+abstract class PdfLoaderClass {
     /* Fields of Sushi-1.0.Sushi.PdfLoaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PdfLoaderPrivate {
+class PdfLoaderPrivate {
     static name: string
 }
-export abstract class SoundPlayerClass {
+abstract class SoundPlayerClass {
     /* Fields of Sushi-1.0.Sushi.SoundPlayerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SoundPlayerPrivate {
+class SoundPlayerPrivate {
     static name: string
 }
-export abstract class TextLoaderClass {
+abstract class TextLoaderClass {
     /* Fields of Sushi-1.0.Sushi.TextLoaderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class TextLoaderPrivate {
+class TextLoaderPrivate {
     static name: string
 }
 }
+export default Sushi

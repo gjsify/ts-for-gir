@@ -1,2 +1,1 @@
-imports.gi.versions.NetworkManager = '1.0'
-module.exports = imports.gi.NetworkManager
+export {default as default} from 'gi://NetworkManager?version=1.0';

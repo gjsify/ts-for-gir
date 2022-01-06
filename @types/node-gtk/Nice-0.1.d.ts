@@ -7,21 +7,21 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Nice {
+declare namespace Nice {
 
-export enum CandidateTransport {
+enum CandidateTransport {
     UDP,
     TCP_ACTIVE,
     TCP_PASSIVE,
     TCP_SO,
 }
-export enum CandidateType {
+enum CandidateType {
     HOST,
     SERVER_REFLEXIVE,
     PEER_REFLEXIVE,
     RELAYED,
 }
-export enum Compatibility {
+enum Compatibility {
     RFC5245,
     DRAFT19,
     GOOGLE,
@@ -31,7 +31,7 @@ export enum Compatibility {
     OC2007R2,
     LAST,
 }
-export enum ComponentState {
+enum ComponentState {
     DISCONNECTED,
     GATHERING,
     CONNECTING,
@@ -40,31 +40,31 @@ export enum ComponentState {
     FAILED,
     LAST,
 }
-export enum ComponentType {
+enum ComponentType {
     RTP,
     RTCP,
 }
-export enum NominationMode {
+enum NominationMode {
     REGULAR,
     AGGRESSIVE,
 }
-export enum ProxyType {
+enum ProxyType {
     NONE,
     SOCKS5,
     HTTP,
     LAST,
 }
-export enum PseudoTcpDebugLevel {
+enum PseudoTcpDebugLevel {
     NONE,
     NORMAL,
     VERBOSE,
 }
-export enum PseudoTcpShutdown {
+enum PseudoTcpShutdown {
     RD,
     WR,
     RDWR,
 }
-export enum PseudoTcpState {
+enum PseudoTcpState {
     LISTEN,
     SYN_SENT,
     SYN_RECEIVED,
@@ -77,17 +77,17 @@ export enum PseudoTcpState {
     CLOSE_WAIT,
     LAST_ACK,
 }
-export enum PseudoTcpWriteResult {
+enum PseudoTcpWriteResult {
     SUCCESS,
     TOO_LARGE,
     FAIL,
 }
-export enum RelayType {
+enum RelayType {
     UDP,
     TCP,
     TLS,
 }
-export enum AgentOption {
+enum AgentOption {
     REGULAR_NOMINATION,
     RELIABLE,
     LITE_MODE,
@@ -99,16 +99,16 @@ export const AGENT_MAX_REMOTE_CANDIDATES: number
 export const CANDIDATE_MAX_FOUNDATION: number
 export const CANDIDATE_MAX_LOCAL_ADDRESSES: number
 export const CANDIDATE_MAX_TURN_SERVERS: number
-export function candidateTransportToString(transport: CandidateTransport): string
-export function candidateTypeToString(type: CandidateType): string
-export function componentStateToString(state: ComponentState): string
-export function debugDisable(withStun: boolean): void
-export function debugEnable(withStun: boolean): void
-export function interfacesGetIpForInterface(interfaceName: string): string | null
-export function interfacesGetLocalInterfaces(): string[]
-export function interfacesGetLocalIps(includeLoopback: boolean): string[]
-export function pseudoTcpSetDebugLevel(level: PseudoTcpDebugLevel): void
-export interface AgentRecvFunc {
+function candidateTransportToString(transport: CandidateTransport): string
+function candidateTypeToString(type: CandidateType): string
+function componentStateToString(state: ComponentState): string
+function debugDisable(withStun: boolean): void
+function debugEnable(withStun: boolean): void
+function interfacesGetIpForInterface(interfaceName: string): string | null
+function interfacesGetLocalInterfaces(): string[]
+function interfacesGetLocalIps(includeLoopback: boolean): string[]
+function pseudoTcpSetDebugLevel(level: PseudoTcpDebugLevel): void
+interface AgentRecvFunc {
     (agent: Agent, streamId: number, componentId: number, len: number, buf: string): void
 }
 export interface Agent_ConstructProps extends GObject.Object_ConstructProps {
@@ -140,7 +140,7 @@ export interface Agent_ConstructProps extends GObject.Object_ConstructProps {
     upnp?: boolean
     upnpTimeout?: number
 }
-export class Agent {
+class Agent {
     /* Properties of Nice-0.1.Nice.Agent */
     readonly bytestreamTcp: boolean
     controllingMode: boolean
@@ -434,7 +434,7 @@ export interface PseudoTcpSocket_ConstructProps extends GObject.Object_Construct
     sndBuf?: number
     supportFinAck?: boolean
 }
-export class PseudoTcpSocket {
+class PseudoTcpSocket {
     /* Properties of Nice-0.1.Nice.PseudoTcpSocket */
     ackDelay: number
     callbacks: object
@@ -534,7 +534,7 @@ export class PseudoTcpSocket {
     static new(conversation: number, callbacks: PseudoTcpCallbacks): PseudoTcpSocket
     static $gtype: GObject.Type
 }
-export class Address {
+class Address {
     /* Methods of Nice-0.1.Nice.Address */
     copyToSockaddr(sin?: object | null): void
     equal(b: Address): boolean
@@ -553,12 +553,12 @@ export class Address {
     toString(dst: string): void
     static name: string
 }
-export abstract class AgentClass {
+abstract class AgentClass {
     /* Fields of Nice-0.1.Nice.AgentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Candidate {
+class Candidate {
     /* Fields of Nice-0.1.Nice.Candidate */
     type: CandidateType
     transport: CandidateTransport
@@ -582,7 +582,7 @@ export class Candidate {
     static transportToString(transport: CandidateTransport): string
     static typeToString(type: CandidateType): string
 }
-export class InputMessage {
+class InputMessage {
     /* Fields of Nice-0.1.Nice.InputMessage */
     buffers: Gio.InputVector[]
     nBuffers: number
@@ -590,13 +590,13 @@ export class InputMessage {
     length: number
     static name: string
 }
-export class OutputMessage {
+class OutputMessage {
     /* Fields of Nice-0.1.Nice.OutputMessage */
     buffers: Gio.OutputVector[]
     nBuffers: number
     static name: string
 }
-export class PseudoTcpCallbacks {
+class PseudoTcpCallbacks {
     /* Fields of Nice-0.1.Nice.PseudoTcpCallbacks */
     userData: object
     pseudoTcpOpened: (tcp: PseudoTcpSocket, data: object) => void
@@ -606,7 +606,8 @@ export class PseudoTcpCallbacks {
     writePacket: (tcp: PseudoTcpSocket, buffer: string, len: number, data: object) => PseudoTcpWriteResult
     static name: string
 }
-export abstract class PseudoTcpSocketClass {
+abstract class PseudoTcpSocketClass {
     static name: string
 }
 }
+export default Nice

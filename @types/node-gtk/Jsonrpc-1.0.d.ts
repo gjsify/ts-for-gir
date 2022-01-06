@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Jsonrpc {
+declare namespace Jsonrpc {
 
-export enum ClientError {
+enum ClientError {
     PARSE_ERROR,
     INVALID_REQUEST,
     METHOD_NOT_FOUND,
@@ -21,14 +21,14 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
-export interface ServerHandler {
+interface ServerHandler {
     (self: Server, client: Client, method: string, id: GLib.Variant, params: GLib.Variant): void
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     ioStream?: Gio.IOStream
     useGvariant?: boolean
 }
-export class Client {
+class Client {
     /* Properties of Jsonrpc-1.0.Jsonrpc.Client */
     useGvariant: boolean
     /* Fields of Jsonrpc-1.0.Jsonrpc.Client */
@@ -120,7 +120,7 @@ export class Client {
 }
 export interface InputStream_ConstructProps extends Gio.DataInputStream_ConstructProps {
 }
-export class InputStream {
+class InputStream {
     /* Properties of Gio-2.0.Gio.DataInputStream */
     byteOrder: Gio.DataStreamByteOrder
     newlineType: Gio.DataStreamNewlineType
@@ -265,7 +265,7 @@ export class InputStream {
 export interface OutputStream_ConstructProps extends Gio.DataOutputStream_ConstructProps {
     useGvariant?: boolean
 }
-export class OutputStream {
+class OutputStream {
     /* Properties of Jsonrpc-1.0.Jsonrpc.OutputStream */
     useGvariant: boolean
     /* Properties of Gio-2.0.Gio.DataOutputStream */
@@ -387,7 +387,7 @@ export class OutputStream {
 }
 export interface Server_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Server {
+class Server {
     /* Fields of Jsonrpc-1.0.Jsonrpc.Server */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -460,7 +460,7 @@ export class Server {
     static new(): Server
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.ClientClass */
     parentClass: GObject.ObjectClass
     notification: (self: Client, methodName: string, params: GLib.Variant) => void
@@ -475,7 +475,7 @@ export abstract class ClientClass {
     reserved8: object
     static name: string
 }
-export abstract class InputStreamClass {
+abstract class InputStreamClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.InputStreamClass */
     parentClass: Gio.DataInputStreamClass
     reserved1: object
@@ -488,112 +488,112 @@ export abstract class InputStreamClass {
     reserved8: object
     static name: string
 }
-export class MessageAny {
+class MessageAny {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageAny */
     magic: MessageMagic
     static name: string
 }
-export class MessageGetBoolean {
+class MessageGetBoolean {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetBoolean */
     magic: MessageMagic
     valptr: boolean
     static name: string
 }
-export class MessageGetDict {
+class MessageGetDict {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetDict */
     magic: MessageMagic
     dictptr: GLib.VariantDict
     static name: string
 }
-export class MessageGetDouble {
+class MessageGetDouble {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetDouble */
     magic: MessageMagic
     valptr: number
     static name: string
 }
-export class MessageGetInt32 {
+class MessageGetInt32 {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetInt32 */
     magic: MessageMagic
     valptr: number
     static name: string
 }
-export class MessageGetInt64 {
+class MessageGetInt64 {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetInt64 */
     magic: MessageMagic
     valptr: number
     static name: string
 }
-export class MessageGetIter {
+class MessageGetIter {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetIter */
     magic: MessageMagic
     static name: string
 }
-export class MessageGetString {
+class MessageGetString {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetString */
     magic: MessageMagic
     valptr: string
     static name: string
 }
-export class MessageGetStrv {
+class MessageGetStrv {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetStrv */
     magic: MessageMagic
     valptr: string
     static name: string
 }
-export class MessageGetVariant {
+class MessageGetVariant {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageGetVariant */
     magic: MessageMagic
     variantptr: GLib.Variant
     static name: string
 }
-export class MessageMagic {
+class MessageMagic {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessageMagic */
     bytes: number[]
     static name: string
 }
-export class MessagePutBoolean {
+class MessagePutBoolean {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutBoolean */
     magic: MessageMagic
     val: boolean
     static name: string
 }
-export class MessagePutDouble {
+class MessagePutDouble {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutDouble */
     magic: MessageMagic
     val: number
     static name: string
 }
-export class MessagePutInt32 {
+class MessagePutInt32 {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutInt32 */
     magic: MessageMagic
     val: number
     static name: string
 }
-export class MessagePutInt64 {
+class MessagePutInt64 {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutInt64 */
     magic: MessageMagic
     val: number
     static name: string
 }
-export class MessagePutString {
+class MessagePutString {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutString */
     magic: MessageMagic
     val: string
     static name: string
 }
-export class MessagePutStrv {
+class MessagePutStrv {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutStrv */
     magic: MessageMagic
     val: string
     static name: string
 }
-export class MessagePutVariant {
+class MessagePutVariant {
     /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutVariant */
     magic: MessageMagic
     val: GLib.Variant
     static name: string
 }
-export abstract class OutputStreamClass {
+abstract class OutputStreamClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.OutputStreamClass */
     parentClass: Gio.DataOutputStreamClass
     reserved1: object
@@ -610,7 +610,7 @@ export abstract class OutputStreamClass {
     reserved12: object
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.ServerClass */
     parentClass: GObject.ObjectClass
     handleCall: (self: Server, client: Client, method: string, id: GLib.Variant, params: GLib.Variant) => boolean
@@ -620,3 +620,4 @@ export abstract class ServerClass {
     static name: string
 }
 }
+export default Jsonrpc

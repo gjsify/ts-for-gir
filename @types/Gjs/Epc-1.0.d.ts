@@ -3,25 +3,27 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AddressFamily {
+export namespace Epc {
+
+enum AddressFamily {
     UNSPEC,
     IPV4,
     IPV6,
 }
-export enum CollisionHandling {
+enum CollisionHandling {
     IGNORE,
     CHANGE_NAME,
     UNIQUE_SERVICE,
 }
-export enum Protocol {
+enum Protocol {
     UNKNOWN,
     HTTP,
     HTTPS,
 }
-export enum AuthFlags {
+enum AuthFlags {
     DEFAULT,
     PASSWORD_TEXT_NEEDED,
 }
@@ -30,38 +32,38 @@ export const SERVICE_TYPE_HTTPS: string
 export const TLS_SECONDS_PER_DAY: number
 export const TLS_SECONDS_PER_HOUR: number
 export const TLS_SECONDS_PER_MINUTE: number
-export function address_family_to_string(value: AddressFamily): string
-export function auth_flags_to_string(value: AuthFlags): string
-export function avahi_error_quark(): GLib.Quark
-export function collision_handling_to_string(value: CollisionHandling): string
-export function http_error_quark(): GLib.Quark
-export function protocol_build_uri(protocol: Protocol, hostname: string, port: number, path: string): string
-export function protocol_from_name(name: string, fallback: Protocol): Protocol
-export function protocol_get_service_type(protocol: Protocol): string
-export function protocol_get_uri_scheme(protocol: Protocol): string
-export function protocol_to_string(value: Protocol): string
-export function service_type_get_base(type: string): string
-export function service_type_get_protocol(service_type: string): Protocol
-export function service_type_new(protocol: Protocol, application: string): string
-export function shell_get_debug_level(): number
-export function shell_get_host_name(): string
-export function shell_progress_begin(title: string, message: string): void
-export function shell_progress_end(): void
-export function shell_progress_update(percentage: number, message: string): void
-export function shell_restart_avahi_client(strloc: string): void
-export function shell_set_progress_hooks(hooks: ShellProgressHooks, user_data: object, destroy_data: GLib.DestroyNotify): void
-export function shell_watch_remove(id: number): void
-export function tls_error_quark(): GLib.Quark
-export function tls_get_certificate_filename(hostname: string): string
-export function tls_get_private_key_filename(hostname: string): string
-export function tls_get_server_credentials(hostname: string, crtfile: string, keyfile: string): boolean
-export interface AuthHandler {
+function address_family_to_string(value: AddressFamily): string
+function auth_flags_to_string(value: AuthFlags): string
+function avahi_error_quark(): GLib.Quark
+function collision_handling_to_string(value: CollisionHandling): string
+function http_error_quark(): GLib.Quark
+function protocol_build_uri(protocol: Protocol, hostname: string, port: number, path: string): string
+function protocol_from_name(name: string, fallback: Protocol): Protocol
+function protocol_get_service_type(protocol: Protocol): string
+function protocol_get_uri_scheme(protocol: Protocol): string
+function protocol_to_string(value: Protocol): string
+function service_type_get_base(type: string): string
+function service_type_get_protocol(service_type: string): Protocol
+function service_type_new(protocol: Protocol, application: string): string
+function shell_get_debug_level(): number
+function shell_get_host_name(): string
+function shell_progress_begin(title: string, message: string): void
+function shell_progress_end(): void
+function shell_progress_update(percentage: number, message: string): void
+function shell_restart_avahi_client(strloc: string): void
+function shell_set_progress_hooks(hooks: ShellProgressHooks, user_data: object, destroy_data: GLib.DestroyNotify): void
+function shell_watch_remove(id: number): void
+function tls_error_quark(): GLib.Quark
+function tls_get_certificate_filename(hostname: string): string
+function tls_get_private_key_filename(hostname: string): string
+function tls_get_server_credentials(hostname: string, crtfile: string, keyfile: string): boolean
+interface AuthHandler {
     (context: AuthContext, username: string): boolean
 }
-export interface ContentsHandler {
+interface ContentsHandler {
     (publisher: Publisher, key: string): Contents
 }
-export interface ContentsReadFunc {
+interface ContentsReadFunc {
     (contents: Contents, buffer: object, length: number): boolean
 }
 export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
@@ -75,7 +77,7 @@ export interface Consumer_ConstructProps extends GObject.Object_ConstructProps {
     protocol?: Protocol
     username?: string
 }
-export class Consumer {
+class Consumer {
     /* Properties of Epc-1.0.Epc.Consumer */
     password: string
     protocol: Protocol
@@ -159,7 +161,7 @@ export interface Dispatcher_ConstructProps extends GObject.Object_ConstructProps
     cookie?: string
     name?: string
 }
-export class Dispatcher {
+class Dispatcher {
     /* Properties of Epc-1.0.Epc.Dispatcher */
     collision_handling: CollisionHandling
     cookie: string
@@ -239,7 +241,7 @@ export interface Publisher_ConstructProps extends GObject.Object_ConstructProps 
     service_domain?: string
     service_name?: string
 }
-export class Publisher {
+class Publisher {
     /* Properties of Epc-1.0.Epc.Publisher */
     application: string
     auth_flags: AuthFlags
@@ -354,7 +356,7 @@ export interface ServiceMonitor_ConstructProps extends GObject.Object_ConstructP
     service_types?: string[]
     skip_our_own?: boolean
 }
-export class ServiceMonitor {
+class ServiceMonitor {
     /* Properties of Epc-1.0.Epc.ServiceMonitor */
     skip_our_own: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -423,23 +425,23 @@ export class ServiceMonitor {
     static new_for_types_strv(domain: string, types: string): ServiceMonitor
     static $gtype: GObject.Type
 }
-export class AuthContext {
+class AuthContext {
     /* Methods of Epc-1.0.Epc.AuthContext */
     check_password(password: string): boolean
     get_key(): string
     get_password(): string
     static name: string
 }
-export abstract class ConsumerClass {
+abstract class ConsumerClass {
     /* Fields of Epc-1.0.Epc.ConsumerClass */
     authenticate: (consumer: Consumer, realm: string) => void
     publisher_resolved: (consumer: Consumer, protocol: Protocol, hostname: string, port: number) => void
     static name: string
 }
-export class ConsumerPrivate {
+class ConsumerPrivate {
     static name: string
 }
-export class Contents {
+class Contents {
     /* Methods of Epc-1.0.Epc.Contents */
     get_mime_type(): string
     is_stream(): boolean
@@ -453,19 +455,19 @@ export class Contents {
     static new_dup(type: string, data: object, length: number): Contents
     static stream_new(type: string, callback: ContentsReadFunc): Contents
 }
-export abstract class DispatcherClass {
+abstract class DispatcherClass {
     static name: string
 }
-export class DispatcherPrivate {
+class DispatcherPrivate {
     static name: string
 }
-export abstract class PublisherClass {
+abstract class PublisherClass {
     static name: string
 }
-export class PublisherPrivate {
+class PublisherPrivate {
     static name: string
 }
-export class ServiceInfo {
+class ServiceInfo {
     /* Methods of Epc-1.0.Epc.ServiceInfo */
     get_address_family(): AddressFamily
     get_detail(name: string): string
@@ -477,20 +479,22 @@ export class ServiceInfo {
     unref(): void
     static name: string
 }
-export abstract class ServiceMonitorClass {
+abstract class ServiceMonitorClass {
     /* Fields of Epc-1.0.Epc.ServiceMonitorClass */
     service_found: (monitor: ServiceMonitor, name: string, info: ServiceInfo) => void
     service_removed: (monitor: ServiceMonitor, name: string, type: string) => void
     scanning_done: (monitor: ServiceMonitor, type: string) => void
     static name: string
 }
-export class ServiceMonitorPrivate {
+class ServiceMonitorPrivate {
     static name: string
 }
-export class ShellProgressHooks {
+class ShellProgressHooks {
     /* Fields of Epc-1.0.Epc.ShellProgressHooks */
     begin: (title: string) => void
     update: (percentage: number, message: string) => void
     end: () => void
     static name: string
 }
+}
+export default Epc

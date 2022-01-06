@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 export * from './commands/generate'
 export * from './commands/list'
 export * from './types'
@@ -11,8 +13,8 @@ export * from './template-processor'
 export * from './transformation'
 export * from './utils'
 
-import { run } from '@oclif/command'
-import flush from '@oclif/command/flush'
+import { run } from '@oclif/core'
+import flush from '@oclif/core/flush'
 
 export { run, flush }
 
@@ -24,6 +26,7 @@ if (require.main === module) {
             if (error && error.oclif && typeof error.oclif.exit === 'number' && error.oclif.exit !== 0) {
                 console.log('error', error)
             }
+            // eslint-disable-next-line
             require('@oclif/errors/handle')(error)
         })
     } catch (ex) {

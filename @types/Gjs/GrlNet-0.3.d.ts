@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum WcError {
+export namespace GrlNet {
+
+enum WcError {
     UNAVAILABLE,
     PROTOCOL_ERROR,
     AUTHENTICATION_REQUIRED,
@@ -26,7 +28,7 @@ export interface Wc_ConstructProps extends GObject.Object_ConstructProps {
     throttling?: number
     user_agent?: string
 }
-export class Wc {
+class Wc {
     /* Properties of GrlNet-0.3.GrlNet.Wc */
     cache: boolean
     cache_size: number
@@ -102,11 +104,13 @@ export class Wc {
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class WcClass {
+abstract class WcClass {
     /* Fields of GrlNet-0.3.GrlNet.WcClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class WcPrivate {
+class WcPrivate {
     static name: string
 }
+}
+export default GrlNet

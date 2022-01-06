@@ -1,2 +1,1 @@
-imports.gi.versions.Pnl = '1.0'
-module.exports = imports.gi.Pnl
+export {default as default} from 'gi://Pnl?version=1.0';

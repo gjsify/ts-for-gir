@@ -23,11 +23,11 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Champlain } from './Champlain-0.12';
 
-export declare namespace GtkChamplain {
+declare namespace GtkChamplain {
 
 export interface Embed_ConstructProps extends Gtk.Alignment_ConstructProps {
 }
-export class Embed {
+class Embed {
     /* Properties of GtkChamplain-0.12.GtkChamplain.Embed */
     readonly champlainView: Champlain.View
     /* Properties of Gtk-3.0.Gtk.Alignment */
@@ -1064,12 +1064,13 @@ export class Embed {
     static new(xalign: number, yalign: number, xscale: number, yscale: number): Embed
     static $gtype: GObject.Type
 }
-export abstract class EmbedClass {
+abstract class EmbedClass {
     /* Fields of GtkChamplain-0.12.GtkChamplain.EmbedClass */
     parentClass: Gtk.AlignmentClass
     static name: string
 }
-export class EmbedPrivate {
+class EmbedPrivate {
     static name: string
 }
 }
+export default GtkChamplain

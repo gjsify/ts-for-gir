@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum Error {
+export namespace GSound {
+
+enum Error {
     NOTSUPPORTED,
     INVALID,
     STATE,
@@ -73,10 +75,10 @@ export const ATTR_WINDOW_X11_MONITOR: string
 export const ATTR_WINDOW_X11_SCREEN: string
 export const ATTR_WINDOW_X11_XID: string
 export const ATTR_WINDOW_Y: string
-export function error_quark(): GLib.Quark
+function error_quark(): GLib.Quark
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Context {
+class Context {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GSound-1.0.GSound.Context */
@@ -137,6 +139,8 @@ export class Context {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     static name: string
 }
+}
+export default GSound

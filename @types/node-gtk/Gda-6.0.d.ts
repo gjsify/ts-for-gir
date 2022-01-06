@@ -8,18 +8,18 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Gda {
+declare namespace Gda {
 
-export enum BatchError {
+enum BatchError {
     BATCH_CONFLICTING_PARAMETER_ERROR,
 }
-export enum ConfigError {
+enum ConfigError {
     DSN_NOT_FOUND_ERROR,
     PERMISSION_ERROR,
     PROVIDER_NOT_FOUND_ERROR,
     PROVIDER_CREATION_ERROR,
 }
-export enum ConnectionError {
+enum ConnectionError {
     DSN_NOT_FOUND_ERROR,
     PROVIDER_NOT_FOUND_ERROR,
     PROVIDER_ERROR,
@@ -34,7 +34,7 @@ export enum ConnectionError {
     META_DATA_CONTEXT_ERROR,
     NO_MAIN_CONTEXT_ERROR,
 }
-export enum ConnectionEventCode {
+enum ConnectionEventCode {
     CONSTRAINT_VIOLATION,
     RESTRICT_VIOLATION,
     NOT_NULL_VIOLATION,
@@ -55,13 +55,13 @@ export enum ConnectionEventCode {
     SYNTAX_ERROR,
     UNKNOWN,
 }
-export enum ConnectionEventType {
+enum ConnectionEventType {
     NOTICE,
     WARNING,
     ERROR,
     COMMAND,
 }
-export enum ConnectionFeature {
+enum ConnectionFeature {
     AGGREGATES,
     BLOBS,
     INDEXES,
@@ -84,7 +84,7 @@ export enum ConnectionFeature {
     XA_TRANSACTIONS,
     LAST,
 }
-export enum ConnectionMetaType {
+enum ConnectionMetaType {
     NAMESPACES,
     TYPES,
     TABLES,
@@ -92,19 +92,19 @@ export enum ConnectionMetaType {
     FIELDS,
     INDEXES,
 }
-export enum ConnectionStatus {
+enum ConnectionStatus {
     CLOSED,
     OPENING,
     IDLE,
     BUSY,
 }
-export enum DataComparatorError {
+enum DataComparatorError {
     MISSING_DATA_MODEL_ERROR,
     COLUMN_TYPES_MISMATCH_ERROR,
     MODEL_ACCESS_ERROR,
     USER_CANCELLED_ERROR,
 }
-export enum DataModelError {
+enum DataModelError {
     ROW_OUT_OF_RANGE_ERROR,
     COLUMN_OUT_OF_RANGE_ERROR,
     VALUES_LIST_ERROR,
@@ -118,49 +118,49 @@ export enum DataModelError {
     INVALID,
     OTHER_ERROR,
 }
-export enum DataModelHint {
+enum DataModelHint {
     START_BATCH_UPDATE,
     END_BATCH_UPDATE,
     REFRESH,
 }
-export enum DataModelIOFormat {
+enum DataModelIOFormat {
     DATA_ARRAY_XML,
     TEXT_SEPARATED,
     TEXT_TABLE,
 }
-export enum DataModelIterError {
+enum DataModelIterError {
     DATA_MODEL_ITER_COLUMN_OUT_OF_RANGE_ERROR,
 }
-export enum DataPivotAggregate {
+enum DataPivotAggregate {
     AVG,
     COUNT,
     MAX,
     MIN,
     SUM,
 }
-export enum DataPivotError {
+enum DataPivotError {
     INTERNAL_ERROR,
     SOURCE_MODEL_ERROR,
     FIELD_FORMAT_ERROR,
     USAGE_ERROR,
     OVERFLOW_ERROR,
 }
-export enum DataPivotFieldType {
+enum DataPivotFieldType {
     ROW,
     COLUMN,
 }
-export enum DataProxyError {
+enum DataProxyError {
     COMMIT_ERROR,
     COMMIT_CANCELLED,
     READ_ONLY_VALUE,
     READ_ONLY_ROW,
     FILTER_ERROR,
 }
-export enum DataSelectConditionType {
+enum DataSelectConditionType {
     PK,
     ALL_COLUMNS,
 }
-export enum DataSelectError {
+enum DataSelectError {
     MODIFICATION_STATEMENT_ERROR,
     MISSING_MODIFICATION_STATEMENT_ERROR,
     CONNECTION_ERROR,
@@ -168,7 +168,7 @@ export enum DataSelectError {
     SQL_ERROR,
     SAFETY_LOCKED_ERROR,
 }
-export enum DbCatalogError {
+enum DbCatalogError {
     CONTEXT_NULL,
     DOC_NULL,
     INVALID_XML,
@@ -180,56 +180,56 @@ export enum DbCatalogError {
     PARSE_CHUNK,
     CONNECTION_CLOSED,
 }
-export enum DbColumnError {
+enum DbColumnError {
     TYPE,
     WRONG_OPERATION,
 }
-export enum DbFkeyReferenceAction {
+enum DbFkeyReferenceAction {
     NO_ACTION,
     SET_NULL,
     RESTRICT,
     SET_DEFAULT,
     CASCADE,
 }
-export enum DbIndexError {
+enum DbIndexError {
     CONNECTION_NOT_OPENED,
     SERVER_OPERATION,
 }
-export enum DbIndexSortOrder {
+enum DbIndexSortOrder {
     ASC,
     DESC,
 }
-export enum DbTableError {
+enum DbTableError {
     COLUMN_EMPTY,
     CONNECTION_NOT_OPENED,
     SERVER_OPERATION,
 }
-export enum DbViewRefAction {
+enum DbViewRefAction {
     RESTRICT,
     CASCADE,
 }
-export enum DdlModifiableError {
+enum DdlModifiableError {
     NOT_IMPLEMENTED,
     CONNECTION_NOT_OPENED,
     MISSED_DATA,
 }
-export enum DiffType {
+enum DiffType {
     ADD_ROW,
     REMOVE_ROW,
     MODIFY_ROW,
 }
-export enum HolderError {
+enum HolderError {
     STRING_CONVERSION_ERROR,
     VALUE_TYPE_ERROR,
     VALUE_NULL_ERROR,
     VALUE_CHANGE_ERROR,
 }
-export enum MetaDbObjectType {
+enum MetaDbObjectType {
     UNKNOWN,
     TABLE,
     VIEW,
 }
-export enum MetaForeignKeyPolicy {
+enum MetaForeignKeyPolicy {
     UNKNOWN,
     NONE,
     NO_ACTION,
@@ -238,16 +238,16 @@ export enum MetaForeignKeyPolicy {
     SET_NULL,
     SET_DEFAULT,
 }
-export enum MetaSortType {
+enum MetaSortType {
     ALHAPETICAL,
     DEPENDENCIES,
 }
-export enum MetaStoreChangeType {
+enum MetaStoreChangeType {
     ADD,
     REMOVE,
     MODIFY,
 }
-export enum MetaStoreError {
+enum MetaStoreError {
     INCORRECT_SCHEMA_ERROR,
     UNSUPPORTED_PROVIDER_ERROR,
     INTERNAL_ERROR,
@@ -261,27 +261,27 @@ export enum MetaStoreError {
     SCHEMA_OBJECT_DESCR_ERROR,
     TRANSACTION_ALREADY_STARTED_ERROR,
 }
-export enum MetaStructError {
+enum MetaStructError {
     UNKNOWN_OBJECT_ERROR,
     DUPLICATE_OBJECT_ERROR,
     INCOHERENCE_ERROR,
     XML_ERROR,
 }
-export enum ProviderMetaError {
+enum ProviderMetaError {
     NO_CONNECTION_ERROR,
     QUERY_ERROR,
 }
-export enum ServerOperationError {
+enum ServerOperationError {
     OBJECT_NAME_ERROR,
     INCORRECT_VALUE_ERROR,
     XML_ERROR,
 }
-export enum ServerOperationNodeStatus {
+enum ServerOperationNodeStatus {
     OPTIONAL,
     REQUIRED,
     UNKNOWN,
 }
-export enum ServerOperationNodeType {
+enum ServerOperationNodeType {
     PARAMLIST,
     DATA_MODEL,
     PARAM,
@@ -290,7 +290,7 @@ export enum ServerOperationNodeType {
     DATA_MODEL_COLUMN,
     UNKNOWN,
 }
-export enum ServerOperationType {
+enum ServerOperationType {
     CREATE_DB,
     DROP_DB,
     CREATE_TABLE,
@@ -311,7 +311,7 @@ export enum ServerOperationType {
     DROP_USER,
     LAST,
 }
-export enum ServerProviderError {
+enum ServerProviderError {
     METHOD_NON_IMPLEMENTED_ERROR,
     PREPARE_STMT_ERROR,
     EMPTY_STMT_ERROR,
@@ -327,13 +327,13 @@ export enum ServerProviderError {
     MISUSE_ERROR,
     FILE_NOT_FOUND_ERROR,
 }
-export enum ServerProviderFunctionsType {
+enum ServerProviderFunctionsType {
     BASE,
     META,
     XA,
     MAX,
 }
-export enum ServerProviderMetaType {
+enum ServerProviderMetaType {
     _INFO,
     _BTYPES,
     _UDT,
@@ -381,14 +381,14 @@ export enum ServerProviderMetaType {
     _INDEX_COLS,
     INDEX_COLS,
 }
-export enum SetError {
+enum SetError {
     XML_SPEC_ERROR,
     HOLDER_NOT_FOUND_ERROR,
     INVALID_ERROR,
     READ_ONLY_ERROR,
     IMPLEMENTATION_ERROR,
 }
-export enum SqlAnyPartType {
+enum SqlAnyPartType {
     STMT_SELECT,
     STMT_INSERT,
     STMT_UPDATE,
@@ -413,17 +413,17 @@ export enum SqlAnyPartType {
     SQL_SELECT_FROM,
     SQL_SELECT_ORDER,
 }
-export enum SqlBuilderError {
+enum SqlBuilderError {
     WRONG_TYPE_ERROR,
     MISUSE_ERROR,
 }
-export enum SqlError {
+enum SqlError {
     STRUCTURE_CONTENTS_ERROR,
     MALFORMED_IDENTIFIER_ERROR,
     MISSING_IDENTIFIER_ERROR,
     VALIDATION_ERROR,
 }
-export enum SqlOperatorType {
+enum SqlOperatorType {
     AND,
     OR,
     EQ,
@@ -458,23 +458,23 @@ export enum SqlOperatorType {
     NOTLIKE,
     NOTILIKE,
 }
-export enum SqlParserError {
+enum SqlParserError {
     SYNTAX_ERROR,
     OVERFLOW_ERROR,
     EMPTY_SQL_ERROR,
 }
-export enum SqlParserFlavour {
+enum SqlParserFlavour {
     STANDARD,
     SQLITE,
     MYSQL,
     ORACLE,
     POSTGRESQL,
 }
-export enum SqlParserMode {
+enum SqlParserMode {
     PARSE,
     DELIMIT,
 }
-export enum SqlSelectJoinType {
+enum SqlSelectJoinType {
     CROSS,
     NATURAL,
     INNER,
@@ -482,7 +482,7 @@ export enum SqlSelectJoinType {
     RIGHT,
     FULL,
 }
-export enum SqlStatementCompoundType {
+enum SqlStatementCompoundType {
     UNION,
     UNION_ALL,
     INTERSECT,
@@ -490,7 +490,7 @@ export enum SqlStatementCompoundType {
     EXCEPT,
     EXCEPT_ALL,
 }
-export enum SqlStatementType {
+enum SqlStatementType {
     SELECT,
     INSERT,
     UPDATE,
@@ -505,7 +505,7 @@ export enum SqlStatementType {
     UNKNOWN,
     NONE,
 }
-export enum StatementError {
+enum StatementError {
     PARSE_ERROR,
     SYNTAX_ERROR,
     NO_CNC_ERROR,
@@ -514,32 +514,32 @@ export enum StatementError {
     PARAM_TYPE_ERROR,
     PARAM_ERROR,
 }
-export enum TransactionIsolation {
+enum TransactionIsolation {
     SERVER_DEFAULT,
     READ_COMMITTED,
     READ_UNCOMMITTED,
     REPEATABLE_READ,
     SERIALIZABLE,
 }
-export enum TransactionStatusEventType {
+enum TransactionStatusEventType {
     SAVEPOINT,
     SQL,
     SUB_TRANSACTION,
 }
-export enum TransactionStatusState {
+enum TransactionStatusState {
     OK,
     FAILED,
 }
-export enum TreeError {
+enum TreeError {
     TREE_UNKNOWN_ERROR,
 }
-export enum TreeManagerError {
+enum TreeManagerError {
     TREE_MANAGER_UNKNOWN_ERROR,
 }
-export enum TreeNodeError {
+enum TreeNodeError {
     TREE_NODE_UNKNOWN_ERROR,
 }
-export enum WorkerError {
+enum WorkerError {
     INTER_THREAD_ERROR,
     JOB_NOT_FOUND_ERROR,
     JOB_QUEUED_ERROR,
@@ -548,12 +548,12 @@ export enum WorkerError {
     JOB_CANCELLED_ERROR,
     THREAD_KILLED,
 }
-export enum XaTransactionError {
+enum XaTransactionError {
     ALREADY_REGISTERED_ERROR,
     DTP_NOT_SUPPORTED_ERROR,
     CONNECTION_BRANCH_LENGTH_ERROR,
 }
-export enum XaType {
+enum XaType {
     START,
     END,
     PREPARE,
@@ -561,13 +561,13 @@ export enum XaType {
     ROLLBACK,
     RECOVER,
 }
-export enum ConnectionOptions {
+enum ConnectionOptions {
     NONE,
     READ_ONLY,
     SQL_IDENTIFIERS_CASE_SENSITIVE,
     AUTO_META_DATA,
 }
-export enum DataModelAccessFlags {
+enum DataModelAccessFlags {
     RANDOM,
     CURSOR_FORWARD,
     CURSOR_BACKWARD,
@@ -577,16 +577,16 @@ export enum DataModelAccessFlags {
     DELETE,
     WRITE,
 }
-export enum MetaGraphInfo {
+enum MetaGraphInfo {
     META_GRAPH_COLUMNS,
 }
-export enum MetaStructFeature {
+enum MetaStructFeature {
     NONE,
     FOREIGN_KEYS,
     VIEW_DEPENDENCIES,
     ALL,
 }
-export enum ServerOperationCreateTableFlag {
+enum ServerOperationCreateTableFlag {
     NOTHING_FLAG,
     PKEY_FLAG,
     NOT_NULL_FLAG,
@@ -595,11 +595,11 @@ export enum ServerOperationCreateTableFlag {
     FKEY_FLAG,
     PKEY_AUTOINC_FLAG,
 }
-export enum SqlIdentifierStyle {
+enum SqlIdentifierStyle {
     LOWER_CASE,
     UPPER_CASE,
 }
-export enum StatementModelUsage {
+enum StatementModelUsage {
     RANDOM_ACCESS,
     CURSOR_FORWARD,
     CURSOR_BACKWARD,
@@ -607,7 +607,7 @@ export enum StatementModelUsage {
     ALLOW_NOPARAM,
     OFFLINE,
 }
-export enum StatementSqlFlag {
+enum StatementSqlFlag {
     PARAMS_AS_VALUES,
     PRETTY,
     PARAMS_LONG,
@@ -618,7 +618,7 @@ export enum StatementSqlFlag {
     PARAMS_AS_UQMARK,
     TIMEZONE_TO_GMT,
 }
-export enum ValueAttribute {
+enum ValueAttribute {
     NONE,
     IS_NULL,
     CAN_BE_NULL,
@@ -641,121 +641,121 @@ export const EXTRA_AUTO_INCREMENT: string
 export const SQLSTATE_GENERAL_ERROR: string
 export const SQLSTATE_NO_ERROR: string
 export const TIMEZONE_INVALID: number
-export function alphanumToText(text: string): string | null
-export function completionListGet(cnc: Connection, sql: string, start: number, end: number): string[] | null
-export function computeDmlStatements(cnc: Connection, selectStmt: Statement, requirePk: boolean): { returnType: boolean, insertStmt: Statement | null, updateStmt: Statement | null, deleteStmt: Statement | null }
-export function computeSelectStatementFromUpdate(updateStmt: Statement): SqlStatement | null
-export function computeUniqueTableRowCondition(stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
-export function computeUniqueTableRowConditionWithCnc(cnc: Connection | null, stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
-export function dataHandlerGetDefault(forType: GObject.Type): DataHandler
-export function dataModelErrorQuark(): GLib.Quark
-export function dateTimeCopy(ts: GLib.DateTime): GLib.DateTime
-export function ddlModifiableErrorQuark(): GLib.Quark
-export function defaultEscapeString(string: string): string | null
-export function defaultUnescapeString(string: string): string | null
-export function dsnSplit(string: string, outDsn: string, outUsername: string, outPassword: string): void
-export function gTypeFromString(str: string): GObject.Type
-export function gTypeToString(type: GObject.Type): string
-export function identifierEqual(id1: string, id2: string): boolean
-export function identifierHash(id: string): number
-export function logDisable(): void
-export function logEnable(): void
-export function logIsEnabled(): boolean
-export function parseFormattedDate(gdate: GLib.Date, value: string, first: GLib.DateDMY, second: GLib.DateDMY, third: GLib.DateDMY, sep: number): boolean
-export function parseFormattedTime(value: string, sep: number): Time
-export function parseFormattedTimestamp(value: string, first: GLib.DateDMY, second: GLib.DateDMY, third: GLib.DateDMY, sep: number): GLib.DateTime | null
-export function parseIso8601Date(gdate: GLib.Date, value: string): boolean
-export function parseIso8601Time(value: string): Time
-export function providerMetaErrorQuark(): GLib.Quark
-export function rewriteSqlStatementForNullParameters(sqlst: SqlStatement, params: Set): { returnType: SqlStatement | null, outModified: boolean | null }
-export function rewriteStatementForNullParameters(stmt: Statement, params: Set): { returnType: boolean, outStmt: Statement | null }
-export function rfc1738Decode(string: string): boolean
-export function rfc1738Encode(string: string): string | null
-export function selectAlterSelectForEmpty(stmt: Statement): Statement
-export function serverOperationCreateTableArgGetFkeyRefFieldGetType(): GObject.Type
-export function sqlErrorQuark(): GLib.Quark
-export function sqlIdentifierForceQuotes(str: string): string
-export function sqlIdentifierPrepareForCompare(str: string): string
-export function sqlIdentifierQuote(id: string, cnc: Connection | null, prov: ServerProvider | null, metaStoreConvention: boolean, forceQuotes: boolean): string | null
-export function sqlIdentifierSplit(id: string): string[] | null
-export function sqlOperationOperatorFromString(op: string): SqlOperatorType
-export function sqlOperationOperatorToString(op: SqlOperatorType): string
-export function sqlSelectJoinTypeToString(type: SqlSelectJoinType): string
-export function sqlStatementGetContentsInfos(type: SqlStatementType): SqlStatementContentsInfo
-export function sqlStatementStringToType(type: string): SqlStatementType
-export function sqlStatementTypeToString(type: SqlStatementType): string
-export function sqlValueStringify(value: any): string
-export function stringToBinary(str?: string | null): Binary
-export function stringToBlob(str: string): Blob
-export function textToAlphanum(text: string): string
-export function utilityCheckDataModel(model: DataModel, types: GObject.Type[]): boolean
-export function utilityDataModelDumpDataToXml(model: DataModel, parent: libxml2.NodePtr, cols: number[] | null, rows: number[] | null, useColIds: boolean): boolean
-export function utilityDataModelFindColumnDescription(model: DataSelect, fieldName: string): string | null
-export function utilityHolderLoadAttributes(holder: Holder, node: libxml2.NodePtr, sources?: DataModel[] | null): boolean
-export function valueCompare(value1: any, value2: any): number
-export function valueCopy(value: any): any
-export function valueDiffer(value1: any, value2: any): number
-export function valueFree(value?: any | null): void
-export function valueGetBinary(value: any): Binary
-export function valueGetBlob(value: any): Blob
-export function valueGetGeometricPoint(value: any): GeometricPoint
-export function valueGetMetaStoreChange(value: any): MetaStoreChange
-export function valueGetNumeric(value: any): Numeric
-export function valueGetShort(value: any): number
-export function valueGetTime(value: any): Time
-export function valueGetUshort(value: any): number
-export function valueIsNull(value: any): boolean
-export function valueIsNumber(value: any): boolean
-export function valueNew(type: GObject.Type): any
-export function valueNewBinary(val: number, size: number): any
-export function valueNewBlob(val: number, size: number): any
-export function valueNewBlobFromFile(filename: string): any
-export function valueNewDateTimeFromTimet(val: number): any
-export function valueNewDefault(defaultVal?: string | null): any
-export function valueNewFromString(asString: string, type: GObject.Type): any
-export function valueNewFromXml(node: libxml2.NodePtr): any
-export function valueNewNull(): any
-export function valueNewTimeFromTimet(val: number): any
-export function valueResetWithType(value: any, type: GObject.Type): void
-export function valueSetBinary(value: any, binary: Binary): void
-export function valueSetBlob(value: any, blob: Blob): void
-export function valueSetFromString(value: any, asString: string, type: GObject.Type): boolean
-export function valueSetFromValue(value: any, from: any): boolean
-export function valueSetGeometricPoint(value: any, val: GeometricPoint): void
-export function valueSetMetaStoreChange(value: any, change: MetaStoreChange): void
-export function valueSetNull(value: any): void
-export function valueSetNumeric(value: any, val: Numeric): void
-export function valueSetShort(value: any, val: number): void
-export function valueSetTime(value: any, val: Time): void
-export function valueSetUshort(value: any, val: number): void
-export function valueStringify(value: any): string
-export function valueTakeBinary(value: any, binary: Binary): void
-export function valueTakeBlob(value: any, blob: Blob): void
-export function valueToXmlString(value: any): string
-export function workerErrorQuark(): GLib.Quark
-export function workerNewUnique(location: Worker, allowDestroy: boolean): Worker
-export interface ConnectionOpenFunc {
+function alphanumToText(text: string): string | null
+function completionListGet(cnc: Connection, sql: string, start: number, end: number): string[] | null
+function computeDmlStatements(cnc: Connection, selectStmt: Statement, requirePk: boolean): { returnType: boolean, insertStmt: Statement | null, updateStmt: Statement | null, deleteStmt: Statement | null }
+function computeSelectStatementFromUpdate(updateStmt: Statement): SqlStatement | null
+function computeUniqueTableRowCondition(stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
+function computeUniqueTableRowConditionWithCnc(cnc: Connection | null, stsel: SqlStatementSelect, mtable: MetaTable, requirePk: boolean): SqlExpr | null
+function dataHandlerGetDefault(forType: GObject.Type): DataHandler
+function dataModelErrorQuark(): GLib.Quark
+function dateTimeCopy(ts: GLib.DateTime): GLib.DateTime
+function ddlModifiableErrorQuark(): GLib.Quark
+function defaultEscapeString(string: string): string | null
+function defaultUnescapeString(string: string): string | null
+function dsnSplit(string: string, outDsn: string, outUsername: string, outPassword: string): void
+function gTypeFromString(str: string): GObject.Type
+function gTypeToString(type: GObject.Type): string
+function identifierEqual(id1: string, id2: string): boolean
+function identifierHash(id: string): number
+function logDisable(): void
+function logEnable(): void
+function logIsEnabled(): boolean
+function parseFormattedDate(gdate: GLib.Date, value: string, first: GLib.DateDMY, second: GLib.DateDMY, third: GLib.DateDMY, sep: number): boolean
+function parseFormattedTime(value: string, sep: number): Time
+function parseFormattedTimestamp(value: string, first: GLib.DateDMY, second: GLib.DateDMY, third: GLib.DateDMY, sep: number): GLib.DateTime | null
+function parseIso8601Date(gdate: GLib.Date, value: string): boolean
+function parseIso8601Time(value: string): Time
+function providerMetaErrorQuark(): GLib.Quark
+function rewriteSqlStatementForNullParameters(sqlst: SqlStatement, params: Set): { returnType: SqlStatement | null, outModified: boolean | null }
+function rewriteStatementForNullParameters(stmt: Statement, params: Set): { returnType: boolean, outStmt: Statement | null }
+function rfc1738Decode(string: string): boolean
+function rfc1738Encode(string: string): string | null
+function selectAlterSelectForEmpty(stmt: Statement): Statement
+function serverOperationCreateTableArgGetFkeyRefFieldGetType(): GObject.Type
+function sqlErrorQuark(): GLib.Quark
+function sqlIdentifierForceQuotes(str: string): string
+function sqlIdentifierPrepareForCompare(str: string): string
+function sqlIdentifierQuote(id: string, cnc: Connection | null, prov: ServerProvider | null, metaStoreConvention: boolean, forceQuotes: boolean): string | null
+function sqlIdentifierSplit(id: string): string[] | null
+function sqlOperationOperatorFromString(op: string): SqlOperatorType
+function sqlOperationOperatorToString(op: SqlOperatorType): string
+function sqlSelectJoinTypeToString(type: SqlSelectJoinType): string
+function sqlStatementGetContentsInfos(type: SqlStatementType): SqlStatementContentsInfo
+function sqlStatementStringToType(type: string): SqlStatementType
+function sqlStatementTypeToString(type: SqlStatementType): string
+function sqlValueStringify(value: any): string
+function stringToBinary(str?: string | null): Binary
+function stringToBlob(str: string): Blob
+function textToAlphanum(text: string): string
+function utilityCheckDataModel(model: DataModel, types: GObject.Type[]): boolean
+function utilityDataModelDumpDataToXml(model: DataModel, parent: libxml2.NodePtr, cols: number[] | null, rows: number[] | null, useColIds: boolean): boolean
+function utilityDataModelFindColumnDescription(model: DataSelect, fieldName: string): string | null
+function utilityHolderLoadAttributes(holder: Holder, node: libxml2.NodePtr, sources?: DataModel[] | null): boolean
+function valueCompare(value1: any, value2: any): number
+function valueCopy(value: any): any
+function valueDiffer(value1: any, value2: any): number
+function valueFree(value?: any | null): void
+function valueGetBinary(value: any): Binary
+function valueGetBlob(value: any): Blob
+function valueGetGeometricPoint(value: any): GeometricPoint
+function valueGetMetaStoreChange(value: any): MetaStoreChange
+function valueGetNumeric(value: any): Numeric
+function valueGetShort(value: any): number
+function valueGetTime(value: any): Time
+function valueGetUshort(value: any): number
+function valueIsNull(value: any): boolean
+function valueIsNumber(value: any): boolean
+function valueNew(type: GObject.Type): any
+function valueNewBinary(val: number, size: number): any
+function valueNewBlob(val: number, size: number): any
+function valueNewBlobFromFile(filename: string): any
+function valueNewDateTimeFromTimet(val: number): any
+function valueNewDefault(defaultVal?: string | null): any
+function valueNewFromString(asString: string, type: GObject.Type): any
+function valueNewFromXml(node: libxml2.NodePtr): any
+function valueNewNull(): any
+function valueNewTimeFromTimet(val: number): any
+function valueResetWithType(value: any, type: GObject.Type): void
+function valueSetBinary(value: any, binary: Binary): void
+function valueSetBlob(value: any, blob: Blob): void
+function valueSetFromString(value: any, asString: string, type: GObject.Type): boolean
+function valueSetFromValue(value: any, from: any): boolean
+function valueSetGeometricPoint(value: any, val: GeometricPoint): void
+function valueSetMetaStoreChange(value: any, change: MetaStoreChange): void
+function valueSetNull(value: any): void
+function valueSetNumeric(value: any, val: Numeric): void
+function valueSetShort(value: any, val: number): void
+function valueSetTime(value: any, val: Time): void
+function valueSetUshort(value: any, val: number): void
+function valueStringify(value: any): string
+function valueTakeBinary(value: any, binary: Binary): void
+function valueTakeBlob(value: any, blob: Blob): void
+function valueToXmlString(value: any): string
+function workerErrorQuark(): GLib.Quark
+function workerNewUnique(location: Worker, allowDestroy: boolean): Worker
+interface ConnectionOpenFunc {
     (cnc: Connection, jobId: number, result: boolean, error: GLib.Error, data?: object | null): void
 }
-export interface SqlForeachFunc {
+interface SqlForeachFunc {
     (part: SqlAnyPart, data?: object | null): boolean
 }
-export interface SqlReservedKeywordsFunc {
+interface SqlReservedKeywordsFunc {
     (word: string): boolean
 }
-export interface TreeManagerNodeFunc {
+interface TreeManagerNodeFunc {
     (manager: TreeManager, parent?: TreeNode | null, name?: string | null): TreeNode
 }
-export interface TreeManagerNodesFunc {
+interface TreeManagerNodesFunc {
     (manager: TreeManager, node: TreeNode | null, childrenNodes: TreeNode[]): TreeNode[]
 }
-export interface WorkerCallback {
+interface WorkerCallback {
     (worker: Worker, jobId: number, resultData: object | null, error: GLib.Error): void
 }
-export interface WorkerFunc {
+interface WorkerFunc {
     (): object | null
 }
-export class DataHandler {
+class DataHandler {
     /* Methods of Gda-6.0.Gda.DataHandler */
     acceptsGType(type: GObject.Type): boolean
     getDescr(): string
@@ -768,7 +768,7 @@ export class DataHandler {
     /* Static methods and pseudo-constructors */
     static getDefault(forType: GObject.Type): DataHandler
 }
-export class DataModel {
+class DataModel {
     /* Methods of Gda-6.0.Gda.DataModel */
     addDataFromXmlNode(node: libxml2.NodePtr): boolean
     appendRow(): number
@@ -846,13 +846,13 @@ export class DataModel {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DbBuildable {
+class DbBuildable {
     /* Methods of Gda-6.0.Gda.DbBuildable */
     parseNode(node: libxml2.NodePtr): boolean
     writeNode(node: libxml2.NodePtr): boolean
     static name: string
 }
-export class DdlModifiable {
+class DdlModifiable {
     /* Methods of Gda-6.0.Gda.DdlModifiable */
     create(cnc: Connection, userData?: object | null): boolean
     drop(cnc: Connection, userData?: object | null): boolean
@@ -861,14 +861,14 @@ export class DdlModifiable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Lockable {
+class Lockable {
     /* Methods of Gda-6.0.Gda.Lockable */
     lock(): void
     trylock(): boolean
     unlock(): void
     static name: string
 }
-export class Provider {
+class Provider {
     /* Methods of Gda-6.0.Gda.Provider */
     addSavepoint(cnc: Connection, name: string): boolean
     beginTransaction(cnc: Connection, name: string, level: TransactionIsolation): boolean
@@ -901,7 +901,7 @@ export class Provider {
     unescapeString(cnc: Connection, str: string): string
     static name: string
 }
-export class ProviderMeta {
+class ProviderMeta {
     /* Methods of Gda-6.0.Gda.ProviderMeta */
     btypes(): DataModel
     characterSet(chsetCatalog: string, chsetSchema: string, chsetNameN: string): Row
@@ -966,7 +966,7 @@ export class ProviderMeta {
 }
 export interface Batch_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Batch {
+class Batch {
     /* Fields of Gda-6.0.Gda.Batch */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1030,7 +1030,7 @@ export class Batch {
 export interface BlobOp_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Connection
 }
-export class BlobOp {
+class BlobOp {
     /* Fields of Gda-6.0.Gda.BlobOp */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1086,7 +1086,7 @@ export interface Column_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
     name?: string
 }
-export class Column {
+class Column {
     /* Properties of Gda-6.0.Gda.Column */
     desc: string
     id: string
@@ -1185,7 +1185,7 @@ export interface Config_ConstructProps extends GObject.Object_ConstructProps {
     systemFilename?: string
     userFilename?: string
 }
-export class Config {
+class Config {
     /* Properties of Gda-6.0.Gda.Config */
     systemFilename: string
     userFilename: string
@@ -1289,7 +1289,7 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     metaStore?: MetaStore
     provider?: ServerProvider
 }
-export class Connection {
+class Connection {
     /* Properties of Gda-6.0.Gda.Connection */
     authString: string
     cncString: string
@@ -1499,7 +1499,7 @@ export class Connection {
 export interface ConnectionEvent_ConstructProps extends GObject.Object_ConstructProps {
     type?: number
 }
-export class ConnectionEvent {
+class ConnectionEvent {
     /* Properties of Gda-6.0.Gda.ConnectionEvent */
     type: number
     /* Fields of Gda-6.0.Gda.ConnectionEvent */
@@ -1567,7 +1567,7 @@ export class ConnectionEvent {
 export interface DataAccessWrapper_ConstructProps extends GObject.Object_ConstructProps {
     model?: DataModel
 }
-export class DataAccessWrapper {
+class DataAccessWrapper {
     /* Fields of Gda-6.0.Gda.DataAccessWrapper */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1693,7 +1693,7 @@ export interface DataComparator_ConstructProps extends GObject.Object_ConstructP
     newModel?: DataModel
     oldModel?: DataModel
 }
-export class DataComparator {
+class DataComparator {
     /* Properties of Gda-6.0.Gda.DataComparator */
     newModel: DataModel
     oldModel: DataModel
@@ -1769,7 +1769,7 @@ export interface DataModelArray_ConstructProps extends GObject.Object_ConstructP
     nColumns?: number
     readOnly?: boolean
 }
-export class DataModelArray {
+class DataModelArray {
     /* Properties of Gda-6.0.Gda.DataModelArray */
     nColumns: number
     readOnly: boolean
@@ -1910,7 +1910,7 @@ export class DataModelArray {
 export interface DataModelDir_ConstructProps extends GObject.Object_ConstructProps {
     basedir?: string
 }
-export class DataModelDir {
+class DataModelDir {
     /* Fields of Gda-6.0.Gda.DataModelDir */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2041,7 +2041,7 @@ export interface DataModelImport_ConstructProps extends GObject.Object_Construct
     strict?: boolean
     xmlNode?: object
 }
-export class DataModelImport {
+class DataModelImport {
     /* Properties of Gda-6.0.Gda.DataModelImport */
     strict: boolean
     /* Fields of Gda-6.0.Gda.DataModelImport */
@@ -2176,7 +2176,7 @@ export class DataModelImport {
 }
 export interface DataModelImportIter_ConstructProps extends DataModelIter_ConstructProps {
 }
-export class DataModelImportIter {
+class DataModelImportIter {
     /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
@@ -2346,7 +2346,7 @@ export interface DataModelIter_ConstructProps extends Set_ConstructProps {
     dataModel?: DataModel
     updateModel?: boolean
 }
-export class DataModelIter {
+class DataModelIter {
     /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
@@ -2515,7 +2515,7 @@ export class DataModelIter {
 }
 export interface DataModelSelect_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataModelSelect {
+class DataModelSelect {
     /* Properties of Gda-6.0.Gda.DataModelSelect */
     readonly valid: boolean
     /* Fields of Gda-6.0.Gda.DataModelSelect */
@@ -2657,7 +2657,7 @@ export class DataModelSelect {
 export interface DataPivot_ConstructProps extends GObject.Object_ConstructProps {
     model?: DataModel
 }
-export class DataPivot {
+class DataPivot {
     /* Properties of Gda-6.0.Gda.DataPivot */
     model: DataModel
     /* Fields of Gda-6.0.Gda.DataPivot */
@@ -2795,7 +2795,7 @@ export interface DataProxy_ConstructProps extends GObject.Object_ConstructProps 
     prependNullEntry?: boolean
     sampleSize?: number
 }
-export class DataProxy {
+class DataProxy {
     /* Properties of Gda-6.0.Gda.DataProxy */
     cacheChanges: boolean
     deferSync: boolean
@@ -3020,7 +3020,7 @@ export interface DataSelect_ConstructProps extends GObject.Object_ConstructProps
     storeAllRows?: boolean
     updateStmt?: Statement
 }
-export class DataSelect {
+class DataSelect {
     /* Properties of Gda-6.0.Gda.DataSelect */
     deleteStmt: Statement
     executionDelay: number
@@ -3200,7 +3200,7 @@ export class DataSelect {
 }
 export interface DataSelectIter_ConstructProps extends DataModelIter_ConstructProps {
 }
-export class DataSelectIter {
+class DataSelectIter {
     /* Properties of Gda-6.0.Gda.DataModelIter */
     currentRow: number
     dataModel: DataModel
@@ -3367,7 +3367,7 @@ export class DataSelectIter {
 }
 export interface DbBase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DbBase {
+class DbBase {
     /* Fields of Gda-6.0.Gda.DbBase */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3428,7 +3428,7 @@ export interface DbCatalog_ConstructProps extends GObject.Object_ConstructProps 
     connection?: Connection
     schemaName?: string
 }
-export class DbCatalog {
+class DbCatalog {
     /* Properties of Gda-6.0.Gda.DbCatalog */
     connection: Connection
     schemaName: string
@@ -3514,7 +3514,7 @@ export interface DbColumn_ConstructProps extends GObject.Object_ConstructProps {
     table?: DbTable
     unique?: boolean
 }
-export class DbColumn {
+class DbColumn {
     /* Properties of Gda-6.0.Gda.DbColumn */
     autoinc: boolean
     check: string
@@ -3664,7 +3664,7 @@ export class DbColumn {
 }
 export interface DbFkey_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DbFkey {
+class DbFkey {
     /* Fields of Gda-6.0.Gda.DbFkey */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3730,7 +3730,7 @@ export class DbFkey {
 export interface DbIndex_ConstructProps extends DbBase_ConstructProps {
     table?: DbTable
 }
-export class DbIndex {
+class DbIndex {
     /* Properties of Gda-6.0.Gda.DbIndex */
     table: DbTable
     /* Fields of Gda-6.0.Gda.DbIndex */
@@ -3807,7 +3807,7 @@ export class DbIndex {
 }
 export interface DbIndexField_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DbIndexField {
+class DbIndexField {
     /* Fields of Gda-6.0.Gda.DbIndexField */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -3866,7 +3866,7 @@ export interface DbTable_ConstructProps extends DbBase_ConstructProps {
     comment?: string
     istemp?: string
 }
-export class DbTable {
+class DbTable {
     /* Properties of Gda-6.0.Gda.DbTable */
     comment: string
     istemp: string
@@ -3961,7 +3961,7 @@ export interface DbView_ConstructProps extends DbBase_ConstructProps {
     istemp?: boolean
     replace?: boolean
 }
-export class DbView {
+class DbView {
     /* Properties of Gda-6.0.Gda.DbView */
     defstring: string
     ifnoexist: boolean
@@ -4063,7 +4063,7 @@ export class DbView {
 }
 export interface HandlerBin_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerBin {
+class HandlerBin {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4119,7 +4119,7 @@ export class HandlerBin {
 }
 export interface HandlerBoolean_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerBoolean {
+class HandlerBoolean {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4175,7 +4175,7 @@ export class HandlerBoolean {
 }
 export interface HandlerNumerical_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerNumerical {
+class HandlerNumerical {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4231,7 +4231,7 @@ export class HandlerNumerical {
 }
 export interface HandlerString_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerString {
+class HandlerString {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4288,7 +4288,7 @@ export class HandlerString {
 }
 export interface HandlerText_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerText {
+class HandlerText {
     /* Fields of Gda-6.0.Gda.HandlerText */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4346,7 +4346,7 @@ export class HandlerText {
 }
 export interface HandlerTime_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerTime {
+class HandlerTime {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gda-6.0.Gda.HandlerTime */
@@ -4409,7 +4409,7 @@ export class HandlerTime {
 }
 export interface HandlerType_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HandlerType {
+class HandlerType {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4476,7 +4476,7 @@ export interface Holder_ConstructProps extends GObject.Object_ConstructProps {
     sourceModel?: DataModel
     validateChanges?: boolean
 }
-export class Holder {
+class Holder {
     /* Properties of Gda-6.0.Gda.Holder */
     description: string
     fullBind: Holder
@@ -4647,7 +4647,7 @@ export interface MetaStore_ConstructProps extends GObject.Object_ConstructProps 
     cncString?: string
     schema?: string
 }
-export class MetaStore {
+class MetaStore {
     /* Fields of Gda-6.0.Gda.MetaStore */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4736,7 +4736,7 @@ export interface MetaStruct_ConstructProps extends GObject.Object_ConstructProps
     features?: number
     metaStore?: MetaStore
 }
-export class MetaStruct {
+class MetaStruct {
     /* Fields of Gda-6.0.Gda.MetaStruct */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4797,7 +4797,7 @@ export class MetaStruct {
 }
 export interface PStmt_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PStmt {
+class PStmt {
     /* Fields of Gda-6.0.Gda.PStmt */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4858,7 +4858,7 @@ export class PStmt {
 export interface RepetitiveStatement_ConstructProps extends GObject.Object_ConstructProps {
     statement?: Statement
 }
-export class RepetitiveStatement {
+class RepetitiveStatement {
     /* Fields of Gda-6.0.Gda.RepetitiveStatement */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4914,7 +4914,7 @@ export interface Row_ConstructProps extends GObject.Object_ConstructProps {
     modelRow?: number
     nbValues?: number
 }
-export class Row {
+class Row {
     /* Fields of Gda-6.0.Gda.Row */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4976,7 +4976,7 @@ export interface ServerOperation_ConstructProps extends GObject.Object_Construct
     specFilename?: string
     specResource?: string
 }
-export class ServerOperation {
+class ServerOperation {
     /* Fields of Gda-6.0.Gda.ServerOperation */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5064,7 +5064,7 @@ export class ServerOperation {
 }
 export interface ServerProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ServerProvider {
+class ServerProvider {
     /* Fields of Gda-6.0.Gda.ServerProvider */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5148,7 +5148,7 @@ export interface Set_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     validateChanges?: boolean
 }
-export class Set {
+class Set {
     /* Properties of Gda-6.0.Gda.Set */
     description: string
     id: string
@@ -5278,12 +5278,12 @@ export class Set {
     static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export class Short {
+class Short {
     static name: string
 }
 export interface SqlBuilder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlBuilder {
+class SqlBuilder {
     /* Fields of Gda-6.0.Gda.SqlBuilder */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5368,7 +5368,7 @@ export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps 
     mode?: number
     tokenizerFlavour?: number
 }
-export class SqlParser {
+class SqlParser {
     /* Properties of Gda-6.0.Gda.SqlParser */
     readonly columnError: number
     debug: boolean
@@ -5460,7 +5460,7 @@ export class SqlParser {
 export interface Statement_ConstructProps extends GObject.Object_ConstructProps {
     structure?: SqlStatement
 }
-export class Statement {
+class Statement {
     /* Properties of Gda-6.0.Gda.Statement */
     structure: SqlStatement
     /* Fields of Gda-6.0.Gda.Statement */
@@ -5539,7 +5539,7 @@ export class Statement {
 }
 export interface TransactionStatus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TransactionStatus {
+class TransactionStatus {
     /* Fields of Gda-6.0.Gda.TransactionStatus */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5599,7 +5599,7 @@ export class TransactionStatus {
 }
 export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Tree {
+class Tree {
     /* Properties of Gda-6.0.Gda.Tree */
     readonly isList: boolean
     /* Fields of Gda-6.0.Gda.Tree */
@@ -5691,7 +5691,7 @@ export interface TreeManager_ConstructProps extends GObject.Object_ConstructProp
     func?: TreeManagerNodesFunc
     recursive?: boolean
 }
-export class TreeManager {
+class TreeManager {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -5764,7 +5764,7 @@ export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProp
     schema?: string
     tableName?: string
 }
-export class TreeMgrColumns {
+class TreeMgrColumns {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -5833,7 +5833,7 @@ export class TreeMgrColumns {
 export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps {
     label?: string
 }
-export class TreeMgrLabel {
+class TreeMgrLabel {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -5903,7 +5903,7 @@ export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProp
     connection?: Connection
     metaStore?: MetaStore
 }
-export class TreeMgrSchemas {
+class TreeMgrSchemas {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -5974,7 +5974,7 @@ export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps
     params?: Set
     statement?: Statement
 }
-export class TreeMgrSelect {
+class TreeMgrSelect {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -6045,7 +6045,7 @@ export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps
     metaStore?: MetaStore
     schema?: string
 }
-export class TreeMgrTables {
+class TreeMgrTables {
     /* Properties of Gda-6.0.Gda.TreeManager */
     func: TreeManagerNodesFunc
     recursive: boolean
@@ -6114,7 +6114,7 @@ export class TreeMgrTables {
 export interface TreeNode_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
-export class TreeNode {
+class TreeNode {
     /* Properties of Gda-6.0.Gda.TreeNode */
     name: string
     /* Fields of Gda-6.0.Gda.TreeNode */
@@ -6198,14 +6198,14 @@ export class TreeNode {
     static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export class UShort {
+class UShort {
     static name: string
 }
 export interface XaTransaction_ConstructProps extends GObject.Object_ConstructProps {
     formatId?: number
     transactionId?: string
 }
-export class XaTransaction {
+class XaTransaction {
     /* Fields of Gda-6.0.Gda.XaTransaction */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -6261,13 +6261,13 @@ export class XaTransaction {
     static stringToId(str: string): XaTransactionId
     static $gtype: GObject.Type
 }
-export abstract class BatchClass {
+abstract class BatchClass {
     /* Fields of Gda-6.0.Gda.BatchClass */
     parentClass: GObject.ObjectClass
     changed: (batch: Batch, changedStmt: Statement) => void
     static name: string
 }
-export class Binary {
+class Binary {
     /* Methods of Gda-6.0.Gda.Binary */
     copy(): Binary
     free(): void
@@ -6283,7 +6283,7 @@ export class Binary {
     /* Static methods and pseudo-constructors */
     static new(): Binary
 }
-export class Blob {
+class Blob {
     /* Methods of Gda-6.0.Gda.Blob */
     copy(): Blob
     free(): void
@@ -6297,14 +6297,14 @@ export class Blob {
     /* Static methods and pseudo-constructors */
     static new(): Blob
 }
-export abstract class BlobOpClass {
+abstract class BlobOpClass {
     /* Fields of Gda-6.0.Gda.BlobOpClass */
     parentClass: GObject.ObjectClass
     functions: object
     padding: object[]
     static name: string
 }
-export class BlobOpFunctions {
+class BlobOpFunctions {
     /* Fields of Gda-6.0.Gda.BlobOpFunctions */
     getLength: (op: BlobOp) => number
     read: (op: BlobOp, blob: Blob, offset: number, size: number) => number
@@ -6312,14 +6312,14 @@ export class BlobOpFunctions {
     writeAll: (op: BlobOp, blob: Blob) => boolean
     static name: string
 }
-export abstract class ColumnClass {
+abstract class ColumnClass {
     /* Fields of Gda-6.0.Gda.ColumnClass */
     parentClass: GObject.ObjectClass
     nameChanged: (column: Column, oldName: string) => void
     gTypeChanged: (column: Column, oldType: GObject.Type, newType: GObject.Type) => void
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of Gda-6.0.Gda.ConfigClass */
     parentClass: GObject.ObjectClass
     dsnAdded: (conf: Config, newDsn: DsnInfo) => void
@@ -6328,7 +6328,7 @@ export abstract class ConfigClass {
     dsnChanged: (conf: Config, dsn: DsnInfo) => void
     static name: string
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     /* Fields of Gda-6.0.Gda.ConnectionClass */
     objectClass: GObject.ObjectClass
     statusChanged: (obj: Connection, status: ConnectionStatus) => void
@@ -6339,24 +6339,24 @@ export abstract class ConnectionClass {
     transactionStatusChanged: (obj: Connection) => void
     static name: string
 }
-export abstract class ConnectionEventClass {
+abstract class ConnectionEventClass {
     /* Fields of Gda-6.0.Gda.ConnectionEventClass */
     parentClass: GObject.ObjectClass
     padding: object[]
     static name: string
 }
-export abstract class DataAccessWrapperClass {
+abstract class DataAccessWrapperClass {
     /* Fields of Gda-6.0.Gda.DataAccessWrapperClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataComparatorClass {
+abstract class DataComparatorClass {
     /* Fields of Gda-6.0.Gda.DataComparatorClass */
     parentClass: GObject.ObjectClass
     diffComputed: (comp: DataComparator, diff: Diff) => boolean
     static name: string
 }
-export abstract class DataHandlerInterface {
+abstract class DataHandlerInterface {
     /* Fields of Gda-6.0.Gda.DataHandlerInterface */
     gIface: GObject.TypeInterface
     getSqlFromValue: (dh: DataHandler, value?: any | null) => string
@@ -6368,30 +6368,30 @@ export abstract class DataHandlerInterface {
     getDescr: (dh: DataHandler) => string
     static name: string
 }
-export abstract class DataModelArrayClass {
+abstract class DataModelArrayClass {
     /* Fields of Gda-6.0.Gda.DataModelArrayClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataModelDirClass {
+abstract class DataModelDirClass {
     /* Fields of Gda-6.0.Gda.DataModelDirClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataModelIface {
+abstract class DataModelIface {
     static name: string
 }
-export abstract class DataModelImportClass {
+abstract class DataModelImportClass {
     /* Fields of Gda-6.0.Gda.DataModelImportClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataModelImportIterClass {
+abstract class DataModelImportIterClass {
     /* Fields of Gda-6.0.Gda.DataModelImportIterClass */
     parentClass: DataModelIterClass
     static name: string
 }
-export class DataModelInterface {
+class DataModelInterface {
     /* Fields of Gda-6.0.Gda.DataModelInterface */
     gIface: GObject.TypeInterface
     getNRows: (model: DataModel) => number
@@ -6415,7 +6415,7 @@ export class DataModelInterface {
     accessChanged: (model: DataModel) => void
     static name: string
 }
-export abstract class DataModelIterClass {
+abstract class DataModelIterClass {
     /* Fields of Gda-6.0.Gda.DataModelIterClass */
     parentClass: SetClass
     moveToRow: (iter: DataModelIter, row: number) => boolean
@@ -6426,18 +6426,18 @@ export abstract class DataModelIterClass {
     endOfData: (iter: DataModelIter) => void
     static name: string
 }
-export abstract class DataModelSelectClass {
+abstract class DataModelSelectClass {
     /* Fields of Gda-6.0.Gda.DataModelSelectClass */
     parentClass: GObject.ObjectClass
     updated: (model: DataModelSelect) => void
     static name: string
 }
-export abstract class DataPivotClass {
+abstract class DataPivotClass {
     /* Fields of Gda-6.0.Gda.DataPivotClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DataProxyClass {
+abstract class DataProxyClass {
     /* Fields of Gda-6.0.Gda.DataProxyClass */
     parentClass: GObject.ObjectClass
     rowDeleteChanged: (proxy: DataProxy, row: number, toBeDeleted: boolean) => void
@@ -6448,7 +6448,7 @@ export abstract class DataProxyClass {
     filterChanged: (proxy: DataProxy) => void
     static name: string
 }
-export abstract class DataSelectClass {
+abstract class DataSelectClass {
     /* Fields of Gda-6.0.Gda.DataSelectClass */
     parentClass: GObject.ObjectClass
     fetchNbRows: (model: DataSelect) => number
@@ -6459,59 +6459,59 @@ export abstract class DataSelectClass {
     fetchAt: (model: DataSelect, prow: Row, rownum: number) => boolean
     static name: string
 }
-export abstract class DataSelectIterClass {
+abstract class DataSelectIterClass {
     /* Fields of Gda-6.0.Gda.DataSelectIterClass */
     parentClass: DataModelIterClass
     static name: string
 }
-export abstract class DbBaseClass {
+abstract class DbBaseClass {
     /* Fields of Gda-6.0.Gda.DbBaseClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export abstract class DbBuildableInterface {
+abstract class DbBuildableInterface {
     /* Fields of Gda-6.0.Gda.DbBuildableInterface */
     parentIface: GObject.TypeInterface
     parseNode: (self: DbBuildable, node: libxml2.NodePtr) => boolean
     writeNode: (self: DbBuildable, node: libxml2.NodePtr) => boolean
     static name: string
 }
-export abstract class DbCatalogClass {
+abstract class DbCatalogClass {
     /* Fields of Gda-6.0.Gda.DbCatalogClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export abstract class DbColumnClass {
+abstract class DbColumnClass {
     /* Fields of Gda-6.0.Gda.DbColumnClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export abstract class DbFkeyClass {
+abstract class DbFkeyClass {
     /* Fields of Gda-6.0.Gda.DbFkeyClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DbIndexClass {
+abstract class DbIndexClass {
     /* Fields of Gda-6.0.Gda.DbIndexClass */
     parentClass: DbBaseClass
     static name: string
 }
-export abstract class DbIndexFieldClass {
+abstract class DbIndexFieldClass {
     /* Fields of Gda-6.0.Gda.DbIndexFieldClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DbTableClass {
+abstract class DbTableClass {
     /* Fields of Gda-6.0.Gda.DbTableClass */
     parentClass: DbBaseClass
     static name: string
 }
-export abstract class DbViewClass {
+abstract class DbViewClass {
     /* Fields of Gda-6.0.Gda.DbViewClass */
     parentClass: DbBaseClass
     static name: string
 }
-export abstract class DdlModifiableInterface {
+abstract class DdlModifiableInterface {
     /* Fields of Gda-6.0.Gda.DdlModifiableInterface */
     parentIface: GObject.TypeInterface
     create: (self: DdlModifiable, cnc: Connection) => boolean
@@ -6519,7 +6519,7 @@ export abstract class DdlModifiableInterface {
     rename: (self: DdlModifiable, cnc: Connection) => boolean
     static name: string
 }
-export class Diff {
+class Diff {
     /* Fields of Gda-6.0.Gda.Diff */
     type: DiffType
     oldRow: number
@@ -6527,7 +6527,7 @@ export class Diff {
     values: GLib.HashTable
     static name: string
 }
-export class DsnInfo {
+class DsnInfo {
     /* Fields of Gda-6.0.Gda.DsnInfo */
     name: string
     provider: string
@@ -6545,7 +6545,7 @@ export class DsnInfo {
     /* Static methods and pseudo-constructors */
     static new(): DsnInfo
 }
-export class GeometricPoint {
+class GeometricPoint {
     /* Methods of Gda-6.0.Gda.GeometricPoint */
     copy(): GeometricPoint
     free(): void
@@ -6559,42 +6559,42 @@ export class GeometricPoint {
     /* Static methods and pseudo-constructors */
     static new(): GeometricPoint
 }
-export abstract class HandlerBinClass {
+abstract class HandlerBinClass {
     /* Fields of Gda-6.0.Gda.HandlerBinClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerBooleanClass {
+abstract class HandlerBooleanClass {
     /* Fields of Gda-6.0.Gda.HandlerBooleanClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerNumericalClass {
+abstract class HandlerNumericalClass {
     /* Fields of Gda-6.0.Gda.HandlerNumericalClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerStringClass {
+abstract class HandlerStringClass {
     /* Fields of Gda-6.0.Gda.HandlerStringClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerTextClass {
+abstract class HandlerTextClass {
     /* Fields of Gda-6.0.Gda.HandlerTextClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerTimeClass {
+abstract class HandlerTimeClass {
     /* Fields of Gda-6.0.Gda.HandlerTimeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HandlerTypeClass {
+abstract class HandlerTypeClass {
     /* Fields of Gda-6.0.Gda.HandlerTypeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HolderClass {
+abstract class HolderClass {
     /* Fields of Gda-6.0.Gda.HolderClass */
     parentClass: GObject.ObjectClass
     changed: (holder: Holder) => void
@@ -6603,7 +6603,7 @@ export abstract class HolderClass {
     toDefault: (holder: Holder) => void
     static name: string
 }
-export abstract class LockableInterface {
+abstract class LockableInterface {
     /* Fields of Gda-6.0.Gda.LockableInterface */
     gIface: GObject.TypeInterface
     lock: (lockable: Lockable) => void
@@ -6611,7 +6611,7 @@ export abstract class LockableInterface {
     unlock: (lockable: Lockable) => void
     static name: string
 }
-export class MetaContext {
+class MetaContext {
     /* Fields of Gda-6.0.Gda.MetaContext */
     tableName: string
     size: number
@@ -6633,7 +6633,7 @@ export class MetaContext {
     /* Static methods and pseudo-constructors */
     static new(): MetaContext
 }
-export class MetaDbObject {
+class MetaDbObject {
     /* Fields of Gda-6.0.Gda.MetaDbObject */
     objType: MetaDbObjectType
     outdated: boolean
@@ -6646,7 +6646,7 @@ export class MetaDbObject {
     dependList: MetaDbObject[]
     static name: string
 }
-export class MetaStoreChange {
+class MetaStoreChange {
     /* Methods of Gda-6.0.Gda.MetaStoreChange */
     copy(): MetaStoreChange
     free(): void
@@ -6661,19 +6661,19 @@ export class MetaStoreChange {
     /* Static methods and pseudo-constructors */
     static new(): MetaStoreChange
 }
-export abstract class MetaStoreClass {
+abstract class MetaStoreClass {
     /* Fields of Gda-6.0.Gda.MetaStoreClass */
     parentClass: GObject.ObjectClass
     metaReset: (store: MetaStore) => void
     suggestUpdate: (store: MetaStore, suggest: MetaContext) => GLib.Error
     static name: string
 }
-export abstract class MetaStructClass {
+abstract class MetaStructClass {
     /* Fields of Gda-6.0.Gda.MetaStructClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class MetaTable {
+class MetaTable {
     /* Fields of Gda-6.0.Gda.MetaTable */
     columns: MetaTableColumn[]
     pkColsArray: number
@@ -6682,7 +6682,7 @@ export class MetaTable {
     fkList: MetaTableForeignKey[]
     static name: string
 }
-export class MetaTableColumn {
+class MetaTableColumn {
     /* Fields of Gda-6.0.Gda.MetaTableColumn */
     columnName: string
     columnType: string
@@ -6694,7 +6694,7 @@ export class MetaTableColumn {
     desc: string
     static name: string
 }
-export class MetaTableForeignKey {
+class MetaTableForeignKey {
     /* Fields of Gda-6.0.Gda.MetaTableForeignKey */
     metaTable: MetaDbObject
     dependOn: MetaDbObject
@@ -6706,14 +6706,14 @@ export class MetaTableForeignKey {
     fkName: string
     static name: string
 }
-export class MetaView {
+class MetaView {
     /* Fields of Gda-6.0.Gda.MetaView */
     table: MetaTable
     viewDef: string
     isUpdatable: boolean
     static name: string
 }
-export class Numeric {
+class Numeric {
     /* Methods of Gda-6.0.Gda.Numeric */
     copy(): Numeric
     free(): void
@@ -6731,12 +6731,12 @@ export class Numeric {
     /* Static methods and pseudo-constructors */
     static new(): Numeric
 }
-export abstract class PStmtClass {
+abstract class PStmtClass {
     /* Fields of Gda-6.0.Gda.PStmtClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ProviderInfo {
+class ProviderInfo {
     /* Fields of Gda-6.0.Gda.ProviderInfo */
     id: string
     location: string
@@ -6746,7 +6746,7 @@ export class ProviderInfo {
     iconId: string
     static name: string
 }
-export abstract class ProviderInterface {
+abstract class ProviderInterface {
     /* Fields of Gda-6.0.Gda.ProviderInterface */
     gIface: GObject.TypeInterface
     getName: (provider: Provider) => string
@@ -6781,7 +6781,7 @@ export abstract class ProviderInterface {
     padding: object[]
     static name: string
 }
-export abstract class ProviderMetaInterface {
+abstract class ProviderMetaInterface {
     /* Fields of Gda-6.0.Gda.ProviderMetaInterface */
     gIface: GObject.TypeInterface
     btypes: (prov: ProviderMeta) => DataModel
@@ -6841,7 +6841,7 @@ export abstract class ProviderMetaInterface {
     padding: object[]
     static name: string
 }
-export class QuarkList {
+class QuarkList {
     /* Methods of Gda-6.0.Gda.QuarkList */
     addFromString(string: string, cleanup: boolean): void
     clear(): void
@@ -6858,24 +6858,24 @@ export class QuarkList {
     static new(): QuarkList
     static newFromString(string: string): QuarkList
 }
-export abstract class RepetitiveStatementClass {
+abstract class RepetitiveStatementClass {
     /* Fields of Gda-6.0.Gda.RepetitiveStatementClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RowClass {
+abstract class RowClass {
     /* Fields of Gda-6.0.Gda.RowClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ServerOperationClass {
+abstract class ServerOperationClass {
     /* Fields of Gda-6.0.Gda.ServerOperationClass */
     parentClass: GObject.ObjectClass
     seqItemAdded: (op: ServerOperation, seqPath: string, itemIndex: number) => void
     seqItemRemove: (op: ServerOperation, seqPath: string, itemIndex: number) => void
     static name: string
 }
-export class ServerOperationCreateTableArg {
+class ServerOperationCreateTableArg {
     /* Methods of Gda-6.0.Gda.ServerOperationCreateTableArg */
     copy(): ServerOperationCreateTableArg
     free(): void
@@ -6899,7 +6899,7 @@ export class ServerOperationCreateTableArg {
     /* Static methods and pseudo-constructors */
     static new(): ServerOperationCreateTableArg
 }
-export class ServerOperationCreateTableArgFKeyRefField {
+class ServerOperationCreateTableArgFKeyRefField {
     /* Methods of Gda-6.0.Gda.ServerOperationCreateTableArgFKeyRefField */
     copy(): ServerOperationCreateTableArgFKeyRefField
     free(): void
@@ -6913,7 +6913,7 @@ export class ServerOperationCreateTableArgFKeyRefField {
     /* Static methods and pseudo-constructors */
     static new(): ServerOperationCreateTableArgFKeyRefField
 }
-export class ServerOperationNode {
+class ServerOperationNode {
     /* Fields of Gda-6.0.Gda.ServerOperationNode */
     type: ServerOperationNodeType
     status: ServerOperationNodeStatus
@@ -6927,7 +6927,7 @@ export class ServerOperationNode {
     free(): void
     static name: string
 }
-export class ServerProviderBase {
+class ServerProviderBase {
     /* Fields of Gda-6.0.Gda.ServerProviderBase */
     getName: (provider: ServerProvider) => string
     getVersion: (provider: ServerProvider) => string
@@ -6954,13 +6954,13 @@ export class ServerProviderBase {
     statementPrepare: (provider: ServerProvider, cnc: Connection, stmt: Statement) => boolean
     static name: string
 }
-export abstract class ServerProviderClass {
+abstract class ServerProviderClass {
     /* Fields of Gda-6.0.Gda.ServerProviderClass */
     parentClass: GObject.ObjectClass
     functionsSets: object[]
     static name: string
 }
-export class ServerProviderConnectionData {
+class ServerProviderConnectionData {
     /* Fields of Gda-6.0.Gda.ServerProviderConnectionData */
     worker: Worker
     providerDataDestroyFunc: GLib.DestroyNotify
@@ -6968,14 +6968,14 @@ export class ServerProviderConnectionData {
     pad2: object
     static name: string
 }
-export class ServerProviderHandlerInfo {
+class ServerProviderHandlerInfo {
     /* Fields of Gda-6.0.Gda.ServerProviderHandlerInfo */
     cnc: Connection
     gType: GObject.Type
     dbmsType: string
     static name: string
 }
-export class ServerProviderMeta {
+class ServerProviderMeta {
     /* Fields of Gda-6.0.Gda.ServerProviderMeta */
     udt: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udtCatalog: any, udtSchema: any) => boolean
     udtCols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udtCatalog: any, udtSchema: any, udtName: any) => boolean
@@ -7001,7 +7001,7 @@ export class ServerProviderMeta {
     indexCols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, tableCatalog: any, tableSchema: any, tableName: any, indexName: any) => boolean
     static name: string
 }
-export class ServerProviderXa {
+class ServerProviderXa {
     /* Fields of Gda-6.0.Gda.ServerProviderXa */
     xaStart: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     xaEnd: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
@@ -7010,7 +7010,7 @@ export class ServerProviderXa {
     xaRollback: (prov: ServerProvider, cnc: Connection, trx: XaTransactionId) => boolean
     static name: string
 }
-export abstract class SetClass {
+abstract class SetClass {
     /* Fields of Gda-6.0.Gda.SetClass */
     parentClass: GObject.ObjectClass
     validateHolderChange: (set: Set, holder: Holder, newValue: any) => GLib.Error
@@ -7022,7 +7022,7 @@ export abstract class SetClass {
     sourceModelChanged: (set: Set, source: SetSource) => void
     static name: string
 }
-export class SetGroup {
+class SetGroup {
     /* Methods of Gda-6.0.Gda.SetGroup */
     addNode(node: SetNode): void
     copy(): SetGroup
@@ -7038,7 +7038,7 @@ export class SetGroup {
     /* Static methods and pseudo-constructors */
     static new(node: SetNode): SetGroup
 }
-export class SetNode {
+class SetNode {
     /* Methods of Gda-6.0.Gda.SetNode */
     copy(): SetNode
     free(): void
@@ -7054,7 +7054,7 @@ export class SetNode {
     /* Static methods and pseudo-constructors */
     static new(holder: Holder): SetNode
 }
-export class SetSource {
+class SetSource {
     /* Methods of Gda-6.0.Gda.SetSource */
     addNode(node: SetNode): void
     copy(): SetSource
@@ -7069,7 +7069,7 @@ export class SetSource {
     /* Static methods and pseudo-constructors */
     static new(model: DataModel): SetSource
 }
-export class SqlAnyPart {
+class SqlAnyPart {
     /* Fields of Gda-6.0.Gda.SqlAnyPart */
     type: SqlAnyPartType
     parent: SqlAnyPart
@@ -7078,12 +7078,12 @@ export class SqlAnyPart {
     foreach(func: SqlForeachFunc): boolean
     static name: string
 }
-export abstract class SqlBuilderClass {
+abstract class SqlBuilderClass {
     /* Fields of Gda-6.0.Gda.SqlBuilderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SqlCase {
+class SqlCase {
     /* Fields of Gda-6.0.Gda.SqlCase */
     any: SqlAnyPart
     baseExpr: SqlExpr
@@ -7100,7 +7100,7 @@ export class SqlCase {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlCase
 }
-export class SqlExpr {
+class SqlExpr {
     /* Fields of Gda-6.0.Gda.SqlExpr */
     any: SqlAnyPart
     value: any
@@ -7122,7 +7122,7 @@ export class SqlExpr {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlExpr
 }
-export class SqlField {
+class SqlField {
     /* Fields of Gda-6.0.Gda.SqlField */
     any: SqlAnyPart
     fieldName: string
@@ -7138,7 +7138,7 @@ export class SqlField {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlField
 }
-export class SqlFunction {
+class SqlFunction {
     /* Fields of Gda-6.0.Gda.SqlFunction */
     any: SqlAnyPart
     functionName: string
@@ -7156,7 +7156,7 @@ export class SqlFunction {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlFunction
 }
-export class SqlOperation {
+class SqlOperation {
     /* Fields of Gda-6.0.Gda.SqlOperation */
     any: SqlAnyPart
     operatorType: SqlOperatorType
@@ -7173,7 +7173,7 @@ export class SqlOperation {
     static operatorFromString(op: string): SqlOperatorType
     static operatorToString(op: SqlOperatorType): string
 }
-export class SqlParamSpec {
+class SqlParamSpec {
     /* Fields of Gda-6.0.Gda.SqlParamSpec */
     name: string
     descr: string
@@ -7197,7 +7197,7 @@ export class SqlParamSpec {
     /* Static methods and pseudo-constructors */
     static new(simpleSpec: any): SqlParamSpec
 }
-export abstract class SqlParserClass {
+abstract class SqlParserClass {
     /* Fields of Gda-6.0.Gda.SqlParserClass */
     parentClass: GObject.ObjectClass
     delimAlloc: (f: object) => object
@@ -7212,13 +7212,13 @@ export abstract class SqlParserClass {
     parserTokensTrans: number
     static name: string
 }
-export class SqlParserIface {
+class SqlParserIface {
     /* Fields of Gda-6.0.Gda.SqlParserIface */
     parser: SqlParser
     parsedStatement: SqlStatement
     static name: string
 }
-export class SqlSelectField {
+class SqlSelectField {
     /* Fields of Gda-6.0.Gda.SqlSelectField */
     any: SqlAnyPart
     expr: SqlExpr
@@ -7240,7 +7240,7 @@ export class SqlSelectField {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlSelectField
 }
-export class SqlSelectFrom {
+class SqlSelectFrom {
     /* Fields of Gda-6.0.Gda.SqlSelectFrom */
     any: SqlAnyPart
     targets: SqlSelectTarget[]
@@ -7257,7 +7257,7 @@ export class SqlSelectFrom {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlSelectFrom
 }
-export class SqlSelectJoin {
+class SqlSelectJoin {
     /* Fields of Gda-6.0.Gda.SqlSelectJoin */
     any: SqlAnyPart
     type: SqlSelectJoinType
@@ -7275,7 +7275,7 @@ export class SqlSelectJoin {
     static new(parent: SqlAnyPart): SqlSelectJoin
     static typeToString(type: SqlSelectJoinType): string
 }
-export class SqlSelectOrder {
+class SqlSelectOrder {
     /* Fields of Gda-6.0.Gda.SqlSelectOrder */
     any: SqlAnyPart
     expr: SqlExpr
@@ -7291,7 +7291,7 @@ export class SqlSelectOrder {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlSelectOrder
 }
-export class SqlSelectTarget {
+class SqlSelectTarget {
     /* Fields of Gda-6.0.Gda.SqlSelectTarget */
     any: SqlAnyPart
     expr: SqlExpr
@@ -7311,7 +7311,7 @@ export class SqlSelectTarget {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlSelectTarget
 }
-export class SqlStatement {
+class SqlStatement {
     /* Fields of Gda-6.0.Gda.SqlStatement */
     sql: string
     stmtType: SqlStatementType
@@ -7361,21 +7361,21 @@ export class SqlStatement {
     static stringToType(type: string): SqlStatementType
     static typeToString(type: SqlStatementType): string
 }
-export class SqlStatementCheckValidityData {
+class SqlStatementCheckValidityData {
     /* Fields of Gda-6.0.Gda.SqlStatementCheckValidityData */
     cnc: Connection
     store: MetaStore
     mstruct: MetaStruct
     static name: string
 }
-export class SqlStatementCompound {
+class SqlStatementCompound {
     /* Fields of Gda-6.0.Gda.SqlStatementCompound */
     any: SqlAnyPart
     compoundType: SqlStatementCompoundType
     stmtList: object[]
     static name: string
 }
-export class SqlStatementContentsInfo {
+class SqlStatementContentsInfo {
     /* Fields of Gda-6.0.Gda.SqlStatementContentsInfo */
     type: SqlStatementType
     name: string
@@ -7387,14 +7387,14 @@ export class SqlStatementContentsInfo {
     checkValidityFunc: SqlForeachFunc
     static name: string
 }
-export class SqlStatementDelete {
+class SqlStatementDelete {
     /* Fields of Gda-6.0.Gda.SqlStatementDelete */
     any: SqlAnyPart
     table: SqlTable
     cond: SqlExpr
     static name: string
 }
-export class SqlStatementInsert {
+class SqlStatementInsert {
     /* Fields of Gda-6.0.Gda.SqlStatementInsert */
     any: SqlAnyPart
     onConflict: string
@@ -7404,7 +7404,7 @@ export class SqlStatementInsert {
     select: SqlAnyPart
     static name: string
 }
-export class SqlStatementSelect {
+class SqlStatementSelect {
     /* Fields of Gda-6.0.Gda.SqlStatementSelect */
     any: SqlAnyPart
     distinct: boolean
@@ -7419,7 +7419,7 @@ export class SqlStatementSelect {
     limitOffset: SqlExpr
     static name: string
 }
-export class SqlStatementTransaction {
+class SqlStatementTransaction {
     /* Fields of Gda-6.0.Gda.SqlStatementTransaction */
     any: SqlAnyPart
     isolationLevel: TransactionIsolation
@@ -7427,13 +7427,13 @@ export class SqlStatementTransaction {
     transName: string
     static name: string
 }
-export class SqlStatementUnknown {
+class SqlStatementUnknown {
     /* Fields of Gda-6.0.Gda.SqlStatementUnknown */
     any: SqlAnyPart
     expressions: object[]
     static name: string
 }
-export class SqlStatementUpdate {
+class SqlStatementUpdate {
     /* Fields of Gda-6.0.Gda.SqlStatementUpdate */
     any: SqlAnyPart
     onConflict: string
@@ -7443,7 +7443,7 @@ export class SqlStatementUpdate {
     cond: SqlExpr
     static name: string
 }
-export class SqlTable {
+class SqlTable {
     /* Fields of Gda-6.0.Gda.SqlTable */
     any: SqlAnyPart
     tableName: string
@@ -7459,14 +7459,14 @@ export class SqlTable {
     /* Static methods and pseudo-constructors */
     static new(parent: SqlAnyPart): SqlTable
 }
-export abstract class StatementClass {
+abstract class StatementClass {
     /* Fields of Gda-6.0.Gda.StatementClass */
     parentClass: GObject.ObjectClass
     checked: (stmt: Statement, cnc: Connection, checked: boolean) => void
     reset: (stmt: Statement) => void
     static name: string
 }
-export class Text {
+class Text {
     /* Methods of Gda-6.0.Gda.Text */
     free(): void
     getString(): string
@@ -7479,7 +7479,7 @@ export class Text {
     static new(): Text
     static toAlphanum(text: string): string
 }
-export class Time {
+class Time {
     /* Methods of Gda-6.0.Gda.Time */
     copy(): Time
     free(): void
@@ -7508,19 +7508,19 @@ export class Time {
     static newFromDateTime(dt: GLib.DateTime): Time
     static newFromValues(hour: number, minute: number, second: number, fraction: number, timezone: number): Time
 }
-export abstract class TransactionStatusClass {
+abstract class TransactionStatusClass {
     /* Fields of Gda-6.0.Gda.TransactionStatusClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class TransactionStatusEvent {
+class TransactionStatusEvent {
     /* Fields of Gda-6.0.Gda.TransactionStatusEvent */
     trans: TransactionStatus
     type: TransactionStatusEventType
     connEvent: ConnectionEvent
     static name: string
 }
-export abstract class TreeClass {
+abstract class TreeClass {
     /* Fields of Gda-6.0.Gda.TreeClass */
     objectClass: GObject.ObjectClass
     nodeChanged: (tree: Tree, node: TreeNode) => void
@@ -7529,37 +7529,37 @@ export abstract class TreeClass {
     nodeDeleted: (tree: Tree, nodePath: string) => void
     static name: string
 }
-export abstract class TreeManagerClass {
+abstract class TreeManagerClass {
     /* Fields of Gda-6.0.Gda.TreeManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TreeMgrColumnsClass {
+abstract class TreeMgrColumnsClass {
     /* Fields of Gda-6.0.Gda.TreeMgrColumnsClass */
     objectClass: TreeManagerClass
     static name: string
 }
-export abstract class TreeMgrLabelClass {
+abstract class TreeMgrLabelClass {
     /* Fields of Gda-6.0.Gda.TreeMgrLabelClass */
     parentClass: TreeManagerClass
     static name: string
 }
-export abstract class TreeMgrSchemasClass {
+abstract class TreeMgrSchemasClass {
     /* Fields of Gda-6.0.Gda.TreeMgrSchemasClass */
     objectClass: TreeManagerClass
     static name: string
 }
-export abstract class TreeMgrSelectClass {
+abstract class TreeMgrSelectClass {
     /* Fields of Gda-6.0.Gda.TreeMgrSelectClass */
     objectClass: TreeManagerClass
     static name: string
 }
-export abstract class TreeMgrTablesClass {
+abstract class TreeMgrTablesClass {
     /* Fields of Gda-6.0.Gda.TreeMgrTablesClass */
     objectClass: TreeManagerClass
     static name: string
 }
-export abstract class TreeNodeClass {
+abstract class TreeNodeClass {
     /* Fields of Gda-6.0.Gda.TreeNodeClass */
     objectClass: GObject.ObjectClass
     nodeChanged: (reporting: TreeNode, node: TreeNode) => void
@@ -7570,7 +7570,7 @@ export abstract class TreeNodeClass {
     dumpChildren: (node: TreeNode, prefix: string, inString: GLib.String) => void
     static name: string
 }
-export class Worker {
+class Worker {
     /* Methods of Gda-6.0.Gda.Worker */
     cancelJob(jobId: number): boolean
     doJob(context: GLib.MainContext | null, timeoutMs: number, outResult: object | null, outJobId: number | null, func: WorkerFunc, dataDestroyFunc?: GLib.DestroyNotify | null): boolean
@@ -7591,12 +7591,12 @@ export class Worker {
     static errorQuark(): GLib.Quark
     static newUnique(location: Worker, allowDestroy: boolean): Worker
 }
-export abstract class XaTransactionClass {
+abstract class XaTransactionClass {
     /* Fields of Gda-6.0.Gda.XaTransactionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class XaTransactionId {
+class XaTransactionId {
     /* Fields of Gda-6.0.Gda.XaTransactionId */
     format: number
     gtridLength: number
@@ -7606,5 +7606,6 @@ export class XaTransactionId {
     toString(): string
     static name: string
 }
-export type SqlBuilderId = number
+type SqlBuilderId = number
 }
+export default Gda

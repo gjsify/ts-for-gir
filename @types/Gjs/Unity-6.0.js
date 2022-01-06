@@ -1,2 +1,1 @@
-imports.gi.versions.Unity = '6.0'
-module.exports = imports.gi.Unity
+export {default as default} from 'gi://Unity?version=6.0';

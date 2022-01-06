@@ -1,2 +1,1 @@
-imports.gi.versions.Dbusmenu = '0.4'
-module.exports = imports.gi.Dbusmenu
+export {default as default} from 'gi://Dbusmenu?version=0.4';

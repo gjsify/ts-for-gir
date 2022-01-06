@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ConditionPhenomenon {
+export namespace GWeather {
+
+enum ConditionPhenomenon {
     INVALID,
     NONE,
     DRIZZLE,
@@ -35,7 +37,7 @@ export enum ConditionPhenomenon {
     DUST_WHIRLS,
     LAST,
 }
-export enum ConditionQualifier {
+enum ConditionQualifier {
     INVALID,
     NONE,
     VICINITY,
@@ -52,14 +54,14 @@ export enum ConditionQualifier {
     FREEZING,
     LAST,
 }
-export enum DistanceUnit {
+enum DistanceUnit {
     INVALID,
     DEFAULT,
     METERS,
     KM,
     MILES,
 }
-export enum LocationLevel {
+enum LocationLevel {
     WORLD,
     REGION,
     COUNTRY,
@@ -69,7 +71,7 @@ export enum LocationLevel {
     DETACHED,
     NAMED_TIMEZONE,
 }
-export enum PressureUnit {
+enum PressureUnit {
     INVALID,
     DEFAULT,
     KPA,
@@ -79,7 +81,7 @@ export enum PressureUnit {
     INCH_HG,
     ATM,
 }
-export enum Sky {
+enum Sky {
     INVALID,
     CLEAR,
     BROKEN,
@@ -88,7 +90,7 @@ export enum Sky {
     OVERCAST,
     LAST,
 }
-export enum SpeedUnit {
+enum SpeedUnit {
     INVALID,
     DEFAULT,
     MS,
@@ -97,14 +99,14 @@ export enum SpeedUnit {
     KNOTS,
     BFT,
 }
-export enum TemperatureUnit {
+enum TemperatureUnit {
     INVALID,
     DEFAULT,
     KELVIN,
     CENTIGRADE,
     FAHRENHEIT,
 }
-export enum WindDirection {
+enum WindDirection {
     INVALID,
     VARIABLE,
     N,
@@ -125,12 +127,12 @@ export enum WindDirection {
     NNW,
     LAST,
 }
-export enum FormatOptions {
+enum FormatOptions {
     DEFAULT,
     SENTENCE_CAPITALIZATION,
     NO_CAPITALIZATION,
 }
-export enum Provider {
+enum Provider {
     NONE,
     METAR,
     IWIN,
@@ -138,14 +140,14 @@ export enum Provider {
     OWM,
     ALL,
 }
-export function location_level_to_string(level: LocationLevel): string
-export function sky_to_string(sky: Sky): string
-export function sky_to_string_full(sky: Sky, options: FormatOptions): string
-export function speed_unit_to_string(unit: SpeedUnit): string
-export function temperature_unit_to_real(unit: TemperatureUnit): TemperatureUnit
-export function wind_direction_to_string(wind: WindDirection): string
-export function wind_direction_to_string_full(wind: WindDirection, options: FormatOptions): string
-export interface FilterFunc {
+function location_level_to_string(level: LocationLevel): string
+function sky_to_string(sky: Sky): string
+function sky_to_string_full(sky: Sky, options: FormatOptions): string
+function speed_unit_to_string(unit: SpeedUnit): string
+function temperature_unit_to_real(unit: TemperatureUnit): TemperatureUnit
+function wind_direction_to_string(wind: WindDirection): string
+function wind_direction_to_string_full(wind: WindDirection, options: FormatOptions): string
+interface FilterFunc {
     (location: Location): boolean
 }
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
@@ -154,7 +156,7 @@ export interface Info_ConstructProps extends GObject.Object_ConstructProps {
     enabled_providers?: Provider
     location?: Location
 }
-export class Info {
+class Info {
     /* Properties of GWeather-4.0.GWeather.Info */
     application_id: string
     contact_info: string
@@ -273,7 +275,7 @@ export class Info {
 }
 export interface Location_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Location {
+class Location {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GWeather-4.0.GWeather.Location */
@@ -350,7 +352,7 @@ export class Location {
     static get_world(): Location | null
     static $gtype: GObject.Type
 }
-export class Conditions {
+class Conditions {
     /* Fields of GWeather-4.0.GWeather.Conditions */
     significant: boolean
     phenomenon: ConditionPhenomenon
@@ -360,15 +362,17 @@ export class Conditions {
     to_string_full(options: FormatOptions): string
     static name: string
 }
-export abstract class InfoClass {
+abstract class InfoClass {
     /* Fields of GWeather-4.0.GWeather.InfoClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class LocationClass {
+abstract class LocationClass {
     /* Fields of GWeather-4.0.GWeather.LocationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export type MoonLatitude = number
-export type MoonPhase = number
+type MoonLatitude = number
+type MoonPhase = number
+}
+export default GWeather

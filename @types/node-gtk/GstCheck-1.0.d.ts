@@ -8,56 +8,56 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstCheck {
+declare namespace GstCheck {
 
-export function bufferStrawGetBuffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
-export function bufferStrawStartPipeline(bin: Gst.Element, pad: Gst.Pad): void
-export function bufferStrawStopPipeline(bin: Gst.Element, pad: Gst.Pad): void
-export function checkAbiList(list: CheckABIStruct, haveAbiSizes: boolean): void
-export function checkBufferData(buffer: Gst.Buffer, data: object | null, size: number): void
-export function checkCapsEqual(caps1: Gst.Caps, caps2: Gst.Caps): void
-export function checkChainFunc(pad: Gst.Pad, parent: Gst.Object, buffer: Gst.Buffer): Gst.FlowReturn
-export function checkClearLogFilter(): void
-export function checkDropBuffers(): void
-export function checkElementPushBuffer(elementName: string, bufferIn: Gst.Buffer, capsIn: Gst.Caps, bufferOut: Gst.Buffer, capsOut: Gst.Caps): void
-export function checkElementPushBufferList(elementName: string, bufferIn: Gst.Buffer[], capsIn: Gst.Caps, bufferOut: Gst.Buffer[], capsOut: Gst.Caps, lastFlowReturn: Gst.FlowReturn): void
-export function checkInit(argc: number, argv: string): void
-export function checkMessageError(message: Gst.Message, type: Gst.MessageType, domain: GLib.Quark, code: number): void
-export function checkObjectDestroyedOnUnref(objectToUnref?: object | null): void
-export function checkRemoveLogFilter(filter: CheckLogFilter): void
-export function checkSetupElement(factory: string): Gst.Element
-export function checkSetupEvents(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format): void
-export function checkSetupEventsWithStreamId(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format, streamId: string): void
-export function checkSetupSinkPad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
-export function checkSetupSinkPadByName(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
-export function checkSetupSinkPadByNameFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
-export function checkSetupSinkPadFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
-export function checkSetupSrcPad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
-export function checkSetupSrcPadByName(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
-export function checkSetupSrcPadByNameFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
-export function checkSetupSrcPadFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
-export function checkTeardownElement(element: Gst.Element): void
-export function checkTeardownPadByName(element: Gst.Element, name: string): void
-export function checkTeardownSinkPad(element: Gst.Element): void
-export function checkTeardownSrcPad(element: Gst.Element): void
-export function consistencyCheckerAddPad(consist: StreamConsistency, pad: Gst.Pad): boolean
-export function consistencyCheckerFree(consist: StreamConsistency): void
-export function consistencyCheckerReset(consist: StreamConsistency): void
-export function harnessStressThreadStop(t: HarnessThread): number
-export interface CheckLogFilterFunc {
+function bufferStrawGetBuffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
+function bufferStrawStartPipeline(bin: Gst.Element, pad: Gst.Pad): void
+function bufferStrawStopPipeline(bin: Gst.Element, pad: Gst.Pad): void
+function checkAbiList(list: CheckABIStruct, haveAbiSizes: boolean): void
+function checkBufferData(buffer: Gst.Buffer, data: object | null, size: number): void
+function checkCapsEqual(caps1: Gst.Caps, caps2: Gst.Caps): void
+function checkChainFunc(pad: Gst.Pad, parent: Gst.Object, buffer: Gst.Buffer): Gst.FlowReturn
+function checkClearLogFilter(): void
+function checkDropBuffers(): void
+function checkElementPushBuffer(elementName: string, bufferIn: Gst.Buffer, capsIn: Gst.Caps, bufferOut: Gst.Buffer, capsOut: Gst.Caps): void
+function checkElementPushBufferList(elementName: string, bufferIn: Gst.Buffer[], capsIn: Gst.Caps, bufferOut: Gst.Buffer[], capsOut: Gst.Caps, lastFlowReturn: Gst.FlowReturn): void
+function checkInit(argc: number, argv: string): void
+function checkMessageError(message: Gst.Message, type: Gst.MessageType, domain: GLib.Quark, code: number): void
+function checkObjectDestroyedOnUnref(objectToUnref?: object | null): void
+function checkRemoveLogFilter(filter: CheckLogFilter): void
+function checkSetupElement(factory: string): Gst.Element
+function checkSetupEvents(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format): void
+function checkSetupEventsWithStreamId(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format, streamId: string): void
+function checkSetupSinkPad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
+function checkSetupSinkPadByName(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
+function checkSetupSinkPadByNameFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
+function checkSetupSinkPadFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
+function checkSetupSrcPad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
+function checkSetupSrcPadByName(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
+function checkSetupSrcPadByNameFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
+function checkSetupSrcPadFromTemplate(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
+function checkTeardownElement(element: Gst.Element): void
+function checkTeardownPadByName(element: Gst.Element, name: string): void
+function checkTeardownSinkPad(element: Gst.Element): void
+function checkTeardownSrcPad(element: Gst.Element): void
+function consistencyCheckerAddPad(consist: StreamConsistency, pad: Gst.Pad): boolean
+function consistencyCheckerFree(consist: StreamConsistency): void
+function consistencyCheckerReset(consist: StreamConsistency): void
+function harnessStressThreadStop(t: HarnessThread): number
+interface CheckLogFilterFunc {
     (logDomain: string, logLevel: GLib.LogLevelFlags, message: string): boolean
 }
-export interface HarnessPrepareBufferFunc {
+interface HarnessPrepareBufferFunc {
     (h: Harness, data?: object | null): Gst.Buffer
 }
-export interface HarnessPrepareEventFunc {
+interface HarnessPrepareEventFunc {
     (h: Harness, data?: object | null): Gst.Event
 }
 export interface TestClock_ConstructProps extends Gst.Clock_ConstructProps {
     clockType?: Gst.ClockType
     startTime?: number
 }
-export class TestClock {
+class TestClock {
     /* Properties of GstCheck-1.0.GstCheck.TestClock */
     clockType: Gst.ClockType
     /* Properties of Gst-1.0.Gst.Clock */
@@ -223,17 +223,17 @@ export class TestClock {
     static idListGetLatestTime(pendingList?: Gst.ClockID[] | null): Gst.ClockTime
     static $gtype: GObject.Type
 }
-export class CheckABIStruct {
+class CheckABIStruct {
     /* Fields of GstCheck-1.0.GstCheck.CheckABIStruct */
     name: string
     size: number
     abiSize: number
     static name: string
 }
-export class CheckLogFilter {
+class CheckLogFilter {
     static name: string
 }
-export class Harness {
+class Harness {
     /* Fields of GstCheck-1.0.GstCheck.Harness */
     element: Gst.Element
     srcpad: Gst.Pad
@@ -306,21 +306,22 @@ export class Harness {
     /* Static methods and pseudo-constructors */
     static stressThreadStop(t: HarnessThread): number
 }
-export class HarnessPrivate {
+class HarnessPrivate {
     static name: string
 }
-export class HarnessThread {
+class HarnessThread {
     static name: string
 }
-export class StreamConsistency {
+class StreamConsistency {
     static name: string
 }
-export abstract class TestClockClass {
+abstract class TestClockClass {
     /* Fields of GstCheck-1.0.GstCheck.TestClockClass */
     parentClass: Gst.ClockClass
     static name: string
 }
-export class TestClockPrivate {
+class TestClockPrivate {
     static name: string
 }
 }
+export default GstCheck

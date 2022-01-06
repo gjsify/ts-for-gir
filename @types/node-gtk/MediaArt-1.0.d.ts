@@ -7,35 +7,35 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace MediaArt {
+declare namespace MediaArt {
 
-export enum Error {
+enum Error {
     NO_STORAGE,
     NO_TITLE,
     SYMLINK_FAILED,
     RENAME_FAILED,
 }
-export enum Type {
+enum Type {
     NONE,
     ALBUM,
     VIDEO,
 }
-export enum ProcessFlags {
+enum ProcessFlags {
     NONE,
     FORCE,
 }
-export function bufferToJpeg(buffer: number, len: number, bufferMime: string, target: string): boolean
-export function errorQuark(): GLib.Quark
-export function fileToJpeg(filename: string, target: string): boolean
-export function getFile(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): { returnType: boolean, cacheFile: Gio.File | null, localFile: Gio.File | null }
-export function getPath(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): { returnType: boolean, cachePath: string | null, localUri: string | null }
-export function pluginInit(maxWidth: number): void
-export function pluginShutdown(): void
-export function remove(artist: string, album?: string | null): boolean
-export function stripInvalidEntities(original: string): string
+function bufferToJpeg(buffer: number, len: number, bufferMime: string, target: string): boolean
+function errorQuark(): GLib.Quark
+function fileToJpeg(filename: string, target: string): boolean
+function getFile(artist?: string | null, title?: string | null, prefix?: string | null, file?: Gio.File | null): { returnType: boolean, cacheFile: Gio.File | null, localFile: Gio.File | null }
+function getPath(artist?: string | null, title?: string | null, prefix?: string | null, uri?: string | null): { returnType: boolean, cachePath: string | null, localUri: string | null }
+function pluginInit(maxWidth: number): void
+function pluginShutdown(): void
+function remove(artist: string, album?: string | null): boolean
+function stripInvalidEntities(original: string): string
 export interface Process_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Process {
+class Process {
     /* Fields of MediaArt-1.0.MediaArt.Process */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -89,9 +89,10 @@ export class Process {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class ProcessClass {
+abstract class ProcessClass {
     /* Fields of MediaArt-1.0.MediaArt.ProcessClass */
     parent: GObject.ObjectClass
     static name: string
 }
 }
+export default MediaArt

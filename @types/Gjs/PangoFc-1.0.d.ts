@@ -3,24 +3,26 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type fontconfig from './fontconfig-2.0';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace PangoFc {
 
 export const FONT_FEATURES: string
 export const FONT_VARIATIONS: string
 export const GRAVITY: string
 export const PRGNAME: string
 export const VERSION: string
-export interface SubstituteFunc {
+interface SubstituteFunc {
     (pattern: fontconfig.Pattern, data?: object | null): void
 }
 export interface Decoder_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Decoder {
+class Decoder {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of PangoFc-1.0.PangoFc.Decoder */
@@ -76,7 +78,7 @@ export interface Font_ConstructProps extends Pango.Font_ConstructProps {
     fontmap?: FontMap
     pattern?: object
 }
-export class Font {
+class Font {
     /* Properties of PangoFc-1.0.PangoFc.Font */
     fontmap: FontMap
     /* Fields of PangoFc-1.0.PangoFc.Font */
@@ -166,7 +168,7 @@ export class Font {
 }
 export interface FontMap_ConstructProps extends Pango.FontMap_ConstructProps {
 }
-export class FontMap {
+class FontMap {
     /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -236,18 +238,20 @@ export class FontMap {
     _init (config?: FontMap_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DecoderClass {
+abstract class DecoderClass {
     /* Fields of PangoFc-1.0.PangoFc.DecoderClass */
     get_charset: (decoder: Decoder, fcfont: Font) => fontconfig.CharSet
     get_glyph: (decoder: Decoder, fcfont: Font, wc: number) => Pango.Glyph
     static name: string
 }
-export abstract class FontClass {
+abstract class FontClass {
     static name: string
 }
-export abstract class FontMapClass {
+abstract class FontMapClass {
     static name: string
 }
-export class FontMapPrivate {
+class FontMapPrivate {
     static name: string
 }
+}
+export default PangoFc

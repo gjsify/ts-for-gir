@@ -3,27 +3,29 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Ggit from './Ggit-1.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Atk from './Atk-1.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type Gdk from './Gdk-3.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Ggit from './Ggit-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Atk from './Atk-1.0';
 
-export enum AuthenticationLifeTime {
+export namespace Gitg {
+
+enum AuthenticationLifeTime {
     FORGET,
     SESSION,
     FOREVER,
 }
-export enum CommitModelColumns {
+enum CommitModelColumns {
     SHA1,
     SUBJECT,
     MESSAGE,
@@ -38,65 +40,65 @@ export enum CommitModelColumns {
     COMMIT,
     NUM,
 }
-export enum RefType {
+enum RefType {
     NONE,
     BRANCH,
     REMOTE,
     TAG,
     STASH,
 }
-export enum RefState {
+enum RefState {
     NONE,
     SELECTED,
     PRELIGHT,
 }
-export enum RemoteState {
+enum RemoteState {
     DISCONNECTED,
     CONNECTING,
     CONNECTED,
     TRANSFERRING,
 }
-export enum SelectionMode {
+enum SelectionMode {
     NORMAL,
     SELECTION,
 }
-export enum SidebarHint {
+enum SidebarHint {
     NONE,
     HEADER,
     SEPARATOR,
     DUMMY,
 }
-export enum SidebarColumn {
+enum SidebarColumn {
     HINT,
     SECTION,
     ITEM,
 }
-export enum CredentialsError {
+enum CredentialsError {
     CANCELLED,
 }
-export enum DateError {
+enum DateError {
     INVALID_FORMAT,
 }
-export enum InitError {
+enum InitError {
     THREADS_UNSAFE,
 }
-export enum RemoteError {
+enum RemoteError {
     ALREADY_CONNECTED,
     ALREADY_CONNECTING,
     ALREADY_DISCONNECTED,
     STILL_CONNECTING,
 }
-export enum StageError {
+enum StageError {
     PRE_COMMIT_HOOK_FAILED,
     COMMIT_MSG_HOOK_FAILED,
     NOTHING_TO_COMMIT,
     INDEX_ENTRY_NOT_FOUND,
 }
-export enum PatchSetType {
+enum PatchSetType {
     ADD,
     REMOVE,
 }
-export enum LaneTag {
+enum LaneTag {
     NONE,
     START,
     END,
@@ -105,17 +107,17 @@ export enum LaneTag {
     SIGN_UNSTAGED,
     HIDDEN,
 }
-export enum StageCommitOptions {
+enum StageCommitOptions {
     NONE,
     SIGN_OFF,
     AMEND,
     SKIP_HOOKS,
 }
-export function commit_model_columns_type(): GObject.Type
-export function init(): void
+function commit_model_columns_type(): GObject.Type
+function init(): void
 export interface Branch_ConstructProps extends Ggit.Branch_ConstructProps {
 }
-export class Branch {
+class Branch {
     /* Fields of Ggit-1.0.Ggit.Branch */
     parent_instance: Ggit.Ref
     /* Fields of GObject-2.0.GObject.Object */
@@ -199,7 +201,7 @@ export interface Ref_ConstructProps extends Ggit.Ref_ConstructProps {
     state?: RefState
     working?: boolean
 }
-export class Ref {
+class Ref {
     /* Properties of Gitg-1.0.Gitg.Ref */
     d_parsed_name: ParsedRefName
     d_pushes: Ref[]
@@ -305,7 +307,7 @@ export class Ref {
 }
 export interface CredentialsProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CredentialsProvider {
+class CredentialsProvider {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gitg-1.0.Gitg.CredentialsProvider */
@@ -357,7 +359,7 @@ export class CredentialsProvider {
 }
 export interface SidebarItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SidebarItem {
+class SidebarItem {
     /* Properties of Gitg-1.0.Gitg.SidebarItem */
     readonly text: string
     readonly icon_name: string
@@ -424,7 +426,7 @@ export class SidebarItem {
 }
 export interface StageStatusItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StageStatusItem {
+class StageStatusItem {
     /* Properties of Gitg-1.0.Gitg.StageStatusItem */
     readonly path: string
     readonly is_staged: boolean
@@ -498,7 +500,7 @@ export class StageStatusItem {
     _init (config?: StageStatusItem_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Async {
+class Async {
     /* Fields of Gitg-1.0.Gitg.Async */
     ref_count: number
     static name: string
@@ -513,7 +515,7 @@ export class Async {
 }
 export interface AuthenticationDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class AuthenticationDialog {
+class AuthenticationDialog {
     /* Properties of Gitg-1.0.Gitg.AuthenticationDialog */
     readonly username: string
     readonly password: string
@@ -1567,7 +1569,7 @@ export class AuthenticationDialog {
 }
 export interface AvatarCache_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AvatarCache {
+class AvatarCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gitg-1.0.Gitg.AvatarCache */
@@ -1624,7 +1626,7 @@ export interface BranchBase_ConstructProps extends Ggit.Branch_ConstructProps {
     state?: RefState
     working?: boolean
 }
-export class BranchBase {
+class BranchBase {
     /* Properties of Gitg-1.0.Gitg.Ref */
     d_parsed_name: ParsedRefName
     d_pushes: Ref[]
@@ -1745,7 +1747,7 @@ export interface CellRendererLanes_ConstructProps extends Gtk.CellRendererText_C
     dot_width?: number
     labels?: Ref[]
 }
-export class CellRendererLanes {
+class CellRendererLanes {
     /* Properties of Gitg-1.0.Gitg.CellRendererLanes */
     commit: Commit
     next_commit: Commit
@@ -2074,7 +2076,7 @@ export class CellRendererLanes {
 }
 export interface Color_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Color {
+class Color {
     /* Properties of Gitg-1.0.Gitg.Color */
     readonly r: number
     readonly g: number
@@ -2145,7 +2147,7 @@ export class Color {
 }
 export interface CommitListView_ConstructProps extends Gtk.TreeView_ConstructProps {
 }
-export class CommitListView {
+class CommitListView {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -3170,7 +3172,7 @@ export interface CommitModel_ConstructProps extends GObject.Object_ConstructProp
     sort_mode?: Ggit.SortMode
     repository?: Repository
 }
-export class CommitModel {
+class CommitModel {
     /* Properties of Gitg-1.0.Gitg.CommitModel */
     limit: number
     sort_mode: Ggit.SortMode
@@ -3328,7 +3330,7 @@ export interface Commit_ConstructProps extends Ggit.Commit_ConstructProps {
     tag?: LaneTag
     mylane?: number
 }
-export class Commit {
+class Commit {
     /* Properties of Gitg-1.0.Gitg.Commit */
     tag: LaneTag
     mylane: number
@@ -3426,7 +3428,7 @@ export class Commit {
     static new(): Commit
     static $gtype: GObject.Type
 }
-export class CredentialsManager {
+class CredentialsManager {
     /* Fields of Gitg-1.0.Gitg.CredentialsManager */
     ref_count: number
     /* Methods of Gitg-1.0.Gitg.CredentialsManager */
@@ -3440,7 +3442,7 @@ export class CredentialsManager {
 export interface Date_ConstructProps extends GObject.Object_ConstructProps {
     date_string?: string
 }
-export class Date {
+class Date {
     /* Properties of Gitg-1.0.Gitg.Date */
     date_string: string
     readonly date: GLib.DateTime
@@ -3511,7 +3513,7 @@ export interface DiffStat_ConstructProps extends Gtk.DrawingArea_ConstructProps 
     added?: number
     removed?: number
 }
-export class DiffStat {
+class DiffStat {
     /* Properties of Gitg-1.0.Gitg.DiffStat */
     added: number
     removed: number
@@ -4247,7 +4249,7 @@ export interface DiffViewOptions_ConstructProps extends Gtk.Toolbar_ConstructPro
     context_lines?: number
     view?: DiffView
 }
-export class DiffViewOptions {
+class DiffViewOptions {
     /* Properties of Gitg-1.0.Gitg.DiffViewOptions */
     context_lines: number
     view: DiffView
@@ -5111,7 +5113,7 @@ export interface DiffView_ConstructProps extends Gtk.Grid_ConstructProps {
     changes_inline?: boolean
     context_lines?: number
 }
-export class DiffView {
+class DiffView {
     /* Properties of Gitg-1.0.Gitg.DiffView */
     readonly options: Ggit.DiffOptions
     has_selection: boolean
@@ -6032,7 +6034,7 @@ export class DiffView {
 }
 export interface FontManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FontManager {
+class FontManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6085,7 +6087,7 @@ export interface Hook_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     working_directory?: Gio.File
 }
-export class Hook {
+class Hook {
     /* Properties of Gitg-1.0.Gitg.Hook */
     environment: Gee.HashMap
     name: string
@@ -6159,7 +6161,7 @@ export class Hook {
     static new(name: string): Hook
     static $gtype: GObject.Type
 }
-export class LabelRenderer {
+class LabelRenderer {
     /* Fields of Gitg-1.0.Gitg.LabelRenderer */
     ref_count: number
     static name: string
@@ -6179,7 +6181,7 @@ export interface Lanes_ConstructProps extends GObject.Object_ConstructProps {
     inactive_enabled?: boolean
     miss_commits?: Gee.LinkedList
 }
-export class Lanes {
+class Lanes {
     /* Properties of Gitg-1.0.Gitg.Lanes */
     inactive_max: number
     inactive_collapse: number
@@ -6258,7 +6260,7 @@ export class Lanes {
 }
 export interface Lane_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Lane {
+class Lane {
     /* Fields of Gitg-1.0.Gitg.Lane */
     color: Color
     from: number[]
@@ -6318,7 +6320,7 @@ export class Lane {
 export interface ProgressBin_ConstructProps extends Gtk.Bin_ConstructProps {
     fraction?: number
 }
-export class ProgressBin {
+class ProgressBin {
     /* Properties of Gitg-1.0.Gitg.ProgressBin */
     fraction: number
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -7118,7 +7120,7 @@ export interface RefBase_ConstructProps extends Ggit.Ref_ConstructProps {
     state?: RefState
     working?: boolean
 }
-export class RefBase {
+class RefBase {
     /* Properties of Gitg-1.0.Gitg.Ref */
     d_parsed_name: ParsedRefName
     d_pushes: Ref[]
@@ -7227,7 +7229,7 @@ export class RefBase {
 export interface ParsedRefName_ConstructProps extends GObject.Object_ConstructProps {
     rtype?: RefType
 }
-export class ParsedRefName {
+class ParsedRefName {
     /* Properties of Gitg-1.0.Gitg.ParsedRefName */
     rtype: RefType
     readonly name: string
@@ -7307,7 +7309,7 @@ export interface Remote_ConstructProps extends Ggit.Remote_ConstructProps {
     push_specs?: string[]
     credentials_provider?: CredentialsProvider
 }
-export class Remote {
+class Remote {
     /* Properties of Gitg-1.0.Gitg.Remote */
     readonly transfer_progress: number
     state: RemoteState
@@ -7415,7 +7417,7 @@ export interface RepositoryListBox_ConstructProps extends Gtk.ListBox_ConstructP
     bookmarks_from_recent_files?: boolean
     location?: Gio.File
 }
-export class RepositoryListBox {
+class RepositoryListBox {
     /* Properties of Gitg-1.0.Gitg.RepositoryListBox */
     mode: SelectionMode
     bookmarks_from_recent_files: boolean
@@ -8313,7 +8315,7 @@ export interface RepositoryListBoxRow_ConstructProps extends Gtk.ListBoxRow_Cons
     branch_name?: string
     loading?: boolean
 }
-export class RepositoryListBoxRow {
+class RepositoryListBoxRow {
     /* Properties of Gitg-1.0.Gitg.RepositoryListBoxRow */
     mode: SelectionMode
     selected: boolean
@@ -9181,7 +9183,7 @@ export class RepositoryListBoxRow {
 }
 export interface Repository_ConstructProps extends Ggit.Repository_ConstructProps {
 }
-export class Repository {
+class Repository {
     /* Properties of Gitg-1.0.Gitg.Repository */
     readonly name: string
     readonly stage: Stage
@@ -9352,7 +9354,7 @@ export class Repository {
     static init_repository(location: Gio.File, is_bare: boolean): Ggit.Repository | null
     static $gtype: GObject.Type
 }
-export class Resource {
+class Resource {
     /* Fields of Gitg-1.0.Gitg.Resource */
     ref_count: number
     static name: string
@@ -9364,7 +9366,7 @@ export class Resource {
 }
 export interface SidebarStore_ConstructProps extends Gtk.TreeStore_ConstructProps {
 }
-export class SidebarStore {
+class SidebarStore {
     /* Properties of Gitg-1.0.Gitg.SidebarStore */
     readonly clearing: boolean
     /* Fields of Gtk-3.0.Gtk.TreeStore */
@@ -9450,7 +9452,7 @@ export class SidebarStore {
 }
 export interface SidebarStoreSidebarText_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SidebarStoreSidebarText {
+class SidebarStoreSidebarText {
     /* Properties of Gitg-1.0.Gitg.SidebarItem */
     readonly text: string
     readonly icon_name: string
@@ -9519,7 +9521,7 @@ export class SidebarStoreSidebarText {
 }
 export interface SidebarStoreSidebarHeader_ConstructProps extends SidebarStoreSidebarText_ConstructProps {
 }
-export class SidebarStoreSidebarHeader {
+class SidebarStoreSidebarHeader {
     /* Properties of Gitg-1.0.Gitg.SidebarStoreSidebarHeader */
     readonly id: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -9581,7 +9583,7 @@ export class SidebarStoreSidebarHeader {
 export interface Sidebar_ConstructProps extends Gtk.TreeView_ConstructProps {
     model?: SidebarStore
 }
-export class Sidebar {
+class Sidebar {
     /* Properties of Gitg-1.0.Gitg.Sidebar */
     model: SidebarStore
     /* Properties of Gtk-3.0.Gtk.TreeView */
@@ -10600,7 +10602,7 @@ export class Sidebar {
 }
 export interface StageStatusFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StageStatusFile {
+class StageStatusFile {
     /* Properties of Gitg-1.0.Gitg.StageStatusFile */
     readonly flags: Ggit.StatusFlags
     /* Properties of Gitg-1.0.Gitg.StageStatusItem */
@@ -10684,7 +10686,7 @@ export class StageStatusFile {
 }
 export interface StageStatusSubmodule_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StageStatusSubmodule {
+class StageStatusSubmodule {
     /* Properties of Gitg-1.0.Gitg.StageStatusSubmodule */
     readonly submodule: Ggit.Submodule
     readonly is_dirty: boolean
@@ -10776,7 +10778,7 @@ export class StageStatusSubmodule {
 }
 export interface StageStatusEnumerator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StageStatusEnumerator {
+class StageStatusEnumerator {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gitg-1.0.Gitg.StageStatusEnumerator */
@@ -10826,7 +10828,7 @@ export class StageStatusEnumerator {
     _init (config?: StageStatusEnumerator_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class PatchSet {
+class PatchSet {
     /* Fields of Gitg-1.0.Gitg.PatchSet */
     ref_count: number
     filename: string
@@ -10842,7 +10844,7 @@ export class PatchSet {
 }
 export interface Stage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Stage {
+class Stage {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gitg-1.0.Gitg.Stage */
@@ -10936,7 +10938,7 @@ export class Stage {
 }
 export interface Theme_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Theme {
+class Theme {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -11657,7 +11659,7 @@ export class Theme {
     static instance(): Theme
     static $gtype: GObject.Type
 }
-export class Utils {
+class Utils {
     /* Fields of Gitg-1.0.Gitg.Utils */
     ref_count: number
     static name: string
@@ -11668,7 +11670,7 @@ export class Utils {
     static replace_home_dir_with_tilde(file: Gio.File): string
     static expand_home_dir(path: string): string
 }
-export class WhenMapped {
+class WhenMapped {
     /* Fields of Gitg-1.0.Gitg.WhenMapped */
     ref_count: number
     /* Methods of Gitg-1.0.Gitg.WhenMapped */
@@ -11679,222 +11681,222 @@ export class WhenMapped {
     /* Static methods and pseudo-constructors */
     static new(widget: Gtk.Widget): WhenMapped
 }
-export abstract class AsyncClass {
+abstract class AsyncClass {
     static name: string
 }
-export class AsyncPrivate {
+class AsyncPrivate {
     static name: string
 }
-export abstract class AuthenticationDialogClass {
+abstract class AuthenticationDialogClass {
     static name: string
 }
-export class AuthenticationDialogPrivate {
+class AuthenticationDialogPrivate {
     static name: string
 }
-export abstract class AvatarCacheClass {
+abstract class AvatarCacheClass {
     static name: string
 }
-export class AvatarCachePrivate {
+class AvatarCachePrivate {
     static name: string
 }
-export abstract class BranchBaseClass {
+abstract class BranchBaseClass {
     static name: string
 }
-export class BranchBasePrivate {
+class BranchBasePrivate {
     static name: string
 }
-export abstract class CellRendererLanesClass {
+abstract class CellRendererLanesClass {
     static name: string
 }
-export class CellRendererLanesPrivate {
+class CellRendererLanesPrivate {
     static name: string
 }
-export abstract class ColorClass {
+abstract class ColorClass {
     static name: string
 }
-export class ColorPrivate {
+class ColorPrivate {
     static name: string
 }
-export abstract class CommitListViewClass {
+abstract class CommitListViewClass {
     static name: string
 }
-export class CommitListViewPrivate {
+class CommitListViewPrivate {
     static name: string
 }
-export abstract class CommitModelClass {
+abstract class CommitModelClass {
     static name: string
 }
-export class CommitModelPrivate {
+class CommitModelPrivate {
     static name: string
 }
-export abstract class CommitClass {
+abstract class CommitClass {
     static name: string
 }
-export class CommitPrivate {
+class CommitPrivate {
     static name: string
 }
-export abstract class CredentialsManagerClass {
+abstract class CredentialsManagerClass {
     static name: string
 }
-export class CredentialsManagerPrivate {
+class CredentialsManagerPrivate {
     static name: string
 }
-export abstract class DateClass {
+abstract class DateClass {
     static name: string
 }
-export class DatePrivate {
+class DatePrivate {
     static name: string
 }
-export abstract class DiffStatClass {
+abstract class DiffStatClass {
     static name: string
 }
-export class DiffStatPrivate {
+class DiffStatPrivate {
     static name: string
 }
-export abstract class DiffViewOptionsClass {
+abstract class DiffViewOptionsClass {
     static name: string
 }
-export class DiffViewOptionsPrivate {
+class DiffViewOptionsPrivate {
     static name: string
 }
-export abstract class DiffViewClass {
+abstract class DiffViewClass {
     /* Fields of Gitg-1.0.Gitg.DiffViewClass */
     options_changed: (self: DiffView) => void
     static name: string
 }
-export class DiffViewPrivate {
+class DiffViewPrivate {
     static name: string
 }
-export abstract class FontManagerClass {
+abstract class FontManagerClass {
     static name: string
 }
-export class FontManagerPrivate {
+class FontManagerPrivate {
     static name: string
 }
-export abstract class HookClass {
+abstract class HookClass {
     static name: string
 }
-export class HookPrivate {
+class HookPrivate {
     static name: string
 }
-export abstract class LabelRendererClass {
+abstract class LabelRendererClass {
     static name: string
 }
-export class LabelRendererPrivate {
+class LabelRendererPrivate {
     static name: string
 }
-export abstract class LanesClass {
+abstract class LanesClass {
     static name: string
 }
-export class LanesPrivate {
+class LanesPrivate {
     static name: string
 }
-export abstract class LaneClass {
+abstract class LaneClass {
     static name: string
 }
-export class LanePrivate {
+class LanePrivate {
     static name: string
 }
-export abstract class ProgressBinClass {
+abstract class ProgressBinClass {
     static name: string
 }
-export class ProgressBinPrivate {
+class ProgressBinPrivate {
     static name: string
 }
-export abstract class RefBaseClass {
+abstract class RefBaseClass {
     static name: string
 }
-export class RefBasePrivate {
+class RefBasePrivate {
     static name: string
 }
-export abstract class ParsedRefNameClass {
+abstract class ParsedRefNameClass {
     static name: string
 }
-export class ParsedRefNamePrivate {
+class ParsedRefNamePrivate {
     static name: string
 }
-export abstract class RemoteClass {
+abstract class RemoteClass {
     static name: string
 }
-export class RemotePrivate {
+class RemotePrivate {
     static name: string
 }
-export abstract class RepositoryListBoxClass {
+abstract class RepositoryListBoxClass {
     static name: string
 }
-export class RepositoryListBoxPrivate {
+class RepositoryListBoxPrivate {
     static name: string
 }
-export abstract class RepositoryListBoxRowClass {
+abstract class RepositoryListBoxRowClass {
     static name: string
 }
-export class RepositoryListBoxRowPrivate {
+class RepositoryListBoxRowPrivate {
     static name: string
 }
-export abstract class RepositoryClass {
+abstract class RepositoryClass {
     static name: string
 }
-export class RepositoryPrivate {
+class RepositoryPrivate {
     static name: string
 }
-export abstract class ResourceClass {
+abstract class ResourceClass {
     static name: string
 }
-export class ResourcePrivate {
+class ResourcePrivate {
     static name: string
 }
-export abstract class SidebarStoreClass {
+abstract class SidebarStoreClass {
     static name: string
 }
-export class SidebarStorePrivate {
+class SidebarStorePrivate {
     static name: string
 }
-export abstract class SidebarStoreSidebarTextClass {
+abstract class SidebarStoreSidebarTextClass {
     static name: string
 }
-export class SidebarStoreSidebarTextPrivate {
+class SidebarStoreSidebarTextPrivate {
     static name: string
 }
-export abstract class SidebarStoreSidebarHeaderClass {
+abstract class SidebarStoreSidebarHeaderClass {
     static name: string
 }
-export class SidebarStoreSidebarHeaderPrivate {
+class SidebarStoreSidebarHeaderPrivate {
     static name: string
 }
-export abstract class SidebarClass {
+abstract class SidebarClass {
     /* Fields of Gitg-1.0.Gitg.SidebarClass */
     select_function: (self: Sidebar, sel: Gtk.TreeSelection, model: Gtk.TreeModel, path: Gtk.TreePath, cursel: boolean) => boolean
     selection_changed: (self: Sidebar, sel: Gtk.TreeSelection) => void
     static name: string
 }
-export class SidebarPrivate {
+class SidebarPrivate {
     static name: string
 }
-export abstract class StageStatusFileClass {
+abstract class StageStatusFileClass {
     static name: string
 }
-export class StageStatusFilePrivate {
+class StageStatusFilePrivate {
     static name: string
 }
-export abstract class StageStatusSubmoduleClass {
+abstract class StageStatusSubmoduleClass {
     static name: string
 }
-export class StageStatusSubmodulePrivate {
+class StageStatusSubmodulePrivate {
     static name: string
 }
-export abstract class StageStatusEnumeratorClass {
+abstract class StageStatusEnumeratorClass {
     static name: string
 }
-export class StageStatusEnumeratorPrivate {
+class StageStatusEnumeratorPrivate {
     static name: string
 }
-export abstract class PatchSetClass {
+abstract class PatchSetClass {
     static name: string
 }
-export class PatchSetPrivate {
+class PatchSetPrivate {
     static name: string
 }
-export class PatchSetPatch {
+class PatchSetPatch {
     /* Fields of Gitg-1.0.Gitg.PatchSetPatch */
     type: PatchSetType
     old_offset: number
@@ -11902,36 +11904,36 @@ export class PatchSetPatch {
     length: number
     static name: string
 }
-export abstract class StageClass {
+abstract class StageClass {
     static name: string
 }
-export class StagePrivate {
+class StagePrivate {
     static name: string
 }
-export abstract class ThemeClass {
+abstract class ThemeClass {
     static name: string
 }
-export class ThemePrivate {
+class ThemePrivate {
     static name: string
 }
-export abstract class UtilsClass {
+abstract class UtilsClass {
     static name: string
 }
-export class UtilsPrivate {
+class UtilsPrivate {
     static name: string
 }
-export abstract class WhenMappedClass {
+abstract class WhenMappedClass {
     static name: string
 }
-export class WhenMappedPrivate {
+class WhenMappedPrivate {
     static name: string
 }
-export abstract class BranchIface {
+abstract class BranchIface {
     /* Fields of Gitg-1.0.Gitg.BranchIface */
     get_upstream: (self: Branch) => Ref
     static name: string
 }
-export abstract class RefIface {
+abstract class RefIface {
     /* Fields of Gitg-1.0.Gitg.RefIface */
     get_owner: (self: Ref) => Repository
     get_d_parsed_name: (self: Ref) => ParsedRefName
@@ -11944,19 +11946,19 @@ export abstract class RefIface {
     set_working: (self: Ref, value: boolean) => void
     static name: string
 }
-export abstract class CredentialsProviderIface {
+abstract class CredentialsProviderIface {
     /* Fields of Gitg-1.0.Gitg.CredentialsProviderIface */
     credentials: (self: CredentialsProvider, url: string, username_from_url: string | null, allowed_types: Ggit.Credtype) => Ggit.Cred | null
     static name: string
 }
-export abstract class SidebarItemIface {
+abstract class SidebarItemIface {
     /* Fields of Gitg-1.0.Gitg.SidebarItemIface */
     activate: (self: SidebarItem, numclick: number) => void
     get_text: (self: SidebarItem) => string
     get_icon_name: (self: SidebarItem) => string | null
     static name: string
 }
-export abstract class StageStatusItemIface {
+abstract class StageStatusItemIface {
     /* Fields of Gitg-1.0.Gitg.StageStatusItemIface */
     get_path: (self: StageStatusItem) => string
     get_is_staged: (self: StageStatusItem) => boolean
@@ -11965,3 +11967,5 @@ export abstract class StageStatusItemIface {
     get_icon_name: (self: StageStatusItem) => string | null
     static name: string
 }
+}
+export default Gitg

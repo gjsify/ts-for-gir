@@ -1,2 +1,1 @@
-imports.gi.versions.UDisks = '2.0'
-module.exports = imports.gi.UDisks
+export {default as default} from 'gi://UDisks?version=2.0';

@@ -1,2 +1,1 @@
-imports.gi.versions.SocialWebClient = '0.25'
-module.exports = imports.gi.SocialWebClient
+export {default as default} from 'gi://SocialWebClient?version=0.25';

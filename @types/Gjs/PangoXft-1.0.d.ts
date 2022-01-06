@@ -3,34 +3,36 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as xft from './xft-2.0';
-import type * as PangoOT from './PangoOT-1.0';
-import type * as freetype2 from './freetype2-2.0';
-import type * as PangoFc from './PangoFc-1.0';
-import type * as fontconfig from './fontconfig-2.0';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as PangoFT2 from './PangoFT2-1.0';
+import type xlib from './xlib-2.0';
+import type xft from './xft-2.0';
+import type PangoOT from './PangoOT-1.0';
+import type freetype2 from './freetype2-2.0';
+import type PangoFc from './PangoFc-1.0';
+import type fontconfig from './fontconfig-2.0';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type PangoFT2 from './PangoFT2-1.0';
 
-export function get_font_map(display: xlib.Display, screen: number): Pango.FontMap
-export function picture_render(display: xlib.Display, src_picture: xlib.Picture, dest_picture: xlib.Picture, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-export function render(draw: xft.Draw, color: xft.Color, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-export function render_layout(draw: xft.Draw, color: xft.Color, layout: Pango.Layout, x: number, y: number): void
-export function render_layout_line(draw: xft.Draw, color: xft.Color, line: Pango.LayoutLine, x: number, y: number): void
-export function render_transformed(draw: xft.Draw, color: xft.Color, matrix: Pango.Matrix | null, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
-export function set_default_substitute(display: xlib.Display, screen: number, func: SubstituteFunc): void
-export function shutdown_display(display: xlib.Display, screen: number): void
-export function substitute_changed(display: xlib.Display, screen: number): void
-export interface SubstituteFunc {
+export namespace PangoXft {
+
+function get_font_map(display: xlib.Display, screen: number): Pango.FontMap
+function picture_render(display: xlib.Display, src_picture: xlib.Picture, dest_picture: xlib.Picture, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
+function render(draw: xft.Draw, color: xft.Color, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
+function render_layout(draw: xft.Draw, color: xft.Color, layout: Pango.Layout, x: number, y: number): void
+function render_layout_line(draw: xft.Draw, color: xft.Color, line: Pango.LayoutLine, x: number, y: number): void
+function render_transformed(draw: xft.Draw, color: xft.Color, matrix: Pango.Matrix | null, font: Pango.Font, glyphs: Pango.GlyphString, x: number, y: number): void
+function set_default_substitute(display: xlib.Display, screen: number, func: SubstituteFunc): void
+function shutdown_display(display: xlib.Display, screen: number): void
+function substitute_changed(display: xlib.Display, screen: number): void
+interface SubstituteFunc {
     (pattern: fontconfig.Pattern, data?: object | null): void
 }
 export interface Font_ConstructProps extends PangoFc.Font_ConstructProps {
 }
-export class Font {
+class Font {
     /* Properties of PangoFc-1.0.PangoFc.Font */
     fontmap: PangoFc.FontMap
     /* Fields of PangoFc-1.0.PangoFc.Font */
@@ -119,7 +121,7 @@ export class Font {
 }
 export interface FontMap_ConstructProps extends PangoFc.FontMap_ConstructProps {
 }
-export class FontMap {
+class FontMap {
     /* Fields of Pango-1.0.Pango.FontMap */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -193,7 +195,7 @@ export interface Renderer_ConstructProps extends Pango.Renderer_ConstructProps {
     display?: object
     screen?: number
 }
-export class Renderer {
+class Renderer {
     /* Fields of Pango-1.0.Pango.Renderer */
     matrix: Pango.Matrix
     /* Fields of GObject-2.0.GObject.Object */
@@ -281,12 +283,14 @@ export class Renderer {
     static new(display: xlib.Display, screen: number): Renderer
     static $gtype: GObject.Type
 }
-export abstract class RendererClass {
+abstract class RendererClass {
     /* Fields of PangoXft-1.0.PangoXft.RendererClass */
     composite_trapezoids: (xftrenderer: Renderer, part: Pango.RenderPart, trapezoids: xlib.XTrapezoid, n_trapezoids: number) => void
     composite_glyphs: (xftrenderer: Renderer, xft_font: xft.Font, glyphs: xft.GlyphSpec, n_glyphs: number) => void
     static name: string
 }
-export class RendererPrivate {
+class RendererPrivate {
     static name: string
 }
+}
+export default PangoXft

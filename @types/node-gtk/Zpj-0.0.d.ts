@@ -10,20 +10,20 @@ import type { GLib } from './GLib-2.0';
 import type { Rest } from './Rest-0.7';
 import type { Json } from './Json-1.0';
 
-export declare namespace Zpj {
+declare namespace Zpj {
 
-export enum Error {
+enum Error {
     REQUEST_URL_INVALID,
     UNKNOWN,
 }
-export enum SkydriveEntryType {
+enum SkydriveEntryType {
     FILE,
     FOLDER,
     PHOTO,
     VIDEO,
     INVALID,
 }
-export enum ThumbnailSize {
+enum ThumbnailSize {
     SMALL,
     NORMAL,
 }
@@ -31,8 +31,8 @@ export const SKYDRIVE_FOLDER_MY_DOCUMENTS: string
 export const SKYDRIVE_FOLDER_MY_PHOTOS: string
 export const SKYDRIVE_FOLDER_PUBLIC_DOCUMENTS: string
 export const SKYDRIVE_FOLDER_SKYDRIVE: string
-export function errorQuark(): GLib.Quark
-export class Authorizer {
+function errorQuark(): GLib.Quark
+class Authorizer {
     /* Methods of Zpj-0.0.Zpj.Authorizer */
     isAuthorizedForDomain(domain: AuthorizationDomain): boolean
     processCall(domain: AuthorizationDomain | null, call: Rest.ProxyCall): void
@@ -46,7 +46,7 @@ export interface AuthorizationDomain_ConstructProps extends GObject.Object_Const
     scope?: string
     serviceName?: string
 }
-export class AuthorizationDomain {
+class AuthorizationDomain {
     /* Fields of Zpj-0.0.Zpj.AuthorizationDomain */
     parentInstance: GObject.Object
     priv: AuthorizationDomainPrivate
@@ -97,7 +97,7 @@ export class AuthorizationDomain {
 }
 export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GoaAuthorizer {
+class GoaAuthorizer {
     /* Fields of Zpj-0.0.Zpj.GoaAuthorizer */
     parentInstance: GObject.Object
     priv: GoaAuthorizerPrivate
@@ -153,7 +153,7 @@ export class GoaAuthorizer {
 export interface Skydrive_ConstructProps extends GObject.Object_ConstructProps {
     authorizer?: Authorizer
 }
-export class Skydrive {
+class Skydrive {
     /* Properties of Zpj-0.0.Zpj.Skydrive */
     authorizer: Authorizer
     /* Fields of Zpj-0.0.Zpj.Skydrive */
@@ -235,7 +235,7 @@ export class Skydrive {
 export interface SkydriveEntry_ConstructProps extends GObject.Object_ConstructProps {
     json?: Json.Node
 }
-export class SkydriveEntry {
+class SkydriveEntry {
     /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
@@ -348,7 +348,7 @@ export class SkydriveEntry {
 }
 export interface SkydriveFile_ConstructProps extends SkydriveEntry_ConstructProps {
 }
-export class SkydriveFile {
+class SkydriveFile {
     /* Properties of Zpj-0.0.Zpj.SkydriveFile */
     readonly size: number
     /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
@@ -472,7 +472,7 @@ export class SkydriveFile {
 }
 export interface SkydriveFolder_ConstructProps extends SkydriveEntry_ConstructProps {
 }
-export class SkydriveFolder {
+class SkydriveFolder {
     /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
     readonly createdTime: GLib.DateTime
     readonly description: string
@@ -588,7 +588,7 @@ export class SkydriveFolder {
 }
 export interface SkydrivePhoto_ConstructProps extends SkydriveFile_ConstructProps {
 }
-export class SkydrivePhoto {
+class SkydrivePhoto {
     /* Properties of Zpj-0.0.Zpj.SkydriveFile */
     readonly size: number
     /* Properties of Zpj-0.0.Zpj.SkydriveEntry */
@@ -713,7 +713,7 @@ export class SkydrivePhoto {
 }
 export interface SkydriveVideo_ConstructProps extends SkydriveFile_ConstructProps {
 }
-export class SkydriveVideo {
+class SkydriveVideo {
     /* Properties of Zpj-0.0.Zpj.SkydriveVideo */
     readonly bitrate: number
     readonly duration: number
@@ -865,15 +865,15 @@ export class SkydriveVideo {
     static new(node: Json.Node): SkydriveVideo
     static $gtype: GObject.Type
 }
-export abstract class AuthorizationDomainClass {
+abstract class AuthorizationDomainClass {
     /* Fields of Zpj-0.0.Zpj.AuthorizationDomainClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class AuthorizationDomainPrivate {
+class AuthorizationDomainPrivate {
     static name: string
 }
-export abstract class AuthorizerInterface {
+abstract class AuthorizerInterface {
     /* Fields of Zpj-0.0.Zpj.AuthorizerInterface */
     parentIface: GObject.TypeInterface
     isAuthorizedForDomain: (iface: Authorizer, domain: AuthorizationDomain) => boolean
@@ -882,55 +882,56 @@ export abstract class AuthorizerInterface {
     refreshAuthorization: (iface: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export abstract class GoaAuthorizerClass {
+abstract class GoaAuthorizerClass {
     /* Fields of Zpj-0.0.Zpj.GoaAuthorizerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GoaAuthorizerPrivate {
+class GoaAuthorizerPrivate {
     static name: string
 }
-export abstract class SkydriveClass {
+abstract class SkydriveClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SkydriveEntryClass {
+abstract class SkydriveEntryClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveEntryClass */
     parentClass: GObject.ObjectClass
     parseJsonNode: (self: SkydriveEntry, node: Json.Node) => void
     static name: string
 }
-export class SkydriveEntryPrivate {
+class SkydriveEntryPrivate {
     static name: string
 }
-export abstract class SkydriveFileClass {
+abstract class SkydriveFileClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveFileClass */
     parentClass: SkydriveEntryClass
     static name: string
 }
-export class SkydriveFilePrivate {
+class SkydriveFilePrivate {
     static name: string
 }
-export abstract class SkydriveFolderClass {
+abstract class SkydriveFolderClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveFolderClass */
     parentClass: SkydriveEntryClass
     static name: string
 }
-export abstract class SkydrivePhotoClass {
+abstract class SkydrivePhotoClass {
     /* Fields of Zpj-0.0.Zpj.SkydrivePhotoClass */
     parentClass: SkydriveFileClass
     static name: string
 }
-export class SkydrivePrivate {
+class SkydrivePrivate {
     static name: string
 }
-export abstract class SkydriveVideoClass {
+abstract class SkydriveVideoClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveVideoClass */
     parentClass: SkydriveFileClass
     static name: string
 }
-export class SkydriveVideoPrivate {
+class SkydriveVideoPrivate {
     static name: string
 }
 }
+export default Zpj

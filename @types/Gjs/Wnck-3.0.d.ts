@@ -3,44 +3,46 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum ClientType {
+export namespace Wnck {
+
+enum ClientType {
     APPLICATION,
     PAGER,
 }
-export enum MotionDirection {
+enum MotionDirection {
     UP,
     DOWN,
     LEFT,
     RIGHT,
 }
-export enum PagerDisplayMode {
+enum PagerDisplayMode {
     NAME,
     CONTENT,
 }
-export enum PagerScrollMode {
+enum PagerScrollMode {
     /* 2D (invalid, starts with a number) */
     /* 1D (invalid, starts with a number) */
     NONE,
 }
-export enum TasklistGroupingType {
+enum TasklistGroupingType {
     NEVER_GROUP,
     AUTO_GROUP,
     ALWAYS_GROUP,
 }
-export enum WindowGravity {
+enum WindowGravity {
     CURRENT,
     NORTHWEST,
     NORTH,
@@ -53,7 +55,7 @@ export enum WindowGravity {
     SOUTHEAST,
     STATIC,
 }
-export enum WindowType {
+enum WindowType {
     NORMAL,
     DESKTOP,
     DOCK,
@@ -63,17 +65,17 @@ export enum WindowType {
     UTILITY,
     SPLASHSCREEN,
 }
-export enum _LayoutCorner {
+enum _LayoutCorner {
     TOPLEFT,
     TOPRIGHT,
     BOTTOMRIGHT,
     BOTTOMLEFT,
 }
-export enum _LayoutOrientation {
+enum _LayoutOrientation {
     HORIZONTAL,
     VERTICAL,
 }
-export enum WindowActions {
+enum WindowActions {
     MOVE,
     RESIZE,
     SHADE,
@@ -94,13 +96,13 @@ export enum WindowActions {
     ABOVE,
     BELOW,
 }
-export enum WindowMoveResizeMask {
+enum WindowMoveResizeMask {
     X,
     Y,
     WIDTH,
     HEIGHT,
 }
-export enum WindowState {
+enum WindowState {
     MINIMIZED,
     MAXIMIZED_HORIZONTALLY,
     MAXIMIZED_VERTICALLY,
@@ -120,16 +122,16 @@ export const DEFAULT_MINI_ICON_SIZE: number
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function pid_read_resource_usage(gdk_display: Gdk.Display, pid: number, usage: ResourceUsage): void
-export function set_client_type(ewmh_sourceindication_client_type: ClientType): void
-export function set_default_icon_size(size: number): void
-export function set_default_mini_icon_size(size: number): void
-export function shutdown(): void
-export function xid_read_resource_usage(gdk_display: Gdk.Display, xid: number, usage: ResourceUsage): void
+function pid_read_resource_usage(gdk_display: Gdk.Display, pid: number, usage: ResourceUsage): void
+function set_client_type(ewmh_sourceindication_client_type: ClientType): void
+function set_default_icon_size(size: number): void
+function set_default_mini_icon_size(size: number): void
+function shutdown(): void
+function xid_read_resource_usage(gdk_display: Gdk.Display, xid: number, usage: ResourceUsage): void
 export interface ActionMenu_ConstructProps extends Gtk.Menu_ConstructProps {
     window?: object
 }
-export class ActionMenu {
+class ActionMenu {
     /* Properties of Gtk-3.0.Gtk.Menu */
     accel_group: Gtk.AccelGroup
     accel_path: string
@@ -1067,7 +1069,7 @@ export class ActionMenu {
 }
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Application {
+class Application {
     /* Fields of Wnck-3.0.Wnck.Application */
     parent_instance: GObject.Object
     priv: ApplicationPrivate
@@ -1141,7 +1143,7 @@ export class Application {
 }
 export interface ClassGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ClassGroup {
+class ClassGroup {
     /* Fields of Wnck-3.0.Wnck.ClassGroup */
     parent_instance: GObject.Object
     priv: ClassGroupPrivate
@@ -1215,7 +1217,7 @@ export interface ImageMenuItem_ConstructProps extends Gtk.MenuItem_ConstructProp
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class ImageMenuItem {
+class ImageMenuItem {
     /* Properties of Gtk-3.0.Gtk.MenuItem */
     accel_path: string
     label: string
@@ -2127,7 +2129,7 @@ export class ImageMenuItem {
 }
 export interface Pager_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Pager {
+class Pager {
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -2877,7 +2879,7 @@ export class Pager {
 }
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Screen {
+class Screen {
     /* Fields of Wnck-3.0.Wnck.Screen */
     parent_instance: GObject.Object
     priv: ScreenPrivate
@@ -3018,7 +3020,7 @@ export class Screen {
 }
 export interface Selector_ConstructProps extends Gtk.MenuBar_ConstructProps {
 }
-export class Selector {
+class Selector {
     /* Properties of Gtk-3.0.Gtk.MenuBar */
     child_pack_direction: Gtk.PackDirection
     pack_direction: Gtk.PackDirection
@@ -3894,7 +3896,7 @@ export class Selector {
 }
 export interface Tasklist_ConstructProps extends Gtk.Container_ConstructProps {
 }
-export class Tasklist {
+class Tasklist {
     /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
@@ -4718,7 +4720,7 @@ export class Tasklist {
 }
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Window {
+class Window {
     /* Fields of Wnck-3.0.Wnck.Window */
     parent_instance: GObject.Object
     priv: WindowPrivate
@@ -4887,7 +4889,7 @@ export class Window {
 }
 export interface Workspace_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Workspace {
+class Workspace {
     /* Fields of Wnck-3.0.Wnck.Workspace */
     parent_instance: GObject.Object
     priv: WorkspacePrivate
@@ -4956,7 +4958,7 @@ export class Workspace {
     _init (config?: Workspace_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ActionMenuClass {
+abstract class ActionMenuClass {
     /* Fields of Wnck-3.0.Wnck.ActionMenuClass */
     parent_class: Gtk.MenuClass
     pad1: () => void
@@ -4965,10 +4967,10 @@ export abstract class ActionMenuClass {
     pad4: () => void
     static name: string
 }
-export class ActionMenuPrivate {
+class ActionMenuPrivate {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Wnck-3.0.Wnck.ApplicationClass */
     parent_class: GObject.ObjectClass
     name_changed: (app: Application) => void
@@ -4979,10 +4981,10 @@ export abstract class ApplicationClass {
     pad4: () => void
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ClassGroupClass {
+abstract class ClassGroupClass {
     /* Fields of Wnck-3.0.Wnck.ClassGroupClass */
     parent_class: GObject.ObjectClass
     name_changed: (group: ClassGroup) => void
@@ -4993,21 +4995,21 @@ export abstract class ClassGroupClass {
     pad4: () => void
     static name: string
 }
-export class ClassGroupPrivate {
+class ClassGroupPrivate {
     static name: string
 }
-export class Handle {
+class Handle {
     static name: string
 }
-export class IconCache {
+class IconCache {
     static name: string
 }
-export abstract class ImageMenuItemClass {
+abstract class ImageMenuItemClass {
     /* Fields of Wnck-3.0.Wnck.ImageMenuItemClass */
     parent_class: Gtk.MenuItemClass
     static name: string
 }
-export abstract class PagerClass {
+abstract class PagerClass {
     /* Fields of Wnck-3.0.Wnck.PagerClass */
     parent_class: Gtk.ContainerClass
     pad1: () => void
@@ -5016,10 +5018,10 @@ export abstract class PagerClass {
     pad4: () => void
     static name: string
 }
-export class PagerPrivate {
+class PagerPrivate {
     static name: string
 }
-export class ResourceUsage {
+class ResourceUsage {
     /* Fields of Wnck-3.0.Wnck.ResourceUsage */
     total_bytes_estimate: number
     pixmap_bytes: number
@@ -5035,7 +5037,7 @@ export class ResourceUsage {
     n_other: number
     static name: string
 }
-export abstract class ScreenClass {
+abstract class ScreenClass {
     /* Fields of Wnck-3.0.Wnck.ScreenClass */
     parent_class: GObject.ObjectClass
     active_window_changed: (screen: Screen, previous_window: Window) => void
@@ -5060,10 +5062,10 @@ export abstract class ScreenClass {
     pad6: () => void
     static name: string
 }
-export class ScreenPrivate {
+class ScreenPrivate {
     static name: string
 }
-export abstract class SelectorClass {
+abstract class SelectorClass {
     /* Fields of Wnck-3.0.Wnck.SelectorClass */
     parent_class: Gtk.MenuBarClass
     pad1: () => void
@@ -5072,10 +5074,10 @@ export abstract class SelectorClass {
     pad4: () => void
     static name: string
 }
-export class SelectorPrivate {
+class SelectorPrivate {
     static name: string
 }
-export abstract class TasklistClass {
+abstract class TasklistClass {
     /* Fields of Wnck-3.0.Wnck.TasklistClass */
     parent_class: Gtk.ContainerClass
     pad1: () => void
@@ -5084,10 +5086,10 @@ export abstract class TasklistClass {
     pad4: () => void
     static name: string
 }
-export class TasklistPrivate {
+class TasklistPrivate {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Wnck-3.0.Wnck.WindowClass */
     parent_class: GObject.ObjectClass
     name_changed: (window: Window) => void
@@ -5102,10 +5104,10 @@ export abstract class WindowClass {
     pad1: () => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
-export abstract class WorkspaceClass {
+abstract class WorkspaceClass {
     /* Fields of Wnck-3.0.Wnck.WorkspaceClass */
     parent_class: GObject.ObjectClass
     name_changed: (space: Workspace) => void
@@ -5115,7 +5117,7 @@ export abstract class WorkspaceClass {
     pad4: () => void
     static name: string
 }
-export class WorkspaceLayout {
+class WorkspaceLayout {
     /* Fields of Wnck-3.0.Wnck.WorkspaceLayout */
     rows: number
     cols: number
@@ -5125,6 +5127,8 @@ export class WorkspaceLayout {
     current_col: number
     static name: string
 }
-export class WorkspacePrivate {
+class WorkspacePrivate {
     static name: string
 }
+}
+export default Wnck

@@ -13,12 +13,12 @@ import type { Json } from './Json-1.0';
 import type { GXml } from './GXml-0.20';
 import type { libxml2 } from './libxml2-2.0';
 
-export declare namespace Vpg {
+declare namespace Vpg {
 
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     parameters?: Vda.ConnectionParameters
 }
-export class Connection {
+class Connection {
     /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
@@ -137,10 +137,11 @@ export class Connection {
     static new(): Connection
     static $gtype: GObject.Type
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
 }
+export default Vpg

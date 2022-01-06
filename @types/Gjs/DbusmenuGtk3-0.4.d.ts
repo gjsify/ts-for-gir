@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Dbusmenu from './Dbusmenu-0.4';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Dbusmenu from './Dbusmenu-0.4';
+
+export namespace DbusmenuGtk3 {
 
 export const GTK_MENUITEM_H__: number
-export function gtk_parse_get_cached_item(widget: Gtk.Widget): Dbusmenu.Menuitem
-export function gtk_parse_menu_structure(widget: Gtk.Widget): Dbusmenu.Menuitem
-export function menuitem_property_get_image(menuitem: Dbusmenu.Menuitem, property: string): GdkPixbuf.Pixbuf
-export function menuitem_property_get_shortcut(menuitem: Dbusmenu.Menuitem): [ /* key */ number, /* modifier */ Gdk.ModifierType ]
-export function menuitem_property_set_image(menuitem: Dbusmenu.Menuitem, property: string, data: GdkPixbuf.Pixbuf): boolean
-export function menuitem_property_set_shortcut(menuitem: Dbusmenu.Menuitem, key: number, modifier: Gdk.ModifierType): boolean
-export function menuitem_property_set_shortcut_menuitem(menuitem: Dbusmenu.Menuitem, gmi: Gtk.MenuItem): boolean
-export function menuitem_property_set_shortcut_string(menuitem: Dbusmenu.Menuitem, shortcut: string): boolean
+function gtk_parse_get_cached_item(widget: Gtk.Widget): Dbusmenu.Menuitem
+function gtk_parse_menu_structure(widget: Gtk.Widget): Dbusmenu.Menuitem
+function menuitem_property_get_image(menuitem: Dbusmenu.Menuitem, property: string): GdkPixbuf.Pixbuf
+function menuitem_property_get_shortcut(menuitem: Dbusmenu.Menuitem): [ /* key */ number, /* modifier */ Gdk.ModifierType ]
+function menuitem_property_set_image(menuitem: Dbusmenu.Menuitem, property: string, data: GdkPixbuf.Pixbuf): boolean
+function menuitem_property_set_shortcut(menuitem: Dbusmenu.Menuitem, key: number, modifier: Gdk.ModifierType): boolean
+function menuitem_property_set_shortcut_menuitem(menuitem: Dbusmenu.Menuitem, gmi: Gtk.MenuItem): boolean
+function menuitem_property_set_shortcut_string(menuitem: Dbusmenu.Menuitem, shortcut: string): boolean
 export interface Client_ConstructProps extends Dbusmenu.Client_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of Dbusmenu-0.4.Dbusmenu.Client */
     group_events: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -116,7 +118,7 @@ export interface Menu_ConstructProps extends Gtk.Menu_ConstructProps {
     dbus_name?: string
     dbus_object?: string
 }
-export class Menu {
+class Menu {
     /* Properties of Gtk-3.0.Gtk.Menu */
     accel_group: Gtk.AccelGroup
     accel_path: string
@@ -1055,7 +1057,7 @@ export class Menu {
     static new(): Menu
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of DbusmenuGtk3-0.4.DbusmenuGtk3.ClientClass */
     parent_class: Dbusmenu.ClientClass
     root_changed: (newroot: Dbusmenu.Menuitem) => void
@@ -1067,10 +1069,10 @@ export abstract class ClientClass {
     reserved6: () => void
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class MenuClass {
+abstract class MenuClass {
     /* Fields of DbusmenuGtk3-0.4.DbusmenuGtk3.MenuClass */
     parent_class: Gtk.MenuClass
     reserved1: () => void
@@ -1081,6 +1083,8 @@ export abstract class MenuClass {
     reserved6: () => void
     static name: string
 }
-export class MenuPrivate {
+class MenuPrivate {
     static name: string
 }
+}
+export default DbusmenuGtk3

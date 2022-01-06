@@ -1,2 +1,1 @@
-imports.gi.versions.DbusmenuGtk3 = '0.4'
-module.exports = imports.gi.DbusmenuGtk3
+export {default as default} from 'gi://DbusmenuGtk3?version=0.4';

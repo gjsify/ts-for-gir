@@ -10,27 +10,27 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GSSDP } from './GSSDP-1.2';
 
-export declare namespace GUPnP {
+declare namespace GUPnP {
 
-export enum ControlError {
+enum ControlError {
     INVALID_ACTION,
     INVALID_ARGS,
     OUT_OF_SYNC,
     ACTION_FAILED,
 }
-export enum EventingError {
+enum EventingError {
     SUBSCRIPTION_FAILED,
     SUBSCRIPTION_LOST,
     NOTIFY_FAILED,
 }
-export enum RootdeviceError {
+enum RootdeviceError {
     NO_CONTEXT,
     NO_DESCRIPTION_PATH,
     NO_DESCRIPTION_FOLDER,
     NO_NETWORK,
     FAIL,
 }
-export enum ServerError {
+enum ServerError {
     INTERNAL_SERVER_ERROR,
     NOT_FOUND,
     NOT_IMPLEMENTED,
@@ -38,43 +38,43 @@ export enum ServerError {
     INVALID_URL,
     OTHER,
 }
-export enum ServiceActionArgDirection {
+enum ServiceActionArgDirection {
     IN,
     OUT,
 }
-export enum XMLError {
+enum XMLError {
     PARSE,
     NO_NODE,
     EMPTY_NODE,
     INVALID_ATTRIBUTE,
     OTHER,
 }
-export function controlErrorQuark(): GLib.Quark
-export function eventingErrorQuark(): GLib.Quark
-export function getUuid(): string
-export function rootdeviceErrorQuark(): GLib.Quark
-export function serverErrorQuark(): GLib.Quark
-export function whiteListAddEntry(whiteList: WhiteList, entry: string): boolean
-export function whiteListAddEntryv(whiteList: WhiteList, entries: string[]): void
-export function whiteListCheckContext(whiteList: WhiteList, context: Context): boolean
-export function whiteListClear(whiteList: WhiteList): void
-export function whiteListGetEnabled(whiteList: WhiteList): boolean
-export function whiteListGetEntries(whiteList: WhiteList): string[] | null
-export function whiteListIsEmpty(whiteList: WhiteList): boolean
-export function whiteListNew(): WhiteList
-export function whiteListRemoveEntry(whiteList: WhiteList, entry: string): boolean
-export function whiteListSetEnabled(whiteList: WhiteList, enable: boolean): void
-export function xmlErrorQuark(): GLib.Quark
-export interface ServiceIntrospectionCallback {
+function controlErrorQuark(): GLib.Quark
+function eventingErrorQuark(): GLib.Quark
+function getUuid(): string
+function rootdeviceErrorQuark(): GLib.Quark
+function serverErrorQuark(): GLib.Quark
+function whiteListAddEntry(whiteList: WhiteList, entry: string): boolean
+function whiteListAddEntryv(whiteList: WhiteList, entries: string[]): void
+function whiteListCheckContext(whiteList: WhiteList, context: Context): boolean
+function whiteListClear(whiteList: WhiteList): void
+function whiteListGetEnabled(whiteList: WhiteList): boolean
+function whiteListGetEntries(whiteList: WhiteList): string[] | null
+function whiteListIsEmpty(whiteList: WhiteList): boolean
+function whiteListNew(): WhiteList
+function whiteListRemoveEntry(whiteList: WhiteList, entry: string): boolean
+function whiteListSetEnabled(whiteList: WhiteList, enable: boolean): void
+function xmlErrorQuark(): GLib.Quark
+interface ServiceIntrospectionCallback {
     (info: ServiceInfo, introspection?: ServiceIntrospection | null, error?: GLib.Error | null): void
 }
-export interface ServiceProxyActionCallback {
+interface ServiceProxyActionCallback {
     (proxy: ServiceProxy, action: ServiceProxyAction): void
 }
-export interface ServiceProxyNotifyCallback {
+interface ServiceProxyNotifyCallback {
     (proxy: ServiceProxy, variable: string, value: any): void
 }
-export class Acl {
+class Acl {
     /* Methods of GUPnP-1.2.GUPnP.Acl */
     canSync(): boolean
     isAllowed(device: object | null, service: object | null, path: string, address: string, agent?: string | null): boolean
@@ -88,7 +88,7 @@ export interface Context_ConstructProps extends GSSDP.Client_ConstructProps {
     port?: number
     subscriptionTimeout?: number
 }
-export class Context {
+class Context {
     /* Properties of GUPnP-1.2.GUPnP.Context */
     acl: Acl
     defaultLanguage: string
@@ -253,7 +253,7 @@ export interface ContextFilter_ConstructProps extends GObject.Object_ConstructPr
     enabled?: boolean
     entries?: string[]
 }
-export class ContextFilter {
+class ContextFilter {
     /* Properties of GUPnP-1.2.GUPnP.ContextFilter */
     enabled: boolean
     /* Fields of GUPnP-1.2.GUPnP.ContextFilter */
@@ -320,7 +320,7 @@ export interface ContextManager_ConstructProps extends GObject.Object_ConstructP
     port?: number
     udaVersion?: GSSDP.UDAVersion
 }
-export class ContextManager {
+class ContextManager {
     /* Properties of GUPnP-1.2.GUPnP.ContextManager */
     readonly contextFilter: ContextFilter
     /* Fields of GUPnP-1.2.GUPnP.ContextManager */
@@ -398,7 +398,7 @@ export class ContextManager {
 export interface ControlPoint_ConstructProps extends GSSDP.ResourceBrowser_ConstructProps {
     resourceFactory?: ResourceFactory
 }
-export class ControlPoint {
+class ControlPoint {
     /* Properties of GSSDP-1.2.GSSDP.ResourceBrowser */
     active: boolean
     mx: number
@@ -520,7 +520,7 @@ export class ControlPoint {
 export interface Device_ConstructProps extends DeviceInfo_ConstructProps {
     rootDevice?: RootDevice
 }
-export class Device {
+class Device {
     /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
@@ -621,7 +621,7 @@ export interface DeviceInfo_ConstructProps extends GObject.Object_ConstructProps
     udn?: string
     urlBase?: Soup.URI
 }
-export class DeviceInfo {
+class DeviceInfo {
     /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
@@ -714,7 +714,7 @@ export class DeviceInfo {
 }
 export interface DeviceProxy_ConstructProps extends DeviceInfo_ConstructProps {
 }
-export class DeviceProxy {
+class DeviceProxy {
     /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
     element: object
     location: string
@@ -807,7 +807,7 @@ export class DeviceProxy {
 }
 export interface ResourceFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ResourceFactory {
+class ResourceFactory {
     /* Fields of GUPnP-1.2.GUPnP.ResourceFactory */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -866,7 +866,7 @@ export interface RootDevice_ConstructProps extends Device_ConstructProps {
     descriptionDoc?: XMLDoc
     descriptionPath?: string
 }
-export class RootDevice {
+class RootDevice {
     /* Properties of GUPnP-1.2.GUPnP.RootDevice */
     available: boolean
     /* Properties of GUPnP-1.2.GUPnP.DeviceInfo */
@@ -980,7 +980,7 @@ export class RootDevice {
 export interface Service_ConstructProps extends ServiceInfo_ConstructProps {
     rootDevice?: RootDevice
 }
-export class Service {
+class Service {
     /* Fields of GUPnP-1.2.GUPnP.Service */
     parentInstance: ServiceInfo
     /* Fields of GObject-2.0.GObject.Object */
@@ -1067,7 +1067,7 @@ export interface ServiceInfo_ConstructProps extends GObject.Object_ConstructProp
     udn?: string
     urlBase?: Soup.URI
 }
-export class ServiceInfo {
+class ServiceInfo {
     /* Fields of GUPnP-1.2.GUPnP.ServiceInfo */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1129,7 +1129,7 @@ export class ServiceInfo {
 export interface ServiceIntrospection_ConstructProps extends GObject.Object_ConstructProps {
     scpd?: object
 }
-export class ServiceIntrospection {
+class ServiceIntrospection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.ServiceIntrospection */
@@ -1182,7 +1182,7 @@ export class ServiceIntrospection {
 export interface ServiceProxy_ConstructProps extends ServiceInfo_ConstructProps {
     subscribed?: boolean
 }
-export class ServiceProxy {
+class ServiceProxy {
     /* Properties of GUPnP-1.2.GUPnP.ServiceProxy */
     subscribed: boolean
     /* Fields of GUPnP-1.2.GUPnP.ServiceProxy */
@@ -1271,7 +1271,7 @@ export class ServiceProxy {
 }
 export interface XMLDoc_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class XMLDoc {
+class XMLDoc {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.XMLDoc */
@@ -1319,7 +1319,7 @@ export class XMLDoc {
     static newFromPath(path: string): XMLDoc
     static $gtype: GObject.Type
 }
-export abstract class AclInterface {
+abstract class AclInterface {
     /* Fields of GUPnP-1.2.GUPnP.AclInterface */
     parent: GObject.TypeInterface
     isAllowed: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null) => boolean
@@ -1328,22 +1328,22 @@ export abstract class AclInterface {
     canSync: (self: Acl) => boolean
     static name: string
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of GUPnP-1.2.GUPnP.ContextClass */
     parentClass: GSSDP.ClientClass
     static name: string
 }
-export abstract class ContextFilterClass {
+abstract class ContextFilterClass {
     /* Fields of GUPnP-1.2.GUPnP.ContextFilterClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ContextManagerClass {
+abstract class ContextManagerClass {
     /* Fields of GUPnP-1.2.GUPnP.ContextManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ControlPointClass {
+abstract class ControlPointClass {
     /* Fields of GUPnP-1.2.GUPnP.ControlPointClass */
     parentClass: GSSDP.ResourceBrowserClass
     deviceProxyAvailable: (controlPoint: ControlPoint, proxy: DeviceProxy) => void
@@ -1352,32 +1352,32 @@ export abstract class ControlPointClass {
     serviceProxyUnavailable: (controlPoint: ControlPoint, proxy: ServiceProxy) => void
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of GUPnP-1.2.GUPnP.DeviceClass */
     parentClass: DeviceInfoClass
     static name: string
 }
-export abstract class DeviceInfoClass {
+abstract class DeviceInfoClass {
     /* Fields of GUPnP-1.2.GUPnP.DeviceInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DeviceProxyClass {
+abstract class DeviceProxyClass {
     /* Fields of GUPnP-1.2.GUPnP.DeviceProxyClass */
     parentClass: DeviceInfoClass
     static name: string
 }
-export abstract class ResourceFactoryClass {
+abstract class ResourceFactoryClass {
     /* Fields of GUPnP-1.2.GUPnP.ResourceFactoryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RootDeviceClass {
+abstract class RootDeviceClass {
     /* Fields of GUPnP-1.2.GUPnP.RootDeviceClass */
     parentClass: DeviceClass
     static name: string
 }
-export class ServiceAction {
+class ServiceAction {
     /* Methods of GUPnP-1.2.GUPnP.ServiceAction */
     getArgumentCount(): number
     getValue(argument: string, type: GObject.Type): any
@@ -1391,7 +1391,7 @@ export class ServiceAction {
     setValues(argNames: string[], argValues: any[]): void
     static name: string
 }
-export class ServiceActionArgInfo {
+class ServiceActionArgInfo {
     /* Fields of GUPnP-1.2.GUPnP.ServiceActionArgInfo */
     name: string
     direction: ServiceActionArgDirection
@@ -1399,30 +1399,30 @@ export class ServiceActionArgInfo {
     retval: boolean
     static name: string
 }
-export class ServiceActionInfo {
+class ServiceActionInfo {
     /* Fields of GUPnP-1.2.GUPnP.ServiceActionInfo */
     name: string
     arguments_: ServiceActionArgInfo[]
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of GUPnP-1.2.GUPnP.ServiceClass */
     parentClass: ServiceInfoClass
     actionInvoked: (service: Service, action: ServiceAction) => void
     queryVariable: (service: Service, variable: string, value: any) => void
     static name: string
 }
-export abstract class ServiceInfoClass {
+abstract class ServiceInfoClass {
     /* Fields of GUPnP-1.2.GUPnP.ServiceInfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ServiceIntrospectionClass {
+abstract class ServiceIntrospectionClass {
     /* Fields of GUPnP-1.2.GUPnP.ServiceIntrospectionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ServiceProxyAction {
+class ServiceProxyAction {
     /* Methods of GUPnP-1.2.GUPnP.ServiceProxyAction */
     getResultHash(outHash: GLib.HashTable): { returnType: boolean, outHash: GLib.HashTable }
     getResultList(outNames: string[], outTypes: GObject.Type[]): { returnType: boolean, outValues: any[] }
@@ -1432,13 +1432,13 @@ export class ServiceProxyAction {
     /* Static methods and pseudo-constructors */
     static newFromList(action: string, inNames: string[], inValues: any[]): ServiceProxyAction
 }
-export abstract class ServiceProxyClass {
+abstract class ServiceProxyClass {
     /* Fields of GUPnP-1.2.GUPnP.ServiceProxyClass */
     parentClass: ServiceInfoClass
     subscriptionLost: (proxy: ServiceProxy, reason: GLib.Error) => void
     static name: string
 }
-export class ServiceStateVariableInfo {
+class ServiceStateVariableInfo {
     /* Fields of GUPnP-1.2.GUPnP.ServiceStateVariableInfo */
     name: string
     sendEvents: boolean
@@ -1451,10 +1451,11 @@ export class ServiceStateVariableInfo {
     allowedValues: string[]
     static name: string
 }
-export abstract class XMLDocClass {
+abstract class XMLDocClass {
     /* Fields of GUPnP-1.2.GUPnP.XMLDocClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export type WhiteList = ContextFilter
+type WhiteList = ContextFilter
 }
+export default GUPnP

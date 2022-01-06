@@ -1,2 +1,1 @@
-imports.gi.versions.Farstream = '0.1'
-module.exports = imports.gi.Farstream
+export {default as default} from 'gi://Farstream?version=0.1';

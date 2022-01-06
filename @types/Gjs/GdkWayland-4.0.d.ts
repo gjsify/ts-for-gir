@@ -3,23 +3,25 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gdk from './Gdk-4.0';
-import type * as cairo from './cairo-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gdk from './Gdk-4.0';
+import type cairo from './cairo-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
 
-export interface WaylandToplevelExported {
+export namespace GdkWayland {
+
+interface WaylandToplevelExported {
     (toplevel: WaylandToplevel, handle: string): void
 }
 export interface WaylandDevice_ConstructProps extends Gdk.Device_ConstructProps {
 }
-export class WaylandDevice {
+class WaylandDevice {
     /* Properties of Gdk-4.0.Gdk.Device */
     readonly caps_lock_state: boolean
     readonly direction: Pango.Direction
@@ -122,7 +124,7 @@ export class WaylandDevice {
 }
 export interface WaylandDisplay_ConstructProps extends Gdk.Display_ConstructProps {
 }
-export class WaylandDisplay {
+class WaylandDisplay {
     /* Properties of Gdk-4.0.Gdk.Display */
     readonly composited: boolean
     readonly input_shapes: boolean
@@ -228,7 +230,7 @@ export class WaylandDisplay {
 }
 export interface WaylandGLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
-export class WaylandGLContext {
+class WaylandGLContext {
     /* Properties of Gdk-4.0.Gdk.GLContext */
     allowed_apis: Gdk.GLAPI
     readonly api: Gdk.GLAPI
@@ -308,7 +310,7 @@ export class WaylandGLContext {
 }
 export interface WaylandMonitor_ConstructProps extends Gdk.Monitor_ConstructProps {
 }
-export class WaylandMonitor {
+class WaylandMonitor {
     /* Properties of Gdk-4.0.Gdk.Monitor */
     readonly connector: string
     readonly geometry: Gdk.Rectangle
@@ -405,7 +407,7 @@ export interface WaylandPopup_ConstructProps extends WaylandSurface_ConstructPro
     autohide?: boolean
     parent?: Gdk.Surface
 }
-export class WaylandPopup {
+class WaylandPopup {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
@@ -518,7 +520,7 @@ export class WaylandPopup {
 }
 export interface WaylandSeat_ConstructProps extends Gdk.Seat_ConstructProps {
 }
-export class WaylandSeat {
+class WaylandSeat {
     /* Fields of Gdk-4.0.Gdk.Seat */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -588,7 +590,7 @@ export class WaylandSeat {
 }
 export interface WaylandSurface_ConstructProps extends Gdk.Surface_ConstructProps {
 }
-export class WaylandSurface {
+class WaylandSurface {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
@@ -701,7 +703,7 @@ export interface WaylandToplevel_ConstructProps extends WaylandSurface_Construct
     title?: string
     transient_for?: Gdk.Surface
 }
-export class WaylandToplevel {
+class WaylandToplevel {
     /* Properties of Gdk-4.0.Gdk.Surface */
     cursor: Gdk.Cursor
     readonly height: number
@@ -864,18 +866,20 @@ export class WaylandToplevel {
     _init (config?: WaylandToplevel_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class WaylandDeviceClass {
+abstract class WaylandDeviceClass {
     static name: string
 }
-export abstract class WaylandDisplayClass {
+abstract class WaylandDisplayClass {
     static name: string
 }
-export abstract class WaylandGLContextClass {
+abstract class WaylandGLContextClass {
     static name: string
 }
-export abstract class WaylandMonitorClass {
+abstract class WaylandMonitorClass {
     static name: string
 }
-export abstract class WaylandSeatClass {
+abstract class WaylandSeatClass {
     static name: string
 }
+}
+export default GdkWayland

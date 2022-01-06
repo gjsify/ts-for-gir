@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as SocialWebClient from './SocialWebClient-0.25';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Folks from './Folks-0.6';
-import type * as Gee from './Gee-0.8';
+import type SocialWebClient from './SocialWebClient-0.25';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Folks from './Folks-0.6';
+import type Gee from './Gee-0.8';
+
+export namespace FolksLibsocialweb {
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     lsw_contact?: SocialWebClient.Contact
@@ -21,7 +23,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     urls?: Gee.Set
     web_service_addresses?: Gee.MultiMap
 }
-export class Persona {
+class Persona {
     /* Properties of Folks-0.6.Folks.Persona */
     individual: Folks.Individual
     readonly linkable_properties: string[]
@@ -205,7 +207,7 @@ export class Persona {
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     service?: SocialWebClient.ClientService
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.6.Folks.PersonaStore */
     readonly type_id: string
     readonly personas: Gee.Map
@@ -350,19 +352,21 @@ export class PersonaStore {
     static new(service: SocialWebClient.ClientService): PersonaStore
     static $gtype: GObject.Type
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaClass */
     parent_class: Folks.PersonaClass
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     /* Fields of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStoreClass */
     parent_class: Folks.PersonaStoreClass
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
+}
+export default FolksLibsocialweb

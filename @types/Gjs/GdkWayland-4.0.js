@@ -1,2 +1,1 @@
-imports.gi.versions.GdkWayland = '4.0'
-module.exports = imports.gi.GdkWayland
+export {default as default} from 'gi://GdkWayland?version=4.0';

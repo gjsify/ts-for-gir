@@ -1,2 +1,1 @@
-imports.gi.versions.GSound = '1.0'
-module.exports = imports.gi.GSound
+export {default as default} from 'gi://GSound?version=1.0';

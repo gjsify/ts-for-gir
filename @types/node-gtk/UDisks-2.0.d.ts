@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace UDisks {
+declare namespace UDisks {
 
-export enum Error {
+enum Error {
     FAILED,
     CANCELLED,
     ALREADY_CANCELLED,
@@ -38,7 +38,7 @@ export enum Error {
     ISCSI_TRANSPORT_FAILED,
     ISCSI_UNKNOWN_DISCOVERY_TYPE,
 }
-export enum PartitionTypeInfoFlags {
+enum PartitionTypeInfoFlags {
     NONE,
     SWAP,
     RAID,
@@ -50,32 +50,32 @@ export const ERROR_NUM_ENTRIES: number
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function blockInterfaceInfo(): Gio.DBusInterfaceInfo
-export function blockOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function driveAtaInterfaceInfo(): Gio.DBusInterfaceInfo
-export function driveAtaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function driveInterfaceInfo(): Gio.DBusInterfaceInfo
-export function driveOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function encryptedInterfaceInfo(): Gio.DBusInterfaceInfo
-export function encryptedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function errorQuark(): GLib.Quark
-export function filesystemInterfaceInfo(): Gio.DBusInterfaceInfo
-export function filesystemOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function jobInterfaceInfo(): Gio.DBusInterfaceInfo
-export function jobOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function loopInterfaceInfo(): Gio.DBusInterfaceInfo
-export function loopOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function managerInterfaceInfo(): Gio.DBusInterfaceInfo
-export function managerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function mdraidInterfaceInfo(): Gio.DBusInterfaceInfo
-export function mdraidOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function partitionInterfaceInfo(): Gio.DBusInterfaceInfo
-export function partitionOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function partitionTableInterfaceInfo(): Gio.DBusInterfaceInfo
-export function partitionTableOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export function swapspaceInterfaceInfo(): Gio.DBusInterfaceInfo
-export function swapspaceOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
-export class Block {
+function blockInterfaceInfo(): Gio.DBusInterfaceInfo
+function blockOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function driveAtaInterfaceInfo(): Gio.DBusInterfaceInfo
+function driveAtaOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function driveInterfaceInfo(): Gio.DBusInterfaceInfo
+function driveOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function encryptedInterfaceInfo(): Gio.DBusInterfaceInfo
+function encryptedOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function errorQuark(): GLib.Quark
+function filesystemInterfaceInfo(): Gio.DBusInterfaceInfo
+function filesystemOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function jobInterfaceInfo(): Gio.DBusInterfaceInfo
+function jobOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function loopInterfaceInfo(): Gio.DBusInterfaceInfo
+function loopOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function managerInterfaceInfo(): Gio.DBusInterfaceInfo
+function managerOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function mdraidInterfaceInfo(): Gio.DBusInterfaceInfo
+function mdraidOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function partitionInterfaceInfo(): Gio.DBusInterfaceInfo
+function partitionOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function partitionTableInterfaceInfo(): Gio.DBusInterfaceInfo
+function partitionTableOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+function swapspaceInterfaceInfo(): Gio.DBusInterfaceInfo
+function swapspaceOverrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
+class Block {
     /* Properties of UDisks-2.0.UDisks.Block */
     configuration: GLib.Variant
     cryptoBackingDevice: string
@@ -189,7 +189,7 @@ export class Block {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Drive {
+class Drive {
     /* Properties of UDisks-2.0.UDisks.Drive */
     canPowerOff: boolean
     configuration: GLib.Variant
@@ -254,7 +254,7 @@ export class Drive {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class DriveAta {
+class DriveAta {
     /* Properties of UDisks-2.0.UDisks.DriveAta */
     aamEnabled: boolean
     aamSupported: boolean
@@ -369,7 +369,7 @@ export class DriveAta {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Encrypted {
+class Encrypted {
     /* Properties of UDisks-2.0.UDisks.Encrypted */
     childConfiguration: GLib.Variant
     /* Methods of UDisks-2.0.UDisks.Encrypted */
@@ -406,7 +406,7 @@ export class Encrypted {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Filesystem {
+class Filesystem {
     /* Properties of UDisks-2.0.UDisks.Filesystem */
     mountPoints: string[]
     /* Methods of UDisks-2.0.UDisks.Filesystem */
@@ -443,7 +443,7 @@ export class Filesystem {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Job {
+class Job {
     /* Properties of UDisks-2.0.UDisks.Job */
     bytes: number
     cancelable: boolean
@@ -477,7 +477,7 @@ export class Job {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Loop {
+class Loop {
     /* Properties of UDisks-2.0.UDisks.Loop */
     autoclear: boolean
     backingFile: string
@@ -507,7 +507,7 @@ export class Loop {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class MDRaid {
+class MDRaid {
     /* Properties of UDisks-2.0.UDisks.MDRaid */
     activeDevices: GLib.Variant
     bitmapLocation: string
@@ -594,7 +594,7 @@ export class MDRaid {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Manager {
+class Manager {
     /* Properties of UDisks-2.0.UDisks.Manager */
     supportedFilesystems: string[]
     version: string
@@ -632,7 +632,7 @@ export class Manager {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Object {
+class Object {
     /* Properties of UDisks-2.0.UDisks.Object */
     block: Block
     drive: Drive
@@ -676,7 +676,7 @@ export class Object {
     emit(sigName: "interface-removed", interface: Gio.DBusInterface): void
     static name: string
 }
-export class Partition {
+class Partition {
     /* Properties of UDisks-2.0.UDisks.Partition */
     flags: number
     isContained: boolean
@@ -731,7 +731,7 @@ export class Partition {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class PartitionTable {
+class PartitionTable {
     /* Properties of UDisks-2.0.UDisks.PartitionTable */
     type: string
     /* Methods of UDisks-2.0.UDisks.PartitionTable */
@@ -759,7 +759,7 @@ export class PartitionTable {
     static interfaceInfo(): Gio.DBusInterfaceInfo
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
 }
-export class Swapspace {
+class Swapspace {
     /* Properties of UDisks-2.0.UDisks.Swapspace */
     active: boolean
     /* Methods of UDisks-2.0.UDisks.Swapspace */
@@ -813,7 +813,7 @@ export interface BlockProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     size?: number
     symlinks?: string[]
 }
-export class BlockProxy {
+class BlockProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -1183,7 +1183,7 @@ export interface BlockSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     size?: number
     symlinks?: string[]
 }
-export class BlockSkeleton {
+class BlockSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Block */
@@ -1489,7 +1489,7 @@ export class BlockSkeleton {
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Properties of UDisks-2.0.UDisks.Client */
     readonly manager: Manager
     readonly objectManager: Gio.DBusObjectManager
@@ -1624,7 +1624,7 @@ export interface DriveAtaProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     writeCacheEnabled?: boolean
     writeCacheSupported?: boolean
 }
-export class DriveAtaProxy {
+class DriveAtaProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2001,7 +2001,7 @@ export interface DriveAtaSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     writeCacheEnabled?: boolean
     writeCacheSupported?: boolean
 }
-export class DriveAtaSkeleton {
+class DriveAtaSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.DriveAta */
@@ -2342,7 +2342,7 @@ export interface DriveProxy_ConstructProps extends Gio.DBusProxy_ConstructProps 
     vendor?: string
     wwn?: string
 }
-export class DriveProxy {
+class DriveProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -2693,7 +2693,7 @@ export interface DriveSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_
     vendor?: string
     wwn?: string
 }
-export class DriveSkeleton {
+class DriveSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Drive */
@@ -2976,7 +2976,7 @@ export class DriveSkeleton {
 export interface EncryptedProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     childConfiguration?: GLib.Variant
 }
-export class EncryptedProxy {
+class EncryptedProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3131,7 +3131,7 @@ export class EncryptedProxy {
 export interface EncryptedSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     childConfiguration?: GLib.Variant
 }
-export class EncryptedSkeleton {
+class EncryptedSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Encrypted */
@@ -3246,7 +3246,7 @@ export class EncryptedSkeleton {
 export interface FilesystemProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     mountPoints?: string[]
 }
-export class FilesystemProxy {
+class FilesystemProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3401,7 +3401,7 @@ export class FilesystemProxy {
 export interface FilesystemSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     mountPoints?: string[]
 }
-export class FilesystemSkeleton {
+class FilesystemSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Filesystem */
@@ -3525,7 +3525,7 @@ export interface JobProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     startTime?: number
     startedByUid?: number
 }
-export class JobProxy {
+class JobProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -3731,7 +3731,7 @@ export interface JobSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_Co
     startTime?: number
     startedByUid?: number
 }
-export class JobSkeleton {
+class JobSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Job */
@@ -3890,7 +3890,7 @@ export interface LoopProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     backingFile?: string
     setupByUid?: number
 }
-export class LoopProxy {
+class LoopProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4050,7 +4050,7 @@ export interface LoopSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_C
     backingFile?: string
     setupByUid?: number
 }
-export class LoopSkeleton {
+class LoopSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Loop */
@@ -4182,7 +4182,7 @@ export interface MDRaidProxy_ConstructProps extends Gio.DBusProxy_ConstructProps
     syncRemainingTime?: number
     uuid?: string
 }
-export class MDRaidProxy {
+class MDRaidProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4471,7 +4471,7 @@ export interface MDRaidSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton
     syncRemainingTime?: number
     uuid?: string
 }
-export class MDRaidSkeleton {
+class MDRaidSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.MDRaid */
@@ -4707,7 +4707,7 @@ export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProp
     supportedFilesystems?: string[]
     version?: string
 }
-export class ManagerProxy {
+class ManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -4869,7 +4869,7 @@ export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleto
     supportedFilesystems?: string[]
     version?: string
 }
-export class ManagerSkeleton {
+class ManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Manager */
@@ -4989,7 +4989,7 @@ export class ManagerSkeleton {
 }
 export interface ObjectInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ObjectInfo {
+class ObjectInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of UDisks-2.0.UDisks.ObjectInfo */
@@ -5045,7 +5045,7 @@ export class ObjectInfo {
 }
 export interface ObjectManagerClient_ConstructProps extends Gio.DBusObjectManagerClient_ConstructProps {
 }
-export class ObjectManagerClient {
+class ObjectManagerClient {
     /* Properties of Gio-2.0.Gio.DBusObjectManagerClient */
     readonly nameOwner: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -5169,7 +5169,7 @@ export interface ObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Construc
     partitionTable?: PartitionTable
     swapspace?: Swapspace
 }
-export class ObjectProxy {
+class ObjectProxy {
     /* Properties of UDisks-2.0.UDisks.Object */
     block: Block
     drive: Drive
@@ -5331,7 +5331,7 @@ export interface ObjectSkeleton_ConstructProps extends Gio.DBusObjectSkeleton_Co
     partitionTable?: PartitionTable
     swapspace?: Swapspace
 }
-export class ObjectSkeleton {
+class ObjectSkeleton {
     /* Properties of Gio-2.0.Gio.DBusObjectSkeleton */
     gObjectPath: string
     /* Properties of UDisks-2.0.UDisks.Object */
@@ -5521,7 +5521,7 @@ export interface PartitionProxy_ConstructProps extends Gio.DBusProxy_ConstructPr
     type?: string
     uuid?: string
 }
-export class PartitionProxy {
+class PartitionProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -5748,7 +5748,7 @@ export interface PartitionSkeleton_ConstructProps extends Gio.DBusInterfaceSkele
     type?: string
     uuid?: string
 }
-export class PartitionSkeleton {
+class PartitionSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Partition */
@@ -5926,7 +5926,7 @@ export class PartitionSkeleton {
 export interface PartitionTableProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     type?: string
 }
-export class PartitionTableProxy {
+class PartitionTableProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -6072,7 +6072,7 @@ export class PartitionTableProxy {
 export interface PartitionTableSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     type?: string
 }
-export class PartitionTableSkeleton {
+class PartitionTableSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.PartitionTable */
@@ -6178,7 +6178,7 @@ export class PartitionTableSkeleton {
 export interface SwapspaceProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     active?: boolean
 }
-export class SwapspaceProxy {
+class SwapspaceProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     gDefaultTimeout: number
     gInterfaceInfo: Gio.DBusInterfaceInfo
@@ -6324,7 +6324,7 @@ export class SwapspaceProxy {
 export interface SwapspaceSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     active?: boolean
 }
-export class SwapspaceSkeleton {
+class SwapspaceSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     gFlags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of UDisks-2.0.UDisks.Swapspace */
@@ -6427,7 +6427,7 @@ export class SwapspaceSkeleton {
     static overrideProperties(klass: GObject.ObjectClass, propertyIdBegin: number): number
     static $gtype: GObject.Type
 }
-export abstract class BlockIface {
+abstract class BlockIface {
     /* Fields of UDisks-2.0.UDisks.BlockIface */
     parentIface: GObject.TypeInterface
     handleAddConfigurationItem: (object: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean
@@ -6465,23 +6465,23 @@ export abstract class BlockIface {
     getMdraidMember: (object: Block) => string
     static name: string
 }
-export abstract class BlockProxyClass {
+abstract class BlockProxyClass {
     /* Fields of UDisks-2.0.UDisks.BlockProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class BlockProxyPrivate {
+class BlockProxyPrivate {
     static name: string
 }
-export abstract class BlockSkeletonClass {
+abstract class BlockSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.BlockSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class BlockSkeletonPrivate {
+class BlockSkeletonPrivate {
     static name: string
 }
-export abstract class DriveAtaIface {
+abstract class DriveAtaIface {
     /* Fields of UDisks-2.0.UDisks.DriveAtaIface */
     parentIface: GObject.TypeInterface
     handlePmGetState: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6520,23 +6520,23 @@ export abstract class DriveAtaIface {
     getReadLookaheadSupported: (object: DriveAta) => boolean
     static name: string
 }
-export abstract class DriveAtaProxyClass {
+abstract class DriveAtaProxyClass {
     /* Fields of UDisks-2.0.UDisks.DriveAtaProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class DriveAtaProxyPrivate {
+class DriveAtaProxyPrivate {
     static name: string
 }
-export abstract class DriveAtaSkeletonClass {
+abstract class DriveAtaSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.DriveAtaSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class DriveAtaSkeletonPrivate {
+class DriveAtaSkeletonPrivate {
     static name: string
 }
-export abstract class DriveIface {
+abstract class DriveIface {
     /* Fields of UDisks-2.0.UDisks.DriveIface */
     parentIface: GObject.TypeInterface
     handleEject: (object: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6573,23 +6573,23 @@ export abstract class DriveIface {
     getSiblingId: (object: Drive) => string
     static name: string
 }
-export abstract class DriveProxyClass {
+abstract class DriveProxyClass {
     /* Fields of UDisks-2.0.UDisks.DriveProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class DriveProxyPrivate {
+class DriveProxyPrivate {
     static name: string
 }
-export abstract class DriveSkeletonClass {
+abstract class DriveSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.DriveSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class DriveSkeletonPrivate {
+class DriveSkeletonPrivate {
     static name: string
 }
-export abstract class EncryptedIface {
+abstract class EncryptedIface {
     /* Fields of UDisks-2.0.UDisks.EncryptedIface */
     parentIface: GObject.TypeInterface
     handleChangePassphrase: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean
@@ -6598,23 +6598,23 @@ export abstract class EncryptedIface {
     getChildConfiguration: (object: Encrypted) => GLib.Variant
     static name: string
 }
-export abstract class EncryptedProxyClass {
+abstract class EncryptedProxyClass {
     /* Fields of UDisks-2.0.UDisks.EncryptedProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class EncryptedProxyPrivate {
+class EncryptedProxyPrivate {
     static name: string
 }
-export abstract class EncryptedSkeletonClass {
+abstract class EncryptedSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.EncryptedSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class EncryptedSkeletonPrivate {
+class EncryptedSkeletonPrivate {
     static name: string
 }
-export abstract class FilesystemIface {
+abstract class FilesystemIface {
     /* Fields of UDisks-2.0.UDisks.FilesystemIface */
     parentIface: GObject.TypeInterface
     handleMount: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6623,23 +6623,23 @@ export abstract class FilesystemIface {
     getMountPoints: (object: Filesystem) => string[]
     static name: string
 }
-export abstract class FilesystemProxyClass {
+abstract class FilesystemProxyClass {
     /* Fields of UDisks-2.0.UDisks.FilesystemProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class FilesystemProxyPrivate {
+class FilesystemProxyPrivate {
     static name: string
 }
-export abstract class FilesystemSkeletonClass {
+abstract class FilesystemSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.FilesystemSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class FilesystemSkeletonPrivate {
+class FilesystemSkeletonPrivate {
     static name: string
 }
-export abstract class JobIface {
+abstract class JobIface {
     /* Fields of UDisks-2.0.UDisks.JobIface */
     parentIface: GObject.TypeInterface
     handleCancel: (object: Job, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6656,23 +6656,23 @@ export abstract class JobIface {
     getRate: (object: Job) => number
     static name: string
 }
-export abstract class JobProxyClass {
+abstract class JobProxyClass {
     /* Fields of UDisks-2.0.UDisks.JobProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class JobProxyPrivate {
+class JobProxyPrivate {
     static name: string
 }
-export abstract class JobSkeletonClass {
+abstract class JobSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.JobSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class JobSkeletonPrivate {
+class JobSkeletonPrivate {
     static name: string
 }
-export abstract class LoopIface {
+abstract class LoopIface {
     /* Fields of UDisks-2.0.UDisks.LoopIface */
     parentIface: GObject.TypeInterface
     handleDelete: (object: Loop, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6682,23 +6682,23 @@ export abstract class LoopIface {
     getSetupByUid: (object: Loop) => number
     static name: string
 }
-export abstract class LoopProxyClass {
+abstract class LoopProxyClass {
     /* Fields of UDisks-2.0.UDisks.LoopProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class LoopProxyPrivate {
+class LoopProxyPrivate {
     static name: string
 }
-export abstract class LoopSkeletonClass {
+abstract class LoopSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.LoopSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class LoopSkeletonPrivate {
+class LoopSkeletonPrivate {
     static name: string
 }
-export abstract class MDRaidIface {
+abstract class MDRaidIface {
     /* Fields of UDisks-2.0.UDisks.MDRaidIface */
     parentIface: GObject.TypeInterface
     handleAddDevice: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean
@@ -6725,23 +6725,23 @@ export abstract class MDRaidIface {
     getUuid: (object: MDRaid) => string
     static name: string
 }
-export abstract class MDRaidProxyClass {
+abstract class MDRaidProxyClass {
     /* Fields of UDisks-2.0.UDisks.MDRaidProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class MDRaidProxyPrivate {
+class MDRaidProxyPrivate {
     static name: string
 }
-export abstract class MDRaidSkeletonClass {
+abstract class MDRaidSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.MDRaidSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class MDRaidSkeletonPrivate {
+class MDRaidSkeletonPrivate {
     static name: string
 }
-export abstract class ManagerIface {
+abstract class ManagerIface {
     /* Fields of UDisks-2.0.UDisks.ManagerIface */
     parentIface: GObject.TypeInterface
     handleEnableModules: (object: Manager, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
@@ -6751,52 +6751,52 @@ export abstract class ManagerIface {
     handleMdraidCreate: (object: Manager, invocation: Gio.DBusMethodInvocation, argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean
     static name: string
 }
-export abstract class ManagerProxyClass {
+abstract class ManagerProxyClass {
     /* Fields of UDisks-2.0.UDisks.ManagerProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class ManagerProxyPrivate {
+class ManagerProxyPrivate {
     static name: string
 }
-export abstract class ManagerSkeletonClass {
+abstract class ManagerSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.ManagerSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ManagerSkeletonPrivate {
+class ManagerSkeletonPrivate {
     static name: string
 }
-export abstract class ObjectIface {
+abstract class ObjectIface {
     /* Fields of UDisks-2.0.UDisks.ObjectIface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class ObjectManagerClientClass {
+abstract class ObjectManagerClientClass {
     /* Fields of UDisks-2.0.UDisks.ObjectManagerClientClass */
     parentClass: Gio.DBusObjectManagerClientClass
     static name: string
 }
-export class ObjectManagerClientPrivate {
+class ObjectManagerClientPrivate {
     static name: string
 }
-export abstract class ObjectProxyClass {
+abstract class ObjectProxyClass {
     /* Fields of UDisks-2.0.UDisks.ObjectProxyClass */
     parentClass: Gio.DBusObjectProxyClass
     static name: string
 }
-export class ObjectProxyPrivate {
+class ObjectProxyPrivate {
     static name: string
 }
-export abstract class ObjectSkeletonClass {
+abstract class ObjectSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.ObjectSkeletonClass */
     parentClass: Gio.DBusObjectSkeletonClass
     static name: string
 }
-export class ObjectSkeletonPrivate {
+class ObjectSkeletonPrivate {
     static name: string
 }
-export abstract class PartitionIface {
+abstract class PartitionIface {
     /* Fields of UDisks-2.0.UDisks.PartitionIface */
     parentIface: GObject.TypeInterface
     handleDelete: (object: Partition, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6815,23 +6815,23 @@ export abstract class PartitionIface {
     getUuid: (object: Partition) => string
     static name: string
 }
-export abstract class PartitionProxyClass {
+abstract class PartitionProxyClass {
     /* Fields of UDisks-2.0.UDisks.PartitionProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PartitionProxyPrivate {
+class PartitionProxyPrivate {
     static name: string
 }
-export abstract class PartitionSkeletonClass {
+abstract class PartitionSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.PartitionSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class PartitionSkeletonPrivate {
+class PartitionSkeletonPrivate {
     static name: string
 }
-export abstract class PartitionTableIface {
+abstract class PartitionTableIface {
     /* Fields of UDisks-2.0.UDisks.PartitionTableIface */
     parentIface: GObject.TypeInterface
     handleCreatePartition: (object: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean
@@ -6839,23 +6839,23 @@ export abstract class PartitionTableIface {
     getType: (object: PartitionTable) => string
     static name: string
 }
-export abstract class PartitionTableProxyClass {
+abstract class PartitionTableProxyClass {
     /* Fields of UDisks-2.0.UDisks.PartitionTableProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class PartitionTableProxyPrivate {
+class PartitionTableProxyPrivate {
     static name: string
 }
-export abstract class PartitionTableSkeletonClass {
+abstract class PartitionTableSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.PartitionTableSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class PartitionTableSkeletonPrivate {
+class PartitionTableSkeletonPrivate {
     static name: string
 }
-export class PartitionTypeInfo {
+class PartitionTypeInfo {
     /* Fields of UDisks-2.0.UDisks.PartitionTypeInfo */
     tableType: string
     tableSubtype: string
@@ -6865,7 +6865,7 @@ export class PartitionTypeInfo {
     free(): void
     static name: string
 }
-export abstract class SwapspaceIface {
+abstract class SwapspaceIface {
     /* Fields of UDisks-2.0.UDisks.SwapspaceIface */
     parentIface: GObject.TypeInterface
     handleStart: (object: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
@@ -6873,20 +6873,21 @@ export abstract class SwapspaceIface {
     getActive: (object: Swapspace) => boolean
     static name: string
 }
-export abstract class SwapspaceProxyClass {
+abstract class SwapspaceProxyClass {
     /* Fields of UDisks-2.0.UDisks.SwapspaceProxyClass */
     parentClass: Gio.DBusProxyClass
     static name: string
 }
-export class SwapspaceProxyPrivate {
+class SwapspaceProxyPrivate {
     static name: string
 }
-export abstract class SwapspaceSkeletonClass {
+abstract class SwapspaceSkeletonClass {
     /* Fields of UDisks-2.0.UDisks.SwapspaceSkeletonClass */
     parentClass: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class SwapspaceSkeletonPrivate {
+class SwapspaceSkeletonPrivate {
     static name: string
 }
 }
+export default UDisks

@@ -45,18 +45,6 @@ export enum AttrType {
     INSERT_HYPHENS,
     OVERLINE,
     OVERLINE_COLOR,
-    LINE_HEIGHT,
-    ABSOLUTE_LINE_HEIGHT,
-    TEXT_TRANSFORM,
-    WORD,
-    SENTENCE,
-    BASELINE_SHIFT,
-    FONT_SCALE,
-}
-export enum BaselineShift {
-    NONE,
-    SUPERSCRIPT,
-    SUBSCRIPT,
 }
 export enum BidiType {
     L,
@@ -104,12 +92,6 @@ export enum EllipsizeMode {
     MIDDLE,
     END,
 }
-export enum FontScale {
-    NONE,
-    SUPERSCRIPT,
-    SUBSCRIPT,
-    SMALL_CAPS,
-}
 export enum Gravity {
     SOUTH,
     EAST,
@@ -121,11 +103,6 @@ export enum GravityHint {
     NATURAL,
     STRONG,
     LINE,
-}
-export enum LayoutDeserializeError {
-    INVALID,
-    INVALID_VALUE,
-    MISSING_VALUE,
 }
 export enum Overline {
     NONE,
@@ -276,15 +253,6 @@ export enum Style {
 }
 export enum TabAlign {
     LEFT,
-    RIGHT,
-    CENTER,
-    DECIMAL,
-}
-export enum TextTransform {
-    NONE,
-    LOWERCASE,
-    UPPERCASE,
-    CAPITALIZE,
 }
 export enum Underline {
     NONE,
@@ -299,11 +267,6 @@ export enum Underline {
 export enum Variant {
     NORMAL,
     SMALL_CAPS,
-    ALL_SMALL_CAPS,
-    PETITE_CAPS,
-    ALL_PETITE_CAPS,
-    UNICASE,
-    TITLE_CAPS,
 }
 export enum Weight {
     THIN,
@@ -334,15 +297,6 @@ export enum FontMask {
     GRAVITY,
     VARIATIONS,
 }
-export enum LayoutDeserializeFlags {
-    DEFAULT,
-    CONTEXT,
-}
-export enum LayoutSerializeFlags {
-    DEFAULT,
-    CONTEXT,
-    OUTPUT,
-}
 export enum ShapeFlags {
     NONE,
     ROUND_POSITIONS,
@@ -369,13 +323,10 @@ export const VERSION_STRING: string
 export function attr_allow_breaks_new(allow_breaks: boolean): Attribute
 export function attr_background_alpha_new(alpha: number): Attribute
 export function attr_background_new(red: number, green: number, blue: number): Attribute
-export function attr_baseline_shift_new(shift: number): Attribute
-export function attr_break(text: string, length: number, attr_list: AttrList, offset: number, attrs: LogAttr[]): void
 export function attr_fallback_new(enable_fallback: boolean): Attribute
 export function attr_family_new(family: string): Attribute
 export function attr_font_desc_new(desc: FontDescription): Attribute
 export function attr_font_features_new(features: string): Attribute
-export function attr_font_scale_new(scale: FontScale): Attribute
 export function attr_foreground_alpha_new(alpha: number): Attribute
 export function attr_foreground_new(red: number, green: number, blue: number): Attribute
 export function attr_gravity_hint_new(hint: GravityHint): Attribute
@@ -383,14 +334,10 @@ export function attr_gravity_new(gravity: Gravity): Attribute
 export function attr_insert_hyphens_new(insert_hyphens: boolean): Attribute
 export function attr_language_new(language: Language): Attribute
 export function attr_letter_spacing_new(letter_spacing: number): Attribute
-export function attr_line_height_new(factor: number): Attribute
-export function attr_line_height_new_absolute(height: number): Attribute
-export function attr_list_from_string(text: string): AttrList | null
 export function attr_overline_color_new(red: number, green: number, blue: number): Attribute
 export function attr_overline_new(overline: Overline): Attribute
 export function attr_rise_new(rise: number): Attribute
 export function attr_scale_new(scale_factor: number): Attribute
-export function attr_sentence_new(): Attribute
 export function attr_shape_new(ink_rect: Rectangle, logical_rect: Rectangle): Attribute
 export function attr_shape_new_with_data(ink_rect: Rectangle, logical_rect: Rectangle, data?: object | null, copy_func?: AttrDataCopyFunc | null): Attribute
 export function attr_show_new(flags: ShowFlags): Attribute
@@ -400,14 +347,12 @@ export function attr_stretch_new(stretch: Stretch): Attribute
 export function attr_strikethrough_color_new(red: number, green: number, blue: number): Attribute
 export function attr_strikethrough_new(strikethrough: boolean): Attribute
 export function attr_style_new(style: Style): Attribute
-export function attr_text_transform_new(transform: TextTransform): Attribute
 export function attr_type_get_name(type: AttrType): string | null
 export function attr_type_register(name: string): AttrType
 export function attr_underline_color_new(red: number, green: number, blue: number): Attribute
 export function attr_underline_new(underline: Underline): Attribute
 export function attr_variant_new(variant: Variant): Attribute
 export function attr_weight_new(weight: Weight): Attribute
-export function attr_word_new(): Attribute
 export function bidi_type_for_unichar(ch: number): BidiType
 export function break_TODO(text: string, length: number, analysis: Analysis, attrs: LogAttr[]): void
 export function default_break(text: string, length: number, analysis: Analysis | null, attrs: LogAttr, attrs_len: number): void
@@ -415,7 +360,7 @@ export function extents_to_pixels(inclusive?: Rectangle | null, nearest?: Rectan
 export function find_base_dir(text: string, length: number): Direction
 export function find_paragraph_boundary(text: string, length: number): [ /* paragraph_delimiter_index */ number, /* next_paragraph_start */ number ]
 export function font_description_from_string(str: string): FontDescription
-export function get_log_attrs(text: string, length: number, level: number, language: Language, attrs: LogAttr[]): void
+export function get_log_attrs(text: string, length: number, level: number, language: Language, log_attrs: LogAttr[]): void
 export function get_mirror_char(ch: number, mirrored_ch: number): boolean
 export function gravity_get_for_matrix(matrix?: Matrix | null): Gravity
 export function gravity_get_for_script(script: Script, base_gravity: Gravity, hint: GravityHint): Gravity
@@ -427,7 +372,6 @@ export function itemize_with_base_dir(context: Context, base_dir: Direction, tex
 export function language_from_string(language?: string | null): Language | null
 export function language_get_default(): Language
 export function language_get_preferred(): Language | null
-export function layout_deserialize_error_quark(): GLib.Quark
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
 export function markup_parser_finish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
 export function markup_parser_new(accel_marker: number): GLib.MarkupParseContext
@@ -439,7 +383,7 @@ export function parse_variant(str: string, warn: boolean): [ /* returnType */ bo
 export function parse_weight(str: string, warn: boolean): [ /* returnType */ boolean, /* weight */ Weight ]
 export function quantize_line_geometry(thickness: number, position: number): [ /* thickness */ number, /* position */ number ]
 export function read_line(stream: object | null, str: GLib.String): number
-export function reorder_items(items: Item[]): Item[]
+export function reorder_items(logical_items: Item[]): Item[]
 export function scan_int(pos: string): [ /* returnType */ boolean, /* pos */ string, /* out */ number ]
 export function scan_string(pos: string, out: GLib.String): [ /* returnType */ boolean, /* pos */ string ]
 export function scan_word(pos: string, out: GLib.String): [ /* returnType */ boolean, /* pos */ string ]
@@ -447,12 +391,10 @@ export function script_for_unichar(ch: number): Script
 export function script_get_sample_language(script: Script): Language | null
 export function shape(text: string, length: number, analysis: Analysis, glyphs: GlyphString): void
 export function shape_full(item_text: string, item_length: number, paragraph_text: string | null, paragraph_length: number, analysis: Analysis, glyphs: GlyphString): void
-export function shape_item(item: Item, paragraph_text: string | null, paragraph_length: number, log_attrs: LogAttr | null, glyphs: GlyphString, flags: ShapeFlags): void
 export function shape_with_flags(item_text: string, item_length: number, paragraph_text: string | null, paragraph_length: number, analysis: Analysis, glyphs: GlyphString, flags: ShapeFlags): void
 export function skip_space(pos: string): [ /* returnType */ boolean, /* pos */ string ]
 export function split_file_list(str: string): string[]
-export function tab_array_from_string(text: string): TabArray | null
-export function tailor_break(text: string, length: number, analysis: Analysis, offset: number, attrs: LogAttr[]): void
+export function tailor_break(text: string, length: number, analysis: Analysis, offset: number, log_attrs: LogAttr[]): void
 export function trim_string(str: string): string
 export function unichar_direction(ch: number): Direction
 export function units_from_double(d: number): number
@@ -616,10 +558,8 @@ export class Font {
     get_features(num_features: number): [ /* features */ HarfBuzz.feature_t[], /* num_features */ number ]
     get_font_map(): FontMap | null
     get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
-    get_languages(): Language[] | null
     get_metrics(language?: Language | null): FontMetrics
     has_char(wc: number): boolean
-    serialize(): GLib.Bytes
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -672,7 +612,6 @@ export class Font {
     _init (config?: Font_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static descriptions_free(descs: FontDescription[] | null): void
-    static deserialize(context: Context, bytes: GLib.Bytes): Font | null
     static $gtype: GObject.Type
 }
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
@@ -999,7 +938,6 @@ export class Layout {
     get_attributes(): AttrList | null
     get_auto_dir(): boolean
     get_baseline(): number
-    get_caret_pos(index_: number): [ /* strong_pos */ Rectangle | null, /* weak_pos */ Rectangle | null ]
     get_character_count(): number
     get_context(): Context
     get_cursor_pos(index_: number): [ /* strong_pos */ Rectangle | null, /* weak_pos */ Rectangle | null ]
@@ -1011,7 +949,6 @@ export class Layout {
     get_indent(): number
     get_iter(): LayoutIter
     get_justify(): boolean
-    get_justify_last_line(): boolean
     get_line(line: number): LayoutLine | null
     get_line_count(): number
     get_line_readonly(line: number): LayoutLine | null
@@ -1036,7 +973,6 @@ export class Layout {
     is_ellipsized(): boolean
     is_wrapped(): boolean
     move_cursor_visually(strong: boolean, old_index: number, old_trailing: number, direction: number): [ /* new_index */ number, /* new_trailing */ number ]
-    serialize(flags: LayoutSerializeFlags): GLib.Bytes
     set_alignment(alignment: Alignment): void
     set_attributes(attrs?: AttrList | null): void
     set_auto_dir(auto_dir: boolean): void
@@ -1045,7 +981,6 @@ export class Layout {
     set_height(height: number): void
     set_indent(indent: number): void
     set_justify(justify: boolean): void
-    set_justify_last_line(justify: boolean): void
     set_line_spacing(factor: number): void
     set_markup(markup: string, length: number): void
     set_markup_with_accel(markup: string, length: number, accel_marker: number): /* accel_char */ number | null
@@ -1055,7 +990,6 @@ export class Layout {
     set_text(text: string, length: number): void
     set_width(width: number): void
     set_wrap(wrap: WrapMode): void
-    write_to_file(flags: LayoutSerializeFlags, filename: string): boolean
     xy_to_index(x: number, y: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1100,7 +1034,6 @@ export class Layout {
     _init (config?: Layout_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(context: Context): Layout
-    static deserialize(context: Context, bytes: GLib.Bytes, flags: LayoutDeserializeFlags): Layout | null
     static $gtype: GObject.Type
 }
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
@@ -1265,7 +1198,6 @@ export class AttrList {
     insert_before(attr: Attribute): void
     ref(): AttrList
     splice(other: AttrList, pos: number, len: number): void
-    to_string(): string
     unref(): void
     update(pos: number, remove: number, add: number): void
     static name: string
@@ -1273,7 +1205,6 @@ export class AttrList {
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): AttrList
-    static from_string(text: string): AttrList | null
 }
 export class AttrShape {
     /* Fields of Pango-1.0.Pango.AttrShape */
@@ -1308,15 +1239,6 @@ export class Attribute {
     start_index: number
     end_index: number
     /* Methods of Pango-1.0.Pango.Attribute */
-    as_color(): AttrColor | null
-    as_float(): AttrFloat | null
-    as_font_desc(): AttrFontDesc | null
-    as_font_features(): AttrFontFeatures | null
-    as_int(): AttrInt | null
-    as_language(): AttrLanguage | null
-    as_shape(): AttrShape | null
-    as_size(): AttrSize | null
-    as_string(): AttrString | null
     copy(): Attribute
     destroy(): void
     equal(attr2: Attribute): boolean
@@ -1380,7 +1302,7 @@ export class FontDescription {
     set_stretch(stretch: Stretch): void
     set_style(style: Style): void
     set_variant(variant: Variant): void
-    set_variations(variations?: string | null): void
+    set_variations(variations: string): void
     set_variations_static(variations: string): void
     set_weight(weight: Weight): void
     to_filename(): string
@@ -1470,9 +1392,6 @@ export class GlyphItem {
     /* Fields of Pango-1.0.Pango.GlyphItem */
     item: Item
     glyphs: GlyphString
-    y_offset: number
-    start_x_offset: number
-    end_x_offset: number
     /* Methods of Pango-1.0.Pango.GlyphItem */
     apply_attrs(text: string, list: AttrList): GlyphItem[]
     copy(): GlyphItem | null
@@ -1514,7 +1433,6 @@ export class GlyphString {
     get_logical_widths(text: string, length: number, embedding_level: number, logical_widths: number[]): void
     get_width(): number
     index_to_x(text: string, length: number, analysis: Analysis, index_: number, trailing: boolean): /* x_pos */ number
-    index_to_x_full(text: string, length: number, analysis: Analysis, attrs: LogAttr | null, index_: number, trailing: boolean): /* x_pos */ number
     set_size(new_len: number): void
     x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
     static name: string
@@ -1526,7 +1444,6 @@ export class GlyphString {
 export class GlyphVisAttr {
     /* Fields of Pango-1.0.Pango.GlyphVisAttr */
     is_cluster_start: number
-    is_color: number
     static name: string
 }
 export class Item {
@@ -1578,7 +1495,6 @@ export class LayoutIter {
     get_line_readonly(): LayoutLine
     get_line_yrange(): [ /* y0_ */ number | null, /* y1_ */ number | null ]
     get_run(): LayoutRun | null
-    get_run_baseline(): number
     get_run_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_run_readonly(): LayoutRun | null
     next_char(): boolean
@@ -1598,10 +1514,7 @@ export class LayoutLine {
     /* Methods of Pango-1.0.Pango.LayoutLine */
     get_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_height(): /* height */ number | null
-    get_length(): number
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
-    get_resolved_direction(): Direction
-    get_start_index(): number
     get_x_ranges(start_index: number, end_index: number): /* ranges */ number[]
     index_to_x(index_: number, trailing: boolean): /* x_pos */ number
     ref(): LayoutLine
@@ -1624,9 +1537,6 @@ export class LogAttr {
     backspace_deletes_character: number
     is_expandable_space: number
     is_word_boundary: number
-    break_inserts_hyphen: number
-    break_removes_preceding: number
-    reserved: number
     static name: string
 }
 export class Matrix {
@@ -1693,23 +1603,17 @@ export class TabArray {
     /* Methods of Pango-1.0.Pango.TabArray */
     copy(): TabArray
     free(): void
-    get_decimal_point(tab_index: number): number
     get_positions_in_pixels(): boolean
     get_size(): number
     get_tab(tab_index: number): [ /* alignment */ TabAlign | null, /* location */ number | null ]
     get_tabs(): [ /* alignments */ TabAlign | null, /* locations */ number[] | null ]
     resize(new_size: number): void
-    set_decimal_point(tab_index: number, decimal_point: number): void
-    set_positions_in_pixels(positions_in_pixels: boolean): void
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
-    sort(): void
-    to_string(): string
     static name: string
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
     constructor(initial_size: number, positions_in_pixels: boolean)
     /* Static methods and pseudo-constructors */
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
-    static from_string(text: string): TabArray | null
 }
 export type Glyph = number
 export type GlyphUnit = number

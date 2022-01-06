@@ -6,9 +6,9 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GUdev {
+declare namespace GUdev {
 
-export enum DeviceType {
+enum DeviceType {
     NONE,
     BLOCK,
     CHAR,
@@ -16,7 +16,7 @@ export enum DeviceType {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     subsystems?: string[]
 }
-export class Client {
+class Client {
     /* Fields of GUdev-1.0.GUdev.Client */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -77,7 +77,7 @@ export class Client {
 }
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Device {
+class Device {
     /* Fields of GUdev-1.0.GUdev.Device */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -166,7 +166,7 @@ export class Device {
 export interface Enumerator_ConstructProps extends GObject.Object_ConstructProps {
     client?: Client
 }
-export class Enumerator {
+class Enumerator {
     /* Fields of GUdev-1.0.GUdev.Enumerator */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -224,7 +224,7 @@ export class Enumerator {
     static new(client: Client): Enumerator
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GUdev-1.0.GUdev.ClientClass */
     parentClass: GObject.ObjectClass
     uevent: (client: Client, action: string, device: Device) => void
@@ -238,10 +238,10 @@ export abstract class ClientClass {
     reserved8: () => void
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of GUdev-1.0.GUdev.DeviceClass */
     parentClass: GObject.ObjectClass
     reserved1: () => void
@@ -254,10 +254,10 @@ export abstract class DeviceClass {
     reserved8: () => void
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export abstract class EnumeratorClass {
+abstract class EnumeratorClass {
     /* Fields of GUdev-1.0.GUdev.EnumeratorClass */
     parentClass: GObject.ObjectClass
     reserved1: () => void
@@ -270,8 +270,9 @@ export abstract class EnumeratorClass {
     reserved8: () => void
     static name: string
 }
-export class EnumeratorPrivate {
+class EnumeratorPrivate {
     static name: string
 }
-export type DeviceNumber = number
+type DeviceNumber = number
 }
+export default GUdev

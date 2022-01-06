@@ -1,2 +1,1 @@
-imports.gi.versions.RygelRendererGst = '2.6'
-module.exports = imports.gi.RygelRendererGst
+export {default as default} from 'gi://RygelRendererGst?version=2.6';

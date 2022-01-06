@@ -3,10 +3,12 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum EulerOrder {
+export namespace Graphene {
+
+enum EulerOrder {
     DEFAULT,
     XYZ,
     YZX,
@@ -39,7 +41,7 @@ export enum EulerOrder {
     RXYZ,
     RZYZ,
 }
-export enum RayIntersectionKind {
+enum RayIntersectionKind {
     NONE,
     ENTER,
     LEAVE,
@@ -49,33 +51,33 @@ export const PI_2: number
 export const VEC2_LEN: number
 export const VEC3_LEN: number
 export const VEC4_LEN: number
-export function box_empty(): Box
-export function box_infinite(): Box
-export function box_minus_one(): Box
-export function box_one(): Box
-export function box_one_minus_one(): Box
-export function box_zero(): Box
-export function point3d_zero(): Point3D
-export function point_zero(): Point
-export function rect_alloc(): Rect
-export function rect_zero(): Rect
-export function size_zero(): Size
-export function vec2_one(): Vec2
-export function vec2_x_axis(): Vec2
-export function vec2_y_axis(): Vec2
-export function vec2_zero(): Vec2
-export function vec3_one(): Vec3
-export function vec3_x_axis(): Vec3
-export function vec3_y_axis(): Vec3
-export function vec3_z_axis(): Vec3
-export function vec3_zero(): Vec3
-export function vec4_one(): Vec4
-export function vec4_w_axis(): Vec4
-export function vec4_x_axis(): Vec4
-export function vec4_y_axis(): Vec4
-export function vec4_z_axis(): Vec4
-export function vec4_zero(): Vec4
-export class Box {
+function box_empty(): Box
+function box_infinite(): Box
+function box_minus_one(): Box
+function box_one(): Box
+function box_one_minus_one(): Box
+function box_zero(): Box
+function point3d_zero(): Point3D
+function point_zero(): Point
+function rect_alloc(): Rect
+function rect_zero(): Rect
+function size_zero(): Size
+function vec2_one(): Vec2
+function vec2_x_axis(): Vec2
+function vec2_y_axis(): Vec2
+function vec2_zero(): Vec2
+function vec3_one(): Vec3
+function vec3_x_axis(): Vec3
+function vec3_y_axis(): Vec3
+function vec3_z_axis(): Vec3
+function vec3_zero(): Vec3
+function vec4_one(): Vec4
+function vec4_w_axis(): Vec4
+function vec4_x_axis(): Vec4
+function vec4_y_axis(): Vec4
+function vec4_z_axis(): Vec4
+function vec4_zero(): Vec4
+class Box {
     /* Methods of Graphene-1.0.Graphene.Box */
     contains_box(b: Box): boolean
     contains_point(point: Point3D): boolean
@@ -110,7 +112,7 @@ export class Box {
     static one_minus_one(): Box
     static zero(): Box
 }
-export class Euler {
+class Euler {
     /* Methods of Graphene-1.0.Graphene.Euler */
     equal(b: Euler): boolean
     free(): void
@@ -136,7 +138,7 @@ export class Euler {
     /* Static methods and pseudo-constructors */
     static alloc(): Euler
 }
-export class Frustum {
+class Frustum {
     /* Methods of Graphene-1.0.Graphene.Frustum */
     contains_point(point: Point3D): boolean
     equal(b: Frustum): boolean
@@ -151,7 +153,7 @@ export class Frustum {
     /* Static methods and pseudo-constructors */
     static alloc(): Frustum
 }
-export class Matrix {
+class Matrix {
     /* Methods of Graphene-1.0.Graphene.Matrix */
     decompose(): [ /* returnType */ boolean, /* translate */ Vec3, /* scale */ Vec3, /* rotate */ Quaternion, /* shear */ Vec3, /* perspective */ Vec4 ]
     determinant(): number
@@ -223,7 +225,7 @@ export class Matrix {
     /* Static methods and pseudo-constructors */
     static alloc(): Matrix
 }
-export class Plane {
+class Plane {
     /* Methods of Graphene-1.0.Graphene.Plane */
     distance(point: Point3D): number
     equal(b: Plane): boolean
@@ -242,7 +244,7 @@ export class Plane {
     /* Static methods and pseudo-constructors */
     static alloc(): Plane
 }
-export class Point {
+class Point {
     /* Fields of Graphene-1.0.Graphene.Point */
     x: number
     y: number
@@ -261,7 +263,7 @@ export class Point {
     static alloc(): Point
     static zero(): Point
 }
-export class Point3D {
+class Point3D {
     /* Fields of Graphene-1.0.Graphene.Point3D */
     x: number
     y: number
@@ -287,7 +289,7 @@ export class Point3D {
     static alloc(): Point3D
     static zero(): Point3D
 }
-export class Quad {
+class Quad {
     /* Methods of Graphene-1.0.Graphene.Quad */
     bounds(): /* r */ Rect
     contains(p: Point): boolean
@@ -300,7 +302,7 @@ export class Quad {
     /* Static methods and pseudo-constructors */
     static alloc(): Quad
 }
-export class Quaternion {
+class Quaternion {
     /* Methods of Graphene-1.0.Graphene.Quaternion */
     add(b: Quaternion): /* res */ Quaternion
     dot(b: Quaternion): number
@@ -329,7 +331,7 @@ export class Quaternion {
     /* Static methods and pseudo-constructors */
     static alloc(): Quaternion
 }
-export class Ray {
+class Ray {
     /* Methods of Graphene-1.0.Graphene.Ray */
     equal(b: Ray): boolean
     free(): void
@@ -352,7 +354,7 @@ export class Ray {
     /* Static methods and pseudo-constructors */
     static alloc(): Ray
 }
-export class Rect {
+class Rect {
     /* Fields of Graphene-1.0.Graphene.Rect */
     origin: Point
     size: Size
@@ -393,13 +395,13 @@ export class Rect {
     static alloc(): Rect
     static zero(): Rect
 }
-export class Simd4F {
+class Simd4F {
     static name: string
 }
-export class Simd4X4F {
+class Simd4X4F {
     static name: string
 }
-export class Size {
+class Size {
     /* Fields of Graphene-1.0.Graphene.Size */
     width: number
     height: number
@@ -415,7 +417,7 @@ export class Size {
     static alloc(): Size
     static zero(): Size
 }
-export class Sphere {
+class Sphere {
     /* Methods of Graphene-1.0.Graphene.Sphere */
     contains_point(point: Point3D): boolean
     distance(point: Point3D): number
@@ -433,7 +435,7 @@ export class Sphere {
     /* Static methods and pseudo-constructors */
     static alloc(): Sphere
 }
-export class Triangle {
+class Triangle {
     /* Methods of Graphene-1.0.Graphene.Triangle */
     contains_point(p: Point3D): boolean
     equal(b: Triangle): boolean
@@ -454,7 +456,7 @@ export class Triangle {
     /* Static methods and pseudo-constructors */
     static alloc(): Triangle
 }
-export class Vec2 {
+class Vec2 {
     /* Methods of Graphene-1.0.Graphene.Vec2 */
     add(b: Vec2): /* res */ Vec2
     divide(b: Vec2): /* res */ Vec2
@@ -485,7 +487,7 @@ export class Vec2 {
     static y_axis(): Vec2
     static zero(): Vec2
 }
-export class Vec3 {
+class Vec3 {
     /* Methods of Graphene-1.0.Graphene.Vec3 */
     add(b: Vec3): /* res */ Vec3
     cross(b: Vec3): /* res */ Vec3
@@ -524,7 +526,7 @@ export class Vec3 {
     static z_axis(): Vec3
     static zero(): Vec3
 }
-export class Vec4 {
+class Vec4 {
     /* Methods of Graphene-1.0.Graphene.Vec4 */
     add(b: Vec4): /* res */ Vec4
     divide(b: Vec4): /* res */ Vec4
@@ -563,3 +565,5 @@ export class Vec4 {
     static z_axis(): Vec4
     static zero(): Vec4
 }
+}
+export default Graphene

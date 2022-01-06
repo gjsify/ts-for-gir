@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Arrow from './Arrow-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Arrow from './Arrow-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ResultNullableType {
+export namespace Gandiva {
+
+enum ResultNullableType {
     IF_NULL,
     NEVER,
     INTERNAL,
@@ -19,7 +21,7 @@ export const VERSION_MINOR: number
 export const VERSION_TAG: string
 export interface AndNode_ConstructProps extends BooleanNode_ConstructProps {
 }
-export class AndNode {
+class AndNode {
     /* Fields of Gandiva-1.0.Gandiva.AndNode */
     parent_instance: BooleanNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -75,7 +77,7 @@ export class AndNode {
 }
 export interface BinaryLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class BinaryLiteralNode {
+class BinaryLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.BinaryLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -132,7 +134,7 @@ export class BinaryLiteralNode {
 }
 export interface BooleanLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class BooleanLiteralNode {
+class BooleanLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.BooleanLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -188,7 +190,7 @@ export class BooleanLiteralNode {
 }
 export interface BooleanNode_ConstructProps extends Node_ConstructProps {
 }
-export class BooleanNode {
+class BooleanNode {
     /* Fields of Gandiva-1.0.Gandiva.BooleanNode */
     parent_instance: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -242,7 +244,7 @@ export class BooleanNode {
 }
 export interface DoubleLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class DoubleLiteralNode {
+class DoubleLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.DoubleLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -301,7 +303,7 @@ export interface Expression_ConstructProps extends GObject.Object_ConstructProps
     result_field?: Arrow.Field
     root_node?: Node
 }
-export class Expression {
+class Expression {
     /* Fields of Gandiva-1.0.Gandiva.Expression */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -356,7 +358,7 @@ export class Expression {
 export interface FieldNode_ConstructProps extends Node_ConstructProps {
     field?: Arrow.Field
 }
-export class FieldNode {
+class FieldNode {
     /* Fields of Gandiva-1.0.Gandiva.FieldNode */
     parent_instance: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -410,7 +412,7 @@ export class FieldNode {
 }
 export interface FloatLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class FloatLiteralNode {
+class FloatLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.FloatLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -467,7 +469,7 @@ export class FloatLiteralNode {
 export interface FunctionNode_ConstructProps extends Node_ConstructProps {
     name?: string
 }
-export class FunctionNode {
+class FunctionNode {
     /* Fields of Gandiva-1.0.Gandiva.FunctionNode */
     parent_instance: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -523,7 +525,7 @@ export class FunctionNode {
 }
 export interface FunctionRegistry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FunctionRegistry {
+class FunctionRegistry {
     /* Fields of Gandiva-1.0.Gandiva.FunctionRegistry */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -579,7 +581,7 @@ export class FunctionRegistry {
 export interface FunctionSignature_ConstructProps extends GObject.Object_ConstructProps {
     function_signature?: object
 }
-export class FunctionSignature {
+class FunctionSignature {
     /* Fields of Gandiva-1.0.Gandiva.FunctionSignature */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -640,7 +642,7 @@ export interface IfNode_ConstructProps extends Node_ConstructProps {
     else_node?: Node
     then_node?: Node
 }
-export class IfNode {
+class IfNode {
     /* Fields of Gandiva-1.0.Gandiva.IfNode */
     parent_instance: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -694,7 +696,7 @@ export class IfNode {
 }
 export interface Int16LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class Int16LiteralNode {
+class Int16LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.Int16LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -750,7 +752,7 @@ export class Int16LiteralNode {
 }
 export interface Int32LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class Int32LiteralNode {
+class Int32LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.Int32LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -806,7 +808,7 @@ export class Int32LiteralNode {
 }
 export interface Int64LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class Int64LiteralNode {
+class Int64LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.Int64LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -862,7 +864,7 @@ export class Int64LiteralNode {
 }
 export interface Int8LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class Int8LiteralNode {
+class Int8LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.Int8LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -918,7 +920,7 @@ export class Int8LiteralNode {
 }
 export interface LiteralNode_ConstructProps extends Node_ConstructProps {
 }
-export class LiteralNode {
+class LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.LiteralNode */
     parent_instance: Node
     /* Fields of GObject-2.0.GObject.Object */
@@ -971,7 +973,7 @@ export class LiteralNode {
 export interface NativeFunction_ConstructProps extends GObject.Object_ConstructProps {
     native_function?: object
 }
-export class NativeFunction {
+class NativeFunction {
     /* Fields of Gandiva-1.0.Gandiva.NativeFunction */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1031,7 +1033,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     node?: object
     return_type?: Arrow.DataType
 }
-export class Node {
+class Node {
     /* Fields of Gandiva-1.0.Gandiva.Node */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1083,7 +1085,7 @@ export class Node {
 }
 export interface NullLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class NullLiteralNode {
+class NullLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.NullLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1137,7 +1139,7 @@ export class NullLiteralNode {
 }
 export interface OrNode_ConstructProps extends BooleanNode_ConstructProps {
 }
-export class OrNode {
+class OrNode {
     /* Fields of Gandiva-1.0.Gandiva.OrNode */
     parent_instance: BooleanNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1194,7 +1196,7 @@ export class OrNode {
 export interface Projector_ConstructProps extends GObject.Object_ConstructProps {
     projector?: object
 }
-export class Projector {
+class Projector {
     /* Fields of Gandiva-1.0.Gandiva.Projector */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1248,7 +1250,7 @@ export class Projector {
 }
 export interface StringLiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class StringLiteralNode {
+class StringLiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.StringLiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1304,7 +1306,7 @@ export class StringLiteralNode {
 }
 export interface UInt16LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class UInt16LiteralNode {
+class UInt16LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.UInt16LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1360,7 +1362,7 @@ export class UInt16LiteralNode {
 }
 export interface UInt32LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class UInt32LiteralNode {
+class UInt32LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.UInt32LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1416,7 +1418,7 @@ export class UInt32LiteralNode {
 }
 export interface UInt64LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class UInt64LiteralNode {
+class UInt64LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.UInt64LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1472,7 +1474,7 @@ export class UInt64LiteralNode {
 }
 export interface UInt8LiteralNode_ConstructProps extends LiteralNode_ConstructProps {
 }
-export class UInt8LiteralNode {
+class UInt8LiteralNode {
     /* Fields of Gandiva-1.0.Gandiva.UInt8LiteralNode */
     parent_instance: LiteralNode
     /* Fields of GObject-2.0.GObject.Object */
@@ -1526,138 +1528,140 @@ export class UInt8LiteralNode {
     static new(value: number): UInt8LiteralNode
     static $gtype: GObject.Type
 }
-export abstract class AndNodeClass {
+abstract class AndNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.AndNodeClass */
     parent_class: BooleanNodeClass
     static name: string
 }
-export abstract class BinaryLiteralNodeClass {
+abstract class BinaryLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.BinaryLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class BooleanLiteralNodeClass {
+abstract class BooleanLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.BooleanLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class BooleanNodeClass {
+abstract class BooleanNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.BooleanNodeClass */
     parent_class: NodeClass
     static name: string
 }
-export abstract class DoubleLiteralNodeClass {
+abstract class DoubleLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.DoubleLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class ExpressionClass {
+abstract class ExpressionClass {
     /* Fields of Gandiva-1.0.Gandiva.ExpressionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FieldNodeClass {
+abstract class FieldNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.FieldNodeClass */
     parent_class: NodeClass
     static name: string
 }
-export abstract class FloatLiteralNodeClass {
+abstract class FloatLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.FloatLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class FunctionNodeClass {
+abstract class FunctionNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.FunctionNodeClass */
     parent_class: NodeClass
     static name: string
 }
-export abstract class FunctionRegistryClass {
+abstract class FunctionRegistryClass {
     /* Fields of Gandiva-1.0.Gandiva.FunctionRegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FunctionSignatureClass {
+abstract class FunctionSignatureClass {
     /* Fields of Gandiva-1.0.Gandiva.FunctionSignatureClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class IfNodeClass {
+abstract class IfNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.IfNodeClass */
     parent_class: NodeClass
     static name: string
 }
-export abstract class Int16LiteralNodeClass {
+abstract class Int16LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.Int16LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class Int32LiteralNodeClass {
+abstract class Int32LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.Int32LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class Int64LiteralNodeClass {
+abstract class Int64LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.Int64LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class Int8LiteralNodeClass {
+abstract class Int8LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.Int8LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class LiteralNodeClass {
+abstract class LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.LiteralNodeClass */
     parent_class: NodeClass
     static name: string
 }
-export abstract class NativeFunctionClass {
+abstract class NativeFunctionClass {
     /* Fields of Gandiva-1.0.Gandiva.NativeFunctionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class NodeClass {
+abstract class NodeClass {
     /* Fields of Gandiva-1.0.Gandiva.NodeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class NullLiteralNodeClass {
+abstract class NullLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.NullLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class OrNodeClass {
+abstract class OrNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.OrNodeClass */
     parent_class: BooleanNodeClass
     static name: string
 }
-export abstract class ProjectorClass {
+abstract class ProjectorClass {
     /* Fields of Gandiva-1.0.Gandiva.ProjectorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class StringLiteralNodeClass {
+abstract class StringLiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.StringLiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class UInt16LiteralNodeClass {
+abstract class UInt16LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.UInt16LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class UInt32LiteralNodeClass {
+abstract class UInt32LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.UInt32LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class UInt64LiteralNodeClass {
+abstract class UInt64LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.UInt64LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
-export abstract class UInt8LiteralNodeClass {
+abstract class UInt8LiteralNodeClass {
     /* Fields of Gandiva-1.0.Gandiva.UInt8LiteralNodeClass */
     parent_class: LiteralNodeClass
     static name: string
 }
+}
+export default Gandiva

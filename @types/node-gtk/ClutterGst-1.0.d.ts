@@ -24,13 +24,13 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Cogl } from './Cogl-1.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace ClutterGst {
+declare namespace ClutterGst {
 
-export enum BufferingMode {
+enum BufferingMode {
     STREAM,
     DOWNLOAD,
 }
-export enum SeekFlags {
+enum SeekFlags {
     NONE,
     ACCURATE,
 }
@@ -39,10 +39,10 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
-export function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): { returnType: Clutter.InitError, argv: string[] | null }
-export function playerClassInit(objectClass: GObject.ObjectClass): void
-export class Player {
+function init(argv?: string[] | null): { returnType: Clutter.InitError, argv: string[] | null }
+function initWithArgs(argv: string[] | null, parameterString: string, entries: GLib.OptionEntry, translationDomain: string): { returnType: Clutter.InitError, argv: string[] | null }
+function playerClassInit(objectClass: GObject.ObjectClass): void
+class Player {
     /* Properties of ClutterGst-1.0.ClutterGst.Player */
     audioStream: number
     readonly audioStreams: object
@@ -118,7 +118,7 @@ export class Player {
     /* Static methods and pseudo-constructors */
     static classInit(objectClass: GObject.ObjectClass): void
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     updatePriority: number
@@ -146,7 +146,7 @@ export interface VideoTexture_ConstructProps extends Clutter.Texture_ConstructPr
     subtitleTrack?: number
     userAgent?: string
 }
-export class VideoTexture {
+class VideoTexture {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoTexture */
     pixelAspectRatio: any
     /* Properties of Clutter-1.0.Clutter.Texture */
@@ -1375,7 +1375,7 @@ export class VideoTexture {
     static classInit(objectClass: GObject.ObjectClass): void
     static $gtype: GObject.Type
 }
-export abstract class PlayerIface {
+abstract class PlayerIface {
     /* Fields of ClutterGst-1.0.ClutterGst.PlayerIface */
     getPipeline: (player: Player) => Gst.Element
     getUserAgent: (player: Player) => string
@@ -1395,19 +1395,20 @@ export abstract class PlayerIface {
     downloadBuffering: (player: Player, start: number, stop: number) => void
     static name: string
 }
-export class PlayerIfacePrivate {
+class PlayerIfacePrivate {
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
-export abstract class VideoTextureClass {
+abstract class VideoTextureClass {
     static name: string
 }
-export class VideoTexturePrivate {
+class VideoTexturePrivate {
     static name: string
 }
 }
+export default ClutterGst

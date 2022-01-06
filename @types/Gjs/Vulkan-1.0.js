@@ -1,2 +1,1 @@
-imports.gi.versions.Vulkan = '1.0'
-module.exports = imports.gi.Vulkan
+export {default as default} from 'gi://Vulkan?version=1.0';

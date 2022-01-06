@@ -1,2 +1,1 @@
-imports.gi.versions.GSystem = '1.0'
-module.exports = imports.gi.GSystem
+export {default as default} from 'gi://GSystem?version=1.0';

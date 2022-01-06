@@ -7,78 +7,78 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Dee {
+declare namespace Dee {
 
-export enum ICUError {
+enum ICUError {
     BAD_RULE,
     BAD_ID,
     UNKNOWN,
 }
-export enum SharedModelAccessMode {
+enum SharedModelAccessMode {
     WORLD_WRITABLE,
     LEADER_WRITABLE,
 }
-export enum SharedModelError {
+enum SharedModelError {
     SHARED_MODEL_ERROR_LEADER_INVALIDATED,
 }
-export enum SharedModelFlushMode {
+enum SharedModelFlushMode {
     AUTOMATIC,
     MANUAL,
 }
-export enum TransactionError {
+enum TransactionError {
     CONCURRENT_MODIFICATION,
     COMMITTED,
 }
-export enum TermMatchFlag {
+enum TermMatchFlag {
     EXACT,
     PREFIX,
 }
 export const PEER_DBUS_IFACE: string
 export const SEQUENCE_MODEL_DBUS_IFACE: string
 export const SHARED_MODEL_DBUS_IFACE: string
-export function filterNew(mapFunc: FilterMapFunc, mapNotify: FilterMapNotify): { outFilter: Filter }
-export function filterNewCollator(column: number): { outFilter: Filter }
-export function filterNewCollatorDesc(column: number): { outFilter: Filter }
-export function filterNewForAnyColumn(column: number, value: GLib.Variant): { outFilter: Filter }
-export function filterNewForKeyColumn(column: number, key: string): { outFilter: Filter }
-export function filterNewRegex(column: number, regex: GLib.Regex): { outFilter: Filter }
-export function filterNewSort(cmpRow: CompareRowFunc): { outFilter: Filter }
-export function icuErrorQuark(): GLib.Quark
-export function modelReaderNew(readerFunc: ModelReaderFunc): { outReader: ModelReader }
-export function modelReaderNewForInt32Column(column: number): { outReader: ModelReader }
-export function modelReaderNewForStringColumn(column: number): { outReader: ModelReader }
-export function modelReaderNewForUint32Column(column: number): { outReader: ModelReader }
-export function resourceManagerGetDefault(): ResourceManager
-export function serializableParse(data: GLib.Variant, type: GObject.Type): GObject.Object
-export function serializableParseExternal(data: GLib.Variant): GObject.Object
-export interface CollatorFunc {
+function filterNew(mapFunc: FilterMapFunc, mapNotify: FilterMapNotify): { outFilter: Filter }
+function filterNewCollator(column: number): { outFilter: Filter }
+function filterNewCollatorDesc(column: number): { outFilter: Filter }
+function filterNewForAnyColumn(column: number, value: GLib.Variant): { outFilter: Filter }
+function filterNewForKeyColumn(column: number, key: string): { outFilter: Filter }
+function filterNewRegex(column: number, regex: GLib.Regex): { outFilter: Filter }
+function filterNewSort(cmpRow: CompareRowFunc): { outFilter: Filter }
+function icuErrorQuark(): GLib.Quark
+function modelReaderNew(readerFunc: ModelReaderFunc): { outReader: ModelReader }
+function modelReaderNewForInt32Column(column: number): { outReader: ModelReader }
+function modelReaderNewForStringColumn(column: number): { outReader: ModelReader }
+function modelReaderNewForUint32Column(column: number): { outReader: ModelReader }
+function resourceManagerGetDefault(): ResourceManager
+function serializableParse(data: GLib.Variant, type: GObject.Type): GObject.Object
+function serializableParseExternal(data: GLib.Variant): GObject.Object
+interface CollatorFunc {
     (input: string): string
 }
-export interface CompareRowFunc {
+interface CompareRowFunc {
     (row1: GLib.Variant[], row2: GLib.Variant[]): number
 }
-export interface CompareRowSizedFunc {
+interface CompareRowSizedFunc {
     (row1: GLib.Variant[], row2: GLib.Variant[]): number
 }
-export interface FilterMapFunc {
+interface FilterMapFunc {
     (origModel: Model, filterModel: FilterModel): void
 }
-export interface FilterMapNotify {
+interface FilterMapNotify {
     (origModel: Model, origIter: ModelIter, filterModel: FilterModel): boolean
 }
-export interface IndexIterFunc {
+interface IndexIterFunc {
     (key: string, rows: ResultSet): boolean
 }
-export interface ModelReaderFunc {
+interface ModelReaderFunc {
     (model: Model, iter: ModelIter): string
 }
-export interface SerializableParseFunc {
+interface SerializableParseFunc {
     (data: GLib.Variant): GObject.Object
 }
-export interface TermFilterFunc {
+interface TermFilterFunc {
     (termsIn: TermList, termsOut: TermList): void
 }
-export class Model {
+class Model {
     /* Methods of Dee-1.0.Dee.Model */
     appendRow(rowMembers: GLib.Variant[]): ModelIter
     beginChangeset(): void
@@ -156,7 +156,7 @@ export class Model {
     emit(sigName: "row-removed", iter: ModelIter): void
     static name: string
 }
-export class ResourceManager {
+class ResourceManager {
     /* Methods of Dee-1.0.Dee.ResourceManager */
     load(resourceName: string): GObject.Object
     store(resource: Serializable, resourceName: string): boolean
@@ -164,7 +164,7 @@ export class ResourceManager {
     /* Static methods and pseudo-constructors */
     static getDefault(): ResourceManager
 }
-export class ResultSet {
+class ResultSet {
     /* Methods of Dee-1.0.Dee.ResultSet */
     getModel(): Model
     getNRows(): number
@@ -175,7 +175,7 @@ export class ResultSet {
     tell(): number
     static name: string
 }
-export class Serializable {
+class Serializable {
     /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
@@ -186,7 +186,7 @@ export class Serializable {
 }
 export interface Analyzer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Analyzer {
+class Analyzer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Analyzer */
@@ -241,7 +241,7 @@ export class Analyzer {
 export interface Client_ConstructProps extends Peer_ConstructProps {
     busAddress?: string
 }
-export class Client {
+class Client {
     /* Properties of Dee-1.0.Dee.Peer */
     readonly swarmLeader: string
     swarmName: string
@@ -331,7 +331,7 @@ export class Client {
 export interface FileResourceManager_ConstructProps extends GObject.Object_ConstructProps {
     primaryPath?: string
 }
-export class FileResourceManager {
+class FileResourceManager {
     /* Fields of Dee-1.0.Dee.FileResourceManager */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -388,7 +388,7 @@ export class FileResourceManager {
 export interface FilterModel_ConstructProps extends ProxyModel_ConstructProps {
     filter?: Filter
 }
-export class FilterModel {
+class FilterModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.FilterModel */
@@ -524,7 +524,7 @@ export class FilterModel {
 }
 export interface GListResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GListResultSet {
+class GListResultSet {
     /* Fields of Dee-1.0.Dee.GListResultSet */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -579,7 +579,7 @@ export class GListResultSet {
 }
 export interface HashIndex_ConstructProps extends Index_ConstructProps {
 }
-export class HashIndex {
+class HashIndex {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Index */
@@ -640,7 +640,7 @@ export interface Index_ConstructProps extends GObject.Object_ConstructProps {
     model?: Model
     reader?: ModelReader
 }
-export class Index {
+class Index {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Index */
@@ -698,7 +698,7 @@ export interface Peer_ConstructProps extends GObject.Object_ConstructProps {
     swarmName?: string
     swarmOwner?: boolean
 }
-export class Peer {
+class Peer {
     /* Properties of Dee-1.0.Dee.Peer */
     readonly swarmLeader: string
     swarmName: string
@@ -789,7 +789,7 @@ export interface ProxyModel_ConstructProps extends SerializableModel_ConstructPr
     inheritSeqnums?: boolean
     proxySignals?: boolean
 }
-export class ProxyModel {
+class ProxyModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.SerializableModel */
@@ -916,7 +916,7 @@ export class ProxyModel {
 }
 export interface SequenceModel_ConstructProps extends SerializableModel_ConstructProps {
 }
-export class SequenceModel {
+class SequenceModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.SerializableModel */
@@ -1045,7 +1045,7 @@ export class SequenceModel {
 }
 export interface SerializableModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SerializableModel {
+class SerializableModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.SerializableModel */
@@ -1177,7 +1177,7 @@ export interface Server_ConstructProps extends Peer_ConstructProps {
     busAddress?: string
     sameUserOnly?: boolean
 }
-export class Server {
+class Server {
     /* Properties of Dee-1.0.Dee.Peer */
     readonly swarmLeader: string
     swarmName: string
@@ -1272,7 +1272,7 @@ export interface SharedModel_ConstructProps extends ProxyModel_ConstructProps {
     flushMode?: SharedModelFlushMode
     peer?: Peer
 }
-export class SharedModel {
+class SharedModel {
     /* Properties of Dee-1.0.Dee.SharedModel */
     flushMode: SharedModelFlushMode
     readonly synchronized: boolean
@@ -1436,7 +1436,7 @@ export class SharedModel {
 }
 export interface TermList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TermList {
+class TermList {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.TermList */
@@ -1487,7 +1487,7 @@ export class TermList {
 }
 export interface TextAnalyzer_ConstructProps extends Analyzer_ConstructProps {
 }
-export class TextAnalyzer {
+class TextAnalyzer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Analyzer */
@@ -1541,7 +1541,7 @@ export class TextAnalyzer {
 export interface Transaction_ConstructProps extends SerializableModel_ConstructProps {
     target?: Model
 }
-export class Transaction {
+class Transaction {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Transaction */
@@ -1675,7 +1675,7 @@ export class Transaction {
 }
 export interface TreeIndex_ConstructProps extends Index_ConstructProps {
 }
-export class TreeIndex {
+class TreeIndex {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Dee-1.0.Dee.Index */
@@ -1731,7 +1731,7 @@ export class TreeIndex {
     static new(model: Model, analyzer: Analyzer, reader: ModelReader): TreeIndex
     static $gtype: GObject.Type
 }
-export abstract class AnalyzerClass {
+abstract class AnalyzerClass {
     /* Fields of Dee-1.0.Dee.AnalyzerClass */
     analyze: (self: Analyzer, data: string, termsOut?: TermList | null, colkeysOut?: TermList | null) => void
     tokenize: (self: Analyzer, data: string, termsOut: TermList) => void
@@ -1740,21 +1740,21 @@ export abstract class AnalyzerClass {
     collateCmp: (self: Analyzer, key1: string, key2: string) => number
     static name: string
 }
-export class AnalyzerPrivate {
+class AnalyzerPrivate {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class FileResourceManagerClass {
+abstract class FileResourceManagerClass {
     /* Fields of Dee-1.0.Dee.FileResourceManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Filter {
+class Filter {
     /* Fields of Dee-1.0.Dee.Filter */
     mapFunc: FilterMapFunc
     mapNotify: FilterMapNotify
@@ -1772,32 +1772,32 @@ export class Filter {
     static newRegex(column: number, regex: GLib.Regex): { outFilter: Filter }
     static newSort(cmpRow: CompareRowFunc): { outFilter: Filter }
 }
-export abstract class FilterModelClass {
+abstract class FilterModelClass {
     static name: string
 }
-export class FilterModelPrivate {
+class FilterModelPrivate {
     static name: string
 }
-export abstract class GListResultSetClass {
+abstract class GListResultSetClass {
     /* Fields of Dee-1.0.Dee.GListResultSetClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class HashIndexClass {
+abstract class HashIndexClass {
     /* Fields of Dee-1.0.Dee.HashIndexClass */
     parentClass: IndexClass
     static name: string
 }
-export class HashIndexPrivate {
+class HashIndexPrivate {
     static name: string
 }
-export class ICUTermFilter {
+class ICUTermFilter {
     /* Methods of Dee-1.0.Dee.ICUTermFilter */
     apply(text: string): string
     destroy(): void
     static name: string
 }
-export abstract class IndexClass {
+abstract class IndexClass {
     /* Fields of Dee-1.0.Dee.IndexClass */
     parentClass: GObject.ObjectClass
     lookup: (self: Index, term: string, flags: TermMatchFlag) => ResultSet
@@ -1808,10 +1808,10 @@ export abstract class IndexClass {
     getSupportedTermMatchFlags: (self: Index) => number
     static name: string
 }
-export class IndexPrivate {
+class IndexPrivate {
     static name: string
 }
-export abstract class ModelIface {
+abstract class ModelIface {
     /* Fields of Dee-1.0.Dee.ModelIface */
     gIface: GObject.TypeInterface
     rowAdded: (self: Model, iter: ModelIter) => void
@@ -1866,10 +1866,10 @@ export abstract class ModelIface {
     changesetFinished: (self: Model) => void
     static name: string
 }
-export class ModelIter {
+class ModelIter {
     static name: string
 }
-export class ModelReader {
+class ModelReader {
     /* Fields of Dee-1.0.Dee.ModelReader */
     readerFunc: ModelReaderFunc
     userdata: object
@@ -1882,10 +1882,10 @@ export class ModelReader {
     static newForStringColumn(column: number): { outReader: ModelReader }
     static newForUint32Column(column: number): { outReader: ModelReader }
 }
-export class ModelTag {
+class ModelTag {
     static name: string
 }
-export abstract class PeerClass {
+abstract class PeerClass {
     /* Fields of Dee-1.0.Dee.PeerClass */
     peerFound: (self: Peer, name: string) => void
     peerLost: (self: Peer, name: string) => void
@@ -1897,23 +1897,23 @@ export abstract class PeerClass {
     listPeers: (self: Peer) => string[]
     static name: string
 }
-export class PeerPrivate {
+class PeerPrivate {
     static name: string
 }
-export abstract class ProxyModelClass {
+abstract class ProxyModelClass {
     static name: string
 }
-export class ProxyModelPrivate {
+class ProxyModelPrivate {
     static name: string
 }
-export abstract class ResourceManagerIface {
+abstract class ResourceManagerIface {
     /* Fields of Dee-1.0.Dee.ResourceManagerIface */
     gIface: GObject.TypeInterface
     store: (self: ResourceManager, resource: Serializable, resourceName: string) => boolean
     load: (self: ResourceManager, resourceName: string) => GObject.Object
     static name: string
 }
-export abstract class ResultSetIface {
+abstract class ResultSetIface {
     /* Fields of Dee-1.0.Dee.ResultSetIface */
     gIface: GObject.TypeInterface
     getNRows: (self: ResultSet) => number
@@ -1925,41 +1925,41 @@ export abstract class ResultSetIface {
     getModel: (self: ResultSet) => Model
     static name: string
 }
-export abstract class SequenceModelClass {
+abstract class SequenceModelClass {
     static name: string
 }
-export class SequenceModelPrivate {
+class SequenceModelPrivate {
     static name: string
 }
-export abstract class SerializableIface {
+abstract class SerializableIface {
     /* Fields of Dee-1.0.Dee.SerializableIface */
     gIface: GObject.TypeInterface
     serialize: (self: Serializable) => GLib.Variant
     static name: string
 }
-export abstract class SerializableModelClass {
+abstract class SerializableModelClass {
     /* Fields of Dee-1.0.Dee.SerializableModelClass */
     getSeqnum: (self: Model) => number
     setSeqnum: (self: Model, seqnum: number) => void
     incSeqnum: (self: Model) => number
     static name: string
 }
-export class SerializableModelPrivate {
+class SerializableModelPrivate {
     static name: string
 }
-export abstract class ServerClass {
+abstract class ServerClass {
     static name: string
 }
-export class ServerPrivate {
+class ServerPrivate {
     static name: string
 }
-export abstract class SharedModelClass {
+abstract class SharedModelClass {
     static name: string
 }
-export class SharedModelPrivate {
+class SharedModelPrivate {
     static name: string
 }
-export abstract class TermListClass {
+abstract class TermListClass {
     /* Fields of Dee-1.0.Dee.TermListClass */
     parentClass: GObject.ObjectClass
     getTerm: (self: TermList, n: number) => string
@@ -1969,27 +1969,28 @@ export abstract class TermListClass {
     clone: (self: TermList) => TermList
     static name: string
 }
-export class TermListPrivate {
+class TermListPrivate {
     static name: string
 }
-export abstract class TextAnalyzerClass {
+abstract class TextAnalyzerClass {
     static name: string
 }
-export class TextAnalyzerPrivate {
+class TextAnalyzerPrivate {
     static name: string
 }
-export abstract class TransactionClass {
+abstract class TransactionClass {
     static name: string
 }
-export class TransactionPrivate {
+class TransactionPrivate {
     static name: string
 }
-export abstract class TreeIndexClass {
+abstract class TreeIndexClass {
     /* Fields of Dee-1.0.Dee.TreeIndexClass */
     parentClass: IndexClass
     static name: string
 }
-export class TreeIndexPrivate {
+class TreeIndexPrivate {
     static name: string
 }
 }
+export default Dee

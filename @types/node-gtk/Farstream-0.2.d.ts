@@ -8,21 +8,21 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Farstream {
+declare namespace Farstream {
 
-export enum CandidateType {
+enum CandidateType {
     HOST,
     SRFLX,
     PRFLX,
     RELAY,
     MULTICAST,
 }
-export enum ComponentType {
+enum ComponentType {
     NONE,
     RTP,
     RTCP,
 }
-export enum DTMFEvent {
+enum DTMFEvent {
     /* 0 (invalid, starts with a number) */
     /* 1 (invalid, starts with a number) */
     /* 2 (invalid, starts with a number) */
@@ -40,11 +40,11 @@ export enum DTMFEvent {
     C,
     D,
 }
-export enum DTMFMethod {
+enum DTMFMethod {
     RTP_RFC4733,
     SOUND,
 }
-export enum Error {
+enum Error {
     CONSTRUCTION,
     INTERNAL,
     INVALID_ARGUMENTS,
@@ -58,20 +58,20 @@ export enum Error {
     DISPOSED,
     ALREADY_EXISTS,
 }
-export enum MediaType {
+enum MediaType {
     AUDIO,
     VIDEO,
     APPLICATION,
     LAST,
 }
-export enum NetworkProtocol {
+enum NetworkProtocol {
     UDP,
     TCP,
     TCP_PASSIVE,
     TCP_ACTIVE,
     TCP_SO,
 }
-export enum StreamState {
+enum StreamState {
     FAILED,
     DISCONNECTED,
     GATHERING,
@@ -79,7 +79,7 @@ export enum StreamState {
     CONNECTED,
     READY,
 }
-export enum StreamDirection {
+enum StreamDirection {
     NONE,
     SEND,
     RECV,
@@ -89,22 +89,22 @@ export const CODEC_FORMAT: string
 export const CODEC_ID_ANY: number
 export const CODEC_ID_DISABLE: number
 export const RTP_HEADER_EXTENSION_FORMAT: string
-export function candidateListCopy(candidateList: Codec[]): Codec[]
-export function codecListAreEqual(list1?: Codec[] | null, list2?: Codec[] | null): boolean
-export function codecListCopy(codecList: Codec[]): Codec[]
-export function codecListFromKeyfile(filename: string): Codec[]
-export function errorQuark(): GLib.Quark
-export function mediaTypeToString(mediaType: MediaType): string
-export function parseError(object: GObject.Object, message: Gst.Message): { returnType: boolean, error: Error, errorMsg: string }
-export function rtpHeaderExtensionListCopy(extensions: RtpHeaderExtension[]): RtpHeaderExtension[]
-export function rtpHeaderExtensionListFromKeyfile(filename: string, mediaType: MediaType): RtpHeaderExtension[]
-export function utilsGetDefaultCodecPreferences(element: Gst.Element): Codec[]
-export function utilsGetDefaultRtpHeaderExtensionPreferences(element: Gst.Element, mediaType: MediaType): Codec[]
-export function utilsSetBitrate(element: Gst.Element, bitrate: number): void
-export function valueSetCandidateList(value: any, candidates?: Candidate[] | null): void
+function candidateListCopy(candidateList: Codec[]): Codec[]
+function codecListAreEqual(list1?: Codec[] | null, list2?: Codec[] | null): boolean
+function codecListCopy(codecList: Codec[]): Codec[]
+function codecListFromKeyfile(filename: string): Codec[]
+function errorQuark(): GLib.Quark
+function mediaTypeToString(mediaType: MediaType): string
+function parseError(object: GObject.Object, message: Gst.Message): { returnType: boolean, error: Error, errorMsg: string }
+function rtpHeaderExtensionListCopy(extensions: RtpHeaderExtension[]): RtpHeaderExtension[]
+function rtpHeaderExtensionListFromKeyfile(filename: string, mediaType: MediaType): RtpHeaderExtension[]
+function utilsGetDefaultCodecPreferences(element: Gst.Element): Codec[]
+function utilsGetDefaultRtpHeaderExtensionPreferences(element: Gst.Element, mediaType: MediaType): Codec[]
+function utilsSetBitrate(element: Gst.Element, bitrate: number): void
+function valueSetCandidateList(value: any, candidates?: Candidate[] | null): void
 export interface Conference_ConstructProps extends Gst.Bin_ConstructProps {
 }
-export class Conference {
+class Conference {
     /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
@@ -392,7 +392,7 @@ export class Conference {
 }
 export interface ElementAddedNotifier_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ElementAddedNotifier {
+class ElementAddedNotifier {
     /* Fields of Farstream-0.2.Farstream.ElementAddedNotifier */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -453,7 +453,7 @@ export class ElementAddedNotifier {
 }
 export interface Participant_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Participant {
+class Participant {
     /* Fields of Farstream-0.2.Farstream.Participant */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -500,7 +500,7 @@ export class Participant {
 }
 export interface Plugin_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
-export class Plugin {
+class Plugin {
     /* Fields of Farstream-0.2.Farstream.Plugin */
     parent: GObject.TypeModule
     /* Fields of GObject-2.0.GObject.TypeModule */
@@ -571,7 +571,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     mediaType?: MediaType
     tos?: number
 }
-export class Session {
+class Session {
     /* Properties of Farstream-0.2.Farstream.Session */
     readonly allowedSinkCaps: Gst.Caps
     readonly allowedSrcCaps: Gst.Caps
@@ -699,7 +699,7 @@ export interface Stream_ConstructProps extends GObject.Object_ConstructProps {
     participant?: Participant
     session?: Session
 }
-export class Stream {
+class Stream {
     /* Properties of Farstream-0.2.Farstream.Stream */
     readonly currentRecvCodecs: Codec[]
     readonly decryptionParameters: Gst.Structure
@@ -808,7 +808,7 @@ export interface StreamTransmitter_ConstructProps extends GObject.Object_Constru
     preferredLocalCandidates?: any
     sending?: boolean
 }
-export class StreamTransmitter {
+class StreamTransmitter {
     /* Properties of Farstream-0.2.Farstream.StreamTransmitter */
     sending: boolean
     /* Fields of Farstream-0.2.Farstream.StreamTransmitter */
@@ -902,7 +902,7 @@ export interface Transmitter_ConstructProps extends GObject.Object_ConstructProp
     doTimestamp?: boolean
     tos?: number
 }
-export class Transmitter {
+class Transmitter {
     /* Properties of Farstream-0.2.Farstream.Transmitter */
     doTimestamp: boolean
     readonly gstSink: Gst.Element
@@ -985,7 +985,7 @@ export class Transmitter {
     static listAvailable(): string[]
     static $gtype: GObject.Type
 }
-export class Candidate {
+class Candidate {
     /* Fields of Farstream-0.2.Farstream.Candidate */
     foundation: string
     componentId: number
@@ -1008,7 +1008,7 @@ export class Candidate {
     static new(foundation: string, componentId: number, type: CandidateType, proto: NetworkProtocol, ip: string | null, port: number): Candidate
     static newFull(foundation: string, componentId: number, ip: string | null, port: number, baseIp: string | null, basePort: number, proto: NetworkProtocol, priority: number, type: CandidateType, username: string | null, password: string | null, ttl: number): Candidate
 }
-export class Codec {
+class Codec {
     /* Fields of Farstream-0.2.Farstream.Codec */
     id: number
     encodingName: string
@@ -1034,7 +1034,7 @@ export class Codec {
     /* Static methods and pseudo-constructors */
     static new(id: number, encodingName: string, mediaType: MediaType, clockRate: number): Codec
 }
-export class CodecParameter {
+class CodecParameter {
     /* Fields of Farstream-0.2.Farstream.CodecParameter */
     name: string
     value: string
@@ -1043,22 +1043,22 @@ export class CodecParameter {
     free(): void
     static name: string
 }
-export abstract class ConferenceClass {
+abstract class ConferenceClass {
     /* Fields of Farstream-0.2.Farstream.ConferenceClass */
     parent: Gst.BinClass
     newSession: (conference: Conference, mediaType: MediaType) => Session
     newParticipant: (conference: Conference) => Participant
     static name: string
 }
-export abstract class ElementAddedNotifierClass {
+abstract class ElementAddedNotifierClass {
     /* Fields of Farstream-0.2.Farstream.ElementAddedNotifierClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ElementAddedNotifierPrivate {
+class ElementAddedNotifierPrivate {
     static name: string
 }
-export class FeedbackParameter {
+class FeedbackParameter {
     /* Fields of Farstream-0.2.Farstream.FeedbackParameter */
     type: string
     subtype: string
@@ -1068,23 +1068,23 @@ export class FeedbackParameter {
     free(): void
     static name: string
 }
-export abstract class ParticipantClass {
+abstract class ParticipantClass {
     /* Fields of Farstream-0.2.Farstream.ParticipantClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ParticipantPrivate {
+class ParticipantPrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of Farstream-0.2.Farstream.PluginClass */
     parentClass: GObject.TypeModuleClass
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export class RtpHeaderExtension {
+class RtpHeaderExtension {
     /* Fields of Farstream-0.2.Farstream.RtpHeaderExtension */
     id: number
     direction: StreamDirection
@@ -1097,7 +1097,7 @@ export class RtpHeaderExtension {
     /* Static methods and pseudo-constructors */
     static new(id: number, direction: StreamDirection, uri: string): RtpHeaderExtension
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Farstream-0.2.Farstream.SessionClass */
     parentClass: GObject.ObjectClass
     newStream: (session: Session, participant: Participant, direction: StreamDirection) => Stream
@@ -1112,10 +1112,10 @@ export abstract class SessionClass {
     setEncryptionParameters: (session: Session, parameters?: Gst.Structure | null) => boolean
     static name: string
 }
-export class SessionPrivate {
+class SessionPrivate {
     static name: string
 }
-export abstract class StreamClass {
+abstract class StreamClass {
     /* Fields of Farstream-0.2.Farstream.StreamClass */
     parentClass: GObject.ObjectClass
     addRemoteCandidates: (stream: Stream, candidates: Candidate[]) => boolean
@@ -1126,10 +1126,10 @@ export abstract class StreamClass {
     setDecryptionParameters: (stream: Stream, parameters: Gst.Structure) => boolean
     static name: string
 }
-export class StreamPrivate {
+class StreamPrivate {
     static name: string
 }
-export abstract class StreamTransmitterClass {
+abstract class StreamTransmitterClass {
     /* Fields of Farstream-0.2.Farstream.StreamTransmitterClass */
     parentClass: GObject.ObjectClass
     addRemoteCandidates: (streamtransmitter: StreamTransmitter, candidates: Candidate[]) => boolean
@@ -1138,17 +1138,18 @@ export abstract class StreamTransmitterClass {
     stop: (streamtransmitter: StreamTransmitter) => void
     static name: string
 }
-export class StreamTransmitterPrivate {
+class StreamTransmitterPrivate {
     static name: string
 }
-export abstract class TransmitterClass {
+abstract class TransmitterClass {
     /* Fields of Farstream-0.2.Farstream.TransmitterClass */
     parentClass: GObject.ObjectClass
     newStreamTransmitter: (transmitter: Transmitter, participant: Participant, nParameters: number, parameters: GObject.Parameter) => StreamTransmitter
     getStreamTransmitterType: (transmitter: Transmitter) => GObject.Type
     static name: string
 }
-export class TransmitterPrivate {
+class TransmitterPrivate {
     static name: string
 }
 }
+export default Farstream

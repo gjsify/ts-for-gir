@@ -1,2 +1,1 @@
-imports.gi.versions.GstFft = '1.0'
-module.exports = imports.gi.GstFft
+export {default as default} from 'gi://GstFft?version=1.0';

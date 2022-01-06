@@ -3,35 +3,37 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Atk from './Atk-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Clutter from './Clutter-1.0';
+import type cairo from './cairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Cogl from './Cogl-1.0';
+import type Atk from './Atk-1.0';
 
-export enum MapProjection {
+export namespace Champlain {
+
+enum MapProjection {
     MERCATOR,
 }
-export enum SelectionMode {
+enum SelectionMode {
     NONE,
     SINGLE,
     MULTIPLE,
 }
-export enum State {
+enum State {
     NONE,
     LOADING,
     LOADED,
     DONE,
 }
-export enum Unit {
+enum Unit {
     KM,
     MILES,
 }
@@ -60,7 +62,7 @@ export const MIN_LONGITUDE: number
 export const VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export class Exportable {
+class Exportable {
     /* Properties of Champlain-0.12.Champlain.Exportable */
     surface: cairo.Surface
     /* Methods of Champlain-0.12.Champlain.Exportable */
@@ -71,7 +73,7 @@ export class Exportable {
     vfunc_set_surface(surface: cairo.Surface): void
     static name: string
 }
-export class Location {
+class Location {
     /* Properties of Champlain-0.12.Champlain.Location */
     latitude: number
     longitude: number
@@ -91,7 +93,7 @@ export interface Adjustment_ConstructProps extends GObject.Object_ConstructProps
     upper?: number
     value?: number
 }
-export class Adjustment {
+class Adjustment {
     /* Properties of Champlain-0.12.Champlain.Adjustment */
     lower: number
     step_increment: number
@@ -170,7 +172,7 @@ export interface Coordinate_ConstructProps extends GObject.InitiallyUnowned_Cons
     latitude?: number
     longitude?: number
 }
-export class Coordinate {
+class Coordinate {
     /* Properties of Champlain-0.12.Champlain.Location */
     latitude: number
     longitude: number
@@ -241,7 +243,7 @@ export interface CustomMarker_ConstructProps extends Marker_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class CustomMarker {
+class CustomMarker {
     /* Properties of Champlain-0.12.Champlain.Marker */
     draggable: boolean
     selectable: boolean
@@ -1002,7 +1004,7 @@ export class CustomMarker {
 export interface ErrorTileRenderer_ConstructProps extends Renderer_ConstructProps {
     tile_size?: number
 }
-export class ErrorTileRenderer {
+class ErrorTileRenderer {
     /* Properties of Champlain-0.12.Champlain.ErrorTileRenderer */
     tile_size: number
     /* Fields of Champlain-0.12.Champlain.ErrorTileRenderer */
@@ -1070,7 +1072,7 @@ export interface FileCache_ConstructProps extends TileCache_ConstructProps {
     cache_dir?: string
     size_limit?: number
 }
-export class FileCache {
+class FileCache {
     /* Properties of Champlain-0.12.Champlain.FileCache */
     size_limit: number
     /* Properties of Champlain-0.12.Champlain.MapSource */
@@ -1179,7 +1181,7 @@ export class FileCache {
 }
 export interface FileTileSource_ConstructProps extends TileSource_ConstructProps {
 }
-export class FileTileSource {
+class FileTileSource {
     /* Properties of Champlain-0.12.Champlain.TileSource */
     cache: TileCache
     id: string
@@ -1313,7 +1315,7 @@ export class FileTileSource {
 }
 export interface ImageRenderer_ConstructProps extends Renderer_ConstructProps {
 }
-export class ImageRenderer {
+class ImageRenderer {
     /* Fields of Champlain-0.12.Champlain.ImageRenderer */
     parent: Renderer
     priv: ImageRendererPrivate
@@ -1375,7 +1377,7 @@ export interface KineticScrollView_ConstructProps extends Clutter.Actor_Construc
     mode?: boolean
     motion_buffer?: number
 }
-export class KineticScrollView {
+class KineticScrollView {
     /* Properties of Champlain-0.12.Champlain.KineticScrollView */
     decel_rate: number
     mode: boolean
@@ -2118,7 +2120,7 @@ export interface Label_ConstructProps extends Marker_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Label {
+class Label {
     /* Properties of Champlain-0.12.Champlain.Label */
     alignment: Pango.Alignment
     color: Clutter.Color
@@ -2951,7 +2953,7 @@ export class Label {
 }
 export interface Layer_ConstructProps extends Clutter.Actor_ConstructProps {
 }
-export class Layer {
+class Layer {
     /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Clutter.Action
     readonly allocation: Clutter.ActorBox
@@ -3670,7 +3672,7 @@ export interface License_ConstructProps extends Clutter.Actor_ConstructProps {
     alignment?: Pango.Alignment
     extra_text?: string
 }
-export class License {
+class License {
     /* Properties of Champlain-0.12.Champlain.License */
     alignment: Pango.Alignment
     extra_text: string
@@ -4400,7 +4402,7 @@ export interface MapSource_ConstructProps extends GObject.InitiallyUnowned_Const
     next_source?: MapSource
     renderer?: Renderer
 }
-export class MapSource {
+class MapSource {
     /* Properties of Champlain-0.12.Champlain.MapSource */
     next_source: MapSource
     renderer: Renderer
@@ -4489,7 +4491,7 @@ export class MapSource {
 }
 export interface MapSourceChain_ConstructProps extends MapSource_ConstructProps {
 }
-export class MapSourceChain {
+class MapSourceChain {
     /* Properties of Champlain-0.12.Champlain.MapSource */
     next_source: MapSource
     renderer: Renderer
@@ -4594,7 +4596,7 @@ export interface MapSourceDesc_ConstructProps extends GObject.Object_ConstructPr
     tile_size?: number
     uri_format?: string
 }
-export class MapSourceDesc {
+class MapSourceDesc {
     /* Fields of Champlain-0.12.Champlain.MapSourceDesc */
     parent_instance: GObject.Object
     priv: MapSourceDescPrivate
@@ -4656,7 +4658,7 @@ export class MapSourceDesc {
 }
 export interface MapSourceFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MapSourceFactory {
+class MapSourceFactory {
     /* Fields of Champlain-0.12.Champlain.MapSourceFactory */
     parent: GObject.Object
     priv: MapSourceFactoryPrivate
@@ -4721,7 +4723,7 @@ export interface Marker_ConstructProps extends Clutter.Actor_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Marker {
+class Marker {
     /* Properties of Champlain-0.12.Champlain.Marker */
     draggable: boolean
     selectable: boolean
@@ -5489,7 +5491,7 @@ export interface MarkerLayer_ConstructProps extends Layer_ConstructProps {
     selection_mode?: SelectionMode
     surface?: cairo.Surface
 }
-export class MarkerLayer {
+class MarkerLayer {
     /* Properties of Champlain-0.12.Champlain.MarkerLayer */
     selection_mode: SelectionMode
     /* Properties of Clutter-1.0.Clutter.Actor */
@@ -6238,7 +6240,7 @@ export class MarkerLayer {
 export interface MemoryCache_ConstructProps extends TileCache_ConstructProps {
     size_limit?: number
 }
-export class MemoryCache {
+class MemoryCache {
     /* Properties of Champlain-0.12.Champlain.MemoryCache */
     size_limit: number
     /* Properties of Champlain-0.12.Champlain.MapSource */
@@ -6349,7 +6351,7 @@ export interface NetworkBboxTileSource_ConstructProps extends TileSource_Constru
     state?: State
     user_agent?: string
 }
-export class NetworkBboxTileSource {
+class NetworkBboxTileSource {
     /* Properties of Champlain-0.12.Champlain.NetworkBboxTileSource */
     api_uri: string
     proxy_uri: string
@@ -6504,7 +6506,7 @@ export interface NetworkTileSource_ConstructProps extends TileSource_ConstructPr
     uri_format?: string
     user_agent?: string
 }
-export class NetworkTileSource {
+class NetworkTileSource {
     /* Properties of Champlain-0.12.Champlain.NetworkTileSource */
     max_conns: number
     offline: boolean
@@ -6660,7 +6662,7 @@ export class NetworkTileSource {
 }
 export interface NullTileSource_ConstructProps extends TileSource_ConstructProps {
 }
-export class NullTileSource {
+class NullTileSource {
     /* Properties of Champlain-0.12.Champlain.TileSource */
     cache: TileCache
     id: string
@@ -6800,7 +6802,7 @@ export interface PathLayer_ConstructProps extends Layer_ConstructProps {
     visible?: boolean
     surface?: cairo.Surface
 }
-export class PathLayer {
+class PathLayer {
     /* Properties of Champlain-0.12.Champlain.PathLayer */
     closed: boolean
     fill: boolean
@@ -7573,7 +7575,7 @@ export interface Point_ConstructProps extends Marker_ConstructProps {
     latitude?: number
     longitude?: number
 }
-export class Point {
+class Point {
     /* Properties of Champlain-0.12.Champlain.Point */
     color: Clutter.Color
     size: number
@@ -8353,7 +8355,7 @@ export class Point {
 }
 export interface Renderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class Renderer {
+class Renderer {
     /* Fields of Champlain-0.12.Champlain.Renderer */
     parent: GObject.InitiallyUnowned
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
@@ -8411,7 +8413,7 @@ export interface Scale_ConstructProps extends Clutter.Actor_ConstructProps {
     max_width?: number
     unit?: Unit
 }
-export class Scale {
+class Scale {
     /* Properties of Champlain-0.12.Champlain.Scale */
     max_width: number
     unit: Unit
@@ -9148,7 +9150,7 @@ export interface Tile_ConstructProps extends Clutter.Actor_ConstructProps {
     zoom_level?: number
     surface?: cairo.Surface
 }
-export class Tile {
+class Tile {
     /* Properties of Champlain-0.12.Champlain.Tile */
     content: Clutter.Actor
     etag: string
@@ -9905,7 +9907,7 @@ export class Tile {
 }
 export interface TileCache_ConstructProps extends MapSource_ConstructProps {
 }
-export class TileCache {
+class TileCache {
     /* Properties of Champlain-0.12.Champlain.MapSource */
     next_source: MapSource
     renderer: Renderer
@@ -10011,7 +10013,7 @@ export interface TileSource_ConstructProps extends MapSource_ConstructProps {
     projection?: MapProjection
     tile_size?: number
 }
-export class TileSource {
+class TileSource {
     /* Properties of Champlain-0.12.Champlain.TileSource */
     cache: TileCache
     id: string
@@ -10155,7 +10157,7 @@ export interface View_ConstructProps extends Clutter.Actor_ConstructProps {
     zoom_level?: number
     zoom_on_double_click?: boolean
 }
-export class View {
+class View {
     /* Properties of Champlain-0.12.Champlain.View */
     animate_zoom: boolean
     background_pattern: Clutter.Actor
@@ -10984,7 +10986,7 @@ export interface Viewport_ConstructProps extends Clutter.Actor_ConstructProps {
     x_origin?: number
     y_origin?: number
 }
-export class Viewport {
+class Viewport {
     /* Properties of Champlain-0.12.Champlain.Viewport */
     hadjustment: Adjustment
     vadjustment: Adjustment
@@ -11722,15 +11724,15 @@ export class Viewport {
     static class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
     static $gtype: GObject.Type
 }
-export abstract class AdjustmentClass {
+abstract class AdjustmentClass {
     /* Fields of Champlain-0.12.Champlain.AdjustmentClass */
     changed: (adjustment: Adjustment) => void
     static name: string
 }
-export class AdjustmentPrivate {
+class AdjustmentPrivate {
     static name: string
 }
-export class BoundingBox {
+class BoundingBox {
     /* Fields of Champlain-0.12.Champlain.BoundingBox */
     left: number
     top: number
@@ -11750,107 +11752,107 @@ export class BoundingBox {
     /* Static methods and pseudo-constructors */
     static new(): BoundingBox
 }
-export abstract class CoordinateClass {
+abstract class CoordinateClass {
     /* Fields of Champlain-0.12.Champlain.CoordinateClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class CoordinatePrivate {
+class CoordinatePrivate {
     static name: string
 }
-export abstract class CustomMarkerClass {
+abstract class CustomMarkerClass {
     /* Fields of Champlain-0.12.Champlain.CustomMarkerClass */
     parent_class: MarkerClass
     static name: string
 }
-export class CustomMarkerPrivate {
+class CustomMarkerPrivate {
     static name: string
 }
-export abstract class ErrorTileRendererClass {
+abstract class ErrorTileRendererClass {
     /* Fields of Champlain-0.12.Champlain.ErrorTileRendererClass */
     parent_class: RendererClass
     static name: string
 }
-export class ErrorTileRendererPrivate {
+class ErrorTileRendererPrivate {
     static name: string
 }
-export abstract class ExportableIface {
+abstract class ExportableIface {
     /* Fields of Champlain-0.12.Champlain.ExportableIface */
     get_surface: (exportable: Exportable) => cairo.Surface
     set_surface: (exportable: Exportable, surface: cairo.Surface) => void
     static name: string
 }
-export abstract class FileCacheClass {
+abstract class FileCacheClass {
     /* Fields of Champlain-0.12.Champlain.FileCacheClass */
     parent_class: TileCacheClass
     static name: string
 }
-export class FileCachePrivate {
+class FileCachePrivate {
     static name: string
 }
-export abstract class FileTileSourceClass {
+abstract class FileTileSourceClass {
     /* Fields of Champlain-0.12.Champlain.FileTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
-export class FileTileSourcePrivate {
+class FileTileSourcePrivate {
     static name: string
 }
-export abstract class ImageRendererClass {
+abstract class ImageRendererClass {
     /* Fields of Champlain-0.12.Champlain.ImageRendererClass */
     parent_class: RendererClass
     static name: string
 }
-export class ImageRendererPrivate {
+class ImageRendererPrivate {
     static name: string
 }
-export abstract class KineticScrollViewClass {
+abstract class KineticScrollViewClass {
     /* Fields of Champlain-0.12.Champlain.KineticScrollViewClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class KineticScrollViewPrivate {
+class KineticScrollViewPrivate {
     static name: string
 }
-export abstract class LabelClass {
+abstract class LabelClass {
     /* Fields of Champlain-0.12.Champlain.LabelClass */
     parent_class: MarkerClass
     static name: string
 }
-export class LabelPrivate {
+class LabelPrivate {
     static name: string
 }
-export abstract class LayerClass {
+abstract class LayerClass {
     /* Fields of Champlain-0.12.Champlain.LayerClass */
     parent_class: Clutter.ActorClass
     set_view: (layer: Layer, view?: View | null) => void
     get_bounding_box: (layer: Layer) => BoundingBox
     static name: string
 }
-export abstract class LicenseClass {
+abstract class LicenseClass {
     /* Fields of Champlain-0.12.Champlain.LicenseClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class LicensePrivate {
+class LicensePrivate {
     static name: string
 }
-export abstract class LocationIface {
+abstract class LocationIface {
     /* Fields of Champlain-0.12.Champlain.LocationIface */
     get_latitude: (location: Location) => number
     get_longitude: (location: Location) => number
     set_location: (location: Location, latitude: number, longitude: number) => void
     static name: string
 }
-export abstract class MapSourceChainClass {
+abstract class MapSourceChainClass {
     /* Fields of Champlain-0.12.Champlain.MapSourceChainClass */
     parent_class: MapSourceClass
     static name: string
 }
-export class MapSourceChainPrivate {
+class MapSourceChainPrivate {
     static name: string
 }
-export abstract class MapSourceClass {
+abstract class MapSourceClass {
     /* Fields of Champlain-0.12.Champlain.MapSourceClass */
     parent_class: GObject.InitiallyUnownedClass
     get_id: (map_source: MapSource) => string
@@ -11864,105 +11866,105 @@ export abstract class MapSourceClass {
     fill_tile: (map_source: MapSource, tile: Tile) => void
     static name: string
 }
-export abstract class MapSourceDescClass {
+abstract class MapSourceDescClass {
     /* Fields of Champlain-0.12.Champlain.MapSourceDescClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MapSourceDescPrivate {
+class MapSourceDescPrivate {
     static name: string
 }
-export abstract class MapSourceFactoryClass {
+abstract class MapSourceFactoryClass {
     /* Fields of Champlain-0.12.Champlain.MapSourceFactoryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MapSourceFactoryPrivate {
+class MapSourceFactoryPrivate {
     static name: string
 }
-export class MapSourcePrivate {
+class MapSourcePrivate {
     static name: string
 }
-export abstract class MarkerClass {
+abstract class MarkerClass {
     /* Fields of Champlain-0.12.Champlain.MarkerClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export abstract class MarkerLayerClass {
+abstract class MarkerLayerClass {
     /* Fields of Champlain-0.12.Champlain.MarkerLayerClass */
     parent_class: LayerClass
     static name: string
 }
-export class MarkerLayerPrivate {
+class MarkerLayerPrivate {
     static name: string
 }
-export class MarkerPrivate {
+class MarkerPrivate {
     static name: string
 }
-export abstract class MemoryCacheClass {
+abstract class MemoryCacheClass {
     /* Fields of Champlain-0.12.Champlain.MemoryCacheClass */
     parent_class: TileCacheClass
     static name: string
 }
-export class MemoryCachePrivate {
+class MemoryCachePrivate {
     static name: string
 }
-export abstract class NetworkBboxTileSourceClass {
+abstract class NetworkBboxTileSourceClass {
     /* Fields of Champlain-0.12.Champlain.NetworkBboxTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
-export class NetworkBboxTileSourcePrivate {
+class NetworkBboxTileSourcePrivate {
     static name: string
 }
-export abstract class NetworkTileSourceClass {
+abstract class NetworkTileSourceClass {
     /* Fields of Champlain-0.12.Champlain.NetworkTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
-export class NetworkTileSourcePrivate {
+class NetworkTileSourcePrivate {
     static name: string
 }
-export abstract class NullTileSourceClass {
+abstract class NullTileSourceClass {
     /* Fields of Champlain-0.12.Champlain.NullTileSourceClass */
     parent_class: TileSourceClass
     static name: string
 }
-export class NullTileSourcePrivate {
+class NullTileSourcePrivate {
     static name: string
 }
-export abstract class PathLayerClass {
+abstract class PathLayerClass {
     /* Fields of Champlain-0.12.Champlain.PathLayerClass */
     parent_class: LayerClass
     static name: string
 }
-export class PathLayerPrivate {
+class PathLayerPrivate {
     static name: string
 }
-export abstract class PointClass {
+abstract class PointClass {
     /* Fields of Champlain-0.12.Champlain.PointClass */
     parent_class: MarkerClass
     static name: string
 }
-export class PointPrivate {
+class PointPrivate {
     static name: string
 }
-export abstract class RendererClass {
+abstract class RendererClass {
     /* Fields of Champlain-0.12.Champlain.RendererClass */
     parent_class: GObject.InitiallyUnownedClass
     set_data: (renderer: Renderer, data: Uint8Array[]) => void
     render: (renderer: Renderer, tile: Tile) => void
     static name: string
 }
-export abstract class ScaleClass {
+abstract class ScaleClass {
     /* Fields of Champlain-0.12.Champlain.ScaleClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class ScalePrivate {
+class ScalePrivate {
     static name: string
 }
-export abstract class TileCacheClass {
+abstract class TileCacheClass {
     /* Fields of Champlain-0.12.Champlain.TileCacheClass */
     parent_class: MapSourceClass
     store_tile: (tile_cache: TileCache, tile: Tile, contents: string, size: number) => void
@@ -11970,38 +11972,40 @@ export abstract class TileCacheClass {
     on_tile_filled: (tile_cache: TileCache, tile: Tile) => void
     static name: string
 }
-export class TileCachePrivate {
+class TileCachePrivate {
     static name: string
 }
-export abstract class TileClass {
+abstract class TileClass {
     /* Fields of Champlain-0.12.Champlain.TileClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class TilePrivate {
+class TilePrivate {
     static name: string
 }
-export abstract class TileSourceClass {
+abstract class TileSourceClass {
     /* Fields of Champlain-0.12.Champlain.TileSourceClass */
     parent_class: MapSourceClass
     static name: string
 }
-export class TileSourcePrivate {
+class TileSourcePrivate {
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Champlain-0.12.Champlain.ViewClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
-export abstract class ViewportClass {
+abstract class ViewportClass {
     /* Fields of Champlain-0.12.Champlain.ViewportClass */
     parent_class: Clutter.ActorClass
     static name: string
 }
-export class ViewportPrivate {
+class ViewportPrivate {
     static name: string
 }
+}
+export default Champlain

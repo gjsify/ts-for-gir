@@ -3,33 +3,35 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as GVnc from './GVnc-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type GVnc from './GVnc-1.0';
 
-export enum DisplayCredential {
+export namespace GtkVnc {
+
+enum DisplayCredential {
     PASSWORD,
     USERNAME,
     CLIENTNAME,
 }
-export enum DisplayDepthColor {
+enum DisplayDepthColor {
     DEFAULT,
     FULL,
     MEDIUM,
     LOW,
     ULTRA_LOW,
 }
-export enum DisplayKeyEvent {
+enum DisplayKeyEvent {
     PRESS,
     RELEASE,
     CLICK,
@@ -37,7 +39,7 @@ export enum DisplayKeyEvent {
 export interface CairoFramebuffer_ConstructProps extends GVnc.BaseFramebuffer_ConstructProps {
     surface?: object
 }
-export class CairoFramebuffer {
+class CairoFramebuffer {
     /* Properties of GVnc-1.0.GVnc.BaseFramebuffer */
     color_map: GVnc.ColorMap
     /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebuffer */
@@ -140,7 +142,7 @@ export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     smoothing?: boolean
     zoom_level?: number
 }
-export class Display {
+class Display {
     /* Properties of GtkVnc-2.0.GtkVnc.Display */
     allow_resize: boolean
     readonly connection: GVnc.Connection
@@ -1044,16 +1046,16 @@ export class Display {
     static get_option_group(): GLib.OptionGroup
     static $gtype: GObject.Type
 }
-export abstract class CairoFramebufferClass {
+abstract class CairoFramebufferClass {
     /* Fields of GtkVnc-2.0.GtkVnc.CairoFramebufferClass */
     parent_class: GVnc.BaseFramebufferClass
     _vnc_reserved: object[]
     static name: string
 }
-export class CairoFramebufferPrivate {
+class CairoFramebufferPrivate {
     static name: string
 }
-export abstract class DisplayClass {
+abstract class DisplayClass {
     /* Fields of GtkVnc-2.0.GtkVnc.DisplayClass */
     parent_class: Gtk.DrawingAreaClass
     vnc_connected: (display: Display) => void
@@ -1062,10 +1064,10 @@ export abstract class DisplayClass {
     vnc_auth_credential: (display: Display, credList: GObject.ValueArray) => void
     static name: string
 }
-export class DisplayPrivate {
+class DisplayPrivate {
     static name: string
 }
-export class GrabSequence {
+class GrabSequence {
     /* Fields of GtkVnc-2.0.GtkVnc.GrabSequence */
     nkeysyms: number
     keysyms: number
@@ -1081,3 +1083,5 @@ export class GrabSequence {
     static new(keysyms: number[]): GrabSequence
     static new_from_string(str: string): GrabSequence
 }
+}
+export default GtkVnc

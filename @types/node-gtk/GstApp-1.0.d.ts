@@ -9,14 +9,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstApp {
+declare namespace GstApp {
 
-export enum AppLeakyType {
+enum AppLeakyType {
     NONE,
     UPSTREAM,
     DOWNSTREAM,
 }
-export enum AppStreamType {
+enum AppStreamType {
     STREAM,
     SEEKABLE,
     RANDOM_ACCESS,
@@ -29,7 +29,7 @@ export interface AppSink_ConstructProps extends GstBase.BaseSink_ConstructProps 
     maxBuffers?: number
     waitOnEos?: boolean
 }
-export class AppSink {
+class AppSink {
     /* Properties of GstApp-1.0.GstApp.AppSink */
     bufferList: boolean
     caps: Gst.Caps
@@ -481,7 +481,7 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     size?: number
     streamType?: AppStreamType
 }
-export class AppSrc {
+class AppSrc {
     /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
@@ -923,7 +923,7 @@ export class AppSrc {
     _init (config?: AppSrc_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class AppSinkCallbacks {
+class AppSinkCallbacks {
     /* Fields of GstApp-1.0.GstApp.AppSinkCallbacks */
     eos: (appsink: AppSink) => void
     newPreroll: (appsink: AppSink) => Gst.FlowReturn
@@ -931,7 +931,7 @@ export class AppSinkCallbacks {
     newEvent: (appsink: AppSink) => boolean
     static name: string
 }
-export abstract class AppSinkClass {
+abstract class AppSinkClass {
     /* Fields of GstApp-1.0.GstApp.AppSinkClass */
     basesinkClass: GstBase.BaseSinkClass
     eos: (appsink: AppSink) => void
@@ -944,17 +944,17 @@ export abstract class AppSinkClass {
     tryPullObject: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.MiniObject
     static name: string
 }
-export class AppSinkPrivate {
+class AppSinkPrivate {
     static name: string
 }
-export class AppSrcCallbacks {
+class AppSrcCallbacks {
     /* Fields of GstApp-1.0.GstApp.AppSrcCallbacks */
     needData: (src: AppSrc, length: number) => void
     enoughData: (src: AppSrc) => void
     seekData: (src: AppSrc, offset: number) => boolean
     static name: string
 }
-export abstract class AppSrcClass {
+abstract class AppSrcClass {
     /* Fields of GstApp-1.0.GstApp.AppSrcClass */
     basesrcClass: GstBase.BaseSrcClass
     needData: (appsrc: AppSrc, length: number) => void
@@ -966,7 +966,8 @@ export abstract class AppSrcClass {
     pushBufferList: (appsrc: AppSrc, bufferList: Gst.BufferList) => Gst.FlowReturn
     static name: string
 }
-export class AppSrcPrivate {
+class AppSrcPrivate {
     static name: string
 }
 }
+export default GstApp

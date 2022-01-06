@@ -1,2 +1,1 @@
-imports.gi.versions.Gtef = '2'
-module.exports = imports.gi.Gtef
+export {default as default} from 'gi://Gtef?version=2';

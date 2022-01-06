@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Colord from './Colord-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Colord from './Colord-1.0';
 
-export enum WindowError {
+export namespace ColordGtk {
+
+enum WindowError {
     FAILED,
     LAST,
 }
@@ -27,7 +29,7 @@ export const GTK_MINOR_VERSION: number
 export interface SampleWidget_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     color?: Colord.ColorRGB
 }
-export class SampleWidget {
+class SampleWidget {
     /* Properties of ColordGtk-1.0.ColordGtk.SampleWidget */
     color: Colord.ColorRGB
     /* Properties of Gtk-3.0.Gtk.Widget */
@@ -777,7 +779,7 @@ export class SampleWidget {
 }
 export interface SampleWindow_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class SampleWindow {
+class SampleWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -1817,7 +1819,7 @@ export class SampleWindow {
 }
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of ColordGtk-1.0.ColordGtk.Window */
     readonly Profile: string
     /* Fields of ColordGtk-1.0.ColordGtk.Window */
@@ -1884,28 +1886,30 @@ export class Window {
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class SampleWidgetClass {
+abstract class SampleWidgetClass {
     /* Fields of ColordGtk-1.0.ColordGtk.SampleWidgetClass */
     parent_class: Gtk.DrawingAreaClass
     static name: string
 }
-export class SampleWidgetPrivate {
+class SampleWidgetPrivate {
     static name: string
 }
-export abstract class SampleWindowClass {
+abstract class SampleWindowClass {
     /* Fields of ColordGtk-1.0.ColordGtk.SampleWindowClass */
     parent_class: Gtk.WindowClass
     static name: string
 }
-export class SampleWindowPrivate {
+class SampleWindowPrivate {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of ColordGtk-1.0.ColordGtk.WindowClass */
     parent_class: GObject.ObjectClass
     changed: (window: Window, profile: Colord.Profile) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
+}
+export default ColordGtk

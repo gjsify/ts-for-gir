@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace PackageKitPlugin {
+declare namespace PackageKitPlugin {
 
-export enum BackendJobSignal {
+enum BackendJobSignal {
     ALLOW_CANCEL,
     DETAILS,
     ERROR_CODE,
@@ -34,14 +34,14 @@ export enum BackendJobSignal {
     CATEGORY,
     LAST,
 }
-export enum HintEnum {
+enum HintEnum {
     FALSE,
     TRUE,
     UNSET,
     INVALID,
     LAST,
 }
-export enum PluginPhase {
+enum PluginPhase {
     INIT,
     TRANSACTION_CONTENT_TYPES,
     TRANSACTION_RUN,
@@ -52,7 +52,7 @@ export enum PluginPhase {
     STATE_CHANGED,
     UNKNOWN,
 }
-export enum TransactionState {
+enum TransactionState {
     NEW,
     WAITING_FOR_AUTH,
     COMMITTED,
@@ -64,41 +64,41 @@ export enum TransactionState {
 export const BACKEND_PERCENTAGE_INVALID: number
 export const TRANSACTION_ALL_BACKEND_SIGNALS: number
 export const TRANSACTION_NO_BACKEND_SIGNALS: number
-export function directoryRemoveContents(directory: string): boolean
-export function getResource(): Gio.Resource
-export function hintEnumFromString(hint: string): HintEnum
-export function hintEnumToString(hint: HintEnum): string
-export function loadIntrospection(filename: string): Gio.DBusNodeInfo
-export function pluginGetDescription(): string
-export function strlen(text: string, len: number): number
-export function strtoint(text: string, value: number): boolean
-export function strtouint(text: string, value: number): boolean
-export function strtouint64(text: string, value: number): boolean
-export function strzero(text: string): boolean
-export interface BackendFileChanged {
+function directoryRemoveContents(directory: string): boolean
+function getResource(): Gio.Resource
+function hintEnumFromString(hint: string): HintEnum
+function hintEnumToString(hint: HintEnum): string
+function loadIntrospection(filename: string): Gio.DBusNodeInfo
+function pluginGetDescription(): string
+function strlen(text: string, len: number): number
+function strtoint(text: string, value: number): boolean
+function strtouint(text: string, value: number): boolean
+function strtouint64(text: string, value: number): boolean
+function strzero(text: string): boolean
+interface BackendFileChanged {
     (backend: Backend, data: object): void
 }
-export interface BackendJobThreadFunc {
+interface BackendJobThreadFunc {
     (job: BackendJob, params: GLib.Variant): void
 }
-export interface BackendJobVFunc {
+interface BackendJobVFunc {
     (job: BackendJob, object: object): void
 }
-export interface PluginFunc {
+interface PluginFunc {
     (plugin: Plugin): void
 }
-export interface PluginGetActionFunc {
+interface PluginGetActionFunc {
     (plugin: Plugin, transaction: Transaction, actionId: string): string
 }
-export interface PluginGetDescFunc {
+interface PluginGetDescFunc {
     (): string
 }
-export interface PluginTransactionFunc {
+interface PluginTransactionFunc {
     (plugin: Plugin, transaction: Transaction): void
 }
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Backend {
+class Backend {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Backend */
     parent: GObject.Object
     priv: BackendPrivate
@@ -205,7 +205,7 @@ export class Backend {
 }
 export interface BackendJob_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BackendJob {
+class BackendJob {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJob */
     parent: GObject.Object
     priv: BackendJobPrivate
@@ -322,7 +322,7 @@ export class BackendJob {
 }
 export interface Transaction_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Transaction {
+class Transaction {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Transaction */
     parent: GObject.Object
     priv: TransactionPrivate
@@ -403,23 +403,23 @@ export class Transaction {
     static stateToString(state: TransactionState): string
     static $gtype: GObject.Type
 }
-export abstract class BackendClass {
+abstract class BackendClass {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class BackendJobClass {
+abstract class BackendJobClass {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.BackendJobClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class BackendJobPrivate {
+class BackendJobPrivate {
     static name: string
 }
-export class BackendPrivate {
+class BackendPrivate {
     static name: string
 }
-export class Plugin {
+class Plugin {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.Plugin */
     backend: Backend
     job: BackendJob
@@ -438,15 +438,16 @@ export class Plugin {
     /* Static methods and pseudo-constructors */
     static getDescription(): string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export abstract class TransactionClass {
+abstract class TransactionClass {
     /* Fields of PackageKitPlugin-1.0.PackageKitPlugin.TransactionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class TransactionPrivate {
+class TransactionPrivate {
     static name: string
 }
 }
+export default PackageKitPlugin

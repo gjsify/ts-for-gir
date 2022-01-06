@@ -13,41 +13,41 @@ import type { GstTag } from './GstTag-1.0';
 import type { GstPbutils } from './GstPbutils-1.0';
 import type { GstAudio } from './GstAudio-1.0';
 
-export declare namespace GstPlayer {
+declare namespace GstPlayer {
 
-export enum PlayerColorBalanceType {
+enum PlayerColorBalanceType {
     HUE,
     BRIGHTNESS,
     SATURATION,
     CONTRAST,
 }
-export enum PlayerError {
+enum PlayerError {
     FAILED,
 }
-export enum PlayerSnapshotFormat {
+enum PlayerSnapshotFormat {
     RAW_NATIVE,
     RAW_XRGB,
     RAW_BGRX,
     JPG,
     PNG,
 }
-export enum PlayerState {
+enum PlayerState {
     STOPPED,
     BUFFERING,
     PAUSED,
     PLAYING,
 }
-export function playerColorBalanceTypeGetName(type: PlayerColorBalanceType): string
-export function playerErrorGetName(error: PlayerError): string
-export function playerErrorQuark(): GLib.Quark
-export function playerStateGetName(state: PlayerState): string
-export interface PlayerSignalDispatcherFunc {
+function playerColorBalanceTypeGetName(type: PlayerColorBalanceType): string
+function playerErrorGetName(error: PlayerError): string
+function playerErrorQuark(): GLib.Quark
+function playerStateGetName(state: PlayerState): string
+interface PlayerSignalDispatcherFunc {
     (data?: object | null): void
 }
-export class PlayerSignalDispatcher {
+class PlayerSignalDispatcher {
     static name: string
 }
-export class PlayerVideoRenderer {
+class PlayerVideoRenderer {
     static name: string
 }
 export interface Player_ConstructProps extends Gst.Object_ConstructProps {
@@ -62,7 +62,7 @@ export interface Player_ConstructProps extends Gst.Object_ConstructProps {
     videoMultiviewMode?: GstVideo.VideoMultiviewFramePacking
     volume?: number
 }
-export class Player {
+class Player {
     /* Properties of GstPlayer-1.0.GstPlayer.Player */
     audioVideoOffset: number
     readonly currentAudioTrack: PlayerAudioInfo
@@ -381,7 +381,7 @@ export class Player {
 }
 export interface PlayerAudioInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
-export class PlayerAudioInfo {
+class PlayerAudioInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerAudioInfo */
@@ -439,7 +439,7 @@ export class PlayerAudioInfo {
 export interface PlayerGMainContextSignalDispatcher_ConstructProps extends GObject.Object_ConstructProps {
     applicationContext?: GLib.MainContext
 }
-export class PlayerGMainContextSignalDispatcher {
+class PlayerGMainContextSignalDispatcher {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -484,7 +484,7 @@ export class PlayerGMainContextSignalDispatcher {
 }
 export interface PlayerMediaInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlayerMediaInfo {
+class PlayerMediaInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerMediaInfo */
@@ -546,7 +546,7 @@ export class PlayerMediaInfo {
 }
 export interface PlayerStreamInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PlayerStreamInfo {
+class PlayerStreamInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
@@ -597,7 +597,7 @@ export class PlayerStreamInfo {
 }
 export interface PlayerSubtitleInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
-export class PlayerSubtitleInfo {
+class PlayerSubtitleInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerSubtitleInfo */
@@ -650,7 +650,7 @@ export class PlayerSubtitleInfo {
 }
 export interface PlayerVideoInfo_ConstructProps extends PlayerStreamInfo_ConstructProps {
 }
-export class PlayerVideoInfo {
+class PlayerVideoInfo {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerVideoInfo */
@@ -710,7 +710,7 @@ export interface PlayerVideoOverlayVideoRenderer_ConstructProps extends GObject.
     videoSink?: Gst.Element
     windowHandle?: object
 }
-export class PlayerVideoOverlayVideoRenderer {
+class PlayerVideoOverlayVideoRenderer {
     /* Properties of GstPlayer-1.0.GstPlayer.PlayerVideoOverlayVideoRenderer */
     videoSink: Gst.Element
     windowHandle: object
@@ -774,42 +774,42 @@ export class PlayerVideoOverlayVideoRenderer {
     static newWithSink(windowHandle: object | null, videoSink: Gst.Element): PlayerVideoRenderer
     static $gtype: GObject.Type
 }
-export abstract class PlayerAudioInfoClass {
+abstract class PlayerAudioInfoClass {
     static name: string
 }
-export abstract class PlayerClass {
+abstract class PlayerClass {
     static name: string
 }
-export abstract class PlayerGMainContextSignalDispatcherClass {
+abstract class PlayerGMainContextSignalDispatcherClass {
     static name: string
 }
-export abstract class PlayerMediaInfoClass {
+abstract class PlayerMediaInfoClass {
     static name: string
 }
-export abstract class PlayerSignalDispatcherInterface {
+abstract class PlayerSignalDispatcherInterface {
     /* Fields of GstPlayer-1.0.GstPlayer.PlayerSignalDispatcherInterface */
     parentIface: GObject.TypeInterface
     dispatch: (self: PlayerSignalDispatcher, player: Player, emitter: PlayerSignalDispatcherFunc) => void
     static name: string
 }
-export abstract class PlayerStreamInfoClass {
+abstract class PlayerStreamInfoClass {
     static name: string
 }
-export abstract class PlayerSubtitleInfoClass {
+abstract class PlayerSubtitleInfoClass {
     static name: string
 }
-export abstract class PlayerVideoInfoClass {
+abstract class PlayerVideoInfoClass {
     static name: string
 }
-export abstract class PlayerVideoOverlayVideoRendererClass {
+abstract class PlayerVideoOverlayVideoRendererClass {
     static name: string
 }
-export abstract class PlayerVideoRendererInterface {
+abstract class PlayerVideoRendererInterface {
     /* Fields of GstPlayer-1.0.GstPlayer.PlayerVideoRendererInterface */
     parentIface: GObject.TypeInterface
     static name: string
 }
-export class PlayerVisualization {
+class PlayerVisualization {
     /* Fields of GstPlayer-1.0.GstPlayer.PlayerVisualization */
     name: string
     description: string
@@ -819,3 +819,4 @@ export class PlayerVisualization {
     static name: string
 }
 }
+export default GstPlayer

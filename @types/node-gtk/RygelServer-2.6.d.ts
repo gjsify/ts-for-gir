@@ -14,52 +14,52 @@ import type { Soup } from './Soup-2.4';
 import type { GSSDP } from './GSSDP-1.2';
 import type { GUPnPAV } from './GUPnPAV-1.0';
 
-export declare namespace RygelServer {
+declare namespace RygelServer {
 
-export enum LogicalOperator {
+enum LogicalOperator {
     AND,
     OR,
 }
-export enum ObjectEventType {
+enum ObjectEventType {
     ADDED,
     MODIFIED,
     DELETED,
 }
-export enum SerializerType {
+enum SerializerType {
     GENERIC_DIDL,
     DIDL_S,
     M3UEXT,
 }
-export enum WritableContainerError {
+enum WritableContainerError {
     NOT_IMPLEMENTED,
 }
-export enum MediaEngineError {
+enum MediaEngineError {
     NOT_FOUND,
 }
-export enum HTTPSeekRequestError {
+enum HTTPSeekRequestError {
     INVALID_RANGE,
     BAD_REQUEST,
     OUT_OF_RANGE,
 }
-export enum DataSourceError {
+enum DataSourceError {
     GENERAL,
     SEEK_FAILED,
     PLAYSPEED_FAILED,
 }
-export enum HTTPRequestError {
+enum HTTPRequestError {
     UNACCEPTABLE,
     BAD_REQUEST,
     NOT_FOUND,
     INTERNAL_SERVER_ERROR,
 }
-export enum PlaySpeedError {
+enum PlaySpeedError {
     INVALID_SPEED_FORMAT,
     SPEED_NOT_PRESENT,
 }
 export interface SearchableContainer_ConstructProps extends MediaContainer_ConstructProps {
     searchClasses?: Gee.ArrayList
 }
-export class SearchableContainer {
+class SearchableContainer {
     /* Properties of RygelServer-2.6.RygelServer.SearchableContainer */
     searchClasses: Gee.ArrayList
     /* Properties of RygelServer-2.6.RygelServer.MediaContainer */
@@ -302,7 +302,7 @@ export class SearchableContainer {
 }
 export interface TrackableContainer_ConstructProps extends MediaContainer_ConstructProps {
 }
-export class TrackableContainer {
+class TrackableContainer {
     /* Properties of RygelServer-2.6.RygelServer.MediaContainer */
     childCount: number
     emptyChildCount: number
@@ -556,7 +556,7 @@ export class TrackableContainer {
 }
 export interface TrackableItem_ConstructProps extends MediaItem_ConstructProps {
 }
-export class TrackableItem {
+class TrackableItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer-2.6.RygelServer.MediaObject */
@@ -740,7 +740,7 @@ export interface VisualItem_ConstructProps extends MediaFileItem_ConstructProps 
     colorDepth?: number
     thumbnails?: Gee.ArrayList
 }
-export class VisualItem {
+class VisualItem {
     /* Properties of RygelServer-2.6.RygelServer.VisualItem */
     width: number
     height: number
@@ -996,7 +996,7 @@ export class VisualItem {
 export interface WritableContainer_ConstructProps extends MediaContainer_ConstructProps {
     createClasses?: Gee.ArrayList
 }
-export class WritableContainer {
+class WritableContainer {
     /* Properties of RygelServer-2.6.RygelServer.WritableContainer */
     createClasses: Gee.ArrayList
     /* Properties of RygelServer-2.6.RygelServer.MediaContainer */
@@ -1246,7 +1246,7 @@ export class WritableContainer {
 }
 export interface DataSource_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DataSource {
+class DataSource {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.6.RygelServer.DataSource */
@@ -1313,7 +1313,7 @@ export class DataSource {
 }
 export interface UpdatableObject_ConstructProps extends MediaObject_ConstructProps {
 }
-export class UpdatableObject {
+class UpdatableObject {
     /* Properties of RygelServer-2.6.RygelServer.MediaObject */
     id: string
     refId: string
@@ -1490,7 +1490,7 @@ export interface AudioItem_ConstructProps extends MediaFileItem_ConstructProps {
     channels?: number
     album?: string
 }
-export class AudioItem {
+class AudioItem {
     /* Properties of RygelServer-2.6.RygelServer.AudioItem */
     duration: number
     bitrate: number
@@ -1767,7 +1767,7 @@ export interface ImageItem_ConstructProps extends MediaFileItem_ConstructProps {
     colorDepth?: number
     thumbnails?: Gee.ArrayList
 }
-export class ImageItem {
+class ImageItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaFileItem */
     mimeType: string
     dlnaProfile: string
@@ -2022,7 +2022,7 @@ export class ImageItem {
     static new(id: string, parent: MediaContainer, title: string, upnpClass: string): ImageItem
     static $gtype: GObject.Type
 }
-export class LogicalExpression {
+class LogicalExpression {
     /* Fields of RygelServer-2.6.RygelServer.SearchExpression */
     refCount: number
     op: object | null
@@ -2039,7 +2039,7 @@ export class LogicalExpression {
 }
 export interface MediaArtStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MediaArtStore {
+class MediaArtStore {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.6.RygelServer.MediaArtStore */
@@ -2090,7 +2090,7 @@ export class MediaArtStore {
 }
 export interface MediaObjects_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
-export class MediaObjects {
+class MediaObjects {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -2200,7 +2200,7 @@ export interface MusicItem_ConstructProps extends AudioItem_ConstructProps {
     trackNumber?: number
     albumArt?: Thumbnail
 }
-export class MusicItem {
+class MusicItem {
     /* Properties of RygelServer-2.6.RygelServer.MusicItem */
     trackNumber: number
     albumArt: Thumbnail
@@ -2492,7 +2492,7 @@ export class MusicItem {
 }
 export interface PhotoItem_ConstructProps extends ImageItem_ConstructProps {
 }
-export class PhotoItem {
+class PhotoItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaFileItem */
     mimeType: string
     dlnaProfile: string
@@ -2713,7 +2713,7 @@ export class PhotoItem {
     static new(id: string, parent: MediaContainer, title: string, upnpClass: string): PhotoItem
     static $gtype: GObject.Type
 }
-export class RelationalExpression {
+class RelationalExpression {
     /* Fields of RygelServer-2.6.RygelServer.SearchExpression */
     refCount: number
     op: object | null
@@ -2735,7 +2735,7 @@ export class RelationalExpression {
 export interface SimpleContainer_ConstructProps extends MediaContainer_ConstructProps {
     searchClasses?: Gee.ArrayList
 }
-export class SimpleContainer {
+class SimpleContainer {
     /* Properties of RygelServer-2.6.RygelServer.MediaContainer */
     childCount: number
     emptyChildCount: number
@@ -2988,7 +2988,7 @@ export class SimpleContainer {
     static root(title: string): SimpleContainer
     static $gtype: GObject.Type
 }
-export class Subtitle {
+class Subtitle {
     /* Fields of RygelServer-2.6.RygelServer.Subtitle */
     refCount: number
     uri: string
@@ -3004,7 +3004,7 @@ export class Subtitle {
     /* Static methods and pseudo-constructors */
     static new(mimeType: string, captionType: string, fileExtension: string): Subtitle
 }
-export class Thumbnail {
+class Thumbnail {
     /* Fields of RygelServer-2.6.RygelServer.Thumbnail */
     dlnaProfile: string
     /* Fields of RygelCore-2.6.RygelCore.IconInfo */
@@ -3033,7 +3033,7 @@ export interface VideoItem_ConstructProps extends AudioItem_ConstructProps {
     colorDepth?: number
     thumbnails?: Gee.ArrayList
 }
-export class VideoItem {
+class VideoItem {
     /* Properties of RygelServer-2.6.RygelServer.VideoItem */
     author: string
     subtitles: Gee.ArrayList
@@ -3363,7 +3363,7 @@ export interface MediaContainer_ConstructProps extends MediaObject_ConstructProp
     createModeEnabled?: boolean
     sortCriteria?: string
 }
-export class MediaContainer {
+class MediaContainer {
     /* Properties of RygelServer-2.6.RygelServer.MediaContainer */
     childCount: number
     emptyChildCount: number
@@ -3595,7 +3595,7 @@ export class MediaContainer {
 export interface MediaItem_ConstructProps extends MediaObject_ConstructProps {
     description?: string
 }
-export class MediaItem {
+class MediaItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaItem */
     description: string
     /* Properties of RygelServer-2.6.RygelServer.MediaObject */
@@ -3777,7 +3777,7 @@ export interface MediaFileItem_ConstructProps extends MediaItem_ConstructProps {
     size?: number
     placeHolder?: boolean
 }
-export class MediaFileItem {
+class MediaFileItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaFileItem */
     mimeType: string
     dlnaProfile: string
@@ -4010,7 +4010,7 @@ export interface MediaObject_ConstructProps extends GObject.Object_ConstructProp
     parentRef?: MediaContainer
     title?: string
 }
-export class MediaObject {
+class MediaObject {
     /* Properties of RygelServer-2.6.RygelServer.MediaObject */
     id: string
     refId: string
@@ -4200,7 +4200,7 @@ export interface MediaResource_ConstructProps extends GObject.Object_ConstructPr
     dlnaFlags?: GUPnPAV.DLNAFlags
     dlnaOperation?: GUPnPAV.DLNAOperation
 }
-export class MediaResource {
+class MediaResource {
     /* Properties of RygelServer-2.6.RygelServer.MediaResource */
     uri: string
     importUri: string
@@ -4438,7 +4438,7 @@ export interface MediaServerPlugin_ConstructProps extends RygelCore.Plugin_Const
     uploadProfiles?: RygelCore.DLNAProfile[]
     supportedProfiles?: RygelCore.DLNAProfile[]
 }
-export class MediaServerPlugin {
+class MediaServerPlugin {
     /* Properties of RygelServer-2.6.RygelServer.MediaServerPlugin */
     readonly searchCaps: string
     uploadProfiles: RygelCore.DLNAProfile[]
@@ -4570,7 +4570,7 @@ export class MediaServerPlugin {
     static new(): MediaServerPlugin
     static $gtype: GObject.Type
 }
-export class SearchExpression {
+class SearchExpression {
     /* Fields of RygelServer-2.6.RygelServer.SearchExpression */
     refCount: number
     op: object | null
@@ -4584,7 +4584,7 @@ export class SearchExpression {
 export interface MediaServer_ConstructProps extends RygelCore.MediaDevice_ConstructProps {
     rootContainer?: MediaContainer
 }
-export class MediaServer {
+class MediaServer {
     /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
     /* Fields of GObject-2.0.GObject.Object */
@@ -4646,7 +4646,7 @@ export class MediaServer {
 }
 export interface MediaEngine_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MediaEngine {
+class MediaEngine {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.6.RygelServer.MediaEngine */
@@ -4707,7 +4707,7 @@ export class MediaEngine {
 }
 export interface HTTPSeekRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HTTPSeekRequest {
+class HTTPSeekRequest {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4752,7 +4752,7 @@ export class HTTPSeekRequest {
 }
 export interface PlaylistItem_ConstructProps extends MediaFileItem_ConstructProps {
 }
-export class PlaylistItem {
+class PlaylistItem {
     /* Properties of RygelServer-2.6.RygelServer.MediaFileItem */
     mimeType: string
     dlnaProfile: string
@@ -4975,7 +4975,7 @@ export class PlaylistItem {
 }
 export interface ContentDirectory_ConstructProps extends GUPnP.Service_ConstructProps {
 }
-export class ContentDirectory {
+class ContentDirectory {
     /* Fields of RygelServer-2.6.RygelServer.ContentDirectory */
     featureList: string
     httpServer: HTTPServer
@@ -5067,7 +5067,7 @@ export interface HTTPByteSeekRequest_ConstructProps extends HTTPSeekRequest_Cons
     rangeLength?: number
     totalSize?: number
 }
-export class HTTPByteSeekRequest {
+class HTTPByteSeekRequest {
     /* Properties of RygelServer-2.6.RygelServer.HTTPByteSeekRequest */
     startByte: number
     endByte: number
@@ -5153,7 +5153,7 @@ export interface HTTPByteSeekResponse_ConstructProps extends HTTPResponseElement
     rangeLength?: number
     totalSize?: number
 }
-export class HTTPByteSeekResponse {
+class HTTPByteSeekResponse {
     /* Properties of RygelServer-2.6.RygelServer.HTTPByteSeekResponse */
     startByte: number
     endByte: number
@@ -5238,7 +5238,7 @@ export class HTTPByteSeekResponse {
 export interface HTTPGetHandler_ConstructProps extends GObject.Object_ConstructProps {
     cancellable?: Gio.Cancellable
 }
-export class HTTPGetHandler {
+class HTTPGetHandler {
     /* Properties of RygelServer-2.6.RygelServer.HTTPGetHandler */
     cancellable: Gio.Cancellable
     /* Fields of GObject-2.0.GObject.Object */
@@ -5302,7 +5302,7 @@ export class HTTPGetHandler {
 }
 export interface HTTPGet_ConstructProps extends HTTPRequest_ConstructProps {
 }
-export class HTTPGet {
+class HTTPGet {
     /* Fields of RygelServer-2.6.RygelServer.HTTPGet */
     seek: HTTPSeekRequest
     speedRequest: PlaySpeedRequest
@@ -5373,7 +5373,7 @@ export interface HTTPItemURI_ConstructProps extends GObject.Object_ConstructProp
     httpServer?: HTTPServer
     extension?: string
 }
-export class HTTPItemURI {
+class HTTPItemURI {
     /* Properties of RygelServer-2.6.RygelServer.HTTPItemURI */
     itemId: string
     thumbnailIndex: number
@@ -5475,7 +5475,7 @@ export class HTTPItemURI {
 export interface HTTPRequest_ConstructProps extends GObject.Object_ConstructProps {
     cancellable?: Gio.Cancellable
 }
-export class HTTPRequest {
+class HTTPRequest {
     /* Properties of RygelCore-2.6.RygelCore.StateMachine */
     cancellable: Gio.Cancellable
     /* Fields of RygelServer-2.6.RygelServer.HTTPRequest */
@@ -5554,7 +5554,7 @@ export interface HTTPResponse_ConstructProps extends GObject.Object_ConstructPro
     server?: Soup.Server
     cancellable?: Gio.Cancellable
 }
-export class HTTPResponse {
+class HTTPResponse {
     /* Properties of RygelServer-2.6.RygelServer.HTTPResponse */
     server: Soup.Server
     readonly priority: number
@@ -5641,7 +5641,7 @@ export class HTTPResponse {
 }
 export interface HTTPResponseElement_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class HTTPResponseElement {
+class HTTPResponseElement {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.6.RygelServer.HTTPResponseElement */
@@ -5692,7 +5692,7 @@ export interface HTTPServer_ConstructProps extends GObject.Object_ConstructProps
     serverName?: string
     cancellable?: Gio.Cancellable
 }
-export class HTTPServer {
+class HTTPServer {
     /* Properties of RygelServer-2.6.RygelServer.HTTPServer */
     pathRoot: string
     serverName: string
@@ -5784,7 +5784,7 @@ export class HTTPServer {
 }
 export interface HTTPTimeSeekRequest_ConstructProps extends HTTPSeekRequest_ConstructProps {
 }
-export class HTTPTimeSeekRequest {
+class HTTPTimeSeekRequest {
     /* Fields of RygelServer-2.6.RygelServer.HTTPTimeSeekRequest */
     startTime: number
     endTime: number
@@ -5847,7 +5847,7 @@ export interface HTTPTimeSeekResponse_ConstructProps extends HTTPResponseElement
     responseLength?: number
     totalSize?: number
 }
-export class HTTPTimeSeekResponse {
+class HTTPTimeSeekResponse {
     /* Properties of RygelServer-2.6.RygelServer.HTTPTimeSeekResponse */
     startTime: number
     endTime: number
@@ -5959,7 +5959,7 @@ export class HTTPTimeSeekResponse {
 export interface Serializer_ConstructProps extends GObject.Object_ConstructProps {
     serializerType?: SerializerType
 }
-export class Serializer {
+class Serializer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.6.RygelServer.Serializer */
@@ -6009,7 +6009,7 @@ export class Serializer {
     static new(type: SerializerType): Serializer
     static $gtype: GObject.Type
 }
-export class PlaySpeed {
+class PlaySpeed {
     /* Fields of RygelServer-2.6.RygelServer.PlaySpeed */
     refCount: number
     numerator: number
@@ -6031,7 +6031,7 @@ export class PlaySpeed {
 export interface PlaySpeedRequest_ConstructProps extends GObject.Object_ConstructProps {
     speed?: PlaySpeed
 }
-export class PlaySpeedRequest {
+class PlaySpeedRequest {
     /* Properties of RygelServer-2.6.RygelServer.PlaySpeedRequest */
     speed: PlaySpeed
     /* Fields of GObject-2.0.GObject.Object */
@@ -6090,7 +6090,7 @@ export class PlaySpeedRequest {
 }
 export interface PlaySpeedResponse_ConstructProps extends HTTPResponseElement_ConstructProps {
 }
-export class PlaySpeedResponse {
+class PlaySpeedResponse {
     /* Fields of RygelServer-2.6.RygelServer.PlaySpeedResponse */
     framerate: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -6150,7 +6150,7 @@ export interface DTCPCleartextRequest_ConstructProps extends HTTPSeekRequest_Con
     rangeLength?: number
     totalSize?: number
 }
-export class DTCPCleartextRequest {
+class DTCPCleartextRequest {
     /* Properties of RygelServer-2.6.RygelServer.DTCPCleartextRequest */
     startByte: number
     endByte: number
@@ -6234,7 +6234,7 @@ export interface DTCPCleartextResponse_ConstructProps extends HTTPResponseElemen
     totalSize?: number
     encryptedLength?: number
 }
-export class DTCPCleartextResponse {
+class DTCPCleartextResponse {
     /* Properties of RygelServer-2.6.RygelServer.DTCPCleartextResponse */
     startByte: number
     endByte: number
@@ -6323,7 +6323,7 @@ export class DTCPCleartextResponse {
 }
 export interface DLNAAvailableSeekRangeRequest_ConstructProps extends HTTPSeekRequest_ConstructProps {
 }
-export class DLNAAvailableSeekRangeRequest {
+class DLNAAvailableSeekRangeRequest {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6377,7 +6377,7 @@ export interface DLNAAvailableSeekRangeResponse_ConstructProps extends HTTPRespo
     endByte?: number
     rangeLength?: number
 }
-export class DLNAAvailableSeekRangeResponse {
+class DLNAAvailableSeekRangeResponse {
     /* Properties of RygelServer-2.6.RygelServer.DLNAAvailableSeekRangeResponse */
     mode: number
     startTime: number
@@ -6470,85 +6470,85 @@ export class DLNAAvailableSeekRangeResponse {
     static timeOnly(mode: number, startTime: number, endTime: number): DLNAAvailableSeekRangeResponse
     static $gtype: GObject.Type
 }
-export abstract class AudioItemClass {
+abstract class AudioItemClass {
     static name: string
 }
-export class AudioItemPrivate {
+class AudioItemPrivate {
     static name: string
 }
-export abstract class ImageItemClass {
+abstract class ImageItemClass {
     static name: string
 }
-export class ImageItemPrivate {
+class ImageItemPrivate {
     static name: string
 }
-export abstract class LogicalExpressionClass {
+abstract class LogicalExpressionClass {
     static name: string
 }
-export class LogicalExpressionPrivate {
+class LogicalExpressionPrivate {
     static name: string
 }
-export abstract class MediaArtStoreClass {
+abstract class MediaArtStoreClass {
     static name: string
 }
-export class MediaArtStorePrivate {
+class MediaArtStorePrivate {
     static name: string
 }
-export abstract class MediaObjectsClass {
+abstract class MediaObjectsClass {
     static name: string
 }
-export class MediaObjectsPrivate {
+class MediaObjectsPrivate {
     static name: string
 }
-export abstract class MusicItemClass {
+abstract class MusicItemClass {
     static name: string
 }
-export class MusicItemPrivate {
+class MusicItemPrivate {
     static name: string
 }
-export abstract class PhotoItemClass {
+abstract class PhotoItemClass {
     static name: string
 }
-export class PhotoItemPrivate {
+class PhotoItemPrivate {
     static name: string
 }
-export abstract class RelationalExpressionClass {
+abstract class RelationalExpressionClass {
     static name: string
 }
-export class RelationalExpressionPrivate {
+class RelationalExpressionPrivate {
     static name: string
 }
-export abstract class SimpleContainerClass {
+abstract class SimpleContainerClass {
     static name: string
 }
-export class SimpleContainerPrivate {
+class SimpleContainerPrivate {
     static name: string
 }
-export abstract class SubtitleClass {
+abstract class SubtitleClass {
     /* Fields of RygelServer-2.6.RygelServer.SubtitleClass */
     getResource: (self: Subtitle, protocol: string, index: number) => MediaResource
     static name: string
 }
-export class SubtitlePrivate {
+class SubtitlePrivate {
     static name: string
 }
-export abstract class ThumbnailClass {
+abstract class ThumbnailClass {
     /* Fields of RygelServer-2.6.RygelServer.ThumbnailClass */
     getResource: (self: Thumbnail, protocol: string, index: number) => MediaResource
     static name: string
 }
-export class ThumbnailPrivate {
+class ThumbnailPrivate {
     static name: string
 }
-export abstract class VideoItemClass {
+abstract class VideoItemClass {
     /* Fields of RygelServer-2.6.RygelServer.VideoItemClass */
     addSubtitleResources: (self: VideoItem, httpServer: HTTPServer) => void
     static name: string
 }
-export class VideoItemPrivate {
+class VideoItemPrivate {
     static name: string
 }
-export abstract class MediaContainerClass {
+abstract class MediaContainerClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaContainerClass */
     getChildren: (self: MediaContainer, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getChildrenFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObjects | null
@@ -6556,16 +6556,16 @@ export abstract class MediaContainerClass {
     findObjectFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObject | null
     static name: string
 }
-export class MediaContainerPrivate {
+class MediaContainerPrivate {
     static name: string
 }
-export abstract class MediaItemClass {
+abstract class MediaItemClass {
     static name: string
 }
-export class MediaItemPrivate {
+class MediaItemPrivate {
     static name: string
 }
-export abstract class MediaFileItemClass {
+abstract class MediaFileItemClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaFileItemClass */
     getPrimaryResource: (self: MediaFileItem) => MediaResource
     getExtension: (self: MediaFileItem) => string
@@ -6574,10 +6574,10 @@ export abstract class MediaFileItemClass {
     addAdditionalResources: (self: MediaFileItem, server: HTTPServer) => void
     static name: string
 }
-export class MediaFileItemPrivate {
+class MediaFileItemPrivate {
     static name: string
 }
-export abstract class MediaObjectClass {
+abstract class MediaObjectClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaObjectClass */
     addUri: (self: MediaObject, uri: string) => void
     serialize: (self: MediaObject, serializer: Serializer, httpServer: HTTPServer) => GUPnPAV.DIDLLiteObject | null
@@ -6586,37 +6586,37 @@ export abstract class MediaObjectClass {
     compareByProperty: (self: MediaObject, mediaObject: MediaObject, property: string) => number
     static name: string
 }
-export class MediaObjectPrivate {
+class MediaObjectPrivate {
     static name: string
 }
-export abstract class MediaResourceClass {
+abstract class MediaResourceClass {
     static name: string
 }
-export class MediaResourcePrivate {
+class MediaResourcePrivate {
     static name: string
 }
-export abstract class MediaServerPluginClass {
+abstract class MediaServerPluginClass {
     static name: string
 }
-export class MediaServerPluginPrivate {
+class MediaServerPluginPrivate {
     static name: string
 }
-export abstract class SearchExpressionClass {
+abstract class SearchExpressionClass {
     /* Fields of RygelServer-2.6.RygelServer.SearchExpressionClass */
     satisfiedBy: (self: SearchExpression, mediaObject: MediaObject) => boolean
     toString: (self: SearchExpression) => string
     static name: string
 }
-export class SearchExpressionPrivate {
+class SearchExpressionPrivate {
     static name: string
 }
-export abstract class MediaServerClass {
+abstract class MediaServerClass {
     static name: string
 }
-export class MediaServerPrivate {
+class MediaServerPrivate {
     static name: string
 }
-export abstract class MediaEngineClass {
+abstract class MediaEngineClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaEngineClass */
     getDlnaProfiles: (self: MediaEngine) => RygelCore.DLNAProfile[]
     getResourcesForItem: (self: MediaEngine, item: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
@@ -6626,40 +6626,40 @@ export abstract class MediaEngineClass {
     getInternalProtocolSchemes: (self: MediaEngine) => string[]
     static name: string
 }
-export class MediaEnginePrivate {
+class MediaEnginePrivate {
     static name: string
 }
-export abstract class HTTPSeekRequestClass {
+abstract class HTTPSeekRequestClass {
     static name: string
 }
-export class HTTPSeekRequestPrivate {
+class HTTPSeekRequestPrivate {
     static name: string
 }
-export abstract class PlaylistItemClass {
+abstract class PlaylistItemClass {
     static name: string
 }
-export class PlaylistItemPrivate {
+class PlaylistItemPrivate {
     static name: string
 }
-export abstract class ContentDirectoryClass {
+abstract class ContentDirectoryClass {
     static name: string
 }
-export class ContentDirectoryPrivate {
+class ContentDirectoryPrivate {
     static name: string
 }
-export abstract class HTTPByteSeekRequestClass {
+abstract class HTTPByteSeekRequestClass {
     static name: string
 }
-export class HTTPByteSeekRequestPrivate {
+class HTTPByteSeekRequestPrivate {
     static name: string
 }
-export abstract class HTTPByteSeekResponseClass {
+abstract class HTTPByteSeekResponseClass {
     static name: string
 }
-export class HTTPByteSeekResponsePrivate {
+class HTTPByteSeekResponsePrivate {
     static name: string
 }
-export abstract class HTTPGetHandlerClass {
+abstract class HTTPGetHandlerClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPGetHandlerClass */
     addResponseHeaders: (self: HTTPGetHandler, request: HTTPGet) => void
     getDefaultTransferMode: (self: HTTPGetHandler) => string
@@ -6672,22 +6672,22 @@ export abstract class HTTPGetHandlerClass {
     renderBody: (self: HTTPGetHandler, request: HTTPGet) => HTTPResponse
     static name: string
 }
-export class HTTPGetHandlerPrivate {
+class HTTPGetHandlerPrivate {
     static name: string
 }
-export abstract class HTTPGetClass {
+abstract class HTTPGetClass {
     static name: string
 }
-export class HTTPGetPrivate {
+class HTTPGetPrivate {
     static name: string
 }
-export abstract class HTTPItemURIClass {
+abstract class HTTPItemURIClass {
     static name: string
 }
-export class HTTPItemURIPrivate {
+class HTTPItemURIPrivate {
     static name: string
 }
-export abstract class HTTPRequestClass {
+abstract class HTTPRequestClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPRequestClass */
     handle: (self: HTTPRequest, callback?: Gio.AsyncReadyCallback | null) => void
     handleFinish: (self: HTTPRequest, res: Gio.AsyncResult) => void
@@ -6695,96 +6695,96 @@ export abstract class HTTPRequestClass {
     findItemFinish: (self: HTTPRequest, res: Gio.AsyncResult) => void
     static name: string
 }
-export class HTTPRequestPrivate {
+class HTTPRequestPrivate {
     static name: string
 }
-export abstract class HTTPResponseClass {
+abstract class HTTPResponseClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPResponseClass */
     end: (self: HTTPResponse, aborted: boolean, status: number) => void
     static name: string
 }
-export class HTTPResponsePrivate {
+class HTTPResponsePrivate {
     static name: string
 }
-export abstract class HTTPResponseElementClass {
+abstract class HTTPResponseElementClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPResponseElementClass */
     addResponseHeaders: (self: HTTPResponseElement, request: HTTPRequest) => void
     toString: (self: HTTPResponseElement) => string
     static name: string
 }
-export class HTTPResponseElementPrivate {
+class HTTPResponseElementPrivate {
     static name: string
 }
-export abstract class HTTPServerClass {
+abstract class HTTPServerClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPServerClass */
     getProtocol: (self: HTTPServer) => string
     getProtocolInfo: (self: HTTPServer) => Gee.ArrayList
     static name: string
 }
-export class HTTPServerPrivate {
+class HTTPServerPrivate {
     static name: string
 }
-export abstract class HTTPTimeSeekRequestClass {
+abstract class HTTPTimeSeekRequestClass {
     static name: string
 }
-export class HTTPTimeSeekRequestPrivate {
+class HTTPTimeSeekRequestPrivate {
     static name: string
 }
-export abstract class HTTPTimeSeekResponseClass {
+abstract class HTTPTimeSeekResponseClass {
     static name: string
 }
-export class HTTPTimeSeekResponsePrivate {
+class HTTPTimeSeekResponsePrivate {
     static name: string
 }
-export abstract class SerializerClass {
+abstract class SerializerClass {
     static name: string
 }
-export class SerializerPrivate {
+class SerializerPrivate {
     static name: string
 }
-export abstract class PlaySpeedClass {
+abstract class PlaySpeedClass {
     static name: string
 }
-export class PlaySpeedPrivate {
+class PlaySpeedPrivate {
     static name: string
 }
-export abstract class PlaySpeedRequestClass {
+abstract class PlaySpeedRequestClass {
     static name: string
 }
-export class PlaySpeedRequestPrivate {
+class PlaySpeedRequestPrivate {
     static name: string
 }
-export abstract class PlaySpeedResponseClass {
+abstract class PlaySpeedResponseClass {
     static name: string
 }
-export class PlaySpeedResponsePrivate {
+class PlaySpeedResponsePrivate {
     static name: string
 }
-export abstract class DTCPCleartextRequestClass {
+abstract class DTCPCleartextRequestClass {
     static name: string
 }
-export class DTCPCleartextRequestPrivate {
+class DTCPCleartextRequestPrivate {
     static name: string
 }
-export abstract class DTCPCleartextResponseClass {
+abstract class DTCPCleartextResponseClass {
     static name: string
 }
-export class DTCPCleartextResponsePrivate {
+class DTCPCleartextResponsePrivate {
     static name: string
 }
-export abstract class DLNAAvailableSeekRangeRequestClass {
+abstract class DLNAAvailableSeekRangeRequestClass {
     static name: string
 }
-export class DLNAAvailableSeekRangeRequestPrivate {
+class DLNAAvailableSeekRangeRequestPrivate {
     static name: string
 }
-export abstract class DLNAAvailableSeekRangeResponseClass {
+abstract class DLNAAvailableSeekRangeResponseClass {
     static name: string
 }
-export class DLNAAvailableSeekRangeResponsePrivate {
+class DLNAAvailableSeekRangeResponsePrivate {
     static name: string
 }
-export abstract class SearchableContainerIface {
+abstract class SearchableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.SearchableContainerIface */
     search: (self: SearchableContainer, expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     searchFinish: (self: SearchableContainer, res: Gio.AsyncResult) => { returnType: MediaObjects | null, totalMatches: number }
@@ -6792,7 +6792,7 @@ export abstract class SearchableContainerIface {
     setSearchClasses: (self: SearchableContainer, value: Gee.ArrayList) => void
     static name: string
 }
-export abstract class TrackableContainerIface {
+abstract class TrackableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.TrackableContainerIface */
     addChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
     addChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
@@ -6803,10 +6803,10 @@ export abstract class TrackableContainerIface {
     getSystemUpdateId: (self: TrackableContainer) => number
     static name: string
 }
-export abstract class TrackableItemIface {
+abstract class TrackableItemIface {
     static name: string
 }
-export abstract class VisualItemIface {
+abstract class VisualItemIface {
     /* Fields of RygelServer-2.6.RygelServer.VisualItemIface */
     getWidth: (self: VisualItem) => number
     setWidth: (self: VisualItem, value: number) => void
@@ -6818,7 +6818,7 @@ export abstract class VisualItemIface {
     setThumbnails: (self: VisualItem, value: Gee.ArrayList) => void
     static name: string
 }
-export abstract class WritableContainerIface {
+abstract class WritableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.WritableContainerIface */
     addItem: (self: WritableContainer, item: MediaFileItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     addItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
@@ -6834,7 +6834,7 @@ export abstract class WritableContainerIface {
     setCreateClasses: (self: WritableContainer, value: Gee.ArrayList) => void
     static name: string
 }
-export abstract class DataSourceIface {
+abstract class DataSourceIface {
     /* Fields of RygelServer-2.6.RygelServer.DataSourceIface */
     preroll: (self: DataSource, seek?: HTTPSeekRequest | null, playspeed?: PlaySpeedRequest | null) => Gee.List | null
     start: (self: DataSource) => void
@@ -6843,10 +6843,11 @@ export abstract class DataSourceIface {
     stop: (self: DataSource) => void
     static name: string
 }
-export abstract class UpdatableObjectIface {
+abstract class UpdatableObjectIface {
     /* Fields of RygelServer-2.6.RygelServer.UpdatableObjectIface */
     commit: (self: UpdatableObject, callback?: Gio.AsyncReadyCallback | null) => void
     commitFinish: (self: UpdatableObject, res: Gio.AsyncResult) => void
     static name: string
 }
 }
+export default RygelServer

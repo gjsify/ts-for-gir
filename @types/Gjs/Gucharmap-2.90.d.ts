@@ -3,24 +3,26 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Pango from './Pango-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Pango from './Pango-1.0';
+import type cairo from './cairo-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum CharmapPageType {
+export namespace Gucharmap {
+
+enum CharmapPageType {
     CHARTABLE,
     DETAILS,
 }
-export enum UnicodeVersion {
+enum UnicodeVersion {
     UNASSIGNED,
     /* 1_1 (invalid, starts with a number) */
     /* 2_0 (invalid, starts with a number) */
@@ -41,36 +43,36 @@ export enum UnicodeVersion {
     /* 8_0 (invalid, starts with a number) */
     LATEST,
 }
-export function get_nameslist_colons(uc: number): string[]
-export function get_nameslist_equals(uc: number): string[]
-export function get_nameslist_exes(uc: number): number
-export function get_nameslist_pounds(uc: number): string[]
-export function get_nameslist_stars(uc: number): string[]
-export function get_unicode_category_name(uc: number): string
-export function get_unicode_data_name(uc: number): string
-export function get_unicode_data_name_count(): number
-export function get_unicode_kCantonese(uc: number): string
-export function get_unicode_kDefinition(uc: number): string
-export function get_unicode_kJapaneseKun(uc: number): string
-export function get_unicode_kJapaneseOn(uc: number): string
-export function get_unicode_kKorean(uc: number): string
-export function get_unicode_kMandarin(uc: number): string
-export function get_unicode_kTang(uc: number): string
-export function get_unicode_name(uc: number): string
-export function get_unicode_version(uc: number): UnicodeVersion
-export function get_unihan_count(): number
-export function unichar_isdefined(uc: number): boolean
-export function unichar_isgraph(uc: number): boolean
-export function unichar_to_printable_utf8(uc: number, outbuf: string): number
-export function unichar_type(uc: number): GLib.UnicodeType
-export function unichar_validate(uc: number): boolean
-export function unicode_get_locale_character(): number
-export function unicode_get_script_for_char(wc: number): string
-export function unicode_list_scripts(): string[]
-export function unicode_version_to_string(version: UnicodeVersion): string
+function get_nameslist_colons(uc: number): string[]
+function get_nameslist_equals(uc: number): string[]
+function get_nameslist_exes(uc: number): number
+function get_nameslist_pounds(uc: number): string[]
+function get_nameslist_stars(uc: number): string[]
+function get_unicode_category_name(uc: number): string
+function get_unicode_data_name(uc: number): string
+function get_unicode_data_name_count(): number
+function get_unicode_kCantonese(uc: number): string
+function get_unicode_kDefinition(uc: number): string
+function get_unicode_kJapaneseKun(uc: number): string
+function get_unicode_kJapaneseOn(uc: number): string
+function get_unicode_kKorean(uc: number): string
+function get_unicode_kMandarin(uc: number): string
+function get_unicode_kTang(uc: number): string
+function get_unicode_name(uc: number): string
+function get_unicode_version(uc: number): UnicodeVersion
+function get_unihan_count(): number
+function unichar_isdefined(uc: number): boolean
+function unichar_isgraph(uc: number): boolean
+function unichar_to_printable_utf8(uc: number, outbuf: string): number
+function unichar_type(uc: number): GLib.UnicodeType
+function unichar_validate(uc: number): boolean
+function unicode_get_locale_character(): number
+function unicode_get_script_for_char(wc: number): string
+function unicode_list_scripts(): string[]
+function unicode_version_to_string(version: UnicodeVersion): string
 export interface BlockChaptersModel_ConstructProps extends ChaptersModel_ConstructProps {
 }
-export class BlockChaptersModel {
+class BlockChaptersModel {
     /* Fields of Gucharmap-2.90.Gucharmap.BlockChaptersModel */
     parent: ChaptersModel
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
@@ -265,7 +267,7 @@ export interface BlockCodepointList_ConstructProps extends CodepointList_Constru
     first_codepoint?: number
     last_codepoint?: number
 }
-export class BlockCodepointList {
+class BlockCodepointList {
     /* Fields of Gucharmap-2.90.Gucharmap.BlockCodepointList */
     parent_instance: CodepointList
     /* Fields of GObject-2.0.GObject.Object */
@@ -325,7 +327,7 @@ export class BlockCodepointList {
 }
 export interface ChaptersModel_ConstructProps extends Gtk.ListStore_ConstructProps {
 }
-export class ChaptersModel {
+class ChaptersModel {
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
     parent_instance: Gtk.ListStore
     /* Fields of Gtk-3.0.Gtk.ListStore */
@@ -519,7 +521,7 @@ export interface ChaptersView_ConstructProps extends Gtk.TreeView_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class ChaptersView {
+class ChaptersView {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activate_on_single_click: boolean
     enable_grid_lines: Gtk.TreeViewGridLines
@@ -1578,7 +1580,7 @@ export interface Charmap_ConstructProps extends Gtk.Paned_ConstructProps {
     snap_power_2?: boolean
     orientation?: Gtk.Orientation
 }
-export class Charmap {
+class Charmap {
     /* Properties of Gucharmap-2.90.Gucharmap.Charmap */
     active_chapter: string
     active_character: number
@@ -2516,7 +2518,7 @@ export interface Chartable_ConstructProps extends Gtk.DrawingArea_ConstructProps
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class Chartable {
+class Chartable {
     /* Properties of Gucharmap-2.90.Gucharmap.Chartable */
     active_character: number
     codepoint_list: CodepointList
@@ -3340,7 +3342,7 @@ export class Chartable {
 }
 export interface ChartableAccessible_ConstructProps extends Atk.NoOpObject_ConstructProps {
 }
-export class ChartableAccessible {
+class ChartableAccessible {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
@@ -3888,7 +3890,7 @@ export class ChartableAccessible {
 }
 export interface ChartableCellAccessible_ConstructProps extends Atk.Object_ConstructProps {
 }
-export class ChartableCellAccessible {
+class ChartableCellAccessible {
     /* Properties of Atk-1.0.Atk.Object */
     readonly accessible_component_layer: number
     readonly accessible_component_mdi_zorder: number
@@ -4133,7 +4135,7 @@ export class ChartableCellAccessible {
 }
 export interface CodepointList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CodepointList {
+class CodepointList {
     /* Fields of Gucharmap-2.90.Gucharmap.CodepointList */
     parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4191,7 +4193,7 @@ export class CodepointList {
 }
 export interface ScriptChaptersModel_ConstructProps extends ChaptersModel_ConstructProps {
 }
-export class ScriptChaptersModel {
+class ScriptChaptersModel {
     /* Fields of Gucharmap-2.90.Gucharmap.ScriptChaptersModel */
     parent: ChaptersModel
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModel */
@@ -4384,7 +4386,7 @@ export class ScriptChaptersModel {
 }
 export interface ScriptCodepointList_ConstructProps extends CodepointList_ConstructProps {
 }
-export class ScriptCodepointList {
+class ScriptCodepointList {
     /* Fields of Gucharmap-2.90.Gucharmap.ScriptCodepointList */
     parent: CodepointList
     /* Fields of Gucharmap-2.90.Gucharmap.CodepointList */
@@ -4448,23 +4450,23 @@ export class ScriptCodepointList {
     static new(): ScriptCodepointList
     static $gtype: GObject.Type
 }
-export abstract class BlockChaptersModelClass {
+abstract class BlockChaptersModelClass {
     /* Fields of Gucharmap-2.90.Gucharmap.BlockChaptersModelClass */
     parent_class: ChaptersModelClass
     static name: string
 }
-export class BlockChaptersModelPrivate {
+class BlockChaptersModelPrivate {
     static name: string
 }
-export abstract class BlockCodepointListClass {
+abstract class BlockCodepointListClass {
     /* Fields of Gucharmap-2.90.Gucharmap.BlockCodepointListClass */
     parent_class: CodepointListClass
     static name: string
 }
-export class BlockCodepointListPrivate {
+class BlockCodepointListPrivate {
     static name: string
 }
-export abstract class ChaptersModelClass {
+abstract class ChaptersModelClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModelClass */
     parent_class: Gtk.ListStoreClass
     title: string
@@ -4473,38 +4475,38 @@ export abstract class ChaptersModelClass {
     get_book_codepoint_list: (chapters: ChaptersModel) => CodepointList
     static name: string
 }
-export class ChaptersModelPrivate {
+class ChaptersModelPrivate {
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModelPrivate */
     book_list: CodepointList
     static name: string
 }
-export abstract class ChaptersViewClass {
+abstract class ChaptersViewClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersViewClass */
     parent_class: Gtk.TreeViewClass
     static name: string
 }
-export class ChaptersViewPrivate {
+class ChaptersViewPrivate {
     static name: string
 }
-export abstract class CharmapClass {
+abstract class CharmapClass {
     /* Fields of Gucharmap-2.90.Gucharmap.CharmapClass */
     parent_class: Gtk.PanedClass
     status_message: (charmap: Charmap, message: string) => void
     link_clicked: (charmap: Charmap, old_character: number, new_character: number) => void
     static name: string
 }
-export class CharmapPrivate {
+class CharmapPrivate {
     static name: string
 }
-export abstract class ChartableAccessibleClass {
+abstract class ChartableAccessibleClass {
     static name: string
 }
-export abstract class ChartableCellAccessibleClass {
+abstract class ChartableCellAccessibleClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChartableCellAccessibleClass */
     parent_class: Atk.ObjectClass
     static name: string
 }
-export abstract class ChartableClass {
+abstract class ChartableClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChartableClass */
     parent_class: Gtk.DrawingAreaClass
     set_scroll_adjustments: (chartable: Chartable, hadjustment: Gtk.Adjustment, vadjustment: Gtk.Adjustment) => void
@@ -4516,7 +4518,7 @@ export abstract class ChartableClass {
     status_message: (chartable: Chartable, message: string) => void
     static name: string
 }
-export class ChartablePrivate {
+class ChartablePrivate {
     /* Fields of Gucharmap-2.90.Gucharmap.ChartablePrivate */
     vadjustment: Gtk.Adjustment
     vadjustment_changed_handler_id: number
@@ -4548,7 +4550,7 @@ export class ChartablePrivate {
     font_fallback: number
     static name: string
 }
-export abstract class CodepointListClass {
+abstract class CodepointListClass {
     /* Fields of Gucharmap-2.90.Gucharmap.CodepointListClass */
     parent_class: GObject.ObjectClass
     get_last_index: (list: CodepointList) => number
@@ -4556,22 +4558,24 @@ export abstract class CodepointListClass {
     get_index: (list: CodepointList, wc: number) => number
     static name: string
 }
-export class CodepointListPrivate {
+class CodepointListPrivate {
     static name: string
 }
-export abstract class ScriptChaptersModelClass {
+abstract class ScriptChaptersModelClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ScriptChaptersModelClass */
     parent_class: ChaptersModelClass
     static name: string
 }
-export class ScriptChaptersModelPrivate {
+class ScriptChaptersModelPrivate {
     static name: string
 }
-export abstract class ScriptCodepointListClass {
+abstract class ScriptCodepointListClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ScriptCodepointListClass */
     parent_class: CodepointListClass
     static name: string
 }
-export class ScriptCodepointListPrivate {
+class ScriptCodepointListPrivate {
     static name: string
 }
+}
+export default Gucharmap

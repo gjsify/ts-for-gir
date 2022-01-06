@@ -10,9 +10,9 @@ import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Gio } from './Gio-2.0';
 
-export declare namespace SpiceClientGLib {
+declare namespace SpiceClientGLib {
 
-export enum ChannelEvent {
+enum ChannelEvent {
     NONE,
     OPENED,
     SWITCHING,
@@ -23,7 +23,7 @@ export enum ChannelEvent {
     ERROR_AUTH,
     ERROR_IO,
 }
-export enum ClientError {
+enum ClientError {
     FAILED,
     USB_DEVICE_REJECTED,
     USB_DEVICE_LOST,
@@ -32,7 +32,7 @@ export enum ClientError {
     AUTH_NEEDS_PASSWORD_AND_USERNAME,
     USB_SERVICE,
 }
-export enum QmpPortVmAction {
+enum QmpPortVmAction {
     QUIT,
     RESET,
     POWER_DOWN,
@@ -40,18 +40,18 @@ export enum QmpPortVmAction {
     CONTINUE,
     LAST,
 }
-export enum SessionMigration {
+enum SessionMigration {
     NONE,
     SWITCHING,
     MIGRATING,
     CONNECTING,
 }
-export enum InputsLock {
+enum InputsLock {
     SCROLL_LOCK,
     NUM_LOCK,
     CAPS_LOCK,
 }
-export enum SessionVerify {
+enum SessionVerify {
     PUBKEY,
     HOSTNAME,
     SUBJECT,
@@ -59,55 +59,55 @@ export enum SessionVerify {
 export const GTK_MAJOR_VERSION: number
 export const GTK_MICRO_VERSION: number
 export const GTK_MINOR_VERSION: number
-export function clientErrorQuark(): GLib.Quark
-export function displayChangePreferredCompression(channel: Channel, compression: number): void
-export function displayChangePreferredVideoCodecType(channel: Channel, codecType: number): void
-export function displayGetGlScanout(channel: DisplayChannel): GlScanout
-export function displayGetPrimary(channel: Channel, surfaceId: number, primary: DisplayPrimary): boolean
-export function displayGlDrawDone(channel: DisplayChannel): void
-export function getOptionGroup(): GLib.OptionGroup
-export function inputsButtonPress(channel: InputsChannel, button: number, buttonState: number): void
-export function inputsButtonRelease(channel: InputsChannel, button: number, buttonState: number): void
-export function inputsKeyPress(channel: InputsChannel, scancode: number): void
-export function inputsKeyPressAndRelease(channel: InputsChannel, scancode: number): void
-export function inputsKeyRelease(channel: InputsChannel, scancode: number): void
-export function inputsMotion(channel: InputsChannel, dx: number, dy: number, buttonState: number): void
-export function inputsPosition(channel: InputsChannel, x: number, y: number, display: number, buttonState: number): void
-export function inputsSetKeyLocks(channel: InputsChannel, locks: number): void
-export function mainAgentTestCapability(channel: MainChannel, cap: number): boolean
-export function mainClipboardGrab(channel: MainChannel, types: number, ntypes: number): void
-export function mainClipboardNotify(channel: MainChannel, type: number, data: number, size: number): void
-export function mainClipboardRelease(channel: MainChannel): void
-export function mainClipboardRequest(channel: MainChannel, type: number): void
-export function mainClipboardSelectionGrab(channel: MainChannel, selection: number, types: number, ntypes: number): void
-export function mainClipboardSelectionNotify(channel: MainChannel, selection: number, type: number, data: number, size: number): void
-export function mainClipboardSelectionRelease(channel: MainChannel, selection: number): void
-export function mainClipboardSelectionRequest(channel: MainChannel, selection: number, type: number): void
-export function mainFileCopyAsync(channel: MainChannel, sources: Gio.File[], flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null, progressCallback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-export function mainFileCopyFinish(channel: MainChannel, result: Gio.AsyncResult): boolean
-export function mainRequestMouseMode(channel: MainChannel, mode: number): void
-export function mainSendMonitorConfig(channel: MainChannel): boolean
-export function mainSetDisplay(channel: MainChannel, id: number, x: number, y: number, width: number, height: number): void
-export function mainSetDisplayEnabled(channel: MainChannel, id: number, enabled: boolean): void
-export function mainUpdateDisplay(channel: MainChannel, id: number, x: number, y: number, width: number, height: number, update: boolean): void
-export function mainUpdateDisplayEnabled(channel: MainChannel, id: number, enabled: boolean, update: boolean): void
-export function portEvent(port: PortChannel, event: number): void
-export function portWriteAsync(port: PortChannel, buffer: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function portWriteFinish(port: PortChannel, result: Gio.AsyncResult): number
-export function recordSendData(channel: RecordChannel, data: object | null, bytes: number, time: number): void
-export function setSessionOption(session: Session): void
-export function utilGetDebug(): boolean
-export function utilGetVersionString(): string
-export function utilSetDebug(enabled: boolean): void
-export function uuidToString(uuid: number): string
-export interface msg_handler {
+function clientErrorQuark(): GLib.Quark
+function displayChangePreferredCompression(channel: Channel, compression: number): void
+function displayChangePreferredVideoCodecType(channel: Channel, codecType: number): void
+function displayGetGlScanout(channel: DisplayChannel): GlScanout
+function displayGetPrimary(channel: Channel, surfaceId: number, primary: DisplayPrimary): boolean
+function displayGlDrawDone(channel: DisplayChannel): void
+function getOptionGroup(): GLib.OptionGroup
+function inputsButtonPress(channel: InputsChannel, button: number, buttonState: number): void
+function inputsButtonRelease(channel: InputsChannel, button: number, buttonState: number): void
+function inputsKeyPress(channel: InputsChannel, scancode: number): void
+function inputsKeyPressAndRelease(channel: InputsChannel, scancode: number): void
+function inputsKeyRelease(channel: InputsChannel, scancode: number): void
+function inputsMotion(channel: InputsChannel, dx: number, dy: number, buttonState: number): void
+function inputsPosition(channel: InputsChannel, x: number, y: number, display: number, buttonState: number): void
+function inputsSetKeyLocks(channel: InputsChannel, locks: number): void
+function mainAgentTestCapability(channel: MainChannel, cap: number): boolean
+function mainClipboardGrab(channel: MainChannel, types: number, ntypes: number): void
+function mainClipboardNotify(channel: MainChannel, type: number, data: number, size: number): void
+function mainClipboardRelease(channel: MainChannel): void
+function mainClipboardRequest(channel: MainChannel, type: number): void
+function mainClipboardSelectionGrab(channel: MainChannel, selection: number, types: number, ntypes: number): void
+function mainClipboardSelectionNotify(channel: MainChannel, selection: number, type: number, data: number, size: number): void
+function mainClipboardSelectionRelease(channel: MainChannel, selection: number): void
+function mainClipboardSelectionRequest(channel: MainChannel, selection: number, type: number): void
+function mainFileCopyAsync(channel: MainChannel, sources: Gio.File[], flags: Gio.FileCopyFlags, cancellable?: Gio.Cancellable | null, progressCallback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
+function mainFileCopyFinish(channel: MainChannel, result: Gio.AsyncResult): boolean
+function mainRequestMouseMode(channel: MainChannel, mode: number): void
+function mainSendMonitorConfig(channel: MainChannel): boolean
+function mainSetDisplay(channel: MainChannel, id: number, x: number, y: number, width: number, height: number): void
+function mainSetDisplayEnabled(channel: MainChannel, id: number, enabled: boolean): void
+function mainUpdateDisplay(channel: MainChannel, id: number, x: number, y: number, width: number, height: number, update: boolean): void
+function mainUpdateDisplayEnabled(channel: MainChannel, id: number, enabled: boolean, update: boolean): void
+function portEvent(port: PortChannel, event: number): void
+function portWriteAsync(port: PortChannel, buffer: any[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function portWriteFinish(port: PortChannel, result: Gio.AsyncResult): number
+function recordSendData(channel: RecordChannel, data: object | null, bytes: number, time: number): void
+function setSessionOption(session: Session): void
+function utilGetDebug(): boolean
+function utilGetVersionString(): string
+function utilSetDebug(enabled: boolean): void
+function uuidToString(uuid: number): string
+interface msg_handler {
     (channel: Channel, in_: MsgIn): void
 }
 export interface Audio_ConstructProps extends GObject.Object_ConstructProps {
     mainContext?: GLib.MainContext
     session?: Session
 }
-export class Audio {
+class Audio {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.Audio */
     parent: GObject.Object
     priv: AudioPrivate
@@ -161,7 +161,7 @@ export interface Channel_ConstructProps extends GObject.Object_ConstructProps {
     channelType?: number
     spiceSession?: Session
 }
-export class Channel {
+class Channel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Channel */
     readonly socket: Gio.Socket
     readonly totalReadBytes: number
@@ -248,7 +248,7 @@ export class Channel {
 }
 export interface CursorChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class CursorChannel {
+class CursorChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.CursorChannel */
     readonly cursor: CursorShape
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Channel */
@@ -360,7 +360,7 @@ export class CursorChannel {
 }
 export interface DisplayChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class DisplayChannel {
+class DisplayChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.DisplayChannel */
     readonly glScanout: GlScanout
     readonly height: number
@@ -522,7 +522,7 @@ export interface FileTransferTask_ConstructProps extends GObject.Object_Construc
     file?: Gio.File
     id?: number
 }
-export class FileTransferTask {
+class FileTransferTask {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.FileTransferTask */
     readonly progress: number
     readonly totalBytes: number
@@ -598,7 +598,7 @@ export class FileTransferTask {
 }
 export interface InputsChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class InputsChannel {
+class InputsChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.InputsChannel */
     readonly keyModifiers: number
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Channel */
@@ -711,7 +711,7 @@ export interface MainChannel_ConstructProps extends Channel_ConstructProps {
     disableWallpaper?: boolean
     maxClipboard?: number
 }
-export class MainChannel {
+class MainChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.MainChannel */
     readonly agentCaps0: number
     readonly agentConnected: boolean
@@ -933,7 +933,7 @@ export interface PlaybackChannel_ConstructProps extends Channel_ConstructProps {
     nchannels?: number
     volume?: object
 }
-export class PlaybackChannel {
+class PlaybackChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.PlaybackChannel */
     minLatency: number
     mute: boolean
@@ -1065,7 +1065,7 @@ export class PlaybackChannel {
 }
 export interface PortChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class PortChannel {
+class PortChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.PortChannel */
     readonly portName: string
     readonly portOpened: boolean
@@ -1178,7 +1178,7 @@ export class PortChannel {
 export interface QmpPort_ConstructProps extends GObject.Object_ConstructProps {
     channel?: PortChannel
 }
-export class QmpPort {
+class QmpPort {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.QmpPort */
     readonly ready: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -1246,7 +1246,7 @@ export interface RecordChannel_ConstructProps extends Channel_ConstructProps {
     nchannels?: number
     volume?: object
 }
-export class RecordChannel {
+class RecordChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.RecordChannel */
     mute: boolean
     nchannels: number
@@ -1393,7 +1393,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     username?: string
     verify?: SessionVerify
 }
-export class Session {
+class Session {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Session */
     ca: any[]
     caFile: string
@@ -1678,7 +1678,7 @@ export class Session {
 }
 export interface SmartcardChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class SmartcardChannel {
+class SmartcardChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Channel */
     readonly socket: Gio.Socket
     readonly totalReadBytes: number
@@ -1762,7 +1762,7 @@ export class SmartcardChannel {
 }
 export interface SmartcardManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SmartcardManager {
+class SmartcardManager {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.SmartcardManager */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1841,7 +1841,7 @@ export interface URI_ConstructProps extends GObject.Object_ConstructProps {
     scheme?: string
     user?: string
 }
-export class URI {
+class URI {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.URI */
     hostname: string
     password: string
@@ -1933,7 +1933,7 @@ export interface UsbDeviceManager_ConstructProps extends GObject.Object_Construc
     redirectOnConnect?: string
     session?: Session
 }
-export class UsbDeviceManager {
+class UsbDeviceManager {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.UsbDeviceManager */
     autoConnect: boolean
     autoConnectFilter: string
@@ -2042,7 +2042,7 @@ export class UsbDeviceManager {
 }
 export interface UsbredirChannel_ConstructProps extends Channel_ConstructProps {
 }
-export class UsbredirChannel {
+class UsbredirChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.Channel */
     readonly socket: Gio.Socket
     readonly totalReadBytes: number
@@ -2126,7 +2126,7 @@ export class UsbredirChannel {
 }
 export interface WebdavChannel_ConstructProps extends PortChannel_ConstructProps {
 }
-export class WebdavChannel {
+class WebdavChannel {
     /* Properties of SpiceClientGLib-2.0.SpiceClientGLib.PortChannel */
     readonly portName: string
     readonly portOpened: boolean
@@ -2236,7 +2236,7 @@ export class WebdavChannel {
     _init (config?: WebdavChannel_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AudioClass {
+abstract class AudioClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.AudioClass */
     parentClass: GObject.ObjectClass
     connectChannel: (audio: Audio, channel: Channel) => boolean
@@ -2246,10 +2246,10 @@ export abstract class AudioClass {
     getRecordVolumeInfoFinish: (audio: Audio, res: Gio.AsyncResult, mute: boolean, nchannels: number, volume: number) => boolean
     static name: string
 }
-export class AudioPrivate {
+class AudioPrivate {
     static name: string
 }
-export abstract class ChannelClass {
+abstract class ChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.ChannelClass */
     parentClass: GObject.ObjectClass
     channelEvent: (channel: Channel, event: ChannelEvent) => void
@@ -2262,13 +2262,13 @@ export abstract class ChannelClass {
     channelSendMigrationHandshake: (channel: Channel) => void
     static name: string
 }
-export class ChannelClassPrivate {
+class ChannelClassPrivate {
     static name: string
 }
-export class ChannelPrivate {
+class ChannelPrivate {
     static name: string
 }
-export abstract class CursorChannelClass {
+abstract class CursorChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.CursorChannelClass */
     parentClass: ChannelClass
     cursorSet: (channel: CursorChannel, width: number, height: number, hotX: number, hotY: number, rgba?: object | null) => void
@@ -2277,10 +2277,10 @@ export abstract class CursorChannelClass {
     cursorReset: (channel: CursorChannel) => void
     static name: string
 }
-export class CursorChannelPrivate {
+class CursorChannelPrivate {
     static name: string
 }
-export class CursorShape {
+class CursorShape {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.CursorShape */
     width: number
     height: number
@@ -2289,7 +2289,7 @@ export class CursorShape {
     data: object
     static name: string
 }
-export abstract class DisplayChannelClass {
+abstract class DisplayChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.DisplayChannelClass */
     parentClass: ChannelClass
     displayPrimaryCreate: (channel: Channel, format: number, width: number, height: number, stride: number, shmid: number, data: object) => void
@@ -2298,10 +2298,10 @@ export abstract class DisplayChannelClass {
     displayMark: (channel: Channel, mark: boolean) => void
     static name: string
 }
-export class DisplayChannelPrivate {
+class DisplayChannelPrivate {
     static name: string
 }
-export class DisplayMonitorConfig {
+class DisplayMonitorConfig {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.DisplayMonitorConfig */
     id: number
     surfaceId: number
@@ -2311,7 +2311,7 @@ export class DisplayMonitorConfig {
     height: number
     static name: string
 }
-export class DisplayPrimary {
+class DisplayPrimary {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.DisplayPrimary */
     format: object
     width: number
@@ -2322,10 +2322,10 @@ export class DisplayPrimary {
     marked: boolean
     static name: string
 }
-export abstract class FileTransferTaskClass {
+abstract class FileTransferTaskClass {
     static name: string
 }
-export class GlScanout {
+class GlScanout {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.GlScanout */
     fd: number
     width: number
@@ -2337,32 +2337,32 @@ export class GlScanout {
     free(): void
     static name: string
 }
-export abstract class InputsChannelClass {
+abstract class InputsChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.InputsChannelClass */
     parentClass: ChannelClass
     inputsModifiers: (channel: Channel) => void
     static name: string
 }
-export class InputsChannelPrivate {
+class InputsChannelPrivate {
     static name: string
 }
-export abstract class MainChannelClass {
+abstract class MainChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.MainChannelClass */
     parentClass: ChannelClass
     mouseUpdate: (channel: Channel) => void
     agentUpdate: (channel: Channel) => void
     static name: string
 }
-export class MainChannelPrivate {
+class MainChannelPrivate {
     static name: string
 }
-export class MsgIn {
+class MsgIn {
     static name: string
 }
-export class MsgOut {
+class MsgOut {
     static name: string
 }
-export abstract class PlaybackChannelClass {
+abstract class PlaybackChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.PlaybackChannelClass */
     parentClass: ChannelClass
     playbackStart: (channel: PlaybackChannel, format: number, channels: number, freq: number) => void
@@ -2370,21 +2370,21 @@ export abstract class PlaybackChannelClass {
     playbackStop: (channel: PlaybackChannel) => void
     static name: string
 }
-export class PlaybackChannelPrivate {
+class PlaybackChannelPrivate {
     static name: string
 }
-export abstract class PortChannelClass {
+abstract class PortChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.PortChannelClass */
     parentClass: ChannelClass
     static name: string
 }
-export class PortChannelPrivate {
+class PortChannelPrivate {
     static name: string
 }
-export abstract class QmpPortClass {
+abstract class QmpPortClass {
     static name: string
 }
-export class QmpStatus {
+class QmpStatus {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.QmpStatus */
     version: number
     running: boolean
@@ -2395,7 +2395,7 @@ export class QmpStatus {
     unref(): void
     static name: string
 }
-export abstract class RecordChannelClass {
+abstract class RecordChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.RecordChannelClass */
     parentClass: ChannelClass
     recordStart: (channel: RecordChannel, format: number, channels: number, freq: number) => void
@@ -2403,28 +2403,28 @@ export abstract class RecordChannelClass {
     recordStop: (channel: RecordChannel) => void
     static name: string
 }
-export class RecordChannelPrivate {
+class RecordChannelPrivate {
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.SessionClass */
     parentClass: GObject.ObjectClass
     channelNew: (session: Session, channel: Channel) => void
     channelDestroy: (session: Session, channel: Channel) => void
     static name: string
 }
-export class SessionPrivate {
+class SessionPrivate {
     static name: string
 }
-export abstract class SmartcardChannelClass {
+abstract class SmartcardChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.SmartcardChannelClass */
     parentClass: ChannelClass
     static name: string
 }
-export class SmartcardChannelPrivate {
+class SmartcardChannelPrivate {
     static name: string
 }
-export abstract class SmartcardManagerClass {
+abstract class SmartcardManagerClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.SmartcardManagerClass */
     parentClass: GObject.ObjectClass
     readerAdded: (manager: SmartcardManager, reader: SmartcardReader) => void
@@ -2433,29 +2433,29 @@ export abstract class SmartcardManagerClass {
     cardRemoved: (manager: SmartcardManager, reader: SmartcardReader) => void
     static name: string
 }
-export class SmartcardManagerPrivate {
+class SmartcardManagerPrivate {
     static name: string
 }
-export class SmartcardReader {
+class SmartcardReader {
     /* Methods of SpiceClientGLib-2.0.SpiceClientGLib.SmartcardReader */
     insertCard(): boolean
     isSoftware(): boolean
     removeCard(): boolean
     static name: string
 }
-export abstract class URIClass {
+abstract class URIClass {
     static name: string
 }
-export class URIPrivate {
+class URIPrivate {
     static name: string
 }
-export class UsbDevice {
+class UsbDevice {
     /* Methods of SpiceClientGLib-2.0.SpiceClientGLib.UsbDevice */
     getDescription(format?: string | null): string
     getLibusbDevice(): object | null
     static name: string
 }
-export abstract class UsbDeviceManagerClass {
+abstract class UsbDeviceManagerClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.UsbDeviceManagerClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (manager: UsbDeviceManager, device: UsbDevice) => void
@@ -2464,23 +2464,24 @@ export abstract class UsbDeviceManagerClass {
     deviceError: (manager: UsbDeviceManager, device: UsbDevice, error: GLib.Error) => void
     static name: string
 }
-export class UsbDeviceManagerPrivate {
+class UsbDeviceManagerPrivate {
     static name: string
 }
-export abstract class UsbredirChannelClass {
+abstract class UsbredirChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.UsbredirChannelClass */
     parentClass: ChannelClass
     static name: string
 }
-export class UsbredirChannelPrivate {
+class UsbredirChannelPrivate {
     static name: string
 }
-export abstract class WebdavChannelClass {
+abstract class WebdavChannelClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.WebdavChannelClass */
     parentClass: PortChannelClass
     static name: string
 }
-export class WebdavChannelPrivate {
+class WebdavChannelPrivate {
     static name: string
 }
 }
+export default SpiceClientGLib

@@ -1,2 +1,1 @@
-imports.gi.versions.Vsqlite = '1'
-module.exports = imports.gi.Vsqlite
+export {default as default} from 'gi://Vsqlite?version=1';

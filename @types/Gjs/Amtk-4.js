@@ -1,2 +1,1 @@
-imports.gi.versions.Amtk = '4'
-module.exports = imports.gi.Amtk
+export {default as default} from 'gi://Amtk?version=4';

@@ -19,32 +19,32 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace NMGtk {
+declare namespace NMGtk {
 
-export enum MobileFamily {
+enum MobileFamily {
     UNKNOWN,
     /* 3GPP (invalid, starts with a number) */
     CDMA,
 }
-export function mobileProvidersSplit3gppMccMnc(mccmnc: string): { returnType: boolean, mcc: string, mnc: string }
-export function utilsDisambiguateDeviceNames(devices: NMClient.Device[]): string[]
-export function utilsGetConnectionDeviceName(connection: NetworkManager.Connection): string
-export function utilsGetDeviceDescription(device: NMClient.Device): string
-export function utilsGetDeviceGenericTypeName(device: NMClient.Device): string
-export function utilsGetDeviceProduct(device: NMClient.Device): string
-export function utilsGetDeviceTypeName(device: NMClient.Device): string
-export function utilsGetDeviceVendor(device: NMClient.Device): string
-export function utilsMenuToSecretFlags(passwdEntry: Gtk.Widget): NetworkManager.SettingSecretFlags
-export function utilsSetupPasswordStorage(passwdEntry: Gtk.Widget, initialFlags: NetworkManager.SettingSecretFlags, setting: NetworkManager.Setting, passwordFlagsName: string, withNotRequired: boolean, sensitiveAsk: boolean): void
-export function utilsUpdatePasswordStorage(passwdEntry: Gtk.Widget, secretFlags: NetworkManager.SettingSecretFlags, setting: NetworkManager.Setting, passwordFlagsName: string): void
-export interface MobileWizardCallback {
+function mobileProvidersSplit3gppMccMnc(mccmnc: string): { returnType: boolean, mcc: string, mnc: string }
+function utilsDisambiguateDeviceNames(devices: NMClient.Device[]): string[]
+function utilsGetConnectionDeviceName(connection: NetworkManager.Connection): string
+function utilsGetDeviceDescription(device: NMClient.Device): string
+function utilsGetDeviceGenericTypeName(device: NMClient.Device): string
+function utilsGetDeviceProduct(device: NMClient.Device): string
+function utilsGetDeviceTypeName(device: NMClient.Device): string
+function utilsGetDeviceVendor(device: NMClient.Device): string
+function utilsMenuToSecretFlags(passwdEntry: Gtk.Widget): NetworkManager.SettingSecretFlags
+function utilsSetupPasswordStorage(passwdEntry: Gtk.Widget, initialFlags: NetworkManager.SettingSecretFlags, setting: NetworkManager.Setting, passwordFlagsName: string, withNotRequired: boolean, sensitiveAsk: boolean): void
+function utilsUpdatePasswordStorage(passwdEntry: Gtk.Widget, secretFlags: NetworkManager.SettingSecretFlags, setting: NetworkManager.Setting, passwordFlagsName: string): void
+interface MobileWizardCallback {
     (self: MobileWizard, canceled: boolean, method: MobileWizardAccessMethod): void
 }
 export interface MobileProvidersDatabase_ConstructProps extends GObject.Object_ConstructProps {
     countryCodes?: string
     serviceProviders?: string
 }
-export class MobileProvidersDatabase {
+class MobileProvidersDatabase {
     /* Fields of NMGtk-1.0.NMGtk.MobileProvidersDatabase */
     parent: GObject.Object
     priv: MobileProvidersDatabasePrivate
@@ -109,7 +109,7 @@ export class MobileProvidersDatabase {
 }
 export interface VpnPasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class VpnPasswordDialog {
+class VpnPasswordDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -1451,7 +1451,7 @@ export class VpnPasswordDialog {
 }
 export interface WifiDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class WifiDialog {
+class WifiDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -2782,7 +2782,7 @@ export class WifiDialog {
     static newForOther(client: NMClient.Client, settings: NMClient.RemoteSettings): WifiDialog
     static $gtype: GObject.Type
 }
-export class CountryInfo {
+class CountryInfo {
     /* Methods of NMGtk-1.0.NMGtk.CountryInfo */
     getCountryCode(): string
     getCountryName(): string
@@ -2791,7 +2791,7 @@ export class CountryInfo {
     unref(): void
     static name: string
 }
-export class MobileAccessMethod {
+class MobileAccessMethod {
     /* Methods of NMGtk-1.0.NMGtk.MobileAccessMethod */
     get3gppApn(): string
     getDns(): string[]
@@ -2804,7 +2804,7 @@ export class MobileAccessMethod {
     unref(): void
     static name: string
 }
-export class MobileProvider {
+class MobileProvider {
     /* Methods of NMGtk-1.0.NMGtk.MobileProvider */
     get3gppMccMnc(): string[]
     getCdmaSid(): number[]
@@ -2814,21 +2814,21 @@ export class MobileProvider {
     unref(): void
     static name: string
 }
-export abstract class MobileProvidersDatabaseClass {
+abstract class MobileProvidersDatabaseClass {
     /* Fields of NMGtk-1.0.NMGtk.MobileProvidersDatabaseClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class MobileProvidersDatabasePrivate {
+class MobileProvidersDatabasePrivate {
     static name: string
 }
-export class MobileWizard {
+class MobileWizard {
     /* Methods of NMGtk-1.0.NMGtk.MobileWizard */
     destroy(): void
     present(): void
     static name: string
 }
-export class MobileWizardAccessMethod {
+class MobileWizardAccessMethod {
     /* Fields of NMGtk-1.0.NMGtk.MobileWizardAccessMethod */
     providerName: string
     planName: string
@@ -2838,14 +2838,15 @@ export class MobileWizardAccessMethod {
     gsmApn: string
     static name: string
 }
-export abstract class VpnPasswordDialogClass {
+abstract class VpnPasswordDialogClass {
     /* Fields of NMGtk-1.0.NMGtk.VpnPasswordDialogClass */
     parentClass: Gtk.DialogClass
     static name: string
 }
-export abstract class WifiDialogClass {
+abstract class WifiDialogClass {
     /* Fields of NMGtk-1.0.NMGtk.WifiDialogClass */
     parent: Gtk.DialogClass
     static name: string
 }
 }
+export default NMGtk

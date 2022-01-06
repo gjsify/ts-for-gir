@@ -6,14 +6,14 @@ import "node"
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GUPnPIgd {
+declare namespace GUPnPIgd {
 
-export enum SimpleIgdError {
+enum SimpleIgdError {
     SIMPLE_IGD_ERROR_EXTERNAL_ADDRESS,
 }
 export interface SimpleIgd_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SimpleIgd {
+class SimpleIgd {
     /* Properties of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     readonly mainContext: object
     /* Fields of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
@@ -91,7 +91,7 @@ export class SimpleIgd {
 }
 export interface SimpleIgdThread_ConstructProps extends SimpleIgd_ConstructProps {
 }
-export class SimpleIgdThread {
+class SimpleIgdThread {
     /* Properties of GUPnPIgd-1.0.GUPnPIgd.SimpleIgd */
     readonly mainContext: object
     /* Fields of GUPnPIgd-1.0.GUPnPIgd.SimpleIgdThread */
@@ -166,16 +166,17 @@ export class SimpleIgdThread {
     static new(): SimpleIgdThread
     static $gtype: GObject.Type
 }
-export abstract class SimpleIgdClass {
+abstract class SimpleIgdClass {
     static name: string
 }
-export class SimpleIgdPrivate {
+class SimpleIgdPrivate {
     static name: string
 }
-export abstract class SimpleIgdThreadClass {
+abstract class SimpleIgdThreadClass {
     static name: string
 }
-export class SimpleIgdThreadPrivate {
+class SimpleIgdThreadPrivate {
     static name: string
 }
 }
+export default GUPnPIgd

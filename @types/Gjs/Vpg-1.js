@@ -1,2 +1,1 @@
-imports.gi.versions.Vpg = '1'
-module.exports = imports.gi.Vpg
+export {default as default} from 'gi://Vpg?version=1';

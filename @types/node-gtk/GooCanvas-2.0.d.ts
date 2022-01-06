@@ -16,34 +16,34 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace GooCanvas {
+declare namespace GooCanvas {
 
-export enum CairoAntialias {
+enum CairoAntialias {
     DEFAULT,
     NONE,
     GRAY,
     SUBPIXEL,
 }
-export enum CairoFillRule {
+enum CairoFillRule {
     WINDING,
     EVEN_ODD,
 }
-export enum CairoHintMetrics {
+enum CairoHintMetrics {
     DEFAULT,
     OFF,
     ON,
 }
-export enum CairoLineCap {
+enum CairoLineCap {
     BUTT,
     ROUND,
     SQUARE,
 }
-export enum CairoLineJoin {
+enum CairoLineJoin {
     MITER,
     ROUND,
     BEVEL,
 }
-export enum CairoOperator {
+enum CairoOperator {
     CLEAR,
     SOURCE,
     OVER,
@@ -59,7 +59,7 @@ export enum CairoOperator {
     ADD,
     SATURATE,
 }
-export enum CanvasAnchorType {
+enum CanvasAnchorType {
     CENTER,
     NORTH,
     NORTH_WEST,
@@ -78,19 +78,19 @@ export enum CanvasAnchorType {
     W,
     E,
 }
-export enum CanvasAnimateType {
+enum CanvasAnimateType {
     FREEZE,
     RESET,
     RESTART,
     BOUNCE,
 }
-export enum CanvasItemVisibility {
+enum CanvasItemVisibility {
     HIDDEN,
     INVISIBLE,
     VISIBLE,
     VISIBLE_ABOVE_THRESHOLD,
 }
-export enum CanvasPathCommandType {
+enum CanvasPathCommandType {
     MOVE_TO,
     CLOSE_PATH,
     LINE_TO,
@@ -102,7 +102,7 @@ export enum CanvasPathCommandType {
     SMOOTH_QUADRATIC_CURVE_TO,
     ELLIPTICAL_ARC,
 }
-export enum CanvasPointerEvents {
+enum CanvasPointerEvents {
     VISIBLE_MASK,
     PAINTED_MASK,
     FILL_MASK,
@@ -118,15 +118,15 @@ export enum CanvasPointerEvents {
     ALL,
 }
 export const CANVAS_POLYLINE_NUM_ARROW_POINTS: number
-export function cairoMatrixCopy(matrix: cairo.Matrix): cairo.Matrix
-export function cairoMatrixFree(matrix: cairo.Matrix): void
-export function canvasItemClassFindChildProperty(iclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
-export function canvasItemClassInstallChildProperty(iclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
-export function canvasItemClassListChildProperties(iclass: GObject.ObjectClass): GObject.ParamSpec[]
-export function canvasItemModelClassFindChildProperty(mclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
-export function canvasItemModelClassInstallChildProperty(mclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
-export function canvasItemModelClassListChildProperties(mclass: GObject.ObjectClass): GObject.ParamSpec[]
-export class CanvasItem {
+function cairoMatrixCopy(matrix: cairo.Matrix): cairo.Matrix
+function cairoMatrixFree(matrix: cairo.Matrix): void
+function canvasItemClassFindChildProperty(iclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
+function canvasItemClassInstallChildProperty(iclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
+function canvasItemClassListChildProperties(iclass: GObject.ObjectClass): GObject.ParamSpec[]
+function canvasItemModelClassFindChildProperty(mclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
+function canvasItemModelClassInstallChildProperty(mclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
+function canvasItemModelClassListChildProperties(mclass: GObject.ObjectClass): GObject.ParamSpec[]
+class CanvasItem {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
@@ -260,7 +260,7 @@ export class CanvasItem {
     static classInstallChildProperty(iclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
     static classListChildProperties(iclass: GObject.ObjectClass): GObject.ParamSpec[]
 }
-export class CanvasItemModel {
+class CanvasItemModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
@@ -362,7 +362,7 @@ export interface Canvas_ConstructProps extends Gtk.Container_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class Canvas {
+class Canvas {
     /* Properties of GooCanvas-2.0.GooCanvas.Canvas */
     anchor: CanvasAnchorType
     automaticBounds: boolean
@@ -1566,7 +1566,7 @@ export class Canvas {
 }
 export interface CanvasAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
-export class CanvasAccessibleFactory {
+class CanvasAccessibleFactory {
     /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1634,7 +1634,7 @@ export interface CanvasEllipse_ConstructProps extends CanvasItemSimple_Construct
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasEllipse {
+class CanvasEllipse {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasEllipse */
     centerX: number
     centerY: number
@@ -2075,7 +2075,7 @@ export interface CanvasEllipseModel_ConstructProps extends CanvasItemModelSimple
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasEllipseModel {
+class CanvasEllipseModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasEllipseModel */
     centerX: number
     centerY: number
@@ -2465,7 +2465,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasGrid {
+class CanvasGrid {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasGrid */
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
@@ -3053,7 +3053,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasGridModel {
+class CanvasGridModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasGridModel */
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
@@ -3544,7 +3544,7 @@ export interface CanvasGroup_ConstructProps extends CanvasItemSimple_ConstructPr
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasGroup {
+class CanvasGroup {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroup */
     height: number
     width: number
@@ -3957,7 +3957,7 @@ export interface CanvasGroupModel_ConstructProps extends CanvasItemModelSimple_C
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasGroupModel {
+class CanvasGroupModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroupModel */
     height: number
     width: number
@@ -4302,7 +4302,7 @@ export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructPr
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasImage {
+class CanvasImage {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasImage */
     alpha: number
     height: number
@@ -4743,7 +4743,7 @@ export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_C
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasImageModel {
+class CanvasImageModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasImageModel */
     alpha: number
     height: number
@@ -5095,7 +5095,7 @@ export class CanvasImageModel {
 }
 export interface CanvasItemAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
-export class CanvasItemAccessibleFactory {
+class CanvasItemAccessibleFactory {
     /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -5178,7 +5178,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasItemModelSimple {
+class CanvasItemModelSimple {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
@@ -5515,7 +5515,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasItemSimple {
+class CanvasItemSimple {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
@@ -5905,7 +5905,7 @@ export interface CanvasPath_ConstructProps extends CanvasItemSimple_ConstructPro
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasPath {
+class CanvasPath {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasPath */
     data: string
     height: number
@@ -6324,7 +6324,7 @@ export interface CanvasPathModel_ConstructProps extends CanvasItemModelSimple_Co
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasPathModel {
+class CanvasPathModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasPathModel */
     data: string
     height: number
@@ -6678,7 +6678,7 @@ export interface CanvasPolyline_ConstructProps extends CanvasItemSimple_Construc
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasPolyline {
+class CanvasPolyline {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasPolyline */
     arrowLength: number
     arrowTipLength: number
@@ -7139,7 +7139,7 @@ export interface CanvasPolylineModel_ConstructProps extends CanvasItemModelSimpl
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasPolylineModel {
+class CanvasPolylineModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasPolylineModel */
     arrowLength: number
     arrowTipLength: number
@@ -7524,7 +7524,7 @@ export interface CanvasRect_ConstructProps extends CanvasItemSimple_ConstructPro
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasRect {
+class CanvasRect {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasRect */
     height: number
     radiusX: number
@@ -7950,7 +7950,7 @@ export interface CanvasRectModel_ConstructProps extends CanvasItemModelSimple_Co
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasRectModel {
+class CanvasRectModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasRectModel */
     height: number
     radiusX: number
@@ -8290,7 +8290,7 @@ export class CanvasRectModel {
 }
 export interface CanvasStyle_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CanvasStyle {
+class CanvasStyle {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyle */
     parent: CanvasStyle
     properties: object[]
@@ -8365,7 +8365,7 @@ export interface CanvasTable_ConstructProps extends CanvasGroup_ConstructProps {
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasTable {
+class CanvasTable {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasTable */
     columnSpacing: number
     homogeneousColumns: boolean
@@ -8833,7 +8833,7 @@ export interface CanvasTableModel_ConstructProps extends CanvasGroupModel_Constr
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasTableModel {
+class CanvasTableModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasTableModel */
     columnSpacing: number
     homogeneousColumns: boolean
@@ -9231,7 +9231,7 @@ export interface CanvasText_ConstructProps extends CanvasItemSimple_ConstructPro
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasText {
+class CanvasText {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasText */
     alignment: Pango.Alignment
     anchor: CanvasAnchorType
@@ -9688,7 +9688,7 @@ export interface CanvasTextModel_ConstructProps extends CanvasItemModelSimple_Co
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasTextModel {
+class CanvasTextModel {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasTextModel */
     alignment: Pango.Alignment
     anchor: CanvasAnchorType
@@ -10067,7 +10067,7 @@ export interface CanvasWidget_ConstructProps extends CanvasItemSimple_ConstructP
     visibility?: CanvasItemVisibility
     visibilityThreshold?: number
 }
-export class CanvasWidget {
+class CanvasWidget {
     /* Properties of GooCanvas-2.0.GooCanvas.CanvasWidget */
     anchor: CanvasAnchorType
     height: number
@@ -10478,7 +10478,7 @@ export class CanvasWidget {
 }
 export interface CanvasWidgetAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
-export class CanvasWidgetAccessibleFactory {
+class CanvasWidgetAccessibleFactory {
     /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -10527,7 +10527,7 @@ export class CanvasWidgetAccessibleFactory {
     _init (config?: CanvasWidgetAccessibleFactory_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class CanvasBounds {
+class CanvasBounds {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasBounds */
     x1: number
     y1: number
@@ -10535,18 +10535,18 @@ export class CanvasBounds {
     y2: number
     static name: string
 }
-export abstract class CanvasClass {
+abstract class CanvasClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasClass */
     createItem: (canvas: Canvas, model: CanvasItemModel) => CanvasItem
     itemCreated: (canvas: Canvas, item: CanvasItem, model: CanvasItemModel) => void
     static name: string
 }
-export abstract class CanvasEllipseClass {
+abstract class CanvasEllipseClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasEllipseData {
+class CanvasEllipseData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseData */
     centerX: number
     centerY: number
@@ -10554,17 +10554,17 @@ export class CanvasEllipseData {
     radiusY: number
     static name: string
 }
-export abstract class CanvasEllipseModelClass {
+abstract class CanvasEllipseModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasGridClass {
+abstract class CanvasGridClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasGridData {
+class CanvasGridData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridData */
     x: number
     y: number
@@ -10585,27 +10585,27 @@ export class CanvasGridData {
     vertGridLinesOnTop: number
     static name: string
 }
-export abstract class CanvasGridModelClass {
+abstract class CanvasGridModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasGroupClass {
+abstract class CanvasGroupClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export abstract class CanvasGroupModelClass {
+abstract class CanvasGroupModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasImageClass {
+abstract class CanvasImageClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasImageData {
+class CanvasImageData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageData */
     pattern: cairo.Pattern
     x: number
@@ -10614,12 +10614,12 @@ export class CanvasImageData {
     height: number
     static name: string
 }
-export abstract class CanvasImageModelClass {
+abstract class CanvasImageModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasItemIface {
+abstract class CanvasItemIface {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemIface */
     getCanvas: (item: CanvasItem) => Canvas
     setCanvas: (item: CanvasItem, canvas: Canvas) => void
@@ -10667,7 +10667,7 @@ export abstract class CanvasItemIface {
     getRequestedAreaForWidth: (item: CanvasItem, cr: cairo.Context, width: number, requestedArea: CanvasBounds) => boolean
     static name: string
 }
-export abstract class CanvasItemModelIface {
+abstract class CanvasItemModelIface {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelIface */
     getNChildren: (model: CanvasItemModel) => number
     getChild: (model: CanvasItemModel, childNum: number) => CanvasItemModel
@@ -10690,12 +10690,12 @@ export abstract class CanvasItemModelIface {
     animationFinished: (model: CanvasItemModel, stopped: boolean) => void
     static name: string
 }
-export abstract class CanvasItemModelSimpleClass {
+abstract class CanvasItemModelSimpleClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimpleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class CanvasItemSimpleClass {
+abstract class CanvasItemSimpleClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimpleClass */
     simpleCreatePath: (simple: CanvasItemSimple, cr: cairo.Context) => void
     simpleUpdate: (simple: CanvasItemSimple, cr: cairo.Context) => void
@@ -10703,7 +10703,7 @@ export abstract class CanvasItemSimpleClass {
     simpleIsItemAt: (simple: CanvasItemSimple, x: number, y: number, cr: cairo.Context, isPointerEvent: boolean) => boolean
     static name: string
 }
-export class CanvasItemSimpleData {
+class CanvasItemSimpleData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimpleData */
     style: CanvasStyle
     transform: cairo.Matrix
@@ -10718,7 +10718,7 @@ export class CanvasItemSimpleData {
     isStatic: number
     static name: string
 }
-export class CanvasLineDash {
+class CanvasLineDash {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasLineDash */
     refCount: number
     numDashes: number
@@ -10732,22 +10732,22 @@ export class CanvasLineDash {
     /* Static methods and pseudo-constructors */
     static newv(dashes: number[]): CanvasLineDash
 }
-export abstract class CanvasPathClass {
+abstract class CanvasPathClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasPathData {
+class CanvasPathData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathData */
     pathCommands: object[]
     static name: string
 }
-export abstract class CanvasPathModelClass {
+abstract class CanvasPathModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export class CanvasPoints {
+class CanvasPoints {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPoints */
     coords: number
     numPoints: number
@@ -10763,7 +10763,7 @@ export class CanvasPoints {
     /* Static methods and pseudo-constructors */
     static new(numPoints: number): CanvasPoints
 }
-export class CanvasPolylineArrowData {
+class CanvasPolylineArrowData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineArrowData */
     arrowWidth: number
     arrowLength: number
@@ -10774,12 +10774,12 @@ export class CanvasPolylineArrowData {
     endArrowCoords: number[]
     static name: string
 }
-export abstract class CanvasPolylineClass {
+abstract class CanvasPolylineClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasPolylineData {
+class CanvasPolylineData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineData */
     coords: number
     arrowData: CanvasPolylineArrowData
@@ -10790,17 +10790,17 @@ export class CanvasPolylineData {
     reconfigureArrows: number
     static name: string
 }
-export abstract class CanvasPolylineModelClass {
+abstract class CanvasPolylineModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasRectClass {
+abstract class CanvasRectClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasRectData {
+class CanvasRectData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectData */
     x: number
     y: number
@@ -10810,28 +10810,28 @@ export class CanvasRectData {
     radiusY: number
     static name: string
 }
-export abstract class CanvasRectModelClass {
+abstract class CanvasRectModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasStyleClass {
+abstract class CanvasStyleClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CanvasStyleProperty {
+class CanvasStyleProperty {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyleProperty */
     id: GLib.Quark
     value: any
     static name: string
 }
-export abstract class CanvasTableClass {
+abstract class CanvasTableClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableClass */
     parentClass: CanvasGroupClass
     static name: string
 }
-export class CanvasTableData {
+class CanvasTableData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableData */
     width: number
     height: number
@@ -10841,7 +10841,7 @@ export class CanvasTableData {
     layoutData: CanvasTableLayoutData
     static name: string
 }
-export class CanvasTableDimension {
+class CanvasTableDimension {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableDimension */
     size: number
     defaultSpacing: number
@@ -10849,20 +10849,20 @@ export class CanvasTableDimension {
     homogeneous: number
     static name: string
 }
-export class CanvasTableLayoutData {
+class CanvasTableLayoutData {
     static name: string
 }
-export abstract class CanvasTableModelClass {
+abstract class CanvasTableModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableModelClass */
     parentClass: CanvasGroupModelClass
     static name: string
 }
-export abstract class CanvasTextClass {
+abstract class CanvasTextClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasTextData {
+class CanvasTextData {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextData */
     text: string
     x: number
@@ -10875,17 +10875,18 @@ export class CanvasTextData {
     wrap: number
     static name: string
 }
-export abstract class CanvasTextModelClass {
+abstract class CanvasTextModelClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
-export abstract class CanvasWidgetClass {
+abstract class CanvasWidgetClass {
     /* Fields of GooCanvas-2.0.GooCanvas.CanvasWidgetClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
-export class CanvasPathCommand {
+class CanvasPathCommand {
     static name: string
 }
 }
+export default GooCanvas

@@ -7,9 +7,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Flatpak {
+declare namespace Flatpak {
 
-export enum Error {
+enum Error {
     ALREADY_INSTALLED,
     NOT_INSTALLED,
     ONLY_PULLED,
@@ -36,7 +36,7 @@ export enum Error {
     AUTHENTICATION_FAILED,
     NOT_AUTHORIZED,
 }
-export enum PortalError {
+enum PortalError {
     FAILED,
     INVALID_ARGUMENT,
     NOT_FOUND,
@@ -45,61 +45,61 @@ export enum PortalError {
     CANCELLED,
     WINDOW_DESTROYED,
 }
-export enum RefKind {
+enum RefKind {
     APP,
     RUNTIME,
 }
-export enum RemoteType {
+enum RemoteType {
     STATIC,
     USB,
     LAN,
 }
-export enum StorageType {
+enum StorageType {
     DEFAULT,
     HARD_DISK,
     SDCARD,
     MMC,
     NETWORK,
 }
-export enum TransactionOperationType {
+enum TransactionOperationType {
     INSTALL,
     UPDATE,
     INSTALL_BUNDLE,
     UNINSTALL,
     LAST_TYPE,
 }
-export enum TransactionRemoteReason {
+enum TransactionRemoteReason {
     GENERIC_REPO,
     RUNTIME_DEPS,
 }
-export enum InstallFlags {
+enum InstallFlags {
     NONE,
     NO_STATIC_DELTAS,
     NO_DEPLOY,
     NO_PULL,
     NO_TRIGGERS,
 }
-export enum LaunchFlags {
+enum LaunchFlags {
     NONE,
     DO_NOT_REAP,
 }
-export enum QueryFlags {
+enum QueryFlags {
     NONE,
     ONLY_CACHED,
     ONLY_SIDELOADED,
 }
-export enum TransactionErrorDetails {
+enum TransactionErrorDetails {
     FATAL,
 }
-export enum TransactionResult {
+enum TransactionResult {
     CHANGE,
 }
-export enum UninstallFlags {
+enum UninstallFlags {
     NONE,
     NO_PRUNE,
     NO_TRIGGERS,
 }
-export enum UpdateFlags {
+enum UpdateFlags {
     NONE,
     NO_DEPLOY,
     NO_PULL,
@@ -110,19 +110,19 @@ export enum UpdateFlags {
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function errorQuark(): GLib.Quark
-export function getDefaultArch(): string
-export function getSupportedArches(): string[]
-export function getSystemInstallations(cancellable?: Gio.Cancellable | null): Installation[]
-export function portalErrorQuark(): GLib.Quark
-export function transactionOperationTypeToString(kind: TransactionOperationType): string
-export interface ProgressCallback {
+function errorQuark(): GLib.Quark
+function getDefaultArch(): string
+function getSupportedArches(): string[]
+function getSystemInstallations(cancellable?: Gio.Cancellable | null): Installation[]
+function portalErrorQuark(): GLib.Quark
+function transactionOperationTypeToString(kind: TransactionOperationType): string
+interface ProgressCallback {
     (status: string, progress: number, estimating: boolean): void
 }
 export interface BundleRef_ConstructProps extends Ref_ConstructProps {
     file?: Gio.File
 }
-export class BundleRef {
+class BundleRef {
     /* Fields of Flatpak-1.0.Flatpak.BundleRef */
     parent: Ref
     /* Fields of GObject-2.0.GObject.Object */
@@ -187,7 +187,7 @@ export class BundleRef {
 }
 export interface Installation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Installation {
+class Installation {
     /* Fields of Flatpak-1.0.Flatpak.Installation */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -307,7 +307,7 @@ export interface InstalledRef_ConstructProps extends Ref_ConstructProps {
     origin?: string
     subpaths?: string[]
 }
-export class InstalledRef {
+class InstalledRef {
     /* Properties of Flatpak-1.0.Flatpak.InstalledRef */
     deployDir: string
     installedSize: number
@@ -416,7 +416,7 @@ export class InstalledRef {
 }
 export interface Instance_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Instance {
+class Instance {
     /* Fields of Flatpak-1.0.Flatpak.Instance */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -483,7 +483,7 @@ export interface Ref_ConstructProps extends GObject.Object_ConstructProps {
     kind?: RefKind
     name?: string
 }
-export class Ref {
+class Ref {
     /* Fields of Flatpak-1.0.Flatpak.Ref */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -544,7 +544,7 @@ export interface RelatedRef_ConstructProps extends Ref_ConstructProps {
     shouldDownload?: boolean
     subpaths?: string[]
 }
-export class RelatedRef {
+class RelatedRef {
     /* Fields of Flatpak-1.0.Flatpak.RelatedRef */
     parent: Ref
     /* Fields of GObject-2.0.GObject.Object */
@@ -606,7 +606,7 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
     type?: RemoteType
 }
-export class Remote {
+class Remote {
     /* Properties of Flatpak-1.0.Flatpak.Remote */
     name: string
     /* Fields of Flatpak-1.0.Flatpak.Remote */
@@ -705,7 +705,7 @@ export interface RemoteRef_ConstructProps extends Ref_ConstructProps {
     metadata?: any
     remoteName?: string
 }
-export class RemoteRef {
+class RemoteRef {
     /* Fields of Flatpak-1.0.Flatpak.RemoteRef */
     parent: Ref
     /* Fields of GObject-2.0.GObject.Object */
@@ -768,7 +768,7 @@ export class RemoteRef {
 export interface Transaction_ConstructProps extends GObject.Object_ConstructProps {
     installation?: Installation
 }
-export class Transaction {
+class Transaction {
     /* Fields of Flatpak-1.0.Flatpak.Transaction */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -912,7 +912,7 @@ export class Transaction {
 }
 export interface TransactionOperation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TransactionOperation {
+class TransactionOperation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Flatpak-1.0.Flatpak.TransactionOperation */
@@ -969,7 +969,7 @@ export class TransactionOperation {
 }
 export interface TransactionProgress_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TransactionProgress {
+class TransactionProgress {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Flatpak-1.0.Flatpak.TransactionProgress */
@@ -1025,47 +1025,47 @@ export class TransactionProgress {
     _init (config?: TransactionProgress_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class BundleRefClass {
+abstract class BundleRefClass {
     /* Fields of Flatpak-1.0.Flatpak.BundleRefClass */
     parentClass: RefClass
     static name: string
 }
-export abstract class InstallationClass {
+abstract class InstallationClass {
     /* Fields of Flatpak-1.0.Flatpak.InstallationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class InstalledRefClass {
+abstract class InstalledRefClass {
     /* Fields of Flatpak-1.0.Flatpak.InstalledRefClass */
     parentClass: RefClass
     static name: string
 }
-export abstract class InstanceClass {
+abstract class InstanceClass {
     /* Fields of Flatpak-1.0.Flatpak.InstanceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RefClass {
+abstract class RefClass {
     /* Fields of Flatpak-1.0.Flatpak.RefClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RelatedRefClass {
+abstract class RelatedRefClass {
     /* Fields of Flatpak-1.0.Flatpak.RelatedRefClass */
     parentClass: RefClass
     static name: string
 }
-export abstract class RemoteClass {
+abstract class RemoteClass {
     /* Fields of Flatpak-1.0.Flatpak.RemoteClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class RemoteRefClass {
+abstract class RemoteRefClass {
     /* Fields of Flatpak-1.0.Flatpak.RemoteRefClass */
     parentClass: RefClass
     static name: string
 }
-export abstract class TransactionClass {
+abstract class TransactionClass {
     /* Fields of Flatpak-1.0.Flatpak.TransactionClass */
     parentClass: GObject.ObjectClass
     newOperation: (transaction: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void
@@ -1084,14 +1084,15 @@ export abstract class TransactionClass {
     padding: object[]
     static name: string
 }
-export abstract class TransactionOperationClass {
+abstract class TransactionOperationClass {
     /* Fields of Flatpak-1.0.Flatpak.TransactionOperationClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TransactionProgressClass {
+abstract class TransactionProgressClass {
     /* Fields of Flatpak-1.0.Flatpak.TransactionProgressClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default Flatpak

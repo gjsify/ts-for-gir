@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as RygelRenderer from './RygelRenderer-2.6';
-import type * as RygelCore from './RygelCore-2.6';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GUPnP from './GUPnP-1.2';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as GSSDP from './GSSDP-1.2';
-import type * as GUPnPAV from './GUPnPAV-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GModule from './GModule-2.0';
+import type RygelRenderer from './RygelRenderer-2.6';
+import type RygelCore from './RygelCore-2.6';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GUPnP from './GUPnP-1.2';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type GSSDP from './GSSDP-1.2';
+import type GUPnPAV from './GUPnPAV-1.0';
+import type Gst from './Gst-1.0';
+import type GModule from './GModule-2.0';
 
-export enum PlaybinPlayerError {
+export namespace RygelRendererGst {
+
+enum PlaybinPlayerError {
     NO_ELEMENT,
 }
 export interface PlaybinPlayer_ConstructProps extends GObject.Object_ConstructProps {
@@ -31,7 +33,7 @@ export interface PlaybinPlayer_ConstructProps extends GObject.Object_ConstructPr
     content_features?: string
     user_agent?: string
 }
-export class PlaybinPlayer {
+class PlaybinPlayer {
     /* Properties of RygelRendererGst-2.6.RygelRendererGst.PlaybinPlayer */
     playbin: Gst.Element
     readonly supported_profiles: RygelCore.DLNAProfile[]
@@ -197,7 +199,7 @@ export class PlaybinPlayer {
 }
 export interface PlaybinRenderer_ConstructProps extends RygelRenderer.MediaRenderer_ConstructProps {
 }
-export class PlaybinRenderer {
+class PlaybinRenderer {
     /* Properties of RygelCore-2.6.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
     /* Fields of GObject-2.0.GObject.Object */
@@ -260,15 +262,17 @@ export class PlaybinRenderer {
     static new(title: string, player: RygelRenderer.MediaPlayer, capabilities: RygelCore.PluginCapabilities): PlaybinRenderer
     static $gtype: GObject.Type
 }
-export abstract class PlaybinPlayerClass {
+abstract class PlaybinPlayerClass {
     static name: string
 }
-export class PlaybinPlayerPrivate {
+class PlaybinPlayerPrivate {
     static name: string
 }
-export abstract class PlaybinRendererClass {
+abstract class PlaybinRendererClass {
     static name: string
 }
-export class PlaybinRendererPrivate {
+class PlaybinRendererPrivate {
     static name: string
 }
+}
+export default RygelRendererGst

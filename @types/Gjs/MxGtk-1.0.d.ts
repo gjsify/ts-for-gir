@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gtk from './Gtk-2.0';
-import type * as Gdk from './Gdk-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gtk from './Gtk-2.0';
+import type Gdk from './Gdk-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+
+export namespace MxGtk {
 
 export interface Frame_ConstructProps extends Gtk.Frame_ConstructProps {
 }
-export class Frame {
+class Frame {
     /* Properties of Gtk-2.0.Gtk.Frame */
     label: string
     label_widget: Gtk.Widget
@@ -716,7 +718,7 @@ export class Frame {
 export interface LightSwitch_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     active?: boolean
 }
-export class LightSwitch {
+class LightSwitch {
     /* Properties of MxGtk-1.0.MxGtk.LightSwitch */
     active: boolean
     /* Properties of Gtk-2.0.Gtk.Widget */
@@ -1331,14 +1333,16 @@ export class LightSwitch {
     static new(): LightSwitch
     static $gtype: GObject.Type
 }
-export abstract class FrameClass {
+abstract class FrameClass {
     /* Fields of MxGtk-1.0.MxGtk.FrameClass */
     parent_class: Gtk.FrameClass
     static name: string
 }
-export abstract class LightSwitchClass {
+abstract class LightSwitchClass {
     /* Fields of MxGtk-1.0.MxGtk.LightSwitchClass */
     parent_class: Gtk.DrawingAreaClass
     switch_flipped: (lightswitch: LightSwitch, state: boolean) => void
     static name: string
 }
+}
+export default MxGtk

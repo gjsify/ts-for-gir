@@ -1,2 +1,1 @@
-imports.gi.versions.Graphene = '1.0'
-module.exports = imports.gi.Graphene
+export {default as default} from 'gi://Graphene?version=1.0';

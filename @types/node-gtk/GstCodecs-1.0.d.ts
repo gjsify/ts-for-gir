@@ -10,42 +10,42 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstCodecs {
+declare namespace GstCodecs {
 
-export enum H264DecoderCompliance {
+enum H264DecoderCompliance {
     AUTO,
     STRICT,
     NORMAL,
     FLEXIBLE,
 }
-export enum H264DpbBumpMode {
+enum H264DpbBumpMode {
     NORMAL_LATENCY,
     LOW_LATENCY,
     VERY_LOW_LATENCY,
 }
-export enum H264PictureField {
+enum H264PictureField {
     FRAME,
     TOP_FIELD,
     BOTTOM_FIELD,
 }
-export enum H264PictureReference {
+enum H264PictureReference {
     NONE,
     SHORT_TERM,
     LONG_TERM,
 }
-export enum Vp9ReferenceMode {
+enum Vp9ReferenceMode {
     SINGLE_REFERENCE,
     COMPOUND_REFERENCE,
     SELECT,
 }
-export enum Vp9TxMode {
+enum Vp9TxMode {
     ONLY_4X4,
     ALLOW_8X8,
     ALLOW_16X16,
     ALLOW_32X32,
     SELECT,
 }
-export enum Vp9TxSize {
+enum Vp9TxSize {
     /* 4X4 (invalid, starts with a number) */
     /* 8X8 (invalid, starts with a number) */
     /* 16X16 (invalid, starts with a number) */
@@ -78,13 +78,13 @@ export const VP9_SWITCHABLE_FILTERS: number
 export const VP9_TX_MODES: number
 export const VP9_TX_SIZES: number
 export const VP9_TX_SIZE_CONTEXTS: number
-export function vp9GetAcQuant(qindex: number, deltaQAc: number, bitDepth: number): number
-export function vp9GetDcQuant(qindex: number, deltaQDc: number, bitDepth: number): number
-export function vp9GetQindex(segmentationParams: Vp9SegmentationParams, quantizationParams: Vp9QuantizationParams, segmentId: number): number
-export function vp9SegFeatureActive(params: Vp9SegmentationParams, segmentId: number, feature: number): boolean
+function vp9GetAcQuant(qindex: number, deltaQAc: number, bitDepth: number): number
+function vp9GetDcQuant(qindex: number, deltaQDc: number, bitDepth: number): number
+function vp9GetQindex(segmentationParams: Vp9SegmentationParams, quantizationParams: Vp9QuantizationParams, segmentId: number): number
+function vp9SegFeatureActive(params: Vp9SegmentationParams, segmentId: number, feature: number): boolean
 export interface AV1Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
-export class AV1Decoder {
+class AV1Decoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: GstVideo.VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -362,7 +362,7 @@ export class AV1Decoder {
 export interface H264Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
     compliance?: H264DecoderCompliance
 }
-export class H264Decoder {
+class H264Decoder {
     /* Properties of GstCodecs-1.0.GstCodecs.H264Decoder */
     compliance: H264DecoderCompliance
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
@@ -649,7 +649,7 @@ export class H264Decoder {
 }
 export interface H265Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
-export class H265Decoder {
+class H265Decoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: GstVideo.VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -929,7 +929,7 @@ export class H265Decoder {
 }
 export interface Mpeg2Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
-export class Mpeg2Decoder {
+class Mpeg2Decoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: GstVideo.VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -1206,7 +1206,7 @@ export class Mpeg2Decoder {
 }
 export interface Vp8Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
-export class Vp8Decoder {
+class Vp8Decoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: GstVideo.VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -1483,7 +1483,7 @@ export class Vp8Decoder {
 }
 export interface Vp9Decoder_ConstructProps extends GstVideo.VideoDecoder_ConstructProps {
 }
-export class Vp9Decoder {
+class Vp9Decoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
     automaticRequestSyncPointFlags: GstVideo.VideoDecoderRequestSyncPointFlags
     automaticRequestSyncPoints: boolean
@@ -1760,7 +1760,7 @@ export class Vp9Decoder {
     _init (config?: Vp9Decoder_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AV1DecoderClass {
+abstract class AV1DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.AV1DecoderClass */
     parentClass: GstVideo.VideoDecoderClass
     newPicture: (decoder: AV1Decoder, frame: GstVideo.VideoCodecFrame, picture: AV1Picture) => Gst.FlowReturn
@@ -1771,10 +1771,10 @@ export abstract class AV1DecoderClass {
     outputPicture: (decoder: AV1Decoder, frame: GstVideo.VideoCodecFrame, picture: AV1Picture) => Gst.FlowReturn
     static name: string
 }
-export class AV1DecoderPrivate {
+class AV1DecoderPrivate {
     static name: string
 }
-export class AV1Dpb {
+class AV1Dpb {
     /* Fields of GstCodecs-1.0.GstCodecs.AV1Dpb */
     picList: AV1Picture[]
     /* Methods of GstCodecs-1.0.GstCodecs.AV1Dpb */
@@ -1783,7 +1783,7 @@ export class AV1Dpb {
     free(): void
     static name: string
 }
-export class AV1Picture {
+class AV1Picture {
     /* Fields of GstCodecs-1.0.GstCodecs.AV1Picture */
     parent: Gst.MiniObject
     systemFrameNumber: number
@@ -1802,10 +1802,10 @@ export class AV1Picture {
     /* Static methods and pseudo-constructors */
     static new(): AV1Picture
 }
-export class AV1Tile {
+class AV1Tile {
     static name: string
 }
-export abstract class H264DecoderClass {
+abstract class H264DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.H264DecoderClass */
     newPicture: (decoder: H264Decoder, frame: GstVideo.VideoCodecFrame, picture: H264Picture) => Gst.FlowReturn
     newFieldPicture: (decoder: H264Decoder, firstField: H264Picture, secondField: H264Picture) => Gst.FlowReturn
@@ -1816,10 +1816,10 @@ export abstract class H264DecoderClass {
     getPreferredOutputDelay: (decoder: H264Decoder, live: boolean) => number
     static name: string
 }
-export class H264DecoderPrivate {
+class H264DecoderPrivate {
     static name: string
 }
-export class H264Dpb {
+class H264Dpb {
     /* Methods of GstCodecs-1.0.GstCodecs.H264Dpb */
     add(picture: H264Picture): void
     bump(drain: boolean): H264Picture | null
@@ -1846,7 +1846,7 @@ export class H264Dpb {
     setMaxNumReorderFrames(maxNumReorderFrames: number): void
     static name: string
 }
-export class H264Picture {
+class H264Picture {
     /* Methods of GstCodecs-1.0.GstCodecs.H264Picture */
     getUserData(): object | null
     setReference(reference: H264PictureReference, otherField: boolean): void
@@ -1857,10 +1857,10 @@ export class H264Picture {
     /* Static methods and pseudo-constructors */
     static new(): H264Picture
 }
-export class H264Slice {
+class H264Slice {
     static name: string
 }
-export abstract class H265DecoderClass {
+abstract class H265DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.H265DecoderClass */
     parentClass: GstVideo.VideoDecoderClass
     newPicture: (decoder: H265Decoder, frame: GstVideo.VideoCodecFrame, picture: H265Picture) => Gst.FlowReturn
@@ -1869,10 +1869,10 @@ export abstract class H265DecoderClass {
     outputPicture: (decoder: H265Decoder, frame: GstVideo.VideoCodecFrame, picture: H265Picture) => Gst.FlowReturn
     static name: string
 }
-export class H265DecoderPrivate {
+class H265DecoderPrivate {
     static name: string
 }
-export class H265Dpb {
+class H265Dpb {
     /* Methods of GstCodecs-1.0.GstCodecs.H265Dpb */
     add(picture: H265Picture): void
     bump(drain: boolean): H265Picture | null
@@ -1893,7 +1893,7 @@ export class H265Dpb {
     setMaxNumPics(maxNumPics: number): void
     static name: string
 }
-export class H265Picture {
+class H265Picture {
     /* Methods of GstCodecs-1.0.GstCodecs.H265Picture */
     getUserData(): object | null
     setUserData(notify: GLib.DestroyNotify): void
@@ -1903,10 +1903,10 @@ export class H265Picture {
     /* Static methods and pseudo-constructors */
     static new(): H265Picture
 }
-export class H265Slice {
+class H265Slice {
     static name: string
 }
-export abstract class Mpeg2DecoderClass {
+abstract class Mpeg2DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Mpeg2DecoderClass */
     parentClass: GstVideo.VideoDecoderClass
     newPicture: (decoder: Mpeg2Decoder, frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture) => Gst.FlowReturn
@@ -1918,10 +1918,10 @@ export abstract class Mpeg2DecoderClass {
     getPreferredOutputDelay: (decoder: Mpeg2Decoder, isLive: boolean) => number
     static name: string
 }
-export class Mpeg2DecoderPrivate {
+class Mpeg2DecoderPrivate {
     static name: string
 }
-export class Mpeg2Dpb {
+class Mpeg2Dpb {
     /* Methods of GstCodecs-1.0.GstCodecs.Mpeg2Dpb */
     add(picture: Mpeg2Picture): void
     bump(): Mpeg2Picture | null
@@ -1931,7 +1931,7 @@ export class Mpeg2Dpb {
     needBump(): boolean
     static name: string
 }
-export class Mpeg2Picture {
+class Mpeg2Picture {
     /* Methods of GstCodecs-1.0.GstCodecs.Mpeg2Picture */
     getUserData(): object | null
     setUserData(notify: GLib.DestroyNotify): void
@@ -1941,10 +1941,10 @@ export class Mpeg2Picture {
     /* Static methods and pseudo-constructors */
     static new(): Mpeg2Picture
 }
-export class Mpeg2Slice {
+class Mpeg2Slice {
     static name: string
 }
-export abstract class Vp8DecoderClass {
+abstract class Vp8DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp8DecoderClass */
     parentClass: GstVideo.VideoDecoderClass
     newPicture: (decoder: Vp8Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp8Picture) => Gst.FlowReturn
@@ -1954,10 +1954,10 @@ export abstract class Vp8DecoderClass {
     getPreferredOutputDelay: (decoder: Vp8Decoder, isLive: boolean) => number
     static name: string
 }
-export class Vp8DecoderPrivate {
+class Vp8DecoderPrivate {
     static name: string
 }
-export class Vp8Picture {
+class Vp8Picture {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp8Picture */
     parent: Gst.MiniObject
     pts: Gst.ClockTime
@@ -1975,7 +1975,7 @@ export class Vp8Picture {
     /* Static methods and pseudo-constructors */
     static new(): Vp8Picture
 }
-export abstract class Vp9DecoderClass {
+abstract class Vp9DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9DecoderClass */
     parentClass: GstVideo.VideoDecoderClass
     newSequence: (decoder: Vp9Decoder, frameHdr: Vp9FrameHeader) => Gst.FlowReturn
@@ -1988,13 +1988,13 @@ export abstract class Vp9DecoderClass {
     getPreferredOutputDelay: (decoder: Vp9Decoder, isLive: boolean) => number
     static name: string
 }
-export class Vp9DecoderPrivate {
+class Vp9DecoderPrivate {
     static name: string
 }
-export class Vp9DeltaProbabilities {
+class Vp9DeltaProbabilities {
     static name: string
 }
-export class Vp9Dpb {
+class Vp9Dpb {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9Dpb */
     picList: Vp9Picture[]
     /* Methods of GstCodecs-1.0.GstCodecs.Vp9Dpb */
@@ -2003,7 +2003,7 @@ export class Vp9Dpb {
     free(): void
     static name: string
 }
-export class Vp9FrameHeader {
+class Vp9FrameHeader {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9FrameHeader */
     profile: number
     bitDepth: number
@@ -2044,7 +2044,7 @@ export class Vp9FrameHeader {
     frameHeaderLengthInBytes: number
     static name: string
 }
-export class Vp9LoopFilterParams {
+class Vp9LoopFilterParams {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9LoopFilterParams */
     loopFilterLevel: number
     loopFilterSharpness: number
@@ -2056,10 +2056,10 @@ export class Vp9LoopFilterParams {
     loopFilterModeDeltas: any[]
     static name: string
 }
-export class Vp9MvDeltaProbs {
+class Vp9MvDeltaProbs {
     static name: string
 }
-export class Vp9Picture {
+class Vp9Picture {
     /* Methods of GstCodecs-1.0.GstCodecs.Vp9Picture */
     getUserData(): object | null
     setUserData(notify: GLib.DestroyNotify): void
@@ -2069,7 +2069,7 @@ export class Vp9Picture {
     /* Static methods and pseudo-constructors */
     static new(): Vp9Picture
 }
-export class Vp9QuantizationParams {
+class Vp9QuantizationParams {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9QuantizationParams */
     baseQIdx: number
     deltaQYDc: number
@@ -2077,7 +2077,7 @@ export class Vp9QuantizationParams {
     deltaQUvAc: number
     static name: string
 }
-export class Vp9SegmentationParams {
+class Vp9SegmentationParams {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9SegmentationParams */
     segmentationEnabled: number
     segmentationUpdateMap: number
@@ -2090,7 +2090,7 @@ export class Vp9SegmentationParams {
     featureData: number[]
     static name: string
 }
-export class Vp9StatefulParser {
+class Vp9StatefulParser {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9StatefulParser */
     reference: object[]
     /* Methods of GstCodecs-1.0.GstCodecs.Vp9StatefulParser */
@@ -2098,3 +2098,4 @@ export class Vp9StatefulParser {
     static name: string
 }
 }
+export default GstCodecs

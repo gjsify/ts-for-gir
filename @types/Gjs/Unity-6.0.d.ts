@@ -3,13 +3,15 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GLib from './GLib-2.0';
-import type * as Dbusmenu from './Dbusmenu-0.4';
-import type * as GObject from './GObject-2.0';
-import type * as Dee from './Dee-1.0';
-import type * as Gio from './Gio-2.0';
+import type GLib from './GLib-2.0';
+import type Dbusmenu from './Dbusmenu-0.4';
+import type GObject from './GObject-2.0';
+import type Dee from './Dee-1.0';
+import type Gio from './Gio-2.0';
 
-export enum CategoryType {
+export namespace Unity {
+
+enum CategoryType {
     NONE,
     APPLICATION,
     BOOK,
@@ -38,71 +40,71 @@ export enum CategoryType {
     CAR,
     N_CATEGORIES,
 }
-export enum IconSizeHint {
+enum IconSizeHint {
     DEFAULT,
     SMALL,
     LARGE,
 }
-export enum HandledType {
+enum HandledType {
     NOT_HANDLED,
     SHOW_DASH,
     HIDE_DASH,
     GOTO_DASH_URI,
     SHOW_PREVIEW,
 }
-export enum CategoryRenderer {
+enum CategoryRenderer {
     VERTICAL_TILE,
     HORIZONTAL_TILE,
     LIST_TILE,
     FLOW,
 }
-export enum FilterRenderer {
+enum FilterRenderer {
     CHECK_OPTIONS,
     RADIO_OPTIONS,
     MULTIRANGE,
     RATINGS,
     CHECK_OPTIONS_COMPACT,
 }
-export enum LayoutHint {
+enum LayoutHint {
     NONE,
     LEFT,
     RIGHT,
     TOP,
     BOTTOM,
 }
-export enum SearchType {
+enum SearchType {
     DEFAULT,
     GLOBAL,
     N_TYPES,
 }
-export enum PlaybackState {
+enum PlaybackState {
     PLAYING,
     PAUSED,
 }
-export enum OptionsFilterSortType {
+enum OptionsFilterSortType {
     MANUAL,
     DISPLAY_NAME,
     ID,
 }
-export enum PreferencesManagerRemoteContent {
+enum PreferencesManagerRemoteContent {
     ALL,
     NONE,
 }
-export enum MusicPreviewTrackState {
+enum MusicPreviewTrackState {
     STOPPED,
     PLAYING,
     PAUSED,
 }
-export function io_read_stream_async(input: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
-export function io_read_stream_finish(_res_: Gio.AsyncResult): [ /* data */ Uint8Array[], /* size */ number ]
-export function io_open_from_dirs(filename: string, dirs: string[], _callback_?: Gio.AsyncReadyCallback | null): void
-export function io_open_from_dirs_finish(_res_: Gio.AsyncResult): Gio.FileInputStream | null
-export function io_open_from_data_dirs(filename: string, _callback_?: Gio.AsyncReadyCallback | null): void
-export function io_open_from_data_dirs_finish(_res_: Gio.AsyncResult): Gio.FileInputStream | null
-export function io_get_system_data_dirs(): string[]
+function io_read_stream_async(input: Gio.InputStream, io_priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+function io_read_stream_finish(_res_: Gio.AsyncResult): [ /* data */ Uint8Array[], /* size */ number ]
+function io_open_from_dirs(filename: string, dirs: string[], _callback_?: Gio.AsyncReadyCallback | null): void
+function io_open_from_dirs_finish(_res_: Gio.AsyncResult): Gio.FileInputStream | null
+function io_open_from_data_dirs(filename: string, _callback_?: Gio.AsyncReadyCallback | null): void
+function io_open_from_data_dirs_finish(_res_: Gio.AsyncResult): Gio.FileInputStream | null
+function io_get_system_data_dirs(): string[]
 export interface MergeStrategy_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MergeStrategy {
+class MergeStrategy {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Unity-6.0.Unity.MergeStrategy */
@@ -154,7 +156,7 @@ export class MergeStrategy {
 }
 export interface AppInfoManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AppInfoManager {
+class AppInfoManager {
     /* Fields of Unity-6.0.Unity.AppInfoManager */
     parent_instance: GObject.Object
     priv: AppInfoManagerPrivate
@@ -224,7 +226,7 @@ export interface AnnotatedIcon_ConstructProps extends GObject.Object_ConstructPr
     category?: CategoryType
     size_hint?: IconSizeHint
 }
-export class AnnotatedIcon {
+class AnnotatedIcon {
     /* Properties of Unity-6.0.Unity.AnnotatedIcon */
     icon: Gio.Icon
     ribbon: string
@@ -292,7 +294,7 @@ export class AnnotatedIcon {
 }
 export interface Inspector_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Inspector {
+class Inspector {
     /* Properties of Unity-6.0.Unity.Inspector */
     readonly unity_running: boolean
     readonly unity_bus_name: string
@@ -359,7 +361,7 @@ export interface LauncherEntry_ConstructProps extends GObject.Object_ConstructPr
     urgent?: boolean
     quicklist?: Dbusmenu.Menuitem
 }
-export class LauncherEntry {
+class LauncherEntry {
     /* Properties of Unity-6.0.Unity.LauncherEntry */
     app_uri: string
     count: number
@@ -443,7 +445,7 @@ export class LauncherEntry {
 }
 export interface LauncherFavorites_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LauncherFavorites {
+class LauncherFavorites {
     /* Fields of Unity-6.0.Unity.LauncherFavorites */
     parent_instance: GObject.Object
     priv: LauncherFavoritesPrivate
@@ -508,7 +510,7 @@ export interface ActivationResponse_ConstructProps extends GObject.InitiallyUnow
     handled?: HandledType
     goto_uri?: string
 }
-export class ActivationResponse {
+class ActivationResponse {
     /* Properties of Unity-6.0.Unity.ActivationResponse */
     goto_uri: string
     /* Fields of Unity-6.0.Unity.ActivationResponse */
@@ -569,7 +571,7 @@ export interface Category_ConstructProps extends GObject.Object_ConstructProps {
     icon_hint?: Gio.Icon
     default_renderer?: CategoryRenderer
 }
-export class Category {
+class Category {
     /* Fields of Unity-6.0.Unity.Category */
     parent_instance: GObject.Object
     priv: CategoryPrivate
@@ -629,7 +631,7 @@ export interface Filter_ConstructProps extends GObject.Object_ConstructProps {
     collapsed?: boolean
     filtering?: boolean
 }
-export class Filter {
+class Filter {
     /* Properties of Unity-6.0.Unity.Filter */
     display_name: string
     visible: boolean
@@ -698,7 +700,7 @@ export interface FilterOption_ConstructProps extends GObject.Object_ConstructPro
     icon_hint?: Gio.Icon
     active?: boolean
 }
-export class FilterOption {
+class FilterOption {
     /* Properties of Unity-6.0.Unity.FilterOption */
     active: boolean
     /* Fields of Unity-6.0.Unity.FilterOption */
@@ -756,7 +758,7 @@ export class FilterOption {
 export interface OptionsFilter_ConstructProps extends Filter_ConstructProps {
     sort_type?: OptionsFilterSortType
 }
-export class OptionsFilter {
+class OptionsFilter {
     /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
     /* Properties of Unity-6.0.Unity.Filter */
@@ -832,7 +834,7 @@ export class OptionsFilter {
 }
 export interface RadioOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
-export class RadioOptionFilter {
+class RadioOptionFilter {
     /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
     /* Properties of Unity-6.0.Unity.Filter */
@@ -912,7 +914,7 @@ export class RadioOptionFilter {
 }
 export interface CheckOptionFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
-export class CheckOptionFilter {
+class CheckOptionFilter {
     /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
     /* Properties of Unity-6.0.Unity.Filter */
@@ -990,7 +992,7 @@ export class CheckOptionFilter {
 }
 export interface CheckOptionFilterCompact_ConstructProps extends OptionsFilter_ConstructProps {
 }
-export class CheckOptionFilterCompact {
+class CheckOptionFilterCompact {
     /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
     /* Properties of Unity-6.0.Unity.Filter */
@@ -1069,7 +1071,7 @@ export class CheckOptionFilterCompact {
 export interface RatingsFilter_ConstructProps extends Filter_ConstructProps {
     rating?: number
 }
-export class RatingsFilter {
+class RatingsFilter {
     /* Properties of Unity-6.0.Unity.RatingsFilter */
     rating: number
     /* Properties of Unity-6.0.Unity.Filter */
@@ -1140,7 +1142,7 @@ export class RatingsFilter {
 }
 export interface MultiRangeFilter_ConstructProps extends OptionsFilter_ConstructProps {
 }
-export class MultiRangeFilter {
+class MultiRangeFilter {
     /* Properties of Unity-6.0.Unity.OptionsFilter */
     sort_type: OptionsFilterSortType
     /* Properties of Unity-6.0.Unity.Filter */
@@ -1222,7 +1224,7 @@ export class MultiRangeFilter {
 export interface PreferencesManager_ConstructProps extends GObject.Object_ConstructProps {
     remote_content_search?: PreferencesManagerRemoteContent
 }
-export class PreferencesManager {
+class PreferencesManager {
     /* Properties of Unity-6.0.Unity.PreferencesManager */
     remote_content_search: PreferencesManagerRemoteContent
     /* Fields of Unity-6.0.Unity.PreferencesManager */
@@ -1282,7 +1284,7 @@ export interface LensSearch_ConstructProps extends GObject.InitiallyUnowned_Cons
     hints?: GLib.HashTable
     results_model?: Dee.SerializableModel
 }
-export class LensSearch {
+class LensSearch {
     /* Fields of Unity-6.0.Unity.LensSearch */
     parent_instance: GObject.InitiallyUnowned
     priv: LensSearchPrivate
@@ -1357,7 +1359,7 @@ export interface Lens_ConstructProps extends GObject.Object_ConstructProps {
     global_merge_strategy?: MergeStrategy
     sources_display_name?: string
 }
-export class Lens {
+class Lens {
     /* Properties of Unity-6.0.Unity.Lens */
     active: boolean
     visible: boolean
@@ -1455,7 +1457,7 @@ export interface Preview_ConstructProps extends GObject.Object_ConstructProps {
     image_source_uri?: string
     image?: Gio.Icon
 }
-export class Preview {
+class Preview {
     /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
@@ -1542,7 +1544,7 @@ export interface PreviewAction_ConstructProps extends GObject.Object_ConstructPr
     icon_hint?: Gio.Icon
     layout_hint?: LayoutHint
 }
-export class PreviewAction {
+class PreviewAction {
     /* Properties of Unity-6.0.Unity.PreviewAction */
     extra_text: string
     readonly hints: GLib.HashTable
@@ -1618,7 +1620,7 @@ export interface InfoHint_ConstructProps extends GObject.InitiallyUnowned_Constr
     icon_hint?: Gio.Icon
     data?: GLib.Variant
 }
-export class InfoHint {
+class InfoHint {
     /* Fields of Unity-6.0.Unity.InfoHint */
     parent_instance: GObject.InitiallyUnowned
     priv: InfoHintPrivate
@@ -1672,7 +1674,7 @@ export class InfoHint {
 }
 export interface GenericPreview_ConstructProps extends Preview_ConstructProps {
 }
-export class GenericPreview {
+class GenericPreview {
     /* Properties of Unity-6.0.Unity.Preview */
     title: string
     subtitle: string
@@ -1754,7 +1756,7 @@ export interface ApplicationPreview_ConstructProps extends Preview_ConstructProp
     copyright?: string
     last_update?: string
 }
-export class ApplicationPreview {
+class ApplicationPreview {
     /* Properties of Unity-6.0.Unity.ApplicationPreview */
     app_icon: Gio.Icon
     license: string
@@ -1850,7 +1852,7 @@ export interface MusicPreview_ConstructProps extends Preview_ConstructProps {
     current_progress?: number
     current_track_state?: MusicPreviewTrackState
 }
-export class MusicPreview {
+class MusicPreview {
     /* Properties of Unity-6.0.Unity.MusicPreview */
     current_track_uri: string
     current_progress: number
@@ -1948,7 +1950,7 @@ export class MusicPreview {
 export interface MoviePreview_ConstructProps extends Preview_ConstructProps {
     year?: string
 }
-export class MoviePreview {
+class MoviePreview {
     /* Properties of Unity-6.0.Unity.MoviePreview */
     year: string
     /* Properties of Unity-6.0.Unity.Preview */
@@ -2035,7 +2037,7 @@ export interface SocialPreview_ConstructProps extends Preview_ConstructProps {
     content?: string
     sender?: string
 }
-export class SocialPreview {
+class SocialPreview {
     /* Properties of Unity-6.0.Unity.SocialPreview */
     avatar: Gio.Icon
     content: string
@@ -2129,7 +2131,7 @@ export interface SocialPreviewComment_ConstructProps extends GObject.InitiallyUn
     text?: string
     time?: string
 }
-export class SocialPreviewComment {
+class SocialPreviewComment {
     /* Fields of Unity-6.0.Unity.SocialPreviewComment */
     parent_instance: GObject.InitiallyUnowned
     priv: CommentPrivate
@@ -2183,7 +2185,7 @@ export class SocialPreviewComment {
 export interface AsyncPreview_ConstructProps extends Preview_ConstructProps {
     cancellable?: Gio.Cancellable
 }
-export class AsyncPreview {
+class AsyncPreview {
     /* Properties of Unity-6.0.Unity.AsyncPreview */
     cancellable: Gio.Cancellable
     /* Properties of Unity-6.0.Unity.Preview */
@@ -2278,7 +2280,7 @@ export interface Scope_ConstructProps extends GObject.Object_ConstructProps {
     dbus_path?: string
     sources?: OptionsFilter
 }
-export class Scope {
+class Scope {
     /* Properties of Unity-6.0.Unity.Scope */
     active: boolean
     exported: boolean
@@ -2388,7 +2390,7 @@ export interface TrackMetadata_ConstructProps extends GObject.Object_ConstructPr
     art_location?: Gio.File
     art_icon?: Gio.Icon
 }
-export class TrackMetadata {
+class TrackMetadata {
     /* Properties of Unity-6.0.Unity.TrackMetadata */
     uri: string
     track_no: number
@@ -2473,7 +2475,7 @@ export interface Playlist_ConstructProps extends GObject.Object_ConstructProps {
     modification_date?: GLib.DateTime
     last_play_date?: GLib.DateTime
 }
-export class Playlist {
+class Playlist {
     /* Properties of Unity-6.0.Unity.Playlist */
     name: string
     icon: Gio.Icon
@@ -2555,7 +2557,7 @@ export interface MusicPlayer_ConstructProps extends GObject.Object_ConstructProp
     track_menu?: Dbusmenu.Menuitem
     player_menu?: Dbusmenu.Menuitem
 }
-export class MusicPlayer {
+class MusicPlayer {
     /* Properties of Unity-6.0.Unity.MusicPlayer */
     is_blacklisted: boolean
     title: string
@@ -2663,153 +2665,153 @@ export class MusicPlayer {
     static new(desktop: string): MusicPlayer
     static $gtype: GObject.Type
 }
-export abstract class AppInfoManagerClass {
+abstract class AppInfoManagerClass {
     /* Fields of Unity-6.0.Unity.AppInfoManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AppInfoManagerPrivate {
+class AppInfoManagerPrivate {
     static name: string
 }
-export abstract class AnnotatedIconClass {
+abstract class AnnotatedIconClass {
     /* Fields of Unity-6.0.Unity.AnnotatedIconClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AnnotatedIconPrivate {
+class AnnotatedIconPrivate {
     static name: string
 }
-export abstract class InspectorClass {
+abstract class InspectorClass {
     /* Fields of Unity-6.0.Unity.InspectorClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class InspectorPrivate {
+class InspectorPrivate {
     static name: string
 }
-export abstract class LauncherEntryClass {
+abstract class LauncherEntryClass {
     /* Fields of Unity-6.0.Unity.LauncherEntryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class LauncherEntryPrivate {
+class LauncherEntryPrivate {
     static name: string
 }
-export abstract class LauncherFavoritesClass {
+abstract class LauncherFavoritesClass {
     /* Fields of Unity-6.0.Unity.LauncherFavoritesClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class LauncherFavoritesPrivate {
+class LauncherFavoritesPrivate {
     static name: string
 }
-export abstract class ActivationResponseClass {
+abstract class ActivationResponseClass {
     /* Fields of Unity-6.0.Unity.ActivationResponseClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class ActivationResponsePrivate {
+class ActivationResponsePrivate {
     static name: string
 }
-export abstract class CategoryClass {
+abstract class CategoryClass {
     /* Fields of Unity-6.0.Unity.CategoryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class CategoryPrivate {
+class CategoryPrivate {
     static name: string
 }
-export abstract class FilterClass {
+abstract class FilterClass {
     /* Fields of Unity-6.0.Unity.FilterClass */
     parent_class: GObject.ObjectClass
     get_hints: (self: Filter) => GLib.HashTable
     update: (self: Filter, properties: GLib.Variant) => void
     static name: string
 }
-export class FilterPrivate {
+class FilterPrivate {
     static name: string
 }
-export abstract class FilterOptionClass {
+abstract class FilterOptionClass {
     /* Fields of Unity-6.0.Unity.FilterOptionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class FilterOptionPrivate {
+class FilterOptionPrivate {
     static name: string
 }
-export abstract class OptionsFilterClass {
+abstract class OptionsFilterClass {
     /* Fields of Unity-6.0.Unity.OptionsFilterClass */
     parent_class: FilterClass
     static name: string
 }
-export class OptionsFilterPrivate {
+class OptionsFilterPrivate {
     static name: string
 }
-export abstract class RadioOptionFilterClass {
+abstract class RadioOptionFilterClass {
     /* Fields of Unity-6.0.Unity.RadioOptionFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
-export class RadioOptionFilterPrivate {
+class RadioOptionFilterPrivate {
     static name: string
 }
-export abstract class CheckOptionFilterClass {
+abstract class CheckOptionFilterClass {
     /* Fields of Unity-6.0.Unity.CheckOptionFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
-export class CheckOptionFilterPrivate {
+class CheckOptionFilterPrivate {
     static name: string
 }
-export abstract class CheckOptionFilterCompactClass {
+abstract class CheckOptionFilterCompactClass {
     /* Fields of Unity-6.0.Unity.CheckOptionFilterCompactClass */
     parent_class: OptionsFilterClass
     static name: string
 }
-export class CheckOptionFilterCompactPrivate {
+class CheckOptionFilterCompactPrivate {
     static name: string
 }
-export abstract class RatingsFilterClass {
+abstract class RatingsFilterClass {
     /* Fields of Unity-6.0.Unity.RatingsFilterClass */
     parent_class: FilterClass
     static name: string
 }
-export class RatingsFilterPrivate {
+class RatingsFilterPrivate {
     static name: string
 }
-export abstract class MultiRangeFilterClass {
+abstract class MultiRangeFilterClass {
     /* Fields of Unity-6.0.Unity.MultiRangeFilterClass */
     parent_class: OptionsFilterClass
     static name: string
 }
-export class MultiRangeFilterPrivate {
+class MultiRangeFilterPrivate {
     static name: string
 }
-export abstract class PreferencesManagerClass {
+abstract class PreferencesManagerClass {
     /* Fields of Unity-6.0.Unity.PreferencesManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class PreferencesManagerPrivate {
+class PreferencesManagerPrivate {
     static name: string
 }
-export abstract class LensSearchClass {
+abstract class LensSearchClass {
     /* Fields of Unity-6.0.Unity.LensSearchClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class LensSearchPrivate {
+class LensSearchPrivate {
     static name: string
 }
-export abstract class LensClass {
+abstract class LensClass {
     /* Fields of Unity-6.0.Unity.LensClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class LensPrivate {
+class LensPrivate {
     static name: string
 }
-export abstract class PreviewClass {
+abstract class PreviewClass {
     /* Fields of Unity-6.0.Unity.PreviewClass */
     parent_class: GObject.ObjectClass
     create_raw: (self: Preview) => GObject.Object
@@ -2821,10 +2823,10 @@ export abstract class PreviewClass {
     dummy4: (self: Preview) => void
     static name: string
 }
-export class PreviewPrivate {
+class PreviewPrivate {
     static name: string
 }
-export abstract class PreviewActionClass {
+abstract class PreviewActionClass {
     /* Fields of Unity-6.0.Unity.PreviewActionClass */
     parent_class: GObject.ObjectClass
     dummy1: (self: PreviewAction) => void
@@ -2833,121 +2835,123 @@ export abstract class PreviewActionClass {
     dummy4: (self: PreviewAction) => void
     static name: string
 }
-export class PreviewActionPrivate {
+class PreviewActionPrivate {
     static name: string
 }
-export abstract class InfoHintClass {
+abstract class InfoHintClass {
     /* Fields of Unity-6.0.Unity.InfoHintClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class InfoHintPrivate {
+class InfoHintPrivate {
     static name: string
 }
-export abstract class GenericPreviewClass {
+abstract class GenericPreviewClass {
     /* Fields of Unity-6.0.Unity.GenericPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class GenericPreviewPrivate {
+class GenericPreviewPrivate {
     static name: string
 }
-export abstract class ApplicationPreviewClass {
+abstract class ApplicationPreviewClass {
     /* Fields of Unity-6.0.Unity.ApplicationPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class ApplicationPreviewPrivate {
+class ApplicationPreviewPrivate {
     static name: string
 }
-export abstract class MusicPreviewClass {
+abstract class MusicPreviewClass {
     /* Fields of Unity-6.0.Unity.MusicPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class MusicPreviewPrivate {
+class MusicPreviewPrivate {
     static name: string
 }
-export abstract class MoviePreviewClass {
+abstract class MoviePreviewClass {
     /* Fields of Unity-6.0.Unity.MoviePreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class MoviePreviewPrivate {
+class MoviePreviewPrivate {
     static name: string
 }
-export abstract class SocialPreviewClass {
+abstract class SocialPreviewClass {
     /* Fields of Unity-6.0.Unity.SocialPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class SocialPreviewPrivate {
+class SocialPreviewPrivate {
     static name: string
 }
-export abstract class CommentClass {
+abstract class CommentClass {
     /* Fields of Unity-6.0.Unity.CommentClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export class CommentPrivate {
+class CommentPrivate {
     static name: string
 }
-export abstract class AsyncPreviewClass {
+abstract class AsyncPreviewClass {
     /* Fields of Unity-6.0.Unity.AsyncPreviewClass */
     parent_class: PreviewClass
     static name: string
 }
-export class AsyncPreviewPrivate {
+class AsyncPreviewPrivate {
     static name: string
 }
-export abstract class ScopeClass {
+abstract class ScopeClass {
     /* Fields of Unity-6.0.Unity.ScopeClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ScopePrivate {
+class ScopePrivate {
     static name: string
 }
-export abstract class TrackMetadataClass {
+abstract class TrackMetadataClass {
     /* Fields of Unity-6.0.Unity.TrackMetadataClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class TrackMetadataPrivate {
+class TrackMetadataPrivate {
     static name: string
 }
-export abstract class PlaylistClass {
+abstract class PlaylistClass {
     /* Fields of Unity-6.0.Unity.PlaylistClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class PlaylistPrivate {
+class PlaylistPrivate {
     static name: string
 }
-export abstract class MusicPlayerClass {
+abstract class MusicPlayerClass {
     /* Fields of Unity-6.0.Unity.MusicPlayerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MusicPlayerPrivate {
+class MusicPlayerPrivate {
     static name: string
 }
-export abstract class MergeStrategyIface {
+abstract class MergeStrategyIface {
     /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parent_iface: GObject.TypeInterface
     merge_result: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
     static name: string
 }
-export class PlaylistDetails {
+class PlaylistDetails {
     /* Fields of Unity-6.0.Unity.PlaylistDetails */
     id: string
     name: string
     icon_name: string
     static name: string
 }
-export class ActivePlaylistContainer {
+class ActivePlaylistContainer {
     /* Fields of Unity-6.0.Unity.ActivePlaylistContainer */
     valid: boolean
     details: PlaylistDetails
     static name: string
 }
+}
+export default Unity

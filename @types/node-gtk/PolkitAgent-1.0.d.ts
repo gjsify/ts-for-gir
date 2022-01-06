@@ -8,16 +8,16 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace PolkitAgent {
+declare namespace PolkitAgent {
 
-export enum RegisterFlags {
+enum RegisterFlags {
     NONE,
     RUN_IN_THREAD,
 }
-export function registerListener(listener: Listener, subject: Polkit.Subject, objectPath: string): boolean
+function registerListener(listener: Listener, subject: Polkit.Subject, objectPath: string): boolean
 export interface Listener_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Listener {
+class Listener {
     /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -73,7 +73,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     cookie?: string
     identity?: Polkit.Identity
 }
-export class Session {
+class Session {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of PolkitAgent-1.0.PolkitAgent.Session */
@@ -145,7 +145,7 @@ export class Session {
 }
 export interface TextListener_ConstructProps extends Listener_ConstructProps {
 }
-export class TextListener {
+class TextListener {
     /* Fields of PolkitAgent-1.0.PolkitAgent.Listener */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -200,14 +200,15 @@ export class TextListener {
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class ListenerClass {
+abstract class ListenerClass {
     /* Fields of PolkitAgent-1.0.PolkitAgent.ListenerClass */
     parentClass: GObject.ObjectClass
     initiateAuthentication: (listener: Listener, actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     initiateAuthenticationFinish: (listener: Listener, res: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     static name: string
 }
 }
+export default PolkitAgent

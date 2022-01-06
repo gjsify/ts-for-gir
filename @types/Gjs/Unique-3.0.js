@@ -1,2 +1,1 @@
-imports.gi.versions.Unique = '3.0'
-module.exports = imports.gi.Unique
+export {default as default} from 'gi://Unique?version=3.0';

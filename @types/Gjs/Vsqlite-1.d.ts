@@ -3,23 +3,25 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Vda from './Vda-1';
-import type * as GCalc from './GCalc-2';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gee from './Gee-0.8';
-import type * as Json from './Json-1.0';
-import type * as GXml from './GXml-0.20';
-import type * as libxml2 from './libxml2-2.0';
+import type Vda from './Vda-1';
+import type GCalc from './GCalc-2';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gee from './Gee-0.8';
+import type Json from './Json-1.0';
+import type GXml from './GXml-0.20';
+import type libxml2 from './libxml2-2.0';
 
-export enum ConnectionError {
+export namespace Vsqlite {
+
+enum ConnectionError {
     INVALID_FILE_ERROR,
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
     parameters?: Vda.ConnectionParameters
 }
-export class Connection {
+class Connection {
     /* Properties of Vda-1.Vda.Connection */
     readonly status: Vda.ConnectionStatus
     parameters: Vda.ConnectionParameters
@@ -137,9 +139,11 @@ export class Connection {
     static new(): Connection
     static $gtype: GObject.Type
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
+}
+export default Vsqlite

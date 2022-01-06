@@ -14,11 +14,11 @@ import type { GXml } from './GXml-0.20';
 import type { libxml2 } from './libxml2-2.0';
 import type { Vgda } from './Vgda-1';
 
-export declare namespace Vgpg {
+declare namespace Vgpg {
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }
-export class Connection {
+class Connection {
     /* Fields of Vgda-1.Vgda.GProvider */
     provider: string
     cncString: string
@@ -68,10 +68,11 @@ export class Connection {
     static new(): Connection
     static $gtype: GObject.Type
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
 }
+export default Vgpg

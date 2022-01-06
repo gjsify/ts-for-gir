@@ -10,12 +10,12 @@ import type { GLib } from './GLib-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Rsvg {
+declare namespace Rsvg {
 
-export enum Error {
+enum Error {
     FAILED,
 }
-export enum Unit {
+enum Unit {
     PERCENT,
     PX,
     EM,
@@ -26,7 +26,7 @@ export enum Unit {
     PT,
     PC,
 }
-export enum HandleFlags {
+enum HandleFlags {
     FLAGS_NONE,
     FLAG_UNLIMITED,
     FLAG_KEEP_IMAGE_DATA,
@@ -35,17 +35,17 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION: string
-export function cleanup(): void
-export function errorQuark(): GLib.Quark
-export function setDefaultDpi(dpi: number): void
-export function setDefaultDpiXY(dpiX: number, dpiY: number): void
+function cleanup(): void
+function errorQuark(): GLib.Quark
+function setDefaultDpi(dpi: number): void
+function setDefaultDpiXY(dpiX: number, dpiY: number): void
 export interface Handle_ConstructProps extends GObject.Object_ConstructProps {
     baseUri?: string
     dpiX?: number
     dpiY?: number
     flags?: HandleFlags
 }
-export class Handle {
+class Handle {
     /* Properties of Rsvg-2.0.Rsvg.Handle */
     baseUri: string
     readonly desc: string
@@ -184,7 +184,7 @@ export class Handle {
     static newWithFlags(flags: HandleFlags): Handle
     static $gtype: GObject.Type
 }
-export class DimensionData {
+class DimensionData {
     /* Fields of Rsvg-2.0.Rsvg.DimensionData */
     width: number
     height: number
@@ -192,24 +192,24 @@ export class DimensionData {
     ex: number
     static name: string
 }
-export abstract class HandleClass {
+abstract class HandleClass {
     /* Fields of Rsvg-2.0.Rsvg.HandleClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class Length {
+class Length {
     /* Fields of Rsvg-2.0.Rsvg.Length */
     length: number
     unit: Unit
     static name: string
 }
-export class PositionData {
+class PositionData {
     /* Fields of Rsvg-2.0.Rsvg.PositionData */
     x: number
     y: number
     static name: string
 }
-export class Rectangle {
+class Rectangle {
     /* Fields of Rsvg-2.0.Rsvg.Rectangle */
     x: number
     y: number
@@ -218,3 +218,4 @@ export class Rectangle {
     static name: string
 }
 }
+export default Rsvg

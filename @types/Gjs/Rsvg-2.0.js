@@ -1,2 +1,1 @@
-imports.gi.versions.Rsvg = '2.0'
-module.exports = imports.gi.Rsvg
+export {default as default} from 'gi://Rsvg?version=2.0';

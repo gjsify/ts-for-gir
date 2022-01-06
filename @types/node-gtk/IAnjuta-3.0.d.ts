@@ -18,9 +18,9 @@ import type { Atk } from './Atk-1.0';
 import type { Anjuta } from './Anjuta-3.0';
 import type { Gdl } from './Gdl-3';
 
-export declare namespace IAnjuta {
+declare namespace IAnjuta {
 
-export enum BuildableCommand {
+enum BuildableCommand {
     COMMAND_COMPILE,
     COMMAND_BUILD,
     COMMAND_BUILD_TARBALL,
@@ -35,7 +35,7 @@ export enum BuildableCommand {
     COMMAND_CHECK,
     N_COMMANDS,
 }
-export enum BuilderError {
+enum BuilderError {
     SUCCEED,
     FAILED,
     CANCELED,
@@ -46,14 +46,14 @@ export enum BuilderError {
     UNKNOWN_ERROR,
     OTHER_ERROR,
 }
-export enum DebuggerBreakpointMethod {
+enum DebuggerBreakpointMethod {
     SET_AT_ADDRESS,
     SET_AT_FUNCTION,
     ENABLE,
     IGNORE,
     CONDITION,
 }
-export enum DebuggerBreakpointType {
+enum DebuggerBreakpointType {
     REMOVED,
     UPDATED,
     ON_LINE,
@@ -68,7 +68,7 @@ export enum DebuggerBreakpointType {
     WITH_TEMPORARY,
     WITH_PENDING,
 }
-export enum DebuggerError {
+enum DebuggerError {
     OK,
     NOT_READY,
     NOT_RUNNING,
@@ -90,13 +90,13 @@ export enum DebuggerError {
     UNKNOWN_ERROR,
     OTHER_ERROR,
 }
-export enum DebuggerOutputType {
+enum DebuggerOutputType {
     OUTPUT,
     WARNING_OUTPUT,
     ERROR_OUTPUT,
     INFO_OUTPUT,
 }
-export enum DebuggerState {
+enum DebuggerState {
     BUSY,
     STOPPED,
     STARTED,
@@ -104,37 +104,37 @@ export enum DebuggerState {
     PROGRAM_STOPPED,
     PROGRAM_RUNNING,
 }
-export enum DocumentManagerError {
+enum DocumentManagerError {
     DOESNT_EXIST,
 }
-export enum EditorAttribute {
+enum EditorAttribute {
     TEXT,
     KEYWORD,
     COMMENT,
     STRING,
 }
-export enum EditorError {
+enum EditorError {
     DOESNT_EXIST,
 }
-export enum EditorLineModeType {
+enum EditorLineModeType {
     LF,
     CR,
     CRLF,
 }
-export enum EnvironmentError {
+enum EnvironmentError {
     CONFIG,
     OTHER_ERROR,
 }
-export enum IndicableIndicator {
+enum IndicableIndicator {
     NONE,
     IMPORTANT,
     WARNING,
     CRITICAL,
 }
-export enum MarkableError {
+enum MarkableError {
     INVALID_LOCATION,
 }
-export enum MarkableMarker {
+enum MarkableMarker {
     LINEMARKER,
     BOOKMARK,
     MESSAGE,
@@ -142,16 +142,16 @@ export enum MarkableMarker {
     BREAKPOINT_ENABLED,
     PROGRAM_COUNTER,
 }
-export enum MessageManagerError {
+enum MessageManagerError {
     DOESNT_EXIST,
 }
-export enum MessageViewType {
+enum MessageViewType {
     TYPE_NORMAL,
     TYPE_INFO,
     TYPE_WARNING,
     TYPE_ERROR,
 }
-export enum PluginFactoryError {
+enum PluginFactoryError {
     OK,
     MISSING_LOCATION,
     MISSING_TYPE,
@@ -161,7 +161,7 @@ export enum PluginFactoryError {
     INVALID_TYPE,
     UNKNOWN_ERROR,
 }
-export enum ProjectError {
+enum ProjectError {
     ERROR_SUCCESS,
     ERROR_DOESNT_EXIST,
     ERROR_ALREADY_EXISTS,
@@ -171,12 +171,12 @@ export enum ProjectError {
     ERROR_NOT_SUPPORTED,
     ERROR_GENERAL_FAILURE,
 }
-export enum ProjectProbe {
+enum ProjectProbe {
     PROBE_FILES,
     PROBE_MAKE_FILES,
     PROBE_PROJECT_FILES,
 }
-export enum SymbolField {
+enum SymbolField {
     FIELD_ID,
     FIELD_NAME,
     FIELD_FILE_POS,
@@ -195,21 +195,21 @@ export enum SymbolField {
     FIELD_IS_CONTAINER,
     FIELD_END,
 }
-export enum SymbolQueryDb {
+enum SymbolQueryDb {
     DB_PROJECT,
     DB_SYSTEM,
 }
-export enum SymbolQueryFileScope {
+enum SymbolQueryFileScope {
     SEARCH_FS_IGNORE,
     SEARCH_FS_PUBLIC,
     SEARCH_FS_PRIVATE,
 }
-export enum SymbolQueryMode {
+enum SymbolQueryMode {
     MODE_SYNC,
     MODE_ASYNC,
     MODE_QUEUED,
 }
-export enum SymbolQueryName {
+enum SymbolQueryName {
     SEARCH,
     SEARCH_ALL,
     SEARCH_FILE,
@@ -221,7 +221,7 @@ export enum SymbolQueryName {
     SEARCH_PARENT_SCOPE,
     SEARCH_PARENT_SCOPE_FILE,
 }
-export enum SymbolType {
+enum SymbolType {
     TYPE_NONE,
     TYPE_UNDEF,
     TYPE_CLASS,
@@ -247,7 +247,7 @@ export enum SymbolType {
     TYPE_SCOPE_CONTAINER,
     TYPE_MAX,
 }
-export enum VcsError {
+enum VcsError {
     UNKOWN_ERROR,
 }
 export const BUILDER_CONFIGURATION_DEBUG: string
@@ -268,102 +268,102 @@ export const LANGUAGE_PROVIDER_PREF_CALLTIP_ENABLE: string
 export const PROJECT_MANAGER_CURRENT_PROJECT: string
 export const PROJECT_MANAGER_CURRENT_URI: string
 export const PROJECT_MANAGER_PROJECT_ROOT_URI: string
-export function buildableErrorQuark(): GLib.Quark
-export function builderErrorQuark(): GLib.Quark
-export function debugManagerErrorQuark(): GLib.Quark
-export function debuggerBreakpointErrorQuark(): GLib.Quark
-export function debuggerErrorQuark(): GLib.Quark
-export function debuggerInstructionErrorQuark(): GLib.Quark
-export function debuggerMemoryErrorQuark(): GLib.Quark
-export function debuggerRegisterErrorQuark(): GLib.Quark
-export function debuggerVariableErrorQuark(): GLib.Quark
-export function documentErrorQuark(): GLib.Quark
-export function documentManagerErrorQuark(): GLib.Quark
-export function editorAssistErrorQuark(): GLib.Quark
-export function editorCellErrorQuark(): GLib.Quark
-export function editorCellStyleErrorQuark(): GLib.Quark
-export function editorCommentErrorQuark(): GLib.Quark
-export function editorConvertErrorQuark(): GLib.Quark
-export function editorErrorQuark(): GLib.Quark
-export function editorFactoryErrorQuark(): GLib.Quark
-export function editorFoldsErrorQuark(): GLib.Quark
-export function editorGladeSignalErrorQuark(): GLib.Quark
-export function editorGotoErrorQuark(): GLib.Quark
-export function editorHoverErrorQuark(): GLib.Quark
-export function editorLanguageErrorQuark(): GLib.Quark
-export function editorLineModeErrorQuark(): GLib.Quark
-export function editorSearchErrorQuark(): GLib.Quark
-export function editorSelectionErrorQuark(): GLib.Quark
-export function editorTipErrorQuark(): GLib.Quark
-export function editorViewErrorQuark(): GLib.Quark
-export function editorZoomErrorQuark(): GLib.Quark
-export function environmentErrorQuark(): GLib.Quark
-export function fileErrorQuark(): GLib.Quark
-export function fileLoaderErrorQuark(): GLib.Quark
-export function fileManagerErrorQuark(): GLib.Quark
-export function fileSavableErrorQuark(): GLib.Quark
-export function gladeErrorQuark(): GLib.Quark
-export function helpErrorQuark(): GLib.Quark
-export function indenterErrorQuark(): GLib.Quark
-export function indicableErrorQuark(): GLib.Quark
-export function iterableErrorQuark(): GLib.Quark
-export function iterableTreeErrorQuark(): GLib.Quark
-export function languageErrorQuark(): GLib.Quark
-export function languageProviderErrorQuark(): GLib.Quark
-export function loaderErrorQuark(): GLib.Quark
-export function markableErrorQuark(): GLib.Quark
-export function messageManagerErrorQuark(): GLib.Quark
-export function messageViewErrorQuark(): GLib.Quark
-export function pluginFactoryErrorQuark(): GLib.Quark
-export function preferencesErrorQuark(): GLib.Quark
-export function printErrorQuark(): GLib.Quark
-export function projectBackendErrorQuark(): GLib.Quark
-export function projectChooserErrorQuark(): GLib.Quark
-export function projectErrorQuark(): GLib.Quark
-export function projectManagerErrorQuark(): GLib.Quark
-export function providerErrorQuark(): GLib.Quark
-export function snippetsManagerErrorQuark(): GLib.Quark
-export function streamErrorQuark(): GLib.Quark
-export function streamLoaderErrorQuark(): GLib.Quark
-export function streamSavableErrorQuark(): GLib.Quark
-export function symbolErrorQuark(): GLib.Quark
-export function symbolManagerErrorQuark(): GLib.Quark
-export function symbolQueryErrorQuark(): GLib.Quark
-export function terminalErrorQuark(): GLib.Quark
-export function todoErrorQuark(): GLib.Quark
-export function vcsErrorQuark(): GLib.Quark
-export function wizardErrorQuark(): GLib.Quark
-export interface BuilderCallback {
+function buildableErrorQuark(): GLib.Quark
+function builderErrorQuark(): GLib.Quark
+function debugManagerErrorQuark(): GLib.Quark
+function debuggerBreakpointErrorQuark(): GLib.Quark
+function debuggerErrorQuark(): GLib.Quark
+function debuggerInstructionErrorQuark(): GLib.Quark
+function debuggerMemoryErrorQuark(): GLib.Quark
+function debuggerRegisterErrorQuark(): GLib.Quark
+function debuggerVariableErrorQuark(): GLib.Quark
+function documentErrorQuark(): GLib.Quark
+function documentManagerErrorQuark(): GLib.Quark
+function editorAssistErrorQuark(): GLib.Quark
+function editorCellErrorQuark(): GLib.Quark
+function editorCellStyleErrorQuark(): GLib.Quark
+function editorCommentErrorQuark(): GLib.Quark
+function editorConvertErrorQuark(): GLib.Quark
+function editorErrorQuark(): GLib.Quark
+function editorFactoryErrorQuark(): GLib.Quark
+function editorFoldsErrorQuark(): GLib.Quark
+function editorGladeSignalErrorQuark(): GLib.Quark
+function editorGotoErrorQuark(): GLib.Quark
+function editorHoverErrorQuark(): GLib.Quark
+function editorLanguageErrorQuark(): GLib.Quark
+function editorLineModeErrorQuark(): GLib.Quark
+function editorSearchErrorQuark(): GLib.Quark
+function editorSelectionErrorQuark(): GLib.Quark
+function editorTipErrorQuark(): GLib.Quark
+function editorViewErrorQuark(): GLib.Quark
+function editorZoomErrorQuark(): GLib.Quark
+function environmentErrorQuark(): GLib.Quark
+function fileErrorQuark(): GLib.Quark
+function fileLoaderErrorQuark(): GLib.Quark
+function fileManagerErrorQuark(): GLib.Quark
+function fileSavableErrorQuark(): GLib.Quark
+function gladeErrorQuark(): GLib.Quark
+function helpErrorQuark(): GLib.Quark
+function indenterErrorQuark(): GLib.Quark
+function indicableErrorQuark(): GLib.Quark
+function iterableErrorQuark(): GLib.Quark
+function iterableTreeErrorQuark(): GLib.Quark
+function languageErrorQuark(): GLib.Quark
+function languageProviderErrorQuark(): GLib.Quark
+function loaderErrorQuark(): GLib.Quark
+function markableErrorQuark(): GLib.Quark
+function messageManagerErrorQuark(): GLib.Quark
+function messageViewErrorQuark(): GLib.Quark
+function pluginFactoryErrorQuark(): GLib.Quark
+function preferencesErrorQuark(): GLib.Quark
+function printErrorQuark(): GLib.Quark
+function projectBackendErrorQuark(): GLib.Quark
+function projectChooserErrorQuark(): GLib.Quark
+function projectErrorQuark(): GLib.Quark
+function projectManagerErrorQuark(): GLib.Quark
+function providerErrorQuark(): GLib.Quark
+function snippetsManagerErrorQuark(): GLib.Quark
+function streamErrorQuark(): GLib.Quark
+function streamLoaderErrorQuark(): GLib.Quark
+function streamSavableErrorQuark(): GLib.Quark
+function symbolErrorQuark(): GLib.Quark
+function symbolManagerErrorQuark(): GLib.Quark
+function symbolQueryErrorQuark(): GLib.Quark
+function terminalErrorQuark(): GLib.Quark
+function todoErrorQuark(): GLib.Quark
+function vcsErrorQuark(): GLib.Quark
+function wizardErrorQuark(): GLib.Quark
+interface BuilderCallback {
     (sender: GObject.Object, command: BuilderHandle, err: GLib.Error): void
 }
-export interface DebuggerBreakpointCallback {
+interface DebuggerBreakpointCallback {
     (data: DebuggerBreakpointItem, err: GLib.Error): void
 }
-export interface DebuggerCallback {
+interface DebuggerCallback {
     (data: object | null, err: GLib.Error): void
 }
-export interface DebuggerGCharCallback {
+interface DebuggerGCharCallback {
     (value: string, err: GLib.Error): void
 }
-export interface DebuggerInstructionCallback {
+interface DebuggerInstructionCallback {
     (data: DebuggerInstructionDisassembly, err: GLib.Error): void
 }
-export interface DebuggerMemoryCallback {
+interface DebuggerMemoryCallback {
     (data: DebuggerMemoryBlock, err: GLib.Error): void
 }
-export interface DebuggerOutputCallback {
+interface DebuggerOutputCallback {
     (type: DebuggerOutputType, output: string): void
 }
-export interface DebuggerVariableCallback {
+interface DebuggerVariableCallback {
     (data: DebuggerVariableObject, err: GLib.Error): void
 }
-export interface VcsDiffCallback {
+interface VcsDiffCallback {
     (file: Gio.File, diff: string): void
 }
-export interface VcsStatusCallback {
+interface VcsStatusCallback {
     (file: Gio.File, status: Anjuta.VcsStatus): void
 }
-export class Buildable {
+class Buildable {
     /* Methods of IAnjuta-3.0.IAnjuta.Buildable */
     build(uri: string): void
     clean(uri: string): void
@@ -378,14 +378,14 @@ export class Buildable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Builder {
+class Builder {
     /* Methods of IAnjuta-3.0.IAnjuta.Builder */
     cancel(handle: BuilderHandle): void
     getUriConfiguration(uri: string): string
     listConfiguration(): string[]
     static name: string
 }
-export class DebugManager {
+class DebugManager {
     /* Methods of IAnjuta-3.0.IAnjuta.DebugManager */
     quit(): boolean
     start(uri: string): boolean
@@ -465,7 +465,7 @@ export class DebugManager {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Debugger {
+class Debugger {
     /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
@@ -549,7 +549,7 @@ export class Debugger {
     emit(sigName: "signal-received", object: string, p0: string): void
     static name: string
 }
-export class DebuggerBreakpoint {
+class DebuggerBreakpoint {
     /* Methods of IAnjuta-3.0.IAnjuta.DebuggerBreakpoint */
     implementBreakpoint(): number
     /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
@@ -637,7 +637,7 @@ export class DebuggerBreakpoint {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DebuggerInstruction {
+class DebuggerInstruction {
     /* Methods of IAnjuta-3.0.IAnjuta.DebuggerInstruction */
     runFromAddress(address: number): boolean
     runToAddress(address: number): boolean
@@ -728,7 +728,7 @@ export class DebuggerInstruction {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DebuggerMemory {
+class DebuggerMemory {
     /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
     abort(): boolean
     attach(pid: number, sourceSearchDirectories: string[]): boolean
@@ -814,7 +814,7 @@ export class DebuggerMemory {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DebuggerRegister {
+class DebuggerRegister {
     /* Methods of IAnjuta-3.0.IAnjuta.DebuggerRegister */
     writeRegister(value: DebuggerRegisterData): boolean
     /* Methods of IAnjuta-3.0.IAnjuta.Debugger */
@@ -902,7 +902,7 @@ export class DebuggerRegister {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DebuggerVariable {
+class DebuggerVariable {
     /* Methods of IAnjuta-3.0.IAnjuta.DebuggerVariable */
     assign(name: string, value: string): boolean
     destroy(name: string): boolean
@@ -991,7 +991,7 @@ export class DebuggerVariable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Document {
+class Document {
     /* Methods of IAnjuta-3.0.IAnjuta.Document */
     beginUndoAction(): void
     canRedo(): boolean
@@ -1015,7 +1015,7 @@ export class Document {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class DocumentManager {
+class DocumentManager {
     /* Methods of IAnjuta-3.0.IAnjuta.DocumentManager */
     addBookmark(file: Gio.File, line: number): void
     addBuffer(name: string, content: string): Editor
@@ -1041,7 +1041,7 @@ export class DocumentManager {
     emit(sigName: "document-removed", doc: Document): void
     static name: string
 }
-export class Editor {
+class Editor {
     /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
@@ -1116,7 +1116,7 @@ export class Editor {
     emit(sigName: "line-marks-gutter-clicked", doubleClick: number): void
     static name: string
 }
-export class EditorAssist {
+class EditorAssist {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorAssist */
     add(provider: Provider): void
     invoke(provider: Provider): void
@@ -1204,7 +1204,7 @@ export class EditorAssist {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorCell {
+class EditorCell {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorCell */
     getAttribute(): EditorAttribute
     getChar(charIndex: number): number
@@ -1214,7 +1214,7 @@ export class EditorCell {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorCellStyle {
+class EditorCellStyle {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorCellStyle */
     getBackgroundColor(): string
     getColor(): string
@@ -1228,7 +1228,7 @@ export class EditorCellStyle {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorComment {
+class EditorComment {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorComment */
     block(): void
     box(): void
@@ -1309,7 +1309,7 @@ export class EditorComment {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorConvert {
+class EditorConvert {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorConvert */
     toLower(startPosition: Iterable, endPosition: Iterable): void
     toUpper(startPosition: Iterable, endPosition: Iterable): void
@@ -1389,12 +1389,12 @@ export class EditorConvert {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorFactory {
+class EditorFactory {
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorFolds {
+class EditorFolds {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorFolds */
     closeAll(): void
     openAll(): void
@@ -1475,7 +1475,7 @@ export class EditorFolds {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorGladeSignal {
+class EditorGladeSignal {
     /* Methods of IAnjuta-3.0.IAnjuta.Editor */
     append(text: string, length: number): void
     erase(positionStart: Iterable, positionEnd: Iterable): void
@@ -1563,7 +1563,7 @@ export class EditorGladeSignal {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorGoto {
+class EditorGoto {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorGoto */
     endBlock(): void
     matchingBrace(): void
@@ -1644,7 +1644,7 @@ export class EditorGoto {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorHover {
+class EditorHover {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorHover */
     display(position: Iterable, info: string): void
     /* Methods of IAnjuta-3.0.IAnjuta.Editor */
@@ -1734,7 +1734,7 @@ export class EditorHover {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorLanguage {
+class EditorLanguage {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorLanguage */
     getLanguage(): string
     getLanguageName(language: string): string
@@ -1822,7 +1822,7 @@ export class EditorLanguage {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorLineMode {
+class EditorLineMode {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorLineMode */
     convert(mode: EditorLineModeType): void
     fix(): void
@@ -1904,7 +1904,7 @@ export class EditorLineMode {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorSearch {
+class EditorSearch {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorSearch */
     backward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
     forward(search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell): { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
@@ -1984,7 +1984,7 @@ export class EditorSearch {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorSelection {
+class EditorSelection {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorSelection */
     get(): string
     hasSelection(): boolean
@@ -2069,7 +2069,7 @@ export class EditorSelection {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorTip {
+class EditorTip {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorTip */
     cancel(): void
     show(tips: string[], position: Iterable): void
@@ -2150,7 +2150,7 @@ export class EditorTip {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorView {
+class EditorView {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorView */
     create(): void
     getCount(): number
@@ -2231,7 +2231,7 @@ export class EditorView {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class EditorZoom {
+class EditorZoom {
     /* Methods of IAnjuta-3.0.IAnjuta.EditorZoom */
     in(): void
     out(): void
@@ -2311,13 +2311,13 @@ export class EditorZoom {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Environment {
+class Environment {
     /* Methods of IAnjuta-3.0.IAnjuta.Environment */
     getRealDirectory(dir: string): string
     override(dirp: string, argvp: string, envp: string): boolean
     static name: string
 }
-export class File {
+class File {
     /* Methods of IAnjuta-3.0.IAnjuta.File */
     getFile(): Gio.File
     open(file: Gio.File): void
@@ -2331,14 +2331,14 @@ export class File {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class FileLoader {
+class FileLoader {
     /* Methods of IAnjuta-3.0.IAnjuta.FileLoader */
     peekInterface(file: Gio.File): string
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class FileManager {
+class FileManager {
     /* Methods of IAnjuta-3.0.IAnjuta.FileManager */
     setRoot(rootUri: string): void
     setSelected(file: Gio.File): void
@@ -2352,7 +2352,7 @@ export class FileManager {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class FileSavable {
+class FileSavable {
     /* Methods of IAnjuta-3.0.IAnjuta.FileSavable */
     isConflict(): boolean
     isDirty(): boolean
@@ -2384,28 +2384,28 @@ export class FileSavable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Glade {
+class Glade {
     /* Methods of IAnjuta-3.0.IAnjuta.Glade */
     addAssociation(master: string, slave: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Help {
+class Help {
     /* Methods of IAnjuta-3.0.IAnjuta.Help */
     search(query: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Indenter {
+class Indenter {
     /* Methods of IAnjuta-3.0.IAnjuta.Indenter */
     indent(start: Iterable, end: Iterable): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Indicable {
+class Indicable {
     /* Methods of IAnjuta-3.0.IAnjuta.Indicable */
     clear(): void
     set(beginLocation: Iterable, endLocation: Iterable, indicator: IndicableIndicator): void
@@ -2413,7 +2413,7 @@ export class Indicable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Iterable {
+class Iterable {
     /* Methods of IAnjuta-3.0.IAnjuta.Iterable */
     assign(srcIter: Iterable): void
     clone(): Iterable
@@ -2430,7 +2430,7 @@ export class Iterable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class IterableTree {
+class IterableTree {
     /* Methods of IAnjuta-3.0.IAnjuta.IterableTree */
     children(): boolean
     hasChildren(): boolean
@@ -2451,7 +2451,7 @@ export class IterableTree {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Language {
+class Language {
     /* Methods of IAnjuta-3.0.IAnjuta.Language */
     getFromEditor(editor: EditorLanguage): LanguageId
     getFromMimeType(mimeType: string): LanguageId
@@ -2464,7 +2464,7 @@ export class Language {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class LanguageProvider {
+class LanguageProvider {
     /* Methods of IAnjuta-3.0.IAnjuta.LanguageProvider */
     getCalltipCache(callContext: string): string[]
     getCalltipContext(iter: Iterable): string
@@ -2479,12 +2479,12 @@ export class LanguageProvider {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Loader {
+class Loader {
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Markable {
+class Markable {
     /* Methods of IAnjuta-3.0.IAnjuta.Markable */
     deleteAllMarkers(marker: MarkableMarker): void
     isMarkerSet(location: number, marker: MarkableMarker): boolean
@@ -2499,7 +2499,7 @@ export class Markable {
     emit(sigName: "marker-clicked", doubleClick: boolean, location: number): void
     static name: string
 }
-export class MessageManager {
+class MessageManager {
     /* Methods of IAnjuta-3.0.IAnjuta.MessageManager */
     removeView(view: MessageView): void
     setCurrentView(view: MessageView): void
@@ -2508,7 +2508,7 @@ export class MessageManager {
     setViewTitle(view: MessageView, title: string): void
     static name: string
 }
-export class MessageView {
+class MessageView {
     /* Methods of IAnjuta-3.0.IAnjuta.MessageView */
     append(type: MessageViewType, summary: string, details: string): void
     bufferAppend(text: string): void
@@ -2531,10 +2531,10 @@ export class MessageView {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class PluginFactory {
+class PluginFactory {
     static name: string
 }
-export class Preferences {
+class Preferences {
     /* Methods of IAnjuta-3.0.IAnjuta.Preferences */
     merge(prefs: Anjuta.Preferences): void
     unmerge(prefs: Anjuta.Preferences): void
@@ -2542,7 +2542,7 @@ export class Preferences {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Print {
+class Print {
     /* Methods of IAnjuta-3.0.IAnjuta.Print */
     print(): void
     printPreview(): void
@@ -2550,7 +2550,7 @@ export class Print {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Project {
+class Project {
     /* Methods of IAnjuta-3.0.IAnjuta.Project */
     addNodeAfter(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
     addNodeBefore(parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null): Anjuta.ProjectNode
@@ -2585,7 +2585,7 @@ export class Project {
     emit(sigName: "node-saved", node: object | null, error: GLib.Error): void
     static name: string
 }
-export class ProjectBackend {
+class ProjectBackend {
     /* Methods of IAnjuta-3.0.IAnjuta.ProjectBackend */
     newProject(file: Gio.File): Project
     probe(directory: Gio.File): number
@@ -2593,7 +2593,7 @@ export class ProjectBackend {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class ProjectChooser {
+class ProjectChooser {
     /* Methods of IAnjuta-3.0.IAnjuta.ProjectChooser */
     getSelected(): Gio.File
     setProjectModel(manager: ProjectManager, childType: Anjuta.ProjectNodeType): boolean
@@ -2607,7 +2607,7 @@ export class ProjectChooser {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class ProjectManager {
+class ProjectManager {
     /* Methods of IAnjuta-3.0.IAnjuta.ProjectManager */
     addGroup(name: string, defaultGroup?: Gio.File | null): Gio.File
     addSource(name: string, defaultTarget?: Gio.File | null): Gio.File
@@ -2649,7 +2649,7 @@ export class ProjectManager {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Provider {
+class Provider {
     /* Methods of IAnjuta-3.0.IAnjuta.Provider */
     activate(iter: Iterable, data?: object | null): void
     getName(): string
@@ -2659,28 +2659,28 @@ export class Provider {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class SnippetsManager {
+class SnippetsManager {
     /* Methods of IAnjuta-3.0.IAnjuta.SnippetsManager */
     insert(key: string, editingSession: boolean): boolean
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Stream {
+class Stream {
     /* Methods of IAnjuta-3.0.IAnjuta.Stream */
     open(stream?: object | null): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class StreamLoader {
+class StreamLoader {
     /* Methods of IAnjuta-3.0.IAnjuta.StreamLoader */
     peekInterface(stream?: object | null): string
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class StreamSavable {
+class StreamSavable {
     /* Methods of IAnjuta-3.0.IAnjuta.StreamSavable */
     save(stream?: object | null): void
     /* Methods of IAnjuta-3.0.IAnjuta.Stream */
@@ -2689,7 +2689,7 @@ export class StreamSavable {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Symbol {
+class Symbol {
     /* Methods of IAnjuta-3.0.IAnjuta.Symbol */
     getBoolean(field: SymbolField): boolean
     getIcon(): GdkPixbuf.Pixbuf
@@ -2700,7 +2700,7 @@ export class Symbol {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class SymbolManager {
+class SymbolManager {
     /* Methods of IAnjuta-3.0.IAnjuta.SymbolManager */
     activatePackage(pkgName: string, pkgVersion: string): boolean
     deactivateAll(): void
@@ -2720,7 +2720,7 @@ export class SymbolManager {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class SymbolQuery {
+class SymbolQuery {
     /* Methods of IAnjuta-3.0.IAnjuta.SymbolQuery */
     cancel(): void
     setFields(nFields: number, fields: SymbolField): void
@@ -2741,7 +2741,7 @@ export class SymbolQuery {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Terminal {
+class Terminal {
     /* Methods of IAnjuta-3.0.IAnjuta.Terminal */
     executeCommand(directory: string, command: string, environment: string[]): number
     /* Signals of IAnjuta-3.0.IAnjuta.Terminal */
@@ -2754,14 +2754,14 @@ export class Terminal {
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Todo {
+class Todo {
     /* Methods of IAnjuta-3.0.IAnjuta.Todo */
     load(file: Gio.File): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export class Vcs {
+class Vcs {
     /* Methods of IAnjuta-3.0.IAnjuta.Vcs */
     add(files: Gio.File[], notify: Anjuta.AsyncNotify): void
     checkout(repositoryLocation: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify): void
@@ -2774,14 +2774,14 @@ export class Vcs {
     emit(sigName: "status-changed"): void
     static name: string
 }
-export class Wizard {
+class Wizard {
     /* Methods of IAnjuta-3.0.IAnjuta.Wizard */
     activate(): void
     static name: string
     /* Static methods and pseudo-constructors */
     static errorQuark(): GLib.Quark
 }
-export abstract class BuildableIface {
+abstract class BuildableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.BuildableIface */
     gIface: GObject.TypeInterface
     build: (obj: Buildable, uri: string) => void
@@ -2795,7 +2795,7 @@ export abstract class BuildableIface {
     setCommand: (obj: Buildable, commandId: BuildableCommand, command: string) => void
     static name: string
 }
-export abstract class BuilderIface {
+abstract class BuilderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.BuilderIface */
     gIface: GObject.TypeInterface
     cancel: (obj: Builder, handle: BuilderHandle) => void
@@ -2803,7 +2803,7 @@ export abstract class BuilderIface {
     listConfiguration: (obj: Builder) => string[]
     static name: string
 }
-export abstract class DebugManagerIface {
+abstract class DebugManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebugManagerIface */
     gIface: GObject.TypeInterface
     breakpointChanged: (obj: DebugManager, breakpoint: DebuggerBreakpointItem) => void
@@ -2825,13 +2825,13 @@ export abstract class DebugManagerIface {
     startRemote: (obj: DebugManager, server: string, uri: string) => boolean
     static name: string
 }
-export abstract class DebuggerBreakpointIface {
+abstract class DebuggerBreakpointIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointIface */
     gIface: DebuggerIface
     implementBreakpoint: (obj: DebuggerBreakpoint) => number
     static name: string
 }
-export class DebuggerBreakpointItem {
+class DebuggerBreakpointItem {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerBreakpointItem */
     type: number
     id: number
@@ -2847,7 +2847,7 @@ export class DebuggerBreakpointItem {
     pending: boolean
     static name: string
 }
-export class DebuggerFrame {
+class DebuggerFrame {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerFrame */
     thread: number
     level: number
@@ -2859,7 +2859,7 @@ export class DebuggerFrame {
     address: number
     static name: string
 }
-export abstract class DebuggerIface {
+abstract class DebuggerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerIface */
     gIface: GObject.TypeInterface
     debuggerReady: (obj: Debugger, state: DebuggerState) => void
@@ -2899,20 +2899,20 @@ export abstract class DebuggerIface {
     unload: (obj: Debugger) => boolean
     static name: string
 }
-export class DebuggerInstructionALine {
+class DebuggerInstructionALine {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionALine */
     address: number
     label: string
     text: string
     static name: string
 }
-export class DebuggerInstructionDisassembly {
+class DebuggerInstructionDisassembly {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionDisassembly */
     size: number
     data: DebuggerInstructionALine[]
     static name: string
 }
-export abstract class DebuggerInstructionIface {
+abstract class DebuggerInstructionIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerInstructionIface */
     gIface: DebuggerIface
     runFromAddress: (obj: DebuggerInstruction, address: number) => boolean
@@ -2921,39 +2921,39 @@ export abstract class DebuggerInstructionIface {
     stepOverInstruction: (obj: DebuggerInstruction) => boolean
     static name: string
 }
-export class DebuggerMemoryBlock {
+class DebuggerMemoryBlock {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryBlock */
     address: number
     length: number
     data: string
     static name: string
 }
-export abstract class DebuggerMemoryIface {
+abstract class DebuggerMemoryIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerMemoryIface */
     gIface: DebuggerIface
     static name: string
 }
-export class DebuggerRegisterData {
+class DebuggerRegisterData {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterData */
     num: number
     name: string
     value: string
     static name: string
 }
-export abstract class DebuggerRegisterIface {
+abstract class DebuggerRegisterIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerRegisterIface */
     gIface: DebuggerIface
     writeRegister: (obj: DebuggerRegister, value: DebuggerRegisterData) => boolean
     static name: string
 }
-export abstract class DebuggerVariableIface {
+abstract class DebuggerVariableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableIface */
     gIface: DebuggerIface
     assign: (obj: DebuggerVariable, name: string, value: string) => boolean
     destroy: (obj: DebuggerVariable, name: string) => boolean
     static name: string
 }
-export class DebuggerVariableObject {
+class DebuggerVariableObject {
     /* Fields of IAnjuta-3.0.IAnjuta.DebuggerVariableObject */
     name: string
     expression: string
@@ -2966,7 +2966,7 @@ export class DebuggerVariableObject {
     hasMore: boolean
     static name: string
 }
-export abstract class DocumentIface {
+abstract class DocumentIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DocumentIface */
     gIface: GObject.TypeInterface
     updateUi: (obj: Document) => void
@@ -2984,7 +2984,7 @@ export abstract class DocumentIface {
     undo: (obj: Document) => void
     static name: string
 }
-export abstract class DocumentManagerIface {
+abstract class DocumentManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.DocumentManagerIface */
     gIface: GObject.TypeInterface
     documentAdded: (obj: DocumentManager, doc: Document) => void
@@ -3002,7 +3002,7 @@ export abstract class DocumentManagerIface {
     setCurrentDocument: (obj: DocumentManager, document: Document) => void
     static name: string
 }
-export abstract class EditorAssistIface {
+abstract class EditorAssistIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistIface */
     gIface: EditorIface
     cancelled: (obj: EditorAssist) => void
@@ -3012,7 +3012,7 @@ export abstract class EditorAssistIface {
     remove: (obj: EditorAssist, provider: Provider) => void
     static name: string
 }
-export class EditorAssistProposal {
+class EditorAssistProposal {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorAssistProposal */
     label: string
     markup: string
@@ -3022,7 +3022,7 @@ export class EditorAssistProposal {
     data: object
     static name: string
 }
-export abstract class EditorCellIface {
+abstract class EditorCellIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorCellIface */
     gIface: GObject.TypeInterface
     getAttribute: (obj: EditorCell) => EditorAttribute
@@ -3031,7 +3031,7 @@ export abstract class EditorCellIface {
     getLength: (obj: EditorCell) => number
     static name: string
 }
-export abstract class EditorCellStyleIface {
+abstract class EditorCellStyleIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorCellStyleIface */
     gIface: EditorCellIface
     getBackgroundColor: (obj: EditorCellStyle) => string
@@ -3039,7 +3039,7 @@ export abstract class EditorCellStyleIface {
     getFontDescription: (obj: EditorCellStyle) => string
     static name: string
 }
-export abstract class EditorCommentIface {
+abstract class EditorCommentIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorCommentIface */
     gIface: EditorIface
     block: (obj: EditorComment) => void
@@ -3047,19 +3047,19 @@ export abstract class EditorCommentIface {
     stream: (obj: EditorComment) => void
     static name: string
 }
-export abstract class EditorConvertIface {
+abstract class EditorConvertIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorConvertIface */
     gIface: EditorIface
     toLower: (obj: EditorConvert, startPosition: Iterable, endPosition: Iterable) => void
     toUpper: (obj: EditorConvert, startPosition: Iterable, endPosition: Iterable) => void
     static name: string
 }
-export abstract class EditorFactoryIface {
+abstract class EditorFactoryIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorFactoryIface */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class EditorFoldsIface {
+abstract class EditorFoldsIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorFoldsIface */
     gIface: EditorIface
     closeAll: (obj: EditorFolds) => void
@@ -3067,14 +3067,14 @@ export abstract class EditorFoldsIface {
     toggleCurrent: (obj: EditorFolds) => void
     static name: string
 }
-export abstract class EditorGladeSignalIface {
+abstract class EditorGladeSignalIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorGladeSignalIface */
     gIface: EditorIface
     drop: (obj: EditorGladeSignal, iterator: Iterable, signalData: string) => void
     dropPossible: (obj: EditorGladeSignal, iterator: Iterable) => boolean
     static name: string
 }
-export abstract class EditorGotoIface {
+abstract class EditorGotoIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorGotoIface */
     gIface: EditorIface
     endBlock: (obj: EditorGoto) => void
@@ -3082,7 +3082,7 @@ export abstract class EditorGotoIface {
     startBlock: (obj: EditorGoto) => void
     static name: string
 }
-export abstract class EditorHoverIface {
+abstract class EditorHoverIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorHoverIface */
     gIface: EditorIface
     hoverLeave: (obj: EditorHover, position: Iterable) => void
@@ -3090,7 +3090,7 @@ export abstract class EditorHoverIface {
     display: (obj: EditorHover, position: Iterable, info: string) => void
     static name: string
 }
-export abstract class EditorIface {
+abstract class EditorIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorIface */
     gIface: GObject.TypeInterface
     backspace: (obj: Editor) => void
@@ -3133,7 +3133,7 @@ export abstract class EditorIface {
     setUseSpaces: (obj: Editor, useSpaces: boolean) => void
     static name: string
 }
-export abstract class EditorLanguageIface {
+abstract class EditorLanguageIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorLanguageIface */
     gIface: EditorIface
     languageChanged: (obj: EditorLanguage, language: string) => void
@@ -3143,7 +3143,7 @@ export abstract class EditorLanguageIface {
     setLanguage: (obj: EditorLanguage, language: string) => void
     static name: string
 }
-export abstract class EditorLineModeIface {
+abstract class EditorLineModeIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorLineModeIface */
     gIface: EditorIface
     convert: (obj: EditorLineMode, mode: EditorLineModeType) => void
@@ -3152,14 +3152,14 @@ export abstract class EditorLineModeIface {
     set: (obj: EditorLineMode, mode: EditorLineModeType) => void
     static name: string
 }
-export abstract class EditorSearchIface {
+abstract class EditorSearchIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorSearchIface */
     gIface: EditorIface
     backward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
     forward: (obj: EditorSearch, search: string, caseSensitive: boolean, start: EditorCell, end: EditorCell) => { returnType: boolean, resultStart: EditorCell, resultEnd: EditorCell }
     static name: string
 }
-export abstract class EditorSelectionIface {
+abstract class EditorSelectionIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorSelectionIface */
     gIface: EditorIface
     get: (obj: EditorSelection) => string
@@ -3171,7 +3171,7 @@ export abstract class EditorSelectionIface {
     set: (obj: EditorSelection, start: Iterable, end: Iterable, scroll: boolean) => void
     static name: string
 }
-export abstract class EditorTipIface {
+abstract class EditorTipIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorTipIface */
     gIface: EditorIface
     cancel: (obj: EditorTip) => void
@@ -3179,7 +3179,7 @@ export abstract class EditorTipIface {
     visible: (obj: EditorTip) => boolean
     static name: string
 }
-export abstract class EditorViewIface {
+abstract class EditorViewIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorViewIface */
     gIface: EditorIface
     create: (obj: EditorView) => void
@@ -3187,21 +3187,21 @@ export abstract class EditorViewIface {
     removeCurrent: (obj: EditorView) => void
     static name: string
 }
-export abstract class EditorZoomIface {
+abstract class EditorZoomIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EditorZoomIface */
     gIface: EditorIface
     in_: (obj: EditorZoom) => void
     out: (obj: EditorZoom) => void
     static name: string
 }
-export abstract class EnvironmentIface {
+abstract class EnvironmentIface {
     /* Fields of IAnjuta-3.0.IAnjuta.EnvironmentIface */
     gIface: GObject.TypeInterface
     getRealDirectory: (obj: Environment, dir: string) => string
     override: (obj: Environment, dirp: string, argvp: string, envp: string) => boolean
     static name: string
 }
-export abstract class FileIface {
+abstract class FileIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileIface */
     gIface: GObject.TypeInterface
     opened: (obj: File) => void
@@ -3209,13 +3209,13 @@ export abstract class FileIface {
     open: (obj: File, file: Gio.File) => void
     static name: string
 }
-export abstract class FileLoaderIface {
+abstract class FileLoaderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileLoaderIface */
     gIface: LoaderIface
     peekInterface: (obj: FileLoader, file: Gio.File) => string
     static name: string
 }
-export abstract class FileManagerIface {
+abstract class FileManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileManagerIface */
     gIface: GObject.TypeInterface
     sectionChanged: (obj: FileManager, file: Gio.File) => void
@@ -3223,7 +3223,7 @@ export abstract class FileManagerIface {
     setSelected: (obj: FileManager, file: Gio.File) => void
     static name: string
 }
-export abstract class FileSavableIface {
+abstract class FileSavableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileSavableIface */
     gIface: FileIface
     saved: (obj: FileSavable, file: Gio.File) => void
@@ -3236,32 +3236,32 @@ export abstract class FileSavableIface {
     setDirty: (obj: FileSavable, dirty: boolean) => void
     static name: string
 }
-export abstract class GladeIface {
+abstract class GladeIface {
     /* Fields of IAnjuta-3.0.IAnjuta.GladeIface */
     gIface: GObject.TypeInterface
     addAssociation: (obj: Glade, master: string, slave: string) => void
     static name: string
 }
-export abstract class HelpIface {
+abstract class HelpIface {
     /* Fields of IAnjuta-3.0.IAnjuta.HelpIface */
     gIface: GObject.TypeInterface
     search: (obj: Help, query: string) => void
     static name: string
 }
-export abstract class IndenterIface {
+abstract class IndenterIface {
     /* Fields of IAnjuta-3.0.IAnjuta.IndenterIface */
     gIface: GObject.TypeInterface
     indent: (obj: Indenter, start: Iterable, end: Iterable) => void
     static name: string
 }
-export abstract class IndicableIface {
+abstract class IndicableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.IndicableIface */
     gIface: GObject.TypeInterface
     clear: (obj: Indicable) => void
     set: (obj: Indicable, beginLocation: Iterable, endLocation: Iterable, indicator: IndicableIndicator) => void
     static name: string
 }
-export abstract class IterableIface {
+abstract class IterableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.IterableIface */
     gIface: GObject.TypeInterface
     assign: (obj: Iterable, srcIter: Iterable) => void
@@ -3277,7 +3277,7 @@ export abstract class IterableIface {
     setPosition: (obj: Iterable, position: number) => boolean
     static name: string
 }
-export abstract class IterableTreeIface {
+abstract class IterableTreeIface {
     /* Fields of IAnjuta-3.0.IAnjuta.IterableTreeIface */
     gIface: IterableIface
     children: (obj: IterableTree) => boolean
@@ -3285,7 +3285,7 @@ export abstract class IterableTreeIface {
     parent: (obj: IterableTree) => boolean
     static name: string
 }
-export abstract class LanguageIface {
+abstract class LanguageIface {
     /* Fields of IAnjuta-3.0.IAnjuta.LanguageIface */
     gIface: GObject.TypeInterface
     getFromEditor: (obj: Language, editor: EditorLanguage) => LanguageId
@@ -3297,7 +3297,7 @@ export abstract class LanguageIface {
     getNameFromEditor: (obj: Language, editor: EditorLanguage) => string
     static name: string
 }
-export abstract class LanguageProviderIface {
+abstract class LanguageProviderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.LanguageProviderIface */
     gIface: ProviderIface
     getCalltipCache: (obj: LanguageProvider, callContext: string) => string[]
@@ -3306,12 +3306,12 @@ export abstract class LanguageProviderIface {
     populateCompletions: (obj: LanguageProvider, iter: Iterable) => Iterable | null
     static name: string
 }
-export abstract class LoaderIface {
+abstract class LoaderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.LoaderIface */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class MarkableIface {
+abstract class MarkableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.MarkableIface */
     gIface: GObject.TypeInterface
     markerClicked: (obj: Markable, doubleClick: boolean, location: number) => void
@@ -3322,7 +3322,7 @@ export abstract class MarkableIface {
     unmark: (obj: Markable, location: number, marker: MarkableMarker) => void
     static name: string
 }
-export abstract class MessageManagerIface {
+abstract class MessageManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.MessageManagerIface */
     gIface: GObject.TypeInterface
     removeView: (obj: MessageManager, view: MessageView) => void
@@ -3332,7 +3332,7 @@ export abstract class MessageManagerIface {
     setViewTitle: (obj: MessageManager, view: MessageView, title: string) => void
     static name: string
 }
-export abstract class MessageViewIface {
+abstract class MessageViewIface {
     /* Fields of IAnjuta-3.0.IAnjuta.MessageViewIface */
     gIface: GObject.TypeInterface
     bufferFlushed: (obj: MessageView, line: string) => void
@@ -3345,33 +3345,33 @@ export abstract class MessageViewIface {
     selectPrevious: (obj: MessageView) => void
     static name: string
 }
-export abstract class PluginFactoryIface {
+abstract class PluginFactoryIface {
     /* Fields of IAnjuta-3.0.IAnjuta.PluginFactoryIface */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class PreferencesIface {
+abstract class PreferencesIface {
     /* Fields of IAnjuta-3.0.IAnjuta.PreferencesIface */
     gIface: GObject.TypeInterface
     merge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     unmerge: (obj: Preferences, prefs: Anjuta.Preferences) => void
     static name: string
 }
-export abstract class PrintIface {
+abstract class PrintIface {
     /* Fields of IAnjuta-3.0.IAnjuta.PrintIface */
     gIface: GObject.TypeInterface
     print: (obj: Print) => void
     printPreview: (obj: Print) => void
     static name: string
 }
-export abstract class ProjectBackendIface {
+abstract class ProjectBackendIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectBackendIface */
     gIface: GObject.TypeInterface
     newProject: (obj: ProjectBackend, file: Gio.File) => Project
     probe: (obj: ProjectBackend, directory: Gio.File) => number
     static name: string
 }
-export abstract class ProjectChooserIface {
+abstract class ProjectChooserIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectChooserIface */
     gIface: GObject.TypeInterface
     changed: (obj: ProjectChooser) => void
@@ -3379,7 +3379,7 @@ export abstract class ProjectChooserIface {
     setProjectModel: (obj: ProjectChooser, manager: ProjectManager, childType: Anjuta.ProjectNodeType) => boolean
     static name: string
 }
-export abstract class ProjectIface {
+abstract class ProjectIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectIface */
     gIface: GObject.TypeInterface
     fileChanged: (obj: Project, node?: object | null) => void
@@ -3398,7 +3398,7 @@ export abstract class ProjectIface {
     setProperty: (obj: Project, node: Anjuta.ProjectNode, id: string, name: string | null, value: string) => Anjuta.ProjectProperty | null
     static name: string
 }
-export abstract class ProjectManagerIface {
+abstract class ProjectManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectManagerIface */
     gIface: GObject.TypeInterface
     elementAdded: (obj: ProjectManager, element: Gio.File) => void
@@ -3422,7 +3422,7 @@ export abstract class ProjectManagerIface {
     removeFile: (obj: ProjectManager, file: Gio.File) => boolean
     static name: string
 }
-export abstract class ProviderIface {
+abstract class ProviderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProviderIface */
     gIface: GObject.TypeInterface
     activate: (obj: Provider, iter: Iterable, data?: object | null) => void
@@ -3431,31 +3431,31 @@ export abstract class ProviderIface {
     populate: (obj: Provider, iter: Iterable) => void
     static name: string
 }
-export abstract class SnippetsManagerIface {
+abstract class SnippetsManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SnippetsManagerIface */
     gIface: GObject.TypeInterface
     insert: (obj: SnippetsManager, key: string, editingSession: boolean) => boolean
     static name: string
 }
-export abstract class StreamIface {
+abstract class StreamIface {
     /* Fields of IAnjuta-3.0.IAnjuta.StreamIface */
     gIface: GObject.TypeInterface
     open: (obj: Stream, stream?: object | null) => void
     static name: string
 }
-export abstract class StreamLoaderIface {
+abstract class StreamLoaderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.StreamLoaderIface */
     gIface: LoaderIface
     peekInterface: (obj: StreamLoader, stream?: object | null) => string
     static name: string
 }
-export abstract class StreamSavableIface {
+abstract class StreamSavableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.StreamSavableIface */
     gIface: StreamIface
     save: (obj: StreamSavable, stream?: object | null) => void
     static name: string
 }
-export abstract class SymbolIface {
+abstract class SymbolIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SymbolIface */
     gIface: GObject.TypeInterface
     getBoolean: (obj: Symbol, field: SymbolField) => boolean
@@ -3465,7 +3465,7 @@ export abstract class SymbolIface {
     getSymType: (obj: Symbol) => SymbolType
     static name: string
 }
-export abstract class SymbolManagerIface {
+abstract class SymbolManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SymbolManagerIface */
     gIface: GObject.TypeInterface
     prjScanEnd: (obj: SymbolManager, processId: number) => void
@@ -3475,7 +3475,7 @@ export abstract class SymbolManagerIface {
     deactivatePackage: (obj: SymbolManager, pkgName: string, pkgVersion: string) => void
     static name: string
 }
-export abstract class SymbolQueryIface {
+abstract class SymbolQueryIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SymbolQueryIface */
     gIface: GObject.TypeInterface
     asyncResult: (obj: SymbolQuery, result: GObject.Object) => void
@@ -3490,20 +3490,20 @@ export abstract class SymbolQueryIface {
     setOrderBy: (obj: SymbolQuery, field: SymbolField) => void
     static name: string
 }
-export abstract class TerminalIface {
+abstract class TerminalIface {
     /* Fields of IAnjuta-3.0.IAnjuta.TerminalIface */
     gIface: GObject.TypeInterface
     childExited: (obj: Terminal, pid: number, status: number) => void
     executeCommand: (obj: Terminal, directory: string, command: string, environment: string[]) => number
     static name: string
 }
-export abstract class TodoIface {
+abstract class TodoIface {
     /* Fields of IAnjuta-3.0.IAnjuta.TodoIface */
     gIface: GObject.TypeInterface
     load: (obj: Todo, file: Gio.File) => void
     static name: string
 }
-export abstract class VcsIface {
+abstract class VcsIface {
     /* Fields of IAnjuta-3.0.IAnjuta.VcsIface */
     gIface: GObject.TypeInterface
     statusChanged: (obj: Vcs) => void
@@ -3512,12 +3512,13 @@ export abstract class VcsIface {
     remove: (obj: Vcs, files: Gio.File[], notify: Anjuta.AsyncNotify) => void
     static name: string
 }
-export abstract class WizardIface {
+abstract class WizardIface {
     /* Fields of IAnjuta-3.0.IAnjuta.WizardIface */
     gIface: GObject.TypeInterface
     activate: (obj: Wizard) => void
     static name: string
 }
-export type BuilderHandle = object
-export type LanguageId = number
+type BuilderHandle = object
+type LanguageId = number
 }
+export default IAnjuta

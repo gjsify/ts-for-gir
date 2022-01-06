@@ -1,2 +1,1 @@
-imports.gi.versions.DBusGLib = '1.0'
-module.exports = imports.gi.DBusGLib
+export {default as default} from 'gi://DBusGLib?version=1.0';

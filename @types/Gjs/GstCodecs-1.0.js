@@ -1,2 +1,1 @@
-imports.gi.versions.GstCodecs = '1.0'
-module.exports = imports.gi.GstCodecs
+export {default as default} from 'gi://GstCodecs?version=1.0';

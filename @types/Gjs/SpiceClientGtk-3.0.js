@@ -1,2 +1,1 @@
-imports.gi.versions.SpiceClientGtk = '3.0'
-module.exports = imports.gi.SpiceClientGtk
+export {default as default} from 'gi://SpiceClientGtk?version=3.0';

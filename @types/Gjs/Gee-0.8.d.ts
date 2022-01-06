@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum FutureError {
+export namespace Gee {
+
+enum FutureError {
     ABANDON_PROMISE,
     EXCEPTION,
 }
-export enum ConcurrentSetRangeType {
+enum ConcurrentSetRangeType {
     HEAD,
     TAIL,
     BOUNDED,
     EMPTY,
 }
-export enum HazardPointerPolicy {
+enum HazardPointerPolicy {
     DEFAULT,
     THREAD_EXIT,
     TRY_FREE,
@@ -25,68 +27,68 @@ export enum HazardPointerPolicy {
     TRY_RELEASE,
     RELEASE,
 }
-export enum HazardPointerReleasePolicy {
+enum HazardPointerReleasePolicy {
     HELPER_THREAD,
     MAIN_LOOP,
 }
-export enum TraversableStream {
+enum TraversableStream {
     YIELD,
     CONTINUE,
     END,
     WAIT,
 }
-export function functions_get_equal_func_for(t: GObject.Type): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
-export function functions_get_hash_func_for(t: GObject.Type): [ /* returnType */ HashDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
-export function functions_get_compare_func_for(t: GObject.Type): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
-export function hazard_pointer_policy_is_concrete(): boolean
-export function hazard_pointer_policy_is_blocking(): boolean
-export function hazard_pointer_policy_is_safe(): boolean
-export function hazard_pointer_policy_to_concrete(): HazardPointerPolicy
-export function task(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, task: Task): Future
-export function async_task(_callback_?: Gio.AsyncReadyCallback | null): void
-export function async_task_finish(_res_: Gio.AsyncResult): void
-export interface HashDataFunc {
+function functions_get_equal_func_for(t: GObject.Type): [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+function functions_get_hash_func_for(t: GObject.Type): [ /* returnType */ HashDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+function functions_get_compare_func_for(t: GObject.Type): [ /* returnType */ GLib.CompareDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+function hazard_pointer_policy_is_concrete(): boolean
+function hazard_pointer_policy_is_blocking(): boolean
+function hazard_pointer_policy_is_safe(): boolean
+function hazard_pointer_policy_to_concrete(): HazardPointerPolicy
+function task(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, task: Task): Future
+function async_task(_callback_?: Gio.AsyncReadyCallback | null): void
+function async_task_finish(_res_: Gio.AsyncResult): void
+interface HashDataFunc {
     (t_type: GObject.Type, t_dup_func: GObject.BoxedCopyFunc, t_destroy_func: GLib.DestroyNotify, v: object | null): number
 }
-export interface EqualDataFunc {
+interface EqualDataFunc {
     (t_type: GObject.Type, t_dup_func: GObject.BoxedCopyFunc, t_destroy_func: GLib.DestroyNotify, a: object | null, b: object | null): boolean
 }
-export interface LazyFunc {
+interface LazyFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): object | null
 }
-export interface FoldMapFunc {
+interface FoldMapFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, k: object | null, v: object | null, a: object | null): object | null
 }
-export interface ForallMapFunc {
+interface ForallMapFunc {
     (k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, k: object | null, v: object | null): boolean
 }
-export interface Task {
+interface Task {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify): object | null
 }
-export interface FoldFunc {
+interface FoldFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null, a: object | null): object | null
 }
-export interface ForallFunc {
+interface ForallFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): boolean
 }
-export interface UnfoldFunc {
+interface UnfoldFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify): Lazy | null
 }
-export interface StreamFunc {
+interface StreamFunc {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, state: TraversableStream, g: Lazy | null): TraversableStream
 }
-export interface MapFunc {
+interface MapFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): object | null
 }
-export interface Predicate {
+interface Predicate {
     (g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): boolean
 }
-export interface FlatMapFunc {
+interface FlatMapFunc {
     (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, g: object | null): Iterator
 }
 export interface BidirIterator_ConstructProps extends Iterator_ConstructProps {
 }
-export class BidirIterator {
+class BidirIterator {
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -174,7 +176,7 @@ export class BidirIterator {
 }
 export interface BidirList_ConstructProps extends List_ConstructProps {
 }
-export class BidirList {
+class BidirList {
     /* Properties of Gee-0.8.Gee.BidirList */
     readonly read_only_view: BidirList
     /* Properties of Gee-0.8.Gee.Collection */
@@ -349,7 +351,7 @@ export class BidirList {
 }
 export interface BidirListIterator_ConstructProps extends BidirIterator_ConstructProps {
 }
-export class BidirListIterator {
+class BidirListIterator {
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -442,7 +444,7 @@ export class BidirListIterator {
 }
 export interface BidirMapIterator_ConstructProps extends MapIterator_ConstructProps {
 }
-export class BidirMapIterator {
+class BidirMapIterator {
     /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
@@ -545,7 +547,7 @@ export class BidirMapIterator {
 }
 export interface BidirSortedSet_ConstructProps extends SortedSet_ConstructProps {
 }
-export class BidirSortedSet {
+class BidirSortedSet {
     /* Properties of Gee-0.8.Gee.BidirSortedSet */
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee-0.8.Gee.Collection */
@@ -728,7 +730,7 @@ export class BidirSortedSet {
 }
 export interface BidirSortedMap_ConstructProps extends SortedMap_ConstructProps {
 }
-export class BidirSortedMap {
+class BidirSortedMap {
     /* Properties of Gee-0.8.Gee.BidirSortedMap */
     readonly read_only_view: BidirSortedMap
     /* Properties of Gee-0.8.Gee.SortedMap */
@@ -896,7 +898,7 @@ export class BidirSortedMap {
 }
 export interface Collection_ConstructProps extends Iterable_ConstructProps {
 }
-export class Collection {
+class Collection {
     /* Properties of Gee-0.8.Gee.Collection */
     readonly size: number
     readonly read_only: boolean
@@ -1001,7 +1003,7 @@ export class Collection {
 }
 export interface Comparable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Comparable {
+class Comparable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.Comparable */
@@ -1053,7 +1055,7 @@ export class Comparable {
 }
 export interface Deque_ConstructProps extends Queue_ConstructProps {
 }
-export class Deque {
+class Deque {
     /* Properties of Gee-0.8.Gee.Queue */
     readonly capacity: number
     readonly remaining_capacity: number
@@ -1226,7 +1228,7 @@ export class Deque {
 }
 export interface Future_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Future {
+class Future {
     /* Properties of Gee-0.8.Gee.Future */
     readonly ready: boolean
     readonly exception: GLib.Error
@@ -1307,7 +1309,7 @@ export class Future {
 }
 export interface Hashable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Hashable {
+class Hashable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.Hashable */
@@ -1361,7 +1363,7 @@ export class Hashable {
 }
 export interface Iterable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Iterable {
+class Iterable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.Iterable */
@@ -1413,7 +1415,7 @@ export class Iterable {
 }
 export interface Iterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Iterator {
+class Iterator {
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -1485,7 +1487,7 @@ export class Iterator {
 }
 export interface List_ConstructProps extends Collection_ConstructProps {
 }
-export class List {
+class List {
     /* Properties of Gee-0.8.Gee.List */
     readonly read_only_view: List
     /* Properties of Gee-0.8.Gee.Collection */
@@ -1637,7 +1639,7 @@ export class List {
 }
 export interface ListIterator_ConstructProps extends Iterator_ConstructProps {
 }
-export class ListIterator {
+class ListIterator {
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -1723,7 +1725,7 @@ export class ListIterator {
 }
 export interface Map_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Map {
+class Map {
     /* Properties of Gee-0.8.Gee.Map */
     readonly size: number
     readonly read_only: boolean
@@ -1834,7 +1836,7 @@ export class Map {
 }
 export interface MapIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MapIterator {
+class MapIterator {
     /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
@@ -1916,7 +1918,7 @@ export class MapIterator {
 }
 export interface MultiMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MultiMap {
+class MultiMap {
     /* Properties of Gee-0.8.Gee.MultiMap */
     readonly size: number
     readonly read_only: boolean
@@ -2001,7 +2003,7 @@ export class MultiMap {
 }
 export interface MultiSet_ConstructProps extends Collection_ConstructProps {
 }
-export class MultiSet {
+class MultiSet {
     /* Properties of Gee-0.8.Gee.Collection */
     readonly size: number
     readonly read_only: boolean
@@ -2132,7 +2134,7 @@ export class MultiSet {
 }
 export interface Queue_ConstructProps extends Collection_ConstructProps {
 }
-export class Queue {
+class Queue {
     /* Properties of Gee-0.8.Gee.Queue */
     readonly capacity: number
     readonly remaining_capacity: number
@@ -2282,7 +2284,7 @@ export class Queue {
 }
 export interface Set_ConstructProps extends Collection_ConstructProps {
 }
-export class Set {
+class Set {
     /* Properties of Gee-0.8.Gee.Set */
     readonly read_only_view: Set
     /* Properties of Gee-0.8.Gee.Collection */
@@ -2412,7 +2414,7 @@ export class Set {
 }
 export interface SortedMap_ConstructProps extends Map_ConstructProps {
 }
-export class SortedMap {
+class SortedMap {
     /* Properties of Gee-0.8.Gee.SortedMap */
     readonly ascending_keys: SortedSet
     readonly ascending_entries: SortedSet
@@ -2561,7 +2563,7 @@ export class SortedMap {
 }
 export interface SortedSet_ConstructProps extends Set_ConstructProps {
 }
-export class SortedSet {
+class SortedSet {
     /* Properties of Gee-0.8.Gee.SortedSet */
     readonly read_only_view: SortedSet
     /* Properties of Gee-0.8.Gee.Collection */
@@ -2722,7 +2724,7 @@ export class SortedSet {
 }
 export interface Traversable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Traversable {
+class Traversable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.Traversable */
@@ -2807,7 +2809,7 @@ export interface AbstractBidirList_ConstructProps extends AbstractList_Construct
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractBidirList {
+class AbstractBidirList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -3009,7 +3011,7 @@ export interface AbstractBidirSortedSet_ConstructProps extends AbstractSortedSet
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractBidirSortedSet {
+class AbstractBidirSortedSet {
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedSet */
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -3233,7 +3235,7 @@ export interface AbstractBidirSortedMap_ConstructProps extends AbstractSortedMap
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractBidirSortedMap {
+class AbstractBidirSortedMap {
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly read_only_view: BidirSortedMap
     /* Properties of Gee-0.8.Gee.AbstractSortedMap */
@@ -3442,7 +3444,7 @@ export interface AbstractCollection_ConstructProps extends GObject.Object_Constr
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractCollection {
+class AbstractCollection {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
@@ -3601,7 +3603,7 @@ export interface AbstractList_ConstructProps extends AbstractCollection_Construc
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractList {
+class AbstractList {
     /* Properties of Gee-0.8.Gee.AbstractList */
     readonly read_only_view: List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -3788,7 +3790,7 @@ export interface AbstractMap_ConstructProps extends GObject.Object_ConstructProp
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractMap {
+class AbstractMap {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
@@ -3962,7 +3964,7 @@ export interface AbstractMultiMap_ConstructProps extends GObject.Object_Construc
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractMultiMap {
+class AbstractMultiMap {
     /* Properties of Gee-0.8.Gee.MultiMap */
     readonly size: number
     readonly read_only: boolean
@@ -4077,7 +4079,7 @@ export interface AbstractMultiSet_ConstructProps extends AbstractCollection_Cons
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractMultiSet {
+class AbstractMultiSet {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
@@ -4241,7 +4243,7 @@ export interface AbstractQueue_ConstructProps extends AbstractCollection_Constru
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractQueue {
+class AbstractQueue {
     /* Properties of Gee-0.8.Gee.AbstractQueue */
     readonly capacity: number
     readonly remaining_capacity: number
@@ -4419,7 +4421,7 @@ export interface AbstractSet_ConstructProps extends AbstractCollection_Construct
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractSet {
+class AbstractSet {
     /* Properties of Gee-0.8.Gee.AbstractSet */
     readonly read_only_view: Set
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -4584,7 +4586,7 @@ export interface AbstractSortedMap_ConstructProps extends AbstractMap_ConstructP
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractSortedMap {
+class AbstractSortedMap {
     /* Properties of Gee-0.8.Gee.AbstractSortedMap */
     readonly ascending_keys: SortedSet
     readonly ascending_entries: SortedSet
@@ -4772,7 +4774,7 @@ export interface AbstractSortedSet_ConstructProps extends AbstractSet_ConstructP
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class AbstractSortedSet {
+class AbstractSortedSet {
     /* Properties of Gee-0.8.Gee.AbstractSortedSet */
     readonly read_only_view: SortedSet
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -4972,7 +4974,7 @@ export interface ArrayList_ConstructProps extends AbstractBidirList_ConstructPro
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ArrayList {
+class ArrayList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -5166,7 +5168,7 @@ export interface ArrayQueue_ConstructProps extends AbstractQueue_ConstructProps 
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ArrayQueue {
+class ArrayQueue {
     /* Properties of Gee-0.8.Gee.ArrayQueue */
     readonly is_empty: boolean
     /* Properties of Gee-0.8.Gee.AbstractQueue */
@@ -5370,7 +5372,7 @@ export interface ConcurrentList_ConstructProps extends AbstractList_ConstructPro
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ConcurrentList {
+class ConcurrentList {
     /* Properties of Gee-0.8.Gee.ConcurrentList */
     readonly is_empty: boolean
     /* Properties of Gee-0.8.Gee.AbstractList */
@@ -5544,7 +5546,7 @@ export interface ConcurrentSet_ConstructProps extends AbstractSortedSet_Construc
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class ConcurrentSet {
+class ConcurrentSet {
     /* Properties of Gee-0.8.Gee.AbstractSortedSet */
     readonly read_only_view: SortedSet
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -5733,7 +5735,7 @@ export interface HashMap_ConstructProps extends AbstractMap_ConstructProps {
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class HashMap {
+class HashMap {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
@@ -5883,7 +5885,7 @@ export interface HashMultiMap_ConstructProps extends AbstractMultiMap_ConstructP
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class HashMultiMap {
+class HashMultiMap {
     /* Fields of Gee-0.8.Gee.AbstractMultiMap */
     _storage_map: Map
     /* Fields of GObject-2.0.GObject.Object */
@@ -5983,7 +5985,7 @@ export interface HashMultiSet_ConstructProps extends AbstractMultiSet_ConstructP
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class HashMultiSet {
+class HashMultiSet {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
@@ -6137,7 +6139,7 @@ export interface HashSet_ConstructProps extends AbstractSet_ConstructProps {
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class HashSet {
+class HashSet {
     /* Properties of Gee-0.8.Gee.AbstractSet */
     readonly read_only_view: Set
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -6284,7 +6286,7 @@ export class HashSet {
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, hash_func: HashDataFunc | null, equal_func: EqualDataFunc | null): HashSet
     static $gtype: GObject.Type
 }
-export class Lazy {
+class Lazy {
     /* Fields of Gee-0.8.Gee.Lazy */
     ref_count: number
     /* Methods of Gee-0.8.Gee.Lazy */
@@ -6304,7 +6306,7 @@ export interface LinkedList_ConstructProps extends AbstractBidirList_ConstructPr
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class LinkedList {
+class LinkedList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -6549,7 +6551,7 @@ export interface PriorityQueue_ConstructProps extends AbstractQueue_ConstructPro
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class PriorityQueue {
+class PriorityQueue {
     /* Properties of Gee-0.8.Gee.AbstractQueue */
     readonly capacity: number
     readonly remaining_capacity: number
@@ -6712,7 +6714,7 @@ export class PriorityQueue {
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, compare_func: GLib.CompareDataFunc | null): PriorityQueue
     static $gtype: GObject.Type
 }
-export class Promise {
+class Promise {
     /* Fields of Gee-0.8.Gee.Promise */
     ref_count: number
     /* Methods of Gee-0.8.Gee.Promise */
@@ -6733,7 +6735,7 @@ export interface TreeMap_ConstructProps extends AbstractBidirSortedMap_Construct
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class TreeMap {
+class TreeMap {
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly read_only_view: BidirSortedMap
     /* Properties of Gee-0.8.Gee.AbstractSortedMap */
@@ -6936,7 +6938,7 @@ export interface TreeMultiMap_ConstructProps extends AbstractMultiMap_ConstructP
     v_dup_func?: GObject.BoxedCopyFunc
     v_destroy_func?: GLib.DestroyNotify
 }
-export class TreeMultiMap {
+class TreeMultiMap {
     /* Fields of Gee-0.8.Gee.AbstractMultiMap */
     _storage_map: Map
     /* Fields of GObject-2.0.GObject.Object */
@@ -7034,7 +7036,7 @@ export interface TreeMultiSet_ConstructProps extends AbstractMultiSet_ConstructP
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class TreeMultiSet {
+class TreeMultiSet {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
@@ -7186,7 +7188,7 @@ export interface TreeSet_ConstructProps extends AbstractBidirSortedSet_Construct
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class TreeSet {
+class TreeSet {
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedSet */
     readonly read_only_view: BidirSortedSet
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -7394,7 +7396,7 @@ export interface UnrolledLinkedList_ConstructProps extends AbstractBidirList_Con
     g_dup_func?: GObject.BoxedCopyFunc
     g_destroy_func?: GLib.DestroyNotify
 }
-export class UnrolledLinkedList {
+class UnrolledLinkedList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -7641,7 +7643,7 @@ export interface MapEntry_ConstructProps extends GObject.Object_ConstructProps {
     v_destroy_func?: GLib.DestroyNotify
     value?: object
 }
-export class MapEntry {
+class MapEntry {
     /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
@@ -7707,7 +7709,7 @@ export class MapEntry {
     _init (config?: MapEntry_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class AbstractBidirListClass {
+abstract class AbstractBidirListClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirListClass */
     bidir_list_iterator: (self: AbstractBidirList) => BidirListIterator
     reserved0: (self: AbstractBidirList) => void
@@ -7722,10 +7724,10 @@ export abstract class AbstractBidirListClass {
     reserved9: (self: AbstractBidirList) => void
     static name: string
 }
-export class AbstractBidirListPrivate {
+class AbstractBidirListPrivate {
     static name: string
 }
-export abstract class AbstractBidirSortedSetClass {
+abstract class AbstractBidirSortedSetClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirSortedSetClass */
     bidir_iterator: (self: AbstractBidirSortedSet) => BidirIterator
     reserved0: (self: AbstractBidirSortedSet) => void
@@ -7740,10 +7742,10 @@ export abstract class AbstractBidirSortedSetClass {
     reserved9: (self: AbstractBidirSortedSet) => void
     static name: string
 }
-export class AbstractBidirSortedSetPrivate {
+class AbstractBidirSortedSetPrivate {
     static name: string
 }
-export abstract class AbstractBidirSortedMapClass {
+abstract class AbstractBidirSortedMapClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirSortedMapClass */
     bidir_map_iterator: (self: AbstractBidirSortedMap) => BidirMapIterator
     reserved0: (self: AbstractBidirSortedMap) => void
@@ -7758,10 +7760,10 @@ export abstract class AbstractBidirSortedMapClass {
     reserved9: (self: AbstractBidirSortedMap) => void
     static name: string
 }
-export class AbstractBidirSortedMapPrivate {
+class AbstractBidirSortedMapPrivate {
     static name: string
 }
-export abstract class AbstractCollectionClass {
+abstract class AbstractCollectionClass {
     /* Fields of Gee-0.8.Gee.AbstractCollectionClass */
     contains: (self: AbstractCollection, item?: object | null) => boolean
     add: (self: AbstractCollection, item?: object | null) => boolean
@@ -7781,10 +7783,10 @@ export abstract class AbstractCollectionClass {
     reserved9: (self: AbstractCollection) => void
     static name: string
 }
-export class AbstractCollectionPrivate {
+class AbstractCollectionPrivate {
     static name: string
 }
-export abstract class AbstractListClass {
+abstract class AbstractListClass {
     /* Fields of Gee-0.8.Gee.AbstractListClass */
     list_iterator: (self: AbstractList) => ListIterator
     get: (self: AbstractList, index: number) => object | null
@@ -7805,10 +7807,10 @@ export abstract class AbstractListClass {
     reserved9: (self: AbstractList) => void
     static name: string
 }
-export class AbstractListPrivate {
+class AbstractListPrivate {
     static name: string
 }
-export abstract class AbstractMapClass {
+abstract class AbstractMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMapClass */
     has_key: (self: AbstractMap, key?: object | null) => boolean
     has: (self: AbstractMap, key?: object | null, value?: object | null) => boolean
@@ -7831,10 +7833,10 @@ export abstract class AbstractMapClass {
     reserved9: (self: AbstractMap) => void
     static name: string
 }
-export class AbstractMapPrivate {
+class AbstractMapPrivate {
     static name: string
 }
-export abstract class AbstractMultiMapClass {
+abstract class AbstractMultiMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiMapClass */
     create_value_storage: (self: AbstractMultiMap) => Collection
     create_multi_key_set: (self: AbstractMultiMap) => MultiSet
@@ -7850,10 +7852,10 @@ export abstract class AbstractMultiMapClass {
     reserved8: (self: AbstractMultiMap) => void
     static name: string
 }
-export class AbstractMultiMapPrivate {
+class AbstractMultiMapPrivate {
     static name: string
 }
-export abstract class AbstractMultiSetClass {
+abstract class AbstractMultiSetClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiSetClass */
     reserved0: (self: AbstractMultiSet) => void
     reserved1: (self: AbstractMultiSet) => void
@@ -7866,10 +7868,10 @@ export abstract class AbstractMultiSetClass {
     reserved8: (self: AbstractMultiSet) => void
     static name: string
 }
-export class AbstractMultiSetPrivate {
+class AbstractMultiSetPrivate {
     static name: string
 }
-export abstract class AbstractQueueClass {
+abstract class AbstractQueueClass {
     /* Fields of Gee-0.8.Gee.AbstractQueueClass */
     peek: (self: AbstractQueue) => object | null
     poll: (self: AbstractQueue) => object | null
@@ -7885,10 +7887,10 @@ export abstract class AbstractQueueClass {
     reserved9: (self: AbstractQueue) => void
     static name: string
 }
-export class AbstractQueuePrivate {
+class AbstractQueuePrivate {
     static name: string
 }
-export abstract class AbstractSetClass {
+abstract class AbstractSetClass {
     /* Fields of Gee-0.8.Gee.AbstractSetClass */
     reserved0: (self: AbstractSet) => void
     reserved1: (self: AbstractSet) => void
@@ -7902,10 +7904,10 @@ export abstract class AbstractSetClass {
     reserved9: (self: AbstractSet) => void
     static name: string
 }
-export class AbstractSetPrivate {
+class AbstractSetPrivate {
     static name: string
 }
-export abstract class AbstractSortedMapClass {
+abstract class AbstractSortedMapClass {
     /* Fields of Gee-0.8.Gee.AbstractSortedMapClass */
     head_map: (self: AbstractSortedMap, before?: object | null) => SortedMap
     tail_map: (self: AbstractSortedMap, after?: object | null) => SortedMap
@@ -7922,10 +7924,10 @@ export abstract class AbstractSortedMapClass {
     reserved9: (self: AbstractSortedMap) => void
     static name: string
 }
-export class AbstractSortedMapPrivate {
+class AbstractSortedMapPrivate {
     static name: string
 }
-export abstract class AbstractSortedSetClass {
+abstract class AbstractSortedSetClass {
     /* Fields of Gee-0.8.Gee.AbstractSortedSetClass */
     first: (self: AbstractSortedSet) => object | null
     last: (self: AbstractSortedSet) => object | null
@@ -7949,58 +7951,58 @@ export abstract class AbstractSortedSetClass {
     reserved9: (self: AbstractSortedSet) => void
     static name: string
 }
-export class AbstractSortedSetPrivate {
+class AbstractSortedSetPrivate {
     static name: string
 }
-export abstract class ArrayListClass {
+abstract class ArrayListClass {
     static name: string
 }
-export class ArrayListPrivate {
+class ArrayListPrivate {
     static name: string
 }
-export abstract class ArrayQueueClass {
+abstract class ArrayQueueClass {
     static name: string
 }
-export class ArrayQueuePrivate {
+class ArrayQueuePrivate {
     static name: string
 }
-export abstract class ConcurrentListClass {
+abstract class ConcurrentListClass {
     static name: string
 }
-export class ConcurrentListPrivate {
+class ConcurrentListPrivate {
     static name: string
 }
-export abstract class ConcurrentSetClass {
+abstract class ConcurrentSetClass {
     static name: string
 }
-export class ConcurrentSetPrivate {
+class ConcurrentSetPrivate {
     static name: string
 }
-export abstract class HashMapClass {
+abstract class HashMapClass {
     static name: string
 }
-export class HashMapPrivate {
+class HashMapPrivate {
     static name: string
 }
-export abstract class HashMultiMapClass {
+abstract class HashMultiMapClass {
     static name: string
 }
-export class HashMultiMapPrivate {
+class HashMultiMapPrivate {
     static name: string
 }
-export abstract class HashMultiSetClass {
+abstract class HashMultiSetClass {
     static name: string
 }
-export class HashMultiSetPrivate {
+class HashMultiSetPrivate {
     static name: string
 }
-export abstract class HashSetClass {
+abstract class HashSetClass {
     static name: string
 }
-export class HashSetPrivate {
+class HashSetPrivate {
     static name: string
 }
-export class HazardPointer {
+class HazardPointer {
     /* Fields of Gee-0.8.Gee.HazardPointer */
     _node: any
     /* Methods of Gee-0.8.Gee.HazardPointer */
@@ -8021,7 +8023,7 @@ export class HazardPointer {
     static set_thread_exit_policy(policy: HazardPointerPolicy): void
     static set_release_policy(policy: HazardPointerReleasePolicy): boolean
 }
-export class HazardPointerContext {
+class HazardPointerContext {
     /* Fields of Gee-0.8.Gee.HazardPointerContext */
     _parent: object | null
     _to_free: ArrayList
@@ -8037,61 +8039,61 @@ export class HazardPointerContext {
     /* Static methods and pseudo-constructors */
     static new(policy?: HazardPointerPolicy | null): HazardPointerContext
 }
-export abstract class LazyClass {
+abstract class LazyClass {
     static name: string
 }
-export class LazyPrivate {
+class LazyPrivate {
     static name: string
 }
-export abstract class LinkedListClass {
+abstract class LinkedListClass {
     static name: string
 }
-export class LinkedListPrivate {
+class LinkedListPrivate {
     static name: string
 }
-export abstract class PriorityQueueClass {
+abstract class PriorityQueueClass {
     static name: string
 }
-export class PriorityQueuePrivate {
+class PriorityQueuePrivate {
     static name: string
 }
-export abstract class PromiseClass {
+abstract class PromiseClass {
     static name: string
 }
-export class PromisePrivate {
+class PromisePrivate {
     static name: string
 }
-export abstract class TreeMapClass {
+abstract class TreeMapClass {
     static name: string
 }
-export class TreeMapPrivate {
+class TreeMapPrivate {
     static name: string
 }
-export abstract class TreeMultiMapClass {
+abstract class TreeMultiMapClass {
     static name: string
 }
-export class TreeMultiMapPrivate {
+class TreeMultiMapPrivate {
     static name: string
 }
-export abstract class TreeMultiSetClass {
+abstract class TreeMultiSetClass {
     static name: string
 }
-export class TreeMultiSetPrivate {
+class TreeMultiSetPrivate {
     static name: string
 }
-export abstract class TreeSetClass {
+abstract class TreeSetClass {
     static name: string
 }
-export class TreeSetPrivate {
+class TreeSetPrivate {
     static name: string
 }
-export abstract class UnrolledLinkedListClass {
+abstract class UnrolledLinkedListClass {
     static name: string
 }
-export class UnrolledLinkedListPrivate {
+class UnrolledLinkedListPrivate {
     static name: string
 }
-export abstract class BidirIteratorIface {
+abstract class BidirIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirIteratorIface */
     previous: (self: BidirIterator) => boolean
     has_previous: (self: BidirIterator) => boolean
@@ -8099,18 +8101,18 @@ export abstract class BidirIteratorIface {
     last: (self: BidirIterator) => boolean
     static name: string
 }
-export abstract class BidirListIface {
+abstract class BidirListIface {
     /* Fields of Gee-0.8.Gee.BidirListIface */
     bidir_list_iterator: (self: BidirList) => BidirListIterator
     get_read_only_view: (self: BidirList) => BidirList
     static name: string
 }
-export abstract class BidirListIteratorIface {
+abstract class BidirListIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirListIteratorIface */
     insert: (self: BidirListIterator, item?: object | null) => void
     static name: string
 }
-export abstract class BidirMapIteratorIface {
+abstract class BidirMapIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirMapIteratorIface */
     previous: (self: BidirMapIterator) => boolean
     has_previous: (self: BidirMapIterator) => boolean
@@ -8118,19 +8120,19 @@ export abstract class BidirMapIteratorIface {
     last: (self: BidirMapIterator) => boolean
     static name: string
 }
-export abstract class BidirSortedSetIface {
+abstract class BidirSortedSetIface {
     /* Fields of Gee-0.8.Gee.BidirSortedSetIface */
     bidir_iterator: (self: BidirSortedSet) => BidirIterator
     get_read_only_view: (self: BidirSortedSet) => BidirSortedSet
     static name: string
 }
-export abstract class BidirSortedMapIface {
+abstract class BidirSortedMapIface {
     /* Fields of Gee-0.8.Gee.BidirSortedMapIface */
     bidir_map_iterator: (self: BidirSortedMap) => BidirMapIterator
     get_read_only_view: (self: BidirSortedMap) => BidirSortedMap
     static name: string
 }
-export abstract class CollectionIface {
+abstract class CollectionIface {
     /* Fields of Gee-0.8.Gee.CollectionIface */
     contains: (self: Collection, item?: object | null) => boolean
     add: (self: Collection, item?: object | null) => boolean
@@ -8153,12 +8155,12 @@ export abstract class CollectionIface {
     get_read_only_view: (self: Collection) => Collection
     static name: string
 }
-export abstract class ComparableIface {
+abstract class ComparableIface {
     /* Fields of Gee-0.8.Gee.ComparableIface */
     compare_to: (self: Comparable, object?: object | null) => number
     static name: string
 }
-export abstract class DequeIface {
+abstract class DequeIface {
     /* Fields of Gee-0.8.Gee.DequeIface */
     offer_head: (self: Deque, element?: object | null) => boolean
     peek_head: (self: Deque) => object | null
@@ -8170,7 +8172,7 @@ export abstract class DequeIface {
     drain_tail: (self: Deque, recipient: Collection, amount: number) => number
     static name: string
 }
-export abstract class FutureIface {
+abstract class FutureIface {
     /* Fields of Gee-0.8.Gee.FutureIface */
     wait: (self: Future) => object | null
     wait_until: (self: Future, end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
@@ -8186,18 +8188,18 @@ export abstract class FutureIface {
     get_exception: (self: Future) => GLib.Error | null
     static name: string
 }
-export abstract class HashableIface {
+abstract class HashableIface {
     /* Fields of Gee-0.8.Gee.HashableIface */
     hash: (self: Hashable) => number
     equal_to: (self: Hashable, object?: object | null) => boolean
     static name: string
 }
-export abstract class IterableIface {
+abstract class IterableIface {
     /* Fields of Gee-0.8.Gee.IterableIface */
     iterator: (self: Iterable) => Iterator
     static name: string
 }
-export abstract class IteratorIface {
+abstract class IteratorIface {
     /* Fields of Gee-0.8.Gee.IteratorIface */
     next: (self: Iterator) => boolean
     has_next: (self: Iterator) => boolean
@@ -8207,7 +8209,7 @@ export abstract class IteratorIface {
     get_read_only: (self: Iterator) => boolean
     static name: string
 }
-export abstract class ListIface {
+abstract class ListIface {
     /* Fields of Gee-0.8.Gee.ListIface */
     list_iterator: (self: List) => ListIterator
     get: (self: List, index: number) => object | null
@@ -8223,14 +8225,14 @@ export abstract class ListIface {
     get_read_only_view: (self: List) => List
     static name: string
 }
-export abstract class ListIteratorIface {
+abstract class ListIteratorIface {
     /* Fields of Gee-0.8.Gee.ListIteratorIface */
     set: (self: ListIterator, item?: object | null) => void
     add: (self: ListIterator, item?: object | null) => void
     index: (self: ListIterator) => number
     static name: string
 }
-export abstract class MapIface {
+abstract class MapIface {
     /* Fields of Gee-0.8.Gee.MapIface */
     has_key: (self: Map, key?: object | null) => boolean
     has: (self: Map, key?: object | null, value?: object | null) => boolean
@@ -8251,13 +8253,13 @@ export abstract class MapIface {
     get_read_only_view: (self: Map) => Map
     static name: string
 }
-export abstract class MapEntryClass {
+abstract class MapEntryClass {
     static name: string
 }
-export class MapEntryPrivate {
+class MapEntryPrivate {
     static name: string
 }
-export abstract class MapIteratorIface {
+abstract class MapIteratorIface {
     /* Fields of Gee-0.8.Gee.MapIteratorIface */
     next: (self: MapIterator) => boolean
     has_next: (self: MapIterator) => boolean
@@ -8272,7 +8274,7 @@ export abstract class MapIteratorIface {
     get_read_only: (self: MapIterator) => boolean
     static name: string
 }
-export abstract class MultiMapIface {
+abstract class MultiMapIface {
     /* Fields of Gee-0.8.Gee.MultiMapIface */
     get_keys: (self: MultiMap) => Set
     get_all_keys: (self: MultiMap) => MultiSet
@@ -8289,13 +8291,13 @@ export abstract class MultiMapIface {
     get_read_only_view: (self: MultiMap) => MultiMap
     static name: string
 }
-export abstract class MultiSetIface {
+abstract class MultiSetIface {
     /* Fields of Gee-0.8.Gee.MultiSetIface */
     count: (self: MultiSet, item?: object | null) => number
     get_read_only_view: (self: MultiSet) => MultiSet
     static name: string
 }
-export abstract class QueueIface {
+abstract class QueueIface {
     /* Fields of Gee-0.8.Gee.QueueIface */
     offer: (self: Queue, element?: object | null) => boolean
     peek: (self: Queue) => object | null
@@ -8306,12 +8308,12 @@ export abstract class QueueIface {
     get_is_full: (self: Queue) => boolean
     static name: string
 }
-export abstract class SetIface {
+abstract class SetIface {
     /* Fields of Gee-0.8.Gee.SetIface */
     get_read_only_view: (self: Set) => Set
     static name: string
 }
-export abstract class SortedMapIface {
+abstract class SortedMapIface {
     /* Fields of Gee-0.8.Gee.SortedMapIface */
     head_map: (self: SortedMap, before?: object | null) => SortedMap
     tail_map: (self: SortedMap, after?: object | null) => SortedMap
@@ -8321,7 +8323,7 @@ export abstract class SortedMapIface {
     get_read_only_view: (self: SortedMap) => SortedMap
     static name: string
 }
-export abstract class SortedSetIface {
+abstract class SortedSetIface {
     /* Fields of Gee-0.8.Gee.SortedSetIface */
     first: (self: SortedSet) => object | null
     last: (self: SortedSet) => object | null
@@ -8336,7 +8338,7 @@ export abstract class SortedSetIface {
     get_read_only_view: (self: SortedSet) => SortedSet
     static name: string
 }
-export abstract class TraversableIface {
+abstract class TraversableIface {
     /* Fields of Gee-0.8.Gee.TraversableIface */
     foreach: (self: Traversable, f: ForallFunc) => boolean
     stream: (self: Traversable, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc) => Iterator
@@ -8356,3 +8358,5 @@ export abstract class TraversableIface {
     get_element_type: (self: Traversable) => GObject.Type
     static name: string
 }
+}
+export default Gee

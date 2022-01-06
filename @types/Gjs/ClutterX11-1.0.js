@@ -1,2 +1,1 @@
-imports.gi.versions.ClutterX11 = '1.0'
-module.exports = imports.gi.ClutterX11
+export {default as default} from 'gi://ClutterX11?version=1.0';

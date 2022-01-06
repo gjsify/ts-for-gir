@@ -20,7 +20,7 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Gepub {
+declare namespace Gepub {
 
 export const META_AUTHOR: string
 export const META_DESC: string
@@ -32,7 +32,7 @@ export interface Doc_ConstructProps extends GObject.Object_ConstructProps {
     page?: number
     path?: string
 }
-export class Doc {
+class Doc {
     /* Properties of Gepub-0.5.Gepub.Doc */
     page: number
     /* Fields of GObject-2.0.GObject.Object */
@@ -108,7 +108,7 @@ export class Doc {
 export interface Widget_ConstructProps extends WebKit2.WebView_ConstructProps {
     doc?: Doc
 }
-export class Widget {
+class Widget {
     /* Properties of Gepub-0.5.Gepub.Widget */
     doc: Doc
     /* Properties of WebKit2-4.0.WebKit2.WebView */
@@ -1392,10 +1392,11 @@ export class Widget {
     static new(): Widget
     static $gtype: GObject.Type
 }
-export abstract class DocClass {
+abstract class DocClass {
     static name: string
 }
-export abstract class WidgetClass {
+abstract class WidgetClass {
     static name: string
 }
 }
+export default Gepub

@@ -1,2 +1,1 @@
-imports.gi.versions.CoglPango = '1.0'
-module.exports = imports.gi.CoglPango
+export {default as default} from 'gi://CoglPango?version=1.0';

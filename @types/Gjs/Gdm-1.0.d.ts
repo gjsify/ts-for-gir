@@ -3,31 +3,33 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum ClientError {
+export namespace Gdm {
+
+enum ClientError {
     CLIENT_ERROR_GENERIC,
 }
-export function chooser_interface_info(): Gio.DBusInterfaceInfo
-export function chooser_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function get_session_ids(): string[]
-export function get_session_name_and_description(id: string): [ /* returnType */ string, /* description */ string ]
-export function goto_login_session_sync(cancellable?: Gio.Cancellable | null): boolean
-export function greeter_interface_info(): Gio.DBusInterfaceInfo
-export function greeter_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function manager_interface_info(): Gio.DBusInterfaceInfo
-export function manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function remote_greeter_interface_info(): Gio.DBusInterfaceInfo
-export function remote_greeter_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function user_verifier_choice_list_interface_info(): Gio.DBusInterfaceInfo
-export function user_verifier_choice_list_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function user_verifier_interface_info(): Gio.DBusInterfaceInfo
-export function user_verifier_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export function worker_manager_interface_info(): Gio.DBusInterfaceInfo
-export function worker_manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
-export class Chooser {
+function chooser_interface_info(): Gio.DBusInterfaceInfo
+function chooser_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function get_session_ids(): string[]
+function get_session_name_and_description(id: string): [ /* returnType */ string, /* description */ string ]
+function goto_login_session_sync(cancellable?: Gio.Cancellable | null): boolean
+function greeter_interface_info(): Gio.DBusInterfaceInfo
+function greeter_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function manager_interface_info(): Gio.DBusInterfaceInfo
+function manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function remote_greeter_interface_info(): Gio.DBusInterfaceInfo
+function remote_greeter_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function user_verifier_choice_list_interface_info(): Gio.DBusInterfaceInfo
+function user_verifier_choice_list_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function user_verifier_interface_info(): Gio.DBusInterfaceInfo
+function user_verifier_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+function worker_manager_interface_info(): Gio.DBusInterfaceInfo
+function worker_manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+class Chooser {
     /* Methods of Gdm-1.0.Gdm.Chooser */
     call_disconnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_disconnect_finish(res: Gio.AsyncResult): boolean
@@ -52,7 +54,7 @@ export class Chooser {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class Greeter {
+class Greeter {
     /* Methods of Gdm-1.0.Gdm.Greeter */
     call_begin_auto_login(arg_username: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_begin_auto_login_finish(res: Gio.AsyncResult): boolean
@@ -131,7 +133,7 @@ export class Greeter {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class Manager {
+class Manager {
     /* Properties of Gdm-1.0.Gdm.Manager */
     version: string
     /* Methods of Gdm-1.0.Gdm.Manager */
@@ -178,7 +180,7 @@ export class Manager {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class RemoteGreeter {
+class RemoteGreeter {
     /* Methods of Gdm-1.0.Gdm.RemoteGreeter */
     call_disconnect(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_disconnect_finish(res: Gio.AsyncResult): boolean
@@ -195,7 +197,7 @@ export class RemoteGreeter {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class UserVerifier {
+class UserVerifier {
     /* Methods of Gdm-1.0.Gdm.UserVerifier */
     call_answer_query(arg_service_name: string, arg_answer: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_answer_query_finish(res: Gio.AsyncResult): boolean
@@ -299,7 +301,7 @@ export class UserVerifier {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class UserVerifierChoiceList {
+class UserVerifierChoiceList {
     /* Methods of Gdm-1.0.Gdm.UserVerifierChoiceList */
     call_select_choice(arg_service_name: string, arg_choice: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_select_choice_finish(res: Gio.AsyncResult): boolean
@@ -321,7 +323,7 @@ export class UserVerifierChoiceList {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
-export class WorkerManager {
+class WorkerManager {
     /* Methods of Gdm-1.0.Gdm.WorkerManager */
     call_choice_list_query(arg_service_name: string, arg_prompt_message: string, arg_query: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_choice_list_query_finish(out_answer: string, res: Gio.AsyncResult): boolean
@@ -380,7 +382,7 @@ export class WorkerManager {
 }
 export interface ChooserProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class ChooserProxy {
+class ChooserProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -510,7 +512,7 @@ export class ChooserProxy {
 }
 export interface ChooserSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class ChooserSkeleton {
+class ChooserSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -612,7 +614,7 @@ export class ChooserSkeleton {
 }
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Client {
+class Client {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdm-1.0.Gdm.Client */
@@ -681,7 +683,7 @@ export class Client {
 }
 export interface GreeterProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class GreeterProxy {
+class GreeterProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -865,7 +867,7 @@ export class GreeterProxy {
 }
 export interface GreeterSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class GreeterSkeleton {
+class GreeterSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -1022,7 +1024,7 @@ export class GreeterSkeleton {
 export interface ManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     version?: string
 }
-export class ManagerProxy {
+class ManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -1177,7 +1179,7 @@ export class ManagerProxy {
 export interface ManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     version?: string
 }
-export class ManagerSkeleton {
+class ManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of Gdm-1.0.Gdm.Manager */
@@ -1303,7 +1305,7 @@ export class ManagerSkeleton {
 }
 export interface RemoteGreeterProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class RemoteGreeterProxy {
+class RemoteGreeterProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -1425,7 +1427,7 @@ export class RemoteGreeterProxy {
 }
 export interface RemoteGreeterSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class RemoteGreeterSkeleton {
+class RemoteGreeterSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -1519,7 +1521,7 @@ export class RemoteGreeterSkeleton {
 }
 export interface UserVerifierChoiceListProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class UserVerifierChoiceListProxy {
+class UserVerifierChoiceListProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -1646,7 +1648,7 @@ export class UserVerifierChoiceListProxy {
 }
 export interface UserVerifierChoiceListSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class UserVerifierChoiceListSkeleton {
+class UserVerifierChoiceListSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -1745,7 +1747,7 @@ export class UserVerifierChoiceListSkeleton {
 }
 export interface UserVerifierProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class UserVerifierProxy {
+class UserVerifierProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -1954,7 +1956,7 @@ export class UserVerifierProxy {
 }
 export interface UserVerifierSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class UserVerifierSkeleton {
+class UserVerifierSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -2135,7 +2137,7 @@ export class UserVerifierSkeleton {
 }
 export interface WorkerManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
 }
-export class WorkerManagerProxy {
+class WorkerManagerProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
@@ -2297,7 +2299,7 @@ export class WorkerManagerProxy {
 }
 export interface WorkerManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
 }
-export class WorkerManagerSkeleton {
+class WorkerManagerSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Fields of GObject-2.0.GObject.Object */
@@ -2429,35 +2431,35 @@ export class WorkerManagerSkeleton {
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
     static $gtype: GObject.Type
 }
-export abstract class ChooserIface {
+abstract class ChooserIface {
     /* Fields of Gdm-1.0.Gdm.ChooserIface */
     parent_iface: GObject.TypeInterface
     handle_disconnect: (object: Chooser, invocation: Gio.DBusMethodInvocation) => boolean
     handle_select_hostname: (object: Chooser, invocation: Gio.DBusMethodInvocation, arg_hostname: string) => boolean
     static name: string
 }
-export abstract class ChooserProxyClass {
+abstract class ChooserProxyClass {
     /* Fields of Gdm-1.0.Gdm.ChooserProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class ChooserProxyPrivate {
+class ChooserProxyPrivate {
     static name: string
 }
-export abstract class ChooserSkeletonClass {
+abstract class ChooserSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.ChooserSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ChooserSkeletonPrivate {
+class ChooserSkeletonPrivate {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of Gdm-1.0.Gdm.ClientClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class GreeterIface {
+abstract class GreeterIface {
     /* Fields of Gdm-1.0.Gdm.GreeterIface */
     parent_iface: GObject.TypeInterface
     handle_begin_auto_login: (object: Greeter, invocation: Gio.DBusMethodInvocation, arg_username: string) => boolean
@@ -2473,23 +2475,23 @@ export abstract class GreeterIface {
     timed_login_requested: (object: Greeter, arg_username: string, arg_delay: number) => void
     static name: string
 }
-export abstract class GreeterProxyClass {
+abstract class GreeterProxyClass {
     /* Fields of Gdm-1.0.Gdm.GreeterProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class GreeterProxyPrivate {
+class GreeterProxyPrivate {
     static name: string
 }
-export abstract class GreeterSkeletonClass {
+abstract class GreeterSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.GreeterSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class GreeterSkeletonPrivate {
+class GreeterSkeletonPrivate {
     static name: string
 }
-export abstract class ManagerIface {
+abstract class ManagerIface {
     /* Fields of Gdm-1.0.Gdm.ManagerIface */
     parent_iface: GObject.TypeInterface
     handle_open_reauthentication_channel: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_username: string) => boolean
@@ -2499,68 +2501,68 @@ export abstract class ManagerIface {
     get_version: (object: Manager) => string
     static name: string
 }
-export abstract class ManagerProxyClass {
+abstract class ManagerProxyClass {
     /* Fields of Gdm-1.0.Gdm.ManagerProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class ManagerProxyPrivate {
+class ManagerProxyPrivate {
     static name: string
 }
-export abstract class ManagerSkeletonClass {
+abstract class ManagerSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.ManagerSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class ManagerSkeletonPrivate {
+class ManagerSkeletonPrivate {
     static name: string
 }
-export abstract class RemoteGreeterIface {
+abstract class RemoteGreeterIface {
     /* Fields of Gdm-1.0.Gdm.RemoteGreeterIface */
     parent_iface: GObject.TypeInterface
     handle_disconnect: (object: RemoteGreeter, invocation: Gio.DBusMethodInvocation) => boolean
     static name: string
 }
-export abstract class RemoteGreeterProxyClass {
+abstract class RemoteGreeterProxyClass {
     /* Fields of Gdm-1.0.Gdm.RemoteGreeterProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class RemoteGreeterProxyPrivate {
+class RemoteGreeterProxyPrivate {
     static name: string
 }
-export abstract class RemoteGreeterSkeletonClass {
+abstract class RemoteGreeterSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.RemoteGreeterSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class RemoteGreeterSkeletonPrivate {
+class RemoteGreeterSkeletonPrivate {
     static name: string
 }
-export abstract class UserVerifierChoiceListIface {
+abstract class UserVerifierChoiceListIface {
     /* Fields of Gdm-1.0.Gdm.UserVerifierChoiceListIface */
     parent_iface: GObject.TypeInterface
     handle_select_choice: (object: UserVerifierChoiceList, invocation: Gio.DBusMethodInvocation, arg_service_name: string, arg_choice: string) => boolean
     choice_query: (object: UserVerifierChoiceList, arg_service_name: string, arg_prompt_message: string, arg_list: GLib.Variant) => void
     static name: string
 }
-export abstract class UserVerifierChoiceListProxyClass {
+abstract class UserVerifierChoiceListProxyClass {
     /* Fields of Gdm-1.0.Gdm.UserVerifierChoiceListProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class UserVerifierChoiceListProxyPrivate {
+class UserVerifierChoiceListProxyPrivate {
     static name: string
 }
-export abstract class UserVerifierChoiceListSkeletonClass {
+abstract class UserVerifierChoiceListSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.UserVerifierChoiceListSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class UserVerifierChoiceListSkeletonPrivate {
+class UserVerifierChoiceListSkeletonPrivate {
     static name: string
 }
-export abstract class UserVerifierIface {
+abstract class UserVerifierIface {
     /* Fields of Gdm-1.0.Gdm.UserVerifierIface */
     parent_iface: GObject.TypeInterface
     handle_answer_query: (object: UserVerifier, invocation: Gio.DBusMethodInvocation, arg_service_name: string, arg_answer: string) => boolean
@@ -2581,23 +2583,23 @@ export abstract class UserVerifierIface {
     verification_failed: (object: UserVerifier, arg_service_name: string) => void
     static name: string
 }
-export abstract class UserVerifierProxyClass {
+abstract class UserVerifierProxyClass {
     /* Fields of Gdm-1.0.Gdm.UserVerifierProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class UserVerifierProxyPrivate {
+class UserVerifierProxyPrivate {
     static name: string
 }
-export abstract class UserVerifierSkeletonClass {
+abstract class UserVerifierSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.UserVerifierSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class UserVerifierSkeletonPrivate {
+class UserVerifierSkeletonPrivate {
     static name: string
 }
-export abstract class WorkerManagerIface {
+abstract class WorkerManagerIface {
     /* Fields of Gdm-1.0.Gdm.WorkerManagerIface */
     parent_iface: GObject.TypeInterface
     handle_choice_list_query: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, arg_service_name: string, arg_prompt_message: string, arg_query: GLib.Variant) => boolean
@@ -2608,19 +2610,21 @@ export abstract class WorkerManagerIface {
     handle_secret_info_query: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, arg_service_name: string, arg_query: string) => boolean
     static name: string
 }
-export abstract class WorkerManagerProxyClass {
+abstract class WorkerManagerProxyClass {
     /* Fields of Gdm-1.0.Gdm.WorkerManagerProxyClass */
     parent_class: Gio.DBusProxyClass
     static name: string
 }
-export class WorkerManagerProxyPrivate {
+class WorkerManagerProxyPrivate {
     static name: string
 }
-export abstract class WorkerManagerSkeletonClass {
+abstract class WorkerManagerSkeletonClass {
     /* Fields of Gdm-1.0.Gdm.WorkerManagerSkeletonClass */
     parent_class: Gio.DBusInterfaceSkeletonClass
     static name: string
 }
-export class WorkerManagerSkeletonPrivate {
+class WorkerManagerSkeletonPrivate {
     static name: string
 }
+}
+export default Gdm

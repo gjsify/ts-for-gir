@@ -3116,7 +3116,6 @@ export class AppLaunchContext {
     vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_launch_failed(startup_notify_id: string): void
-    vfunc_launch_started(info: Gio.AppInfo, platform_data: GLib.Variant): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -3130,9 +3129,6 @@ export class AppLaunchContext {
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
-    connect(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data?: GLib.Variant | null) => void)): number
-    connect_after(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data?: GLib.Variant | null) => void)): number
-    emit(sigName: "launch-started", info: Gio.AppInfo, platform_data?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: Gio.AppInfo, platform_data: GLib.Variant): void

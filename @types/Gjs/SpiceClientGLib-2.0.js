@@ -1,2 +1,1 @@
-imports.gi.versions.SpiceClientGLib = '2.0'
-module.exports = imports.gi.SpiceClientGLib
+export {default as default} from 'gi://SpiceClientGLib?version=2.0';

@@ -1,2 +1,1 @@
-imports.gi.versions.UPowerGlib = '1.0'
-module.exports = imports.gi.UPowerGlib
+export {default as default} from 'gi://UPowerGlib?version=1.0';

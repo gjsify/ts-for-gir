@@ -17,12 +17,12 @@ import type { Camel } from './Camel-1.2';
 import type { Gee } from './Gee-0.8';
 import type { Folks } from './Folks-0.7';
 
-export declare namespace FolksEds {
+declare namespace FolksEds {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     source?: EDataServer.Source
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.7.Folks.PersonaStore */
     readonly typeId: string
     readonly personas: Gee.Map
@@ -217,7 +217,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     postalAddresses?: Gee.Set
     webServiceAddresses?: Gee.MultiMap
 }
-export class Persona {
+class Persona {
     /* Properties of FolksEds-0.7.FolksEds.Persona */
     systemGroups: Gee.Set
     inGooglePersonalGroup: boolean
@@ -574,16 +574,17 @@ export class Persona {
     static normaliseImAddress(imAddress: string, protocol: string): string
     static $gtype: GObject.Type
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
 }
+export default FolksEds

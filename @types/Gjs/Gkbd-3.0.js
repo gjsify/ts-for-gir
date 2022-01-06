@@ -1,2 +1,1 @@
-imports.gi.versions.Gkbd = '3.0'
-module.exports = imports.gi.Gkbd
+export {default as default} from 'gi://Gkbd?version=3.0';

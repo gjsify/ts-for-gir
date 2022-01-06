@@ -8,14 +8,14 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GSSDP {
+declare namespace GSSDP {
 
-export enum Error {
+enum Error {
     NO_IP_ADDRESS,
     FAILED,
 }
 export const ALL_RESOURCES: string
-export function errorQuark(): GLib.Quark
+function errorQuark(): GLib.Quark
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     active?: boolean
     hostIp?: string
@@ -25,7 +25,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     serverId?: string
     socketTtl?: number
 }
-export class Client {
+class Client {
     /* Properties of GSSDP-1.0.GSSDP.Client */
     active: boolean
     hostIp: string
@@ -128,7 +128,7 @@ export interface ResourceBrowser_ConstructProps extends GObject.Object_Construct
     mx?: number
     target?: string
 }
-export class ResourceBrowser {
+class ResourceBrowser {
     /* Properties of GSSDP-1.0.GSSDP.ResourceBrowser */
     active: boolean
     mx: number
@@ -221,7 +221,7 @@ export interface ResourceGroup_ConstructProps extends GObject.Object_ConstructPr
     maxAge?: number
     messageDelay?: number
 }
-export class ResourceGroup {
+class ResourceGroup {
     /* Properties of GSSDP-1.0.GSSDP.ResourceGroup */
     available: boolean
     maxAge: number
@@ -299,29 +299,30 @@ export class ResourceGroup {
     static new(client: Client): ResourceGroup
     static $gtype: GObject.Type
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GSSDP-1.0.GSSDP.ClientClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ClientPrivate {
+class ClientPrivate {
     static name: string
 }
-export abstract class ResourceBrowserClass {
+abstract class ResourceBrowserClass {
     /* Fields of GSSDP-1.0.GSSDP.ResourceBrowserClass */
     parentClass: GObject.ObjectClass
     resourceUnavailable: (resourceBrowser: ResourceBrowser, usn: string) => void
     static name: string
 }
-export class ResourceBrowserPrivate {
+class ResourceBrowserPrivate {
     static name: string
 }
-export abstract class ResourceGroupClass {
+abstract class ResourceGroupClass {
     /* Fields of GSSDP-1.0.GSSDP.ResourceGroupClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ResourceGroupPrivate {
+class ResourceGroupPrivate {
     static name: string
 }
 }
+export default GSSDP

@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstGL from './GstGL-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstGL from './GstGL-1.0';
+
+export namespace GstGLEGL {
 
 export const GL_DISPLAY_EGL_NAME: string
 export const GL_MEMORY_EGL_ALLOCATOR_NAME: string
-export function egl_get_error_string(err: number): string
-export function egl_image_from_dmabuf(context: GstGL.GLContext, dmabuf: number, in_info: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
-export function egl_image_from_dmabuf_direct(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo): EGLImage
-export function egl_image_from_dmabuf_direct_target(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
-export function egl_image_from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: number): EGLImage
-export function gl_memory_egl_init_once(): void
-export function is_gl_memory_egl(mem: Gst.Memory): boolean
-export interface EGLImageDestroyNotify {
+function egl_get_error_string(err: number): string
+function egl_image_from_dmabuf(context: GstGL.GLContext, dmabuf: number, in_info: GstVideo.VideoInfo, plane: number, offset: number): EGLImage
+function egl_image_from_dmabuf_direct(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo): EGLImage
+function egl_image_from_dmabuf_direct_target(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
+function egl_image_from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: number): EGLImage
+function gl_memory_egl_init_once(): void
+function is_gl_memory_egl(mem: Gst.Memory): boolean
+interface EGLImageDestroyNotify {
     (image: EGLImage, data?: object | null): void
 }
 export interface GLDisplayEGL_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
-export class GLDisplayEGL {
+class GLDisplayEGL {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -140,7 +142,7 @@ export class GLDisplayEGL {
 }
 export interface GLDisplayEGLDevice_ConstructProps extends GstGL.GLDisplay_ConstructProps {
 }
-export class GLDisplayEGLDevice {
+class GLDisplayEGLDevice {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -257,7 +259,7 @@ export class GLDisplayEGLDevice {
 }
 export interface GLMemoryEGLAllocator_ConstructProps extends GstGL.GLMemoryAllocator_ConstructProps {
 }
-export class GLMemoryEGLAllocator {
+class GLMemoryEGLAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -369,7 +371,7 @@ export class GLMemoryEGLAllocator {
     _init (config?: GLMemoryEGLAllocator_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class EGLImage {
+class EGLImage {
     /* Methods of GstGLEGL-1.0.GstGLEGL.EGLImage */
     export_dmabuf(fd: number, stride: number, offset: number): boolean
     get_image(): object | null
@@ -381,19 +383,19 @@ export class EGLImage {
     static from_dmabuf_direct_target(context: GstGL.GLContext, fd: number, offset: number, in_info: GstVideo.VideoInfo, target: GstGL.GLTextureTarget): EGLImage
     static from_texture(context: GstGL.GLContext, gl_mem: GstGL.GLMemory, attribs: number): EGLImage
 }
-export abstract class GLDisplayEGLClass {
+abstract class GLDisplayEGLClass {
     /* Fields of GstGLEGL-1.0.GstGLEGL.GLDisplayEGLClass */
     object_class: GstGL.GLDisplayClass
     _padding: object[]
     static name: string
 }
-export abstract class GLDisplayEGLDeviceClass {
+abstract class GLDisplayEGLDeviceClass {
     /* Fields of GstGLEGL-1.0.GstGLEGL.GLDisplayEGLDeviceClass */
     object_class: GstGL.GLDisplayClass
     _padding: object[]
     static name: string
 }
-export class GLMemoryEGL {
+class GLMemoryEGL {
     /* Methods of GstGLEGL-1.0.GstGLEGL.GLMemoryEGL */
     get_display(): object | null
     get_image(): object | null
@@ -401,6 +403,8 @@ export class GLMemoryEGL {
     /* Static methods and pseudo-constructors */
     static init_once(): void
 }
-export abstract class GLMemoryEGLAllocatorClass {
+abstract class GLMemoryEGLAllocatorClass {
     static name: string
 }
+}
+export default GstGLEGL

@@ -7,29 +7,29 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Gck {
+declare namespace Gck {
 
-export enum BuilderFlags {
+enum BuilderFlags {
     NONE,
     SECURE_MEMORY,
 }
-export enum Error {
+enum Error {
     PROBLEM,
 }
-export enum UriError {
+enum UriError {
     BAD_SCHEME,
     BAD_ENCODING,
     BAD_SYNTAX,
     BAD_VERSION,
     NOT_FOUND,
 }
-export enum SessionOptions {
+enum SessionOptions {
     READ_ONLY,
     READ_WRITE,
     LOGIN_USER,
     AUTHENTICATE,
 }
-export enum UriFlags {
+enum UriFlags {
     FOR_OBJECT,
     FOR_TOKEN,
     FOR_MODULE,
@@ -44,34 +44,34 @@ export const URI_FOR_MODULE_WITH_VERSION: number
 export const URI_FOR_OBJECT_ON_TOKEN: number
 export const URI_FOR_OBJECT_ON_TOKEN_AND_MODULE: number
 export const VENDOR_CODE: number
-export function builderUnref(builder?: object | null): void
-export function errorGetQuark(): GLib.Quark
-export function listGetBoxedType(): GObject.Type
-export function messageFromRv(rv: number): string
-export function modulesEnumerateObjects(modules: Module[], attrs: Attributes, sessionOptions: SessionOptions): Enumerator
-export function modulesEnumerateUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Enumerator
-export function modulesGetSlots(modules: Module[], tokenPresent: boolean): Slot[]
-export function modulesInitializeRegistered(cancellable?: Gio.Cancellable | null): Module[]
-export function modulesInitializeRegisteredAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function modulesInitializeRegisteredFinish(result: Gio.AsyncResult): Module[]
-export function modulesObjectForUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Object | null
-export function modulesObjectsForUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Object[]
-export function modulesTokenForUri(modules: Module[], uri: string): Slot
-export function modulesTokensForUri(modules: Module[], uri: string): Slot[]
-export function objectsFromHandleArray(session: Session, objectHandles: number[]): Object[]
-export function slotsEnumerateObjects(slots: Slot[], match: Attributes, options: SessionOptions): Enumerator
-export function uriBuild(uriData: UriData, flags: UriFlags): string
-export function uriErrorGetQuark(): GLib.Quark
-export function uriParse(string: string, flags: UriFlags): UriData
-export function valueToBoolean(value: any[]): { returnType: boolean, result: boolean }
-export function valueToUlong(value: any[]): { returnType: boolean, result: number }
-export interface Allocator {
+function builderUnref(builder?: object | null): void
+function errorGetQuark(): GLib.Quark
+function listGetBoxedType(): GObject.Type
+function messageFromRv(rv: number): string
+function modulesEnumerateObjects(modules: Module[], attrs: Attributes, sessionOptions: SessionOptions): Enumerator
+function modulesEnumerateUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Enumerator
+function modulesGetSlots(modules: Module[], tokenPresent: boolean): Slot[]
+function modulesInitializeRegistered(cancellable?: Gio.Cancellable | null): Module[]
+function modulesInitializeRegisteredAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function modulesInitializeRegisteredFinish(result: Gio.AsyncResult): Module[]
+function modulesObjectForUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Object | null
+function modulesObjectsForUri(modules: Module[], uri: string, sessionOptions: SessionOptions): Object[]
+function modulesTokenForUri(modules: Module[], uri: string): Slot
+function modulesTokensForUri(modules: Module[], uri: string): Slot[]
+function objectsFromHandleArray(session: Session, objectHandles: number[]): Object[]
+function slotsEnumerateObjects(slots: Slot[], match: Attributes, options: SessionOptions): Enumerator
+function uriBuild(uriData: UriData, flags: UriFlags): string
+function uriErrorGetQuark(): GLib.Quark
+function uriParse(string: string, flags: UriFlags): UriData
+function valueToBoolean(value: any[]): { returnType: boolean, result: boolean }
+function valueToUlong(value: any[]): { returnType: boolean, result: number }
+interface Allocator {
     (data: object | null, length: number): object | null
 }
 export interface ObjectCache_ConstructProps extends Object_ConstructProps {
     attributes?: Attributes
 }
-export class ObjectCache {
+class ObjectCache {
     /* Properties of Gck-1.Gck.ObjectCache */
     attributes: Attributes
     /* Fields of Gck-1.Gck.Object */
@@ -160,7 +160,7 @@ export interface Enumerator_ConstructProps extends GObject.Object_ConstructProps
     chained?: Enumerator
     interaction?: Gio.TlsInteraction
 }
-export class Enumerator {
+class Enumerator {
     /* Properties of Gck-1.Gck.Enumerator */
     chained: Enumerator
     interaction: Gio.TlsInteraction
@@ -233,7 +233,7 @@ export interface Module_ConstructProps extends GObject.Object_ConstructProps {
     functions?: object
     path?: string
 }
-export class Module {
+class Module {
     /* Fields of Gck-1.Gck.Module */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -305,7 +305,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     module?: Module
     session?: Session
 }
-export class Object {
+class Object {
     /* Fields of Gck-1.Gck.Object */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -383,7 +383,7 @@ export interface Password_ConstructProps extends Gio.TlsPassword_ConstructProps 
     key?: Object
     token?: Slot
 }
-export class Password {
+class Password {
     /* Properties of Gck-1.Gck.Password */
     readonly module: Module
     /* Properties of Gio-2.0.Gio.TlsPassword */
@@ -479,7 +479,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     options?: SessionOptions
     slot?: Slot
 }
-export class Session {
+class Session {
     /* Properties of Gck-1.Gck.Session */
     interaction: Gio.TlsInteraction
     readonly module: Module
@@ -626,7 +626,7 @@ export interface Slot_ConstructProps extends GObject.Object_ConstructProps {
     handle?: number
     module?: Module
 }
-export class Slot {
+class Slot {
     /* Fields of Gck-1.Gck.Slot */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -688,7 +688,7 @@ export class Slot {
     static fromHandle(module: Module, slotId: number): Slot
     static $gtype: GObject.Type
 }
-export class Attribute {
+class Attribute {
     /* Fields of Gck-1.Gck.Attribute */
     type: number
     value: any[]
@@ -719,7 +719,7 @@ export class Attribute {
     static newString(attrType: number, value: string): Attribute
     static newUlong(attrType: number, value: number): Attribute
 }
-export class Attributes {
+class Attributes {
     /* Methods of Gck-1.Gck.Attributes */
     at(index: number): Attribute
     contains(match: Attribute): boolean
@@ -740,7 +740,7 @@ export class Attributes {
     /* Static methods and pseudo-constructors */
     static new(reserved: number): Attributes
 }
-export class Builder {
+class Builder {
     /* Methods of Gck-1.Gck.Builder */
     addAll(attrs: Attributes): void
     addAttribute(attr: Attribute): void
@@ -780,22 +780,22 @@ export class Builder {
     static new(flags: BuilderFlags): Builder
     static unref(builder?: object | null): void
 }
-export abstract class EnumeratorClass {
+abstract class EnumeratorClass {
     /* Fields of Gck-1.Gck.EnumeratorClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class EnumeratorPrivate {
+class EnumeratorPrivate {
     static name: string
 }
-export class Mechanism {
+class Mechanism {
     /* Fields of Gck-1.Gck.Mechanism */
     type: number
     parameter: object
     nParameter: number
     static name: string
 }
-export class MechanismInfo {
+class MechanismInfo {
     /* Fields of Gck-1.Gck.MechanismInfo */
     minKeySize: number
     maxKeySize: number
@@ -805,14 +805,14 @@ export class MechanismInfo {
     free(): void
     static name: string
 }
-export abstract class ModuleClass {
+abstract class ModuleClass {
     /* Fields of Gck-1.Gck.ModuleClass */
     parent: GObject.ObjectClass
     authenticateSlot: (self: Module, slot: Slot, label: string, password: string) => boolean
     authenticateObject: (self: Module, object: Object, label: string, password: string) => boolean
     static name: string
 }
-export class ModuleInfo {
+class ModuleInfo {
     /* Fields of Gck-1.Gck.ModuleInfo */
     pkcs11VersionMajor: number
     pkcs11VersionMinor: number
@@ -826,10 +826,10 @@ export class ModuleInfo {
     free(): void
     static name: string
 }
-export class ModulePrivate {
+class ModulePrivate {
     static name: string
 }
-export abstract class ObjectCacheIface {
+abstract class ObjectCacheIface {
     /* Fields of Gck-1.Gck.ObjectCacheIface */
     interface: GObject.TypeInterface
     defaultTypes: number[]
@@ -837,28 +837,28 @@ export abstract class ObjectCacheIface {
     fill: (object: ObjectCache, attrs: Attributes) => void
     static name: string
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Gck-1.Gck.ObjectClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class ObjectPrivate {
+class ObjectPrivate {
     static name: string
 }
-export abstract class PasswordClass {
+abstract class PasswordClass {
     /* Fields of Gck-1.Gck.PasswordClass */
     parent: Gio.TlsPasswordClass
     static name: string
 }
-export class PasswordPrivate {
+class PasswordPrivate {
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Gck-1.Gck.SessionClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class SessionInfo {
+class SessionInfo {
     /* Fields of Gck-1.Gck.SessionInfo */
     slotId: number
     state: number
@@ -869,15 +869,15 @@ export class SessionInfo {
     free(): void
     static name: string
 }
-export class SessionPrivate {
+class SessionPrivate {
     static name: string
 }
-export abstract class SlotClass {
+abstract class SlotClass {
     /* Fields of Gck-1.Gck.SlotClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class SlotInfo {
+class SlotInfo {
     /* Fields of Gck-1.Gck.SlotInfo */
     slotDescription: string
     manufacturerId: string
@@ -891,10 +891,10 @@ export class SlotInfo {
     free(): void
     static name: string
 }
-export class SlotPrivate {
+class SlotPrivate {
     static name: string
 }
-export class TokenInfo {
+class TokenInfo {
     /* Fields of Gck-1.Gck.TokenInfo */
     label: string
     manufacturerId: string
@@ -921,7 +921,7 @@ export class TokenInfo {
     free(): void
     static name: string
 }
-export class UriData {
+class UriData {
     /* Fields of Gck-1.Gck.UriData */
     anyUnrecognized: boolean
     moduleInfo: ModuleInfo
@@ -937,3 +937,4 @@ export class UriData {
     static new(): UriData
 }
 }
+export default Gck

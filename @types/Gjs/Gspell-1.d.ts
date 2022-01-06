@@ -3,28 +3,30 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum CheckerError {
+export namespace Gspell {
+
+enum CheckerError {
     DICTIONARY,
     NO_LANGUAGE_SET,
 }
-export function checker_error_quark(): GLib.Quark
-export function language_get_available(): Language[]
-export function language_get_default(): Language | null
-export function language_lookup(language_code: string): Language | null
-export class LanguageChooser {
+function checker_error_quark(): GLib.Quark
+function language_get_available(): Language[]
+function language_get_default(): Language | null
+function language_lookup(language_code: string): Language | null
+class LanguageChooser {
     /* Properties of Gspell-1.Gspell.LanguageChooser */
     language: Language
     language_code: string
@@ -40,7 +42,7 @@ export class LanguageChooser {
 }
 export interface Navigator_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class Navigator {
+class Navigator {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gspell-1.Gspell.Navigator */
@@ -97,7 +99,7 @@ export class Navigator {
 export interface Checker_ConstructProps extends GObject.Object_ConstructProps {
     language?: Language
 }
-export class Checker {
+class Checker {
     /* Properties of Gspell-1.Gspell.Checker */
     language: Language
     /* Fields of Gspell-1.Gspell.Checker */
@@ -177,7 +179,7 @@ export class Checker {
 export interface CheckerDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
     spell_navigator?: Navigator
 }
-export class CheckerDialog {
+class CheckerDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -1241,7 +1243,7 @@ export interface Entry_ConstructProps extends GObject.Object_ConstructProps {
     entry?: Gtk.Entry
     inline_spell_checking?: boolean
 }
-export class Entry {
+class Entry {
     /* Properties of Gspell-1.Gspell.Entry */
     inline_spell_checking: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -1302,7 +1304,7 @@ export interface EntryBuffer_ConstructProps extends GObject.Object_ConstructProp
     buffer?: Gtk.EntryBuffer
     spell_checker?: Checker
 }
-export class EntryBuffer {
+class EntryBuffer {
     /* Properties of Gspell-1.Gspell.EntryBuffer */
     spell_checker: Checker
     /* Fields of GObject-2.0.GObject.Object */
@@ -1366,7 +1368,7 @@ export interface LanguageChooserButton_ConstructProps extends Gtk.Button_Constru
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class LanguageChooserButton {
+class LanguageChooserButton {
     /* Properties of Gtk-3.0.Gtk.Button */
     always_show_image: boolean
     image: Gtk.Widget
@@ -2302,7 +2304,7 @@ export interface LanguageChooserDialog_ConstructProps extends Gtk.Dialog_Constru
     language?: Language
     language_code?: string
 }
-export class LanguageChooserDialog {
+class LanguageChooserDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     accept_focus: boolean
     application: Gtk.Application
@@ -3377,7 +3379,7 @@ export class LanguageChooserDialog {
 export interface NavigatorTextView_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     view?: Gtk.TextView
 }
-export class NavigatorTextView {
+class NavigatorTextView {
     /* Fields of Gspell-1.Gspell.NavigatorTextView */
     parent_instance: GObject.InitiallyUnowned
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
@@ -3439,7 +3441,7 @@ export interface TextBuffer_ConstructProps extends GObject.Object_ConstructProps
     buffer?: Gtk.TextBuffer
     spell_checker?: Checker
 }
-export class TextBuffer {
+class TextBuffer {
     /* Properties of Gspell-1.Gspell.TextBuffer */
     spell_checker: Checker
     /* Fields of GObject-2.0.GObject.Object */
@@ -3500,7 +3502,7 @@ export interface TextView_ConstructProps extends GObject.Object_ConstructProps {
     inline_spell_checking?: boolean
     view?: Gtk.TextView
 }
-export class TextView {
+class TextView {
     /* Properties of Gspell-1.Gspell.TextView */
     enable_language_menu: boolean
     inline_spell_checking: boolean
@@ -3564,7 +3566,7 @@ export class TextView {
     static get_from_gtk_text_view(gtk_view: Gtk.TextView): TextView
     static $gtype: GObject.Type
 }
-export abstract class CheckerClass {
+abstract class CheckerClass {
     /* Fields of Gspell-1.Gspell.CheckerClass */
     parent_class: GObject.ObjectClass
     word_added_to_personal: (checker: Checker, word: string) => void
@@ -3573,23 +3575,23 @@ export abstract class CheckerClass {
     padding: object[]
     static name: string
 }
-export abstract class CheckerDialogClass {
+abstract class CheckerDialogClass {
     /* Fields of Gspell-1.Gspell.CheckerDialogClass */
     parent_class: Gtk.DialogClass
     padding: object[]
     static name: string
 }
-export abstract class EntryBufferClass {
+abstract class EntryBufferClass {
     /* Fields of Gspell-1.Gspell.EntryBufferClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class EntryClass {
+abstract class EntryClass {
     /* Fields of Gspell-1.Gspell.EntryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class Language {
+class Language {
     /* Methods of Gspell-1.Gspell.Language */
     compare(language_b: Language): number
     copy(): Language
@@ -3602,26 +3604,26 @@ export class Language {
     static get_default(): Language | null
     static lookup(language_code: string): Language | null
 }
-export abstract class LanguageChooserButtonClass {
+abstract class LanguageChooserButtonClass {
     /* Fields of Gspell-1.Gspell.LanguageChooserButtonClass */
     parent_class: Gtk.ButtonClass
     padding: object[]
     static name: string
 }
-export abstract class LanguageChooserDialogClass {
+abstract class LanguageChooserDialogClass {
     /* Fields of Gspell-1.Gspell.LanguageChooserDialogClass */
     parent_class: Gtk.DialogClass
     padding: object[]
     static name: string
 }
-export abstract class LanguageChooserInterface {
+abstract class LanguageChooserInterface {
     /* Fields of Gspell-1.Gspell.LanguageChooserInterface */
     parent_interface: GObject.TypeInterface
     get_language_full: (chooser: LanguageChooser, default_language: boolean) => Language
     set_language: (chooser: LanguageChooser, language?: Language | null) => void
     static name: string
 }
-export abstract class NavigatorInterface {
+abstract class NavigatorInterface {
     /* Fields of Gspell-1.Gspell.NavigatorInterface */
     parent_interface: GObject.TypeInterface
     goto_next: (navigator: Navigator) => [ /* returnType */ boolean, /* word */ string | null, /* spell_checker */ Checker | null ]
@@ -3629,20 +3631,22 @@ export abstract class NavigatorInterface {
     change_all: (navigator: Navigator, word: string, change_to: string) => void
     static name: string
 }
-export abstract class NavigatorTextViewClass {
+abstract class NavigatorTextViewClass {
     /* Fields of Gspell-1.Gspell.NavigatorTextViewClass */
     parent_class: GObject.InitiallyUnownedClass
     padding: object[]
     static name: string
 }
-export abstract class TextBufferClass {
+abstract class TextBufferClass {
     /* Fields of Gspell-1.Gspell.TextBufferClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class TextViewClass {
+abstract class TextViewClass {
     /* Fields of Gspell-1.Gspell.TextViewClass */
     parent_class: GObject.ObjectClass
     padding: object[]
     static name: string
 }
+}
+export default Gspell

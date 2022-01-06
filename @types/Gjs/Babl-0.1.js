@@ -1,2 +1,1 @@
-imports.gi.versions.Babl = '0.1'
-module.exports = imports.gi.Babl
+export {default as default} from 'gi://Babl?version=0.1';

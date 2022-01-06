@@ -10,14 +10,14 @@ import type { GLib } from './GLib-2.0';
 import type { Rest } from './Rest-0.7';
 import type { Json } from './Json-1.0';
 
-export declare namespace GFBGraph {
+declare namespace GFBGraph {
 
-export enum NodeError {
+enum NodeError {
     CONNECTIONABLE,
     CONNECTABLE,
 }
-export function newRestCall(authorizer: Authorizer): Rest.ProxyCall
-export class Authorizer {
+function newRestCall(authorizer: Authorizer): Rest.ProxyCall
+class Authorizer {
     /* Methods of GFBGraph-0.2.GFBGraph.Authorizer */
     processCall(call: Rest.ProxyCall): void
     processMessage(message: Soup.Message): void
@@ -26,7 +26,7 @@ export class Authorizer {
 }
 export interface Connectable_ConstructProps extends Node_ConstructProps {
 }
-export class Connectable {
+class Connectable {
     /* Properties of GFBGraph-0.2.GFBGraph.Node */
     createdTime: string
     id: string
@@ -118,7 +118,7 @@ export interface Album_ConstructProps extends Node_ConstructProps {
     description?: string
     name?: string
 }
-export class Album {
+class Album {
     /* Properties of GFBGraph-0.2.GFBGraph.Album */
     count: number
     coverPhoto: string
@@ -242,7 +242,7 @@ export class Album {
 }
 export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class GoaAuthorizer {
+class GoaAuthorizer {
     /* Fields of GFBGraph-0.2.GFBGraph.GoaAuthorizer */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -297,7 +297,7 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     link?: string
     updatedTime?: string
 }
-export class Node {
+class Node {
     /* Properties of GFBGraph-0.2.GFBGraph.Node */
     createdTime: string
     id: string
@@ -388,7 +388,7 @@ export interface Photo_ConstructProps extends Node_ConstructProps {
     source?: string
     width?: number
 }
-export class Photo {
+class Photo {
     /* Properties of GFBGraph-0.2.GFBGraph.Photo */
     height: number
     images: object
@@ -531,7 +531,7 @@ export class Photo {
 export interface SimpleAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
     accessToken?: string
 }
-export class SimpleAuthorizer {
+class SimpleAuthorizer {
     /* Properties of GFBGraph-0.2.GFBGraph.SimpleAuthorizer */
     accessToken: string
     /* Fields of GFBGraph-0.2.GFBGraph.SimpleAuthorizer */
@@ -593,7 +593,7 @@ export interface User_ConstructProps extends Node_ConstructProps {
     email?: string
     name?: string
 }
-export class User {
+class User {
     /* Properties of GFBGraph-0.2.GFBGraph.User */
     email: string
     name: string
@@ -699,15 +699,15 @@ export class User {
     static getMeAsyncFinish(authorizer: Authorizer, result: Gio.AsyncResult): User
     static $gtype: GObject.Type
 }
-export abstract class AlbumClass {
+abstract class AlbumClass {
     /* Fields of GFBGraph-0.2.GFBGraph.AlbumClass */
     parentClass: NodeClass
     static name: string
 }
-export class AlbumPrivate {
+class AlbumPrivate {
     static name: string
 }
-export abstract class AuthorizerInterface {
+abstract class AuthorizerInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.AuthorizerInterface */
     parent: GObject.TypeInterface
     processCall: (iface: Authorizer, call: Rest.ProxyCall) => void
@@ -715,7 +715,7 @@ export abstract class AuthorizerInterface {
     refreshAuthorization: (iface: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
-export abstract class ConnectableInterface {
+abstract class ConnectableInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.ConnectableInterface */
     parent: GObject.TypeInterface
     connections: GLib.HashTable
@@ -723,51 +723,52 @@ export abstract class ConnectableInterface {
     parseConnectedData: (self: Connectable, payload: string) => Node[]
     static name: string
 }
-export abstract class GoaAuthorizerClass {
+abstract class GoaAuthorizerClass {
     /* Fields of GFBGraph-0.2.GFBGraph.GoaAuthorizerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class GoaAuthorizerPrivate {
+class GoaAuthorizerPrivate {
     static name: string
 }
-export abstract class NodeClass {
+abstract class NodeClass {
     /* Fields of GFBGraph-0.2.GFBGraph.NodeClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class NodePrivate {
+class NodePrivate {
     static name: string
 }
-export abstract class PhotoClass {
+abstract class PhotoClass {
     /* Fields of GFBGraph-0.2.GFBGraph.PhotoClass */
     parentClass: NodeClass
     static name: string
 }
-export class PhotoImage {
+class PhotoImage {
     /* Fields of GFBGraph-0.2.GFBGraph.PhotoImage */
     width: number
     height: number
     source: string
     static name: string
 }
-export class PhotoPrivate {
+class PhotoPrivate {
     static name: string
 }
-export abstract class SimpleAuthorizerClass {
+abstract class SimpleAuthorizerClass {
     /* Fields of GFBGraph-0.2.GFBGraph.SimpleAuthorizerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SimpleAuthorizerPrivate {
+class SimpleAuthorizerPrivate {
     static name: string
 }
-export abstract class UserClass {
+abstract class UserClass {
     /* Fields of GFBGraph-0.2.GFBGraph.UserClass */
     parentClass: NodeClass
     static name: string
 }
-export class UserPrivate {
+class UserPrivate {
     static name: string
 }
 }
+export default GFBGraph

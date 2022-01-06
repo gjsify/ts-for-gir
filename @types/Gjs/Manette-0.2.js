@@ -1,2 +1,1 @@
-imports.gi.versions.Manette = '0.2'
-module.exports = imports.gi.Manette
+export {default as default} from 'gi://Manette?version=0.2';

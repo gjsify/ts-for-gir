@@ -3,42 +3,44 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Peas from './Peas-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GIRepository from './GIRepository-2.0';
-import type * as Ide from './Ide-1.0';
-import type * as Template from './Template-1.0';
-import type * as Json from './Json-1.0';
-import type * as GtkSource from './GtkSource-3.0';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Dazzle from './Dazzle-1.0';
+import type Peas from './Peas-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GIRepository from './GIRepository-2.0';
+import type Ide from './Ide-1.0';
+import type Template from './Template-1.0';
+import type Json from './Json-1.0';
+import type GtkSource from './GtkSource-3.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type Atk from './Atk-1.0';
+import type Dazzle from './Dazzle-1.0';
 
-export enum ViewGridSplit {
+export namespace Builder {
+
+enum ViewGridSplit {
     LEFT,
     RIGHT,
     MOVE_LEFT,
     MOVE_RIGHT,
 }
-export interface TreeFilterFunc {
+interface TreeFilterFunc {
     (tree: Tree, node: TreeNode): boolean
 }
-export interface TreeFindFunc {
+interface TreeFindFunc {
     (tree: Tree, node: TreeNode, child: TreeNode): boolean
 }
-export interface TreeNodeCompareFunc {
+interface TreeNodeCompareFunc {
     (a: TreeNode, b: TreeNode): number
 }
-export class ApplicationAddin {
+class ApplicationAddin {
     /* Methods of Builder-1.0.Builder.ApplicationAddin */
     load(application: Application): void
     unload(application: Application): void
@@ -47,7 +49,7 @@ export class ApplicationAddin {
     vfunc_unload(application: Application): void
     static name: string
 }
-export class Document {
+class Document {
     /* Properties of Builder-1.0.Builder.Document */
     readonly modified: boolean
     readonly read_only: boolean
@@ -80,7 +82,7 @@ export class Document {
     emit(sigName: "create-view"): void
     static name: string
 }
-export class EditorViewAddin {
+class EditorViewAddin {
     /* Virtual methods of Builder-1.0.Builder.EditorViewAddin */
     vfunc_language_changed(language_id: string): void
     vfunc_load(view: EditorView): void
@@ -89,7 +91,7 @@ export class EditorViewAddin {
 }
 export interface Application_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Gtk-3.0.Gtk.Application */
     readonly active_window: Gtk.Window
     app_menu: Gio.MenuModel
@@ -347,7 +349,7 @@ export class Application {
 export interface EditorView_ConstructProps extends View_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class EditorView {
+class EditorView {
     /* Properties of Builder-1.0.Builder.View */
     readonly can_split: boolean
     readonly document: Document
@@ -1227,7 +1229,7 @@ export class EditorView {
 export interface MenuExtension_ConstructProps extends GObject.Object_ConstructProps {
     menu?: Gio.Menu
 }
-export class MenuExtension {
+class MenuExtension {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Builder-1.0.Builder.MenuExtension */
@@ -1289,7 +1291,7 @@ export interface Tree_ConstructProps extends Gtk.TreeView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class Tree {
+class Tree {
     /* Properties of Builder-1.0.Builder.Tree */
     root: TreeNode
     selection: TreeNode
@@ -2361,7 +2363,7 @@ export class Tree {
 }
 export interface TreeBuilder_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export class TreeBuilder {
+class TreeBuilder {
     /* Properties of Builder-1.0.Builder.TreeBuilder */
     readonly tree: Tree
     /* Fields of Builder-1.0.Builder.TreeBuilder */
@@ -2454,7 +2456,7 @@ export interface TreeNode_ConstructProps extends GObject.InitiallyUnowned_Constr
     use_dim_label?: boolean
     use_markup?: boolean
 }
-export class TreeNode {
+class TreeNode {
     /* Properties of Builder-1.0.Builder.TreeNode */
     children_possible: boolean
     icon_name: string
@@ -2558,7 +2560,7 @@ export class TreeNode {
 export interface View_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class View {
+class View {
     /* Properties of Builder-1.0.Builder.View */
     readonly can_split: boolean
     readonly document: Document
@@ -3433,7 +3435,7 @@ export class View {
 }
 export interface ViewGrid_ConstructProps extends Gtk.Bin_ConstructProps {
 }
-export class ViewGrid {
+class ViewGrid {
     /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
@@ -4253,7 +4255,7 @@ export class ViewGrid {
 export interface ViewStack_ConstructProps extends Gtk.Bin_ConstructProps {
     active_view?: View
 }
-export class ViewStack {
+class ViewStack {
     /* Properties of Builder-1.0.Builder.ViewStack */
     active_view: View
     /* Properties of Gtk-3.0.Gtk.Container */
@@ -5084,7 +5086,7 @@ export class ViewStack {
 export interface Workbench_ConstructProps extends Gtk.ApplicationWindow_ConstructProps {
     context?: Ide.Context
 }
-export class Workbench {
+class Workbench {
     /* Properties of Builder-1.0.Builder.Workbench */
     readonly active_view: View
     readonly building: boolean
@@ -6205,19 +6207,19 @@ export class Workbench {
     static new(type: Gtk.WindowType): Workbench
     static $gtype: GObject.Type
 }
-export abstract class ApplicationAddinInterface {
+abstract class ApplicationAddinInterface {
     /* Fields of Builder-1.0.Builder.ApplicationAddinInterface */
     parent: GObject.TypeInterface
     load: (self: ApplicationAddin, application: Application) => void
     unload: (self: ApplicationAddin, application: Application) => void
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Builder-1.0.Builder.ApplicationClass */
     parent_class: Gtk.ApplicationClass
     static name: string
 }
-export abstract class DocumentInterface {
+abstract class DocumentInterface {
     /* Fields of Builder-1.0.Builder.DocumentInterface */
     parent: GObject.TypeInterface
     create_view: (document: Document) => Gtk.Widget
@@ -6232,7 +6234,7 @@ export abstract class DocumentInterface {
     save_as_finish: (document: Document, result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class EditorViewAddinInterface {
+abstract class EditorViewAddinInterface {
     /* Fields of Builder-1.0.Builder.EditorViewAddinInterface */
     parent: GObject.TypeInterface
     load: (self: EditorViewAddin, view: EditorView) => void
@@ -6240,17 +6242,17 @@ export abstract class EditorViewAddinInterface {
     language_changed: (self: EditorViewAddin, language_id: string) => void
     static name: string
 }
-export abstract class EditorViewClass {
+abstract class EditorViewClass {
     /* Fields of Builder-1.0.Builder.EditorViewClass */
     parent_class: ViewClass
     static name: string
 }
-export abstract class MenuExtensionClass {
+abstract class MenuExtensionClass {
     /* Fields of Builder-1.0.Builder.MenuExtensionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class TreeBuilderClass {
+abstract class TreeBuilderClass {
     /* Fields of Builder-1.0.Builder.TreeBuilderClass */
     parent_class: GObject.InitiallyUnownedClass
     added: (builder: TreeBuilder, tree: Gtk.Widget) => void
@@ -6262,19 +6264,19 @@ export abstract class TreeBuilderClass {
     node_popup: (builder: TreeBuilder, node: TreeNode, menu: Gio.Menu) => void
     static name: string
 }
-export abstract class TreeClass {
+abstract class TreeClass {
     /* Fields of Builder-1.0.Builder.TreeClass */
     parent_class: Gtk.TreeViewClass
     action: (self: Tree, action_group: string, action_name: string, param: string) => void
     populate_popup: (self: Tree, widget: Gtk.Widget) => void
     static name: string
 }
-export abstract class TreeNodeClass {
+abstract class TreeNodeClass {
     /* Fields of Builder-1.0.Builder.TreeNodeClass */
     parent_class: GObject.InitiallyUnownedClass
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Builder-1.0.Builder.ViewClass */
     parent: Gtk.BinClass
     get_can_preview: (self: View) => boolean
@@ -6289,18 +6291,20 @@ export abstract class ViewClass {
     navigate_to: (self: View, location: Ide.SourceLocation) => void
     static name: string
 }
-export abstract class ViewGridClass {
+abstract class ViewGridClass {
     /* Fields of Builder-1.0.Builder.ViewGridClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class ViewStackClass {
+abstract class ViewStackClass {
     /* Fields of Builder-1.0.Builder.ViewStackClass */
     parent_class: Gtk.BinClass
     static name: string
 }
-export abstract class WorkbenchClass {
+abstract class WorkbenchClass {
     /* Fields of Builder-1.0.Builder.WorkbenchClass */
     parent_class: Gtk.ApplicationWindowClass
     static name: string
 }
+}
+export default Builder

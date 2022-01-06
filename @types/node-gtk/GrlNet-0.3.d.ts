@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GrlNet {
+declare namespace GrlNet {
 
-export enum WcError {
+enum WcError {
     UNAVAILABLE,
     PROTOCOL_ERROR,
     AUTHENTICATION_REQUIRED,
@@ -28,7 +28,7 @@ export interface Wc_ConstructProps extends GObject.Object_ConstructProps {
     throttling?: number
     userAgent?: string
 }
-export class Wc {
+class Wc {
     /* Properties of GrlNet-0.3.GrlNet.Wc */
     cache: boolean
     cacheSize: number
@@ -116,12 +116,13 @@ export class Wc {
     static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class WcClass {
+abstract class WcClass {
     /* Fields of GrlNet-0.3.GrlNet.WcClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class WcPrivate {
+class WcPrivate {
     static name: string
 }
 }
+export default GrlNet

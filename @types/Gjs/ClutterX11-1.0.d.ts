@@ -3,47 +3,49 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Atk from './Atk-1.0';
+import type xlib from './xlib-2.0';
+import type Clutter from './Clutter-1.0';
+import type cairo from './cairo-1.0';
+import type Json from './Json-1.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Cogl from './Cogl-1.0';
+import type Atk from './Atk-1.0';
 
-export enum FilterReturn {
+export namespace ClutterX11 {
+
+enum FilterReturn {
     CONTINUE,
     TRANSLATE,
     REMOVE,
 }
-export function disable_event_retrieval(): void
-export function enable_xinput(): void
-export function event_get_key_group(event: Clutter.Event): number
-export function event_sequence_get_touch_detail(sequence: Clutter.EventSequence): number
-export function get_default_display(): xlib.Display
-export function get_default_screen(): number
-export function get_input_devices(): Clutter.InputDevice[]
-export function get_stage_from_window(win: xlib.Window): Clutter.Stage
-export function get_use_argb_visual(): boolean
-export function get_use_stereo_stage(): boolean
-export function handle_event(xevent: xlib.XEvent): FilterReturn
-export function has_composite_extension(): boolean
-export function has_event_retrieval(): boolean
-export function has_xinput(): boolean
-export function set_display(xdpy: xlib.Display): void
-export function set_stage_foreign(stage: Clutter.Stage, xwindow: xlib.Window): boolean
-export function set_use_argb_visual(use_argb: boolean): void
-export function set_use_stereo_stage(use_stereo: boolean): void
-export function trap_x_errors(): void
-export function untrap_x_errors(): number
-export interface FilterFunc {
+function disable_event_retrieval(): void
+function enable_xinput(): void
+function event_get_key_group(event: Clutter.Event): number
+function event_sequence_get_touch_detail(sequence: Clutter.EventSequence): number
+function get_default_display(): xlib.Display
+function get_default_screen(): number
+function get_input_devices(): Clutter.InputDevice[]
+function get_stage_from_window(win: xlib.Window): Clutter.Stage
+function get_use_argb_visual(): boolean
+function get_use_stereo_stage(): boolean
+function handle_event(xevent: xlib.XEvent): FilterReturn
+function has_composite_extension(): boolean
+function has_event_retrieval(): boolean
+function has_xinput(): boolean
+function set_display(xdpy: xlib.Display): void
+function set_stage_foreign(stage: Clutter.Stage, xwindow: xlib.Window): boolean
+function set_use_argb_visual(use_argb: boolean): void
+function set_use_stereo_stage(use_stereo: boolean): void
+function trap_x_errors(): void
+function untrap_x_errors(): number
+interface FilterFunc {
     (xev: xlib.XEvent, cev: Clutter.Event): FilterReturn
 }
 export interface TexturePixmap_ConstructProps extends Clutter.Texture_ConstructProps {
@@ -52,7 +54,7 @@ export interface TexturePixmap_ConstructProps extends Clutter.Texture_ConstructP
     window?: number
     window_redirect_automatic?: boolean
 }
-export class TexturePixmap {
+class TexturePixmap {
     /* Properties of ClutterX11-1.0.ClutterX11.TexturePixmap */
     automatic_updates: boolean
     readonly destroyed: boolean
@@ -888,14 +890,16 @@ export class TexturePixmap {
     static class_list_child_properties(klass: GObject.ObjectClass): GObject.ParamSpec[]
     static $gtype: GObject.Type
 }
-export abstract class TexturePixmapClass {
+abstract class TexturePixmapClass {
     /* Fields of ClutterX11-1.0.ClutterX11.TexturePixmapClass */
     update_area: (texture: TexturePixmap, x: number, y: number, width: number, height: number) => void
     static name: string
 }
-export class TexturePixmapPrivate {
+class TexturePixmapPrivate {
     static name: string
 }
-export class XInputDevice {
+class XInputDevice {
     static name: string
 }
+}
+export default ClutterX11

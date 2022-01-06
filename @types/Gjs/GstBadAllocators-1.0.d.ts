@@ -3,16 +3,18 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export function is_phys_memory(mem: Gst.Memory): boolean
-export function phys_memory_get_phys_addr(mem: Gst.Memory): number
+export namespace GstBadAllocators {
+
+function is_phys_memory(mem: Gst.Memory): boolean
+function phys_memory_get_phys_addr(mem: Gst.Memory): number
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class PhysMemoryAllocator {
+class PhysMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -117,9 +119,11 @@ export class PhysMemoryAllocator {
     _init (config?: PhysMemoryAllocator_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class PhysMemoryAllocatorInterface {
+abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstBadAllocators-1.0.GstBadAllocators.PhysMemoryAllocatorInterface */
     parent_iface: GObject.TypeInterface
     get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
+}
+export default GstBadAllocators

@@ -17,59 +17,59 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Gdl } from './Gdl-3';
 
-export declare namespace Anjuta {
+declare namespace Anjuta {
 
-export enum CommandBarEntryType {
+enum CommandBarEntryType {
     FRAME,
     BUTTON,
 }
-export enum CommandQueueExecuteMode {
+enum CommandQueueExecuteMode {
     AUTOMATIC,
     MANUAL,
 }
-export enum ConvertError {
+enum ConvertError {
     FAILED,
 }
-export enum LauncherOutputType {
+enum LauncherOutputType {
     STDOUT,
     STDERR,
     PTY,
 }
-export enum PluginDescriptionParseError {
+enum PluginDescriptionParseError {
     SYNTAX,
     ESCAPES,
     CHARS,
 }
-export enum PluginManagerError {
+enum PluginManagerError {
     MISSING_FACTORY,
     ERROR_UNKNOWN,
 }
-export enum ProfileError {
+enum ProfileError {
     URI_READ_FAILED,
     URI_WRITE_FAILED,
     PLUGIN_MISSING,
 }
-export enum ProjectValueType {
+enum ProjectValueType {
     STRING,
     LIST,
     BOOLEAN,
     MAP,
 }
-export enum SerializerMode {
+enum SerializerMode {
     READ,
     WRITE,
 }
-export enum SessionPhase {
+enum SessionPhase {
     START,
     FIRST,
     NORMAL,
     LAST,
     END,
 }
-export enum ShellError {
+enum ShellError {
     EXIST,
 }
-export enum ShellPlacement {
+enum ShellPlacement {
     NONE,
     TOP,
     BOTTOM,
@@ -78,7 +78,7 @@ export enum ShellPlacement {
     CENTER,
     FLOATING,
 }
-export enum ProjectNodeState {
+enum ProjectNodeState {
     OK,
     MODIFIED,
     INCOMPLETE,
@@ -93,7 +93,7 @@ export enum ProjectNodeState {
     CAN_SAVE,
     REMOVE_FILE,
 }
-export enum ProjectNodeType {
+enum ProjectNodeType {
     UNKNOWN,
     SHAREDLIB,
     STATICLIB,
@@ -133,13 +133,13 @@ export enum ProjectNodeType {
     VARIABLE,
     OBJECT,
 }
-export enum ProjectPropertyFlags {
+enum ProjectPropertyFlags {
     READ_ONLY,
     READ_WRITE,
     HIDDEN,
     STATIC,
 }
-export enum TokenType {
+enum TokenType {
     NONE,
     EOL,
     COMMA,
@@ -188,7 +188,7 @@ export enum TokenType {
     REMOVED,
     ADDED,
 }
-export enum VcsStatus {
+enum VcsStatus {
     MODIFIED,
     ADDED,
     DELETED,
@@ -202,119 +202,119 @@ export enum VcsStatus {
 }
 export const SYSTEM_PROFILE_NAME: string
 export const VCS_DEFAULT_STATUS_CODES: number
-export function cclosureMarshalVOIDBOXEDENUM(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDINTINTULONG(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDINTOBJECT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDINTSTRING(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDPOINTEROBJECT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDSTRINGBOXED(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDSTRINGINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDSTRINGINTSTRING(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function cclosureMarshalVOIDSTRINGPOINTER(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function checkAutogen(): boolean
-export function convertErrorQuark(): GLib.Quark
-export function convertFromUtf8(content: string, len: number, encoding: Encoding, newLen: number): string
-export function convertToUtf8(content: string, len: number, encoding: Encoding, newLen: number): string
-export function encodingGetCurrent(): Encoding
-export function encodingGetFromCharset(charset: string): Encoding
-export function encodingGetFromIndex(index: number): Encoding
-export function encodingGetUtf8(): Encoding
-export function pkgConfigGetVersion(package: string): string
-export function pkgConfigIgnorePackage(name: string): boolean
-export function pluginDescriptionParseErrorQuark(): GLib.Quark
-export function pluginManagerErrorQuark(): GLib.Quark
-export function profileErrorQuark(): GLib.Quark
-export function resGetDataDir(): string
-export function resGetDataFile(pixfile: string): string
-export function resGetDocDir(): string
-export function resGetDocFile(docfile: string): string
-export function resGetHelpDir(): string
-export function resGetHelpDirLocale(locale: string): string
-export function resGetHelpFile(helpfile: string): string
-export function resGetHelpFileLocale(helpfile: string, locale: string): string
-export function resGetPixmapDir(): string
-export function resGetPixmapFile(pixfile: string): string
-export function resHelpSearch(word: string): void
-export function resUrlShow(url: string): void
-export function shellErrorQuark(): GLib.Quark
-export function utilColorFromString(val: string, r: number, g: number, b: number): void
-export function utilConvertToUtf8(str: string): string
-export function utilCopyFile(src: string, dest: string, showError: boolean): boolean
-export function utilCreateDir(d: string): boolean
-export function utilDialogInput(parent: Gtk.Window, label: string, defaultValue: string, value: string): boolean
-export function utilDiff(uri: string, text: string): boolean
-export function utilEscapeQuotes(str: string): string
-export function utilExecuteShell(dir: string, command: string): GLib.Pid
-export function utilExecuteTerminalShell(dir: string, command: string): GLib.Pid
-export function utilFileNewForCommandlineArg(arg: string): Gio.File
-export function utilGetATmpFile(): string
-export function utilGetCurrentDir(): string
-export function utilGetFileInfoMimeType(info: Gio.FileInfo): string
-export function utilGetFileMimeType(file: Gio.File): string
-export function utilGetLocalPathFromUri(uri: string): string
-export function utilGetRealPath(path: string): string
-export function utilGetUserMail(): string
-export function utilHelpDisplay(parent: Gtk.Widget, docId: string, item: string): void
-export function utilInstallFiles(names: string): boolean
-export function utilIsProjectFile(filename: string): boolean
-export function utilIsTemplateFile(filename: string): boolean
-export function utilPackageIsInstalled(lib: string, show: boolean): boolean
-export function utilParseArgsFromString(string: string): string[]
-export function utilProgIsInstalled(prog: string, show: boolean): boolean
-export function utilReplaceHomeDirWithTilde(uri: string): string
-export function utilSetAnjutaPrefix(name: string): void
-export function utilSetUserMail(id: string): void
-export function utilShellExpand(string: string): string
-export function utilStrMiddleTruncate(string: string, truncateLength: number): string
-export function utilStringFromColor(r: number, g: number, b: number): string
-export function utilStringFromType(map: UtilStringMap, type: number): string
-export function utilTypeFromString(map: UtilStringMap, str: string): number
-export function utilUriGetDirname(uri: string): string
-export function utilUserShell(): string
-export function utilUserTerminal(): string[]
-export interface AutogenFunc {
+function cclosureMarshalVOIDBOXEDENUM(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDINTINTULONG(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDINTOBJECT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDINTSTRING(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDPOINTEROBJECT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDSTRINGBOXED(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDSTRINGINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDSTRINGINTSTRING(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function cclosureMarshalVOIDSTRINGPOINTER(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function checkAutogen(): boolean
+function convertErrorQuark(): GLib.Quark
+function convertFromUtf8(content: string, len: number, encoding: Encoding, newLen: number): string
+function convertToUtf8(content: string, len: number, encoding: Encoding, newLen: number): string
+function encodingGetCurrent(): Encoding
+function encodingGetFromCharset(charset: string): Encoding
+function encodingGetFromIndex(index: number): Encoding
+function encodingGetUtf8(): Encoding
+function pkgConfigGetVersion(package: string): string
+function pkgConfigIgnorePackage(name: string): boolean
+function pluginDescriptionParseErrorQuark(): GLib.Quark
+function pluginManagerErrorQuark(): GLib.Quark
+function profileErrorQuark(): GLib.Quark
+function resGetDataDir(): string
+function resGetDataFile(pixfile: string): string
+function resGetDocDir(): string
+function resGetDocFile(docfile: string): string
+function resGetHelpDir(): string
+function resGetHelpDirLocale(locale: string): string
+function resGetHelpFile(helpfile: string): string
+function resGetHelpFileLocale(helpfile: string, locale: string): string
+function resGetPixmapDir(): string
+function resGetPixmapFile(pixfile: string): string
+function resHelpSearch(word: string): void
+function resUrlShow(url: string): void
+function shellErrorQuark(): GLib.Quark
+function utilColorFromString(val: string, r: number, g: number, b: number): void
+function utilConvertToUtf8(str: string): string
+function utilCopyFile(src: string, dest: string, showError: boolean): boolean
+function utilCreateDir(d: string): boolean
+function utilDialogInput(parent: Gtk.Window, label: string, defaultValue: string, value: string): boolean
+function utilDiff(uri: string, text: string): boolean
+function utilEscapeQuotes(str: string): string
+function utilExecuteShell(dir: string, command: string): GLib.Pid
+function utilExecuteTerminalShell(dir: string, command: string): GLib.Pid
+function utilFileNewForCommandlineArg(arg: string): Gio.File
+function utilGetATmpFile(): string
+function utilGetCurrentDir(): string
+function utilGetFileInfoMimeType(info: Gio.FileInfo): string
+function utilGetFileMimeType(file: Gio.File): string
+function utilGetLocalPathFromUri(uri: string): string
+function utilGetRealPath(path: string): string
+function utilGetUserMail(): string
+function utilHelpDisplay(parent: Gtk.Widget, docId: string, item: string): void
+function utilInstallFiles(names: string): boolean
+function utilIsProjectFile(filename: string): boolean
+function utilIsTemplateFile(filename: string): boolean
+function utilPackageIsInstalled(lib: string, show: boolean): boolean
+function utilParseArgsFromString(string: string): string[]
+function utilProgIsInstalled(prog: string, show: boolean): boolean
+function utilReplaceHomeDirWithTilde(uri: string): string
+function utilSetAnjutaPrefix(name: string): void
+function utilSetUserMail(id: string): void
+function utilShellExpand(string: string): string
+function utilStrMiddleTruncate(string: string, truncateLength: number): string
+function utilStringFromColor(r: number, g: number, b: number): string
+function utilStringFromType(map: UtilStringMap, type: number): string
+function utilTypeFromString(map: UtilStringMap, str: string): number
+function utilUriGetDirname(uri: string): string
+function utilUserShell(): string
+function utilUserTerminal(): string[]
+interface AutogenFunc {
     (autogen: Autogen, data?: object | null): void
 }
-export interface AutogenOutputFunc {
+interface AutogenOutputFunc {
     (output: string, data?: object | null): void
 }
-export interface CompletionFilterFunc {
+interface CompletionFilterFunc {
     (item?: object | null): boolean
 }
-export interface CompletionNameFunc {
+interface CompletionNameFunc {
     (item?: object | null): string
 }
-export interface LauncherOutputCallback {
+interface LauncherOutputCallback {
     (launcher: Launcher, outputType: LauncherOutputType, chars: string): void
 }
-export interface PluginDescriptionLineFunc {
+interface PluginDescriptionLineFunc {
     (df: PluginDescription, key: string, locale: string, value: string, data?: object | null): void
 }
-export interface PluginDescriptionSectionFunc {
+interface PluginDescriptionSectionFunc {
     (df: PluginDescription, name: string): void
 }
-export interface PluginValueAdded {
+interface PluginValueAdded {
     (plugin: Plugin, name: string, value: any): void
 }
-export interface PluginValueRemoved {
+interface PluginValueRemoved {
     (plugin: Plugin, name: string): void
 }
-export interface PreferencesCallback {
+interface PreferencesCallback {
     (pr: Preferences, key: string, data?: object | null): boolean
 }
-export interface ProjectNodeForeachFunc {
+interface ProjectNodeForeachFunc {
     (node: ProjectNode): void
 }
-export interface ProjectNodeTraverseFunc {
+interface ProjectNodeTraverseFunc {
     (node: ProjectNode, data?: object | null): boolean
 }
-export interface SavePromptSaveFunc {
+interface SavePromptSaveFunc {
     (savePrompt: SavePrompt, item?: object | null): boolean
 }
-export interface TokenForeachFunc {
+interface TokenForeachFunc {
     (token: Token, data?: object | null): void
 }
-export class Shell {
+class Shell {
     /* Methods of Anjuta-3.0.Anjuta.Shell */
     addValue(name: string, value: any): void
     addWidget(widget: Gtk.Widget, name: string, title: string, stockId: string, placement: ShellPlacement): void
@@ -372,7 +372,7 @@ export class Shell {
 }
 export interface AsyncCommand_ConstructProps extends Command_ConstructProps {
 }
-export class AsyncCommand {
+class AsyncCommand {
     /* Fields of Anjuta-3.0.Anjuta.AsyncCommand */
     parentInstance: Command
     priv: AsyncCommandPriv
@@ -458,7 +458,7 @@ export class AsyncCommand {
 }
 export interface AsyncNotify_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AsyncNotify {
+class AsyncNotify {
     /* Fields of Anjuta-3.0.Anjuta.AsyncNotify */
     parentInstance: GObject.Object
     priv: AsyncNotifyPriv
@@ -518,7 +518,7 @@ export class AsyncNotify {
 }
 export interface Autogen_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Autogen {
+class Autogen {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Anjuta-3.0.Anjuta.Autogen */
@@ -574,7 +574,7 @@ export class Autogen {
 }
 export interface CModule_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
-export class CModule {
+class CModule {
     /* Fields of GObject-2.0.GObject.TypeModule */
     parentInstance: GObject.Object
     useCount: number
@@ -641,7 +641,7 @@ export class CModule {
 }
 export interface CPluginFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CPluginFactory {
+class CPluginFactory {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Anjuta-3.0.Anjuta.CPluginFactory */
@@ -692,7 +692,7 @@ export interface CellRendererCaptionedImage_ConstructProps extends Gtk.CellRende
     pixbuf?: GdkPixbuf.Pixbuf
     text?: string
 }
-export class CellRendererCaptionedImage {
+class CellRendererCaptionedImage {
     /* Properties of Anjuta-3.0.Anjuta.CellRendererCaptionedImage */
     pixbuf: GdkPixbuf.Pixbuf
     text: string
@@ -892,7 +892,7 @@ export class CellRendererCaptionedImage {
 export interface CellRendererDiff_ConstructProps extends Gtk.CellRenderer_ConstructProps {
     diff?: string
 }
-export class CellRendererDiff {
+class CellRendererDiff {
     /* Properties of Anjuta-3.0.Anjuta.CellRendererDiff */
     diff: string
     /* Properties of Gtk-3.0.Gtk.CellRenderer */
@@ -1088,7 +1088,7 @@ export interface CloseButton_ConstructProps extends Gtk.Button_ConstructProps {
     relatedAction?: Gtk.Action
     useActionAppearance?: boolean
 }
-export class CloseButton {
+class CloseButton {
     /* Properties of Gtk-3.0.Gtk.Button */
     alwaysShowImage: boolean
     image: Gtk.Widget
@@ -2210,7 +2210,7 @@ export class CloseButton {
 export interface ColumnTextView_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class ColumnTextView {
+class ColumnTextView {
     /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
@@ -3228,7 +3228,7 @@ export class ColumnTextView {
 }
 export interface Command_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Command {
+class Command {
     /* Fields of Anjuta-3.0.Anjuta.Command */
     parentInstance: GObject.Object
     priv: CommandPriv
@@ -3309,7 +3309,7 @@ export class Command {
 export interface CommandBar_ConstructProps extends Gtk.Notebook_ConstructProps {
     maxTextWidth?: number
 }
-export class CommandBar {
+class CommandBar {
     /* Properties of Gtk-3.0.Gtk.Notebook */
     enablePopup: boolean
     groupName: string
@@ -4422,7 +4422,7 @@ export class CommandBar {
 }
 export interface CommandQueue_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CommandQueue {
+class CommandQueue {
     /* Fields of Anjuta-3.0.Anjuta.CommandQueue */
     parentInstance: GObject.Object
     priv: CommandQueuePriv
@@ -4482,7 +4482,7 @@ export class CommandQueue {
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
     caseSensitive?: boolean
 }
-export class Completion {
+class Completion {
     /* Properties of Anjuta-3.0.Anjuta.Completion */
     caseSensitive: boolean
     /* Fields of Anjuta-3.0.Anjuta.Completion */
@@ -4543,7 +4543,7 @@ export class Completion {
 }
 export interface Dock_ConstructProps extends Gdl.Dock_ConstructProps {
 }
-export class Dock {
+class Dock {
     /* Properties of Gdl-3.Gdl.Dock */
     defaultTitle: string
     floatx: number
@@ -5651,7 +5651,7 @@ export class Dock {
 export interface DockPane_ConstructProps extends GObject.Object_ConstructProps {
     plugin?: Plugin
 }
-export class DockPane {
+class DockPane {
     /* Properties of Anjuta-3.0.Anjuta.DockPane */
     plugin: Plugin
     /* Fields of Anjuta-3.0.Anjuta.DockPane */
@@ -5722,7 +5722,7 @@ export class DockPane {
 export interface DropEntry_ConstructProps extends Entry_ConstructProps {
     editingCanceled?: boolean
 }
-export class DropEntry {
+class DropEntry {
     /* Properties of Anjuta-3.0.Anjuta.Entry */
     helpText: string
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -7139,7 +7139,7 @@ export interface Entry_ConstructProps extends Gtk.Entry_ConstructProps {
     helpText?: string
     editingCanceled?: boolean
 }
-export class Entry {
+class Entry {
     /* Properties of Anjuta-3.0.Anjuta.Entry */
     helpText: string
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -8553,7 +8553,7 @@ export class Entry {
 }
 export interface EnvironmentEditor_ConstructProps extends Gtk.Bin_ConstructProps {
 }
-export class EnvironmentEditor {
+class EnvironmentEditor {
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -9537,7 +9537,7 @@ export interface FileDropEntry_ConstructProps extends DropEntry_ConstructProps {
     relativePath?: string
     editingCanceled?: boolean
 }
-export class FileDropEntry {
+class FileDropEntry {
     /* Properties of Anjuta-3.0.Anjuta.FileDropEntry */
     relativePath: string
     /* Properties of Anjuta-3.0.Anjuta.Entry */
@@ -10963,7 +10963,7 @@ export interface FileList_ConstructProps extends Gtk.Box_ConstructProps {
     showAddButton?: boolean
     orientation?: Gtk.Orientation
 }
-export class FileList {
+class FileList {
     /* Properties of Anjuta-3.0.Anjuta.FileList */
     relativePath: string
     showAddButton: boolean
@@ -11995,7 +11995,7 @@ export class FileList {
 }
 export interface LanguageProvider_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class LanguageProvider {
+class LanguageProvider {
     /* Fields of Anjuta-3.0.Anjuta.LanguageProvider */
     parent: GObject.Object
     priv: LanguageProviderPriv
@@ -12049,7 +12049,7 @@ export class LanguageProvider {
 }
 export interface Launcher_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Launcher {
+class Launcher {
     /* Fields of Anjuta-3.0.Anjuta.Launcher */
     parent: GObject.Object
     priv: LauncherPriv
@@ -12127,7 +12127,7 @@ export interface PkgConfigChooser_ConstructProps extends Gtk.TreeView_ConstructP
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class PkgConfigChooser {
+class PkgConfigChooser {
     /* Properties of Gtk-3.0.Gtk.TreeView */
     activateOnSingleClick: boolean
     enableGridLines: Gtk.TreeViewGridLines
@@ -13428,7 +13428,7 @@ export interface PkgScanner_ConstructProps extends AsyncCommand_ConstructProps {
     package?: string
     version?: string
 }
-export class PkgScanner {
+class PkgScanner {
     /* Properties of Anjuta-3.0.Anjuta.PkgScanner */
     package: string
     version: string
@@ -13530,7 +13530,7 @@ export class PkgScanner {
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
     shell?: Shell
 }
-export class Plugin {
+class Plugin {
     /* Properties of Anjuta-3.0.Anjuta.Plugin */
     shell: Shell
     /* Fields of Anjuta-3.0.Anjuta.Plugin */
@@ -13602,7 +13602,7 @@ export class Plugin {
 }
 export interface PluginHandle_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PluginHandle {
+class PluginHandle {
     /* Properties of Anjuta-3.0.Anjuta.PluginHandle */
     readonly about: string
     readonly canLoad: boolean
@@ -13776,7 +13776,7 @@ export interface PluginManager_ConstructProps extends GObject.Object_ConstructPr
     shell?: GObject.Object
     status?: Status
 }
-export class PluginManager {
+class PluginManager {
     /* Properties of Anjuta-3.0.Anjuta.PluginManager */
     readonly activatedPlugins: object
     readonly availablePlugins: object
@@ -13873,7 +13873,7 @@ export class PluginManager {
 }
 export interface Preferences_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Preferences {
+class Preferences {
     /* Fields of Anjuta-3.0.Anjuta.Preferences */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -13928,7 +13928,7 @@ export class Preferences {
 }
 export interface PreferencesDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
 }
-export class PreferencesDialog {
+class PreferencesDialog {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -15259,7 +15259,7 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
     profileName?: string
     syncFile?: Gio.File
 }
-export class Profile {
+class Profile {
     /* Properties of Anjuta-3.0.Anjuta.Profile */
     pluginManager: PluginManager
     profileName: string
@@ -15365,7 +15365,7 @@ export class Profile {
 export interface ProfileManager_ConstructProps extends GObject.Object_ConstructProps {
     pluginManager?: PluginManager
 }
-export class ProfileManager {
+class ProfileManager {
     /* Properties of Anjuta-3.0.Anjuta.ProfileManager */
     pluginManager: PluginManager
     /* Fields of Anjuta-3.0.Anjuta.ProfileManager */
@@ -15444,7 +15444,7 @@ export interface ProjectNode_ConstructProps extends GObject.InitiallyUnowned_Con
     state?: ProjectNodeState
     type?: ProjectNodeType
 }
-export class ProjectNode {
+class ProjectNode {
     /* Properties of Anjuta-3.0.Anjuta.ProjectNode */
     file: Gio.File
     name: string
@@ -15564,7 +15564,7 @@ export class ProjectNode {
 }
 export interface SavePrompt_ConstructProps extends Gtk.MessageDialog_ConstructProps {
 }
-export class SavePrompt {
+class SavePrompt {
     /* Properties of Gtk-3.0.Gtk.MessageDialog */
     image: Gtk.Widget
     readonly messageArea: Gtk.Widget
@@ -16942,7 +16942,7 @@ export interface Serializer_ConstructProps extends GObject.Object_ConstructProps
     filepath?: string
     mode?: SerializerMode
 }
-export class Serializer {
+class Serializer {
     /* Fields of Anjuta-3.0.Anjuta.Serializer */
     parent: GObject.Object
     priv: SerializerPrivate
@@ -16999,7 +16999,7 @@ export class Serializer {
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Session {
+class Session {
     /* Fields of Anjuta-3.0.Anjuta.Session */
     parent: GObject.Object
     priv: SessionPriv
@@ -17064,7 +17064,7 @@ export class Session {
 export interface Status_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Status {
+class Status {
     /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
@@ -18102,7 +18102,7 @@ export class Status {
 }
 export interface SyncCommand_ConstructProps extends Command_ConstructProps {
 }
-export class SyncCommand {
+class SyncCommand {
     /* Fields of Anjuta-3.0.Anjuta.SyncCommand */
     parentInstance: Command
     /* Fields of Anjuta-3.0.Anjuta.Command */
@@ -18184,7 +18184,7 @@ export class SyncCommand {
 export interface Tabber_ConstructProps extends Gtk.Container_ConstructProps {
     notebook?: GObject.Object
 }
-export class Tabber {
+class Tabber {
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -19157,7 +19157,7 @@ export class Tabber {
 }
 export interface TokenFile_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TokenFile {
+class TokenFile {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Anjuta-3.0.Anjuta.TokenFile */
@@ -19218,7 +19218,7 @@ export interface TreeComboBox_ConstructProps extends Gtk.ToggleButton_ConstructP
     relatedAction?: Gtk.Action
     useActionAppearance?: boolean
 }
-export class TreeComboBox {
+class TreeComboBox {
     /* Properties of Anjuta-3.0.Anjuta.TreeComboBox */
     model: Gtk.TreeModel
     /* Properties of Gtk-3.0.Gtk.ToggleButton */
@@ -20412,7 +20412,7 @@ export class TreeComboBox {
 }
 export interface UI_ConstructProps extends Gtk.UIManager_ConstructProps {
 }
-export class UI {
+class UI {
     /* Properties of Gtk-3.0.Gtk.UIManager */
     addTearoffs: boolean
     readonly ui: string
@@ -20557,7 +20557,7 @@ export interface VcsStatusTreeView_ConstructProps extends Gtk.TreeView_Construct
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class VcsStatusTreeView {
+class VcsStatusTreeView {
     /* Properties of Anjuta-3.0.Anjuta.VcsStatusTreeView */
     showStatus: boolean
     /* Properties of Gtk-3.0.Gtk.TreeView */
@@ -21850,68 +21850,68 @@ export class VcsStatusTreeView {
     static new(): VcsStatusTreeView
     static $gtype: GObject.Type
 }
-export abstract class AsyncCommandClass {
+abstract class AsyncCommandClass {
     /* Fields of Anjuta-3.0.Anjuta.AsyncCommandClass */
     parentClass: CommandClass
     static name: string
 }
-export class AsyncCommandPriv {
+class AsyncCommandPriv {
     static name: string
 }
-export abstract class AsyncNotifyClass {
+abstract class AsyncNotifyClass {
     /* Fields of Anjuta-3.0.Anjuta.AsyncNotifyClass */
     parentClass: GObject.ObjectClass
     finished: (self: AsyncNotify) => void
     static name: string
 }
-export class AsyncNotifyPriv {
+class AsyncNotifyPriv {
     static name: string
 }
-export abstract class AutogenClass {
+abstract class AutogenClass {
     static name: string
 }
-export abstract class CModuleClass {
+abstract class CModuleClass {
     static name: string
 }
-export abstract class CPluginFactoryClass {
+abstract class CPluginFactoryClass {
     static name: string
 }
-export abstract class CellRendererCaptionedImageClass {
+abstract class CellRendererCaptionedImageClass {
     /* Fields of Anjuta-3.0.Anjuta.CellRendererCaptionedImageClass */
     parentClass: Gtk.CellRendererClass
     static name: string
 }
-export abstract class CellRendererDiffClass {
+abstract class CellRendererDiffClass {
     /* Fields of Anjuta-3.0.Anjuta.CellRendererDiffClass */
     parentClass: Gtk.CellRendererClass
     static name: string
 }
-export class CellRendererDiffPrivate {
+class CellRendererDiffPrivate {
     static name: string
 }
-export abstract class CloseButtonClass {
+abstract class CloseButtonClass {
     /* Fields of Anjuta-3.0.Anjuta.CloseButtonClass */
     parentClass: Gtk.ButtonClass
     priv: CloseButtonClassPrivate
     static name: string
 }
-export class CloseButtonClassPrivate {
+class CloseButtonClassPrivate {
     static name: string
 }
-export abstract class ColumnTextViewClass {
+abstract class ColumnTextViewClass {
     /* Fields of Anjuta-3.0.Anjuta.ColumnTextViewClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export class ColumnTextViewPriv {
+class ColumnTextViewPriv {
     static name: string
 }
-export abstract class CommandBarClass {
+abstract class CommandBarClass {
     /* Fields of Anjuta-3.0.Anjuta.CommandBarClass */
     parentClass: Gtk.NotebookClass
     static name: string
 }
-export class CommandBarEntry {
+class CommandBarEntry {
     /* Fields of Anjuta-3.0.Anjuta.CommandBarEntry */
     type: CommandBarEntryType
     actionName: string
@@ -21921,10 +21921,10 @@ export class CommandBarEntry {
     callback: GObject.Callback
     static name: string
 }
-export class CommandBarPriv {
+class CommandBarPriv {
     static name: string
 }
-export abstract class CommandClass {
+abstract class CommandClass {
     /* Fields of Anjuta-3.0.Anjuta.CommandClass */
     parentClass: GObject.ObjectClass
     run: (self: Command) => number
@@ -21943,32 +21943,32 @@ export abstract class CommandClass {
     progress: (command: Command, progress: number) => void
     static name: string
 }
-export class CommandPriv {
+class CommandPriv {
     static name: string
 }
-export abstract class CommandQueueClass {
+abstract class CommandQueueClass {
     /* Fields of Anjuta-3.0.Anjuta.CommandQueueClass */
     parentClass: GObject.ObjectClass
     finished: (queue: CommandQueue) => void
     static name: string
 }
-export class CommandQueuePriv {
+class CommandQueuePriv {
     static name: string
 }
-export abstract class CompletionClass {
+abstract class CompletionClass {
     /* Fields of Anjuta-3.0.Anjuta.CompletionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class CompletionPrivate {
+class CompletionPrivate {
     static name: string
 }
-export abstract class DockClass {
+abstract class DockClass {
     /* Fields of Anjuta-3.0.Anjuta.DockClass */
     parentClass: Gdl.DockClass
     static name: string
 }
-export abstract class DockPaneClass {
+abstract class DockPaneClass {
     /* Fields of Anjuta-3.0.Anjuta.DockPaneClass */
     parentClass: GObject.ObjectClass
     refresh: (self: DockPane) => void
@@ -21976,18 +21976,18 @@ export abstract class DockPaneClass {
     multipleSelectionChanged: (self: DockPane) => void
     static name: string
 }
-export class DockPanePriv {
+class DockPanePriv {
     static name: string
 }
-export class DockPriv {
+class DockPriv {
     static name: string
 }
-export abstract class DropEntryClass {
+abstract class DropEntryClass {
     /* Fields of Anjuta-3.0.Anjuta.DropEntryClass */
     parentClass: EntryClass
     static name: string
 }
-export class Encoding {
+class Encoding {
     /* Methods of Anjuta-3.0.Anjuta.Encoding */
     copy(): Encoding
     free(): void
@@ -22001,37 +22001,37 @@ export class Encoding {
     static getFromIndex(index: number): Encoding
     static getUtf8(): Encoding
 }
-export abstract class EntryClass {
+abstract class EntryClass {
     /* Fields of Anjuta-3.0.Anjuta.EntryClass */
     parentClass: Gtk.EntryClass
     static name: string
 }
-export class EntryPriv {
+class EntryPriv {
     static name: string
 }
-export abstract class EnvironmentEditorClass {
+abstract class EnvironmentEditorClass {
     /* Fields of Anjuta-3.0.Anjuta.EnvironmentEditorClass */
     parentClass: Gtk.BinClass
     changed: (self: EnvironmentEditor) => void
     static name: string
 }
-export abstract class FileDropEntryClass {
+abstract class FileDropEntryClass {
     /* Fields of Anjuta-3.0.Anjuta.FileDropEntryClass */
     parentClass: DropEntryClass
     static name: string
 }
-export class FileDropEntryPriv {
+class FileDropEntryPriv {
     static name: string
 }
-export abstract class FileListClass {
+abstract class FileListClass {
     /* Fields of Anjuta-3.0.Anjuta.FileListClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export class FileListPriv {
+class FileListPriv {
     static name: string
 }
-export class LanguageProposalData {
+class LanguageProposalData {
     /* Fields of Anjuta-3.0.Anjuta.LanguageProposalData */
     name: string
     info: string
@@ -22045,43 +22045,43 @@ export class LanguageProposalData {
     /* Static methods and pseudo-constructors */
     static new(name: string): LanguageProposalData
 }
-export abstract class LanguageProviderClass {
+abstract class LanguageProviderClass {
     /* Fields of Anjuta-3.0.Anjuta.LanguageProviderClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class LanguageProviderPriv {
+class LanguageProviderPriv {
     static name: string
 }
-export abstract class LauncherClass {
+abstract class LauncherClass {
     /* Fields of Anjuta-3.0.Anjuta.LauncherClass */
     parentClass: GObject.ObjectClass
     childExited: (launcher: Launcher, childPid: number, exitStatus: number, timeTakenInSeconds: number) => void
     busy: (launcher: Launcher, busyFlag: boolean) => void
     static name: string
 }
-export class LauncherPriv {
+class LauncherPriv {
     static name: string
 }
-export abstract class PkgConfigChooserClass {
+abstract class PkgConfigChooserClass {
     /* Fields of Anjuta-3.0.Anjuta.PkgConfigChooserClass */
     parentClass: Gtk.TreeViewClass
     packageActivated: (self: PkgConfigChooser, package: string) => void
     packageDeactivated: (self: PkgConfigChooser, package: string) => void
     static name: string
 }
-export class PkgConfigChooserPrivate {
+class PkgConfigChooserPrivate {
     static name: string
 }
-export abstract class PkgScannerClass {
+abstract class PkgScannerClass {
     /* Fields of Anjuta-3.0.Anjuta.PkgScannerClass */
     parentClass: AsyncCommandClass
     static name: string
 }
-export class PkgScannerPrivate {
+class PkgScannerPrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of Anjuta-3.0.Anjuta.PluginClass */
     parentClass: GObject.ObjectClass
     activated: (plugin: Plugin) => void
@@ -22090,7 +22090,7 @@ export abstract class PluginClass {
     deactivate: (plugin: Plugin) => boolean
     static name: string
 }
-export class PluginDescription {
+class PluginDescription {
     /* Methods of Anjuta-3.0.Anjuta.PluginDescription */
     copy(): PluginDescription
     free(): void
@@ -22109,44 +22109,44 @@ export class PluginDescription {
     static new(filename: string): PluginDescription
     static newFromString(data: string): PluginDescription
 }
-export abstract class PluginHandleClass {
+abstract class PluginHandleClass {
     /* Fields of Anjuta-3.0.Anjuta.PluginHandleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class PluginHandlePriv {
+class PluginHandlePriv {
     static name: string
 }
-export abstract class PluginManagerClass {
+abstract class PluginManagerClass {
     /* Fields of Anjuta-3.0.Anjuta.PluginManagerClass */
     parentClass: GObject.ObjectClass
     pluginActivated: (self: PluginManager, handle: PluginHandle, plugin: GObject.Object) => void
     pluginDeactivated: (self: PluginManager, handle: PluginHandle, plugin: GObject.Object) => void
     static name: string
 }
-export class PluginManagerPriv {
+class PluginManagerPriv {
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export abstract class PreferencesClass {
+abstract class PreferencesClass {
     /* Fields of Anjuta-3.0.Anjuta.PreferencesClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export abstract class PreferencesDialogClass {
+abstract class PreferencesDialogClass {
     /* Fields of Anjuta-3.0.Anjuta.PreferencesDialogClass */
     parent: Gtk.DialogClass
     static name: string
 }
-export class PreferencesDialogPrivate {
+class PreferencesDialogPrivate {
     static name: string
 }
-export class PreferencesPriv {
+class PreferencesPriv {
     static name: string
 }
-export abstract class ProfileClass {
+abstract class ProfileClass {
     /* Fields of Anjuta-3.0.Anjuta.ProfileClass */
     parentClass: GObject.ObjectClass
     pluginAdded: (self: Profile, plugin: PluginHandle) => void
@@ -22156,27 +22156,27 @@ export abstract class ProfileClass {
     scoped: (self: Profile) => void
     static name: string
 }
-export abstract class ProfileManagerClass {
+abstract class ProfileManagerClass {
     /* Fields of Anjuta-3.0.Anjuta.ProfileManagerClass */
     parentClass: GObject.ObjectClass
     profilePushed: (self: ProfileManager, profile: Profile) => void
     profilePopped: (self: ProfileManager, profile: Profile) => void
     static name: string
 }
-export class ProfileManagerPriv {
+class ProfileManagerPriv {
     static name: string
 }
-export class ProfilePriv {
+class ProfilePriv {
     static name: string
 }
-export abstract class ProjectNodeClass {
+abstract class ProjectNodeClass {
     /* Fields of Anjuta-3.0.Anjuta.ProjectNodeClass */
     parentClass: GObject.InitiallyUnownedClass
     updated: (error: GLib.Error) => void
     loaded: (error: GLib.Error) => void
     static name: string
 }
-export class ProjectNodeInfo {
+class ProjectNodeInfo {
     /* Fields of Anjuta-3.0.Anjuta.ProjectNodeInfo */
     type: ProjectNodeType
     name: string
@@ -22192,7 +22192,7 @@ export class ProjectNodeInfo {
     /* Static methods and pseudo-constructors */
     static new(type: ProjectNodeType, name: string, mimeType: string): ProjectNodeInfo
 }
-export class ProjectProperty {
+class ProjectProperty {
     /* Fields of Anjuta-3.0.Anjuta.ProjectProperty */
     name: string
     value: string
@@ -22207,7 +22207,7 @@ export class ProjectProperty {
     /* Static methods and pseudo-constructors */
     static new(value: string, name?: string | null, userData?: object | null): ProjectProperty
 }
-export class ProjectPropertyInfo {
+class ProjectPropertyInfo {
     /* Fields of Anjuta-3.0.Anjuta.ProjectPropertyInfo */
     id: string
     name: string
@@ -22225,34 +22225,34 @@ export class ProjectPropertyInfo {
     /* Static methods and pseudo-constructors */
     static new(id: string, name: string, type: ProjectValueType, flags: ProjectPropertyFlags, description: string, defaultValue: ProjectProperty, userData?: object | null): ProjectPropertyInfo
 }
-export class Property {
+class Property {
     static name: string
 }
-export abstract class SavePromptClass {
+abstract class SavePromptClass {
     /* Fields of Anjuta-3.0.Anjuta.SavePromptClass */
     parentClass: Gtk.MessageDialogClass
     static name: string
 }
-export class SavePromptPrivate {
+class SavePromptPrivate {
     static name: string
 }
-export abstract class SerializerClass {
+abstract class SerializerClass {
     /* Fields of Anjuta-3.0.Anjuta.SerializerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SerializerPrivate {
+class SerializerPrivate {
     static name: string
 }
-export abstract class SessionClass {
+abstract class SessionClass {
     /* Fields of Anjuta-3.0.Anjuta.SessionClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class SessionPriv {
+class SessionPriv {
     static name: string
 }
-export abstract class ShellIface {
+abstract class ShellIface {
     /* Fields of Anjuta-3.0.Anjuta.ShellIface */
     gIface: GObject.TypeInterface
     valueAdded: (shell: Shell, name: string, value: any) => void
@@ -22282,29 +22282,29 @@ export abstract class ShellIface {
     getObject: (shell: Shell, ifaceName: string) => GObject.Object
     static name: string
 }
-export abstract class StatusClass {
+abstract class StatusClass {
     /* Fields of Anjuta-3.0.Anjuta.StatusClass */
     parentClass: Gtk.BoxClass
     busy: (status: Status, state: boolean) => void
     static name: string
 }
-export class StatusPriv {
+class StatusPriv {
     static name: string
 }
-export abstract class SyncCommandClass {
+abstract class SyncCommandClass {
     /* Fields of Anjuta-3.0.Anjuta.SyncCommandClass */
     parentClass: CommandClass
     static name: string
 }
-export abstract class TabberClass {
+abstract class TabberClass {
     /* Fields of Anjuta-3.0.Anjuta.TabberClass */
     parentClass: Gtk.ContainerClass
     static name: string
 }
-export class TabberPriv {
+class TabberPriv {
     static name: string
 }
-export class Token {
+class Token {
     /* Methods of Anjuta-3.0.Anjuta.Token */
     check(): boolean
     clearFlags(flags: number): void
@@ -22325,17 +22325,17 @@ export class Token {
     setType(type: number): void
     static name: string
 }
-export abstract class TokenFileClass {
+abstract class TokenFileClass {
     static name: string
 }
-export class TokenFileLocation {
+class TokenFileLocation {
     /* Fields of Anjuta-3.0.Anjuta.TokenFileLocation */
     filename: string
     line: number
     column: number
     static name: string
 }
-export class TokenStream {
+class TokenStream {
     /* Methods of Anjuta-3.0.Anjuta.TokenStream */
     appendToken(token: Token): void
     getCurrentDirectory(): Gio.File
@@ -22346,42 +22346,43 @@ export class TokenStream {
     read(buffer: string, maxSize: number): number
     static name: string
 }
-export class TokenStyle {
+class TokenStyle {
     /* Methods of Anjuta-3.0.Anjuta.TokenStyle */
     format(list: Token): void
     free(): void
     update(list: Token): void
     static name: string
 }
-export abstract class TreeComboBoxClass {
+abstract class TreeComboBoxClass {
     /* Fields of Anjuta-3.0.Anjuta.TreeComboBoxClass */
     changed: (combo: TreeComboBox) => void
     static name: string
 }
-export class TreeComboBoxPrivate {
+class TreeComboBoxPrivate {
     static name: string
 }
-export abstract class UIClass {
+abstract class UIClass {
     /* Fields of Anjuta-3.0.Anjuta.UIClass */
     parent: Gtk.UIManagerClass
     static name: string
 }
-export class UIPrivate {
+class UIPrivate {
     static name: string
 }
-export class UtilStringMap {
+class UtilStringMap {
     /* Fields of Anjuta-3.0.Anjuta.UtilStringMap */
     type: number
     name: string
     static name: string
 }
-export abstract class VcsStatusTreeViewClass {
+abstract class VcsStatusTreeViewClass {
     /* Fields of Anjuta-3.0.Anjuta.VcsStatusTreeViewClass */
     parentClass: Gtk.TreeViewClass
     static name: string
 }
-export class VcsStatusTreeViewPriv {
+class VcsStatusTreeViewPriv {
     static name: string
 }
-export type GluePlugin = GObject.TypeModule
+type GluePlugin = GObject.TypeModule
 }
+export default Anjuta

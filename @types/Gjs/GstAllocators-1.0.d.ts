@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum FdMemoryFlags {
+export namespace GstAllocators {
+
+enum FdMemoryFlags {
     NONE,
     KEEP_MAPPED,
     MAP_PRIVATE,
@@ -17,15 +19,15 @@ export enum FdMemoryFlags {
 export const ALLOCATOR_DMABUF: string
 export const ALLOCATOR_FD: string
 export const CAPS_FEATURE_MEMORY_DMABUF: string
-export function dmabuf_memory_get_fd(mem: Gst.Memory): number
-export function fd_memory_get_fd(mem: Gst.Memory): number
-export function is_dmabuf_memory(mem: Gst.Memory): boolean
-export function is_fd_memory(mem: Gst.Memory): boolean
-export function is_phys_memory(mem: Gst.Memory): boolean
-export function phys_memory_get_phys_addr(mem: Gst.Memory): number
+function dmabuf_memory_get_fd(mem: Gst.Memory): number
+function fd_memory_get_fd(mem: Gst.Memory): number
+function is_dmabuf_memory(mem: Gst.Memory): boolean
+function is_fd_memory(mem: Gst.Memory): boolean
+function is_phys_memory(mem: Gst.Memory): boolean
+function phys_memory_get_phys_addr(mem: Gst.Memory): number
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class PhysMemoryAllocator {
+class PhysMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -132,7 +134,7 @@ export class PhysMemoryAllocator {
 }
 export interface DmaBufAllocator_ConstructProps extends FdAllocator_ConstructProps {
 }
-export class DmaBufAllocator {
+class DmaBufAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -242,7 +244,7 @@ export class DmaBufAllocator {
 }
 export interface FdAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class FdAllocator {
+class FdAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -348,18 +350,20 @@ export class FdAllocator {
     static alloc(allocator: Gst.Allocator, fd: number, size: number, flags: FdMemoryFlags): Gst.Memory
     static $gtype: GObject.Type
 }
-export abstract class DmaBufAllocatorClass {
+abstract class DmaBufAllocatorClass {
     /* Fields of GstAllocators-1.0.GstAllocators.DmaBufAllocatorClass */
     parent_class: FdAllocatorClass
     static name: string
 }
-export abstract class FdAllocatorClass {
+abstract class FdAllocatorClass {
     /* Fields of GstAllocators-1.0.GstAllocators.FdAllocatorClass */
     parent_class: Gst.AllocatorClass
     static name: string
 }
-export abstract class PhysMemoryAllocatorInterface {
+abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstAllocators-1.0.GstAllocators.PhysMemoryAllocatorInterface */
     get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
+}
+export default GstAllocators

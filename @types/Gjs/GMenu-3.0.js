@@ -1,2 +1,1 @@
-imports.gi.versions.GMenu = '3.0'
-module.exports = imports.gi.GMenu
+export {default as default} from 'gi://GMenu?version=3.0';

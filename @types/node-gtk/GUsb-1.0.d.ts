@@ -7,12 +7,12 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GUsb {
+declare namespace GUsb {
 
-export enum ContextError {
+enum ContextError {
     CONTEXT_ERROR_INTERNAL,
 }
-export enum DeviceClassCode {
+enum DeviceClassCode {
     INTERFACE_DESC,
     AUDIO,
     COMMUNICATIONS,
@@ -35,11 +35,11 @@ export enum DeviceClassCode {
     APPLICATION_SPECIFIC,
     VENDOR_SPECIFIC,
 }
-export enum DeviceDirection {
+enum DeviceDirection {
     DEVICE_TO_HOST,
     HOST_TO_DEVICE,
 }
-export enum DeviceError {
+enum DeviceError {
     INTERNAL,
     IO,
     TIMED_OUT,
@@ -52,43 +52,43 @@ export enum DeviceError {
     PERMISSION_DENIED,
     LAST,
 }
-export enum DeviceLangid {
+enum DeviceLangid {
     INVALID,
     ENGLISH_UNITED_STATES,
 }
-export enum DeviceRecipient {
+enum DeviceRecipient {
     DEVICE,
     INTERFACE,
     ENDPOINT,
     OTHER,
 }
-export enum DeviceRequestType {
+enum DeviceRequestType {
     STANDARD,
     CLASS,
     VENDOR,
     RESERVED,
 }
-export enum SourceError {
+enum SourceError {
     SOURCE_ERROR_INTERNAL,
 }
-export enum ContextFlags {
+enum ContextFlags {
     NONE,
     AUTO_OPEN_DEVICES,
 }
-export enum DeviceClaimInterfaceFlags {
+enum DeviceClaimInterfaceFlags {
     NONE,
     BIND_KERNEL_DRIVER,
 }
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
-export function sourceErrorQuark(): GLib.Quark
-export function strerror(errorCode: number): string
-export function versionString(): string
+function sourceErrorQuark(): GLib.Quark
+function strerror(errorCode: number): string
+function versionString(): string
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
     debugLevel?: number
 }
-export class Context {
+class Context {
     /* Properties of GUsb-1.0.GUsb.Context */
     debugLevel: number
     readonly libusbContext: object
@@ -182,7 +182,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     libusbDevice?: object
     platformId?: string
 }
-export class Device {
+class Device {
     /* Fields of GUsb-1.0.GUsb.Device */
     parent: GObject.Object
     priv: DevicePrivate
@@ -279,7 +279,7 @@ export class Device {
 export interface DeviceList_ConstructProps extends GObject.Object_ConstructProps {
     context?: Context
 }
-export class DeviceList {
+class DeviceList {
     /* Fields of GUsb-1.0.GUsb.DeviceList */
     parent: GObject.Object
     priv: DeviceListPrivate
@@ -345,7 +345,7 @@ export class DeviceList {
 }
 export interface Endpoint_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Endpoint {
+class Endpoint {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUsb-1.0.GUsb.Endpoint */
@@ -400,7 +400,7 @@ export class Endpoint {
 }
 export interface Interface_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Interface {
+class Interface {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUsb-1.0.GUsb.Interface */
@@ -454,45 +454,45 @@ export class Interface {
     _init (config?: Interface_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ContextClass {
+abstract class ContextClass {
     /* Fields of GUsb-1.0.GUsb.ContextClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (context: Context, device: Device) => void
     deviceRemoved: (context: Context, device: Device) => void
     static name: string
 }
-export class ContextPrivate {
+class ContextPrivate {
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of GUsb-1.0.GUsb.DeviceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class DeviceListClass {
+abstract class DeviceListClass {
     /* Fields of GUsb-1.0.GUsb.DeviceListClass */
     parentClass: GObject.ObjectClass
     deviceAdded: (list: DeviceList, device: Device) => void
     deviceRemoved: (list: DeviceList, device: Device) => void
     static name: string
 }
-export class DeviceListPrivate {
+class DeviceListPrivate {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export abstract class EndpointClass {
+abstract class EndpointClass {
     /* Fields of GUsb-1.0.GUsb.EndpointClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class InterfaceClass {
+abstract class InterfaceClass {
     /* Fields of GUsb-1.0.GUsb.InterfaceClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Source {
+class Source {
     /* Methods of GUsb-1.0.GUsb.Source */
     setCallback(func: GLib.SourceFunc): void
     static name: string
@@ -500,3 +500,4 @@ export class Source {
     static errorQuark(): GLib.Quark
 }
 }
+export default GUsb

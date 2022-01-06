@@ -17,9 +17,9 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Colord } from './Colord-1.0';
 
-export declare namespace ColordGtk {
+declare namespace ColordGtk {
 
-export enum WindowError {
+enum WindowError {
     FAILED,
     LAST,
 }
@@ -29,7 +29,7 @@ export const GTK_MINOR_VERSION: number
 export interface SampleWidget_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     color?: Colord.ColorRGB
 }
-export class SampleWidget {
+class SampleWidget {
     /* Properties of ColordGtk-1.0.ColordGtk.SampleWidget */
     color: Colord.ColorRGB
     /* Properties of Gtk-3.0.Gtk.Widget */
@@ -940,7 +940,7 @@ export class SampleWidget {
 }
 export interface SampleWindow_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export class SampleWindow {
+class SampleWindow {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -2244,7 +2244,7 @@ export class SampleWindow {
 }
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of ColordGtk-1.0.ColordGtk.Window */
     readonly profile: string
     /* Fields of ColordGtk-1.0.ColordGtk.Window */
@@ -2311,29 +2311,30 @@ export class Window {
     static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class SampleWidgetClass {
+abstract class SampleWidgetClass {
     /* Fields of ColordGtk-1.0.ColordGtk.SampleWidgetClass */
     parentClass: Gtk.DrawingAreaClass
     static name: string
 }
-export class SampleWidgetPrivate {
+class SampleWidgetPrivate {
     static name: string
 }
-export abstract class SampleWindowClass {
+abstract class SampleWindowClass {
     /* Fields of ColordGtk-1.0.ColordGtk.SampleWindowClass */
     parentClass: Gtk.WindowClass
     static name: string
 }
-export class SampleWindowPrivate {
+class SampleWindowPrivate {
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of ColordGtk-1.0.ColordGtk.WindowClass */
     parentClass: GObject.ObjectClass
     changed: (window: Window, profile: Colord.Profile) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
 }
+export default ColordGtk

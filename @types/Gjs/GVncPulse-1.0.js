@@ -1,2 +1,1 @@
-imports.gi.versions.GVncPulse = '1.0'
-module.exports = imports.gi.GVncPulse
+export {default as default} from 'gi://GVncPulse?version=1.0';

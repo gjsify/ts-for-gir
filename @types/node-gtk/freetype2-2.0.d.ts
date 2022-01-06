@@ -5,17 +5,18 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace freetype2 {
+declare namespace freetype2 {
 
-export function libraryVersion(): void
-export class Bitmap {
+function libraryVersion(): void
+class Bitmap {
     static name: string
 }
-export class Face {
+class Face {
     static name: string
 }
-export class Library {
+class Library {
     static name: string
 }
-export type Int32 = any
+type Int32 = any
 }
+export default freetype2

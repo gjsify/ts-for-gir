@@ -13,27 +13,27 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Caribou {
+declare namespace Caribou {
 
-export enum ModifierState {
+enum ModifierState {
     NONE,
     LATCHED,
     LOCKED,
 }
-export enum ScanGrouping {
+enum ScanGrouping {
     NONE,
     SUBGROUPS,
     ROWS,
     LINEAR,
 }
-export interface KeyButtonCallback {
+interface KeyButtonCallback {
     (keybuttoncode: number, pressed: boolean): void
 }
 export interface IScannableItem_ConstructProps extends GObject.Object_ConstructProps {
     scanStepping?: boolean
     scanSelected?: boolean
 }
-export class IScannableItem {
+class IScannableItem {
     /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scanStepping: boolean
     scanSelected: boolean
@@ -97,7 +97,7 @@ export class IScannableItem {
 export interface IScannableGroup_ConstructProps extends GObject.Object_ConstructProps {
     scanGrouping?: ScanGrouping
 }
-export class IScannableGroup {
+class IScannableGroup {
     /* Properties of Caribou-1.0.Caribou.IScannableGroup */
     scanGrouping: ScanGrouping
     /* Fields of GObject-2.0.GObject.Object */
@@ -174,7 +174,7 @@ export class IScannableGroup {
 }
 export interface IKeyboardObject_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class IKeyboardObject {
+class IKeyboardObject {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Caribou-1.0.Caribou.IKeyboardObject */
@@ -239,7 +239,7 @@ export class IKeyboardObject {
 export interface DisplayAdapter_ConstructProps extends GObject.Object_ConstructProps {
     display?: Gdk.Display
 }
-export class DisplayAdapter {
+class DisplayAdapter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
@@ -315,7 +315,7 @@ export class DisplayAdapter {
 }
 export interface NullAdapter_ConstructProps extends DisplayAdapter_ConstructProps {
 }
-export class NullAdapter {
+class NullAdapter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
@@ -390,7 +390,7 @@ export class NullAdapter {
 }
 export interface XAdapter_ConstructProps extends DisplayAdapter_ConstructProps {
 }
-export class XAdapter {
+class XAdapter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Caribou-1.0.Caribou.DisplayAdapter */
@@ -468,7 +468,7 @@ export interface KeyboardModel_ConstructProps extends GObject.Object_ConstructPr
     keyboardType?: string
     keyboardFile?: string
 }
-export class KeyboardModel {
+class KeyboardModel {
     /* Properties of Caribou-1.0.Caribou.KeyboardModel */
     activeGroup: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -558,7 +558,7 @@ export class KeyboardModel {
 }
 export interface KeyboardService_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class KeyboardService {
+class KeyboardService {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Caribou-1.0.Caribou.KeyboardService */
@@ -611,7 +611,7 @@ export class KeyboardService {
 export interface GroupModel_ConstructProps extends GObject.Object_ConstructProps {
     activeLevel?: string
 }
-export class GroupModel {
+class GroupModel {
     /* Properties of Caribou-1.0.Caribou.GroupModel */
     activeLevel: string
     /* Fields of Caribou-1.0.Caribou.GroupModel */
@@ -693,7 +693,7 @@ export class GroupModel {
 export interface LevelModel_ConstructProps extends ScannableGroup_ConstructProps {
     mode?: string
 }
-export class LevelModel {
+class LevelModel {
     /* Properties of Caribou-1.0.Caribou.LevelModel */
     mode: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -780,7 +780,7 @@ export interface RowModel_ConstructProps extends ScannableGroup_ConstructProps {
     scanStepping?: boolean
     scanSelected?: boolean
 }
-export class RowModel {
+class RowModel {
     /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scanStepping: boolean
     scanSelected: boolean
@@ -881,7 +881,7 @@ export interface KeyModel_ConstructProps extends GObject.Object_ConstructProps {
     scanStepping?: boolean
     scanSelected?: boolean
 }
-export class KeyModel {
+class KeyModel {
     /* Properties of Caribou-1.0.Caribou.KeyModel */
     align: string
     width: number
@@ -1062,7 +1062,7 @@ export interface ColumnModel_ConstructProps extends ScannableGroup_ConstructProp
     scanStepping?: boolean
     scanSelected?: boolean
 }
-export class ColumnModel {
+class ColumnModel {
     /* Properties of Caribou-1.0.Caribou.IScannableItem */
     scanStepping: boolean
     scanSelected: boolean
@@ -1162,7 +1162,7 @@ export interface Scanner_ConstructProps extends GObject.Object_ConstructProps {
     autorestart?: boolean
     inverseScanning?: boolean
 }
-export class Scanner {
+class Scanner {
     /* Properties of Caribou-1.0.Caribou.Scanner */
     scanGrouping: number
     scanEnabled: boolean
@@ -1287,7 +1287,7 @@ export class Scanner {
 export interface ScannableGroup_ConstructProps extends GObject.Object_ConstructProps {
     scanGrouping?: ScanGrouping
 }
-export class ScannableGroup {
+class ScannableGroup {
     /* Properties of Caribou-1.0.Caribou.IScannableGroup */
     scanGrouping: ScanGrouping
     /* Fields of GObject-2.0.GObject.Object */
@@ -1363,7 +1363,7 @@ export class ScannableGroup {
     _init (config?: ScannableGroup_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DisplayAdapterClass {
+abstract class DisplayAdapterClass {
     /* Fields of Caribou-1.0.Caribou.DisplayAdapterClass */
     keyvalPress: (keyval: number) => void
     keyvalRelease: (keyval: number) => void
@@ -1377,28 +1377,28 @@ export abstract class DisplayAdapterClass {
     registerButtonFunc: (button: number, func?: KeyButtonCallback | null) => void
     static name: string
 }
-export class DisplayAdapterPrivate {
+class DisplayAdapterPrivate {
     static name: string
 }
-export abstract class NullAdapterClass {
+abstract class NullAdapterClass {
     static name: string
 }
-export class NullAdapterPrivate {
+class NullAdapterPrivate {
     static name: string
 }
-export abstract class XAdapterClass {
+abstract class XAdapterClass {
     static name: string
 }
-export class XAdapterPrivate {
+class XAdapterPrivate {
     static name: string
 }
-export abstract class KeyboardModelClass {
+abstract class KeyboardModelClass {
     static name: string
 }
-export class KeyboardModelPrivate {
+class KeyboardModelPrivate {
     static name: string
 }
-export abstract class KeyboardServiceClass {
+abstract class KeyboardServiceClass {
     /* Fields of Caribou-1.0.Caribou.KeyboardServiceClass */
     setCursorLocation: (x: number, y: number, w: number, h: number) => void
     setEntryLocation: (x: number, y: number, w: number, h: number) => void
@@ -1407,55 +1407,55 @@ export abstract class KeyboardServiceClass {
     nameLost: (name: string) => void
     static name: string
 }
-export class KeyboardServicePrivate {
+class KeyboardServicePrivate {
     static name: string
 }
-export abstract class GroupModelClass {
+abstract class GroupModelClass {
     static name: string
 }
-export class GroupModelPrivate {
+class GroupModelPrivate {
     static name: string
 }
-export abstract class LevelModelClass {
+abstract class LevelModelClass {
     static name: string
 }
-export class LevelModelPrivate {
+class LevelModelPrivate {
     static name: string
 }
-export abstract class RowModelClass {
+abstract class RowModelClass {
     static name: string
 }
-export class RowModelPrivate {
+class RowModelPrivate {
     static name: string
 }
-export abstract class KeyModelClass {
+abstract class KeyModelClass {
     static name: string
 }
-export class KeyModelPrivate {
+class KeyModelPrivate {
     static name: string
 }
-export abstract class ColumnModelClass {
+abstract class ColumnModelClass {
     static name: string
 }
-export class ColumnModelPrivate {
+class ColumnModelPrivate {
     static name: string
 }
-export abstract class ScannerClass {
+abstract class ScannerClass {
     static name: string
 }
-export class ScannerPrivate {
+class ScannerPrivate {
     static name: string
 }
-export abstract class ScannableGroupClass {
+abstract class ScannableGroupClass {
     /* Fields of Caribou-1.0.Caribou.ScannableGroupClass */
     getScanChildren: () => IScannableItem[]
     childSelect: () => IScannableItem | null
     static name: string
 }
-export class ScannableGroupPrivate {
+class ScannableGroupPrivate {
     static name: string
 }
-export abstract class IScannableItemIface {
+abstract class IScannableItemIface {
     /* Fields of Caribou-1.0.Caribou.IScannableItemIface */
     getScanStepping: () => boolean
     setScanStepping: (value: boolean) => void
@@ -1463,7 +1463,7 @@ export abstract class IScannableItemIface {
     setScanSelected: (value: boolean) => void
     static name: string
 }
-export abstract class IScannableGroupIface {
+abstract class IScannableGroupIface {
     /* Fields of Caribou-1.0.Caribou.IScannableGroupIface */
     childSelect: () => IScannableItem | null
     scanReset: () => void
@@ -1475,10 +1475,11 @@ export abstract class IScannableGroupIface {
     setScanGrouping: (value: ScanGrouping) => void
     static name: string
 }
-export abstract class IKeyboardObjectIface {
+abstract class IKeyboardObjectIface {
     /* Fields of Caribou-1.0.Caribou.IKeyboardObjectIface */
     getChildren: () => IKeyboardObject[]
     getKeys: () => KeyModel[]
     static name: string
 }
 }
+export default Caribou

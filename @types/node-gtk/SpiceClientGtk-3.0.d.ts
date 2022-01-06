@@ -19,9 +19,9 @@ import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace SpiceClientGtk {
+declare namespace SpiceClientGtk {
 
-export enum DisplayKeyEvent {
+enum DisplayKeyEvent {
     PRESS,
     RELEASE,
     CLICK,
@@ -39,7 +39,7 @@ export interface Display_ConstructProps extends Gtk.EventBox_ConstructProps {
     session?: SpiceClientGLib.Session
     zoomLevel?: number
 }
-export class Display {
+class Display {
     /* Properties of SpiceClientGtk-3.0.SpiceClientGtk.Display */
     disableInputs: boolean
     grabKeyboard: boolean
@@ -1121,7 +1121,7 @@ export interface GtkSession_ConstructProps extends GObject.Object_ConstructProps
     session?: SpiceClientGLib.Session
     syncModifiers?: boolean
 }
-export class GtkSession {
+class GtkSession {
     /* Properties of SpiceClientGtk-3.0.SpiceClientGtk.GtkSession */
     autoClipboard: boolean
     autoUsbredir: boolean
@@ -1199,7 +1199,7 @@ export interface UsbDeviceWidget_ConstructProps extends Gtk.Box_ConstructProps {
     session?: SpiceClientGLib.Session
     orientation?: Gtk.Orientation
 }
-export class UsbDeviceWidget {
+class UsbDeviceWidget {
     /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
@@ -2218,10 +2218,10 @@ export class UsbDeviceWidget {
     static new(orientation: Gtk.Orientation, spacing: number): UsbDeviceWidget
     static $gtype: GObject.Type
 }
-export abstract class DisplayClass {
+abstract class DisplayClass {
     static name: string
 }
-export class GrabSequence {
+class GrabSequence {
     /* Methods of SpiceClientGtk-3.0.SpiceClientGtk.GrabSequence */
     asString(): string
     copy(): GrabSequence
@@ -2233,13 +2233,14 @@ export class GrabSequence {
     static new(keysyms: number[]): GrabSequence
     static newFromString(str: string): GrabSequence
 }
-export abstract class GtkSessionClass {
+abstract class GtkSessionClass {
     static name: string
 }
-export abstract class UsbDeviceWidgetClass {
+abstract class UsbDeviceWidgetClass {
     static name: string
 }
-export class UsbDeviceWidgetPrivate {
+class UsbDeviceWidgetPrivate {
     static name: string
 }
 }
+export default SpiceClientGtk

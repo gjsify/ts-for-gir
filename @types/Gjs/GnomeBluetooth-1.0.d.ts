@@ -3,27 +3,29 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum Category {
+export namespace GnomeBluetooth {
+
+enum Category {
     ALL,
     PAIRED,
     TRUSTED,
     NOT_PAIRED_OR_TRUSTED,
     PAIRED_OR_TRUSTED,
 }
-export enum Column {
+enum Column {
     PROXY,
     PROPERTIES,
     ADDRESS,
@@ -42,14 +44,14 @@ export enum Column {
     SERVICES,
     UUIDS,
 }
-export enum Status {
+enum Status {
     INVALID,
     DISCONNECTED,
     CONNECTED,
     CONNECTING,
     PLAYING,
 }
-export enum Type {
+enum Type {
     ANY,
     PHONE,
     MODEM,
@@ -99,11 +101,11 @@ export const UUID_SAP: number
 export const UUID_SDP: number
 export const UUID_SPP: number
 export const UUID_VDP_SOURCE: number
-export function class_to_type(class_: number): Type
-export function send_to_address(address: string, alias: string): void
-export function type_to_string(type: number): string
-export function uuid_to_string(uuid: string): string
-export function verify_address(bdaddr: string): boolean
+function class_to_type(class_: number): Type
+function send_to_address(address: string, alias: string): void
+function type_to_string(type: number): string
+function uuid_to_string(uuid: string): string
+function verify_address(bdaddr: string): boolean
 export interface Chooser_ConstructProps extends Gtk.Box_ConstructProps {
     device_selected?: string
     device_service_filter?: string
@@ -117,7 +119,7 @@ export interface Chooser_ConstructProps extends Gtk.Box_ConstructProps {
     show_searching?: boolean
     orientation?: Gtk.Orientation
 }
-export class Chooser {
+class Chooser {
     /* Properties of GnomeBluetooth-1.0.GnomeBluetooth.Chooser */
     device_selected: string
     device_service_filter: string
@@ -1009,7 +1011,7 @@ export interface ChooserButton_ConstructProps extends Gtk.Button_ConstructProps 
     related_action?: Gtk.Action
     use_action_appearance?: boolean
 }
-export class ChooserButton {
+class ChooserButton {
     /* Properties of GnomeBluetooth-1.0.GnomeBluetooth.ChooserButton */
     device: string
     readonly is_available: boolean
@@ -1944,7 +1946,7 @@ export interface ChooserCombo_ConstructProps extends Gtk.Box_ConstructProps {
     device?: string
     orientation?: Gtk.Orientation
 }
-export class ChooserCombo {
+class ChooserCombo {
     /* Properties of GnomeBluetooth-1.0.GnomeBluetooth.ChooserCombo */
     readonly chooser: Chooser
     device: string
@@ -2799,7 +2801,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     default_adapter_discoverable?: boolean
     default_adapter_discovering?: boolean
 }
-export class Client {
+class Client {
     /* Properties of GnomeBluetooth-1.0.GnomeBluetooth.Client */
     readonly default_adapter: string
     default_adapter_discoverable: boolean
@@ -2883,7 +2885,7 @@ export interface FilterWidget_ConstructProps extends Gtk.Box_ConstructProps {
     show_device_type?: boolean
     orientation?: Gtk.Orientation
 }
-export class FilterWidget {
+class FilterWidget {
     /* Properties of GnomeBluetooth-1.0.GnomeBluetooth.FilterWidget */
     device_service_filter: string
     device_type_filter: number
@@ -3739,7 +3741,7 @@ export class FilterWidget {
 export interface SettingsWidget_ConstructProps extends Gtk.Box_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class SettingsWidget {
+class SettingsWidget {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -4585,40 +4587,42 @@ export class SettingsWidget {
     static new(orientation: Gtk.Orientation, spacing: number): SettingsWidget
     static $gtype: GObject.Type
 }
-export abstract class ChooserButtonClass {
+abstract class ChooserButtonClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ChooserButtonClass */
     parent_class: Gtk.ButtonClass
     chooser_created: (self: ChooserButton, chooser: Gtk.Widget) => void
     static name: string
 }
-export abstract class ChooserClass {
+abstract class ChooserClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ChooserClass */
     parent_class: Gtk.BoxClass
     selected_device_changed: (chooser: Chooser, address: string) => void
     selected_device_activated: (chooser: Chooser, address: string) => void
     static name: string
 }
-export abstract class ChooserComboClass {
+abstract class ChooserComboClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ChooserComboClass */
     parent_class: Gtk.BoxClass
     chooser_created: (self: ChooserCombo, chooser: Gtk.Widget) => void
     static name: string
 }
-export class ChooserComboPrivate {
+class ChooserComboPrivate {
     static name: string
 }
-export abstract class ClientClass {
+abstract class ClientClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ClientClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class FilterWidgetClass {
+abstract class FilterWidgetClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.FilterWidgetClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class SettingsWidgetClass {
+abstract class SettingsWidgetClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.SettingsWidgetClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
+}
+export default GnomeBluetooth

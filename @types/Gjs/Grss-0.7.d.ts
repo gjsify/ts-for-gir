@@ -3,15 +3,17 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+
+export namespace Grss {
 
 export interface FeedAtomFormatter_ConstructProps extends FeedFormatter_ConstructProps {
 }
-export class FeedAtomFormatter {
+class FeedAtomFormatter {
     /* Fields of Grss-0.7.Grss.FeedAtomFormatter */
     parent: FeedFormatter
     /* Fields of Grss-0.7.Grss.FeedFormatter */
@@ -75,7 +77,7 @@ export class FeedAtomFormatter {
 }
 export interface FeedChannel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedChannel {
+class FeedChannel {
     /* Fields of Grss-0.7.Grss.FeedChannel */
     parent: GObject.Object
     priv: FeedChannelPrivate
@@ -182,7 +184,7 @@ export class FeedChannel {
 }
 export interface FeedEnclosure_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedEnclosure {
+class FeedEnclosure {
     /* Fields of Grss-0.7.Grss.FeedEnclosure */
     parent: GObject.Object
     priv: FeedEnclosurePrivate
@@ -244,7 +246,7 @@ export class FeedEnclosure {
 }
 export interface FeedFormatter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedFormatter {
+class FeedFormatter {
     /* Fields of Grss-0.7.Grss.FeedFormatter */
     parent: GObject.Object
     priv: FeedFormatterPrivate
@@ -305,7 +307,7 @@ export class FeedFormatter {
 }
 export interface FeedItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedItem {
+class FeedItem {
     /* Fields of Grss-0.7.Grss.FeedItem */
     parent: GObject.Object
     priv: FeedItemPrivate
@@ -388,7 +390,7 @@ export class FeedItem {
 }
 export interface FeedParser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedParser {
+class FeedParser {
     /* Fields of Grss-0.7.Grss.FeedParser */
     parent: GObject.Object
     priv: FeedParserPrivate
@@ -444,7 +446,7 @@ export class FeedParser {
 }
 export interface FeedRssFormatter_ConstructProps extends FeedFormatter_ConstructProps {
 }
-export class FeedRssFormatter {
+class FeedRssFormatter {
     /* Fields of Grss-0.7.Grss.FeedRssFormatter */
     parent: FeedFormatter
     /* Fields of Grss-0.7.Grss.FeedFormatter */
@@ -508,7 +510,7 @@ export class FeedRssFormatter {
 }
 export interface FeedsGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedsGroup {
+class FeedsGroup {
     /* Fields of Grss-0.7.Grss.FeedsGroup */
     parent: GObject.Object
     priv: FeedsGroupPrivate
@@ -565,7 +567,7 @@ export class FeedsGroup {
 }
 export interface FeedsPool_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedsPool {
+class FeedsPool {
     /* Fields of Grss-0.7.Grss.FeedsPool */
     parent: GObject.Object
     priv: FeedsPoolPrivate
@@ -636,7 +638,7 @@ export class FeedsPool {
 }
 export interface FeedsPublisher_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedsPublisher {
+class FeedsPublisher {
     /* Fields of Grss-0.7.Grss.FeedsPublisher */
     parent: GObject.Object
     priv: FeedsPublisherPrivate
@@ -706,7 +708,7 @@ export class FeedsPublisher {
 }
 export interface FeedsStore_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedsStore {
+class FeedsStore {
     /* Fields of Grss-0.7.Grss.FeedsStore */
     parent: GObject.Object
     priv: FeedsStorePrivate
@@ -768,7 +770,7 @@ export class FeedsStore {
 }
 export interface FeedsSubscriber_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FeedsSubscriber {
+class FeedsSubscriber {
     /* Fields of Grss-0.7.Grss.FeedsSubscriber */
     parent: GObject.Object
     priv: FeedsSubscriberPrivate
@@ -833,91 +835,91 @@ export class FeedsSubscriber {
     static new(): FeedsSubscriber
     static $gtype: GObject.Type
 }
-export abstract class FeedAtomFormatterClass {
+abstract class FeedAtomFormatterClass {
     /* Fields of Grss-0.7.Grss.FeedAtomFormatterClass */
     parent: FeedFormatterClass
     static name: string
 }
-export class FeedAtomFormatterPrivate {
+class FeedAtomFormatterPrivate {
     static name: string
 }
-export abstract class FeedChannelClass {
+abstract class FeedChannelClass {
     /* Fields of Grss-0.7.Grss.FeedChannelClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class FeedChannelPrivate {
+class FeedChannelPrivate {
     static name: string
 }
-export abstract class FeedEnclosureClass {
+abstract class FeedEnclosureClass {
     /* Fields of Grss-0.7.Grss.FeedEnclosureClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class FeedEnclosurePrivate {
+class FeedEnclosurePrivate {
     static name: string
 }
-export abstract class FeedFormatterClass {
+abstract class FeedFormatterClass {
     /* Fields of Grss-0.7.Grss.FeedFormatterClass */
     parent: GObject.ObjectClass
     format: (formatter: FeedFormatter) => string
     static name: string
 }
-export class FeedFormatterPrivate {
+class FeedFormatterPrivate {
     static name: string
 }
-export abstract class FeedItemClass {
+abstract class FeedItemClass {
     /* Fields of Grss-0.7.Grss.FeedItemClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class FeedItemPrivate {
+class FeedItemPrivate {
     static name: string
 }
-export abstract class FeedParserClass {
+abstract class FeedParserClass {
     /* Fields of Grss-0.7.Grss.FeedParserClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class FeedParserPrivate {
+class FeedParserPrivate {
     static name: string
 }
-export abstract class FeedRssFormatterClass {
+abstract class FeedRssFormatterClass {
     /* Fields of Grss-0.7.Grss.FeedRssFormatterClass */
     parent: FeedFormatterClass
     static name: string
 }
-export class FeedRssFormatterPrivate {
+class FeedRssFormatterPrivate {
     static name: string
 }
-export abstract class FeedsGroupClass {
+abstract class FeedsGroupClass {
     /* Fields of Grss-0.7.Grss.FeedsGroupClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class FeedsGroupPrivate {
+class FeedsGroupPrivate {
     static name: string
 }
-export abstract class FeedsPoolClass {
+abstract class FeedsPoolClass {
     /* Fields of Grss-0.7.Grss.FeedsPoolClass */
     parent: GObject.ObjectClass
     feed_fetching: (pool: FeedsPool, feed: FeedChannel) => void
     static name: string
 }
-export class FeedsPoolPrivate {
+class FeedsPoolPrivate {
     static name: string
 }
-export abstract class FeedsPublisherClass {
+abstract class FeedsPublisherClass {
     /* Fields of Grss-0.7.Grss.FeedsPublisherClass */
     parent: GObject.ObjectClass
     new_subscription: (pub: FeedsPublisher, topic: FeedChannel, callback: string) => void
     delete_subscription: (pub: FeedsPublisher, topic: FeedChannel, callback: string) => void
     static name: string
 }
-export class FeedsPublisherPrivate {
+class FeedsPublisherPrivate {
     static name: string
 }
-export abstract class FeedsStoreClass {
+abstract class FeedsStoreClass {
     /* Fields of Grss-0.7.Grss.FeedsStoreClass */
     parent: GObject.ObjectClass
     get_channels: (store: FeedsStore) => FeedChannel[]
@@ -926,19 +928,19 @@ export abstract class FeedsStoreClass {
     add_item_in_channel: (store: FeedsStore, channel: FeedChannel, item: FeedItem) => void
     static name: string
 }
-export class FeedsStorePrivate {
+class FeedsStorePrivate {
     static name: string
 }
-export abstract class FeedsSubscriberClass {
+abstract class FeedsSubscriberClass {
     /* Fields of Grss-0.7.Grss.FeedsSubscriberClass */
     parent: GObject.ObjectClass
     notification_received: (sub: FeedsSubscriber, feed: FeedChannel, item: FeedItem) => void
     static name: string
 }
-export class FeedsSubscriberPrivate {
+class FeedsSubscriberPrivate {
     static name: string
 }
-export class Person {
+class Person {
     /* Methods of Grss-0.7.Grss.Person */
     get_email(): string
     get_name(): string
@@ -951,3 +953,5 @@ export class Person {
     /* Static methods and pseudo-constructors */
     static new(name: string, email?: string | null, uri?: string | null): Person
 }
+}
+export default Grss

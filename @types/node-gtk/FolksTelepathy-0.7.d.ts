@@ -10,12 +10,12 @@ import type { GObject } from './GObject-2.0';
 import type { TelepathyGLib } from './TelepathyGLib-0.12';
 import type { Folks } from './Folks-0.7';
 
-export declare namespace FolksTelepathy {
+declare namespace FolksTelepathy {
 
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
     account?: TelepathyGLib.Account
 }
-export class PersonaStore {
+class PersonaStore {
     /* Properties of Folks-0.7.Folks.PersonaStore */
     readonly typeId: string
     readonly personas: Gee.Map
@@ -202,7 +202,7 @@ export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
     presenceStatus?: string
     urls?: Gee.Set
 }
-export class Persona {
+class Persona {
     /* Properties of FolksTelepathy-0.7.FolksTelepathy.Persona */
     isInContactList: boolean
     /* Properties of Folks-0.7.Folks.Persona */
@@ -514,16 +514,17 @@ export class Persona {
     static typecmp(typeA: Folks.PresenceType, typeB: Folks.PresenceType): number
     static $gtype: GObject.Type
 }
-export abstract class PersonaStoreClass {
+abstract class PersonaStoreClass {
     static name: string
 }
-export class PersonaStorePrivate {
+class PersonaStorePrivate {
     static name: string
 }
-export abstract class PersonaClass {
+abstract class PersonaClass {
     static name: string
 }
-export class PersonaPrivate {
+class PersonaPrivate {
     static name: string
 }
 }
+export default FolksTelepathy

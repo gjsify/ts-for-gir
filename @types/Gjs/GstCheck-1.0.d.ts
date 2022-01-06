@@ -3,59 +3,61 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export function buffer_straw_get_buffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
-export function buffer_straw_start_pipeline(bin: Gst.Element, pad: Gst.Pad): void
-export function buffer_straw_stop_pipeline(bin: Gst.Element, pad: Gst.Pad): void
-export function check_abi_list(list: CheckABIStruct, have_abi_sizes: boolean): void
-export function check_buffer_data(buffer: Gst.Buffer, data: object | null, size: number): void
-export function check_caps_equal(caps1: Gst.Caps, caps2: Gst.Caps): void
-export function check_chain_func(pad: Gst.Pad, parent: Gst.Object, buffer: Gst.Buffer): Gst.FlowReturn
-export function check_clear_log_filter(): void
-export function check_drop_buffers(): void
-export function check_element_push_buffer(element_name: string, buffer_in: Gst.Buffer, caps_in: Gst.Caps, buffer_out: Gst.Buffer, caps_out: Gst.Caps): void
-export function check_element_push_buffer_list(element_name: string, buffer_in: Gst.Buffer[], caps_in: Gst.Caps, buffer_out: Gst.Buffer[], caps_out: Gst.Caps, last_flow_return: Gst.FlowReturn): void
-export function check_init(argc: number, argv: string): void
-export function check_message_error(message: Gst.Message, type: Gst.MessageType, domain: GLib.Quark, code: number): void
-export function check_object_destroyed_on_unref(object_to_unref?: object | null): void
-export function check_remove_log_filter(filter: CheckLogFilter): void
-export function check_setup_element(factory: string): Gst.Element
-export function check_setup_events(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format): void
-export function check_setup_events_with_stream_id(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format, stream_id: string): void
-export function check_setup_sink_pad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
-export function check_setup_sink_pad_by_name(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
-export function check_setup_sink_pad_by_name_from_template(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
-export function check_setup_sink_pad_from_template(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
-export function check_setup_src_pad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
-export function check_setup_src_pad_by_name(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
-export function check_setup_src_pad_by_name_from_template(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
-export function check_setup_src_pad_from_template(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
-export function check_teardown_element(element: Gst.Element): void
-export function check_teardown_pad_by_name(element: Gst.Element, name: string): void
-export function check_teardown_sink_pad(element: Gst.Element): void
-export function check_teardown_src_pad(element: Gst.Element): void
-export function consistency_checker_add_pad(consist: StreamConsistency, pad: Gst.Pad): boolean
-export function consistency_checker_free(consist: StreamConsistency): void
-export function consistency_checker_reset(consist: StreamConsistency): void
-export function harness_stress_thread_stop(t: HarnessThread): number
-export interface CheckLogFilterFunc {
+export namespace GstCheck {
+
+function buffer_straw_get_buffer(bin: Gst.Element, pad: Gst.Pad): Gst.Buffer
+function buffer_straw_start_pipeline(bin: Gst.Element, pad: Gst.Pad): void
+function buffer_straw_stop_pipeline(bin: Gst.Element, pad: Gst.Pad): void
+function check_abi_list(list: CheckABIStruct, have_abi_sizes: boolean): void
+function check_buffer_data(buffer: Gst.Buffer, data: object | null, size: number): void
+function check_caps_equal(caps1: Gst.Caps, caps2: Gst.Caps): void
+function check_chain_func(pad: Gst.Pad, parent: Gst.Object, buffer: Gst.Buffer): Gst.FlowReturn
+function check_clear_log_filter(): void
+function check_drop_buffers(): void
+function check_element_push_buffer(element_name: string, buffer_in: Gst.Buffer, caps_in: Gst.Caps, buffer_out: Gst.Buffer, caps_out: Gst.Caps): void
+function check_element_push_buffer_list(element_name: string, buffer_in: Gst.Buffer[], caps_in: Gst.Caps, buffer_out: Gst.Buffer[], caps_out: Gst.Caps, last_flow_return: Gst.FlowReturn): void
+function check_init(argc: number, argv: string): void
+function check_message_error(message: Gst.Message, type: Gst.MessageType, domain: GLib.Quark, code: number): void
+function check_object_destroyed_on_unref(object_to_unref?: object | null): void
+function check_remove_log_filter(filter: CheckLogFilter): void
+function check_setup_element(factory: string): Gst.Element
+function check_setup_events(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format): void
+function check_setup_events_with_stream_id(srcpad: Gst.Pad, element: Gst.Element, caps: Gst.Caps | null, format: Gst.Format, stream_id: string): void
+function check_setup_sink_pad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
+function check_setup_sink_pad_by_name(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
+function check_setup_sink_pad_by_name_from_template(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
+function check_setup_sink_pad_from_template(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
+function check_setup_src_pad(element: Gst.Element, tmpl: Gst.StaticPadTemplate): Gst.Pad
+function check_setup_src_pad_by_name(element: Gst.Element, tmpl: Gst.StaticPadTemplate, name: string): Gst.Pad
+function check_setup_src_pad_by_name_from_template(element: Gst.Element, tmpl: Gst.PadTemplate, name: string): Gst.Pad
+function check_setup_src_pad_from_template(element: Gst.Element, tmpl: Gst.PadTemplate): Gst.Pad
+function check_teardown_element(element: Gst.Element): void
+function check_teardown_pad_by_name(element: Gst.Element, name: string): void
+function check_teardown_sink_pad(element: Gst.Element): void
+function check_teardown_src_pad(element: Gst.Element): void
+function consistency_checker_add_pad(consist: StreamConsistency, pad: Gst.Pad): boolean
+function consistency_checker_free(consist: StreamConsistency): void
+function consistency_checker_reset(consist: StreamConsistency): void
+function harness_stress_thread_stop(t: HarnessThread): number
+interface CheckLogFilterFunc {
     (log_domain: string, log_level: GLib.LogLevelFlags, message: string): boolean
 }
-export interface HarnessPrepareBufferFunc {
+interface HarnessPrepareBufferFunc {
     (h: Harness, data?: object | null): Gst.Buffer
 }
-export interface HarnessPrepareEventFunc {
+interface HarnessPrepareEventFunc {
     (h: Harness, data?: object | null): Gst.Event
 }
 export interface TestClock_ConstructProps extends Gst.Clock_ConstructProps {
     clock_type?: Gst.ClockType
     start_time?: number
 }
-export class TestClock {
+class TestClock {
     /* Properties of GstCheck-1.0.GstCheck.TestClock */
     clock_type: Gst.ClockType
     /* Properties of Gst-1.0.Gst.Clock */
@@ -211,17 +213,17 @@ export class TestClock {
     static id_list_get_latest_time(pending_list?: Gst.ClockID[] | null): Gst.ClockTime
     static $gtype: GObject.Type
 }
-export class CheckABIStruct {
+class CheckABIStruct {
     /* Fields of GstCheck-1.0.GstCheck.CheckABIStruct */
     name: string
     size: number
     abi_size: number
     static name: string
 }
-export class CheckLogFilter {
+class CheckLogFilter {
     static name: string
 }
-export class Harness {
+class Harness {
     /* Fields of GstCheck-1.0.GstCheck.Harness */
     element: Gst.Element
     srcpad: Gst.Pad
@@ -294,20 +296,22 @@ export class Harness {
     /* Static methods and pseudo-constructors */
     static stress_thread_stop(t: HarnessThread): number
 }
-export class HarnessPrivate {
+class HarnessPrivate {
     static name: string
 }
-export class HarnessThread {
+class HarnessThread {
     static name: string
 }
-export class StreamConsistency {
+class StreamConsistency {
     static name: string
 }
-export abstract class TestClockClass {
+abstract class TestClockClass {
     /* Fields of GstCheck-1.0.GstCheck.TestClockClass */
     parent_class: Gst.ClockClass
     static name: string
 }
-export class TestClockPrivate {
+class TestClockPrivate {
     static name: string
 }
+}
+export default GstCheck

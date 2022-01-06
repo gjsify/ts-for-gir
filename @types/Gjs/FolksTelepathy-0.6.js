@@ -1,2 +1,1 @@
-imports.gi.versions.FolksTelepathy = '0.6'
-module.exports = imports.gi.FolksTelepathy
+export {default as default} from 'gi://FolksTelepathy?version=0.6';

@@ -8,13 +8,13 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstBadAllocators {
+declare namespace GstBadAllocators {
 
-export function isPhysMemory(mem: Gst.Memory): boolean
-export function physMemoryGetPhysAddr(mem: Gst.Memory): number
+function isPhysMemory(mem: Gst.Memory): boolean
+function physMemoryGetPhysAddr(mem: Gst.Memory): number
 export interface PhysMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
-export class PhysMemoryAllocator {
+class PhysMemoryAllocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
@@ -117,10 +117,11 @@ export class PhysMemoryAllocator {
     _init (config?: PhysMemoryAllocator_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class PhysMemoryAllocatorInterface {
+abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstBadAllocators-1.0.GstBadAllocators.PhysMemoryAllocatorInterface */
     parentIface: GObject.TypeInterface
     getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
 }
+export default GstBadAllocators

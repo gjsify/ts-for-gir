@@ -1,2 +1,1 @@
-imports.gi.versions.GL = '1.0'
-module.exports = imports.gi.GL
+export {default as default} from 'gi://GL?version=1.0';

@@ -7,28 +7,28 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Gst {
+declare namespace Gst {
 
-export enum BufferingMode {
+enum BufferingMode {
     STREAM,
     DOWNLOAD,
     TIMESHIFT,
     LIVE,
 }
-export enum BusSyncReply {
+enum BusSyncReply {
     DROP,
     PASS,
     ASYNC,
 }
-export enum CapsIntersectMode {
+enum CapsIntersectMode {
     ZIG_ZAG,
     FIRST,
 }
-export enum ClockEntryType {
+enum ClockEntryType {
     SINGLE,
     PERIODIC,
 }
-export enum ClockReturn {
+enum ClockReturn {
     OK,
     EARLY,
     UNSCHEDULED,
@@ -38,13 +38,13 @@ export enum ClockReturn {
     UNSUPPORTED,
     DONE,
 }
-export enum ClockType {
+enum ClockType {
     REALTIME,
     MONOTONIC,
     OTHER,
     TAI,
 }
-export enum CoreError {
+enum CoreError {
     FAILED,
     TOO_LAZY,
     NOT_IMPLEMENTED,
@@ -61,12 +61,12 @@ export enum CoreError {
     DISABLED,
     NUM_ERRORS,
 }
-export enum DebugColorMode {
+enum DebugColorMode {
     OFF,
     ON,
     UNIX,
 }
-export enum DebugLevel {
+enum DebugLevel {
     NONE,
     ERROR,
     WARNING,
@@ -78,7 +78,7 @@ export enum DebugLevel {
     MEMDUMP,
     COUNT,
 }
-export enum EventType {
+enum EventType {
     UNKNOWN,
     FLUSH_START,
     FLUSH_STOP,
@@ -112,7 +112,7 @@ export enum EventType {
     CUSTOM_BOTH,
     CUSTOM_BOTH_OOB,
 }
-export enum FlowReturn {
+enum FlowReturn {
     CUSTOM_SUCCESS_2,
     CUSTOM_SUCCESS_1,
     CUSTOM_SUCCESS,
@@ -127,7 +127,7 @@ export enum FlowReturn {
     CUSTOM_ERROR_1,
     CUSTOM_ERROR_2,
 }
-export enum Format {
+enum Format {
     UNDEFINED,
     DEFAULT,
     BYTES,
@@ -135,18 +135,18 @@ export enum Format {
     BUFFERS,
     PERCENT,
 }
-export enum IteratorItem {
+enum IteratorItem {
     SKIP,
     PASS,
     END,
 }
-export enum IteratorResult {
+enum IteratorResult {
     DONE,
     OK,
     RESYNC,
     ERROR,
 }
-export enum LibraryError {
+enum LibraryError {
     FAILED,
     TOO_LAZY,
     INIT,
@@ -155,12 +155,12 @@ export enum LibraryError {
     ENCODE,
     NUM_ERRORS,
 }
-export enum PadDirection {
+enum PadDirection {
     UNKNOWN,
     SRC,
     SINK,
 }
-export enum PadLinkReturn {
+enum PadLinkReturn {
     OK,
     WRONG_HIERARCHY,
     WAS_LINKED,
@@ -169,24 +169,24 @@ export enum PadLinkReturn {
     NOSCHED,
     REFUSED,
 }
-export enum PadMode {
+enum PadMode {
     NONE,
     PUSH,
     PULL,
 }
-export enum PadPresence {
+enum PadPresence {
     ALWAYS,
     SOMETIMES,
     REQUEST,
 }
-export enum PadProbeReturn {
+enum PadProbeReturn {
     DROP,
     OK,
     REMOVE,
     PASS,
     HANDLED,
 }
-export enum ParseError {
+enum ParseError {
     SYNTAX,
     NO_SUCH_ELEMENT,
     NO_SUCH_PROPERTY,
@@ -196,30 +196,30 @@ export enum ParseError {
     EMPTY,
     DELAYED_LINK,
 }
-export enum PluginError {
+enum PluginError {
     MODULE,
     DEPENDENCIES,
     NAME_MISMATCH,
 }
-export enum ProgressType {
+enum ProgressType {
     START,
     CONTINUE,
     COMPLETE,
     CANCELED,
     ERROR,
 }
-export enum PromiseResult {
+enum PromiseResult {
     PENDING,
     INTERRUPTED,
     REPLIED,
     EXPIRED,
 }
-export enum QOSType {
+enum QOSType {
     OVERFLOW,
     UNDERFLOW,
     THROTTLE,
 }
-export enum QueryType {
+enum QueryType {
     UNKNOWN,
     POSITION,
     DURATION,
@@ -241,13 +241,13 @@ export enum QueryType {
     CONTEXT,
     BITRATE,
 }
-export enum Rank {
+enum Rank {
     NONE,
     MARGINAL,
     SECONDARY,
     PRIMARY,
 }
-export enum ResourceError {
+enum ResourceError {
     FAILED,
     TOO_LAZY,
     NOT_FOUND,
@@ -265,24 +265,24 @@ export enum ResourceError {
     NOT_AUTHORIZED,
     NUM_ERRORS,
 }
-export enum SearchMode {
+enum SearchMode {
     EXACT,
     BEFORE,
     AFTER,
 }
-export enum SeekType {
+enum SeekType {
     NONE,
     SET,
     END,
 }
-export enum State {
+enum State {
     VOID_PENDING,
     NULL,
     READY,
     PAUSED,
     PLAYING,
 }
-export enum StateChange {
+enum StateChange {
     NULL_TO_READY,
     READY_TO_PAUSED,
     PAUSED_TO_PLAYING,
@@ -294,13 +294,13 @@ export enum StateChange {
     PAUSED_TO_PAUSED,
     PLAYING_TO_PLAYING,
 }
-export enum StateChangeReturn {
+enum StateChangeReturn {
     FAILURE,
     SUCCESS,
     ASYNC,
     NO_PREROLL,
 }
-export enum StreamError {
+enum StreamError {
     FAILED,
     TOO_LAZY,
     NOT_IMPLEMENTED,
@@ -316,7 +316,7 @@ export enum StreamError {
     DECRYPT_NOKEY,
     NUM_ERRORS,
 }
-export enum StreamStatusType {
+enum StreamStatusType {
     CREATE,
     ENTER,
     LEAVE,
@@ -325,18 +325,18 @@ export enum StreamStatusType {
     PAUSE,
     STOP,
 }
-export enum StructureChangeType {
+enum StructureChangeType {
     LINK,
     UNLINK,
 }
-export enum TagFlag {
+enum TagFlag {
     UNDEFINED,
     META,
     ENCODED,
     DECODED,
     COUNT,
 }
-export enum TagMergeMode {
+enum TagMergeMode {
     UNDEFINED,
     REPLACE_ALL,
     REPLACE,
@@ -346,16 +346,16 @@ export enum TagMergeMode {
     KEEP_ALL,
     COUNT,
 }
-export enum TagScope {
+enum TagScope {
     STREAM,
     GLOBAL,
 }
-export enum TaskState {
+enum TaskState {
     STARTED,
     STOPPED,
     PAUSED,
 }
-export enum TocEntryType {
+enum TocEntryType {
     ANGLE,
     VERSION,
     EDITION,
@@ -364,23 +364,23 @@ export enum TocEntryType {
     TRACK,
     CHAPTER,
 }
-export enum TocLoopType {
+enum TocLoopType {
     NONE,
     FORWARD,
     REVERSE,
     PING_PONG,
 }
-export enum TocScope {
+enum TocScope {
     GLOBAL,
     CURRENT,
 }
-export enum TracerValueScope {
+enum TracerValueScope {
     PROCESS,
     THREAD,
     ELEMENT,
     PAD,
 }
-export enum TypeFindProbability {
+enum TypeFindProbability {
     NONE,
     MINIMUM,
     POSSIBLE,
@@ -388,27 +388,27 @@ export enum TypeFindProbability {
     NEARLY_CERTAIN,
     MAXIMUM,
 }
-export enum URIError {
+enum URIError {
     UNSUPPORTED_PROTOCOL,
     BAD_URI,
     BAD_STATE,
     BAD_REFERENCE,
 }
-export enum URIType {
+enum URIType {
     UNKNOWN,
     SINK,
     SRC,
 }
-export enum AllocatorFlags {
+enum AllocatorFlags {
     CUSTOM_ALLOC,
     LAST,
 }
-export enum BinFlags {
+enum BinFlags {
     NO_RESYNC,
     STREAMS_AWARE,
     LAST,
 }
-export enum BufferCopyFlags {
+enum BufferCopyFlags {
     NONE,
     FLAGS,
     TIMESTAMPS,
@@ -417,7 +417,7 @@ export enum BufferCopyFlags {
     MERGE,
     DEEP,
 }
-export enum BufferFlags {
+enum BufferFlags {
     LIVE,
     DECODE_ONLY,
     DISCONT,
@@ -433,21 +433,21 @@ export enum BufferFlags {
     NON_DROPPABLE,
     LAST,
 }
-export enum BufferPoolAcquireFlags {
+enum BufferPoolAcquireFlags {
     NONE,
     KEY_UNIT,
     DONTWAIT,
     DISCONT,
     LAST,
 }
-export enum BusFlags {
+enum BusFlags {
     FLUSHING,
     FLAG_LAST,
 }
-export enum CapsFlags {
+enum CapsFlags {
     ANY,
 }
-export enum ClockFlags {
+enum ClockFlags {
     CAN_DO_SINGLE_SYNC,
     CAN_DO_SINGLE_ASYNC,
     CAN_DO_PERIODIC_SYNC,
@@ -457,7 +457,7 @@ export enum ClockFlags {
     NEEDS_STARTUP_SYNC,
     LAST,
 }
-export enum DebugColorFlags {
+enum DebugColorFlags {
     FG_BLACK,
     FG_RED,
     FG_GREEN,
@@ -477,7 +477,7 @@ export enum DebugColorFlags {
     BOLD,
     UNDERLINE,
 }
-export enum DebugGraphDetails {
+enum DebugGraphDetails {
     MEDIA_TYPE,
     CAPS_DETAILS,
     NON_DEFAULT_PARAMS,
@@ -486,7 +486,7 @@ export enum DebugGraphDetails {
     ALL,
     VERBOSE,
 }
-export enum ElementFlags {
+enum ElementFlags {
     LOCKED_STATE,
     SINK,
     SOURCE,
@@ -495,28 +495,28 @@ export enum ElementFlags {
     INDEXABLE,
     LAST,
 }
-export enum EventTypeFlags {
+enum EventTypeFlags {
     UPSTREAM,
     DOWNSTREAM,
     SERIALIZED,
     STICKY,
     STICKY_MULTI,
 }
-export enum GapFlags {
+enum GapFlags {
     DATA,
 }
-export enum LockFlags {
+enum LockFlags {
     READ,
     WRITE,
     EXCLUSIVE,
     LAST,
 }
-export enum MapFlags {
+enum MapFlags {
     READ,
     WRITE,
     FLAG_LAST,
 }
-export enum MemoryFlags {
+enum MemoryFlags {
     READONLY,
     NO_SHARE,
     ZERO_PREFIXED,
@@ -525,7 +525,7 @@ export enum MemoryFlags {
     NOT_MAPPABLE,
     LAST,
 }
-export enum MessageType {
+enum MessageType {
     UNKNOWN,
     EOS,
     ERROR,
@@ -569,24 +569,24 @@ export enum MessageType {
     INSTANT_RATE_REQUEST,
     ANY,
 }
-export enum MetaFlags {
+enum MetaFlags {
     NONE,
     READONLY,
     POOLED,
     LOCKED,
     LAST,
 }
-export enum MiniObjectFlags {
+enum MiniObjectFlags {
     LOCKABLE,
     LOCK_READONLY,
     MAY_BE_LEAKED,
     LAST,
 }
-export enum ObjectFlags {
+enum ObjectFlags {
     MAY_BE_LEAKED,
     LAST,
 }
-export enum PadFlags {
+enum PadFlags {
     BLOCKED,
     FLUSHING,
     EOS,
@@ -602,7 +602,7 @@ export enum PadFlags {
     ACCEPT_TEMPLATE,
     LAST,
 }
-export enum PadLinkCheck {
+enum PadLinkCheck {
     NOTHING,
     HIERARCHY,
     TEMPLATE_CAPS,
@@ -610,7 +610,7 @@ export enum PadLinkCheck {
     NO_RECONFIGURE,
     DEFAULT,
 }
-export enum PadProbeType {
+enum PadProbeType {
     INVALID,
     IDLE,
     BLOCK,
@@ -634,23 +634,23 @@ export enum PadProbeType {
     ALL_BOTH,
     SCHEDULING,
 }
-export enum PadTemplateFlags {
+enum PadTemplateFlags {
     LAST,
 }
-export enum ParseFlags {
+enum ParseFlags {
     NONE,
     FATAL_ERRORS,
     NO_SINGLE_ELEMENT_BINS,
     PLACE_IN_BIN,
 }
-export enum PipelineFlags {
+enum PipelineFlags {
     FIXED_CLOCK,
     LAST,
 }
-export enum PluginAPIFlags {
+enum PluginAPIFlags {
     MEMBERS,
 }
-export enum PluginDependencyFlags {
+enum PluginDependencyFlags {
     NONE,
     RECURSE,
     PATHS_ARE_DEFAULT_ONLY,
@@ -658,21 +658,21 @@ export enum PluginDependencyFlags {
     FILE_NAME_IS_PREFIX,
     PATHS_ARE_RELATIVE_TO_EXE,
 }
-export enum PluginFlags {
+enum PluginFlags {
     CACHED,
     BLACKLISTED,
 }
-export enum QueryTypeFlags {
+enum QueryTypeFlags {
     UPSTREAM,
     DOWNSTREAM,
     SERIALIZED,
 }
-export enum SchedulingFlags {
+enum SchedulingFlags {
     SEEKABLE,
     SEQUENTIAL,
     BANDWIDTH_LIMITED,
 }
-export enum SeekFlags {
+enum SeekFlags {
     NONE,
     FLUSH,
     ACCURATE,
@@ -688,7 +688,7 @@ export enum SeekFlags {
     TRICKMODE_FORWARD_PREDICTED,
     INSTANT_RATE_CHANGE,
 }
-export enum SegmentFlags {
+enum SegmentFlags {
     NONE,
     RESET,
     TRICKMODE,
@@ -698,28 +698,28 @@ export enum SegmentFlags {
     TRICKMODE_FORWARD_PREDICTED,
     TRICKMODE_NO_AUDIO,
 }
-export enum SerializeFlags {
+enum SerializeFlags {
     NONE,
     BACKWARD_COMPAT,
 }
-export enum StackTraceFlags {
+enum StackTraceFlags {
     NONE,
     FULL,
 }
-export enum StreamFlags {
+enum StreamFlags {
     NONE,
     SPARSE,
     SELECT,
     UNSELECT,
 }
-export enum StreamType {
+enum StreamType {
     UNKNOWN,
     AUDIO,
     VIDEO,
     CONTAINER,
     TEXT,
 }
-export enum TracerValueFlags {
+enum TracerValueFlags {
     NONE,
     OPTIONAL,
     AGGREGATED,
@@ -905,425 +905,425 @@ export const VERSION_MAJOR: number
 export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export const VERSION_NANO: number
-export function bufferGetMaxMemory(): number
-export function bufferListReplace(oldList?: BufferList | null, newList?: BufferList | null): { returnType: boolean, oldList: BufferList | null }
-export function bufferListTake(oldList: BufferList, newList?: BufferList | null): { returnType: boolean, oldList: BufferList }
-export function capsFeaturesFromString(features: string): CapsFeatures | null
-export function capsFromString(string: string): Caps | null
-export function contextReplace(oldContext: Context, newContext?: Context | null): { returnType: boolean, oldContext: Context }
-export function coreErrorQuark(): GLib.Quark
-export function debugAddLogFunction(func: LogFunction): void
-export function debugAddRingBufferLogger(maxSizePerThread: number, threadTimeout: number): void
-export function debugBinToDotData(bin: Bin, details: DebugGraphDetails): string
-export function debugBinToDotFile(bin: Bin, details: DebugGraphDetails, fileName: string): void
-export function debugBinToDotFileWithTs(bin: Bin, details: DebugGraphDetails, fileName: string): void
-export function debugConstructTermColor(colorinfo: number): string
-export function debugConstructWinColor(colorinfo: number): number
-export function debugGetAllCategories(): DebugCategory[]
-export function debugGetColorMode(): DebugColorMode
-export function debugGetDefaultThreshold(): DebugLevel
-export function debugGetStackTrace(flags: StackTraceFlags): string | null
-export function debugIsActive(): boolean
-export function debugIsColored(): boolean
-export function debugLevelGetName(level: DebugLevel): string
-export function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage, userData?: object | null): void
-export function debugLogGetLine(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage): string
-export function debugLogLiteral(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, messageString: string): void
-export function debugPrintStackTrace(): void
-export function debugRemoveLogFunction(func?: LogFunction | null): number
-export function debugRemoveLogFunctionByData(data?: object | null): number
-export function debugRemoveRingBufferLogger(): void
-export function debugRingBufferLoggerGetLogs(): string[]
-export function debugSetActive(active: boolean): void
-export function debugSetColorMode(mode: DebugColorMode): void
-export function debugSetColorModeFromString(mode: string): void
-export function debugSetColored(colored: boolean): void
-export function debugSetDefaultThreshold(level: DebugLevel): void
-export function debugSetThresholdForName(name: string, level: DebugLevel): void
-export function debugSetThresholdFromString(list: string, reset: boolean): void
-export function debugUnsetThresholdForName(name: string): void
-export function deinit(): void
-export function dynamicTypeRegister(plugin: Plugin, type: GObject.Type): boolean
-export function errorGetMessage(domain: GLib.Quark, code: number): string
-export function eventTypeGetFlags(type: EventType): EventTypeFlags
-export function eventTypeGetName(type: EventType): string
-export function eventTypeToQuark(type: EventType): GLib.Quark
-export function filenameToUri(filename: string): string
-export function flowGetName(ret: FlowReturn): string
-export function flowToQuark(ret: FlowReturn): GLib.Quark
-export function formatGetByNick(nick: string): Format
-export function formatGetDetails(format: Format): FormatDefinition | null
-export function formatGetName(format: Format): string | null
-export function formatIterateDefinitions(): Iterator
-export function formatRegister(nick: string, description: string): Format
-export function formatToQuark(format: Format): GLib.Quark
-export function formatsContains(formats: Format[], format: Format): boolean
-export function getMainExecutablePath(): string | null
-export function init(argv?: string[] | null): { argv: string[] | null }
-export function initCheck(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
-export function isCapsFeatures(obj?: object | null): boolean
-export function isInitialized(): boolean
-export function libraryErrorQuark(): GLib.Quark
-export function messageTake(oldMessage: Message, newMessage?: Message | null): { returnType: boolean, oldMessage: Message }
-export function messageTypeGetName(type: MessageType): string
-export function messageTypeToQuark(type: MessageType): GLib.Quark
-export function metaApiTypeGetTags(api: GObject.Type): string[]
-export function metaApiTypeHasTag(api: GObject.Type, tag: GLib.Quark): boolean
-export function metaApiTypeRegister(api: string, tags: string[]): GObject.Type
-export function metaGetInfo(impl: string): MetaInfo | null
-export function metaRegister(api: GObject.Type, impl: string, size: number, initFunc: MetaInitFunction, freeFunc: MetaFreeFunction, transformFunc: MetaTransformFunction): MetaInfo
-export function metaRegisterCustom(name: string, tags: string[], transformFunc: CustomMetaTransformFunction | null): MetaInfo
-export function miniObjectReplace(olddata?: MiniObject | null, newdata?: MiniObject | null): { returnType: boolean, olddata: MiniObject | null }
-export function miniObjectTake(olddata: MiniObject, newdata: MiniObject): { returnType: boolean, olddata: MiniObject }
-export function padModeGetName(mode: PadMode): string
-export function paramSpecArray(name: string, nick: string, blurb: string, elementSpec: GObject.ParamSpec, flags: GObject.ParamFlags): GObject.ParamSpec
-export function paramSpecFraction(name: string, nick: string, blurb: string, minNum: number, minDenom: number, maxNum: number, maxDenom: number, defaultNum: number, defaultDenom: number, flags: GObject.ParamFlags): GObject.ParamSpec | null
-export function parentBufferMetaApiGetType(): GObject.Type
-export function parentBufferMetaGetInfo(): MetaInfo
-export function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: boolean): Bin
-export function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: boolean, context: ParseContext | null, flags: ParseFlags): Element
-export function parseErrorQuark(): GLib.Quark
-export function parseLaunch(pipelineDescription: string): Element
-export function parseLaunchFull(pipelineDescription: string, context: ParseContext | null, flags: ParseFlags): Element
-export function parseLaunchv(argv: string[]): Element
-export function parseLaunchvFull(argv: string[], context: ParseContext | null, flags: ParseFlags): Element
-export function pluginErrorQuark(): GLib.Quark
-export function presetGetAppDir(): string | null
-export function presetSetAppDir(appDir: string): boolean
-export function protectionFilterSystemsByAvailableDecryptors(systemIdentifiers: string[]): string[] | null
-export function protectionMetaApiGetType(): GObject.Type
-export function protectionMetaGetInfo(): MetaInfo
-export function protectionSelectSystem(systemIdentifiers: string[]): string | null
-export function queryTake(oldQuery?: Query | null, newQuery?: Query | null): { returnType: boolean, oldQuery: Query | null }
-export function queryTypeGetFlags(type: QueryType): QueryTypeFlags
-export function queryTypeGetName(type: QueryType): string
-export function queryTypeToQuark(type: QueryType): GLib.Quark
-export function referenceTimestampMetaApiGetType(): GObject.Type
-export function referenceTimestampMetaGetInfo(): MetaInfo
-export function resourceErrorQuark(): GLib.Quark
-export function segtrapIsEnabled(): boolean
-export function segtrapSetEnabled(enabled: boolean): void
-export function stateChangeGetName(transition: StateChange): string
-export function staticCapsGetType(): GObject.Type
-export function staticPadTemplateGetType(): GObject.Type
-export function streamErrorQuark(): GLib.Quark
-export function streamTypeGetName(stype: StreamType): string
-export function structureTake(oldstrPtr?: Structure | null, newstr?: Structure | null): { returnType: boolean, oldstrPtr: Structure | null }
-export function tagExists(tag: string): boolean
-export function tagGetDescription(tag: string): string | null
-export function tagGetFlag(tag: string): TagFlag
-export function tagGetNick(tag: string): string | null
-export function tagGetType(tag: string): GObject.Type
-export function tagIsFixed(tag: string): boolean
-export function tagListCopyValue(list: TagList, tag: string): { returnType: boolean, dest: any }
-export function tagListReplace(oldTaglist?: TagList | null, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList | null }
-export function tagListTake(oldTaglist: TagList, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList }
-export function tagMergeStringsWithComma(src: any): { dest: any }
-export function tagMergeUseFirst(src: any): { dest: any }
-export function tocEntryTypeGetNick(type: TocEntryType): string
-export function tracingGetActiveTracers(): Tracer[]
-export function tracingRegisterHook(tracer: Tracer, detail: string, func: GObject.Callback): void
-export function typeFindGetType(): GObject.Type
-export function typeFindRegister(plugin: Plugin | null, name: string, rank: number, func: TypeFindFunction, extensions: string | null, possibleCaps: Caps | null): boolean
-export function typeIsPluginApi(type: GObject.Type): { returnType: boolean, flags: PluginAPIFlags | null }
-export function typeMarkAsPluginApi(type: GObject.Type, flags: PluginAPIFlags): void
-export function updateRegistry(): boolean
-export function uriConstruct(protocol: string, location: string): string
-export function uriErrorQuark(): GLib.Quark
-export function uriFromString(uri: string): Uri | null
-export function uriFromStringEscaped(uri: string): Uri | null
-export function uriGetLocation(uri: string): string | null
-export function uriGetProtocol(uri: string): string | null
-export function uriHasProtocol(uri: string, protocol: string): boolean
-export function uriIsValid(uri: string): boolean
-export function uriJoinStrings(baseUri: string, refUri: string): string
-export function uriProtocolIsSupported(type: URIType, protocol: string): boolean
-export function uriProtocolIsValid(protocol: string): boolean
-export function utilArrayBinarySearch(array: object | null, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData?: object | null): object | null
-export function utilDoubleToFraction(src: number): { destN: number, destD: number }
-export function utilDumpBuffer(buf: Buffer): void
-export function utilDumpMem(mem: any[]): void
-export function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
-export function utilFractionCompare(aN: number, aD: number, bN: number, bD: number): number
-export function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
-export function utilFractionToDouble(srcN: number, srcD: number): { dest: number }
-export function utilGdoubleToGuint64(value: number): number
-export function utilGetObjectArray(object: GObject.Object, name: string): { returnType: boolean, array: GObject.ValueArray }
-export function utilGetTimestamp(): ClockTime
-export function utilGreatestCommonDivisor(a: number, b: number): number
-export function utilGreatestCommonDivisorInt64(a: number, b: number): number
-export function utilGroupIdNext(): number
-export function utilGuint64ToGdouble(value: number): number
-export function utilSeqnumCompare(s1: number, s2: number): number
-export function utilSeqnumNext(): number
-export function utilSetObjectArg(object: GObject.Object, name: string, value: string): void
-export function utilSetObjectArray(object: GObject.Object, name: string, array: GObject.ValueArray): boolean
-export function utilSetValueFromString(valueStr: string): { value: any }
-export function utilUint64Scale(val: number, num: number, denom: number): number
-export function utilUint64ScaleCeil(val: number, num: number, denom: number): number
-export function utilUint64ScaleInt(val: number, num: number, denom: number): number
-export function utilUint64ScaleIntCeil(val: number, num: number, denom: number): number
-export function utilUint64ScaleIntRound(val: number, num: number, denom: number): number
-export function utilUint64ScaleRound(val: number, num: number, denom: number): number
-export function valueCanCompare(value1: any, value2: any): boolean
-export function valueCanIntersect(value1: any, value2: any): boolean
-export function valueCanSubtract(minuend: any, subtrahend: any): boolean
-export function valueCanUnion(value1: any, value2: any): boolean
-export function valueCompare(value1: any, value2: any): number
-export function valueDeserialize(src: string): { returnType: boolean, dest: any }
-export function valueDeserializeWithPspec(src: string, pspec?: GObject.ParamSpec | null): { returnType: boolean, dest: any }
-export function valueFixate(dest: any, src: any): boolean
-export function valueFractionMultiply(product: any, factor1: any, factor2: any): boolean
-export function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): boolean
-export function valueGetBitmask(value: any): number
-export function valueGetCaps(value: any): Caps
-export function valueGetCapsFeatures(value: any): CapsFeatures
-export function valueGetDoubleRangeMax(value: any): number
-export function valueGetDoubleRangeMin(value: any): number
-export function valueGetFlagsetFlags(value: any): number
-export function valueGetFlagsetMask(value: any): number
-export function valueGetFractionDenominator(value: any): number
-export function valueGetFractionNumerator(value: any): number
-export function valueGetFractionRangeMax(value: any): any | null
-export function valueGetFractionRangeMin(value: any): any | null
-export function valueGetInt64RangeMax(value: any): number
-export function valueGetInt64RangeMin(value: any): number
-export function valueGetInt64RangeStep(value: any): number
-export function valueGetIntRangeMax(value: any): number
-export function valueGetIntRangeMin(value: any): number
-export function valueGetIntRangeStep(value: any): number
-export function valueGetStructure(value: any): Structure
-export function valueInitAndCopy(src: any): { dest: any }
-export function valueIntersect(value1: any, value2: any): { returnType: boolean, dest: any | null }
-export function valueIsFixed(value: any): boolean
-export function valueIsSubset(value1: any, value2: any): boolean
-export function valueRegister(table: ValueTable): void
-export function valueSerialize(value: any): string | null
-export function valueSetBitmask(value: any, bitmask: number): void
-export function valueSetCaps(value: any, caps: Caps): void
-export function valueSetCapsFeatures(value: any, features: CapsFeatures): void
-export function valueSetDoubleRange(value: any, start: number, end: number): void
-export function valueSetFlagset(value: any, flags: number, mask: number): void
-export function valueSetFraction(value: any, numerator: number, denominator: number): void
-export function valueSetFractionRange(value: any, start: any, end: any): void
-export function valueSetFractionRangeFull(value: any, numeratorStart: number, denominatorStart: number, numeratorEnd: number, denominatorEnd: number): void
-export function valueSetInt64Range(value: any, start: number, end: number): void
-export function valueSetInt64RangeStep(value: any, start: number, end: number, step: number): void
-export function valueSetIntRange(value: any, start: number, end: number): void
-export function valueSetIntRangeStep(value: any, start: number, end: number, step: number): void
-export function valueSetStructure(value: any, structure: Structure): void
-export function valueSubtract(minuend: any, subtrahend: any): { returnType: boolean, dest: any | null }
-export function valueUnion(value1: any, value2: any): { returnType: boolean, dest: any }
-export function version(): { major: number, minor: number, micro: number, nano: number }
-export function versionString(): string
-export interface BufferForeachMetaFunc {
+function bufferGetMaxMemory(): number
+function bufferListReplace(oldList?: BufferList | null, newList?: BufferList | null): { returnType: boolean, oldList: BufferList | null }
+function bufferListTake(oldList: BufferList, newList?: BufferList | null): { returnType: boolean, oldList: BufferList }
+function capsFeaturesFromString(features: string): CapsFeatures | null
+function capsFromString(string: string): Caps | null
+function contextReplace(oldContext: Context, newContext?: Context | null): { returnType: boolean, oldContext: Context }
+function coreErrorQuark(): GLib.Quark
+function debugAddLogFunction(func: LogFunction): void
+function debugAddRingBufferLogger(maxSizePerThread: number, threadTimeout: number): void
+function debugBinToDotData(bin: Bin, details: DebugGraphDetails): string
+function debugBinToDotFile(bin: Bin, details: DebugGraphDetails, fileName: string): void
+function debugBinToDotFileWithTs(bin: Bin, details: DebugGraphDetails, fileName: string): void
+function debugConstructTermColor(colorinfo: number): string
+function debugConstructWinColor(colorinfo: number): number
+function debugGetAllCategories(): DebugCategory[]
+function debugGetColorMode(): DebugColorMode
+function debugGetDefaultThreshold(): DebugLevel
+function debugGetStackTrace(flags: StackTraceFlags): string | null
+function debugIsActive(): boolean
+function debugIsColored(): boolean
+function debugLevelGetName(level: DebugLevel): string
+function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage, userData?: object | null): void
+function debugLogGetLine(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage): string
+function debugLogLiteral(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, messageString: string): void
+function debugPrintStackTrace(): void
+function debugRemoveLogFunction(func?: LogFunction | null): number
+function debugRemoveLogFunctionByData(data?: object | null): number
+function debugRemoveRingBufferLogger(): void
+function debugRingBufferLoggerGetLogs(): string[]
+function debugSetActive(active: boolean): void
+function debugSetColorMode(mode: DebugColorMode): void
+function debugSetColorModeFromString(mode: string): void
+function debugSetColored(colored: boolean): void
+function debugSetDefaultThreshold(level: DebugLevel): void
+function debugSetThresholdForName(name: string, level: DebugLevel): void
+function debugSetThresholdFromString(list: string, reset: boolean): void
+function debugUnsetThresholdForName(name: string): void
+function deinit(): void
+function dynamicTypeRegister(plugin: Plugin, type: GObject.Type): boolean
+function errorGetMessage(domain: GLib.Quark, code: number): string
+function eventTypeGetFlags(type: EventType): EventTypeFlags
+function eventTypeGetName(type: EventType): string
+function eventTypeToQuark(type: EventType): GLib.Quark
+function filenameToUri(filename: string): string
+function flowGetName(ret: FlowReturn): string
+function flowToQuark(ret: FlowReturn): GLib.Quark
+function formatGetByNick(nick: string): Format
+function formatGetDetails(format: Format): FormatDefinition | null
+function formatGetName(format: Format): string | null
+function formatIterateDefinitions(): Iterator
+function formatRegister(nick: string, description: string): Format
+function formatToQuark(format: Format): GLib.Quark
+function formatsContains(formats: Format[], format: Format): boolean
+function getMainExecutablePath(): string | null
+function init(argv?: string[] | null): { argv: string[] | null }
+function initCheck(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
+function isCapsFeatures(obj?: object | null): boolean
+function isInitialized(): boolean
+function libraryErrorQuark(): GLib.Quark
+function messageTake(oldMessage: Message, newMessage?: Message | null): { returnType: boolean, oldMessage: Message }
+function messageTypeGetName(type: MessageType): string
+function messageTypeToQuark(type: MessageType): GLib.Quark
+function metaApiTypeGetTags(api: GObject.Type): string[]
+function metaApiTypeHasTag(api: GObject.Type, tag: GLib.Quark): boolean
+function metaApiTypeRegister(api: string, tags: string[]): GObject.Type
+function metaGetInfo(impl: string): MetaInfo | null
+function metaRegister(api: GObject.Type, impl: string, size: number, initFunc: MetaInitFunction, freeFunc: MetaFreeFunction, transformFunc: MetaTransformFunction): MetaInfo
+function metaRegisterCustom(name: string, tags: string[], transformFunc: CustomMetaTransformFunction | null): MetaInfo
+function miniObjectReplace(olddata?: MiniObject | null, newdata?: MiniObject | null): { returnType: boolean, olddata: MiniObject | null }
+function miniObjectTake(olddata: MiniObject, newdata: MiniObject): { returnType: boolean, olddata: MiniObject }
+function padModeGetName(mode: PadMode): string
+function paramSpecArray(name: string, nick: string, blurb: string, elementSpec: GObject.ParamSpec, flags: GObject.ParamFlags): GObject.ParamSpec
+function paramSpecFraction(name: string, nick: string, blurb: string, minNum: number, minDenom: number, maxNum: number, maxDenom: number, defaultNum: number, defaultDenom: number, flags: GObject.ParamFlags): GObject.ParamSpec | null
+function parentBufferMetaApiGetType(): GObject.Type
+function parentBufferMetaGetInfo(): MetaInfo
+function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: boolean): Bin
+function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: boolean, context: ParseContext | null, flags: ParseFlags): Element
+function parseErrorQuark(): GLib.Quark
+function parseLaunch(pipelineDescription: string): Element
+function parseLaunchFull(pipelineDescription: string, context: ParseContext | null, flags: ParseFlags): Element
+function parseLaunchv(argv: string[]): Element
+function parseLaunchvFull(argv: string[], context: ParseContext | null, flags: ParseFlags): Element
+function pluginErrorQuark(): GLib.Quark
+function presetGetAppDir(): string | null
+function presetSetAppDir(appDir: string): boolean
+function protectionFilterSystemsByAvailableDecryptors(systemIdentifiers: string[]): string[] | null
+function protectionMetaApiGetType(): GObject.Type
+function protectionMetaGetInfo(): MetaInfo
+function protectionSelectSystem(systemIdentifiers: string[]): string | null
+function queryTake(oldQuery?: Query | null, newQuery?: Query | null): { returnType: boolean, oldQuery: Query | null }
+function queryTypeGetFlags(type: QueryType): QueryTypeFlags
+function queryTypeGetName(type: QueryType): string
+function queryTypeToQuark(type: QueryType): GLib.Quark
+function referenceTimestampMetaApiGetType(): GObject.Type
+function referenceTimestampMetaGetInfo(): MetaInfo
+function resourceErrorQuark(): GLib.Quark
+function segtrapIsEnabled(): boolean
+function segtrapSetEnabled(enabled: boolean): void
+function stateChangeGetName(transition: StateChange): string
+function staticCapsGetType(): GObject.Type
+function staticPadTemplateGetType(): GObject.Type
+function streamErrorQuark(): GLib.Quark
+function streamTypeGetName(stype: StreamType): string
+function structureTake(oldstrPtr?: Structure | null, newstr?: Structure | null): { returnType: boolean, oldstrPtr: Structure | null }
+function tagExists(tag: string): boolean
+function tagGetDescription(tag: string): string | null
+function tagGetFlag(tag: string): TagFlag
+function tagGetNick(tag: string): string | null
+function tagGetType(tag: string): GObject.Type
+function tagIsFixed(tag: string): boolean
+function tagListCopyValue(list: TagList, tag: string): { returnType: boolean, dest: any }
+function tagListReplace(oldTaglist?: TagList | null, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList | null }
+function tagListTake(oldTaglist: TagList, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList }
+function tagMergeStringsWithComma(src: any): { dest: any }
+function tagMergeUseFirst(src: any): { dest: any }
+function tocEntryTypeGetNick(type: TocEntryType): string
+function tracingGetActiveTracers(): Tracer[]
+function tracingRegisterHook(tracer: Tracer, detail: string, func: GObject.Callback): void
+function typeFindGetType(): GObject.Type
+function typeFindRegister(plugin: Plugin | null, name: string, rank: number, func: TypeFindFunction, extensions: string | null, possibleCaps: Caps | null): boolean
+function typeIsPluginApi(type: GObject.Type): { returnType: boolean, flags: PluginAPIFlags | null }
+function typeMarkAsPluginApi(type: GObject.Type, flags: PluginAPIFlags): void
+function updateRegistry(): boolean
+function uriConstruct(protocol: string, location: string): string
+function uriErrorQuark(): GLib.Quark
+function uriFromString(uri: string): Uri | null
+function uriFromStringEscaped(uri: string): Uri | null
+function uriGetLocation(uri: string): string | null
+function uriGetProtocol(uri: string): string | null
+function uriHasProtocol(uri: string, protocol: string): boolean
+function uriIsValid(uri: string): boolean
+function uriJoinStrings(baseUri: string, refUri: string): string
+function uriProtocolIsSupported(type: URIType, protocol: string): boolean
+function uriProtocolIsValid(protocol: string): boolean
+function utilArrayBinarySearch(array: object | null, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData?: object | null): object | null
+function utilDoubleToFraction(src: number): { destN: number, destD: number }
+function utilDumpBuffer(buf: Buffer): void
+function utilDumpMem(mem: any[]): void
+function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
+function utilFractionCompare(aN: number, aD: number, bN: number, bD: number): number
+function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: number, resD: number }
+function utilFractionToDouble(srcN: number, srcD: number): { dest: number }
+function utilGdoubleToGuint64(value: number): number
+function utilGetObjectArray(object: GObject.Object, name: string): { returnType: boolean, array: GObject.ValueArray }
+function utilGetTimestamp(): ClockTime
+function utilGreatestCommonDivisor(a: number, b: number): number
+function utilGreatestCommonDivisorInt64(a: number, b: number): number
+function utilGroupIdNext(): number
+function utilGuint64ToGdouble(value: number): number
+function utilSeqnumCompare(s1: number, s2: number): number
+function utilSeqnumNext(): number
+function utilSetObjectArg(object: GObject.Object, name: string, value: string): void
+function utilSetObjectArray(object: GObject.Object, name: string, array: GObject.ValueArray): boolean
+function utilSetValueFromString(valueStr: string): { value: any }
+function utilUint64Scale(val: number, num: number, denom: number): number
+function utilUint64ScaleCeil(val: number, num: number, denom: number): number
+function utilUint64ScaleInt(val: number, num: number, denom: number): number
+function utilUint64ScaleIntCeil(val: number, num: number, denom: number): number
+function utilUint64ScaleIntRound(val: number, num: number, denom: number): number
+function utilUint64ScaleRound(val: number, num: number, denom: number): number
+function valueCanCompare(value1: any, value2: any): boolean
+function valueCanIntersect(value1: any, value2: any): boolean
+function valueCanSubtract(minuend: any, subtrahend: any): boolean
+function valueCanUnion(value1: any, value2: any): boolean
+function valueCompare(value1: any, value2: any): number
+function valueDeserialize(src: string): { returnType: boolean, dest: any }
+function valueDeserializeWithPspec(src: string, pspec?: GObject.ParamSpec | null): { returnType: boolean, dest: any }
+function valueFixate(dest: any, src: any): boolean
+function valueFractionMultiply(product: any, factor1: any, factor2: any): boolean
+function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): boolean
+function valueGetBitmask(value: any): number
+function valueGetCaps(value: any): Caps
+function valueGetCapsFeatures(value: any): CapsFeatures
+function valueGetDoubleRangeMax(value: any): number
+function valueGetDoubleRangeMin(value: any): number
+function valueGetFlagsetFlags(value: any): number
+function valueGetFlagsetMask(value: any): number
+function valueGetFractionDenominator(value: any): number
+function valueGetFractionNumerator(value: any): number
+function valueGetFractionRangeMax(value: any): any | null
+function valueGetFractionRangeMin(value: any): any | null
+function valueGetInt64RangeMax(value: any): number
+function valueGetInt64RangeMin(value: any): number
+function valueGetInt64RangeStep(value: any): number
+function valueGetIntRangeMax(value: any): number
+function valueGetIntRangeMin(value: any): number
+function valueGetIntRangeStep(value: any): number
+function valueGetStructure(value: any): Structure
+function valueInitAndCopy(src: any): { dest: any }
+function valueIntersect(value1: any, value2: any): { returnType: boolean, dest: any | null }
+function valueIsFixed(value: any): boolean
+function valueIsSubset(value1: any, value2: any): boolean
+function valueRegister(table: ValueTable): void
+function valueSerialize(value: any): string | null
+function valueSetBitmask(value: any, bitmask: number): void
+function valueSetCaps(value: any, caps: Caps): void
+function valueSetCapsFeatures(value: any, features: CapsFeatures): void
+function valueSetDoubleRange(value: any, start: number, end: number): void
+function valueSetFlagset(value: any, flags: number, mask: number): void
+function valueSetFraction(value: any, numerator: number, denominator: number): void
+function valueSetFractionRange(value: any, start: any, end: any): void
+function valueSetFractionRangeFull(value: any, numeratorStart: number, denominatorStart: number, numeratorEnd: number, denominatorEnd: number): void
+function valueSetInt64Range(value: any, start: number, end: number): void
+function valueSetInt64RangeStep(value: any, start: number, end: number, step: number): void
+function valueSetIntRange(value: any, start: number, end: number): void
+function valueSetIntRangeStep(value: any, start: number, end: number, step: number): void
+function valueSetStructure(value: any, structure: Structure): void
+function valueSubtract(minuend: any, subtrahend: any): { returnType: boolean, dest: any | null }
+function valueUnion(value1: any, value2: any): { returnType: boolean, dest: any }
+function version(): { major: number, minor: number, micro: number, nano: number }
+function versionString(): string
+interface BufferForeachMetaFunc {
     (buffer: Buffer): boolean
 }
-export interface BufferListFunc {
+interface BufferListFunc {
     (idx: number): boolean
 }
-export interface BusFunc {
+interface BusFunc {
     (bus: Bus, message: Message): boolean
 }
-export interface BusSyncHandler {
+interface BusSyncHandler {
     (bus: Bus, message: Message): BusSyncReply
 }
-export interface CapsFilterMapFunc {
+interface CapsFilterMapFunc {
     (features: CapsFeatures, structure: Structure): boolean
 }
-export interface CapsForeachFunc {
+interface CapsForeachFunc {
     (features: CapsFeatures, structure: Structure): boolean
 }
-export interface CapsMapFunc {
+interface CapsMapFunc {
     (features: CapsFeatures, structure: Structure): boolean
 }
-export interface ClockCallback {
+interface ClockCallback {
     (clock: Clock, time: ClockTime, id: ClockID): boolean
 }
-export interface ControlBindingConvert {
+interface ControlBindingConvert {
     (binding: ControlBinding, srcValue: number, destValue: any): void
 }
-export interface ControlSourceGetValue {
+interface ControlSourceGetValue {
     (self: ControlSource, timestamp: ClockTime, value: number): boolean
 }
-export interface ControlSourceGetValueArray {
+interface ControlSourceGetValueArray {
     (self: ControlSource, timestamp: ClockTime, interval: ClockTime, nValues: number, values: number): boolean
 }
-export interface CustomMetaTransformFunction {
+interface CustomMetaTransformFunction {
     (transbuf: Buffer, meta: CustomMeta, buffer: Buffer, type: GLib.Quark, data?: object | null): boolean
 }
-export interface DebugFuncPtr {
+interface DebugFuncPtr {
     (): void
 }
-export interface ElementCallAsyncFunc {
+interface ElementCallAsyncFunc {
     (element: Element): void
 }
-export interface ElementForeachPadFunc {
+interface ElementForeachPadFunc {
     (element: Element, pad: Pad): boolean
 }
-export interface IteratorCopyFunction {
+interface IteratorCopyFunction {
     (it: Iterator, copy: Iterator): void
 }
-export interface IteratorFoldFunction {
+interface IteratorFoldFunction {
     (item: any, ret: any): boolean
 }
-export interface IteratorForeachFunction {
+interface IteratorForeachFunction {
     (item: any): void
 }
-export interface IteratorFreeFunction {
+interface IteratorFreeFunction {
     (it: Iterator): void
 }
-export interface IteratorItemFunction {
+interface IteratorItemFunction {
     (it: Iterator, item: any): IteratorItem
 }
-export interface IteratorNextFunction {
+interface IteratorNextFunction {
     (it: Iterator, result: any): IteratorResult
 }
-export interface IteratorResyncFunction {
+interface IteratorResyncFunction {
     (it: Iterator): void
 }
-export interface LogFunction {
+interface LogFunction {
     (category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage): void
 }
-export interface MemoryCopyFunction {
+interface MemoryCopyFunction {
     (mem: Memory, offset: number, size: number): Memory
 }
-export interface MemoryIsSpanFunction {
+interface MemoryIsSpanFunction {
     (mem1: Memory, mem2: Memory, offset: number): boolean
 }
-export interface MemoryMapFullFunction {
+interface MemoryMapFullFunction {
     (mem: Memory, info: MapInfo, maxsize: number): object | null
 }
-export interface MemoryMapFunction {
+interface MemoryMapFunction {
     (mem: Memory, maxsize: number, flags: MapFlags): object | null
 }
-export interface MemoryShareFunction {
+interface MemoryShareFunction {
     (mem: Memory, offset: number, size: number): Memory
 }
-export interface MemoryUnmapFullFunction {
+interface MemoryUnmapFullFunction {
     (mem: Memory, info: MapInfo): void
 }
-export interface MemoryUnmapFunction {
+interface MemoryUnmapFunction {
     (mem: Memory): void
 }
-export interface MetaFreeFunction {
+interface MetaFreeFunction {
     (meta: Meta, buffer: Buffer): void
 }
-export interface MetaInitFunction {
+interface MetaInitFunction {
     (meta: Meta, params: object | null, buffer: Buffer): boolean
 }
-export interface MetaTransformFunction {
+interface MetaTransformFunction {
     (transbuf: Buffer, meta: Meta, buffer: Buffer, type: GLib.Quark, data?: object | null): boolean
 }
-export interface MiniObjectCopyFunction {
+interface MiniObjectCopyFunction {
     (obj: MiniObject): MiniObject
 }
-export interface MiniObjectDisposeFunction {
+interface MiniObjectDisposeFunction {
     (obj: MiniObject): boolean
 }
-export interface MiniObjectFreeFunction {
+interface MiniObjectFreeFunction {
     (obj: MiniObject): void
 }
-export interface MiniObjectNotify {
+interface MiniObjectNotify {
     (obj: MiniObject): void
 }
-export interface PadActivateFunction {
+interface PadActivateFunction {
     (pad: Pad, parent: Object): boolean
 }
-export interface PadActivateModeFunction {
+interface PadActivateModeFunction {
     (pad: Pad, parent: Object, mode: PadMode, active: boolean): boolean
 }
-export interface PadChainFunction {
+interface PadChainFunction {
     (pad: Pad, parent: Object | null, buffer: Buffer): FlowReturn
 }
-export interface PadChainListFunction {
+interface PadChainListFunction {
     (pad: Pad, parent: Object | null, list: BufferList): FlowReturn
 }
-export interface PadEventFullFunction {
+interface PadEventFullFunction {
     (pad: Pad, parent: Object | null, event: Event): FlowReturn
 }
-export interface PadEventFunction {
+interface PadEventFunction {
     (pad: Pad, parent: Object | null, event: Event): boolean
 }
-export interface PadForwardFunction {
+interface PadForwardFunction {
     (pad: Pad): boolean
 }
-export interface PadGetRangeFunction {
+interface PadGetRangeFunction {
     (pad: Pad, parent: Object | null, offset: number, length: number, buffer: Buffer): FlowReturn
 }
-export interface PadIterIntLinkFunction {
+interface PadIterIntLinkFunction {
     (pad: Pad, parent?: Object | null): Iterator
 }
-export interface PadLinkFunction {
+interface PadLinkFunction {
     (pad: Pad, parent: Object | null, peer: Pad): PadLinkReturn
 }
-export interface PadProbeCallback {
+interface PadProbeCallback {
     (pad: Pad, info: PadProbeInfo): PadProbeReturn
 }
-export interface PadQueryFunction {
+interface PadQueryFunction {
     (pad: Pad, parent: Object | null, query: Query): boolean
 }
-export interface PadStickyEventsForeachFunction {
+interface PadStickyEventsForeachFunction {
     (pad: Pad, event?: Event | null): boolean
 }
-export interface PadUnlinkFunction {
+interface PadUnlinkFunction {
     (pad: Pad, parent?: Object | null): void
 }
-export interface PluginFeatureFilter {
+interface PluginFeatureFilter {
     (feature: PluginFeature): boolean
 }
-export interface PluginFilter {
+interface PluginFilter {
     (plugin: Plugin): boolean
 }
-export interface PluginInitFullFunc {
+interface PluginInitFullFunc {
     (plugin: Plugin): boolean
 }
-export interface PluginInitFunc {
+interface PluginInitFunc {
     (plugin: Plugin): boolean
 }
-export interface PromiseChangeFunc {
+interface PromiseChangeFunc {
     (promise: Promise): void
 }
-export interface StructureFilterMapFunc {
+interface StructureFilterMapFunc {
     (fieldId: GLib.Quark, value: any): boolean
 }
-export interface StructureForeachFunc {
+interface StructureForeachFunc {
     (fieldId: GLib.Quark, value: any): boolean
 }
-export interface StructureMapFunc {
+interface StructureMapFunc {
     (fieldId: GLib.Quark, value: any): boolean
 }
-export interface TagForeachFunc {
+interface TagForeachFunc {
     (list: TagList, tag: string): void
 }
-export interface TagMergeFunc {
+interface TagMergeFunc {
     (dest: any, src: any): void
 }
-export interface TaskFunction {
+interface TaskFunction {
     (): void
 }
-export interface TaskPoolFunction {
+interface TaskPoolFunction {
     (): void
 }
-export interface TaskThreadFunc {
+interface TaskThreadFunc {
     (task: Task, thread: GLib.Thread): void
 }
-export interface TypeFindFunction {
+interface TypeFindFunction {
     (find: TypeFind): void
 }
-export interface ValueCompareFunc {
+interface ValueCompareFunc {
     (value1: any, value2: any): number
 }
-export interface ValueDeserializeFunc {
+interface ValueDeserializeFunc {
     (dest: any, s: string): boolean
 }
-export interface ValueDeserializeWithPSpecFunc {
+interface ValueDeserializeWithPSpecFunc {
     (dest: any, s: string, pspec: GObject.ParamSpec): boolean
 }
-export interface ValueSerializeFunc {
+interface ValueSerializeFunc {
     (value1: any): string
 }
-export class ChildProxy {
+class ChildProxy {
     /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
@@ -1346,7 +1346,7 @@ export class ChildProxy {
     emit(sigName: "child-removed", object: GObject.Object, name: string): void
     static name: string
 }
-export class Preset {
+class Preset {
     /* Methods of Gst-1.0.Gst.Preset */
     deletePreset(name: string): boolean
     getMeta(name: string, tag: string): { returnType: boolean, value: string }
@@ -1364,7 +1364,7 @@ export class Preset {
 }
 export interface TagSetter_ConstructProps extends Element_ConstructProps {
 }
-export class TagSetter {
+class TagSetter {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -1567,7 +1567,7 @@ export class TagSetter {
 }
 export interface TocSetter_ConstructProps extends Element_ConstructProps {
 }
-export class TocSetter {
+class TocSetter {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -1765,7 +1765,7 @@ export class TocSetter {
     _init (config?: TocSetter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class URIHandler {
+class URIHandler {
     /* Methods of Gst-1.0.Gst.URIHandler */
     getProtocols(): string[] | null
     getUri(): string | null
@@ -1775,7 +1775,7 @@ export class URIHandler {
 }
 export interface Allocator_ConstructProps extends Object_ConstructProps {
 }
-export class Allocator {
+class Allocator {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -1885,7 +1885,7 @@ export interface Bin_ConstructProps extends Element_ConstructProps {
     asyncHandling?: boolean
     messageForward?: boolean
 }
-export class Bin {
+class Bin {
     /* Properties of Gst-1.0.Gst.Bin */
     asyncHandling: boolean
     messageForward: boolean
@@ -2170,12 +2170,12 @@ export class Bin {
     static new(name?: string | null): Bin
     static $gtype: GObject.Type
 }
-export class Bitmask {
+class Bitmask {
     static name: string
 }
 export interface BufferPool_ConstructProps extends Object_ConstructProps {
 }
-export class BufferPool {
+class BufferPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -2291,7 +2291,7 @@ export class BufferPool {
 export interface Bus_ConstructProps extends Object_ConstructProps {
     enableAsync?: boolean
 }
-export class Bus {
+class Bus {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -2422,7 +2422,7 @@ export interface Clock_ConstructProps extends Object_ConstructProps {
     windowSize?: number
     windowThreshold?: number
 }
-export class Clock {
+class Clock {
     /* Properties of Gst-1.0.Gst.Clock */
     timeout: number
     windowSize: number
@@ -2576,7 +2576,7 @@ export interface ControlBinding_ConstructProps extends Object_ConstructProps {
     name?: string
     object?: Object
 }
-export class ControlBinding {
+class ControlBinding {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -2676,7 +2676,7 @@ export class ControlBinding {
 }
 export interface ControlSource_ConstructProps extends Object_ConstructProps {
 }
-export class ControlSource {
+class ControlSource {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -2777,7 +2777,7 @@ export interface Device_ConstructProps extends Object_ConstructProps {
     displayName?: string
     properties?: Structure
 }
-export class Device {
+class Device {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -2885,7 +2885,7 @@ export class Device {
 export interface DeviceMonitor_ConstructProps extends Object_ConstructProps {
     showAll?: boolean
 }
-export class DeviceMonitor {
+class DeviceMonitor {
     /* Properties of Gst-1.0.Gst.DeviceMonitor */
     showAll: boolean
     /* Properties of Gst-1.0.Gst.Object */
@@ -2996,7 +2996,7 @@ export class DeviceMonitor {
 }
 export interface DeviceProvider_ConstructProps extends Object_ConstructProps {
 }
-export class DeviceProvider {
+class DeviceProvider {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -3123,7 +3123,7 @@ export class DeviceProvider {
 }
 export interface DeviceProviderFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class DeviceProviderFactory {
+class DeviceProviderFactory {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -3231,12 +3231,12 @@ export class DeviceProviderFactory {
     static listGetDeviceProviders(minrank: Rank): DeviceProviderFactory[]
     static $gtype: GObject.Type
 }
-export class DoubleRange {
+class DoubleRange {
     static name: string
 }
 export interface DynamicTypeFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class DynamicTypeFactory {
+class DynamicTypeFactory {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -3337,7 +3337,7 @@ export class DynamicTypeFactory {
 }
 export interface Element_ConstructProps extends Object_ConstructProps {
 }
-export class Element {
+class Element {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -3549,7 +3549,7 @@ export class Element {
 }
 export interface ElementFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class ElementFactory {
+class ElementFactory {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -3669,20 +3669,20 @@ export class ElementFactory {
     static makeWithProperties(factoryname: string, names?: string[] | null, values?: any[] | null): Element | null
     static $gtype: GObject.Type
 }
-export class FlagSet {
+class FlagSet {
     static name: string
     /* Static methods and pseudo-constructors */
     static register(flagsType: GObject.Type): GObject.Type
 }
-export class Fraction {
+class Fraction {
     static name: string
 }
-export class FractionRange {
+class FractionRange {
     static name: string
 }
 export interface GhostPad_ConstructProps extends ProxyPad_ConstructProps {
 }
-export class GhostPad {
+class GhostPad {
     /* Properties of Gst-1.0.Gst.Pad */
     readonly caps: Caps
     offset: number
@@ -3904,17 +3904,17 @@ export class GhostPad {
     static internalActivateModeDefault(pad: Pad, parent: Object | null, mode: PadMode, active: boolean): boolean
     static $gtype: GObject.Type
 }
-export class Int64Range {
+class Int64Range {
     static name: string
 }
-export class IntRange {
+class IntRange {
     static name: string
 }
 export interface Object_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     name?: string
     parent?: Object
 }
-export class Object {
+class Object {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -4013,7 +4013,7 @@ export interface Pad_ConstructProps extends Object_ConstructProps {
     offset?: number
     template?: PadTemplate
 }
-export class Pad {
+class Pad {
     /* Properties of Gst-1.0.Gst.Pad */
     readonly caps: Caps
     offset: number
@@ -4230,7 +4230,7 @@ export interface PadTemplate_ConstructProps extends Object_ConstructProps {
     nameTemplate?: string
     presence?: PadPresence
 }
-export class PadTemplate {
+class PadTemplate {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -4340,7 +4340,7 @@ export class PadTemplate {
     static newWithGtype(nameTemplate: string, direction: PadDirection, presence: PadPresence, caps: Caps, padType: GObject.Type): PadTemplate
     static $gtype: GObject.Type
 }
-export class ParamArray {
+class ParamArray {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -4360,7 +4360,7 @@ export class ParamArray {
     stealQdata(quark: GLib.Quark): object | null
     static name: string
 }
-export class ParamFraction {
+class ParamFraction {
     /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
@@ -4385,7 +4385,7 @@ export interface Pipeline_ConstructProps extends Bin_ConstructProps {
     delay?: number
     latency?: number
 }
-export class Pipeline {
+class Pipeline {
     /* Properties of Gst-1.0.Gst.Pipeline */
     autoFlushBus: boolean
     delay: number
@@ -4706,7 +4706,7 @@ export class Pipeline {
 }
 export interface Plugin_ConstructProps extends Object_ConstructProps {
 }
-export class Plugin {
+class Plugin {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -4820,7 +4820,7 @@ export class Plugin {
 }
 export interface PluginFeature_ConstructProps extends Object_ConstructProps {
 }
-export class PluginFeature {
+class PluginFeature {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -4924,7 +4924,7 @@ export class PluginFeature {
 }
 export interface ProxyPad_ConstructProps extends Pad_ConstructProps {
 }
-export class ProxyPad {
+class ProxyPad {
     /* Properties of Gst-1.0.Gst.Pad */
     readonly caps: Caps
     offset: number
@@ -5140,7 +5140,7 @@ export class ProxyPad {
 }
 export interface Registry_ConstructProps extends Object_ConstructProps {
 }
-export class Registry {
+class Registry {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -5265,7 +5265,7 @@ export class Registry {
 }
 export interface SharedTaskPool_ConstructProps extends TaskPool_ConstructProps {
 }
-export class SharedTaskPool {
+class SharedTaskPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -5374,7 +5374,7 @@ export interface Stream_ConstructProps extends Object_ConstructProps {
     streamType?: StreamType
     tags?: TagList
 }
-export class Stream {
+class Stream {
     /* Properties of Gst-1.0.Gst.Stream */
     caps: Caps
     streamFlags: StreamFlags
@@ -5506,7 +5506,7 @@ export class Stream {
 export interface StreamCollection_ConstructProps extends Object_ConstructProps {
     upstreamId?: string
 }
-export class StreamCollection {
+class StreamCollection {
     /* Properties of Gst-1.0.Gst.StreamCollection */
     upstreamId: string
     /* Properties of Gst-1.0.Gst.Object */
@@ -5619,7 +5619,7 @@ export class StreamCollection {
 export interface SystemClock_ConstructProps extends Clock_ConstructProps {
     clockType?: ClockType
 }
-export class SystemClock {
+class SystemClock {
     /* Properties of Gst-1.0.Gst.SystemClock */
     clockType: ClockType
     /* Properties of Gst-1.0.Gst.Clock */
@@ -5773,7 +5773,7 @@ export class SystemClock {
 }
 export interface Task_ConstructProps extends Object_ConstructProps {
 }
-export class Task {
+class Task {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -5887,7 +5887,7 @@ export class Task {
 }
 export interface TaskPool_ConstructProps extends Object_ConstructProps {
 }
-export class TaskPool {
+class TaskPool {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -5989,7 +5989,7 @@ export class TaskPool {
 export interface Tracer_ConstructProps extends Object_ConstructProps {
     params?: string
 }
-export class Tracer {
+class Tracer {
     /* Properties of Gst-1.0.Gst.Tracer */
     params: string
     /* Properties of Gst-1.0.Gst.Object */
@@ -6090,7 +6090,7 @@ export class Tracer {
 }
 export interface TracerFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class TracerFactory {
+class TracerFactory {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -6193,7 +6193,7 @@ export class TracerFactory {
 }
 export interface TracerRecord_ConstructProps extends Object_ConstructProps {
 }
-export class TracerRecord {
+class TracerRecord {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -6285,7 +6285,7 @@ export class TracerRecord {
 }
 export interface TypeFindFactory_ConstructProps extends PluginFeature_ConstructProps {
 }
-export class TypeFindFactory {
+class TypeFindFactory {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Object
@@ -6389,7 +6389,7 @@ export class TypeFindFactory {
     static getList(): TypeFindFactory[]
     static $gtype: GObject.Type
 }
-export class ValueArray {
+class ValueArray {
     static name: string
     /* Static methods and pseudo-constructors */
     static appendAndTakeValue(value: any, appendValue: any): void
@@ -6399,7 +6399,7 @@ export class ValueArray {
     static init(value: any, prealloc: number): any
     static prependValue(value: any, prependValue: any): void
 }
-export class ValueList {
+class ValueList {
     static name: string
     /* Static methods and pseudo-constructors */
     static appendAndTakeValue(value: any, appendValue: any): void
@@ -6411,7 +6411,7 @@ export class ValueList {
     static merge(value1: any, value2: any): { dest: any }
     static prependValue(value: any, prependValue: any): void
 }
-export class AllocationParams {
+class AllocationParams {
     /* Fields of Gst-1.0.Gst.AllocationParams */
     flags: MemoryFlags
     align: number
@@ -6427,17 +6427,17 @@ export class AllocationParams {
     /* Static methods and pseudo-constructors */
     static new(): AllocationParams
 }
-export abstract class AllocatorClass {
+abstract class AllocatorClass {
     /* Fields of Gst-1.0.Gst.AllocatorClass */
     objectClass: ObjectClass
     alloc: (allocator: Allocator | null, size: number, params?: AllocationParams | null) => Memory | null
     free: (allocator: Allocator, memory: Memory) => void
     static name: string
 }
-export class AllocatorPrivate {
+class AllocatorPrivate {
     static name: string
 }
-export class AtomicQueue {
+class AtomicQueue {
     /* Methods of Gst-1.0.Gst.AtomicQueue */
     length(): number
     peek(): object | null
@@ -6451,7 +6451,7 @@ export class AtomicQueue {
     /* Static methods and pseudo-constructors */
     static new(initialSize: number): AtomicQueue
 }
-export abstract class BinClass {
+abstract class BinClass {
     /* Fields of Gst-1.0.Gst.BinClass */
     parentClass: ElementClass
     elementAdded: (bin: Bin, child: Element) => void
@@ -6464,10 +6464,10 @@ export abstract class BinClass {
     deepElementRemoved: (bin: Bin, subBin: Bin, child: Element) => void
     static name: string
 }
-export class BinPrivate {
+class BinPrivate {
     static name: string
 }
-export class Buffer {
+class Buffer {
     /* Fields of Gst-1.0.Gst.Buffer */
     miniObject: MiniObject
     pool: BufferPool
@@ -6540,7 +6540,7 @@ export class Buffer {
     static newWrappedFull(flags: MemoryFlags, data: any[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
     static getMaxMemory(): number
 }
-export class BufferList {
+class BufferList {
     /* Methods of Gst-1.0.Gst.BufferList */
     calculateSize(): number
     copyDeep(): BufferList
@@ -6559,7 +6559,7 @@ export class BufferList {
     static replace(oldList?: BufferList | null, newList?: BufferList | null): { returnType: boolean, oldList: BufferList | null }
     static take(oldList: BufferList, newList?: BufferList | null): { returnType: boolean, oldList: BufferList }
 }
-export class BufferPoolAcquireParams {
+class BufferPoolAcquireParams {
     /* Fields of Gst-1.0.Gst.BufferPoolAcquireParams */
     format: Format
     start: number
@@ -6567,7 +6567,7 @@ export class BufferPoolAcquireParams {
     flags: BufferPoolAcquireFlags
     static name: string
 }
-export abstract class BufferPoolClass {
+abstract class BufferPoolClass {
     /* Fields of Gst-1.0.Gst.BufferPoolClass */
     objectClass: ObjectClass
     getOptions: (pool: BufferPool) => string[]
@@ -6583,20 +6583,20 @@ export abstract class BufferPoolClass {
     flushStop: (pool: BufferPool) => void
     static name: string
 }
-export class BufferPoolPrivate {
+class BufferPoolPrivate {
     static name: string
 }
-export abstract class BusClass {
+abstract class BusClass {
     /* Fields of Gst-1.0.Gst.BusClass */
     parentClass: ObjectClass
     message: (bus: Bus, message: Message) => void
     syncMessage: (bus: Bus, message: Message) => void
     static name: string
 }
-export class BusPrivate {
+class BusPrivate {
     static name: string
 }
-export class Caps {
+class Caps {
     /* Fields of Gst-1.0.Gst.Caps */
     miniObject: MiniObject
     /* Methods of Gst-1.0.Gst.Caps */
@@ -6646,7 +6646,7 @@ export class Caps {
     static newEmptySimple(mediaType: string): Caps
     static fromString(string: string): Caps | null
 }
-export class CapsFeatures {
+class CapsFeatures {
     /* Methods of Gst-1.0.Gst.CapsFeatures */
     add(feature: string): void
     addId(feature: GLib.Quark): void
@@ -6670,7 +6670,7 @@ export class CapsFeatures {
     static newSingle(feature: string): CapsFeatures
     static fromString(features: string): CapsFeatures | null
 }
-export abstract class ChildProxyInterface {
+abstract class ChildProxyInterface {
     /* Fields of Gst-1.0.Gst.ChildProxyInterface */
     parent: GObject.TypeInterface
     getChildByName: (parent: ChildProxy, name: string) => GObject.Object | null
@@ -6680,7 +6680,7 @@ export abstract class ChildProxyInterface {
     childRemoved: (parent: ChildProxy, child: GObject.Object, name: string) => void
     static name: string
 }
-export abstract class ClockClass {
+abstract class ClockClass {
     /* Fields of Gst-1.0.Gst.ClockClass */
     parentClass: ObjectClass
     changeResolution: (clock: Clock, oldResolution: ClockTime, newResolution: ClockTime) => ClockTime
@@ -6691,15 +6691,15 @@ export abstract class ClockClass {
     unschedule: (clock: Clock, entry: ClockEntry) => void
     static name: string
 }
-export class ClockEntry {
+class ClockEntry {
     /* Fields of Gst-1.0.Gst.ClockEntry */
     refcount: number
     static name: string
 }
-export class ClockPrivate {
+class ClockPrivate {
     static name: string
 }
-export class Context {
+class Context {
     /* Methods of Gst-1.0.Gst.Context */
     copy(): Context
     getContextType(): string
@@ -6716,7 +6716,7 @@ export class Context {
     static new(contextType: string, persistent: boolean): Context
     static replace(oldContext: Context, newContext?: Context | null): { returnType: boolean, oldContext: Context }
 }
-export abstract class ControlBindingClass {
+abstract class ControlBindingClass {
     /* Fields of Gst-1.0.Gst.ControlBindingClass */
     parentClass: ObjectClass
     syncValues: (binding: ControlBinding, object: Object, timestamp: ClockTime, lastSync: ClockTime) => boolean
@@ -6724,15 +6724,15 @@ export abstract class ControlBindingClass {
     getGValueArray: (binding: ControlBinding, timestamp: ClockTime, interval: ClockTime, values: any[]) => boolean
     static name: string
 }
-export class ControlBindingPrivate {
+class ControlBindingPrivate {
     static name: string
 }
-export abstract class ControlSourceClass {
+abstract class ControlSourceClass {
     /* Fields of Gst-1.0.Gst.ControlSourceClass */
     parentClass: ObjectClass
     static name: string
 }
-export class CustomMeta {
+class CustomMeta {
     /* Fields of Gst-1.0.Gst.CustomMeta */
     meta: Meta
     /* Methods of Gst-1.0.Gst.CustomMeta */
@@ -6740,7 +6740,7 @@ export class CustomMeta {
     hasName(name: string): boolean
     static name: string
 }
-export class DateTime {
+class DateTime {
     /* Methods of Gst-1.0.Gst.DateTime */
     getDay(): number
     getHour(): number
@@ -6777,7 +6777,7 @@ export class DateTime {
     static newYm(year: number, month: number): DateTime
     static newYmd(year: number, month: number, day: number): DateTime
 }
-export class DebugCategory {
+class DebugCategory {
     /* Methods of Gst-1.0.Gst.DebugCategory */
     free(): void
     getColor(): number
@@ -6788,30 +6788,30 @@ export class DebugCategory {
     setThreshold(level: DebugLevel): void
     static name: string
 }
-export class DebugMessage {
+class DebugMessage {
     /* Methods of Gst-1.0.Gst.DebugMessage */
     get(): string | null
     static name: string
 }
-export abstract class DeviceClass {
+abstract class DeviceClass {
     /* Fields of Gst-1.0.Gst.DeviceClass */
     parentClass: ObjectClass
     createElement: (device: Device, name?: string | null) => Element | null
     reconfigureElement: (device: Device, element: Element) => boolean
     static name: string
 }
-export abstract class DeviceMonitorClass {
+abstract class DeviceMonitorClass {
     /* Fields of Gst-1.0.Gst.DeviceMonitorClass */
     parentClass: ObjectClass
     static name: string
 }
-export class DeviceMonitorPrivate {
+class DeviceMonitorPrivate {
     static name: string
 }
-export class DevicePrivate {
+class DevicePrivate {
     static name: string
 }
-export abstract class DeviceProviderClass {
+abstract class DeviceProviderClass {
     /* Fields of Gst-1.0.Gst.DeviceProviderClass */
     parentClass: ObjectClass
     factory: DeviceProviderFactory
@@ -6825,16 +6825,16 @@ export abstract class DeviceProviderClass {
     setStaticMetadata(klass: DeviceProvider | Function | GObject.Type, longname: string, classification: string, description: string, author: string): void
     static name: string
 }
-export abstract class DeviceProviderFactoryClass {
+abstract class DeviceProviderFactoryClass {
     static name: string
 }
-export class DeviceProviderPrivate {
+class DeviceProviderPrivate {
     static name: string
 }
-export abstract class DynamicTypeFactoryClass {
+abstract class DynamicTypeFactoryClass {
     static name: string
 }
-export abstract class ElementClass {
+abstract class ElementClass {
     /* Fields of Gst-1.0.Gst.ElementClass */
     parentClass: ObjectClass
     metadata: object
@@ -6871,10 +6871,10 @@ export abstract class ElementClass {
     setStaticMetadata(klass: Element | Function | GObject.Type, longname: string, classification: string, description: string, author: string): void
     static name: string
 }
-export abstract class ElementFactoryClass {
+abstract class ElementFactoryClass {
     static name: string
 }
-export class Event {
+class Event {
     /* Fields of Gst-1.0.Gst.Event */
     miniObject: MiniObject
     type: EventType
@@ -6950,7 +6950,7 @@ export class Event {
     static newToc(toc: Toc, updated: boolean): Event
     static newTocSelect(uid: string): Event
 }
-export class FormatDefinition {
+class FormatDefinition {
     /* Fields of Gst-1.0.Gst.FormatDefinition */
     value: Format
     nick: string
@@ -6958,15 +6958,15 @@ export class FormatDefinition {
     quark: GLib.Quark
     static name: string
 }
-export abstract class GhostPadClass {
+abstract class GhostPadClass {
     /* Fields of Gst-1.0.Gst.GhostPadClass */
     parentClass: ProxyPadClass
     static name: string
 }
-export class GhostPadPrivate {
+class GhostPadPrivate {
     static name: string
 }
-export class Iterator {
+class Iterator {
     /* Fields of Gst-1.0.Gst.Iterator */
     copy: IteratorCopyFunction
     next: IteratorNextFunction
@@ -6989,7 +6989,7 @@ export class Iterator {
     /* Static methods and pseudo-constructors */
     static newSingle(type: GObject.Type, object: any): Iterator
 }
-export class MapInfo {
+class MapInfo {
     /* Fields of Gst-1.0.Gst.MapInfo */
     memory: Memory
     flags: MapFlags
@@ -6999,7 +6999,7 @@ export class MapInfo {
     userData: object[]
     static name: string
 }
-export class Memory {
+class Memory {
     /* Fields of Gst-1.0.Gst.Memory */
     miniObject: MiniObject
     allocator: Allocator
@@ -7022,7 +7022,7 @@ export class Memory {
     /* Static methods and pseudo-constructors */
     static newWrapped(flags: MemoryFlags, data: any[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Memory
 }
-export class Message {
+class Message {
     /* Fields of Gst-1.0.Gst.Message */
     miniObject: MiniObject
     type: MessageType
@@ -7131,7 +7131,7 @@ export class Message {
     static newWarningWithDetails(src: Object | null, error: GLib.Error, debug: string, details?: Structure | null): Message
     static take(oldMessage: Message, newMessage?: Message | null): { returnType: boolean, oldMessage: Message }
 }
-export class Meta {
+class Meta {
     /* Fields of Gst-1.0.Gst.Meta */
     flags: MetaFlags
     info: MetaInfo
@@ -7147,7 +7147,7 @@ export class Meta {
     static register(api: GObject.Type, impl: string, size: number, initFunc: MetaInitFunction, freeFunc: MetaFreeFunction, transformFunc: MetaTransformFunction): MetaInfo
     static registerCustom(name: string, tags: string[], transformFunc: CustomMetaTransformFunction | null): MetaInfo
 }
-export class MetaInfo {
+class MetaInfo {
     /* Fields of Gst-1.0.Gst.MetaInfo */
     api: GObject.Type
     type: GObject.Type
@@ -7159,14 +7159,14 @@ export class MetaInfo {
     isCustom(): boolean
     static name: string
 }
-export class MetaTransformCopy {
+class MetaTransformCopy {
     /* Fields of Gst-1.0.Gst.MetaTransformCopy */
     region: boolean
     offset: number
     size: number
     static name: string
 }
-export class MiniObject {
+class MiniObject {
     /* Fields of Gst-1.0.Gst.MiniObject */
     type: GObject.Type
     refcount: number
@@ -7189,24 +7189,24 @@ export class MiniObject {
     static replace(olddata?: MiniObject | null, newdata?: MiniObject | null): { returnType: boolean, olddata: MiniObject | null }
     static take(olddata: MiniObject, newdata: MiniObject): { returnType: boolean, olddata: MiniObject }
 }
-export abstract class ObjectClass {
+abstract class ObjectClass {
     /* Fields of Gst-1.0.Gst.ObjectClass */
     parentClass: GObject.InitiallyUnownedClass
     pathStringSeparator: string
     deepNotify: (object: Object, orig: Object, pspec: GObject.ParamSpec) => void
     static name: string
 }
-export abstract class PadClass {
+abstract class PadClass {
     /* Fields of Gst-1.0.Gst.PadClass */
     parentClass: ObjectClass
     linked: (pad: Pad, peer: Pad) => void
     unlinked: (pad: Pad, peer: Pad) => void
     static name: string
 }
-export class PadPrivate {
+class PadPrivate {
     static name: string
 }
-export class PadProbeInfo {
+class PadProbeInfo {
     /* Fields of Gst-1.0.Gst.PadProbeInfo */
     type: PadProbeType
     id: number
@@ -7220,19 +7220,19 @@ export class PadProbeInfo {
     getQuery(): Query | null
     static name: string
 }
-export abstract class PadTemplateClass {
+abstract class PadTemplateClass {
     /* Fields of Gst-1.0.Gst.PadTemplateClass */
     parentClass: ObjectClass
     padCreated: (templ: PadTemplate, pad: Pad) => void
     static name: string
 }
-export class ParamSpecArray {
+class ParamSpecArray {
     /* Fields of Gst-1.0.Gst.ParamSpecArray */
     parentInstance: GObject.ParamSpec
     elementSpec: GObject.ParamSpec
     static name: string
 }
-export class ParamSpecFraction {
+class ParamSpecFraction {
     /* Fields of Gst-1.0.Gst.ParamSpecFraction */
     parentInstance: GObject.ParamSpec
     minNum: number
@@ -7243,7 +7243,7 @@ export class ParamSpecFraction {
     defDen: number
     static name: string
 }
-export class ParentBufferMeta {
+class ParentBufferMeta {
     /* Fields of Gst-1.0.Gst.ParentBufferMeta */
     parent: Meta
     buffer: Buffer
@@ -7251,7 +7251,7 @@ export class ParentBufferMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): MetaInfo
 }
-export class ParseContext {
+class ParseContext {
     /* Methods of Gst-1.0.Gst.ParseContext */
     copy(): ParseContext | null
     free(): void
@@ -7262,18 +7262,18 @@ export class ParseContext {
     /* Static methods and pseudo-constructors */
     static new(): ParseContext
 }
-export abstract class PipelineClass {
+abstract class PipelineClass {
     /* Fields of Gst-1.0.Gst.PipelineClass */
     parentClass: BinClass
     static name: string
 }
-export class PipelinePrivate {
+class PipelinePrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     static name: string
 }
-export class PluginDesc {
+class PluginDesc {
     /* Fields of Gst-1.0.Gst.PluginDesc */
     majorVersion: number
     minorVersion: number
@@ -7288,10 +7288,10 @@ export class PluginDesc {
     releaseDatetime: string
     static name: string
 }
-export abstract class PluginFeatureClass {
+abstract class PluginFeatureClass {
     static name: string
 }
-export class Poll {
+class Poll {
     /* Methods of Gst-1.0.Gst.Poll */
     addFd(fd: PollFD): boolean
     fdCanRead(fd: PollFD): boolean
@@ -7314,14 +7314,14 @@ export class Poll {
     writeControl(): boolean
     static name: string
 }
-export class PollFD {
+class PollFD {
     /* Fields of Gst-1.0.Gst.PollFD */
     fd: number
     /* Methods of Gst-1.0.Gst.PollFD */
     init(): void
     static name: string
 }
-export abstract class PresetInterface {
+abstract class PresetInterface {
     /* Fields of Gst-1.0.Gst.PresetInterface */
     parent: GObject.TypeInterface
     getPresetNames: (preset: Preset) => string[]
@@ -7334,7 +7334,7 @@ export abstract class PresetInterface {
     getMeta: (preset: Preset, name: string, tag: string) => { returnType: boolean, value: string }
     static name: string
 }
-export class Promise {
+class Promise {
     /* Fields of Gst-1.0.Gst.Promise */
     parent: MiniObject
     /* Methods of Gst-1.0.Gst.Promise */
@@ -7352,7 +7352,7 @@ export class Promise {
     static new(): Promise
     static newWithChangeFunc(func: PromiseChangeFunc): Promise
 }
-export class ProtectionMeta {
+class ProtectionMeta {
     /* Fields of Gst-1.0.Gst.ProtectionMeta */
     meta: Meta
     info: Structure
@@ -7360,15 +7360,15 @@ export class ProtectionMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): MetaInfo
 }
-export abstract class ProxyPadClass {
+abstract class ProxyPadClass {
     /* Fields of Gst-1.0.Gst.ProxyPadClass */
     parentClass: PadClass
     static name: string
 }
-export class ProxyPadPrivate {
+class ProxyPadPrivate {
     static name: string
 }
-export class Query {
+class Query {
     /* Fields of Gst-1.0.Gst.Query */
     miniObject: MiniObject
     type: QueryType
@@ -7461,7 +7461,7 @@ export class Query {
     static newUri(): Query
     static take(oldQuery?: Query | null, newQuery?: Query | null): { returnType: boolean, oldQuery: Query | null }
 }
-export class ReferenceTimestampMeta {
+class ReferenceTimestampMeta {
     /* Fields of Gst-1.0.Gst.ReferenceTimestampMeta */
     parent: Meta
     reference: Caps
@@ -7471,15 +7471,15 @@ export class ReferenceTimestampMeta {
     /* Static methods and pseudo-constructors */
     static getInfo(): MetaInfo
 }
-export abstract class RegistryClass {
+abstract class RegistryClass {
     /* Fields of Gst-1.0.Gst.RegistryClass */
     parentClass: ObjectClass
     static name: string
 }
-export class RegistryPrivate {
+class RegistryPrivate {
     static name: string
 }
-export class Sample {
+class Sample {
     /* Methods of Gst-1.0.Gst.Sample */
     getBuffer(): Buffer | null
     getBufferList(): BufferList | null
@@ -7497,7 +7497,7 @@ export class Sample {
     /* Static methods and pseudo-constructors */
     static new(buffer?: Buffer | null, caps?: Caps | null, segment?: Segment | null, info?: Structure | null): Sample
 }
-export class Segment {
+class Segment {
     /* Fields of Gst-1.0.Gst.Segment */
     flags: SegmentFlags
     rate: number
@@ -7535,15 +7535,15 @@ export class Segment {
     /* Static methods and pseudo-constructors */
     static new(): Segment
 }
-export abstract class SharedTaskPoolClass {
+abstract class SharedTaskPoolClass {
     /* Fields of Gst-1.0.Gst.SharedTaskPoolClass */
     parentClass: TaskPoolClass
     static name: string
 }
-export class SharedTaskPoolPrivate {
+class SharedTaskPoolPrivate {
     static name: string
 }
-export class StaticCaps {
+class StaticCaps {
     /* Fields of Gst-1.0.Gst.StaticCaps */
     caps: Caps
     string: string
@@ -7552,7 +7552,7 @@ export class StaticCaps {
     get(): Caps | null
     static name: string
 }
-export class StaticPadTemplate {
+class StaticPadTemplate {
     /* Fields of Gst-1.0.Gst.StaticPadTemplate */
     nameTemplate: string
     direction: PadDirection
@@ -7563,24 +7563,24 @@ export class StaticPadTemplate {
     getCaps(): Caps
     static name: string
 }
-export abstract class StreamClass {
+abstract class StreamClass {
     /* Fields of Gst-1.0.Gst.StreamClass */
     parentClass: ObjectClass
     static name: string
 }
-export abstract class StreamCollectionClass {
+abstract class StreamCollectionClass {
     /* Fields of Gst-1.0.Gst.StreamCollectionClass */
     parentClass: ObjectClass
     streamNotify: (collection: StreamCollection, stream: Stream, pspec: GObject.ParamSpec) => void
     static name: string
 }
-export class StreamCollectionPrivate {
+class StreamCollectionPrivate {
     static name: string
 }
-export class StreamPrivate {
+class StreamPrivate {
     static name: string
 }
-export class Structure {
+class Structure {
     /* Fields of Gst-1.0.Gst.Structure */
     type: GObject.Type
     /* Methods of Gst-1.0.Gst.Structure */
@@ -7647,15 +7647,15 @@ export class Structure {
     static newIdEmpty(quark: GLib.Quark): Structure
     static take(oldstrPtr?: Structure | null, newstr?: Structure | null): { returnType: boolean, oldstrPtr: Structure | null }
 }
-export abstract class SystemClockClass {
+abstract class SystemClockClass {
     /* Fields of Gst-1.0.Gst.SystemClockClass */
     parentClass: ClockClass
     static name: string
 }
-export class SystemClockPrivate {
+class SystemClockPrivate {
     static name: string
 }
-export class TagList {
+class TagList {
     /* Fields of Gst-1.0.Gst.TagList */
     miniObject: MiniObject
     /* Methods of Gst-1.0.Gst.TagList */
@@ -7707,17 +7707,17 @@ export class TagList {
     static replace(oldTaglist?: TagList | null, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList | null }
     static take(oldTaglist: TagList, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList }
 }
-export abstract class TagSetterInterface {
+abstract class TagSetterInterface {
     /* Fields of Gst-1.0.Gst.TagSetterInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class TaskClass {
+abstract class TaskClass {
     /* Fields of Gst-1.0.Gst.TaskClass */
     parentClass: ObjectClass
     static name: string
 }
-export abstract class TaskPoolClass {
+abstract class TaskPoolClass {
     /* Fields of Gst-1.0.Gst.TaskPoolClass */
     parentClass: ObjectClass
     prepare: (pool: TaskPool) => void
@@ -7727,16 +7727,16 @@ export abstract class TaskPoolClass {
     disposeHandle: (pool: TaskPool, id?: object | null) => void
     static name: string
 }
-export class TaskPrivate {
+class TaskPrivate {
     static name: string
 }
-export class TimedValue {
+class TimedValue {
     /* Fields of Gst-1.0.Gst.TimedValue */
     timestamp: ClockTime
     value: number
     static name: string
 }
-export class Toc {
+class Toc {
     /* Methods of Gst-1.0.Gst.Toc */
     appendEntry(entry: TocEntry): void
     dump(): void
@@ -7752,7 +7752,7 @@ export class Toc {
     /* Static methods and pseudo-constructors */
     static new(scope: TocScope): Toc
 }
-export class TocEntry {
+class TocEntry {
     /* Methods of Gst-1.0.Gst.TocEntry */
     appendSubEntry(subentry: TocEntry): void
     getEntryType(): TocEntryType
@@ -7775,26 +7775,26 @@ export class TocEntry {
     /* Static methods and pseudo-constructors */
     static new(type: TocEntryType, uid: string): TocEntry
 }
-export abstract class TocSetterInterface {
+abstract class TocSetterInterface {
     /* Fields of Gst-1.0.Gst.TocSetterInterface */
     gIface: GObject.TypeInterface
     static name: string
 }
-export abstract class TracerClass {
+abstract class TracerClass {
     /* Fields of Gst-1.0.Gst.TracerClass */
     parentClass: ObjectClass
     static name: string
 }
-export abstract class TracerFactoryClass {
+abstract class TracerFactoryClass {
     static name: string
 }
-export class TracerPrivate {
+class TracerPrivate {
     static name: string
 }
-export abstract class TracerRecordClass {
+abstract class TracerRecordClass {
     static name: string
 }
-export class TypeFind {
+class TypeFind {
     /* Fields of Gst-1.0.Gst.TypeFind */
     peek: (data: object, offset: number, size: number) => number
     suggest: (data: object, probability: number, caps: Caps) => void
@@ -7806,10 +7806,10 @@ export class TypeFind {
     /* Static methods and pseudo-constructors */
     static register(plugin: Plugin | null, name: string, rank: number, func: TypeFindFunction, extensions: string | null, possibleCaps: Caps | null): boolean
 }
-export abstract class TypeFindFactoryClass {
+abstract class TypeFindFactoryClass {
     static name: string
 }
-export abstract class URIHandlerInterface {
+abstract class URIHandlerInterface {
     /* Fields of Gst-1.0.Gst.URIHandlerInterface */
     parent: GObject.TypeInterface
     getType: (type: GObject.Type) => URIType
@@ -7818,7 +7818,7 @@ export abstract class URIHandlerInterface {
     setUri: (handler: URIHandler, uri: string) => boolean
     static name: string
 }
-export class Uri {
+class Uri {
     /* Methods of Gst-1.0.Gst.Uri */
     appendPath(relativePath: string): boolean
     appendPathSegment(pathSegment: string): boolean
@@ -7876,7 +7876,7 @@ export class Uri {
     static protocolIsSupported(type: URIType, protocol: string): boolean
     static protocolIsValid(protocol: string): boolean
 }
-export class ValueTable {
+class ValueTable {
     /* Fields of Gst-1.0.Gst.ValueTable */
     type: GObject.Type
     compare: ValueCompareFunc
@@ -7885,8 +7885,9 @@ export class ValueTable {
     deserializeWithPspec: ValueDeserializeWithPSpecFunc
     static name: string
 }
-export type ClockID = object
-export type ClockTime = number
-export type ClockTimeDiff = number
-export type ElementFactoryListType = number
+type ClockID = object
+type ClockTime = number
+type ClockTimeDiff = number
+type ElementFactoryListType = number
 }
+export default Gst

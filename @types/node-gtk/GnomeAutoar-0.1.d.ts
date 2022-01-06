@@ -7,15 +7,15 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace GnomeAutoar {
+declare namespace GnomeAutoar {
 
-export enum ConflictAction {
+enum ConflictAction {
     UNHANDLED,
     SKIP,
     OVERWRITE,
     CHANGE_DESTINATION,
 }
-export enum Filter {
+enum Filter {
     NONE,
     COMPRESS,
     GZIP,
@@ -27,7 +27,7 @@ export enum Filter {
     GRZIP,
     LRZIP,
 }
-export enum Format {
+enum Format {
     ZIP,
     TAR,
     CPIO,
@@ -41,30 +41,30 @@ export enum Format {
     USTAR,
     XAR,
 }
-export function checkMimeTypeSupported(mimeType: string): boolean
-export function filterGetDescription(filter: Filter): string
-export function filterGetDescriptionLibarchive(filter: Filter): string
-export function filterGetExtension(filter: Filter): string
-export function filterGetFilterLibarchive(filter: Filter): number
-export function filterGetMimeType(filter: Filter): string
-export function filterIsValid(filter: Filter): boolean
-export function filterLast(): number
-export function formatFilterGetDescription(format: Format, filter: Filter): string
-export function formatFilterGetExtension(format: Format, filter: Filter): string
-export function formatFilterGetMimeType(format: Format, filter: Filter): string
-export function formatGetDescription(format: Format): string
-export function formatGetDescriptionLibarchive(format: Format): string
-export function formatGetExtension(format: Format): string
-export function formatGetFormatLibarchive(format: Format): number
-export function formatGetMimeType(format: Format): string
-export function formatIsValid(format: Format): boolean
-export function formatLast(): number
-export function libarchiveQuark(): GLib.Quark
-export function queryMimeTypeSupported(file: Gio.File): boolean
-export interface FilterFunc {
+function checkMimeTypeSupported(mimeType: string): boolean
+function filterGetDescription(filter: Filter): string
+function filterGetDescriptionLibarchive(filter: Filter): string
+function filterGetExtension(filter: Filter): string
+function filterGetFilterLibarchive(filter: Filter): number
+function filterGetMimeType(filter: Filter): string
+function filterIsValid(filter: Filter): boolean
+function filterLast(): number
+function formatFilterGetDescription(format: Format, filter: Filter): string
+function formatFilterGetExtension(format: Format, filter: Filter): string
+function formatFilterGetMimeType(format: Format, filter: Filter): string
+function formatGetDescription(format: Format): string
+function formatGetDescriptionLibarchive(format: Format): string
+function formatGetExtension(format: Format): string
+function formatGetFormatLibarchive(format: Format): number
+function formatGetMimeType(format: Format): string
+function formatIsValid(format: Format): boolean
+function formatLast(): number
+function libarchiveQuark(): GLib.Quark
+function queryMimeTypeSupported(file: Gio.File): boolean
+interface FilterFunc {
     (a?: object | null): number
 }
-export interface FormatFunc {
+interface FormatFunc {
     (a?: object | null): number
 }
 export interface Compressor_ConstructProps extends GObject.Object_ConstructProps {
@@ -74,7 +74,7 @@ export interface Compressor_ConstructProps extends GObject.Object_ConstructProps
     outputIsDest?: boolean
     sourceFiles?: object
 }
-export class Compressor {
+class Compressor {
     /* Properties of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     readonly completedFiles: number
     readonly completedSize: number
@@ -213,7 +213,7 @@ export interface Extractor_ConstructProps extends GObject.Object_ConstructProps 
     outputIsDest?: boolean
     sourceFile?: Gio.File
 }
-export class Extractor {
+class Extractor {
     /* Properties of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     readonly completedFiles: number
     readonly completedSize: number
@@ -358,14 +358,15 @@ export class Extractor {
     static quark(): GLib.Quark
     static $gtype: GObject.Type
 }
-export abstract class CompressorClass {
+abstract class CompressorClass {
     /* Fields of GnomeAutoar-0.1.GnomeAutoar.CompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ExtractorClass {
+abstract class ExtractorClass {
     /* Fields of GnomeAutoar-0.1.GnomeAutoar.ExtractorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 }
+export default GnomeAutoar

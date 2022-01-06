@@ -1,2 +1,1 @@
-imports.gi.versions.Bump = '0.1'
-module.exports = imports.gi.Bump
+export {default as default} from 'gi://Bump?version=0.1';

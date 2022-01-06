@@ -3,20 +3,22 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as xlib from './xlib-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type xlib from './xlib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum EngineListenModes {
+export namespace Xkl {
+
+enum EngineListenModes {
     MANAGE_WINDOW_STATES,
     TRACK_KEYBOARD_STATE,
     MANAGE_LAYOUTS,
 }
-export enum EngineStateChange {
+enum EngineStateChange {
     GROUP_CHANGED,
     INDICATORS_CHANGED,
 }
-export enum EngineFeatures {
+enum EngineFeatures {
     CAN_TOGGLE_INDICATORS,
     CAN_OUTPUT_CONFIG_AS_ASCII,
     CAN_OUTPUT_CONFIG_AS_BINARY,
@@ -27,20 +29,20 @@ export enum EngineFeatures {
 export const MAX_CI_DESC_LENGTH: number
 export const MAX_CI_NAME_LENGTH: number
 export const MAX_CI_SHORT_DESC_LENGTH: number
-export function get_country_name(code: string): string
-export function get_language_name(code: string): string
-export function get_last_error(): string
-export function restore_names_prop(engine: Engine): boolean
-export function set_debug_level(level: number): void
-export interface ConfigItemProcessFunc {
+function get_country_name(code: string): string
+function get_language_name(code: string): string
+function get_last_error(): string
+function restore_names_prop(engine: Engine): boolean
+function set_debug_level(level: number): void
+interface ConfigItemProcessFunc {
     (config: ConfigRegistry, item: ConfigItem, data: object): void
 }
-export interface TwoConfigItemsProcessFunc {
+interface TwoConfigItemsProcessFunc {
     (config: ConfigRegistry, item: ConfigItem, subitem: ConfigItem, data: object): void
 }
 export interface ConfigItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConfigItem {
+class ConfigItem {
     /* Fields of Xkl-1.0.Xkl.ConfigItem */
     parent: GObject.Object
     name: number[]
@@ -102,7 +104,7 @@ export class ConfigItem {
 }
 export interface ConfigRec_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConfigRec {
+class ConfigRec {
     /* Fields of Xkl-1.0.Xkl.ConfigRec */
     parent: GObject.Object
     model: string
@@ -172,7 +174,7 @@ export class ConfigRec {
 export interface ConfigRegistry_ConstructProps extends GObject.Object_ConstructProps {
     engine?: Engine
 }
-export class ConfigRegistry {
+class ConfigRegistry {
     /* Fields of Xkl-1.0.Xkl.ConfigRegistry */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -242,7 +244,7 @@ export class ConfigRegistry {
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     display?: object
 }
-export class Engine {
+class Engine {
     /* Properties of Xkl-1.0.Xkl.Engine */
     readonly backendName: string
     readonly default_group: number
@@ -371,25 +373,25 @@ export class Engine {
     static get_instance(display: xlib.Display): Engine
     static $gtype: GObject.Type
 }
-export abstract class ConfigItemClass {
+abstract class ConfigItemClass {
     /* Fields of Xkl-1.0.Xkl.ConfigItemClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ConfigRecClass {
+abstract class ConfigRecClass {
     /* Fields of Xkl-1.0.Xkl.ConfigRecClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class ConfigRegistryClass {
+abstract class ConfigRegistryClass {
     /* Fields of Xkl-1.0.Xkl.ConfigRegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ConfigRegistryPrivate {
+class ConfigRegistryPrivate {
     static name: string
 }
-export abstract class EngineClass {
+abstract class EngineClass {
     /* Fields of Xkl-1.0.Xkl.EngineClass */
     parent_class: GObject.ObjectClass
     config_notify: (engine: Engine) => void
@@ -398,12 +400,14 @@ export abstract class EngineClass {
     new_device_notify: (engine: Engine) => void
     static name: string
 }
-export class EnginePrivate {
+class EnginePrivate {
     static name: string
 }
-export class State {
+class State {
     /* Fields of Xkl-1.0.Xkl.State */
     group: number
     indicators: number
     static name: string
 }
+}
+export default Xkl

@@ -7,18 +7,18 @@ import type { xlib } from './xlib-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace Xkl {
+declare namespace Xkl {
 
-export enum EngineListenModes {
+enum EngineListenModes {
     MANAGE_WINDOW_STATES,
     TRACK_KEYBOARD_STATE,
     MANAGE_LAYOUTS,
 }
-export enum EngineStateChange {
+enum EngineStateChange {
     GROUP_CHANGED,
     INDICATORS_CHANGED,
 }
-export enum EngineFeatures {
+enum EngineFeatures {
     CAN_TOGGLE_INDICATORS,
     CAN_OUTPUT_CONFIG_AS_ASCII,
     CAN_OUTPUT_CONFIG_AS_BINARY,
@@ -29,20 +29,20 @@ export enum EngineFeatures {
 export const MAX_CI_DESC_LENGTH: number
 export const MAX_CI_NAME_LENGTH: number
 export const MAX_CI_SHORT_DESC_LENGTH: number
-export function getCountryName(code: string): string
-export function getLanguageName(code: string): string
-export function getLastError(): string
-export function restoreNamesProp(engine: Engine): boolean
-export function setDebugLevel(level: number): void
-export interface ConfigItemProcessFunc {
+function getCountryName(code: string): string
+function getLanguageName(code: string): string
+function getLastError(): string
+function restoreNamesProp(engine: Engine): boolean
+function setDebugLevel(level: number): void
+interface ConfigItemProcessFunc {
     (config: ConfigRegistry, item: ConfigItem, data: object): void
 }
-export interface TwoConfigItemsProcessFunc {
+interface TwoConfigItemsProcessFunc {
     (config: ConfigRegistry, item: ConfigItem, subitem: ConfigItem, data: object): void
 }
 export interface ConfigItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConfigItem {
+class ConfigItem {
     /* Fields of Xkl-1.0.Xkl.ConfigItem */
     parent: GObject.Object
     name: number[]
@@ -101,7 +101,7 @@ export class ConfigItem {
 }
 export interface ConfigRec_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ConfigRec {
+class ConfigRec {
     /* Fields of Xkl-1.0.Xkl.ConfigRec */
     parent: GObject.Object
     model: string
@@ -168,7 +168,7 @@ export class ConfigRec {
 export interface ConfigRegistry_ConstructProps extends GObject.Object_ConstructProps {
     engine?: Engine
 }
-export class ConfigRegistry {
+class ConfigRegistry {
     /* Fields of Xkl-1.0.Xkl.ConfigRegistry */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -235,7 +235,7 @@ export class ConfigRegistry {
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
     display?: object
 }
-export class Engine {
+class Engine {
     /* Properties of Xkl-1.0.Xkl.Engine */
     readonly backendName: string
     readonly defaultGroup: number
@@ -385,25 +385,25 @@ export class Engine {
     static getInstance(display: xlib.Display): Engine
     static $gtype: GObject.Type
 }
-export abstract class ConfigItemClass {
+abstract class ConfigItemClass {
     /* Fields of Xkl-1.0.Xkl.ConfigItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ConfigRecClass {
+abstract class ConfigRecClass {
     /* Fields of Xkl-1.0.Xkl.ConfigRecClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ConfigRegistryClass {
+abstract class ConfigRegistryClass {
     /* Fields of Xkl-1.0.Xkl.ConfigRegistryClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class ConfigRegistryPrivate {
+class ConfigRegistryPrivate {
     static name: string
 }
-export abstract class EngineClass {
+abstract class EngineClass {
     /* Fields of Xkl-1.0.Xkl.EngineClass */
     parentClass: GObject.ObjectClass
     configNotify: (engine: Engine) => void
@@ -412,13 +412,14 @@ export abstract class EngineClass {
     newDeviceNotify: (engine: Engine) => void
     static name: string
 }
-export class EnginePrivate {
+class EnginePrivate {
     static name: string
 }
-export class State {
+class State {
     /* Fields of Xkl-1.0.Xkl.State */
     group: number
     indicators: number
     static name: string
 }
 }
+export default Xkl

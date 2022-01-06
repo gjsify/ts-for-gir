@@ -3,19 +3,21 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AccessRestriction {
+export namespace GnomeKeyring {
+
+enum AccessRestriction {
     ASK,
     DENY,
     ALLOW,
 }
-export enum AttributeType {
+enum AttributeType {
     STRING,
     UINT32,
 }
-export enum ItemType {
+enum ItemType {
     GENERIC_SECRET,
     NETWORK_PASSWORD,
     NOTE,
@@ -24,7 +26,7 @@ export enum ItemType {
     PK_STORAGE,
     LAST_TYPE,
 }
-export enum Result {
+enum Result {
     OK,
     DENIED,
     NO_KEYRING_DAEMON,
@@ -36,12 +38,12 @@ export enum Result {
     KEYRING_ALREADY_EXISTS,
     NO_MATCH,
 }
-export enum AccessType {
+enum AccessType {
     READ,
     WRITE,
     REMOVE,
 }
-export enum ItemInfoFlags {
+enum ItemInfoFlags {
     BASICS,
     SECRET,
 }
@@ -49,75 +51,75 @@ export const ITEM_APPLICATION_SECRET: number
 export const ITEM_INFO_ALL: number
 export const ITEM_TYPE_MASK: number
 export const SESSION: string
-export function acl_copy(list: AccessControl[]): AccessControl[]
-export function acl_free(acl: AccessControl[]): void
-export function attribute_list_append_string(attributes: AttributeList, name: string, value: string): void
-export function attribute_list_append_uint32(attributes: AttributeList, name: string, value: number): void
-export function attribute_list_copy(attributes: AttributeList): AttributeList
-export function attribute_list_free(attributes: AttributeList): void
-export function attribute_list_get_type(): GObject.Type
-export function attribute_list_new(): AttributeList
-export function attribute_list_to_glist(attributes: AttributeList): Attribute[]
-export function cancel_request(request: object): void
-export function change_password_sync(keyring: string, original?: string | null, password?: string | null): Result
-export function create_sync(keyring_name: string, password?: string | null): Result
-export function daemon_prepare_environment_sync(): Result
-export function daemon_set_display_sync(display: string): Result
-export function delete_sync(keyring: string): Result
-export function find_items_sync(type: ItemType, attributes: AttributeList): [ /* returnType */ Result, /* found */ Found[] ]
-export function find_network_password_sync(user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number): [ /* returnType */ Result, /* results */ NetworkPasswordData[] ]
-export function found_list_free(found_list: Found[]): void
-export function free_password(password: string): void
-export function get_default_keyring_sync(): [ /* returnType */ Result, /* keyring */ string ]
-export function get_info_sync(keyring?: string | null): [ /* returnType */ Result, /* info */ Info ]
-export function is_available(): boolean
-export function item_ac_get_access_type(ac: AccessControl): AccessType
-export function item_ac_get_display_name(ac: AccessControl): string
-export function item_ac_get_path_name(ac: AccessControl): string
-export function item_ac_set_access_type(ac: AccessControl, value: AccessType): void
-export function item_ac_set_display_name(ac: AccessControl, value: string): void
-export function item_ac_set_path_name(ac: AccessControl, value: string): void
-export function item_create_sync(keyring: string | null, type: ItemType, display_name: string, attributes: AttributeList, secret: string, update_if_exists: boolean): [ /* returnType */ Result, /* item_id */ number ]
-export function item_delete_sync(keyring: string | null, id: number): Result
-export function item_get_acl_sync(keyring: string | null, id: number): [ /* returnType */ Result, /* acl */ AccessControl[] ]
-export function item_get_attributes_sync(keyring: string | null, id: number, attributes: AttributeList): Result
-export function item_get_info_full_sync(keyring: string | null, id: number, flags: number): [ /* returnType */ Result, /* info */ ItemInfo ]
-export function item_get_info_sync(keyring: string | null, id: number): [ /* returnType */ Result, /* info */ ItemInfo ]
-export function item_grant_access_rights_sync(keyring: string | null, display_name: string, full_path: string, id: number, rights: AccessType): Result
-export function item_set_acl_sync(keyring: string | null, id: number, acl: AccessControl[]): Result
-export function item_set_attributes_sync(keyring: string | null, id: number, attributes: AttributeList): Result
-export function item_set_info_sync(keyring: string | null, id: number, info: ItemInfo): Result
-export function list_item_ids_sync(keyring?: string | null): [ /* returnType */ Result, /* ids */ number[] ]
-export function list_keyring_names_sync(): [ /* returnType */ Result, /* keyrings */ string[] ]
-export function lock_all_sync(): Result
-export function lock_sync(keyring?: string | null): Result
-export function network_password_free(data?: NetworkPasswordData | null): void
-export function network_password_list_free(list: NetworkPasswordData[]): void
-export function result_to_message(res: Result): string
-export function set_default_keyring_sync(keyring: string): Result
-export function set_info_sync(keyring: string | null, info: Info): Result
-export function set_network_password_sync(keyring: string | null, user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number, password: string): [ /* returnType */ Result, /* item_id */ number ]
-export function string_list_free(strings: string[]): void
-export function unlock_sync(keyring?: string | null, password?: string | null): Result
-export interface OperationDoneCallback {
+function acl_copy(list: AccessControl[]): AccessControl[]
+function acl_free(acl: AccessControl[]): void
+function attribute_list_append_string(attributes: AttributeList, name: string, value: string): void
+function attribute_list_append_uint32(attributes: AttributeList, name: string, value: number): void
+function attribute_list_copy(attributes: AttributeList): AttributeList
+function attribute_list_free(attributes: AttributeList): void
+function attribute_list_get_type(): GObject.Type
+function attribute_list_new(): AttributeList
+function attribute_list_to_glist(attributes: AttributeList): Attribute[]
+function cancel_request(request: object): void
+function change_password_sync(keyring: string, original?: string | null, password?: string | null): Result
+function create_sync(keyring_name: string, password?: string | null): Result
+function daemon_prepare_environment_sync(): Result
+function daemon_set_display_sync(display: string): Result
+function delete_sync(keyring: string): Result
+function find_items_sync(type: ItemType, attributes: AttributeList): [ /* returnType */ Result, /* found */ Found[] ]
+function find_network_password_sync(user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number): [ /* returnType */ Result, /* results */ NetworkPasswordData[] ]
+function found_list_free(found_list: Found[]): void
+function free_password(password: string): void
+function get_default_keyring_sync(): [ /* returnType */ Result, /* keyring */ string ]
+function get_info_sync(keyring?: string | null): [ /* returnType */ Result, /* info */ Info ]
+function is_available(): boolean
+function item_ac_get_access_type(ac: AccessControl): AccessType
+function item_ac_get_display_name(ac: AccessControl): string
+function item_ac_get_path_name(ac: AccessControl): string
+function item_ac_set_access_type(ac: AccessControl, value: AccessType): void
+function item_ac_set_display_name(ac: AccessControl, value: string): void
+function item_ac_set_path_name(ac: AccessControl, value: string): void
+function item_create_sync(keyring: string | null, type: ItemType, display_name: string, attributes: AttributeList, secret: string, update_if_exists: boolean): [ /* returnType */ Result, /* item_id */ number ]
+function item_delete_sync(keyring: string | null, id: number): Result
+function item_get_acl_sync(keyring: string | null, id: number): [ /* returnType */ Result, /* acl */ AccessControl[] ]
+function item_get_attributes_sync(keyring: string | null, id: number, attributes: AttributeList): Result
+function item_get_info_full_sync(keyring: string | null, id: number, flags: number): [ /* returnType */ Result, /* info */ ItemInfo ]
+function item_get_info_sync(keyring: string | null, id: number): [ /* returnType */ Result, /* info */ ItemInfo ]
+function item_grant_access_rights_sync(keyring: string | null, display_name: string, full_path: string, id: number, rights: AccessType): Result
+function item_set_acl_sync(keyring: string | null, id: number, acl: AccessControl[]): Result
+function item_set_attributes_sync(keyring: string | null, id: number, attributes: AttributeList): Result
+function item_set_info_sync(keyring: string | null, id: number, info: ItemInfo): Result
+function list_item_ids_sync(keyring?: string | null): [ /* returnType */ Result, /* ids */ number[] ]
+function list_keyring_names_sync(): [ /* returnType */ Result, /* keyrings */ string[] ]
+function lock_all_sync(): Result
+function lock_sync(keyring?: string | null): Result
+function network_password_free(data?: NetworkPasswordData | null): void
+function network_password_list_free(list: NetworkPasswordData[]): void
+function result_to_message(res: Result): string
+function set_default_keyring_sync(keyring: string): Result
+function set_info_sync(keyring: string | null, info: Info): Result
+function set_network_password_sync(keyring: string | null, user: string | null, domain: string | null, server: string | null, object: string | null, protocol: string | null, authtype: string | null, port: number, password: string): [ /* returnType */ Result, /* item_id */ number ]
+function string_list_free(strings: string[]): void
+function unlock_sync(keyring?: string | null, password?: string | null): Result
+interface OperationDoneCallback {
     (result: Result): void
 }
-export interface OperationGetAttributesCallback {
+interface OperationGetAttributesCallback {
     (result: Result, attributes: AttributeList): void
 }
-export interface OperationGetIntCallback {
+interface OperationGetIntCallback {
     (result: Result, val: number): void
 }
-export interface OperationGetItemInfoCallback {
+interface OperationGetItemInfoCallback {
     (result: Result, info: ItemInfo): void
 }
-export interface OperationGetKeyringInfoCallback {
+interface OperationGetKeyringInfoCallback {
     (result: Result, info: Info): void
 }
-export interface OperationGetStringCallback {
+interface OperationGetStringCallback {
     (result: Result, string: string | null): void
 }
-export class AccessControl {
+class AccessControl {
     /* Methods of GnomeKeyring-1.0.GnomeKeyring.AccessControl */
     copy(): AccessControl
     free(): void
@@ -127,7 +129,7 @@ export class AccessControl {
     /* Static methods and pseudo-constructors */
     static new(application: ApplicationRef, types_allowed: AccessType): AccessControl
 }
-export class ApplicationRef {
+class ApplicationRef {
     /* Methods of GnomeKeyring-1.0.GnomeKeyring.ApplicationRef */
     copy(): ApplicationRef
     free(): void
@@ -137,7 +139,7 @@ export class ApplicationRef {
     /* Static methods and pseudo-constructors */
     static new(): ApplicationRef
 }
-export class Attribute {
+class Attribute {
     /* Fields of GnomeKeyring-1.0.GnomeKeyring.Attribute */
     name: string
     type: AttributeType
@@ -153,7 +155,7 @@ export class Attribute {
     static list_new(): AttributeList
     static list_to_glist(attributes: AttributeList): Attribute[]
 }
-export class Found {
+class Found {
     /* Fields of GnomeKeyring-1.0.GnomeKeyring.Found */
     keyring: string
     item_id: number
@@ -166,7 +168,7 @@ export class Found {
     /* Static methods and pseudo-constructors */
     static list_free(found_list: Found[]): void
 }
-export class Info {
+class Info {
     /* Methods of GnomeKeyring-1.0.GnomeKeyring.Info */
     copy(): Info
     free(): void
@@ -179,7 +181,7 @@ export class Info {
     set_lock_timeout(value: number): void
     static name: string
 }
-export class ItemInfo {
+class ItemInfo {
     /* Methods of GnomeKeyring-1.0.GnomeKeyring.ItemInfo */
     copy(): ItemInfo
     free(): void
@@ -197,7 +199,7 @@ export class ItemInfo {
     /* Static methods and pseudo-constructors */
     static new(): ItemInfo
 }
-export class NetworkPasswordData {
+class NetworkPasswordData {
     /* Fields of GnomeKeyring-1.0.GnomeKeyring.NetworkPasswordData */
     keyring: string
     item_id: number
@@ -211,16 +213,18 @@ export class NetworkPasswordData {
     password: string
     static name: string
 }
-export class PasswordSchema {
+class PasswordSchema {
     /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchema */
     item_type: ItemType
     attributes: PasswordSchemaAttribute[]
     static name: string
 }
-export class PasswordSchemaAttribute {
+class PasswordSchemaAttribute {
     /* Fields of GnomeKeyring-1.0.GnomeKeyring.PasswordSchemaAttribute */
     name: string
     type: AttributeType
     static name: string
 }
-export type AttributeList = GLib.Array
+type AttributeList = GLib.Array
+}
+export default GnomeKeyring

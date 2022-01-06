@@ -16,9 +16,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace GWeather {
+declare namespace GWeather {
 
-export enum ConditionPhenomenon {
+enum ConditionPhenomenon {
     INVALID,
     NONE,
     DRIZZLE,
@@ -46,7 +46,7 @@ export enum ConditionPhenomenon {
     DUST_WHIRLS,
     LAST,
 }
-export enum ConditionQualifier {
+enum ConditionQualifier {
     INVALID,
     NONE,
     VICINITY,
@@ -63,14 +63,14 @@ export enum ConditionQualifier {
     FREEZING,
     LAST,
 }
-export enum DistanceUnit {
+enum DistanceUnit {
     INVALID,
     DEFAULT,
     METERS,
     KM,
     MILES,
 }
-export enum LocationLevel {
+enum LocationLevel {
     WORLD,
     REGION,
     COUNTRY,
@@ -80,7 +80,7 @@ export enum LocationLevel {
     DETACHED,
     NAMED_TIMEZONE,
 }
-export enum PressureUnit {
+enum PressureUnit {
     INVALID,
     DEFAULT,
     KPA,
@@ -90,7 +90,7 @@ export enum PressureUnit {
     INCH_HG,
     ATM,
 }
-export enum Sky {
+enum Sky {
     INVALID,
     CLEAR,
     BROKEN,
@@ -99,7 +99,7 @@ export enum Sky {
     OVERCAST,
     LAST,
 }
-export enum SpeedUnit {
+enum SpeedUnit {
     INVALID,
     DEFAULT,
     MS,
@@ -108,14 +108,14 @@ export enum SpeedUnit {
     KNOTS,
     BFT,
 }
-export enum TemperatureUnit {
+enum TemperatureUnit {
     INVALID,
     DEFAULT,
     KELVIN,
     CENTIGRADE,
     FAHRENHEIT,
 }
-export enum WindDirection {
+enum WindDirection {
     INVALID,
     VARIABLE,
     N,
@@ -136,12 +136,12 @@ export enum WindDirection {
     NNW,
     LAST,
 }
-export enum FormatOptions {
+enum FormatOptions {
     DEFAULT,
     SENTENCE_CAPITALIZATION,
     NO_CAPITALIZATION,
 }
-export enum Provider {
+enum Provider {
     NONE,
     METAR,
     IWIN,
@@ -152,18 +152,18 @@ export enum Provider {
 }
 export const LOCATION_ENTRY_H: number
 export const TIMEZONE_MENU_H: number
-export function locationDetectNearestCityFinish(result: Gio.AsyncResult): Location
-export function locationGetWorld(): Location | null
-export function locationLevelToString(level: LocationLevel): string
-export function skyToString(sky: Sky): string
-export function skyToStringFull(sky: Sky, options: FormatOptions): string
-export function speedUnitToString(unit: SpeedUnit): string
-export function temperatureUnitToReal(unit: TemperatureUnit): TemperatureUnit
-export function timezoneGetByTzid(tzid: string): Timezone
-export function timezoneGetUtc(): Timezone
-export function windDirectionToString(wind: WindDirection): string
-export function windDirectionToStringFull(wind: WindDirection, options: FormatOptions): string
-export interface FilterFunc {
+function locationDetectNearestCityFinish(result: Gio.AsyncResult): Location
+function locationGetWorld(): Location | null
+function locationLevelToString(level: LocationLevel): string
+function skyToString(sky: Sky): string
+function skyToStringFull(sky: Sky, options: FormatOptions): string
+function speedUnitToString(unit: SpeedUnit): string
+function temperatureUnitToReal(unit: TemperatureUnit): TemperatureUnit
+function timezoneGetByTzid(tzid: string): Timezone
+function timezoneGetUtc(): Timezone
+function windDirectionToString(wind: WindDirection): string
+function windDirectionToStringFull(wind: WindDirection, options: FormatOptions): string
+interface FilterFunc {
     (location: Location): boolean
 }
 export interface Info_ConstructProps extends GObject.Object_ConstructProps {
@@ -172,7 +172,7 @@ export interface Info_ConstructProps extends GObject.Object_ConstructProps {
     enabledProviders?: Provider
     location?: Location
 }
-export class Info {
+class Info {
     /* Properties of GWeather-3.0.GWeather.Info */
     applicationId: string
     contactInfo: string
@@ -307,7 +307,7 @@ export interface LocationEntry_ConstructProps extends Gtk.SearchEntry_ConstructP
     top?: Location
     editingCanceled?: boolean
 }
-export class LocationEntry {
+class LocationEntry {
     /* Properties of GWeather-3.0.GWeather.LocationEntry */
     location: Location
     /* Properties of Gtk-3.0.Gtk.Entry */
@@ -1749,7 +1749,7 @@ export interface TimezoneMenu_ConstructProps extends Gtk.ComboBox_ConstructProps
     tzid?: string
     editingCanceled?: boolean
 }
-export class TimezoneMenu {
+class TimezoneMenu {
     /* Properties of GWeather-3.0.GWeather.TimezoneMenu */
     tzid: string
     /* Properties of Gtk-3.0.Gtk.ComboBox */
@@ -2907,7 +2907,7 @@ export class TimezoneMenu {
     static new(): TimezoneMenu
     static $gtype: GObject.Type
 }
-export class Conditions {
+class Conditions {
     /* Fields of GWeather-3.0.GWeather.Conditions */
     significant: boolean
     phenomenon: ConditionPhenomenon
@@ -2917,12 +2917,12 @@ export class Conditions {
     toStringFull(options: FormatOptions): string
     static name: string
 }
-export abstract class InfoClass {
+abstract class InfoClass {
     /* Fields of GWeather-3.0.GWeather.InfoClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class Location {
+class Location {
     /* Methods of GWeather-3.0.GWeather.Location */
     deserialize(serialized: GLib.Variant): Location
     detectNearestCity(lat: number, lon: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2959,15 +2959,15 @@ export class Location {
     static detectNearestCityFinish(result: Gio.AsyncResult): Location
     static getWorld(): Location | null
 }
-export abstract class LocationEntryClass {
+abstract class LocationEntryClass {
     /* Fields of GWeather-3.0.GWeather.LocationEntryClass */
     parentClass: Gtk.SearchEntryClass
     static name: string
 }
-export class LocationEntryPrivate {
+class LocationEntryPrivate {
     static name: string
 }
-export class Timezone {
+class Timezone {
     /* Methods of GWeather-3.0.GWeather.Timezone */
     getDstOffset(): number
     getName(): string
@@ -2981,11 +2981,12 @@ export class Timezone {
     static getByTzid(tzid: string): Timezone
     static getUtc(): Timezone
 }
-export abstract class TimezoneMenuClass {
+abstract class TimezoneMenuClass {
     /* Fields of GWeather-3.0.GWeather.TimezoneMenuClass */
     parentClass: Gtk.ComboBoxClass
     static name: string
 }
-export type MoonLatitude = number
-export type MoonPhase = number
+type MoonLatitude = number
+type MoonPhase = number
 }
+export default GWeather

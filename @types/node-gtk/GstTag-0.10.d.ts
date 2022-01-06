@@ -9,14 +9,14 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace GstTag {
+declare namespace GstTag {
 
-export enum DemuxResult {
+enum DemuxResult {
     BROKEN_TAG,
     AGAIN,
     OK,
 }
-export enum ImageType {
+enum ImageType {
     NONE,
     UNDEFINED,
     FRONT_COVER,
@@ -50,32 +50,32 @@ export const MUSICBRAINZ_ALBUMID: string
 export const MUSICBRAINZ_ARTISTID: string
 export const MUSICBRAINZ_TRACKID: string
 export const MUSICBRAINZ_TRMID: string
-export function freeformStringToUtf8(data: string, size: number, envVars: string[]): string
-export function fromId3Tag(id3Tag: string): string
-export function fromId3UserTag(type: string, id3UserTag: string): string
-export function fromVorbisTag(vorbisTag: string): string
-export function getLanguageCodeIso6391(langCode: string): string
-export function getLanguageCodeIso6392B(langCode: string): string
-export function getLanguageCodeIso6392T(langCode: string): string
-export function getLanguageCodes(): string[]
-export function getLanguageName(languageCode: string): string
-export function gstVorbisTagAdd(list: Gst.TagList, tag: string, value: string): void
-export function id3GenreCount(): number
-export function id3GenreGet(id: number): string
-export function imageDataToImageBuffer(imageData: any[], imageDataLen: number, imageType: ImageType): Gst.Buffer
-export function listAddId3Image(tagList: Gst.TagList, imageData: any[], imageDataLen: number, id3PictureType: number): boolean
-export function listFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any[], idDataLength: number, vendorString: string[]): Gst.TagList
-export function listFromXmpBuffer(buffer: Gst.Buffer): Gst.TagList
-export function listNewFromId3v1(data: any[]): Gst.TagList
-export function listToVorbiscommentBuffer(list: Gst.TagList, idData: any[], idDataLength: number, vendorString: string): Gst.Buffer
-export function listToXmpBuffer(list: Gst.TagList, readOnly: boolean): Gst.Buffer
-export function parseExtendedComment(extComment: string, key: string[], lang: string[], value: string[], failIfNoKey: boolean): boolean
-export function registerMusicbrainzTags(): void
-export function toId3Tag(gstTag: string): string
-export function toVorbisTag(gstTag: string): string
+function freeformStringToUtf8(data: string, size: number, envVars: string[]): string
+function fromId3Tag(id3Tag: string): string
+function fromId3UserTag(type: string, id3UserTag: string): string
+function fromVorbisTag(vorbisTag: string): string
+function getLanguageCodeIso6391(langCode: string): string
+function getLanguageCodeIso6392B(langCode: string): string
+function getLanguageCodeIso6392T(langCode: string): string
+function getLanguageCodes(): string[]
+function getLanguageName(languageCode: string): string
+function gstVorbisTagAdd(list: Gst.TagList, tag: string, value: string): void
+function id3GenreCount(): number
+function id3GenreGet(id: number): string
+function imageDataToImageBuffer(imageData: any[], imageDataLen: number, imageType: ImageType): Gst.Buffer
+function listAddId3Image(tagList: Gst.TagList, imageData: any[], imageDataLen: number, id3PictureType: number): boolean
+function listFromVorbiscommentBuffer(buffer: Gst.Buffer, idData: any[], idDataLength: number, vendorString: string[]): Gst.TagList
+function listFromXmpBuffer(buffer: Gst.Buffer): Gst.TagList
+function listNewFromId3v1(data: any[]): Gst.TagList
+function listToVorbiscommentBuffer(list: Gst.TagList, idData: any[], idDataLength: number, vendorString: string): Gst.Buffer
+function listToXmpBuffer(list: Gst.TagList, readOnly: boolean): Gst.Buffer
+function parseExtendedComment(extComment: string, key: string[], lang: string[], value: string[], failIfNoKey: boolean): boolean
+function registerMusicbrainzTags(): void
+function toId3Tag(gstTag: string): string
+function toVorbisTag(gstTag: string): string
 export interface Demux_ConstructProps extends Gst.Element_ConstructProps {
 }
-export class Demux {
+class Demux {
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of GstTag-0.10.GstTag.Demux */
@@ -265,7 +265,7 @@ export class Demux {
     _init (config?: Demux_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class DemuxClass {
+abstract class DemuxClass {
     /* Fields of GstTag-0.10.GstTag.DemuxClass */
     parentClass: Gst.ElementClass
     minStartSize: number
@@ -276,7 +276,8 @@ export abstract class DemuxClass {
     reserved: any[]
     static name: string
 }
-export class DemuxPrivate {
+class DemuxPrivate {
     static name: string
 }
 }
+export default GstTag

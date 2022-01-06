@@ -3,21 +3,23 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GtkSource from './GtkSource-4';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
+import type GtkSource from './GtkSource-4';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
 
-export enum TabState {
+export namespace Gedit {
+
+enum TabState {
     STATE_NORMAL,
     STATE_LOADING,
     STATE_REVERTING,
@@ -32,7 +34,7 @@ export enum TabState {
     STATE_EXTERNALLY_MODIFIED_NOTIFICATION,
     NUM_OF_STATES,
 }
-export enum DebugSection {
+enum DebugSection {
     NO_DEBUG,
     DEBUG_VIEW,
     DEBUG_PREFS,
@@ -46,42 +48,42 @@ export enum DebugSection {
     DEBUG_UTILS,
     DEBUG_METADATA,
 }
-export enum WindowState {
+enum WindowState {
     NORMAL,
     SAVING,
     PRINTING,
     LOADING,
     ERROR,
 }
-export function commands_load_location(window: Window, location: Gio.File, encoding: GtkSource.Encoding | null, line_pos: number, column_pos: number): void
-export function commands_load_locations(window: Window, locations: Gio.File[], encoding: GtkSource.Encoding | null, line_pos: number, column_pos: number): Document[]
-export function commands_save_all_documents(window: Window): void
-export function commands_save_document(window: Window, document: Document): void
-export function commands_save_document_async(document: Document, window: Window, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function commands_save_document_finish(document: Document, result: Gio.AsyncResult): boolean
-export function debug(section: DebugSection, file: string, line: number, function_: string): void
-export function debug_init(): void
-export function debug_plugin_message(file: string, line: number, function_: string, message: string): void
-export function utils_basename_for_display(location: Gio.File): string
-export function utils_decode_uri(uri: string): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null ]
-export function utils_drop_get_uris(selection_data: Gtk.SelectionData): string[]
-export function utils_get_compression_type_from_content_type(content_type: string): GtkSource.CompressionType
-export function utils_is_valid_location(location: Gio.File): boolean
-export function utils_location_get_dirname_for_display(location: Gio.File): string
-export function utils_menu_position_under_tree_view(tree_view: Gtk.TreeView, rect: Gdk.Rectangle): boolean
-export function utils_newline_type_to_string(newline_type: GtkSource.NewlineType): string
-export function utils_replace_home_dir_with_tilde(uri: string): string
-export function utils_set_atk_name_description(widget: Gtk.Widget, name: string, description: string): void
-export function utils_set_direct_save_filename(context: Gdk.DragContext): string
-export function utils_str_end_truncate(string: string, truncate_length: number): string
-export function utils_str_middle_truncate(string: string, truncate_length: number): string
-export interface MessageBusForeach {
+function commands_load_location(window: Window, location: Gio.File, encoding: GtkSource.Encoding | null, line_pos: number, column_pos: number): void
+function commands_load_locations(window: Window, locations: Gio.File[], encoding: GtkSource.Encoding | null, line_pos: number, column_pos: number): Document[]
+function commands_save_all_documents(window: Window): void
+function commands_save_document(window: Window, document: Document): void
+function commands_save_document_async(document: Document, window: Window, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+function commands_save_document_finish(document: Document, result: Gio.AsyncResult): boolean
+function debug(section: DebugSection, file: string, line: number, function_: string): void
+function debug_init(): void
+function debug_plugin_message(file: string, line: number, function_: string, message: string): void
+function utils_basename_for_display(location: Gio.File): string
+function utils_decode_uri(uri: string): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* host */ string | null, /* port */ string | null, /* path */ string | null ]
+function utils_drop_get_uris(selection_data: Gtk.SelectionData): string[]
+function utils_get_compression_type_from_content_type(content_type: string): GtkSource.CompressionType
+function utils_is_valid_location(location: Gio.File): boolean
+function utils_location_get_dirname_for_display(location: Gio.File): string
+function utils_menu_position_under_tree_view(tree_view: Gtk.TreeView, rect: Gdk.Rectangle): boolean
+function utils_newline_type_to_string(newline_type: GtkSource.NewlineType): string
+function utils_replace_home_dir_with_tilde(uri: string): string
+function utils_set_atk_name_description(widget: Gtk.Widget, name: string, description: string): void
+function utils_set_direct_save_filename(context: Gdk.DragContext): string
+function utils_str_end_truncate(string: string, truncate_length: number): string
+function utils_str_middle_truncate(string: string, truncate_length: number): string
+interface MessageBusForeach {
     (object_path: string, method: string): void
 }
-export interface MessageCallback {
+interface MessageCallback {
     (bus: MessageBus, message: Message): void
 }
-export class AppActivatable {
+class AppActivatable {
     /* Methods of Gedit-3.0.Gedit.AppActivatable */
     activate(): void
     deactivate(): void
@@ -91,7 +93,7 @@ export class AppActivatable {
     vfunc_deactivate(): void
     static name: string
 }
-export class ViewActivatable {
+class ViewActivatable {
     /* Methods of Gedit-3.0.Gedit.ViewActivatable */
     activate(): void
     deactivate(): void
@@ -100,7 +102,7 @@ export class ViewActivatable {
     vfunc_deactivate(): void
     static name: string
 }
-export class WindowActivatable {
+class WindowActivatable {
     /* Methods of Gedit-3.0.Gedit.WindowActivatable */
     activate(): void
     deactivate(): void
@@ -113,7 +115,7 @@ export class WindowActivatable {
 }
 export interface App_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class App {
+class App {
     /* Properties of Gtk-3.0.Gtk.Application */
     readonly active_window: Gtk.Window
     app_menu: Gio.MenuModel
@@ -378,7 +380,7 @@ export interface Document_ConstructProps extends GtkSource.Buffer_ConstructProps
     content_type?: string
     use_gvfs_metadata?: boolean
 }
-export class Document {
+class Document {
     /* Properties of Gedit-3.0.Gedit.Document */
     content_type: string
     readonly empty_search: boolean
@@ -706,7 +708,7 @@ export interface EncodingsComboBox_ConstructProps extends Gtk.ComboBox_Construct
     save_mode?: boolean
     editing_canceled?: boolean
 }
-export class EncodingsComboBox {
+class EncodingsComboBox {
     /* Properties of Gedit-3.0.Gedit.EncodingsComboBox */
     save_mode: boolean
     /* Properties of Gtk-3.0.Gtk.ComboBox */
@@ -1656,7 +1658,7 @@ export class EncodingsComboBox {
 export interface MenuExtension_ConstructProps extends GObject.Object_ConstructProps {
     menu?: Gio.Menu
 }
-export class MenuExtension {
+class MenuExtension {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gedit-3.0.Gedit.MenuExtension */
@@ -1712,7 +1714,7 @@ export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     method?: string
     object_path?: string
 }
-export class Message {
+class Message {
     /* Properties of Gedit-3.0.Gedit.Message */
     method: string
     object_path: string
@@ -1779,7 +1781,7 @@ export class Message {
 }
 export interface MessageBus_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MessageBus {
+class MessageBus {
     /* Fields of Gedit-3.0.Gedit.MessageBus */
     parent: GObject.Object
     priv: MessageBusPrivate
@@ -1865,7 +1867,7 @@ export interface ProgressInfoBar_ConstructProps extends Gtk.InfoBar_ConstructPro
     has_cancel_button?: boolean
     orientation?: Gtk.Orientation
 }
-export class ProgressInfoBar {
+class ProgressInfoBar {
     /* Properties of Gtk-3.0.Gtk.InfoBar */
     message_type: Gtk.MessageType
     revealed: boolean
@@ -2746,7 +2748,7 @@ export class ProgressInfoBar {
 export interface Statusbar_ConstructProps extends Gtk.Statusbar_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Statusbar {
+class Statusbar {
     /* Properties of Gtk-3.0.Gtk.Box */
     baseline_position: Gtk.BaselinePosition
     homogeneous: boolean
@@ -3611,7 +3613,7 @@ export interface Tab_ConstructProps extends Gtk.Box_ConstructProps {
     autosave_interval?: number
     orientation?: Gtk.Orientation
 }
-export class Tab {
+class Tab {
     /* Properties of Gedit-3.0.Gedit.Tab */
     autosave: boolean
     autosave_interval: number
@@ -4479,7 +4481,7 @@ export interface View_ConstructProps extends GtkSource.View_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscroll_policy?: Gtk.ScrollablePolicy
 }
-export class View {
+class View {
     /* Properties of GtkSource-4.GtkSource.View */
     auto_indent: boolean
     background_pattern: GtkSource.BackgroundPatternType
@@ -5647,7 +5649,7 @@ export class View {
 }
 export interface Window_ConstructProps extends Gtk.ApplicationWindow_ConstructProps {
 }
-export class Window {
+class Window {
     /* Properties of Gedit-3.0.Gedit.Window */
     readonly state: WindowState
     /* Properties of Gtk-3.0.Gtk.ApplicationWindow */
@@ -6787,14 +6789,14 @@ export class Window {
     static new(type: Gtk.WindowType): Window
     static $gtype: GObject.Type
 }
-export abstract class AppActivatableInterface {
+abstract class AppActivatableInterface {
     /* Fields of Gedit-3.0.Gedit.AppActivatableInterface */
     g_iface: GObject.TypeInterface
     activate: (activatable: AppActivatable) => void
     deactivate: (activatable: AppActivatable) => void
     static name: string
 }
-export abstract class AppClass {
+abstract class AppClass {
     /* Fields of Gedit-3.0.Gedit.AppClass */
     parent_class: Gtk.ApplicationClass
     show_help: (app: App, parent: Gtk.Window, name: string, link_id: string) => boolean
@@ -6803,7 +6805,7 @@ export abstract class AppClass {
     process_window_event: (app: App, window: Window, event: Gdk.Event) => boolean
     static name: string
 }
-export abstract class DocumentClass {
+abstract class DocumentClass {
     /* Fields of Gedit-3.0.Gedit.DocumentClass */
     parent_class: GtkSource.BufferClass
     cursor_moved: (document: Document) => void
@@ -6813,17 +6815,17 @@ export abstract class DocumentClass {
     saved: (document: Document) => void
     static name: string
 }
-export abstract class EncodingsComboBoxClass {
+abstract class EncodingsComboBoxClass {
     /* Fields of Gedit-3.0.Gedit.EncodingsComboBoxClass */
     parent_class: Gtk.ComboBoxClass
     static name: string
 }
-export abstract class MenuExtensionClass {
+abstract class MenuExtensionClass {
     /* Fields of Gedit-3.0.Gedit.MenuExtensionClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export abstract class MessageBusClass {
+abstract class MessageBusClass {
     /* Fields of Gedit-3.0.Gedit.MessageBusClass */
     parent_class: GObject.ObjectClass
     dispatch: (bus: MessageBus, message: Message) => void
@@ -6831,50 +6833,50 @@ export abstract class MessageBusClass {
     unregistered: (bus: MessageBus, object_path: string, method: string) => void
     static name: string
 }
-export class MessageBusPrivate {
+class MessageBusPrivate {
     static name: string
 }
-export abstract class MessageClass {
+abstract class MessageClass {
     /* Fields of Gedit-3.0.Gedit.MessageClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class MessagePrivate {
+class MessagePrivate {
     static name: string
 }
-export abstract class ProgressInfoBarClass {
+abstract class ProgressInfoBarClass {
     /* Fields of Gedit-3.0.Gedit.ProgressInfoBarClass */
     parent_class: Gtk.InfoBarClass
     static name: string
 }
-export abstract class StatusbarClass {
+abstract class StatusbarClass {
     /* Fields of Gedit-3.0.Gedit.StatusbarClass */
     parent_class: Gtk.StatusbarClass
     static name: string
 }
-export abstract class TabClass {
+abstract class TabClass {
     /* Fields of Gedit-3.0.Gedit.TabClass */
     parent_class: Gtk.BoxClass
     static name: string
 }
-export abstract class ViewActivatableInterface {
+abstract class ViewActivatableInterface {
     /* Fields of Gedit-3.0.Gedit.ViewActivatableInterface */
     g_iface: GObject.TypeInterface
     activate: (activatable: ViewActivatable) => void
     deactivate: (activatable: ViewActivatable) => void
     static name: string
 }
-export abstract class ViewClass {
+abstract class ViewClass {
     /* Fields of Gedit-3.0.Gedit.ViewClass */
     parent_class: GtkSource.ViewClass
     drop_uris: (view: View, uri_list: string) => void
     padding: object
     static name: string
 }
-export class ViewPrivate {
+class ViewPrivate {
     static name: string
 }
-export abstract class WindowActivatableInterface {
+abstract class WindowActivatableInterface {
     /* Fields of Gedit-3.0.Gedit.WindowActivatableInterface */
     g_iface: GObject.TypeInterface
     activate: (activatable: WindowActivatable) => void
@@ -6882,7 +6884,7 @@ export abstract class WindowActivatableInterface {
     update_state: (activatable: WindowActivatable) => void
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Gedit-3.0.Gedit.WindowClass */
     parent_class: Gtk.ApplicationWindowClass
     tab_added: (window: Window, tab: Tab) => void
@@ -6892,6 +6894,8 @@ export abstract class WindowClass {
     active_tab_state_changed: (window: Window) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
+}
+export default Gedit

@@ -1,2 +1,1 @@
-imports.gi.versions.GstGLX11 = '1.0'
-module.exports = imports.gi.GstGLX11
+export {default as default} from 'gi://GstGLX11?version=1.0';

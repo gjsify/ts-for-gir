@@ -1,2 +1,1 @@
-imports.gi.versions.Rest = '0.7'
-module.exports = imports.gi.Rest
+export {default as default} from 'gi://Rest?version=0.7';

@@ -1,2 +1,1 @@
-imports.gi.versions.Gegl = '0.4'
-module.exports = imports.gi.Gegl
+export {default as default} from 'gi://Gegl?version=0.4';

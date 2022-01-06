@@ -15,11 +15,11 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace MxGtk {
+declare namespace MxGtk {
 
 export interface Frame_ConstructProps extends Gtk.Frame_ConstructProps {
 }
-export class Frame {
+class Frame {
     /* Properties of Gtk-2.0.Gtk.Frame */
     label: string
     labelWidget: Gtk.Widget
@@ -867,7 +867,7 @@ export class Frame {
 export interface LightSwitch_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     active?: boolean
 }
-export class LightSwitch {
+class LightSwitch {
     /* Properties of MxGtk-1.0.MxGtk.LightSwitch */
     active: boolean
     /* Properties of Gtk-2.0.Gtk.Widget */
@@ -1611,15 +1611,16 @@ export class LightSwitch {
     static new(): LightSwitch
     static $gtype: GObject.Type
 }
-export abstract class FrameClass {
+abstract class FrameClass {
     /* Fields of MxGtk-1.0.MxGtk.FrameClass */
     parentClass: Gtk.FrameClass
     static name: string
 }
-export abstract class LightSwitchClass {
+abstract class LightSwitchClass {
     /* Fields of MxGtk-1.0.MxGtk.LightSwitchClass */
     parentClass: Gtk.DrawingAreaClass
     switchFlipped: (lightswitch: LightSwitch, state: boolean) => void
     static name: string
 }
 }
+export default MxGtk

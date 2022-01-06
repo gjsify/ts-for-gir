@@ -1,3 +1,5 @@
+const imports = imports || {}
+
 export {
     imports
 }

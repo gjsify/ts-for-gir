@@ -3,32 +3,34 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as GstVideo from './GstVideo-1.0';
-import type * as GstBase from './GstBase-1.0';
-import type * as Gst from './Gst-1.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as GstPbutils from './GstPbutils-1.0';
-import type * as GstAudio from './GstAudio-1.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as GL from './GL-1.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as cairo from './cairo-1.0';
-import type * as Json from './Json-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as Atk from './Atk-1.0';
+import type GstVideo from './GstVideo-1.0';
+import type GstBase from './GstBase-1.0';
+import type Gst from './Gst-1.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
+import type GstPbutils from './GstPbutils-1.0';
+import type GstAudio from './GstAudio-1.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type Gio from './Gio-2.0';
+import type Cogl from './Cogl-1.0';
+import type GL from './GL-1.0';
+import type Clutter from './Clutter-1.0';
+import type cairo from './cairo-1.0';
+import type Json from './Json-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type Atk from './Atk-1.0';
 
-export enum BufferingMode {
+export namespace ClutterGst {
+
+enum BufferingMode {
     STREAM,
     DOWNLOAD,
 }
-export enum SeekFlags {
+enum SeekFlags {
     NONE,
     ACCURATE,
 }
@@ -38,10 +40,10 @@ export const MINOR_VERSION: number
 export const VERSION: number
 export const VERSION_HEX: number
 export const VERSION_S: string
-export function create_video_sink(): Gst.Element
-export function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
-export class Player {
+function create_video_sink(): Gst.Element
+function init(argv?: string[] | null): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+function init_with_args(argv: string[] | null, parameter_string: string, entries: GLib.OptionEntry, translation_domain: string): [ /* returnType */ Clutter.InitError, /* argv */ string[] | null ]
+class Player {
     /* Properties of ClutterGst-3.0.ClutterGst.Player */
     audio_volume: number
     readonly idle: boolean
@@ -91,7 +93,7 @@ export interface Aspectratio_ConstructProps extends Content_ConstructProps {
     fill_allocation?: boolean
     paint_borders?: boolean
 }
-export class Aspectratio {
+class Aspectratio {
     /* Properties of ClutterGst-3.0.ClutterGst.Aspectratio */
     fill_allocation: boolean
     paint_borders: boolean
@@ -194,7 +196,7 @@ export interface Camera_ConstructProps extends GObject.Object_ConstructProps {
     audio_volume?: number
     playing?: boolean
 }
-export class Camera {
+class Camera {
     /* Properties of ClutterGst-3.0.ClutterGst.Camera */
     device: CameraDevice
     /* Properties of ClutterGst-3.0.ClutterGst.Player */
@@ -351,7 +353,7 @@ export interface CameraDevice_ConstructProps extends GObject.Object_ConstructPro
     name?: string
     node?: string
 }
-export class CameraDevice {
+class CameraDevice {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ClutterGst-3.0.ClutterGst.CameraDevice */
@@ -411,7 +413,7 @@ export class CameraDevice {
 }
 export interface CameraManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class CameraManager {
+class CameraManager {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ClutterGst-3.0.ClutterGst.CameraManager */
@@ -475,7 +477,7 @@ export interface Content_ConstructProps extends GObject.Object_ConstructProps {
     player?: GObject.Object
     sink?: VideoSink
 }
-export class Content {
+class Content {
     /* Properties of ClutterGst-3.0.ClutterGst.Content */
     frame: Frame
     paint_frame: boolean
@@ -574,7 +576,7 @@ export interface Crop_ConstructProps extends Content_ConstructProps {
     output_region?: Box
     paint_borders?: boolean
 }
-export class Crop {
+class Crop {
     /* Properties of ClutterGst-3.0.ClutterGst.Crop */
     cull_backface: boolean
     input_region: Box
@@ -692,7 +694,7 @@ export interface Playback_ConstructProps extends GObject.Object_ConstructProps {
     audio_volume?: number
     playing?: boolean
 }
-export class Playback {
+class Playback {
     /* Properties of ClutterGst-3.0.ClutterGst.Playback */
     audio_stream: number
     readonly audio_streams: object
@@ -874,7 +876,7 @@ export class Playback {
 export interface VideoSink_ConstructProps extends GstVideo.VideoSink_ConstructProps {
     update_priority?: number
 }
-export class VideoSink {
+class VideoSink {
     /* Properties of ClutterGst-3.0.ClutterGst.VideoSink */
     update_priority: number
     /* Properties of GstVideo-1.0.GstVideo.VideoSink */
@@ -1262,13 +1264,13 @@ export class VideoSink {
     static query_set_commandsv(query: Gst.Query, cmds: GstVideo.NavigationCommand[]): void
     static $gtype: GObject.Type
 }
-export abstract class AspectratioClass {
+abstract class AspectratioClass {
     static name: string
 }
-export class AspectratioPrivate {
+class AspectratioPrivate {
     static name: string
 }
-export class Box {
+class Box {
     /* Fields of ClutterGst-3.0.ClutterGst.Box */
     x1: number
     y1: number
@@ -1279,7 +1281,7 @@ export class Box {
     get_width(): number
     static name: string
 }
-export abstract class CameraClass {
+abstract class CameraClass {
     /* Fields of ClutterGst-3.0.ClutterGst.CameraClass */
     ready_for_capture: (self: Camera, ready: boolean) => void
     photo_saved: (self: Camera) => void
@@ -1287,61 +1289,61 @@ export abstract class CameraClass {
     video_saved: (self: Camera) => void
     static name: string
 }
-export abstract class CameraDeviceClass {
+abstract class CameraDeviceClass {
     /* Fields of ClutterGst-3.0.ClutterGst.CameraDeviceClass */
     capture_resolution_changed: (device: CameraDevice, width: number, height: number) => void
     static name: string
 }
-export class CameraDevicePrivate {
+class CameraDevicePrivate {
     static name: string
 }
-export abstract class CameraManagerClass {
+abstract class CameraManagerClass {
     static name: string
 }
-export class CameraManagerPrivate {
+class CameraManagerPrivate {
     static name: string
 }
-export class CameraPrivate {
+class CameraPrivate {
     static name: string
 }
-export abstract class ContentClass {
+abstract class ContentClass {
     /* Fields of ClutterGst-3.0.ClutterGst.ContentClass */
     has_painting_content: (self: Content) => boolean
     static name: string
 }
-export class ContentPrivate {
+class ContentPrivate {
     static name: string
 }
-export abstract class CropClass {
+abstract class CropClass {
     static name: string
 }
-export class CropPrivate {
+class CropPrivate {
     static name: string
 }
-export class Frame {
+class Frame {
     /* Fields of ClutterGst-3.0.ClutterGst.Frame */
     resolution: VideoResolution
     static name: string
 }
-export class Overlay {
+class Overlay {
     /* Fields of ClutterGst-3.0.ClutterGst.Overlay */
     position: Box
     static name: string
 }
-export class Overlays {
+class Overlays {
     /* Fields of ClutterGst-3.0.ClutterGst.Overlays */
     overlays: object[]
     static name: string
 }
-export abstract class PlaybackClass {
+abstract class PlaybackClass {
     /* Fields of ClutterGst-3.0.ClutterGst.PlaybackClass */
     should_buffer: (self: Playback, query: Gst.Query) => boolean
     static name: string
 }
-export class PlaybackPrivate {
+class PlaybackPrivate {
     static name: string
 }
-export abstract class PlayerIface {
+abstract class PlayerIface {
     /* Fields of ClutterGst-3.0.ClutterGst.PlayerIface */
     get_frame: (self: Player) => Frame
     get_pipeline: (self: Player) => Gst.Element
@@ -1358,10 +1360,10 @@ export abstract class PlayerIface {
     size_change: (self: Player, width: number, height: number) => void
     static name: string
 }
-export class PlayerIfacePrivate {
+class PlayerIfacePrivate {
     static name: string
 }
-export class VideoResolution {
+class VideoResolution {
     /* Fields of ClutterGst-3.0.ClutterGst.VideoResolution */
     width: number
     height: number
@@ -1369,13 +1371,15 @@ export class VideoResolution {
     par_d: number
     static name: string
 }
-export abstract class VideoSinkClass {
+abstract class VideoSinkClass {
     /* Fields of ClutterGst-3.0.ClutterGst.VideoSinkClass */
     new_frame: (sink: VideoSink) => void
     pipeline_ready: (sink: VideoSink) => void
     new_overlays: (sink: VideoSink) => void
     static name: string
 }
-export class VideoSinkPrivate {
+class VideoSinkPrivate {
     static name: string
 }
+}
+export default ClutterGst

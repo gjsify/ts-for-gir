@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as libxml2 from './libxml2-2.0';
-import type * as Soup from './Soup-2.4';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Json from './Json-1.0';
-import type * as Goa from './Goa-1.0';
+import type libxml2 from './libxml2-2.0';
+import type Soup from './Soup-2.4';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Json from './Json-1.0';
+import type Goa from './Goa-1.0';
 
-export enum BatchOperationType {
+export namespace GData {
+
+enum BatchOperationType {
     QUERY,
     INSERTION,
     UPDATE,
     DELETION,
 }
-export enum DocumentsServiceError {
+enum DocumentsServiceError {
     TYPE,
 }
-export enum MediaExpression {
+enum MediaExpression {
     SAMPLE,
     FULL,
     NONSTOP,
 }
-export enum MediaMedium {
+enum MediaMedium {
     UNKNOWN,
     IMAGE,
     AUDIO,
@@ -33,7 +35,7 @@ export enum MediaMedium {
     DOCUMENT,
     EXECUTABLE,
 }
-export enum OperationType {
+enum OperationType {
     QUERY,
     INSERTION,
     UPDATE,
@@ -43,15 +45,15 @@ export enum OperationType {
     AUTHENTICATION,
     BATCH,
 }
-export enum ParserError {
+enum ParserError {
     PARSING_STRING,
     EMPTY_DOCUMENT,
 }
-export enum PicasaWebVisibility {
+enum PicasaWebVisibility {
     PUBLIC,
     PRIVATE,
 }
-export enum ServiceError {
+enum ServiceError {
     UNAVAILABLE,
     PROTOCOL_ERROR,
     ENTRY_ALREADYSERTED,
@@ -65,28 +67,28 @@ export enum ServiceError {
     WITH_BATCH_OPERATION,
     API_QUOTA_EXCEEDED,
 }
-export enum YouTubeAge {
+enum YouTubeAge {
     ALL_TIME,
     TODAY,
     THIS_WEEK,
     THIS_MONTH,
 }
-export enum YouTubePermission {
+enum YouTubePermission {
     ALLOWED,
     DENIED,
     MODERATED,
 }
-export enum YouTubeSafeSearch {
+enum YouTubeSafeSearch {
     NONE,
     MODERATE,
     STRICT,
 }
-export enum YouTubeServiceError {
+enum YouTubeServiceError {
     API_QUOTA_EXCEEDED,
     ENTRY_QUOTA_EXCEEDED,
     CHANNEL_REQUIRED,
 }
-export enum YouTubeStandardFeedType {
+enum YouTubeStandardFeedType {
     FEED,
 }
 export const ACCESS_ROLE_NONE: string
@@ -261,20 +263,20 @@ export const YOUTUBE_LICENSE_CC: string
 export const YOUTUBE_LICENSE_STANDARD: string
 export const YOUTUBE_RATING_TYPE_MPAA: string
 export const YOUTUBE_RATING_TYPE_V_CHIP: string
-export function color_from_hexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
-export function documents_service_error_quark(): GLib.Quark
-export function parser_error_quark(): GLib.Quark
-export function service_error_quark(): GLib.Quark
-export function youtube_service_error_quark(): GLib.Quark
-export interface BatchOperationCallback {
+function color_from_hexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
+function documents_service_error_quark(): GLib.Quark
+function parser_error_quark(): GLib.Quark
+function service_error_quark(): GLib.Quark
+function youtube_service_error_quark(): GLib.Quark
+interface BatchOperationCallback {
     (operation_id: number, operation_type: BatchOperationType, entry: Entry, error: GLib.Error): void
 }
-export interface QueryProgressCallback {
+interface QueryProgressCallback {
     (entry: Entry, entry_key: number, entry_count: number): void
 }
 export interface AccessHandler_ConstructProps extends Entry_ConstructProps {
 }
-export class AccessHandler {
+class AccessHandler {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -390,7 +392,7 @@ export class AccessHandler {
     _init (config?: AccessHandler_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Authorizer {
+class Authorizer {
     /* Methods of GData-0.0.GData.Authorizer */
     is_authorized_for_domain(domain: AuthorizationDomain): boolean
     process_request(domain: AuthorizationDomain | null, message: Soup.Message): void
@@ -407,7 +409,7 @@ export class Authorizer {
 }
 export interface Batchable_ConstructProps extends Service_ConstructProps {
 }
-export class Batchable {
+class Batchable {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -501,7 +503,7 @@ export class Batchable {
 }
 export interface Commentable_ConstructProps extends Entry_ConstructProps {
 }
-export class Commentable {
+class Commentable {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -626,7 +628,7 @@ export class Commentable {
     _init (config?: Commentable_ConstructProps): void
     static $gtype: GObject.Type
 }
-export class Comparable {
+class Comparable {
     /* Methods of GData-0.0.GData.Comparable */
     compare(other?: Comparable | null): number
     /* Virtual methods of GData-0.0.GData.Comparable */
@@ -635,7 +637,7 @@ export class Comparable {
 }
 export interface APPCategories_ConstructProps extends Parsable_ConstructProps {
 }
-export class APPCategories {
+class APPCategories {
     /* Properties of GData-0.0.GData.APPCategories */
     readonly is_fixed: boolean
     /* Fields of GData-0.0.GData.Parsable */
@@ -709,7 +711,7 @@ export interface AccessRule_ConstructProps extends Entry_ConstructProps {
     scope_type?: string
     scope_value?: string
 }
-export class AccessRule {
+class AccessRule {
     /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
@@ -851,7 +853,7 @@ export interface Author_ConstructProps extends Parsable_ConstructProps {
     name?: string
     uri?: string
 }
-export class Author {
+class Author {
     /* Properties of GData-0.0.GData.Author */
     email_address: string
     name: string
@@ -941,7 +943,7 @@ export interface AuthorizationDomain_ConstructProps extends GObject.Object_Const
     scope?: string
     service_name?: string
 }
-export class AuthorizationDomain {
+class AuthorizationDomain {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.AuthorizationDomain */
@@ -995,7 +997,7 @@ export interface BatchOperation_ConstructProps extends GObject.Object_ConstructP
     feed_uri?: string
     service?: Service
 }
-export class BatchOperation {
+class BatchOperation {
     /* Fields of GData-0.0.GData.BatchOperation */
     parent: GObject.Object
     priv: BatchOperationPrivate
@@ -1057,7 +1059,7 @@ export class BatchOperation {
 }
 export interface CalendarAccessRule_ConstructProps extends AccessRule_ConstructProps {
 }
-export class CalendarAccessRule {
+class CalendarAccessRule {
     /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
@@ -1201,7 +1203,7 @@ export interface CalendarCalendar_ConstructProps extends Entry_ConstructProps {
     is_selected?: boolean
     timezone?: string
 }
-export class CalendarCalendar {
+class CalendarCalendar {
     /* Properties of GData-0.0.GData.CalendarCalendar */
     readonly access_level: string
     color: Color
@@ -1355,7 +1357,7 @@ export interface CalendarEvent_ConstructProps extends Entry_ConstructProps {
     uid?: string
     visibility?: string
 }
-export class CalendarEvent {
+class CalendarEvent {
     /* Properties of GData-0.0.GData.CalendarEvent */
     anyone_can_add_self: boolean
     readonly edited: number
@@ -1541,7 +1543,7 @@ export class CalendarEvent {
 }
 export interface CalendarFeed_ConstructProps extends Feed_ConstructProps {
 }
-export class CalendarFeed {
+class CalendarFeed {
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -1674,7 +1676,7 @@ export interface CalendarQuery_ConstructProps extends Query_ConstructProps {
     start_min?: number
     timezone?: string
 }
-export class CalendarQuery {
+class CalendarQuery {
     /* Properties of GData-0.0.GData.CalendarQuery */
     future_events: boolean
     max_attendees: number
@@ -1830,7 +1832,7 @@ export class CalendarQuery {
 }
 export interface CalendarService_ConstructProps extends Service_ConstructProps {
 }
-export class CalendarService {
+class CalendarService {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -1940,7 +1942,7 @@ export interface Category_ConstructProps extends Parsable_ConstructProps {
     scheme?: string
     term?: string
 }
-export class Category {
+class Category {
     /* Properties of GData-0.0.GData.Category */
     label: string
     scheme: string
@@ -2028,7 +2030,7 @@ export class Category {
 }
 export interface Comment_ConstructProps extends Entry_ConstructProps {
 }
-export class Comment {
+class Comment {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -2141,7 +2143,7 @@ export class Comment {
 }
 export interface DocumentsAccessRule_ConstructProps extends AccessRule_ConstructProps {
 }
-export class DocumentsAccessRule {
+class DocumentsAccessRule {
     /* Properties of GData-0.0.GData.AccessRule */
     readonly edited: number
     readonly key: string
@@ -2281,7 +2283,7 @@ export class DocumentsAccessRule {
 }
 export interface DocumentsDocument_ConstructProps extends DocumentsEntry_ConstructProps {
 }
-export class DocumentsDocument {
+class DocumentsDocument {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -2445,7 +2447,7 @@ export class DocumentsDocument {
 }
 export interface DocumentsDrawing_ConstructProps extends DocumentsDocument_ConstructProps {
 }
-export class DocumentsDrawing {
+class DocumentsDrawing {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -2609,7 +2611,7 @@ export class DocumentsDrawing {
 }
 export interface DocumentsDrive_ConstructProps extends Entry_ConstructProps {
 }
-export class DocumentsDrive {
+class DocumentsDrive {
     /* Properties of GData-0.0.GData.DocumentsDrive */
     readonly name: string
     /* Properties of GData-0.0.GData.Entry */
@@ -2730,7 +2732,7 @@ export class DocumentsDrive {
 }
 export interface DocumentsDriveQuery_ConstructProps extends Query_ConstructProps {
 }
-export class DocumentsDriveQuery {
+class DocumentsDriveQuery {
     /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
@@ -2848,7 +2850,7 @@ export interface DocumentsEntry_ConstructProps extends Entry_ConstructProps {
     is_deleted?: boolean
     writers_can_invite?: boolean
 }
-export class DocumentsEntry {
+class DocumentsEntry {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -3006,7 +3008,7 @@ export class DocumentsEntry {
 }
 export interface DocumentsFeed_ConstructProps extends Feed_ConstructProps {
 }
-export class DocumentsFeed {
+class DocumentsFeed {
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -3131,7 +3133,7 @@ export class DocumentsFeed {
 }
 export interface DocumentsFolder_ConstructProps extends DocumentsEntry_ConstructProps {
 }
-export class DocumentsFolder {
+class DocumentsFolder {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -3291,7 +3293,7 @@ export class DocumentsFolder {
 }
 export interface DocumentsMetadata_ConstructProps extends Parsable_ConstructProps {
 }
-export class DocumentsMetadata {
+class DocumentsMetadata {
     /* Properties of GData-0.0.GData.DocumentsMetadata */
     readonly quota_total: number
     readonly quota_used: number
@@ -3366,7 +3368,7 @@ export class DocumentsMetadata {
 }
 export interface DocumentsPdf_ConstructProps extends DocumentsDocument_ConstructProps {
 }
-export class DocumentsPdf {
+class DocumentsPdf {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -3530,7 +3532,7 @@ export class DocumentsPdf {
 }
 export interface DocumentsPresentation_ConstructProps extends DocumentsDocument_ConstructProps {
 }
-export class DocumentsPresentation {
+class DocumentsPresentation {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -3698,7 +3700,7 @@ export interface DocumentsProperty_ConstructProps extends Parsable_ConstructProp
     value?: string
     visibility?: string
 }
-export class DocumentsProperty {
+class DocumentsProperty {
     /* Properties of GData-0.0.GData.DocumentsProperty */
     key: string
     value: string
@@ -3791,7 +3793,7 @@ export interface DocumentsQuery_ConstructProps extends Query_ConstructProps {
     show_folders?: boolean
     title?: string
 }
-export class DocumentsQuery {
+class DocumentsQuery {
     /* Properties of GData-0.0.GData.DocumentsQuery */
     exact_title: boolean
     folder_id: string
@@ -3934,7 +3936,7 @@ export class DocumentsQuery {
 }
 export interface DocumentsService_ConstructProps extends Service_ConstructProps {
 }
-export class DocumentsService {
+class DocumentsService {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -4055,7 +4057,7 @@ export class DocumentsService {
 }
 export interface DocumentsSpreadsheet_ConstructProps extends DocumentsDocument_ConstructProps {
 }
-export class DocumentsSpreadsheet {
+class DocumentsSpreadsheet {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -4221,7 +4223,7 @@ export class DocumentsSpreadsheet {
 }
 export interface DocumentsText_ConstructProps extends DocumentsDocument_ConstructProps {
 }
-export class DocumentsText {
+class DocumentsText {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
     readonly file_size: number
@@ -4387,7 +4389,7 @@ export interface DocumentsUploadQuery_ConstructProps extends GObject.Object_Cons
     convert?: boolean
     folder?: DocumentsFolder
 }
-export class DocumentsUploadQuery {
+class DocumentsUploadQuery {
     /* Properties of GData-0.0.GData.DocumentsUploadQuery */
     convert: boolean
     folder: DocumentsFolder
@@ -4457,7 +4459,7 @@ export interface DownloadStream_ConstructProps extends Gio.InputStream_Construct
     download_uri?: string
     service?: Service
 }
-export class DownloadStream {
+class DownloadStream {
     /* Properties of GData-0.0.GData.DownloadStream */
     readonly content_length: number
     readonly content_type: string
@@ -4575,7 +4577,7 @@ export interface Entry_ConstructProps extends Parsable_ConstructProps {
     summary?: string
     title?: string
 }
-export class Entry {
+class Entry {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -4690,7 +4692,7 @@ export class Entry {
 }
 export interface Feed_ConstructProps extends Parsable_ConstructProps {
 }
-export class Feed {
+class Feed {
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -4819,7 +4821,7 @@ export interface GContactCalendar_ConstructProps extends Parsable_ConstructProps
     relation_type?: string
     uri?: string
 }
-export class GContactCalendar {
+class GContactCalendar {
     /* Properties of GData-0.0.GData.GContactCalendar */
     is_primary: boolean
     label: string
@@ -4914,7 +4916,7 @@ export interface GContactEvent_ConstructProps extends Parsable_ConstructProps {
     label?: string
     relation_type?: string
 }
-export class GContactEvent {
+class GContactEvent {
     /* Properties of GData-0.0.GData.GContactEvent */
     date: GLib.Date
     label: string
@@ -5001,7 +5003,7 @@ export interface GContactExternalID_ConstructProps extends Parsable_ConstructPro
     relation_type?: string
     value?: string
 }
-export class GContactExternalID {
+class GContactExternalID {
     /* Properties of GData-0.0.GData.GContactExternalID */
     label: string
     relation_type: string
@@ -5091,7 +5093,7 @@ export interface GContactJot_ConstructProps extends Parsable_ConstructProps {
     content?: string
     relation_type?: string
 }
-export class GContactJot {
+class GContactJot {
     /* Properties of GData-0.0.GData.GContactJot */
     content: string
     relation_type: string
@@ -5172,7 +5174,7 @@ export interface GContactLanguage_ConstructProps extends Parsable_ConstructProps
     code?: string
     label?: string
 }
-export class GContactLanguage {
+class GContactLanguage {
     /* Properties of GData-0.0.GData.GContactLanguage */
     code: string
     label: string
@@ -5258,7 +5260,7 @@ export interface GContactRelation_ConstructProps extends Parsable_ConstructProps
     name?: string
     relation_type?: string
 }
-export class GContactRelation {
+class GContactRelation {
     /* Properties of GData-0.0.GData.GContactRelation */
     label: string
     name: string
@@ -5346,7 +5348,7 @@ export interface GContactWebsite_ConstructProps extends Parsable_ConstructProps 
     relation_type?: string
     uri?: string
 }
-export class GContactWebsite {
+class GContactWebsite {
     /* Properties of GData-0.0.GData.GContactWebsite */
     is_primary: boolean
     label: string
@@ -5443,7 +5445,7 @@ export interface GDEmailAddress_ConstructProps extends Parsable_ConstructProps {
     label?: string
     relation_type?: string
 }
-export class GDEmailAddress {
+class GDEmailAddress {
     /* Properties of GData-0.0.GData.GDEmailAddress */
     address: string
     display_name: string
@@ -5545,7 +5547,7 @@ export interface GDIMAddress_ConstructProps extends Parsable_ConstructProps {
     protocol?: string
     relation_type?: string
 }
-export class GDIMAddress {
+class GDIMAddress {
     /* Properties of GData-0.0.GData.GDIMAddress */
     address: string
     is_primary: boolean
@@ -5648,7 +5650,7 @@ export interface GDName_ConstructProps extends Parsable_ConstructProps {
     prefix?: string
     suffix?: string
 }
-export class GDName {
+class GDName {
     /* Properties of GData-0.0.GData.GDName */
     additional_name: string
     family_name: string
@@ -5760,7 +5762,7 @@ export interface GDOrganization_ConstructProps extends Parsable_ConstructProps {
     symbol?: string
     title?: string
 }
-export class GDOrganization {
+class GDOrganization {
     /* Properties of GData-0.0.GData.GDOrganization */
     department: string
     is_primary: boolean
@@ -5882,7 +5884,7 @@ export interface GDPhoneNumber_ConstructProps extends Parsable_ConstructProps {
     relation_type?: string
     uri?: string
 }
-export class GDPhoneNumber {
+class GDPhoneNumber {
     /* Properties of GData-0.0.GData.GDPhoneNumber */
     is_primary: boolean
     label: string
@@ -5994,7 +5996,7 @@ export interface GDPostalAddress_ConstructProps extends Parsable_ConstructProps 
     subregion?: string
     usage?: string
 }
-export class GDPostalAddress {
+class GDPostalAddress {
     /* Properties of GData-0.0.GData.GDPostalAddress */
     address: string
     agent: string
@@ -6153,7 +6155,7 @@ export interface GDReminder_ConstructProps extends Parsable_ConstructProps {
     method?: string
     relative_time?: number
 }
-export class GDReminder {
+class GDReminder {
     /* Properties of GData-0.0.GData.GDReminder */
     absolute_time: number
     readonly is_absolute_time: boolean
@@ -6248,7 +6250,7 @@ export interface GDWhen_ConstructProps extends Parsable_ConstructProps {
     start_time?: number
     value_string?: string
 }
-export class GDWhen {
+class GDWhen {
     /* Properties of GData-0.0.GData.GDWhen */
     end_time: number
     is_date: boolean
@@ -6345,7 +6347,7 @@ export interface GDWhere_ConstructProps extends Parsable_ConstructProps {
     relation_type?: string
     value_string?: string
 }
-export class GDWhere {
+class GDWhere {
     /* Properties of GData-0.0.GData.GDWhere */
     label: string
     relation_type: string
@@ -6436,7 +6438,7 @@ export interface GDWho_ConstructProps extends Parsable_ConstructProps {
     relation_type?: string
     value_string?: string
 }
-export class GDWho {
+class GDWho {
     /* Properties of GData-0.0.GData.GDWho */
     email_address: string
     relation_type: string
@@ -6524,7 +6526,7 @@ export class GDWho {
 }
 export interface Generator_ConstructProps extends Parsable_ConstructProps {
 }
-export class Generator {
+class Generator {
     /* Properties of GData-0.0.GData.Generator */
     readonly name: string
     readonly uri: string
@@ -6608,7 +6610,7 @@ export class Generator {
 export interface GoaAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
     goa_object?: Goa.Object
 }
-export class GoaAuthorizer {
+class GoaAuthorizer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.GoaAuthorizer */
@@ -6678,7 +6680,7 @@ export interface Link_ConstructProps extends Parsable_ConstructProps {
     title?: string
     uri?: string
 }
-export class Link {
+class Link {
     /* Properties of GData-0.0.GData.Link */
     content_type: string
     language: string
@@ -6784,7 +6786,7 @@ export interface MediaCategory_ConstructProps extends Parsable_ConstructProps {
     label?: string
     scheme?: string
 }
-export class MediaCategory {
+class MediaCategory {
     /* Properties of GData-0.0.GData.MediaCategory */
     category: string
     label: string
@@ -6868,7 +6870,7 @@ export class MediaCategory {
 }
 export interface MediaContent_ConstructProps extends Parsable_ConstructProps {
 }
-export class MediaContent {
+class MediaContent {
     /* Properties of GData-0.0.GData.MediaContent */
     readonly content_type: string
     readonly duration: number
@@ -6970,7 +6972,7 @@ export class MediaContent {
 }
 export interface MediaCredit_ConstructProps extends Parsable_ConstructProps {
 }
-export class MediaCredit {
+class MediaCredit {
     /* Properties of GData-0.0.GData.MediaCredit */
     readonly credit: string
     readonly role: string
@@ -7049,7 +7051,7 @@ export class MediaCredit {
 }
 export interface MediaThumbnail_ConstructProps extends Parsable_ConstructProps {
 }
-export class MediaThumbnail {
+class MediaThumbnail {
     /* Properties of GData-0.0.GData.MediaThumbnail */
     readonly height: number
     readonly time: number
@@ -7140,7 +7142,7 @@ export interface OAuth2Authorizer_ConstructProps extends GObject.Object_Construc
     refresh_token?: string
     timeout?: number
 }
-export class OAuth2Authorizer {
+class OAuth2Authorizer {
     /* Properties of GData-0.0.GData.OAuth2Authorizer */
     locale: string
     proxy_resolver: Gio.ProxyResolver
@@ -7233,7 +7235,7 @@ export class OAuth2Authorizer {
 export interface Parsable_ConstructProps extends GObject.Object_ConstructProps {
     constructed_from_xml?: boolean
 }
-export class Parsable {
+class Parsable {
     /* Fields of GData-0.0.GData.Parsable */
     parent: GObject.Object
     priv: ParsablePrivate
@@ -7309,7 +7311,7 @@ export interface PicasaWebAlbum_ConstructProps extends Entry_ConstructProps {
     timestamp?: number
     visibility?: PicasaWebVisibility
 }
-export class PicasaWebAlbum {
+class PicasaWebAlbum {
     /* Properties of GData-0.0.GData.PicasaWebAlbum */
     readonly bytes_used: number
     readonly comment_count: number
@@ -7489,7 +7491,7 @@ export class PicasaWebAlbum {
 }
 export interface PicasaWebComment_ConstructProps extends Comment_ConstructProps {
 }
-export class PicasaWebComment {
+class PicasaWebComment {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -7605,7 +7607,7 @@ export class PicasaWebComment {
 }
 export interface PicasaWebFeed_ConstructProps extends Feed_ConstructProps {
 }
-export class PicasaWebFeed {
+class PicasaWebFeed {
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -7742,7 +7744,7 @@ export interface PicasaWebFile_ConstructProps extends Entry_ConstructProps {
     timestamp?: number
     version?: string
 }
-export class PicasaWebFile {
+class PicasaWebFile {
     /* Properties of GData-0.0.GData.PicasaWebFile */
     album_id: string
     caption: string
@@ -7988,7 +7990,7 @@ export interface PicasaWebQuery_ConstructProps extends Query_ConstructProps {
     thumbnail_size?: string
     visibility?: number
 }
-export class PicasaWebQuery {
+class PicasaWebQuery {
     /* Properties of GData-0.0.GData.PicasaWebQuery */
     image_size: string
     location: string
@@ -8132,7 +8134,7 @@ export class PicasaWebQuery {
 }
 export interface PicasaWebService_ConstructProps extends Service_ConstructProps {
 }
-export class PicasaWebService {
+class PicasaWebService {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -8240,7 +8242,7 @@ export class PicasaWebService {
 }
 export interface PicasaWebUser_ConstructProps extends Entry_ConstructProps {
 }
-export class PicasaWebUser {
+class PicasaWebUser {
     /* Properties of GData-0.0.GData.PicasaWebUser */
     readonly max_photos_per_album: number
     readonly nickname: string
@@ -8390,7 +8392,7 @@ export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     updated_max?: number
     updated_min?: number
 }
-export class Query {
+class Query {
     /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
@@ -8509,7 +8511,7 @@ export interface Service_ConstructProps extends GObject.Object_ConstructProps {
     proxy_resolver?: Gio.ProxyResolver
     timeout?: number
 }
-export class Service {
+class Service {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -8610,7 +8612,7 @@ export interface TasksQuery_ConstructProps extends Query_ConstructProps {
     show_deleted?: boolean
     show_hidden?: boolean
 }
-export class TasksQuery {
+class TasksQuery {
     /* Properties of GData-0.0.GData.TasksQuery */
     completed_max: number
     completed_min: number
@@ -8761,7 +8763,7 @@ export class TasksQuery {
 }
 export interface TasksService_ConstructProps extends Service_ConstructProps {
 }
-export class TasksService {
+class TasksService {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -8881,7 +8883,7 @@ export interface TasksTask_ConstructProps extends Entry_ConstructProps {
     position?: string
     status?: string
 }
-export class TasksTask {
+class TasksTask {
     /* Properties of GData-0.0.GData.TasksTask */
     completed: number
     due: number
@@ -9034,7 +9036,7 @@ export class TasksTask {
 }
 export interface TasksTasklist_ConstructProps extends Entry_ConstructProps {
 }
-export class TasksTasklist {
+class TasksTasklist {
     /* Properties of GData-0.0.GData.Entry */
     content: string
     content_uri: string
@@ -9159,7 +9161,7 @@ export interface UploadStream_ConstructProps extends Gio.OutputStream_ConstructP
     slug?: string
     upload_uri?: string
 }
-export class UploadStream {
+class UploadStream {
     /* Fields of GData-0.0.GData.UploadStream */
     parent: Gio.OutputStream
     priv: UploadStreamPrivate
@@ -9272,7 +9274,7 @@ export class UploadStream {
 }
 export interface YouTubeCategory_ConstructProps extends Category_ConstructProps {
 }
-export class YouTubeCategory {
+class YouTubeCategory {
     /* Properties of GData-0.0.GData.YouTubeCategory */
     readonly is_assignable: boolean
     readonly is_deprecated: boolean
@@ -9368,7 +9370,7 @@ export class YouTubeCategory {
 export interface YouTubeComment_ConstructProps extends Comment_ConstructProps {
     parent_comment_uri?: string
 }
-export class YouTubeComment {
+class YouTubeComment {
     /* Properties of GData-0.0.GData.YouTubeComment */
     parent_comment_uri: string
     /* Properties of GData-0.0.GData.Entry */
@@ -9491,7 +9493,7 @@ export class YouTubeComment {
 }
 export interface YouTubeFeed_ConstructProps extends Feed_ConstructProps {
 }
-export class YouTubeFeed {
+class YouTubeFeed {
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -9624,7 +9626,7 @@ export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     restriction?: string
     safe_search?: YouTubeSafeSearch
 }
-export class YouTubeQuery {
+class YouTubeQuery {
     /* Properties of GData-0.0.GData.YouTubeQuery */
     age: YouTubeAge
     latitude: number
@@ -9777,7 +9779,7 @@ export class YouTubeQuery {
 export interface YouTubeService_ConstructProps extends Service_ConstructProps {
     developer_key?: string
 }
-export class YouTubeService {
+class YouTubeService {
     /* Properties of GData-0.0.GData.Service */
     authorizer: Authorizer
     locale: string
@@ -9891,7 +9893,7 @@ export interface YouTubeState_ConstructProps extends Parsable_ConstructProps {
     name?: string
     reason_code?: string
 }
-export class YouTubeState {
+class YouTubeState {
     /* Fields of GData-0.0.GData.YouTubeState */
     parent: Parsable
     priv: YouTubeStatePrivate
@@ -9970,7 +9972,7 @@ export interface YouTubeVideo_ConstructProps extends Entry_ConstructProps {
     longitude?: number
     recorded?: number
 }
-export class YouTubeVideo {
+class YouTubeVideo {
     /* Properties of GData-0.0.GData.YouTubeVideo */
     aspect_ratio: string
     readonly average_rating: number
@@ -10184,38 +10186,38 @@ export class YouTubeVideo {
     static get_video_id_from_uri(video_uri: string): string
     static $gtype: GObject.Type
 }
-export abstract class APPCategoriesClass {
+abstract class APPCategoriesClass {
     static name: string
 }
-export class APPCategoriesPrivate {
+class APPCategoriesPrivate {
     static name: string
 }
-export abstract class AccessHandlerIface {
+abstract class AccessHandlerIface {
     /* Fields of GData-0.0.GData.AccessHandlerIface */
     parent: GObject.TypeInterface
     is_owner_rule: (rule: AccessRule) => boolean
     get_rules: (self: AccessHandler, service: Service, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null) => Feed
     static name: string
 }
-export abstract class AccessRuleClass {
+abstract class AccessRuleClass {
     static name: string
 }
-export class AccessRulePrivate {
+class AccessRulePrivate {
     static name: string
 }
-export abstract class AuthorClass {
+abstract class AuthorClass {
     static name: string
 }
-export class AuthorPrivate {
+class AuthorPrivate {
     static name: string
 }
-export abstract class AuthorizationDomainClass {
+abstract class AuthorizationDomainClass {
     static name: string
 }
-export class AuthorizationDomainPrivate {
+class AuthorizationDomainPrivate {
     static name: string
 }
-export abstract class AuthorizerInterface {
+abstract class AuthorizerInterface {
     /* Fields of GData-0.0.GData.AuthorizerInterface */
     parent: GObject.TypeInterface
     process_request: (self: Authorizer, domain: AuthorizationDomain | null, message: Soup.Message) => void
@@ -10225,57 +10227,57 @@ export abstract class AuthorizerInterface {
     refresh_authorization_finish: (self: Authorizer, async_result: Gio.AsyncResult) => boolean
     static name: string
 }
-export abstract class BatchOperationClass {
+abstract class BatchOperationClass {
     static name: string
 }
-export class BatchOperationPrivate {
+class BatchOperationPrivate {
     static name: string
 }
-export abstract class BatchableIface {
+abstract class BatchableIface {
     /* Fields of GData-0.0.GData.BatchableIface */
     is_supported: (operation_type: BatchOperationType) => boolean
     static name: string
 }
-export abstract class CalendarAccessRuleClass {
+abstract class CalendarAccessRuleClass {
     static name: string
 }
-export abstract class CalendarCalendarClass {
+abstract class CalendarCalendarClass {
     static name: string
 }
-export class CalendarCalendarPrivate {
+class CalendarCalendarPrivate {
     static name: string
 }
-export abstract class CalendarEventClass {
+abstract class CalendarEventClass {
     static name: string
 }
-export class CalendarEventPrivate {
+class CalendarEventPrivate {
     static name: string
 }
-export abstract class CalendarFeedClass {
+abstract class CalendarFeedClass {
     static name: string
 }
-export class CalendarFeedPrivate {
+class CalendarFeedPrivate {
     static name: string
 }
-export abstract class CalendarQueryClass {
+abstract class CalendarQueryClass {
     static name: string
 }
-export class CalendarQueryPrivate {
+class CalendarQueryPrivate {
     static name: string
 }
-export abstract class CalendarServiceClass {
+abstract class CalendarServiceClass {
     static name: string
 }
-export class CalendarServicePrivate {
+class CalendarServicePrivate {
     static name: string
 }
-export abstract class CategoryClass {
+abstract class CategoryClass {
     static name: string
 }
-export class CategoryPrivate {
+class CategoryPrivate {
     static name: string
 }
-export class Color {
+class Color {
     /* Fields of GData-0.0.GData.Color */
     red: number
     green: number
@@ -10286,13 +10288,13 @@ export class Color {
     /* Static methods and pseudo-constructors */
     static from_hexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
 }
-export abstract class CommentClass {
+abstract class CommentClass {
     static name: string
 }
-export class CommentPrivate {
+class CommentPrivate {
     static name: string
 }
-export abstract class CommentableInterface {
+abstract class CommentableInterface {
     /* Fields of GData-0.0.GData.CommentableInterface */
     parent: GObject.TypeInterface
     comment_type: GObject.Type
@@ -10301,278 +10303,278 @@ export abstract class CommentableInterface {
     is_comment_deletable: (self: Commentable, comment: Comment) => boolean
     static name: string
 }
-export abstract class ComparableIface {
+abstract class ComparableIface {
     /* Fields of GData-0.0.GData.ComparableIface */
     parent: GObject.TypeInterface
     compare_with: (self: Comparable, other: Comparable) => number
     static name: string
 }
-export abstract class DocumentsAccessRuleClass {
+abstract class DocumentsAccessRuleClass {
     static name: string
 }
-export abstract class DocumentsDocumentClass {
+abstract class DocumentsDocumentClass {
     static name: string
 }
-export class DocumentsDocumentPrivate {
+class DocumentsDocumentPrivate {
     static name: string
 }
-export abstract class DocumentsDrawingClass {
+abstract class DocumentsDrawingClass {
     static name: string
 }
-export class DocumentsDrawingPrivate {
+class DocumentsDrawingPrivate {
     static name: string
 }
-export abstract class DocumentsDriveClass {
+abstract class DocumentsDriveClass {
     static name: string
 }
-export abstract class DocumentsDriveQueryClass {
+abstract class DocumentsDriveQueryClass {
     static name: string
 }
-export abstract class DocumentsEntryClass {
+abstract class DocumentsEntryClass {
     static name: string
 }
-export class DocumentsEntryPrivate {
+class DocumentsEntryPrivate {
     static name: string
 }
-export abstract class DocumentsFeedClass {
+abstract class DocumentsFeedClass {
     static name: string
 }
-export class DocumentsFeedPrivate {
+class DocumentsFeedPrivate {
     static name: string
 }
-export abstract class DocumentsFolderClass {
+abstract class DocumentsFolderClass {
     static name: string
 }
-export class DocumentsFolderPrivate {
+class DocumentsFolderPrivate {
     static name: string
 }
-export abstract class DocumentsMetadataClass {
+abstract class DocumentsMetadataClass {
     static name: string
 }
-export class DocumentsMetadataPrivate {
+class DocumentsMetadataPrivate {
     static name: string
 }
-export abstract class DocumentsPdfClass {
+abstract class DocumentsPdfClass {
     static name: string
 }
-export class DocumentsPdfPrivate {
+class DocumentsPdfPrivate {
     static name: string
 }
-export abstract class DocumentsPresentationClass {
+abstract class DocumentsPresentationClass {
     static name: string
 }
-export class DocumentsPresentationPrivate {
+class DocumentsPresentationPrivate {
     static name: string
 }
-export abstract class DocumentsPropertyClass {
+abstract class DocumentsPropertyClass {
     static name: string
 }
-export class DocumentsPropertyPrivate {
+class DocumentsPropertyPrivate {
     static name: string
 }
-export abstract class DocumentsQueryClass {
+abstract class DocumentsQueryClass {
     static name: string
 }
-export class DocumentsQueryPrivate {
+class DocumentsQueryPrivate {
     static name: string
 }
-export abstract class DocumentsServiceClass {
+abstract class DocumentsServiceClass {
     static name: string
 }
-export class DocumentsServicePrivate {
+class DocumentsServicePrivate {
     static name: string
 }
-export abstract class DocumentsSpreadsheetClass {
+abstract class DocumentsSpreadsheetClass {
     static name: string
 }
-export class DocumentsSpreadsheetPrivate {
+class DocumentsSpreadsheetPrivate {
     static name: string
 }
-export abstract class DocumentsTextClass {
+abstract class DocumentsTextClass {
     static name: string
 }
-export class DocumentsTextPrivate {
+class DocumentsTextPrivate {
     static name: string
 }
-export abstract class DocumentsUploadQueryClass {
+abstract class DocumentsUploadQueryClass {
     static name: string
 }
-export class DocumentsUploadQueryPrivate {
+class DocumentsUploadQueryPrivate {
     static name: string
 }
-export abstract class DownloadStreamClass {
+abstract class DownloadStreamClass {
     static name: string
 }
-export class DownloadStreamPrivate {
+class DownloadStreamPrivate {
     static name: string
 }
-export abstract class EntryClass {
+abstract class EntryClass {
     /* Fields of GData-0.0.GData.EntryClass */
     parent: ParsableClass
     get_entry_uri: (id: string) => string
     kind_term: string
     static name: string
 }
-export class EntryPrivate {
+class EntryPrivate {
     static name: string
 }
-export abstract class FeedClass {
+abstract class FeedClass {
     static name: string
 }
-export class FeedPrivate {
+class FeedPrivate {
     static name: string
 }
-export abstract class GContactCalendarClass {
+abstract class GContactCalendarClass {
     static name: string
 }
-export class GContactCalendarPrivate {
+class GContactCalendarPrivate {
     static name: string
 }
-export abstract class GContactEventClass {
+abstract class GContactEventClass {
     static name: string
 }
-export class GContactEventPrivate {
+class GContactEventPrivate {
     static name: string
 }
-export abstract class GContactExternalIDClass {
+abstract class GContactExternalIDClass {
     static name: string
 }
-export class GContactExternalIDPrivate {
+class GContactExternalIDPrivate {
     static name: string
 }
-export abstract class GContactJotClass {
+abstract class GContactJotClass {
     static name: string
 }
-export class GContactJotPrivate {
+class GContactJotPrivate {
     static name: string
 }
-export abstract class GContactLanguageClass {
+abstract class GContactLanguageClass {
     static name: string
 }
-export class GContactLanguagePrivate {
+class GContactLanguagePrivate {
     static name: string
 }
-export abstract class GContactRelationClass {
+abstract class GContactRelationClass {
     static name: string
 }
-export class GContactRelationPrivate {
+class GContactRelationPrivate {
     static name: string
 }
-export abstract class GContactWebsiteClass {
+abstract class GContactWebsiteClass {
     static name: string
 }
-export class GContactWebsitePrivate {
+class GContactWebsitePrivate {
     static name: string
 }
-export abstract class GDEmailAddressClass {
+abstract class GDEmailAddressClass {
     static name: string
 }
-export class GDEmailAddressPrivate {
+class GDEmailAddressPrivate {
     static name: string
 }
-export abstract class GDIMAddressClass {
+abstract class GDIMAddressClass {
     static name: string
 }
-export class GDIMAddressPrivate {
+class GDIMAddressPrivate {
     static name: string
 }
-export abstract class GDNameClass {
+abstract class GDNameClass {
     static name: string
 }
-export class GDNamePrivate {
+class GDNamePrivate {
     static name: string
 }
-export abstract class GDOrganizationClass {
+abstract class GDOrganizationClass {
     static name: string
 }
-export class GDOrganizationPrivate {
+class GDOrganizationPrivate {
     static name: string
 }
-export abstract class GDPhoneNumberClass {
+abstract class GDPhoneNumberClass {
     static name: string
 }
-export class GDPhoneNumberPrivate {
+class GDPhoneNumberPrivate {
     static name: string
 }
-export abstract class GDPostalAddressClass {
+abstract class GDPostalAddressClass {
     static name: string
 }
-export class GDPostalAddressPrivate {
+class GDPostalAddressPrivate {
     static name: string
 }
-export abstract class GDReminderClass {
+abstract class GDReminderClass {
     static name: string
 }
-export class GDReminderPrivate {
+class GDReminderPrivate {
     static name: string
 }
-export abstract class GDWhenClass {
+abstract class GDWhenClass {
     static name: string
 }
-export class GDWhenPrivate {
+class GDWhenPrivate {
     static name: string
 }
-export abstract class GDWhereClass {
+abstract class GDWhereClass {
     static name: string
 }
-export class GDWherePrivate {
+class GDWherePrivate {
     static name: string
 }
-export abstract class GDWhoClass {
+abstract class GDWhoClass {
     static name: string
 }
-export class GDWhoPrivate {
+class GDWhoPrivate {
     static name: string
 }
-export abstract class GeneratorClass {
+abstract class GeneratorClass {
     static name: string
 }
-export class GeneratorPrivate {
+class GeneratorPrivate {
     static name: string
 }
-export abstract class GoaAuthorizerClass {
+abstract class GoaAuthorizerClass {
     static name: string
 }
-export class GoaAuthorizerPrivate {
+class GoaAuthorizerPrivate {
     static name: string
 }
-export abstract class LinkClass {
+abstract class LinkClass {
     static name: string
 }
-export class LinkPrivate {
+class LinkPrivate {
     static name: string
 }
-export abstract class MediaCategoryClass {
+abstract class MediaCategoryClass {
     static name: string
 }
-export class MediaCategoryPrivate {
+class MediaCategoryPrivate {
     static name: string
 }
-export abstract class MediaContentClass {
+abstract class MediaContentClass {
     static name: string
 }
-export class MediaContentPrivate {
+class MediaContentPrivate {
     static name: string
 }
-export abstract class MediaCreditClass {
+abstract class MediaCreditClass {
     static name: string
 }
-export class MediaCreditPrivate {
+class MediaCreditPrivate {
     static name: string
 }
-export abstract class MediaThumbnailClass {
+abstract class MediaThumbnailClass {
     static name: string
 }
-export class MediaThumbnailPrivate {
+class MediaThumbnailPrivate {
     static name: string
 }
-export abstract class OAuth2AuthorizerClass {
+abstract class OAuth2AuthorizerClass {
     static name: string
 }
-export class OAuth2AuthorizerPrivate {
+class OAuth2AuthorizerPrivate {
     static name: string
 }
-export abstract class ParsableClass {
+abstract class ParsableClass {
     /* Fields of GData-0.0.GData.ParsableClass */
     parent: GObject.ObjectClass
     pre_parse_xml: (parsable: Parsable, doc: libxml2.Doc, root_node: libxml2.Node) => boolean
@@ -10589,54 +10591,54 @@ export abstract class ParsableClass {
     element_namespace: string
     static name: string
 }
-export class ParsablePrivate {
+class ParsablePrivate {
     static name: string
 }
-export abstract class PicasaWebAlbumClass {
+abstract class PicasaWebAlbumClass {
     static name: string
 }
-export class PicasaWebAlbumPrivate {
+class PicasaWebAlbumPrivate {
     static name: string
 }
-export abstract class PicasaWebCommentClass {
+abstract class PicasaWebCommentClass {
     static name: string
 }
-export class PicasaWebCommentPrivate {
+class PicasaWebCommentPrivate {
     static name: string
 }
-export abstract class PicasaWebFeedClass {
+abstract class PicasaWebFeedClass {
     static name: string
 }
-export abstract class PicasaWebFileClass {
+abstract class PicasaWebFileClass {
     static name: string
 }
-export class PicasaWebFilePrivate {
+class PicasaWebFilePrivate {
     static name: string
 }
-export abstract class PicasaWebQueryClass {
+abstract class PicasaWebQueryClass {
     static name: string
 }
-export class PicasaWebQueryPrivate {
+class PicasaWebQueryPrivate {
     static name: string
 }
-export abstract class PicasaWebServiceClass {
+abstract class PicasaWebServiceClass {
     static name: string
 }
-export abstract class PicasaWebUserClass {
+abstract class PicasaWebUserClass {
     static name: string
 }
-export class PicasaWebUserPrivate {
+class PicasaWebUserPrivate {
     static name: string
 }
-export abstract class QueryClass {
+abstract class QueryClass {
     /* Fields of GData-0.0.GData.QueryClass */
     get_query_uri: (self: Query, feed_uri: string, query_uri: GLib.String, params_started: boolean) => void
     static name: string
 }
-export class QueryPrivate {
+class QueryPrivate {
     static name: string
 }
-export abstract class ServiceClass {
+abstract class ServiceClass {
     /* Fields of GData-0.0.GData.ServiceClass */
     parent: GObject.ObjectClass
     api_version: string
@@ -10645,72 +10647,74 @@ export abstract class ServiceClass {
     parse_error_response: (self: Service, operation_type: OperationType, status: number, reason_phrase: string, response_body: string, length: number) => void
     static name: string
 }
-export class ServicePrivate {
+class ServicePrivate {
     static name: string
 }
-export abstract class TasksQueryClass {
+abstract class TasksQueryClass {
     static name: string
 }
-export class TasksQueryPrivate {
+class TasksQueryPrivate {
     static name: string
 }
-export abstract class TasksServiceClass {
+abstract class TasksServiceClass {
     static name: string
 }
-export abstract class TasksTaskClass {
+abstract class TasksTaskClass {
     static name: string
 }
-export class TasksTaskPrivate {
+class TasksTaskPrivate {
     static name: string
 }
-export abstract class TasksTasklistClass {
+abstract class TasksTasklistClass {
     static name: string
 }
-export abstract class UploadStreamClass {
+abstract class UploadStreamClass {
     static name: string
 }
-export class UploadStreamPrivate {
+class UploadStreamPrivate {
     static name: string
 }
-export abstract class YouTubeCategoryClass {
+abstract class YouTubeCategoryClass {
     static name: string
 }
-export class YouTubeCategoryPrivate {
+class YouTubeCategoryPrivate {
     static name: string
 }
-export abstract class YouTubeCommentClass {
+abstract class YouTubeCommentClass {
     static name: string
 }
-export class YouTubeCommentPrivate {
+class YouTubeCommentPrivate {
     static name: string
 }
-export abstract class YouTubeFeedClass {
+abstract class YouTubeFeedClass {
     static name: string
 }
-export class YouTubeFeedPrivate {
+class YouTubeFeedPrivate {
     static name: string
 }
-export abstract class YouTubeQueryClass {
+abstract class YouTubeQueryClass {
     static name: string
 }
-export class YouTubeQueryPrivate {
+class YouTubeQueryPrivate {
     static name: string
 }
-export abstract class YouTubeServiceClass {
+abstract class YouTubeServiceClass {
     static name: string
 }
-export class YouTubeServicePrivate {
+class YouTubeServicePrivate {
     static name: string
 }
-export abstract class YouTubeStateClass {
+abstract class YouTubeStateClass {
     static name: string
 }
-export class YouTubeStatePrivate {
+class YouTubeStatePrivate {
     static name: string
 }
-export abstract class YouTubeVideoClass {
+abstract class YouTubeVideoClass {
     static name: string
 }
-export class YouTubeVideoPrivate {
+class YouTubeVideoPrivate {
     static name: string
 }
+}
+export default GData

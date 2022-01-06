@@ -17,7 +17,7 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 import type { Epc } from './Epc-1.0';
 
-export declare namespace EpcUi {
+declare namespace EpcUi {
 
 export interface PasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps {
     anonymous?: boolean
@@ -26,7 +26,7 @@ export interface PasswordDialog_ConstructProps extends Gtk.Dialog_ConstructProps
     realm?: string
     username?: string
 }
-export class PasswordDialog {
+class PasswordDialog {
     /* Properties of EpcUi-1.0.EpcUi.PasswordDialog */
     anonymous: boolean
     anonymousAllowed: boolean
@@ -1396,7 +1396,7 @@ export interface ProgressWindow_ConstructProps extends Gtk.Window_ConstructProps
     progress?: number
     title?: string
 }
-export class ProgressWindow {
+class ProgressWindow {
     /* Properties of EpcUi-1.0.EpcUi.ProgressWindow */
     message: string
     progress: number
@@ -2710,16 +2710,17 @@ export class ProgressWindow {
     static install(parent: Gtk.Window): void
     static $gtype: GObject.Type
 }
-export abstract class PasswordDialogClass {
+abstract class PasswordDialogClass {
     static name: string
 }
-export class PasswordDialogPrivate {
+class PasswordDialogPrivate {
     static name: string
 }
-export abstract class ProgressWindowClass {
+abstract class ProgressWindowClass {
     static name: string
 }
-export class ProgressWindowPrivate {
+class ProgressWindowPrivate {
     static name: string
 }
 }
+export default EpcUi

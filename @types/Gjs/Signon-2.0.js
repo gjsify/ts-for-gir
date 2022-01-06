@@ -1,2 +1,1 @@
-imports.gi.versions.Signon = '2.0'
-module.exports = imports.gi.Signon
+export {default as default} from 'gi://Signon?version=2.0';

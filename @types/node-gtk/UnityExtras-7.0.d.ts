@@ -8,18 +8,18 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { Unity } from './Unity-7.0';
 
-export declare namespace UnityExtras {
+declare namespace UnityExtras {
 
-export function showInFolder(uri: string, callback?: Gio.AsyncReadyCallback | null): void
-export function showInFolderFinish(res: Gio.AsyncResult): void
-export function dbusNameHasOwner(name: string): boolean
-export function dbusOwnName(name: string, scopeCreationCb: CreateScopeCallback): Gio.Application | null
-export interface CreateScopeCallback {
+function showInFolder(uri: string, callback?: Gio.AsyncReadyCallback | null): void
+function showInFolderFinish(res: Gio.AsyncResult): void
+function dbusNameHasOwner(name: string): boolean
+function dbusOwnName(name: string, scopeCreationCb: CreateScopeCallback): Gio.Application | null
+interface CreateScopeCallback {
     (): void
 }
 export interface PreviewPlayer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PreviewPlayer {
+class PreviewPlayer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of UnityExtras-7.0.UnityExtras.PreviewPlayer */
@@ -85,10 +85,11 @@ export class PreviewPlayer {
     static new(): PreviewPlayer
     static $gtype: GObject.Type
 }
-export abstract class PreviewPlayerClass {
+abstract class PreviewPlayerClass {
     static name: string
 }
-export class PreviewPlayerPrivate {
+class PreviewPlayerPrivate {
     static name: string
 }
 }
+export default UnityExtras

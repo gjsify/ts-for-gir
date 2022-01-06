@@ -3,11 +3,13 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
 
-export enum AccountsError {
+export namespace Accounts {
+
+enum AccountsError {
     DB,
     DISPOSED,
     DELETED,
@@ -16,14 +18,14 @@ export enum AccountsError {
     STORE_IN_PROGRESS,
     READONLY,
 }
-export enum Error {
+enum Error {
     DB,
     DISPOSED,
     DELETED,
     DB_LOCKED,
     ACCOUNT_NOT_FOUND,
 }
-export enum SettingSource {
+enum SettingSource {
     NONE,
     ACCOUNT,
     PROFILE,
@@ -31,15 +33,15 @@ export enum SettingSource {
 export const MANAGER_INTERFACE: string
 export const MANAGER_OBJECT_PATH: string
 export const MANAGER_SERVICE_NAME: string
-export function accounts_error_quark(): GLib.Quark
-export function errors_quark(): GLib.Quark
-export function provider_list_free(list: Provider[]): void
-export function service_list_free(list: Service[]): void
-export function service_type_list_free(list: ServiceType[]): void
-export interface AccountNotifyCb {
+function accounts_error_quark(): GLib.Quark
+function errors_quark(): GLib.Quark
+function provider_list_free(list: Provider[]): void
+function service_list_free(list: Service[]): void
+function service_type_list_free(list: ServiceType[]): void
+interface AccountNotifyCb {
     (account: Account, key: string): void
 }
-export interface AccountStoreCb {
+interface AccountStoreCb {
     (account: Account, error: GLib.Error): void
 }
 export interface Account_ConstructProps extends GObject.Object_ConstructProps {
@@ -48,7 +50,7 @@ export interface Account_ConstructProps extends GObject.Object_ConstructProps {
     manager?: Manager
     provider?: string
 }
-export class Account {
+class Account {
     /* Properties of Accounts-1.0.Accounts.Account */
     readonly display_name: string
     readonly enabled: boolean
@@ -154,7 +156,7 @@ export interface AccountService_ConstructProps extends GObject.Object_ConstructP
     account?: Account
     service?: Service
 }
-export class AccountService {
+class AccountService {
     /* Properties of Accounts-1.0.Accounts.AccountService */
     readonly enabled: boolean
     /* Fields of Accounts-1.0.Accounts.AccountService */
@@ -235,7 +237,7 @@ export interface Manager_ConstructProps extends GObject.Object_ConstructProps {
     service_type?: string
     use_dbus?: boolean
 }
-export class Manager {
+class Manager {
     /* Properties of Accounts-1.0.Accounts.Manager */
     abort_on_db_timeout: boolean
     db_timeout: number
@@ -337,23 +339,23 @@ export class Manager {
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
-export abstract class AccountClass {
+abstract class AccountClass {
     /* Fields of Accounts-1.0.Accounts.AccountClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AccountPrivate {
+class AccountPrivate {
     static name: string
 }
-export abstract class AccountServiceClass {
+abstract class AccountServiceClass {
     /* Fields of Accounts-1.0.Accounts.AccountServiceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class AccountServicePrivate {
+class AccountServicePrivate {
     static name: string
 }
-export class AccountSettingIter {
+class AccountSettingIter {
     /* Fields of Accounts-1.0.Accounts.AccountSettingIter */
     account: Account
     /* Methods of Accounts-1.0.Accounts.AccountSettingIter */
@@ -362,10 +364,10 @@ export class AccountSettingIter {
     next(): [ /* returnType */ boolean, /* key */ string, /* value */ any ]
     static name: string
 }
-export class AccountWatch {
+class AccountWatch {
     static name: string
 }
-export class Application {
+class Application {
     /* Methods of Accounts-1.0.Accounts.Application */
     get_description(): string
     get_desktop_app_info(): Gio.DesktopAppInfo
@@ -376,7 +378,7 @@ export class Application {
     unref(): void
     static name: string
 }
-export class AuthData {
+class AuthData {
     /* Methods of Accounts-1.0.Accounts.AuthData */
     get_credentials_id(): number
     get_login_parameters(extra_parameters?: GLib.Variant | null): GLib.Variant
@@ -388,16 +390,16 @@ export class AuthData {
     unref(): void
     static name: string
 }
-export abstract class ManagerClass {
+abstract class ManagerClass {
     /* Fields of Accounts-1.0.Accounts.ManagerClass */
     parent_class: GObject.ObjectClass
     account_deleted: (manager: Manager, id: AccountId) => void
     static name: string
 }
-export class ManagerPrivate {
+class ManagerPrivate {
     static name: string
 }
-export class Provider {
+class Provider {
     /* Methods of Accounts-1.0.Accounts.Provider */
     get_description(): string
     get_display_name(): string
@@ -415,7 +417,7 @@ export class Provider {
     /* Static methods and pseudo-constructors */
     static list_free(list: Provider[]): void
 }
-export class Service {
+class Service {
     /* Methods of Accounts-1.0.Accounts.Service */
     get_description(): string
     get_display_name(): string
@@ -433,7 +435,7 @@ export class Service {
     /* Static methods and pseudo-constructors */
     static list_free(list: Service[]): void
 }
-export class ServiceType {
+class ServiceType {
     /* Methods of Accounts-1.0.Accounts.ServiceType */
     get_description(): string
     get_display_name(): string
@@ -449,4 +451,6 @@ export class ServiceType {
     /* Static methods and pseudo-constructors */
     static list_free(list: ServiceType[]): void
 }
-export type AccountId = number
+type AccountId = number
+}
+export default Accounts

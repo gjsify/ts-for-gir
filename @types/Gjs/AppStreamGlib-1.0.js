@@ -1,2 +1,1 @@
-imports.gi.versions.AppStreamGlib = '1.0'
-module.exports = imports.gi.AppStreamGlib
+export {default as default} from 'gi://AppStreamGlib?version=1.0';

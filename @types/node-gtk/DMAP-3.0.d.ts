@@ -8,9 +8,9 @@ import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
-export declare namespace DMAP {
+declare namespace DMAP {
 
-export enum ConnectionState {
+enum ConnectionState {
     GET_INFO,
     LOGIN,
     GET_REVISION_NUMBER,
@@ -21,7 +21,7 @@ export enum ConnectionState {
     LOGOUT,
     DONE,
 }
-export enum ContentCode {
+enum ContentCode {
     CC_INVALID,
     RAW,
     CC_MDCL,
@@ -177,11 +177,11 @@ export enum ContentCode {
     CC_CAIV,
     CC_CAVC,
 }
-export enum MdnsBrowserError {
+enum MdnsBrowserError {
     NOT_RUNNING,
     FAILED,
 }
-export enum MdnsBrowserServiceType {
+enum MdnsBrowserServiceType {
     INVALID,
     DAAP,
     DPAP,
@@ -189,22 +189,22 @@ export enum MdnsBrowserServiceType {
     RAOP,
     LAST,
 }
-export enum MdnsBrowserTransportProtocol {
+enum MdnsBrowserTransportProtocol {
     TCP,
     UDP,
     LAST,
 }
-export enum MdnsPublisherError {
+enum MdnsPublisherError {
     NOT_RUNNING,
     FAILED,
 }
-export enum MediaKind {
+enum MediaKind {
     MUSIC,
     MOVIE,
     PODCAST,
     TV_SHOW,
 }
-export enum Type {
+enum Type {
     BYTE,
     SIGNED_INT,
     SHORT,
@@ -218,38 +218,38 @@ export enum Type {
 }
 export const HASH_SIZE: number
 export const STATUS_OK: number
-export function contentCodeDmapType(code: ContentCode): Type
-export function contentCodeName(code: ContentCode): string
-export function contentCodeReadFromBuffer(buf: string): ContentCode
-export function contentCodeString(code: ContentCode): string
-export function contentCodeStringAsInt32(str: string): number
-export function contentCodes(number: number): ContentCodeDefinition
-export function hashGenerate(versionMajor: number, url: number, hashSelect: number, out: number, requestId: number): void
-export function hashProgressiveFinal(context: HashContext, digest: number): void
-export function hashProgressiveInit(context: HashContext): void
-export function hashProgressiveToString(digest: number, string: string): void
-export function hashProgressiveUpdate(context: HashContext, buffer: number, length: number): void
-export function mdnsBrowserErrorQuark(): GLib.Quark
-export function mdnsPublisherErrorQuark(): GLib.Quark
-export function mimeToFormat(transcodeMimetype: string): string
-export function structureDestroy(structure: GLib.Node): void
-export function structureGetSize(structure: GLib.Node): number
-export function structureIncreaseByPredictedSize(structure: GLib.Node, size: number): void
-export function structurePrint(structure: GLib.Node): void
-export function structureSerialize(structure: GLib.Node, length: number): string
-export interface ConnectionCallback {
+function contentCodeDmapType(code: ContentCode): Type
+function contentCodeName(code: ContentCode): string
+function contentCodeReadFromBuffer(buf: string): ContentCode
+function contentCodeString(code: ContentCode): string
+function contentCodeStringAsInt32(str: string): number
+function contentCodes(number: number): ContentCodeDefinition
+function hashGenerate(versionMajor: number, url: number, hashSelect: number, out: number, requestId: number): void
+function hashProgressiveFinal(context: HashContext, digest: number): void
+function hashProgressiveInit(context: HashContext): void
+function hashProgressiveToString(digest: number, string: string): void
+function hashProgressiveUpdate(context: HashContext, buffer: number, length: number): void
+function mdnsBrowserErrorQuark(): GLib.Quark
+function mdnsPublisherErrorQuark(): GLib.Quark
+function mimeToFormat(transcodeMimetype: string): string
+function structureDestroy(structure: GLib.Node): void
+function structureGetSize(structure: GLib.Node): number
+function structureIncreaseByPredictedSize(structure: GLib.Node, size: number): void
+function structurePrint(structure: GLib.Node): void
+function structureSerialize(structure: GLib.Node, length: number): string
+interface ConnectionCallback {
     (connection: Connection, result: boolean, reason: string): boolean
 }
-export interface ResponseHandler {
+interface ResponseHandler {
     (connection: Connection, status: number, structure: GLib.Node): void
 }
-export class ContainerDb {
+class ContainerDb {
     /* Methods of DMAP-3.0.DMAP.ContainerDb */
     add(record: ContainerRecord): void
     count(): number
     static name: string
 }
-export class ContainerRecord {
+class ContainerRecord {
     /* Properties of DMAP-3.0.DMAP.ContainerRecord */
     name: string
     /* Methods of DMAP-3.0.DMAP.ContainerRecord */
@@ -258,7 +258,7 @@ export class ContainerRecord {
     getId(): number
     static name: string
 }
-export class Db {
+class Db {
     /* Methods of DMAP-3.0.DMAP.Db */
     add(record: Record): number
     addPath(path: string): number
@@ -267,12 +267,12 @@ export class Db {
     lookupIdByLocation(location: string): number
     static name: string
 }
-export class Record {
+class Record {
     /* Methods of DMAP-3.0.DMAP.Record */
     setFromBlob(blob: any[]): boolean
     static name: string
 }
-export class RecordFactory {
+class RecordFactory {
     static name: string
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
@@ -289,7 +289,7 @@ export interface Connection_ConstructProps extends GObject.Object_ConstructProps
     sessionId?: number
     username?: string
 }
-export class Connection {
+class Connection {
     /* Properties of DMAP-3.0.DMAP.Connection */
     baseUri: object
     databaseId: number
@@ -405,7 +405,7 @@ export class Connection {
 }
 export interface GstInputStream_ConstructProps extends Gio.InputStream_ConstructProps {
 }
-export class GstInputStream {
+class GstInputStream {
     /* Fields of DMAP-3.0.DMAP.GstInputStream */
     parent: Gio.InputStream
     priv: GstInputStreamPrivate
@@ -483,7 +483,7 @@ export class GstInputStream {
 }
 export interface MdnsBrowser_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MdnsBrowser {
+class MdnsBrowser {
     /* Fields of DMAP-3.0.DMAP.MdnsBrowser */
     object: GObject.Object
     priv: MdnsBrowserPrivate
@@ -548,7 +548,7 @@ export class MdnsBrowser {
 }
 export interface MdnsPublisher_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class MdnsPublisher {
+class MdnsPublisher {
     /* Fields of DMAP-3.0.DMAP.MdnsPublisher */
     object: GObject.Object
     priv: MdnsPublisherPrivate
@@ -621,7 +621,7 @@ export interface Share_ConstructProps extends GObject.Object_ConstructProps {
     transcodeMimetype?: string
     txtRecords?: string[]
 }
-export class Share {
+class Share {
     /* Properties of DMAP-3.0.DMAP.Share */
     authMethod: number
     name: string
@@ -710,7 +710,7 @@ export class Share {
     _init (config?: Share_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class ConnectionClass {
+abstract class ConnectionClass {
     /* Fields of DMAP-3.0.DMAP.ConnectionClass */
     parent: GObject.ObjectClass
     getProtocolVersionCc: (connection: Connection) => ContentCode
@@ -722,17 +722,17 @@ export abstract class ConnectionClass {
     operationDone: (connection: Connection) => void
     static name: string
 }
-export class ConnectionPrivate {
+class ConnectionPrivate {
     static name: string
 }
-export abstract class ContainerDbIface {
+abstract class ContainerDbIface {
     /* Fields of DMAP-3.0.DMAP.ContainerDbIface */
     parent: GObject.TypeInterface
     add: (db: ContainerDb, record: ContainerRecord) => void
     count: (db: ContainerDb) => number
     static name: string
 }
-export abstract class ContainerRecordIface {
+abstract class ContainerRecordIface {
     /* Fields of DMAP-3.0.DMAP.ContainerRecordIface */
     parent: GObject.TypeInterface
     getId: (record: ContainerRecord) => number
@@ -740,7 +740,7 @@ export abstract class ContainerRecordIface {
     getEntryCount: (record: ContainerRecord) => number
     static name: string
 }
-export class ContentCodeDefinition {
+class ContentCodeDefinition {
     /* Fields of DMAP-3.0.DMAP.ContentCodeDefinition */
     code: ContentCode
     intCode: number
@@ -749,14 +749,14 @@ export class ContentCodeDefinition {
     type: Type
     static name: string
 }
-export class DbFilterDefinition {
+class DbFilterDefinition {
     /* Fields of DMAP-3.0.DMAP.DbFilterDefinition */
     key: string
     value: string
     negate: boolean
     static name: string
 }
-export abstract class DbIface {
+abstract class DbIface {
     /* Fields of DMAP-3.0.DMAP.DbIface */
     parent: GObject.TypeInterface
     add: (db: Db, record: Record) => number
@@ -766,16 +766,16 @@ export abstract class DbIface {
     count: (db: Db) => number
     static name: string
 }
-export abstract class GstInputStreamClass {
+abstract class GstInputStreamClass {
     /* Fields of DMAP-3.0.DMAP.GstInputStreamClass */
     parent: Gio.InputStreamClass
     killPipeline: (arg0: GstInputStream) => void
     static name: string
 }
-export class GstInputStreamPrivate {
+class GstInputStreamPrivate {
     static name: string
 }
-export class HashContext {
+class HashContext {
     /* Fields of DMAP-3.0.DMAP.HashContext */
     buf: number[]
     bits: number[]
@@ -783,17 +783,17 @@ export class HashContext {
     version: number
     static name: string
 }
-export abstract class MdnsBrowserClass {
+abstract class MdnsBrowserClass {
     /* Fields of DMAP-3.0.DMAP.MdnsBrowserClass */
     parentClass: GObject.ObjectClass
     serviceAdded: (browser: MdnsBrowser, service: MdnsBrowserService) => void
     serviceRemoved: (browser: MdnsBrowser, service: MdnsBrowserService) => void
     static name: string
 }
-export class MdnsBrowserPrivate {
+class MdnsBrowserPrivate {
     static name: string
 }
-export class MdnsBrowserService {
+class MdnsBrowserService {
     /* Fields of DMAP-3.0.DMAP.MdnsBrowserService */
     serviceName: string
     name: string
@@ -804,41 +804,41 @@ export class MdnsBrowserService {
     transportProtocol: MdnsBrowserTransportProtocol
     static name: string
 }
-export abstract class MdnsPublisherClass {
+abstract class MdnsPublisherClass {
     /* Fields of DMAP-3.0.DMAP.MdnsPublisherClass */
     parentClass: GObject.ObjectClass
     published: (publisher: MdnsPublisher, name: string) => void
     nameCollision: (publisher: MdnsPublisher, name: string) => void
     static name: string
 }
-export class MdnsPublisherPrivate {
+class MdnsPublisherPrivate {
     static name: string
 }
-export class MetaDataMap {
+class MetaDataMap {
     /* Fields of DMAP-3.0.DMAP.MetaDataMap */
     tag: string
     md: number
     static name: string
 }
-export class Playlist {
+class Playlist {
     /* Fields of DMAP-3.0.DMAP.Playlist */
     name: string
     id: number
     uris: object[]
     static name: string
 }
-export abstract class RecordFactoryIface {
+abstract class RecordFactoryIface {
     /* Fields of DMAP-3.0.DMAP.RecordFactoryIface */
     parent: GObject.TypeInterface
     static name: string
 }
-export abstract class RecordIface {
+abstract class RecordIface {
     /* Fields of DMAP-3.0.DMAP.RecordIface */
     parent: GObject.TypeInterface
     setFromBlob: (record: Record, blob: any[]) => boolean
     static name: string
 }
-export abstract class ShareClass {
+abstract class ShareClass {
     /* Fields of DMAP-3.0.DMAP.ShareClass */
     parent: GObject.ObjectClass
     getDesiredPort: (share: Share) => number
@@ -858,10 +858,10 @@ export abstract class ShareClass {
     databases: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
     static name: string
 }
-export class SharePrivate {
+class SharePrivate {
     static name: string
 }
-export class StructureItem {
+class StructureItem {
     /* Fields of DMAP-3.0.DMAP.StructureItem */
     contentCode: ContentCode
     content: any
@@ -869,3 +869,4 @@ export class StructureItem {
     static name: string
 }
 }
+export default DMAP

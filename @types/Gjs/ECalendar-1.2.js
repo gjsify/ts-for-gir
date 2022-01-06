@@ -1,2 +1,1 @@
-imports.gi.versions.ECalendar = '1.2'
-module.exports = imports.gi.ECalendar
+export {default as default} from 'gi://ECalendar?version=1.2';

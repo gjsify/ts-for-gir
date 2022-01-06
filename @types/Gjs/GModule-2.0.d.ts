@@ -6,10 +6,6 @@ import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
 import type * as GObject from './GObject-2.0';
 
-export enum ModuleError {
-    FAILED,
-    CHECK_FAILED,
-}
 export enum ModuleFlags {
     LAZY,
     LOCAL,
@@ -17,7 +13,6 @@ export enum ModuleFlags {
 }
 export function module_build_path(directory: string | null, module_name: string): string
 export function module_error(): string
-export function module_error_quark(): GLib.Quark
 export function module_supported(): boolean
 export interface ModuleCheckInit {
     (module: Module): string
@@ -35,6 +30,5 @@ export class Module {
     /* Static methods and pseudo-constructors */
     static build_path(directory: string | null, module_name: string): string
     static error(): string
-    static error_quark(): GLib.Quark
     static supported(): boolean
 }

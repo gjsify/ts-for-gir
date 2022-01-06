@@ -16,9 +16,9 @@ import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
-export declare namespace Eog {
+declare namespace Eog {
 
-export enum ImageError {
+enum ImageError {
     SAVE_NOT_LOCAL,
     NOT_LOADED,
     NOT_SAVED,
@@ -28,44 +28,44 @@ export enum ImageError {
     GENERIC,
     UNKNOWN,
 }
-export enum ImageMetadataStatus {
+enum ImageMetadataStatus {
     NOT_READ,
     NOT_AVAILABLE,
     READY,
 }
-export enum ImageStatus {
+enum ImageStatus {
     UNKNOWN,
     LOADING,
     LOADED,
     SAVING,
     FAILED,
 }
-export enum JobPriority {
+enum JobPriority {
     PRIORITY_HIGH,
     PRIORITY_MEDIUM,
     PRIORITY_LOW,
     N_PRIORITIES,
 }
-export enum ListStoreColumn {
+enum ListStoreColumn {
     THUMBNAIL,
     THUMB_SET,
     EOG_IMAGE,
     EOG_JOB,
     NUM_COLUMNS,
 }
-export enum PropertiesDialogPage {
+enum PropertiesDialogPage {
     PAGE_GENERAL,
     PAGE_EXIF,
     PAGE_DETAILS,
     N_PAGES,
 }
-export enum ThumbNavMode {
+enum ThumbNavMode {
     ONE_ROW,
     ONE_COLUMN,
     MULTIPLE_ROWS,
     MULTIPLE_COLUMNS,
 }
-export enum ThumbViewSelectionChange {
+enum ThumbViewSelectionChange {
     CURRENT,
     LEFT,
     RIGHT,
@@ -73,7 +73,7 @@ export enum ThumbViewSelectionChange {
     LAST,
     RANDOM,
 }
-export enum TransformType {
+enum TransformType {
     NONE,
     ROT_90,
     ROT_180,
@@ -83,18 +83,18 @@ export enum TransformType {
     TRANSPOSE,
     TRANSVERSE,
 }
-export enum TransparencyStyle {
+enum TransparencyStyle {
     BACKGROUND,
     CHECKED,
     COLOR,
 }
-export enum UCError {
+enum UCError {
     INVALID_UNICODE,
     INVALID_CHARACTER,
     EQUAL_FILENAMES,
     UNKNOWN,
 }
-export enum UCType {
+enum UCType {
     STRING,
     FILENAME,
     COUNTER,
@@ -109,7 +109,7 @@ export enum UCType {
     SECOND,
     END,
 }
-export enum WindowError {
+enum WindowError {
     CONTROL_NOT_FOUND,
     UI_NOT_FOUND,
     NO_PERSIST_FILE_INTERFACE,
@@ -118,23 +118,23 @@ export enum WindowError {
     GENERIC,
     UNKNOWN,
 }
-export enum WindowGalleryPos {
+enum WindowGalleryPos {
     BOTTOM,
     LEFT,
     TOP,
     RIGHT,
 }
-export enum WindowMode {
+enum WindowMode {
     UNKNOWN,
     NORMAL,
     FULLSCREEN,
     SLIDESHOW,
 }
-export enum ZoomMode {
+enum ZoomMode {
     FREE,
     SHRINK_TO_FIT,
 }
-export enum Debug {
+enum Debug {
     NO_DEBUG,
     WINDOW,
     VIEW,
@@ -149,13 +149,13 @@ export enum Debug {
     LCMS,
     PLUGINS,
 }
-export enum ImageData {
+enum ImageData {
     IMAGE,
     DIMENSION,
     EXIF,
     XMP,
 }
-export enum StartupFlags {
+enum StartupFlags {
     FULLSCREEN,
     SLIDE_SHOW,
     DISABLE_GALLERY,
@@ -168,23 +168,23 @@ export const SCROLL_VIEW_MAX_ZOOM_FACTOR: number
 export const SCROLL_VIEW_MIN_ZOOM_FACTOR: number
 export const THUMBNAIL_ORIGINAL_HEIGHT: string
 export const THUMBNAIL_ORIGINAL_WIDTH: string
-export function debug(section: Debug, file: string, line: number, function_: string): void
-export function debugInit(): void
-export function exifUtilFormatDate(date: string): string
-export function imageErrorQuark(): GLib.Quark
-export function marshalVOIDINTINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
-export function thumbnailAddFrame(thumbnail: GdkPixbuf.Pixbuf): GdkPixbuf.Pixbuf
-export function thumbnailFitToSize(thumbnail: GdkPixbuf.Pixbuf, dimension: number): GdkPixbuf.Pixbuf
-export function thumbnailInit(): void
-export function thumbnailLoad(image: Image): GdkPixbuf.Pixbuf
-export function ucErrorQuark(): GLib.Quark
-export class ApplicationActivatable {
+function debug(section: Debug, file: string, line: number, function_: string): void
+function debugInit(): void
+function exifUtilFormatDate(date: string): string
+function imageErrorQuark(): GLib.Quark
+function marshalVOIDINTINT(closure: Function, returnValue: any, nParamValues: number, paramValues: any, invocationHint?: object | null, marshalData?: object | null): void
+function thumbnailAddFrame(thumbnail: GdkPixbuf.Pixbuf): GdkPixbuf.Pixbuf
+function thumbnailFitToSize(thumbnail: GdkPixbuf.Pixbuf, dimension: number): GdkPixbuf.Pixbuf
+function thumbnailInit(): void
+function thumbnailLoad(image: Image): GdkPixbuf.Pixbuf
+function ucErrorQuark(): GLib.Quark
+class ApplicationActivatable {
     /* Methods of Eog-3.0.Eog.ApplicationActivatable */
     activate(): void
     deactivate(): void
     static name: string
 }
-export class WindowActivatable {
+class WindowActivatable {
     /* Methods of Eog-3.0.Eog.WindowActivatable */
     activate(): void
     deactivate(): void
@@ -192,7 +192,7 @@ export class WindowActivatable {
 }
 export interface Application_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Gtk-3.0.Gtk.Application */
     readonly activeWindow: Gtk.Window
     appMenu: Gio.MenuModel
@@ -481,7 +481,7 @@ export interface ClipboardHandler_ConstructProps extends GObject.InitiallyUnowne
     pixbuf?: GdkPixbuf.Pixbuf
     uri?: string
 }
-export class ClipboardHandler {
+class ClipboardHandler {
     /* Fields of Eog-3.0.Eog.ClipboardHandler */
     parent: GObject.Object
     priv: ClipboardHandlerPrivate
@@ -544,7 +544,7 @@ export interface FileChooser_ConstructProps extends Gtk.FileChooserDialog_Constr
     showHidden?: boolean
     usePreviewLabel?: boolean
 }
-export class FileChooser {
+class FileChooser {
     /* Properties of Gtk-3.0.Gtk.Window */
     acceptFocus: boolean
     application: Gtk.Application
@@ -2029,7 +2029,7 @@ export class FileChooser {
 }
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Image {
+class Image {
     /* Fields of Eog-3.0.Eog.Image */
     parent: GObject.Object
     priv: ImagePrivate
@@ -2146,7 +2146,7 @@ export class Image {
 }
 export interface ImageSaveInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ImageSaveInfo {
+class ImageSaveInfo {
     /* Fields of Eog-3.0.Eog.ImageSaveInfo */
     parent: GObject.Object
     file: Gio.File
@@ -2205,7 +2205,7 @@ export class ImageSaveInfo {
 }
 export interface Job_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Job {
+class Job {
     /* Fields of Eog-3.0.Eog.Job */
     parent: GObject.Object
     cancellable: Gio.Cancellable
@@ -2285,7 +2285,7 @@ export class Job {
 }
 export interface JobCopy_ConstructProps extends Job_ConstructProps {
 }
-export class JobCopy {
+class JobCopy {
     /* Fields of Eog-3.0.Eog.JobCopy */
     parent: Job
     images: object[]
@@ -2369,7 +2369,7 @@ export class JobCopy {
 }
 export interface JobLoad_ConstructProps extends Job_ConstructProps {
 }
-export class JobLoad {
+class JobLoad {
     /* Fields of Eog-3.0.Eog.JobLoad */
     parent: Job
     image: Image
@@ -2452,7 +2452,7 @@ export class JobLoad {
 }
 export interface JobModel_ConstructProps extends Job_ConstructProps {
 }
-export class JobModel {
+class JobModel {
     /* Fields of Eog-3.0.Eog.JobModel */
     parent: Job
     store: ListStore
@@ -2535,7 +2535,7 @@ export class JobModel {
 }
 export interface JobSave_ConstructProps extends Job_ConstructProps {
 }
-export class JobSave {
+class JobSave {
     /* Fields of Eog-3.0.Eog.JobSave */
     parent: Job
     images: object[]
@@ -2619,7 +2619,7 @@ export class JobSave {
 }
 export interface JobSaveAs_ConstructProps extends JobSave_ConstructProps {
 }
-export class JobSaveAs {
+class JobSaveAs {
     /* Fields of Eog-3.0.Eog.JobSaveAs */
     parent: JobSave
     converter: URIConverter
@@ -2707,7 +2707,7 @@ export class JobSaveAs {
 }
 export interface JobThumbnail_ConstructProps extends Job_ConstructProps {
 }
-export class JobThumbnail {
+class JobThumbnail {
     /* Fields of Eog-3.0.Eog.JobThumbnail */
     parent: Job
     image: Image
@@ -2790,7 +2790,7 @@ export class JobThumbnail {
 }
 export interface JobTransform_ConstructProps extends Job_ConstructProps {
 }
-export class JobTransform {
+class JobTransform {
     /* Fields of Eog-3.0.Eog.JobTransform */
     parent: Job
     images: object[]
@@ -2873,7 +2873,7 @@ export class JobTransform {
 }
 export interface ListStore_ConstructProps extends Gtk.ListStore_ConstructProps {
 }
-export class ListStore {
+class ListStore {
     /* Fields of Eog-3.0.Eog.ListStore */
     parent: Gtk.ListStore
     priv: ListStorePrivate
@@ -3041,7 +3041,7 @@ export interface PropertiesDialog_ConstructProps extends Gtk.Dialog_ConstructPro
     prevAction?: string
     thumbview?: ThumbView
 }
-export class PropertiesDialog {
+class PropertiesDialog {
     /* Properties of Eog-3.0.Eog.PropertiesDialog */
     netbookMode: boolean
     /* Properties of Gtk-3.0.Gtk.Window */
@@ -4390,7 +4390,7 @@ export interface ScrollView_ConstructProps extends Gtk.Grid_ConstructProps {
     zoomMultiplier?: number
     orientation?: Gtk.Orientation
 }
-export class ScrollView {
+class ScrollView {
     /* Properties of Eog-3.0.Eog.ScrollView */
     antialiasingIn: boolean
     antialiasingOut: boolean
@@ -5534,7 +5534,7 @@ export interface Sidebar_ConstructProps extends Gtk.Box_ConstructProps {
     currentPage?: Gtk.Widget
     orientation?: Gtk.Orientation
 }
-export class Sidebar {
+class Sidebar {
     /* Properties of Eog-3.0.Eog.Sidebar */
     currentPage: Gtk.Widget
     /* Properties of Gtk-3.0.Gtk.Box */
@@ -6577,7 +6577,7 @@ export class Sidebar {
 export interface Statusbar_ConstructProps extends Gtk.Statusbar_ConstructProps {
     orientation?: Gtk.Orientation
 }
-export class Statusbar {
+class Statusbar {
     /* Properties of Gtk-3.0.Gtk.Box */
     baselinePosition: Gtk.BaselinePosition
     homogeneous: boolean
@@ -7621,7 +7621,7 @@ export interface ThumbNav_ConstructProps extends Gtk.Box_ConstructProps {
     thumbview?: ThumbView
     orientation?: Gtk.Orientation
 }
-export class ThumbNav {
+class ThumbNav {
     /* Properties of Eog-3.0.Eog.ThumbNav */
     mode: number
     showButtons: boolean
@@ -8662,7 +8662,7 @@ export interface ThumbView_ConstructProps extends Gtk.IconView_ConstructProps {
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class ThumbView {
+class ThumbView {
     /* Properties of Gtk-3.0.Gtk.IconView */
     activateOnSingleClick: boolean
     columnSpacing: number
@@ -9892,7 +9892,7 @@ export class ThumbView {
 }
 export interface Transform_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Transform {
+class Transform {
     /* Fields of Eog-3.0.Eog.Transform */
     parent: GObject.Object
     priv: TransformPrivate
@@ -9957,7 +9957,7 @@ export interface URIConverter_ConstructProps extends GObject.Object_ConstructPro
     nImages?: number
     spaceCharacter?: number
 }
-export class URIConverter {
+class URIConverter {
     /* Properties of Eog-3.0.Eog.URIConverter */
     convertSpaces: boolean
     counterNDigits: number
@@ -10047,7 +10047,7 @@ export interface Window_ConstructProps extends Gtk.ApplicationWindow_ConstructPr
     galleryResizable?: boolean
     startupFlags?: StartupFlags
 }
-export class Window {
+class Window {
     /* Properties of Eog-3.0.Eog.Window */
     galleryPosition: WindowGalleryPos
     galleryResizable: boolean
@@ -11439,38 +11439,38 @@ export class Window {
     static new(type: Gtk.WindowType): Window
     static $gtype: GObject.Type
 }
-export abstract class ApplicationActivatableInterface {
+abstract class ApplicationActivatableInterface {
     /* Fields of Eog-3.0.Eog.ApplicationActivatableInterface */
     gIface: GObject.TypeInterface
     activate: (activatable: ApplicationActivatable) => void
     deactivate: (activatable: ApplicationActivatable) => void
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Eog-3.0.Eog.ApplicationClass */
     parentClass: Gtk.ApplicationClass
     static name: string
 }
-export class ApplicationPrivate {
+class ApplicationPrivate {
     static name: string
 }
-export abstract class ClipboardHandlerClass {
+abstract class ClipboardHandlerClass {
     /* Fields of Eog-3.0.Eog.ClipboardHandlerClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
-export class ClipboardHandlerPrivate {
+class ClipboardHandlerPrivate {
     static name: string
 }
-export abstract class FileChooserClass {
+abstract class FileChooserClass {
     /* Fields of Eog-3.0.Eog.FileChooserClass */
     parentClass: Gtk.FileChooserDialogClass
     static name: string
 }
-export class FileChooserPrivate {
+class FileChooserPrivate {
     static name: string
 }
-export abstract class ImageClass {
+abstract class ImageClass {
     /* Fields of Eog-3.0.Eog.ImageClass */
     parentClass: GObject.ObjectClass
     changed: (img: Image) => void
@@ -11481,15 +11481,15 @@ export abstract class ImageClass {
     fileChanged: (img: Image) => void
     static name: string
 }
-export class ImagePrivate {
+class ImagePrivate {
     static name: string
 }
-export abstract class ImageSaveInfoClass {
+abstract class ImageSaveInfoClass {
     /* Fields of Eog-3.0.Eog.ImageSaveInfoClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
-export abstract class JobClass {
+abstract class JobClass {
     /* Fields of Eog-3.0.Eog.JobClass */
     parentClass: GObject.ObjectClass
     run: (job: Job) => void
@@ -11498,58 +11498,58 @@ export abstract class JobClass {
     finished: (job: Job) => void
     static name: string
 }
-export abstract class JobCopyClass {
+abstract class JobCopyClass {
     /* Fields of Eog-3.0.Eog.JobCopyClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobLoadClass {
+abstract class JobLoadClass {
     /* Fields of Eog-3.0.Eog.JobLoadClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobModelClass {
+abstract class JobModelClass {
     /* Fields of Eog-3.0.Eog.JobModelClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobSaveAsClass {
+abstract class JobSaveAsClass {
     /* Fields of Eog-3.0.Eog.JobSaveAsClass */
     parent: JobSaveClass
     static name: string
 }
-export abstract class JobSaveClass {
+abstract class JobSaveClass {
     /* Fields of Eog-3.0.Eog.JobSaveClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobThumbnailClass {
+abstract class JobThumbnailClass {
     /* Fields of Eog-3.0.Eog.JobThumbnailClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class JobTransformClass {
+abstract class JobTransformClass {
     /* Fields of Eog-3.0.Eog.JobTransformClass */
     parentClass: JobClass
     static name: string
 }
-export abstract class ListStoreClass {
+abstract class ListStoreClass {
     /* Fields of Eog-3.0.Eog.ListStoreClass */
     parentClass: Gtk.ListStoreClass
     static name: string
 }
-export class ListStorePrivate {
+class ListStorePrivate {
     static name: string
 }
-export abstract class PropertiesDialogClass {
+abstract class PropertiesDialogClass {
     /* Fields of Eog-3.0.Eog.PropertiesDialogClass */
     parentClass: Gtk.DialogClass
     static name: string
 }
-export class PropertiesDialogPrivate {
+class PropertiesDialogPrivate {
     static name: string
 }
-export abstract class ScrollViewClass {
+abstract class ScrollViewClass {
     /* Fields of Eog-3.0.Eog.ScrollViewClass */
     parentClass: Gtk.GridClass
     zoomChanged: (view: ScrollView, zoom: number) => void
@@ -11558,80 +11558,81 @@ export abstract class ScrollViewClass {
     previousImage: (view: ScrollView) => void
     static name: string
 }
-export class ScrollViewPrivate {
+class ScrollViewPrivate {
     static name: string
 }
-export abstract class SidebarClass {
+abstract class SidebarClass {
     /* Fields of Eog-3.0.Eog.SidebarClass */
     baseClass: Gtk.BoxClass
     pageAdded: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
     pageRemoved: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
     static name: string
 }
-export class SidebarPrivate {
+class SidebarPrivate {
     static name: string
 }
-export abstract class StatusbarClass {
+abstract class StatusbarClass {
     /* Fields of Eog-3.0.Eog.StatusbarClass */
     parentClass: Gtk.StatusbarClass
     static name: string
 }
-export class StatusbarPrivate {
+class StatusbarPrivate {
     static name: string
 }
-export abstract class ThumbNavClass {
+abstract class ThumbNavClass {
     /* Fields of Eog-3.0.Eog.ThumbNavClass */
     parentClass: Gtk.BoxClass
     static name: string
 }
-export class ThumbNavPrivate {
+class ThumbNavPrivate {
     static name: string
 }
-export abstract class ThumbViewClass {
+abstract class ThumbViewClass {
     /* Fields of Eog-3.0.Eog.ThumbViewClass */
     iconViewClass: Gtk.IconViewClass
     static name: string
 }
-export class ThumbViewPrivate {
+class ThumbViewPrivate {
     static name: string
 }
-export abstract class TransformClass {
+abstract class TransformClass {
     /* Fields of Eog-3.0.Eog.TransformClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
-export class TransformPrivate {
+class TransformPrivate {
     static name: string
 }
-export class UCInfo {
+class UCInfo {
     /* Fields of Eog-3.0.Eog.UCInfo */
     description: string
     rep: string
     reqExif: boolean
     static name: string
 }
-export abstract class URIConverterClass {
+abstract class URIConverterClass {
     /* Fields of Eog-3.0.Eog.URIConverterClass */
     parentKlass: GObject.ObjectClass
     static name: string
 }
-export class URIConverterPrivate {
+class URIConverterPrivate {
     static name: string
 }
-export abstract class WindowActivatableInterface {
+abstract class WindowActivatableInterface {
     /* Fields of Eog-3.0.Eog.WindowActivatableInterface */
     gIface: GObject.TypeInterface
     activate: (activatable: WindowActivatable) => void
     deactivate: (activatable: WindowActivatable) => void
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Eog-3.0.Eog.WindowClass */
     parentClass: Gtk.ApplicationWindowClass
     prepared: (window: Window) => void
     static name: string
 }
-export class WindowPrivate {
+class WindowPrivate {
     static name: string
 }
 }
+export default Eog

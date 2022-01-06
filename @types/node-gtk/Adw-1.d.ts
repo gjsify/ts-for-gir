@@ -17,26 +17,26 @@ import type { Gio } from './Gio-2.0';
 import type { GdkPixbuf } from './GdkPixbuf-2.0';
 import type { GModule } from './GModule-2.0';
 
-export declare namespace Adw {
+declare namespace Adw {
 
-export enum AnimationState {
+enum AnimationState {
     IDLE,
     PAUSED,
     PLAYING,
     FINISHED,
 }
-export enum CenteringPolicy {
+enum CenteringPolicy {
     LOOSE,
     STRICT,
 }
-export enum ColorScheme {
+enum ColorScheme {
     DEFAULT,
     FORCE_LIGHT,
     PREFER_LIGHT,
     PREFER_DARK,
     FORCE_DARK,
 }
-export enum Easing {
+enum Easing {
     LINEAR,
     EASE_IN_QUAD,
     EASE_OUT_QUAD,
@@ -69,38 +69,38 @@ export enum Easing {
     EASE_OUT_BOUNCE,
     EASE_IN_OUT_BOUNCE,
 }
-export enum FlapFoldPolicy {
+enum FlapFoldPolicy {
     NEVER,
     ALWAYS,
     AUTO,
 }
-export enum FlapTransitionType {
+enum FlapTransitionType {
     OVER,
     UNDER,
     SLIDE,
 }
-export enum FoldThresholdPolicy {
+enum FoldThresholdPolicy {
     MINIMUM,
     NATURAL,
 }
-export enum LeafletTransitionType {
+enum LeafletTransitionType {
     OVER,
     UNDER,
     SLIDE,
 }
-export enum NavigationDirection {
+enum NavigationDirection {
     BACK,
     FORWARD,
 }
-export enum SqueezerTransitionType {
+enum SqueezerTransitionType {
     NONE,
     CROSSFADE,
 }
-export enum ToastPriority {
+enum ToastPriority {
     NORMAL,
     HIGH,
 }
-export enum ViewSwitcherPolicy {
+enum ViewSwitcherPolicy {
     NARROW,
     WIDE,
 }
@@ -109,20 +109,20 @@ export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
-export function easingEase(self: Easing, value: number): number
-export function getEnableAnimations(widget: Gtk.Widget): boolean
-export function getMajorVersion(): number
-export function getMicroVersion(): number
-export function getMinorVersion(): number
-export function init(): void
-export function isInitialized(): boolean
-export function lerp(a: number, b: number, t: number): number
-export interface AnimationTargetFunc {
+function easingEase(self: Easing, value: number): number
+function getEnableAnimations(widget: Gtk.Widget): boolean
+function getMajorVersion(): number
+function getMicroVersion(): number
+function getMinorVersion(): number
+function init(): void
+function isInitialized(): boolean
+function lerp(a: number, b: number, t: number): number
+interface AnimationTargetFunc {
     (value: number): void
 }
 export interface Swipeable_ConstructProps extends Gtk.Widget_ConstructProps {
 }
-export class Swipeable {
+class Swipeable {
     /* Properties of Gtk-4.0.Gtk.Widget */
     canFocus: boolean
     canTarget: boolean
@@ -605,7 +605,7 @@ export interface ActionRow_ConstructProps extends PreferencesRow_ConstructProps 
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ActionRow {
+class ActionRow {
     /* Properties of Adw-1.Adw.ActionRow */
     activatableWidget: Gtk.Widget
     iconName: string
@@ -1221,7 +1221,7 @@ export interface Animation_ConstructProps extends GObject.Object_ConstructProps 
     target?: AnimationTarget
     widget?: Gtk.Widget
 }
-export class Animation {
+class Animation {
     /* Properties of Adw-1.Adw.Animation */
     readonly state: AnimationState
     target: AnimationTarget
@@ -1303,7 +1303,7 @@ export class Animation {
 }
 export interface AnimationTarget_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class AnimationTarget {
+class AnimationTarget {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -1348,7 +1348,7 @@ export class AnimationTarget {
 }
 export interface Application_ConstructProps extends Gtk.Application_ConstructProps {
 }
-export class Application {
+class Application {
     /* Properties of Adw-1.Adw.Application */
     readonly styleManager: StyleManager
     /* Properties of Gtk-4.0.Gtk.Application */
@@ -1625,7 +1625,7 @@ export interface ApplicationWindow_ConstructProps extends Gtk.ApplicationWindow_
     content?: Gtk.Widget
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ApplicationWindow {
+class ApplicationWindow {
     /* Properties of Adw-1.Adw.ApplicationWindow */
     content: Gtk.Widget
     /* Properties of Gtk-4.0.Gtk.ApplicationWindow */
@@ -2414,7 +2414,7 @@ export interface Avatar_ConstructProps extends Gtk.Widget_ConstructProps {
     text?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Avatar {
+class Avatar {
     /* Properties of Adw-1.Adw.Avatar */
     customImage: Gdk.Paintable
     iconName: string
@@ -2947,7 +2947,7 @@ export interface Bin_ConstructProps extends Gtk.Widget_ConstructProps {
     child?: Gtk.Widget
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Bin {
+class Bin {
     /* Properties of Adw-1.Adw.Bin */
     child: Gtk.Widget
     /* Properties of Gtk-4.0.Gtk.Widget */
@@ -3449,7 +3449,7 @@ export interface ButtonContent_ConstructProps extends Gtk.Widget_ConstructProps 
     useUnderline?: boolean
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ButtonContent {
+class ButtonContent {
     /* Properties of Adw-1.Adw.ButtonContent */
     iconName: string
     label: string
@@ -3963,7 +3963,7 @@ export class ButtonContent {
 }
 export interface CallbackAnimationTarget_ConstructProps extends AnimationTarget_ConstructProps {
 }
-export class CallbackAnimationTarget {
+class CallbackAnimationTarget {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4019,7 +4019,7 @@ export interface Carousel_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class Carousel {
+class Carousel {
     /* Properties of Adw-1.Adw.Carousel */
     allowLongSwipes: boolean
     allowMouseDrag: boolean
@@ -4611,7 +4611,7 @@ export interface CarouselIndicatorDots_ConstructProps extends Gtk.Widget_Constru
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class CarouselIndicatorDots {
+class CarouselIndicatorDots {
     /* Properties of Adw-1.Adw.CarouselIndicatorDots */
     carousel: Carousel
     /* Properties of Gtk-4.0.Gtk.Widget */
@@ -5122,7 +5122,7 @@ export interface CarouselIndicatorLines_ConstructProps extends Gtk.Widget_Constr
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class CarouselIndicatorLines {
+class CarouselIndicatorLines {
     /* Properties of Adw-1.Adw.CarouselIndicatorLines */
     carousel: Carousel
     /* Properties of Gtk-4.0.Gtk.Widget */
@@ -5635,7 +5635,7 @@ export interface Clamp_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class Clamp {
+class Clamp {
     /* Properties of Adw-1.Adw.Clamp */
     child: Gtk.Widget
     maximumSize: number
@@ -6162,7 +6162,7 @@ export interface ClampLayout_ConstructProps extends Gtk.LayoutManager_ConstructP
     tighteningThreshold?: number
     orientation?: Gtk.Orientation
 }
-export class ClampLayout {
+class ClampLayout {
     /* Properties of Adw-1.Adw.ClampLayout */
     maximumSize: number
     tighteningThreshold: number
@@ -6255,7 +6255,7 @@ export interface ClampScrollable_ConstructProps extends Gtk.Widget_ConstructProp
     vadjustment?: Gtk.Adjustment
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
-export class ClampScrollable {
+class ClampScrollable {
     /* Properties of Adw-1.Adw.ClampScrollable */
     child: Gtk.Widget
     maximumSize: number
@@ -6823,7 +6823,7 @@ export interface ComboRow_ConstructProps extends ActionRow_ConstructProps {
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ComboRow {
+class ComboRow {
     /* Properties of Adw-1.Adw.ComboRow */
     expression: Gtk.Expression
     factory: Gtk.ListItemFactory
@@ -7494,7 +7494,7 @@ export class ComboRow {
 }
 export interface EnumListItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class EnumListItem {
+class EnumListItem {
     /* Properties of Adw-1.Adw.EnumListItem */
     readonly name: string
     readonly nick: string
@@ -7563,7 +7563,7 @@ export class EnumListItem {
 export interface EnumListModel_ConstructProps extends GObject.Object_ConstructProps {
     enumType?: GObject.Type
 }
-export class EnumListModel {
+class EnumListModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Adw-1.Adw.EnumListModel */
@@ -7632,7 +7632,7 @@ export interface ExpanderRow_ConstructProps extends PreferencesRow_ConstructProp
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class ExpanderRow {
+class ExpanderRow {
     /* Properties of Adw-1.Adw.ExpanderRow */
     enableExpansion: boolean
     expanded: boolean
@@ -8256,7 +8256,7 @@ export interface Flap_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class Flap {
+class Flap {
     /* Properties of Adw-1.Adw.Flap */
     content: Gtk.Widget
     flap: Gtk.Widget
@@ -8894,7 +8894,7 @@ export interface HeaderBar_ConstructProps extends Gtk.Widget_ConstructProps {
     titleWidget?: Gtk.Widget
     accessibleRole?: Gtk.AccessibleRole
 }
-export class HeaderBar {
+class HeaderBar {
     /* Properties of Adw-1.Adw.HeaderBar */
     centeringPolicy: CenteringPolicy
     decorationLayout: string
@@ -9439,7 +9439,7 @@ export interface Leaflet_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class Leaflet {
+class Leaflet {
     /* Properties of Adw-1.Adw.Leaflet */
     canNavigateBack: boolean
     canNavigateForward: boolean
@@ -10058,7 +10058,7 @@ export interface LeafletPage_ConstructProps extends GObject.Object_ConstructProp
     name?: string
     navigatable?: boolean
 }
-export class LeafletPage {
+class LeafletPage {
     /* Properties of Adw-1.Adw.LeafletPage */
     name: string
     navigatable: boolean
@@ -10125,7 +10125,7 @@ export interface PreferencesGroup_ConstructProps extends Gtk.Widget_ConstructPro
     title?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class PreferencesGroup {
+class PreferencesGroup {
     /* Properties of Adw-1.Adw.PreferencesGroup */
     description: string
     title: string
@@ -10638,7 +10638,7 @@ export interface PreferencesPage_ConstructProps extends Gtk.Widget_ConstructProp
     useUnderline?: boolean
     accessibleRole?: Gtk.AccessibleRole
 }
-export class PreferencesPage {
+class PreferencesPage {
     /* Properties of Adw-1.Adw.PreferencesPage */
     iconName: string
     name: string
@@ -11161,7 +11161,7 @@ export interface PreferencesRow_ConstructProps extends Gtk.ListBoxRow_ConstructP
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class PreferencesRow {
+class PreferencesRow {
     /* Properties of Adw-1.Adw.PreferencesRow */
     title: string
     useUnderline: boolean
@@ -11728,7 +11728,7 @@ export interface PreferencesWindow_ConstructProps extends Window_ConstructProps 
     visiblePageName?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class PreferencesWindow {
+class PreferencesWindow {
     /* Properties of Adw-1.Adw.PreferencesWindow */
     canNavigateBack: boolean
     searchEnabled: boolean
@@ -12504,7 +12504,7 @@ export interface SplitButton_ConstructProps extends Gtk.Widget_ConstructProps {
     actionName?: string
     actionTarget?: GLib.Variant
 }
-export class SplitButton {
+class SplitButton {
     /* Properties of Adw-1.Adw.SplitButton */
     child: Gtk.Widget
     direction: Gtk.ArrowType
@@ -13088,7 +13088,7 @@ export interface SpringAnimation_ConstructProps extends Animation_ConstructProps
     valueFrom?: number
     valueTo?: number
 }
-export class SpringAnimation {
+class SpringAnimation {
     /* Properties of Adw-1.Adw.SpringAnimation */
     clamp: boolean
     epsilon: number
@@ -13246,7 +13246,7 @@ export interface Squeezer_ConstructProps extends Gtk.Widget_ConstructProps {
     accessibleRole?: Gtk.AccessibleRole
     orientation?: Gtk.Orientation
 }
-export class Squeezer {
+class Squeezer {
     /* Properties of Adw-1.Adw.Squeezer */
     allowNone: boolean
     homogeneous: boolean
@@ -13836,7 +13836,7 @@ export interface SqueezerPage_ConstructProps extends GObject.Object_ConstructPro
     child?: Gtk.Widget
     enabled?: boolean
 }
-export class SqueezerPage {
+class SqueezerPage {
     /* Properties of Adw-1.Adw.SqueezerPage */
     enabled: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -13898,7 +13898,7 @@ export interface StatusPage_ConstructProps extends Gtk.Widget_ConstructProps {
     title?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class StatusPage {
+class StatusPage {
     /* Properties of Adw-1.Adw.StatusPage */
     child: Gtk.Widget
     description: string
@@ -14430,7 +14430,7 @@ export interface StyleManager_ConstructProps extends GObject.Object_ConstructPro
     colorScheme?: ColorScheme
     display?: Gdk.Display
 }
-export class StyleManager {
+class StyleManager {
     /* Properties of Adw-1.Adw.StyleManager */
     colorScheme: ColorScheme
     readonly dark: boolean
@@ -14516,7 +14516,7 @@ export interface SwipeTracker_ConstructProps extends GObject.Object_ConstructPro
     swipeable?: Swipeable
     orientation?: Gtk.Orientation
 }
-export class SwipeTracker {
+class SwipeTracker {
     /* Properties of Adw-1.Adw.SwipeTracker */
     allowLongSwipes: boolean
     allowMouseDrag: boolean
@@ -14637,7 +14637,7 @@ export interface TabBar_ConstructProps extends Gtk.Widget_ConstructProps {
     view?: TabView
     accessibleRole?: Gtk.AccessibleRole
 }
-export class TabBar {
+class TabBar {
     /* Properties of Adw-1.Adw.TabBar */
     autohide: boolean
     endActionWidget: Gtk.Widget
@@ -15205,7 +15205,7 @@ export interface TabPage_ConstructProps extends GObject.Object_ConstructProps {
     title?: string
     tooltip?: string
 }
-export class TabPage {
+class TabPage {
     /* Properties of Adw-1.Adw.TabPage */
     icon: Gio.Icon
     indicatorActivatable: boolean
@@ -15328,7 +15328,7 @@ export interface TabView_ConstructProps extends Gtk.Widget_ConstructProps {
     selectedPage?: TabPage
     accessibleRole?: Gtk.AccessibleRole
 }
-export class TabView {
+class TabView {
     /* Properties of Adw-1.Adw.TabView */
     defaultIcon: Gio.Icon
     readonly isTransferringPage: boolean
@@ -15937,7 +15937,7 @@ export interface TimedAnimation_ConstructProps extends Animation_ConstructProps 
     valueFrom?: number
     valueTo?: number
 }
-export class TimedAnimation {
+class TimedAnimation {
     /* Properties of Adw-1.Adw.TimedAnimation */
     alternate: boolean
     duration: number
@@ -16085,7 +16085,7 @@ export interface Toast_ConstructProps extends GObject.Object_ConstructProps {
     timeout?: number
     title?: string
 }
-export class Toast {
+class Toast {
     /* Properties of Adw-1.Adw.Toast */
     actionName: string
     actionTarget: GLib.Variant
@@ -16192,7 +16192,7 @@ export interface ToastOverlay_ConstructProps extends Gtk.Widget_ConstructProps {
     child?: Gtk.Widget
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ToastOverlay {
+class ToastOverlay {
     /* Properties of Adw-1.Adw.ToastOverlay */
     child: Gtk.Widget
     /* Properties of Gtk-4.0.Gtk.Widget */
@@ -16696,7 +16696,7 @@ export interface ViewStack_ConstructProps extends Gtk.Widget_ConstructProps {
     visibleChildName?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ViewStack {
+class ViewStack {
     /* Properties of Adw-1.Adw.ViewStack */
     hhomogeneous: boolean
     readonly pages: Gtk.SelectionModel
@@ -17239,7 +17239,7 @@ export interface ViewStackPage_ConstructProps extends GObject.Object_ConstructPr
     useUnderline?: boolean
     visible?: boolean
 }
-export class ViewStackPage {
+class ViewStackPage {
     /* Properties of Adw-1.Adw.ViewStackPage */
     badgeNumber: number
     iconName: string
@@ -17346,7 +17346,7 @@ export interface ViewSwitcher_ConstructProps extends Gtk.Widget_ConstructProps {
     stack?: ViewStack
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ViewSwitcher {
+class ViewSwitcher {
     /* Properties of Adw-1.Adw.ViewSwitcher */
     policy: ViewSwitcherPolicy
     stack: ViewStack
@@ -17855,7 +17855,7 @@ export interface ViewSwitcherBar_ConstructProps extends Gtk.Widget_ConstructProp
     stack?: ViewStack
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ViewSwitcherBar {
+class ViewSwitcherBar {
     /* Properties of Adw-1.Adw.ViewSwitcherBar */
     reveal: boolean
     stack: ViewStack
@@ -18366,7 +18366,7 @@ export interface ViewSwitcherTitle_ConstructProps extends Gtk.Widget_ConstructPr
     viewSwitcherEnabled?: boolean
     accessibleRole?: Gtk.AccessibleRole
 }
-export class ViewSwitcherTitle {
+class ViewSwitcherTitle {
     /* Properties of Adw-1.Adw.ViewSwitcherTitle */
     stack: ViewStack
     subtitle: string
@@ -18897,7 +18897,7 @@ export interface Window_ConstructProps extends Gtk.Window_ConstructProps {
     content?: Gtk.Widget
     accessibleRole?: Gtk.AccessibleRole
 }
-export class Window {
+class Window {
     /* Properties of Adw-1.Adw.Window */
     content: Gtk.Widget
     /* Properties of Gtk-4.0.Gtk.Window */
@@ -19628,7 +19628,7 @@ export interface WindowTitle_ConstructProps extends Gtk.Widget_ConstructProps {
     title?: string
     accessibleRole?: Gtk.AccessibleRole
 }
-export class WindowTitle {
+class WindowTitle {
     /* Properties of Adw-1.Adw.WindowTitle */
     subtitle: string
     title: string
@@ -20132,145 +20132,145 @@ export class WindowTitle {
     static new(title: string, subtitle: string): WindowTitle
     static $gtype: GObject.Type
 }
-export abstract class ActionRowClass {
+abstract class ActionRowClass {
     /* Fields of Adw-1.Adw.ActionRowClass */
     parentClass: PreferencesRowClass
     activate: (self: ActionRow) => void
     static name: string
 }
-export abstract class AnimationClass {
+abstract class AnimationClass {
     static name: string
 }
-export abstract class AnimationTargetClass {
+abstract class AnimationTargetClass {
     static name: string
 }
-export abstract class ApplicationClass {
+abstract class ApplicationClass {
     /* Fields of Adw-1.Adw.ApplicationClass */
     parentClass: Gtk.ApplicationClass
     static name: string
 }
-export abstract class ApplicationWindowClass {
+abstract class ApplicationWindowClass {
     /* Fields of Adw-1.Adw.ApplicationWindowClass */
     parentClass: Gtk.ApplicationWindowClass
     static name: string
 }
-export abstract class AvatarClass {
+abstract class AvatarClass {
     /* Fields of Adw-1.Adw.AvatarClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class BinClass {
+abstract class BinClass {
     /* Fields of Adw-1.Adw.BinClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ButtonContentClass {
+abstract class ButtonContentClass {
     /* Fields of Adw-1.Adw.ButtonContentClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class CallbackAnimationTargetClass {
+abstract class CallbackAnimationTargetClass {
     static name: string
 }
-export abstract class CarouselClass {
+abstract class CarouselClass {
     /* Fields of Adw-1.Adw.CarouselClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class CarouselIndicatorDotsClass {
+abstract class CarouselIndicatorDotsClass {
     /* Fields of Adw-1.Adw.CarouselIndicatorDotsClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class CarouselIndicatorLinesClass {
+abstract class CarouselIndicatorLinesClass {
     /* Fields of Adw-1.Adw.CarouselIndicatorLinesClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ClampClass {
+abstract class ClampClass {
     /* Fields of Adw-1.Adw.ClampClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ClampLayoutClass {
+abstract class ClampLayoutClass {
     /* Fields of Adw-1.Adw.ClampLayoutClass */
     parentClass: Gtk.LayoutManagerClass
     static name: string
 }
-export abstract class ClampScrollableClass {
+abstract class ClampScrollableClass {
     /* Fields of Adw-1.Adw.ClampScrollableClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ComboRowClass {
+abstract class ComboRowClass {
     /* Fields of Adw-1.Adw.ComboRowClass */
     parentClass: ActionRowClass
     static name: string
 }
-export abstract class EnumListItemClass {
+abstract class EnumListItemClass {
     /* Fields of Adw-1.Adw.EnumListItemClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class EnumListModelClass {
+abstract class EnumListModelClass {
     /* Fields of Adw-1.Adw.EnumListModelClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ExpanderRowClass {
+abstract class ExpanderRowClass {
     /* Fields of Adw-1.Adw.ExpanderRowClass */
     parentClass: PreferencesRowClass
     static name: string
 }
-export abstract class FlapClass {
+abstract class FlapClass {
     /* Fields of Adw-1.Adw.FlapClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class HeaderBarClass {
+abstract class HeaderBarClass {
     /* Fields of Adw-1.Adw.HeaderBarClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class LeafletClass {
+abstract class LeafletClass {
     /* Fields of Adw-1.Adw.LeafletClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class LeafletPageClass {
+abstract class LeafletPageClass {
     /* Fields of Adw-1.Adw.LeafletPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class PreferencesGroupClass {
+abstract class PreferencesGroupClass {
     /* Fields of Adw-1.Adw.PreferencesGroupClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class PreferencesPageClass {
+abstract class PreferencesPageClass {
     /* Fields of Adw-1.Adw.PreferencesPageClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class PreferencesRowClass {
+abstract class PreferencesRowClass {
     /* Fields of Adw-1.Adw.PreferencesRowClass */
     parentClass: Gtk.ListBoxRowClass
     static name: string
 }
-export abstract class PreferencesWindowClass {
+abstract class PreferencesWindowClass {
     /* Fields of Adw-1.Adw.PreferencesWindowClass */
     parentClass: WindowClass
     static name: string
 }
-export abstract class SplitButtonClass {
+abstract class SplitButtonClass {
     /* Fields of Adw-1.Adw.SplitButtonClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class SpringAnimationClass {
+abstract class SpringAnimationClass {
     static name: string
 }
-export class SpringParams {
+class SpringParams {
     /* Methods of Adw-1.Adw.SpringParams */
     getDamping(): number
     getDampingRatio(): number
@@ -20285,32 +20285,32 @@ export class SpringParams {
     static new(dampingRatio: number, mass: number, stiffness: number): SpringParams
     static newFull(damping: number, mass: number, stiffness: number): SpringParams
 }
-export abstract class SqueezerClass {
+abstract class SqueezerClass {
     /* Fields of Adw-1.Adw.SqueezerClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class SqueezerPageClass {
+abstract class SqueezerPageClass {
     /* Fields of Adw-1.Adw.SqueezerPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class StatusPageClass {
+abstract class StatusPageClass {
     /* Fields of Adw-1.Adw.StatusPageClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class StyleManagerClass {
+abstract class StyleManagerClass {
     /* Fields of Adw-1.Adw.StyleManagerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SwipeTrackerClass {
+abstract class SwipeTrackerClass {
     /* Fields of Adw-1.Adw.SwipeTrackerClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class SwipeableInterface {
+abstract class SwipeableInterface {
     /* Fields of Adw-1.Adw.SwipeableInterface */
     parent: GObject.TypeInterface
     getDistance: (self: Swipeable) => number
@@ -20320,67 +20320,68 @@ export abstract class SwipeableInterface {
     getSwipeArea: (self: Swipeable, navigationDirection: NavigationDirection, isDrag: boolean) => { rect: Gdk.Rectangle }
     static name: string
 }
-export abstract class TabBarClass {
+abstract class TabBarClass {
     /* Fields of Adw-1.Adw.TabBarClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class TabPageClass {
+abstract class TabPageClass {
     /* Fields of Adw-1.Adw.TabPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class TabViewClass {
+abstract class TabViewClass {
     /* Fields of Adw-1.Adw.TabViewClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class TimedAnimationClass {
+abstract class TimedAnimationClass {
     static name: string
 }
-export abstract class ToastClass {
+abstract class ToastClass {
     /* Fields of Adw-1.Adw.ToastClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ToastOverlayClass {
+abstract class ToastOverlayClass {
     /* Fields of Adw-1.Adw.ToastOverlayClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ViewStackClass {
+abstract class ViewStackClass {
     /* Fields of Adw-1.Adw.ViewStackClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ViewStackPageClass {
+abstract class ViewStackPageClass {
     /* Fields of Adw-1.Adw.ViewStackPageClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export abstract class ViewSwitcherBarClass {
+abstract class ViewSwitcherBarClass {
     /* Fields of Adw-1.Adw.ViewSwitcherBarClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ViewSwitcherClass {
+abstract class ViewSwitcherClass {
     /* Fields of Adw-1.Adw.ViewSwitcherClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class ViewSwitcherTitleClass {
+abstract class ViewSwitcherTitleClass {
     /* Fields of Adw-1.Adw.ViewSwitcherTitleClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
-export abstract class WindowClass {
+abstract class WindowClass {
     /* Fields of Adw-1.Adw.WindowClass */
     parentClass: Gtk.WindowClass
     static name: string
 }
-export abstract class WindowTitleClass {
+abstract class WindowTitleClass {
     /* Fields of Adw-1.Adw.WindowTitleClass */
     parentClass: Gtk.WidgetClass
     static name: string
 }
 }
+export default Adw

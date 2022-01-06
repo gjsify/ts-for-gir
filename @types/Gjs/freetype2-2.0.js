@@ -1,2 +1,1 @@
-imports.gi.versions.freetype2 = '2.0'
-module.exports = imports.gi.freetype2
+export {default as default} from 'gi://freetype2?version=2.0';

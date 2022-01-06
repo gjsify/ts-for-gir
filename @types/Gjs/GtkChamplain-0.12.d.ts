@@ -3,29 +3,31 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gtk from './Gtk-3.0';
-import type * as xlib from './xlib-2.0';
-import type * as Gdk from './Gdk-3.0';
-import type * as cairo from './cairo-1.0';
-import type * as Pango from './Pango-1.0';
-import type * as HarfBuzz from './HarfBuzz-0.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
-import type * as GdkPixbuf from './GdkPixbuf-2.0';
-import type * as GModule from './GModule-2.0';
-import type * as Atk from './Atk-1.0';
-import type * as Clutter from './Clutter-1.0';
-import type * as Json from './Json-1.0';
-import type * as GL from './GL-1.0';
-import type * as CoglPango from './CoglPango-1.0';
-import type * as PangoCairo from './PangoCairo-1.0';
-import type * as Cogl from './Cogl-1.0';
-import type * as Champlain from './Champlain-0.12';
+import type Gtk from './Gtk-3.0';
+import type xlib from './xlib-2.0';
+import type Gdk from './Gdk-3.0';
+import type cairo from './cairo-1.0';
+import type Pango from './Pango-1.0';
+import type HarfBuzz from './HarfBuzz-0.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type Gio from './Gio-2.0';
+import type GdkPixbuf from './GdkPixbuf-2.0';
+import type GModule from './GModule-2.0';
+import type Atk from './Atk-1.0';
+import type Clutter from './Clutter-1.0';
+import type Json from './Json-1.0';
+import type GL from './GL-1.0';
+import type CoglPango from './CoglPango-1.0';
+import type PangoCairo from './PangoCairo-1.0';
+import type Cogl from './Cogl-1.0';
+import type Champlain from './Champlain-0.12';
+
+export namespace GtkChamplain {
 
 export interface Embed_ConstructProps extends Gtk.Alignment_ConstructProps {
 }
-export class Embed {
+class Embed {
     /* Properties of GtkChamplain-0.12.GtkChamplain.Embed */
     readonly champlain_view: Champlain.View
     /* Properties of Gtk-3.0.Gtk.Alignment */
@@ -871,11 +873,13 @@ export class Embed {
     static new(xalign: number, yalign: number, xscale: number, yscale: number): Embed
     static $gtype: GObject.Type
 }
-export abstract class EmbedClass {
+abstract class EmbedClass {
     /* Fields of GtkChamplain-0.12.GtkChamplain.EmbedClass */
     parent_class: Gtk.AlignmentClass
     static name: string
 }
-export class EmbedPrivate {
+class EmbedPrivate {
     static name: string
 }
+}
+export default GtkChamplain

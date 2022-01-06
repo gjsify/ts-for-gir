@@ -1,2 +1,1 @@
-imports.gi.versions.EvinceDocument = '3.0'
-module.exports = imports.gi.EvinceDocument
+export {default as default} from 'gi://EvinceDocument?version=3.0';

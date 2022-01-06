@@ -5,46 +5,47 @@
 import "node"
 import type { GObject } from './GObject-2.0';
 
-export declare namespace GL {
+declare namespace GL {
 
-export function initNames(): void
-export class bitfield {
+function initNames(): void
+class bitfield {
     static name: string
 }
-export class charARB {
+class charARB {
     static name: string
 }
-export class clampf {
+class clampf {
     static name: string
 }
-export class boolean_ {
+class boolean_ {
     static name: string
 }
-export class enum_ {
+class enum_ {
     static name: string
 }
-export class float {
+class float {
     static name: string
 }
-export class handleARB {
+class handleARB {
     static name: string
 }
-export class int {
+class int {
     static name: string
 }
-export class intptr {
+class intptr {
     static name: string
 }
-export class sizei {
+class sizei {
     static name: string
 }
-export class sizeiptr {
+class sizeiptr {
     static name: string
 }
-export class uint {
+class uint {
     static name: string
 }
-export class void_ {
+class void_ {
     static name: string
 }
 }
+export default GL

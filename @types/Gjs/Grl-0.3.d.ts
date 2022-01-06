@@ -3,12 +3,14 @@
  */
 
 import type * as Gjs from './Gjs';
-import type * as Gio from './Gio-2.0';
-import type * as GObject from './GObject-2.0';
-import type * as GLib from './GLib-2.0';
-import type * as GModule from './GModule-2.0';
+import type Gio from './Gio-2.0';
+import type GObject from './GObject-2.0';
+import type GLib from './GLib-2.0';
+import type GModule from './GModule-2.0';
 
-export enum CoreError {
+export namespace Grl {
+
+enum CoreError {
     BROWSE_FAILED,
     SEARCH_FAILED,
     SEARCH_NULL_UNSUPPORTED,
@@ -29,7 +31,7 @@ export enum CoreError {
     OPERATION_CANCELLED,
     AUTHENTICATION_TOKEN,
 }
-export enum LogLevel {
+enum LogLevel {
     NONE,
     ERROR,
     WARNING,
@@ -38,44 +40,44 @@ export enum LogLevel {
     DEBUG,
     LAST,
 }
-export enum MediaSerializeType {
+enum MediaSerializeType {
     BASIC,
     PARTIAL,
     FULL,
 }
-export enum MediaType {
+enum MediaType {
     UNKNOWN,
     AUDIO,
     VIDEO,
     IMAGE,
     CONTAINER,
 }
-export enum Rank {
+enum Rank {
     LOWEST,
     LOW,
     DEFAULT,
     HIGH,
     HIGHEST,
 }
-export enum SourceChangeType {
+enum SourceChangeType {
     CHANGED,
     ADDED,
     REMOVED,
 }
-export enum ResolutionFlags {
+enum ResolutionFlags {
     NORMAL,
     FULL,
     IDLE_RELAY,
     FAST_ONLY,
 }
-export enum SupportedMedia {
+enum SupportedMedia {
     NONE,
     AUDIO,
     VIDEO,
     IMAGE,
     ALL,
 }
-export enum SupportedOps {
+enum SupportedOps {
     NONE,
     RESOLVE,
     BROWSE,
@@ -88,14 +90,14 @@ export enum SupportedOps {
     MEDIA_FROM_URI,
     NOTIFY_CHANGE,
 }
-export enum TypeFilter {
+enum TypeFilter {
     NONE,
     AUDIO,
     VIDEO,
     IMAGE,
     ALL,
 }
-export enum WriteFlags {
+enum WriteFlags {
     NORMAL,
     FULL,
 }
@@ -187,50 +189,50 @@ export const PLUGIN_RANKS_VAR: string
 export const PLUGIN_SITE: string
 export const PLUGIN_VERSION: string
 export const SOURCE_REMAINING_UNKNOWN: number
-export function date_time_from_iso8601(date: string): GLib.DateTime
-export function deinit(): void
-export function g_value_dup(value: any): any
-export function g_value_free(value: any): void
-export function g_value_hashtable_new(): GLib.HashTable
-export function g_value_hashtable_new_direct(): GLib.HashTable
-export function g_value_new(g_type: GObject.Type): any
-export function init(argv?: string[] | null): /* argv */ string[] | null
-export function init_get_option_group(): GLib.OptionGroup
-export function log_configure(config: string): void
-export function metadata_key_get_desc(key: KeyID): string
-export function metadata_key_get_name(key: KeyID): string
-export function metadata_key_get_type(key: KeyID): GObject.Type
-export function multiple_get_media_from_uri(uri: string, keys: KeyID[], options: OperationOptions, callback: SourceResolveCb): void
-export function multiple_search(sources: Source[] | null, text: string, keys: KeyID[], options: OperationOptions, callback: SourceResultCb): number
-export function multiple_search_sync(sources: Source[] | null, text: string, keys: KeyID[], options: OperationOptions): Media[]
-export function operation_cancel(operation_id: number): void
-export function operation_get_data(operation_id: number): object | null
-export function operation_set_data(operation_id: number, user_data?: object | null): void
-export function operation_set_data_full(operation_id: number, user_data?: object | null, destroy_func?: GLib.DestroyNotify | null): void
-export function paging_translate(skip: number, count: number, max_page_size: number, page_size: number, page_number: number, internal_offset: number): void
-export function range_value_hashtable_insert(hash_table: GLib.HashTable, key: object | null, min: any, max: any): void
-export function range_value_hashtable_new(): GLib.HashTable
-export interface PluginDeinitFunc {
+function date_time_from_iso8601(date: string): GLib.DateTime
+function deinit(): void
+function g_value_dup(value: any): any
+function g_value_free(value: any): void
+function g_value_hashtable_new(): GLib.HashTable
+function g_value_hashtable_new_direct(): GLib.HashTable
+function g_value_new(g_type: GObject.Type): any
+function init(argv?: string[] | null): /* argv */ string[] | null
+function init_get_option_group(): GLib.OptionGroup
+function log_configure(config: string): void
+function metadata_key_get_desc(key: KeyID): string
+function metadata_key_get_name(key: KeyID): string
+function metadata_key_get_type(key: KeyID): GObject.Type
+function multiple_get_media_from_uri(uri: string, keys: KeyID[], options: OperationOptions, callback: SourceResolveCb): void
+function multiple_search(sources: Source[] | null, text: string, keys: KeyID[], options: OperationOptions, callback: SourceResultCb): number
+function multiple_search_sync(sources: Source[] | null, text: string, keys: KeyID[], options: OperationOptions): Media[]
+function operation_cancel(operation_id: number): void
+function operation_get_data(operation_id: number): object | null
+function operation_set_data(operation_id: number, user_data?: object | null): void
+function operation_set_data_full(operation_id: number, user_data?: object | null, destroy_func?: GLib.DestroyNotify | null): void
+function paging_translate(skip: number, count: number, max_page_size: number, page_size: number, page_number: number, internal_offset: number): void
+function range_value_hashtable_insert(hash_table: GLib.HashTable, key: object | null, min: any, max: any): void
+function range_value_hashtable_new(): GLib.HashTable
+interface PluginDeinitFunc {
     (plugin: Plugin): void
 }
-export interface PluginRegisterKeysFunc {
+interface PluginRegisterKeysFunc {
     (registry: Registry, plugin: Plugin): void
 }
-export interface SourceRemoveCb {
+interface SourceRemoveCb {
     (source: Source, media: Media, error?: GLib.Error | null): void
 }
-export interface SourceResolveCb {
+interface SourceResolveCb {
     (source: Source, operation_id: number, media: Media, error?: GLib.Error | null): void
 }
-export interface SourceResultCb {
+interface SourceResultCb {
     (source: Source, operation_id: number, media: Media | null, remaining: number, error?: GLib.Error | null): void
 }
-export interface SourceStoreCb {
+interface SourceStoreCb {
     (source: Source, media: Media, failed_keys: KeyID[], error?: GLib.Error | null): void
 }
 export interface Caps_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Caps {
+class Caps {
     /* Fields of Grl-0.3.Grl.Caps */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -292,7 +294,7 @@ export class Caps {
 }
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Config {
+class Config {
     /* Fields of Grl-0.3.Grl.Config */
     parent: GObject.Object
     priv: ConfigPrivate
@@ -377,7 +379,7 @@ export class Config {
 }
 export interface Data_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Data {
+class Data {
     /* Fields of Grl-0.3.Grl.Data */
     parent: GObject.Object
     priv: DataPrivate
@@ -468,7 +470,7 @@ export class Data {
 export interface Media_ConstructProps extends Data_ConstructProps {
     media_type?: MediaType
 }
-export class Media {
+class Media {
     /* Properties of Grl-0.3.Grl.Media */
     media_type: MediaType
     /* Fields of Grl-0.3.Grl.Media */
@@ -729,7 +731,7 @@ export class Media {
 }
 export interface OperationOptions_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class OperationOptions {
+class OperationOptions {
     /* Fields of Grl-0.3.Grl.OperationOptions */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -799,7 +801,7 @@ export class OperationOptions {
 }
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Plugin {
+class Plugin {
     /* Properties of Grl-0.3.Grl.Plugin */
     readonly loaded: boolean
     /* Fields of Grl-0.3.Grl.Plugin */
@@ -864,7 +866,7 @@ export class Plugin {
 }
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Registry {
+class Registry {
     /* Fields of Grl-0.3.Grl.Registry */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -952,7 +954,7 @@ export class Registry {
 }
 export interface RelatedKeys_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RelatedKeys {
+class RelatedKeys {
     /* Fields of Grl-0.3.Grl.RelatedKeys */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1035,7 +1037,7 @@ export interface Source_ConstructProps extends GObject.Object_ConstructProps {
     source_tags?: string[]
     supported_media?: SupportedMedia
 }
-export class Source {
+class Source {
     /* Properties of Grl-0.3.Grl.Source */
     auto_split_threshold: number
     plugin: Plugin
@@ -1172,57 +1174,57 @@ export class Source {
     _init (config?: Source_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class CapsClass {
+abstract class CapsClass {
     /* Fields of Grl-0.3.Grl.CapsClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class CapsPrivate {
+class CapsPrivate {
     static name: string
 }
-export abstract class ConfigClass {
+abstract class ConfigClass {
     /* Fields of Grl-0.3.Grl.ConfigClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class ConfigPrivate {
+class ConfigPrivate {
     static name: string
 }
-export abstract class DataClass {
+abstract class DataClass {
     /* Fields of Grl-0.3.Grl.DataClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class DataPrivate {
+class DataPrivate {
     static name: string
 }
-export class LogDomain {
+class LogDomain {
     /* Methods of Grl-0.3.Grl.LogDomain */
     free(): void
     static name: string
 }
-export abstract class MediaClass {
+abstract class MediaClass {
     /* Fields of Grl-0.3.Grl.MediaClass */
     parent_class: DataClass
     static name: string
 }
-export class MediaPrivate {
+class MediaPrivate {
     static name: string
 }
-export abstract class OperationOptionsClass {
+abstract class OperationOptionsClass {
     /* Fields of Grl-0.3.Grl.OperationOptionsClass */
     parent: GObject.ObjectClass
     static name: string
 }
-export class OperationOptionsPrivate {
+class OperationOptionsPrivate {
     static name: string
 }
-export abstract class PluginClass {
+abstract class PluginClass {
     /* Fields of Grl-0.3.Grl.PluginClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class PluginDescriptor {
+class PluginDescriptor {
     /* Fields of Grl-0.3.Grl.PluginDescriptor */
     major_version: number
     minor_version: number
@@ -1237,10 +1239,10 @@ export class PluginDescriptor {
     register_keys: PluginRegisterKeysFunc
     static name: string
 }
-export class PluginPrivate {
+class PluginPrivate {
     static name: string
 }
-export class RangeValue {
+class RangeValue {
     /* Fields of Grl-0.3.Grl.RangeValue */
     min: any
     max: any
@@ -1255,23 +1257,23 @@ export class RangeValue {
     static hashtable_insert(hash_table: GLib.HashTable, key: object | null, min: any, max: any): void
     static hashtable_new(): GLib.HashTable
 }
-export abstract class RegistryClass {
+abstract class RegistryClass {
     /* Fields of Grl-0.3.Grl.RegistryClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RegistryPrivate {
+class RegistryPrivate {
     static name: string
 }
-export abstract class RelatedKeysClass {
+abstract class RelatedKeysClass {
     /* Fields of Grl-0.3.Grl.RelatedKeysClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
-export class RelatedKeysPrivate {
+class RelatedKeysPrivate {
     static name: string
 }
-export class SourceBrowseSpec {
+class SourceBrowseSpec {
     /* Fields of Grl-0.3.Grl.SourceBrowseSpec */
     source: Source
     operation_id: number
@@ -1282,7 +1284,7 @@ export class SourceBrowseSpec {
     user_data: object
     static name: string
 }
-export abstract class SourceClass {
+abstract class SourceClass {
     /* Fields of Grl-0.3.Grl.SourceClass */
     parent_class: GObject.ObjectClass
     supported_operations: (source: Source) => SupportedOps
@@ -1305,7 +1307,7 @@ export abstract class SourceClass {
     notify_change_stop: (source: Source) => boolean
     static name: string
 }
-export class SourceMediaFromUriSpec {
+class SourceMediaFromUriSpec {
     /* Fields of Grl-0.3.Grl.SourceMediaFromUriSpec */
     source: Source
     operation_id: number
@@ -1316,10 +1318,10 @@ export class SourceMediaFromUriSpec {
     user_data: object
     static name: string
 }
-export class SourcePrivate {
+class SourcePrivate {
     static name: string
 }
-export class SourceQuerySpec {
+class SourceQuerySpec {
     /* Fields of Grl-0.3.Grl.SourceQuerySpec */
     source: Source
     operation_id: number
@@ -1330,7 +1332,7 @@ export class SourceQuerySpec {
     user_data: object
     static name: string
 }
-export class SourceRemoveSpec {
+class SourceRemoveSpec {
     /* Fields of Grl-0.3.Grl.SourceRemoveSpec */
     source: Source
     media_id: string
@@ -1339,7 +1341,7 @@ export class SourceRemoveSpec {
     user_data: object
     static name: string
 }
-export class SourceResolveSpec {
+class SourceResolveSpec {
     /* Fields of Grl-0.3.Grl.SourceResolveSpec */
     source: Source
     operation_id: number
@@ -1350,7 +1352,7 @@ export class SourceResolveSpec {
     user_data: object
     static name: string
 }
-export class SourceSearchSpec {
+class SourceSearchSpec {
     /* Fields of Grl-0.3.Grl.SourceSearchSpec */
     source: Source
     operation_id: number
@@ -1361,7 +1363,7 @@ export class SourceSearchSpec {
     user_data: object
     static name: string
 }
-export class SourceStoreMetadataSpec {
+class SourceStoreMetadataSpec {
     /* Fields of Grl-0.3.Grl.SourceStoreMetadataSpec */
     source: Source
     media: Media
@@ -1372,7 +1374,7 @@ export class SourceStoreMetadataSpec {
     failed_keys: object[]
     static name: string
 }
-export class SourceStoreSpec {
+class SourceStoreSpec {
     /* Fields of Grl-0.3.Grl.SourceStoreSpec */
     source: Source
     parent: Media
@@ -1381,4 +1383,6 @@ export class SourceStoreSpec {
     user_data: object
     static name: string
 }
-export type KeyID = number
+type KeyID = number
+}
+export default Grl

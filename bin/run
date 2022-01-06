@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 require('source-map-support').install()
-require('@oclif/command')
+require('@oclif/core')
     .run()
-    .then(require('@oclif/command/flush'))
+    .then(require('@oclif/core/flush'))
     .catch((error) => {
         if (error && error.oclif && typeof error.oclif.exit === 'number' && error.oclif.exit !== 0) {
             console.log('error', error)

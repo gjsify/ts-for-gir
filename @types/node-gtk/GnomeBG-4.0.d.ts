@@ -16,11 +16,11 @@ import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 
-export declare namespace GnomeBG {
+declare namespace GnomeBG {
 
 export interface BG_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class BG {
+class BG {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GnomeBG-4.0.GnomeBG.BG */
@@ -96,7 +96,7 @@ export class BG {
 export interface BGSlideShow_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
-export class BGSlideShow {
+class BGSlideShow {
     /* Properties of GnomeBG-4.0.GnomeBG.BGSlideShow */
     readonly hasMultipleSizes: boolean
     readonly startTime: number
@@ -172,15 +172,16 @@ export class BGSlideShow {
     static new(filename: string): BGSlideShow
     static $gtype: GObject.Type
 }
-export abstract class BGClass {
+abstract class BGClass {
     static name: string
 }
-export abstract class BGSlideShowClass {
+abstract class BGSlideShowClass {
     /* Fields of GnomeBG-4.0.GnomeBG.BGSlideShowClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
-export class BGSlideShowPrivate {
+class BGSlideShowPrivate {
     static name: string
 }
 }
+export default GnomeBG

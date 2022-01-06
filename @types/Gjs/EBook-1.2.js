@@ -1,2 +1,1 @@
-imports.gi.versions.EBook = '1.2'
-module.exports = imports.gi.EBook
+export {default as default} from 'gi://EBook?version=1.2';

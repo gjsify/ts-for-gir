@@ -35,6 +35,21 @@ declare global {
         }
         searchPath: string[];
     }
+    // TODO add support for multiple versions
+    // const imports: typeof Gjs & {
+    //     [key: string]: any
+    //     gi: {
+    //       <%_ for (const girModule of girModules) { _%>
+    //       <%= girModule.name %>: typeof <%= girModule.importName %>
+    //       <%_ } _%>
+    //     }
+    //     versions: {
+    //       <%_ for (const girModule of girModules) { _%>
+    //         <%= girModule.name %>: string
+    //         <%_ } _%>
+    //     }
+    //     searchPath: string[];
+    // }
 }
 
 export { imports }

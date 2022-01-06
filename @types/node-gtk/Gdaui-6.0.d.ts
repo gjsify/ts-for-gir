@@ -4127,7 +4127,6 @@ export class Combo {
     entryTextColumn: number
     hasFrame: boolean
     idColumn: number
-    model: Gtk.TreeModel
     popupFixedWidth: boolean
     readonly popupShown: boolean
     rowSpanColumn: number
@@ -5033,11 +5032,6 @@ export class Combo {
     on(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::model", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::popup-fixed-width", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::popup-fixed-width", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::popup-fixed-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -29871,7 +29865,6 @@ export class ProviderSelector {
     entryTextColumn: number
     hasFrame: boolean
     idColumn: number
-    model: Gtk.TreeModel
     popupFixedWidth: boolean
     readonly popupShown: boolean
     rowSpanColumn: number
@@ -30781,11 +30774,6 @@ export class ProviderSelector {
     on(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::id-column", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::model", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::popup-fixed-width", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::popup-fixed-width", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::popup-fixed-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -32184,7 +32172,6 @@ export class RawGrid {
     hoverExpand: boolean
     hoverSelection: boolean
     levelIndentation: number
-    model: Gtk.TreeModel
     reorderable: boolean
     rubberBanding: boolean
     rulesHint: boolean
@@ -33232,11 +33219,6 @@ export class RawGrid {
     on(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::model", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::reorderable", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reorderable", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::reorderable", callback: (...args: any[]) => void): NodeJS.EventEmitter

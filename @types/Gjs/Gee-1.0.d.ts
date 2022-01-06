@@ -486,7 +486,6 @@ export class List {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
     /* Fields of GObject-2.0.GObject.Object */
@@ -589,8 +588,6 @@ export class List {
     connect_after(sigName: "notify::size", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -1160,7 +1157,6 @@ export class Set {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
     /* Fields of GObject-2.0.GObject.Object */
@@ -1240,8 +1236,6 @@ export class Set {
     connect_after(sigName: "notify::size", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -1264,13 +1258,8 @@ export class SortedSet {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
-    /* Properties of Gee-1.0.Gee.Set */
-    readonly read_only_view: Set
-    /* Properties of Gee-1.0.Gee.Collection */
-    readonly read_only_view: Collection
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.SortedSet */
@@ -1372,14 +1361,8 @@ export class SortedSet {
     connect_after(sigName: "notify::size", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1489,11 +1472,6 @@ export class AbstractList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
-    /* Properties of Gee-1.0.Gee.List */
-    readonly read_only_view: List
-    /* Properties of Gee-1.0.Gee.Collection */
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
     /* Fields of Gee-1.0.Gee.AbstractList */
@@ -1588,12 +1566,6 @@ export class AbstractList {
     connect_after(sigName: "notify::size", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2014,11 +1986,6 @@ export class AbstractSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
-    /* Properties of Gee-1.0.Gee.Set */
-    readonly read_only_view: Set
-    /* Properties of Gee-1.0.Gee.Collection */
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
     /* Fields of Gee-1.0.Gee.AbstractSet */
@@ -2088,12 +2055,6 @@ export class AbstractSet {
     connect_after(sigName: "notify::size", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2118,7 +2079,6 @@ export class ArrayList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Fields of Gee-1.0.Gee.ArrayList */
     parent_instance: AbstractList
     priv: ArrayListPrivate
@@ -2213,8 +2173,6 @@ export class ArrayList {
     connect_after(sigName: "notify::size", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2534,7 +2492,6 @@ export class HashSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Fields of Gee-1.0.Gee.HashSet */
     parent_instance: AbstractSet
     priv: HashSetPrivate
@@ -2606,8 +2563,6 @@ export class HashSet {
     connect_after(sigName: "notify::size", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2630,7 +2585,6 @@ export class LinkedList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Queue */
     readonly capacity: number
     readonly remaining_capacity: number
@@ -2756,8 +2710,6 @@ export class LinkedList {
     connect_after(sigName: "notify::size", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::remaining-capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
@@ -3179,11 +3131,6 @@ export class TreeSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly is_empty: boolean
-    readonly read_only_view: Collection
-    /* Properties of Gee-1.0.Gee.Set */
-    readonly read_only_view: Set
-    /* Properties of Gee-1.0.Gee.Collection */
-    readonly read_only_view: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly element_type: GObject.Type
     /* Fields of Gee-1.0.Gee.TreeSet */
@@ -3279,12 +3226,6 @@ export class TreeSet {
     connect_after(sigName: "notify::size", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-empty", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::element-type", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number

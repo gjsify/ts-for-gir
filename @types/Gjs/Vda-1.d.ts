@@ -8007,12 +8007,9 @@ export interface Expression_ConstructProps extends Gee.ArrayList_ConstructProps 
 export class Expression {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
@@ -8206,14 +8203,10 @@ export class Expression {
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     connect(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8235,12 +8228,9 @@ export interface ExpressionField_ConstructProps extends Expression_ConstructProp
 export class ExpressionField {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Properties of Vda-1.Vda.SqlExpressionField */
     table_ref: string
     name: string
@@ -8442,14 +8432,10 @@ export class ExpressionField {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::table-ref", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::table-ref", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: ExpressionField, pspec: GObject.ParamSpec) => void)): number
@@ -8473,12 +8459,9 @@ export interface ExpressionOperator_ConstructProps extends Expression_ConstructP
 export class ExpressionOperator {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Properties of Vda-1.Vda.SqlExpressionOperator */
     readonly operator_type: SqlExpressionOperatorType
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8740,14 +8723,10 @@ export class ExpressionOperator {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-type", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-type", callback: (($obj: ExpressionOperator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -8767,12 +8746,9 @@ export interface ExpressionOperatorGroup_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorGroup {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperator */
     _operator_type: SqlExpressionOperatorType
     /* Fields of Gee-0.8.Gee.ArrayList */
@@ -8999,14 +8975,10 @@ export class ExpressionOperatorGroup {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9024,12 +8996,9 @@ export interface ExpressionOperatorMultiterm_ConstructProps extends ExpressionOp
 export class ExpressionOperatorMultiterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9258,14 +9227,10 @@ export class ExpressionOperatorMultiterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMultiterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9283,12 +9248,9 @@ export interface ExpressionOperatorAnd_ConstructProps extends ExpressionOperator
 export class ExpressionOperatorAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9521,14 +9483,10 @@ export class ExpressionOperatorAnd {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9546,12 +9504,9 @@ export interface ExpressionOperatorOr_ConstructProps extends ExpressionOperatorM
 export class ExpressionOperatorOr {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9784,14 +9739,10 @@ export class ExpressionOperatorOr {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorOr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9809,12 +9760,9 @@ export interface ExpressionOperatorBinaryterm_ConstructProps extends ExpressionO
 export class ExpressionOperatorBinaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10043,14 +9991,10 @@ export class ExpressionOperatorBinaryterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10068,12 +10012,9 @@ export interface ExpressionOperatorEq_ConstructProps extends ExpressionOperatorB
 export class ExpressionOperatorEq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10306,14 +10247,10 @@ export class ExpressionOperatorEq {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10331,12 +10268,9 @@ export interface ExpressionOperatorNotEq_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorNotEq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10569,14 +10503,10 @@ export class ExpressionOperatorNotEq {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotEq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10594,12 +10524,9 @@ export interface ExpressionOperatorDiff_ConstructProps extends ExpressionOperato
 export class ExpressionOperatorDiff {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10832,14 +10759,10 @@ export class ExpressionOperatorDiff {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiff, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10857,12 +10780,9 @@ export interface ExpressionOperatorGt_ConstructProps extends ExpressionOperatorB
 export class ExpressionOperatorGt {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11095,14 +11015,10 @@ export class ExpressionOperatorGt {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11120,12 +11036,9 @@ export interface ExpressionOperatorLt_ConstructProps extends ExpressionOperatorB
 export class ExpressionOperatorLt {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11358,14 +11271,10 @@ export class ExpressionOperatorLt {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11383,12 +11292,9 @@ export interface ExpressionOperatorGeq_ConstructProps extends ExpressionOperator
 export class ExpressionOperatorGeq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11621,14 +11527,10 @@ export class ExpressionOperatorGeq {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorGeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11646,12 +11548,9 @@ export interface ExpressionOperatorLeq_ConstructProps extends ExpressionOperator
 export class ExpressionOperatorLeq {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11884,14 +11783,10 @@ export class ExpressionOperatorLeq {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLeq, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11909,12 +11804,9 @@ export interface ExpressionOperatorRegexp_ConstructProps extends ExpressionOpera
 export class ExpressionOperatorRegexp {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -12147,14 +12039,10 @@ export class ExpressionOperatorRegexp {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorRegexp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12172,12 +12060,9 @@ export interface ExpressionOperatorStar_ConstructProps extends ExpressionOperato
 export class ExpressionOperatorStar {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -12410,14 +12295,10 @@ export class ExpressionOperatorStar {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorStar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12435,12 +12316,9 @@ export interface ExpressionOperatorDiv_ConstructProps extends ExpressionOperator
 export class ExpressionOperatorDiv {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -12673,14 +12551,10 @@ export class ExpressionOperatorDiv {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorDiv, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12698,12 +12572,9 @@ export interface ExpressionOperatorIn_ConstructProps extends ExpressionOperatorB
 export class ExpressionOperatorIn {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -12936,14 +12807,10 @@ export class ExpressionOperatorIn {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12961,12 +12828,9 @@ export interface ExpressionOperatorNotIn_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorNotIn {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -13199,14 +13063,10 @@ export class ExpressionOperatorNotIn {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIn, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13224,12 +13084,9 @@ export interface ExpressionOperatorConcatenate_ConstructProps extends Expression
 export class ExpressionOperatorConcatenate {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -13462,14 +13319,10 @@ export class ExpressionOperatorConcatenate {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorConcatenate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13487,12 +13340,9 @@ export interface ExpressionOperatorSimilarTo_ConstructProps extends ExpressionOp
 export class ExpressionOperatorSimilarTo {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -13725,14 +13575,10 @@ export class ExpressionOperatorSimilarTo {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorSimilarTo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13750,12 +13596,9 @@ export interface ExpressionOperatorLike_ConstructProps extends ExpressionOperato
 export class ExpressionOperatorLike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -13988,14 +13831,10 @@ export class ExpressionOperatorLike {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14013,12 +13852,9 @@ export interface ExpressionOperatorNotLike_ConstructProps extends ExpressionOper
 export class ExpressionOperatorNotLike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -14251,14 +14087,10 @@ export class ExpressionOperatorNotLike {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14276,12 +14108,9 @@ export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorIlike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -14514,14 +14343,10 @@ export class ExpressionOperatorIlike {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14539,12 +14364,9 @@ export interface ExpressionOperatorNotIlike_ConstructProps extends ExpressionOpe
 export class ExpressionOperatorNotIlike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -14777,14 +14599,10 @@ export class ExpressionOperatorNotIlike {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -14802,12 +14620,9 @@ export interface ExpressionOperatorBinaryUnaryterm_ConstructProps extends Expres
 export class ExpressionOperatorBinaryUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -15036,14 +14851,10 @@ export class ExpressionOperatorBinaryUnaryterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBinaryUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15061,12 +14872,9 @@ export interface ExpressionOperatorMinus_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorMinus {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -15299,14 +15107,10 @@ export class ExpressionOperatorMinus {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorMinus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15324,12 +15128,9 @@ export interface ExpressionOperatorPlus_ConstructProps extends ExpressionOperato
 export class ExpressionOperatorPlus {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -15562,14 +15363,10 @@ export class ExpressionOperatorPlus {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorPlus, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15587,12 +15384,9 @@ export interface ExpressionOperatorInitialUnaryterm_ConstructProps extends Expre
 export class ExpressionOperatorInitialUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -15821,14 +15615,10 @@ export class ExpressionOperatorInitialUnaryterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorInitialUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15846,12 +15636,9 @@ export interface ExpressionOperatorNot_ConstructProps extends ExpressionOperator
 export class ExpressionOperatorNot {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -16084,14 +15871,10 @@ export class ExpressionOperatorNot {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16109,12 +15892,9 @@ export interface ExpressionOperatorFinalUnaryterm_ConstructProps extends Express
 export class ExpressionOperatorFinalUnaryterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -16343,14 +16123,10 @@ export class ExpressionOperatorFinalUnaryterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorFinalUnaryterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16368,12 +16144,9 @@ export interface ExpressionOperatorIs_ConstructProps extends ExpressionOperatorF
 export class ExpressionOperatorIs {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -16606,14 +16379,10 @@ export class ExpressionOperatorIs {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIs, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16631,12 +16400,9 @@ export interface ExpressionOperatorIsNot_ConstructProps extends ExpressionOperat
 export class ExpressionOperatorIsNot {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -16873,14 +16639,10 @@ export class ExpressionOperatorIsNot {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNot, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -16898,12 +16660,9 @@ export interface ExpressionOperatorIsNull_ConstructProps extends ExpressionOpera
 export class ExpressionOperatorIsNull {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -17140,14 +16899,10 @@ export class ExpressionOperatorIsNull {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17165,12 +16920,9 @@ export interface ExpressionOperatorIsNotNull_ConstructProps extends ExpressionOp
 export class ExpressionOperatorIsNotNull {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -17411,14 +17163,10 @@ export class ExpressionOperatorIsNotNull {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotNull, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17436,12 +17184,9 @@ export interface ExpressionOperatorIsTrue_ConstructProps extends ExpressionOpera
 export class ExpressionOperatorIsTrue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -17678,14 +17423,10 @@ export class ExpressionOperatorIsTrue {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17703,12 +17444,9 @@ export interface ExpressionOperatorIsNotTrue_ConstructProps extends ExpressionOp
 export class ExpressionOperatorIsNotTrue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -17949,14 +17687,10 @@ export class ExpressionOperatorIsNotTrue {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotTrue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -17974,12 +17708,9 @@ export interface ExpressionOperatorIsFalse_ConstructProps extends ExpressionOper
 export class ExpressionOperatorIsFalse {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -18216,14 +17947,10 @@ export class ExpressionOperatorIsFalse {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18241,12 +17968,9 @@ export interface ExpressionOperatorIsNotFalse_ConstructProps extends ExpressionO
 export class ExpressionOperatorIsNotFalse {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -18487,14 +18211,10 @@ export class ExpressionOperatorIsNotFalse {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotFalse, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18512,12 +18232,9 @@ export interface ExpressionOperatorIsNotUnknown_ConstructProps extends Expressio
 export class ExpressionOperatorIsNotUnknown {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -18758,14 +18475,10 @@ export class ExpressionOperatorIsNotUnknown {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -18783,12 +18496,9 @@ export interface ExpressionOperatorIsUnknown_ConstructProps extends ExpressionOp
 export class ExpressionOperatorIsUnknown {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -19025,14 +18735,10 @@ export class ExpressionOperatorIsUnknown {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsUnknown, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19050,12 +18756,9 @@ export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionO
 export class ExpressionOperatorIsDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -19288,14 +18991,10 @@ export class ExpressionOperatorIsDistinct {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19313,12 +19012,9 @@ export interface ExpressionOperatorIsNotDistinct_ConstructProps extends Expressi
 export class ExpressionOperatorIsNotDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -19555,14 +19251,10 @@ export class ExpressionOperatorIsNotDistinct {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinct, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19580,12 +19272,9 @@ export interface ExpressionOperatorIsDistinctFrom_ConstructProps extends Express
 export class ExpressionOperatorIsDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -19822,14 +19511,10 @@ export class ExpressionOperatorIsDistinctFrom {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -19847,12 +19532,9 @@ export interface ExpressionOperatorIsNotDistinctFrom_ConstructProps extends Expr
 export class ExpressionOperatorIsNotDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     _operator_name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -20093,14 +19775,10 @@ export class ExpressionOperatorIsNotDistinctFrom {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorIsNotDistinctFrom, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20118,12 +19796,9 @@ export interface ExpressionOperatorThreeterm_ConstructProps extends ExpressionOp
 export class ExpressionOperatorThreeterm {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -20353,14 +20028,10 @@ export class ExpressionOperatorThreeterm {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorThreeterm, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20378,12 +20049,9 @@ export interface ExpressionOperatorBetween_ConstructProps extends ExpressionOper
 export class ExpressionOperatorBetween {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -20617,14 +20285,10 @@ export class ExpressionOperatorBetween {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20642,12 +20306,9 @@ export interface ExpressionOperatorBetweenAnd_ConstructProps extends ExpressionO
 export class ExpressionOperatorBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -20885,14 +20546,10 @@ export class ExpressionOperatorBetweenAnd {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -20910,12 +20567,9 @@ export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionO
 export class ExpressionOperatorNotBetween {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -21153,14 +20807,10 @@ export class ExpressionOperatorNotBetween {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetween, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -21178,12 +20828,9 @@ export interface ExpressionOperatorNotBetweenAnd_ConstructProps extends Expressi
 export class ExpressionOperatorNotBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -21425,14 +21072,10 @@ export class ExpressionOperatorNotBetweenAnd {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -21450,12 +21093,9 @@ export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends Expre
 export class ExpressionOperatorBetweenSymmetric {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -21693,14 +21333,10 @@ export class ExpressionOperatorBetweenSymmetric {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -21718,12 +21354,9 @@ export interface ExpressionOperatorBetweenSymmetricAnd_ConstructProps extends Ex
 export class ExpressionOperatorBetweenSymmetricAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -21965,14 +21598,10 @@ export class ExpressionOperatorBetweenSymmetricAnd {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -21990,12 +21619,9 @@ export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends Ex
 export class ExpressionOperatorNotBetweenSymmetric {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -22237,14 +21863,10 @@ export class ExpressionOperatorNotBetweenSymmetric {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -22262,12 +21884,9 @@ export interface ExpressionOperatorNotBetweenSymmetricAnd_ConstructProps extends
 export class ExpressionOperatorNotBetweenSymmetricAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     _operator_name: string
     _operator2_name: string
@@ -22513,14 +22132,10 @@ export class ExpressionOperatorNotBetweenSymmetricAnd {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -22540,12 +22155,9 @@ export interface ExpressionValue_ConstructProps extends Expression_ConstructProp
 export class ExpressionValue {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Properties of Vda-1.Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
@@ -22744,14 +22356,10 @@ export class ExpressionValue {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::connection", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: ExpressionValue, pspec: GObject.ParamSpec) => void)): number
@@ -22776,12 +22384,9 @@ export interface ExpressionValueParameter_ConstructProps extends ExpressionValue
 export class ExpressionValueParameter {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Properties of Vda-1.Vda.SqlExpressionValueParameter */
     parameters: SqlParameters
     name: string
@@ -22994,14 +22599,10 @@ export class ExpressionValueParameter {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parameters", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameters", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: ExpressionValueParameter, pspec: GObject.ParamSpec) => void)): number
@@ -23026,12 +22627,9 @@ export interface HashList_ConstructProps extends Gee.ArrayList_ConstructProps {
 export class HashList {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly read_only: boolean
-    readonly read_only_view: Gee.Collection
     /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
@@ -23224,14 +22822,10 @@ export class HashList {
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
     connect(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: HashList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

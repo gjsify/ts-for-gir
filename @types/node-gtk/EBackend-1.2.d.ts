@@ -861,10 +861,6 @@ export class ServerSideSource {
     displayName: string
     enabled: boolean
     parent: string
-    readonly remoteCreatable: boolean
-    readonly remoteDeletable: boolean
-    readonly removable: boolean
-    readonly writable: boolean
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBackend-1.2.EBackend.ServerSideSource */
@@ -1068,26 +1064,6 @@ export class ServerSideSource {
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::remote-creatable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::remote-creatable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::remote-creatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::remote-creatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::remote-creatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::remote-deletable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::remote-deletable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::remote-deletable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::remote-deletable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::remote-deletable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::removable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::removable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::removable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::removable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::removable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::writable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::writable", callback: (($obj: ServerSideSource, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::writable", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

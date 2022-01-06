@@ -17646,7 +17646,6 @@ export class Text {
     opacity: number
     pivot_point: Point
     pivot_point_z: number
-    position: Point
     reactive: boolean
     readonly realized: boolean
     request_mode: RequestMode
@@ -18372,8 +18371,6 @@ export class Text {
     connect_after(sigName: "notify::pivot-point", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::pivot-point-z", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pivot-point-z", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::position", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::position", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::reactive", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reactive", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::realized", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number

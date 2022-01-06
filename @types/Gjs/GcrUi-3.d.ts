@@ -798,11 +798,8 @@ export class CertificateRenderer {
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
     readonly issuer: string
-    readonly label: string
     readonly markup: string
     readonly subject: string
-    /* Properties of GcrUi-3.GcrUi.Renderer */
-    label: string
     /* Fields of GcrUi-3.GcrUi.CertificateRenderer */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -899,14 +896,10 @@ export class CertificateRenderer {
     connect_after(sigName: "notify::icon", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::issuer", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::issuer", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::markup", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::markup", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::subject", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::subject", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

@@ -11587,7 +11587,6 @@ export class Sidebar {
     hoverExpand: boolean
     hoverSelection: boolean
     levelIndentation: number
-    model: Gtk.TreeModel
     reorderable: boolean
     rubberBanding: boolean
     rulesHint: boolean
@@ -12580,11 +12579,6 @@ export class Sidebar {
     on(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::level-indentation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::model", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::reorderable", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reorderable", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::reorderable", callback: (...args: any[]) => void): NodeJS.EventEmitter

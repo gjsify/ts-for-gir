@@ -2647,10 +2647,8 @@ export class Bin {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -3581,11 +3579,6 @@ export class Bin {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3596,11 +3589,6 @@ export class Bin {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4953,10 +4941,8 @@ export class Button {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -5957,11 +5943,6 @@ export class Button {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5972,11 +5953,6 @@ export class Button {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11723,10 +11699,8 @@ export class Dialog {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -12662,11 +12636,6 @@ export class Dialog {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12677,11 +12646,6 @@ export class Dialog {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13943,10 +13907,8 @@ export class Expander {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -14897,11 +14859,6 @@ export class Expander {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14912,11 +14869,6 @@ export class Expander {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16327,10 +16279,8 @@ export class Frame {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -17264,11 +17214,6 @@ export class Frame {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -17279,11 +17224,6 @@ export class Frame {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -22021,10 +21961,8 @@ export class KineticScrollView {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Scrollable */
@@ -23031,11 +22969,6 @@ export class KineticScrollView {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23046,11 +22979,6 @@ export class KineticScrollView {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23204,10 +23132,8 @@ export class Label {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -24157,11 +24083,6 @@ export class Label {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24172,11 +24093,6 @@ export class Label {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -30870,10 +30786,8 @@ export class ScrollBar {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -31830,11 +31744,6 @@ export class ScrollBar {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -31845,11 +31754,6 @@ export class ScrollBar {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -31991,10 +31895,8 @@ export class ScrollView {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -32948,11 +32850,6 @@ export class ScrollView {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -32963,11 +32860,6 @@ export class ScrollView {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -39870,10 +39762,8 @@ export class Toolbar {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -40821,11 +40711,6 @@ export class Toolbar {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -40836,11 +40721,6 @@ export class Toolbar {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -42054,10 +41934,8 @@ export class Viewport {
     visible: boolean
     width: number
     x: number
-    xAlign: Clutter.ActorAlign
     xExpand: boolean
     y: number
-    yAlign: Clutter.ActorAlign
     yExpand: boolean
     zPosition: number
     /* Properties of Mx-1.0.Mx.Scrollable */
@@ -43019,11 +42897,6 @@ export class Viewport {
     on(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::x", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::x-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -43034,11 +42907,6 @@ export class Viewport {
     on(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::y", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::y-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::y-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::y-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::y-expand", callback: (...args: any[]) => void): NodeJS.EventEmitter

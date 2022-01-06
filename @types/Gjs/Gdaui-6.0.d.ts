@@ -3434,7 +3434,6 @@ export class Combo {
     entry_text_column: number
     has_frame: boolean
     id_column: number
-    model: Gtk.TreeModel
     popup_fixed_width: boolean
     readonly popup_shown: boolean
     row_span_column: number
@@ -4282,8 +4281,6 @@ export class Combo {
     connect_after(sigName: "notify::has-frame", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id-column", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id-column", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::model", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::popup-fixed-width", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::popup-fixed-width", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::popup-shown", callback: (($obj: Combo, pspec: GObject.ParamSpec) => void)): number
@@ -24465,7 +24462,6 @@ export class ProviderSelector {
     entry_text_column: number
     has_frame: boolean
     id_column: number
-    model: Gtk.TreeModel
     popup_fixed_width: boolean
     readonly popup_shown: boolean
     row_span_column: number
@@ -25317,8 +25313,6 @@ export class ProviderSelector {
     connect_after(sigName: "notify::has-frame", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id-column", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id-column", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::model", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::popup-fixed-width", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::popup-fixed-width", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::popup-shown", callback: (($obj: ProviderSelector, pspec: GObject.ParamSpec) => void)): number
@@ -26386,7 +26380,6 @@ export class RawGrid {
     hover_expand: boolean
     hover_selection: boolean
     level_indentation: number
-    model: Gtk.TreeModel
     reorderable: boolean
     rubber_banding: boolean
     rules_hint: boolean
@@ -27353,8 +27346,6 @@ export class RawGrid {
     connect_after(sigName: "notify::hover-selection", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::level-indentation", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::level-indentation", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::model", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::model", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::reorderable", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reorderable", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rubber-banding", callback: (($obj: RawGrid, pspec: GObject.ParamSpec) => void)): number

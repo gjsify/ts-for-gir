@@ -1638,7 +1638,6 @@ export class VulkanPhysicalDevice {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     readonly name: string
     /* Properties of Gst-1.0.Gst.Object */
-    name: string
     parent: Gst.Object
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     instance: VulkanInstance
@@ -1719,11 +1718,6 @@ export class VulkanPhysicalDevice {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter

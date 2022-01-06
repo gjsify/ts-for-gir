@@ -1640,7 +1640,6 @@ export class VulkanPhysicalDevice {
     /* Properties of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     readonly name: string
     /* Properties of Gst-1.0.Gst.Object */
-    name: string
     parent: Gst.Object
     /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     instance: VulkanInstance
@@ -1727,8 +1726,6 @@ export class VulkanPhysicalDevice {
     connect(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number

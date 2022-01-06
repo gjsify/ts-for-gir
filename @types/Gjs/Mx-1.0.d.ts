@@ -2086,10 +2086,8 @@ export class Bin {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -2781,14 +2779,10 @@ export class Bin {
     connect_after(sigName: "notify::width", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Bin, pspec: GObject.ParamSpec) => void)): number
@@ -3841,10 +3835,8 @@ export class Button {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -4579,14 +4571,10 @@ export class Button {
     connect_after(sigName: "notify::width", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Button, pspec: GObject.ParamSpec) => void)): number
@@ -8957,10 +8945,8 @@ export class Dialog {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -9657,14 +9643,10 @@ export class Dialog {
     connect_after(sigName: "notify::width", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Dialog, pspec: GObject.ParamSpec) => void)): number
@@ -10631,10 +10613,8 @@ export class Expander {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -11340,14 +11320,10 @@ export class Expander {
     connect_after(sigName: "notify::width", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Expander, pspec: GObject.ParamSpec) => void)): number
@@ -12455,10 +12431,8 @@ export class Frame {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -13153,14 +13127,10 @@ export class Frame {
     connect_after(sigName: "notify::width", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Frame, pspec: GObject.ParamSpec) => void)): number
@@ -16759,10 +16729,8 @@ export class KineticScrollView {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Scrollable */
@@ -17503,14 +17471,10 @@ export class KineticScrollView {
     connect_after(sigName: "notify::width", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: KineticScrollView, pspec: GObject.ParamSpec) => void)): number
@@ -17640,10 +17604,8 @@ export class Label {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -18342,14 +18304,10 @@ export class Label {
     connect_after(sigName: "notify::width", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Label, pspec: GObject.ParamSpec) => void)): number
@@ -23410,10 +23368,8 @@ export class ScrollBar {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -24124,14 +24080,10 @@ export class ScrollBar {
     connect_after(sigName: "notify::width", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: ScrollBar, pspec: GObject.ParamSpec) => void)): number
@@ -24255,10 +24207,8 @@ export class ScrollView {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -24964,14 +24914,10 @@ export class ScrollView {
     connect_after(sigName: "notify::width", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: ScrollView, pspec: GObject.ParamSpec) => void)): number
@@ -30254,10 +30200,8 @@ export class Toolbar {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Stylable */
@@ -30963,14 +30907,10 @@ export class Toolbar {
     connect_after(sigName: "notify::width", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Toolbar, pspec: GObject.ParamSpec) => void)): number
@@ -31903,10 +31843,8 @@ export class Viewport {
     visible: boolean
     width: number
     x: number
-    x_align: Clutter.ActorAlign
     x_expand: boolean
     y: number
-    y_align: Clutter.ActorAlign
     y_expand: boolean
     z_position: number
     /* Properties of Mx-1.0.Mx.Scrollable */
@@ -32620,14 +32558,10 @@ export class Viewport {
     connect_after(sigName: "notify::width", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::x-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::x-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::x-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::y-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::y-align", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::y-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::y-expand", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::z-position", callback: (($obj: Viewport, pspec: GObject.ParamSpec) => void)): number

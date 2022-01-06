@@ -1787,12 +1787,9 @@ export class ExpressionContainer {
     parent: MathExpression
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
-    /* Properties of Gee-0.8.Gee.AbstractList */
-    readonly readOnlyView: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    readonly readOnlyView: Gee.Collection
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
@@ -1888,11 +1885,6 @@ export class ExpressionContainer {
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::size", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1903,11 +1895,6 @@ export class ExpressionContainer {
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionContainer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

@@ -9780,7 +9780,6 @@ export class Point {
     scaleY: number
     scaleZ: number
     showOnSetParent: boolean
-    size: Clutter.Size
     textDirection: Clutter.TextDirection
     transform: Clutter.Matrix
     readonly transformSet: boolean
@@ -10644,11 +10643,6 @@ export class Point {
     on(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::size", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::size", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::text-direction", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text-direction", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::text-direction", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11817,7 +11811,6 @@ export class Tile {
     clipRect: Clutter.Rect
     clipToAllocation: boolean
     constraints: Clutter.Constraint
-    content: Clutter.Content
     readonly contentBox: Clutter.ActorBox
     contentGravity: Clutter.ContentGravity
     contentRepeat: Clutter.ContentRepeat
@@ -11870,7 +11863,6 @@ export class Tile {
     scaleY: number
     scaleZ: number
     showOnSetParent: boolean
-    size: Clutter.Size
     textDirection: Clutter.TextDirection
     transform: Clutter.Matrix
     readonly transformSet: boolean
@@ -12460,11 +12452,6 @@ export class Tile {
     on(sigName: "notify::constraints", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::constraints", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::constraints", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::content-box", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-box", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-box", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12725,11 +12712,6 @@ export class Tile {
     on(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::show-on-set-parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::size", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::size", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::text-direction", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text-direction", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::text-direction", callback: (...args: any[]) => void): NodeJS.EventEmitter

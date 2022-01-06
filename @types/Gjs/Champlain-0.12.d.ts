@@ -7648,7 +7648,6 @@ export class Point {
     scale_y: number
     scale_z: number
     show_on_set_parent: boolean
-    size: Clutter.Size
     text_direction: Clutter.TextDirection
     transform: Clutter.Matrix
     readonly transform_set: boolean
@@ -8304,8 +8303,6 @@ export class Point {
     connect_after(sigName: "notify::scale-z", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::show-on-set-parent", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::show-on-set-parent", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::size", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::size", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::text-direction", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text-direction", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::transform", callback: (($obj: Point, pspec: GObject.ParamSpec) => void)): number
@@ -9175,7 +9172,6 @@ export class Tile {
     clip_rect: Clutter.Rect
     clip_to_allocation: boolean
     constraints: Clutter.Constraint
-    content: Clutter.Content
     readonly content_box: Clutter.ActorBox
     content_gravity: Clutter.ContentGravity
     content_repeat: Clutter.ContentRepeat
@@ -9228,7 +9224,6 @@ export class Tile {
     scale_y: number
     scale_z: number
     show_on_set_parent: boolean
-    size: Clutter.Size
     text_direction: Clutter.TextDirection
     transform: Clutter.Matrix
     readonly transform_set: boolean
@@ -9762,8 +9757,6 @@ export class Tile {
     connect_after(sigName: "notify::clip-to-allocation", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::constraints", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::constraints", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content-box", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-box", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content-gravity", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
@@ -9868,8 +9861,6 @@ export class Tile {
     connect_after(sigName: "notify::scale-z", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::show-on-set-parent", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::show-on-set-parent", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::size", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::size", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::text-direction", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text-direction", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::transform", callback: (($obj: Tile, pspec: GObject.ParamSpec) => void)): number

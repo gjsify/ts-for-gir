@@ -849,7 +849,7 @@ export function faceSetIndex(face: face_t, index: number): void
 export function faceSetUpem(face: face_t, upem: number): void
 export function featureFromString(str: any[]): { returnType: bool_t, feature: feature_t }
 export function featureToString(feature: feature_t): { buf: string[] }
-export function fontAddGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t, x: position_t, y: position_t): { x: position_t, y: position_t }
+export function fontAddGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontCreate(face: face_t): font_t
 export function fontCreateSubFont(parent: font_t): font_t
 export function fontFuncsCreate(): font_funcs_t
@@ -879,21 +879,21 @@ export function fontGetExtentsForDirection(font: font_t, direction: direction_t)
 export function fontGetFace(font: font_t): face_t
 export function fontGetGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): { returnType: bool_t, glyph: codepoint_t }
 export function fontGetGlyphAdvanceForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
-export function fontGetGlyphAdvancesForDirection(font: font_t, direction: direction_t, count: number, firstGlyph: codepoint_t, glyphStride: number): { firstAdvance: position_t, advanceStride: number }
+export function fontGetGlyphAdvancesForDirection(font: font_t, direction: direction_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
 export function fontGetGlyphContourPoint(font: font_t, glyph: codepoint_t, pointIndex: number): { returnType: bool_t, x: position_t, y: position_t }
 export function fontGetGlyphContourPointForOrigin(font: font_t, glyph: codepoint_t, pointIndex: number, direction: direction_t): { returnType: bool_t, x: position_t, y: position_t }
 export function fontGetGlyphExtents(font: font_t, glyph: codepoint_t): { returnType: bool_t, extents: glyph_extents_t }
 export function fontGetGlyphExtentsForOrigin(font: font_t, glyph: codepoint_t, direction: direction_t): { returnType: bool_t, extents: glyph_extents_t }
 export function fontGetGlyphFromName(font: font_t, name: string[]): { returnType: bool_t, glyph: codepoint_t }
 export function fontGetGlyphHAdvance(font: font_t, glyph: codepoint_t): position_t
-export function fontGetGlyphHAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number): { firstAdvance: position_t, advanceStride: number }
+export function fontGetGlyphHAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
 export function fontGetGlyphHKerning(font: font_t, leftGlyph: codepoint_t, rightGlyph: codepoint_t): position_t
 export function fontGetGlyphHOrigin(font: font_t, glyph: codepoint_t): { returnType: bool_t, x: position_t, y: position_t }
 export function fontGetGlyphKerningForDirection(font: font_t, firstGlyph: codepoint_t, secondGlyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
-export function fontGetGlyphName(font: font_t, glyph: codepoint_t): { returnType: bool_t, name: string[] }
+export function fontGetGlyphName(font: font_t, glyph: codepoint_t, name: string[]): bool_t
 export function fontGetGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontGetGlyphVAdvance(font: font_t, glyph: codepoint_t): position_t
-export function fontGetGlyphVAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number): { firstAdvance: position_t, advanceStride: number }
+export function fontGetGlyphVAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
 export function fontGetGlyphVKerning(font: font_t, topGlyph: codepoint_t, bottomGlyph: codepoint_t): position_t
 export function fontGetGlyphVOrigin(font: font_t, glyph: codepoint_t): { returnType: bool_t, x: position_t, y: position_t }
 export function fontGetHExtents(font: font_t): { returnType: bool_t, extents: font_extents_t }
@@ -907,7 +907,7 @@ export function fontGetVExtents(font: font_t): { returnType: bool_t, extents: fo
 export function fontGetVarCoordsNormalized(font: font_t, length: number): number
 export function fontGetVariationGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): { returnType: bool_t, glyph: codepoint_t }
 export function fontGlyphFromString(font: font_t, s: any[]): { returnType: bool_t, glyph: codepoint_t }
-export function fontGlyphToString(font: font_t, glyph: codepoint_t): { s: string[] }
+export function fontGlyphToString(font: font_t, glyph: codepoint_t, s: string[]): void
 export function fontIsImmutable(font: font_t): bool_t
 export function fontMakeImmutable(font: font_t): void
 export function fontSetFace(font: font_t, face: face_t): void
@@ -917,11 +917,11 @@ export function fontSetParent(font: font_t, parent: font_t): void
 export function fontSetPpem(font: font_t, xPpem: number, yPpem: number): void
 export function fontSetPtem(font: font_t, ptem: number): void
 export function fontSetScale(font: font_t, xScale: number, yScale: number): void
-export function fontSetVarCoordsDesign(font: font_t, coords: number[]): void
-export function fontSetVarCoordsNormalized(font: font_t, coords: number[]): void
+export function fontSetVarCoordsDesign(font: font_t, coords: number, coordsLength: number): void
+export function fontSetVarCoordsNormalized(font: font_t, coords: number, coordsLength: number): void
 export function fontSetVarNamedInstance(font: font_t, instanceIndex: number): void
-export function fontSetVariations(font: font_t, variations: variation_t[]): void
-export function fontSubtractGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t, x: position_t, y: position_t): { x: position_t, y: position_t }
+export function fontSetVariations(font: font_t, variations: variation_t, variationsLength: number): void
+export function fontSubtractGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function ftFontChanged(font: font_t): void
 export function ftFontGetLoadFlags(font: font_t): number
 export function ftFontSetFuncs(font: font_t): void
@@ -1153,13 +1153,13 @@ export interface unicode_combining_class_func_t {
     (ufuncs: unicode_funcs_t, unicode: codepoint_t): unicode_combining_class_t
 }
 export interface unicode_compose_func_t {
-    (ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t): bool_t
+    (ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t, ab: codepoint_t): bool_t
 }
 export interface unicode_decompose_compatibility_func_t {
     (ufuncs: unicode_funcs_t, u: codepoint_t, decomposed: codepoint_t): number
 }
 export interface unicode_decompose_func_t {
-    (ufuncs: unicode_funcs_t, ab: codepoint_t): bool_t
+    (ufuncs: unicode_funcs_t, ab: codepoint_t, a: codepoint_t, b: codepoint_t): bool_t
 }
 export interface unicode_eastasian_width_func_t {
     (ufuncs: unicode_funcs_t, unicode: codepoint_t): number

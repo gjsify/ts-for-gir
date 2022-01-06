@@ -168,6 +168,11 @@ export enum HolderError {
     VALUE_TYPE_ERROR,
     VALUE_NULL_ERROR,
 }
+export enum LdapSearchScope {
+    BASE,
+    ONELEVEL,
+    SUBTREE,
+}
 export enum MetaDbObjectType {
     UNKNOWN,
     TABLE,
@@ -2076,6 +2081,138 @@ export class DataModelIter {
     constructor (config?: DataModelIter_ConstructProps)
     _init (config?: DataModelIter_ConstructProps): void
     /* Static methods and pseudo-constructors */
+    static errorQuark(): GLib.Quark
+    static $gtype: GObject.Type
+}
+export interface DataModelLdap_ConstructProps extends GObject.Object_ConstructProps {
+    attributes?: string
+    base?: string
+    cnc?: Connection
+    filter?: string
+    scope?: number
+}
+export class DataModelLdap {
+    /* Fields of Gda-5.0.Gda.DataModelLdap */
+    object: GObject.Object
+    priv: DataModelLdapPrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Gda-5.0.Gda.DataModel */
+    addDataFromXmlNode(node: libxml2.NodePtr): boolean
+    appendRow(): number
+    appendValues(values?: any[] | null): number
+    arrayCopyModel(): DataModelArray | null
+    arrayCopyModelExt(cols: number[]): DataModelArray | null
+    createIter(): DataModelIter
+    describeColumn(col: number): Column | null
+    dump(toStream?: object | null): void
+    dumpAsString(): string
+    exportToFile(format: DataModelIOFormat, file: string, cols: number[] | null, rows: number[] | null, options: Set): boolean
+    exportToString(format: DataModelIOFormat, cols: number[] | null, rows: number[] | null, options: Set): string
+    freeze(): void
+    getAccessFlags(): DataModelAccessFlags
+    getAttributesAt(col: number, row: number): ValueAttribute
+    getColumnIndex(name: string): number
+    getColumnName(col: number): string
+    getColumnTitle(col: number): string
+    getExceptions(): GLib.Error[]
+    getNColumns(): number
+    getNRows(): number
+    getNotify(): boolean
+    getRowFromValues(values: any[], colsIndex: number[]): number
+    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
+    getValueAt(col: number, row: number): any | null
+    importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
+    importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
+    importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
+    iterAtRow(iter: DataModelIter, row: number): boolean
+    iterNext(iter: DataModelIter): boolean
+    iterPrev(iter: DataModelIter): boolean
+    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
+    removeRow(row: number): boolean
+    reset(): void
+    rowInserted(row: number): void
+    rowRemoved(row: number): void
+    rowUpdated(row: number): void
+    sendHint(hint: DataModelHint, hintValue?: any | null): void
+    setColumnName(col: number, name: string): void
+    setColumnTitle(col: number, title: string): void
+    setNotify(doNotifyChanges: boolean): void
+    setValueAt(col: number, row: number, value: any): boolean
+    setValues(row: number, values?: any[] | null): boolean
+    thaw(): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of Gda-5.0.Gda.DataModel */
+    connect(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
+    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "access-changed"): void
+    connect(sigName: "changed", callback: (($obj: DataModelLdap) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "changed"): void
+    connect(sigName: "reset", callback: (($obj: DataModelLdap) => void)): number
+    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "reset"): void
+    connect(sigName: "row-inserted", callback: (($obj: DataModelLdap, row: number) => void)): number
+    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
+    emit(sigName: "row-inserted", row: number): void
+    connect(sigName: "row-removed", callback: (($obj: DataModelLdap, row: number) => void)): number
+    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
+    emit(sigName: "row-removed", row: number): void
+    connect(sigName: "row-updated", callback: (($obj: DataModelLdap, row: number) => void)): number
+    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
+    emit(sigName: "row-updated", row: number): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: DataModelLdap_ConstructProps)
+    _init (config?: DataModelLdap_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static newWithConfig(cnc: Connection, baseDn: string | null, filter: string | null, attributes: string | null, scope: LdapSearchScope): DataModelLdap
+    static computeColumns(cnc: Connection, attributes?: string | null): Column[]
     static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
@@ -4474,6 +4611,75 @@ export class TreeMgrLabel {
     static new(label: string): TreeMgrLabel
     static $gtype: GObject.Type
 }
+export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
+    dn?: string
+}
+export class TreeMgrLdap {
+    /* Properties of Gda-5.0.Gda.TreeManager */
+    func: object
+    recursive: boolean
+    /* Fields of Gda-5.0.Gda.TreeMgrLdap */
+    object: TreeManager
+    priv: TreeMgrLdapPriv
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Gda-5.0.Gda.TreeManager */
+    addManager(sub: TreeManager): void
+    addNewNodeAttribute(attribute: string, value?: any | null): void
+    createNode(parent?: TreeNode | null, name?: string | null): TreeNode
+    getManagers(): TreeManager[]
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: TreeMgrLdap_ConstructProps)
+    _init (config?: TreeMgrLdap_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(cnc: Connection, dn?: string | null): TreeMgrLdap
+    static $gtype: GObject.Type
+}
 export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProps {
     connection?: Connection
     metaStore?: MetaStore
@@ -5025,6 +5231,14 @@ export abstract class DataModelIterClass {
     static name: string
 }
 export class DataModelIterPrivate {
+    static name: string
+}
+export abstract class DataModelLdapClass {
+    /* Fields of Gda-5.0.Gda.DataModelLdapClass */
+    parentClass: GObject.ObjectClass
+    static name: string
+}
+export class DataModelLdapPrivate {
     static name: string
 }
 export abstract class DataPivotClass {
@@ -5857,6 +6071,14 @@ export abstract class TreeMgrLabelClass {
     static name: string
 }
 export class TreeMgrLabelPriv {
+    static name: string
+}
+export abstract class TreeMgrLdapClass {
+    /* Fields of Gda-5.0.Gda.TreeMgrLdapClass */
+    objectClass: TreeManagerClass
+    static name: string
+}
+export class TreeMgrLdapPriv {
     static name: string
 }
 export abstract class TreeMgrSchemasClass {

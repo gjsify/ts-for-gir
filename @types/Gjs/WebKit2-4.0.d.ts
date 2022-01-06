@@ -3031,6 +3031,9 @@ export class URISchemeRequest {
     /* Methods of WebKit2-4.0.WebKit2.URISchemeRequest */
     finish(stream: Gio.InputStream, stream_length: number, content_type?: string | null): void
     finish_error(error: GLib.Error): void
+    finish_with_response(response: URISchemeResponse): void
+    get_http_headers(): Soup.MessageHeaders
+    get_http_method(): string
     get_path(): string
     get_scheme(): string
     get_uri(): string
@@ -3076,6 +3079,65 @@ export class URISchemeRequest {
     static name: string
     constructor (config?: URISchemeRequest_ConstructProps)
     _init (config?: URISchemeRequest_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface URISchemeResponse_ConstructProps extends GObject.Object_ConstructProps {
+    stream?: Gio.InputStream
+    stream_length?: number
+}
+export class URISchemeResponse {
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeResponse */
+    parent: GObject.Object
+    priv: URISchemeResponsePrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of WebKit2-4.0.WebKit2.URISchemeResponse */
+    set_content_type(content_type: string): void
+    set_http_headers(headers: Soup.MessageHeaders): void
+    set_status(status_code: number, reason_phrase?: string | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: URISchemeResponse, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: URISchemeResponse, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: URISchemeResponse_ConstructProps)
+    _init (config?: URISchemeResponse_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(input_stream: Gio.InputStream, stream_length: number): URISchemeResponse
     static $gtype: GObject.Type
 }
 export interface UserContentFilterStore_ConstructProps extends GObject.Object_ConstructProps {
@@ -6258,6 +6320,14 @@ export abstract class URISchemeRequestClass {
     static name: string
 }
 export class URISchemeRequestPrivate {
+    static name: string
+}
+export abstract class URISchemeResponseClass {
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeResponseClass */
+    parent_class: GObject.ObjectClass
+    static name: string
+}
+export class URISchemeResponsePrivate {
     static name: string
 }
 export class UserContentFilter {

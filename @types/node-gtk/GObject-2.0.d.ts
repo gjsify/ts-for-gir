@@ -61,6 +61,7 @@ export enum TypeDebugFlags {
 export enum TypeFlags {
     ABSTRACT,
     VALUE_ABSTRACT,
+    FINAL,
 }
 export enum TypeFundamentalFlags {
     CLASSED,

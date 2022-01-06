@@ -229,13 +229,13 @@ export class Buffer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GtkSource-3.0.GtkSource.Buffer */
-    backwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): boolean
+    backwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): { returnType: boolean, iter: Gtk.TextIter }
     beginNotUndoableAction(): void
     changeCase(caseType: ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
     createSourceMark(name: string | null, category: string, where: Gtk.TextIter): Mark
     endNotUndoableAction(): void
     ensureHighlight(start: Gtk.TextIter, end: Gtk.TextIter): void
-    forwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): boolean
+    forwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): { returnType: boolean, iter: Gtk.TextIter }
     getContextClassesAtIter(iter: Gtk.TextIter): string[]
     getHighlightMatchingBrackets(): boolean
     getHighlightSyntax(): boolean
@@ -246,8 +246,8 @@ export class Buffer {
     getSourceMarksAtLine(line: number, category?: string | null): Mark[]
     getStyleScheme(): StyleScheme | null
     getUndoManager(): UndoManager | null
-    iterBackwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): boolean
-    iterForwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): boolean
+    iterBackwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): { returnType: boolean, iter: Gtk.TextIter }
+    iterForwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): { returnType: boolean, iter: Gtk.TextIter }
     iterHasContextClass(iter: Gtk.TextIter, contextClass: string): boolean
     joinLines(start: Gtk.TextIter, end: Gtk.TextIter): void
     redo(): void

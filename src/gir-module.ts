@@ -1053,7 +1053,7 @@ export class GirModule {
 
         // Methods are overloadable by typescript
         // TODO Add support for properties
-        if (type === 'method') {
+        if (type === 'method' || type === 'property') {
             isOverloadable = true
         }
 

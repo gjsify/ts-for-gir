@@ -8,6 +8,10 @@ import type { GObject } from './GObject-2.0';
 
 export declare namespace GModule {
 
+export enum ModuleError {
+    FAILED,
+    CHECK_FAILED,
+}
 export enum ModuleFlags {
     LAZY,
     LOCAL,
@@ -15,6 +19,7 @@ export enum ModuleFlags {
 }
 export function moduleBuildPath(directory: string | null, moduleName: string): string
 export function moduleError(): string
+export function moduleErrorQuark(): GLib.Quark
 export function moduleSupported(): boolean
 export interface ModuleCheckInit {
     (module: Module): string
@@ -32,6 +37,7 @@ export class Module {
     /* Static methods and pseudo-constructors */
     static buildPath(directory: string | null, moduleName: string): string
     static error(): string
+    static errorQuark(): GLib.Quark
     static supported(): boolean
 }
 }

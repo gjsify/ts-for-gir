@@ -2541,7 +2541,7 @@ export class MultipartInputStream {
     canPoll(): boolean
     createSource(cancellable?: Gio.Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    readNonblocking(cancellable?: Gio.Cancellable | null): { returnType: number, buffer: any[] }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

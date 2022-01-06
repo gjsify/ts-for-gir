@@ -341,16 +341,6 @@ export enum TlsInteractionResult {
     HANDLED,
     FAILED,
 }
-export enum TlsProtocolVersion {
-    UNKNOWN,
-    SSL_3_0,
-    TLS_1_0,
-    TLS_1_1,
-    TLS_1_2,
-    TLS_1_3,
-    DTLS_1_0,
-    DTLS_1_2,
-}
 export enum TlsRehandshakeMode {
     NEVER,
     SAFELY,
@@ -453,7 +443,6 @@ export enum DBusProxyFlags {
     DO_NOT_AUTO_START,
     GET_INVALIDATED_PROPERTIES,
     DO_NOT_AUTO_START_AT_CONSTRUCTION,
-    NO_MATCH_RULE,
 }
 export enum DBusSendMessageFlags {
     NONE,
@@ -568,7 +557,6 @@ export enum SubprocessFlags {
     STDERR_SILENCE,
     STDERR_MERGE,
     INHERIT_FDS,
-    SEARCH_PATH_FROM_ENVP,
 }
 export enum TestDBusFlags {
     NONE,
@@ -591,9 +579,6 @@ export enum TlsPasswordFlags {
     RETRY,
     MANY_TRIES,
     FINAL_TRY,
-    PKCS11_USER,
-    PKCS11_SECURITY_OFFICER,
-    PKCS11_CONTEXT_SPECIFIC,
 }
 export const DBUS_METHOD_INVOCATION_HANDLED: boolean
 export const DBUS_METHOD_INVOCATION_UNHANDLED: boolean
@@ -692,7 +677,6 @@ export const MENU_LINK_SECTION: string
 export const MENU_LINK_SUBMENU: string
 export const NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME: string
 export const NETWORK_MONITOR_EXTENSION_POINT_NAME: string
-export const POWER_PROFILE_MONITOR_EXTENSION_POINT_NAME: string
 export const PROXY_EXTENSION_POINT_NAME: string
 export const PROXY_RESOLVER_EXTENSION_POINT_NAME: string
 export const SETTINGS_BACKEND_EXTENSION_POINT_NAME: string
@@ -768,7 +752,6 @@ export function dbus_generate_guid(): string
 export function dbus_gvalue_to_gvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbus_gvariant_to_gvalue(value: GLib.Variant): /* out_gvalue */ any
 export function dbus_is_address(string: string): boolean
-export function dbus_is_error_name(string: string): boolean
 export function dbus_is_guid(string: string): boolean
 export function dbus_is_interface_name(string: string): boolean
 export function dbus_is_member_name(string: string): boolean
@@ -810,7 +793,6 @@ export function pollable_source_new_full(pollable_stream: GObject.Object, child_
 export function pollable_stream_read(stream: InputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollable_stream_write(stream: OutputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollable_stream_write_all(stream: OutputStream, buffer: Uint8Array[], blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
-export function power_profile_monitor_dup_default(): PowerProfileMonitor
 export function proxy_get_default_for_protocol(protocol: string): Proxy | null
 export function proxy_resolver_get_default(): ProxyResolver
 export function resolver_error_quark(): GLib.Quark
@@ -833,10 +815,10 @@ export function tls_server_connection_new(base_io_stream: IOStream, certificate?
 export function unix_is_mount_path_system_internal(mount_path: string): boolean
 export function unix_is_system_device_path(device_path: string): boolean
 export function unix_is_system_fs_type(fs_type: string): boolean
-export function unix_mount_at(mount_path: string): [ /* returnType */ UnixMountEntry | null, /* time_read */ number | null ]
+export function unix_mount_at(mount_path: string): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
 export function unix_mount_compare(mount1: UnixMountEntry, mount2: UnixMountEntry): number
 export function unix_mount_copy(mount_entry: UnixMountEntry): UnixMountEntry
-export function unix_mount_for(file_path: string): [ /* returnType */ UnixMountEntry | null, /* time_read */ number | null ]
+export function unix_mount_for(file_path: string): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
 export function unix_mount_free(mount_entry: UnixMountEntry): void
 export function unix_mount_get_device_path(mount_entry: UnixMountEntry): string
 export function unix_mount_get_fs_type(mount_entry: UnixMountEntry): string
@@ -1170,13 +1152,13 @@ export class DBusObject {
 }
 export class DBusObjectManager {
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): DBusInterface | null
-    get_object(object_path: string): DBusObject | null
+    get_interface(object_path: string, interface_name: string): DBusInterface
+    get_object(object_path: string): DBusObject
     get_object_path(): string
     get_objects(): DBusObject[]
     /* Virtual methods of Gio-2.0.Gio.DBusObjectManager */
-    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface | null
-    vfunc_get_object(object_path: string): DBusObject | null
+    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface
+    vfunc_get_object(object_path: string): DBusObject
     vfunc_get_object_path(): string
     vfunc_get_objects(): DBusObject[]
     vfunc_interface_added(object: DBusObject, interface_: DBusInterface): void
@@ -1327,13 +1309,11 @@ export class DtlsConnection {
     /* Properties of Gio-2.0.Gio.DtlsConnection */
     advertised_protocols: string[]
     certificate: TlsCertificate
-    readonly ciphersuite_name: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiated_protocol: string
     readonly peer_certificate: TlsCertificate
     readonly peer_certificate_errors: TlsCertificateFlags
-    readonly protocol_version: TlsProtocolVersion
     rehandshake_mode: TlsRehandshakeMode
     require_close_notify: boolean
     /* Methods of Gio-2.0.Gio.DtlsConnection */
@@ -1343,13 +1323,11 @@ export class DtlsConnection {
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
     get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
-    get_ciphersuite_name(): string | null
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
     get_peer_certificate(): TlsCertificate | null
     get_peer_certificate_errors(): TlsCertificateFlags
-    get_protocol_version(): TlsProtocolVersion
     get_rehandshake_mode(): TlsRehandshakeMode
     get_require_close_notify(): boolean
     handshake(cancellable?: Cancellable | null): boolean
@@ -1508,7 +1486,7 @@ export class File {
     replace_readwrite(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     replace_readwrite_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replace_readwrite_finish(res: AsyncResult): FileIOStream
-    resolve_relative_path(relative_path: string): File | null
+    resolve_relative_path(relative_path: string): File
     set_attribute(attribute: string, type: FileAttributeType, value_p: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     set_attribute_byte_string(attribute: string, value: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     set_attribute_int32(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
@@ -1608,7 +1586,7 @@ export class File {
     vfunc_replace_readwrite(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     vfunc_replace_readwrite_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_replace_readwrite_finish(res: AsyncResult): FileIOStream
-    vfunc_resolve_relative_path(relative_path: string): File | null
+    vfunc_resolve_relative_path(relative_path: string): File
     vfunc_set_attribute(attribute: string, type: FileAttributeType, value_p: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     vfunc_set_attributes_async(info: FileInfo, flags: FileQueryInfoFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_set_attributes_finish(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
@@ -1826,7 +1804,7 @@ export class PollableInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Methods of Gio-2.0.Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Cancellable | null): boolean
@@ -1873,7 +1851,7 @@ export class PollableInputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(): [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -2012,19 +1990,6 @@ export class PollableOutputStream {
     constructor (config?: PollableOutputStream_ConstructProps)
     _init (config?: PollableOutputStream_ConstructProps): void
     static $gtype: GObject.Type
-}
-export class PowerProfileMonitor {
-    /* Properties of Gio-2.0.Gio.PowerProfileMonitor */
-    readonly power_saver_enabled: boolean
-    /* Methods of Gio-2.0.Gio.PowerProfileMonitor */
-    get_power_saver_enabled(): boolean
-    /* Methods of Gio-2.0.Gio.Initable */
-    init(cancellable?: Cancellable | null): boolean
-    /* Virtual methods of Gio-2.0.Gio.Initable */
-    vfunc_init(cancellable?: Cancellable | null): boolean
-    static name: string
-    /* Static methods and pseudo-constructors */
-    static dup_default(): PowerProfileMonitor
 }
 export class Proxy {
     /* Methods of Gio-2.0.Gio.Proxy */
@@ -2168,13 +2133,11 @@ export class TlsClientConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertised_protocols: string[]
     certificate: TlsCertificate
-    readonly ciphersuite_name: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiated_protocol: string
     readonly peer_certificate: TlsCertificate
     readonly peer_certificate_errors: TlsCertificateFlags
-    readonly protocol_version: TlsProtocolVersion
     rehandshake_mode: TlsRehandshakeMode
     require_close_notify: boolean
     use_system_certdb: boolean
@@ -2200,13 +2163,11 @@ export class TlsClientConnection {
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
     get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
-    get_ciphersuite_name(): string | null
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
     get_peer_certificate(): TlsCertificate | null
     get_peer_certificate_errors(): TlsCertificateFlags
-    get_protocol_version(): TlsProtocolVersion
     get_rehandshake_mode(): TlsRehandshakeMode
     get_require_close_notify(): boolean
     get_use_system_certdb(): boolean
@@ -2258,7 +2219,6 @@ export class TlsClientConnection {
     /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
-    vfunc_get_negotiated_protocol(): string | null
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -2296,8 +2256,6 @@ export class TlsClientConnection {
     connect_after(sigName: "notify::advertised-protocols", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::certificate", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::certificate", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::database", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interaction", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
@@ -2308,8 +2266,6 @@ export class TlsClientConnection {
     connect_after(sigName: "notify::peer-certificate", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::protocol-version", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::require-close-notify", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
@@ -2424,13 +2380,11 @@ export class TlsServerConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertised_protocols: string[]
     certificate: TlsCertificate
-    readonly ciphersuite_name: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiated_protocol: string
     readonly peer_certificate: TlsCertificate
     readonly peer_certificate_errors: TlsCertificateFlags
-    readonly protocol_version: TlsProtocolVersion
     rehandshake_mode: TlsRehandshakeMode
     require_close_notify: boolean
     use_system_certdb: boolean
@@ -2447,13 +2401,11 @@ export class TlsServerConnection {
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
     get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
-    get_ciphersuite_name(): string | null
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
     get_peer_certificate(): TlsCertificate | null
     get_peer_certificate_errors(): TlsCertificateFlags
-    get_protocol_version(): TlsProtocolVersion
     get_rehandshake_mode(): TlsRehandshakeMode
     get_require_close_notify(): boolean
     get_use_system_certdb(): boolean
@@ -2503,7 +2455,6 @@ export class TlsServerConnection {
     /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
-    vfunc_get_negotiated_protocol(): string | null
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -2535,8 +2486,6 @@ export class TlsServerConnection {
     connect_after(sigName: "notify::advertised-protocols", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::certificate", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::certificate", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::database", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interaction", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
@@ -2547,8 +2496,6 @@ export class TlsServerConnection {
     connect_after(sigName: "notify::peer-certificate", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::protocol-version", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::require-close-notify", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
@@ -2716,7 +2663,6 @@ export class AppLaunchContext {
     vfunc_get_display(info: AppInfo, files: File[]): string | null
     vfunc_get_startup_notify_id(info: AppInfo, files: File[]): string | null
     vfunc_launch_failed(startup_notify_id: string): void
-    vfunc_launch_started(info: AppInfo, platform_data: GLib.Variant): void
     vfunc_launched(info: AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -2730,9 +2676,6 @@ export class AppLaunchContext {
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
-    connect(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: AppInfo, platform_data?: GLib.Variant | null) => void)): number
-    connect_after(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: AppInfo, platform_data?: GLib.Variant | null) => void)): number
-    emit(sigName: "launch-started", info: AppInfo, platform_data?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: (($obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: AppInfo, platform_data: GLib.Variant): void
@@ -3560,12 +3503,12 @@ export class ConverterInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Virtual methods of Gio-2.0.Gio.ConverterInputStream */
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(): [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -4430,8 +4373,8 @@ export class DBusObjectManagerClient {
     init_finish(res: AsyncResult): boolean
     new_finish(res: AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): DBusInterface | null
-    get_object(object_path: string): DBusObject | null
+    get_interface(object_path: string, interface_name: string): DBusInterface
+    get_object(object_path: string): DBusObject
     get_object_path(): string
     get_objects(): DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4441,8 +4384,8 @@ export class DBusObjectManagerClient {
     vfunc_interface_proxy_signal(object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant): void
     vfunc_init_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_init_finish(res: AsyncResult): boolean
-    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface | null
-    vfunc_get_object(object_path: string): DBusObject | null
+    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface
+    vfunc_get_object(object_path: string): DBusObject
     vfunc_get_object_path(): string
     vfunc_get_objects(): DBusObject[]
     vfunc_interface_added(object: DBusObject, interface_: DBusInterface): void
@@ -4513,7 +4456,7 @@ export class DBusObjectManagerServer {
     /* Methods of Gio-2.0.Gio.DBusObjectManagerServer */
     export(object: DBusObjectSkeleton): void
     export_uniquely(object: DBusObjectSkeleton): void
-    get_connection(): DBusConnection | null
+    get_connection(): DBusConnection
     is_exported(object: DBusObjectSkeleton): boolean
     set_connection(connection?: DBusConnection | null): void
     unexport(object_path: string): boolean
@@ -4540,13 +4483,13 @@ export class DBusObjectManagerServer {
     unref(): void
     watch_closure(closure: Function): void
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): DBusInterface | null
-    get_object(object_path: string): DBusObject | null
+    get_interface(object_path: string, interface_name: string): DBusInterface
+    get_object(object_path: string): DBusObject
     get_object_path(): string
     get_objects(): DBusObject[]
     /* Virtual methods of Gio-2.0.Gio.DBusObjectManagerServer */
-    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface | null
-    vfunc_get_object(object_path: string): DBusObject | null
+    vfunc_get_interface(object_path: string, interface_name: string): DBusInterface
+    vfunc_get_object(object_path: string): DBusObject
     vfunc_get_object_path(): string
     vfunc_get_objects(): DBusObject[]
     vfunc_interface_added(object: DBusObject, interface_: DBusInterface): void
@@ -4776,7 +4719,7 @@ export class DBusProxy {
     get_flags(): DBusProxyFlags
     get_interface_info(): DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string | null
+    get_name(): string
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5749,7 +5692,6 @@ export class FileInfo {
     clear_status(): void
     copy_into(dest_info: FileInfo): void
     dup(): FileInfo
-    get_access_date_time(): GLib.DateTime | null
     get_attribute_as_string(attribute: string): string | null
     get_attribute_boolean(attribute: string): boolean
     get_attribute_byte_string(attribute: string): string | null
@@ -5764,7 +5706,6 @@ export class FileInfo {
     get_attribute_uint32(attribute: string): number
     get_attribute_uint64(attribute: string): number
     get_content_type(): string | null
-    get_creation_date_time(): GLib.DateTime | null
     get_deletion_date(): GLib.DateTime | null
     get_display_name(): string
     get_edit_name(): string
@@ -5785,7 +5726,6 @@ export class FileInfo {
     has_namespace(name_space: string): boolean
     list_attributes(name_space?: string | null): string[] | null
     remove_attribute(attribute: string): void
-    set_access_date_time(atime: GLib.DateTime): void
     set_attribute(attribute: string, type: FileAttributeType, value_p: object): void
     set_attribute_boolean(attribute: string, attr_value: boolean): void
     set_attribute_byte_string(attribute: string, attr_value: string): void
@@ -5799,7 +5739,6 @@ export class FileInfo {
     set_attribute_uint32(attribute: string, attr_value: number): void
     set_attribute_uint64(attribute: string, attr_value: number): void
     set_content_type(content_type: string): void
-    set_creation_date_time(creation_time: GLib.DateTime): void
     set_display_name(display_name: string): void
     set_edit_name(edit_name: string): void
     set_file_type(type: FileType): void
@@ -6410,6 +6349,9 @@ export class IOModule {
     name: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.IOModule */
+    load(): void
+    unload(): void
     /* Methods of GObject-2.0.GObject.TypeModule */
     add_interface(instance_type: GObject.Type, interface_type: GObject.Type, interface_info: GObject.InterfaceInfo): void
     register_enum(name: string, const_static_values: GObject.EnumValue): GObject.Type
@@ -7023,7 +6965,7 @@ export class MemoryInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Methods of Gio-2.0.Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
@@ -7034,7 +6976,7 @@ export class MemoryInputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(): [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     vfunc_can_seek(): boolean
     vfunc_can_truncate(): boolean
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
@@ -8021,7 +7963,6 @@ export class Notification {
     add_button(label: string, detailed_action: string): void
     add_button_with_target(label: string, action: string, target?: GLib.Variant | null): void
     set_body(body?: string | null): void
-    set_category(category?: string | null): void
     set_default_action(detailed_action: string): void
     set_default_action_and_target(action: string, target?: GLib.Variant | null): void
     set_icon(icon: Icon): void
@@ -8798,10 +8739,8 @@ export class SimpleAction {
     state: GLib.Variant
     readonly state_type: GLib.VariantType
     /* Properties of Gio-2.0.Gio.Action */
-    readonly enabled: boolean
     readonly name: string
     readonly parameter_type: GLib.VariantType
-    readonly state: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SimpleAction */
@@ -8873,14 +8812,10 @@ export class SimpleAction {
     connect_after(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::state-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parameter-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameter-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9249,7 +9184,7 @@ export class SimpleProxyResolver {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SimpleProxyResolver */
     set_default_proxy(default_proxy: string): void
-    set_ignore_hosts(ignore_hosts: string[]): void
+    set_ignore_hosts(ignore_hosts: string): void
     set_uri_proxy(uri_scheme: string, proxy: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -10729,26 +10664,13 @@ export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructP
     private_key_pkcs11_uri?: string
 }
 export class TlsCertificate {
-    /* Properties of Gio-2.0.Gio.TlsCertificate */
-    readonly dns_names: object[]
-    readonly ip_addresses: object[]
-    readonly issuer_name: string
-    readonly not_valid_after: GLib.DateTime
-    readonly not_valid_before: GLib.DateTime
-    readonly subject_name: string
     /* Fields of Gio-2.0.Gio.TlsCertificate */
     parent_instance: GObject.Object
     priv: TlsCertificatePrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.TlsCertificate */
-    get_dns_names(): GLib.Bytes[] | null
-    get_ip_addresses(): InetAddress[] | null
     get_issuer(): TlsCertificate | null
-    get_issuer_name(): string | null
-    get_not_valid_after(): GLib.DateTime | null
-    get_not_valid_before(): GLib.DateTime | null
-    get_subject_name(): string | null
     is_same(cert_two: TlsCertificate): boolean
     verify(identity?: SocketConnectable | null, trusted_ca?: TlsCertificate | null): TlsCertificateFlags
     /* Methods of GObject-2.0.GObject.Object */
@@ -10787,18 +10709,6 @@ export class TlsCertificate {
     connect(sigName: "notify", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::dns-names", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::dns-names", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::ip-addresses", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ip-addresses", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::issuer-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::issuer-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::not-valid-after", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::not-valid-after", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::not-valid-before", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::not-valid-before", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::subject-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::subject-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10828,13 +10738,11 @@ export class TlsConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertised_protocols: string[]
     certificate: TlsCertificate
-    readonly ciphersuite_name: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiated_protocol: string
     readonly peer_certificate: TlsCertificate
     readonly peer_certificate_errors: TlsCertificateFlags
-    readonly protocol_version: TlsProtocolVersion
     rehandshake_mode: TlsRehandshakeMode
     require_close_notify: boolean
     use_system_certdb: boolean
@@ -10851,13 +10759,11 @@ export class TlsConnection {
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate | null
     get_channel_binding_data(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ Uint8Array[] | null ]
-    get_ciphersuite_name(): string | null
     get_database(): TlsDatabase | null
     get_interaction(): TlsInteraction | null
     get_negotiated_protocol(): string | null
     get_peer_certificate(): TlsCertificate | null
     get_peer_certificate_errors(): TlsCertificateFlags
-    get_protocol_version(): TlsProtocolVersion
     get_rehandshake_mode(): TlsRehandshakeMode
     get_require_close_notify(): boolean
     get_use_system_certdb(): boolean
@@ -10907,7 +10813,6 @@ export class TlsConnection {
     /* Virtual methods of Gio-2.0.Gio.TlsConnection */
     vfunc_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     vfunc_get_binding_data(type: TlsChannelBindingType, data: Uint8Array[]): boolean
-    vfunc_get_negotiated_protocol(): string | null
     vfunc_handshake(cancellable?: Cancellable | null): boolean
     vfunc_handshake_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_handshake_finish(result: AsyncResult): boolean
@@ -10937,8 +10842,6 @@ export class TlsConnection {
     connect_after(sigName: "notify::advertised-protocols", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::certificate", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::certificate", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::database", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interaction", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
@@ -10949,8 +10852,6 @@ export class TlsConnection {
     connect_after(sigName: "notify::peer-certificate", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::peer-certificate-errors", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::protocol-version", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::require-close-notify", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
@@ -11133,7 +11034,7 @@ export class TlsPassword {
     /* Methods of Gio-2.0.Gio.TlsPassword */
     get_description(): string
     get_flags(): TlsPasswordFlags
-    get_value(): Uint8Array[]
+    get_value(length?: number | null): number
     get_warning(): string
     set_description(description: string): void
     set_flags(flags: TlsPasswordFlags): void
@@ -11164,7 +11065,7 @@ export class TlsPassword {
     watch_closure(closure: Function): void
     /* Virtual methods of Gio-2.0.Gio.TlsPassword */
     vfunc_get_default_warning(): string
-    vfunc_get_value(): Uint8Array[]
+    vfunc_get_value(length?: number | null): number
     vfunc_set_value(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -11548,13 +11449,13 @@ export class UnixInputStream {
     can_poll(): boolean
     create_source(cancellable?: Cancellable | null): GLib.Source
     is_readable(): boolean
-    read_nonblocking(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ Uint8Array[] ]
+    read_nonblocking(buffer: Uint8Array[], cancellable?: Cancellable | null): number
     /* Virtual methods of Gio-2.0.Gio.UnixInputStream */
     vfunc_get_fd(): number
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(): [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    vfunc_read_nonblocking(buffer: Uint8Array[] | null): number
     /* Virtual methods of Gio-2.0.Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -12255,7 +12156,6 @@ export abstract class AppLaunchContextClass {
     get_startup_notify_id: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     launch_failed: (context: AppLaunchContext, startup_notify_id: string) => void
     launched: (context: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void
-    launch_started: (context: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void
     static name: string
 }
 export class AppLaunchContextPrivate {
@@ -12497,8 +12397,8 @@ export abstract class DBusObjectManagerIface {
     parent_iface: GObject.TypeInterface
     get_object_path: (manager: DBusObjectManager) => string
     get_objects: (manager: DBusObjectManager) => DBusObject[]
-    get_object: (manager: DBusObjectManager, object_path: string) => DBusObject | null
-    get_interface: (manager: DBusObjectManager, object_path: string, interface_name: string) => DBusInterface | null
+    get_object: (manager: DBusObjectManager, object_path: string) => DBusObject
+    get_interface: (manager: DBusObjectManager, object_path: string, interface_name: string) => DBusInterface
     object_added: (manager: DBusObjectManager, object: DBusObject) => void
     object_removed: (manager: DBusObjectManager, object: DBusObject) => void
     interface_added: (manager: DBusObjectManager, object: DBusObject, interface_: DBusInterface) => void
@@ -12774,7 +12674,7 @@ export abstract class FileIface {
     get_parent: (file: File) => File | null
     prefix_matches: (prefix: File, file: File) => boolean
     get_relative_path: (parent: File, descendant: File) => string | null
-    resolve_relative_path: (file: File, relative_path: string) => File | null
+    resolve_relative_path: (file: File, relative_path: string) => File
     get_child_for_display_name: (file: File, display_name: string) => File
     enumerate_children: (file: File, attributes: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => FileEnumerator
     enumerate_children_async: (file: File, attributes: string, flags: FileQueryInfoFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -13260,7 +13160,7 @@ export abstract class PollableInputStreamInterface {
     can_poll: (stream: PollableInputStream) => boolean
     is_readable: (stream: PollableInputStream) => boolean
     create_source: (stream: PollableInputStream, cancellable?: Cancellable | null) => GLib.Source
-    read_nonblocking: (stream: PollableInputStream) => [ /* returnType */ number, /* buffer */ Uint8Array[] | null ]
+    read_nonblocking: (stream: PollableInputStream, buffer: Uint8Array[] | null) => number
     static name: string
 }
 export abstract class PollableOutputStreamInterface {
@@ -13271,9 +13171,6 @@ export abstract class PollableOutputStreamInterface {
     create_source: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
     write_nonblocking: (stream: PollableOutputStream, buffer: Uint8Array[] | null) => number
     writev_nonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
-    static name: string
-}
-export abstract class PowerProfileMonitorInterface {
     static name: string
 }
 export abstract class ProxyAddressClass {
@@ -13614,7 +13511,6 @@ export abstract class TlsConnectionClass {
     handshake_async: (conn: TlsConnection, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     handshake_finish: (conn: TlsConnection, result: AsyncResult) => boolean
     get_binding_data: (conn: TlsConnection, type: TlsChannelBindingType, data: Uint8Array[]) => boolean
-    get_negotiated_protocol: (conn: TlsConnection) => string | null
     static name: string
 }
 export class TlsConnectionPrivate {
@@ -13662,7 +13558,7 @@ export class TlsInteractionPrivate {
 export abstract class TlsPasswordClass {
     /* Fields of Gio-2.0.Gio.TlsPasswordClass */
     parent_class: GObject.ObjectClass
-    get_value: (password: TlsPassword) => Uint8Array[]
+    get_value: (password: TlsPassword, length?: number | null) => number
     set_value: (password: TlsPassword, value: Uint8Array[], destroy?: GLib.DestroyNotify | null) => void
     get_default_warning: (password: TlsPassword) => string
     static name: string

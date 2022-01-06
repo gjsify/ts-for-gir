@@ -13,11 +13,11 @@ import type { GModule } from './GModule-2.0';
 export declare namespace TrackerMiner {
 =======
 /// <reference types="node" />
-/// <reference path="Tracker-0.16.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="GModule-2.0.d.ts" />
+import type { Tracker } from './Tracker-0.16';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { GModule } from './GModule-2.0';
 
 declare namespace TrackerMiner {
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
@@ -721,10 +721,16 @@ export class MinerFS {
     writebackFile(file: Gio.File, rdfTypes: string[], results: any): void
     writebackNotify(file: Gio.File, error: GLib.Error): void
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -830,8 +836,9 @@ export class MinerFS {
     vfuncProcessFile(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     vfuncProcessFileAttributes(file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -876,6 +883,12 @@ export class MinerFS {
     once(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "writeback-file", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerFS, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerFS) => void)): number
     emit(sigName: "paused"): void
@@ -1215,10 +1228,16 @@ export class MinerWeb {
     getv(names: string[], values: any[]): void
 =======
     /* Methods of TrackerMiner.Miner */
+    getConnection(): Tracker.SparqlConnection
+    getDbusConnection(): Gio.DBusConnection
+    getDbusFullName(): string
+    getDbusFullPath(): string
+    getNPauseReasons(): number
+    ignoreNextUpdate(urls: string[]): void
     isPaused(): boolean
     isStarted(): boolean
-    pause(): void
-    resume(): boolean
+    pause(reason: string): number
+    resume(cookie: number): boolean
     start(): void
     stop(): void
     /* Methods of GObject.Object */
@@ -1298,8 +1317,9 @@ export class MinerWeb {
     vfuncDissociate(): void
     vfuncGetAssociationData(): GLib.HashTable
     /* Virtual methods of TrackerMiner.Miner */
+    vfuncIgnoreNextUpdate(urls: string[]): void
     vfuncPaused(): void
-    vfuncProgress(status: string, progress: number, remainingTime: number): void
+    vfuncProgress(status: string, progress: number): void
     vfuncResumed(): void
     vfuncStarted(): void
     vfuncStopped(): void
@@ -1313,6 +1333,12 @@ export class MinerWeb {
     vfuncNotify(pspec: GObject.ParamSpec): void
     vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of TrackerMiner.Miner */
+    connect(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
+    connect_after(sigName: "ignore-next-update", callback: (($obj: MinerWeb, urls: string[]) => void)): number
+    emit(sigName: "ignore-next-update", urls: string[]): void
+    on(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ignore-next-update", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: MinerWeb) => void)): number
     connect_after(sigName: "paused", callback: (($obj: MinerWeb) => void)): number
     emit(sigName: "paused"): void

@@ -18,17 +18,17 @@ import type { GUPnPAV } from './GUPnPAV-1.0';
 export declare namespace RygelRenderer {
 =======
 /// <reference types="node" />
-/// <reference path="RygelCore-2.4.d.ts" />
-/// <reference path="GLib-2.0.d.ts" />
-/// <reference path="Gio-2.0.d.ts" />
-/// <reference path="GObject-2.0.d.ts" />
-/// <reference path="Gee-0.8.d.ts" />
-/// <reference path="GUPnP-1.0.d.ts" />
-/// <reference path="libxml2-2.0.d.ts" />
+import type { RygelCore } from './RygelCore-2.4';
+import type { GLib } from './GLib-2.0';
+import type { GObject } from './GObject-2.0';
+import type { Gio } from './Gio-2.0';
+import type { Gee } from './Gee-0.8';
+import type { GUPnP } from './GUPnP-1.0';
+import type { libxml2 } from './libxml2-2.0';
 // WARN: Dependency not found: 'GstPbutils-0.10'
 // WARN: Dependency not found: 'Gst-0.10'
-/// <reference path="GModule-2.0.d.ts" />
-/// <reference path="GUPnPAV-1.0.d.ts" />
+import type { GModule } from './GModule-2.0';
+import type { GUPnPAV } from './GUPnPAV-1.0';
 
 declare namespace RygelRenderer {
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
@@ -503,7 +503,7 @@ export class PlayerController {
     static $gtype: GObject.Type
 }
 export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_ConstructProps {
-    supportedProfiles?: any[]
+    supportedProfiles?: DLNAProfile[]
 }
 export class MediaRendererPlugin {
 <<<<<<< HEAD
@@ -512,7 +512,7 @@ export class MediaRendererPlugin {
     /* Properties of RygelCore-2.4.RygelCore.Plugin */
 =======
     /* Properties of RygelRenderer.MediaRendererPlugin */
-    supportedProfiles: any[]
+    supportedProfiles: DLNAProfile[]
     /* Properties of RygelCore.Plugin */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     capabilities: RygelCore.PluginCapabilities
@@ -534,17 +534,24 @@ export class MediaRendererPlugin {
     /* Fields of RygelRenderer.MediaRendererPlugin */
     parentInstance: RygelCore.Plugin
     priv: MediaRendererPluginPrivate
+    /* Fields of GUPnP.ResourceFactory */
+    parent: GObject.Object
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelRenderer.MediaRendererPlugin */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getPlayer(): MediaPlayer | null
     getProtocolInfo(): string
+<<<<<<< HEAD
     getSupportedProfiles(): any[]
     setSupportedProfiles(value: any[]): void
 <<<<<<< HEAD
     /* Methods of RygelCore-2.4.RygelCore.Plugin */
 =======
+=======
+    getSupportedProfiles(): DLNAProfile[]
+    setSupportedProfiles(value: DLNAProfile[]): void
+>>>>>>> 2968f8b (Update types)
     /* Methods of RygelCore.Plugin */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addResource(resourceInfo: RygelCore.ResourceInfo): void

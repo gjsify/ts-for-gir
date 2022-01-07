@@ -266,6 +266,8 @@ npm run test:girs
 * [gir2dts](https://github.com/darkoverlordofdata/gir2dts) - The project this is inspired by
 * [gir-dts-generator](https://github.com/Place1/gir-dts-generator) - The project that inspired this project
 * [gjs-ts](https://github.com/niagr/gjs-ts) - Typescript bindings for GJS
+* [Typescript Doclet](https://github.com/gjsify/doclet) - Experimental TypeScript binding generator written in Vala as a Valadoc extension
+* [gi.ts] - Highly accurate TypeScript bindings for GJS
 
 ### Other
 

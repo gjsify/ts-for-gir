@@ -1,1 +1,2 @@
-export {default as default} from 'gi://<%= name %>?version=<%= version %>';
+import <%= name %> from 'gi://<%= name %>?version=<%= version %>';
+export default <%= name %>;

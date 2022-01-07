@@ -8,7 +8,7 @@ import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
 import { ConfigFlags } from '../types'
 
-export default class Generate extends Command {
+export default class GenerateCommand extends Command {
     static description = 'Generates .d.ts files from GIR for gjs or node-gtk'
 
     static strict = false
@@ -58,7 +58,7 @@ export default class Generate extends Command {
     }
 
     async run(): Promise<void> {
-        const { argv, flags } = await this.parse(Generate)
+        const { argv, flags } = await this.parse(GenerateCommand)
 
         const config = await Config.load(flags as unknown as ConfigFlags, argv)
 
@@ -77,7 +77,7 @@ export default class Generate extends Command {
                 )
                 if (keep.length === 0) {
                     return this.error(
-                        'No module found!\nPlease make sure that you have installed the necessary gir files, for example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu.',
+                        'No module found!\nPlease make sure that you have installed the necessary gir files.\nFor example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu or "sudo dnf install gtk3-devel" on Fedora.',
                     )
                 }
                 const tsForGir = new Generator(generateConfig)

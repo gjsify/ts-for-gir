@@ -8,7 +8,7 @@ import chalk from 'chalk'
 import { Config } from '../config'
 import { ResolveType, ConfigFlags } from '../types'
 
-export default class List extends Command {
+export default class ListCommand extends Command {
     static description = 'Lists all available GIR modules'
 
     static examples = [
@@ -30,7 +30,7 @@ export default class List extends Command {
     static args = [Config.defaultCliArgs.modules]
 
     async run(): Promise<void> {
-        const { argv, flags } = await this.parse(List)
+        const { argv, flags } = await this.parse(ListCommand)
         const config = await Config.load(flags as unknown as ConfigFlags, argv)
         const generateConfig = Config.getGenerateConfig(config)
         const moduleLoader = new ModuleLoader(generateConfig)

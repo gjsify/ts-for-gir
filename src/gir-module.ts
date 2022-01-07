@@ -1865,8 +1865,8 @@ export class GirModule {
             out.push(`}`)
         }
 
-        if (this.config.exportDefault) {
-            out.push(`export default ${this.namespace}`)
+        if (this.config.buildType === 'types' || this.config.exportDefault) {
+            out.push(`export default ${this.namespace};`)
         }
 
         // End of file

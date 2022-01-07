@@ -1,6 +1,10 @@
 {
   "editor.tabSize": 4,
   "typescript.tsdk": "./node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["typescript"],
   "cSpell.words": [
     "ABGR",
     "ACCELS",

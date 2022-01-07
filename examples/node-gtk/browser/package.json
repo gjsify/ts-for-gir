@@ -5,7 +5,7 @@
   "main": "main.ts",
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
-    "build:wp": "npm run clear:ts && webpack",
+    "build:wp": "npm run clear:ts && webpack --env production",
     "build:types": "../../../bin/run generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",

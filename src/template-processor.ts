@@ -14,6 +14,10 @@ import { ESLint } from 'eslint'
 
 const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
 
+// Get __dirname on ESM
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = Path.dirname(__filename)
+
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {

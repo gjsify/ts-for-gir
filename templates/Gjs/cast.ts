@@ -1,4 +1,9 @@
-import * as GObject from './GObject-2.0';
+
+<% if(exportDefault){ %>
+    import GObject from './GObject-2.0';
+  <% } else{ %>  
+    import * as GObject from './GObject-2.0';
+<% } %>
 
 const inheritanceTable: { [key: string]: string[] } = {
 <%_ for (const key of inheritanceTableKeys) { _%>

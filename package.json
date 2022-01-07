@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "bin": "./bin/run",
   "scripts": {
-    "start": "ts-node src/index",
+    "start": "ts-node src/index.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",

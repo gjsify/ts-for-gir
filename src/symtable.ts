@@ -2,7 +2,7 @@ import { SymTableItems, GenerateConfig, GirConstruct } from './types'
 import { Logger } from './logger'
 
 /**
- * The SymTable is used to check get any Type von any dependency to compare or to get information from
+ * The SymTable is used to get any Type from any dependency to compare or to get information from
  */
 export class SymTable {
     /**

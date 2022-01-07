@@ -167,7 +167,7 @@ export class Config {
 
     /**
      * Loads the values of the config file and concatenate them with passed cli flags / arguments.
-     * The values from config file  are preferred if the cli flag value is the default (and so not set / overwritten)
+     * The values from config file are preferred if the cli flag value is the default (and so not set / overwritten)
      * @param flags
      * @param modules
      */

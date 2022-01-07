@@ -1,5 +1,4 @@
 import type * as Gjs from "./Gjs";
-// TODO add support for multiple versions
 <%_ for (const girModule of girModules) { _%>
 import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
 <%_ } _%>

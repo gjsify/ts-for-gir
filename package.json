@@ -82,7 +82,7 @@
   "dependencies": {
     "@oclif/core": "^1.1.1",
     "@oclif/plugin-help": "^5.1.10",
-    "@types/eslint": "^8.2.1",
+    "@types/eslint": "^8.2.2",
     "chalk": "^4.1.0",
     "cosmiconfig": "^7.0.1",
     "eslint": "^8.6.0",

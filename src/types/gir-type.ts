@@ -1,6 +1,19 @@
-export interface GirType {
-    $?: {
-        name: string
+import { GirDocElement } from './gir-doc-element'
+import { GirInfoAttrs } from './gir-info-attrs'
+import { GirBoolean } from './gir-boolean'
+import { GirArrayType } from './gir-array-type'
+
+export interface GirType extends GirDocElement {
+    /** A simple type of data (as opposed to an array) */
+    $: GirInfoAttrs & {
+        /** name of the type */
+        name?: string
+        /** the C representation of the type */
         'c:type'?: string
+        /** Binary attribute which is BinaryOption(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
+        introspectable?: GirBoolean
     }
+
+    array?: GirArrayType[]
+    type: GirType[]
 }

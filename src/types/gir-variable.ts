@@ -1,12 +1,12 @@
 import type { TsForGjsExtended } from './ts-for-gjs-extended'
-import type { GirDoc } from './gir-doc'
 import type { GirType } from './gir-type'
-import type { GirArray } from './gir-array'
-import type { GirFunction } from './gir-function'
+import type { GirArrayType } from './gir-array-type'
+import type { GirFunctionElement } from './gir-function-element'
 import type { GirBoolean } from './gir-boolean'
-import type { GirClass } from './gir-class'
+import type { GirClassElement } from './gir-class-element'
+import type { GirDocElement } from './gir-doc-element'
 
-export interface GirVariable extends TsForGjsExtended {
+export interface GirVariable extends TsForGjsExtended, GirDocElement {
     $: {
         name?: string
         version?: string
@@ -25,14 +25,13 @@ export interface GirVariable extends TsForGjsExtended {
         closure?: string
         destroy?: string
     }
-    doc?: GirDoc[]
     type?: GirType[]
-    array?: GirArray[]
-    callback?: GirFunction[]
+    array?: GirArrayType[]
+    callback?: GirFunctionElement[]
     varargs?: string[]
 
     /**
      * The class this variable is defined in
      */
-    _class?: GirClass
+    _class?: GirClassElement
 }

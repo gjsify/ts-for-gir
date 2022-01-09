@@ -1,4 +1,11 @@
-import { SymTableItems, GenerateConfig, GirConstruct } from './types'
+import {
+    SymTableItems,
+    GenerateConfig,
+    GirConstructorElement,
+    GirUnionElement,
+    GirClassElement,
+    GirInterfaceElement,
+} from './types'
 import { Logger } from './logger'
 
 /**
@@ -47,26 +54,33 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get(dependencies: string[], fullTypeName: string): GirConstruct | null {
+    public get(
+        dependencies: string[],
+        fullTypeName: string,
+    ): GirClassElement | GirUnionElement | GirInterfaceElement | null {
         const key = this.getKey(dependencies, fullTypeName)
-        if (!key) {
+        if (!key || !SymTable.items[key]) {
             return null
         }
         const result = SymTable.items[key]
-        return result || null
+        return result
     }
 
-    public getByHand(versionTypeName: string): GirConstruct | undefined {
+    public getByHand(versionTypeName: string): GirClassElement | GirUnionElement | GirInterfaceElement | undefined {
         return SymTable.items[versionTypeName]
     }
 
-    public set(dependencies: string[], fullTypeName: string, girConstruct: GirConstruct): void {
+    public set(
+        dependencies: string[],
+        fullTypeName: string,
+        GirConstructorElement: GirClassElement | GirUnionElement | GirInterfaceElement,
+    ): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {
             if (key.endsWith('ServiceAction')) {
                 debugger
             }
-            SymTable.items[key] = girConstruct
+            SymTable.items[key] = GirConstructorElement
         }
     }
 }

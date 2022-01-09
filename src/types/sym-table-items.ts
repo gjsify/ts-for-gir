@@ -1,5 +1,5 @@
-import { GirConstruct } from './index'
+import { GirClassElement, GirUnionElement, GirInterfaceElement } from './index'
 
 export interface SymTableItems {
-    [name: string]: GirConstruct
+    [name: string]: GirClassElement | GirUnionElement | GirInterfaceElement
 }

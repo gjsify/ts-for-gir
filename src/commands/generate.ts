@@ -4,11 +4,11 @@
 
 import { Argv } from 'yargs'
 
-import { Generator } from '../generator'
-import { Config } from '../config'
-import { ModuleLoader } from '../module-loader'
-import { ConfigFlags } from '../types'
-import { Logger } from '../logger'
+import { Generator } from '../generator.js'
+import { Config } from '../config.js'
+import { ModuleLoader } from '../module-loader.js'
+import { ConfigFlags } from '../types/index.js'
+import { Logger } from '../logger.js'
 
 const command = 'generate [modules..]'
 

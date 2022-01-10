@@ -1,4 +1,4 @@
-import { TypePatches } from './types'
+import { TypePatches } from './types/index.js'
 
 export const typePatches: TypePatches = {
     'Atk-1.0': {

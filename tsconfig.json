@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],                 
-    "target": "es2017",
-    "module": "CommonJS",
+    "target": "ESNext",
+    "module": "ESNext",
     "outDir": "lib",
     "strict": true,
     "noImplicitAny": false,
@@ -15,6 +15,7 @@
     "rootDir": "src",
     "resolveJsonModule": true,
     "declaration": true,
+    "skipLibCheck": true,
   },
   "include": ["src"],
   "exclude": [

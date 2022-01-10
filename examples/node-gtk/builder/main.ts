@@ -1,10 +1,12 @@
 import './global'
-import * as gi from 'node-gtk'
+import { startLoop } from 'node-gtk'
 import { performance } from 'perf_hooks'
 import gladeFile from './builderExample.glade'
-const Gtk = gi.require('Gtk', '3.0')
 
-gi.startLoop()
+import * as Gtk from './@types/node-gtk/Gtk-3.0'
+// const Gtk = gi.require('Gtk', '3.0')
+
+startLoop()
 Gtk.init()
 
 const builder = Gtk.Builder.newFromString(gladeFile, gladeFile.length)

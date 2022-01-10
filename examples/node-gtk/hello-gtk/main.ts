@@ -1,7 +1,8 @@
-import * as gi from 'node-gtk'
-const Gtk = gi.require('Gtk', '3.0')
+import { startLoop } from 'node-gtk'
+import * as Gtk from './@types/node-gtk/Gtk-3.0'
+// const Gtk = gi.require('Gtk', '3.0')
 
-gi.startLoop()
+startLoop()
 Gtk.init()
 
 const settings = Gtk.Settings.getDefault()

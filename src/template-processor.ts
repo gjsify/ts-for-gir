@@ -6,17 +6,18 @@
 import fs from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
-import { Environment } from './types/environment'
-import { Transformation } from './transformation'
-import { Logger } from './logger'
-import { GenerateConfig } from './types'
+import { Environment } from './types/environment.js'
+import { Transformation } from './transformation.js'
+import { Logger } from './logger.js'
+import { GenerateConfig } from './types/index.js'
 import { ESLint } from 'eslint'
+import { fileURLToPath } from 'url'
 
 const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
 
 // Get __dirname on ESM
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = Path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = Path.dirname(__filename)
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 

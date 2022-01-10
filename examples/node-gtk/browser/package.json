@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",
-    "build:types": "../../../bin/run generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node",
+    "build:types": "../../../lib/start.js generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",
@@ -21,14 +21,14 @@
     "node": "^12"
   },
   "devDependencies": {
-    "fork-ts-checker-webpack-plugin": "^6.1.0",
-    "ts-loader": "^8.0.17",
-    "typescript": "^4.1.5",
-    "webpack": "^5.22.0",
-    "webpack-cli": "^4.5.0",
-    "webpack-node-externals": "^2.5.2"
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "node-gtk": "romgrk/node-gtk#master"
+    "node-gtk": "^0.10.0"
   }
 }

@@ -5,10 +5,10 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
-import { Utils } from './utils'
-import { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types'
+import { Utils } from './utils.js'
+import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { promises as fs } from 'fs'
-import { Logger } from './logger'
+import { Logger } from './logger.js'
 
 export class Config {
     static appName = 'ts-for-gir'
@@ -31,6 +31,7 @@ export class Config {
         verbose: true,
         ignoreConflicts: false,
         exportDefault: false,
+        buildType: 'lib',
     }
 
     /**
@@ -82,6 +83,7 @@ export class Config {
             description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
             array: false,
             choices: ['lib', 'types'],
+            default: Config.defaults.buildType,
             normalize: true,
         } as Options,
         pretty: {
@@ -163,7 +165,7 @@ export class Config {
         let writeConfigString = ''
         switch (fileExtension) {
             case '.js':
-                writeConfigString = `module.exports = ${JSON.stringify(configToStore, null, 4)}`
+                writeConfigString = `export default ${JSON.stringify(configToStore, null, 4)}`
                 break
             case '.json':
                 writeConfigString = `${JSON.stringify(configToStore, null, 4)}`
@@ -183,7 +185,14 @@ export class Config {
      * @param configName If the user uses a custom config file name
      */
     private static async loadConfigFile(configName?: string): Promise<UserConfigLoadResult | null> {
-        const configSearchOptions: ConfigSearchOptions = {}
+        const configSearchOptions: ConfigSearchOptions = {
+            loaders: {
+                // ESM loader
+                '.js': (filepath) => {
+                    return import(filepath)
+                },
+            },
+        }
         if (configName) {
             configSearchOptions.searchPlaces = [configName]
         }
@@ -195,14 +204,13 @@ export class Config {
     }
 
     public static getGenerateConfig(config: UserConfig, environment: Environment = 'gjs'): GenerateConfig {
-        const defaultBuildType = environment === 'gjs' ? 'lib' : 'types'
         const generateConfig: GenerateConfig = {
             environment: environment,
             girDirectories: config.girDirectories,
             outdir: config.outdir,
             pretty: config.pretty,
             verbose: config.verbose,
-            buildType: config.buildType || defaultBuildType,
+            buildType: config.buildType,
             exportDefault: config.exportDefault,
         }
         return generateConfig

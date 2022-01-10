@@ -4,11 +4,11 @@
 
 import { Argv } from 'yargs'
 
-import { ModuleLoader } from '../module-loader'
+import { ModuleLoader } from '../module-loader.js'
 import chalk from 'chalk'
-import { Config } from '../config'
-import { ResolveType, ConfigFlags } from '../types'
-import { Logger } from '../logger'
+import { Config } from '../config.js'
+import { ResolveType, ConfigFlags } from '../types/index.js'
+import { Logger } from '../logger.js'
 
 const command = 'list [modules..]'
 

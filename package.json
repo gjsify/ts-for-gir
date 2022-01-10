@@ -2,12 +2,13 @@
   "name": "ts-for-gir",
   "version": "1.0.1",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
-  "main": "lib/index.js",
-  "bin": "./bin/run",
+  "module": "lib/index.js",
+  "type": "module",
+  "bin": "./lib/start.js",
   "scripts": {
-    "start": "ts-node src/start.ts",
+    "start": "node --loader ts-node/esm src/start.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
-    "prepublish": "npm run build:ts:index && npm run lint && npm run regress && npm run test && npm run build",
+    "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs": "npm run update:submodules && npm run build:types && npm run validate:all",
@@ -17,9 +18,9 @@
     "test:girs:gtk4": "npm run update:submodules && npm run build:types:gtk4 && npm run validate:gtk4",
     "test:girs:rygelcore24": "npm run update:submodules && npm run build:types:rygelcore24 && npm run validate:rygelcore24",
     "regress": "npm run build:ts && npm run start -- generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
-    "build": "npm run clear:build && npm run build:ts:index && npm run lint && npm run build:ts",
+    "build": "npm run clear:build && npm run lint && npm run build:ts && npm run chmod",
+    "chmod": "chmod +x ./lib/start.js",
     "build:ts": "tsc",
-    "build:ts:index": "ctix create --useSemicolon=false ./tsconfig.json",
     "build:types": "npm run start -- generate --configName='.ts-for-gir.all.rc.js'",
     "build:types:gjs": "npm run build:types -- --environments=gjs",
     "build:types:node": "npm run build:types -- --environments=node",
@@ -69,7 +70,6 @@
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "ava": "^4.0.1",
-    "ctix": "^0.4.1",
     "ejs": "^3.1.6",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
@@ -77,13 +77,13 @@
   },
   "dependencies": {
     "@types/eslint": "^8.2.2",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.0",
     "cosmiconfig": "^7.0.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "events": "^3.3.0",
-    "globby": "^11.1.0",
+    "globby": "^12.0.2",
     "inquirer": "^8.2.0",
     "lodash": "^4.17.21",
     "prettier": "^2.5.1",
@@ -91,5 +91,8 @@
     "tiny-glob": "^0.2.9",
     "xml2js": "^0.4.23",
     "yargs": "^17.3.1"
-  }
+  },
+  "workspaces": [
+    "examples/*/*"
+  ]
 }

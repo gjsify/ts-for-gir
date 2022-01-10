@@ -4,7 +4,7 @@
  */
 
 import chalk from 'chalk'
-import { Environment } from './types'
+import { Environment } from './types/index.js'
 
 export class Logger {
     constructor(

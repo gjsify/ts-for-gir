@@ -1,8 +1,11 @@
-import * as gi from 'node-gtk'
+import { startLoop } from 'node-gtk'
+import * as Gtk from './@types/node-gtk/Gtk-3.0'
+import * as GtkSource from './@types/node-gtk/GtkSource-3.0'
 
-const Gtk = gi.require('Gtk', '3.0')
-const GtkSource = gi.require('GtkSource')
+// const Gtk = gi.require('Gtk', '3.0')
+// const GtkSource = gi.require('GtkSource')
 
+startLoop()
 Gtk.init(null)
 
 const wnd = new Gtk.Window({ title: 'Editor Test', default_width: 600, default_height: 400 } as any) // TODO

@@ -1,4 +1,2 @@
-// created from ctix
-
-export * from './generate'
-export * from './list'
+export * from './generate.js'
+export * from './list.js'

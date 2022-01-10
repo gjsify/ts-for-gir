@@ -3,10 +3,10 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, GenerateConfig } from './types'
+import { Transformations, Environment, ConstructName, GenerateConfig } from './types/index.js'
 import Path from 'path'
-import { Utils } from './utils'
-import { Logger } from './logger'
+import { Utils } from './utils.js'
+import { Logger } from './logger.js'
 
 export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
     return {

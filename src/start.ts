@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { generate, list } from './commands'
-import { Config } from './config'
+import { generate, list } from './commands/index.js'
+import { Config } from './config.js'
 
 void yargs(hideBin(process.argv))
     .scriptName(Config.appName)

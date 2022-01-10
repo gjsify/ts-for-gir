@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     modules: ['*'],
     girDirectories: ['./vala-girs/gir-1.0', './girs'],
     ignoreConflicts: true,

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import TemplateProcessor from './template-processor'
-import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
-import { Logger } from './logger'
-import { Utils } from './utils'
-import { SymTable } from './symtable'
-import { typePatches } from './type-patches'
+import TemplateProcessor from './template-processor.js'
+import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
+import { Logger } from './logger.js'
+import { Utils } from './utils.js'
+import { SymTable } from './symtable.js'
+import { typePatches } from './type-patches.js'
 
-import {
+import type {
     GirRepository,
     GirNamespace,
     GirAliasElement,
@@ -48,7 +48,7 @@ import {
     VarDesc,
     ConstantDescription,
     GirInterfaceElement,
-} from './types'
+} from './types/index.js'
 
 import {
     MAXIMUM_RECURSION_DEPTH,
@@ -59,7 +59,7 @@ import {
     FALSY_FUNCTION_DESCRIPTION,
     FALSY_LOCAL_NAME_CHECK,
     FALSY_PROPERTY_DESCRIPTION,
-} from './constants'
+} from './constants.js'
 
 export class GirModule {
     /**
@@ -1874,7 +1874,7 @@ export class GirModule {
     }
 
     public async exportJs(): Promise<void> {
-        const template = this.config.exportDefault ? 'esmodule.js' : 'module.js'
+        const template = 'module.js'
         if (this.config.outdir) {
             await this.templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
         } else {

@@ -1,10 +1,10 @@
 import fs from 'fs'
 import Path from 'path'
 
-import { GirModule } from './gir-module'
-import TemplateProcessor from './template-processor'
-import { Transformation } from './transformation'
-import { Logger } from './logger'
+import { GirModule } from './gir-module.js'
+import TemplateProcessor from './template-processor.js'
+import { Transformation } from './transformation.js'
+import { Logger } from './logger.js'
 
 import { InheritanceTable, GenerateConfig, GirModulesGrouped } from './types'
 
@@ -30,7 +30,7 @@ export class Generator {
         // Lib
         if (this.config.buildType === 'lib') {
             await templateProcessor.create('index.js', this.config.outdir, 'index.js')
-            const template = this.config.exportDefault ? 'esGjs.js' : 'Gjs.js'
+            const template = 'Gjs.js'
             await templateProcessor.create(template, this.config.outdir, 'Gjs.js')
         }
     }

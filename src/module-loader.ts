@@ -8,21 +8,21 @@ import Path from 'path'
 import fs from 'fs'
 import chalk from 'chalk'
 import * as xml2js from 'xml2js'
-import {
+import type {
     GirModulesGroupedMap,
     ParsedGir,
     GenerateConfig,
-    ResolveType,
     GirModuleResolvedBy,
     GirModulesGrouped,
     DependencyMap,
     Dependency,
     AnswerVersion,
-} from './types'
-import { GirModule } from './gir-module'
-import { Config } from './config'
-import { Logger } from './logger'
-import { Utils } from './utils'
+} from './types/index.js'
+import { ResolveType } from './types/index.js'
+import { GirModule } from './gir-module.js'
+import { Config } from './config.js'
+import { Logger } from './logger.js'
+import { Utils } from './utils.js'
 
 const bold = chalk.bold
 export class ModuleLoader {

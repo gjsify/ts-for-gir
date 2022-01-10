@@ -18,7 +18,7 @@
   "author": "",
   "license": "Apache-2.0",
   "engines": {
-    "node": "^12"
+    "node": "^16"
   },
   "devDependencies": {
     "fork-ts-checker-webpack-plugin": "^6.5.0",

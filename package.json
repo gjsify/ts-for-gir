@@ -5,6 +5,9 @@
   "module": "lib/index.js",
   "type": "module",
   "bin": "./lib/start.js",
+  "engines": {
+    "node": "^16"
+  },
   "scripts": {
     "start": "node --loader ts-node/esm src/start.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",

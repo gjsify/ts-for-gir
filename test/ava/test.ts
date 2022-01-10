@@ -1,7 +1,7 @@
 // @ts-nocheck TODO
 import test from 'ava'
-import { GirEnumElement, GirModule, GenerateConfig, GirFunctionElement } from '../../src'
-import * as TestData from './testData'
+import { GirEnumElement, GirModule, GenerateConfig, GirFunctionElement } from '../../src/index.js'
+import * as TestData from './testData.js'
 
 const emptyRepositoryXml = {
     repository: {

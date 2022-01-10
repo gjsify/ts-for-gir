@@ -1,5 +1,5 @@
 // @ts-nocheck TODO
-import { GirFunctionElement, GirClassElement, GirTransferOwnershipType } from '../../src'
+import { GirFunctionElement, GirClassElement, GirTransferOwnershipType } from '../../src/index.js'
 
 export const classGObject = {
     _fullSymName: 'GObject.Object',

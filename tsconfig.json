@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": ["ESNext"],                 
     "target": "ESNext",
-    "module": "esnext",
+    "module": "ESNext",
     "outDir": "lib",
     "strict": true,
     "noImplicitAny": false,

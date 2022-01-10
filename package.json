@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node --loader ts-node/esm src/start.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
-    "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
+    "prepublish": "npm run lint && npm run regress && npm run test",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs": "npm run update:submodules && npm run build:types && npm run validate:all",

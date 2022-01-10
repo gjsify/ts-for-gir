@@ -28,14 +28,66 @@ export const typePatches: TypePatches = {
     },
     'Mx-1.0': {
         constructorProperties: {
-            'Mx.Label_ConstructProps.x_align': [
-                '/* constructor paramter type clashes with Clutter.Actor_ConstructProps.x_align */',
+            'Mx.Label.x_align': [
+                '/* Patched: constructor parameter type clashes with Clutter.Actor.x_align */',
                 'x_align?: Align & Clutter.ActorAlign',
             ],
-            'Mx.Label_ConstructProps.y_align': [
-                '/* constructor paramter type clashes with Clutter.Actor_ConstructProps.y_align */',
+            'Mx.Label.y_align': [
+                '/* Patched: constructor parameter type clashes with Clutter.Actor.y_align */',
                 'y_align?: Align & Clutter.ActorAlign',
             ],
+            'Mx.Bin.x_align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.y_align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
+        },
+    },
+    'Mx-2.0': {
+        constructorProperties: {
+            'Mx.Label.x_align': [
+                '/* Patched: constructor parameter type clashes with Clutter.Actor.x_align */',
+                'x_align?: Align & Clutter.ActorAlign',
+            ],
+            'Mx.Label.y_align': [
+                '/* Patched: constructor parameter type clashes with Clutter.Actor.y_align */',
+                'y_align?: Align & Clutter.ActorAlign',
+            ],
+            'Mx.Bin.x_align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.y_align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
+        },
+    },
+    'Dazzle-1.0': {
+        constructorProperties: {
+            'Dazzle.Tab.style': ['/* Patched */', 'style?: TabStyle & Gtk.Style'],
+            'Dazzle.TabStrip.style': ['/* Patched */', 'style?: TabStyle & Gtk.Style'],
+            'Dazzle.DockStack.style': ['/* Patched */', 'style?: TabStyle & Gtk.Style'],
+        },
+    },
+    'Gdaui-5.0': {
+        constructorProperties: {
+            'Gdaui.RawGrid.model': ['/* Patched */', 'model?: Gda.DataModel & Gtk.TreeModel'],
+            'Gdaui.Combo.model': ['/* Patched */', 'model?: Gda.DataModel & Gtk.TreeModel'],
+        },
+    },
+    'Gdaui-6.0': {
+        constructorProperties: {
+            'Gdaui.RawGrid.model': ['/* Patched */', 'model?: Gda.DataModel & Gtk.TreeModel'],
+            'Gdaui.Combo.model': ['/* Patched */', 'model?: Gda.DataModel & Gtk.TreeModel'],
+        },
+    },
+    'Gitg-1.0': {
+        constructorProperties: {
+            'Gitg.Sidebar.model': ['/* Patched */', 'model?: SidebarStore & Gtk.TreeModel'],
+        },
+    },
+    'Champlain-0.12': {
+        constructorProperties: {
+            'Champlain.Point.size': ['/* Patched */', 'size?: number & Clutter.Size'],
+            'Champlain.Tile.size': ['/* Patched */', 'size?: number & Clutter.Size'],
+            'Champlain.Tile.content': ['/* Patched */', 'content?: Clutter.Actor & Clutter.Content'],
+        },
+    },
+    'Clutter-1.0': {
+        constructorProperties: {
+            'Clutter.Text.position': ['/* Patched */', 'position?: number & Point'],
         },
     },
 }

@@ -798,15 +798,15 @@ export class GirModule {
     private getPatches(packageName: string, type: 'methods' | 'constructorProperties', nsPath: string) {
         const packagePatches = typePatches[packageName]
         if (!packagePatches) {
-            return []
+            return undefined
         }
 
         const typePatch = packagePatches[type]
         if (!typePatch) {
-            return []
+            return undefined
         }
 
-        return typePatch[nsPath] || []
+        return typePatch?.[nsPath] || undefined
     }
 
     /**
@@ -848,8 +848,8 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        if (methodPatches && methodPatches.length) {
-            // this.log.debug('Apply methodPatches', methodPatches)
+        if (methodPatches?.length) {
+            this.log.warn(`Patch found for method ${girFunc._fullSymName}`)
             let desc: string[] = []
             if (methodPatches.length === 1) {
                 desc = methodPatches.map((patch) => indent + patch)
@@ -1687,9 +1687,23 @@ export class GirModule {
                         constructPropNames,
                         'property',
                     )
+
                     if (added) {
-                        for (const curDesc of aDesc) {
-                            def.push(`    ${curDesc}`)
+                        const packageNameToPatch =
+                            property._class?._module?.packageName || property._module?.packageName || this.packageName
+                        const constructPropPatches: VarDesc | undefined = property._fullSymName
+                            ? this.getPatches(packageNameToPatch, 'constructorProperties', property._fullSymName)
+                            : undefined
+
+                        if (constructPropPatches?.length) {
+                            this.log.warn(`Patch found for constructor property "${property._fullSymName}"!`)
+                            for (const curDesc of constructPropPatches) {
+                                def.push(`    ${curDesc}`)
+                            }
+                        } else {
+                            for (const curDesc of aDesc) {
+                                def.push(`    ${curDesc}`)
+                            }
                         }
                     }
                 }

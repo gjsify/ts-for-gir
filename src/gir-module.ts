@@ -1895,9 +1895,8 @@ export class GirModule {
         // Module dependencies as type references or imports
         if (this.config.environment === 'gjs') {
             out.push(...this.templateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false, this.config))
-        } else {
-            out.push(...this.templateProcessor.generateModuleDependenciesImport('NodeJS', 'node', true, this.config))
         }
+
         for (const depPackageName of deps) {
             // Don't reference yourself as a dependency
             if (this.packageName !== depPackageName) {

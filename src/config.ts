@@ -230,7 +230,7 @@ export class Config {
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
         const configFile = await this.loadConfigFile(options.configName)
-        console.debug('configFile', configFile)
+
         const config: UserConfig = {
             environments: options.environments,
             buildType: options.buildType,
@@ -302,8 +302,6 @@ export class Config {
                 config.exportDefault = configFile.config.exportDefault
             }
         }
-
-        console.log('config', config)
 
         return config
     }

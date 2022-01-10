@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /**
  * Default values, parse the config file and handle CLI flags
  */
@@ -188,8 +189,13 @@ export class Config {
         const configSearchOptions: ConfigSearchOptions = {
             loaders: {
                 // ESM loader
-                '.js': (filepath) => {
-                    return import(filepath)
+                '.js': async (filepath) => {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                    const file = await import(filepath)
+                    if (file.default) {
+                        return file.default as Partial<UserConfig>
+                    }
+                    return file as Partial<UserConfig>
                 },
             },
         }
@@ -224,6 +230,7 @@ export class Config {
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
         const configFile = await this.loadConfigFile(options.configName)
+        console.debug('configFile', configFile)
         const config: UserConfig = {
             environments: options.environments,
             buildType: options.buildType,
@@ -295,6 +302,8 @@ export class Config {
                 config.exportDefault = configFile.config.exportDefault
             }
         }
+
+        console.log('config', config)
 
         return config
     }

@@ -2,7 +2,7 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
-import * as inquirer from 'inquirer'
+import inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import fs from 'fs'

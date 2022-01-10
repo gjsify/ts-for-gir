@@ -1,6 +1,6 @@
-import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, GirClassElement } from '.'
+import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, TsForGjsExtended } from '.'
 
-export interface GirPropertyElement extends GirInfoElements, GirAnyType {
+export interface GirPropertyElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
     /** Property, that is a variable or members with getter and setter functions */
     $: GirInfoAttrs & {
         /** name of the property */
@@ -13,10 +13,9 @@ export interface GirPropertyElement extends GirInfoElements, GirAnyType {
         construct?: GirBoolean
         /** Binary attribute, true if the property can only be set upon construction */
         'construct-only'?: GirBoolean
+        /** The setter function for this property */
+        setter?: string
+        /** The getter function for this property */
+        getter?: string
     } & Partial<GirTransferOwnership>
-
-    /**
-     * The class this variable is defined in
-     */
-    _class?: GirClassElement
 }

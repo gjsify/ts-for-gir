@@ -1,4 +1,4 @@
-import { GirBoolean, GirCallableParamElement, GirAnyType, GirTransferOwnership, GirDirection } from '.'
+import { GirBoolean, GirCallableParamElement, GirAnyType, GirTransferOwnership, GirDirection, GirType } from '.'
 
 // Refer to https://wiki.gnome.org/Projects/GObjectIntrospection/Annotations#Support_for_GObject_closures
 export interface GirCallableParams {
@@ -19,5 +19,6 @@ export interface GirCallableParams {
                 'caller-allocates'?: GirBoolean
             }> &
                 Partial<GirTransferOwnership>
+            type?: GirType
         }[]
 }

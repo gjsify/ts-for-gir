@@ -8,9 +8,10 @@ import {
     GirMethodElement,
     GirConstructorElement,
     GirPropertyElement,
+    TsForGjsExtended,
 } from '.'
 
-export interface GirRecordElement extends GirInfoElements {
+export interface GirRecordElement extends TsForGjsExtended, GirInfoElements {
     /** Record definition, equivalent to a C struct, that is a simple structure, not a class */
     $: GirInfoAttrs & {
         /** name of the record */

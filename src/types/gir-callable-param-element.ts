@@ -8,7 +8,6 @@ import type {
     GirDirection,
     GirVarArgs,
     TsForGjsExtended,
-    GirClassElement,
 } from '.'
 
 export interface GirCallableParamElement extends TsForGjsExtended, GirDocElement, GirAnyType {
@@ -40,9 +39,4 @@ export interface GirCallableParamElement extends TsForGjsExtended, GirDocElement
         }
 
     varargs?: GirVarArgs[]
-
-    /**
-     * The class this parameter is defined in
-     */
-    _class?: GirClassElement
 }

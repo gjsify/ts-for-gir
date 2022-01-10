@@ -1,6 +1,4 @@
-import { GirFunctionElement } from './gir-function-element'
-import { GirInfoAttrs } from './gir-info-attrs'
-import { GirCallableAttrs } from './gir-callable-attrs'
+import { GirCallableAttrs, GirInfoAttrs, GirFunctionElement } from '.'
 
 export interface GirVirtualMethodElement extends GirFunctionElement {
     $: GirInfoAttrs &

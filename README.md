@@ -163,6 +163,8 @@ you now have to write:
 
 Destructuring individual items in the import statement is not supported for this type of import.
 
+See `examples/Gjs/browser` for an example for `exportDefault` and Gjs ESM. 
+
 ## Examples
 
 Run `npm run regress` or `ts-for-gir --configName='.ts-for-gir.regress.rc.js'` in the root of this project to generate the type definitions for the examples
@@ -211,7 +213,9 @@ Generate example type definitions:
 ```bash
 npm run regress
 ```
+### Gir XML Format
 
+See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) for type definitions.
 ### NPM Scripts
 
 #### Validate

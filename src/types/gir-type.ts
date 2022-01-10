@@ -1,7 +1,4 @@
-import { GirDocElement } from './gir-doc-element'
-import { GirInfoAttrs } from './gir-info-attrs'
-import { GirBoolean } from './gir-boolean'
-import { GirArrayType } from './gir-array-type'
+import { GirArrayType, GirBoolean, GirInfoAttrs, GirDocElement } from '.'
 
 export interface GirType extends GirDocElement {
     /** A simple type of data (as opposed to an array) */

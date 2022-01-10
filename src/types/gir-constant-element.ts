@@ -1,6 +1,6 @@
-import type { GirInfoElements, GirAnyType, GirInfoAttrs } from '.'
+import type { GirInfoElements, GirAnyType, GirInfoAttrs, TsForGjsExtended } from '.'
 
-export interface GirConstantElement extends GirInfoElements, GirAnyType {
+export interface GirConstantElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
     /** A constant entity, similar to const variable in C */
     $: GirInfoAttrs & {
         /** name of the constant */

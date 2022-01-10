@@ -1,10 +1,16 @@
 import {
     SymTableItems,
     GenerateConfig,
-    GirConstructorElement,
-    GirUnionElement,
+    GirBitfieldElement,
+    GirCallbackElement,
     GirClassElement,
+    GirConstantElement,
+    GirEnumElement,
+    GirFunctionElement,
     GirInterfaceElement,
+    GirRecordElement,
+    GirUnionElement,
+    GirAliasElement,
 } from './types'
 import { Logger } from './logger'
 
@@ -57,7 +63,18 @@ export class SymTable {
     public get(
         dependencies: string[],
         fullTypeName: string,
-    ): GirClassElement | GirUnionElement | GirInterfaceElement | null {
+    ):
+        | GirBitfieldElement
+        | GirCallbackElement
+        | GirClassElement
+        | GirConstantElement
+        | GirEnumElement
+        | GirFunctionElement
+        | GirInterfaceElement
+        | GirRecordElement
+        | GirUnionElement
+        | GirAliasElement
+        | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
@@ -66,14 +83,37 @@ export class SymTable {
         return result
     }
 
-    public getByHand(versionTypeName: string): GirClassElement | GirUnionElement | GirInterfaceElement | undefined {
+    public getByHand(
+        versionTypeName: string,
+    ):
+        | GirBitfieldElement
+        | GirCallbackElement
+        | GirClassElement
+        | GirConstantElement
+        | GirEnumElement
+        | GirFunctionElement
+        | GirInterfaceElement
+        | GirRecordElement
+        | GirUnionElement
+        | GirAliasElement
+        | undefined {
         return SymTable.items[versionTypeName]
     }
 
     public set(
         dependencies: string[],
         fullTypeName: string,
-        GirConstructorElement: GirClassElement | GirUnionElement | GirInterfaceElement,
+        GirConstructorElement:
+            | GirBitfieldElement
+            | GirCallbackElement
+            | GirClassElement
+            | GirConstantElement
+            | GirEnumElement
+            | GirFunctionElement
+            | GirInterfaceElement
+            | GirRecordElement
+            | GirUnionElement
+            | GirAliasElement,
     ): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {

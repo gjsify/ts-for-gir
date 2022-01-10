@@ -1,7 +1,4 @@
-import { TsForGjsExtended } from './ts-for-gjs-extended'
-import { GirType } from './gir-type'
-import { GirInfoElements } from './gir-info-elements'
-import { GirInfoAttrs } from './gir-info-attrs'
+import { GirInfoAttrs, GirInfoElements, GirType, TsForGjsExtended } from '.'
 
 export interface GirAliasElement extends TsForGjsExtended, GirInfoElements {
     /** Type's name substitution, representing a typedef in C */

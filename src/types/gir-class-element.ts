@@ -46,6 +46,8 @@ export interface GirClassElement extends TsForGjsExtended, GirInfoElements {
         abstract?: GirBoolean
         /** Binary attribute to declare the class fundamental or not (top-level class which do not derives from any other type) */
         'glib:fundamental'?: GirBoolean
+        /** Binary attribute to declare the class final or not (non-derivable class in a derivable hierarchy) */
+        final: GirBoolean
     }
 
     /* Other elements a class can contain */
@@ -58,6 +60,7 @@ export interface GirClassElement extends TsForGjsExtended, GirInfoElements {
     field?: GirFieldElement[]
     property?: GirPropertyElement[]
     signal?: GirSignalElement[]
+    'glib:signal'?: GirSignalElement[]
     union?: GirUnionElement[]
     constant?: GirConstantElement[]
     record?: GirRecordElement[]

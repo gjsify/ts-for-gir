@@ -37,7 +37,7 @@ export default class ListCommand extends Command {
         const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
         const moduleGroups = Object.values(grouped)
         if (Object.keys(grouped).length === 0) {
-            // this.log(chalk.red('No modules found'))
+            console.error('grouped', grouped)
             return this.error('No modules found in ' + config.girDirectories.join(', '))
         }
 

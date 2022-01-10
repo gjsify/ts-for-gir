@@ -9,7 +9,9 @@ export interface GirMemberElement extends GirInfoElements {
         value: string
         /** corresponding C type of the member */
         'c:identifier': string
-        /** short nickname of the member */
+        /** short nickname of the member (from GEnumValue/GFlagsValue) */
         'glib:nick'?: string
+        /** name of the member (from GEnumValue/GFlagsValue) */
+        'glib:name'?: string
     }
 }

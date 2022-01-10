@@ -1,6 +1,14 @@
-import { GirInfoElements, GirAnyType, GirInfoAttrs, GirBoolean, GirUnparsedNumber, GirCallbackElement } from '.'
+import {
+    GirInfoElements,
+    GirAnyType,
+    GirInfoAttrs,
+    GirBoolean,
+    GirUnparsedNumber,
+    GirCallbackElement,
+    TsForGjsExtended,
+} from '.'
 
-export interface GirFieldElement extends GirInfoElements, GirAnyType {
+export interface GirFieldElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
     /** A field of struct of union structure, that is a C bit field, that is a fixed length in bits variable */
     $: GirInfoAttrs & {
         /** name of the field */

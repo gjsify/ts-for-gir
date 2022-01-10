@@ -6,3 +6,4 @@ tmp/
 lib/
 examples/**/@types/
 @types/
+index.ts.bak

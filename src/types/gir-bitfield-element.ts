@@ -1,6 +1,6 @@
-import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement } from '.'
+import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, TsForGjsExtended } from '.'
 
-export interface GirBitfieldElement extends GirInfoElements {
+export interface GirBitfieldElement extends TsForGjsExtended, GirInfoElements {
     /** element defining a bit field (as in C) */
     $: GirInfoAttrs & {
         /** name of the bit field */

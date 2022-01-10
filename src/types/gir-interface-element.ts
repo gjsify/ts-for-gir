@@ -44,6 +44,7 @@ export interface GirInterfaceElement extends TsForGjsExtended, GirInfoElements {
     field?: GirFieldElement[]
     property?: GirPropertyElement[]
     signal?: GirSignalElement[]
+    'glib:signal'?: GirSignalElement[]
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
 }

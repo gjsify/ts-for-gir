@@ -1,8 +1,7 @@
 /**
  * Default values, parse the config file and handle CLI flags
  */
-
-import { Flags } from '@oclif/core'
+import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
@@ -13,6 +12,8 @@ import { Logger } from './logger'
 
 export class Config {
     static appName = 'ts-for-gir'
+
+    static usage = 'Typescript .d.ts generator from GIR for gjs or node-gtk'
 
     static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
 
@@ -33,78 +34,120 @@ export class Config {
     }
 
     /**
-     * CLI flags used in commands/generate.ts and commands/list.ts
+     * CLI options used in commands/generate.ts and commands/list.ts
      */
-    static defaultCliFlags = {
-        help: Flags.help({ char: 'h' }),
-        girDirectories: Flags.string({
-            char: 'g',
-            description: 'GIR directory',
-            multiple: true,
-            default: Config.defaults.girDirectories,
-        }),
-        outdir: Flags.string({
-            char: 'o',
-            description: 'directory to output to',
-            default: Config.defaults.outdir,
-        }),
-        environments: Flags.string({
-            char: 'e',
-            description: 'javascript environment',
-            multiple: true,
-            options: ['gjs', 'node'],
-            default: Config.defaults.environments,
-        }),
-        ignore: Flags.string({
-            char: 'i',
-            description: 'modules that should be ignored',
-            multiple: true,
-            default: Config.defaults.ignore,
-        }),
-        buildType: Flags.string({
-            char: 'b',
-            description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
-            multiple: false,
-            options: ['lib', 'types'],
-        }),
-        pretty: Flags.boolean({
-            description: 'prettifies the generated .d.ts files',
-            default: Config.defaults.pretty,
-        }),
-        verbose: Flags.boolean({
-            char: 'v',
-            description: 'Switch on/off the verbose mode',
-            default: Config.defaults.verbose,
-        }),
-        ignoreConflicts: Flags.boolean({
-            description: 'Do not ask for package versions if multiple versions are found',
-            default: Config.defaults.ignoreConflicts,
-        }),
-        print: Flags.boolean({
-            char: 'p',
-            description: 'print the output to console and create no files',
-            default: Config.defaults.print,
-        }),
-        configName: Flags.string({
-            description: 'name of the config if you want to use a different name',
-        }),
-        exportDefault: Flags.boolean({
-            char: 'd',
-            description: 'Export all symbols for each module as a single entity using ES6 export default',
-            default: Config.defaults.exportDefault,
-        }),
-    }
-
-    /**
-     * CLI arguments used in commands/generate.ts and commands/list.ts
-     */
-    static defaultCliArgs = {
+    static options = {
         modules: {
             name: 'modules',
             description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
-            required: true,
-            default: Config.defaults.modules[0],
-        },
+            array: true,
+            default: Config.defaults.modules,
+            normalize: true,
+        } as Options,
+        girDirectories: {
+            type: 'string',
+            alias: 'g',
+            description: 'GIR directory',
+            array: true,
+            default: Config.defaults.girDirectories,
+            normalize: true,
+        } as Options,
+        outdir: {
+            type: 'string',
+            alias: 'o',
+            description: 'directory to output to',
+            default: Config.defaults.outdir,
+            normalize: true,
+        } as Options,
+        environments: {
+            type: 'string',
+            alias: 'e',
+            description: 'javascript environment',
+            array: true,
+            choices: ['gjs', 'node'],
+            default: Config.defaults.environments,
+            normalize: true,
+        } as Options,
+        ignore: {
+            type: 'string',
+            alias: 'i',
+            description: 'modules that should be ignored',
+            array: true,
+            default: Config.defaults.ignore,
+            normalize: true,
+        } as Options,
+        buildType: {
+            type: 'string',
+            alias: 'b',
+            description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
+            array: false,
+            choices: ['lib', 'types'],
+            normalize: true,
+        } as Options,
+        pretty: {
+            type: 'boolean',
+            description: 'prettifies the generated .d.ts files',
+            default: Config.defaults.pretty,
+            normalize: true,
+        } as Options,
+        verbose: {
+            type: 'boolean',
+            alias: 'v',
+            description: 'Switch on/off the verbose mode',
+            default: Config.defaults.verbose,
+            normalize: true,
+        } as Options,
+        ignoreConflicts: {
+            type: 'boolean',
+            description: 'Do not ask for package versions if multiple versions are found',
+            default: Config.defaults.ignoreConflicts,
+            normalize: true,
+        } as Options,
+        print: {
+            type: 'boolean',
+            alias: 'p',
+            description: 'print the output to console and create no files',
+            default: Config.defaults.print,
+            normalize: true,
+        } as Options,
+        configName: {
+            type: 'string',
+            description: 'name of the config if you want to use a different name',
+            normalize: true,
+        } as Options,
+        exportDefault: {
+            type: 'boolean',
+            alias: 'd',
+            description: 'Export all symbols for each module as a single entity using ES6 export default',
+            default: Config.defaults.exportDefault,
+            normalize: true,
+        } as Options,
+    }
+
+    /**
+     * CLI flags used in commands/generate.ts
+     */
+    static generateOptions = {
+        modules: this.options.modules,
+        girDirectories: this.options.girDirectories,
+        outdir: this.options.outdir,
+        environments: this.options.environments,
+        ignore: this.options.ignore,
+        buildType: this.options.buildType,
+        pretty: this.options.pretty,
+        verbose: this.options.verbose,
+        ignoreConflicts: this.options.ignoreConflicts,
+        print: this.options.print,
+        configName: this.options.configName,
+        exportDefault: this.options.exportDefault,
+    }
+
+    static listOptions = {
+        modules: this.options.modules,
+        girDirectories: Config.options.girDirectories,
+        ignore: Config.options.ignore,
+        configName: Config.options.configName,
+        verbose: Config.options.verbose,
     }
 
     /**
@@ -168,23 +211,23 @@ export class Config {
     /**
      * Loads the values of the config file and concatenate them with passed cli flags / arguments.
      * The values from config file are preferred if the cli flag value is the default (and so not set / overwritten)
-     * @param flags
+     * @param options
      * @param modules
      */
-    public static async load(flags: ConfigFlags, modules: string[]): Promise<UserConfig> {
-        const configFile = await this.loadConfigFile(flags.configName)
+    public static async load(options: ConfigFlags): Promise<UserConfig> {
+        const configFile = await this.loadConfigFile(options.configName)
         const config: UserConfig = {
-            environments: flags.environments,
-            buildType: flags.buildType,
-            verbose: flags.verbose,
-            ignoreConflicts: flags.ignoreConflicts,
-            pretty: flags.pretty,
-            print: flags.print,
-            outdir: flags.outdir,
-            girDirectories: flags.girDirectories,
-            ignore: flags.ignore,
-            modules,
-            exportDefault: flags.exportDefault,
+            environments: options.environments,
+            buildType: options.buildType,
+            verbose: options.verbose,
+            ignoreConflicts: options.ignoreConflicts,
+            pretty: options.pretty,
+            print: options.print,
+            outdir: options.outdir,
+            girDirectories: options.girDirectories,
+            ignore: options.ignore,
+            modules: options.modules,
+            exportDefault: options.exportDefault,
         }
 
         if (configFile) {
@@ -197,39 +240,30 @@ export class Config {
                 config.buildType = configFile.config.buildType
             }
             // verbose
-            if (
-                config.verbose === Config.defaultCliFlags.verbose.default &&
-                typeof configFile.config.verbose === 'boolean'
-            ) {
+            if (config.verbose === Config.options.verbose.default && typeof configFile.config.verbose === 'boolean') {
                 config.verbose = configFile.config.verbose
             }
             // ignoreConflicts
             if (
-                config.ignoreConflicts === Config.defaultCliFlags.ignoreConflicts.default &&
+                config.ignoreConflicts === Config.options.ignoreConflicts.default &&
                 typeof configFile.config.ignoreConflicts === 'boolean'
             ) {
                 config.ignoreConflicts = configFile.config.ignoreConflicts
             }
             // pretty
-            if (
-                config.pretty === Config.defaultCliFlags.pretty.default &&
-                typeof configFile.config.pretty === 'boolean'
-            ) {
+            if (config.pretty === Config.options.pretty.default && typeof configFile.config.pretty === 'boolean') {
                 config.pretty = configFile.config.pretty
             }
             // print
-            if (config.print === Config.defaultCliFlags.print.default && typeof configFile.config.print === 'boolean') {
+            if (config.print === Config.options.print.default && typeof configFile.config.print === 'boolean') {
                 config.print = configFile.config.print
             }
             // outdir
-            if (config.outdir === Config.defaultCliFlags.outdir.default && configFile.config.outdir) {
+            if (config.outdir === Config.options.outdir.default && configFile.config.outdir) {
                 config.outdir = config.print ? null : configFile.config.outdir
             }
             // girDirectories
-            if (
-                config.girDirectories === Config.defaultCliFlags.girDirectories.default &&
-                configFile.config.girDirectories
-            ) {
+            if (config.girDirectories === Config.options.girDirectories.default && configFile.config.girDirectories) {
                 config.girDirectories = configFile.config.girDirectories
             }
             // ignore
@@ -247,12 +281,13 @@ export class Config {
                 config.modules = configFile.config.modules
             }
             if (
-                config.exportDefault === Config.defaultCliFlags.exportDefault.default &&
+                config.exportDefault === Config.options.exportDefault.default &&
                 typeof configFile.config.exportDefault === 'boolean'
             ) {
                 config.exportDefault = configFile.config.exportDefault
             }
         }
+
         return config
     }
 }

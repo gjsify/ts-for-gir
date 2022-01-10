@@ -1,5 +1,6 @@
+// @ts-nocheck TODO
 import test from 'ava'
-import { GirEnumeration, GirModule, GenerateConfig, GirFunction } from '../../src'
+import { GirEnumElement, GirModule, GenerateConfig, GirFunctionElement } from '../../src'
 import * as TestData from './testData'
 
 const emptyRepositoryXml = {
@@ -28,7 +29,7 @@ const config: GenerateConfig = {
 }
 
 test('enumeration', (t) => {
-    const enum_: GirEnumeration = {
+    const enum_: GirEnumElement = {
         $: {
             name: 'MyEnum',
         },
@@ -79,7 +80,7 @@ test('constant', (t) => {
 })
 
 test('function', (t) => {
-    const func: GirFunction = {
+    const func: GirFunctionElement = {
         $: { name: 'my_func' },
         parameters: [
             {
@@ -118,7 +119,7 @@ test('function', (t) => {
 })
 
 test('callback', (t) => {
-    const cbs: GirFunction[] = [
+    const cbs: GirFunctionElement[] = [
         {
             $: { name: 'activate' },
             'return-value': [

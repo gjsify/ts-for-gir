@@ -1,22 +1,14 @@
-import { Logger } from './logger'
-import { run, Errors } from '@oclif/core'
-import flush from '@oclif/core/flush'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
-export * from './index'
+import { generate, list } from './commands'
+import { Config } from './config'
 
-if (require.main === module) {
-    async function start() {
-        try {
-            await run()
-            await flush()
-        } catch (error: unknown | Errors.CLIError) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            if (error && (error as Errors.CLIError).oclif) {
-                Errors.handle(error as Errors.CLIError)
-            } else {
-                Logger.error(error)
-            }
-        }
-    }
-    void start()
-}
+void yargs(hideBin(process.argv))
+    .scriptName(Config.appName)
+    .strict()
+    .usage(Config.usage)
+    .command(generate.command, generate.description, generate.builder, generate.handler)
+    .command(list.command, list.description, list.builder, list.handler)
+    .demandCommand(1)
+    .help().argv

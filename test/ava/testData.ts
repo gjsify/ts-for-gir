@@ -1,4 +1,5 @@
-import { GirFunction, GirClass } from '../../src'
+// @ts-nocheck TODO
+import { GirFunctionElement, GirClassElement, GirTransferOwnershipType } from '../../src'
 
 export const classGObject = {
     _fullSymName: 'GObject.Object',
@@ -34,7 +35,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a new instance of @object_type',
@@ -48,7 +49,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object_type', 'transfer-ownership': 'none' },
+                            $: { name: 'object_type', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the type id of the #GObject subtype to instantiate',
@@ -58,7 +59,7 @@ export const classGObject = {
                             type: [{ $: { name: 'GType', 'c:type': 'GType' } }],
                         },
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the first property',
@@ -68,7 +69,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'var_args', 'transfer-ownership': 'none' },
+                            $: { name: 'var_args', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -93,7 +94,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a new instance of\n@object_type',
@@ -107,7 +108,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object_type', 'transfer-ownership': 'none' },
+                            $: { name: 'object_type', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the type id of the #GObject subtype to instantiate',
@@ -117,7 +118,7 @@ export const classGObject = {
                             type: [{ $: { name: 'GType', 'c:type': 'GType' } }],
                         },
                         {
-                            $: { name: 'n_parameters', 'transfer-ownership': 'none' },
+                            $: { name: 'n_parameters', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the length of the @parameters array',
@@ -127,7 +128,7 @@ export const classGObject = {
                             type: [{ $: { name: 'guint', 'c:type': 'guint' } }],
                         },
                         {
-                            $: { name: 'parameters', 'transfer-ownership': 'none' },
+                            $: { name: 'parameters', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'an array of #GParameter',
@@ -154,7 +155,7 @@ export const classGObject = {
             },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'gsize', 'c:type': 'gsize' } }],
                 },
             ],
@@ -162,11 +163,11 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'what', 'transfer-ownership': 'none' },
+                            $: { name: 'what', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'gsize', 'c:type': 'gsize' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                     ],
@@ -188,7 +189,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: '@object', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                 },
@@ -197,12 +198,12 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'signal_spec', 'transfer-ownership': 'none' },
+                            $: { name: 'signal_spec', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the spec for the first signal',
@@ -212,7 +213,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -241,7 +242,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -249,12 +250,12 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'signal_spec', 'transfer-ownership': 'none' },
+                            $: { name: 'signal_spec', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the spec for the first signal',
@@ -264,7 +265,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -293,7 +294,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -301,12 +302,12 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of the first property to get',
@@ -316,7 +317,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -345,7 +346,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _:
@@ -360,7 +361,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'g_iface', 'transfer-ownership': 'none' },
+                            $: { name: 'g_iface', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -371,7 +372,7 @@ export const classGObject = {
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of a property to lookup.',
@@ -399,7 +400,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -407,7 +408,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'g_iface', 'transfer-ownership': 'none' },
+                            $: { name: 'g_iface', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -418,7 +419,7 @@ export const classGObject = {
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GParamSpec for the new property',
@@ -466,7 +467,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'g_iface', 'transfer-ownership': 'none' },
+                            $: { name: 'g_iface', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -481,7 +482,7 @@ export const classGObject = {
                                 name: 'n_properties_p',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -511,7 +512,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a new instance of @object_type',
@@ -525,7 +526,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object_type', 'transfer-ownership': 'none' },
+                            $: { name: 'object_type', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the type id of the #GObject subtype to instantiate',
@@ -535,7 +536,7 @@ export const classGObject = {
                             type: [{ $: { name: 'GType', 'c:type': 'GType' } }],
                         },
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the first property',
@@ -545,7 +546,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -574,7 +575,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -582,12 +583,12 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of the first property to set',
@@ -597,7 +598,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -617,7 +618,7 @@ export const classGObject = {
             $: { name: 'constructed' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -625,7 +626,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
@@ -636,7 +637,7 @@ export const classGObject = {
             $: { name: 'dispatch_properties_changed' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -644,17 +645,17 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'n_pspecs', 'transfer-ownership': 'none' },
+                            $: { name: 'n_pspecs', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'guint', 'c:type': 'guint' } }],
                         },
                         {
-                            $: { name: 'pspecs', 'transfer-ownership': 'none' },
+                            $: { name: 'pspecs', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'ParamSpec', 'c:type': 'GParamSpec**' } }],
                         },
                     ],
@@ -665,7 +666,7 @@ export const classGObject = {
             $: { name: 'dispose' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -673,7 +674,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
@@ -684,7 +685,7 @@ export const classGObject = {
             $: { name: 'finalize' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -692,7 +693,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
@@ -703,7 +704,7 @@ export const classGObject = {
             $: { name: 'get_property' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -711,21 +712,21 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'property_id', 'transfer-ownership': 'none' },
+                            $: { name: 'property_id', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'guint', 'c:type': 'guint' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Value', 'c:type': 'GValue*' } }],
                         },
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'ParamSpec', 'c:type': 'GParamSpec*' } }],
                         },
                     ],
@@ -743,7 +744,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -751,14 +752,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'ParamSpec', 'c:type': 'GParamSpec*' } }],
                         },
                     ],
@@ -769,7 +770,7 @@ export const classGObject = {
             $: { name: 'set_property' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -777,21 +778,21 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'property_id', 'transfer-ownership': 'none' },
+                            $: { name: 'property_id', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'guint', 'c:type': 'guint' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'Value', 'c:type': 'const GValue*' } }],
                         },
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'ParamSpec', 'c:type': 'GParamSpec*' } }],
                         },
                     ],
@@ -816,7 +817,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -824,14 +825,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'notify', 'transfer-ownership': 'none', closure: '1' },
+                            $: { name: 'notify', 'transfer-ownership': GirTransferOwnershipType.None, closure: '1' },
                             doc: [
                                 {
                                     _:
@@ -842,7 +843,7 @@ export const classGObject = {
                             type: [{ $: { name: 'ToggleNotify', 'c:type': 'GToggleNotify' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'data to pass to @notify',
@@ -870,7 +871,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -878,7 +879,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The object that should be weak referenced.',
@@ -894,7 +895,7 @@ export const classGObject = {
                                 name: 'weak_pointer_location',
                                 direction: 'inout',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -923,7 +924,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _:
@@ -938,14 +939,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'source', 'transfer-ownership': 'none' },
+                            $: { name: 'source', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the source #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'source_property', 'transfer-ownership': 'none' },
+                            $: { name: 'source_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @source to bind',
@@ -955,12 +956,12 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'target', 'transfer-ownership': 'none' },
+                            $: { name: 'target', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the target #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'target_property', 'transfer-ownership': 'none' },
+                            $: { name: 'target_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @target to bind',
@@ -970,7 +971,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'flags', 'transfer-ownership': 'none' },
+                            $: { name: 'flags', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'flags to pass to #GBinding',
@@ -999,7 +1000,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _:
@@ -1014,14 +1015,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'source', 'transfer-ownership': 'none' },
+                            $: { name: 'source', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the source #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'source_property', 'transfer-ownership': 'none' },
+                            $: { name: 'source_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @source to bind',
@@ -1031,12 +1032,12 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'target', 'transfer-ownership': 'none' },
+                            $: { name: 'target', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the target #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'target_property', 'transfer-ownership': 'none' },
+                            $: { name: 'target_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @target to bind',
@@ -1046,7 +1047,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'flags', 'transfer-ownership': 'none' },
+                            $: { name: 'flags', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'flags to pass to #GBinding',
@@ -1058,7 +1059,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'transform_to',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'notified',
@@ -1082,7 +1083,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'transform_from',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'notified',
@@ -1106,7 +1107,7 @@ export const classGObject = {
                             ],
                         },
                         {
-                            $: { name: 'user_data', 'transfer-ownership': 'none' },
+                            $: { name: 'user_data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'custom data to be passed to the transformation functions,\n    or %NULL',
@@ -1116,7 +1117,7 @@ export const classGObject = {
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'notify', 'transfer-ownership': 'none', scope: 'async' },
+                            $: { name: 'notify', 'transfer-ownership': GirTransferOwnershipType.None, scope: 'async' },
                             doc: [
                                 {
                                     _:
@@ -1146,7 +1147,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _:
@@ -1161,14 +1162,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'source', 'transfer-ownership': 'none' },
+                            $: { name: 'source', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the source #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'source_property', 'transfer-ownership': 'none' },
+                            $: { name: 'source_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @source to bind',
@@ -1178,12 +1179,12 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'target', 'transfer-ownership': 'none' },
+                            $: { name: 'target', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the target #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'target_property', 'transfer-ownership': 'none' },
+                            $: { name: 'target_property', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the property on @target to bind',
@@ -1193,7 +1194,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'flags', 'transfer-ownership': 'none' },
+                            $: { name: 'flags', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'flags to pass to #GBinding',
@@ -1203,7 +1204,7 @@ export const classGObject = {
                             type: [{ $: { name: 'BindingFlags', 'c:type': 'GBindingFlags' } }],
                         },
                         {
-                            $: { name: 'transform_to', 'transfer-ownership': 'none' },
+                            $: { name: 'transform_to', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -1214,7 +1215,7 @@ export const classGObject = {
                             type: [{ $: { name: 'Closure', 'c:type': 'GClosure*' } }],
                         },
                         {
-                            $: { name: 'transform_from', 'transfer-ownership': 'none' },
+                            $: { name: 'transform_from', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -1258,7 +1259,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GObject to store user data on',
@@ -1270,7 +1271,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a string, naming the user data pointer',
@@ -1282,7 +1283,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'dup_func',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 closure: '2',
@@ -1298,7 +1299,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'user_data',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -1344,7 +1345,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GObject to store user data on',
@@ -1356,7 +1357,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GQuark, naming the user data pointer',
@@ -1368,7 +1369,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'dup_func',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 closure: '2',
@@ -1384,7 +1385,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'user_data',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -1415,7 +1416,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1423,7 +1424,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
@@ -1445,7 +1446,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1453,7 +1454,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
@@ -1471,7 +1472,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the data if found, or %NULL if no such data exists.',
@@ -1485,7 +1486,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject containing the associations',
@@ -1497,7 +1498,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of the key for that association',
@@ -1524,7 +1525,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1532,14 +1533,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the property to get',
@@ -1549,7 +1550,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'return location for the property value',
@@ -1572,7 +1573,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'The user data pointer set, or %NULL',
@@ -1586,7 +1587,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The GObject to get a stored user data pointer from',
@@ -1598,7 +1599,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'A #GQuark, naming the user data pointer',
@@ -1626,7 +1627,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1634,14 +1635,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of the first property to get',
@@ -1651,7 +1652,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'var_args', 'transfer-ownership': 'none' },
+                            $: { name: 'var_args', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -1679,7 +1680,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if @object has a floating reference',
@@ -1693,7 +1694,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
@@ -1712,7 +1713,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1720,14 +1721,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of a property installed on the class of @object.',
@@ -1755,7 +1756,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1763,14 +1764,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GParamSpec of a property installed on the class of @object.',
@@ -1793,7 +1794,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: 'the same @object', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                 },
@@ -1802,7 +1803,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
@@ -1825,7 +1826,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: '@object', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                 },
@@ -1834,7 +1835,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
@@ -1858,7 +1859,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1866,14 +1867,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'notify', 'transfer-ownership': 'none', closure: '1' },
+                            $: { name: 'notify', 'transfer-ownership': GirTransferOwnershipType.None, closure: '1' },
                             doc: [
                                 {
                                     _:
@@ -1884,7 +1885,7 @@ export const classGObject = {
                             type: [{ $: { name: 'ToggleNotify', 'c:type': 'GToggleNotify' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'data to pass to @notify',
@@ -1912,7 +1913,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -1920,7 +1921,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The object that is weak referenced.',
@@ -1936,7 +1937,7 @@ export const classGObject = {
                                 name: 'weak_pointer_location',
                                 direction: 'inout',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -1965,7 +1966,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if the existing value for @key was replaced\n by @newval, %FALSE otherwise.',
@@ -1979,7 +1980,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GObject to store user data on',
@@ -1991,7 +1992,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a string, naming the user data pointer',
@@ -2003,7 +2004,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'oldval',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -2018,7 +2019,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'newval',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -2028,7 +2029,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'destroy',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'async',
@@ -2044,7 +2045,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'old_destroy',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'async',
@@ -2076,7 +2077,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if the existing value for @quark was replaced\n by @newval, %FALSE otherwise.',
@@ -2090,7 +2091,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GObject to store user data on',
@@ -2102,7 +2103,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GQuark, naming the user data pointer',
@@ -2114,7 +2115,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'oldval',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -2129,7 +2130,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'newval',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -2139,7 +2140,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'destroy',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'async',
@@ -2155,7 +2156,7 @@ export const classGObject = {
                         {
                             $: {
                                 name: 'old_destroy',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                                 scope: 'async',
@@ -2183,7 +2184,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2191,7 +2192,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
@@ -2210,7 +2211,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2218,7 +2219,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject containing the associations.',
@@ -2230,12 +2231,12 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'name of the key', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'data to associate with that key',
@@ -2263,7 +2264,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2271,7 +2272,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject containing the associations',
@@ -2283,12 +2284,12 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'name of the key', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'data to associate with that key',
@@ -2298,7 +2299,7 @@ export const classGObject = {
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'destroy', 'transfer-ownership': 'none', scope: 'async' },
+                            $: { name: 'destroy', 'transfer-ownership': GirTransferOwnershipType.None, scope: 'async' },
                             doc: [
                                 {
                                     _: 'function to call when the association is destroyed',
@@ -2324,7 +2325,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2332,14 +2333,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the property to set',
@@ -2349,7 +2350,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the value', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Value', 'c:type': 'const GValue*' } }],
                         },
@@ -2372,7 +2373,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2380,7 +2381,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The GObject to set store a user data pointer',
@@ -2392,7 +2393,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'A #GQuark, naming the user data pointer',
@@ -2402,7 +2403,7 @@ export const classGObject = {
                             type: [{ $: { name: 'GLib.Quark', 'c:type': 'GQuark' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'An opaque user data pointer',
@@ -2430,7 +2431,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2438,7 +2439,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The GObject to set store a user data pointer',
@@ -2450,7 +2451,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'A #GQuark, naming the user data pointer',
@@ -2460,7 +2461,7 @@ export const classGObject = {
                             type: [{ $: { name: 'GLib.Quark', 'c:type': 'GQuark' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'An opaque user data pointer',
@@ -2470,7 +2471,7 @@ export const classGObject = {
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
                         {
-                            $: { name: 'destroy', 'transfer-ownership': 'none', scope: 'async' },
+                            $: { name: 'destroy', 'transfer-ownership': GirTransferOwnershipType.None, scope: 'async' },
                             doc: [
                                 {
                                     _:
@@ -2498,7 +2499,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2506,14 +2507,14 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'first_property_name', 'transfer-ownership': 'none' },
+                            $: { name: 'first_property_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'name of the first property to set',
@@ -2523,7 +2524,7 @@ export const classGObject = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'var_args', 'transfer-ownership': 'none' },
+                            $: { name: 'var_args', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _:
@@ -2548,7 +2549,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'the data if found, or %NULL if no such data exists.',
@@ -2562,7 +2563,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject containing the associations',
@@ -2574,7 +2575,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'key', 'transfer-ownership': 'none' },
+                            $: { name: 'key', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'name of the key', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
@@ -2593,7 +2594,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'The user data pointer set, or %NULL',
@@ -2607,7 +2608,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'The GObject to get a stored user data pointer from',
@@ -2619,7 +2620,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'quark', 'transfer-ownership': 'none' },
+                            $: { name: 'quark', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'A #GQuark, naming the user data pointer',
@@ -2643,7 +2644,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2651,7 +2652,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'GObject*' } }],
                         },
@@ -2670,7 +2671,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2678,7 +2679,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GObject', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Object', 'c:type': 'gpointer' } }],
                         },
@@ -2700,7 +2701,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2708,7 +2709,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'GObject restricting lifetime of @closure',
@@ -2720,7 +2721,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'closure', 'transfer-ownership': 'none' },
+                            $: { name: 'closure', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'GClosure to watch', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Closure', 'c:type': 'GClosure*' } }],
                         },
@@ -2743,7 +2744,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2751,7 +2752,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject to reference weakly',
@@ -2763,7 +2764,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'notify', 'transfer-ownership': 'none', closure: '1' },
+                            $: { name: 'notify', 'transfer-ownership': GirTransferOwnershipType.None, closure: '1' },
                             doc: [
                                 {
                                     _: 'callback to invoke before the object is freed',
@@ -2773,7 +2774,7 @@ export const classGObject = {
                             type: [{ $: { name: 'WeakNotify', 'c:type': 'GWeakNotify' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'extra data to pass to notify',
@@ -2800,7 +2801,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2808,7 +2809,7 @@ export const classGObject = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'object', 'transfer-ownership': 'none' },
+                            $: { name: 'object', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GObject to remove a weak reference from',
@@ -2820,7 +2821,7 @@ export const classGObject = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'notify', 'transfer-ownership': 'none', closure: '1' },
+                            $: { name: 'notify', 'transfer-ownership': GirTransferOwnershipType.None, closure: '1' },
                             doc: [
                                 {
                                     _: 'callback to search for',
@@ -2830,7 +2831,7 @@ export const classGObject = {
                             type: [{ $: { name: 'WeakNotify', 'c:type': 'GWeakNotify' } }],
                         },
                         {
-                            $: { name: 'data', 'transfer-ownership': 'none' },
+                            $: { name: 'data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'data to search for', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gpointer', 'c:type': 'gpointer' } }],
                         },
@@ -2872,7 +2873,7 @@ export const classGObject = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2880,7 +2881,7 @@ export const classGObject = {
                 {
                     parameter: [
                         {
-                            $: { name: 'pspec', 'transfer-ownership': 'none' },
+                            $: { name: 'pspec', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the #GParamSpec of the property which changed.',
@@ -2896,7 +2897,7 @@ export const classGObject = {
     ],
 }
 
-export const classApplicationCommandLine: GirClass = {
+export const classApplicationCommandLine: Partial<GirClassElement> = {
     _fullSymName: 'ApplicationCommandLine',
     $: {
         name: 'ApplicationCommandLine',
@@ -2926,7 +2927,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a #GInputStream for stdin',
@@ -2940,7 +2941,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -2964,7 +2965,7 @@ export const classApplicationCommandLine: GirClass = {
             $: { name: 'print_literal' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -2972,7 +2973,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [
                                 {
                                     $: {
@@ -2985,7 +2986,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'message', 'transfer-ownership': 'none' },
+                            $: { name: 'message', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                     ],
@@ -2996,7 +2997,7 @@ export const classApplicationCommandLine: GirClass = {
             $: { name: 'printerr_literal' },
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -3004,7 +3005,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [
                                 {
                                     $: {
@@ -3017,7 +3018,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'message', 'transfer-ownership': 'none' },
+                            $: { name: 'message', 'transfer-ownership': GirTransferOwnershipType.None },
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                     ],
@@ -3041,7 +3042,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [{ _: 'a new #GFile', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'File', 'c:type': 'GFile*' } }],
                 },
@@ -3050,7 +3051,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3069,7 +3070,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'arg', 'transfer-ownership': 'none' },
+                            $: { name: 'arg', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'an argument from @cmdline',
@@ -3097,7 +3098,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'the string array\ncontaining the arguments (the argv)',
@@ -3116,7 +3117,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3139,7 +3140,7 @@ export const classApplicationCommandLine: GirClass = {
                                 name: 'argc',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -3170,7 +3171,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the current directory, or %NULL',
@@ -3184,7 +3185,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3219,7 +3220,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the environment\nstrings, or %NULL if they were not sent',
@@ -3238,7 +3239,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3273,7 +3274,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: 'the exit status', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'gint', 'c:type': 'int' } }],
                 },
@@ -3282,7 +3283,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3316,7 +3317,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if the invocation was remote',
@@ -3330,7 +3331,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3365,7 +3366,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'a #GVariantDict with the options',
@@ -3379,7 +3380,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3414,7 +3415,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [
                         {
                             _: 'the platform data, or %NULL',
@@ -3428,7 +3429,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: '#GApplicationCommandLine',
@@ -3463,7 +3464,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a #GInputStream for stdin',
@@ -3477,7 +3478,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3512,7 +3513,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the value of the variable, or %NULL if unset or unsent',
@@ -3526,7 +3527,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3545,7 +3546,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'name', 'transfer-ownership': 'none' },
+                            $: { name: 'name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the environment variable to get',
@@ -3574,7 +3575,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -3582,7 +3583,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3601,7 +3602,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'format', 'transfer-ownership': 'none' },
+                            $: { name: 'format', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a printf-style format string',
@@ -3611,7 +3612,7 @@ export const classApplicationCommandLine: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'arguments, as per @format',
@@ -3640,7 +3641,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -3648,7 +3649,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3667,7 +3668,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'format', 'transfer-ownership': 'none' },
+                            $: { name: 'format', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a printf-style format string',
@@ -3677,7 +3678,7 @@ export const classApplicationCommandLine: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: '...', 'transfer-ownership': 'none' },
+                            $: { name: '...', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'arguments, as per @format',
@@ -3705,7 +3706,7 @@ export const classApplicationCommandLine: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -3713,7 +3714,7 @@ export const classApplicationCommandLine: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'cmdline', 'transfer-ownership': 'none' },
+                            $: { name: 'cmdline', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a #GApplicationCommandLine',
@@ -3732,7 +3733,7 @@ export const classApplicationCommandLine: GirClass = {
                     ],
                     parameter: [
                         {
-                            $: { name: 'exit_status', 'transfer-ownership': 'none' },
+                            $: { name: 'exit_status', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the exit status', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'gint', 'c:type': 'int' } }],
                         },
@@ -3748,12 +3749,12 @@ export const classApplicationCommandLine: GirClass = {
                 readable: '0',
                 writable: '1',
                 'construct-only': '1',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             type: [{ $: { name: 'GLib.Variant' } }],
         },
         {
-            $: { name: 'is-remote', 'transfer-ownership': 'none' },
+            $: { name: 'is-remote', 'transfer-ownership': GirTransferOwnershipType.None },
             type: [{ $: { name: 'gboolean', 'c:type': 'gboolean' } }],
         },
         {
@@ -3762,7 +3763,7 @@ export const classApplicationCommandLine: GirClass = {
                 readable: '0',
                 writable: '1',
                 'construct-only': '1',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             type: [{ $: { name: 'GLib.Variant' } }],
         },
@@ -3772,7 +3773,7 @@ export const classApplicationCommandLine: GirClass = {
                 readable: '0',
                 writable: '1',
                 'construct-only': '1',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             type: [{ $: { name: 'GLib.Variant' } }],
         },
@@ -3796,7 +3797,7 @@ export const classApplicationCommandLine: GirClass = {
     ],
 }
 
-export const interfaceDBusNodeInfo: GirClass = {
+export const interfaceDBusNodeInfo: GirClassElement = {
     _fullSymName: 'DBusNodeInfo',
     $: {
         name: 'DBusNodeInfo',
@@ -3901,7 +3902,7 @@ export const interfaceDBusNodeInfo: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _:
@@ -3916,7 +3917,7 @@ export const interfaceDBusNodeInfo: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'xml_data', 'transfer-ownership': 'none' },
+                            $: { name: 'xml_data', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'Valid D-Bus introspection XML.',
@@ -3946,7 +3947,7 @@ export const interfaceDBusNodeInfo: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -3954,14 +3955,14 @@ export const interfaceDBusNodeInfo: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'info', 'transfer-ownership': 'none' },
+                            $: { name: 'info', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'A #GDBusNodeInfo.', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'indent', 'transfer-ownership': 'none' },
+                            $: { name: 'indent', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'Indentation level.', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'guint', 'c:type': 'guint' } }],
                         },
@@ -3970,7 +3971,7 @@ export const interfaceDBusNodeInfo: GirClass = {
                                 name: 'string_builder',
                                 direction: 'out',
                                 'caller-allocates': '1',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                             },
                             doc: [
                                 {
@@ -3999,7 +4000,7 @@ export const interfaceDBusNodeInfo: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'A #GDBusInterfaceInfo or %NULL if not found. Do not free, it is owned by @info.',
@@ -4013,14 +4014,14 @@ export const interfaceDBusNodeInfo: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'info', 'transfer-ownership': 'none' },
+                            $: { name: 'info', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'A #GDBusNodeInfo.', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'name', 'transfer-ownership': 'none' },
+                            $: { name: 'name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'A D-Bus interface name.',
@@ -4047,7 +4048,7 @@ export const interfaceDBusNodeInfo: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [{ _: 'The same @info.', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } }],
                 },
@@ -4056,7 +4057,7 @@ export const interfaceDBusNodeInfo: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'info', 'transfer-ownership': 'none' },
+                            $: { name: 'info', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'A #GDBusNodeInfo', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } }],
                         },
@@ -4079,7 +4080,7 @@ export const interfaceDBusNodeInfo: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4087,7 +4088,7 @@ export const interfaceDBusNodeInfo: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'info', 'transfer-ownership': 'none' },
+                            $: { name: 'info', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'A #GDBusNodeInfo.', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } }],
                         },
@@ -4098,7 +4099,7 @@ export const interfaceDBusNodeInfo: GirClass = {
     ],
 }
 
-export const interfaceActionGroup: GirClass = {
+export const interfaceActionGroup: GirClassElement = {
     _fullSymName: 'ActionGroup',
     $: {
         name: 'ActionGroup',
@@ -4131,7 +4132,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4139,14 +4140,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4174,7 +4175,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4182,14 +4183,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4199,7 +4200,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'enabled', 'transfer-ownership': 'none' },
+                            $: { name: 'enabled', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'whether or not the action is now enabled',
@@ -4227,7 +4228,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4235,14 +4236,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4270,7 +4271,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4278,14 +4279,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4295,7 +4296,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'state', 'transfer-ownership': 'none' },
+                            $: { name: 'state', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the new state of the named action',
@@ -4323,7 +4324,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4331,14 +4332,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to activate',
@@ -4350,7 +4351,7 @@ export const interfaceActionGroup: GirClass = {
                         {
                             $: {
                                 name: 'parameter',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -4381,7 +4382,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4389,14 +4390,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to request the change on',
@@ -4406,7 +4407,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the new state', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                         },
@@ -4429,7 +4430,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether or not the action is currently enabled',
@@ -4443,14 +4444,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -4478,7 +4479,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None, nullable: '1' },
                     doc: [{ _: 'the parameter type', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } }],
                 },
@@ -4487,14 +4488,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -4522,7 +4523,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [
                         {
                             _: 'the current state of the action',
@@ -4536,14 +4537,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -4571,7 +4572,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [{ _: 'the state range hint', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                 },
@@ -4580,14 +4581,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -4615,7 +4616,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None, nullable: '1' },
                     doc: [
                         {
                             _: 'the state type, if the action is stateful',
@@ -4629,14 +4630,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -4659,7 +4660,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether the named action exists',
@@ -4673,14 +4674,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to check for',
@@ -4708,7 +4709,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a %NULL-terminated array of the names of the\nactions in the groupb',
@@ -4727,7 +4728,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
@@ -4750,7 +4751,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if the action exists, else %FALSE',
@@ -4764,14 +4765,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4785,7 +4786,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'enabled',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -4800,7 +4801,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'parameter_type',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -4817,7 +4818,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state_type',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -4834,7 +4835,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state_hint',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -4851,7 +4852,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -4884,7 +4885,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4892,14 +4893,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4927,7 +4928,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4935,14 +4936,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -4952,7 +4953,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'enabled', 'transfer-ownership': 'none' },
+                            $: { name: 'enabled', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'whether or not the action is now enabled',
@@ -4980,7 +4981,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -4988,14 +4989,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -5023,7 +5024,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5031,14 +5032,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -5048,7 +5049,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'state', 'transfer-ownership': 'none' },
+                            $: { name: 'state', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the new state of the named action',
@@ -5076,7 +5077,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5084,14 +5085,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to activate',
@@ -5103,7 +5104,7 @@ export const interfaceActionGroup: GirClass = {
                         {
                             $: {
                                 name: 'parameter',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -5134,7 +5135,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5142,14 +5143,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to request the change on',
@@ -5159,7 +5160,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the new state', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                         },
@@ -5182,7 +5183,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether or not the action is currently enabled',
@@ -5196,14 +5197,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -5231,7 +5232,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None, nullable: '1' },
                     doc: [{ _: 'the parameter type', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } }],
                 },
@@ -5240,14 +5241,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -5275,7 +5276,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [
                         {
                             _: 'the current state of the action',
@@ -5289,14 +5290,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -5324,7 +5325,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [{ _: 'the state range hint', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                 },
@@ -5333,14 +5334,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -5368,7 +5369,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None, nullable: '1' },
                     doc: [
                         {
                             _: 'the state type, if the action is stateful',
@@ -5382,14 +5383,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to query',
@@ -5416,7 +5417,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether the named action exists',
@@ -5430,14 +5431,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action to check for',
@@ -5465,7 +5466,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a %NULL-terminated array of the names of the\nactions in the groupb',
@@ -5484,7 +5485,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
@@ -5507,7 +5508,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if the action exists, else %FALSE',
@@ -5521,14 +5522,14 @@ export const interfaceActionGroup: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action_group', 'transfer-ownership': 'none' },
+                            $: { name: 'action_group', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GActionGroup', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'ActionGroup', 'c:type': 'GActionGroup*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of an action in the group',
@@ -5542,7 +5543,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'enabled',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -5557,7 +5558,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'parameter_type',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -5574,7 +5575,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state_type',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -5591,7 +5592,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state_hint',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -5608,7 +5609,7 @@ export const interfaceActionGroup: GirClass = {
                                 name: 'state',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                                 optional: '1',
                                 'allow-none': '1',
                             },
@@ -5642,7 +5643,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5650,7 +5651,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action in @action_group',
@@ -5678,7 +5679,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5686,7 +5687,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action in @action_group',
@@ -5696,7 +5697,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'gchar*' } }],
                         },
                         {
-                            $: { name: 'enabled', 'transfer-ownership': 'none' },
+                            $: { name: 'enabled', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'whether the action is enabled or not',
@@ -5725,7 +5726,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5733,7 +5734,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action in @action_group',
@@ -5761,7 +5762,7 @@ export const interfaceActionGroup: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5769,7 +5770,7 @@ export const interfaceActionGroup: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the name of the action in @action_group',
@@ -5779,7 +5780,7 @@ export const interfaceActionGroup: GirClass = {
                             type: [{ $: { name: 'utf8', 'c:type': 'gchar*' } }],
                         },
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'the new value of the state',
@@ -5795,7 +5796,7 @@ export const interfaceActionGroup: GirClass = {
     ],
 }
 
-export const interfaceAction: GirClass = {
+export const interfaceAction: GirClassElement = {
     _fullSymName: 'Action',
     $: {
         name: 'Action',
@@ -5828,7 +5829,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if @action_name is valid',
@@ -5842,7 +5843,7 @@ export const interfaceAction: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'an potential action name',
@@ -5871,7 +5872,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: '%TRUE if successful, else %FALSE with @error set',
@@ -5885,7 +5886,7 @@ export const interfaceAction: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'detailed_name', 'transfer-ownership': 'none' },
+                            $: { name: 'detailed_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [
                                 {
                                     _: 'a detailed action name',
@@ -5899,7 +5900,7 @@ export const interfaceAction: GirClass = {
                                 name: 'action_name',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [{ _: 'the action name', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'utf8', 'c:type': 'gchar**' } }],
@@ -5909,7 +5910,7 @@ export const interfaceAction: GirClass = {
                                 name: 'target_value',
                                 direction: 'out',
                                 'caller-allocates': '0',
-                                'transfer-ownership': 'full',
+                                'transfer-ownership': GirTransferOwnershipType.Full,
                             },
                             doc: [
                                 {
@@ -5938,7 +5939,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'a detailed format string',
@@ -5952,14 +5953,14 @@ export const interfaceAction: GirClass = {
                 {
                     parameter: [
                         {
-                            $: { name: 'action_name', 'transfer-ownership': 'none' },
+                            $: { name: 'action_name', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a valid action name', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                         },
                         {
                             $: {
                                 name: 'target_value',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -5988,7 +5989,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -5996,7 +5997,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6005,7 +6006,7 @@ export const interfaceAction: GirClass = {
                         {
                             $: {
                                 name: 'parameter',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -6036,7 +6037,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -6044,14 +6045,14 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the new state', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                         },
@@ -6070,7 +6071,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether the action is enabled',
@@ -6084,7 +6085,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6102,7 +6103,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the name of the action',
@@ -6116,7 +6117,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6139,7 +6140,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: 'the parameter type', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } }],
                 },
@@ -6148,7 +6149,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6167,7 +6168,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'the current state of the action',
@@ -6181,7 +6182,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6204,7 +6205,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [{ _: 'the state range hint', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                 },
@@ -6213,7 +6214,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6236,7 +6237,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the state type, if the action is stateful',
@@ -6250,7 +6251,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6275,7 +6276,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -6283,7 +6284,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6292,7 +6293,7 @@ export const interfaceAction: GirClass = {
                         {
                             $: {
                                 name: 'parameter',
-                                'transfer-ownership': 'none',
+                                'transfer-ownership': GirTransferOwnershipType.None,
                                 nullable: '1',
                                 'allow-none': '1',
                             },
@@ -6323,7 +6324,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     type: [{ $: { name: 'none', 'c:type': 'void' } }],
                 },
             ],
@@ -6331,14 +6332,14 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
                     ],
                     parameter: [
                         {
-                            $: { name: 'value', 'transfer-ownership': 'none' },
+                            $: { name: 'value', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'the new state', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                         },
@@ -6361,7 +6362,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'whether the action is enabled',
@@ -6375,7 +6376,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6397,7 +6398,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the name of the action',
@@ -6411,7 +6412,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6434,7 +6435,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [{ _: 'the parameter type', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } }],
                 },
@@ -6443,7 +6444,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6466,7 +6467,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full },
                     doc: [
                         {
                             _: 'the current state of the action',
@@ -6480,7 +6481,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6503,7 +6504,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'full', nullable: '1' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.Full, nullable: '1' },
                     doc: [{ _: 'the state range hint', $: { 'xml:space': 'preserve' } }],
                     type: [{ $: { name: 'GLib.Variant', 'c:type': 'GVariant*' } }],
                 },
@@ -6512,7 +6513,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6535,7 +6536,7 @@ export const interfaceAction: GirClass = {
             ],
             'return-value': [
                 {
-                    $: { 'transfer-ownership': 'none' },
+                    $: { 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the state type, if the action is stateful',
@@ -6549,7 +6550,7 @@ export const interfaceAction: GirClass = {
                 {
                     'instance-parameter': [
                         {
-                            $: { name: 'action', 'transfer-ownership': 'none' },
+                            $: { name: 'action', 'transfer-ownership': GirTransferOwnershipType.None },
                             doc: [{ _: 'a #GAction', $: { 'xml:space': 'preserve' } }],
                             type: [{ $: { name: 'Action', 'c:type': 'GAction*' } }],
                         },
@@ -6563,7 +6564,7 @@ export const interfaceAction: GirClass = {
             $: {
                 name: 'enabled',
                 version: '2.28',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             doc: [
                 {
@@ -6575,7 +6576,7 @@ export const interfaceAction: GirClass = {
             type: [{ $: { name: 'gboolean', 'c:type': 'gboolean' } }],
         },
         {
-            $: { name: 'name', version: '2.28', 'transfer-ownership': 'none' },
+            $: { name: 'name', version: '2.28', 'transfer-ownership': GirTransferOwnershipType.None },
             doc: [
                 {
                     _:
@@ -6589,7 +6590,7 @@ export const interfaceAction: GirClass = {
             $: {
                 name: 'parameter-type',
                 version: '2.28',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             doc: [
                 {
@@ -6601,7 +6602,7 @@ export const interfaceAction: GirClass = {
             type: [{ $: { name: 'GLib.VariantType' } }],
         },
         {
-            $: { name: 'state', version: '2.28', 'transfer-ownership': 'none' },
+            $: { name: 'state', version: '2.28', 'transfer-ownership': GirTransferOwnershipType.None },
             doc: [
                 {
                     _: 'The state of the action, or %NULL if the action is stateless.',
@@ -6614,7 +6615,7 @@ export const interfaceAction: GirClass = {
             $: {
                 name: 'state-type',
                 version: '2.28',
-                'transfer-ownership': 'none',
+                'transfer-ownership': GirTransferOwnershipType.None,
             },
             doc: [
                 {
@@ -6628,7 +6629,7 @@ export const interfaceAction: GirClass = {
     ],
 }
 
-export const funcBusOwnName: GirFunction = {
+export const funcBusOwnName: GirFunctionElement = {
     $: {
         name: 'bus_own_name',
         'c:identifier': 'g_bus_own_name',
@@ -6645,7 +6646,7 @@ export const funcBusOwnName: GirFunction = {
     ],
     'return-value': [
         {
-            $: { 'transfer-ownership': 'none' },
+            $: { 'transfer-ownership': GirTransferOwnershipType.None },
             doc: [
                 {
                     _: 'an identifier (never 0) that an be used with\n    g_bus_unown_name() to stop owning the name.',
@@ -6659,7 +6660,7 @@ export const funcBusOwnName: GirFunction = {
         {
             parameter: [
                 {
-                    $: { name: 'bus_type', 'transfer-ownership': 'none' },
+                    $: { name: 'bus_type', 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the type of bus to own a name on',
@@ -6669,7 +6670,7 @@ export const funcBusOwnName: GirFunction = {
                     type: [{ $: { name: 'BusType', 'c:type': 'GBusType' } }],
                 },
                 {
-                    $: { name: 'name', 'transfer-ownership': 'none' },
+                    $: { name: 'name', 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'the well-known name to own',
@@ -6679,7 +6680,7 @@ export const funcBusOwnName: GirFunction = {
                     type: [{ $: { name: 'utf8', 'c:type': 'const gchar*' } }],
                 },
                 {
-                    $: { name: 'flags', 'transfer-ownership': 'none' },
+                    $: { name: 'flags', 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'a set of flags from the #GBusNameOwnerFlags enumeration',
@@ -6691,7 +6692,7 @@ export const funcBusOwnName: GirFunction = {
                 {
                     $: {
                         name: 'bus_acquired_handler',
-                        'transfer-ownership': 'none',
+                        'transfer-ownership': GirTransferOwnershipType.None,
                         nullable: '1',
                         'allow-none': '1',
                     },
@@ -6713,7 +6714,7 @@ export const funcBusOwnName: GirFunction = {
                 {
                     $: {
                         name: 'name_acquired_handler',
-                        'transfer-ownership': 'none',
+                        'transfer-ownership': GirTransferOwnershipType.None,
                         nullable: '1',
                         'allow-none': '1',
                     },
@@ -6735,7 +6736,7 @@ export const funcBusOwnName: GirFunction = {
                 {
                     $: {
                         name: 'name_lost_handler',
-                        'transfer-ownership': 'none',
+                        'transfer-ownership': GirTransferOwnershipType.None,
                         nullable: '1',
                         'allow-none': '1',
                         scope: 'notified',
@@ -6758,7 +6759,7 @@ export const funcBusOwnName: GirFunction = {
                     ],
                 },
                 {
-                    $: { name: 'user_data', 'transfer-ownership': 'none' },
+                    $: { name: 'user_data', 'transfer-ownership': GirTransferOwnershipType.None },
                     doc: [
                         {
                             _: 'user data to pass to handlers',
@@ -6770,7 +6771,7 @@ export const funcBusOwnName: GirFunction = {
                 {
                     $: {
                         name: 'user_data_free_func',
-                        'transfer-ownership': 'none',
+                        'transfer-ownership': GirTransferOwnershipType.None,
                         nullable: '1',
                         'allow-none': '1',
                         scope: 'async',

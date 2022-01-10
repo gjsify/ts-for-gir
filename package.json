@@ -2,12 +2,12 @@
   "name": "ts-for-gir",
   "version": "1.0.1",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
-  "main": "lib/start.js",
+  "main": "lib/index.js",
   "bin": "./bin/run",
   "scripts": {
     "start": "ts-node src/start.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
-    "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
+    "prepublish": "npm run build:ts:index && npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs": "npm run update:submodules && npm run build:types && npm run validate:all",
@@ -53,13 +53,6 @@
     "lib",
     "templates"
   ],
-  "oclif": {
-    "commands": "./lib/commands",
-    "bin": "ts-for-gir",
-    "plugins": [
-      "@oclif/plugin-help"
-    ]
-  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sammydre/ts-for-gjs/issues"
@@ -72,6 +65,7 @@
     "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.8",
     "@types/xml2js": "^0.4.9",
+    "@types/yargs": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "ava": "^4.0.1",
@@ -82,8 +76,6 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "@oclif/core": "^1.1.1",
-    "@oclif/plugin-help": "^5.1.10",
     "@types/eslint": "^8.2.2",
     "chalk": "^4.1.2",
     "cosmiconfig": "^7.0.1",
@@ -97,6 +89,7 @@
     "prettier": "^2.5.1",
     "source-map-support": "^0.5.21",
     "tiny-glob": "^0.2.9",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.4.23",
+    "yargs": "^17.3.1"
   }
 }

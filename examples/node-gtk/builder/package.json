@@ -22,6 +22,7 @@
     "node": "^16"
   },
   "devDependencies": {
+    "@types/node": "^16.11.7",
     "fork-ts-checker-webpack-plugin": "^6.5.0",
     "raw-loader": "^4.0.2",
     "ts-loader": "^9.2.6",

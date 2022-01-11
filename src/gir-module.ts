@@ -2017,7 +2017,7 @@ export class GirModule {
                     )
                 } else {
                     out.push(`// WARN: Dependency not found: '${depPackageName}'`)
-                    this.log.error(`Dependency gir file not found: '${girFilename}'`)
+                    this.log.warn(`Dependency gir file not found: '${girFilename}'`)
                 }
             }
         }

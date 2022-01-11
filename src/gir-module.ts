@@ -827,11 +827,6 @@ export class GirModule {
         if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return FALSY_FUNCTION_DESCRIPTION
         }
-        const packageNameToPatch =
-            girFunc._class?._module?.packageName || girFunc._module?.packageName || this.packageName
-        const methodPatches = girFunc._fullSymName
-            ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
-            : []
 
         let name = girFunc.$.name
         // eslint-disable-next-line prefer-const
@@ -848,27 +843,38 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        if (methodPatches?.length) {
-            this.log.warn(`Patch found for method ${girFunc._fullSymName}`)
-            let desc: string[] = []
-            if (methodPatches.length === 1) {
-                desc = methodPatches.map((patch) => indent + patch)
-            }
-            if (methodPatches.length >= 2) {
-                for (const [i, patchLine] of methodPatches.entries()) {
-                    let descLine = ''
-                    if (i === 1) {
-                        descLine = `${indent}${funcNamePrefix}${patchLine}`
-                    } else {
-                        descLine = `${indent}${patchLine}`
-                    }
-                    desc.push(descLine)
+        // Apply patches
+        {
+            const packageNameToPatch =
+                girFunc._class?._module?.packageName || girFunc._module?.packageName || this.packageName
+            const methodPatches = girFunc._fullSymName
+                ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
+                : []
+
+            if (methodPatches?.length) {
+                this.log.warn(`Patch found for method ${girFunc._fullSymName}`)
+                let desc: string[] = []
+                // Replace method by commend
+                if (methodPatches.length === 1) {
+                    desc = methodPatches.map((patch) => indent + patch)
                 }
-            }
-            return {
-                patched: true,
-                desc: desc,
-                name,
+                // Patch method type
+                if (methodPatches.length >= 2) {
+                    for (const [i, patchLine] of methodPatches.entries()) {
+                        let descLine = ''
+                        if (i === 1) {
+                            descLine = `${indent}${funcNamePrefix}${patchLine}`
+                        } else {
+                            descLine = `${indent}${patchLine}`
+                        }
+                        desc.push(descLine)
+                    }
+                }
+                return {
+                    patched: true,
+                    desc: desc,
+                    name,
+                }
             }
         }
 
@@ -1665,9 +1671,10 @@ export class GirModule {
         name: string,
         qualifiedParentName?: string,
         localParentName?: string,
-    ): string[] {
+    ) {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
+        let patched = false
         if (isDerivedFromGObject) {
             let ext = ' '
 
@@ -1689,6 +1696,7 @@ export class GirModule {
                     )
 
                     if (added) {
+                        // Apply patches
                         const packageNameToPatch =
                             property._class?._module?.packageName || property._module?.packageName || this.packageName
                         const constructPropPatches: VarDesc | undefined = property._fullSymName
@@ -1697,6 +1705,7 @@ export class GirModule {
 
                         if (constructPropPatches?.length) {
                             this.log.warn(`Patch found for constructor property "${property._fullSymName}"!`)
+                            patched = true
                             for (const curDesc of constructPropPatches) {
                                 def.push(`    ${curDesc}`)
                             }
@@ -1732,13 +1741,16 @@ export class GirModule {
             }
             def.push('}')
         }
-        return def
+        return {
+            def,
+            patched,
+        }
     }
 
-    public exportEnumeration(e: GirEnumElement): string[] {
+    public exportEnumeration(e: GirEnumElement) {
         const def: string[] = []
 
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return { def }
 
         let name = e.$.name
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
@@ -1757,10 +1769,11 @@ export class GirModule {
             }
         }
         def.push('}')
-        return def
+        return { def, name }
     }
 
-    public exportConstant(girVar: GirConstantElement): string[] {
+    public exportConstant(girVar: GirConstantElement) {
+        const def: string[] = []
         const { desc: varDesc, name: varName, patched } = this.getVariable(girVar, false, false, 'constant')
         if (varName) {
             if (!this.constNames[varName]) {
@@ -1770,13 +1783,15 @@ export class GirModule {
                     patched,
                 }
                 for (const desc of varDesc) {
-                    return [`export const ${desc}`]
+                    def.push(`export const ${desc}`)
                 }
             } else {
                 this.log.warn(`The constant '${varDesc.join(', ')}' has already been exported`)
             }
         }
-        return []
+        return {
+            def,
+        }
     }
 
     /**
@@ -1789,21 +1804,29 @@ export class GirModule {
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         record = false,
         isAbstract = false,
-    ): string[] {
+    ) {
         const def: string[] = []
-
         // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
         if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
             isAbstract = true
         }
 
         const details = this.getClassDetails(girClass)
-        if (!details) return []
+        if (!details)
+            return {
+                def: [],
+            }
 
         const { name, qualifiedParentName, localParentName } = details
+        const { def: _def, patched } = this.generateConstructPropsInterface(
+            girClass,
+            name,
+            qualifiedParentName,
+            localParentName,
+        )
 
         // Properties for construction
-        def.push(...this.generateConstructPropsInterface(girClass, name, qualifiedParentName, localParentName))
+        def.push(..._def)
 
         // START CLASS
         if (isAbstract) {
@@ -1847,43 +1870,62 @@ export class GirModule {
         // END CLASS
         def.push('}')
 
-        return def
+        return {
+            def,
+            patched,
+            name,
+            qualifiedParentName,
+            localParentName,
+            propertyNames,
+            localNames,
+            isAbstract,
+            record,
+        }
     }
 
-    public exportFunction(e: GirFunctionElement): string[] {
+    public exportFunction(e: GirFunctionElement) {
         const exp = this.config.exportDefault ? '' : 'export '
         const { desc } = this.getFunction(e, exp + 'function ')
-        return desc
+        return { def: desc }
     }
 
-    public exportCallback(e: GirFunctionElement): string[] {
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
+    public exportCallback(e: GirFunctionElement) {
+        const def: string[] = []
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
+            return {
+                def,
+            }
 
         const name = e.$.name
         const [retType, outArrayLengthIndex] = this.getReturnType(e)
         const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
 
-        const def: string[] = []
         this.addExport(def, 'interface', name, '{')
         def.push(`    (${params}): ${retType}`)
         def.push('}')
-        return def
+        return {
+            def,
+        }
     }
 
-    public exportAlias(girAlias: GirAliasElement): string[] {
-        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
+    public exportAlias(girAlias: GirAliasElement) {
+        const def: string[] = []
+        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return { def }
 
         const typeName = this.typeLookup(girAlias).result
         const name = girAlias.$.name
         const exp = this.config.exportDefault ? '' : 'export '
-        return [`${exp}type ${name} = ${typeName}`]
+        def.push(`${exp}type ${name} = ${typeName}`)
+        return {
+            def,
+        }
     }
 
-    public exportInterface(girClass: GirClassElement): string[] {
+    public exportInterface(girClass: GirClassElement) {
         return this.exportClassInternal(girClass, true)
     }
 
-    public exportClass(girClass: GirClassElement): string[] {
+    public exportClass(girClass: GirClassElement) {
         return this.exportClassInternal(girClass, false)
     }
 
@@ -1946,17 +1988,17 @@ export class GirModule {
         out.push('')
 
         if (this.ns.enumeration)
-            for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration))
+            for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration).def)
 
-        if (this.ns.bitfield) for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield))
+        if (this.ns.bitfield) for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield).def)
 
-        if (this.ns.constant) for (const constant of this.ns.constant) out.push(...this.exportConstant(constant))
+        if (this.ns.constant) for (const constant of this.ns.constant) out.push(...this.exportConstant(constant).def)
 
-        if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func))
+        if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
 
-        if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb))
+        if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb).def)
 
-        if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface))
+        if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface).def)
 
         const templateProcessor = new TemplateProcessor(
             { name: this.namespace, version: this.version },
@@ -1972,16 +2014,17 @@ export class GirModule {
             out.push(templatePatches)
         }
 
-        if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false))
+        if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false).def)
 
-        if (this.ns.record) for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true))
+        if (this.ns.record) for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true).def)
 
-        if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true))
+        if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true).def)
 
         if (this.ns.alias)
             // GType is not a number in GJS
-            for (const e of this.ns.alias)
-                if (this.packageName !== 'GObject-2.0' || e.$.name !== 'Type') out.push(...this.exportAlias(e))
+            for (const alias of this.ns.alias)
+                if (this.packageName !== 'GObject-2.0' || alias.$.name !== 'Type')
+                    out.push(...this.exportAlias(alias).def)
 
         if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
 

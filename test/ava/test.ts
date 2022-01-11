@@ -44,7 +44,7 @@ test('enumeration', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
+    t.deepEqual(mod.exportEnumeration(enum_).def, ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
 test('constant', (t) => {
@@ -75,8 +75,8 @@ test('constant', (t) => {
 
     mod.symTable.set([], 'Test.MyType', emptyConstruct)
 
-    t.deepEqual(mod.exportConstant(var_), ['export const MY_CONST: MyType'])
-    t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR: MyType[]'])
+    t.deepEqual(mod.exportConstant(var_).def, ['export const MY_CONST: MyType'])
+    t.deepEqual(mod.exportConstant(arrVar).def, ['export const MY_ARR: MyType[]'])
 })
 
 test('function', (t) => {
@@ -108,14 +108,14 @@ test('function', (t) => {
     mod.symTable.set([], 'Test.BusAcquiredCallback', emptyConstruct)
     mod.symTable.set([], 'Test.BusNameLostCallback', emptyConstruct)
 
-    t.deepEqual(mod.exportFunction(func), ['export function my_func(arg1: MyType): string'])
+    t.deepEqual(mod.exportFunction(func).def, ['export function my_func(arg1: MyType): string'])
 
-    t.deepEqual(mod.exportFunction(TestData.funcBusOwnName), [])
+    t.deepEqual(mod.exportFunction(TestData.funcBusOwnName).def, [])
 
     const func3 = TestData.funcBusOwnName
     func3.$.introspectable = '0'
 
-    t.deepEqual(mod.exportFunction(func3), [])
+    t.deepEqual(mod.exportFunction(func3).def, [])
 })
 
 test('callback', (t) => {
@@ -159,7 +159,7 @@ test('callback', (t) => {
     mod.symTable.set(mod.dependencies, 'Test.Variant', emptyConstruct)
     mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
 
-    t.deepEqual(mod.exportCallback(cbs[0]), [
+    t.deepEqual(mod.exportCallback(cbs[0]).def, [
         'export interface activate {',
         '    (action: SimpleAction, parameter: GLib.Variant): void',
         '}',
@@ -176,7 +176,7 @@ test('interface', (t) => {
     mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
     mod.symTable.set(mod.dependencies, 'GLib.VariantType', emptyConstruct)
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceAction), [
+    t.deepEqual(mod.exportInterface(TestData.interfaceAction).def, [
         'export class Action {',
         '    /* Properties of Action */',
         '    readonly enabled: boolean',
@@ -210,7 +210,7 @@ test('interface', (t) => {
         '}',
     ])
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup), [
+    t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup).def, [
         'export class ActionGroup {',
         '    /* Methods of ActionGroup */',
         '    action_added(action_name: string): void',
@@ -271,7 +271,7 @@ test('constructors', (t) => {
     mod.symTable.set(mod.dependencies, 'Test.DBusInterfaceInfo', emptyConstruct)
     mod.symTable.set(mod.dependencies, 'Test.DBusNodeInfo', emptyConstruct)
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo), [
+    t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo).def, [
         'export class DBusNodeInfo {',
         '    /* Fields of DBusNodeInfo */',
         '    ref_count: number',
@@ -313,7 +313,7 @@ test('class', (t) => {
     mod.symTable.set(mod.dependencies, 'GLib.Quark', emptyConstruct)
     mod.symTable.set(mod.dependencies, 'Test.ParamSpec', emptyConstruct)
 
-    const result = mod.exportClass(TestData.classApplicationCommandLine)
+    const result = mod.exportClass(TestData.classApplicationCommandLine).def
 
     t.deepEqual(result, [
         'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',

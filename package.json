@@ -23,7 +23,7 @@
     "build": "npm run clear:build && npm run lint && npm run build:ts && npm run chmod",
     "chmod": "chmod +x ./lib/start.js",
     "build:ts": "tsc",
-    "build:examples": "npm run build --workspaces",
+    "build:examples": "npm run build && npm run build --workspaces",
     "build:types:all": "npm run start -- generate --configName='.ts-for-gir.all.rc.js'",
     "build:types:gjs": "npm run clear:types:gjs && npm run build:types:all -- --environments=gjs",
     "build:types:node": "npm run clear:types:node && npm run build:types:all -- --environments=node",

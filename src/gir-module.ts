@@ -669,10 +669,10 @@ export class GirModule {
                     if (skip.indexOf(param) !== -1) {
                         continue
                     }
-                    const paramName = this.transformation.transformParameterName(param, false)
+                    let paramName = this.transformation.transformParameterName(param, false)
                     if (paramNames.includes(paramName)) {
-                        this.log.warn(`Duplicate parameter name "${paramName}" for "${param._fullSymName || ''}"`)
-                        continue
+                        this.log.warn(`[${param._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`)
+                        paramName += '_'
                     }
                     paramNames.push(paramName)
                     const optDirection = param.$.direction

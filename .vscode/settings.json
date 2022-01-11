@@ -182,6 +182,7 @@
     "LGPL",
     "libappindicator",
     "LIBBAD",
+    "libcairo",
     "libgda",
     "libgirepository",
     "libgtk",

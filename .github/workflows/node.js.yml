@@ -17,7 +17,9 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-
+        node-version: [16.x]
+        architecture:
+          - x64
     steps:
     - uses: actions/checkout@v2
     - name: Checkout submodules

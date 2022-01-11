@@ -33,8 +33,12 @@ jobs:
     - run: npm install
     - run: npm run regress
     - run: npm run test:ava
-    - run: npm run build:examples
     - run: npm run build:types:gjs
-    - name: Install dependencies for node-gtk
-      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
     - run: npm run build:types:node
+    - run: npm run build
+    - run: npm run build:examples:gjs
+    # TODO fix build node-gtk on Github actions
+    # - name: Install dependencies for node-gtk
+    #   run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
+    # - run: npm run install:examples:node
+    # - run: npm run build:examples:node

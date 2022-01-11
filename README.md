@@ -30,6 +30,14 @@ Now you can execute `ts-for-gir` anywhere on your system:
 ts-for-gir --help
 ```
 
+Alternatively, you can run
+
+```bash
+npm run start -- --help
+```
+
+to test your changes, this will run `ts-for-gir` with `ts-node`, so you don't need to rebuild the package for this.
+
 ## Usage
 
 After you have linked this project you can use the `ts-for-gir` command in you project:

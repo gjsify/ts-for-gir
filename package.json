@@ -24,8 +24,8 @@
     "chmod": "chmod +x ./lib/start.js",
     "build:ts": "tsc",
     "build:types:all": "npm run start -- generate --configName='.ts-for-gir.all.rc.js'",
-    "build:types:gjs": "npm run build:types:all -- --environments=gjs",
-    "build:types:node": "npm run build:types:all -- --environments=node",
+    "build:types:gjs": "npm run clear:types:gjs && npm run build:types:all -- --environments=gjs",
+    "build:types:node": "npm run clear:types:node && npm run build:types:all -- --environments=node",
     "build:types:gtk3": "npm run start -- generate --configName='.ts-for-gir.gtk3.rc.js'",
     "build:types:gtk4": "npm run start -- generate --configName='.ts-for-gir.gtk4.rc.js'",
     "build:types:rygelcore24": "npm run start -- generate --configName='.ts-for-gir.rygelcore24.rc.js'",
@@ -89,7 +89,6 @@
     "inquirer": "^8.2.0",
     "lodash": "^4.17.21",
     "prettier": "^2.5.1",
-    "source-map-support": "^0.5.21",
     "tiny-glob": "^0.2.9",
     "xml2js": "^0.4.23",
     "yargs": "^17.3.1"

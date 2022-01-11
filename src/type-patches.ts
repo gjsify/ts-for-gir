@@ -28,30 +28,30 @@ export const typePatches: TypePatches = {
     },
     'Mx-1.0': {
         constructorProperties: {
-            'Mx.Label.x_align': [
+            'Mx.Label.x-align': [
                 '/* Patched: constructor parameter type clashes with Clutter.Actor.x_align */',
                 'x_align?: Align & Clutter.ActorAlign',
             ],
-            'Mx.Label.y_align': [
+            'Mx.Label.y-align': [
                 '/* Patched: constructor parameter type clashes with Clutter.Actor.y_align */',
                 'y_align?: Align & Clutter.ActorAlign',
             ],
-            'Mx.Bin.x_align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
-            'Mx.Bin.y_align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.x-align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.y-align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
         },
     },
     'Mx-2.0': {
         constructorProperties: {
-            'Mx.Label.x_align': [
+            'Mx.Label.x-align': [
                 '/* Patched: constructor parameter type clashes with Clutter.Actor.x_align */',
                 'x_align?: Align & Clutter.ActorAlign',
             ],
-            'Mx.Label.y_align': [
+            'Mx.Label.y-align': [
                 '/* Patched: constructor parameter type clashes with Clutter.Actor.y_align */',
                 'y_align?: Align & Clutter.ActorAlign',
             ],
-            'Mx.Bin.x_align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
-            'Mx.Bin.y_align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.x-align': ['/* Patched */', 'x_align?: Align & Clutter.ActorAlign'],
+            'Mx.Bin.y-align': ['/* Patched */', 'y_align?: Align & Clutter.ActorAlign'],
         },
     },
     'Dazzle-1.0': {

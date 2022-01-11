@@ -90,26 +90,28 @@ export class TemplateProcessor {
         params: string,
         retType: string,
         identCount = 1,
-    ): string[] {
+    ) {
         const ident = this.generateIndent(identCount)
-        const signalMethods: string[] = []
-        signalMethods.push(
+        const def: string[] = []
+        def.push(
             `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
         )
         if (environment === 'gjs') {
-            signalMethods.push(
+            def.push(
                 `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
             )
         }
         if (environment === 'node') {
-            signalMethods.push(
+            def.push(
                 `${ident}on(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
                 `${ident}once(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
                 `${ident}off(sigName: "${sigName}", callback: (${params}) => void): NodeJS.EventEmitter`,
             )
         }
-        signalMethods.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`)
-        return signalMethods
+        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`)
+        return {
+            def,
+        }
     }
 
     public static generateGObjectSignalMethods(

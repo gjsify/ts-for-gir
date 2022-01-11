@@ -3,7 +3,14 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, GenerateConfig } from './types/index.js'
+import {
+    Transformations,
+    Environment,
+    ConstructName,
+    GenerateConfig,
+    GirCallableParamElement,
+    GirEnumElement,
+} from './types/index.js'
 import Path from 'path'
 import { Utils } from './utils.js'
 import { Logger } from './logger.js'
@@ -147,6 +154,7 @@ export const RESERVED_VARIABLE_NAMES = [
     'class',
     'delete',
     'return',
+    'constructor',
     'this', // TODO check if this is used as we would use this in javascript, if so, this is only allowed as the first parameter
 ]
 
@@ -315,7 +323,13 @@ export class Transformation {
         return name
     }
 
-    public transformEnumName(name: string): string {
+    /**
+     * // E.g. the NetworkManager-1.0 has enum names starting with 80211
+     * @param e The enum
+     * @returns The transformed name
+     */
+    public transformEnumName(e: GirEnumElement): string {
+        let name = e.$.name
         name = this.transform('enumName', name)
         const originalName = `${name}`
 
@@ -326,7 +340,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${e._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -400,7 +414,8 @@ export class Transformation {
         return name
     }
 
-    public transformParameterName(name: string, allowQuotes: boolean): string {
+    public transformParameterName(param: GirCallableParamElement, allowQuotes: boolean): string {
+        let name = param.$.name || '-'
         // Such a variable name exists in `GConf-2.0.d.ts` class `Engine` method `change_set_from_current`
         if (name === '...') {
             return '...args'
@@ -414,7 +429,7 @@ export class Transformation {
 
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`Parameter name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${param._fullSymName || ''}] Parameter name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }

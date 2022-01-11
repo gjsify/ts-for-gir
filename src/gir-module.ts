@@ -574,7 +574,7 @@ export class GirModule {
         return defaultVal
     }
 
-    private getReturnType(girFunc: GirFunctionElement | GirConstructorElement): [string, number] {
+    private getReturnType(girFunc: GirFunctionElement | GirConstructorElement) {
         let returnType = 'void'
         let outArrayLengthIndex = -1
 
@@ -584,7 +584,7 @@ export class GirModule {
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         }
 
-        return [returnType, outArrayLengthIndex] as [string, number]
+        return { returnType, outArrayLengthIndex }
     }
 
     private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
@@ -639,9 +639,10 @@ export class GirModule {
         return a && (this.girBool(a.nullable) || this.girBool(a['allow-none']) || this.girBool(a.optional))
     }
 
-    private getParameters(outArrayLengthIndex: number, girParams?: GirCallableParams[]): [string, string[]] {
+    private getParameters(outArrayLengthIndex: number, girParams?: GirCallableParams[]) {
         const def: string[] = []
         const outParams: string[] = []
+        const paramNames: string[] = []
 
         if (girParams && girParams.length > 0) {
             const params = girParams[0]?.parameter || []
@@ -668,7 +669,12 @@ export class GirModule {
                     if (skip.indexOf(param) !== -1) {
                         continue
                     }
-                    const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
+                    const paramName = this.transformation.transformParameterName(param, false)
+                    if (paramNames.includes(paramName)) {
+                        this.log.warn(`Duplicate parameter name "${paramName}" for "${param._fullSymName || ''}"`)
+                        continue
+                    }
+                    paramNames.push(paramName)
                     const optDirection = param.$.direction
                     const out = optDirection === 'out' || optDirection == 'inout'
                     // I think it's safest to force inout params to have the
@@ -705,7 +711,7 @@ export class GirModule {
             }
         }
 
-        return [def.join(', '), outParams]
+        return { params: def.join(', '), outParams, paramNames }
     }
 
     private getVariable(
@@ -809,6 +815,12 @@ export class GirModule {
         return typePatch?.[nsPath] || undefined
     }
 
+    private getPackageName(
+        element: GirFunctionElement | GirCallbackElement | GirConstructorElement | GirPropertyElement,
+    ) {
+        return element._class?._module?.packageName || element._module?.packageName || this.packageName
+    }
+
     /**
      *
      * @param e
@@ -830,9 +842,9 @@ export class GirModule {
 
         let name = girFunc.$.name
         // eslint-disable-next-line prefer-const
-        let [retType, outArrayLengthIndex] = this.getReturnType(girFunc)
+        let { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
 
-        const [params, outParams] = this.getParameters(outArrayLengthIndex, girFunc.parameters)
+        const { params, outParams } = this.getParameters(outArrayLengthIndex, girFunc.parameters)
 
         if (girFunc.$['shadows']) {
             name = girFunc.$['shadows']
@@ -845,8 +857,7 @@ export class GirModule {
 
         // Apply patches
         {
-            const packageNameToPatch =
-                girFunc._class?._module?.packageName || girFunc._module?.packageName || this.packageName
+            const packageNameToPatch = this.getPackageName(girFunc)
             const methodPatches = girFunc._fullSymName
                 ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
                 : []
@@ -878,32 +889,32 @@ export class GirModule {
             }
         }
 
-        const retTypeIsVoid = retType === 'void'
+        const retTypeIsVoid = returnType === 'void'
 
         // TODO move gjs / node differences logic to transformation.ts
         if (this.config.environment === 'gjs') {
             if (overrideReturnType) {
-                retType = overrideReturnType
+                returnType = overrideReturnType
             } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
                 if (!retTypeIsVoid) {
-                    outParams.unshift(`/* returnType */ ${retType}`)
+                    outParams.unshift(`/* returnType */ ${returnType}`)
                 }
                 const retDesc = outParams.join(', ')
-                retType = `[ ${retDesc} ]`
+                returnType = `[ ${retDesc} ]`
             } else if (outParams.length === 1 && retTypeIsVoid) {
-                retType = outParams[0]
+                returnType = outParams[0]
             }
         }
         // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
         if (this.config.environment === 'node') {
             if (overrideReturnType) {
-                retType = overrideReturnType
+                returnType = overrideReturnType
             } else if (outParams.length >= 1) {
                 if (!retTypeIsVoid) {
-                    outParams.unshift(`returnType: ${retType}`)
+                    outParams.unshift(`returnType: ${returnType}`)
                 }
                 const retDesc = outParams.join(', ')
-                retType = `{ ${retDesc} }`
+                returnType = `{ ${retDesc} }`
             }
         }
 
@@ -918,7 +929,7 @@ export class GirModule {
 
         return {
             patched: false,
-            desc: [`${indent}${name}(${params})${retSep} ${retType}`],
+            desc: [`${indent}${name}(${params})${retSep} ${returnType}`],
             name,
         }
     }
@@ -939,20 +950,26 @@ export class GirModule {
         return { desc, name: funcName, patched }
     }
 
-    private getSignalFunc(girSignalFunc: GirSignalElement, clsName: string): string[] {
+    private getSignalFunc(girSignalFunc: GirSignalElement, clsName: string) {
         const sigName = this.transformation.transform('signalName', girSignalFunc.$.name)
-        const [retType, outArrayLengthIndex] = this.getReturnType(girSignalFunc)
-        const [params] = this.getParameters(outArrayLengthIndex, girSignalFunc.parameters)
+        const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
+        const { params } = this.getParameters(outArrayLengthIndex, girSignalFunc.parameters)
         const paramComma = params.length > 0 ? ', ' : ''
 
-        return TemplateProcessor.generateSignalMethods(
+        const { def } = TemplateProcessor.generateSignalMethods(
             this.config.environment,
             sigName,
             clsName,
             paramComma,
             params,
-            retType,
+            returnType,
         )
+        return {
+            def,
+            sigName,
+            returnType,
+            params,
+        }
     }
 
     private getDependencyByNamespace(namespace: string) {
@@ -1221,24 +1238,29 @@ export class GirModule {
 
     private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
         const def: string[] = []
-        for (const k of Array.from(explicits.values())) {
-            const f = fnMap.get(k)
-            if (f) def.push(...f)
+        for (const key of Array.from(explicits.values())) {
+            const fDef = fnMap.get(key) || []
+            def.push(...fDef)
         }
-        return def
+        return {
+            def,
+        }
     }
 
     /**
      * Instance methods, vfunc_ prefix
      * @param cls
      */
-    private processVirtualMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement): string[] {
+    private processVirtualMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
         // Virtual methods currently not supported in node-gtk
         // See point 4 on https://github.com/sammydre/ts-for-gjs/issues/21
         if (this.config.environment === 'node') {
-            return []
+            return {
+                def,
+            }
         }
-        const [fnMap, explicits] = this.processOverloadableMethods(cls, (e) => {
+        const { fnMap, explicits } = this.processOverloadableMethods(cls, (e) => {
             const vMethods: GirVirtualMethodElement[] = e['virtual-method'] || []
             let methods = vMethods.map((virtualFunc) => {
                 const func = this.getFunction(virtualFunc, '    ', 'vfunc_')
@@ -1247,26 +1269,32 @@ export class GirModule {
             methods = methods.filter((f) => f.name !== null)
             return methods
         })
-        const def = this.exportOverloadableMethods(fnMap, explicits)
+        def.push(...this.exportOverloadableMethods(fnMap, explicits).def)
         if (def.length && cls._fullSymName) {
             const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
             def.unshift(`    /* Virtual methods of ${versionPrefix}${cls._fullSymName} */`)
         }
-        return def
+        return {
+            def,
+            fnMap,
+            explicits,
+        }
     }
 
-    private processSignals(cls: GirClassElement | GirInterfaceElement | GirUnionElement, clsName: string): string[] {
+    private processSignals(cls: GirClassElement | GirInterfaceElement | GirUnionElement, clsName: string) {
         const def: string[] = []
         const signals: GirSignalElement[] =
             (cls as GirClassElement | GirInterfaceElement).signal || cls['glib:signal'] || []
         if (signals) {
-            for (const signal of signals) def.push(...this.getSignalFunc(signal, clsName))
+            for (const signal of signals) def.push(...this.getSignalFunc(signal, clsName).def)
         }
         if (def.length && cls._fullSymName) {
             const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
             def.unshift(`    /* Signals of ${versionPrefix}${cls._fullSymName} */`)
         }
-        return def
+        return {
+            def,
+        }
     }
 
     private stripParamNames(func: string, ignoreTail = false): string {
@@ -1321,11 +1349,11 @@ export class GirModule {
     }
 
     private getStaticConstructors(
-        e: GirClassElement | GirInterfaceElement | GirUnionElement,
+        element: GirClassElement | GirInterfaceElement | GirUnionElement,
         name: string,
         filter?: (funcName: string) => boolean,
     ): FunctionDescription[] {
-        const constructors = e['constructor']
+        const constructors = element.constructor
         if (!Array.isArray(constructors)) {
             return []
         }
@@ -1510,7 +1538,7 @@ export class GirModule {
         cls: GirClassElement | GirInterfaceElement | GirUnionElement,
         getMethods: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => FunctionDescription[],
         statics = false,
-    ): [FunctionMap, Set<string>] {
+    ) {
         const fnMap: FunctionMap = new Map()
         const explicits = new Set<string>()
         const funcs = getMethods(cls)
@@ -1547,15 +1575,16 @@ export class GirModule {
                 })
             }
         })
-        return [fnMap, explicits]
+        return { fnMap, explicits }
     }
 
     private processStaticFunctions(
         cls: GirClassElement | GirInterfaceElement | GirUnionElement,
         getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => FunctionDescription[],
-    ): string[] {
-        const [fnMap, explicits] = this.processOverloadableMethods(cls, getter, true)
-        return this.exportOverloadableMethods(fnMap, explicits)
+    ) {
+        const { fnMap, explicits } = this.processOverloadableMethods(cls, getter, true)
+        const { def } = this.exportOverloadableMethods(fnMap, explicits)
+        return { def, fnMap, explicits }
     }
 
     private generateSignalMethods(
@@ -1594,17 +1623,17 @@ export class GirModule {
         stc.push(
             ...this.processStaticFunctions(girClass, (cls) => {
                 return this.getStaticConstructors(cls, name)
-            }),
+            }).def,
         )
         stc.push(
             ...this.processStaticFunctions(girClass, (cls) => {
                 return this.getOtherStaticFunctions(cls)
-            }),
+            }).def,
         )
         stc.push(
             ...this.processStaticFunctions(girClass, (cls) => {
                 return this.getClassMethods(cls)
-            }),
+            }).def,
         )
 
         if (stc.length > 0) {
@@ -1697,8 +1726,7 @@ export class GirModule {
 
                     if (added) {
                         // Apply patches
-                        const packageNameToPatch =
-                            property._class?._module?.packageName || property._module?.packageName || this.packageName
+                        const packageNameToPatch = this.getPackageName(property)
                         const constructPropPatches: VarDesc | undefined = property._fullSymName
                             ? this.getPatches(packageNameToPatch, 'constructorProperties', property._fullSymName)
                             : undefined
@@ -1722,8 +1750,8 @@ export class GirModule {
                 this.forEachInterface(girClass, (iface) => {
                     const properties = (iface as GirClassElement | GirInterfaceElement).property
                     if (properties) {
-                        for (const p of properties) {
-                            const { desc, propName } = this.getProperty(p, '', true, true)
+                        for (const property of properties) {
+                            const { desc, propName } = this.getProperty(property, '', true, true)
                             const { desc: aDesc, added } = this.checkOrSetLocalName(
                                 desc,
                                 propName,
@@ -1731,8 +1759,28 @@ export class GirModule {
                                 'property',
                             )
                             if (added) {
-                                for (const curDesc of aDesc) {
-                                    def.push(`    ${curDesc}`)
+                                // Apply patches
+                                const packageNameToPatch = this.getPackageName(property)
+                                const constructPropPatches: VarDesc | undefined = property._fullSymName
+                                    ? this.getPatches(
+                                          packageNameToPatch,
+                                          'constructorProperties',
+                                          property._fullSymName,
+                                      )
+                                    : undefined
+
+                                if (constructPropPatches?.length) {
+                                    this.log.warn(
+                                        `Patch found for constructor property (of implemented interfaces) "${property._fullSymName}"!`,
+                                    )
+                                    patched = true
+                                    for (const curDesc of constructPropPatches) {
+                                        def.push(`    ${curDesc}`)
+                                    }
+                                } else {
+                                    for (const curDesc of aDesc) {
+                                        def.push(`    ${curDesc}`)
+                                    }
                                 }
                             }
                         }
@@ -1750,11 +1798,10 @@ export class GirModule {
     public exportEnumeration(e: GirEnumElement) {
         const def: string[] = []
 
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return { def }
+        if (!e?.$ || !this.girBool(e.$.introspectable, true)) return { def }
 
-        let name = e.$.name
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
-        name = this.transformation.transformEnumName(name)
+        const name = this.transformation.transformEnumName(e)
 
         this.addExport(def, 'enum', name, '{')
         if (e.member) {
@@ -1854,11 +1901,11 @@ export class GirModule {
         // Copy methods from implemented interfaces
         this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
         // Copy virtual methods from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
         // Copy signals from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
         // Copy signals from implemented interfaces
-        this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name)))
+        this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
 
         def.push(...this.generateSignalMethods(girClass, propertyNames, name))
 
@@ -1897,11 +1944,11 @@ export class GirModule {
             }
 
         const name = e.$.name
-        const [retType, outArrayLengthIndex] = this.getReturnType(e)
-        const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
+        const { returnType, outArrayLengthIndex } = this.getReturnType(e)
+        const { params } = this.getParameters(outArrayLengthIndex, e.parameters)
 
         this.addExport(def, 'interface', name, '{')
-        def.push(`    (${params}): ${retType}`)
+        def.push(`    (${params}): ${returnType}`)
         def.push('}')
         return {
             def,

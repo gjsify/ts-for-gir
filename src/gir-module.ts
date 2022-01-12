@@ -1158,10 +1158,7 @@ export class GirModule {
         return { desc, added: true }
     }
 
-    private processFields(
-        cls: GirClassElement | GirUnionElement | GirInterfaceElement,
-        localNames: LocalNames,
-    ): string[] {
+    private processFields(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
         const def: string[] = []
         if (cls.field) {
             for (const field of cls.field) {
@@ -1179,14 +1176,14 @@ export class GirModule {
             const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
             def.unshift(`    /* Fields of ${versionPrefix}${cls._fullSymName} */`)
         }
-        return def
+        return { def }
     }
 
     private processProperties(
         cls: GirClassElement | GirUnionElement | GirInterfaceElement,
         localNames: LocalNames,
         propertyNames: string[],
-    ): string[] {
+    ) {
         const def: string[] = []
         const properties = (cls as GirClassElement | GirInterfaceElement).property
         if (properties) {
@@ -1205,7 +1202,7 @@ export class GirModule {
             const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
             def.unshift(`    /* Properties of ${versionPrefix}${cls._fullSymName} */`)
         }
-        return def
+        return { def }
     }
 
     /**
@@ -1213,10 +1210,7 @@ export class GirModule {
      * @param cls
      * @param localNames
      */
-    private processMethods(
-        cls: GirClassElement | GirUnionElement | GirInterfaceElement,
-        localNames: LocalNames,
-    ): string[] {
+    private processMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
         const def: string[] = []
         if (cls.method) {
             for (const func of cls.method) {
@@ -1233,7 +1227,7 @@ export class GirModule {
             const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
             def.unshift(`    /* Methods of ${versionPrefix}${cls._fullSymName} */`)
         }
-        return def
+        return { def }
     }
 
     private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
@@ -1506,8 +1500,8 @@ export class GirModule {
 
     /**
      * fnMap values are equivalent to the second element of a FunctionDescription.
-     * If an entry in fnMap is changed its name is added to explicits (set of names which must be declared).
-     * If force is true, every function of f2 is added to fnMap and overloads even
+     * If an entry in `fnMap` is changed, its name is added to `explicits` (set of names which must be declared).
+     * If `force` is true, every function of `f2` is added to `fnMap` and overloads even
      * if it doesn't already contain a function of the same name.
      * @param fnMap
      * @param explicits
@@ -1591,7 +1585,7 @@ export class GirModule {
         cls: GirClassElement | GirUnionElement | GirInterfaceElement,
         propertyNames: string[],
         callbackObjectName: string,
-    ): string[] {
+    ) {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(cls)
         if (isDerivedFromGObject) {
@@ -1609,7 +1603,7 @@ export class GirModule {
             }
             def.push(...TemplateProcessor.generateGeneralSignalMethods(this.config.environment))
         }
-        return def
+        return { def }
     }
 
     /**
@@ -1645,7 +1639,7 @@ export class GirModule {
     private generateConstructorAndStaticMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         name: string,
-    ): string[] {
+    ) {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
@@ -1684,7 +1678,7 @@ export class GirModule {
             def.push(`    static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
         }
 
-        return def
+        return { def }
     }
 
     private addExport(def: string[], t: string, name: string, definition: string) {
@@ -1853,6 +1847,9 @@ export class GirModule {
         isAbstract = false,
     ) {
         const def: string[] = []
+        const localNames: LocalNames = {}
+        const propertyNames: string[] = []
+
         // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
         if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
             isAbstract = true
@@ -1876,44 +1873,44 @@ export class GirModule {
         def.push(..._def)
 
         // START CLASS
-        if (isAbstract) {
-            this.addExport(def, 'abstract class', name, '{')
-        } else {
-            this.addExport(def, 'class', name, '{')
+        {
+            if (isAbstract) {
+                this.addExport(def, 'abstract class', name, '{')
+            } else {
+                this.addExport(def, 'class', name, '{')
+            }
+
+            // Can't export fields for GObjects because names would clash
+            if (record) def.push(...this.processFields(girClass, localNames).def)
+
+            // Copy properties from inheritance tree
+            this.traverseInheritanceTree(girClass, (cls) =>
+                def.push(...this.processProperties(cls, localNames, propertyNames).def),
+            )
+            // Copy properties from implemented interface
+            this.forEachInterface(girClass, (cls) =>
+                def.push(...this.processProperties(cls, localNames, propertyNames).def),
+            )
+            // Copy fields from inheritance tree
+            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processFields(cls, localNames).def))
+            // Copy methods from inheritance tree
+            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
+            // Copy methods from implemented interfaces
+            this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
+            // Copy virtual methods from inheritance tree
+            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
+            // Copy signals from inheritance tree
+            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
+            // Copy signals from implemented interfaces
+            this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
+
+            def.push(...this.generateSignalMethods(girClass, propertyNames, name).def)
+
+            // TODO: Records have fields
+
+            // Static side: default constructor
+            def.push(...this.generateConstructorAndStaticMethods(girClass, name).def)
         }
-
-        const localNames: LocalNames = {}
-        const propertyNames: string[] = []
-
-        // Can't export fields for GObjects because names would clash
-        if (record) def.push(...this.processFields(girClass, localNames))
-
-        // Copy properties from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) =>
-            def.push(...this.processProperties(cls, localNames, propertyNames)),
-        )
-        // Copy properties from implemented interface
-        this.forEachInterface(girClass, (cls) => def.push(...this.processProperties(cls, localNames, propertyNames)))
-        // Copy fields from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processFields(cls, localNames)))
-        // Copy methods from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
-        // Copy methods from implemented interfaces
-        this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
-        // Copy virtual methods from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
-        // Copy signals from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
-        // Copy signals from implemented interfaces
-        this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
-
-        def.push(...this.generateSignalMethods(girClass, propertyNames, name))
-
-        // TODO: Records have fields
-
-        // Static side: default constructor
-        def.push(...this.generateConstructorAndStaticMethods(girClass, name))
-
         // END CLASS
         def.push('}')
 
@@ -1988,6 +1985,11 @@ export class GirModule {
 
     public async export(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
         const out: string[] = []
+        const templateProcessor = new TemplateProcessor(
+            { name: this.namespace, version: this.version },
+            this.packageName,
+            this.config,
+        )
 
         out.push(...TemplateProcessor.generateTSDocComment(`${this.packageName}`))
 
@@ -2023,58 +2025,57 @@ export class GirModule {
         }
 
         // START Namespace
-        if (this.config.buildType === 'types') {
+        {
+            if (this.config.buildType === 'types') {
+                out.push('')
+                out.push(`export declare namespace ${this.namespace} {`)
+            } else if (this.config.exportDefault) {
+                out.push('')
+                out.push(`export namespace ${this.namespace} {`)
+            }
+
+            // Newline
             out.push('')
-            out.push(`export declare namespace ${this.namespace} {`)
-        } else if (this.config.exportDefault) {
-            out.push('')
-            out.push(`export namespace ${this.namespace} {`)
+
+            if (this.ns.enumeration)
+                for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration).def)
+
+            if (this.ns.bitfield)
+                for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield).def)
+
+            if (this.ns.constant)
+                for (const constant of this.ns.constant) out.push(...this.exportConstant(constant).def)
+
+            if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
+
+            if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb).def)
+
+            if (this.ns.interface)
+                for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface).def)
+
+            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
+            // E.g. used for GObject-2.0 to help define GObject classes in js;
+            // these aren't part of gi.
+            if (templateProcessor.exists(`${this.packageName}.d.ts`)) {
+                const templatePatches = await templateProcessor.load(`${this.packageName}.d.ts`)
+                out.push(templatePatches)
+            }
+
+            if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false).def)
+
+            if (this.ns.record)
+                for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true).def)
+
+            if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true).def)
+
+            if (this.ns.alias)
+                // GType is not a number in GJS
+                for (const alias of this.ns.alias)
+                    if (this.packageName !== 'GObject-2.0' || alias.$.name !== 'Type')
+                        out.push(...this.exportAlias(alias).def)
+
+            if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
-
-        // Newline
-        out.push('')
-
-        if (this.ns.enumeration)
-            for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration).def)
-
-        if (this.ns.bitfield) for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield).def)
-
-        if (this.ns.constant) for (const constant of this.ns.constant) out.push(...this.exportConstant(constant).def)
-
-        if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
-
-        if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb).def)
-
-        if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface).def)
-
-        const templateProcessor = new TemplateProcessor(
-            { name: this.namespace, version: this.version },
-            this.packageName,
-            this.config,
-        )
-
-        // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
-        // E.g. used for GObject-2.0 to help define GObject classes in js;
-        // these aren't part of gi.
-        if (templateProcessor.exists(`${this.packageName}.d.ts`)) {
-            const templatePatches = await templateProcessor.load(`${this.packageName}.d.ts`)
-            out.push(templatePatches)
-        }
-
-        if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false).def)
-
-        if (this.ns.record) for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true).def)
-
-        if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true).def)
-
-        if (this.ns.alias)
-            // GType is not a number in GJS
-            for (const alias of this.ns.alias)
-                if (this.packageName !== 'GObject-2.0' || alias.$.name !== 'Type')
-                    out.push(...this.exportAlias(alias).def)
-
-        if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
-
         // END Namespace
         if (this.config.buildType === 'types' || this.config.exportDefault) {
             out.push(`}`)

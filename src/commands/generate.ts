@@ -28,6 +28,7 @@ const builder = (yargs: Argv) => {
         .option('print', Config.generateOptions.print)
         .option('configName', Config.generateOptions.configName)
         .option('exportDefault', Config.generateOptions.exportDefault)
+        .option('noComments', Config.generateOptions.noComments)
         .example(examples)
 }
 

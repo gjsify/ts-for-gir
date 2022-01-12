@@ -33,6 +33,7 @@ export class Config {
         ignoreConflicts: false,
         exportDefault: false,
         buildType: 'lib',
+        noComments: false,
     }
 
     /**
@@ -49,7 +50,7 @@ export class Config {
         girDirectories: {
             type: 'string',
             alias: 'g',
-            description: 'GIR directory',
+            description: 'GIR directories',
             array: true,
             default: Config.defaults.girDirectories,
             normalize: true,
@@ -81,7 +82,7 @@ export class Config {
         buildType: {
             type: 'string',
             alias: 'b',
-            description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
+            description: 'definitions generation type',
             array: false,
             choices: ['lib', 'types'],
             default: Config.defaults.buildType,
@@ -125,6 +126,13 @@ export class Config {
             default: Config.defaults.exportDefault,
             normalize: true,
         } as Options,
+        noComments: {
+            type: 'boolean',
+            alias: 'n',
+            description: 'Do not generate documentation comments',
+            default: Config.defaults.noComments,
+            normalize: true,
+        } as Options,
     }
 
     /**
@@ -143,6 +151,7 @@ export class Config {
         print: this.options.print,
         configName: this.options.configName,
         exportDefault: this.options.exportDefault,
+        noComments: this.options.noComments,
     }
 
     static listOptions = {
@@ -218,6 +227,7 @@ export class Config {
             verbose: config.verbose,
             buildType: config.buildType,
             exportDefault: config.exportDefault,
+            noComments: config.noComments,
         }
         return generateConfig
     }
@@ -243,6 +253,7 @@ export class Config {
             ignore: options.ignore,
             modules: options.modules,
             exportDefault: options.exportDefault,
+            noComments: options.noComments,
         }
 
         if (configFile) {
@@ -295,11 +306,19 @@ export class Config {
             ) {
                 config.modules = configFile.config.modules
             }
+            // exportDefault
             if (
                 config.exportDefault === Config.options.exportDefault.default &&
                 typeof configFile.config.exportDefault === 'boolean'
             ) {
                 config.exportDefault = configFile.config.exportDefault
+            }
+            // noComments
+            if (
+                config.noComments === Config.options.noComments.default &&
+                typeof configFile.config.noComments === 'boolean'
+            ) {
+                config.noComments = configFile.config.noComments
             }
         }
 

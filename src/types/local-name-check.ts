@@ -1,6 +1,5 @@
-import { VarDesc } from './var-desc'
-
 export interface LocalNameCheck {
-    desc: VarDesc
+    desc: string[]
     added: boolean
+    isOverloadable: boolean
 }

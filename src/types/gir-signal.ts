@@ -1,6 +1,16 @@
-import { GirCallableReturn, GirBoolean, GirInfoAttrs, GirInfoElements, GirCallableParams, TsForGjsExtended } from '.'
+import {
+    GirCallableReturn,
+    GirBoolean,
+    GirInfoAttrs,
+    GirInfoElements,
+    GirCallableParams,
+    PartOfModule,
+    GirClassElement,
+    GirRecordElement,
+    GirInterfaceElement,
+} from '.'
 
-export interface GirSignalElement extends TsForGjsExtended, GirInfoElements {
+export interface GirSignalElement extends PartOfModule, GirInfoElements {
     /** A signal as defined in the GObject system (https://docs.gtk.org/gobject/concepts.html#signals) */
     $: GirInfoAttrs & {
         /** name of the signal */
@@ -20,4 +30,11 @@ export interface GirSignalElement extends TsForGjsExtended, GirInfoElements {
 
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
+
+    // CUSTOM
+
+    /**
+     * The class this function is defined in
+     */
+    _class?: GirClassElement | GirRecordElement | GirInterfaceElement
 }

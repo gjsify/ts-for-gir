@@ -11,10 +11,10 @@ import {
     GirCallbackElement,
     GirConstantElement,
     GirSignalElement,
-    TsForGjsExtended,
+    PartOfModule,
 } from '.'
 
-export interface GirInterfaceElement extends TsForGjsExtended, GirInfoElements {
+export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     /** Abstract interface to other classes */
     $: {
         //Attributes of an Interface (see definition below)

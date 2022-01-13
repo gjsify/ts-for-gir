@@ -1,6 +1,6 @@
-import type { GirInfoElements, GirAnyType, GirInfoAttrs, TsForGjsExtended } from '.'
+import type { GirInfoElements, GirAnyType, GirInfoAttrs, PartOfModule, DescVar } from '.'
 
-export interface GirConstantElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
+export interface GirConstantElement extends PartOfModule, GirInfoElements, GirAnyType {
     /** A constant entity, similar to const variable in C */
     $: GirInfoAttrs & {
         /** name of the constant */
@@ -12,4 +12,8 @@ export interface GirConstantElement extends TsForGjsExtended, GirInfoElements, G
         /** corresponding C identifier in the source code */
         'c:identifier'?: string
     }
+
+    // CUSTOM
+
+    _desc?: DescVar
 }

@@ -1,6 +1,14 @@
-import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, TsForGjsExtended } from '.'
+import {
+    GirBoolean,
+    GirInfoAttrs,
+    GirInfoElements,
+    GirAnyType,
+    GirTransferOwnership,
+    PartOfClass,
+    DescProperty,
+} from '.'
 
-export interface GirPropertyElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
+export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** Property, that is a variable or members with getter and setter functions */
     $: GirInfoAttrs & {
         /** name of the property */
@@ -18,4 +26,8 @@ export interface GirPropertyElement extends TsForGjsExtended, GirInfoElements, G
         /** The getter function for this property */
         getter?: string
     } & Partial<GirTransferOwnership>
+
+    // CUSTOM
+
+    _desc?: DescProperty
 }

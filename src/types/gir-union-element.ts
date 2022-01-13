@@ -6,10 +6,10 @@ import type {
     GirFunctionElement,
     GirFieldElement,
     GirRecordElement,
-    TsForGjsExtended,
+    PartOfModule,
 } from '.'
 
-export interface GirUnionElement extends TsForGjsExtended, GirInfoElements {
+export interface GirUnionElement extends PartOfModule, GirInfoElements {
     /** element defining a type of data being a union of type, similar to union in C/C++ but extended with fields and methods */
     $: GirInfoAttrs & {
         /** name of the union */

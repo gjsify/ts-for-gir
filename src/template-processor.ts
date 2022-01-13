@@ -9,7 +9,7 @@ import ejs from 'ejs'
 import { Environment } from './types/environment.js'
 import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
-import { GenerateConfig } from './types/index.js'
+import { GenerateConfig, GirCallableParamElement } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
 
@@ -37,7 +37,7 @@ export class TemplateProcessor {
         this.log = new Logger(config.environment, config.verbose, this.packageName)
     }
 
-    public static generateIndent(indents = 1, spaceForIndent = 4): string {
+    public generateIndent(indents = 1, spaceForIndent = 4): string {
         return ' '.repeat(indents * spaceForIndent)
     }
 
@@ -45,7 +45,7 @@ export class TemplateProcessor {
      * See https://github.com/microsoft/tsdoc
      * @param description
      */
-    public static generateTSDocComment(description: string): string[] {
+    public generateTSDocComment(description: string): string[] {
         const result: string[] = []
         result.push('/**')
         result.push(` * ${description}`)
@@ -58,17 +58,11 @@ export class TemplateProcessor {
      * @param namespace E.g. 'Gtk'
      * @param packageName E.g. 'Gtk-3.0'
      * @param asExternType Currently only used for node type imports
-     * @param config
      */
-    public generateModuleDependenciesImport(
-        namespace: string,
-        packageName: string,
-        asExternType = false,
-        config: GenerateConfig,
-    ): string[] {
+    public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const result: string[] = []
-        if (config.buildType === 'lib') {
-            const sas = config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
+        if (this.config.buildType === 'lib') {
+            const sas = this.config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
             result.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else {
             if (asExternType) {
@@ -82,40 +76,46 @@ export class TemplateProcessor {
         return result
     }
 
-    public static generateSignalMethods(
-        environment: Environment,
+    public generateSignalMethods(
         sigName: string,
         clsName: string,
         paramComma: ', ' | '',
-        params: string,
+        params: string[],
         retType: string,
         identCount = 1,
     ) {
         const ident = this.generateIndent(identCount)
         const def: string[] = []
         def.push(
-            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+                ', ',
+            )}) => ${retType})): number`,
         )
-        if (environment === 'gjs') {
+        if (this.config.environment === 'gjs') {
             def.push(
-                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+                    ', ',
+                )}) => ${retType})): number`,
             )
         }
-        if (environment === 'node') {
+        if (this.config.environment === 'node') {
             def.push(
-                `${ident}on(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "${sigName}", callback: (${params}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "${sigName}", callback: (${params}) => void): NodeJS.EventEmitter`,
+                `${ident}on(sigName: "${sigName}", callback: (${params.join(
+                    ', ',
+                )}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}once(sigName: "${sigName}", callback: (${params.join(
+                    ', ',
+                )}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: (${params.join(', ')}) => void): NodeJS.EventEmitter`,
             )
         }
-        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`)
+        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params.join(', ')}): void`)
         return {
             def,
         }
     }
 
-    public static generateGObjectSignalMethods(
-        environment: Environment,
+    public generateGObjectSignalMethods(
         propertyName: string,
         callbackObjectName: string,
         namespacePrefix: string,
@@ -128,7 +128,7 @@ export class TemplateProcessor {
             `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
         result.push()
-        if (environment === 'node') {
+        if (this.config.environment === 'node') {
             result.push(
                 `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
                 `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
@@ -139,7 +139,7 @@ export class TemplateProcessor {
         return result
     }
 
-    public static generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
+    public generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
         result.push(
@@ -157,6 +157,17 @@ export class TemplateProcessor {
             )
         }
         return result
+    }
+
+    public generateParameter(param: GirCallableParamElement) {
+        if (
+            typeof param._desc?.name !== 'string' ||
+            typeof param._desc.isOptional !== 'string' ||
+            typeof param._desc.type !== 'string'
+        ) {
+            throw new Error('Not all required properties set!')
+        }
+        return `${param._desc.name}${param._desc.isOptional}: ${param._desc.type}`
     }
 
     /**

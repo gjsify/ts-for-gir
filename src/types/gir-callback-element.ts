@@ -1,6 +1,14 @@
-import { GirBoolean, GirInfoElements, GirInfoAttrs, GirCallableParams, GirCallableReturn, TsForGjsExtended } from '.'
+import {
+    GirBoolean,
+    GirInfoElements,
+    GirInfoAttrs,
+    GirCallableParams,
+    GirCallableReturn,
+    PartOfModule,
+    DescFunction,
+} from '.'
 
-export interface GirCallbackElement extends TsForGjsExtended, GirInfoElements {
+export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     /** A callback closure, that is a function called when a signal is emitted (as an answer to that signal) */
     $: GirInfoAttrs & {
         /** name of the callback */
@@ -15,4 +23,6 @@ export interface GirCallbackElement extends TsForGjsExtended, GirInfoElements {
 
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
+
+    _desc?: DescFunction
 }

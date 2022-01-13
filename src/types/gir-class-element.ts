@@ -2,7 +2,7 @@ import type {
     GirBoolean,
     GirInfoElements,
     GirInfoAttrs,
-    TsForGjsExtended,
+    PartOfModule,
     GirConstructorElement,
     GirImplements,
     GirMethodElement,
@@ -17,7 +17,7 @@ import type {
     GirCallbackElement,
 } from '.'
 
-export interface GirClassElement extends TsForGjsExtended, GirInfoElements {
+export interface GirClassElement extends PartOfModule, GirInfoElements {
     /** GObject inherited class definition */
     $: GirInfoAttrs & {
         /** Name of the class */

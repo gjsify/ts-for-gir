@@ -1,6 +1,6 @@
-import type { GirFunctionElement, GirMemberElement, GirInfoAttrs, GirInfoElements, TsForGjsExtended } from '.'
+import type { GirFunctionElement, GirMemberElement, GirInfoAttrs, GirInfoElements, PartOfModule } from '.'
 
-export interface GirEnumElement extends TsForGjsExtended, GirInfoElements {
+export interface GirEnumElement extends PartOfModule, GirInfoElements {
     /** element defining a enumeration type similar to enum in C/C++ */
     $: GirInfoAttrs & {
         /** name of the enumeration */

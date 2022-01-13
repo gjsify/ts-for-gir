@@ -5,10 +5,11 @@ import {
     GirBoolean,
     GirUnparsedNumber,
     GirCallbackElement,
-    TsForGjsExtended,
+    PartOfClass,
+    DescVar,
 } from '.'
 
-export interface GirFieldElement extends TsForGjsExtended, GirInfoElements, GirAnyType {
+export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** A field of struct of union structure, that is a C bit field, that is a fixed length in bits variable */
     $: GirInfoAttrs & {
         /** name of the field */
@@ -25,4 +26,8 @@ export interface GirFieldElement extends TsForGjsExtended, GirInfoElements, GirA
 
     /* Other elements a property can contain */
     callback?: GirCallbackElement[]
+
+    // CUSTOM
+
+    _desc?: DescVar
 }

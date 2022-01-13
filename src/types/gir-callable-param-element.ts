@@ -7,10 +7,11 @@ import type {
     GirTransferOwnership,
     GirDirection,
     GirVarArgs,
-    TsForGjsExtended,
+    PartOfClass,
+    DescParameter,
 } from '.'
 
-export interface GirCallableParamElement extends TsForGjsExtended, GirDocElement, GirAnyType {
+export interface GirCallableParamElement extends PartOfClass, GirDocElement, GirAnyType {
     /** parameter element of a list of parameters */
     $: GirInfoAttrs &
         Partial<GirTransferOwnership> & {
@@ -39,4 +40,7 @@ export interface GirCallableParamElement extends TsForGjsExtended, GirDocElement
         }
 
     varargs?: GirVarArgs[]
+
+    // CUSTOM
+    _desc?: DescParameter
 }

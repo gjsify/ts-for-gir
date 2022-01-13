@@ -76,6 +76,14 @@ export class TemplateProcessor {
         return result
     }
 
+    public generateExport(type: string, name: string, definition: string) {
+        const exp = this.config.exportDefault ? '' : 'export '
+        if (!definition.startsWith(':')) {
+            definition = ' ' + definition
+        }
+        return `${exp}${type} ${name}${definition}`
+    }
+
     public generateSignalMethods(
         sigName: string,
         clsName: string,

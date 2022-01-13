@@ -1383,7 +1383,7 @@ export class GirModule {
      * Some class/static methods are defined in a separate record which is not
      * exported, but the methods are available as members of the JS constructor.
      * In gjs one can use an instance of the object, a JS constructor or a GType
-     * as the methods' instance-parameter.
+     * as the method's instance-parameter.
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */
@@ -1471,7 +1471,7 @@ export class GirModule {
     }
 
     /**
-     * Returns true if the function definitions in f1 and f2 have equivalent signatures
+     * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
      * @param f1
      * @param f2
      */
@@ -1482,8 +1482,8 @@ export class GirModule {
 
     /**
      * See comment for addOverloadableFunctions.
-     * Returns true if (a definition from) func is added to map to satisfy
-     * an overload, but false if it was forced
+     * Returns `true` if (a definition from) `func` is added to map to satisfy
+     * an overload, but `false` if it was forced
      * @param map
      * @param func
      * @param force
@@ -1685,14 +1685,6 @@ export class GirModule {
         return { def, isDerivedFromGObject }
     }
 
-    private addExport(def: string[], t: string, name: string, definition: string) {
-        const exp = this.config.exportDefault ? '' : 'export '
-        if (!definition.startsWith(':')) {
-            definition = ' ' + definition
-        }
-        def.push(`${exp}${t} ${name}${definition}`)
-    }
-
     private generateConstructPropsInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         name: string,
@@ -1808,7 +1800,7 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         const name = this.transformation.transformEnumName(e)
 
-        this.addExport(def, 'enum', name, '{')
+        def.push(this.templateProcessor.generateExport('enum', name, '{'))
         if (e.member) {
             for (const member of e.member) {
                 const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
@@ -1888,9 +1880,9 @@ export class GirModule {
         // START CLASS
         {
             if (isAbstract) {
-                this.addExport(def, 'abstract class', name, '{')
+                def.push(this.templateProcessor.generateExport('abstract class', name, '{'))
             } else {
-                this.addExport(def, 'class', name, '{')
+                def.push(this.templateProcessor.generateExport('class', name, '{'))
             }
 
             // Can't export fields for GObjects because names would clash
@@ -1957,7 +1949,7 @@ export class GirModule {
         const { returnType, outArrayLengthIndex } = this.getReturnType(func)
         const { def: params } = this.getParameters(outArrayLengthIndex, func.parameters)
 
-        this.addExport(def, 'interface', name, '{')
+        def.push(this.templateProcessor.generateExport('interface', name, '{'))
         def.push(`    (${params.join(', ')}): ${returnType}`)
         def.push('}')
         return {

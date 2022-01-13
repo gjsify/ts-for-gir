@@ -61,77 +61,80 @@ COMMANDS
 ### Generate .d.ts files
 
 ```bash
-$ ts-for-gir generate --help                                                                                                                                                       :(
+$ ts-for-gir generate --help
+ts-for-gir generate --help
+ts-for-gir generate [modules..]
+
 Generates .d.ts files from GIR for gjs or node-gtk
 
-USAGE
-  $ ts-for-gir generate MODULES
+Options:
+      --version          Show version number                           [boolean]
+      --help             Show help                                     [boolean]
+      --modules          GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple m
+                         odules                         [array] [default: ["*"]]
+  -g, --girDirectories   GIR directories
+                                       [array] [default: ["/usr/share/gir-1.0"]]
+  -o, --outdir           directory to output to   [string] [default: "./@types"]
+  -e, --environments     javascript environment
+                      [array] [choices: "gjs", "node"] [default: ["gjs","node"]]
+  -i, --ignore           modules that should be ignored    [array] [default: []]
+  -b, --buildType        definitions generation type
+                             [string] [choices: "lib", "types"] [default: "lib"]
+      --pretty           prettifies the generated .d.ts files
+                                                       [string] [default: false]
+  -v, --verbose          Switch on/off the verbose mode [string] [default: true]
+      --ignoreConflicts  Do not ask for package versions if multiple versions ar
+                         e found                       [string] [default: false]
+  -p, --print            print the output to console and create no files
+                                                       [string] [default: false]
+      --configName       name of the config if you want to use a different name
+                                                                        [string]
+  -d, --exportDefault    Export all symbols for each module as a single entity u
+                         sing ES6 export default       [string] [default: false]
+  -n, --noComments       Do not generate documentation comments
+                                                       [string] [default: false]
 
-ARGUMENTS
-  MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
-
-OPTIONS
-  -b, --buildType=lib|types            [default for gjs: lib, default for node: types] Force the definitions generation type
-  -e, --environments=gjs|node          [default: gjs,node] javascript environment
-  -g, --girDirectories=girDirectories  [default: /usr/share/gir-1.0] GIR directory
-  -h, --help                           show CLI help
-  -i, --ignore=ignore                  [default: ] modules that should be ignored
-  -o, --outdir=outdir                  [default: @types] directory to output to
-  -p, --print                          print the output to console and create no files
-  -v, --verbose                        Switch on/off the verbose mode
-  --configName=configName              name of the config if you want to use a different name
-  --ignoreConflicts                    Do not ask for package versions if multiple versions are found
-  --pretty                             prettifies the generated .d.ts files
-  --exportDefault                      Use export default for compatibility with gjs's ES module mode
-
-EXAMPLES
-  # Run 'ts-for-gir generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
-  ts-for-gir generate
-
-  # You can also use wild cards
-  ts-for-gir generate Gtk*
-
-  # If you want to parse all of your locally installed gir modules run
-  ts-for-gir generate '*'
-
-  # Generate .d.ts. files only for gjs
-  ts-for-gir generate '*' -e gjs
-
-  # Generate .d.ts. files only for node
-  ts-for-gir generate '*' -e node
-
-  # Use a special config file
-  ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js'
-
-  # Generate .d.ts. files but not for Gtk-3.0 and xrandr-1.3
-  ts-for-gir generate --ignore=Gtk-3.0 xrandr-1.3
+Examples:
+  ts-for-gir generate                       Run 'ts-for-gir generate' in your gj
+                                            s or node-gtk project to generate ty
+                                            pings for your project, pass the gir
+                                             modules you need for your project
+  ts-for-gir generate Gtk*                  You can also use wild cards
+  ts-for-gir generate '*'                   If you want to parse all of your loc
+                                            ally installed gir modules run
+  ts-for-gir generate '*' -e gjs            Generate .d.ts. files only for gjs
+  ts-for-gir generate '*' -e node           Generate .d.ts. files only for node
+  ts-for-gir generate --configName='.ts-fo  Use a special config file
+  r-gir.gtk4.rc.js
+  ts-for-gir generate --ignore=Gtk-3.0 xra  Generate .d.ts. files but not for Gt
+  ndr-1.3                                   k-3.0 and xrandr-1.3
 ```
 
 ### List available GIR modules
 
 ```bash
-$ ts-for-gir list --help
+$ ts-for-gir list --help  
+ts-for-gir list [modules..]
+
 Lists all available GIR modules
 
-USAGE
-  $ ts-for-gir list MODULES
+Options:
+      --version         Show version number                            [boolean]
+      --help            Show help                                      [boolean]
+      --modules         GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple mo
+                        dules                           [array] [default: ["*"]]
+  -g, --girDirectories  GIR directories[array] [default: ["/usr/share/gir-1.0"]]
+  -i, --ignore          modules that should be ignored     [array] [default: []]
+  -v, --verbose         Switch on/off the verbose mode  [string] [default: true]
+      --configName      name of the config if you want to use a different name
+                                                                        [string]
 
-ARGUMENTS
-  MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
-
-OPTIONS
-  -g, --girDirectories=girDirectories  [default: /usr/share/gir-1.0] GIR directory
-  -h, --help                           show CLI help
-  -i, --ignore=ignore                  [default: true] modules that should be ignored
-  -v, --verbose                        Switch on/off the verbose mode
-  --configName=configName              name of the config if you want to use a different name
-
-EXAMPLES
-  # Lists all available GIR modules in ./vala-girs/gir-1.0
-  ts-for-gir list -g ./vala-girs/gir-1.0
-
-  # Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3
-  ts-for-gir list --ignore=Gtk-3.0 xrandr-1.3
+Examples:
+  ts-for-gir list -g ./vala-girs/gir-1.0    Lists all available GIR modules in .
+                                            /vala-girs/gir-1.0
+  ts-for-gir list --ignore=Gtk-3.0 xrandr-  Lists all available GIR modules in /
+  1.3                                       usr/share/gir-1.0 but not Gtk-3.0 an
+                                            d xrandr-1.3
 ```
 
 ### Config
@@ -249,7 +252,7 @@ npm run validate:node
 You can also validate a single type definition file like this
 
 ```bash
-npm run npm run validate -- ./@types/Gjs/GObject-2.0.d.ts
+npm run validate -- ./@types/Gjs/GObject-2.0.d.ts
 ```
 
 
@@ -276,7 +279,9 @@ git submodule update --init
 Now you can run the test with
 
 ```bash
-npm run test:girs
+npm run test:girs:gjs
+npm run test:girs:node
+# or npm run test:girs:all
 ```
 
 ## Related Projects

@@ -84,6 +84,7 @@ export const C_TYPE_MAP = (value: string): string | undefined => {
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'string', // TODO CHECKME
+        'gchar***': 'string', // TODO CHECKME
         'const gchar*': 'string', // TODO CHECKME
         'const char*': 'string', // TODO CHECKME
         uint8: 'number',

@@ -558,7 +558,8 @@ export class GirModule {
 
         if (!resValue) {
             resValue = 'any'
-            this.log.warn(`Could not find type for '${fullTypeName || ''} ${girVar.$.name || ''} ${cType || ''}'`)
+            const logName = fullTypeName || girVar.$.name || cType || ''
+            this.log.warn(`Could not find type for "${logName}"`)
         }
 
         return {
@@ -792,7 +793,7 @@ export class GirModule {
      * @param optional optional means if it's construct-only it will also be marked optional (?)
      */
     private getProperty(
-        girProp: GirPropertyElement | GirFieldElement,
+        girProp: GirPropertyElement,
         indent = '',
         construct = false,
         optional = true,
@@ -1258,7 +1259,6 @@ export class GirModule {
      */
     private processVirtualMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement) {
         // Virtual methods currently not supported in node-gtk
-        // See point 4 on https://github.com/sammydre/ts-for-gjs/issues/21
         if (this.config.environment === 'node') {
             return {
                 def: [],
@@ -1366,7 +1366,7 @@ export class GirModule {
         }
         let ctors = constructors
             .map((constructor) => {
-                return this.getConstructorFunction(name, constructor, '    static ', undefined)
+                return this.getConstructorFunction(name, constructor, '    ', 'static ')
             })
             .filter((ctor) => ctor?.name) as DescFunction[]
 
@@ -1660,7 +1660,7 @@ export class GirModule {
             if (constructor_) {
                 if (Array.isArray(constructor_)) {
                     for (const f of constructor_) {
-                        const constrDesc = this.getConstructorFunction(name, f, '    static ')
+                        const constrDesc = this.getConstructorFunction(name, f, '    ', 'static ')
                         if (!constrDesc?.name) continue
                         if (constrDesc.name !== 'new') continue
 

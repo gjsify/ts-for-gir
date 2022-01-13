@@ -568,12 +568,13 @@ export class GirModule {
             suffix,
             fullTypeName,
             namespace,
+            isFunction,
         }
     }
 
-    private girBool(e: string | undefined, defaultVal = false): boolean {
-        if (e) {
-            if (parseInt(e) === 0) return false
+    private girBool(boolStr: string | undefined, defaultVal = false): boolean {
+        if (boolStr) {
+            if (parseInt(boolStr) === 0) return false
             return true
         }
         return defaultVal
@@ -583,7 +584,7 @@ export class GirModule {
         let returnType = 'void'
         let outArrayLengthIndex = -1
 
-        const girVar = girFunc['return-value'] ? girFunc['return-value'][0] : null
+        const girVar = girFunc['return-value']?.[0] || null
         if (girVar) {
             returnType = this.typeLookup(girVar).result
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
@@ -1291,7 +1292,9 @@ export class GirModule {
     private processSignals(cls: GirClassElement | GirInterfaceElement | GirUnionElement, clsName: string) {
         const def: string[] = []
         const signals: GirSignalElement[] =
-            (cls as GirClassElement | GirInterfaceElement).signal || cls['glib:signal'] || []
+            (cls as GirClassElement | GirInterfaceElement).signal ||
+            (cls as GirClassElement | GirInterfaceElement)['glib:signal'] ||
+            []
         if (signals) {
             for (const signal of signals) def.push(...this.getSignalFunc(signal, clsName).def)
         }
@@ -1325,11 +1328,11 @@ export class GirModule {
      */
     private interfaceIsDuplicate(
         cls: GirClassElement | GirInterfaceElement | GirUnionElement,
-        iface: GirClassElement | GirUnionElement | GirInterfaceElement | string,
+        iface: GirClassElement | GirUnionElement | GirInterfaceElement,
     ): boolean {
-        if (typeof iface !== 'string') {
-            if (!iface._fullSymName) return false
-            iface = iface._fullSymName
+        const ifaceName = iface._fullSymName
+        if (!ifaceName) {
+            return false
         }
         let rpt = false
         let bottom = true
@@ -1342,9 +1345,9 @@ export class GirModule {
             if ((sub as GirInterfaceElement).prerequisite) {
                 this.forEachInterface(
                     sub,
-                    (e) => {
+                    (element) => {
                         if (rpt) return
-                        if (e._fullSymName === iface) {
+                        if (element._fullSymName === ifaceName) {
                             rpt = true
                         }
                     },
@@ -1641,19 +1644,20 @@ export class GirModule {
     private generateConstructorAndStaticMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         name: string,
+        indent = '    ',
     ) {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
             // Records, classes and interfaces all have a static name
-            def.push(`    static name: string`)
+            def.push(`${indent}static name: string`)
         }
 
         // JS constructor(s)
         if (isDerivedFromGObject) {
             def.push(
-                `    constructor (config?: ${name}_ConstructProps)`,
-                `    _init (config?: ${name}_ConstructProps): void`,
+                `${indent}constructor (config?: ${name}_ConstructProps)`,
+                `${indent}_init (config?: ${name}_ConstructProps): void`,
             )
         } else {
             const constructor_: GirFunctionElement[] = (girClass['constructor'] || []) as GirFunctionElement[]
@@ -1679,7 +1683,7 @@ export class GirModule {
         def.push(...this.getAllStaticFunctions(girClass, name))
 
         if (isDerivedFromGObject) {
-            def.push(`    static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
+            def.push(`${indent}static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
         }
 
         return { def, isDerivedFromGObject }

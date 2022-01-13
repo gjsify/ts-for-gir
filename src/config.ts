@@ -26,7 +26,10 @@ export class Config {
         pretty: false,
         print: false,
         outdir: './@types',
-        girDirectories: [OS.platform() === 'darwin' ? '/usr/local/share/gir-1.0' : '/usr/share/gir-1.0'],
+        girDirectories:
+            OS.platform() === 'darwin'
+                ? ['/usr/local/share/gir-1.0']
+                : ['/usr/share/gir-1.0', '/usr/share/gnome-shell', '/usr/lib64/mutter-9'],
         modules: ['*'],
         ignore: [],
         verbose: true,

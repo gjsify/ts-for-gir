@@ -9,7 +9,13 @@ import ejs from 'ejs'
 import { Environment } from './types/environment.js'
 import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
-import { GenerateConfig, GirCallableParamElement } from './types/index.js'
+import {
+    GenerateConfig,
+    GirCallableParamElement,
+    GirFunctionElement,
+    GirCallbackElement,
+    GirConstructorElement,
+} from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
 
@@ -170,12 +176,52 @@ export class TemplateProcessor {
     public generateParameter(param: GirCallableParamElement) {
         if (
             typeof param._desc?.name !== 'string' ||
-            typeof param._desc.isOptional !== 'string' ||
+            typeof param._desc.optional !== 'boolean' ||
             typeof param._desc.type !== 'string'
         ) {
             throw new Error('Not all required properties set!')
         }
-        return `${param._desc.name}${param._desc.isOptional}: ${param._desc.type}`
+        return `${param._desc.name}${param._desc.optional ? '?' : ''}: ${param._desc.type}`
+    }
+
+    public generateFunctionReturn(girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement) {
+        if (!girFunc._desc) {
+            throw new Error('Not all required properties set!')
+        }
+
+        const overrideReturnType = girFunc._desc.overrideReturnType
+        const outParams = girFunc._desc.outParams
+        const retTypeIsVoid = girFunc._desc.retTypeIsVoid
+        const returnType = girFunc._desc.returnType
+        let desc = returnType
+
+        // TODO move gjs / node differences logic to transformation.ts
+        if (this.config.environment === 'gjs') {
+            if (overrideReturnType) {
+                desc = overrideReturnType
+            } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`/* returnType */ ${returnType}`)
+                }
+                desc = outParams.join(', ')
+                desc = `[ ${desc} ]`
+            } else if (outParams.length === 1 && retTypeIsVoid) {
+                desc = outParams[0]
+            }
+        }
+        // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
+        if (this.config.environment === 'node') {
+            if (overrideReturnType) {
+                desc = overrideReturnType
+            } else if (outParams.length >= 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`returnType: ${returnType}`)
+                }
+                desc = outParams.join(', ')
+                desc = `{ ${desc} }`
+            }
+        }
+        return desc
     }
 
     /**

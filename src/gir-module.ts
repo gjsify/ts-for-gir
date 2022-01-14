@@ -48,7 +48,6 @@ import type {
     ClassDetails,
     ConstantDescription,
     GirInterfaceElement,
-    DefinitionOptional,
     DescFunction,
     DescParameter,
     DescVar,
@@ -680,7 +679,11 @@ export class GirModule {
                         if (skip.indexOf(param) !== -1) {
                             continue
                         }
+                        // I think it's safest to force inout params to have the
+                        // same type for in and out
+                        const paramType = this.typeLookup(param).result
                         let paramName = this.transformation.transformParameterName(param, false)
+
                         if (paramNames.includes(paramName)) {
                             this.log.warn(
                                 `[${param._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`,
@@ -690,9 +693,6 @@ export class GirModule {
                         paramNames.push(paramName)
                         const optDirection = param.$.direction
                         const out = optDirection === 'out' || optDirection == 'inout'
-                        // I think it's safest to force inout params to have the
-                        // same type for in and out
-                        const paramType = this.typeLookup(param).result
 
                         if (out) {
                             if (this.config.environment === 'gjs') {
@@ -704,9 +704,9 @@ export class GirModule {
                             if (optDirection == 'out') continue
                         }
 
-                        let isOptional: DefinitionOptional = this.paramIsNullable(param) ? '?' : ''
+                        let optional = this.paramIsNullable(param)
 
-                        if (isOptional === '?') {
+                        if (optional) {
                             const index = params.indexOf(param)
                             const following = params
                                 .slice(index)
@@ -714,13 +714,13 @@ export class GirModule {
                                 .filter((p) => p.$.direction !== 'out')
 
                             if (following.some((p) => !this.paramIsNullable(p))) {
-                                isOptional = ''
+                                optional = false
                             }
                         }
 
                         const paramData: DescParameter = {
                             name: paramName,
-                            isOptional,
+                            optional,
                             type: paramType,
                         }
 
@@ -770,17 +770,17 @@ export class GirModule {
         // Use the out type because it can be a union which isn't appropriate
         // for a property
         let typeName = this.typeLookup(girVar).result
-        const nameSuffix = optional ? '?' : ''
+        const affix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
-        const desc = [`${name}${nameSuffix}: ${typeName}`]
+        const desc = [`${name}${affix}: ${typeName}`]
 
         girVar._desc = {
             desc,
             name,
             patched: false,
             optional,
-            nameSuffix,
+            affix,
             type: typeName,
         }
 
@@ -806,7 +806,8 @@ export class GirModule {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         if (this.girBool((girProp as GirFieldElement).$.private)) return null
 
-        const prefix = this.girBool(girProp.$.writable) ? '' : 'readonly '
+        const readonly = this.girBool(girProp.$.writable)
+        const prefix = readonly ? '' : 'readonly '
         const varDesc = this.getVariable(girProp, construct && optional, true, 'property')
         if (!varDesc?.name) {
             return null
@@ -821,6 +822,7 @@ export class GirModule {
         girProp._desc = {
             desc: [`${indent}${prefix}${varDesc.desc[0]}`],
             prefix,
+            readonly,
             origName,
             var: varDesc,
         }
@@ -914,44 +916,33 @@ export class GirModule {
                 girFunc._desc = {
                     patched: true,
                     desc: desc,
+                    arrowType,
+                    returnType,
                     retTypeIsVoid,
                     name,
+                    overrideReturnType,
                     prefix,
                     params: paramsDef.paramDecs,
+                    outParams: paramsDef.outParams,
                 }
                 return girFunc._desc
             }
         }
 
-        // Return types / parameters
-        {
-            // TODO move gjs / node differences logic to transformation.ts
-            if (this.config.environment === 'gjs') {
-                if (overrideReturnType) {
-                    returnType = overrideReturnType
-                } else if (paramsDef.outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
-                    if (!retTypeIsVoid) {
-                        paramsDef.outParams.unshift(`/* returnType */ ${returnType}`)
-                    }
-                    const retDesc = paramsDef.outParams.join(', ')
-                    returnType = `[ ${retDesc} ]`
-                } else if (paramsDef.outParams.length === 1 && retTypeIsVoid) {
-                    returnType = paramsDef.outParams[0]
-                }
-            }
-            // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
-            if (this.config.environment === 'node') {
-                if (overrideReturnType) {
-                    returnType = overrideReturnType
-                } else if (paramsDef.outParams.length >= 1) {
-                    if (!retTypeIsVoid) {
-                        paramsDef.outParams.unshift(`returnType: ${returnType}`)
-                    }
-                    const retDesc = paramsDef.outParams.join(', ')
-                    returnType = `{ ${retDesc} }`
-                }
-            }
+        girFunc._desc = {
+            patched: true,
+            desc: [],
+            arrowType,
+            returnType,
+            retTypeIsVoid,
+            name,
+            overrideReturnType,
+            prefix,
+            params: paramsDef.paramDecs,
+            outParams: paramsDef.outParams,
         }
+
+        const returnDesc = this.templateProcessor.generateFunctionReturn(girFunc)
 
         let retSep: string
         if (arrowType) {
@@ -962,14 +953,9 @@ export class GirModule {
             retSep = ':'
         }
 
-        return {
-            patched: false,
-            desc: [`${indent}${prefix}${name}(${paramsDef.def.join(', ')})${retSep} ${returnType}`],
-            retTypeIsVoid,
-            name,
-            prefix,
-            params: paramsDef.paramDecs,
-        }
+        girFunc._desc.desc = [`${indent}${prefix}${name}(${paramsDef.def.join(', ')})${retSep} ${returnDesc}`]
+
+        return girFunc._desc
     }
 
     private getConstructorFunction(

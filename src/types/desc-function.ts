@@ -2,7 +2,7 @@ import { DescParameter } from '.'
 
 export interface DescFunction {
     desc: string[]
-    name: string | null
+    name: string
     returnType: string
     arrowType: boolean
     overrideReturnType?: string
@@ -10,5 +10,6 @@ export interface DescFunction {
     retTypeIsVoid: boolean
     prefix: string
     params: DescParameter[]
+    paramsDef: string[]
     outParams: string[]
 }

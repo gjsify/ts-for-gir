@@ -186,7 +186,8 @@ export class TemplateProcessor {
 
     public generateFunctionReturn(girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement) {
         if (!girFunc._desc) {
-            throw new Error('Not all required properties set!')
+            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            throw new Error('[generateFunctionReturn] Not all required properties set!')
         }
 
         const overrideReturnType = girFunc._desc.overrideReturnType
@@ -221,6 +222,59 @@ export class TemplateProcessor {
                 desc = `{ ${desc} }`
             }
         }
+        return desc
+    }
+
+    public generateFunction(
+        indent: string,
+        girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
+        methodPatches?: string[],
+    ) {
+        if (!girFunc._desc) {
+            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            throw new Error('[generateFunction] Not all required properties set!')
+        }
+
+        let desc: string[] = []
+        let prefix = girFunc._desc.prefix
+        let name = girFunc._desc.name
+        const arrowType = girFunc._desc?.arrowType
+        const paramsDef = girFunc._desc.paramsDef
+
+        if (methodPatches?.length) {
+            this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
+            // Replace method by commend
+            if (methodPatches.length === 1) {
+                desc = methodPatches.map((patch) => indent + patch)
+            }
+            // Patch method type
+            if (methodPatches.length >= 2) {
+                for (const [i, patchLine] of methodPatches.entries()) {
+                    let descLine = ''
+                    if (i === 1) {
+                        descLine = `${indent}${prefix}${patchLine}`
+                    } else {
+                        descLine = `${indent}${patchLine}`
+                    }
+                    desc.push(descLine)
+                }
+            }
+            return desc
+        }
+
+        const returnDesc = this.generateFunctionReturn(girFunc)
+
+        let retSep: string
+        if (arrowType) {
+            prefix = ''
+            name = ''
+            retSep = ' =>'
+        } else {
+            retSep = ':'
+        }
+
+        desc = [`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`]
+
         return desc
     }
 

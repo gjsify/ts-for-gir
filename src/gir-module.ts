@@ -872,7 +872,7 @@ export class GirModule {
         if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return null
         }
-
+        const packageName = this.getPackageName(girFunc)
         let name = girFunc.$.name
         // eslint-disable-next-line prefer-const
         let { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
@@ -887,48 +887,6 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        // Apply patches
-        {
-            const packageNameToPatch = this.getPackageName(girFunc)
-            const methodPatches = girFunc._fullSymName
-                ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
-                : []
-
-            if (methodPatches?.length) {
-                this.log.warn(`Patch found for method ${girFunc._fullSymName}`)
-                let desc: string[] = []
-                // Replace method by commend
-                if (methodPatches.length === 1) {
-                    desc = methodPatches.map((patch) => indent + patch)
-                }
-                // Patch method type
-                if (methodPatches.length >= 2) {
-                    for (const [i, patchLine] of methodPatches.entries()) {
-                        let descLine = ''
-                        if (i === 1) {
-                            descLine = `${indent}${prefix}${patchLine}`
-                        } else {
-                            descLine = `${indent}${patchLine}`
-                        }
-                        desc.push(descLine)
-                    }
-                }
-                girFunc._desc = {
-                    patched: true,
-                    desc: desc,
-                    arrowType,
-                    returnType,
-                    retTypeIsVoid,
-                    name,
-                    overrideReturnType,
-                    prefix,
-                    params: paramsDef.paramDecs,
-                    outParams: paramsDef.outParams,
-                }
-                return girFunc._desc
-            }
-        }
-
         girFunc._desc = {
             patched: true,
             desc: [],
@@ -939,22 +897,15 @@ export class GirModule {
             overrideReturnType,
             prefix,
             params: paramsDef.paramDecs,
+            paramsDef: paramsDef.def,
             outParams: paramsDef.outParams,
         }
 
-        const returnDesc = this.templateProcessor.generateFunctionReturn(girFunc)
+        const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
-        let retSep: string
-        if (arrowType) {
-            prefix = ''
-            name = ''
-            retSep = ' =>'
-        } else {
-            retSep = ':'
-        }
+        const desc = this.templateProcessor.generateFunction(indent, girFunc, methodPatches)
 
-        girFunc._desc.desc = [`${indent}${prefix}${name}(${paramsDef.def.join(', ')})${retSep} ${returnDesc}`]
-
+        girFunc._desc.desc = desc
         return girFunc._desc
     }
 

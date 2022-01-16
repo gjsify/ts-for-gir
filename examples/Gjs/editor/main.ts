@@ -1,6 +1,7 @@
 import './@types/Gjs/index'
 import * as Gtk from './@types/Gjs/Gtk-3.0'
 import * as GtkSource from './@types/Gjs/GtkSource-3.0'
+import { gettext } from './@types/Gjs/Gjs'
 import { giCast } from './@types/Gjs/cast'
 
 Gtk.init(null)
@@ -33,7 +34,7 @@ wnd.connect('delete-event', () => {
 })
 
 print('hello world')
-import { gettext } from './@types/Gjs/Gjs'
+
 const locale = gettext.setlocale(gettext.LocaleCategory.ALL, null)
 print('locale', locale)
 

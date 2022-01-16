@@ -4,4 +4,6 @@ export interface ClassDetails {
     parentName?: string
     qualifiedParentName?: string
     localParentName?: string // qualified if its module != qualifiedName's module
+    namespace: string
+    version: string
 }

@@ -2,28 +2,29 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
-import * as inquirer from 'inquirer'
+import inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import fs from 'fs'
-import { bold } from 'chalk'
+import chalk from 'chalk'
 import * as xml2js from 'xml2js'
-import {
+import type {
     GirModulesGroupedMap,
     ParsedGir,
     GenerateConfig,
-    ResolveType,
     GirModuleResolvedBy,
     GirModulesGrouped,
     DependencyMap,
     Dependency,
     AnswerVersion,
-} from './types'
-import { GirModule } from './gir-module'
-import { Config } from './config'
-import { Logger } from './logger'
-import { Utils } from './utils'
+} from './types/index.js'
+import { ResolveType } from './types/index.js'
+import { GirModule } from './gir-module.js'
+import { Config } from './config.js'
+import { Logger } from './logger.js'
+import { Utils } from './utils.js'
 
+const bold = chalk.bold
 export class ModuleLoader {
     log: Logger
     /** Transitive module dependencies */
@@ -33,7 +34,7 @@ export class ModuleLoader {
     }
 
     /**
-     * Groupes Gir modules by name id
+     * Groups Gir modules by name id
      * E.g. Gtk-3.0 and Gtk-4.0 will be grouped
      * @param girFiles
      */
@@ -41,12 +42,12 @@ export class ModuleLoader {
         const girModulesGrouped: GirModulesGroupedMap = {}
 
         for (const resolveGirModule of resolveGirModules) {
-            const { name } = Utils.splitModuleName(resolveGirModule.packageName)
-            const id = name.toLowerCase()
+            const { namespace } = Utils.splitModuleName(resolveGirModule.packageName)
+            const id = namespace.toLowerCase()
 
             if (!girModulesGrouped[id]) {
                 girModulesGrouped[id] = {
-                    name: name,
+                    namespace: namespace,
                     modules: [resolveGirModule],
                     hasConflict: false,
                 }
@@ -60,13 +61,13 @@ export class ModuleLoader {
     }
 
     /**
-     * Sorts out the module the user has not choosed via cli prompt
+     * Sorts out the module the user has not selected via cli prompt
      * @param girModulesGrouped
-     * @param keepFullName Users choosed module packageName
+     * @param keepFullName Users selected module packageName
      */
     private sortVersionsByAnswer(
         girModulesGrouped: GirModulesGrouped,
-        answeredFullName: string,
+        selected: string[],
     ): { keep: Set<GirModuleResolvedBy>; ignore: string[] } {
         const keep = new Set<GirModuleResolvedBy>()
         let ignore: string[] = []
@@ -74,17 +75,21 @@ export class ModuleLoader {
         if (!girModulesGrouped.hasConflict) {
             keep.add(girModulesGrouped.modules[0])
         } else {
-            const keepModule = this.findGirModuleByFullName(girModulesGrouped.modules, answeredFullName) as
-                | GirModuleResolvedBy
-                | undefined
+            const keepModules = this.findGirModuleByFullNames(
+                girModulesGrouped.modules,
+                selected,
+            ) as GirModuleResolvedBy[]
             const girModulePackageNames = girModulesGrouped.modules.map(
                 (resolveGirModule) => resolveGirModule.packageName,
             )
-            if (!keepModule) {
+            if (!keepModules || keepModules.length <= 0) {
                 throw new Error('Module not found!')
             }
-            keep.add(keepModule)
-            const toIgnore = girModulePackageNames.filter((packageName) => packageName !== answeredFullName)
+            for (const keepModule of keepModules) {
+                keep.add(keepModule)
+            }
+
+            const toIgnore = girModulePackageNames.filter((packageName) => !selected.includes(packageName))
             ignore = ignore.concat(toIgnore)
         }
 
@@ -137,20 +142,27 @@ export class ModuleLoader {
             question = this.generateContinueQuestion()
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const answer: string = (await inquirer.prompt([question])).continue
         return answer as 'Yes' | 'No' | 'Go back'
     }
 
+    /**
+     * Ask for duplicates / multiple versions of a module
+     * @param girModuleGrouped
+     * @param message
+     */
     private generateModuleVersionQuestion(
         girModuleGrouped: GirModulesGrouped,
         message?: string,
     ): inquirer.ListQuestion {
-        message = message || `Multiple versions of '${girModuleGrouped.name}' found, which one do you want to use?`
+        message = message || `Multiple versions of '${girModuleGrouped.namespace}' found, which one do you want to use?`
+        const choices = ['All', ...girModuleGrouped.modules.map((module) => module.packageName)]
         const question: inquirer.ListQuestion = {
-            name: girModuleGrouped.name,
+            name: girModuleGrouped.namespace,
             message,
             type: 'list',
-            choices: girModuleGrouped.modules.map((module) => module.packageName),
+            choices,
         }
         return question
     }
@@ -198,18 +210,27 @@ export class ModuleLoader {
 
     private async askForVersionsPrompt(girModulesGrouped: GirModulesGrouped): Promise<AnswerVersion> {
         const question = this.generateModuleVersionQuestion(girModulesGrouped)
-        if (!question.choices) {
+        const choices = question.choices as string[]
+        if (!choices) {
             throw new Error('No valid questions!')
         }
-        const choosed: string = (await inquirer.prompt([question]))[girModulesGrouped.name]
-        if (!choosed) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const selected: string = (await inquirer.prompt([question]))[girModulesGrouped.namespace]
+        if (!selected) {
             throw new Error('No valid answer!')
         }
 
-        const unchoosed = (question.choices as string[]).filter((choice) => choice !== choosed)
+        if (selected === 'All') {
+            return {
+                selected: choices.filter((choice) => choice !== 'All'),
+                unselected: [],
+            }
+        }
+
+        const unselected = choices.filter((choice) => choice !== selected)
         return {
-            choosed,
-            unchoosed,
+            selected: [selected],
+            unselected,
         }
     }
 
@@ -244,8 +265,8 @@ export class ModuleLoader {
                 let wouldIgnoreDeps: GirModuleResolvedBy[] = []
                 while (goBack) {
                     versionAnswer = await this.askForVersionsPrompt(girModulesGrouped)
-                    // Check modules that depend on the unchoosed modules
-                    wouldIgnoreDeps = this.findModulesDependOnPackages(girModulesGroupedMap, versionAnswer.unchoosed)
+                    // Check modules that depend on the unchosen modules
+                    wouldIgnoreDeps = this.findModulesDependOnPackages(girModulesGroupedMap, versionAnswer.unselected)
                     // Do not check dependencies that have already been ignored
                     wouldIgnoreDeps = wouldIgnoreDeps.filter((dep) => !ignore.includes(dep.packageName))
                     ignoreDepsAnswer = await this.askIgnoreDepsPrompt(wouldIgnoreDeps)
@@ -260,10 +281,10 @@ export class ModuleLoader {
                     ignore = ignore.concat(wouldIgnoreDeps.map((dep) => dep.packageName))
                 }
 
-                const unionMe = this.sortVersionsByAnswer(girModulesGrouped, versionAnswer.choosed)
-                // Do not ignore the choosed package version
+                const unionMe = this.sortVersionsByAnswer(girModulesGrouped, versionAnswer.selected)
+                // Do not ignore the selected package version
                 keep = Utils.union<GirModuleResolvedBy>(keep, unionMe.keep)
-                // Ignore the unchoosed package versions
+                // Ignore the unchosen package versions
                 ignore = ignore.concat(unionMe.ignore)
             }
         }
@@ -295,6 +316,7 @@ export class ModuleLoader {
             },
         ]
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const answer: { [name: string]: string } = await inquirer.prompt(questions)
 
         if (answer.addToIgnore === 'Yes') {
@@ -338,9 +360,9 @@ export class ModuleLoader {
         this.modDependencyMap[girModule.packageName || '-'] = Utils.map(
             girModule.dependencies || [],
             (packageName: string): Dependency => {
-                const { name, version } = Utils.splitModuleName(packageName)
+                const { namespace, version } = Utils.splitModuleName(packageName)
                 return {
-                    name,
+                    namespace,
                     version,
                     packageName,
                 }
@@ -375,32 +397,32 @@ export class ModuleLoader {
         this.log.log(`Parsing ${file.path}...`)
         const fileContents = fs.readFileSync(file.path, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
-        const gi = new GirModule(result, this.config)
+        const girModule = new GirModule(result, this.config)
         // Figure out transitive module dependencies
-        this.extendDependencyMapByGirModule(gi)
-        return gi
+        this.extendDependencyMapByGirModule(girModule)
+        return girModule
     }
 
     /**
      * Returns a girModule found by `packageName` property
      * @param girModules Array of girModules
-     * @param packageName Full name like 'Gtk-3.0' you are looking for
+     * @param packageNames Full name like 'Gtk-3.0' you are looking for
      */
-    private findGirModuleByFullName(
+    private findGirModuleByFullNames(
         girModules: (GirModuleResolvedBy | GirModule)[],
-        packageName: string,
-    ): GirModuleResolvedBy | GirModule | undefined {
-        return girModules.find((girModule) => girModule.packageName === packageName)
+        packageNames: string[],
+    ): Array<GirModuleResolvedBy | GirModule> {
+        return girModules.filter((girModule) => packageNames.includes(girModule.packageName))
     }
 
     /**
-     * Checks if a girModule with an equal `packageName` property exists
+     * Checks if a girModules with the `packageNames` exists
      * @param girModules
      * @param packageName
      */
-    private existsGirModule(girModules: (GirModuleResolvedBy | GirModule)[], packageName: string): boolean {
-        const foundModule = this.findGirModuleByFullName(girModules, packageName)
-        return typeof foundModule !== 'undefined'
+    private existsGirModules(girModules: (GirModuleResolvedBy | GirModule)[], packageNames: string[]): boolean {
+        const foundModule = this.findGirModuleByFullNames(girModules, packageNames)
+        return foundModule.length > 0
     }
 
     /**
@@ -420,20 +442,20 @@ export class ModuleLoader {
         let newModuleFound = false
 
         while (girToLoad.length > 0) {
-            const packageName = girToLoad.shift()
+            const packageName = girToLoad.shift() || 'unknown'
             if (!packageName) throw new Error(`Module name '${packageName} 'not found!`)
             // If module has not already been loaded
-            if (!this.existsGirModule(girModules, packageName)) {
-                const gi = await this.loadAndCreateGirModule(packageName)
-                if (!gi) {
+            if (!this.existsGirModules(girModules, [packageName])) {
+                const girModule = await this.loadAndCreateGirModule(packageName)
+                if (!girModule) {
                     if (!failedGirModules.has(packageName)) {
                         this.log.warn(`No gir file found for '${packageName}', this module will be ignored`)
                         failedGirModules.add(packageName)
                     }
-                } else if (gi && gi.packageName) {
+                } else if (girModule && girModule.packageName) {
                     const addModule = {
-                        packageName: gi.packageName,
-                        module: gi,
+                        packageName: girModule.packageName,
+                        module: girModule,
                         resolvedBy,
                     }
                     girModules.push(addModule)
@@ -478,7 +500,7 @@ export class ModuleLoader {
     private async findModules(modules: string[], ignore: string[] = []): Promise<Set<string>> {
         const foundModules = new Set<string>()
 
-        for (const i in modules) {
+        for (let i = 0; i < modules.length; i++) {
             if (modules[i]) {
                 const filename = `${modules[i]}.gir`
                 let files: string[] = []
@@ -507,7 +529,7 @@ export class ModuleLoader {
         modules: string[],
         ignore: string[] = [],
         doNotAskForVersionOnConflict = true,
-    ): Promise<{ keep: GirModuleResolvedBy[]; ignore: string[]; failed: Set<string> }> {
+    ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
         const foundGirModules = await this.findModules(modules, ignore)
         const { loaded, failed } = await this.loadGirModules(foundGirModules)
         let keep: GirModuleResolvedBy[] = []
@@ -519,7 +541,9 @@ export class ModuleLoader {
             keep = Array.from(filtered.keep)
         }
 
-        return { keep, ignore, failed }
+        const grouped = this.groupGirFiles(keep)
+
+        return { keep, grouped, ignore, failed }
     }
 
     /**

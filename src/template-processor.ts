@@ -6,29 +6,44 @@
 import fs from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
-import { Environment } from './types/environment'
-import { Transformation } from './transformation'
-import { Logger } from './logger'
-import { GenerateConfig } from './types'
-import { CLIEngine } from 'eslint' // TODO depricated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+import { Environment } from './types/environment.js'
+import { Transformation } from './transformation.js'
+import { Logger } from './logger.js'
+import {
+    GenerateConfig,
+    GirCallableParamElement,
+    GirFunctionElement,
+    GirCallbackElement,
+    GirConstructorElement,
+} from './types/index.js'
+import { ESLint } from 'eslint'
+import { fileURLToPath } from 'url'
 
-const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
+const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
+
+// Get __dirname on ESM
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = Path.dirname(__filename)
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {
-    private environmentTemplateDir: string
-    private log: Logger
+    protected environmentTemplateDir: string
+    protected log: Logger
+    protected transformation: Transformation
+    protected packageName: string
     constructor(
         protected readonly data: ejs.Data | undefined,
-        moduleName = 'TemplateProcessor',
-        private readonly config: GenerateConfig,
+        packageName: string,
+        protected readonly config: GenerateConfig,
     ) {
+        this.packageName = packageName
+        this.transformation = new Transformation(this.packageName, config)
         this.environmentTemplateDir = Transformation.getEnvironmentDir(config.environment, TEMPLATE_DIR)
-        this.log = new Logger(config.environment, config.verbose, moduleName)
+        this.log = new Logger(config.environment, config.verbose, this.packageName)
     }
 
-    public static generateIndent(indents = 1, spaceForIndent = 4): string {
+    public generateIndent(indents = 1, spaceForIndent = 4): string {
         return ' '.repeat(indents * spaceForIndent)
     }
 
@@ -36,7 +51,7 @@ export class TemplateProcessor {
      * See https://github.com/microsoft/tsdoc
      * @param description
      */
-    public static generateTSDocComment(description: string): string[] {
+    public generateTSDocComment(description: string): string[] {
         const result: string[] = []
         result.push('/**')
         result.push(` * ${description}`)
@@ -44,66 +59,90 @@ export class TemplateProcessor {
         return result
     }
 
-    public static generateModuleDependenciesImport(
-        namespace: string,
-        baseFilename: string,
-        asType = false,
-        config: GenerateConfig,
-    ): string[] {
+    /**
+     *
+     * @param namespace E.g. 'Gtk'
+     * @param packageName E.g. 'Gtk-3.0'
+     * @param asExternType Currently only used for node type imports
+     */
+    public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const result: string[] = []
-        if (config.buildType === 'lib') {
-            const sas = config.exportDefault && baseFilename !== 'Gjs' ? '' : '* as '
-            result.push(`import ${sas}${namespace} from './${baseFilename}';`)
+        if (this.config.buildType === 'lib') {
+            const sas = this.config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
+            result.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else {
-            if (asType) {
-                result.push(`/// <reference types="${baseFilename}" />`)
+            if (asExternType) {
+                // result.push(`/// <reference types="${packageName}" />`)
+                result.push(`import "${packageName}"`)
             } else {
-                result.push(`/// <reference path="${baseFilename}.d.ts" />`)
+                // result.push(`/// <reference path="${packageName}.d.ts" />`)
+                result.push(`import type { ${namespace} } from './${packageName}';`)
             }
         }
         return result
     }
 
-    public static generateSignalMethods(
-        environment: Environment,
+    public generateExport(type: string, name: string, definition: string) {
+        const exp = this.config.exportDefault ? '' : 'export '
+        if (!definition.startsWith(':')) {
+            definition = ' ' + definition
+        }
+        return `${exp}${type} ${name}${definition}`
+    }
+
+    public generateSignalMethods(
         sigName: string,
         clsName: string,
         paramComma: ', ' | '',
-        params: string,
+        params: string[],
         retType: string,
         identCount = 1,
-    ): string[] {
+    ) {
         const ident = this.generateIndent(identCount)
-        const signalMethods = [
-            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`,
-        ]
-        if (environment === 'node') {
-            signalMethods.push(
-                `${ident}on(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+        const def: string[] = []
+        def.push(
+            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+                ', ',
+            )}) => ${retType})): number`,
+        )
+        if (this.config.environment === 'gjs') {
+            def.push(
+                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+                    ', ',
+                )}) => ${retType})): number`,
             )
         }
-        return signalMethods
+        if (this.config.environment === 'node') {
+            def.push(
+                `${ident}on(sigName: "${sigName}", callback: (${params.join(
+                    ', ',
+                )}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}once(sigName: "${sigName}", callback: (${params.join(
+                    ', ',
+                )}) => void, after?: boolean): NodeJS.EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: (${params.join(', ')}) => void): NodeJS.EventEmitter`,
+            )
+        }
+        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params.join(', ')}): void`)
+        return {
+            def,
+        }
     }
 
-    public static generateGObjectSignalMethods(
-        environment: Environment,
+    public generateGObjectSignalMethods(
         propertyName: string,
         callbackObjectName: string,
-        nampespacePrefix: string,
+        namespacePrefix: string,
         identCount = 1,
     ): string[] {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
         result.push(
-            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
-            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
         result.push()
-        if (environment === 'node') {
+        if (this.config.environment === 'node') {
             result.push(
                 `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
                 `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
@@ -114,7 +153,7 @@ export class TemplateProcessor {
         return result
     }
 
-    public static generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
+    public generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
         result.push(
@@ -134,13 +173,118 @@ export class TemplateProcessor {
         return result
     }
 
+    public generateParameter(param: GirCallableParamElement) {
+        if (
+            typeof param._desc?.name !== 'string' ||
+            typeof param._desc.optional !== 'boolean' ||
+            typeof param._desc.type !== 'string'
+        ) {
+            throw new Error('Not all required properties set!')
+        }
+        return `${param._desc.name}${param._desc.optional ? '?' : ''}: ${param._desc.type}`
+    }
+
+    public generateFunctionReturn(girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement) {
+        if (!girFunc._desc) {
+            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            throw new Error('[generateFunctionReturn] Not all required properties set!')
+        }
+
+        const overrideReturnType = girFunc._desc.overrideReturnType
+        const outParams = girFunc._desc.outParams
+        const retTypeIsVoid = girFunc._desc.retTypeIsVoid
+        const returnType = girFunc._desc.returnType
+        let desc = returnType
+
+        // TODO move gjs / node differences logic to transformation.ts
+        if (this.config.environment === 'gjs') {
+            if (overrideReturnType) {
+                desc = overrideReturnType
+            } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`/* returnType */ ${returnType}`)
+                }
+                desc = outParams.join(', ')
+                desc = `[ ${desc} ]`
+            } else if (outParams.length === 1 && retTypeIsVoid) {
+                desc = outParams[0]
+            }
+        }
+        // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
+        if (this.config.environment === 'node') {
+            if (overrideReturnType) {
+                desc = overrideReturnType
+            } else if (outParams.length >= 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`returnType: ${returnType}`)
+                }
+                desc = outParams.join(', ')
+                desc = `{ ${desc} }`
+            }
+        }
+        return desc
+    }
+
+    public generateFunction(
+        indent: string,
+        girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
+        methodPatches?: string[],
+    ) {
+        if (!girFunc._desc) {
+            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            throw new Error('[generateFunction] Not all required properties set!')
+        }
+
+        let desc: string[] = []
+        let prefix = girFunc._desc.prefix
+        let name = girFunc._desc.name
+        const arrowType = girFunc._desc?.arrowType
+        const paramsDef = girFunc._desc.paramsDef
+
+        if (methodPatches?.length) {
+            this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
+            // Replace method by commend
+            if (methodPatches.length === 1) {
+                desc = methodPatches.map((patch) => indent + patch)
+            }
+            // Patch method type
+            if (methodPatches.length >= 2) {
+                for (const [i, patchLine] of methodPatches.entries()) {
+                    let descLine = ''
+                    if (i === 1) {
+                        descLine = `${indent}${prefix}${patchLine}`
+                    } else {
+                        descLine = `${indent}${patchLine}`
+                    }
+                    desc.push(descLine)
+                }
+            }
+            return desc
+        }
+
+        const returnDesc = this.generateFunctionReturn(girFunc)
+
+        let retSep: string
+        if (arrowType) {
+            prefix = ''
+            name = ''
+            retSep = ' =>'
+        } else {
+            retSep = ':'
+        }
+
+        desc = [`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`]
+
+        return desc
+    }
+
     /**
      * Loads and renders a template and gets the rendered string back
      * @param templateFilename
      */
-    public load(templateFilename: string): string {
+    public async load(templateFilename: string): Promise<string> {
         const fileContent = this.read(templateFilename)
-        return this.render(fileContent)
+        return await this.render(fileContent)
     }
 
     /**
@@ -150,28 +294,40 @@ export class TemplateProcessor {
      * @param outputFilename
      * @return The rendered (and if possible prettified) code string
      */
-    public create(templateFilename: string, outputDir: string, outputFilename: string): string {
-        const fileContent = this.load(templateFilename)
-        const renderedCode = this.render(fileContent)
-        const destPath = this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.config.pretty ? this.prettify(destPath, true) : null
+    public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
+        const fileContent = await this.load(templateFilename)
+        const renderedCode = await this.render(fileContent)
+        const destPath = await this.write(renderedCode, outputDir, outputFilename)
+        const prettifiedCode = this.config.pretty ? await this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 
-    protected write(content: string, outputDir: string, outputFilename: string): string {
-        outputDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
-        const destPath = Path.join(outputDir, outputFilename)
+    protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
+        const outputEnvDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
+        const destPath = Path.join(outputEnvDir, outputFilename)
 
         // write template result file
-        fs.mkdirSync(outputDir, { recursive: true })
-        fs.writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
+        await fs.promises.mkdir(outputDir, { recursive: true })
+        await fs.promises.writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return destPath
     }
 
-    protected render(templateString: string, additionalData: any = {}): string {
-        const renderedCode = ejs.render(templateString, { ...this.config, ...this.data, ...additionalData })
-        return renderedCode
+    protected async render(templateString: string, additionalData: Partial<ejs.Options> = {}): Promise<string> {
+        try {
+            const renderedCode = await Promise.resolve(
+                ejs.render(templateString, {
+                    async: true,
+                    ...this.config,
+                    ...this.data,
+                    ...additionalData,
+                }),
+            )
+            return renderedCode
+        } catch (error) {
+            this.log.error(error)
+            return ''
+        }
     }
 
     /**
@@ -191,41 +347,43 @@ export class TemplateProcessor {
         return null
     }
 
-    public prettify(path: string, changeFile = false): string | null {
+    public async prettify(path: string, changeFile = false): Promise<string | null> {
         let hasError = false
-        let report: any
+        let reports: ESLint.LintResult[] | undefined
         let prettifiedCode: string | null = null
-        this.log.info(`   Prettify ...`)
+        const filename = Path.basename(path)
+        this.log.info(`   Prettify ${filename}...`)
         try {
-            report = lint.executeOnFiles([path])
+            reports = await lint.lintFiles([path])
         } catch (error) {
             this.log.warn(error)
             hasError = true
         }
 
-        if (report?.errorCount > 0) {
+        if (reports && reports[0].errorCount > 0) {
             hasError = true
         }
 
-        prettifiedCode = report?.results[0]?.output || null
+        prettifiedCode = (reports && reports[0]?.output) || null
 
         if (hasError) {
             if (!prettifiedCode) {
-                this.log.warn(
-                    `Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`,
-                )
-                this.log.dir(report)
-
-                report?.results.forEach((result) => {
-                    if (result.message) {
-                        this.log.log(result.message)
-                    }
-                })
+                this.log.warn(`Can't prettify file: "${path}", please check errors or your .eslintrc.js config file`)
+                if (reports) {
+                    // this.log.dir(report)
+                    reports?.forEach((result) => {
+                        if (result.messages) {
+                            for (const message of result.messages) {
+                                // You can also log more than just the message if you need more information
+                                this.log.warn(message.message)
+                            }
+                        }
+                    })
+                }
             }
         } else {
-            prettifiedCode = report.results[0].output
             if (prettifiedCode && changeFile) {
-                this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
+                await this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
             }
         }
 
@@ -233,9 +391,9 @@ export class TemplateProcessor {
     }
 
     /**
-     * Reads a template file from filesystem and gets the unrendered string back
+     * Reads a template file from filesystem and gets the raw string back
      * @param templateFilename
-     * @return The unrendered template content
+     * @return The raw template content
      */
     protected read(templateFilename: string): string {
         const path = this.exists(templateFilename)

@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 
 export class Utils {
-    public static splitModuleName(packageName: string): { packageName: string; name: string; version: string } {
+    public static splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
         // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
-        const splitted = packageName.split('-')
-        const version = splitted.splice(-1, 1)[0]
-        const name = splitted.join('-')
+        const splits = packageName.split('-')
+        const version = splits.splice(-1, 1)[0]
+        const namespace = splits.join('-')
         return {
             packageName,
-            name,
+            namespace,
             version,
         }
     }
@@ -25,6 +26,7 @@ export class Utils {
     }
 
     public static isNumeric(str: string): boolean {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return !isNaN((str as any) - parseFloat(str))
     }
 

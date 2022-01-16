@@ -3,10 +3,17 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType, GenerateConfig } from './types'
+import {
+    Transformations,
+    Environment,
+    ConstructName,
+    GenerateConfig,
+    GirCallableParamElement,
+    GirEnumElement,
+} from './types/index.js'
 import Path from 'path'
-import { Utils } from './utils'
-import { Logger } from './logger'
+import { Utils } from './utils.js'
+import { Logger } from './logger.js'
 
 export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
     return {
@@ -17,28 +24,50 @@ export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; 
     }
 }
 
+/**
+ * @see https://developer.gnome.org/glib/stable/glib-Basic-Types.html
+ */
 export const POD_TYPE_MAP = {
     utf8: 'string',
     none: 'void',
     double: 'number',
-    guint32: 'number',
-    guint16: 'number',
-    gint16: 'number',
-    gunichar: 'number',
-    gint8: 'number',
-    gint32: 'number',
-    gushort: 'number',
-    gfloat: 'number',
-    gboolean: 'boolean',
-    gpointer: 'object',
-    gchar: 'number',
+    'double*': 'number',
     guint: 'number',
+    'guint*': 'number',
+    guint8: 'number',
+    'guint8*': 'number',
+    'guint8**': 'number',
+    guint16: 'number',
+    'guint16*': 'number',
+    gint16: 'number',
+    'gint16*': 'number',
+    guint32: 'number',
+    'guint32*': 'number',
+    guint64: 'number',
+    'guint64*': 'number',
+    gunichar: 'number',
+    'gunichar*': 'number',
+    gint: 'number',
+    'gint*': 'number',
+    gint8: 'number',
+    'gint8*': 'number',
+    gint32: 'number',
+    'gint32*': 'number',
+    gint64: 'number',
+    'gint64*': 'number',
+    gushort: 'number',
+    'gushort*': 'number',
+    gfloat: 'number',
+    'gfloat*': 'number',
+    gboolean: 'boolean',
+    'gboolean*': 'boolean',
+    gpointer: 'object',
+    'gpointer*': 'object',
+    gconstpointer: 'object',
+    gchar: 'number',
+    guchar: 'number',
     glong: 'number',
     gulong: 'number',
-    gint: 'number',
-    guint8: 'number',
-    guint64: 'number',
-    gint64: 'number',
     gdouble: 'number',
     gssize: 'number',
     gsize: 'number',
@@ -47,27 +76,37 @@ export const POD_TYPE_MAP = {
     gshort: 'number',
     filename: 'string',
     va_list: 'any',
+    guintptr: 'number',
 }
 
-export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CTypeMap => {
-    return {
+export const C_TYPE_MAP = (value: string): string | undefined => {
+    const cTypeMap = {
         'char*': 'string',
         'gchar*': 'string',
-        'gchar**': 'any', // FIXME
-        GType: ((targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') + suffix) as GType,
+        'gchar**': 'string', // TODO CHECKME
+        'gchar***': 'string', // TODO CHECKME
+        'const gchar*': 'string', // TODO CHECKME
+        'const char*': 'string', // TODO CHECKME
+        uint8: 'number',
+        int8: 'number',
+        int32: 'number',
+        uint16: 'number',
+        'int*': 'number',
+        int: 'number',
+        boolean: 'boolean',
     }
-}
-
-interface FullTypeMap {
-    'GObject.Value': string
-    'GObject.Closure': string
-    'GLib.ByteArray': string
-    'GLib.Bytes'?: string
+    const result = cTypeMap[value as keyof typeof cTypeMap]
+    return result
 }
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
 // See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
-export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap => {
+export const FULL_TYPE_MAP = (
+    environment: Environment,
+    packageName: string,
+    value: string,
+    out = true,
+): string | undefined => {
     let ba: string
     let gb: string | undefined
     if (environment === 'gjs') {
@@ -83,12 +122,21 @@ export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap
         ba = 'any'
         gb = 'any'
     }
-    return {
+
+    if (value.endsWith('GType')) {
+        value = 'GType'
+    }
+
+    const fullTypeMap = {
         'GObject.Value': 'any',
         'GObject.Closure': 'Function',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
+        GType: packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type',
     }
+
+    const result = fullTypeMap[value as keyof typeof fullTypeMap]
+    return result
 }
 
 export const RESERVED_VARIABLE_NAMES = [
@@ -107,6 +155,8 @@ export const RESERVED_VARIABLE_NAMES = [
     'class',
     'delete',
     'return',
+    'constructor',
+    'this', // TODO check if this is used as we would use this in javascript, if so, this is only allowed as the first parameter
 ]
 
 export const RESERVED_CLASS_NAMES = [
@@ -274,7 +324,13 @@ export class Transformation {
         return name
     }
 
-    public transformEnumName(name: string): string {
+    /**
+     * // E.g. the NetworkManager-1.0 has enum names starting with 80211
+     * @param e The enum
+     * @returns The transformed name
+     */
+    public transformEnumName(e: GirEnumElement): string {
+        let name = e.$.name
         name = this.transform('enumName', name)
         const originalName = `${name}`
 
@@ -285,7 +341,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${e._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -359,7 +415,8 @@ export class Transformation {
         return name
     }
 
-    public transformParameterName(name: string, allowQuotes: boolean): string {
+    public transformParameterName(param: GirCallableParamElement, allowQuotes: boolean): string {
+        let name = param.$.name || '-'
         // Such a variable name exists in `GConf-2.0.d.ts` class `Engine` method `change_set_from_current`
         if (name === '...') {
             return '...args'
@@ -373,7 +430,7 @@ export class Transformation {
 
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`Parameter name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${param._fullSymName || ''}] Parameter name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -426,10 +483,11 @@ export class Transformation {
     }
 
     static getEnvironmentDir(environment: Environment, baseDir: string): string {
-        if (environment == 'gjs') {
-            return Path.join(baseDir, 'Gjs')
-        }
-        if (environment == 'node') {
+        if (!baseDir.endsWith(environment))
+            if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
+                return Path.join(baseDir, 'Gjs')
+            }
+        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
             return Path.join(baseDir, 'node-gtk')
         }
         return baseDir

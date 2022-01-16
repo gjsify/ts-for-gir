@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.1"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="libxml2" version="2.0"/>
+  <package name="gobject-2.0"/>
+  <package name="gstreamer-0.10"/>
+  <package name="gstreamer-pbutils-0.10"/>
+  <namespace name="GstPbutils"
+             version="0.10"
+             shared-library="libgstpbutils-0.10.so.0"
+             c:prefix="GstPbutils">
+    <record name="GstInstallPluginsContext"
+            c:type="GstInstallPluginsContext"
+            version="0.10.12"
+            glib:type-name="GstInstallPluginsContext"
+            glib:get-type="gst_install_plugins_context_get_type">
+      <doc xml:whitespace="preserve">Opaque context structure for the plugin installation. Use the provided
+API to set details on it.</doc>
+      <constructor name="new" c:identifier="gst_install_plugins_context_new">
+        <return-value transfer-ownership="full">
+          <type name="GstInstallPluginsContext"
+                c:type="GstInstallPluginsContext*"/>
+        </return-value>
+      </constructor>
+      <method name="free" c:identifier="gst_install_plugins_context_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="set_xid"
+              c:identifier="gst_install_plugins_context_set_xid">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="xid" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <callback name="GstInstallPluginsResultFunc"
+              c:type="GstInstallPluginsResultFunc"
+              version="0.10.12">
+      <doc xml:whitespace="preserve">The prototype of the callback function that will be called once the
+external plugin installer program has returned. You only need to provide
+a callback function if you are using the asynchronous interface.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="result" transfer-ownership="none">
+          <doc xml:whitespace="preserve">whether the installation of the requested plugins succeeded or not</doc>
+          <type name="GstInstallPluginsReturn"
+                c:type="GstInstallPluginsReturn"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="1">
+          <doc xml:whitespace="preserve">the user data passed to gst_install_plugins_async()</doc>
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <enumeration name="GstInstallPluginsReturn"
+                 version="0.10.12"
+                 glib:type-name="GstInstallPluginsReturn"
+                 glib:get-type="gst_install_plugins_return_get_type"
+                 c:type="GstInstallPluginsReturn">
+      <doc xml:whitespace="preserve">Result codes returned by gst_install_plugins_async() and
+gst_install_plugins_sync(), and also the result code passed to the
+#GstInstallPluginsResultFunc specified with gst_install_plugin_async().
+These codes indicate success or failure of starting an external installer
+program and to what extent the requested plugins could be installed.</doc>
+      <member name="success"
+              value="0"
+              c:identifier="GST_INSTALL_PLUGINS_SUCCESS"
+              glib:nick="success"/>
+      <member name="not_found"
+              value="1"
+              c:identifier="GST_INSTALL_PLUGINS_NOT_FOUND"
+              glib:nick="not-found"/>
+      <member name="error"
+              value="2"
+              c:identifier="GST_INSTALL_PLUGINS_ERROR"
+              glib:nick="error"/>
+      <member name="partial_success"
+              value="3"
+              c:identifier="GST_INSTALL_PLUGINS_PARTIAL_SUCCESS"
+              glib:nick="partial-success"/>
+      <member name="user_abort"
+              value="4"
+              c:identifier="GST_INSTALL_PLUGINS_USER_ABORT"
+              glib:nick="user-abort"/>
+      <member name="crashed"
+              value="100"
+              c:identifier="GST_INSTALL_PLUGINS_CRASHED"
+              glib:nick="crashed"/>
+      <member name="invalid"
+              value="101"
+              c:identifier="GST_INSTALL_PLUGINS_INVALID"
+              glib:nick="invalid"/>
+      <member name="started_ok"
+              value="200"
+              c:identifier="GST_INSTALL_PLUGINS_STARTED_OK"
+              glib:nick="started-ok"/>
+      <member name="internal_failure"
+              value="201"
+              c:identifier="GST_INSTALL_PLUGINS_INTERNAL_FAILURE"
+              glib:nick="internal-failure"/>
+      <member name="helper_missing"
+              value="202"
+              c:identifier="GST_INSTALL_PLUGINS_HELPER_MISSING"
+              glib:nick="helper-missing"/>
+      <member name="install_in_progress"
+              value="203"
+              c:identifier="GST_INSTALL_PLUGINS_INSTALL_IN_PROGRESS"
+              glib:nick="install-in-progress"/>
+    </enumeration>
+    <function name="gst_install_plugins_async"
+              c:identifier="gst_install_plugins_async">
+      <return-value transfer-ownership="full">
+        <type name="GstInstallPluginsReturn" c:type="GstInstallPluginsReturn"/>
+      </return-value>
+      <parameters>
+        <parameter name="details" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="GstInstallPluginsContext"
+                c:type="GstInstallPluginsContext*"/>
+        </parameter>
+        <parameter name="func"
+                   transfer-ownership="none"
+                   scope="call"
+                   closure="3">
+          <type name="GstInstallPluginsResultFunc"
+                c:type="GstInstallPluginsResultFunc"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none">
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_install_plugins_installation_in_progress"
+              c:identifier="gst_install_plugins_installation_in_progress">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="gst_install_plugins_return_get_name"
+              c:identifier="gst_install_plugins_return_get_name">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="ret" transfer-ownership="none">
+          <type name="GstInstallPluginsReturn"
+                c:type="GstInstallPluginsReturn"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_install_plugins_supported"
+              c:identifier="gst_install_plugins_supported">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="gst_install_plugins_sync"
+              c:identifier="gst_install_plugins_sync">
+      <return-value transfer-ownership="full">
+        <type name="GstInstallPluginsReturn" c:type="GstInstallPluginsReturn"/>
+      </return-value>
+      <parameters>
+        <parameter name="details" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="ctx" transfer-ownership="none">
+          <type name="GstInstallPluginsContext"
+                c:type="GstInstallPluginsContext*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_is_missing_plugin_message"
+              c:identifier="gst_is_missing_plugin_message">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="msg" transfer-ownership="none">
+          <type name="Gst.Message" c:type="GstMessage*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_decoder_installer_detail_new"
+              c:identifier="gst_missing_decoder_installer_detail_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="decode_caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_decoder_message_new"
+              c:identifier="gst_missing_decoder_message_new">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Message" c:type="GstMessage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="decode_caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_element_installer_detail_new"
+              c:identifier="gst_missing_element_installer_detail_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="factory_name" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_element_message_new"
+              c:identifier="gst_missing_element_message_new">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Message" c:type="GstMessage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="factory_name" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_encoder_installer_detail_new"
+              c:identifier="gst_missing_encoder_installer_detail_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="encode_caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_encoder_message_new"
+              c:identifier="gst_missing_encoder_message_new">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Message" c:type="GstMessage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="encode_caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_plugin_message_get_description"
+              c:identifier="gst_missing_plugin_message_get_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="msg" transfer-ownership="none">
+          <type name="Gst.Message" c:type="GstMessage*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_plugin_message_get_installer_detail"
+              c:identifier="gst_missing_plugin_message_get_installer_detail">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="msg" transfer-ownership="none">
+          <type name="Gst.Message" c:type="GstMessage*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_uri_sink_installer_detail_new"
+              c:identifier="gst_missing_uri_sink_installer_detail_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_uri_sink_message_new"
+              c:identifier="gst_missing_uri_sink_message_new">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Message" c:type="GstMessage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_uri_source_installer_detail_new"
+              c:identifier="gst_missing_uri_source_installer_detail_new">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_missing_uri_source_message_new"
+              c:identifier="gst_missing_uri_source_message_new">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Message" c:type="GstMessage*"/>
+      </return-value>
+      <parameters>
+        <parameter name="element" transfer-ownership="none">
+          <type name="Gst.Element" c:type="GstElement*"/>
+        </parameter>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_add_codec_description_to_tag_list"
+              c:identifier="gst_pb_utils_add_codec_description_to_tag_list">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="taglist" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="codec_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_codec_description"
+              c:identifier="gst_pb_utils_get_codec_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_decoder_description"
+              c:identifier="gst_pb_utils_get_decoder_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_element_description"
+              c:identifier="gst_pb_utils_get_element_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="factory_name" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_encoder_description"
+              c:identifier="gst_pb_utils_get_encoder_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="caps" transfer-ownership="none">
+          <type name="Gst.Caps" c:type="GstCaps*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_sink_description"
+              c:identifier="gst_pb_utils_get_sink_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_get_source_description"
+              c:identifier="gst_pb_utils_get_source_description">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="protocol" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_pb_utils_init" c:identifier="gst_pb_utils_init">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+  </namespace>
+</repository>

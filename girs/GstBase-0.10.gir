@@ -1,0 +1,4187 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.1"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="libxml2" version="2.0"/>
+  <package name="gobject-2.0"/>
+  <package name="gstreamer-0.10"/>
+  <package name="gstreamer-base-0.10"/>
+  <namespace name="GstBase"
+             version="0.10"
+             shared-library="libgstbase-0.10.so.0"
+             c:prefix="GstBase">
+    <class name="GstAdapter"
+           c:type="GstAdapter"
+           parent="GObject.Object"
+           glib:type-name="GstAdapter"
+           glib:get-type="gst_adapter_get_type"
+           glib:type-struct="GstAdapterClass">
+      <doc xml:whitespace="preserve">The opaque #GstAdapter data structure.</doc>
+      <constructor name="new" c:identifier="gst_adapter_new">
+        <return-value transfer-ownership="full">
+          <type name="GstAdapter" c:type="GstAdapter*"/>
+        </return-value>
+      </constructor>
+      <method name="clear" c:identifier="gst_adapter_clear">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="push" c:identifier="gst_adapter_push">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buf" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek" c:identifier="gst_adapter_peek">
+        <return-value transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy" c:identifier="gst_adapter_copy">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="dest" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="flush" c:identifier="gst_adapter_flush">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="flush" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take" c:identifier="gst_adapter_take">
+        <return-value transfer-ownership="full">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <parameter name="nbytes" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take_buffer" c:identifier="gst_adapter_take_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="nbytes" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="available" c:identifier="gst_adapter_available">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="available_fast" c:identifier="gst_adapter_available_fast">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="prev_timestamp" c:identifier="gst_adapter_prev_timestamp">
+        <return-value transfer-ownership="full">
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+        <parameters>
+          <parameter name="distance"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="masked_scan_uint32"
+              c:identifier="gst_adapter_masked_scan_uint32">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="mask" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="masked_scan_uint32_peek"
+              c:identifier="gst_adapter_masked_scan_uint32_peek">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="mask" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="value"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="buflist">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="skip">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="assembled_data">
+        <type name="any" c:type="guint8*"/>
+      </field>
+      <field name="assembled_size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="assembled_len">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="buflist_end">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="priv">
+        <type name="Gst.AdapterPrivate" c:type="GstAdapterPrivate*"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="2">
+          <type name="any"/>
+        </array>
+      </field>
+    </class>
+    <record name="GstAdapterClass"
+            c:type="GstAdapterClass"
+            glib:is-gtype-struct-for="GstAdapter">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <record name="GstAdapterPrivate" c:type="GstAdapterPrivate">
+    </record>
+    <record name="GstBitReader" c:type="GstBitReader">
+      <doc xml:whitespace="preserve">A bit reader instance.</doc>
+      <field name="data" writable="1">
+        <type name="any" c:type="guint8*"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="byte" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="bit" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <constructor name="new" c:identifier="gst_bit_reader_new">
+        <return-value transfer-ownership="full">
+          <type name="GstBitReader" c:type="GstBitReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_buffer"
+                   c:identifier="gst_bit_reader_new_from_buffer">
+        <return-value transfer-ownership="full">
+          <type name="GstBitReader" c:type="GstBitReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="gst_bit_reader_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="init" c:identifier="gst_bit_reader_init">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_buffer"
+              c:identifier="gst_bit_reader_init_from_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pos" c:identifier="gst_bit_reader_set_pos">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pos" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pos" c:identifier="gst_bit_reader_get_pos">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="get_remaining" c:identifier="gst_bit_reader_get_remaining">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="get_size" c:identifier="gst_bit_reader_get_size">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="skip" c:identifier="gst_bit_reader_skip">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="skip_to_byte" c:identifier="gst_bit_reader_skip_to_byte">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_bits_uint8"
+              c:identifier="gst_bit_reader_get_bits_uint8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bits_uint16"
+              c:identifier="gst_bit_reader_get_bits_uint16">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bits_uint32"
+              c:identifier="gst_bit_reader_get_bits_uint32">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_bits_uint64"
+              c:identifier="gst_bit_reader_get_bits_uint64">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_bits_uint8"
+              c:identifier="gst_bit_reader_peek_bits_uint8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_bits_uint16"
+              c:identifier="gst_bit_reader_peek_bits_uint16">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_bits_uint32"
+              c:identifier="gst_bit_reader_peek_bits_uint32">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_bits_uint64"
+              c:identifier="gst_bit_reader_peek_bits_uint64">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+          <parameter name="nbits" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="GstByteReader" c:type="GstByteReader">
+      <doc xml:whitespace="preserve">A byte reader instance.</doc>
+      <field name="data" writable="1">
+        <type name="any" c:type="guint8*"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="byte" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <constructor name="new" c:identifier="gst_byte_reader_new">
+        <return-value transfer-ownership="full">
+          <type name="GstByteReader" c:type="GstByteReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_from_buffer"
+                   c:identifier="gst_byte_reader_new_from_buffer">
+        <return-value transfer-ownership="full">
+          <type name="GstByteReader" c:type="GstByteReader*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="free" c:identifier="gst_byte_reader_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="init" c:identifier="gst_byte_reader_init">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_from_buffer"
+              c:identifier="gst_byte_reader_init_from_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_pos" c:identifier="gst_byte_reader_set_pos">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pos" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_pos" c:identifier="gst_byte_reader_get_pos">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="get_remaining"
+              c:identifier="gst_byte_reader_get_remaining">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="get_size" c:identifier="gst_byte_reader_get_size">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="skip" c:identifier="gst_byte_reader_skip">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="nbytes" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint8" c:identifier="gst_byte_reader_get_uint8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int8" c:identifier="gst_byte_reader_get_int8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int8" c:type="gint8*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint16_le"
+              c:identifier="gst_byte_reader_get_uint16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int16_le" c:identifier="gst_byte_reader_get_int16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int16" c:type="gint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint16_be"
+              c:identifier="gst_byte_reader_get_uint16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int16_be" c:identifier="gst_byte_reader_get_int16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int16" c:type="gint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint24_le"
+              c:identifier="gst_byte_reader_get_uint24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int24_le" c:identifier="gst_byte_reader_get_int24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint24_be"
+              c:identifier="gst_byte_reader_get_uint24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int24_be" c:identifier="gst_byte_reader_get_int24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint32_le"
+              c:identifier="gst_byte_reader_get_uint32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int32_le" c:identifier="gst_byte_reader_get_int32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint32_be"
+              c:identifier="gst_byte_reader_get_uint32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int32_be" c:identifier="gst_byte_reader_get_int32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint64_le"
+              c:identifier="gst_byte_reader_get_uint64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int64_le" c:identifier="gst_byte_reader_get_int64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_uint64_be"
+              c:identifier="gst_byte_reader_get_uint64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_int64_be" c:identifier="gst_byte_reader_get_int64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint8" c:identifier="gst_byte_reader_peek_uint8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int8" c:identifier="gst_byte_reader_peek_int8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int8" c:type="gint8*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint16_le"
+              c:identifier="gst_byte_reader_peek_uint16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int16_le"
+              c:identifier="gst_byte_reader_peek_int16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int16" c:type="gint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint16_be"
+              c:identifier="gst_byte_reader_peek_uint16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int16_be"
+              c:identifier="gst_byte_reader_peek_int16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int16" c:type="gint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint24_le"
+              c:identifier="gst_byte_reader_peek_uint24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int24_le"
+              c:identifier="gst_byte_reader_peek_int24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint24_be"
+              c:identifier="gst_byte_reader_peek_uint24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int24_be"
+              c:identifier="gst_byte_reader_peek_int24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint32_le"
+              c:identifier="gst_byte_reader_peek_uint32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int32_le"
+              c:identifier="gst_byte_reader_peek_int32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint32_be"
+              c:identifier="gst_byte_reader_peek_uint32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int32_be"
+              c:identifier="gst_byte_reader_peek_int32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int32" c:type="gint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint64_le"
+              c:identifier="gst_byte_reader_peek_uint64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int64_le"
+              c:identifier="gst_byte_reader_peek_int64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_uint64_be"
+              c:identifier="gst_byte_reader_peek_uint64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint64" c:type="guint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_int64_be"
+              c:identifier="gst_byte_reader_peek_int64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="int64" c:type="gint64*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_float32_le"
+              c:identifier="gst_byte_reader_get_float32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="float" c:type="gfloat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_float32_be"
+              c:identifier="gst_byte_reader_get_float32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="float" c:type="gfloat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_float64_le"
+              c:identifier="gst_byte_reader_get_float64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_float64_be"
+              c:identifier="gst_byte_reader_get_float64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_float32_le"
+              c:identifier="gst_byte_reader_peek_float32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="float" c:type="gfloat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_float32_be"
+              c:identifier="gst_byte_reader_peek_float32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="float" c:type="gfloat*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_float64_le"
+              c:identifier="gst_byte_reader_peek_float64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_float64_be"
+              c:identifier="gst_byte_reader_peek_float64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="double" c:type="gdouble*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_data" c:identifier="gst_byte_reader_dup_data">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint8" c:type="guint8**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_data" c:identifier="gst_byte_reader_get_data">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint8" c:type="guint8**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_data" c:identifier="gst_byte_reader_peek_data">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="val"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint8" c:type="guint8**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_string_utf8"
+              c:identifier="gst_byte_reader_dup_string_utf8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <array c:type="gchar**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_string_utf16"
+              c:identifier="gst_byte_reader_dup_string_utf16">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="str"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint16" c:type="guint16**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="dup_string_utf32"
+              c:identifier="gst_byte_reader_dup_string_utf32">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="str"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint32" c:type="guint32**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="skip_string_utf8"
+              c:identifier="gst_byte_reader_skip_string_utf8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="skip_string_utf16"
+              c:identifier="gst_byte_reader_skip_string_utf16">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="skip_string_utf32"
+              c:identifier="gst_byte_reader_skip_string_utf32">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_string_utf8"
+              c:identifier="gst_byte_reader_get_string_utf8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <array c:type="gchar**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek_string_utf8"
+              c:identifier="gst_byte_reader_peek_string_utf8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="str" transfer-ownership="none">
+            <array c:type="gchar**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="masked_scan_uint32"
+              c:identifier="gst_byte_reader_masked_scan_uint32">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="mask" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="pattern" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="GstByteWriter" c:type="GstByteWriter">
+      <doc xml:whitespace="preserve">A byte writer instance.</doc>
+      <field name="parent" writable="1">
+        <type name="Gst.ByteReader" c:type="GstByteReader"/>
+      </field>
+      <field name="alloc_size" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="fixed" writable="1">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="owned" writable="1">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <constructor name="new" c:identifier="gst_byte_writer_new">
+        <return-value transfer-ownership="full">
+          <type name="GstByteWriter" c:type="GstByteWriter*"/>
+        </return-value>
+      </constructor>
+      <constructor name="new_with_size"
+                   c:identifier="gst_byte_writer_new_with_size">
+        <return-value transfer-ownership="full">
+          <type name="GstByteWriter" c:type="GstByteWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="fixed" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_data"
+                   c:identifier="gst_byte_writer_new_with_data">
+        <return-value transfer-ownership="full">
+          <type name="GstByteWriter" c:type="GstByteWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="initialized" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_with_buffer"
+                   c:identifier="gst_byte_writer_new_with_buffer">
+        <return-value transfer-ownership="full">
+          <type name="GstByteWriter" c:type="GstByteWriter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+          <parameter name="initialized" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="init" c:identifier="gst_byte_writer_init">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="init_with_size"
+              c:identifier="gst_byte_writer_init_with_size">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="fixed" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_with_data"
+              c:identifier="gst_byte_writer_init_with_data">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="initialized" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="init_with_buffer"
+              c:identifier="gst_byte_writer_init_with_buffer">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+          <parameter name="initialized" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="free" c:identifier="gst_byte_writer_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="free_and_get_data"
+              c:identifier="gst_byte_writer_free_and_get_data">
+        <return-value transfer-ownership="full">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="free_and_get_buffer"
+              c:identifier="gst_byte_writer_free_and_get_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+      </method>
+      <method name="reset" c:identifier="gst_byte_writer_reset">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="reset_and_get_data"
+              c:identifier="gst_byte_writer_reset_and_get_data">
+        <return-value transfer-ownership="full">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </return-value>
+      </method>
+      <method name="reset_and_get_buffer"
+              c:identifier="gst_byte_writer_reset_and_get_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+      </method>
+      <method name="get_remaining"
+              c:identifier="gst_byte_writer_get_remaining">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="ensure_free_space"
+              c:identifier="gst_byte_writer_ensure_free_space">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint8" c:identifier="gst_byte_writer_put_uint8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint8" c:type="guint8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int8" c:identifier="gst_byte_writer_put_int8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int8" c:type="gint8"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint16_be"
+              c:identifier="gst_byte_writer_put_uint16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint16_le"
+              c:identifier="gst_byte_writer_put_uint16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint16" c:type="guint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int16_be" c:identifier="gst_byte_writer_put_int16_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int16" c:type="gint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int16_le" c:identifier="gst_byte_writer_put_int16_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int16" c:type="gint16"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint24_be"
+              c:identifier="gst_byte_writer_put_uint24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint24_le"
+              c:identifier="gst_byte_writer_put_uint24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int24_be" c:identifier="gst_byte_writer_put_int24_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int24_le" c:identifier="gst_byte_writer_put_int24_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint32_be"
+              c:identifier="gst_byte_writer_put_uint32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint32_le"
+              c:identifier="gst_byte_writer_put_uint32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint32" c:type="guint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int32_be" c:identifier="gst_byte_writer_put_int32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int32_le" c:identifier="gst_byte_writer_put_int32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int32" c:type="gint32"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint64_be"
+              c:identifier="gst_byte_writer_put_uint64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_uint64_le"
+              c:identifier="gst_byte_writer_put_uint64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int64_be" c:identifier="gst_byte_writer_put_int64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_int64_le" c:identifier="gst_byte_writer_put_int64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_float32_be"
+              c:identifier="gst_byte_writer_put_float32_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="float" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_float32_le"
+              c:identifier="gst_byte_writer_put_float32_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="float" c:type="gfloat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_float64_be"
+              c:identifier="gst_byte_writer_put_float64_be">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="double" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_float64_le"
+              c:identifier="gst_byte_writer_put_float64_le">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="val" transfer-ownership="none">
+            <type name="double" c:type="gdouble"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_data" c:identifier="gst_byte_writer_put_data">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <array c:type="guint8*">
+              <type name="uint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="fill" c:identifier="gst_byte_writer_fill">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="value" transfer-ownership="none">
+            <type name="uint8" c:type="guint8"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_string_utf8"
+              c:identifier="gst_byte_writer_put_string_utf8">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_string_utf16"
+              c:identifier="gst_byte_writer_put_string_utf16">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="data"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <type name="uint16" c:type="guint16*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="put_string_utf32"
+              c:identifier="gst_byte_writer_put_string_utf32">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="data"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="none">
+            <type name="uint32" c:type="guint32*"/>
+          </parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="GstCollectData" c:type="GstCollectData">
+      <doc xml:whitespace="preserve">Structure used by the collect_pads.</doc>
+      <field name="collect" writable="1">
+        <type name="Gst.CollectPads" c:type="GstCollectPads*"/>
+      </field>
+      <field name="pad" writable="1">
+        <type name="Gst.Pad" c:type="GstPad*"/>
+      </field>
+      <field name="buffer" writable="1">
+        <type name="Gst.Buffer" c:type="GstBuffer*"/>
+      </field>
+      <field name="pos" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="segment" writable="1">
+        <type name="Gst.Segment" c:type="GstSegment"/>
+      </field>
+      <union name="abidata" c:type="abidata">
+        <record name="ABI" c:type="ABI">
+          <field name="flushing" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+          <field name="new_segment" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+          <field name="eos" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+          <field name="refcount" writable="1">
+            <type name="int" c:type="gint"/>
+          </field>
+        </record>
+        <field name="_gst_reserved" writable="1">
+          <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+            <type name="any"/>
+          </array>
+        </field>
+      </union>
+    </record>
+    <callback name="GstCollectDataDestroyNotify"
+              c:type="GstCollectDataDestroyNotify"
+              version="0.10.12">
+      <doc xml:whitespace="preserve">A function that will be called when the #GstCollectData will be freed.
+It is passed the pointer to the structure and should free any custom
+memory and resources allocated for it.</doc>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #GstCollectData that will be freed</doc>
+          <type name="Gst.CollectData" c:type="GstCollectData*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="GstCollectPads"
+           c:type="GstCollectPads"
+           parent="Gst.Object"
+           glib:type-name="GstCollectPads"
+           glib:get-type="gst_collect_pads_get_type"
+           glib:type-struct="GstCollectPadsClass">
+      <doc xml:whitespace="preserve">Collectpads object.
+Note that @data doesn't contain the complete #GstCollectData list
+at all times and should not be used for iterating them.</doc>
+      <constructor name="new" c:identifier="gst_collect_pads_new">
+        <return-value transfer-ownership="full">
+          <type name="GstCollectPads" c:type="GstCollectPads*"/>
+        </return-value>
+      </constructor>
+      <method name="set_function" c:identifier="gst_collect_pads_set_function">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="func"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <type name="Gst.CollectPadsFunction"
+                  c:type="GstCollectPadsFunction"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="any" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_clip_function"
+              c:identifier="gst_collect_pads_set_clip_function">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="clipfunc"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="2">
+            <type name="Gst.CollectPadsClipFunction"
+                  c:type="GstCollectPadsClipFunction"/>
+          </parameter>
+          <parameter name="user_data" transfer-ownership="none">
+            <type name="any" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_pad" c:identifier="gst_collect_pads_add_pad">
+        <return-value transfer-ownership="full">
+          <type name="Gst.CollectData" c:type="GstCollectData*"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <type name="Gst.Pad" c:type="GstPad*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_pad_full" c:identifier="gst_collect_pads_add_pad_full">
+        <return-value transfer-ownership="full">
+          <type name="Gst.CollectData" c:type="GstCollectData*"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <type name="Gst.Pad" c:type="GstPad*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+          <parameter name="destroy_notify"
+                     transfer-ownership="none"
+                     scope="call">
+            <type name="Gst.CollectDataDestroyNotify"
+                  c:type="GstCollectDataDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_pad" c:identifier="gst_collect_pads_remove_pad">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <type name="Gst.Pad" c:type="GstPad*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_active" c:identifier="gst_collect_pads_is_active">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="pad" transfer-ownership="none">
+            <type name="Gst.Pad" c:type="GstPad*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="collect" c:identifier="gst_collect_pads_collect">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+      </method>
+      <method name="collect_range"
+              c:identifier="gst_collect_pads_collect_range">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+        <parameters>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="uint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="gst_collect_pads_start">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="stop" c:identifier="gst_collect_pads_stop">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="set_flushing" c:identifier="gst_collect_pads_set_flushing">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="flushing" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="peek" c:identifier="gst_collect_pads_peek">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pop" c:identifier="gst_collect_pads_pop">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="available" c:identifier="gst_collect_pads_available">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="read" c:identifier="gst_collect_pads_read">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+          <parameter name="bytes"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint8" c:type="guint8**"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="read_buffer" c:identifier="gst_collect_pads_read_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="take_buffer" c:identifier="gst_collect_pads_take_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="flush" c:identifier="gst_collect_pads_flush">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <type name="Gst.CollectData" c:type="GstCollectData*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="object">
+        <type name="Gst.Object" c:type="GstObject"/>
+      </field>
+      <field name="data">
+        <type name="GLib.SList" c:type="GSList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </field>
+      <field name="cookie">
+        <type name="uint32" c:type="guint32"/>
+      </field>
+      <field name="cond">
+        <type name="GLib.Cond" c:type="GCond*"/>
+      </field>
+      <field name="func">
+        <type name="Gst.CollectPadsFunction" c:type="GstCollectPadsFunction"/>
+      </field>
+      <field name="user_data">
+        <type name="any" c:type="gpointer"/>
+      </field>
+      <field name="numpads">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="queuedpads">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="eospads">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="started">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <union name="abidata" c:type="abidata">
+        <record name="ABI" c:type="ABI">
+          <field name="pad_lock" writable="1">
+            <type name="GLib.Mutex" c:type="GMutex*"/>
+          </field>
+          <field name="pad_list" writable="1">
+            <type name="GLib.SList" c:type="GSList*">
+              <type name="any" c:type="gpointer"/>
+            </type>
+          </field>
+          <field name="pad_cookie" writable="1">
+            <type name="uint32" c:type="guint32"/>
+          </field>
+          <field name="priv" writable="1">
+            <type name="Gst.CollectPadsPrivate"
+                  c:type="GstCollectPadsPrivate*"/>
+          </field>
+        </record>
+        <field name="_gst_reserved" writable="1">
+          <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+            <type name="any"/>
+          </array>
+        </field>
+      </union>
+    </class>
+    <record name="GstCollectPadsClass"
+            c:type="GstCollectPadsClass"
+            glib:is-gtype-struct-for="GstCollectPads">
+      <field name="parent_class">
+        <type name="Gst.ObjectClass" c:type="GstObjectClass"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <callback name="GstCollectPadsClipFunction"
+              c:type="GstCollectPadsClipFunction"
+              version="0.10.26">
+      <doc xml:whitespace="preserve">A function that will be called when @buffer is received on the pad managed
+by @data in the collecpad object @pads.
+The function should use the segment of @data and the negotiated media type on
+the pad to perform clipping of @buffer. 
+This function takes ownership of @buffer.
+the buffer has been clipped completely.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">a #GstBuffer that contains the clipped data of @buffer or NULL when</doc>
+        <type name="Gst.Buffer" c:type="GstBuffer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="pads" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstCollectPads</doc>
+          <type name="Gst.CollectPads" c:type="GstCollectPads*"/>
+        </parameter>
+        <parameter name="data" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstCollectData</doc>
+          <type name="Gst.CollectData" c:type="GstCollectData*"/>
+        </parameter>
+        <parameter name="buffer" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstBuffer</doc>
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="3">
+          <doc xml:whitespace="preserve">user data</doc>
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="GstCollectPadsFunction" c:type="GstCollectPadsFunction">
+      <doc xml:whitespace="preserve">A function that will be called when all pads have received data.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">#GST_FLOW_OK for success</doc>
+        <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+      </return-value>
+      <parameters>
+        <parameter name="pads" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the #GstCollectPads that triggered the callback</doc>
+          <type name="Gst.CollectPads" c:type="GstCollectPads*"/>
+        </parameter>
+        <parameter name="user_data" transfer-ownership="none" closure="1">
+          <doc xml:whitespace="preserve">user data passed to gst_collect_pads_set_function()</doc>
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="GstCollectPadsPrivate" c:type="GstCollectPadsPrivate">
+    </record>
+    <class name="GstDataQueue"
+           c:type="GstDataQueue"
+           parent="GObject.Object"
+           glib:type-name="GstDataQueue"
+           glib:get-type="gst_data_queue_get_type"
+           glib:type-struct="GstDataQueueClass">
+      <doc xml:whitespace="preserve">Opaque #GstDataQueue structure.</doc>
+      <constructor name="new" c:identifier="gst_data_queue_new">
+        <return-value transfer-ownership="full">
+          <type name="GstDataQueue" c:type="GstDataQueue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="checkfull"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="1">
+            <type name="Gst.DataQueueCheckFullFunction"
+                  c:type="GstDataQueueCheckFullFunction"/>
+          </parameter>
+          <parameter name="checkdata" transfer-ownership="none">
+            <type name="any" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_full" c:identifier="gst_data_queue_new_full">
+        <return-value transfer-ownership="full">
+          <type name="GstDataQueue" c:type="GstDataQueue*"/>
+        </return-value>
+        <parameters>
+          <parameter name="checkfull" transfer-ownership="none" scope="call">
+            <type name="Gst.DataQueueCheckFullFunction"
+                  c:type="GstDataQueueCheckFullFunction"/>
+          </parameter>
+          <parameter name="fullcallback"
+                     transfer-ownership="none"
+                     scope="call">
+            <type name="Gst.DataQueueFullCallback"
+                  c:type="GstDataQueueFullCallback"/>
+          </parameter>
+          <parameter name="emptycallback"
+                     transfer-ownership="none"
+                     scope="call"
+                     closure="3">
+            <type name="Gst.DataQueueEmptyCallback"
+                  c:type="GstDataQueueEmptyCallback"/>
+          </parameter>
+          <parameter name="checkdata" transfer-ownership="none">
+            <type name="any" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="push" c:identifier="gst_data_queue_push">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="Gst.DataQueueItem" c:type="GstDataQueueItem*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="pop" c:identifier="gst_data_queue_pop">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="item" transfer-ownership="none">
+            <type name="Gst.DataQueueItem" c:type="GstDataQueueItem**"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="flush" c:identifier="gst_data_queue_flush">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <method name="set_flushing" c:identifier="gst_data_queue_set_flushing">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="flushing" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="drop_head" c:identifier="gst_data_queue_drop_head">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="type" transfer-ownership="none">
+            <type name="GType" c:type="GType"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_full" c:identifier="gst_data_queue_is_full">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="is_empty" c:identifier="gst_data_queue_is_empty">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="get_level" c:identifier="gst_data_queue_get_level">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="level" transfer-ownership="none">
+            <type name="Gst.DataQueueSize" c:type="GstDataQueueSize*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="limits_changed"
+              c:identifier="gst_data_queue_limits_changed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <property name="current-level-bytes" transfer-ownership="none">
+        <type name="uint" c:type="guint"/>
+      </property>
+      <property name="current-level-time" transfer-ownership="none">
+        <type name="uint64" c:type="guint64"/>
+      </property>
+      <property name="current-level-visible" transfer-ownership="none">
+        <type name="uint" c:type="guint"/>
+      </property>
+      <field name="object">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <field name="queue">
+        <type name="GLib.Queue" c:type="GQueue*"/>
+      </field>
+      <field name="cur_level">
+        <type name="Gst.DataQueueSize" c:type="GstDataQueueSize"/>
+      </field>
+      <field name="checkfull">
+        <type name="Gst.DataQueueCheckFullFunction"
+              c:type="GstDataQueueCheckFullFunction"/>
+      </field>
+      <field name="checkdata">
+        <type name="any" c:type="gpointer*"/>
+      </field>
+      <field name="qlock">
+        <type name="GLib.Mutex" c:type="GMutex*"/>
+      </field>
+      <field name="item_add">
+        <type name="GLib.Cond" c:type="GCond*"/>
+      </field>
+      <field name="item_del">
+        <type name="GLib.Cond" c:type="GCond*"/>
+      </field>
+      <field name="flushing">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="fullcallback">
+        <type name="Gst.DataQueueFullCallback"
+              c:type="GstDataQueueFullCallback"/>
+      </field>
+      <field name="emptycallback">
+        <type name="Gst.DataQueueEmptyCallback"
+              c:type="GstDataQueueEmptyCallback"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="2">
+          <type name="any"/>
+        </array>
+      </field>
+      <glib:signal name="empty">
+        <return-value transfer-ownership="full">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="full">
+        <return-value transfer-ownership="full">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <callback name="GstDataQueueCheckFullFunction"
+              c:type="GstDataQueueCheckFullFunction">
+      <doc xml:whitespace="preserve">The prototype of the function used to inform the queue that it should be
+considered as full.</doc>
+      <return-value transfer-ownership="none">
+        <doc xml:whitespace="preserve">#TRUE if the queue should be considered full.</doc>
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="queue" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstDataQueue.</doc>
+          <type name="Gst.DataQueue" c:type="GstDataQueue*"/>
+        </parameter>
+        <parameter name="visible" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The number of visible items currently in the queue.</doc>
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="bytes" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The amount of bytes currently in the queue.</doc>
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="time" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The accumulated duration of the items currently in the queue.</doc>
+          <type name="uint64" c:type="guint64"/>
+        </parameter>
+        <parameter name="checkdata" transfer-ownership="none">
+          <doc xml:whitespace="preserve">The #gpointer registered when the #GstDataQueue was created.</doc>
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="GstDataQueueClass"
+            c:type="GstDataQueueClass"
+            glib:is-gtype-struct-for="GstDataQueue">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="empty">
+        <callback name="empty" c:type="empty">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="queue" transfer-ownership="none">
+              <type name="Gst.DataQueue" c:type="GstDataQueue*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="full">
+        <callback name="full" c:type="full">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="queue" transfer-ownership="none">
+              <type name="Gst.DataQueue" c:type="GstDataQueue*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <callback name="GstDataQueueEmptyCallback"
+              c:type="GstDataQueueEmptyCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="queue" transfer-ownership="none">
+          <type name="Gst.DataQueue" c:type="GstDataQueue*"/>
+        </parameter>
+        <parameter name="checkdata" transfer-ownership="none">
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="GstDataQueueFullCallback"
+              c:type="GstDataQueueFullCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="queue" transfer-ownership="none">
+          <type name="Gst.DataQueue" c:type="GstDataQueue*"/>
+        </parameter>
+        <parameter name="checkdata" transfer-ownership="none">
+          <type name="any" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="GstDataQueueItem" c:type="GstDataQueueItem">
+      <doc xml:whitespace="preserve">Structure used by #GstDataQueue. You can supply a different structure, as
+long as the top of the structure is identical to this structure.</doc>
+      <field name="object" writable="1">
+        <type name="Gst.MiniObject" c:type="GstMiniObject*"/>
+      </field>
+      <field name="size" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="duration" writable="1">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="visible" writable="1">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="destroy" writable="1">
+        <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+      </field>
+    </record>
+    <record name="GstDataQueueSize" c:type="GstDataQueueSize">
+      <doc xml:whitespace="preserve">Structure describing the size of a queue.</doc>
+      <field name="visible" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="bytes" writable="1">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="time" writable="1">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+    </record>
+    <class name="GstPushSrc"
+           c:type="GstPushSrc"
+           parent="Src"
+           glib:type-name="GstPushSrc"
+           glib:get-type="gst_push_src_get_type"
+           glib:type-struct="GstPushSrcClass">
+      <doc xml:whitespace="preserve">The opaque #GstPushSrc data structure.</doc>
+      <field name="parent">
+        <type name="Gst.BaseSrc" c:type="GstBaseSrc"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </class>
+    <record name="GstPushSrcClass"
+            c:type="GstPushSrcClass"
+            glib:is-gtype-struct-for="GstPushSrc">
+      <field name="parent_class">
+        <type name="Gst.BaseSrcClass" c:type="GstBaseSrcClass"/>
+      </field>
+      <field name="create">
+        <callback name="create" c:type="create">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.PushSrc" c:type="GstPushSrc*"/>
+            </parameter>
+            <parameter name="buf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <callback name="GstTypeFindHelperGetRangeFunction"
+              c:type="GstTypeFindHelperGetRangeFunction">
+      <doc xml:whitespace="preserve">This function will be called by gst_type_find_helper_get_range() when
+typefinding functions request to peek at the data of a stream at certain
+offsets. If this function returns GST_FLOW_OK, the result buffer will be
+stored in @buffer. The  contents of @buffer is invalid for any other
+return value.
+This function is supposed to behave exactly like a #GstPadGetRangeFunction.</doc>
+      <return-value transfer-ownership="full">
+        <doc xml:whitespace="preserve">GST_FLOW_OK for success</doc>
+        <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+      </return-value>
+      <parameters>
+        <parameter name="obj" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a #GstObject that will handle the getrange request</doc>
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="offset" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the offset of the range</doc>
+          <type name="uint64" c:type="guint64"/>
+        </parameter>
+        <parameter name="length" transfer-ownership="none">
+          <doc xml:whitespace="preserve">the length of the range</doc>
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="buffer" transfer-ownership="none">
+          <doc xml:whitespace="preserve">a memory location to hold the result buffer</doc>
+          <type name="Gst.Buffer" c:type="GstBuffer**"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="Sink"
+           c:type="GstBaseSink"
+           parent="Gst.Element"
+           abstract="1"
+           glib:type-name="GstBaseSink"
+           glib:get-type="gst_base_sink_get_type"
+           glib:type-struct="SinkClass">
+      <doc xml:whitespace="preserve">The opaque #GstBaseSink data structure.</doc>
+      <method name="do_preroll" c:identifier="gst_base_sink_do_preroll">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+        <parameters>
+          <parameter name="obj" transfer-ownership="none">
+            <type name="Gst.MiniObject" c:type="GstMiniObject*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_preroll" c:identifier="gst_base_sink_wait_preroll">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+      </method>
+      <method name="set_sync" c:identifier="gst_base_sink_set_sync">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="sync" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_sync" c:identifier="gst_base_sink_get_sync">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_max_lateness"
+              c:identifier="gst_base_sink_set_max_lateness">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="max_lateness" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_max_lateness"
+              c:identifier="gst_base_sink_get_max_lateness">
+        <return-value transfer-ownership="none">
+          <type name="int64" c:type="gint64"/>
+        </return-value>
+      </method>
+      <method name="set_qos_enabled"
+              c:identifier="gst_base_sink_set_qos_enabled">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_qos_enabled"
+              c:identifier="gst_base_sink_is_qos_enabled">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_async_enabled"
+              c:identifier="gst_base_sink_set_async_enabled">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_async_enabled"
+              c:identifier="gst_base_sink_is_async_enabled">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_ts_offset" c:identifier="gst_base_sink_set_ts_offset">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="offset" transfer-ownership="none">
+            <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_ts_offset" c:identifier="gst_base_sink_get_ts_offset">
+        <return-value transfer-ownership="full">
+          <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff"/>
+        </return-value>
+      </method>
+      <method name="get_last_buffer"
+              c:identifier="gst_base_sink_get_last_buffer">
+        <return-value transfer-ownership="full">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </return-value>
+      </method>
+      <method name="set_last_buffer_enabled"
+              c:identifier="gst_base_sink_set_last_buffer_enabled">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enable" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_last_buffer_enabled"
+              c:identifier="gst_base_sink_is_last_buffer_enabled">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="query_latency" c:identifier="gst_base_sink_query_latency">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="live"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="boolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="upstream_live"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="boolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="min_latency" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+          </parameter>
+          <parameter name="max_latency" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_latency" c:identifier="gst_base_sink_get_latency">
+        <return-value transfer-ownership="full">
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+      </method>
+      <method name="set_render_delay"
+              c:identifier="gst_base_sink_set_render_delay">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="delay" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_render_delay"
+              c:identifier="gst_base_sink_get_render_delay">
+        <return-value transfer-ownership="full">
+          <type name="Gst.ClockTime" c:type="GstClockTime"/>
+        </return-value>
+      </method>
+      <method name="set_blocksize" c:identifier="gst_base_sink_set_blocksize">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="blocksize" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_blocksize" c:identifier="gst_base_sink_get_blocksize">
+        <return-value transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </return-value>
+      </method>
+      <method name="wait_clock" c:identifier="gst_base_sink_wait_clock">
+        <return-value transfer-ownership="full">
+          <type name="Gst.ClockReturn" c:type="GstClockReturn"/>
+        </return-value>
+        <parameters>
+          <parameter name="time" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+          <parameter name="jitter" transfer-ownership="none">
+            <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_eos" c:identifier="gst_base_sink_wait_eos">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+        <parameters>
+          <parameter name="time" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+          <parameter name="jitter" transfer-ownership="none">
+            <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="async" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <property name="blocksize" writable="1" transfer-ownership="none">
+        <type name="uint" c:type="guint"/>
+      </property>
+      <property name="enable-last-buffer"
+                writable="1"
+                transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <property name="last-buffer" transfer-ownership="none">
+        <type name="Gst.Buffer" c:type="GstBuffer"/>
+      </property>
+      <property name="max-lateness" writable="1" transfer-ownership="none">
+        <type name="int64" c:type="gint64"/>
+      </property>
+      <property name="preroll-queue-len"
+                writable="1"
+                construct="1"
+                transfer-ownership="none">
+        <type name="uint" c:type="guint"/>
+      </property>
+      <property name="qos" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <property name="render-delay" writable="1" transfer-ownership="none">
+        <type name="uint64" c:type="guint64"/>
+      </property>
+      <property name="sync" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <property name="ts-offset" writable="1" transfer-ownership="none">
+        <type name="int64" c:type="gint64"/>
+      </property>
+      <field name="element">
+        <type name="Gst.Element" c:type="GstElement"/>
+      </field>
+      <field name="sinkpad">
+        <type name="Gst.Pad" c:type="GstPad*"/>
+      </field>
+      <field name="pad_mode">
+        <type name="Gst.ActivateMode" c:type="GstActivateMode"/>
+      </field>
+      <field name="offset">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="can_activate_pull">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="can_activate_push">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="preroll_queue">
+        <type name="GLib.Queue" c:type="GQueue*"/>
+      </field>
+      <field name="preroll_queue_max_len">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="preroll_queued">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="buffers_queued">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="events_queued">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="eos">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="eos_queued">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="need_preroll">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="have_preroll">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="playing_async">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="have_newsegment">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="segment">
+        <type name="Gst.Segment" c:type="GstSegment"/>
+      </field>
+      <field name="clock_id">
+        <type name="Gst.ClockID" c:type="GstClockID"/>
+      </field>
+      <field name="end_time">
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+      <field name="sync">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="flushing">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <union name="abidata" c:type="abidata">
+        <record name="ABI" c:type="ABI">
+          <field name="clip_segment" writable="1">
+            <type name="Gst.Segment" c:type="GstSegment*"/>
+          </field>
+          <field name="max_lateness" writable="1">
+            <type name="int64" c:type="gint64"/>
+          </field>
+          <field name="running" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+        </record>
+        <field name="_gst_reserved" writable="1">
+          <array zero-terminated="0" c:type="gpointer" fixed-size="19">
+            <type name="any"/>
+          </array>
+        </field>
+      </union>
+      <field name="priv">
+        <type name="Gst.BaseSinkPrivate" c:type="GstBaseSinkPrivate*"/>
+      </field>
+    </class>
+    <record name="SinkClass"
+            c:type="GstBaseSinkClass"
+            glib:is-gtype-struct-for="Sink">
+      <doc xml:whitespace="preserve">Subclasses can override any of the available virtual methods or not, as
+needed. At the minimum, the @render method should be overridden to
+output/present buffers.</doc>
+      <field name="parent_class">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+      <field name="get_caps">
+        <callback name="get_caps" c:type="get_caps">
+          <return-value transfer-ownership="full">
+            <type name="Gst.Caps" c:type="GstCaps*"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_caps">
+        <callback name="set_caps" c:type="set_caps">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="buffer_alloc">
+        <callback name="buffer_alloc" c:type="buffer_alloc">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="offset" transfer-ownership="none">
+              <type name="uint64" c:type="guint64"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="uint" c:type="guint"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="buf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_times">
+        <callback name="get_times" c:type="get_times">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="start" transfer-ownership="none">
+              <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+            </parameter>
+            <parameter name="end" transfer-ownership="none">
+              <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="start">
+        <callback name="start" c:type="start">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="stop">
+        <callback name="stop" c:type="stop">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unlock">
+        <callback name="unlock" c:type="unlock">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="event">
+        <callback name="event" c:type="event">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="Gst.Event" c:type="GstEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="preroll">
+        <callback name="preroll" c:type="preroll">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="render">
+        <callback name="render" c:type="render">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="async_play">
+        <callback name="async_play" c:type="async_play">
+          <return-value transfer-ownership="full">
+            <type name="Gst.StateChangeReturn" c:type="GstStateChangeReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="activate_pull">
+        <callback name="activate_pull" c:type="activate_pull">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="active" transfer-ownership="none">
+              <type name="boolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="fixate">
+        <callback name="fixate" c:type="fixate">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unlock_stop">
+        <callback name="unlock_stop" c:type="unlock_stop">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="render_list">
+        <callback name="render_list" c:type="render_list">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="sink" transfer-ownership="none">
+              <type name="Gst.BaseSink" c:type="GstBaseSink*"/>
+            </parameter>
+            <parameter name="buffer_list" transfer-ownership="none">
+              <type name="Gst.BufferList" c:type="GstBufferList*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="15">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <record name="SinkPrivate" c:type="GstBaseSinkPrivate">
+    </record>
+    <class name="Src"
+           c:type="GstBaseSrc"
+           parent="Gst.Element"
+           abstract="1"
+           glib:type-name="GstBaseSrc"
+           glib:get-type="gst_base_src_get_type"
+           glib:type-struct="SrcClass">
+      <doc xml:whitespace="preserve">The opaque #GstBaseSrc data structure.</doc>
+      <method name="wait_playing" c:identifier="gst_base_src_wait_playing">
+        <return-value transfer-ownership="full">
+          <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+        </return-value>
+      </method>
+      <method name="set_live" c:identifier="gst_base_src_set_live">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="live" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_live" c:identifier="gst_base_src_is_live">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_format" c:identifier="gst_base_src_set_format">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="format" transfer-ownership="none">
+            <type name="Gst.Format" c:type="GstFormat"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_latency" c:identifier="gst_base_src_query_latency">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="live"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="boolean" c:type="gboolean*"/>
+          </parameter>
+          <parameter name="min_latency" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+          </parameter>
+          <parameter name="max_latency" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_blocksize" c:identifier="gst_base_src_set_blocksize">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="blocksize" transfer-ownership="none">
+            <type name="ulong" c:type="gulong"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_blocksize" c:identifier="gst_base_src_get_blocksize">
+        <return-value transfer-ownership="none">
+          <type name="ulong" c:type="gulong"/>
+        </return-value>
+      </method>
+      <method name="set_do_timestamp"
+              c:identifier="gst_base_src_set_do_timestamp">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_do_timestamp"
+              c:identifier="gst_base_src_get_do_timestamp">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="new_seamless_segment"
+              c:identifier="gst_base_src_new_seamless_segment">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="start" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+          <parameter name="stop" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+          <parameter name="position" transfer-ownership="none">
+            <type name="int64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="blocksize" writable="1" transfer-ownership="none">
+        <type name="ulong" c:type="gulong"/>
+      </property>
+      <property name="do-timestamp" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <property name="num-buffers" writable="1" transfer-ownership="none">
+        <type name="int" c:type="gint"/>
+      </property>
+      <property name="typefind" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <field name="element">
+        <type name="Gst.Element" c:type="GstElement"/>
+      </field>
+      <field name="srcpad">
+        <type name="Gst.Pad" c:type="GstPad*"/>
+      </field>
+      <field name="live_lock">
+        <type name="GLib.Mutex" c:type="GMutex*"/>
+      </field>
+      <field name="live_cond">
+        <type name="GLib.Cond" c:type="GCond*"/>
+      </field>
+      <field name="is_live">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="live_running">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="blocksize">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="can_activate_push">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="pad_mode">
+        <type name="Gst.ActivateMode" c:type="GstActivateMode"/>
+      </field>
+      <field name="seekable">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="random_access">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="clock_id">
+        <type name="Gst.ClockID" c:type="GstClockID"/>
+      </field>
+      <field name="end_time">
+        <type name="Gst.ClockTime" c:type="GstClockTime"/>
+      </field>
+      <field name="segment">
+        <type name="Gst.Segment" c:type="GstSegment"/>
+      </field>
+      <field name="need_newsegment">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="offset">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="size">
+        <type name="uint64" c:type="guint64"/>
+      </field>
+      <field name="num_buffers">
+        <type name="int" c:type="gint"/>
+      </field>
+      <field name="num_buffers_left">
+        <type name="int" c:type="gint"/>
+      </field>
+      <union name="data" c:type="data">
+        <record name="ABI" c:type="ABI">
+          <field name="typefind" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+          <field name="running" writable="1">
+            <type name="boolean" c:type="gboolean"/>
+          </field>
+          <field name="pending_seek" writable="1">
+            <type name="Gst.Event" c:type="GstEvent*"/>
+          </field>
+        </record>
+        <field name="_gst_reserved" writable="1">
+          <array zero-terminated="0" c:type="gpointer" fixed-size="19">
+            <type name="any"/>
+          </array>
+        </field>
+      </union>
+      <field name="priv">
+        <type name="Gst.BaseSrcPrivate" c:type="GstBaseSrcPrivate*"/>
+      </field>
+    </class>
+    <record name="SrcClass"
+            c:type="GstBaseSrcClass"
+            glib:is-gtype-struct-for="Src">
+      <doc xml:whitespace="preserve">Subclasses can override any of the available virtual methods or not, as
+needed. At the minimum, the @create method should be overridden to produce
+buffers.</doc>
+      <field name="parent_class">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+      <field name="get_caps">
+        <callback name="get_caps" c:type="get_caps">
+          <return-value transfer-ownership="full">
+            <type name="Gst.Caps" c:type="GstCaps*"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_caps">
+        <callback name="set_caps" c:type="set_caps">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="negotiate">
+        <callback name="negotiate" c:type="negotiate">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="newsegment">
+        <callback name="newsegment" c:type="newsegment">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="start">
+        <callback name="start" c:type="start">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="stop">
+        <callback name="stop" c:type="stop">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_times">
+        <callback name="get_times" c:type="get_times">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="start" transfer-ownership="none">
+              <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+            </parameter>
+            <parameter name="end" transfer-ownership="none">
+              <type name="Gst.ClockTime" c:type="GstClockTime*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_size">
+        <callback name="get_size" c:type="get_size">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="size"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint64" c:type="guint64*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="is_seekable">
+        <callback name="is_seekable" c:type="is_seekable">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unlock">
+        <callback name="unlock" c:type="unlock">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="event">
+        <callback name="event" c:type="event">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="Gst.Event" c:type="GstEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="create">
+        <callback name="create" c:type="create">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="offset" transfer-ownership="none">
+              <type name="uint64" c:type="guint64"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="uint" c:type="guint"/>
+            </parameter>
+            <parameter name="buf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="do_seek">
+        <callback name="do_seek" c:type="do_seek">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="segment" transfer-ownership="none">
+              <type name="Gst.Segment" c:type="GstSegment*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="query">
+        <callback name="query" c:type="query">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="query" transfer-ownership="none">
+              <type name="Gst.Query" c:type="GstQuery*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="check_get_range">
+        <callback name="check_get_range" c:type="check_get_range">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="fixate">
+        <callback name="fixate" c:type="fixate">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="unlock_stop">
+        <callback name="unlock_stop" c:type="unlock_stop">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="prepare_seek_segment">
+        <callback name="prepare_seek_segment" c:type="prepare_seek_segment">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="src" transfer-ownership="none">
+              <type name="Gst.BaseSrc" c:type="GstBaseSrc*"/>
+            </parameter>
+            <parameter name="seek" transfer-ownership="none">
+              <type name="Gst.Event" c:type="GstEvent*"/>
+            </parameter>
+            <parameter name="segment" transfer-ownership="none">
+              <type name="Gst.Segment" c:type="GstSegment*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="14">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <bitfield name="SrcFlags" c:type="GstBaseSrcFlags">
+      <doc xml:whitespace="preserve">The #GstElement flags that a basesrc element may have.</doc>
+      <member name="started"
+              value="1048576"
+              c:identifier="GST_BASE_SRC_STARTED"/>
+      <member name="flag_last"
+              value="4194304"
+              c:identifier="GST_BASE_SRC_FLAG_LAST"/>
+    </bitfield>
+    <record name="SrcPrivate" c:type="GstBaseSrcPrivate">
+    </record>
+    <constant name="TRANSFORM_SINK_NAME" value="sink">
+      <type name="utf8"/>
+    </constant>
+    <constant name="TRANSFORM_SRC_NAME" value="src">
+      <type name="utf8"/>
+    </constant>
+    <class name="Transform"
+           c:type="GstBaseTransform"
+           parent="Gst.Element"
+           abstract="1"
+           glib:type-name="GstBaseTransform"
+           glib:get-type="gst_base_transform_get_type"
+           glib:type-struct="TransformClass">
+      <doc xml:whitespace="preserve">The opaque #GstBaseTransform data structure.</doc>
+      <method name="set_passthrough"
+              c:identifier="gst_base_transform_set_passthrough">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="passthrough" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_passthrough"
+              c:identifier="gst_base_transform_is_passthrough">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_in_place"
+              c:identifier="gst_base_transform_set_in_place">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="in_place" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_in_place" c:identifier="gst_base_transform_is_in_place">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="update_qos" c:identifier="gst_base_transform_update_qos">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="proportion" transfer-ownership="none">
+            <type name="double" c:type="gdouble"/>
+          </parameter>
+          <parameter name="diff" transfer-ownership="none">
+            <type name="Gst.ClockTimeDiff" c:type="GstClockTimeDiff"/>
+          </parameter>
+          <parameter name="timestamp" transfer-ownership="none">
+            <type name="Gst.ClockTime" c:type="GstClockTime"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="set_qos_enabled"
+              c:identifier="gst_base_transform_set_qos_enabled">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="enabled" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_qos_enabled"
+              c:identifier="gst_base_transform_is_qos_enabled">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+      </method>
+      <method name="set_gap_aware"
+              c:identifier="gst_base_transform_set_gap_aware">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="gap_aware" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="suggest" c:identifier="gst_base_transform_suggest">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="caps" transfer-ownership="none">
+            <type name="Gst.Caps" c:type="GstCaps*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <type name="uint" c:type="guint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="reconfigure" c:identifier="gst_base_transform_reconfigure">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </method>
+      <property name="qos" writable="1" transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </property>
+      <field name="element">
+        <type name="Gst.Element" c:type="GstElement"/>
+      </field>
+      <field name="sinkpad">
+        <type name="Gst.Pad" c:type="GstPad*"/>
+      </field>
+      <field name="srcpad">
+        <type name="Gst.Pad" c:type="GstPad*"/>
+      </field>
+      <field name="passthrough">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="always_in_place">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="cache_caps1">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </field>
+      <field name="cache_caps1_size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="cache_caps2">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </field>
+      <field name="cache_caps2_size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="have_same_caps">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="delay_configure">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="pending_configure">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="negotiated">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="have_newsegment">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="segment">
+        <type name="Gst.Segment" c:type="GstSegment"/>
+      </field>
+      <field name="transform_lock">
+        <type name="GLib.Mutex" c:type="GMutex*"/>
+      </field>
+      <field name="priv">
+        <type name="Gst.BaseTransformPrivate"
+              c:type="GstBaseTransformPrivate*"/>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="19">
+          <type name="any"/>
+        </array>
+      </field>
+    </class>
+    <record name="TransformClass"
+            c:type="GstBaseTransformClass"
+            glib:is-gtype-struct-for="Transform">
+      <doc xml:whitespace="preserve">Subclasses can override any of the available virtual methods or not, as
+needed. At minimum either @transform or @transform_ip need to be overridden.
+If the element can overwrite the input data with the results (data is of the
+same type and quantity) it should provide @transform_ip.</doc>
+      <field name="parent_class">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+      <field name="transform_caps">
+        <callback name="transform_caps" c:type="transform_caps">
+          <return-value transfer-ownership="full">
+            <type name="Gst.Caps" c:type="GstCaps*"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gst.PadDirection" c:type="GstPadDirection"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="fixate_caps">
+        <callback name="fixate_caps" c:type="fixate_caps">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gst.PadDirection" c:type="GstPadDirection"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="othercaps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="transform_size">
+        <callback name="transform_size" c:type="transform_size">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gst.PadDirection" c:type="GstPadDirection"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="uint" c:type="guint"/>
+            </parameter>
+            <parameter name="othercaps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="othersize"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint" c:type="guint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="get_unit_size">
+        <callback name="get_unit_size" c:type="get_unit_size">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="size"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint" c:type="guint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="set_caps">
+        <callback name="set_caps" c:type="set_caps">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="incaps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="outcaps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="start">
+        <callback name="start" c:type="start">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="stop">
+        <callback name="stop" c:type="stop">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="event">
+        <callback name="event" c:type="event">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="Gst.Event" c:type="GstEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="transform">
+        <callback name="transform" c:type="transform">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="inbuf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="outbuf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="transform_ip">
+        <callback name="transform_ip" c:type="transform_ip">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="buf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="passthrough_on_same_caps">
+        <type name="boolean" c:type="gboolean"/>
+      </field>
+      <field name="prepare_output_buffer">
+        <callback name="prepare_output_buffer" c:type="prepare_output_buffer">
+          <return-value transfer-ownership="full">
+            <type name="Gst.FlowReturn" c:type="GstFlowReturn"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="input" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="size" transfer-ownership="none">
+              <type name="int" c:type="gint"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+            <parameter name="buf" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="src_event">
+        <callback name="src_event" c:type="src_event">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="event" transfer-ownership="none">
+              <type name="Gst.Event" c:type="GstEvent*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="before_transform">
+        <callback name="before_transform" c:type="before_transform">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="accept_caps">
+        <callback name="accept_caps" c:type="accept_caps">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="trans" transfer-ownership="none">
+              <type name="Gst.BaseTransform" c:type="GstBaseTransform*"/>
+            </parameter>
+            <parameter name="direction" transfer-ownership="none">
+              <type name="Gst.PadDirection" c:type="GstPadDirection"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="Gst.Caps" c:type="GstCaps*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_gst_reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="17">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <record name="TransformPrivate" c:type="GstBaseTransformPrivate">
+    </record>
+    <function name="gst_type_find_helper" c:identifier="gst_type_find_helper">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </return-value>
+      <parameters>
+        <parameter name="src" transfer-ownership="none">
+          <type name="Gst.Pad" c:type="GstPad*"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_type_find_helper_for_buffer"
+              c:identifier="gst_type_find_helper_for_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </return-value>
+      <parameters>
+        <parameter name="obj" transfer-ownership="none">
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="buf" transfer-ownership="none">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </parameter>
+        <parameter name="prob" transfer-ownership="none">
+          <type name="Gst.TypeFindProbability"
+                c:type="GstTypeFindProbability*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_type_find_helper_for_extension"
+              c:identifier="gst_type_find_helper_for_extension">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </return-value>
+      <parameters>
+        <parameter name="obj" transfer-ownership="none">
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="extension" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_type_find_helper_get_range"
+              c:identifier="gst_type_find_helper_get_range">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </return-value>
+      <parameters>
+        <parameter name="obj" transfer-ownership="none">
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="func" transfer-ownership="none" scope="call">
+          <type name="Gst.TypeFindHelperGetRangeFunction"
+                c:type="GstTypeFindHelperGetRangeFunction"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </parameter>
+        <parameter name="prob" transfer-ownership="none">
+          <type name="Gst.TypeFindProbability"
+                c:type="GstTypeFindProbability*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_type_find_helper_get_range_ext"
+              c:identifier="gst_type_find_helper_get_range_ext">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Caps" c:type="GstCaps*"/>
+      </return-value>
+      <parameters>
+        <parameter name="obj" transfer-ownership="none">
+          <type name="Gst.Object" c:type="GstObject*"/>
+        </parameter>
+        <parameter name="func" transfer-ownership="none" scope="call">
+          <type name="Gst.TypeFindHelperGetRangeFunction"
+                c:type="GstTypeFindHelperGetRangeFunction"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="uint64" c:type="guint64"/>
+        </parameter>
+        <parameter name="extension" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="prob" transfer-ownership="none">
+          <type name="Gst.TypeFindProbability"
+                c:type="GstTypeFindProbability*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

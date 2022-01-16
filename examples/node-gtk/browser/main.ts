@@ -1,8 +1,11 @@
-import * as gi from 'node-gtk'
+import { inspect } from 'util'
+import * as Gtk from './@types/node-gtk/Gtk-3.0'
+import * as Pango from './@types/node-gtk/Pango-1.0'
+import * as WebKit from './@types/node-gtk/WebKit2-4.0'
 
-const Gtk = gi.require('Gtk', '3.0')
-const Pango = gi.require('Pango', '1.0')
-const WebKit = gi.require('WebKit2', '4.0')
+// const Gtk = gi.require('Gtk', '3.0')
+// const Pango = gi.require('Pango', '1.0')
+// const WebKit = gi.require('WebKit2', '4.0')
 
 function makeButton(label: string, callback: () => void): Gtk.Button {
     const but = new Gtk.Button({ label: label })
@@ -21,11 +24,11 @@ wnd.setDefaultSize(800, 600)
 wnd.setTitle('Browser Test')
 const webview = new WebKit.WebView({})
 const scrolledWindow = new Gtk.ScrolledWindow({})
-const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL } as any) // TODO
+const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL })
 const spinner = new Gtk.Spinner({})
 
-const hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL } as any) // TODO
+const hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
 hbox.packStart(
     makeButton('⇦', () => {
         webview.goBack()
@@ -68,12 +71,15 @@ webview.on('notify::is-loading', () => {
     spinner.active = (webview as any).isLoading() // TODO
 })
 
-scrolledWindow.add((webview as unknown) as Gtk.Widget) // TODO
+// TODO what is the name if the `is-loading` property?
+console.log('webview', inspect(webview.isLoading))
+
+scrolledWindow.add(webview as Gtk.Widget)
 box.packStart(hbox, false, true, 0)
 box.packStart(scrolledWindow, true, true, 0)
 wnd.add(box)
 wnd.showAll()
 
-webview.loadUri('http://www.google.com')
+webview.loadUri('https://duckduckgo.com/')
 
 Gtk.main()

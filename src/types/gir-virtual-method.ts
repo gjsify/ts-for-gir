@@ -1,14 +1,9 @@
-import { GirFunction } from './gir-function'
-import { GirBoolean } from './gir-boolean'
+import { GirCallableAttrs, GirInfoAttrs, GirFunctionElement } from '.'
 
-export interface GirVirtualMethod extends GirFunction {
-    $: {
-        name: string
-        version?: string
-        'c:identifier'?: string
-        introspectable?: GirBoolean
-        'moved-to'?: string
-        'shadowed-by'?: string
-        invoker?: string
-    }
+export interface GirVirtualMethodElement extends GirFunctionElement {
+    $: GirInfoAttrs &
+        GirCallableAttrs & {
+            /** name of the callable called when invoking this virtual method */
+            invoker?: string
+        }
 }

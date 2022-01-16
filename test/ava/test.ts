@@ -1,6 +1,7 @@
+// @ts-nocheck TODO
 import test from 'ava'
-import { GirEnumeration, GirModule, GenerateConfig, GirFunction } from '../../src'
-import * as TestData from './testData'
+import { GirEnumElement, GirModule, GenerateConfig, GirFunctionElement } from '../../src/index.js'
+import * as TestData from './testData.js'
 
 const emptyRepositoryXml = {
     repository: {
@@ -15,6 +16,8 @@ const emptyRepositoryXml = {
     },
 }
 
+const emptyConstruct = { $: {} }
+
 const config: GenerateConfig = {
     environment: 'gjs',
     girDirectories: [''],
@@ -26,7 +29,7 @@ const config: GenerateConfig = {
 }
 
 test('enumeration', (t) => {
-    const enum_: GirEnumeration = {
+    const enum_: GirEnumElement = {
         $: {
             name: 'MyEnum',
         },
@@ -41,7 +44,7 @@ test('enumeration', (t) => {
     }
 
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
+    t.deepEqual(mod.exportEnumeration(enum_).def, ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
 test('constant', (t) => {
@@ -67,21 +70,17 @@ test('constant', (t) => {
         ],
     }
 
-    const symTable = {
-        'Test.MyType': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.symTable.set([], 'Test.MyType', emptyConstruct)
 
-    t.deepEqual(mod.exportConstant(var_), ['export const MY_CONST: MyType'])
-    t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR: MyType[]'])
+    t.deepEqual(mod.exportConstant(var_).def, ['export const MY_CONST: MyType'])
+    t.deepEqual(mod.exportConstant(arrVar).def, ['export const MY_ARR: MyType[]'])
 })
 
 test('function', (t) => {
-    const func: GirFunction = {
+    const func: GirFunctionElement = {
         $: { name: 'my_func' },
         parameters: [
             {
@@ -96,35 +95,31 @@ test('function', (t) => {
         'return-value': [{ $: { 'transfer-ownership': 'none' }, type: [{ $: { name: 'utf8' } }] }],
     }
 
-    const symTable = {
-        'Test.MyType': 1,
-        'GLib.DestroyNotify': 1,
-        'GLib.Variant': 1,
-        'Test.BusNameOwnerFlags': 1,
-        'Test.ButAcquireCallback': 1,
-        'Test.BusNameAcquiredCallback': 1,
-        'Test.BusType': 1,
-        'Test.BusAcquiredCallback': 1,
-        'Test.BusNameLostCallback': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.symTable.set([], 'Test.MyType', emptyConstruct)
+    mod.symTable.set([], 'GLib.DestroyNotify', emptyConstruct)
+    mod.symTable.set([], 'GLib.Variant', emptyConstruct)
+    mod.symTable.set([], 'Test.BusNameOwnerFlags', emptyConstruct)
+    mod.symTable.set([], 'Test.ButAcquireCallback', emptyConstruct)
+    mod.symTable.set([], 'Test.BusNameAcquiredCallback', emptyConstruct)
+    mod.symTable.set([], 'Test.BusType', emptyConstruct)
+    mod.symTable.set([], 'Test.BusAcquiredCallback', emptyConstruct)
+    mod.symTable.set([], 'Test.BusNameLostCallback', emptyConstruct)
 
-    t.deepEqual(mod.exportFunction(func), ['export function my_func(arg1: MyType): string'])
+    t.deepEqual(mod.exportFunction(func).def, ['export function my_func(arg1: MyType): string'])
 
-    t.deepEqual(mod.exportFunction(TestData.funcBusOwnName), [])
+    t.deepEqual(mod.exportFunction(TestData.funcBusOwnName).def, [])
 
     const func3 = TestData.funcBusOwnName
     func3.$.introspectable = '0'
 
-    t.deepEqual(mod.exportFunction(func3), [])
+    t.deepEqual(mod.exportFunction(func3).def, [])
 })
 
 test('callback', (t) => {
-    const cbs: GirFunction[] = [
+    const cbs: GirFunctionElement[] = [
         {
             $: { name: 'activate' },
             'return-value': [
@@ -154,18 +149,17 @@ test('callback', (t) => {
         },
     ]
 
-    const symTable = {
-        'Test.MyType': 1,
-        'Test.SimpleAction': 1,
-        'GLib.Variant': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.dependencies.push('GLib-2.0');
 
-    t.deepEqual(mod.exportCallback(cbs[0]), [
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.SimpleAction', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
+
+    t.deepEqual(mod.exportCallback(cbs[0]).def, [
         'export interface activate {',
         '    (action: SimpleAction, parameter: GLib.Variant): void',
         '}',
@@ -173,18 +167,16 @@ test('callback', (t) => {
 })
 
 test('interface', (t) => {
-    const symTable = {
-        'Test.MyType': 1,
-        'GLib.Variant': 1,
-        'GLib.VariantType': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.dependencies.push('GLib-2.0');
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceAction), [
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.VariantType', emptyConstruct)
+
+    t.deepEqual(mod.exportInterface(TestData.interfaceAction).def, [
         'export class Action {',
         '    /* Properties of Action */',
         '    readonly enabled: boolean',
@@ -218,7 +210,7 @@ test('interface', (t) => {
         '}',
     ])
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup), [
+    t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup).def, [
         'export class ActionGroup {',
         '    /* Methods of ActionGroup */',
         '    action_added(action_name: string): void',
@@ -269,19 +261,17 @@ test('interface', (t) => {
 })
 
 test('constructors', (t) => {
-    const symTable = {
-        'Test.MyType': 1,
-        'GLib.String': 1,
-        'Test.DBusInterfaceInfo': 1,
-        'Test.DBusNodeInfo': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.dependencies.push('GLib-2.0');
 
-    t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo), [
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.String', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.DBusInterfaceInfo', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.DBusNodeInfo', emptyConstruct)
+
+    t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo).def, [
         'export class DBusNodeInfo {',
         '    /* Fields of DBusNodeInfo */',
         '    ref_count: number',
@@ -302,29 +292,28 @@ test('constructors', (t) => {
 })
 
 test('class', (t) => {
-    const symTable = {
-        'GObject.Object': TestData.classGObject,
-        'GLib.Variant': 1,
-        'GLib.VariantDict': 1,
-        'Test.File': 1,
-        'Test.InputStream': 1,
-        'Test.Object': 1,
-        'Test.BindingFlags': 1,
-        'Test.Binding': 1,
-        'Test.BindingTransformFunc': 1,
-        'GLib.DestroyNotify': 1,
-        'Test.Closure': 1,
-        'Test.Value': 1,
-        'GLib.Quark': 1,
-        'Test.ParamSpec': 1,
-    }
-
     const mod = new GirModule(emptyRepositoryXml, config)
-    t.is(mod.name, 'Test')
+    t.is(mod.namespace, 'Test')
 
-    mod.symTable = symTable as any
+    mod.dependencies.push('GLib-2.0');
+    mod.dependencies.push('GObject-2.0');
 
-    const result = mod.exportClass(TestData.classApplicationCommandLine)
+    mod.symTable.set(mod.dependencies, 'GObject.Object', TestData.classGObject)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.VariantDict', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.File', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.InputStream', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Object', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.BindingFlags', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Binding', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.BindingTransformFunc', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.DestroyNotify', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Closure', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Value', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Quark', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.ParamSpec', emptyConstruct)
+
+    const result = mod.exportClass(TestData.classApplicationCommandLine).def
 
     t.deepEqual(result, [
         'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',

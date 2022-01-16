@@ -1,7 +1,8 @@
 *.lock
-*-lock*
 main.js
 node_modules/
 tmp/
 lib/
+examples/**/@types/
 @types/
+index.ts.bak

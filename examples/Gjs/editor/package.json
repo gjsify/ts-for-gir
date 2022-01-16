@@ -1,25 +1,26 @@
 {
-  "name": "gir-ts-editor-example",
+  "name": "gjs-ts-editor-example",
   "version": "0.0.1",
   "description": "",
   "main": "main.ts",
   "scripts": {
-    "build": "npm run build:types && npm run build:ts",
-    "build:ts": "npm run clear:ts && webpack",
-    "build:types": "npm run clear:types && ../../../bin/run generate Gtk-3.0 GtkSource-3.0 -e gjs",
+    "build": "npm run build:types && npm run build:wp",
+    "build:wp": "npm run clear:ts && webpack --env production",
+    "build:types": "../../../lib/start.js generate Gtk-3.0 GtkSource-3.0 -e gjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",
-    "start": "npm run build && gjs dist/editor.js",
+    "start": "npm run build && gjs dist/main.js",
     "watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "ts-loader": "^8.0.4",
-    "typescript": "^4.0.3",
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.0.0"
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
   }
 }

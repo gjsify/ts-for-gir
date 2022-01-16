@@ -1,32 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-import * as SegfaultHandler from 'segfault-handler'
-SegfaultHandler.registerHandler('crash.log')
-import 'source-map-support/register'
-export * from './commands/generate'
-export * from './commands/list'
-export * from './types'
-export * from './config'
-export * from './generator'
-export * from './gir-module'
-export * from './logger'
-export * from './module-loader'
-export * from './template-processor'
-export * from './transformation'
-export * from './utils'
-
-export { run } from '@oclif/command'
-
-if (require.main === module) {
-    // If we don't catch exceptions, stdout gets truncated
-    try {
-        require('@oclif/command')
-            .run()
-            .then(require('@oclif/command/flush'))
-            .catch((error) => {
-                console.log(error)
-                require('@oclif/errors/handle')(error)
-            })
-    } catch (ex: any) {
-        console.log(ex.stack)
-    }
-}
+export * from './config.js'
+export * from './constants.js'
+export * from './generator.js'
+export * from './gir-module.js'
+export * from './logger.js'
+export * from './module-loader.js'
+export * from './symtable.js'
+export * from './template-processor.js'
+export * from './transformation.js'
+export * from './type-patches.js'
+export * from './utils.js'
+export { default as templateProcessor } from './template-processor.js'
+export * from './types/index.js'
+export * from './commands/index.js'

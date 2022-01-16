@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.1"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="GLib" version="2.0"/>
+  <include name="GModule" version="2.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Gst" version="0.10"/>
+  <include name="libxml2" version="2.0"/>
+  <package name="gobject-2.0"/>
+  <package name="gstreamer-0.10"/>
+  <package name="gstreamer-tag-0.10"/>
+  <namespace name="GstTag"
+             version="0.10"
+             shared-library="libgsttag-0.10.so.0"
+             c:prefix="GstTag">
+    <constant name="CDDA_CDDB_DISCID" value="discid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CDDA_CDDB_DISCID_FULL" value="discid-full">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CDDA_MUSICBRAINZ_DISCID" value="musicbrainz-discid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CDDA_MUSICBRAINZ_DISCID_FULL"
+              value="musicbrainz-discid-full">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CMML_CLIP" value="cmml-clip">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CMML_HEAD" value="cmml-head">
+      <type name="utf8"/>
+    </constant>
+    <constant name="CMML_STREAM" value="cmml-stream">
+      <type name="utf8"/>
+    </constant>
+    <class name="Demux"
+           c:type="GstTagDemux"
+           version="0.10.15"
+           parent="Gst.Element"
+           abstract="1"
+           glib:type-name="GstTagDemux"
+           glib:get-type="gst_tag_demux_get_type"
+           glib:type-struct="DemuxClass">
+      <doc xml:whitespace="preserve">Opaque #GstTagDemux structure.</doc>
+      <virtual-method name="identify_tag">
+        <return-value transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+          <parameter name="start_tag" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="tag_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint" c:type="guint*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="parse_tag">
+        <return-value transfer-ownership="full">
+          <type name="DemuxResult" c:type="GstTagDemuxResult"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <type name="Gst.Buffer" c:type="GstBuffer*"/>
+          </parameter>
+          <parameter name="start_tag" transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </parameter>
+          <parameter name="tag_size"
+                     direction="out"
+                     caller-allocates="0"
+                     transfer-ownership="full">
+            <type name="uint" c:type="guint*"/>
+          </parameter>
+          <parameter name="tags" transfer-ownership="none">
+            <type name="Gst.TagList" c:type="GstTagList**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="merge_tags">
+        <return-value transfer-ownership="full">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </return-value>
+        <parameters>
+          <parameter name="start_tags" transfer-ownership="none">
+            <type name="Gst.TagList" c:type="GstTagList*"/>
+          </parameter>
+          <parameter name="end_tags" transfer-ownership="none">
+            <type name="Gst.TagList" c:type="GstTagList*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <field name="element">
+        <type name="Gst.Element" c:type="GstElement"/>
+      </field>
+      <field name="priv">
+        <type name="DemuxPrivate" c:type="GstTagDemuxPrivate*"/>
+      </field>
+      <field name="reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </class>
+    <record name="DemuxClass"
+            c:type="GstTagDemuxClass"
+            glib:is-gtype-struct-for="Demux"
+            version="0.10.15">
+      <doc xml:whitespace="preserve">The #GstTagDemuxClass structure.  See documentation at beginning of section
+for details about what subclasses need to override and do.</doc>
+      <field name="parent_class">
+        <type name="Gst.ElementClass" c:type="GstElementClass"/>
+      </field>
+      <field name="min_start_size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="min_end_size">
+        <type name="uint" c:type="guint"/>
+      </field>
+      <field name="identify_tag">
+        <callback name="identify_tag" c:type="identify_tag">
+          <return-value transfer-ownership="none">
+            <type name="boolean" c:type="gboolean"/>
+          </return-value>
+          <parameters>
+            <parameter name="demux" transfer-ownership="none">
+              <type name="Demux" c:type="GstTagDemux*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="start_tag" transfer-ownership="none">
+              <type name="boolean" c:type="gboolean"/>
+            </parameter>
+            <parameter name="tag_size"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint" c:type="guint*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="parse_tag">
+        <callback name="parse_tag" c:type="parse_tag">
+          <return-value transfer-ownership="full">
+            <type name="DemuxResult" c:type="GstTagDemuxResult"/>
+          </return-value>
+          <parameters>
+            <parameter name="demux" transfer-ownership="none">
+              <type name="Demux" c:type="GstTagDemux*"/>
+            </parameter>
+            <parameter name="buffer" transfer-ownership="none">
+              <type name="Gst.Buffer" c:type="GstBuffer*"/>
+            </parameter>
+            <parameter name="start_tag" transfer-ownership="none">
+              <type name="boolean" c:type="gboolean"/>
+            </parameter>
+            <parameter name="tag_size"
+                       direction="out"
+                       caller-allocates="0"
+                       transfer-ownership="full">
+              <type name="uint" c:type="guint*"/>
+            </parameter>
+            <parameter name="tags" transfer-ownership="none">
+              <type name="Gst.TagList" c:type="GstTagList**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="merge_tags">
+        <callback name="merge_tags" c:type="merge_tags">
+          <return-value transfer-ownership="full">
+            <type name="Gst.TagList" c:type="GstTagList*"/>
+          </return-value>
+          <parameters>
+            <parameter name="demux" transfer-ownership="none">
+              <type name="Demux" c:type="GstTagDemux*"/>
+            </parameter>
+            <parameter name="start_tags" transfer-ownership="none">
+              <type name="Gst.TagList" c:type="GstTagList*"/>
+            </parameter>
+            <parameter name="end_tags" transfer-ownership="none">
+              <type name="Gst.TagList" c:type="GstTagList*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="reserved">
+        <array zero-terminated="0" c:type="gpointer" fixed-size="4">
+          <type name="any"/>
+        </array>
+      </field>
+    </record>
+    <record name="DemuxPrivate" c:type="GstTagDemuxPrivate">
+    </record>
+    <enumeration name="DemuxResult"
+                 version="0.10.15"
+                 glib:type-name="GstTagDemuxResult"
+                 glib:get-type="gst_tag_demux_result_get_type"
+                 c:type="GstTagDemuxResult">
+      <doc xml:whitespace="preserve">Result values from the parse_tag virtual function.</doc>
+      <member name="broken_tag"
+              value="0"
+              c:identifier="GST_TAG_DEMUX_RESULT_BROKEN_TAG"
+              glib:nick="broken-tag"/>
+      <member name="again"
+              value="1"
+              c:identifier="GST_TAG_DEMUX_RESULT_AGAIN"
+              glib:nick="again"/>
+      <member name="ok"
+              value="2"
+              c:identifier="GST_TAG_DEMUX_RESULT_OK"
+              glib:nick="ok"/>
+    </enumeration>
+    <enumeration name="ImageType"
+                 version="0.10.9"
+                 glib:type-name="GstTagImageType"
+                 glib:get-type="gst_tag_image_type_get_type"
+                 c:type="GstTagImageType">
+      <doc xml:whitespace="preserve">Type of image contained in an image tag (specified as field in
+the image buffer's caps structure)</doc>
+      <member name="none"
+              value="-1"
+              c:identifier="GST_TAG_IMAGE_TYPE_NONE"
+              glib:nick="none"/>
+      <member name="undefined"
+              value="0"
+              c:identifier="GST_TAG_IMAGE_TYPE_UNDEFINED"
+              glib:nick="undefined"/>
+      <member name="front_cover"
+              value="1"
+              c:identifier="GST_TAG_IMAGE_TYPE_FRONT_COVER"
+              glib:nick="front-cover"/>
+      <member name="back_cover"
+              value="2"
+              c:identifier="GST_TAG_IMAGE_TYPE_BACK_COVER"
+              glib:nick="back-cover"/>
+      <member name="leaflet_page"
+              value="3"
+              c:identifier="GST_TAG_IMAGE_TYPE_LEAFLET_PAGE"
+              glib:nick="leaflet-page"/>
+      <member name="medium"
+              value="4"
+              c:identifier="GST_TAG_IMAGE_TYPE_MEDIUM"
+              glib:nick="medium"/>
+      <member name="lead_artist"
+              value="5"
+              c:identifier="GST_TAG_IMAGE_TYPE_LEAD_ARTIST"
+              glib:nick="lead-artist"/>
+      <member name="artist"
+              value="6"
+              c:identifier="GST_TAG_IMAGE_TYPE_ARTIST"
+              glib:nick="artist"/>
+      <member name="conductor"
+              value="7"
+              c:identifier="GST_TAG_IMAGE_TYPE_CONDUCTOR"
+              glib:nick="conductor"/>
+      <member name="band_orchestra"
+              value="8"
+              c:identifier="GST_TAG_IMAGE_TYPE_BAND_ORCHESTRA"
+              glib:nick="band-orchestra"/>
+      <member name="composer"
+              value="9"
+              c:identifier="GST_TAG_IMAGE_TYPE_COMPOSER"
+              glib:nick="composer"/>
+      <member name="lyricist"
+              value="10"
+              c:identifier="GST_TAG_IMAGE_TYPE_LYRICIST"
+              glib:nick="lyricist"/>
+      <member name="recording_location"
+              value="11"
+              c:identifier="GST_TAG_IMAGE_TYPE_RECORDING_LOCATION"
+              glib:nick="recording-location"/>
+      <member name="during_recording"
+              value="12"
+              c:identifier="GST_TAG_IMAGE_TYPE_DURING_RECORDING"
+              glib:nick="during-recording"/>
+      <member name="during_performance"
+              value="13"
+              c:identifier="GST_TAG_IMAGE_TYPE_DURING_PERFORMANCE"
+              glib:nick="during-performance"/>
+      <member name="video_capture"
+              value="14"
+              c:identifier="GST_TAG_IMAGE_TYPE_VIDEO_CAPTURE"
+              glib:nick="video-capture"/>
+      <member name="fish"
+              value="15"
+              c:identifier="GST_TAG_IMAGE_TYPE_FISH"
+              glib:nick="fish"/>
+      <member name="illustration"
+              value="16"
+              c:identifier="GST_TAG_IMAGE_TYPE_ILLUSTRATION"
+              glib:nick="illustration"/>
+      <member name="artist_logo"
+              value="17"
+              c:identifier="GST_TAG_IMAGE_TYPE_BAND_ARTIST_LOGO"
+              glib:nick="artist-logo"/>
+      <member name="publisher_studio_logo"
+              value="18"
+              c:identifier="GST_TAG_IMAGE_TYPE_PUBLISHER_STUDIO_LOGO"
+              glib:nick="publisher-studio-logo"/>
+    </enumeration>
+    <constant name="MUSICBRAINZ_ALBUMARTISTID"
+              value="musicbrainz-albumartistid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="MUSICBRAINZ_ALBUMID" value="musicbrainz-albumid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="MUSICBRAINZ_ARTISTID" value="musicbrainz-artistid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="MUSICBRAINZ_TRACKID" value="musicbrainz-trackid">
+      <type name="utf8"/>
+    </constant>
+    <constant name="MUSICBRAINZ_TRMID" value="musicbrainz-trmid">
+      <type name="utf8"/>
+    </constant>
+    <function name="freeform_string_to_utf8"
+              c:identifier="gst_tag_freeform_string_to_utf8">
+      <return-value transfer-ownership="full">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="size" transfer-ownership="none">
+          <type name="int" c:type="gint"/>
+        </parameter>
+        <parameter name="env_vars" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="from_id3_tag" c:identifier="gst_tag_from_id3_tag">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="id3_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="from_id3_user_tag"
+              c:identifier="gst_tag_from_id3_user_tag">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="id3_user_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="from_vorbis_tag" c:identifier="gst_tag_from_vorbis_tag">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="vorbis_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_language_code_iso_639_1"
+              c:identifier="gst_tag_get_language_code_iso_639_1">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="lang_code" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_language_code_iso_639_2B"
+              c:identifier="gst_tag_get_language_code_iso_639_2B">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="lang_code" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_language_code_iso_639_2T"
+              c:identifier="gst_tag_get_language_code_iso_639_2T">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="lang_code" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="get_language_codes"
+              c:identifier="gst_tag_get_language_codes">
+      <return-value transfer-ownership="full">
+        <array c:type="gchar**">
+          <type name="utf8"/>
+        </array>
+      </return-value>
+    </function>
+    <function name="get_language_name"
+              c:identifier="gst_tag_get_language_name">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="language_code" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="gst_vorbis_tag_add" c:identifier="gst_vorbis_tag_add">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="id3_genre_count" c:identifier="gst_tag_id3_genre_count">
+      <return-value transfer-ownership="none">
+        <type name="uint" c:type="guint"/>
+      </return-value>
+    </function>
+    <function name="id3_genre_get" c:identifier="gst_tag_id3_genre_get">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="id" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="image_data_to_image_buffer"
+              c:identifier="gst_tag_image_data_to_image_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Buffer" c:type="GstBuffer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="image_data" transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </parameter>
+        <parameter name="image_data_len" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="image_type" transfer-ownership="none">
+          <type name="ImageType" c:type="GstTagImageType"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_add_id3_image"
+              c:identifier="gst_tag_list_add_id3_image">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="tag_list" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="image_data" transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </parameter>
+        <parameter name="image_data_len" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="id3_picture_type" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_from_vorbiscomment_buffer"
+              c:identifier="gst_tag_list_from_vorbiscomment_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.TagList" c:type="GstTagList*"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </parameter>
+        <parameter name="id_data" transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </parameter>
+        <parameter name="id_data_length" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="vendor_string" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_from_xmp_buffer"
+              c:identifier="gst_tag_list_from_xmp_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.TagList" c:type="GstTagList*"/>
+      </return-value>
+      <parameters>
+        <parameter name="buffer" transfer-ownership="none">
+          <type name="Gst.Buffer" c:type="GstBuffer*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_new_from_id3v1"
+              c:identifier="gst_tag_list_new_from_id3v1">
+      <return-value transfer-ownership="full">
+        <type name="Gst.TagList" c:type="GstTagList*"/>
+      </return-value>
+      <parameters>
+        <parameter name="data" transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_to_vorbiscomment_buffer"
+              c:identifier="gst_tag_list_to_vorbiscomment_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Buffer" c:type="GstBuffer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="id_data" transfer-ownership="none">
+          <array c:type="guint8*">
+            <type name="uint8"/>
+          </array>
+        </parameter>
+        <parameter name="id_data_length" transfer-ownership="none">
+          <type name="uint" c:type="guint"/>
+        </parameter>
+        <parameter name="vendor_string" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="list_to_xmp_buffer"
+              c:identifier="gst_tag_list_to_xmp_buffer">
+      <return-value transfer-ownership="full">
+        <type name="Gst.Buffer" c:type="GstBuffer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="read_only" transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="parse_extended_comment"
+              c:identifier="gst_tag_parse_extended_comment">
+      <return-value transfer-ownership="none">
+        <type name="boolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="ext_comment" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+        <parameter name="key" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="lang" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <array c:type="gchar**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="fail_if_no_key" transfer-ownership="none">
+          <type name="boolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="register_musicbrainz_tags"
+              c:identifier="gst_tag_register_musicbrainz_tags">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+    </function>
+    <function name="to_id3_tag" c:identifier="gst_tag_to_id3_tag">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="gst_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="to_vorbis_comments"
+              c:identifier="gst_tag_to_vorbis_comments"
+              introspectable="0">
+      <return-value transfer-ownership="full">
+        <type name="GLib.List" c:type="GList*">
+          <type name="any" c:type="gpointer"/>
+        </type>
+      </return-value>
+      <parameters>
+        <parameter name="list" transfer-ownership="none">
+          <type name="Gst.TagList" c:type="GstTagList*"/>
+        </parameter>
+        <parameter name="tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="to_vorbis_tag" c:identifier="gst_tag_to_vorbis_tag">
+      <return-value transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </return-value>
+      <parameters>
+        <parameter name="gst_tag" transfer-ownership="none">
+          <type name="utf8" c:type="gchar*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

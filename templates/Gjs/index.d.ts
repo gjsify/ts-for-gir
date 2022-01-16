@@ -1,6 +1,6 @@
-import * as Gjs from "./Gjs";
+import type * as Gjs from "./Gjs";
 <%_ for (const girModule of girModules) { _%>
-import * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
 <%_ } _%>
 
 
@@ -10,17 +10,27 @@ declare global {
     function log(message?: string): void
     function logError(exception: any, message?: string): void
     const ARGV: string[]
+
     const imports: typeof Gjs & {
-        [key: string]: any
         gi: {
-          <%_ for (const girModule of girModules) { _%>
-          <%= girModule.name %>: typeof <%= girModule.importName %>
+          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+              typeof <%= girModule.module.importName %>
+              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                |
+              <%_ } _%>
+            <%_ } _%>
           <%_ } _%>
         }
         versions: {
-          <%_ for (const girModule of girModules) { _%>
-            <%= girModule.name %>: string
+          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+              '<%= girModule.module.version %>'
+              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                |
+              <%_ } _%>
             <%_ } _%>
+          <%_ } _%>
         }
         searchPath: string[];
     }

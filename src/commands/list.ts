@@ -2,86 +2,95 @@
  * Everything you need for the `ts-for-gir list` command is located here
  */
 
-import { ModuleLoader } from '../module-loader'
-import { Command } from '@oclif/command'
+import { Argv } from 'yargs'
+
+import { ModuleLoader } from '../module-loader.js'
 import chalk from 'chalk'
-import { Config } from '../config'
-import { ResolveType, ConfigFlags } from '../types'
+import { Config } from '../config.js'
+import { ResolveType, ConfigFlags } from '../types/index.js'
+import { Logger } from '../logger.js'
 
-export default class List extends Command {
-    static description = 'Lists all available GIR modules'
+const command = 'list [modules..]'
 
-    static examples = [
-        '# Lists all available GIR modules in ./vala-girs/gir-1.0',
-        `${Config.appName} list -g ./vala-girs/gir-1.0`,
-        '',
-        '# Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3',
-        `${Config.appName} list --ignore=Gtk-3.0 xrandr-1.3`,
-    ]
+const description = 'Lists all available GIR modules'
 
-    static flags = {
-        help: Config.defaultCliFlags.help,
-        girDirectories: Config.defaultCliFlags.girDirectories,
-        ignore: Config.defaultCliFlags.ignore,
-        configName: Config.defaultCliFlags.configName,
-        verbose: Config.defaultCliFlags.verbose,
+const builder = (yargs: Argv) => {
+    return yargs
+        .option('modules', Config.listOptions.modules)
+        .option('girDirectories', Config.listOptions.girDirectories)
+        .option('ignore', Config.listOptions.ignore)
+        .option('verbose', Config.listOptions.verbose)
+        .option('configName', Config.listOptions.configName)
+        .example(examples)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const handler = async (args: any /* TODO */) => {
+    const config = await Config.load(args as ConfigFlags)
+    const generateConfig = Config.getGenerateConfig(config)
+    const moduleLoader = new ModuleLoader(generateConfig)
+    const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
+    const moduleGroups = Object.values(grouped)
+    if (Object.keys(grouped).length === 0) {
+        return Logger.error('No modules found in ' + config.girDirectories.join(', '))
     }
 
-    static args = [Config.defaultCliArgs.modules]
+    const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict)
 
-    async run(): Promise<void> {
-        const { argv, flags } = this.parse(List)
-        const config = await Config.load((flags as unknown) as ConfigFlags, argv)
-        const generateConfig = Config.getGenerateConfig(config)
-        const moduleLoader = new ModuleLoader(generateConfig)
-        const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
-        const moduleGroupes = Object.values(grouped)
-        if (Object.keys(grouped).length === 0) {
-            this.log(chalk.red('No modules found'))
-            return
+    const byHandModules = moduleGroups.filter(
+        (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.BY_HAND,
+    )
+
+    const depModules = moduleGroups.filter(
+        (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
+    )
+
+    Logger.log(chalk.blue('\nSelected Modules:'))
+    for (const moduleGroup of byHandModules) {
+        for (const depModule of moduleGroup.modules) {
+            Logger.log(chalk.white(`- ${depModule.packageName}`))
         }
+    }
 
-        const conflictModules = moduleGroupes.filter((moduleGroup) => moduleGroup.hasConflict)
-
-        const byHandModules = moduleGroupes.filter(
-            (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.BY_HAND,
-        )
-
-        const depModules = moduleGroupes.filter(
-            (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
-        )
-
-        this.log(chalk.blue('\nSelected Modules:'))
-        for (const moduleGroup of byHandModules) {
+    if (depModules.length > 0) {
+        Logger.log(chalk.yellow('\nDependencies:'))
+        for (const moduleGroup of depModules) {
             for (const depModule of moduleGroup.modules) {
-                this.log(chalk.white(`- ${depModule.packageName}`))
-            }
-        }
-
-        if (depModules.length > 0) {
-            this.log(chalk.yellow('\nDependencies:'))
-            for (const moduleGroup of depModules) {
-                for (const depModule of moduleGroup.modules) {
-                    this.log(chalk.white(`- ${depModule.packageName}`))
-                }
-            }
-        }
-
-        if (conflictModules.length > 0) {
-            this.log(chalk.red('\nConflicts:'))
-            for (const moduleGroup of conflictModules) {
-                this.log(chalk.white(`- ${moduleGroup.name}`))
-                for (const conflictModule of moduleGroup.modules) {
-                    this.log(chalk.white(`  - ${conflictModule.packageName}`))
-                }
-            }
-        }
-
-        if (failed.length > 0) {
-            this.log(chalk.red('\nDependencies not found:'))
-            for (const fail of failed) {
-                this.log(chalk.white(`- ${fail}`))
+                Logger.log(chalk.white(`- ${depModule.packageName}`))
             }
         }
     }
+
+    if (conflictModules.length > 0) {
+        Logger.log(chalk.red('\nConflicts:'))
+        for (const moduleGroup of conflictModules) {
+            Logger.log(chalk.white(`- ${moduleGroup.namespace}`))
+            for (const conflictModule of moduleGroup.modules) {
+                Logger.log(chalk.white(`  - ${conflictModule.packageName}`))
+            }
+        }
+    }
+
+    if (failed.length > 0) {
+        Logger.log(chalk.red('\nDependencies not found:'))
+        for (const fail of failed) {
+            Logger.log(chalk.white(`- ${fail}`))
+        }
+    }
+}
+
+const examples: ReadonlyArray<[string, string?]> = [
+    [`${Config.appName} list -g ./vala-girs/gir-1.0`, `Lists all available GIR modules in ./vala-girs/gir-1.0`],
+    [
+        `${Config.appName} list --ignore=Gtk-3.0 xrandr-1.3`,
+        'Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3',
+    ],
+]
+
+export const list = {
+    command,
+    description,
+    builder,
+    handler,
+    examples,
 }

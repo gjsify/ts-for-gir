@@ -1,1 +1,1 @@
-export type FunctionPrefix = '' | 'vfunc_' | 'static ' | 'function ' | 'export function '
+export type FunctionPrefix = '' | 'vfunc_' | 'static ' | 'function '

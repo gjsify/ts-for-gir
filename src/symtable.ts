@@ -103,7 +103,7 @@ export class SymTable {
     public set(
         dependencies: string[],
         fullTypeName: string,
-        GirConstructorElement:
+        GirElement:
             | GirBitfieldElement
             | GirCallbackElement
             | GirClassElement
@@ -120,7 +120,7 @@ export class SymTable {
             if (key.endsWith('ServiceAction')) {
                 debugger
             }
-            SymTable.items[key] = GirConstructorElement
+            SymTable.items[key] = GirElement
         }
     }
 }

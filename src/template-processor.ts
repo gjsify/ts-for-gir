@@ -407,14 +407,10 @@ export class TemplateProcessor {
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
-        if (girAlias._desc.desc)
-            for (const constDesc of girAlias._desc.desc) {
-                desc.push(`export const ${constDesc}`)
-            }
-
         const exp = this.config.exportDefault ? '' : 'export '
 
-        return [`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`]
+        desc.push(`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)
+        return desc
     }
 
     /**

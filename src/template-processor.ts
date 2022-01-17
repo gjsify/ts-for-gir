@@ -57,11 +57,11 @@ export class TemplateProcessor {
      * @param description
      */
     public generateTSDocComment(description: string): string[] {
-        const result: string[] = []
-        result.push('/**')
-        result.push(` * ${description}`)
-        result.push(' */')
-        return result
+        const def: string[] = []
+        def.push('/**')
+        def.push(` * ${description}`)
+        def.push(' */')
+        return def
     }
 
     /**
@@ -71,20 +71,20 @@ export class TemplateProcessor {
      * @param asExternType Currently only used for node type imports
      */
     public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
-        const result: string[] = []
+        const def: string[] = []
         if (this.config.buildType === 'lib') {
             const sas = this.config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
-            result.push(`import type ${sas}${namespace} from './${packageName}';`)
+            def.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else {
             if (asExternType) {
-                // result.push(`/// <reference types="${packageName}" />`)
-                result.push(`import "${packageName}"`)
+                // def.push(`/// <reference types="${packageName}" />`)
+                def.push(`import "${packageName}"`)
             } else {
-                // result.push(`/// <reference path="${packageName}.d.ts" />`)
-                result.push(`import type { ${namespace} } from './${packageName}';`)
+                // def.push(`/// <reference path="${packageName}.d.ts" />`)
+                def.push(`import type { ${namespace} } from './${packageName}';`)
             }
         }
-        return result
+        return def
     }
 
     public generateExport(type: string, name: string, definition: string) {
@@ -95,14 +95,14 @@ export class TemplateProcessor {
         return `${exp}${type} ${name}${definition}`
     }
 
-    public generateProperty(indent = '', girProp: GirPropertyElement) {
+    public generateProperty(girProp: GirPropertyElement, indentCount = 0) {
         if (!girProp._desc) {
             this.log.error('girProp', JSON.stringify(girProp, null, 2))
             throw new Error('[generateProperty] Not all required properties set!')
         }
 
+        const indent = this.generateIndent(indentCount)
         const varDesc = this.generateVariable(girProp)[0]
-
         const prefix = girProp._desc.readonly ? '' : 'readonly '
 
         return [`${indent}${prefix}${varDesc}`]
@@ -131,7 +131,7 @@ export class TemplateProcessor {
         return [`${name}${affix}: ${type}`]
     }
 
-    public generateSignalMethods(girSignalFunc: GirSignalElement, classDetails: ClassDetails, identCount = 1) {
+    public generateSignalMethods(girSignalFunc: GirSignalElement, classDetails: ClassDetails, indentCount = 1) {
         if (!girSignalFunc._desc) {
             this.log.error('girSignalFunc', JSON.stringify(girSignalFunc, null, 2))
             throw new Error('[generateSignalMethods] Not all required properties set!')
@@ -139,80 +139,78 @@ export class TemplateProcessor {
 
         const { name: sigName, paramsDef, returnType } = girSignalFunc._desc
         const paramComma = paramsDef.length > 0 ? ', ' : ''
-        const ident = this.generateIndent(identCount)
+        const indent = this.generateIndent(indentCount)
         const def: string[] = []
 
         def.push(
-            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${classDetails.name}${paramComma}${paramsDef.join(
-                ', ',
-            )}) => ${returnType})): number`,
+            `${indent}connect(sigName: "${sigName}", callback: (($obj: ${
+                classDetails.name
+            }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
-                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${
+                `${indent}connect_after(sigName: "${sigName}", callback: (($obj: ${
                     classDetails.name
                 }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
             )
         }
         if (this.config.environment === 'node') {
             def.push(
-                `${ident}on(sigName: "${sigName}", callback: (${paramsDef.join(
+                `${indent}on(sigName: "${sigName}", callback: (${paramsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "${sigName}", callback: (${paramsDef.join(
+                `${indent}once(sigName: "${sigName}", callback: (${paramsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "${sigName}", callback: (${paramsDef.join(', ')}) => void): NodeJS.EventEmitter`,
+                `${indent}off(sigName: "${sigName}", callback: (${paramsDef.join(', ')}) => void): NodeJS.EventEmitter`,
             )
         }
-        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${paramsDef.join(', ')}): void`)
-        return {
-            def,
-        }
+        def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${paramsDef.join(', ')}): void`)
+        return def
     }
 
     public generateGObjectSignalMethods(
         propertyName: string,
         callbackObjectName: string,
         namespacePrefix: string,
-        identCount = 1,
+        indentCount = 1,
     ): string[] {
-        const result: string[] = []
-        const ident = this.generateIndent(identCount)
-        result.push(
-            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+        const def: string[] = []
+        const indent = this.generateIndent(indentCount)
+        def.push(
+            `${indent}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+            `${indent}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
-        result.push()
+        def.push()
         if (this.config.environment === 'node') {
-            result.push(
-                `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+            def.push(
+                `${indent}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+                `${indent}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+                `${indent}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
 
-        return result
+        return def
     }
 
-    public generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
-        const result: string[] = []
-        const ident = this.generateIndent(identCount)
-        result.push(
-            `${ident}connect(sigName: string, callback: any): number`,
-            `${ident}connect_after(sigName: string, callback: any): number`,
-            `${ident}emit(sigName: string, ...args: any[]): void`,
-            `${ident}disconnect(id: number): void`,
+    public generateGeneralSignalMethods(environment: Environment, indentCount = 1): string[] {
+        const def: string[] = []
+        const indent = this.generateIndent(indentCount)
+        def.push(
+            `${indent}connect(sigName: string, callback: any): number`,
+            `${indent}connect_after(sigName: string, callback: any): number`,
+            `${indent}emit(sigName: string, ...args: any[]): void`,
+            `${indent}disconnect(id: number): void`,
         )
 
         if (environment === 'node') {
-            result.push(
-                `${ident}on(sigName: string, callback: any): NodeJS.EventEmitter`,
-                `${ident}once(sigName: string, callback: any): NodeJS.EventEmitter`,
-                `${ident}off(sigName: string, callback: any): NodeJS.EventEmitter`,
+            def.push(
+                `${indent}on(sigName: string, callback: any): NodeJS.EventEmitter`,
+                `${indent}once(sigName: string, callback: any): NodeJS.EventEmitter`,
+                `${indent}off(sigName: string, callback: any): NodeJS.EventEmitter`,
             )
         }
-        return result
+        return def
     }
 
     public generateParameter(girParam: GirCallableParamElement) {
@@ -283,14 +281,15 @@ export class TemplateProcessor {
     }
 
     public generateFunction(
-        indent: string,
         girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
         methodPatches?: string[],
+        indentCount = 1,
     ) {
         if (!girFunc._desc) {
             this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
             throw new Error('[generateFunction] Not all required properties set!')
         }
+        const indent = this.generateIndent(indentCount)
 
         let desc: string[] = []
         let prefix = girFunc._desc.prefix

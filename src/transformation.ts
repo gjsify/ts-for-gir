@@ -12,7 +12,7 @@ import {
     GirEnumElement,
 } from './types/index.js'
 import Path from 'path'
-import { Utils } from './utils.js'
+import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
 
 export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
@@ -450,10 +450,10 @@ export class Transformation {
             return transformMe
         }
         if (transformations === 'lowerCamelCase') {
-            return Utils.lowerCamelCase(transformMe)
+            return lowerCamelCase(transformMe)
         }
         if (transformations === 'upperCamelCase') {
-            return Utils.upperCamelCase(transformMe)
+            return upperCamelCase(transformMe)
         }
         if (transformations === 'upperCase') {
             return transformMe.toUpperCase()
@@ -475,7 +475,7 @@ export class Transformation {
      * @param allowQuotes
      */
     private transformNumericName(name: string, allowQuotes = false): string {
-        if (Utils.isFirstCharNumeric(name)) {
+        if (isFirstCharNumeric(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `TODO_${name}`
         }

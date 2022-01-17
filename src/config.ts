@@ -6,7 +6,7 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
-import { Utils } from './utils.js'
+import { merge, isEqual } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
@@ -173,7 +173,7 @@ export class Config {
         const userConfig = await this.loadConfigFile()
         const path = userConfig?.filepath || this.configFilePath
         const configToStore = {}
-        Utils.merge(configToStore, userConfig?.config || {}, configsToAdd)
+        merge(configToStore, userConfig?.config || {}, configsToAdd)
         const fileExtension = Path.extname(path)
         let writeConfigString = ''
         switch (fileExtension) {
@@ -261,7 +261,7 @@ export class Config {
 
         if (configFile) {
             // environments
-            if (Utils.isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
+            if (isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
                 config.environments = configFile.config.environments
             }
             // buildType
@@ -297,14 +297,14 @@ export class Config {
             }
             // ignore
             if (
-                (!config.ignore || config.ignore.length <= 0 || Utils.isEqual(config.ignore, Config.defaults.ignore)) &&
+                (!config.ignore || config.ignore.length <= 0 || isEqual(config.ignore, Config.defaults.ignore)) &&
                 configFile.config.ignore
             ) {
                 config.ignore = configFile.config.ignore
             }
             // modules
             if (
-                (config.modules.length <= 0 || Utils.isEqual(config.modules, Config.defaults.modules)) &&
+                (config.modules.length <= 0 || isEqual(config.modules, Config.defaults.modules)) &&
                 configFile.config.modules
             ) {
                 config.modules = configFile.config.modules

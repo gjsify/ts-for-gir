@@ -22,7 +22,7 @@ import { ResolveType } from './types/index.js'
 import { GirModule } from './gir-module.js'
 import { Config } from './config.js'
 import { Logger } from './logger.js'
-import { Utils } from './utils.js'
+import { splitModuleName, union, isIterable, map, findFileInDirs } from './utils.js'
 
 const bold = chalk.bold
 export class ModuleLoader {
@@ -42,7 +42,7 @@ export class ModuleLoader {
         const girModulesGrouped: GirModulesGroupedMap = {}
 
         for (const resolveGirModule of resolveGirModules) {
-            const { namespace } = Utils.splitModuleName(resolveGirModule.packageName)
+            const { namespace } = splitModuleName(resolveGirModule.packageName)
             const id = namespace.toLowerCase()
 
             if (!girModulesGrouped[id]) {
@@ -257,7 +257,7 @@ export class ModuleLoader {
 
             // Ask for version if there is a conflict
             if (!girModulesGrouped.hasConflict) {
-                keep = Utils.union<GirModuleResolvedBy>(keep, girModulesGrouped.modules)
+                keep = union<GirModuleResolvedBy>(keep, girModulesGrouped.modules)
             } else {
                 let goBack = true
                 let versionAnswer: AnswerVersion | null = null
@@ -283,7 +283,7 @@ export class ModuleLoader {
 
                 const unionMe = this.sortVersionsByAnswer(girModulesGrouped, versionAnswer.selected)
                 // Do not ignore the selected package version
-                keep = Utils.union<GirModuleResolvedBy>(keep, unionMe.keep)
+                keep = union<GirModuleResolvedBy>(keep, unionMe.keep)
                 // Ignore the unchosen package versions
                 ignore = ignore.concat(unionMe.ignore)
             }
@@ -340,7 +340,7 @@ export class ModuleLoader {
      */
     private traverseDependencies(packageName: string, result: { [name: string]: 1 } = {}): void {
         const deps = this.modDependencyMap[packageName]
-        if (Utils.isIterable(deps)) {
+        if (isIterable(deps)) {
             for (const dep of deps) {
                 if (result[dep.packageName]) continue
                 result[dep.packageName] = 1
@@ -357,10 +357,10 @@ export class ModuleLoader {
      * @param girModule
      */
     private extendDependencyMapByGirModule(girModule: GirModule): void {
-        this.modDependencyMap[girModule.packageName || '-'] = Utils.map(
+        this.modDependencyMap[girModule.packageName || '-'] = map(
             girModule.dependencies || [],
             (packageName: string): Dependency => {
-                const { namespace, version } = Utils.splitModuleName(packageName)
+                const { namespace, version } = splitModuleName(packageName)
                 return {
                     namespace,
                     version,
@@ -390,7 +390,7 @@ export class ModuleLoader {
      * @param config
      */
     private async loadAndCreateGirModule(packageName: string): Promise<GirModule | null> {
-        const file = Utils.findFileInDirs(this.config.girDirectories, packageName + '.gir')
+        const file = findFileInDirs(this.config.girDirectories, packageName + '.gir')
         if (!file.exists || file.path === null) {
             return null
         }

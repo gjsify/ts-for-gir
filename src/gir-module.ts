@@ -4,7 +4,7 @@
 import TemplateProcessor from './template-processor.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { Utils } from './utils.js'
+import { isEqual, find, stripParamNames, findFileInDirs, splitModuleName, isCommentLine } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 
@@ -52,13 +52,7 @@ import type {
     DescVar,
 } from './types/index.js'
 
-import {
-    MAXIMUM_RECURSION_DEPTH,
-    STATIC_NAME_ALREADY_EXISTS,
-    COMMENT_REG_EXP,
-    PARAM_REG_EXP,
-    OPT_PARAM_REG_EXP,
-} from './constants.js'
+import { MAXIMUM_RECURSION_DEPTH, STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 
 export class GirModule {
     /**
@@ -156,24 +150,24 @@ export class GirModule {
     private checkTransitiveDependencies(transitiveDependencies: string[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
                 transitiveDependencies.push('GObject-2.0')
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
                 transitiveDependencies.push('Unity-7.0')
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
                 transitiveDependencies.push('Unity-6.0')
             }
         }
         if (this.packageName === 'GTop-2.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
                 transitiveDependencies.push('GLib-2.0')
             }
         }
@@ -513,7 +507,7 @@ export class GirModule {
                 // TODO
                 this.log.warn('Ignore multiple callbacks!', callbacks)
             }
-            const funcDesc = this.setFunctionDesc(callbacks[0], '', '', undefined, true)
+            const funcDesc = this.setFunctionDesc(callbacks[0], '', undefined, true, 0)
             if (funcDesc?.desc?.length) {
                 if (funcDesc.desc.length > 1) {
                     this.log.warn('Ignore multiline function description!', funcDesc.desc)
@@ -809,36 +803,34 @@ export class GirModule {
             type: typeName,
         }
 
-        const desc = this.templateProcessor.generateVariable(girVar)
-
-        girVar._desc.desc = desc
+        girVar._desc.desc = this.templateProcessor.generateVariable(girVar)
 
         return girVar._desc
     }
 
     /**
      * @param girVar
-     * @param indent
      * @param construct construct means include the property even if it's construct-only,
      * @param optional optional means if it's construct-only it will also be marked optional (?)
+     * @param indentCount
      */
     private setPropertyDesc(
         girProp: GirPropertyElement,
-        indent = '',
         construct = false,
         optional = true,
-    ): DescProperty | null {
+        indentCount = 0,
+    ): DescProperty | undefined {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (this.girBool(girProp.$['construct-only']) && !construct) return null
+        if (this.girBool(girProp.$['construct-only']) && !construct) return undefined
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (!this.girBool(girProp.$.writable) && construct) return null
+        if (!this.girBool(girProp.$.writable) && construct) return undefined
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (this.girBool((girProp as GirFieldElement).$.private)) return null
+        if (this.girBool((girProp as GirFieldElement).$.private)) return undefined
 
         const readonly = this.girBool(girProp.$.writable)
         girProp._desc = this.setVariableDesc(girProp, construct && optional, true, 'property')
         if (!girProp._desc?.name) {
-            return null
+            return undefined
         }
         let origName: string | null = null
 
@@ -854,25 +846,25 @@ export class GirModule {
             origName,
         }
 
-        girProp._desc.desc = this.templateProcessor.generateProperty(indent, girProp)
+        girProp._desc.desc = this.templateProcessor.generateProperty(girProp, indentCount)
 
         return girProp._desc
     }
 
     /**
      *
-     * @param e
-     * @param indent
+     * @param girFunc
      * @param prefix E.g. vfunc
      * @param overrideReturnType
      * @param arrowType
+     * @param indentCount
      */
     private setFunctionDesc(
         girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
-        indent = '',
         prefix = '',
         overrideReturnType?: string,
         arrowType = false,
+        indentCount = 0,
     ): DescFunction | null {
         if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return null
@@ -908,19 +900,18 @@ export class GirModule {
 
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
-        const desc = this.templateProcessor.generateFunction(indent, girFunc, methodPatches)
+        girFunc._desc.desc = this.templateProcessor.generateFunction(girFunc, methodPatches, indentCount)
 
-        girFunc._desc.desc = desc
         return girFunc._desc
     }
 
     private setConstructorFunctionDesc(
         name: string,
         girConstFunc: GirConstructorElement,
-        indent: string,
         prefix = '',
+        indentCount = 0,
     ): DescFunction | null {
-        return this.setFunctionDesc(girConstFunc, indent, prefix, name)
+        return this.setFunctionDesc(girConstFunc, prefix, name, undefined, indentCount)
     }
 
     private setSignalFuncDesc(girSignalFunc: GirSignalElement, classDetails: ClassDetails) {
@@ -946,8 +937,8 @@ export class GirModule {
             outParams,
         }
 
-        const { def } = this.templateProcessor.generateSignalMethods(girSignalFunc, classDetails)
-        girSignalFunc._desc.desc = def
+        girSignalFunc._desc.desc = this.templateProcessor.generateSignalMethods(girSignalFunc, classDetails)
+
         return girSignalFunc._desc
     }
 
@@ -1090,7 +1081,7 @@ export class GirModule {
         if (localNames[name] && localNames[name].desc) {
             // Ignore duplicates with the same type
             // TODO should we use `this.functionSignaturesMatch` here?
-            if (Utils.isEqual(localNames[name].desc, desc)) {
+            if (isEqual(localNames[name].desc, desc)) {
                 return null
             }
 
@@ -1123,7 +1114,7 @@ export class GirModule {
         const def: string[] = []
         if (cls.field) {
             for (const field of cls.field) {
-                this.setVariableDesc(field, false, false, 'field')
+                field._desc = this.setVariableDesc(field, false, false, 'field')
                 if (!field._desc) {
                     continue
                 }
@@ -1152,13 +1143,13 @@ export class GirModule {
         const properties = (cls as GirClassElement | GirInterfaceElement).property
         if (properties) {
             for (const prop of properties) {
-                const propDesc = this.setPropertyDesc(prop)
-                if (!propDesc) {
+                prop._desc = this.setPropertyDesc(prop)
+                if (!prop._desc) {
                     continue
                 }
-                const localName = this.checkOrSetLocalName(propDesc, propDesc.name, localNames, 'property')
+                const localName = this.checkOrSetLocalName(prop._desc, prop._desc.name, localNames, 'property')
                 if (localName?.added) {
-                    if (propDesc.origName) propertyNames.push(propDesc.origName)
+                    if (prop._desc.origName) propertyNames.push(prop._desc.origName)
                     for (const curDesc of localName.desc) {
                         def.push(`    ${curDesc}`)
                     }
@@ -1228,7 +1219,7 @@ export class GirModule {
             const vMethods: GirVirtualMethodElement[] = element['virtual-method'] || []
             const methods = vMethods
                 .map((virtualFunc) => {
-                    const func = this.setFunctionDesc(virtualFunc, '    ', 'vfunc_')
+                    const func = this.setFunctionDesc(virtualFunc, 'vfunc_', undefined, undefined, 1)
                     return func
                 })
                 .filter((funcDesc) => funcDesc !== null && funcDesc?.name !== null) as DescFunction[]
@@ -1262,19 +1253,6 @@ export class GirModule {
         return {
             def,
         }
-    }
-
-    private stripParamNames(func: string, ignoreTail = false): string {
-        const g = func
-        func = func.replace(COMMENT_REG_EXP, '')
-        const lb = func.split('(', 2)
-        if (lb.length < 2) this.log.error(`Bad function definition ${g}`)
-        const rb = lb[1].split(')')
-        const tail = ignoreTail ? '' : rb[rb.length - 1]
-        let params = rb.slice(0, rb.length - 1).join(')')
-        params = params.replace(PARAM_REG_EXP, ':')
-        params = params.replace(OPT_PARAM_REG_EXP, '?:')
-        return `${lb[0]}(${params})${tail}`
     }
 
     /**
@@ -1326,7 +1304,7 @@ export class GirModule {
         }
         let ctors = constructors
             .map((constructor) => {
-                return this.setConstructorFunctionDesc(name, constructor, '    ', 'static ')
+                return this.setConstructorFunctionDesc(name, constructor, 'static ', 1)
             })
             .filter((ctor) => ctor?.name) as DescFunction[]
 
@@ -1358,7 +1336,7 @@ export class GirModule {
         if (!rec) return []
         const methods = rec.method || []
         return methods
-            .map((method) => this.setFunctionDesc(method, '    ', 'static '))
+            .map((method) => this.setFunctionDesc(method, 'static ', undefined, undefined, 1))
             .filter((method) => method !== null) as DescFunction[]
     }
 
@@ -1369,7 +1347,7 @@ export class GirModule {
         const fns: DescFunction[] = []
         if (girClass.function) {
             for (const func of girClass.function) {
-                const funcDesc = this.setFunctionDesc(func, '    ', stat ? 'static ' : '', undefined, undefined)
+                const funcDesc = this.setFunctionDesc(func, stat ? 'static ' : '', undefined, undefined, 1)
                 if (funcDesc?.name && funcDesc?.name !== 'new') fns.push(funcDesc)
             }
         }
@@ -1425,19 +1403,14 @@ export class GirModule {
         return { name: className, qualifiedName, parentName, qualifiedParentName, localParentName, namespace, version }
     }
 
-    private isCommentLine(line: string) {
-        const lineTrim = line.trim()
-        return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
-    }
-
     /**
      * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
      * @param f1
      * @param f2
      */
     private functionSignaturesMatch(f1: string, f2: string) {
-        if (this.isCommentLine(f1) || this.isCommentLine(f2)) return false
-        return this.stripParamNames(f1) == this.stripParamNames(f2)
+        if (isCommentLine(f1) || isCommentLine(f2)) return false
+        return stripParamNames(f1) == stripParamNames(f2)
     }
 
     /**
@@ -1602,8 +1575,9 @@ export class GirModule {
     private generateConstructorAndStaticMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         name: string,
-        indent = '    ',
+        indentCount = 1,
     ) {
+        const indent = this.templateProcessor.generateIndent(indentCount)
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
@@ -1622,7 +1596,7 @@ export class GirModule {
             if (constructor_) {
                 if (Array.isArray(constructor_)) {
                     for (const f of constructor_) {
-                        const constrDesc = this.setConstructorFunctionDesc(name, f, '    ', 'static ')
+                        const constrDesc = this.setConstructorFunctionDesc(name, f, 'static ', 1)
                         if (!constrDesc?.name || !constrDesc.desc) continue
                         if (constrDesc.name !== 'new') continue
 
@@ -1665,22 +1639,27 @@ export class GirModule {
             const constructPropNames: LocalNames = {}
             const properties = (girClass as GirClassElement | GirInterfaceElement).property
             if (properties) {
-                for (const property of properties) {
-                    const propDesc = this.setPropertyDesc(property, '', true, true)
-                    if (!propDesc) {
+                for (const girProp of properties) {
+                    girProp._desc = this.setPropertyDesc(girProp, true, true, 0)
+                    if (!girProp._desc) {
                         continue
                     }
-                    const localName = this.checkOrSetLocalName(propDesc, propDesc.name, constructPropNames, 'property')
+                    const localName = this.checkOrSetLocalName(
+                        girProp._desc,
+                        girProp._desc.name,
+                        constructPropNames,
+                        'property',
+                    )
 
                     if (localName?.added) {
                         // Apply patches
-                        const packageNameToPatch = this.getPackageName(property)
-                        const constructPropPatches = property._fullSymName
-                            ? this.getPatches(packageNameToPatch, 'constructorProperties', property._fullSymName)
+                        const packageNameToPatch = this.getPackageName(girProp)
+                        const constructPropPatches = girProp._fullSymName
+                            ? this.getPatches(packageNameToPatch, 'constructorProperties', girProp._fullSymName)
                             : undefined
 
                         if (constructPropPatches?.length) {
-                            this.log.warn(`Patch found for constructor property "${property._fullSymName}"!`)
+                            this.log.warn(`Patch found for constructor property "${girProp._fullSymName}"!`)
                             patched = true
                             for (const curDesc of constructPropPatches) {
                                 def.push(`    ${curDesc}`)
@@ -1699,7 +1678,7 @@ export class GirModule {
                     const properties = (iface as GirClassElement | GirInterfaceElement).property
                     if (properties) {
                         for (const property of properties) {
-                            const propDesc = this.setPropertyDesc(property, '', true, true)
+                            const propDesc = this.setPropertyDesc(property, true, true, 0)
                             if (!propDesc) {
                                 continue
                             }
@@ -1773,7 +1752,7 @@ export class GirModule {
 
     public exportConstant(girConst: GirConstantElement) {
         const def: string[] = []
-        this.setVariableDesc(girConst, false, false, 'constant')
+        girConst._desc = this.setVariableDesc(girConst, false, false, 'constant')
         if (girConst._desc?.name) {
             if (!this.constNames[girConst._desc.name]) {
                 this.constNames[girConst._desc.name] = girConst._desc
@@ -1880,7 +1859,7 @@ export class GirModule {
 
     public exportFunction(girFunc: GirFunctionElement) {
         const exp = this.config.exportDefault ? '' : 'export '
-        const funcDesc = this.setFunctionDesc(girFunc, '', exp + 'function ')
+        const funcDesc = this.setFunctionDesc(girFunc, '', exp + 'function ', undefined, 0)
         return { def: funcDesc?.desc || [] }
     }
 
@@ -1952,8 +1931,8 @@ export class GirModule {
             // Don't reference yourself as a dependency
             if (this.packageName !== depPackageName) {
                 const girFilename = `${depPackageName}.gir`
-                const { namespace } = Utils.splitModuleName(depPackageName)
-                const depFile = Utils.findFileInDirs(this.config.girDirectories, girFilename)
+                const { namespace } = splitModuleName(depPackageName)
+                const depFile = findFileInDirs(this.config.girDirectories, girFilename)
                 if (depFile.exists) {
                     out.push(
                         ...this.templateProcessor.generateModuleDependenciesImport(namespace, depPackageName, false),

@@ -215,15 +215,30 @@ export class TemplateProcessor {
         return result
     }
 
-    public generateParameter(param: GirCallableParamElement) {
+    public generateParameter(girParam: GirCallableParamElement) {
         if (
-            typeof param._desc?.name !== 'string' ||
-            typeof param._desc.optional !== 'boolean' ||
-            typeof param._desc.type !== 'string'
+            typeof girParam._desc?.name !== 'string' ||
+            typeof girParam._desc.optional !== 'boolean' ||
+            typeof girParam._desc.type !== 'string'
         ) {
-            throw new Error('Not all required properties set!')
+            throw new Error('[generateParameter] Not all required properties set!')
         }
-        return `${param._desc.name}${param._desc.optional ? '?' : ''}: ${param._desc.type}`
+        return [`${girParam._desc.name}${girParam._desc.optional ? '?' : ''}: ${girParam._desc.type}`]
+    }
+
+    public generateOutParameterReturn(girParam: GirCallableParamElement) {
+        if (!girParam._desc) {
+            throw new Error('[generateOutParameter] Not all required properties set!')
+        }
+        const desc: string[] = []
+        const { type, name } = girParam._desc
+
+        if (this.config.environment === 'gjs') {
+            desc.push(`/* ${name} */ ${type}`)
+        } else if (this.config.environment === 'node') {
+            desc.push(`${name}: ${type}`)
+        }
+        return desc
     }
 
     public generateFunctionReturn(girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement) {

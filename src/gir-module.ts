@@ -672,11 +672,54 @@ export class GirModule {
         return (element as PartOfClass)._class?._module?.packageName || element._module?.packageName || this.packageName
     }
 
+    private setParameterDesc(
+        girParam: GirCallableParamElement,
+        girParams: GirCallableParamElement[],
+        paramNames: string[],
+        skip: GirCallableParamElement[],
+    ) {
+        // I think it's safest to force inout params to have the
+        // same type for in and out
+        const paramType = this.typeLookup(girParam).result
+        let paramName = this.transformation.transformParameterName(girParam, false)
+
+        if (paramNames.includes(paramName)) {
+            this.log.warn(`[${girParam._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`)
+            paramName += '_'
+        }
+        paramNames.push(paramName)
+
+        let optional = this.paramIsNullable(girParam)
+
+        if (optional) {
+            const index = girParams.indexOf(girParam)
+            const following = girParams
+                .slice(index)
+                .filter(() => skip.indexOf(girParam) === -1)
+                .filter((p) => p.$.direction !== 'out')
+
+            if (following.some((p) => !this.paramIsNullable(p))) {
+                optional = false
+            }
+        }
+
+        girParam._desc = {
+            desc: null,
+            name: paramName,
+            optional,
+            type: paramType,
+        }
+
+        girParam._desc.desc = this.templateProcessor.generateParameter(girParam)
+
+        return girParam._desc
+    }
+
     private setParametersDesc(outArrayLengthIndex: number, girParams?: GirCallableParams[]) {
         const def: string[] = []
         const outParams: string[] = []
         const paramNames: string[] = []
-        const paramDecs: DescParameter[] = []
+        const paramDescs: DescParameter[] = []
 
         if (girParams && girParams.length > 0) {
             for (const girParam of girParams) {
@@ -705,64 +748,23 @@ export class GirModule {
                         if (skip.indexOf(param) !== -1) {
                             continue
                         }
-                        // I think it's safest to force inout params to have the
-                        // same type for in and out
-                        const paramType = this.typeLookup(param).result
-                        let paramName = this.transformation.transformParameterName(param, false)
 
-                        if (paramNames.includes(paramName)) {
-                            this.log.warn(
-                                `[${param._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`,
-                            )
-                            paramName += '_'
-                        }
-                        paramNames.push(paramName)
+                        param._desc = this.setParameterDesc(param, params, paramNames, skip)
+
                         const optDirection = param.$.direction
-                        const out = optDirection === 'out' || optDirection == 'inout'
-
-                        if (out) {
-                            if (this.config.environment === 'gjs') {
-                                outParams.push(`/* ${paramName} */ ${paramType}`)
-                            } else if (this.config.environment === 'node') {
-                                outParams.push(`${paramName}: ${paramType}`)
-                            }
-
+                        if (optDirection === 'out' || optDirection == 'inout') {
+                            outParams.push(...this.templateProcessor.generateOutParameterReturn(param))
                             if (optDirection == 'out') continue
                         }
 
-                        let optional = this.paramIsNullable(param)
-
-                        if (optional) {
-                            const index = params.indexOf(param)
-                            const following = params
-                                .slice(index)
-                                .filter(() => skip.indexOf(param) === -1)
-                                .filter((p) => p.$.direction !== 'out')
-
-                            if (following.some((p) => !this.paramIsNullable(p))) {
-                                optional = false
-                            }
-                        }
-
-                        const paramData: DescParameter = {
-                            name: paramName,
-                            optional,
-                            type: paramType,
-                        }
-
-                        paramDecs.push(paramData)
-
-                        param._desc = paramData
-
-                        const paramDesc = this.templateProcessor.generateParameter(param)
-
-                        def.push(paramDesc)
+                        paramDescs.push(param._desc)
+                        if (param._desc.desc) def.push(...param._desc.desc)
                     }
                 }
             }
         }
 
-        return { def, outParams, paramNames, paramDecs }
+        return { def, outParams, paramNames, paramDescs }
     }
 
     private setVariableDesc(
@@ -771,14 +773,14 @@ export class GirModule {
         allowQuotes = false,
         type: 'property' | 'constant' | 'field',
     ) {
-        if (!girVar.$.name) return null
+        if (!girVar.$.name) return undefined
         if (
             !girVar ||
             !girVar.$ ||
             !this.girBool(girVar.$.introspectable, true) ||
             this.girBool((girVar as GirFieldElement).$.private)
         )
-            return null
+            return undefined
 
         let name = girVar.$.name
 
@@ -834,7 +836,7 @@ export class GirModule {
         if (this.girBool((girProp as GirFieldElement).$.private)) return null
 
         const readonly = this.girBool(girProp.$.writable)
-        this.setVariableDesc(girProp, construct && optional, true, 'property')
+        girProp._desc = this.setVariableDesc(girProp, construct && optional, true, 'property')
         if (!girProp._desc?.name) {
             return null
         }
@@ -899,7 +901,7 @@ export class GirModule {
             name,
             overrideReturnType,
             prefix,
-            params: paramsDef.paramDecs,
+            params: paramsDef.paramDescs,
             paramsDef: paramsDef.def,
             outParams: paramsDef.outParams,
         }
@@ -927,7 +929,7 @@ export class GirModule {
         const retTypeIsVoid = returnType === 'void'
         const {
             def: paramsDef,
-            paramDecs,
+            paramDescs,
             outParams,
         } = this.setParametersDesc(outArrayLengthIndex, girSignalFunc.parameters)
 
@@ -939,7 +941,7 @@ export class GirModule {
             arrowType: true,
             patched: false,
             retTypeIsVoid,
-            params: paramDecs,
+            params: paramDescs,
             paramsDef,
             outParams,
         }

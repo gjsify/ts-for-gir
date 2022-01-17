@@ -1,6 +1,8 @@
-import { LocalNameType, DescVar, DescFunction, DescProperty } from '.'
+import { LocalNameType, GirMethodElement, GirPropertyElement, GirFieldElement } from '.'
 
 export interface LocalName {
-    desc: DescVar | DescFunction | DescProperty
     type: LocalNameType
+    method?: GirMethodElement
+    property?: GirPropertyElement
+    field?: GirFieldElement
 }

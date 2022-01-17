@@ -29,6 +29,7 @@ import type {
     GirConstantElement,
     GirBitfieldElement,
     GirFieldElement,
+    GirMethodElement,
     GirPropertyElement,
     GirUnionElement,
     PartOfModule,
@@ -1093,16 +1094,17 @@ export class GirModule {
      * @param type
      */
     private checkOrSetLocalName(
-        descObj: DescVar | DescFunction | DescProperty,
-        name: string | null,
+        girElement: GirMethodElement | GirPropertyElement | GirFieldElement,
         localNames: LocalNames,
         type: LocalNameType,
     ): LocalNameCheck | null {
         let isOverloadable = false
 
-        if (!descObj.desc) {
+        if (!girElement._desc?.desc) {
             return null
         }
+
+        const name = girElement._desc?.name
 
         if (!name) {
             // this.log.warn(`No name for ${desc}`)
@@ -1116,10 +1118,10 @@ export class GirModule {
         }
 
         // If name is found in localNames this variable was already defined
-        if (localNames[name] && localNames[name].desc) {
+        if (localNames?.[name]?.[type]?._desc) {
             // Ignore duplicates with the same type
             // TODO should we use `this.functionSignaturesMatch` here?
-            if (isEqual(localNames[name].desc, descObj.desc)) {
+            if (isEqual(localNames[name][type]?._desc, girElement._desc?.desc)) {
                 return null
             }
 
@@ -1141,11 +1143,12 @@ export class GirModule {
 
         localNames[name] = localNames[name] || {}
         const localName: LocalName = {
-            desc: descObj,
+            [type]: girElement,
             type,
         }
+
         localNames[name] = localName
-        return { desc: descObj, added: true, isOverloadable }
+        return { ...localName, added: true, isOverloadable }
     }
 
     private processFields(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
@@ -1157,9 +1160,9 @@ export class GirModule {
                     continue
                 }
 
-                const localName = this.checkOrSetLocalName(field._desc, field._desc?.name, localNames, 'field')
-                if (localName?.added && localName.desc?.desc) {
-                    for (const curDesc of localName.desc.desc) {
+                const localName = this.checkOrSetLocalName(field, localNames, 'field')
+                if (localName?.added && localName.field?._desc?.desc) {
+                    for (const curDesc of localName.field._desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1185,10 +1188,10 @@ export class GirModule {
                 if (!prop._desc) {
                     continue
                 }
-                const localName = this.checkOrSetLocalName(prop._desc, prop._desc.name, localNames, 'property')
-                if (localName?.added && localName.desc?.desc) {
+                const localName = this.checkOrSetLocalName(prop, localNames, 'property')
+                if (localName?.added && localName.property?._desc?.desc) {
                     if (prop._desc.origName) propertyNames.push(prop._desc.origName)
-                    for (const curDesc of localName.desc.desc) {
+                    for (const curDesc of localName.property._desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1214,9 +1217,9 @@ export class GirModule {
                 if (!girMethod._desc) {
                     continue
                 }
-                const localName = this.checkOrSetLocalName(girMethod._desc, girMethod._desc.name, localNames, 'method')
-                if (localName?.added && localName.desc?.desc) {
-                    for (const curDesc of localName.desc.desc) {
+                const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
+                if (localName?.added && localName.method?._desc?.desc) {
+                    for (const curDesc of localName.method._desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1684,14 +1687,9 @@ export class GirModule {
                     if (!girProp._desc) {
                         continue
                     }
-                    const localName = this.checkOrSetLocalName(
-                        girProp._desc,
-                        girProp._desc.name,
-                        constructPropNames,
-                        'property',
-                    )
+                    const localName = this.checkOrSetLocalName(girProp, constructPropNames, 'property')
 
-                    if (localName?.added && localName.desc.desc) {
+                    if (localName?.added && localName.property?._desc?.desc) {
                         // Apply patches
                         const packageNameToPatch = this.getPackageName(girProp)
                         const constructPropPatches = girProp._fullSymName
@@ -1705,7 +1703,7 @@ export class GirModule {
                                 def.push(`    ${curDesc}`)
                             }
                         } else {
-                            for (const curDesc of localName.desc.desc) {
+                            for (const curDesc of localName.property._desc.desc) {
                                 def.push(`    ${curDesc}`)
                             }
                         }
@@ -1718,17 +1716,12 @@ export class GirModule {
                     const properties = (iface as GirClassElement | GirInterfaceElement).property
                     if (properties) {
                         for (const property of properties) {
-                            const propDesc = this.setPropertyDesc(property, true, true, 0)
-                            if (!propDesc) {
+                            property._desc = this.setPropertyDesc(property, true, true, 0)
+                            if (!property._desc) {
                                 continue
                             }
-                            const localName = this.checkOrSetLocalName(
-                                propDesc,
-                                propDesc.name,
-                                constructPropNames,
-                                'property',
-                            )
-                            if (localName?.added && localName.desc.desc) {
+                            const localName = this.checkOrSetLocalName(property, constructPropNames, 'property')
+                            if (localName?.added && localName.property?._desc?.desc) {
                                 // Apply patches
                                 const packageNameToPatch = this.getPackageName(property)
                                 const constructPropPatches = property._fullSymName
@@ -1748,7 +1741,7 @@ export class GirModule {
                                         def.push(`    ${curDesc}`)
                                     }
                                 } else {
-                                    for (const curDesc of localName.desc.desc) {
+                                    for (const curDesc of localName.property._desc.desc) {
                                         def.push(`    ${curDesc}`)
                                     }
                                 }

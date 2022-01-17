@@ -1,7 +1,6 @@
-import { DescVar, DescFunction, DescProperty } from '.'
+import { LocalName } from '.'
 
-export interface LocalNameCheck {
-    desc: DescVar | DescFunction | DescProperty
+export interface LocalNameCheck extends LocalName {
     added: boolean
     isOverloadable: boolean
 }

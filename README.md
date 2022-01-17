@@ -143,16 +143,16 @@ In addition to the option of passing options as a CLI flag, you can also write t
 To do that, create a new config file called `.ts-for-girrc.js` in your project root directory, like this:
 
 ```js
-module.exports = {
-    pretty: false,
-    print: false,
-    verbose: true,
-    environments: ['gjs', 'node'],
-    outdir: '@types',
-    girDirectories: '/usr/share/gir-1.0',
-    modules: ['*'],
-    ignore: [],
-    exportDefault: true,
+export default {
+  pretty: false,
+  print: false,
+  verbose: true,
+  environments: ['gjs', 'node'],
+  outdir: '@types',
+  girDirectories: '/usr/share/gir-1.0',
+  modules: ['*'],
+  ignore: [],
+  exportDefault: true,
 }
 ```
 

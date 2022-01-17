@@ -1,4 +1,4 @@
-import { DescParameter } from '.'
+import { DescParameter, FunctionPrefix } from '.'
 
 export interface DescFunction {
     desc: string[] | null
@@ -8,7 +8,7 @@ export interface DescFunction {
     overrideReturnType?: string
     patched: boolean
     retTypeIsVoid: boolean
-    prefix: string
+    prefix: FunctionPrefix
     params: DescParameter[]
     paramsDef: string[]
     outParams: string[]

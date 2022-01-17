@@ -1,4 +1,4 @@
-import { GirDocElement, GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn } from '.'
+import { GirDocElement, GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn, DescFunction } from '.'
 
 export interface GirMethodElement extends GirDocElement {
     /** element defining a method from a class */
@@ -12,4 +12,6 @@ export interface GirMethodElement extends GirDocElement {
 
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
+
+    _desc?: DescFunction
 }

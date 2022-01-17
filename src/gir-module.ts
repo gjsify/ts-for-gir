@@ -42,6 +42,7 @@ import type {
     GenerateConfig,
     DescProperty,
     FunctionMap,
+    FunctionPrefix,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -862,13 +863,13 @@ export class GirModule {
      */
     private setFunctionDesc(
         girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
-        prefix = '',
+        prefix: FunctionPrefix = '',
         overrideReturnType?: string,
         arrowType = false,
         indentCount = 0,
-    ): DescFunction | null {
+    ): DescFunction | undefined {
         if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
-            return null
+            return undefined
         }
         const packageName = this.getPackageName(girFunc)
         let name = girFunc.$.name
@@ -909,9 +910,9 @@ export class GirModule {
     private setConstructorFunctionDesc(
         name: string,
         girConstFunc: GirConstructorElement,
-        prefix = '',
+        prefix: FunctionPrefix = '',
         indentCount = 0,
-    ): DescFunction | null {
+    ): DescFunction | undefined {
         return this.setFunctionDesc(girConstFunc, prefix, name, undefined, indentCount)
     }
 
@@ -959,8 +960,7 @@ export class GirModule {
     }
 
     public setEnumerationDesc(girEnum: GirEnumElement) {
-        const desc: string[] = []
-        if (!girEnum?.$ || !this.girBool(girEnum.$.introspectable, true)) return { desc }
+        if (!girEnum?.$ || !this.girBool(girEnum.$.introspectable, true)) return undefined
 
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         const name = this.transformation.transformEnumName(girEnum)
@@ -1211,12 +1211,12 @@ export class GirModule {
     private processMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
         const def: string[] = []
         if (cls.method) {
-            for (const func of cls.method) {
-                const funcDesc = this.setFunctionDesc(func)
-                if (!funcDesc) {
+            for (const girMethod of cls.method) {
+                girMethod._desc = this.setFunctionDesc(girMethod)
+                if (!girMethod._desc) {
                     continue
                 }
-                const localName = this.checkOrSetLocalName(funcDesc, funcDesc.name, localNames, 'method')
+                const localName = this.checkOrSetLocalName(girMethod._desc, girMethod._desc.name, localNames, 'method')
                 if (localName?.added) {
                     for (const curDesc of localName.desc) {
                         def.push(`    ${curDesc}`)
@@ -1259,10 +1259,10 @@ export class GirModule {
             const vMethods: GirVirtualMethodElement[] = element['virtual-method'] || []
             const methods = vMethods
                 .map((virtualFunc) => {
-                    const func = this.setFunctionDesc(virtualFunc, 'vfunc_', undefined, undefined, 1)
-                    return func
+                    virtualFunc._desc = this.setFunctionDesc(virtualFunc, 'vfunc_', undefined, undefined, 1)
+                    return virtualFunc._desc
                 })
-                .filter((funcDesc) => funcDesc !== null && funcDesc?.name !== null) as DescFunction[]
+                .filter((funcDesc) => funcDesc?.name) as DescFunction[]
             return methods
         })
         def.push(...this.exportOverloadableMethods(fnMap, explicits).def)
@@ -1377,7 +1377,7 @@ export class GirModule {
         const methods = rec.method || []
         return methods
             .map((method) => this.setFunctionDesc(method, 'static ', undefined, undefined, 1))
-            .filter((method) => method !== null) as DescFunction[]
+            .filter((method) => method !== undefined) as DescFunction[]
     }
 
     private getOtherStaticFunctions(
@@ -1387,8 +1387,8 @@ export class GirModule {
         const fns: DescFunction[] = []
         if (girClass.function) {
             for (const func of girClass.function) {
-                const funcDesc = this.setFunctionDesc(func, stat ? 'static ' : '', undefined, undefined, 1)
-                if (funcDesc?.name && funcDesc?.name !== 'new') fns.push(funcDesc)
+                func._desc = this.setFunctionDesc(func, stat ? 'static ' : '', undefined, undefined, 1)
+                if (func._desc?.name && func._desc?.name !== 'new') fns.push(func._desc)
             }
         }
         return fns
@@ -1498,7 +1498,7 @@ export class GirModule {
      */
     private addOverloadableFunctions(fnMap: FunctionMap, explicits: Set<string>, funcs: DescFunction[], force = false) {
         for (const func of funcs) {
-            if (!func.name) continue
+            if (!func?.name) continue
             if (this.mergeOverloadableFunctions(fnMap, func) || force) {
                 explicits.add(func.name)
             }
@@ -1572,10 +1572,12 @@ export class GirModule {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(cls)
         if (isDerivedFromGObject) {
-            let prefix = 'GObject.'
-            if (this.namespace === 'GObject') prefix = ''
+            let namespacePrefix = 'GObject.'
+            if (this.namespace === 'GObject') namespacePrefix = ''
             for (const prop of propertyNames) {
-                def.push(...this.templateProcessor.generateGObjectSignalMethods(prop, callbackObjectName, prefix))
+                def.push(
+                    ...this.templateProcessor.generateGObjectSignalMethods(prop, callbackObjectName, namespacePrefix),
+                )
             }
             def.push(...this.templateProcessor.generateGeneralSignalMethods(this.config.environment))
         }
@@ -1591,18 +1593,18 @@ export class GirModule {
         const stc: string[] = []
 
         stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getStaticConstructors(cls, name)
+            ...this.processStaticFunctions(girClass, (girClass) => {
+                return this.getStaticConstructors(girClass, name)
             }).def,
         )
         stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getOtherStaticFunctions(cls)
+            ...this.processStaticFunctions(girClass, (girClass) => {
+                return this.getOtherStaticFunctions(girClass)
             }).def,
         )
         stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getClassMethods(cls)
+            ...this.processStaticFunctions(girClass, (girClass) => {
+                return this.getClassMethods(girClass)
             }).def,
         )
 
@@ -1767,9 +1769,9 @@ export class GirModule {
     }
 
     public exportEnumeration(girEnum: GirEnumElement) {
-        const { desc } = this.setEnumerationDesc(girEnum)
+        const girEnumDesc = this.setEnumerationDesc(girEnum)
 
-        return { def: desc || [] }
+        return { def: girEnumDesc?.desc || [] }
     }
 
     public exportConstant(girConst: GirConstantElement) {
@@ -1880,8 +1882,8 @@ export class GirModule {
     }
 
     public exportFunction(girFunc: GirFunctionElement) {
-        const exp = this.config.exportDefault ? '' : 'export '
-        const funcDesc = this.setFunctionDesc(girFunc, '', exp + 'function ', undefined, 0)
+        const prefix: FunctionPrefix = this.config.exportDefault ? 'function ' : 'export function '
+        const funcDesc = this.setFunctionDesc(girFunc, prefix, undefined, undefined, 0)
         return { def: funcDesc?.desc || [] }
     }
 

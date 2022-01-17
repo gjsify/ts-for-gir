@@ -1,4 +1,4 @@
-import { GirInfoElements, GirInfoAttrs } from '.'
+import { GirInfoElements, GirInfoAttrs, DescEnumMember } from '.'
 
 export interface GirMemberElement extends GirInfoElements {
     /** element defining a member of a bit field or an enumeration */
@@ -14,4 +14,6 @@ export interface GirMemberElement extends GirInfoElements {
         /** name of the member (from GEnumValue/GFlagsValue) */
         'glib:name'?: string
     }
+
+    _desc?: DescEnumMember
 }

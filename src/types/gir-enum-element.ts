@@ -1,4 +1,4 @@
-import type { GirFunctionElement, GirMemberElement, GirInfoAttrs, GirInfoElements, PartOfModule } from '.'
+import type { GirFunctionElement, GirMemberElement, GirInfoAttrs, GirInfoElements, PartOfModule, DescEnum } from '.'
 
 export interface GirEnumElement extends PartOfModule, GirInfoElements {
     /** element defining a enumeration type similar to enum in C/C++ */
@@ -16,4 +16,6 @@ export interface GirEnumElement extends PartOfModule, GirInfoElements {
     }
     member?: GirMemberElement[]
     function?: GirFunctionElement[]
+
+    _desc?: DescEnum
 }

@@ -20,6 +20,8 @@ import {
     GirPropertyElement,
     GirFieldElement,
     GirConstantElement,
+    GirEnumElement,
+    GirMemberElement,
 } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
@@ -332,6 +334,35 @@ export class TemplateProcessor {
         desc = [`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`]
 
         return desc
+    }
+
+    public generateEnumeration(girEnum: GirEnumElement) {
+        if (!girEnum._desc) {
+            this.log.error('girEnum', JSON.stringify(girEnum, null, 2))
+            throw new Error('[generateEnumeration] Not all required properties set!')
+        }
+        const desc: string[] = []
+        const { name } = girEnum._desc
+        desc.push(this.generateExport('enum', name, '{'))
+        if (girEnum.member) {
+            for (const girEnumMember of girEnum.member) {
+                const memberDescs = this.generateEnumerationMember(girEnumMember)
+                for (const memberDesc of memberDescs) {
+                    desc.push(`${memberDesc},`)
+                }
+            }
+        }
+        desc.push('}')
+        return desc
+    }
+
+    public generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
+        if (!girEnumMember._desc) {
+            this.log.error('girEnumMember', JSON.stringify(girEnumMember, null, 2))
+            throw new Error('[generateEnumerationMember] Not all required properties set!')
+        }
+        const indent = this.generateIndent(indentCount)
+        return [`${indent}${girEnumMember._desc.name}`]
     }
 
     /**

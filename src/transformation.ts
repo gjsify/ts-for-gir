@@ -10,6 +10,7 @@ import {
     GenerateConfig,
     GirCallableParamElement,
     GirEnumElement,
+    // GirMemberElement,
 } from './types/index.js'
 import Path from 'path'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
@@ -329,8 +330,8 @@ export class Transformation {
      * @param e The enum
      * @returns The transformed name
      */
-    public transformEnumName(e: GirEnumElement): string {
-        let name = e.$.name
+    public transformEnumName(girEnum: GirEnumElement): string {
+        let name = girEnum.$.name
         name = this.transform('enumName', name)
         const originalName = `${name}`
 
@@ -341,9 +342,16 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${e._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${girEnum._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
+    }
+
+    public transformEnumMember(memberName: string): string {
+        memberName = this.transform('enumName', memberName)
+        memberName = this.transformNumericName(memberName)
+
+        return memberName
     }
 
     public transformFunctionName(name: string): string {

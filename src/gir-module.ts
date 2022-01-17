@@ -13,6 +13,7 @@ import type {
     GirNamespace,
     GirAliasElement,
     GirEnumElement,
+    GirMemberElement,
     GirFunctionElement,
     GirClassElement,
     GirArrayType,
@@ -942,6 +943,45 @@ export class GirModule {
         return girSignalFunc._desc
     }
 
+    public setEnumerationMemberDesc(girEnumMember: GirMemberElement, indentCount = 1) {
+        const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
+        if (!memberName) {
+            return undefined
+        }
+        const transName = this.transformation.transformEnumMember(memberName)
+        girEnumMember._desc = {
+            desc: null,
+            name: transName,
+            origName: memberName,
+        }
+        girEnumMember._desc.desc = this.templateProcessor.generateEnumerationMember(girEnumMember, indentCount)
+        return girEnumMember._desc
+    }
+
+    public setEnumerationDesc(girEnum: GirEnumElement) {
+        const desc: string[] = []
+        if (!girEnum?.$ || !this.girBool(girEnum.$.introspectable, true)) return { desc }
+
+        // E.g. the NetworkManager-1.0 has enum names starting with 80211
+        const name = this.transformation.transformEnumName(girEnum)
+        const origName = `${girEnum.$.name}`
+
+        girEnum._desc = {
+            desc: null,
+            name,
+            origName,
+        }
+
+        if (girEnum.member) {
+            for (const girEnumMember of girEnum.member) {
+                girEnumMember._desc = this.setEnumerationMemberDesc(girEnumMember)
+            }
+        }
+
+        girEnum._desc.desc = this.templateProcessor.generateEnumeration(girEnum)
+        return girEnum._desc
+    }
+
     private traverseInheritanceTree(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement) => void,
@@ -1726,28 +1766,10 @@ export class GirModule {
         }
     }
 
-    public exportEnumeration(e: GirEnumElement) {
-        const def: string[] = []
+    public exportEnumeration(girEnum: GirEnumElement) {
+        const { desc } = this.setEnumerationDesc(girEnum)
 
-        if (!e?.$ || !this.girBool(e.$.introspectable, true)) return { def }
-
-        // E.g. the NetworkManager-1.0 has enum names starting with 80211
-        const name = this.transformation.transformEnumName(e)
-
-        def.push(this.templateProcessor.generateExport('enum', name, '{'))
-        if (e.member) {
-            for (const member of e.member) {
-                const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
-                if (!_name) {
-                    continue
-                }
-                const name = this.transformation.transform('enumValue', _name)
-                if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
-                else def.push(`    ${name},`)
-            }
-        }
-        def.push('}')
-        return { def, name }
+        return { def: desc || [] }
     }
 
     public exportConstant(girConst: GirConstantElement) {

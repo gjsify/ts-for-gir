@@ -295,9 +295,11 @@ export class TemplateProcessor {
         const indent = this.generateIndent(indentCount)
 
         const def: string[] = []
+        // If girFunc._desc.type == 'function' are global methods which can be exported
+        const exp = !this.config.exportDefault && girFunc._desc.type === 'function' ? 'export ' : ''
         let prefix = girFunc._desc.prefix
         let name = girFunc._desc.name
-        const arrowType = girFunc._desc?.arrowType
+        const arrowType = girFunc._desc.arrowType
         const paramsDef = girFunc._desc.paramsDef
 
         if (methodPatches?.length) {
@@ -311,7 +313,7 @@ export class TemplateProcessor {
                 for (const [i, patchLine] of methodPatches.entries()) {
                     let descLine = ''
                     if (i === 1) {
-                        descLine = `${indent}${prefix}${patchLine}`
+                        descLine = `${indent}${exp}${prefix}${patchLine}`
                     } else {
                         descLine = `${indent}${patchLine}`
                     }
@@ -332,7 +334,7 @@ export class TemplateProcessor {
             retSep = ':'
         }
 
-        def.push(`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`)
+        def.push(`${indent}${exp}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`)
 
         return def
     }
@@ -340,7 +342,7 @@ export class TemplateProcessor {
     public generateCallbackInterface(girCallback: GirCallbackElement, indentCount = 0) {
         if (!girCallback._desc || !girCallback._descInterface) {
             this.log.error('girCallback', JSON.stringify(girCallback, null, 2))
-            throw new Error('[generateFunction] Not all required properties set!')
+            throw new Error('[generateCallbackInterface] Not all required properties set!')
         }
         const indent = this.generateIndent(indentCount)
         const indentBody = this.generateIndent(indentCount + 1)

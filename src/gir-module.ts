@@ -1421,9 +1421,11 @@ export class GirModule {
             fName == rec?.$.name
         }
         if (!rec) return []
+
+        // Record methods
         const methods = rec.method || []
         return methods
-            .map((method) => this.setFunctionDesc(method, 'method', 'static ', undefined, undefined, 1))
+            .map((method) => this.setFunctionDesc(method, 'static function', 'static ', undefined, undefined, 1))
             .filter((method) => method !== undefined) as DescFunction[]
     }
 
@@ -1434,7 +1436,14 @@ export class GirModule {
         const fns: DescFunction[] = []
         if (girClass.function) {
             for (const func of girClass.function) {
-                func._desc = this.setFunctionDesc(func, 'function', stat ? 'static ' : '', undefined, undefined, 1)
+                func._desc = this.setFunctionDesc(
+                    func,
+                    'static function',
+                    stat ? 'static ' : '',
+                    undefined,
+                    undefined,
+                    1,
+                )
                 if (func._desc?.name && func._desc?.name !== 'new') fns.push(func._desc)
             }
         }
@@ -1913,8 +1922,7 @@ export class GirModule {
     }
 
     public exportFunction(girFunc: GirFunctionElement) {
-        const prefix: FunctionPrefix = this.config.exportDefault ? 'function ' : 'export function '
-        girFunc._desc = this.setFunctionDesc(girFunc, 'function', prefix, undefined, undefined, 0)
+        girFunc._desc = this.setFunctionDesc(girFunc, 'function', 'function ', undefined, undefined, 0)
         return { def: girFunc._desc?.desc || [] }
     }
 

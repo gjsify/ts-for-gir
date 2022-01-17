@@ -22,6 +22,7 @@ import {
     GirConstantElement,
     GirEnumElement,
     GirMemberElement,
+    GirAliasElement,
 } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
@@ -396,6 +397,22 @@ export class TemplateProcessor {
             }
 
         return desc
+    }
+
+    public generateAlias(girAlias: GirAliasElement) {
+        if (!girAlias._desc) {
+            this.log.error('girAlias', JSON.stringify(girAlias, null, 2))
+            throw new Error('[generateConstant] Not all required properties set!')
+        }
+        const desc: string[] = []
+        if (girAlias._desc.desc)
+            for (const constDesc of girAlias._desc.desc) {
+                desc.push(`export const ${constDesc}`)
+            }
+
+        const exp = this.config.exportDefault ? '' : 'export '
+
+        return [`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`]
     }
 
     /**

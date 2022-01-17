@@ -1007,6 +1007,21 @@ export class GirModule {
         return girEnum._desc
     }
 
+    public setAliasDesc(girAlias: GirAliasElement) {
+        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return undefined
+
+        const typeName = this.typeLookup(girAlias).result
+        const name = girAlias.$.name
+        girAlias._desc = {
+            desc: null,
+            name,
+            type: typeName,
+        }
+
+        girAlias._desc.desc = this.templateProcessor.generateAlias(girAlias)
+        return girAlias._desc
+    }
+
     private traverseInheritanceTree(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement) => void,
@@ -1911,15 +1926,9 @@ export class GirModule {
     }
 
     public exportAlias(girAlias: GirAliasElement) {
-        const def: string[] = []
-        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return { def }
-
-        const typeName = this.typeLookup(girAlias).result
-        const name = girAlias.$.name
-        const exp = this.config.exportDefault ? '' : 'export '
-        def.push(`${exp}type ${name} = ${typeName}`)
+        girAlias._desc = this.setAliasDesc(girAlias)
         return {
-            def,
+            def: girAlias._desc?.desc || [],
         }
     }
 

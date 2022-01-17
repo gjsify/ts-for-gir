@@ -5,7 +5,8 @@ import {
     GirCallableParams,
     GirCallableReturn,
     PartOfModule,
-    DescFunction,
+    DescCallback,
+    DescCallbackInterface,
 } from '.'
 
 export interface GirCallbackElement extends PartOfModule, GirInfoElements {
@@ -24,5 +25,10 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 
-    _desc?: DescFunction
+    _desc?: DescCallback
+
+    /**
+     * Interface for callback types
+     */
+    _descInterface?: DescCallbackInterface
 }

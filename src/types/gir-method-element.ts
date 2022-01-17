@@ -1,6 +1,17 @@
-import { GirDocElement, GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn, DescFunction } from '.'
+import {
+    GirDocElement,
+    GirInfoAttrs,
+    GirCallableAttrs,
+    GirCallableParams,
+    GirCallableReturn,
+    DescFunction,
+    GirClassElement,
+    GirRecordElement,
+    GirInterfaceElement,
+    PartOfClass,
+} from '.'
 
-export interface GirMethodElement extends GirDocElement {
+export interface GirMethodElement extends PartOfClass, GirDocElement {
     /** element defining a method from a class */
     $: GirInfoAttrs &
         GirCallableAttrs & {

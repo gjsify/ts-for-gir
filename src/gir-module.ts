@@ -44,6 +44,7 @@ import type {
     DescProperty,
     FunctionMap,
     FunctionPrefix,
+    FunctionType,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -52,7 +53,6 @@ import type {
     GirInterfaceElement,
     DescFunction,
     DescParameter,
-    DescVar,
 } from './types/index.js'
 
 import { MAXIMUM_RECURSION_DEPTH, STATIC_NAME_ALREADY_EXISTS } from './constants.js'
@@ -110,7 +110,7 @@ export class GirModule {
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
-    constNames: { [varName: string]: DescVar } = {}
+    constNames: { [varName: string]: GirConstantElement } = {}
 
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
@@ -179,7 +179,7 @@ export class GirModule {
     }
 
     private annotateFunctionArguments(
-        girFunc: GirFunctionElement | GirConstructorElement | GirVirtualMethodElement,
+        girFunc: GirFunctionElement | GirConstructorElement | GirVirtualMethodElement | GirCallbackElement,
     ): void {
         const funcName = girFunc._fullSymName
         if (funcName && girFunc.parameters) {
@@ -293,7 +293,7 @@ export class GirModule {
         this.loadTypesInternal(this.ns.union)
         this.loadTypesInternal(this.ns.alias)
 
-        if (this.ns.callback) for (const func of this.ns.callback) this.annotateFunctionArguments(func)
+        if (this.ns.callback) for (const girCallback of this.ns.callback) this.annotateFunctionArguments(girCallback)
 
         const girClasses: Array<GirClassElement | GirRecordElement | GirInterfaceElement> = [
             ...(this.ns.class || []),
@@ -510,7 +510,7 @@ export class GirModule {
                 // TODO
                 this.log.warn('Ignore multiple callbacks!', callbacks)
             }
-            const funcDesc = this.setFunctionDesc(callbacks[0], '', undefined, true, 0)
+            const funcDesc = this.setFunctionDesc(callbacks[0], 'callback', '', undefined, true, 0)
             if (funcDesc?.desc?.length) {
                 if (funcDesc.desc.length > 1) {
                     this.log.warn('Ignore multiline function description!', funcDesc.desc)
@@ -575,7 +575,7 @@ export class GirModule {
         return defaultVal
     }
 
-    private getReturnType(girFunc: GirFunctionElement | GirConstructorElement) {
+    private getReturnType(girFunc: GirFunctionElement | GirConstructorElement | GirCallbackElement) {
         let returnType = 'void'
         let outArrayLengthIndex = -1
 
@@ -863,7 +863,8 @@ export class GirModule {
      * @param indentCount
      */
     private setFunctionDesc(
-        girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
+        girFunc: GirMethodElement | GirFunctionElement | GirConstructorElement | GirCallbackElement,
+        type: FunctionType,
         prefix: FunctionPrefix = '',
         overrideReturnType?: string,
         arrowType = false,
@@ -889,6 +890,7 @@ export class GirModule {
 
         girFunc._desc = {
             patched: true,
+            type,
             desc: null,
             arrowType,
             returnType,
@@ -908,13 +910,34 @@ export class GirModule {
         return girFunc._desc
     }
 
+    private setCallbackInterfaceDesc(girCallback: GirCallbackElement) {
+        if (!girCallback || !girCallback.$ || !this.girBool(girCallback.$.introspectable, true)) return undefined
+
+        girCallback._desc = this.setFunctionDesc(girCallback, 'callback', '', undefined, true, 0)
+
+        const name = girCallback.$.name
+
+        girCallback._descInterface = {
+            desc: null,
+            name,
+        }
+
+        if (!girCallback._desc || !girCallback._descInterface) {
+            return undefined
+        }
+
+        girCallback._descInterface.desc = this.templateProcessor.generateCallbackInterface(girCallback)
+
+        return girCallback._descInterface
+    }
+
     private setConstructorFunctionDesc(
         name: string,
         girConstFunc: GirConstructorElement,
         prefix: FunctionPrefix = '',
         indentCount = 0,
     ): DescFunction | undefined {
-        return this.setFunctionDesc(girConstFunc, prefix, name, undefined, indentCount)
+        return this.setFunctionDesc(girConstFunc, 'constructor', prefix, name, undefined, indentCount)
     }
 
     private setSignalFuncDesc(girSignalFunc: GirSignalElement, classDetails: ClassDetails) {
@@ -930,6 +953,7 @@ export class GirModule {
         girSignalFunc._desc = {
             desc: null,
             name,
+            type: 'signal',
             prefix: '',
             returnType,
             arrowType: true,
@@ -1088,8 +1112,7 @@ export class GirModule {
 
     /**
      *
-     * @param desc
-     * @param name
+     * @param girElement
      * @param localNames Can be (constructor) properties, fields or methods
      * @param type
      */
@@ -1117,6 +1140,16 @@ export class GirModule {
             isOverloadable = true
         }
 
+        // Only names of the same type are overloadable
+        if (localNames[name]?.type && localNames[name].type !== type) {
+            // In GIO there are some methods and properties with the same name
+            // E.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
+            // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
+            // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
+
+            return null
+        }
+
         // If name is found in localNames this variable was already defined
         if (localNames?.[name]?.[type]?._desc) {
             // Ignore duplicates with the same type
@@ -1129,20 +1162,11 @@ export class GirModule {
             if (!isOverloadable) {
                 return null
             }
-
-            // Only names of the same type are overloadable
-            if (localNames[name].type !== type) {
-                // This can be happen on node bindings, e.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
-                // See issue https://github.com/romgrk/node-gtk/issues/256
-                // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
-                // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
-
-                return null
-            }
         }
 
         localNames[name] = localNames[name] || {}
         const localName: LocalName = {
+            ...localNames[name],
             [type]: girElement,
             type,
         }
@@ -1213,7 +1237,7 @@ export class GirModule {
         const def: string[] = []
         if (cls.method) {
             for (const girMethod of cls.method) {
-                girMethod._desc = this.setFunctionDesc(girMethod)
+                girMethod._desc = this.setFunctionDesc(girMethod, 'method')
                 if (!girMethod._desc) {
                     continue
                 }
@@ -1260,7 +1284,14 @@ export class GirModule {
             const vMethods: GirVirtualMethodElement[] = element['virtual-method'] || []
             const methods = vMethods
                 .map((virtualFunc) => {
-                    virtualFunc._desc = this.setFunctionDesc(virtualFunc, 'vfunc_', undefined, undefined, 1)
+                    virtualFunc._desc = this.setFunctionDesc(
+                        virtualFunc,
+                        'virtual-method',
+                        'vfunc_',
+                        undefined,
+                        undefined,
+                        1,
+                    )
                     return virtualFunc._desc
                 })
                 .filter((funcDesc) => funcDesc?.name) as DescFunction[]
@@ -1377,7 +1408,7 @@ export class GirModule {
         if (!rec) return []
         const methods = rec.method || []
         return methods
-            .map((method) => this.setFunctionDesc(method, 'static ', undefined, undefined, 1))
+            .map((method) => this.setFunctionDesc(method, 'method', 'static ', undefined, undefined, 1))
             .filter((method) => method !== undefined) as DescFunction[]
     }
 
@@ -1388,7 +1419,7 @@ export class GirModule {
         const fns: DescFunction[] = []
         if (girClass.function) {
             for (const func of girClass.function) {
-                func._desc = this.setFunctionDesc(func, stat ? 'static ' : '', undefined, undefined, 1)
+                func._desc = this.setFunctionDesc(func, 'function', stat ? 'static ' : '', undefined, undefined, 1)
                 if (func._desc?.name && func._desc?.name !== 'new') fns.push(func._desc)
             }
         }
@@ -1591,28 +1622,28 @@ export class GirModule {
      * @param name
      */
     private getAllStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement, name: string) {
-        const stc: string[] = []
+        const def: string[] = []
 
-        stc.push(
+        def.push(
             ...this.processStaticFunctions(girClass, (girClass) => {
                 return this.getStaticConstructors(girClass, name)
             }).def,
         )
-        stc.push(
+        def.push(
             ...this.processStaticFunctions(girClass, (girClass) => {
                 return this.getOtherStaticFunctions(girClass)
             }).def,
         )
-        stc.push(
+        def.push(
             ...this.processStaticFunctions(girClass, (girClass) => {
                 return this.getClassMethods(girClass)
             }).def,
         )
 
-        if (stc.length > 0) {
-            stc.unshift('    /* Static methods and pseudo-constructors */')
+        if (def.length > 0) {
+            def.unshift('    /* Static methods and pseudo-constructors */')
         }
-        return stc
+        return def
     }
 
     private generateConstructorAndStaticMethods(
@@ -1770,9 +1801,8 @@ export class GirModule {
         girConst._desc = this.setVariableDesc(girConst, false, false, 'constant')
         if (girConst._desc?.name) {
             if (!this.constNames[girConst._desc.name]) {
-                this.constNames[girConst._desc.name] = girConst._desc
+                this.constNames[girConst._desc.name] = girConst
                 def.push(...this.templateProcessor.generateConstant(girConst))
-                this.templateProcessor.generateConstant(girConst)
             } else {
                 this.log.warn(`The constant '${girConst._desc.desc}' has already been exported`)
             }
@@ -1869,26 +1899,14 @@ export class GirModule {
 
     public exportFunction(girFunc: GirFunctionElement) {
         const prefix: FunctionPrefix = this.config.exportDefault ? 'function ' : 'export function '
-        const funcDesc = this.setFunctionDesc(girFunc, prefix, undefined, undefined, 0)
-        return { def: funcDesc?.desc || [] }
+        girFunc._desc = this.setFunctionDesc(girFunc, 'function', prefix, undefined, undefined, 0)
+        return { def: girFunc._desc?.desc || [] }
     }
 
-    public exportCallback(func: GirFunctionElement) {
-        const def: string[] = []
-        if (!func || !func.$ || !this.girBool(func.$.introspectable, true))
-            return {
-                def,
-            }
-
-        const name = func.$.name
-        const { returnType, outArrayLengthIndex } = this.getReturnType(func)
-        const { def: paramsDef } = this.setParametersDesc(outArrayLengthIndex, func.parameters)
-
-        def.push(this.templateProcessor.generateExport('interface', name, '{'))
-        def.push(`    (${paramsDef.join(', ')}): ${returnType}`)
-        def.push('}')
+    public exportCallbackInterface(girCallback: GirCallbackElement) {
+        girCallback._descInterface = this.setCallbackInterfaceDesc(girCallback)
         return {
-            def,
+            def: girCallback._descInterface?.desc || [],
         }
     }
 
@@ -1978,7 +1996,7 @@ export class GirModule {
 
             if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
 
-            if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb).def)
+            if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallbackInterface(cb).def)
 
             if (this.ns.interface)
                 for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface).def)

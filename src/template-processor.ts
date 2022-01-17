@@ -241,7 +241,7 @@ export class TemplateProcessor {
         return desc
     }
 
-    public generateFunctionReturn(girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement) {
+    public generateFunctionReturn(girFunc: GirFunctionElement | GirConstructorElement) {
         if (!girFunc._desc) {
             this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
             throw new Error('[generateFunctionReturn] Not all required properties set!')
@@ -283,7 +283,7 @@ export class TemplateProcessor {
     }
 
     public generateFunction(
-        girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
+        girFunc: GirFunctionElement | GirConstructorElement,
         methodPatches?: string[],
         indentCount = 1,
     ) {
@@ -293,7 +293,7 @@ export class TemplateProcessor {
         }
         const indent = this.generateIndent(indentCount)
 
-        let desc: string[] = []
+        const def: string[] = []
         let prefix = girFunc._desc.prefix
         let name = girFunc._desc.name
         const arrowType = girFunc._desc?.arrowType
@@ -303,7 +303,7 @@ export class TemplateProcessor {
             this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
             // Replace method by commend
             if (methodPatches.length === 1) {
-                desc = methodPatches.map((patch) => indent + patch)
+                def.push(...methodPatches.map((patch) => indent + patch))
             }
             // Patch method type
             if (methodPatches.length >= 2) {
@@ -314,10 +314,10 @@ export class TemplateProcessor {
                     } else {
                         descLine = `${indent}${patchLine}`
                     }
-                    desc.push(descLine)
+                    def.push(descLine)
                 }
             }
-            return desc
+            return def
         }
 
         const returnDesc = this.generateFunctionReturn(girFunc)
@@ -331,9 +331,28 @@ export class TemplateProcessor {
             retSep = ':'
         }
 
-        desc = [`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`]
+        def.push(`${indent}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`)
 
-        return desc
+        return def
+    }
+
+    public generateCallbackInterface(girCallback: GirCallbackElement, indentCount = 0) {
+        if (!girCallback._desc || !girCallback._descInterface) {
+            this.log.error('girCallback', JSON.stringify(girCallback, null, 2))
+            throw new Error('[generateFunction] Not all required properties set!')
+        }
+        const indent = this.generateIndent(indentCount)
+        const indentBody = this.generateIndent(indentCount + 1)
+
+        const def: string[] = []
+        const { paramsDef, returnType } = girCallback._desc
+        const { name } = girCallback._descInterface
+
+        def.push(indent + this.generateExport('interface', name, '{'))
+        def.push(`${indentBody}(${paramsDef.join(', ')}): ${returnType}`)
+        def.push(indent + '}')
+
+        return def
     }
 
     public generateEnumeration(girEnum: GirEnumElement) {

@@ -933,11 +933,11 @@ export class GirModule {
 
     private setConstructorFunctionDesc(
         name: string,
-        girConstFunc: GirConstructorElement,
+        girConstructorFunc: GirConstructorElement,
         prefix: FunctionPrefix = '',
         indentCount = 0,
     ): DescFunction | undefined {
-        return this.setFunctionDesc(girConstFunc, 'constructor', prefix, name, undefined, indentCount)
+        return this.setFunctionDesc(girConstructorFunc, 'constructor', prefix, name, undefined, indentCount)
     }
 
     private setSignalFuncDesc(girSignalFunc: GirSignalElement, classDetails: ClassDetails) {
@@ -1690,11 +1690,11 @@ export class GirModule {
                 `${indent}_init (config?: ${name}_ConstructProps): void`,
             )
         } else {
-            const constructor_: GirFunctionElement[] = (girClass['constructor'] || []) as GirFunctionElement[]
-            if (constructor_) {
-                if (Array.isArray(constructor_)) {
-                    for (const f of constructor_) {
-                        const constrDesc = this.setConstructorFunctionDesc(name, f, 'static ', 1)
+            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
+            if (girConstructorFuncs) {
+                if (Array.isArray(girConstructorFuncs)) {
+                    for (const girConstructorFunc of girConstructorFuncs) {
+                        const constrDesc = this.setConstructorFunctionDesc(name, girConstructorFunc, 'static ', 1)
                         if (!constrDesc?.name || !constrDesc.desc) continue
                         if (constrDesc.name !== 'new') continue
 

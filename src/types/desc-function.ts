@@ -1,7 +1,7 @@
 import { DescParameter } from '.'
 
 export interface DescFunction {
-    desc: string[]
+    desc: string[] | null
     name: string
     returnType: string
     arrowType: boolean

@@ -8,6 +8,7 @@ import {
     GirClassElement,
     GirRecordElement,
     GirInterfaceElement,
+    DescSignal,
 } from '.'
 
 export interface GirSignalElement extends PartOfModule, GirInfoElements {
@@ -37,4 +38,6 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
      * The class this function is defined in
      */
     _class?: GirClassElement | GirRecordElement | GirInterfaceElement
+
+    _desc?: DescSignal
 }

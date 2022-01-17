@@ -11,10 +11,15 @@ import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
 import {
     GenerateConfig,
+    ClassDetails,
     GirCallableParamElement,
     GirFunctionElement,
     GirCallbackElement,
     GirConstructorElement,
+    GirSignalElement,
+    GirPropertyElement,
+    GirFieldElement,
+    GirConstantElement,
 } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
@@ -90,40 +95,77 @@ export class TemplateProcessor {
         return `${exp}${type} ${name}${definition}`
     }
 
-    public generateSignalMethods(
-        sigName: string,
-        clsName: string,
-        paramComma: ', ' | '',
-        params: string[],
-        retType: string,
-        identCount = 1,
-    ) {
+    public generateProperty(indent = '', girProp: GirPropertyElement) {
+        if (!girProp._desc) {
+            this.log.error('girProp', JSON.stringify(girProp, null, 2))
+            throw new Error('[generateProperty] Not all required properties set!')
+        }
+
+        const varDesc = this.generateVariable(girProp)[0]
+
+        const prefix = girProp._desc.readonly ? '' : 'readonly '
+
+        return [`${indent}${prefix}${varDesc}`]
+    }
+
+    // public generateConstant() {}
+
+    public generateVariable(girVar: GirPropertyElement | GirFieldElement | GirConstantElement) {
+        if (!girVar._desc) {
+            this.log.error('girVar', JSON.stringify(girVar, null, 2))
+            throw new Error('[generateVariable] Not all required properties set!')
+        }
+
+        const { name, type, optional } = girVar._desc
+
+        if (!name) {
+            throw new Error('[generateVariable] "name" not set!')
+        }
+
+        if (!type) {
+            throw new Error('[generateVariable] "type" not set!')
+        }
+
+        const affix = optional ? '?' : ''
+
+        return [`${name}${affix}: ${type}`]
+    }
+
+    public generateSignalMethods(girSignalFunc: GirSignalElement, classDetails: ClassDetails, identCount = 1) {
+        if (!girSignalFunc._desc) {
+            this.log.error('girSignalFunc', JSON.stringify(girSignalFunc, null, 2))
+            throw new Error('[generateSignalMethods] Not all required properties set!')
+        }
+
+        const { name: sigName, paramsDef, returnType } = girSignalFunc._desc
+        const paramComma = paramsDef.length > 0 ? ', ' : ''
         const ident = this.generateIndent(identCount)
         const def: string[] = []
+
         def.push(
-            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${classDetails.name}${paramComma}${paramsDef.join(
                 ', ',
-            )}) => ${retType})): number`,
+            )}) => ${returnType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
-                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
-                    ', ',
-                )}) => ${retType})): number`,
+                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${
+                    classDetails.name
+                }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
             )
         }
         if (this.config.environment === 'node') {
             def.push(
-                `${ident}on(sigName: "${sigName}", callback: (${params.join(
+                `${ident}on(sigName: "${sigName}", callback: (${paramsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "${sigName}", callback: (${params.join(
+                `${ident}once(sigName: "${sigName}", callback: (${paramsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "${sigName}", callback: (${params.join(', ')}) => void): NodeJS.EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: (${paramsDef.join(', ')}) => void): NodeJS.EventEmitter`,
             )
         }
-        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params.join(', ')}): void`)
+        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${paramsDef.join(', ')}): void`)
         return {
             def,
         }

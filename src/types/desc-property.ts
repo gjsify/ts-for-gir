@@ -1,9 +1,8 @@
 import { DescVar } from '.'
 
-export interface DescProperty {
-    desc: string[]
-    readonly: boolean
+export interface DescProperty extends DescVar {
+    desc: string[] | null
     origName: string | null
-    prefix: '' | 'readonly '
-    var: DescVar
+    readonly: boolean
+    // varDesc: string[] | null
 }

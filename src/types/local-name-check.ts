@@ -1,5 +1,7 @@
+import { DescVar, DescFunction, DescProperty } from '.'
+
 export interface LocalNameCheck {
-    desc: string[]
+    desc: DescVar | DescFunction | DescProperty
     added: boolean
     isOverloadable: boolean
 }

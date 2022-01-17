@@ -421,7 +421,7 @@ export class GirModule {
 
         // Fully qualify our type name if need be
         if (!fullTypeName.includes('.')) {
-            let tryFullTypeName = ``
+            let tryFullTypeName = ''
 
             if (!resValue && girVar._module && girVar._module !== this) {
                 tryFullTypeName = `${girVar._module.namespace}.${fullTypeName}`
@@ -1104,8 +1104,6 @@ export class GirModule {
             return null
         }
 
-        const desc = typeof descObj.desc === 'string' ? [descObj.desc] : descObj.desc
-
         if (!name) {
             // this.log.warn(`No name for ${desc}`)
             return null
@@ -1121,7 +1119,7 @@ export class GirModule {
         if (localNames[name] && localNames[name].desc) {
             // Ignore duplicates with the same type
             // TODO should we use `this.functionSignaturesMatch` here?
-            if (isEqual(localNames[name].desc, desc)) {
+            if (isEqual(localNames[name].desc, descObj.desc)) {
                 return null
             }
 
@@ -1143,11 +1141,11 @@ export class GirModule {
 
         localNames[name] = localNames[name] || {}
         const localName: LocalName = {
-            desc,
+            desc: descObj,
             type,
         }
         localNames[name] = localName
-        return { desc, added: true, isOverloadable }
+        return { desc: descObj, added: true, isOverloadable }
     }
 
     private processFields(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
@@ -1160,8 +1158,8 @@ export class GirModule {
                 }
 
                 const localName = this.checkOrSetLocalName(field._desc, field._desc?.name, localNames, 'field')
-                if (localName?.added) {
-                    for (const curDesc of localName.desc) {
+                if (localName?.added && localName.desc?.desc) {
+                    for (const curDesc of localName.desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1188,9 +1186,9 @@ export class GirModule {
                     continue
                 }
                 const localName = this.checkOrSetLocalName(prop._desc, prop._desc.name, localNames, 'property')
-                if (localName?.added) {
+                if (localName?.added && localName.desc?.desc) {
                     if (prop._desc.origName) propertyNames.push(prop._desc.origName)
-                    for (const curDesc of localName.desc) {
+                    for (const curDesc of localName.desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1217,8 +1215,8 @@ export class GirModule {
                     continue
                 }
                 const localName = this.checkOrSetLocalName(girMethod._desc, girMethod._desc.name, localNames, 'method')
-                if (localName?.added) {
-                    for (const curDesc of localName.desc) {
+                if (localName?.added && localName.desc?.desc) {
+                    for (const curDesc of localName.desc.desc) {
                         def.push(`    ${curDesc}`)
                     }
                 }
@@ -1693,7 +1691,7 @@ export class GirModule {
                         'property',
                     )
 
-                    if (localName?.added) {
+                    if (localName?.added && localName.desc.desc) {
                         // Apply patches
                         const packageNameToPatch = this.getPackageName(girProp)
                         const constructPropPatches = girProp._fullSymName
@@ -1707,7 +1705,7 @@ export class GirModule {
                                 def.push(`    ${curDesc}`)
                             }
                         } else {
-                            for (const curDesc of localName.desc) {
+                            for (const curDesc of localName.desc.desc) {
                                 def.push(`    ${curDesc}`)
                             }
                         }
@@ -1730,7 +1728,7 @@ export class GirModule {
                                 constructPropNames,
                                 'property',
                             )
-                            if (localName?.added) {
+                            if (localName?.added && localName.desc.desc) {
                                 // Apply patches
                                 const packageNameToPatch = this.getPackageName(property)
                                 const constructPropPatches = property._fullSymName
@@ -1750,7 +1748,7 @@ export class GirModule {
                                         def.push(`    ${curDesc}`)
                                     }
                                 } else {
-                                    for (const curDesc of localName.desc) {
+                                    for (const curDesc of localName.desc.desc) {
                                         def.push(`    ${curDesc}`)
                                     }
                                 }
@@ -1780,12 +1778,8 @@ export class GirModule {
         if (girConst._desc?.name) {
             if (!this.constNames[girConst._desc.name]) {
                 this.constNames[girConst._desc.name] = girConst._desc
-                if (!girConst._desc.desc) {
-                    throw new Error('constDesc.desc not set!')
-                }
-                for (const desc of girConst._desc.desc) {
-                    def.push(`export const ${desc}`)
-                }
+                def.push(...this.templateProcessor.generateConstant(girConst))
+                this.templateProcessor.generateConstant(girConst)
             } else {
                 this.log.warn(`The constant '${girConst._desc.desc}' has already been exported`)
             }
@@ -1793,7 +1787,6 @@ export class GirModule {
 
         return {
             def,
-            constDesc: girConst._desc,
         }
     }
 
@@ -1896,10 +1889,10 @@ export class GirModule {
 
         const name = func.$.name
         const { returnType, outArrayLengthIndex } = this.getReturnType(func)
-        const { def: params } = this.setParametersDesc(outArrayLengthIndex, func.parameters)
+        const { def: paramsDef } = this.setParametersDesc(outArrayLengthIndex, func.parameters)
 
         def.push(this.templateProcessor.generateExport('interface', name, '{'))
-        def.push(`    (${params.join(', ')}): ${returnType}`)
+        def.push(`    (${paramsDef.join(', ')}): ${returnType}`)
         def.push('}')
         return {
             def,

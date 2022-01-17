@@ -365,6 +365,20 @@ export class TemplateProcessor {
         return [`${indent}${girEnumMember._desc.name}`]
     }
 
+    public generateConstant(girConst: GirConstantElement) {
+        if (!girConst._desc) {
+            this.log.error('girConst', JSON.stringify(girConst, null, 2))
+            throw new Error('[generateConstant] Not all required properties set!')
+        }
+        const desc: string[] = []
+        if (girConst._desc.desc)
+            for (const constDesc of girConst._desc.desc) {
+                desc.push(`export const ${constDesc}`)
+            }
+
+        return desc
+    }
+
     /**
      * Loads and renders a template and gets the rendered string back
      * @param templateFilename

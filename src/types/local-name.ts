@@ -1,6 +1,6 @@
-import { LocalNameType } from './local-name-type'
+import { LocalNameType, DescVar, DescFunction, DescProperty } from '.'
 
 export interface LocalName {
-    desc: string[]
+    desc: DescVar | DescFunction | DescProperty
     type: LocalNameType
 }

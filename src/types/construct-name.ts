@@ -1,6 +1,6 @@
 export type ConstructName =
     | 'functionName'
-    | 'enumValue'
+    | 'enumMember'
     | 'signalName'
     | 'fieldName'
     | 'constantName'

@@ -237,7 +237,7 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        enumValue: {
+        enumMember: {
             node: {
                 transformation: 'upperCase',
             },
@@ -348,7 +348,7 @@ export class Transformation {
     }
 
     public transformEnumMember(memberName: string): string {
-        memberName = this.transform('enumName', memberName)
+        memberName = this.transform('enumMember', memberName)
         memberName = this.transformNumericName(memberName)
 
         return memberName

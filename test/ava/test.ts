@@ -159,7 +159,7 @@ test('callback', (t) => {
     mod.symTable.set(mod.dependencies, 'Test.Variant', emptyConstruct)
     mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
 
-    t.deepEqual(mod.exportCallback(cbs[0]).def, [
+    t.deepEqual(mod.exportCallbackInterface(cbs[0]).def, [
         'export interface activate {',
         '    (action: SimpleAction, parameter: GLib.Variant): void',
         '}',

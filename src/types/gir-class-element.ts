@@ -15,6 +15,7 @@ import type {
     GirConstantElement,
     GirRecordElement,
     GirCallbackElement,
+    DescClass,
 } from '.'
 
 export interface GirClassElement extends PartOfModule, GirInfoElements {
@@ -65,4 +66,8 @@ export interface GirClassElement extends PartOfModule, GirInfoElements {
     constant?: GirConstantElement[]
     record?: GirRecordElement[]
     callback?: GirCallbackElement[]
+
+    // CUSTOM
+
+    _desc?: DescClass
 }

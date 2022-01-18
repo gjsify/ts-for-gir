@@ -11,7 +11,7 @@ import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
 import {
     GenerateConfig,
-    ClassDetails,
+    GirClassElement,
     GirCallableParamElement,
     GirFunctionElement,
     GirCallbackElement,
@@ -23,6 +23,8 @@ import {
     GirEnumElement,
     GirMemberElement,
     GirAliasElement,
+    GirInterfaceElement,
+    GirUnionElement,
 } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
@@ -134,8 +136,12 @@ export class TemplateProcessor {
         return [`${name}${affix}: ${type}`]
     }
 
-    public generateSignalMethods(girSignalFunc: GirSignalElement, classDetails: ClassDetails, indentCount = 1) {
-        if (!girSignalFunc._desc) {
+    public generateSignalMethods(
+        girSignalFunc: GirSignalElement,
+        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        indentCount = 1,
+    ) {
+        if (!girSignalFunc._desc || !girClass._desc) {
             this.log.error('girSignalFunc', JSON.stringify(girSignalFunc, null, 2))
             throw new Error('[generateSignalMethods] Not all required properties set!')
         }
@@ -147,13 +153,13 @@ export class TemplateProcessor {
 
         def.push(
             `${indent}connect(sigName: "${sigName}", callback: (($obj: ${
-                classDetails.name
+                girClass._desc.name
             }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
                 `${indent}connect_after(sigName: "${sigName}", callback: (($obj: ${
-                    classDetails.name
+                    girClass._desc.name
                 }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
             )
         }

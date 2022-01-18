@@ -7,6 +7,7 @@ import type {
     GirFieldElement,
     GirRecordElement,
     PartOfModule,
+    DescClass,
 } from '.'
 
 export interface GirUnionElement extends PartOfModule, GirInfoElements {
@@ -29,4 +30,8 @@ export interface GirUnionElement extends PartOfModule, GirInfoElements {
     method?: GirMethodElement[]
     function?: GirFunctionElement[]
     record?: GirRecordElement[]
+
+    // CUSTOM
+
+    _desc?: DescClass
 }

@@ -12,6 +12,7 @@ import {
     GirConstantElement,
     GirSignalElement,
     PartOfModule,
+    DescClass,
 } from '.'
 
 export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
@@ -47,4 +48,8 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     'glib:signal'?: GirSignalElement[]
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
+
+    // CUSTOM
+
+    _desc?: DescClass
 }

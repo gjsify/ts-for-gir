@@ -4,7 +4,7 @@
 import TemplateProcessor from './template-processor.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { isEqual, find, stripParamNames, findFileInDirs, splitModuleName, isCommentLine } from './utils.js'
+import { isEqual, find, stripParamNames, findFileInDirs, splitModuleName, isCommentLine, clone } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 
@@ -1029,6 +1029,103 @@ export class GirModule {
         return girAlias._desc
     }
 
+    /**
+     * Used to generate the constructor properties interface
+     * @param girClass
+     * @returns
+     */
+    private setClassConstructPropsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        if (!girClass._desc) {
+            this.log.error('girClass', JSON.stringify(girClass, null, 2))
+            throw new Error('[setClassConstructPropsDesc] Not all required properties set!')
+        }
+
+        girClass._desc.constructProp = []
+        girClass._desc.implConstructProp = []
+
+        if (!girClass._desc.isDerivedFromGObject) {
+            return girClass._desc
+        }
+
+        girClass._desc.constructPropInterfaceName = `${girClass._desc.name}_ConstructProps`
+
+        if (girClass._desc.qualifiedParentName && girClass._desc.localParentName) {
+            girClass._desc.inheritConstructPropInterfaceName = `${girClass._desc.localParentName}_ConstructProps`
+        }
+
+        const constructPropNames: LocalNames = {}
+        const properties = (girClass as GirClassElement | GirInterfaceElement).property
+
+        if (properties) {
+            for (const girProp of properties) {
+                // Do not modify the original girProp, create a new one
+                const girConstrProp = clone(girProp)
+                girConstrProp._desc = this.setPropertyDesc(girConstrProp, true, true, 0)
+                if (!girConstrProp._desc) {
+                    continue
+                }
+                const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
+
+                if (localName?.added && localName.property?._desc?.desc) {
+                    // Apply patches
+                    {
+                        const packageNameToPatch = this.getPackageName(girConstrProp)
+                        const constructPropPatches = girConstrProp._fullSymName
+                            ? this.getPatches(packageNameToPatch, 'constructorProperties', girConstrProp._fullSymName)
+                            : undefined
+
+                        if (constructPropPatches?.length) {
+                            this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName}"!`)
+                            girConstrProp._desc.desc = constructPropPatches
+                        }
+                    }
+
+                    girClass._desc.constructProp.push(girConstrProp)
+                }
+            }
+        }
+        // Include props of implemented interfaces
+        if ((girClass as GirClassElement | GirInterfaceElement).implements) {
+            this.forEachInterface(girClass, (iface) => {
+                const properties = (iface as GirClassElement | GirInterfaceElement).property
+                if (properties) {
+                    for (const girProp of properties) {
+                        // Do not modify the original girProp, create a new one
+                        const girConstrProp = clone(girProp)
+                        girConstrProp._desc = this.setPropertyDesc(girConstrProp, true, true, 0)
+                        if (!girConstrProp._desc) {
+                            continue
+                        }
+                        const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
+                        if (localName?.added && localName.property?._desc?.desc) {
+                            // Apply patches
+                            {
+                                const packageNameToPatch = this.getPackageName(girConstrProp)
+                                const constructPropPatches = girConstrProp._fullSymName
+                                    ? this.getPatches(
+                                          packageNameToPatch,
+                                          'constructorProperties',
+                                          girConstrProp._fullSymName,
+                                      )
+                                    : undefined
+
+                                if (constructPropPatches?.length) {
+                                    this.log.warn(
+                                        `Patch found for constructor property (of implemented interfaces) "${girConstrProp._fullSymName}"!`,
+                                    )
+                                    girConstrProp._desc.desc = constructPropPatches
+                                }
+                            }
+
+                            girClass._desc?.implConstructProp?.push(girConstrProp)
+                        }
+                    }
+                }
+            })
+        }
+        return girClass._desc
+    }
+
     private setClassDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
         if (girClass._desc) {
@@ -1087,9 +1184,12 @@ export class GirModule {
             localParentName,
             namespace,
             version,
+            isAbstract: this.isAbstractClass(girClass),
         }
 
         girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
+
+        girClass._desc = this.setClassConstructPropsDesc(girClass)
 
         return girClass._desc
     }
@@ -1487,6 +1587,15 @@ export class GirModule {
     }
 
     /**
+     * E.g GObject.ObjectClass is a abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
+     * @param girClass
+     * @returns `true` if this is this a abstract class.
+     */
+    private isAbstractClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
+    }
+
+    /**
      * Some class/static methods are defined in a separate record which is not
      * exported, but the methods are available as members of the JS constructor.
      * In gjs one can use an instance of the object, a JS constructor or a GType
@@ -1752,114 +1861,6 @@ export class GirModule {
         return { def, isDerivedFromGObject }
     }
 
-    private generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        if (!girClass._desc) {
-            this.log.error('girClass', JSON.stringify(girClass, null, 2))
-            throw new Error('[generateConstructPropsInterface] Not all required properties set!')
-        }
-
-        const def: string[] = []
-        let patched = false
-
-        if (girClass._desc.isDerivedFromGObject) {
-            let ext = ' '
-
-            if (girClass._desc.qualifiedParentName && girClass._desc.localParentName) {
-                ext = `extends ${girClass._desc.localParentName}_ConstructProps `
-            }
-
-            def.push(`export interface ${girClass._desc.name}_ConstructProps ${ext}{`)
-
-            girClass._desc.constructProp = []
-            girClass._desc.implConstructProp = []
-            const constructPropNames: LocalNames = {}
-            const properties = (girClass as GirClassElement | GirInterfaceElement).property
-
-            if (properties) {
-                for (const girProp of properties) {
-                    girProp._desc = this.setPropertyDesc(girProp, true, true, 0)
-                    if (!girProp._desc) {
-                        continue
-                    }
-                    const localName = this.checkOrSetLocalName(girProp, constructPropNames, 'property')
-
-                    if (localName?.added && localName.property?._desc?.desc) {
-                        // Apply patches
-                        {
-                            const packageNameToPatch = this.getPackageName(girProp)
-                            const constructPropPatches = girProp._fullSymName
-                                ? this.getPatches(packageNameToPatch, 'constructorProperties', girProp._fullSymName)
-                                : undefined
-
-                            if (constructPropPatches?.length) {
-                                this.log.warn(`Patch found for constructor property "${girProp._fullSymName}"!`)
-                                patched = true
-                                localName.property._desc.desc = constructPropPatches
-                            }
-                        }
-
-                        for (const curDesc of localName.property._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
-
-                        girClass._desc.constructProp.push(localName.property)
-                    }
-                }
-            }
-            // Include props of implemented interfaces
-            if ((girClass as GirClassElement | GirInterfaceElement).implements) {
-                this.forEachInterface(girClass, (iface) => {
-                    const properties = (iface as GirClassElement | GirInterfaceElement).property
-                    if (properties) {
-                        for (const property of properties) {
-                            property._desc = this.setPropertyDesc(property, true, true, 0)
-                            if (!property._desc) {
-                                continue
-                            }
-                            const localName = this.checkOrSetLocalName(property, constructPropNames, 'property')
-                            if (localName?.added && localName.property?._desc?.desc) {
-                                // Apply patches
-                                {
-                                    const packageNameToPatch = this.getPackageName(property)
-                                    const constructPropPatches = property._fullSymName
-                                        ? this.getPatches(
-                                              packageNameToPatch,
-                                              'constructorProperties',
-                                              property._fullSymName,
-                                          )
-                                        : undefined
-
-                                    if (constructPropPatches?.length) {
-                                        this.log.warn(
-                                            `Patch found for constructor property (of implemented interfaces) "${property._fullSymName}"!`,
-                                        )
-                                        patched = true
-                                        localName.property._desc.desc = constructPropPatches
-                                    }
-                                }
-
-                                for (const curDesc of localName.property._desc.desc) {
-                                    def.push(`    ${curDesc}`)
-                                }
-
-                                if (!Array.isArray(girClass._desc?.implConstructProp)) {
-                                    throw new Error('"implConstructProp" must be an array!')
-                                }
-
-                                girClass._desc?.implConstructProp?.push(localName.property)
-                            }
-                        }
-                    }
-                })
-            }
-            def.push('}')
-        }
-        return {
-            def,
-            patched,
-        }
-    }
-
     public exportEnumeration(girEnum: GirEnumElement) {
         const girEnumDesc = this.setEnumerationDesc(girEnum)
 
@@ -1886,22 +1887,12 @@ export class GirModule {
     /**
      * Represents a record or GObject class or interface as a Typescript class
      * @param girClass
-     * @param isAbstract
      * @param record
      */
-    public exportClassInternal(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        record = false,
-        isAbstract = false,
-    ) {
+    public exportClassInternal(girClass: GirClassElement | GirUnionElement | GirInterfaceElement, record = false) {
         const def: string[] = []
         const localNames: LocalNames = {}
         const propertyNames: string[] = []
-
-        // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
-        if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
-            isAbstract = true
-        }
 
         girClass._desc = this.setClassDesc(girClass)
         if (!girClass._desc)
@@ -1909,14 +1900,14 @@ export class GirModule {
                 def: [],
             }
 
-        const { def: _def, patched } = this.generateConstructPropsInterface(girClass)
+        const { def: _def } = this.templateProcessor.generateConstructPropsInterface(girClass)
 
         // Properties for construction
         def.push(..._def)
 
         // START CLASS
         {
-            if (isAbstract) {
+            if (girClass._desc.isAbstract) {
                 def.push(this.templateProcessor.generateExport('abstract class', girClass._desc.name, '{'))
             } else {
                 def.push(this.templateProcessor.generateExport('class', girClass._desc.name, '{'))
@@ -1958,10 +1949,8 @@ export class GirModule {
 
         return {
             def,
-            patched,
             propertyNames,
             localNames,
-            isAbstract,
             record,
         }
     }

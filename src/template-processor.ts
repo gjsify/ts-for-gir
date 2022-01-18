@@ -419,6 +419,53 @@ export class TemplateProcessor {
         return desc
     }
 
+    public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        if (!girClass._desc || !girClass._desc.constructProp || !girClass._desc.constructPropInterfaceName) {
+            this.log.error('girClass', JSON.stringify(girClass, null, 2))
+            throw new Error('[generateConstructPropsInterface] Not all required properties set!')
+        }
+
+        const def: string[] = []
+
+        if (girClass._desc.isDerivedFromGObject) {
+            let ext = ' '
+
+            if (girClass._desc.inheritConstructPropInterfaceName) {
+                ext = `extends ${girClass._desc.inheritConstructPropInterfaceName} `
+            }
+
+            def.push(`export interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
+
+            for (const girProp of girClass._desc.constructProp) {
+                if (!girProp._desc?.desc) {
+                    continue
+                }
+                for (const curDesc of girProp._desc.desc) {
+                    def.push(`    ${curDesc}`)
+                }
+            }
+
+            if (girClass._desc.implConstructProp?.length) {
+                if (girClass._desc.constructPropInterfaceName) {
+                    def.push(`    /* Constructor properties of ${girClass._desc.constructPropInterfaceName} */`)
+                }
+                for (const girProp of girClass._desc.implConstructProp) {
+                    if (!girProp._desc?.desc) {
+                        continue
+                    }
+                    for (const curDesc of girProp._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+
+            def.push('}')
+        }
+        return {
+            def,
+        }
+    }
+
     /**
      * Loads and renders a template and gets the rendered string back
      * @param templateFilename

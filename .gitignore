@@ -4,5 +4,8 @@ node_modules/
 tmp/
 lib/
 examples/**/@types/
-@types/
+@types/node-gtk/*
+@types/Gjs/*
+!@types/Gjs/Gtk-4.0.d.ts
+!@types/node-gtk/Gtk-4.0.d.ts
 index.ts.bak

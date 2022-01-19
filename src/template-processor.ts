@@ -421,7 +421,7 @@ export class TemplateProcessor {
     }
 
     public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        if (!girClass._desc || !girClass._desc.constructPropInterfaceName) {
+        if (!girClass._desc) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
         }
 

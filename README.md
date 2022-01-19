@@ -241,19 +241,19 @@ https://user-images.githubusercontent.com/1073989/150143112-1c0a2dab-3d4c-4472-8
 To validate all your generated type definition files in this project run 
 
 ```bash
-npm run validate:all
+npm run validate:types:all
 ```
 
 To validate only your type definition files for Gjs
 
 ```bash
-npm run validate:gjs
+npm run validate:types:gjs
 ```
 
 To validate only your type definition files for node-gtk
 
 ```bash
-npm run validate:node
+npm run validate:types:node
 ```
 
 You can also validate a single type definition file like this

@@ -17,7 +17,7 @@ export interface DescClass {
      * Constructor properties of implemented interfaces, used to generate the constructor properties interface
      */
     implConstructProp?: GirPropertyElement[]
-    constructPropInterfaceName?: string
+    constructPropInterfaceName: string
     inheritConstructPropInterfaceName?: string
     /**
      * `true` if this is this a abstract class.

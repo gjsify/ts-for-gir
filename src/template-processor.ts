@@ -421,7 +421,7 @@ export class TemplateProcessor {
     }
 
     public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        if (!girClass._desc) {
+        if (!girClass._desc || !girClass._desc.constructPropInterfaceName) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
         }
 
@@ -436,7 +436,7 @@ export class TemplateProcessor {
 
             def.push(`export interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
 
-            // Body
+            // START BODY
             {
                 if (girClass._desc.constructProp?.length) {
                     for (const girProp of girClass._desc.constructProp) {
@@ -463,6 +463,7 @@ export class TemplateProcessor {
                     }
                 }
             }
+            // END BODY
 
             def.push('}')
         }

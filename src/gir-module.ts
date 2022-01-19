@@ -765,6 +765,27 @@ export class GirModule {
     }
 
     private setVariableDesc(
+        girVar: GirPropertyElement,
+        optional: boolean,
+        allowQuotes: boolean,
+        type: 'property',
+    ): GirPropertyElement['_desc']
+
+    private setVariableDesc(
+        girVar: GirConstantElement,
+        optional: boolean,
+        allowQuotes: boolean,
+        type: 'constant',
+    ): GirConstantElement['_desc']
+
+    private setVariableDesc(
+        girVar: GirFieldElement,
+        optional: boolean,
+        allowQuotes: boolean,
+        type: 'field',
+    ): GirFieldElement['_desc']
+
+    private setVariableDesc(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         optional = false,
         allowQuotes = false,
@@ -838,7 +859,7 @@ export class GirModule {
         let origName: string | null = null
 
         if (girProp.$.name) {
-            // TODO does that make sense here? This also changes the signal names
+            // TODO: does that make sense here? This also changes the signal names
             origName = this.transformation.transformTypeName(girProp.$.name)
         }
 
@@ -1029,12 +1050,43 @@ export class GirModule {
         return girAlias._desc
     }
 
+    private setClassConstructPropsDesc(girProps: GirPropertyElement[], constructPropNames: LocalNames) {
+        const constructProps: GirPropertyElement[] = []
+        for (const girProp of girProps) {
+            // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
+            const girConstrProp = clone(girProp)
+            girConstrProp._desc = this.setPropertyDesc(girConstrProp, true, true, 0)
+            if (!girConstrProp._desc) {
+                continue
+            }
+            const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
+
+            if (localName?.added && localName.property?._desc?.desc) {
+                // Apply patches
+                {
+                    const packageNameToPatch = this.getPackageName(localName.property)
+                    const constructPropPatches = localName.property._fullSymName
+                        ? this.getPatches(packageNameToPatch, 'constructorProperties', localName.property._fullSymName)
+                        : undefined
+
+                    if (constructPropPatches?.length) {
+                        this.log.warn(`Patch found for constructor property "${localName.property._fullSymName}"!`)
+                        localName.property._desc.desc = constructPropPatches
+                    }
+                }
+
+                constructProps.push(localName.property)
+            }
+        }
+        return constructProps
+    }
+
     /**
      * Used to generate the constructor properties interface
      * @param girClass
      * @returns
      */
-    private setClassConstructPropsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    private setClassConstructPropsInterfaceDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
         if (!girClass._desc) {
             this.log.error('girClass', JSON.stringify(girClass, null, 2))
             throw new Error('[setClassConstructPropsDesc] Not all required properties set!')
@@ -1047,79 +1099,25 @@ export class GirModule {
             return girClass._desc
         }
 
-        girClass._desc.constructPropInterfaceName = `${girClass._desc.name}_ConstructProps`
-
-        if (girClass._desc.qualifiedParentName && girClass._desc.localParentName) {
-            girClass._desc.inheritConstructPropInterfaceName = `${girClass._desc.localParentName}_ConstructProps`
-        }
-
         const constructPropNames: LocalNames = {}
         const properties = (girClass as GirClassElement | GirInterfaceElement).property
 
+        // Include props of this class
         if (properties) {
-            for (const girProp of properties) {
-                // Do not modify the original girProp, create a new one
-                const girConstrProp = clone(girProp)
-                girConstrProp._desc = this.setPropertyDesc(girConstrProp, true, true, 0)
-                if (!girConstrProp._desc) {
-                    continue
-                }
-                const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
-
-                if (localName?.added && localName.property?._desc?.desc) {
-                    // Apply patches
-                    {
-                        const packageNameToPatch = this.getPackageName(girConstrProp)
-                        const constructPropPatches = girConstrProp._fullSymName
-                            ? this.getPatches(packageNameToPatch, 'constructorProperties', girConstrProp._fullSymName)
-                            : undefined
-
-                        if (constructPropPatches?.length) {
-                            this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName}"!`)
-                            girConstrProp._desc.desc = constructPropPatches
-                        }
-                    }
-
-                    girClass._desc.constructProp.push(girConstrProp)
-                }
-            }
+            girClass._desc.constructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
         }
+
         // Include props of implemented interfaces
         if ((girClass as GirClassElement | GirInterfaceElement).implements) {
-            this.forEachInterface(girClass, (iface) => {
-                const properties = (iface as GirClassElement | GirInterfaceElement).property
+            this.forEachInterface(girClass, (girIface) => {
+                const properties = (girIface as GirClassElement | GirInterfaceElement).property
                 if (properties) {
-                    for (const girProp of properties) {
-                        // Do not modify the original girProp, create a new one
-                        const girConstrProp = clone(girProp)
-                        girConstrProp._desc = this.setPropertyDesc(girConstrProp, true, true, 0)
-                        if (!girConstrProp._desc) {
-                            continue
-                        }
-                        const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
-                        if (localName?.added && localName.property?._desc?.desc) {
-                            // Apply patches
-                            {
-                                const packageNameToPatch = this.getPackageName(girConstrProp)
-                                const constructPropPatches = girConstrProp._fullSymName
-                                    ? this.getPatches(
-                                          packageNameToPatch,
-                                          'constructorProperties',
-                                          girConstrProp._fullSymName,
-                                      )
-                                    : undefined
-
-                                if (constructPropPatches?.length) {
-                                    this.log.warn(
-                                        `Patch found for constructor property (of implemented interfaces) "${girConstrProp._fullSymName}"!`,
-                                    )
-                                    girConstrProp._desc.desc = constructPropPatches
-                                }
-                            }
-
-                            girClass._desc?.implConstructProp?.push(girConstrProp)
-                        }
+                    if (!girClass._desc?.implConstructProp) {
+                        throw new Error('girClass._desc.implConstructProp not set!')
                     }
+                    girClass._desc.implConstructProp.push(
+                        ...this.setClassConstructPropsDesc(properties, constructPropNames),
+                    )
                 }
             })
         }
@@ -1185,11 +1183,16 @@ export class GirModule {
             namespace,
             version,
             isAbstract: this.isAbstractClass(girClass),
+            constructPropInterfaceName: `${className}_ConstructProps`,
+        }
+
+        if (girClass._desc.qualifiedParentName && localParentName) {
+            girClass._desc.inheritConstructPropInterfaceName = `${localParentName}_ConstructProps`
         }
 
         girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
-        girClass._desc = this.setClassConstructPropsDesc(girClass)
+        girClass._desc = this.setClassConstructPropsInterfaceDesc(girClass)
 
         return girClass._desc
     }
@@ -1913,7 +1916,7 @@ export class GirModule {
                 def.push(this.templateProcessor.generateExport('class', girClass._desc.name, '{'))
             }
 
-            // CLASS BODY
+            // START BODY
             {
                 // TODO Can't export fields for GObjects because names would clash
                 if (record) def.push(...this.processFields(girClass, localNames).def)
@@ -1946,6 +1949,7 @@ export class GirModule {
                 // Static side: default constructor
                 def.push(...this.generateConstructorAndStaticMethods(girClass, girClass._desc.name).def)
             }
+            // END BODY
 
             // END CLASS
             def.push('}')

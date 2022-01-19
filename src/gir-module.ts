@@ -1210,7 +1210,10 @@ export class GirModule {
 
         girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
-        girClass._desc = this.setClassConstructPropsInterfaceDesc(girClass)
+        girClass._desc.constructProps = {
+            ...girClass._desc.constructProps,
+            ...this.setClassConstructPropsInterfaceDesc(girClass),
+        }
 
         return girClass._desc
     }

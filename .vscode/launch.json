@@ -9,11 +9,23 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "./src/index.ts",
+            "program": "./src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.gtk3.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "sourceMaps": true
+        },
+        {
+            "name": "build:types:gtk4",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "program": "./src/start.ts",
+            "args": [
+                "generate", "--configName=.ts-for-gir.gtk4.rc.js", "-o", "./tmp"
+            ],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true
         },
         {
@@ -21,11 +33,11 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
@@ -33,11 +45,11 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=gjs", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
@@ -45,11 +57,11 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=node", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
@@ -57,11 +69,11 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName='.ts-for-gir.regress.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
@@ -73,7 +85,7 @@
                 "${workspaceRoot}/test.js",
                 "--no-color"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         }
     ]

@@ -227,6 +227,11 @@ npm run regress
 ### Gir XML Format
 
 See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) for type definitions.
+
+### Debugging
+
+It is strongly recommended to use the debugger. For Visual Studio Code there are some predefined launch configurations for it. Take a look at the following video:
+
 ### NPM Scripts
 
 #### Validate

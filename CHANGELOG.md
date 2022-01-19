@@ -1,3 +1,8 @@
+# In development
+- Fix VSCode debugging configuration to work with ESM
+- Debugging information added to README.md
+- Added this CHANGELOG.md
+
 # 17 Jan 2022
 - All types in vala-gir can now be built and validated without errors, this can be tested with `npm run test:girs:all`, this test is now also executed with github actions
 - Switch to ESM for ts-for-gir itself

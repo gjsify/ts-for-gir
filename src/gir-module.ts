@@ -351,13 +351,15 @@ export class GirModule {
 
             const names: string[] = []
 
-            for (const i of girClass.implements ? girClass.implements : []) {
-                if (i.$.name) {
-                    let name: string = i.$.name
-                    if (name.indexOf('.') < 0) {
-                        name = girClass._fullSymName.substring(0, girClass._fullSymName.indexOf('.') + 1) + name
+            if (girClass.implements) {
+                for (const girImplements of girClass.implements) {
+                    if (girImplements.$.name) {
+                        let name: string = girImplements.$.name
+                        if (name.indexOf('.') < 0) {
+                            name = girClass._fullSymName.substring(0, girClass._fullSymName.indexOf('.') + 1) + name
+                        }
+                        names.push(name)
                     }
-                    names.push(name)
                 }
             }
 
@@ -1271,7 +1273,7 @@ export class GirModule {
         if (depth >= MAXIMUM_RECURSION_DEPTH) {
             this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECURSION_DEPTH} reached for "${name}"`)
         } else {
-            if (parentPtr && recursive && depth <= MAXIMUM_RECURSION_DEPTH) {
+            if (parentPtr && recursive) {
                 this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
             }
         }
@@ -1283,43 +1285,50 @@ export class GirModule {
         recurseObjects = false,
         dups = {},
     ): void {
-        for (const { $ } of (girInterface as GirInterfaceElement).implements || []) {
-            let name = $.name
+        const girImplements = (girInterface as GirInterfaceElement).implements || []
+        if (girImplements?.length) {
+            for (const girImplement of girImplements) {
+                let name = girImplement.$.name
+                const key = this.symTable.getKey(this.allDependencies, name)
 
-            if (name.indexOf('.') < 0) {
-                name = this.namespace + '.' + name
-            }
-            if (Object.prototype.hasOwnProperty.call(dups, name)) {
-                continue
-            }
-            const key = this.symTable.getKey(this.allDependencies, name)
-            let iface: GirInterfaceElement | null = null
-            const _iface = this.symTable.get(this.allDependencies, name)
-            if (key && (_iface as GirInterfaceElement)?.prerequisite) {
-                dups[key] = true
-                iface = _iface as GirInterfaceElement
-            }
+                if (name.indexOf('.') < 0) {
+                    name = this.namespace + '.' + name
+                }
+                if (key && dups[key]) {
+                    continue
+                }
 
-            if (iface) {
-                callback(iface)
-                this.forEachInterface(iface, callback, recurseObjects, dups)
+                let iface: GirInterfaceElement | null = null
+                const _iface = this.symTable.get(this.allDependencies, name)
+                if (key) {
+                    dups[key] = true
+                    iface = _iface as GirInterfaceElement
+                }
+
+                if (iface) {
+                    callback(iface)
+                    this.forEachInterface(iface, callback, recurseObjects, dups)
+                }
             }
         }
-        if ((girInterface as GirInterfaceElement).prerequisite) {
-            let parentName = (girInterface as GirInterfaceElement).prerequisite?.[0].$.name
-            if (!parentName) {
-                return
-            }
-            if (parentName.indexOf('.') < 0) {
-                parentName = this.namespace + '.' + parentName
-            }
-            if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
-            const parentPtr = this.symTable.get(this.allDependencies, parentName)
-            if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
-                // iface's prerequisite is also an interface, or it's
-                // a class and we also want to recurse classes
-                callback(parentPtr as GirInterfaceElement)
-                this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects, dups)
+        const girPrerequisites = (girInterface as GirInterfaceElement).prerequisite || []
+        if (girPrerequisites?.length) {
+            for (const girPrerequisite of girPrerequisites) {
+                let parentName = girPrerequisite.$.name
+                if (!parentName) {
+                    return
+                }
+                if (parentName.indexOf('.') < 0) {
+                    parentName = this.namespace + '.' + parentName
+                }
+                if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
+                const parentPtr = this.symTable.get(this.allDependencies, parentName)
+                if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
+                    // iface's prerequisite is also an interface, or it's
+                    // a class and we also want to recurse classes
+                    callback(parentPtr as GirInterfaceElement)
+                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects, dups)
+                }
             }
         }
     }

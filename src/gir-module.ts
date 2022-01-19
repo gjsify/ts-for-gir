@@ -128,6 +128,7 @@ export class GirModule {
         this.templateProcessor = new TemplateProcessor(
             {
                 name: this.namespace,
+                namespace: this.namespace,
                 version: this.version,
                 importName: this.importName,
             },
@@ -1083,10 +1084,6 @@ export class GirModule {
                 }
             }
 
-            if (girConstrProp._desc?.desc?.[0] === 'passwordSave?: Gio.PasswordSave') {
-                debugger
-            }
-
             constructProps.push(girConstrProp)
         }
 
@@ -1104,11 +1101,11 @@ export class GirModule {
             throw new Error('[setClassConstructPropsDesc] Not all required properties set!')
         }
 
-        girClass._desc.constructProp = []
-        girClass._desc.implConstructProp = []
+        const baseConstructProp: GirPropertyElement[] = []
+        const implConstructProp: GirPropertyElement[] = []
 
         if (!girClass._desc.isDerivedFromGObject) {
-            return girClass._desc
+            return girClass._desc.constructProps
         }
 
         const constructPropNames: LocalNames = {}
@@ -1116,7 +1113,7 @@ export class GirModule {
 
         // Include props of this class
         if (properties) {
-            girClass._desc.constructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
+            baseConstructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
         }
 
         // Include props of implemented interfaces
@@ -1124,26 +1121,28 @@ export class GirModule {
             this.forEachInterface(girClass, (girIface) => {
                 const properties = (girIface as GirClassElement | GirInterfaceElement).property
                 if (properties) {
-                    if (!girClass._desc?.implConstructProp) {
-                        throw new Error('girClass._desc.implConstructProp not set!')
-                    }
-                    girClass._desc.implConstructProp.push(
-                        ...this.setClassConstructPropsDesc(properties, constructPropNames),
-                    )
+                    implConstructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
                 }
             })
         }
 
-        if (girClass._desc.constructPropInterfaceName === 'MountOperation_ConstructProps') {
-            debugger
+        girClass._desc.constructProps[this.namespace] = {
+            base: baseConstructProp,
+            impl: implConstructProp,
         }
-        return girClass._desc
+
+        return girClass._desc.constructProps
     }
 
     private setClassDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
         if (girClass._desc) {
+            // We need to set the ConstructPropsInterface for multiple namespaces
+            girClass._desc.constructProps = {
+                ...girClass._desc.constructProps,
+                ...this.setClassConstructPropsInterfaceDesc(girClass),
+            }
             return girClass._desc
         }
 
@@ -1202,6 +1201,7 @@ export class GirModule {
             version,
             isAbstract: this.isAbstractClass(girClass),
             constructPropInterfaceName: `${className}_ConstructProps`,
+            constructProps: {},
         }
 
         if (girClass._desc.qualifiedParentName && localParentName) {
@@ -1919,12 +1919,13 @@ export class GirModule {
         const propertyNames: string[] = []
 
         girClass._desc = this.setClassDesc(girClass)
+
         if (!girClass._desc)
             return {
                 def: [],
             }
 
-        const { def: _def } = this.templateProcessor.generateConstructPropsInterface(girClass)
+        const { def: _def } = this.templateProcessor.generateConstructPropsInterface(girClass, this.namespace)
 
         // Properties for construction
         def.push(..._def)

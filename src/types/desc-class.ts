@@ -10,13 +10,21 @@ export interface DescClass {
     version: string
     isDerivedFromGObject?: boolean
     /**
-     * Constructor properties, used to generate the constructor properties interface
+     * Constructor properties
      */
-    constructProp?: GirPropertyElement[]
-    /**
-     * Constructor properties of implemented interfaces, used to generate the constructor properties interface
-     */
-    implConstructProp?: GirPropertyElement[]
+    constructProps: {
+        [ns: string]: {
+            /**
+             * Constructor properties of this class itself
+             */
+            base: GirPropertyElement[]
+            /**
+             * Constructor properties of implemented interfaces, used to generate the constructor properties interface
+             */
+            impl: GirPropertyElement[]
+        }
+    }
+
     constructPropInterfaceName: string
     inheritConstructPropInterfaceName?: string
     /**

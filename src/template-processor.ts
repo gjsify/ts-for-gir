@@ -28,6 +28,7 @@ import {
 } from './types/index.js'
 import { ESLint } from 'eslint'
 import { fileURLToPath } from 'url'
+import { inspect } from 'util'
 
 const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
 
@@ -102,7 +103,7 @@ export class TemplateProcessor {
 
     public generateProperty(girProp: GirPropertyElement, indentCount = 0) {
         if (!girProp._desc) {
-            this.log.error('girProp', JSON.stringify(girProp, null, 2))
+            this.log.error('girProp', inspect(girProp))
             throw new Error('[generateProperty] Not all required properties set!')
         }
 
@@ -117,7 +118,7 @@ export class TemplateProcessor {
 
     public generateVariable(girVar: GirPropertyElement | GirFieldElement | GirConstantElement) {
         if (!girVar._desc) {
-            this.log.error('girVar', JSON.stringify(girVar, null, 2))
+            this.log.error('girVar', inspect(girVar))
             throw new Error('[generateVariable] Not all required properties set!')
         }
 
@@ -142,7 +143,7 @@ export class TemplateProcessor {
         indentCount = 1,
     ) {
         if (!girSignalFunc._desc || !girClass._desc) {
-            this.log.error('girSignalFunc', JSON.stringify(girSignalFunc, null, 2))
+            this.log.error('girSignalFunc', inspect(girSignalFunc))
             throw new Error('[generateSignalMethods] Not all required properties set!')
         }
 
@@ -250,7 +251,7 @@ export class TemplateProcessor {
 
     public generateFunctionReturn(girFunc: GirFunctionElement | GirConstructorElement) {
         if (!girFunc._desc) {
-            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            this.log.error('girFunc', inspect(girFunc))
             throw new Error('[generateFunctionReturn] Not all required properties set!')
         }
 
@@ -295,7 +296,7 @@ export class TemplateProcessor {
         indentCount = 1,
     ) {
         if (!girFunc._desc) {
-            this.log.error('girFunc', JSON.stringify(girFunc, null, 2))
+            this.log.error('girFunc', inspect(girFunc))
             throw new Error('[generateFunction] Not all required properties set!')
         }
         const indent = this.generateIndent(indentCount)
@@ -347,7 +348,7 @@ export class TemplateProcessor {
 
     public generateCallbackInterface(girCallback: GirCallbackElement, indentCount = 0) {
         if (!girCallback._desc || !girCallback._descInterface) {
-            this.log.error('girCallback', JSON.stringify(girCallback, null, 2))
+            this.log.error('girCallback', inspect(girCallback))
             throw new Error('[generateCallbackInterface] Not all required properties set!')
         }
         const indent = this.generateIndent(indentCount)
@@ -366,7 +367,7 @@ export class TemplateProcessor {
 
     public generateEnumeration(girEnum: GirEnumElement) {
         if (!girEnum._desc) {
-            this.log.error('girEnum', JSON.stringify(girEnum, null, 2))
+            this.log.error('girEnum', inspect(girEnum))
             throw new Error('[generateEnumeration] Not all required properties set!')
         }
         const desc: string[] = []
@@ -386,7 +387,7 @@ export class TemplateProcessor {
 
     public generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
         if (!girEnumMember._desc) {
-            this.log.error('girEnumMember', JSON.stringify(girEnumMember, null, 2))
+            this.log.error('girEnumMember', inspect(girEnumMember))
             throw new Error('[generateEnumerationMember] Not all required properties set!')
         }
         const indent = this.generateIndent(indentCount)
@@ -395,7 +396,7 @@ export class TemplateProcessor {
 
     public generateConstant(girConst: GirConstantElement) {
         if (!girConst._desc) {
-            this.log.error('girConst', JSON.stringify(girConst, null, 2))
+            this.log.error('girConst', inspect(girConst))
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
@@ -409,7 +410,7 @@ export class TemplateProcessor {
 
     public generateAlias(girAlias: GirAliasElement) {
         if (!girAlias._desc) {
-            this.log.error('girAlias', JSON.stringify(girAlias, null, 2))
+            this.log.error('girAlias', inspect(girAlias))
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
@@ -420,8 +421,7 @@ export class TemplateProcessor {
     }
 
     public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        if (!girClass._desc || !girClass._desc.constructProp || !girClass._desc.constructPropInterfaceName) {
-            this.log.error('girClass', JSON.stringify(girClass, null, 2))
+        if (!girClass._desc) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
         }
 
@@ -436,25 +436,30 @@ export class TemplateProcessor {
 
             def.push(`export interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
 
-            for (const girProp of girClass._desc.constructProp) {
-                if (!girProp._desc?.desc) {
-                    continue
-                }
-                for (const curDesc of girProp._desc.desc) {
-                    def.push(`    ${curDesc}`)
-                }
-            }
-
-            if (girClass._desc.implConstructProp?.length) {
-                if (girClass._desc.constructPropInterfaceName) {
-                    def.push(`    /* Constructor properties of ${girClass._desc.constructPropInterfaceName} */`)
-                }
-                for (const girProp of girClass._desc.implConstructProp) {
-                    if (!girProp._desc?.desc) {
-                        continue
+            // Body
+            {
+                if (girClass._desc.constructProp?.length) {
+                    for (const girProp of girClass._desc.constructProp) {
+                        if (!girProp._desc?.desc) {
+                            continue
+                        }
+                        for (const curDesc of girProp._desc.desc) {
+                            def.push(`    ${curDesc}`)
+                        }
                     }
-                    for (const curDesc of girProp._desc.desc) {
-                        def.push(`    ${curDesc}`)
+                }
+
+                if (girClass._desc.implConstructProp?.length) {
+                    if (girClass._desc.constructPropInterfaceName) {
+                        def.push(`    /* Constructor properties of ${girClass._desc.constructPropInterfaceName} */`)
+                    }
+                    for (const girProp of girClass._desc.implConstructProp) {
+                        if (!girProp._desc?.desc) {
+                            continue
+                        }
+                        for (const curDesc of girProp._desc.desc) {
+                            def.push(`    ${curDesc}`)
+                        }
                     }
                 }
             }

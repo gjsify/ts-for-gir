@@ -1,7 +1,7 @@
 import './@types/Gjs/index'
 import Gtk from './@types/Gjs/Gtk-3.0'
 import Pango from './@types/Gjs/Pango-1.0'
-import WebKit from './@types/Gjs/WebKit2-4.0'
+import WebKit2 from './@types/Gjs/WebKit2-4.0'
 
 function makeButton(label: string, callback: () => void): Gtk.Button {
     const but = new Gtk.Button()
@@ -18,7 +18,7 @@ Gtk.init(null)
 const wnd = new Gtk.Window({})
 wnd.set_title('Browser Test')
 wnd.set_default_size(800, 600)
-const webview = new WebKit.WebView()
+const webview = new WebKit2.WebView()
 const scrolledWindow = new Gtk.ScrolledWindow()
 const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry()

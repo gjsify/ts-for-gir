@@ -5,9 +5,6 @@ import {
     GirCallableParams,
     GirCallableReturn,
     DescFunction,
-    GirClassElement,
-    GirRecordElement,
-    GirInterfaceElement,
     PartOfClass,
 } from '.'
 

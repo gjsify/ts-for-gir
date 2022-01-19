@@ -1,2 +1,4 @@
 const { require: giRequire } = require('node-gtk');
-module.exports = giRequire('<%= name %>', '<%= version %>')
+const <%= name %> = giRequire('<%= name %>', '<%= version %>');
+module.exports = <%= name %>;
+exports.default = <%= name %>;

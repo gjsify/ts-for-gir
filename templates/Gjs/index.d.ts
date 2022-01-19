@@ -37,3 +37,4 @@ declare global {
 }
 
 export { imports }
+export default imports

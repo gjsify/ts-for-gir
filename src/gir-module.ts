@@ -2080,10 +2080,7 @@ export class GirModule {
 
         // START Namespace
         {
-            if (this.config.buildType === 'types') {
-                out.push('')
-                out.push(`export declare namespace ${this.namespace} {`)
-            } else if (this.config.exportDefault) {
+            if (this.config.buildType === 'types' || this.config.exportDefault) {
                 out.push('')
                 out.push(`export namespace ${this.namespace} {`)
             }

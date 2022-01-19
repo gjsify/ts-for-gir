@@ -81,20 +81,20 @@ export class TemplateProcessor {
         if (this.config.buildType === 'lib') {
             const sas = this.config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
             def.push(`import type ${sas}${namespace} from './${packageName}';`)
-        } else {
+        } else if (this.config.buildType === 'types') {
             if (asExternType) {
                 // def.push(`/// <reference types="${packageName}" />`)
-                def.push(`import "${packageName}"`)
+                def.push(`import ${namespace} from "${packageName}"`)
             } else {
-                // def.push(`/// <reference path="${packageName}.d.ts" />`)
-                def.push(`import type { ${namespace} } from './${packageName}';`)
+                def.push(`/// <reference path="${packageName}.d.ts" />`)
+                def.push(`import type ${namespace} from './${packageName}';`)
             }
         }
         return def
     }
 
     public generateExport(type: string, name: string, definition: string) {
-        const exp = this.config.exportDefault ? '' : 'export '
+        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
         if (!definition.startsWith(':')) {
             definition = ' ' + definition
         }
@@ -302,8 +302,12 @@ export class TemplateProcessor {
         const indent = this.generateIndent(indentCount)
 
         const def: string[] = []
-        // If girFunc._desc.type == 'function' are global methods which can be exported
-        const exp = !this.config.exportDefault && girFunc._desc.type === 'function' ? 'export ' : ''
+        let exp = ''
+        // girFunc._desc.type === 'function' is a global methods which can be exported
+        if (girFunc._desc.type === 'function') {
+            exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+        }
+
         let prefix = girFunc._desc.prefix
         let name = girFunc._desc.name
         const arrowType = girFunc._desc.arrowType
@@ -396,10 +400,11 @@ export class TemplateProcessor {
 
     public generateConstant(girConst: GirConstantElement) {
         const desc: string[] = []
+        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
 
         if (girConst._desc?.desc) {
             for (const constDesc of girConst._desc.desc) {
-                desc.push(`export const ${constDesc}`)
+                desc.push(`${exp}const ${constDesc}`)
             }
         }
 
@@ -412,7 +417,7 @@ export class TemplateProcessor {
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
-        const exp = this.config.exportDefault ? '' : 'export '
+        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
 
         desc.push(`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)
         return desc
@@ -427,6 +432,7 @@ export class TemplateProcessor {
         }
 
         const def: string[] = []
+        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
 
         if (girClass._desc.isDerivedFromGObject) {
             let ext = ' '
@@ -435,7 +441,7 @@ export class TemplateProcessor {
                 ext = `extends ${girClass._desc.inheritConstructPropInterfaceName} `
             }
 
-            def.push(`export interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
+            def.push(`${exp}interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
 
             // START BODY
             {

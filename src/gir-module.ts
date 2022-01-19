@@ -1049,6 +1049,20 @@ export class GirModule {
         return girAlias._desc
     }
 
+    public setConstantDesc(girConst: GirConstantElement) {
+        girConst._desc = this.setVariableDesc(girConst, false, false, 'constant')
+        if (girConst._desc?.name) {
+            if (!this.constNames[girConst._desc.name]) {
+                this.constNames[girConst._desc.name] = girConst
+            } else {
+                this.log.warn(`The constant '${girConst._desc.desc?.join(', ') || ''}' has already been exported`)
+                girConst._desc = undefined
+            }
+        }
+
+        return girConst._desc
+    }
+
     private setClassConstructPropsDesc(girProps: GirPropertyElement[], constructPropNames: LocalNames) {
         const constructProps: GirPropertyElement[] = []
         for (const girProp of girProps) {
@@ -1895,19 +1909,10 @@ export class GirModule {
     }
 
     public exportConstant(girConst: GirConstantElement) {
-        const def: string[] = []
-        girConst._desc = this.setVariableDesc(girConst, false, false, 'constant')
-        if (girConst._desc?.name) {
-            if (!this.constNames[girConst._desc.name]) {
-                this.constNames[girConst._desc.name] = girConst
-                def.push(...this.templateProcessor.generateConstant(girConst))
-            } else {
-                this.log.warn(`The constant '${girConst._desc.desc?.join(', ') || ''}' has already been exported`)
-            }
-        }
+        girConst._desc = this.setConstantDesc(girConst)
 
         return {
-            def,
+            def: this.templateProcessor.generateConstant(girConst) || [],
         }
     }
 

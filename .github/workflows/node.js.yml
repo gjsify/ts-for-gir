@@ -32,8 +32,8 @@ jobs:
     - run: npm install
     - run: npm run regress
     - run: npm run test:ava
-    - run: npm run build:types:gjs
-    - run: npm run build:types:node
+    - run: npm run test:types:gjs
+    - run: npm run test:types:node
     - run: npm run build
     - run: npm run build:examples:gjs
     # TODO fix build node-gtk on Github actions

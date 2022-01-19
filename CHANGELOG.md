@@ -1,6 +1,9 @@
 # In development
 - Fix VSCode debugging configuration to work with ESM
 - Debugging information added to README.md
+- Moved many signature generations methods to TemplateProcessor
+- The utility functions are no longer static members of a class
+- Fixed a bug in the forEachInterface method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md
 
 # 17 Jan 2022

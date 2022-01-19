@@ -726,7 +726,7 @@ export class GirModule {
                 // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
                 const instanceParameter = girParams[0]['instance-parameter']?.[0]
                 if (instanceParameter) {
-                    const typeName = instanceParameter.type?.$?.name || undefined
+                    const typeName = instanceParameter.type?.[0]?.$?.name || undefined
                     const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                     const structFor = rec?.$['glib:is-gtype-struct-for']
                     const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
@@ -1083,8 +1083,13 @@ export class GirModule {
                 }
             }
 
+            if (girConstrProp._desc?.desc?.[0] === 'passwordSave?: Gio.PasswordSave') {
+                debugger
+            }
+
             constructProps.push(girConstrProp)
         }
+
         return constructProps
     }
 
@@ -1128,11 +1133,16 @@ export class GirModule {
                 }
             })
         }
+
+        if (girClass._desc.constructPropInterfaceName === 'MountOperation_ConstructProps') {
+            debugger
+        }
         return girClass._desc
     }
 
     private setClassDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
+
         if (girClass._desc) {
             return girClass._desc
         }
@@ -1147,6 +1157,7 @@ export class GirModule {
          * E.g. '3.0'
          */
         const version = girModule.version
+
         let qualifiedName: string
         if (className.indexOf('.') < 0) {
             qualifiedName = namespace + '.' + className
@@ -1222,7 +1233,7 @@ export class GirModule {
         recursive = true,
     ): void {
         if (!girClass.$.name) return
-        if (!girClass._desc) girClass._desc = this.setClassDesc(girClass)
+        girClass._desc = this.setClassDesc(girClass)
         if (!girClass._desc) return
         const { parentName, qualifiedParentName, name } = girClass._desc
 

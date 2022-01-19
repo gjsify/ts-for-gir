@@ -19,6 +19,6 @@ export interface GirCallableParams {
                 'caller-allocates'?: GirBoolean
             }> &
                 Partial<GirTransferOwnership>
-            type?: GirType
+            type?: GirType[]
         }[]
 }

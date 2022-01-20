@@ -2,7 +2,7 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import { generate, list } from './commands/index.js'
+import { generate, list, doc } from './commands/index.js'
 import { Config } from './config.js'
 
 void yargs(hideBin(process.argv))
@@ -11,5 +11,6 @@ void yargs(hideBin(process.argv))
     .usage(Config.usage)
     .command(generate.command, generate.description, generate.builder, generate.handler)
     .command(list.command, list.description, list.builder, list.handler)
+    .command(doc.command, doc.description, doc.builder, doc.handler)
     .demandCommand(1)
     .help().argv

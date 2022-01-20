@@ -139,6 +139,16 @@ Examples:
                                             d xrandr-1.3
 ```
 
+### Generate HTML documentation
+
+```bash
+$ ts-for-gir doc --help
+
+ts-for-gir doc [modules..]
+
+The HTML documentation generator is not yet implemented, but feel free to implem
+ent it 🤗
+```
 ### Config
 
 In addition to the option of passing options as a CLI flag, you can also write them in a config file.

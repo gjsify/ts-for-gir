@@ -1,4 +1,5 @@
 import TemplateProcessor from './template-processor.js'
+import TypeDefinitionGenerator from './type-definition-generator.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
 import {
@@ -13,7 +14,6 @@ import {
 } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
-import { TypeDefinitionGenerator } from './type-definition-generator'
 import type {
     GirRepository,
     GirNamespace,
@@ -110,6 +110,10 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
+    /**
+     * TODO: Move to TypeDefinitionGenerator
+     * @deprecated
+     */
     templateProcessor: TemplateProcessor
     generator: TypeDefinitionGenerator
 
@@ -146,7 +150,7 @@ export class GirModule {
             this.config,
         )
 
-        this.generator = new TypeDefinitionGenerator(this.packageName, this.config)
+        this.generator = new TypeDefinitionGenerator(this.config)
 
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
@@ -2050,17 +2054,8 @@ export class GirModule {
         return this._exportClass(girIface, false)
     }
 
-    public async exportJs(): Promise<void> {
-        const template = 'module.js'
-        if (this.config.outdir) {
-            await this.templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
-        } else {
-            const moduleContent = this.templateProcessor.load(template)
-            this.log.log(moduleContent)
-        }
-    }
-
-    public async export(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
+    // TODO: Move to TypeDefinitionGenerator
+    public async exportModuleDTS(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
         const template = 'module.d.ts'
         const out: string[] = []
 
@@ -2158,6 +2153,16 @@ export class GirModule {
 
         if (outputPath && this.config.pretty) {
             await this.templateProcessor.prettify(outputPath)
+        }
+    }
+
+    // TODO: This method should in the future only prepare all types and not export anything.
+    // The export should take place in the TypeDefinitionGenerator
+    public async start(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
+        // TODO: Move to TypeDefinitionGenerator
+        await this.exportModuleDTS(outStream, outputPath)
+        if (this.config.buildType === 'lib') {
+            await this.generator.exportModule(this)
         }
     }
 }

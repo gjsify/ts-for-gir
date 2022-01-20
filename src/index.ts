@@ -1,6 +1,6 @@
 export * from './config.js'
 export * from './constants.js'
-export * from './generator.js'
+export * from './generation-handler.js'
 export * from './gir-module.js'
 export * from './logger.js'
 export * from './module-loader.js'

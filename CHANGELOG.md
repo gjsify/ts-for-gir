@@ -1,4 +1,5 @@
 # In development
+- New class `HtmlDocGenerator` this is not implemented yet, but can serve as a template for a future implementation
 - Fix type `Uint8Array` (should not be `Uint8Array[]`)
 - CI: Run Gjs CLI examples to test working bindings
 - The generated types now contain a note that they are automatically generated with `ts-for-gir`
@@ -92,10 +93,10 @@ See PR [#22](https://github.com/sammydre/ts-for-gjs/pull/22) and [#23](https://g
 - I have moved the cli specific to `./src/commands/*` and `./src/config`
 - All types now in `./src/types`, each type / interface in his own file
 - Added `bin/bin.js`, required to use ts-for-gir as a cl tool by npm
-- Added **ESLint** with the **Prettier** plugin, I tried to keep the code style (for example, there is a rule to not use simicolons).
+- Added **ESLint** with the **Prettier** plugin, I tried to keep the code style (for example, there is a rule to not use semicolon's).
 - ESLint and Prettier are also used to validate and auto format the generated template files.
 - I've changed the default output dir to `@types/` to make it easier to generate type definitions in other projects without having to specify the output path each time
-- The output path now contains subfolders for `Gjs` and / or `node-gtk` (the directory name `node-gtk` is required to get typescript automatically working with `import * as gi from 'node-gtk'`)
+- The output path now contains subfolder's for `Gjs` and / or `node-gtk` (the directory name `node-gtk` is required to get typescript automatically working with `import * as gi from 'node-gtk'`)
 - There is now a new option called `--build-type` which can be `"lib"` or `"types"`, `"lib"` is the default for generating types for `Gjs` and the way it was before. I added "types" for node-gtk and generates the types e.g. as you would publish them on DefinitelyTyped.
 - Source maps are now also generated, which simplify debugging, Zhe IDE can now points directly to the typescript files e.g. at a breakpoint
 - Updated dependencies

@@ -1,11 +1,17 @@
 <% if(moduleType === 'esm'){ %>
     import { require as giRequire } from 'node-gtk';
-    const <%= importName %> = giRequire('<%= name %>', '<%= version %>');
-    export { <%= importName %> };
-    export default <%= importName %>;
+    const <%= name %> = giRequire('<%= name %>', '<%= version %>');
+    export { <%= name %> };
+    export default <%= name %>;
 <% } else { %>  
     const { require: giRequire } = require('node-gtk');
-    const <%= importName %> = giRequire('<%= name %>', '<%= version %>');
-    module.exports = <%= importName %>;
-    exports.default = <%= importName %>;
+    const <%= name %> = giRequire('<%= name %>', '<%= version %>');
+    <% if(useNamespace){ %>
+        module.exports = { <%= name %> };
+        exports.default = <%= name %>;
+    <% } else { %>  
+        module.exports = <%= name %>;
+    <% } %>
 <% } %>
+
+

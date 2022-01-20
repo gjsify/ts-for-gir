@@ -1,12 +1,12 @@
 # In development
-- The generated types now contain a note that they were automatically generated with ts-for-gir
+- CI: Run Gjs CLI examples to test working bindings
+- The generated types now contain a note that they are automatically generated with `ts-for-gir`
 - Split option `exportDefault` to `useNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
-- `useNamespace` is the default, now
 - Fix VSCode debugging configuration to work with ESM
 - Debugging information added to README.md
 - Moved many signature generations methods to TemplateProcessor
 - The utility functions are no longer static members of a class
-- Fixed a bug in the forEachInterface method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
+- Fixed a bug in the `forEachInterface` method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md
 
 # 17 Jan 2022

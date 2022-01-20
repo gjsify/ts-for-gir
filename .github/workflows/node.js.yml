@@ -38,8 +38,8 @@ jobs:
     - run: npm run validate:types:node
     - run: npm run build
     - run: npm run build:examples:gjs
+    - run: npm run start:cli-examples:gjs
     # TODO fix build node-gtk on Github actions
     # - name: Install dependencies for node-gtk
     #   run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
-    # - run: npm run install:examples:node
     # - run: npm run build:examples:node

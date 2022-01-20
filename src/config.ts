@@ -32,7 +32,7 @@ export class Config {
         ignore: [],
         verbose: true,
         ignoreConflicts: false,
-        useNamespace: true,
+        useNamespace: false,
         buildType: 'lib',
         moduleType: 'commonjs',
         noComments: false,

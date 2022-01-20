@@ -91,7 +91,7 @@ Options:
       --configName       Name of the config if you want to use a different name
                                                                         [string]
   -d, --useNamespace     Export all symbols for each module as a namespace
-                                                        [string] [default: true]
+                                                       [string] [default: false]
   -n, --noComments       Do not generate documentation comments
                                                        [string] [default: false]
 

@@ -97,7 +97,7 @@ export class Generator {
             let dtOut: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (this.config.outdir) {
-                const packageName: string = girModule.packageName || 'unknown'
+                const packageName: string = girModule.packageName
                 const outputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
                 const dtFileName = `${packageName}.d.ts`
                 dtOutputPath = Path.join(outputDir, dtFileName)

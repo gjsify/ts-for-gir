@@ -9,6 +9,7 @@ import ejs from 'ejs'
 import { Environment } from './types/environment.js'
 import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
+import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
 import {
     GenerateConfig,
     GirClassElement,
@@ -42,13 +43,17 @@ export class TemplateProcessor {
     protected environmentTemplateDir: string
     protected log: Logger
     protected transformation: Transformation
-    protected packageName: string
     constructor(
         protected readonly data: ejs.Data | undefined,
-        packageName: string,
+        protected readonly packageName: string,
         protected readonly config: GenerateConfig,
     ) {
-        this.packageName = packageName
+        this.data = {
+            ...this.data,
+            APP_NAME,
+            APP_USAGE,
+            APP_SOURCE,
+        }
         this.transformation = new Transformation(this.packageName, config)
         this.environmentTemplateDir = Transformation.getEnvironmentDir(config.environment, TEMPLATE_DIR)
         this.log = new Logger(config.environment, config.verbose, this.packageName)
@@ -79,7 +84,7 @@ export class TemplateProcessor {
     public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const def: string[] = []
         if (this.config.buildType === 'lib') {
-            const sas = this.config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
+            const sas = this.config.exportNamespace && packageName !== 'Gjs' ? '' : '* as '
             def.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else if (this.config.buildType === 'types') {
             if (asExternType) {
@@ -94,7 +99,7 @@ export class TemplateProcessor {
     }
 
     public generateExport(type: string, name: string, definition: string) {
-        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
         if (!definition.startsWith(':')) {
             definition = ' ' + definition
         }
@@ -305,7 +310,7 @@ export class TemplateProcessor {
         let exp = ''
         // girFunc._desc.type === 'function' is a global methods which can be exported
         if (girFunc._desc.type === 'function') {
-            exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+            exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
         }
 
         let prefix = girFunc._desc.prefix
@@ -400,7 +405,7 @@ export class TemplateProcessor {
 
     public generateConstant(girConst: GirConstantElement) {
         const desc: string[] = []
-        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         if (girConst._desc?.desc) {
             for (const constDesc of girConst._desc.desc) {
@@ -417,7 +422,7 @@ export class TemplateProcessor {
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
-        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         desc.push(`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)
         return desc
@@ -432,7 +437,7 @@ export class TemplateProcessor {
         }
 
         const def: string[] = []
-        const exp = this.config.exportDefault || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         if (girClass._desc.isDerivedFromGObject) {
             let ext = ' '

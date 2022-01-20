@@ -2048,7 +2048,12 @@ export class GirModule {
     }
 
     public async export(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
+        const template = 'module.d.ts'
         const out: string[] = []
+
+        if (outputPath) {
+            out.push(await this.templateProcessor.load(template))
+        }
 
         out.push(...this.templateProcessor.generateTSDocComment(`${this.packageName}`))
 
@@ -2080,7 +2085,10 @@ export class GirModule {
 
         // START Namespace
         {
-            if (this.config.buildType === 'types' || this.config.exportDefault) {
+            if (this.config.buildType === 'types') {
+                out.push('')
+                out.push(`declare namespace ${this.namespace} {`)
+            } else if (this.config.exportNamespace) {
                 out.push('')
                 out.push(`export namespace ${this.namespace} {`)
             }
@@ -2126,11 +2134,11 @@ export class GirModule {
             if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
         // END Namespace
-        if (this.config.buildType === 'types' || this.config.exportDefault) {
+        if (this.config.exportNamespace) {
             out.push(`}`)
         }
 
-        if (this.config.buildType === 'types' || this.config.exportDefault) {
+        if (this.config.buildType !== 'types' && this.config.exportNamespace) {
             out.push(`export default ${this.namespace};`)
         }
 

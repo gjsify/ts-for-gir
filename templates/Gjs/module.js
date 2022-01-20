@@ -1,11 +1,15 @@
-<% if(exportDefault){ %>
-    import <%= name %> from 'gi://<%= name %>?version=<%= version %>';
-    export { <%= name %> };
-    export default <%= name %>;
-  <% } else{ %>  
-    imports.gi.versions.<%= name %> = '<%= version %>'
-    const <%= name %> = imports.gi.<%= name %>;
-    module.exports = <%= name %>;
-    exports.default = <%= name %>;
+<% if(moduleType === 'esm'){ %>
+import <%= importName %> from 'gi://<%= name %>?version=<%= version %>';
+export { <%= importName %> };
+export default <%= importName %>;
+<% } else { %>  
+imports.gi.versions.<%= name %> = '<%= version %>'
+const <%= importName %> = imports.gi.<%= name %>;
+  <% if(exportNamespace){ %>
+module.exports = { <%= importName %> };
+exports.default = <%= importName %>;
+  <% } else { %>  
+module.exports = <%= importName %>;
+  <% } %>
 <% } %>
 

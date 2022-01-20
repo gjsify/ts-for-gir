@@ -89,7 +89,7 @@ Options:
                                                        [string] [default: false]
       --configName       name of the config if you want to use a different name
                                                                         [string]
-  -d, --exportDefault    Export all symbols for each module as a single entity u
+  -d, --exportNamespace    Export all symbols for each module as a single entity u
                          sing ES6 export default       [string] [default: false]
   -n, --noComments       Do not generate documentation comments
                                                        [string] [default: false]
@@ -152,11 +152,11 @@ export default {
   girDirectories: '/usr/share/gir-1.0',
   modules: ['*'],
   ignore: [],
-  exportDefault: true,
+  exportNamespace: true,
 }
 ```
 
-### About the exportDefault option
+### About the exportNamespace option
 
 gjs now supports ES modules, which can be activated with its `gjs -m` flag. Using this in conjunction with `"module": "es6"` in tsconfig.json is generally more
 convenient than using the `imports` global object, because you no longer have to provide an implementation of `require`. However, it creates two new
@@ -174,7 +174,7 @@ you now have to write:
 
 Destructuring individual items in the import statement is not supported for this type of import.
 
-See `examples/Gjs/browser` for an example for `exportDefault` and Gjs ESM. 
+See `examples/Gjs/browser` for an example for `exportNamespace` and Gjs ESM. 
 
 ## Examples
 

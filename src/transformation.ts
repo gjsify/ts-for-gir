@@ -18,9 +18,9 @@ import { Logger } from './logger.js'
 
 export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
     return {
-        guint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
+        guint8: 'Uint8Array',
         // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
-        gint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
+        gint8: 'Uint8Array',
         gunichar: 'string',
     }
 }

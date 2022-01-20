@@ -477,7 +477,7 @@ export class GirModule {
         const collection = (girVar as GirCallableReturn | GirFieldElement).array
             ? (girVar as GirCallableReturn | GirFieldElement).array
             : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name || '')
-            ? (girVar.type as GirArrayType[])
+            ? girVar.type
             : undefined
 
         if (collection && collection.length > 0) {
@@ -501,7 +501,6 @@ export class GirModule {
             }
         }
 
-        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
         const cType = type?.$ ? type.$['c:type'] : arrCType
         fullTypeName = type?.$?.name || null
         const callbacks = (girVar as GirFieldElement).callback
@@ -521,6 +520,7 @@ export class GirModule {
             }
 
             if (fullTypeName) {
+                const suffix: TypeSuffix = (arr + nul) as TypeSuffix
                 if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
                 resValue = fullTypeName
                 isFunction = true
@@ -536,9 +536,10 @@ export class GirModule {
             }
         }
 
-        if (!resValue && type?.$ && arr && type.$.name && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
+            arr = ''
         }
 
         if (!resValue && type?.$ && type.$.name && POD_TYPE_MAP[type.$.name]) {
@@ -560,6 +561,8 @@ export class GirModule {
             const logName = fullTypeName || girVar.$.name || cType || ''
             this.log.warn(`Could not find type for "${logName}"`)
         }
+
+        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
         return {
             result: resValue + suffix,

@@ -5,11 +5,11 @@
   "module": "dist/main.js",
   "scripts": {
     "start": "npm run build && npm run start:gjs",
-    "start:gjs": "gjs -m dist/main.js",
+    "start:gjs": "gjs dist/main.js",
     "watch": "npm run build:wp -- --watch",
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",
-    "build:types": "../../../lib/start.js generate GLib-2.0 --environments gjs --moduleType esm",
+    "build:types": "../../../lib/start.js generate GLib-2.0 --environments gjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",

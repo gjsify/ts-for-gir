@@ -43,26 +43,25 @@ to test your changes, this will run `ts-for-gir` with `ts-node`, so you don't ne
 After you have linked this project you can use the `ts-for-gir` command in you project:
 
 ```bash
-$ ts-for-gir --help  
+$ ts-for-gir --help
+
 Typescript .d.ts generator from GIR for gjs or node-gtk
 
-VERSION
-  ts-for-gir/1.0.0 linux-x64 node-v12.14.1
+Commands:
+  ts-for-gir generate [modules..]  Generates .d.ts files from GIR for gjs or nod
+                                   e-gtk
+  ts-for-gir list [modules..]      Lists all available GIR modules
 
-USAGE
-  $ ts-for-gir [COMMAND]
-
-COMMANDS
-  generate  Generates .d.ts files from GIR for gjs or node-gtk
-  help      display help for ts-for-gir
-  list      Lists all available GIR modules
+Options:
+  --version  Show version number                                       [boolean]
+  --help     Show help                                                 [boolean]
 ```
 
 ### Generate .d.ts files
 
 ```bash
 $ ts-for-gir generate --help
-ts-for-gir generate --help
+
 ts-for-gir generate [modules..]
 
 Generates .d.ts files from GIR for gjs or node-gtk
@@ -74,23 +73,25 @@ Options:
                          odules                         [array] [default: ["*"]]
   -g, --girDirectories   GIR directories
                                        [array] [default: ["/usr/share/gir-1.0"]]
-  -o, --outdir           directory to output to   [string] [default: "./@types"]
-  -e, --environments     javascript environment
+  -o, --outdir           Directory to output to   [string] [default: "./@types"]
+  -e, --environments     Javascript environment
                       [array] [choices: "gjs", "node"] [default: ["gjs","node"]]
-  -i, --ignore           modules that should be ignored    [array] [default: []]
-  -b, --buildType        definitions generation type
+  -i, --ignore           Modules that should be ignored    [array] [default: []]
+  -b, --buildType        Definitions generation type
                              [string] [choices: "lib", "types"] [default: "lib"]
-      --pretty           prettifies the generated .d.ts files
+  -t, --moduleType       Specify what module code is generated.
+                     [string] [choices: "esm", "commonjs"] [default: "commonjs"]
+      --pretty           Prettifies the generated .d.ts files
                                                        [string] [default: false]
   -v, --verbose          Switch on/off the verbose mode [string] [default: true]
       --ignoreConflicts  Do not ask for package versions if multiple versions ar
                          e found                       [string] [default: false]
-  -p, --print            print the output to console and create no files
+  -p, --print            Print the output to console and create no files
                                                        [string] [default: false]
-      --configName       name of the config if you want to use a different name
+      --configName       Name of the config if you want to use a different name
                                                                         [string]
-  -d, --exportNamespace    Export all symbols for each module as a single entity u
-                         sing ES6 export default       [string] [default: false]
+  -d, --useNamespace     Export all symbols for each module as a namespace
+                                                        [string] [default: true]
   -n, --noComments       Do not generate documentation comments
                                                        [string] [default: false]
 
@@ -113,7 +114,8 @@ Examples:
 ### List available GIR modules
 
 ```bash
-$ ts-for-gir list --help  
+$ ts-for-gir list --help
+ 
 ts-for-gir list [modules..]
 
 Lists all available GIR modules
@@ -124,9 +126,9 @@ Options:
       --modules         GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple mo
                         dules                           [array] [default: ["*"]]
   -g, --girDirectories  GIR directories[array] [default: ["/usr/share/gir-1.0"]]
-  -i, --ignore          modules that should be ignored     [array] [default: []]
+  -i, --ignore          Modules that should be ignored     [array] [default: []]
   -v, --verbose         Switch on/off the verbose mode  [string] [default: true]
-      --configName      name of the config if you want to use a different name
+      --configName      Name of the config if you want to use a different name
                                                                         [string]
 
 Examples:
@@ -152,16 +154,20 @@ export default {
   girDirectories: '/usr/share/gir-1.0',
   modules: ['*'],
   ignore: [],
-  exportNamespace: true,
+  useNamespace: true,
+  buildType: 'lib',
+  moduleType: 'esm'
 }
 ```
 
-### About the exportNamespace option
+### About the `--moduleType esm` option
 
 gjs now supports ES modules, which can be activated with its `gjs -m` flag. Using this in conjunction with `"module": "es6"` in tsconfig.json is generally more
 convenient than using the `imports` global object, because you no longer have to provide an implementation of `require`. However, it creates two new
 problems for Typescript/ts-for-gjs. The first is that `gi` imports use a URI format, which Typescript doesn't support yet. To work around this problem
 you can import from a relative filename as usual, and the Javascript stubs generated by ts-for-gjs now forward the imports from the `gi` URI.
+
+Or you can use a bundler like Webpack to handle the imports, the [example/gjs/browser](example/gjs/browser) uses esm and does exactly this.
 
 The second problem is that in ES module mode, `gi` imports behave as if they were exported by `export default`, which is not backwards compatible with
 ts-for-gjs. Where you would previously write:
@@ -174,7 +180,7 @@ you now have to write:
 
 Destructuring individual items in the import statement is not supported for this type of import.
 
-See `examples/Gjs/browser` for an example for `exportNamespace` and Gjs ESM. 
+See `examples/Gjs/browser` for an example for Gjs with ESM. 
 
 ## Examples
 

@@ -2088,7 +2088,7 @@ export class GirModule {
             if (this.config.buildType === 'types') {
                 out.push('')
                 out.push(`declare namespace ${this.namespace} {`)
-            } else if (this.config.exportNamespace) {
+            } else if (this.config.useNamespace) {
                 out.push('')
                 out.push(`export namespace ${this.namespace} {`)
             }
@@ -2134,11 +2134,11 @@ export class GirModule {
             if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
         // END Namespace
-        if (this.config.exportNamespace) {
+        if (this.config.useNamespace) {
             out.push(`}`)
         }
 
-        if (this.config.buildType !== 'types' && this.config.exportNamespace) {
+        if (this.config.buildType !== 'types' && this.config.useNamespace) {
             out.push(`export default ${this.namespace};`)
         }
 

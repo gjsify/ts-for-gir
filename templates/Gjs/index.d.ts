@@ -7,7 +7,7 @@
 
 import type * as Gjs from "./Gjs";
 <%_ for (const girModule of girModules) { _%>
-  <% if(exportNamespace){ %>
+  <% if(useNamespace){ %>
       import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
     <% } else{ %>  
       import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";

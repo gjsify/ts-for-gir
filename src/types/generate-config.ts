@@ -19,7 +19,7 @@ export interface GenerateConfig {
     /** prettifies the generated .d.ts files */
     pretty: boolean
     /** Export all symbols for each module as a namespace */
-    exportNamespace: boolean
+    useNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
 }

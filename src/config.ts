@@ -27,15 +27,12 @@ export class Config {
         pretty: false,
         print: false,
         outdir: './@types',
-        girDirectories:
-            OS.platform() === 'darwin'
-                ? ['/usr/local/share/gir-1.0']
-                : ['/usr/share/gir-1.0', '/usr/share/gnome-shell', '/usr/lib64/mutter-9'],
+        girDirectories: OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
         verbose: true,
         ignoreConflicts: false,
-        exportNamespace: false,
+        useNamespace: true,
         buildType: 'lib',
         moduleType: 'commonjs',
         noComments: false,
@@ -132,11 +129,11 @@ export class Config {
             description: 'Name of the config if you want to use a different name',
             normalize: true,
         } as Options,
-        exportNamespace: {
+        useNamespace: {
             type: 'boolean',
             alias: 'd',
             description: 'Export all symbols for each module as a namespace',
-            default: Config.defaults.exportNamespace,
+            default: Config.defaults.useNamespace,
             normalize: true,
         } as Options,
         noComments: {
@@ -164,7 +161,7 @@ export class Config {
         ignoreConflicts: this.options.ignoreConflicts,
         print: this.options.print,
         configName: this.options.configName,
-        exportNamespace: this.options.exportNamespace,
+        useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
     }
 
@@ -241,7 +238,7 @@ export class Config {
             verbose: config.verbose,
             buildType: config.buildType,
             moduleType: config.moduleType,
-            exportNamespace: config.exportNamespace,
+            useNamespace: config.useNamespace,
             noComments: config.noComments,
         }
         return generateConfig
@@ -249,16 +246,16 @@ export class Config {
 
     public static validate(options: UserConfig): UserConfig {
         if (options.buildType === 'types') {
-            if (options.exportNamespace !== true) {
-                Logger.warn('exportNamespace must be "true" if buildType is "types"')
-                options.exportNamespace = true
+            if (options.useNamespace !== true) {
+                Logger.warn('useNamespace must be "true" if buildType is "types"')
+                options.useNamespace = true
             }
         }
 
         if (options.moduleType === 'esm') {
-            if (options.exportNamespace !== true) {
-                Logger.warn('exportNamespace must be "true" on moduleType "esm"')
-                options.exportNamespace = true
+            if (options.useNamespace !== true) {
+                Logger.warn('useNamespace must be "true" on moduleType "esm"')
+                options.useNamespace = true
             }
         }
 
@@ -286,7 +283,7 @@ export class Config {
             girDirectories: options.girDirectories,
             ignore: options.ignore,
             modules: options.modules,
-            exportNamespace: options.exportNamespace,
+            useNamespace: options.useNamespace,
             noComments: options.noComments,
         }
 
@@ -344,12 +341,12 @@ export class Config {
             ) {
                 config.modules = configFile.config.modules
             }
-            // exportNamespace
+            // useNamespace
             if (
-                config.exportNamespace === Config.options.exportNamespace.default &&
-                typeof configFile.config.exportNamespace === 'boolean'
+                config.useNamespace === Config.options.useNamespace.default &&
+                typeof configFile.config.useNamespace === 'boolean'
             ) {
-                config.exportNamespace = configFile.config.exportNamespace
+                config.useNamespace = configFile.config.useNamespace
             }
             // noComments
             if (

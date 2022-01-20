@@ -2,6 +2,7 @@
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
+import { fileURLToPath } from 'url'
 
 import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
 
@@ -118,3 +119,7 @@ export function isCommentLine(line: string) {
     const lineTrim = line.trim()
     return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
 }
+
+// Get __dirname on ESM
+export const __filename = fileURLToPath(import.meta.url)
+export const __dirname = Path.dirname(__filename)

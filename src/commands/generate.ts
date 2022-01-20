@@ -28,7 +28,7 @@ const builder = (yargs: Argv) => {
         .option('ignoreConflicts', Config.generateOptions.ignoreConflicts)
         .option('print', Config.generateOptions.print)
         .option('configName', Config.generateOptions.configName)
-        .option('exportNamespace', Config.generateOptions.exportNamespace)
+        .option('useNamespace', Config.generateOptions.useNamespace)
         .option('noComments', Config.generateOptions.noComments)
         .example(examples)
 }

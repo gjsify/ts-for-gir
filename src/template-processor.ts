@@ -28,14 +28,11 @@ import {
     GirUnionElement,
 } from './types/index.js'
 import { ESLint } from 'eslint'
-import { fileURLToPath } from 'url'
+import esLintConfig from './eslint-config.js'
 import { inspect } from 'util'
+import { __dirname } from './utils.js'
 
-const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
-
-// Get __dirname on ESM
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = Path.dirname(__filename)
+const lint = new ESLint(esLintConfig)
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -84,7 +81,7 @@ export class TemplateProcessor {
     public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const def: string[] = []
         if (this.config.buildType === 'lib') {
-            const sas = this.config.exportNamespace && packageName !== 'Gjs' ? '' : '* as '
+            const sas = this.config.useNamespace && packageName !== 'Gjs' ? '' : '* as '
             def.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else if (this.config.buildType === 'types') {
             if (asExternType) {
@@ -99,7 +96,7 @@ export class TemplateProcessor {
     }
 
     public generateExport(type: string, name: string, definition: string) {
-        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         if (!definition.startsWith(':')) {
             definition = ' ' + definition
         }
@@ -310,7 +307,7 @@ export class TemplateProcessor {
         let exp = ''
         // girFunc._desc.type === 'function' is a global methods which can be exported
         if (girFunc._desc.type === 'function') {
-            exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
+            exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         }
 
         let prefix = girFunc._desc.prefix
@@ -405,7 +402,7 @@ export class TemplateProcessor {
 
     public generateConstant(girConst: GirConstantElement) {
         const desc: string[] = []
-        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         if (girConst._desc?.desc) {
             for (const constDesc of girConst._desc.desc) {
@@ -422,7 +419,7 @@ export class TemplateProcessor {
             throw new Error('[generateConstant] Not all required properties set!')
         }
         const desc: string[] = []
-        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         desc.push(`${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)
         return desc
@@ -437,7 +434,7 @@ export class TemplateProcessor {
         }
 
         const def: string[] = []
-        const exp = this.config.exportNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         if (girClass._desc.isDerivedFromGObject) {
             let ext = ' '
@@ -577,7 +574,7 @@ export class TemplateProcessor {
 
         if (hasError) {
             if (!prettifiedCode) {
-                this.log.warn(`Can't prettify file: "${path}", please check errors or your .eslintrc.js config file`)
+                this.log.warn(`Can't prettify file: "${path}".`)
                 if (reports) {
                     // this.log.dir(report)
                     reports?.forEach((result) => {

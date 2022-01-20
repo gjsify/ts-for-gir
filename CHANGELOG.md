@@ -1,6 +1,7 @@
 # In development
 - The generated types now contain a note that they were automatically generated with ts-for-gir
-- Split option `exportDefault` to `exportNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
+- Split option `exportDefault` to `useNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
+- `useNamespace` is the default, now
 - Fix VSCode debugging configuration to work with ESM
 - Debugging information added to README.md
 - Moved many signature generations methods to TemplateProcessor

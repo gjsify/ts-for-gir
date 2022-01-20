@@ -1,10 +1,19 @@
 import TemplateProcessor from './template-processor.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { isEqual, find, stripParamNames, findFileInDirs, splitModuleName, isCommentLine, clone } from './utils.js'
+import {
+    isEqual,
+    find,
+    stripParamNames,
+    findFileInDirs,
+    splitModuleName,
+    isCommentLine,
+    clone,
+    generateIndent,
+} from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
-
+import { TypeDefinitionGenerator } from './type-definition-generator'
 import type {
     GirRepository,
     GirNamespace,
@@ -102,6 +111,7 @@ export class GirModule {
     extends?: string
     log: Logger
     templateProcessor: TemplateProcessor
+    generator: TypeDefinitionGenerator
 
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
@@ -135,6 +145,8 @@ export class GirModule {
             this.packageName,
             this.config,
         )
+
+        this.generator = new TypeDefinitionGenerator(this.packageName, this.config)
 
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
@@ -536,9 +548,9 @@ export class GirModule {
             }
         }
 
-        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY()[type.$.name]) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
+            resValue = POD_TYPE_MAP_ARRAY()[type.$.name]
             arr = ''
         }
 
@@ -714,7 +726,7 @@ export class GirModule {
             type: paramType,
         }
 
-        girParam._desc.desc = this.templateProcessor.generateParameter(girParam)
+        girParam._desc.desc = this.generator.generateParameter(girParam)
 
         return girParam._desc
     }
@@ -757,7 +769,7 @@ export class GirModule {
 
                         const optDirection = param.$.direction
                         if (optDirection === 'out' || optDirection == 'inout') {
-                            outParams.push(...this.templateProcessor.generateOutParameterReturn(param))
+                            outParams.push(...this.generator.generateOutParameterReturn(param))
                             if (optDirection == 'out') continue
                         }
 
@@ -834,7 +846,7 @@ export class GirModule {
             type: typeName,
         }
 
-        girVar._desc.desc = this.templateProcessor.generateVariable(girVar)
+        girVar._desc.desc = this.generator.generateVariable(girVar)
 
         return girVar._desc
     }
@@ -874,7 +886,7 @@ export class GirModule {
             origName,
         }
 
-        girProp._desc.desc = this.templateProcessor.generateProperty(girProp, indentCount)
+        girProp._desc.desc = this.generator.generateProperty(girProp, indentCount)
 
         return girProp._desc
     }
@@ -930,7 +942,7 @@ export class GirModule {
 
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
-        girFunc._desc.desc = this.templateProcessor.generateFunction(girFunc, methodPatches, indentCount)
+        girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, indentCount)
 
         return girFunc._desc
     }
@@ -951,7 +963,7 @@ export class GirModule {
             return undefined
         }
 
-        girCallback._descInterface.desc = this.templateProcessor.generateCallbackInterface(girCallback)
+        girCallback._descInterface.desc = this.generator.generateCallbackInterface(girCallback)
 
         return girCallback._descInterface
     }
@@ -996,7 +1008,7 @@ export class GirModule {
             outParams,
         }
 
-        girSignalFunc._desc.desc = this.templateProcessor.generateSignalMethods(girSignalFunc, girClass)
+        girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass)
 
         return girSignalFunc._desc
     }
@@ -1012,7 +1024,7 @@ export class GirModule {
             name: transName,
             origName: memberName,
         }
-        girEnumMember._desc.desc = this.templateProcessor.generateEnumerationMember(girEnumMember, indentCount)
+        girEnumMember._desc.desc = this.generator.generateEnumerationMember(girEnumMember, indentCount)
         return girEnumMember._desc
     }
 
@@ -1035,7 +1047,7 @@ export class GirModule {
             }
         }
 
-        girEnum._desc.desc = this.templateProcessor.generateEnumeration(girEnum)
+        girEnum._desc.desc = this.generator.generateEnumeration(girEnum)
         return girEnum._desc
     }
 
@@ -1050,7 +1062,7 @@ export class GirModule {
             type: typeName,
         }
 
-        girAlias._desc.desc = this.templateProcessor.generateAlias(girAlias)
+        girAlias._desc.desc = this.generator.generateAlias(girAlias)
         return girAlias._desc
     }
 
@@ -1824,11 +1836,9 @@ export class GirModule {
             let namespacePrefix = 'GObject.'
             if (this.namespace === 'GObject') namespacePrefix = ''
             for (const prop of propertyNames) {
-                def.push(
-                    ...this.templateProcessor.generateGObjectSignalMethods(prop, callbackObjectName, namespacePrefix),
-                )
+                def.push(...this.generator.generateGObjectSignalMethods(prop, callbackObjectName, namespacePrefix))
             }
-            def.push(...this.templateProcessor.generateGeneralSignalMethods(this.config.environment))
+            def.push(...this.generator.generateGeneralSignalMethods(this.config.environment))
         }
         return { def }
     }
@@ -1868,7 +1878,7 @@ export class GirModule {
         name: string,
         indentCount = 1,
     ) {
-        const indent = this.templateProcessor.generateIndent(indentCount)
+        const indent = generateIndent(indentCount)
         const def: string[] = []
 
         girClass._desc = this.setClassDesc(girClass)
@@ -1924,7 +1934,7 @@ export class GirModule {
         girConst._desc = this.setConstantDesc(girConst)
 
         return {
-            def: this.templateProcessor.generateConstant(girConst) || [],
+            def: this.generator.generateConstant(girConst) || [],
         }
     }
 
@@ -1945,7 +1955,7 @@ export class GirModule {
                 def: [],
             }
 
-        const { def: _def } = this.templateProcessor.generateConstructPropsInterface(girClass, this.namespace)
+        const { def: _def } = this.generator.generateConstructPropsInterface(girClass, this.namespace)
 
         // Properties for construction
         def.push(..._def)
@@ -1953,9 +1963,9 @@ export class GirModule {
         // START CLASS
         {
             if (girClass._desc.isAbstract) {
-                def.push(this.templateProcessor.generateExport('abstract class', girClass._desc.name, '{'))
+                def.push(this.generator.generateExport('abstract class', girClass._desc.name, '{'))
             } else {
-                def.push(this.templateProcessor.generateExport('class', girClass._desc.name, '{'))
+                def.push(this.generator.generateExport('class', girClass._desc.name, '{'))
             }
 
             // START BODY
@@ -2058,7 +2068,7 @@ export class GirModule {
             out.push(await this.templateProcessor.load(template))
         }
 
-        out.push(...this.templateProcessor.generateTSDocComment(`${this.packageName}`))
+        out.push(...this.generator.generateTSDocComment(`${this.packageName}`))
 
         out.push('')
 
@@ -2066,7 +2076,7 @@ export class GirModule {
 
         // Module dependencies as type references or imports
         if (this.config.environment === 'gjs') {
-            out.push(...this.templateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false))
+            out.push(...this.generator.generateModuleDependenciesImport('Gjs', 'Gjs', false))
         }
 
         for (const depPackageName of deps) {
@@ -2076,9 +2086,7 @@ export class GirModule {
                 const { namespace } = splitModuleName(depPackageName)
                 const depFile = findFileInDirs(this.config.girDirectories, girFilename)
                 if (depFile.exists) {
-                    out.push(
-                        ...this.templateProcessor.generateModuleDependenciesImport(namespace, depPackageName, false),
-                    )
+                    out.push(...this.generator.generateModuleDependenciesImport(namespace, depPackageName, false))
                 } else {
                     out.push(`// WARN: Dependency not found: '${depPackageName}'`)
                     this.log.warn(`Dependency gir file not found: '${girFilename}'`)

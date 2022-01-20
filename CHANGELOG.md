@@ -1,10 +1,11 @@
 # In development
+- Fix type `Uint8Array` (should not be `Uint8Array[]`)
 - CI: Run Gjs CLI examples to test working bindings
 - The generated types now contain a note that they are automatically generated with `ts-for-gir`
 - Split option `exportDefault` to `useNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
 - Fix VSCode debugging configuration to work with ESM
 - Debugging information added to README.md
-- Moved many signature generations methods to TemplateProcessor
+- Moved many signature generations methods to new TypeDefinitionGenerator
 - The utility functions are no longer static members of a class
 - Fixed a bug in the `forEachInterface` method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md

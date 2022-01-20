@@ -3,10 +3,9 @@ import Path from 'path'
 
 import { GirModule } from './gir-module.js'
 import TemplateProcessor from './template-processor.js'
-import { Transformation } from './transformation.js'
 import { Logger } from './logger.js'
-
-import { InheritanceTable, GenerateConfig, GirModulesGrouped } from './types'
+import { getEnvironmentDir } from './utils.js'
+import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from './types'
 
 export class Generator {
     log: Logger
@@ -98,7 +97,7 @@ export class Generator {
             let dtOutputPath: string | null = null
             if (this.config.outdir) {
                 const packageName: string = girModule.packageName
-                const outputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
+                const outputDir = getEnvironmentDir(this.config.environment, this.config.outdir)
                 const dtFileName = `${packageName}.d.ts`
                 dtOutputPath = Path.join(outputDir, dtFileName)
                 fs.mkdirSync(outputDir, { recursive: true })

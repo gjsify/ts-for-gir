@@ -12,11 +12,10 @@ import {
     GirEnumElement,
     // GirMemberElement,
 } from './types/index.js'
-import Path from 'path'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
 
-export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
+export const POD_TYPE_MAP_ARRAY = (): { guint8: string; gint8: string; gunichar: string } => {
     return {
         guint8: 'Uint8Array',
         // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
@@ -488,20 +487,5 @@ export class Transformation {
             else name = `TODO_${name}`
         }
         return name
-    }
-
-    static getEnvironmentDir(environment: Environment, baseDir: string): string {
-        if (!baseDir.endsWith(environment))
-            if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
-                return Path.join(baseDir, 'Gjs')
-            }
-        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-            return Path.join(baseDir, 'node-gtk')
-        }
-        return baseDir
-    }
-
-    getEnvironmentDir(baseDir: string): string {
-        return Transformation.getEnvironmentDir(this.config.environment, baseDir)
     }
 }

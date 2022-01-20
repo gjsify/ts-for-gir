@@ -3,6 +3,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
+import { Environment } from './types/index.js'
 
 import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
 
@@ -120,6 +121,21 @@ export function isCommentLine(line: string) {
     return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
 }
 
+export function generateIndent(indents = 1, spaceForIndent = 4): string {
+    return ' '.repeat(indents * spaceForIndent)
+}
+
 // Get __dirname on ESM
 export const __filename = fileURLToPath(import.meta.url)
 export const __dirname = Path.dirname(__filename)
+
+export function getEnvironmentDir(environment: Environment, baseDir: string): string {
+    if (!baseDir.endsWith(environment))
+        if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
+            return Path.join(baseDir, 'Gjs')
+        }
+    if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
+        return Path.join(baseDir, 'node-gtk')
+    }
+    return baseDir
+}

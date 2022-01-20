@@ -1,4 +1,4 @@
-import { GirPropertyElement } from '.'
+import { GirPropertyElement, GirFieldElement } from '.'
 
 export interface DescClass {
     name: string
@@ -32,4 +32,21 @@ export interface DescClass {
      * E.g GObject.ObjectClass is a abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
      */
     isAbstract: boolean
+
+    // BASE
+    fields: GirFieldElement[]
+    properties: GirPropertyElement[]
+
+    inherits: {
+        [key: string]: {
+            fields: GirFieldElement[]
+            properties: GirPropertyElement[]
+        }
+    }
+
+    implements: {
+        [key: string]: {
+            properties: GirPropertyElement[]
+        }
+    }
 }

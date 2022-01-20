@@ -455,6 +455,94 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
+    public generateClassFields(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateClassFields] Not all required properties set!')
+        }
+
+        const girFields = girClass._desc.fields
+
+        if (girFields.length > 0) {
+            const versionPrefix = girClass._module.packageName + '.'
+            def.push(`    /* Fields of ${versionPrefix}${girClass._fullSymName} */`)
+            for (const girField of girFields) {
+                if (girField._desc?.desc) {
+                    for (const curDesc of girField._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._desc.inherits)) {
+            const girFields = girClass._desc.inherits[fullSymName]?.fields
+            if (girFields.length > 0) {
+                def.push(`    /* Fields of ${fullSymName} */`)
+                for (const girField of girFields) {
+                    if (girField._desc?.desc) {
+                        for (const curDesc of girField._desc.desc) {
+                            def.push(`    ${curDesc}`)
+                        }
+                    }
+                }
+            }
+        }
+
+        return def
+    }
+
+    public generateClassProperties(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateClassProperties] Not all required properties set!')
+        }
+
+        const girProperties = girClass._desc.properties
+
+        if (girProperties.length > 0) {
+            const versionPrefix = girClass._module.packageName + '.'
+            def.push(`    /* Properties of ${versionPrefix}${girClass._fullSymName} */`)
+            for (const girProperty of girProperties) {
+                if (girProperty._desc?.desc) {
+                    for (const curDesc of girProperty._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._desc.inherits)) {
+            const girProperties = girClass._desc.inherits[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                def.push(`    /* Properties of ${fullSymName} */`)
+                for (const girProperty of girProperties) {
+                    if (girProperty._desc?.desc) {
+                        for (const curDesc of girProperty._desc.desc) {
+                            def.push(`    ${curDesc}`)
+                        }
+                    }
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._desc.implements)) {
+            const girProperties = girClass._desc.implements[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                def.push(`    /* Properties of ${fullSymName} */`)
+                for (const girProperty of girProperties) {
+                    if (girProperty._desc?.desc) {
+                        for (const curDesc of girProperty._desc.desc) {
+                            def.push(`    ${curDesc}`)
+                        }
+                    }
+                }
+            }
+        }
+
+        return def
+    }
+
     public async exportModuleJs(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
         if (this.config.outdir) {

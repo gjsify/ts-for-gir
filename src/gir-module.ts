@@ -1124,18 +1124,20 @@ export class GirModule {
         element: GirClassElement | GirInterfaceElement | GirUnionElement,
         name: string,
         filter?: (funcName: string) => boolean,
-    ): DescFunction[] {
-        const constructors = element.constructor
-        if (!Array.isArray(constructors)) {
+    ): GirConstructorElement[] {
+        const girConstructors = element.constructor
+        if (!Array.isArray(girConstructors)) {
             return []
         }
-        let ctors = constructors
-            .map((constructor) => {
-                return this.setConstructorFunctionDesc(name, constructor, 'static ', 1)
+        let ctors = girConstructors
+            .map((girConstructor) => {
+                girConstructor._desc = this.setConstructorFunctionDesc(name, girConstructor, 'static ', 1)
+                return girConstructor
             })
-            .filter((ctor) => ctor?.name) as DescFunction[]
+            .filter((girConstructor) => girConstructor?._desc?.name)
 
-        if (filter) ctors = ctors.filter((ctor) => ctor?.name && filter(ctor.name))
+        if (filter)
+            ctors = ctors.filter((girConstructor) => girConstructor?._desc?.name && filter(girConstructor?._desc?.name))
         return ctors
     }
 
@@ -1147,7 +1149,9 @@ export class GirModule {
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */
-    private getClassMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescFunction[] {
+    private getClassRecordMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+    ): GirMethodElement[] {
         if (!girClass.$.name) return []
         const fName = girClass.$.name + 'Class'
         let rec = this.ns.record?.find((r) => r.$.name == fName)
@@ -1158,10 +1162,13 @@ export class GirModule {
         if (!rec) return []
 
         // Record methods
-        const methods = rec.method || []
-        return methods
-            .map((method) => this.setFunctionDesc(method, 'static function', 'static ', undefined, undefined, 1))
-            .filter((method) => method !== undefined) as DescFunction[]
+        const girMethods = rec.method || []
+        return girMethods
+            .map((girMethod) => {
+                girMethod._desc = this.setFunctionDesc(girMethod, 'static function', 'static ', undefined, undefined, 1)
+                return girMethod
+            })
+            .filter((method) => method !== undefined)
     }
 
     /**
@@ -1358,15 +1365,12 @@ export class GirModule {
         return girClass._desc
     }
 
-    private setClassDesc(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        record = false,
-    ): DescClass | undefined {
+    private setClassDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
-        // FIXME:
         if (girClass._desc) {
-            this.log.warn('girClass._desc was already set')
+            // FIXME: We need to overwrite the already defined girClass._desc
+            // this.log.warn('girClass._desc was already set')
         }
 
         girClass._desc = this.setClassBaseDesc(girClass)
@@ -1630,8 +1634,8 @@ export class GirModule {
     private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
         const def: string[] = []
         for (const key of Array.from(explicits.values())) {
-            const fDef = fnMap.get(key) || []
-            def.push(...fDef)
+            const func = fnMap.get(key)
+            if (func?._desc?.desc) def.push(...func._desc.desc)
         }
         return {
             def,
@@ -1652,20 +1656,20 @@ export class GirModule {
 
         const def: string[] = []
         const { fnMap, explicits } = this.processOverloadableMethods(girClass, (girIface) => {
-            const vMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
-            const methods = vMethods
-                .map((virtualFunc) => {
-                    virtualFunc._desc = this.setFunctionDesc(
-                        virtualFunc,
+            const girVMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
+            const methods = girVMethods
+                .map((girVMethod) => {
+                    girVMethod._desc = this.setFunctionDesc(
+                        girVMethod,
                         'virtual-method',
                         'vfunc_',
                         undefined,
                         undefined,
                         1,
                     )
-                    return virtualFunc._desc
+                    return girVMethod
                 })
-                .filter((funcDesc) => funcDesc?.name) as DescFunction[]
+                .filter((girVMethod) => girVMethod?._desc?.name)
             return methods
         })
         def.push(...this.exportOverloadableMethods(fnMap, explicits).def)
@@ -1766,22 +1770,22 @@ export class GirModule {
     private getOtherStaticFunctions(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
         stat = true,
-    ): DescFunction[] {
-        const fns: DescFunction[] = []
+    ): GirFunctionElement[] {
+        const girFunctions: GirFunctionElement[] = []
         if (girClass.function) {
-            for (const func of girClass.function) {
-                func._desc = this.setFunctionDesc(
-                    func,
+            for (const girFunction of girClass.function) {
+                girFunction._desc = this.setFunctionDesc(
+                    girFunction,
                     'static function',
                     stat ? 'static ' : '',
                     undefined,
                     undefined,
                     1,
                 )
-                if (func._desc?.name && func._desc?.name !== 'new') fns.push(func._desc)
+                if (girFunction._desc?.name && girFunction._desc?.name !== 'new') girFunctions.push(girFunction)
             }
         }
-        return fns
+        return girFunctions
     }
 
     /**
@@ -1802,25 +1806,25 @@ export class GirModule {
      * @param func
      * @param force
      */
-    private mergeOverloadableFunctions(map: FunctionMap, func: DescFunction, force = true) {
+    private mergeOverloadableFunctions(map: FunctionMap, girFunc: GirConstructorElement, force = true) {
         let result = false
-        if (!func.name) return result
-        const defs = map.get(func.name)
-        if (!defs || !func.desc) {
-            if (force && func.desc) map.set(func.name, func.desc)
+        if (!girFunc._desc?.name) return result
+        const oldFunc = map.get(girFunc._desc.name)
+        if (!oldFunc?._desc?.desc || !girFunc._desc.desc) {
+            if (force && girFunc._desc.desc) map.set(girFunc._desc.name, girFunc)
             return result
         }
 
-        for (const newDef of func.desc) {
+        for (const newDef of girFunc._desc.desc) {
             let match = false
-            for (const oldDef of defs) {
+            for (const oldDef of oldFunc._desc?.desc) {
                 if (this.functionSignaturesMatch(newDef, oldDef)) {
                     match = true
                     break
                 }
             }
             if (!match) {
-                defs.push(newDef)
+                oldFunc._desc.desc.push(newDef)
                 result = true
             }
         }
@@ -1837,11 +1841,16 @@ export class GirModule {
      * @param funcs
      * @param force
      */
-    private addOverloadableFunctions(fnMap: FunctionMap, explicits: Set<string>, funcs: DescFunction[], force = false) {
+    private addOverloadableFunctions(
+        fnMap: FunctionMap,
+        explicits: Set<string>,
+        funcs: GirConstructorElement[],
+        force = false,
+    ) {
         for (const func of funcs) {
-            if (!func?.name) continue
+            if (!func?._desc?.name) continue
             if (this.mergeOverloadableFunctions(fnMap, func) || force) {
-                explicits.add(func.name)
+                explicits.add(func._desc.name)
             }
         }
     }
@@ -1854,7 +1863,7 @@ export class GirModule {
      */
     private processOverloadableMethods(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        getMethods: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => DescFunction[],
+        getMethods: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
         statics = false,
     ) {
         const fnMap: FunctionMap = new Map()
@@ -1898,7 +1907,7 @@ export class GirModule {
 
     private processStaticFunctions(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => DescFunction[],
+        getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
     ) {
         const { fnMap, explicits } = this.processOverloadableMethods(girClass, getter, true)
         const { def } = this.exportOverloadableMethods(fnMap, explicits)
@@ -1910,7 +1919,6 @@ export class GirModule {
         callbackObjectName: string,
     ) {
         const def: string[] = []
-        girClass._desc = this.setClassDesc(girClass)
         const propertyNames = this.getClassPropertyNames(girClass)
 
         if (girClass._desc?.isDerivedFromGObject) {
@@ -1944,7 +1952,7 @@ export class GirModule {
         )
         def.push(
             ...this.processStaticFunctions(girClass, (girClass) => {
-                return this.getClassMethods(girClass)
+                return this.getClassRecordMethods(girClass)
             }).def,
         )
 
@@ -2028,7 +2036,7 @@ export class GirModule {
         const def: string[] = []
         const localNames: LocalNames = {}
 
-        girClass._desc = this.setClassDesc(girClass, record)
+        girClass._desc = this.setClassDesc(girClass)
 
         if (!girClass._desc)
             return {

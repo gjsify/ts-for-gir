@@ -1,4 +1,5 @@
 import {
+    LocalNames,
     GirPropertyElement,
     GirFieldElement,
     GirClassElement,
@@ -16,6 +17,7 @@ export interface DescClass {
     namespace: string
     version: string
     isDerivedFromGObject?: boolean
+
     /**
      * Constructor properties
      */
@@ -39,6 +41,8 @@ export interface DescClass {
      * E.g GObject.ObjectClass is a abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
      */
     isAbstract: boolean
+
+    localNames: LocalNames
 
     // BASE
     fields: GirFieldElement[]

@@ -1375,6 +1375,7 @@ export class GirModule {
             namespace,
             version,
             isAbstract: this.isAbstractClass(girClass),
+            localNames: {},
             constructPropInterfaceName: `${className}_ConstructProps`,
             constructProps: {},
             fields: [],
@@ -1399,8 +1400,6 @@ export class GirModule {
     ): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
-        const localNames: LocalNames = {}
-
         if (!girClass._desc) {
             girClass._desc = this.setClassBaseDesc(girClass)
             if (!girClass._desc) return undefined
@@ -1414,11 +1413,11 @@ export class GirModule {
         // BASE
 
         // TODO: Can't export fields for GObjects because names would clash
-        // if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, localNames))
-        girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, localNames))
+        // if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
+        girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
 
-        girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, localNames))
-        girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, localNames))
+        girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
+        girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1440,9 +1439,11 @@ export class GirModule {
                 methods: [],
             }
 
-            girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, localNames))
-            girClass._desc.extends[key].properties.push(...this.getClassPropertiesDesc(extendsCls, localNames))
-            girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, localNames))
+            girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, girClass._desc.localNames))
+            girClass._desc.extends[key].properties.push(
+                ...this.getClassPropertiesDesc(extendsCls, girClass._desc.localNames),
+            )
+            girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
         })
 
         // Copy properties from implemented interface
@@ -1463,8 +1464,10 @@ export class GirModule {
                 methods: [],
             }
 
-            girClass._desc.implements[key].properties.push(...this.getClassPropertiesDesc(iface, localNames))
-            girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, localNames))
+            girClass._desc.implements[key].properties.push(
+                ...this.getClassPropertiesDesc(iface, girClass._desc.localNames),
+            )
+            girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, girClass._desc.localNames))
         })
 
         return girClass._desc
@@ -2076,11 +2079,6 @@ export class GirModule {
 
                 // Methods
                 def.push(...this.generator.generateClassMethods(girClass))
-
-                // Copy methods from inheritance tree
-                // this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
-                // Copy methods from implemented interfaces
-                // this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
 
                 // Copy virtual methods from inheritance tree
                 this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))

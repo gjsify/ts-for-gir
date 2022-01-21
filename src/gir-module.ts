@@ -1633,17 +1633,6 @@ export class GirModule {
         return { ...localName, added: true, isOverloadable }
     }
 
-    private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
-        const def: string[] = []
-        for (const key of Array.from(explicits.values())) {
-            const func = fnMap.get(key)
-            if (func?._desc?.desc) def.push(...func._desc.desc)
-        }
-        return {
-            def,
-        }
-    }
-
     /**
      * Instance methods, vfunc_ prefix
      * @param girClass
@@ -1657,7 +1646,7 @@ export class GirModule {
         }
 
         const def: string[] = []
-        const { fnMap, explicits } = this.processOverloadableMethods(girClass, (girIface) => {
+        const girVMethods = this.getOverloadableMethodsDesc(girClass, (girIface) => {
             const girVMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
             const methods = girVMethods
                 .map((girVMethod) => {
@@ -1674,15 +1663,13 @@ export class GirModule {
                 .filter((girVMethod) => girVMethod?._desc?.name)
             return methods
         })
-        def.push(...this.exportOverloadableMethods(fnMap, explicits).def)
+        def.push(...this.generator.generateMethods(girVMethods))
         if (def.length && girClass._fullSymName) {
             const versionPrefix = girClass._module?.packageName ? girClass._module?.packageName + '.' : ''
             def.unshift(`    /* Virtual methods of ${versionPrefix}${girClass._fullSymName} */`)
         }
         return {
             def,
-            fnMap,
-            explicits,
         }
     }
 
@@ -1857,27 +1844,36 @@ export class GirModule {
         }
     }
 
+    private functionMapToArray(fnMap: FunctionMap, explicits: Set<string>) {
+        const girFunctions: Array<GirFunctionElement | GirConstructorElement> = []
+        for (const key of Array.from(explicits.values())) {
+            const func = fnMap.get(key)
+            if (func) girFunctions.push(func)
+        }
+        return girFunctions
+    }
+
     /**
      * Used for <method> and <virtual-method>
      * @param girClass
      * @param getMethods
      * @param statics
      */
-    private processOverloadableMethods(
+    private getOverloadableMethodsDesc(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        getMethods: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
+        getMethodsDesc: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
         statics = false,
     ) {
         const fnMap: FunctionMap = new Map()
         const explicits = new Set<string>()
-        const funcs = getMethods(girClass)
+        const funcs = getMethodsDesc(girClass)
         this.addOverloadableFunctions(fnMap, explicits, funcs, true)
         // Have to implement methods from girClass' interfaces
         this.forEachInterface(
             girClass,
             (iface) => {
                 if (!this.interfaceIsDuplicate(girClass, iface)) {
-                    const funcs = getMethods(iface)
+                    const funcs = getMethodsDesc(iface)
                     this.addOverloadableFunctions(fnMap, explicits, funcs, true)
                 }
             },
@@ -1891,29 +1887,29 @@ export class GirModule {
                 return
             }
             if (statics) {
-                const funcs = getMethods(e)
+                const funcs = getMethodsDesc(e)
                 this.addOverloadableFunctions(fnMap, explicits, funcs, false)
             } else {
                 let self = true
                 this.forEachInterfaceAndSelf(e, (iface) => {
                     if (self || this.interfaceIsDuplicate(girClass, iface)) {
-                        const funcs = getMethods(iface)
+                        const funcs = getMethodsDesc(iface)
                         this.addOverloadableFunctions(fnMap, explicits, funcs, false)
                     }
                     self = false
                 })
             }
         })
-        return { fnMap, explicits }
+        return this.functionMapToArray(fnMap, explicits)
     }
 
     private processStaticFunctions(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
         getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
     ) {
-        const { fnMap, explicits } = this.processOverloadableMethods(girClass, getter, true)
-        const { def } = this.exportOverloadableMethods(fnMap, explicits)
-        return { def, fnMap, explicits }
+        const girFunctions = this.getOverloadableMethodsDesc(girClass, getter, true)
+        const def = this.generator.generateMethods(girFunctions)
+        return { def }
     }
 
     private generateSignalMethods(

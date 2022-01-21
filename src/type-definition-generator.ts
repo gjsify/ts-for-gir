@@ -1,6 +1,7 @@
 import type {
     GenerateConfig,
     InheritanceTable,
+    FunctionMap,
     GirClassElement,
     GirCallableParamElement,
     GirFunctionElement,
@@ -191,6 +192,14 @@ export default class TypeDefinitionGenerator implements Generator {
                 `${indent}once(sigName: string, callback: any): NodeJS.EventEmitter`,
                 `${indent}off(sigName: string, callback: any): NodeJS.EventEmitter`,
             )
+        }
+        return def
+    }
+
+    public generateMethods(girFunctions: Array<GirFunctionElement | GirConstructorElement>) {
+        const def: string[] = []
+        for (const girFunction of girFunctions) {
+            if (girFunction._desc?.desc) def.push(...girFunction._desc.desc)
         }
         return def
     }

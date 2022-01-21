@@ -1365,7 +1365,10 @@ export class GirModule {
         return girClass._desc
     }
 
-    private setClassDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescClass | undefined {
+    private setClassDesc(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        record = false,
+    ): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
         if (girClass._desc) {
@@ -1388,8 +1391,7 @@ export class GirModule {
         }
 
         // TODO: Can't export fields for GObjects because names would clash
-        // if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
-        girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
+        if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
@@ -2041,7 +2043,7 @@ export class GirModule {
         const def: string[] = []
         const localNames: LocalNames = {}
 
-        girClass._desc = this.setClassDesc(girClass)
+        girClass._desc = this.setClassDesc(girClass, record)
 
         if (!girClass._desc)
             return {
@@ -2093,7 +2095,6 @@ export class GirModule {
         return {
             def,
             localNames,
-            record,
         }
     }
 

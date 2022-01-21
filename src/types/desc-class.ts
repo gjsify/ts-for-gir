@@ -1,4 +1,11 @@
-import { GirPropertyElement, GirFieldElement } from '.'
+import {
+    GirPropertyElement,
+    GirFieldElement,
+    GirClassElement,
+    GirUnionElement,
+    GirInterfaceElement,
+    GirMethodElement,
+} from '.'
 
 export interface DescClass {
     name: string
@@ -13,7 +20,7 @@ export interface DescClass {
      * Constructor properties
      */
     constructProps: {
-        [ns: string]: {
+        [packageName: string]: {
             /**
              * Constructor properties of this class itself
              */
@@ -36,17 +43,21 @@ export interface DescClass {
     // BASE
     fields: GirFieldElement[]
     properties: GirPropertyElement[]
+    methods: GirMethodElement[]
 
-    inherits: {
+    extends: {
         [key: string]: {
+            class: GirClassElement | GirUnionElement | GirInterfaceElement
             fields: GirFieldElement[]
             properties: GirPropertyElement[]
+            methods: GirMethodElement[]
         }
     }
 
     implements: {
         [key: string]: {
             properties: GirPropertyElement[]
+            methods: GirMethodElement[]
         }
     }
 }

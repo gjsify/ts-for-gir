@@ -139,3 +139,11 @@ export function getEnvironmentDir(environment: Environment, baseDir: string): st
     }
     return baseDir
 }
+
+export function girBool(boolStr: string | undefined, defaultVal = false): boolean {
+    if (boolStr) {
+        if (parseInt(boolStr) === 0) return false
+        return true
+    }
+    return defaultVal
+}

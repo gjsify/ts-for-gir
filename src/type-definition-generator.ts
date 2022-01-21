@@ -16,6 +16,7 @@ import type {
     GirInterfaceElement,
     GirUnionElement,
     GirModulesGrouped,
+    GirMethodElement,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -398,7 +399,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
     public generateConstructPropsInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        namespace: string,
+        packageName: string,
     ) {
         if (!girClass._desc) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
@@ -418,8 +419,8 @@ export default class TypeDefinitionGenerator implements Generator {
 
             // START BODY
             {
-                const baseConstructProps = girClass._desc.constructProps[namespace]?.base
-                const implConstructProps = girClass._desc.constructProps[namespace]?.impl
+                const baseConstructProps = girClass._desc.constructProps[packageName]?.base
+                const implConstructProps = girClass._desc.constructProps[packageName]?.impl
 
                 if (baseConstructProps?.length) {
                     for (const girProp of baseConstructProps) {
@@ -455,17 +456,11 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public generateClassFields(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    private _generateClassFields(versionFullSymName: string, girFields: GirFieldElement[]) {
         const def: string[] = []
-        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateClassFields] Not all required properties set!')
-        }
-
-        const girFields = girClass._desc.fields
 
         if (girFields.length > 0) {
-            const versionPrefix = girClass._module.packageName + '.'
-            def.push(`    /* Fields of ${versionPrefix}${girClass._fullSymName} */`)
+            def.push(`    /* Fields of ${versionFullSymName} */`)
             for (const girField of girFields) {
                 if (girField._desc?.desc) {
                     for (const curDesc of girField._desc.desc) {
@@ -474,21 +469,42 @@ export default class TypeDefinitionGenerator implements Generator {
                 }
             }
         }
+        return def
+    }
 
-        for (const fullSymName of Object.keys(girClass._desc.inherits)) {
-            const girFields = girClass._desc.inherits[fullSymName]?.fields
-            if (girFields.length > 0) {
-                def.push(`    /* Fields of ${fullSymName} */`)
-                for (const girField of girFields) {
-                    if (girField._desc?.desc) {
-                        for (const curDesc of girField._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
+    public generateClassFields(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateClassFields] Not all required properties set!')
+        }
+
+        def.push(
+            ...this._generateClassFields(
+                girClass._module.packageName + '.' + girClass._fullSymName,
+                girClass._desc.fields,
+            ),
+        )
+
+        for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
+            const girFields = girClass._desc.extends[versionFullSymName]?.fields
+            def.push(...this._generateClassFields(versionFullSymName, girFields))
+        }
+
+        return def
+    }
+
+    private _generateClassProperties(versionFullSymName: string, girProperties: GirPropertyElement[]) {
+        const def: string[] = []
+        if (girProperties.length > 0) {
+            def.push(`    /* Properties of ${versionFullSymName} */`)
+            for (const girProperty of girProperties) {
+                if (girProperty._desc?.desc) {
+                    for (const curDesc of girProperty._desc.desc) {
+                        def.push(`    ${curDesc}`)
                     }
                 }
             }
         }
-
         return def
     }
 
@@ -498,52 +514,81 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error('[generateClassProperties] Not all required properties set!')
         }
 
-        const girProperties = girClass._desc.properties
+        def.push(
+            ...this._generateClassProperties(
+                girClass._module.packageName + '.' + girClass._fullSymName,
+                girClass._desc.properties,
+            ),
+        )
 
-        if (girProperties.length > 0) {
-            const versionPrefix = girClass._module.packageName + '.'
-            def.push(`    /* Properties of ${versionPrefix}${girClass._fullSymName} */`)
-            for (const girProperty of girProperties) {
-                if (girProperty._desc?.desc) {
-                    for (const curDesc of girProperty._desc.desc) {
-                        def.push(`    ${curDesc}`)
-                    }
-                }
-            }
+        for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
+            def.push(
+                ...this._generateClassProperties(
+                    versionFullSymName,
+                    girClass._desc.extends[versionFullSymName].properties,
+                ),
+            )
         }
 
-        for (const fullSymName of Object.keys(girClass._desc.inherits)) {
-            const girProperties = girClass._desc.inherits[fullSymName]?.properties
-            if (girProperties.length > 0) {
-                def.push(`    /* Properties of ${fullSymName} */`)
-                for (const girProperty of girProperties) {
-                    if (girProperty._desc?.desc) {
-                        for (const curDesc of girProperty._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
-                    }
-                }
-            }
-        }
-
-        for (const fullSymName of Object.keys(girClass._desc.implements)) {
-            const girProperties = girClass._desc.implements[fullSymName]?.properties
-            if (girProperties.length > 0) {
-                def.push(`    /* Properties of ${fullSymName} */`)
-                for (const girProperty of girProperties) {
-                    if (girProperty._desc?.desc) {
-                        for (const curDesc of girProperty._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
-                    }
-                }
-            }
+        for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
+            def.push(
+                ...this._generateClassProperties(
+                    versionFullSymName,
+                    girClass._desc.implements[versionFullSymName].properties,
+                ),
+            )
         }
 
         return def
     }
 
-    public async exportModuleJs(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
+    private _generateClassMethods(versionFullSymName: string, girMethods: GirMethodElement[]) {
+        const def: string[] = []
+        if (girMethods.length > 0) {
+            def.push(`    /* Methods of ${versionFullSymName} */`)
+            for (const girMethod of girMethods) {
+                if (girMethod._desc?.desc) {
+                    for (const curDesc of girMethod._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+        }
+        return def
+    }
+
+    public generateClassMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateClassMethods] Not all required methods set!')
+        }
+
+        def.push(
+            ...this._generateClassMethods(
+                girClass._module.packageName + '.' + girClass._fullSymName,
+                girClass._desc.methods,
+            ),
+        )
+
+        for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
+            def.push(
+                ...this._generateClassMethods(versionFullSymName, girClass._desc.extends[versionFullSymName].methods),
+            )
+        }
+
+        for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
+            def.push(
+                ...this._generateClassMethods(
+                    versionFullSymName,
+                    girClass._desc.implements[versionFullSymName].methods,
+                ),
+            )
+        }
+
+        return def
+    }
+
+    public async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.packageName}.js`)
@@ -565,7 +610,7 @@ export default class TypeDefinitionGenerator implements Generator {
             this.config,
         )
         // TODO await this.exportModuleDTS(...)
-        await this.exportModuleJs(moduleTemplateProcessor, girModule)
+        await this.exportModuleJS(moduleTemplateProcessor, girModule)
     }
 
     public async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {

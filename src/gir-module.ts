@@ -11,6 +11,7 @@ import {
     isCommentLine,
     clone,
     generateIndent,
+    girBool,
 } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
@@ -274,12 +275,7 @@ export class GirModule {
             for (const element of elements) {
                 if (element?.$ && element.$.name) {
                     if ((element as GirCallableParamElement | GirFunctionElement).$.introspectable) {
-                        if (
-                            !this.girBool(
-                                (element as GirCallableParamElement | GirFunctionElement).$.introspectable,
-                                true,
-                            )
-                        )
+                        if (!girBool((element as GirCallableParamElement | GirFunctionElement).$.introspectable, true))
                             continue
                     }
                     const symName = `${this.namespace}.${element.$.name}`
@@ -590,14 +586,6 @@ export class GirModule {
         }
     }
 
-    private girBool(boolStr: string | undefined, defaultVal = false): boolean {
-        if (boolStr) {
-            if (parseInt(boolStr) === 0) return false
-            return true
-        }
-        return defaultVal
-    }
-
     private getReturnType(girFunc: GirFunctionElement | GirConstructorElement | GirCallbackElement) {
         let returnType = 'void'
         let outArrayLengthIndex = -1
@@ -662,7 +650,7 @@ export class GirModule {
         girVar: GirCallableParamElement | GirCallableReturn | GirAliasElement | GirFieldElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (this.girBool(a.nullable) || this.girBool(a['allow-none']) || this.girBool(a.optional))
+        return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
     }
 
     /**
@@ -818,8 +806,8 @@ export class GirModule {
         if (
             !girVar ||
             !girVar.$ ||
-            !this.girBool(girVar.$.introspectable, true) ||
-            this.girBool((girVar as GirFieldElement).$.private)
+            !girBool(girVar.$.introspectable, true) ||
+            girBool((girVar as GirFieldElement).$.private)
         )
             return undefined
 
@@ -867,11 +855,11 @@ export class GirModule {
         optional = true,
         indentCount = 0,
     ): DescProperty | undefined {
-        if (this.girBool(girProp.$['construct-only']) && !construct) return undefined
-        if (!this.girBool(girProp.$.writable) && construct) return undefined
-        if (this.girBool((girProp as GirFieldElement).$.private)) return undefined
+        if (girBool(girProp.$['construct-only']) && !construct) return undefined
+        if (!girBool(girProp.$.writable) && construct) return undefined
+        if (girBool((girProp as GirFieldElement).$.private)) return undefined
 
-        const readonly = this.girBool(girProp.$.writable)
+        const readonly = girBool(girProp.$.writable)
         girProp._desc = this.setVariableDesc(girProp, construct && optional, true, 'property')
         if (!girProp._desc?.name) {
             return undefined
@@ -911,7 +899,7 @@ export class GirModule {
         arrowType = false,
         indentCount = 0,
     ): DescFunction | undefined {
-        if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
+        if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
         const packageName = this.getPackageName(girFunc)
@@ -952,7 +940,7 @@ export class GirModule {
     }
 
     private setCallbackInterfaceDesc(girCallback: GirCallbackElement) {
-        if (!girCallback || !girCallback.$ || !this.girBool(girCallback.$.introspectable, true)) return undefined
+        if (!girCallback || !girCallback.$ || !girBool(girCallback.$.introspectable, true)) return undefined
 
         girCallback._desc = this.setFunctionDesc(girCallback, 'callback', '', undefined, true, 0)
 
@@ -1033,7 +1021,7 @@ export class GirModule {
     }
 
     public setEnumerationDesc(girEnum: GirEnumElement) {
-        if (!girEnum?.$ || !this.girBool(girEnum.$.introspectable, true)) return undefined
+        if (!girEnum?.$ || !girBool(girEnum.$.introspectable, true)) return undefined
 
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         const name = this.transformation.transformEnumName(girEnum)
@@ -1056,7 +1044,7 @@ export class GirModule {
     }
 
     public setAliasDesc(girAlias: GirAliasElement) {
-        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return undefined
+        if (!girAlias || !girAlias.$ || !girBool(girAlias.$.introspectable, true)) return undefined
 
         const typeName = this.typeLookup(girAlias).result
         const name = girAlias.$.name
@@ -1161,7 +1149,7 @@ export class GirModule {
             })
         }
 
-        girClass._desc.constructProps[this.namespace] = {
+        girClass._desc.constructProps[this.packageName] = {
             base: baseConstructProp,
             impl: implConstructProp,
         }
@@ -1213,6 +1201,31 @@ export class GirModule {
             .filter((method) => method !== undefined) as DescFunction[]
     }
 
+    /**
+     * Instance methods
+     * @param girClass
+     * @param localNames
+     */
+    private getClassMethodsDesc(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        localNames: LocalNames,
+    ) {
+        const girMethods: GirMethodElement[] = []
+        if (girClass.method) {
+            for (const girMethod of girClass.method) {
+                girMethod._desc = this.setFunctionDesc(girMethod, 'method')
+                if (!girMethod._desc?.desc) {
+                    continue
+                }
+                const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
+                if (localName?.added && localName.method) {
+                    girMethods.push(localName.method)
+                }
+            }
+        }
+        return girMethods
+    }
+
     private getClassFieldsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         localNames: LocalNames,
@@ -1231,8 +1244,8 @@ export class GirModule {
                 }
 
                 const localName = this.checkOrSetLocalName(girField, localNames, 'field')
-                if (localName?.added) {
-                    girFields.push(girField)
+                if (localName?.added && localName.field) {
+                    girFields.push(localName.field)
                 }
             }
         }
@@ -1240,7 +1253,7 @@ export class GirModule {
         return girFields
     }
 
-    private getPropertiesDesc(
+    private getClassPropertiesDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         localNames: LocalNames,
     ) {
@@ -1253,12 +1266,56 @@ export class GirModule {
                     continue
                 }
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
-                if (localName?.added) {
-                    girProperties.push(girProperty)
+                if (localName?.added && localName.property) {
+                    girProperties.push(localName.property)
                 }
             }
         }
         return girProperties
+    }
+
+    private getClassPropertyNames(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const propertyNames: string[] = []
+
+        if (!girClass._desc) {
+            return propertyNames
+        }
+
+        const girProperties = girClass._desc.properties
+
+        if (girProperties.length > 0) {
+            for (const girProperty of girProperties) {
+                if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
+                    propertyNames.push(girProperty._desc.origName)
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._desc.extends)) {
+            const girProperties = girClass._desc.extends[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                for (const girProperty of girProperties) {
+                    if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
+                        propertyNames.push(girProperty._desc.origName)
+                    }
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._desc.implements)) {
+            const girProperties = girClass._desc.implements[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                for (const girProperty of girProperties) {
+                    if (girProperty._desc?.desc) {
+                        if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
+                            propertyNames.push(girProperty._desc.origName)
+                        }
+                    }
+                }
+            }
+        }
+
+        return propertyNames
     }
 
     private setClassBaseDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
@@ -1322,7 +1379,8 @@ export class GirModule {
             constructProps: {},
             fields: [],
             properties: [],
-            inherits: {},
+            methods: [],
+            extends: {},
             implements: {},
         }
 
@@ -1356,26 +1414,35 @@ export class GirModule {
         // BASE
 
         // TODO: Can't export fields for GObjects because names would clash
-        if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, localNames))
+        // if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, localNames))
+        girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, localNames))
 
-        girClass._desc.properties.push(...this.getPropertiesDesc(girClass, localNames))
+        girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, localNames))
+        girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, localNames))
 
-        // Copy from inheritance tree
-        this.traverseInheritanceTree(girClass, (inheritsCls) => {
-            if (!girClass._desc || !inheritsCls._desc || !inheritsCls._fullSymName || !inheritsCls._module) {
+        // Copy fields and properties from inheritance tree
+        this.traverseInheritanceTree(girClass, (extendsCls) => {
+            if (!girClass._desc || !extendsCls._desc || !extendsCls._fullSymName || !extendsCls._module) {
                 return
             }
 
-            const key = inheritsCls._module.packageName + '.' + inheritsCls._fullSymName
-            if (girClass._desc.inherits[key]) return
-
-            girClass._desc.inherits[key] = {
-                fields: [],
-                properties: [],
+            if (girClass.$.name === extendsCls.$.name) {
+                return
             }
 
-            girClass._desc.inherits[key].fields.push(...this.getClassFieldsDesc(inheritsCls, localNames))
-            girClass._desc.inherits[key].properties.push(...this.getPropertiesDesc(inheritsCls, localNames))
+            const key = extendsCls._module.packageName + '.' + extendsCls._fullSymName
+            if (girClass._desc.extends[key]) return
+
+            girClass._desc.extends[key] = {
+                class: extendsCls,
+                fields: [],
+                properties: [],
+                methods: [],
+            }
+
+            girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, localNames))
+            girClass._desc.extends[key].properties.push(...this.getClassPropertiesDesc(extendsCls, localNames))
+            girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, localNames))
         })
 
         // Copy properties from implemented interface
@@ -1384,14 +1451,20 @@ export class GirModule {
                 return
             }
 
+            if (girClass.$.name === iface.$.name) {
+                return
+            }
+
             const key = iface._module.packageName + '.' + iface._fullSymName
             if (girClass._desc.implements[key]) return
 
             girClass._desc.implements[key] = {
                 properties: [],
+                methods: [],
             }
 
-            girClass._desc.implements[key].properties.push(...this.getPropertiesDesc(iface, localNames))
+            girClass._desc.implements[key].properties.push(...this.getClassPropertiesDesc(iface, localNames))
+            girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, localNames))
         })
 
         return girClass._desc
@@ -1570,34 +1643,6 @@ export class GirModule {
 
         localNames[name] = localName
         return { ...localName, added: true, isOverloadable }
-    }
-
-    /**
-     * Instance methods
-     * @param girClass
-     * @param localNames
-     */
-    private processMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
-        const def: string[] = []
-        if (girClass.method) {
-            for (const girMethod of girClass.method) {
-                girMethod._desc = this.setFunctionDesc(girMethod, 'method')
-                if (!girMethod._desc) {
-                    continue
-                }
-                const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
-                if (localName?.added && localName.method?._desc?.desc) {
-                    for (const curDesc of localName.method._desc.desc) {
-                        def.push(`    ${curDesc}`)
-                    }
-                }
-            }
-        }
-        if (def.length && girClass._fullSymName) {
-            const versionPrefix = girClass._module?.packageName ? girClass._module?.packageName + '.' : ''
-            def.unshift(`    /* Methods of ${versionPrefix}${girClass._fullSymName} */`)
-        }
-        return { def }
     }
 
     private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
@@ -1878,50 +1923,6 @@ export class GirModule {
         return { def, fnMap, explicits }
     }
 
-    private getClassPropertyNames(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        const propertyNames: string[] = []
-
-        if (!girClass._desc) {
-            return propertyNames
-        }
-
-        const girProperties = girClass._desc.properties
-
-        if (girProperties.length > 0) {
-            for (const girProperty of girProperties) {
-                if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                    propertyNames.push(girProperty._desc.origName)
-                }
-            }
-        }
-
-        for (const fullSymName of Object.keys(girClass._desc.inherits)) {
-            const girProperties = girClass._desc.inherits[fullSymName]?.properties
-            if (girProperties.length > 0) {
-                for (const girProperty of girProperties) {
-                    if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                        propertyNames.push(girProperty._desc.origName)
-                    }
-                }
-            }
-        }
-
-        for (const fullSymName of Object.keys(girClass._desc.implements)) {
-            const girProperties = girClass._desc.implements[fullSymName]?.properties
-            if (girProperties.length > 0) {
-                for (const girProperty of girProperties) {
-                    if (girProperty._desc?.desc) {
-                        if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                            propertyNames.push(girProperty._desc.origName)
-                        }
-                    }
-                }
-            }
-        }
-
-        return propertyNames
-    }
-
     private generateSignalMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
         callbackObjectName: string,
@@ -2052,7 +2053,7 @@ export class GirModule {
                 def: [],
             }
 
-        const { def: _def } = this.generator.generateConstructPropsInterface(girClass, this.namespace)
+        const { def: _def } = this.generator.generateConstructPropsInterface(girClass, this.packageName)
 
         // Properties for construction
         def.push(..._def)
@@ -2067,25 +2068,20 @@ export class GirModule {
 
             // START BODY
             {
-                // Copy properties from inheritance tree
-                // this.traverseInheritanceTree(girClass, (cls) =>
-                //     def.push(...this.processProperties(cls, localNames, propertyNames).def),
-                // )
-                // Copy properties from implemented interface
-                // this.forEachInterface(girClass, (cls) =>
-                //     def.push(...this.processProperties(cls, localNames, propertyNames).def),
-                // )
+                // Properties
+                def.push(...this.generator.generateClassProperties(girClass))
 
                 // Fields
                 def.push(...this.generator.generateClassFields(girClass))
 
-                // Properties
-                def.push(...this.generator.generateClassProperties(girClass))
+                // Methods
+                def.push(...this.generator.generateClassMethods(girClass))
 
                 // Copy methods from inheritance tree
-                this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
+                // this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
                 // Copy methods from implemented interfaces
-                this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
+                // this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
+
                 // Copy virtual methods from inheritance tree
                 this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
                 // Copy signals from inheritance tree
@@ -2149,7 +2145,7 @@ export class GirModule {
     }
 
     // TODO: Move to TypeDefinitionGenerator
-    public async exportModuleDTS(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
+    public async exportModuleTS(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
         const template = 'module.d.ts'
         const out: string[] = []
 
@@ -2254,7 +2250,7 @@ export class GirModule {
     // The export should take place in the TypeDefinitionGenerator
     public async start(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
         // TODO: Move to TypeDefinitionGenerator
-        await this.exportModuleDTS(outStream, outputPath)
+        await this.exportModuleTS(outStream, outputPath)
         if (this.config.buildType === 'lib') {
             await this.generator.exportModule(this)
         }

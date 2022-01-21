@@ -1072,9 +1072,16 @@ export class GirModule {
         return girConst._desc
     }
 
-    private setClassConstructPropsDesc(girProps: GirPropertyElement[], constructPropNames: LocalNames) {
+    private getClassConstructPropsDesc(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        constructPropNames: LocalNames,
+    ) {
         const constructProps: GirPropertyElement[] = []
-        for (const girProp of girProps) {
+        const girProperties = (girClass as GirClassElement | GirInterfaceElement).property
+        if (!girProperties?.length) {
+            return constructProps
+        }
+        for (const girProp of girProperties) {
             // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
             const girConstrProp = clone(girProp)
 
@@ -1111,50 +1118,6 @@ export class GirModule {
         }
 
         return constructProps
-    }
-
-    /**
-     * Used to generate the constructor properties interface
-     * @param girClass
-     * @returns
-     */
-    private setClassConstructPropsInterfaceDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        if (!girClass._desc) {
-            this.log.error('girClass', JSON.stringify(girClass, null, 2))
-            throw new Error('[setClassConstructPropsDesc] Not all required properties set!')
-        }
-
-        const baseConstructProp: GirPropertyElement[] = []
-        const implConstructProp: GirPropertyElement[] = []
-
-        if (!girClass._desc.isDerivedFromGObject) {
-            return girClass._desc.constructProps
-        }
-
-        const constructPropNames: LocalNames = {}
-        const properties = (girClass as GirClassElement | GirInterfaceElement).property
-
-        // Include props of this class
-        if (properties) {
-            baseConstructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
-        }
-
-        // Include props of implemented interfaces
-        if ((girClass as GirClassElement | GirInterfaceElement).implements) {
-            this.forEachInterface(girClass, (girIface) => {
-                const properties = (girIface as GirClassElement | GirInterfaceElement).property
-                if (properties) {
-                    implConstructProp.push(...this.setClassConstructPropsDesc(properties, constructPropNames))
-                }
-            })
-        }
-
-        girClass._desc.constructProps[this.packageName] = {
-            base: baseConstructProp,
-            impl: implConstructProp,
-        }
-
-        return girClass._desc.constructProps
     }
 
     private getStaticConstructors(
@@ -1376,10 +1339,11 @@ export class GirModule {
             version,
             isAbstract: this.isAbstractClass(girClass),
             localNames: {},
+            constructPropNames: {},
             constructPropInterfaceName: `${className}_ConstructProps`,
-            constructProps: {},
             fields: [],
             properties: [],
+            constructProps: [],
             methods: [],
             extends: {},
             implements: {},
@@ -1405,12 +1369,13 @@ export class GirModule {
             if (!girClass._desc) return undefined
         }
 
-        girClass._desc.constructProps = {
-            ...girClass._desc.constructProps,
-            ...this.setClassConstructPropsInterfaceDesc(girClass),
-        }
-
         // BASE
+
+        if (girClass._desc.isDerivedFromGObject) {
+            girClass._desc.constructProps.push(
+                ...this.getClassConstructPropsDesc(girClass, girClass._desc.constructPropNames),
+            )
+        }
 
         // TODO: Can't export fields for GObjects because names would clash
         // if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
@@ -1460,8 +1425,16 @@ export class GirModule {
             if (girClass._desc.implements[key]) return
 
             girClass._desc.implements[key] = {
+                interface: iface,
                 properties: [],
+                constructProps: [],
                 methods: [],
+            }
+
+            if (girClass._desc.isDerivedFromGObject) {
+                girClass._desc.implements[key].constructProps.push(
+                    ...this.getClassConstructPropsDesc(iface, girClass._desc.constructPropNames),
+                )
             }
 
             girClass._desc.implements[key].properties.push(
@@ -2056,10 +2029,8 @@ export class GirModule {
                 def: [],
             }
 
-        const { def: _def } = this.generator.generateConstructPropsInterface(girClass, this.packageName)
-
         // Properties for construction
-        def.push(..._def)
+        def.push(...this.generator.generateConstructPropsInterface(girClass))
 
         // START CLASS
         {

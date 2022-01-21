@@ -88,8 +88,6 @@ export default class TypeDefinitionGenerator implements Generator {
         return [`${indent}${prefix}${varDesc}`]
     }
 
-    // public generateConstant() {}
-
     public generateVariable(girVar: GirPropertyElement | GirFieldElement | GirConstantElement) {
         if (!girVar._desc) {
             this.log.error('girVar', inspect(girVar))
@@ -397,63 +395,59 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateConstructPropsInterface(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        packageName: string,
-    ) {
-        if (!girClass._desc) {
+    private _generateConstructPropsInterface(versionFullSymName: string, girProperties: GirPropertyElement[]) {
+        const def: string[] = []
+
+        if (girProperties.length > 0) {
+            def.push(`    /* Constructor properties of ${versionFullSymName} */`)
+            for (const girProperty of girProperties) {
+                if (girProperty._desc?.desc) {
+                    for (const curDesc of girProperty._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+        }
+        return def
+    }
+
+    public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
         }
 
-        const def: string[] = []
+        if (!girClass._desc.isDerivedFromGObject) {
+            return def
+        }
+
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+        let ext = ' '
 
-        if (girClass._desc.isDerivedFromGObject) {
-            let ext = ' '
-
-            if (girClass._desc.inheritConstructPropInterfaceName) {
-                ext = `extends ${girClass._desc.inheritConstructPropInterfaceName} `
-            }
-
-            def.push(`${exp}interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
-
-            // START BODY
-            {
-                const baseConstructProps = girClass._desc.constructProps[packageName]?.base
-                const implConstructProps = girClass._desc.constructProps[packageName]?.impl
-
-                if (baseConstructProps?.length) {
-                    for (const girProp of baseConstructProps) {
-                        if (!girProp._desc?.desc) {
-                            continue
-                        }
-                        for (const curDesc of girProp._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
-                    }
-                }
-
-                if (implConstructProps?.length) {
-                    if (girClass._desc.constructPropInterfaceName) {
-                        def.push(`    /* Constructor properties of ${girClass._desc.constructPropInterfaceName} */`)
-                    }
-                    for (const girProp of implConstructProps) {
-                        if (!girProp._desc?.desc) {
-                            continue
-                        }
-                        for (const curDesc of girProp._desc.desc) {
-                            def.push(`    ${curDesc}`)
-                        }
-                    }
-                }
-            }
-            // END BODY
-
-            def.push('}')
+        if (girClass._desc.inheritConstructPropInterfaceName) {
+            ext = `extends ${girClass._desc.inheritConstructPropInterfaceName} `
         }
-        return {
-            def,
+
+        def.push(`${exp}interface ${girClass._desc.constructPropInterfaceName} ${ext}{`)
+
+        // START BODY
+        {
+            def.push(
+                ...this._generateConstructPropsInterface(
+                    girClass._module.packageName + '.' + girClass._fullSymName,
+                    girClass._desc.constructProps,
+                ),
+            )
+
+            for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
+                const constructProps = girClass._desc.implements[versionFullSymName]?.constructProps
+                def.push(...this._generateConstructPropsInterface(versionFullSymName, constructProps))
+            }
         }
+        // END BODY
+        def.push('}')
+
+        return def
     }
 
     private _generateClassFields(versionFullSymName: string, girFields: GirFieldElement[]) {

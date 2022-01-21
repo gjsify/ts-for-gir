@@ -1700,29 +1700,29 @@ export class GirModule {
 
     /**
      *
-     * @param impGirClass This is the class / interface the `mainGirClass` implements signals from
-     * @param mainGirClass The main class which implements the signals from `impGirClass`
+     * @param girClass This is the class / interface the `parentClass` implements signals from
+     * @param girParentClass The main class which implements the signals from `girClass`
      * @returns
      */
     private processSignals(
-        impGirClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        mainGirClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        girParentClass: GirClassElement | GirInterfaceElement | GirUnionElement,
     ) {
-        if (!mainGirClass._desc) {
-            throw new Error('mainGirClass._desc not set!')
+        if (!girParentClass._desc) {
+            throw new Error('girParentClass._desc not set!')
         }
 
         const def: string[] = []
         const signals: GirSignalElement[] =
-            (impGirClass as GirClassElement | GirInterfaceElement).signal ||
-            (impGirClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
+            (girClass as GirClassElement | GirInterfaceElement).signal ||
+            (girClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
             []
         if (signals) {
-            for (const signal of signals) def.push(...(this.setSignalFuncDesc(signal, mainGirClass).desc || []))
+            for (const signal of signals) def.push(...(this.setSignalFuncDesc(signal, girParentClass).desc || []))
         }
-        if (def.length && impGirClass._fullSymName) {
-            const versionPrefix = impGirClass._module?.packageName ? impGirClass._module?.packageName + '.' : ''
-            def.unshift(`    /* Signals of ${versionPrefix}${impGirClass._fullSymName} */`)
+        if (def.length && girClass._fullSymName) {
+            const versionPrefix = girClass._module?.packageName ? girClass._module?.packageName + '.' : ''
+            def.unshift(`    /* Signals of ${versionPrefix}${girClass._fullSymName} */`)
         }
         return {
             def,
@@ -2042,8 +2042,6 @@ export class GirModule {
                 // Methods
                 def.push(...this.generator.generateVirtualMethods(girClass))
 
-                // Copy virtual methods from inheritance tree
-                // this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
                 // Copy signals from inheritance tree
                 this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, girClass).def))
                 // Copy signals from implemented interfaces

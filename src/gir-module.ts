@@ -1109,7 +1109,7 @@ export class GirModule {
                     : undefined
 
                 if (constructPropPatches?.length) {
-                    this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
+                    // this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
                     girConstrProp._desc.desc = constructPropPatches
                 }
             }
@@ -1988,13 +1988,18 @@ export class GirModule {
             if (girConstructorFuncs) {
                 if (Array.isArray(girConstructorFuncs)) {
                     for (const girConstructorFunc of girConstructorFuncs) {
-                        const constrDesc = this.setConstructorFunctionDesc(name, girConstructorFunc, 'static ', 1)
-                        if (!constrDesc?.name || !constrDesc.desc) continue
-                        if (constrDesc.name !== 'new') continue
+                        girConstructorFunc._desc = this.setConstructorFunctionDesc(
+                            name,
+                            girConstructorFunc,
+                            'static ',
+                            1,
+                        )
+                        if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
+                        if (girConstructorFunc._desc.name !== 'new') continue
 
-                        def.push(...constrDesc.desc)
+                        def.push(...girConstructorFunc._desc.desc)
 
-                        const jsStyleCtor = constrDesc.desc[0]
+                        const jsStyleCtor = girConstructorFunc._desc.desc[0]
                             .replace('static new', 'constructor')
                             .replace(/:[^:]+$/, '')
 

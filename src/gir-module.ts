@@ -1400,7 +1400,7 @@ export class GirModule {
                 return
             }
 
-            if (girClass.$.name === extendsCls.$.name) {
+            if (girClass._fullSymName === extendsCls._fullSymName) {
                 return
             }
 
@@ -1427,7 +1427,7 @@ export class GirModule {
                 return
             }
 
-            if (girClass.$.name === iface.$.name) {
+            if (girClass._fullSymName === iface._fullSymName) {
                 return
             }
 

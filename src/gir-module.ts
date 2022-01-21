@@ -1364,9 +1364,15 @@ export class GirModule {
     ): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
+        // FIXME:
+        if (girClass._desc) {
+            this.log.warn('girClass._desc was already set')
+        }
+
+        girClass._desc = this.setClassBaseDesc(girClass)
+
         if (!girClass._desc) {
-            girClass._desc = this.setClassBaseDesc(girClass)
-            if (!girClass._desc) return undefined
+            return undefined
         }
 
         // BASE

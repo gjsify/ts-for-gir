@@ -17,6 +17,7 @@ import type {
     GirUnionElement,
     GirModulesGrouped,
     GirMethodElement,
+    GirVirtualMethodElement,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -606,6 +607,55 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(...this.generateFunctions(girClass._desc.staticFunctions))
+
+        return def
+    }
+
+    private _generateVirtualMethods(versionFullSymName: string, girMethods: GirVirtualMethodElement[]) {
+        const def: string[] = []
+        if (girMethods.length > 0) {
+            def.push(`    /* Virtual methods of ${versionFullSymName} */`)
+            for (const girMethod of girMethods) {
+                if (girMethod._desc?.desc) {
+                    for (const curDesc of girMethod._desc.desc) {
+                        def.push(`    ${curDesc}`)
+                    }
+                }
+            }
+        }
+        return def
+    }
+
+    /**
+     * Instance methods, vfunc_ prefix
+     * @param girClass
+     */
+    public generateVirtualMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateStaticFunctions] Not all required methods set!')
+        }
+
+        // Virtual methods currently not supported in node-gtk
+        if (this.config.environment === 'node') {
+            return def
+        }
+
+        def.push(
+            ...this._generateVirtualMethods(
+                girClass._module.packageName + '.' + girClass._fullSymName,
+                girClass._desc.virtualMethods,
+            ),
+        )
+
+        for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
+            def.push(
+                ...this._generateVirtualMethods(
+                    versionFullSymName,
+                    girClass._desc.extends[versionFullSymName].virtualMethods,
+                ),
+            )
+        }
 
         return def
     }

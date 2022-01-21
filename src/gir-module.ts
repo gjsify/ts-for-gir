@@ -1296,6 +1296,55 @@ export class GirModule {
         return propertyNames
     }
 
+    private getClassConstructorsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const girConstructors: GirConstructorElement[] = []
+        // JS constructor(s)
+        if (girClass._desc?.isDerivedFromGObject) {
+            // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
+        } else {
+            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
+            if (Array.isArray(girConstructorFuncs)) {
+                for (const girConstructorFunc of girConstructorFuncs) {
+                    if (!girClass._desc?.name) continue
+                    girConstructorFunc._desc = this.setConstructorFunctionDesc(
+                        girClass._desc?.name,
+                        girConstructorFunc,
+                        'static ',
+                        1,
+                    )
+                    if (!girConstructorFunc._desc) continue
+                    if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
+                    if (girConstructorFunc._desc.name !== 'new') continue
+
+                    girConstructors.push(girConstructorFunc)
+                }
+            }
+        }
+
+        return girConstructors
+    }
+
+    private getClassVirtualMethodsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const girVMethods = this.getOverloadableMethodsDesc(girClass, (girIface) => {
+            const girVMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
+            const methods = girVMethods
+                .map((girVMethod) => {
+                    girVMethod._desc = this.setFunctionDesc(
+                        girVMethod,
+                        'virtual-method',
+                        'vfunc_',
+                        undefined,
+                        undefined,
+                        0,
+                    )
+                    return girVMethod
+                })
+                .filter((girVMethod) => girVMethod?._desc?.name)
+            return methods
+        }) as GirVirtualMethodElement[]
+        return girVMethods
+    }
+
     private setClassBaseDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
         if (!girClass?.$?.name) return undefined
 
@@ -1360,6 +1409,7 @@ export class GirModule {
             properties: [],
             constructProps: [],
             methods: [],
+            virtualMethods: [],
             constructors: [],
             staticFunctions: [],
             extends: {},
@@ -1373,34 +1423,6 @@ export class GirModule {
         girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
         return girClass._desc
-    }
-
-    private getClassConstructorsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        const girConstructors: GirConstructorElement[] = []
-        // JS constructor(s)
-        if (girClass._desc?.isDerivedFromGObject) {
-            // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
-        } else {
-            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
-            if (Array.isArray(girConstructorFuncs)) {
-                for (const girConstructorFunc of girConstructorFuncs) {
-                    if (!girClass._desc?.name) continue
-                    girConstructorFunc._desc = this.setConstructorFunctionDesc(
-                        girClass._desc?.name,
-                        girConstructorFunc,
-                        'static ',
-                        1,
-                    )
-                    if (!girConstructorFunc._desc) continue
-                    if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
-                    if (girConstructorFunc._desc.name !== 'new') continue
-
-                    girConstructors.push(girConstructorFunc)
-                }
-            }
-        }
-
-        return girConstructors
     }
 
     private setClassDesc(
@@ -1433,8 +1455,9 @@ export class GirModule {
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
+        girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
         girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
-        girClass._desc.staticFunctions.push(...this.getAllStaticFunctionsDesc(girClass))
+        girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1454,6 +1477,7 @@ export class GirModule {
                 fields: [],
                 properties: [],
                 methods: [],
+                virtualMethods: [],
             }
 
             girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, girClass._desc.localNames))
@@ -1461,6 +1485,7 @@ export class GirModule {
                 ...this.getClassPropertiesDesc(extendsCls, girClass._desc.localNames),
             )
             girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
+            girClass._desc.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
         })
 
         // Copy properties from implemented interface
@@ -1674,46 +1699,6 @@ export class GirModule {
     }
 
     /**
-     * Instance methods, vfunc_ prefix
-     * @param girClass
-     */
-    private processVirtualMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        // Virtual methods currently not supported in node-gtk
-        if (this.config.environment === 'node') {
-            return {
-                def: [],
-            }
-        }
-
-        const def: string[] = []
-        const girVMethods = this.getOverloadableMethodsDesc(girClass, (girIface) => {
-            const girVMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
-            const methods = girVMethods
-                .map((girVMethod) => {
-                    girVMethod._desc = this.setFunctionDesc(
-                        girVMethod,
-                        'virtual-method',
-                        'vfunc_',
-                        undefined,
-                        undefined,
-                        1,
-                    )
-                    return girVMethod
-                })
-                .filter((girVMethod) => girVMethod?._desc?.name)
-            return methods
-        })
-        def.push(...this.generator.generateFunctions(girVMethods))
-        if (def.length && girClass._fullSymName) {
-            const versionPrefix = girClass._module?.packageName ? girClass._module?.packageName + '.' : ''
-            def.unshift(`    /* Virtual methods of ${versionPrefix}${girClass._fullSymName} */`)
-        }
-        return {
-            def,
-        }
-    }
-
-    /**
      *
      * @param impGirClass This is the class / interface the `mainGirClass` implements signals from
      * @param mainGirClass The main class which implements the signals from `impGirClass`
@@ -1835,7 +1820,11 @@ export class GirModule {
      * @param func
      * @param force
      */
-    private mergeOverloadableFunctions(map: FunctionMap, girFunc: GirConstructorElement, force = true) {
+    private mergeOverloadableFunctions(
+        map: FunctionMap,
+        girFunc: GirFunctionElement | GirConstructorElement | GirVirtualMethodElement,
+        force = true,
+    ) {
         let result = false
         if (!girFunc._desc?.name) return result
         const oldFunc = map.get(girFunc._desc.name)
@@ -1884,8 +1873,11 @@ export class GirModule {
         }
     }
 
-    private functionMapToArray(fnMap: FunctionMap, explicits: Set<string>) {
-        const girFunctions: Array<GirFunctionElement | GirConstructorElement> = []
+    private functionMapToArray<T = GirFunctionElement | GirConstructorElement | GirVirtualMethodElement>(
+        fnMap: FunctionMap<T>,
+        explicits: Set<string>,
+    ) {
+        const girFunctions: Array<T> = []
         for (const key of Array.from(explicits.values())) {
             const func = fnMap.get(key)
             if (func) girFunctions.push(func)
@@ -1973,7 +1965,7 @@ export class GirModule {
      * @param girClass
      * @param name
      */
-    private getAllStaticFunctionsDesc(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
+    private getClassStaticFunctionsDesc(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
         const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement> = []
 
         girStaticFuncs.push(
@@ -2047,8 +2039,11 @@ export class GirModule {
                 // Methods
                 def.push(...this.generator.generateClassMethods(girClass))
 
+                // Methods
+                def.push(...this.generator.generateVirtualMethods(girClass))
+
                 // Copy virtual methods from inheritance tree
-                this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
+                // this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
                 // Copy signals from inheritance tree
                 this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, girClass).def))
                 // Copy signals from implemented interfaces

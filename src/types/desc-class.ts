@@ -8,6 +8,7 @@ import {
     GirMethodElement,
     GirConstructorElement,
     GirFunctionElement,
+    GirVirtualMethodElement,
 } from '.'
 
 export interface DescClass {
@@ -37,6 +38,7 @@ export interface DescClass {
     /** Constructor properties of base class*/
     constructProps: GirPropertyElement[]
     methods: GirMethodElement[]
+    virtualMethods: GirVirtualMethodElement[]
     constructors: GirConstructorElement[]
     staticFunctions: Array<GirFunctionElement | GirConstructorElement>
 
@@ -46,6 +48,7 @@ export interface DescClass {
             fields: GirFieldElement[]
             properties: GirPropertyElement[]
             methods: GirMethodElement[]
+            virtualMethods: GirVirtualMethodElement[]
         }
     }
 

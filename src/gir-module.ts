@@ -1121,17 +1121,25 @@ export class GirModule {
     }
 
     private getStaticConstructors(
-        element: GirClassElement | GirInterfaceElement | GirUnionElement,
-        name: string,
+        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        girChildClass: GirClassElement | GirInterfaceElement | GirUnionElement,
         filter?: (funcName: string) => boolean,
     ): GirConstructorElement[] {
-        const girConstructors = element.constructor
-        if (!Array.isArray(girConstructors)) {
+        const girConstructors = girClass.constructor
+        if (!Array.isArray(girConstructors) || !girClass._desc) {
             return []
         }
         let ctors = girConstructors
             .map((girConstructor) => {
-                girConstructor._desc = this.setConstructorFunctionDesc(name, girConstructor, 'static ', 1)
+                if (!girChildClass._desc?.name) {
+                    throw new Error('girClass._desc.name not set!')
+                }
+                girConstructor._desc = this.setConstructorFunctionDesc(
+                    girChildClass._desc?.name,
+                    girConstructor,
+                    'static ',
+                    1,
+                )
                 return girConstructor
             })
             .filter((girConstructor) => girConstructor?._desc?.name)
@@ -1352,6 +1360,7 @@ export class GirModule {
             properties: [],
             constructProps: [],
             methods: [],
+            staticFunctions: [],
             extends: {},
             implements: {},
         }
@@ -1395,6 +1404,7 @@ export class GirModule {
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
+        girClass._desc.staticFunctions.push(...this.getAllStaticFunctions(girClass))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1663,7 +1673,7 @@ export class GirModule {
                 .filter((girVMethod) => girVMethod?._desc?.name)
             return methods
         })
-        def.push(...this.generator.generateMethods(girVMethods))
+        def.push(...this.generator.generateFunctions(girVMethods))
         if (def.length && girClass._fullSymName) {
             const versionPrefix = girClass._module?.packageName ? girClass._module?.packageName + '.' : ''
             def.unshift(`    /* Virtual methods of ${versionPrefix}${girClass._fullSymName} */`)
@@ -1903,13 +1913,11 @@ export class GirModule {
         return this.functionMapToArray(fnMap, explicits)
     }
 
-    private processStaticFunctions(
+    private getStaticFunctions(
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
         getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => GirConstructorElement[],
     ) {
-        const girFunctions = this.getOverloadableMethodsDesc(girClass, getter, true)
-        const def = this.generator.generateMethods(girFunctions)
-        return { def }
+        return this.getOverloadableMethodsDesc(girClass, getter, true)
     }
 
     private generateSignalMethods(
@@ -1935,34 +1943,30 @@ export class GirModule {
      * @param girClass
      * @param name
      */
-    private getAllStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement, name: string) {
-        const def: string[] = []
+    private getAllStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
+        const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement> = []
 
-        def.push(
-            ...this.processStaticFunctions(girClass, (girClass) => {
-                return this.getStaticConstructors(girClass, name)
-            }).def,
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
+                return this.getStaticConstructors(cls, girClass)
+            }),
         )
-        def.push(
-            ...this.processStaticFunctions(girClass, (girClass) => {
-                return this.getOtherStaticFunctions(girClass)
-            }).def,
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
+                return this.getOtherStaticFunctions(cls)
+            }),
         )
-        def.push(
-            ...this.processStaticFunctions(girClass, (girClass) => {
-                return this.getClassRecordMethods(girClass)
-            }).def,
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
+                return this.getClassRecordMethods(cls)
+            }),
         )
 
-        if (def.length > 0) {
-            def.unshift('    /* Static methods and pseudo-constructors */')
-        }
-        return def
+        return girStaticFuncs
     }
 
-    private generateConstructorAndStaticMethods(
+    private generateConstructorAndstaticFunctions(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        name: string,
         indentCount = 1,
     ) {
         const indent = generateIndent(indentCount)
@@ -1986,8 +1990,9 @@ export class GirModule {
             if (girConstructorFuncs) {
                 if (Array.isArray(girConstructorFuncs)) {
                     for (const girConstructorFunc of girConstructorFuncs) {
+                        if (!girClass._desc?.name) continue
                         girConstructorFunc._desc = this.setConstructorFunctionDesc(
-                            name,
+                            girClass._desc?.name,
                             girConstructorFunc,
                             'static ',
                             1,
@@ -2007,7 +2012,7 @@ export class GirModule {
             }
         }
 
-        def.push(...this.getAllStaticFunctions(girClass, name))
+        def.push(...this.generator.generateStaticFunctions(girClass))
 
         if (girClass._desc?.isDerivedFromGObject) {
             def.push(`${indent}static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
@@ -2080,7 +2085,7 @@ export class GirModule {
                 // TODO: Records have fields
 
                 // Static side: default constructor
-                def.push(...this.generateConstructorAndStaticMethods(girClass, girClass._desc.name).def)
+                def.push(...this.generateConstructorAndstaticFunctions(girClass).def)
             }
             // END BODY
 

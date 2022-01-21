@@ -1,7 +1,6 @@
 import type {
     GenerateConfig,
     InheritanceTable,
-    FunctionMap,
     GirClassElement,
     GirCallableParamElement,
     GirFunctionElement,
@@ -196,7 +195,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateMethods(girFunctions: Array<GirFunctionElement | GirConstructorElement>) {
+    public generateFunctions(girFunctions: Array<GirFunctionElement | GirConstructorElement>) {
         const def: string[] = []
         for (const girFunction of girFunctions) {
             if (girFunction._desc?.desc) def.push(...girFunction._desc.desc)
@@ -587,6 +586,26 @@ export default class TypeDefinitionGenerator implements Generator {
                 ),
             )
         }
+
+        return def
+    }
+
+    /**
+     * Static methods, <constructor> and <function>
+     * @param girClass
+     * @param name
+     */
+    public generateStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
+        const def: string[] = []
+        if (!girClass._desc) {
+            throw new Error('[generateStaticFunctions] Not all required methods set!')
+        }
+
+        if (girClass._desc.staticFunctions.length > 0) {
+            def.push('    /* Static methods and pseudo-constructors */')
+        }
+
+        def.push(...this.generateFunctions(girClass._desc.staticFunctions))
 
         return def
     }

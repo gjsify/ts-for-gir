@@ -6,6 +6,8 @@ import {
     GirUnionElement,
     GirInterfaceElement,
     GirMethodElement,
+    GirConstructorElement,
+    GirFunctionElement,
 } from '.'
 
 export interface DescClass {
@@ -35,6 +37,7 @@ export interface DescClass {
     /** Constructor properties of base class*/
     constructProps: GirPropertyElement[]
     methods: GirMethodElement[]
+    staticFunctions: Array<GirFunctionElement | GirConstructorElement>
 
     extends: {
         [key: string]: {

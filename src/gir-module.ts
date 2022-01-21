@@ -62,7 +62,7 @@ import type {
     DescParameter,
 } from './types/index.js'
 
-import { MAXIMUM_RECURSION_DEPTH, STATIC_NAME_ALREADY_EXISTS } from './constants.js'
+import { MAXIMUM_RECURSION_DEPTH } from './constants.js'
 
 export class GirModule {
     /**
@@ -1360,6 +1360,7 @@ export class GirModule {
             properties: [],
             constructProps: [],
             methods: [],
+            constructors: [],
             staticFunctions: [],
             extends: {},
             implements: {},
@@ -1372,6 +1373,34 @@ export class GirModule {
         girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
         return girClass._desc
+    }
+
+    private getClassConstructorsDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const girConstructors: GirConstructorElement[] = []
+        // JS constructor(s)
+        if (girClass._desc?.isDerivedFromGObject) {
+            // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
+        } else {
+            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
+            if (Array.isArray(girConstructorFuncs)) {
+                for (const girConstructorFunc of girConstructorFuncs) {
+                    if (!girClass._desc?.name) continue
+                    girConstructorFunc._desc = this.setConstructorFunctionDesc(
+                        girClass._desc?.name,
+                        girConstructorFunc,
+                        'static ',
+                        1,
+                    )
+                    if (!girConstructorFunc._desc) continue
+                    if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
+                    if (girConstructorFunc._desc.name !== 'new') continue
+
+                    girConstructors.push(girConstructorFunc)
+                }
+            }
+        }
+
+        return girConstructors
     }
 
     private setClassDesc(
@@ -1404,7 +1433,8 @@ export class GirModule {
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
-        girClass._desc.staticFunctions.push(...this.getAllStaticFunctions(girClass))
+        girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
+        girClass._desc.staticFunctions.push(...this.getAllStaticFunctionsDesc(girClass))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1943,7 +1973,7 @@ export class GirModule {
      * @param girClass
      * @param name
      */
-    private getAllStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
+    private getAllStaticFunctionsDesc(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
         const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement> = []
 
         girStaticFuncs.push(
@@ -1963,62 +1993,6 @@ export class GirModule {
         )
 
         return girStaticFuncs
-    }
-
-    private generateConstructorAndstaticFunctions(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        indentCount = 1,
-    ) {
-        const indent = generateIndent(indentCount)
-        const def: string[] = []
-
-        girClass._desc = this.setClassDesc(girClass)
-
-        if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
-            // Records, classes and interfaces all have a static name
-            def.push(`${indent}static name: string`)
-        }
-
-        // JS constructor(s)
-        if (girClass._desc?.isDerivedFromGObject) {
-            def.push(
-                `${indent}constructor (config?: ${girClass._desc?.constructPropInterfaceName})`,
-                `${indent}_init (config?: ${girClass._desc?.constructPropInterfaceName}): void`,
-            )
-        } else {
-            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
-            if (girConstructorFuncs) {
-                if (Array.isArray(girConstructorFuncs)) {
-                    for (const girConstructorFunc of girConstructorFuncs) {
-                        if (!girClass._desc?.name) continue
-                        girConstructorFunc._desc = this.setConstructorFunctionDesc(
-                            girClass._desc?.name,
-                            girConstructorFunc,
-                            'static ',
-                            1,
-                        )
-                        if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
-                        if (girConstructorFunc._desc.name !== 'new') continue
-
-                        def.push(...girConstructorFunc._desc.desc)
-
-                        const jsStyleCtor = girConstructorFunc._desc.desc[0]
-                            .replace('static new', 'constructor')
-                            .replace(/:[^:]+$/, '')
-
-                        def.push(jsStyleCtor)
-                    }
-                }
-            }
-        }
-
-        def.push(...this.generator.generateStaticFunctions(girClass))
-
-        if (girClass._desc?.isDerivedFromGObject) {
-            def.push(`${indent}static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
-        }
-
-        return { def }
     }
 
     public exportEnumeration(girEnum: GirEnumElement) {
@@ -2085,7 +2059,7 @@ export class GirModule {
                 // TODO: Records have fields
 
                 // Static side: default constructor
-                def.push(...this.generateConstructorAndstaticFunctions(girClass).def)
+                def.push(...this.generator.generateConstructorAndStaticFunctions(girClass).def)
             }
             // END BODY
 

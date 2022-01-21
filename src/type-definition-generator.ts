@@ -25,7 +25,7 @@ import { Environment } from './types/environment.js'
 import { Logger } from './logger.js'
 import { generateIndent } from './utils.js'
 import { inspect } from 'util'
-
+import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 export default class TypeDefinitionGenerator implements Generator {
     protected log: Logger
     constructor(protected readonly config: GenerateConfig) {
@@ -608,6 +608,55 @@ export default class TypeDefinitionGenerator implements Generator {
         def.push(...this.generateFunctions(girClass._desc.staticFunctions))
 
         return def
+    }
+
+    public generateConstructorAndStaticFunctions(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        indentCount = 1,
+    ) {
+        const indent = generateIndent(indentCount)
+        const def: string[] = []
+
+        if (!girClass._desc) {
+            throw new Error('[generateConstructorAndStaticFunctions] Not all required methods set!')
+        }
+
+        // TODO: move this to gir-module?
+        if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
+            // Records, classes and interfaces all have a static name
+            def.push(`${indent}static name: string`)
+        }
+
+        // JS constructor(s)
+        if (girClass._desc?.isDerivedFromGObject) {
+            // TODO: move this to gir-module? See GirModule.getClassConstructorsDesc
+            def.push(
+                `${indent}constructor (config?: ${girClass._desc?.constructPropInterfaceName})`,
+                `${indent}_init (config?: ${girClass._desc?.constructPropInterfaceName}): void`,
+            )
+        } else {
+            const girConstructorFuncs = girClass._desc.constructors
+
+            for (const girConstructorFunc of girConstructorFuncs) {
+                if (!girConstructorFunc._desc?.desc) continue
+
+                def.push(...girConstructorFunc._desc.desc)
+
+                const jsStyleCtor = girConstructorFunc._desc.desc[0]
+                    .replace('static new', 'constructor')
+                    .replace(/:[^:]+$/, '')
+
+                def.push(jsStyleCtor)
+            }
+        }
+
+        def.push(...this.generateStaticFunctions(girClass))
+
+        if (girClass._desc?.isDerivedFromGObject && girClass._module) {
+            def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
+        }
+
+        return { def }
     }
 
     public async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {

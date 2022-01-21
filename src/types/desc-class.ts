@@ -37,6 +37,7 @@ export interface DescClass {
     /** Constructor properties of base class*/
     constructProps: GirPropertyElement[]
     methods: GirMethodElement[]
+    constructors: GirConstructorElement[]
     staticFunctions: Array<GirFunctionElement | GirConstructorElement>
 
     extends: {

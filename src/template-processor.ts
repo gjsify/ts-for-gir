@@ -100,14 +100,16 @@ export class TemplateProcessor {
     ) {
         const ident = this.generateIndent(identCount)
         const def: string[] = []
+
+        const objParam = this.config.environment === 'node' ? '' : `$obj: ${clsName}${paramComma}`
         def.push(
-            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+            `${ident}connect(sigName: "${sigName}", callback: ((${objParam}${params.join(
                 ', ',
             )}) => ${retType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
-                `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params.join(
+                `${ident}connect_after(sigName: "${sigName}", callback: ((${objParam}${params.join(
                     ', ',
                 )}) => ${retType})): number`,
             )

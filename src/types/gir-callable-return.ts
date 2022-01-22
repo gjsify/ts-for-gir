@@ -19,4 +19,7 @@ export interface GirCallableReturn extends PartOfClass, GirAnyType, GirDocElemen
         /** Deprecated. Replaced by nullable and optional */
         'allow-none'?: GirBoolean
     } & Partial<GirTransferOwnership>
+
+    // CUSTOM
+    _type: 'callable-return'
 }

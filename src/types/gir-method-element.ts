@@ -21,5 +21,7 @@ export interface GirMethodElement extends PartOfClass, GirDocElement {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 
+    // CUSTOM
+    _type: 'method'
     _desc?: DescFunction
 }

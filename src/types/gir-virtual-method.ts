@@ -6,4 +6,8 @@ export interface GirVirtualMethodElement extends GirFunctionElement {
             /** name of the callable called when invoking this virtual method */
             invoker?: string
         }
+
+    // CUSTOM
+
+    _type: 'virtual-method'
 }

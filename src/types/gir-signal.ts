@@ -38,6 +38,6 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
      * The class this function is defined in
      */
     _class?: GirClassElement | GirRecordElement | GirInterfaceElement
-
+    _type: 'signal'
     _desc?: DescSignal
 }

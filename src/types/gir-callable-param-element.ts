@@ -42,5 +42,6 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
     varargs?: GirVarArgs[]
 
     // CUSTOM
+    _type: 'callable-param'
     _desc?: DescParameter
 }

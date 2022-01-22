@@ -6,6 +6,7 @@ import type {
     GirCallableParams,
     GirCallableReturn,
     DescFunction,
+    TypeFunction,
 } from '.'
 
 export interface GirFunctionElement extends PartOfClass, GirDocElement {
@@ -16,6 +17,6 @@ export interface GirFunctionElement extends PartOfClass, GirDocElement {
     'return-value'?: GirCallableReturn[]
 
     // CUSTOM
-
+    _type: TypeFunction
     _desc?: DescFunction
 }

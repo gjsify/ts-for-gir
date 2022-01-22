@@ -76,7 +76,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${exp}${type} ${name}${definition}`
     }
 
-    public generateProperty(girProp: GirPropertyElement, indentCount = 0) {
+    public generateProperty(girProp: GirPropertyElement | GirFieldElement, indentCount = 0) {
         if (!girProp._desc) {
             this.log.error('girProp', inspect(girProp))
             throw new Error('[generateProperty] Not all required properties set!')
@@ -84,7 +84,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(girProp)[0]
-        const prefix = girProp._desc.readonly ? '' : 'readonly '
+        const prefix = (girProp as GirPropertyElement)._desc?.readonly ? '' : 'readonly '
 
         return [`${indent}${prefix}${varDesc}`]
     }

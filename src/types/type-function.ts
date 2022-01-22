@@ -1,4 +1,4 @@
-export type FunctionType =
+export type TypeFunction =
     | 'virtual-method'
     | 'signal'
     | 'function'

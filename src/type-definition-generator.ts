@@ -110,10 +110,34 @@ export default class TypeDefinitionGenerator implements Generator {
         return [`${name}${affix}: ${type}`]
     }
 
+    /**
+     * Generates signals from all properties of a base class
+     * TODO: Build new GirSignalElements instead of generate the strings directly
+     * @param girClass
+     * @param callbackObjectName
+     * @returns
+     */
+    public generateSignalMethodsFromProperties(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        namespace: string,
+    ) {
+        const def: string[] = []
+
+        if (girClass._desc?.isDerivedFromGObject) {
+            let namespacePrefix = 'GObject.'
+            if (namespace === 'GObject') namespacePrefix = ''
+            for (const prop of girClass._desc.propertyNames) {
+                def.push(...this.generateGObjectSignalMethods(prop, girClass._desc.name, namespacePrefix))
+            }
+            def.push(...this.generateGeneralSignalMethods(this.config.environment))
+        }
+        return def
+    }
+
     public generateSignalMethods(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        indentCount = 1,
+        indentCount = 0,
     ) {
         if (!girSignalFunc._desc || !girClass._desc) {
             this.log.error('girSignalFunc', inspect(girSignalFunc))
@@ -707,6 +731,53 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         return { def }
+    }
+
+    private _generateClassSignals(versionFullSymName: string, girSignals: GirSignalElement[], indentCount = 1) {
+        const def: string[] = []
+        const indent = generateIndent(indentCount)
+        if (girSignals.length > 0) {
+            def.push(`${indent}/* Signals of ${versionFullSymName} */`)
+            for (const girSignal of girSignals) {
+                if (girSignal._desc?.desc) {
+                    for (const curDesc of girSignal._desc.desc) {
+                        def.push(`${indent}${curDesc}`)
+                    }
+                }
+            }
+        }
+        return def
+    }
+
+    public generateClassSignals(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+        const def: string[] = []
+        if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
+            throw new Error('[generateClassSignals] Not all required methods set!')
+        }
+
+        def.push(
+            ...this._generateClassSignals(
+                girClass._module.packageName + '.' + girClass._fullSymName,
+                girClass._desc.signals,
+            ),
+        )
+
+        for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
+            def.push(
+                ...this._generateClassSignals(versionFullSymName, girClass._desc.extends[versionFullSymName].signals),
+            )
+        }
+
+        for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
+            def.push(
+                ...this._generateClassSignals(
+                    versionFullSymName,
+                    girClass._desc.implements[versionFullSymName].signals,
+                ),
+            )
+        }
+
+        return def
     }
 
     public async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {

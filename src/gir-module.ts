@@ -1345,6 +1345,34 @@ export class GirModule {
         return girVMethods
     }
 
+    /**
+     *
+     * @param girClass This is the class / interface the `parentClass` implements signals from
+     * @param girParentClass The main class which implements the signals from `girClass`
+     * @returns
+     */
+    private getClassSignalsDesc(
+        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        girParentClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+    ) {
+        const girSignals: GirSignalElement[] = []
+        if (!girParentClass._desc) {
+            this.log.warn('girParentClass._desc not set!')
+        }
+
+        const signals: GirSignalElement[] =
+            (girClass as GirClassElement | GirInterfaceElement).signal ||
+            (girClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
+            []
+        if (signals) {
+            for (const signal of signals) {
+                signal._desc = this.setSignalFuncDesc(signal, girParentClass)
+                girSignals.push(signal)
+            }
+        }
+        return girSignals
+    }
+
     private setClassBaseDesc(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
         if (!girClass?.$?.name) return undefined
 
@@ -1408,10 +1436,12 @@ export class GirModule {
             fields: [],
             properties: [],
             constructProps: [],
+            propertyNames: [],
             methods: [],
             virtualMethods: [],
             constructors: [],
             staticFunctions: [],
+            signals: [],
             extends: {},
             implements: {},
         }
@@ -1458,6 +1488,7 @@ export class GirModule {
         girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
         girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
         girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass))
+        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1478,6 +1509,7 @@ export class GirModule {
                 properties: [],
                 methods: [],
                 virtualMethods: [],
+                signals: [],
             }
 
             girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, girClass._desc.localNames))
@@ -1486,6 +1518,7 @@ export class GirModule {
             )
             girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
             girClass._desc.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
+            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass))
         })
 
         // Copy properties from implemented interface
@@ -1506,6 +1539,7 @@ export class GirModule {
                 properties: [],
                 constructProps: [],
                 methods: [],
+                signals: [],
             }
 
             if (girClass._desc.isDerivedFromGObject) {
@@ -1518,7 +1552,10 @@ export class GirModule {
                 ...this.getClassPropertiesDesc(iface, girClass._desc.localNames),
             )
             girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, girClass._desc.localNames))
+            girClass._desc.implements[key].signals.push(...this.getClassSignalsDesc(iface, girClass))
         })
+
+        girClass._desc.propertyNames.push(...this.getClassPropertyNames(girClass))
 
         return girClass._desc
     }
@@ -1942,24 +1979,6 @@ export class GirModule {
         return this.getOverloadableMethodsDesc(girClass, getter, true)
     }
 
-    private generateSignalMethods(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        callbackObjectName: string,
-    ) {
-        const def: string[] = []
-        const propertyNames = this.getClassPropertyNames(girClass)
-
-        if (girClass._desc?.isDerivedFromGObject) {
-            let namespacePrefix = 'GObject.'
-            if (this.namespace === 'GObject') namespacePrefix = ''
-            for (const prop of propertyNames) {
-                def.push(...this.generator.generateGObjectSignalMethods(prop, callbackObjectName, namespacePrefix))
-            }
-            def.push(...this.generator.generateGeneralSignalMethods(this.config.environment))
-        }
-        return { def }
-    }
-
     /**
      * Static methods, <constructor> and <function>
      * @param girClass
@@ -2039,15 +2058,14 @@ export class GirModule {
                 // Methods
                 def.push(...this.generator.generateClassMethods(girClass))
 
-                // Methods
+                // Virtual methods
                 def.push(...this.generator.generateVirtualMethods(girClass))
 
-                // Copy signals from inheritance tree
-                this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, girClass).def))
-                // Copy signals from implemented interfaces
-                this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, girClass).def))
+                // Signals
+                def.push(...this.generator.generateClassSignals(girClass))
 
-                def.push(...this.generateSignalMethods(girClass, girClass._desc.name).def)
+                // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
+                def.push(...this.generator.generateSignalMethodsFromProperties(girClass, this.namespace))
 
                 // TODO: Records have fields
 

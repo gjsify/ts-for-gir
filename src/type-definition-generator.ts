@@ -635,7 +635,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private _generateVirtualMethods(versionFullSymName: string, girMethods: GirVirtualMethodElement[]) {
+    private _generateClassVirtualMethods(versionFullSymName: string, girMethods: GirVirtualMethodElement[]) {
         const def: string[] = []
         if (girMethods.length > 0) {
             def.push(`    /* Virtual methods of ${versionFullSymName} */`)
@@ -654,7 +654,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * Instance methods, vfunc_ prefix
      * @param girClass
      */
-    public generateVirtualMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassVirtualMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateStaticFunctions] Not all required methods set!')
@@ -666,7 +666,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this._generateVirtualMethods(
+            ...this._generateClassVirtualMethods(
                 girClass._module.packageName + '.' + girClass._fullSymName,
                 girClass._desc.virtualMethods,
             ),
@@ -674,7 +674,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
             def.push(
-                ...this._generateVirtualMethods(
+                ...this._generateClassVirtualMethods(
                     versionFullSymName,
                     girClass._desc.extends[versionFullSymName].virtualMethods,
                 ),
@@ -695,7 +695,7 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error('[generateConstructorAndStaticFunctions] Not all required methods set!')
         }
 
-        // TODO: move this to gir-module?
+        // TODO: Generate a GirPropertyElement for this
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
             // Records, classes and interfaces all have a static name
             def.push(`${indent}static name: string`)
@@ -703,7 +703,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // JS constructor(s)
         if (girClass._desc?.isDerivedFromGObject) {
-            // TODO: move this to gir-module? See GirModule.getClassConstructorsDesc
+            // TODO: Generate a GirConstructorElements for this
             def.push(
                 `${indent}constructor (config?: ${girClass._desc?.constructPropInterfaceName})`,
                 `${indent}_init (config?: ${girClass._desc?.constructPropInterfaceName}): void`,
@@ -716,6 +716,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
                 def.push(...girConstructorFunc._desc.desc)
 
+                // TODO: Generate a static GirMethodElement for this
                 const jsStyleCtor = girConstructorFunc._desc.desc[0]
                     .replace('static new', 'constructor')
                     .replace(/:[^:]+$/, '')
@@ -775,6 +776,61 @@ export default class TypeDefinitionGenerator implements Generator {
                     girClass._desc.implements[versionFullSymName].signals,
                 ),
             )
+        }
+
+        return def
+    }
+
+    /**
+     * Represents a record or GObject class or interface as a Typescript class
+     * @param girClass
+     * @param record
+     */
+    public generateClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement, namespace: string) {
+        const def: string[] = []
+
+        if (!girClass._desc) return def
+
+        // Properties for construction
+        def.push(...this.generateConstructPropsInterface(girClass))
+
+        // START CLASS
+        {
+            if (girClass._desc.isAbstract) {
+                def.push(this.generateExport('abstract class', girClass._desc.name, '{'))
+            } else {
+                def.push(this.generateExport('class', girClass._desc.name, '{'))
+            }
+
+            // START BODY
+            {
+                // Properties
+                def.push(...this.generateClassProperties(girClass))
+
+                // Fields
+                def.push(...this.generateClassFields(girClass))
+
+                // Methods
+                def.push(...this.generateClassMethods(girClass))
+
+                // Virtual methods
+                def.push(...this.generateClassVirtualMethods(girClass))
+
+                // Signals
+                def.push(...this.generateClassSignals(girClass))
+
+                // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
+                def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+
+                // TODO: Records have fields
+
+                // Static side: default constructor
+                def.push(...this.generateConstructorAndStaticFunctions(girClass).def)
+            }
+            // END BODY
+
+            // END CLASS
+            def.push('}')
         }
 
         return def

@@ -2027,60 +2027,11 @@ export class GirModule {
      */
     public _exportClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement, record = false) {
         const def: string[] = []
-        const localNames: LocalNames = {}
-
         girClass._desc = this.setClassDesc(girClass, record)
-
-        if (!girClass._desc)
-            return {
-                def: [],
-            }
-
-        // Properties for construction
-        def.push(...this.generator.generateConstructPropsInterface(girClass))
-
-        // START CLASS
-        {
-            if (girClass._desc.isAbstract) {
-                def.push(this.generator.generateExport('abstract class', girClass._desc.name, '{'))
-            } else {
-                def.push(this.generator.generateExport('class', girClass._desc.name, '{'))
-            }
-
-            // START BODY
-            {
-                // Properties
-                def.push(...this.generator.generateClassProperties(girClass))
-
-                // Fields
-                def.push(...this.generator.generateClassFields(girClass))
-
-                // Methods
-                def.push(...this.generator.generateClassMethods(girClass))
-
-                // Virtual methods
-                def.push(...this.generator.generateVirtualMethods(girClass))
-
-                // Signals
-                def.push(...this.generator.generateClassSignals(girClass))
-
-                // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
-                def.push(...this.generator.generateSignalMethodsFromProperties(girClass, this.namespace))
-
-                // TODO: Records have fields
-
-                // Static side: default constructor
-                def.push(...this.generator.generateConstructorAndStaticFunctions(girClass).def)
-            }
-            // END BODY
-
-            // END CLASS
-            def.push('}')
-        }
+        def.push(...this.generator.generateClass(girClass, this.namespace))
 
         return {
             def,
-            localNames,
         }
     }
 

@@ -97,6 +97,7 @@ export class TemplateProcessor {
         params: string[],
         retType: string,
         identCount = 1,
+        emitable = true,
     ) {
         const ident = this.generateIndent(identCount)
         const def: string[] = []
@@ -125,7 +126,11 @@ export class TemplateProcessor {
                 `${ident}off(sigName: "${sigName}", callback: (${params.join(', ')}) => void): NodeJS.EventEmitter`,
             )
         }
-        def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params.join(', ')}): void`)
+
+        if (emitable) {
+            def.push(`${ident}emit(sigName: "${sigName}"${paramComma}${params.join(', ')}): void`)
+        }
+
         return {
             def,
         }
@@ -137,22 +142,19 @@ export class TemplateProcessor {
         namespacePrefix: string,
         identCount = 1,
     ): string[] {
-        const result: string[] = []
-        const ident = this.generateIndent(identCount)
-        result.push(
-            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-        )
-        result.push()
-        if (this.config.environment === 'node') {
-            result.push(
-                `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${ident}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-        }
-
-        return result
+        return this.generateSignalMethods(
+            /* sigName */ `notify::${propertyName}`,
+            callbackObjectName,
+            /* paramComma */ ', ',
+            /* params */ [
+                this.config.environment === 'node'
+                    ? '...args: any[]' // TODO: figure out what node-gtk provides in this case
+                    : `pspec: ${namespacePrefix}ParamSpec`,
+            ],
+            /* retType */ 'void',
+            identCount,
+            /* emitable */ false,
+        ).def
     }
 
     public generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {

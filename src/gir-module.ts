@@ -65,8 +65,6 @@ import type {
     DescParameter,
 } from './types/index.js'
 
-import { MAXIMUM_RECURSION_DEPTH } from './constants.js'
-
 export class GirModule {
     /**
      * Array of all gir modules
@@ -1033,18 +1031,11 @@ export class GirModule {
         if (!girProp._desc?.name) {
             return undefined
         }
-        let origName: string | null = null
-
-        if (girProp.$.name) {
-            // TODO: does that make sense here? This also changes the signal names
-            origName = this.transformation.transformTypeName(girProp.$.name)
-        }
 
         girProp._desc = {
             ...girProp._desc,
             desc: null,
             readonly,
-            origName,
         }
 
         girProp._desc.desc = this.generator.generateProperty(girProp, indentCount)
@@ -1181,11 +1172,10 @@ export class GirModule {
         if (!memberName) {
             return undefined
         }
-        const transName = this.transformation.transformEnumMember(memberName)
+        const name = this.transformation.transformEnumMember(memberName)
         girEnumMember._desc = {
             desc: null,
-            name: transName,
-            origName: memberName,
+            name,
         }
         girEnumMember._desc.desc = this.generator.generateEnumerationMember(girEnumMember, indentCount)
         return girEnumMember._desc
@@ -1196,12 +1186,10 @@ export class GirModule {
 
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         const name = this.transformation.transformEnumName(girEnum)
-        const origName = `${girEnum.$.name}`
 
         girEnum._desc = {
             desc: null,
             name,
-            origName,
         }
 
         if (girEnum.member) {
@@ -1436,8 +1424,8 @@ export class GirModule {
 
         if (girProperties.length > 0) {
             for (const girProperty of girProperties) {
-                if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                    propertyNames.push(girProperty._desc.origName)
+                if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                    propertyNames.push(girProperty.$.name)
                 }
             }
         }
@@ -1446,8 +1434,8 @@ export class GirModule {
             const girProperties = girClass._desc.extends[fullSymName]?.properties
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
-                    if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                        propertyNames.push(girProperty._desc.origName)
+                    if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                        propertyNames.push(girProperty.$.name)
                     }
                 }
             }
@@ -1458,8 +1446,8 @@ export class GirModule {
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
                     if (girProperty._desc?.desc) {
-                        if (girProperty._desc?.origName && !propertyNames.includes(girProperty._desc.origName)) {
-                            propertyNames.push(girProperty._desc.origName)
+                        if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                            propertyNames.push(girProperty.$.name)
                         }
                     }
                 }
@@ -1634,7 +1622,6 @@ export class GirModule {
 
     private setClassDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        record = false,
     ): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
@@ -1658,7 +1645,8 @@ export class GirModule {
         }
 
         // TODO: Can't export fields for GObjects because names would clash
-        if (record) girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
+        if (girClass._type === 'record')
+            girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
@@ -1775,12 +1763,8 @@ export class GirModule {
 
         callback(girClass)
 
-        if (depth >= MAXIMUM_RECURSION_DEPTH) {
-            this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECURSION_DEPTH} reached for "${name}"`)
-        } else {
-            if (parentPtr && recursive) {
-                this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
-            }
+        if (parentPtr && recursive) {
+            this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
         }
     }
 
@@ -2103,17 +2087,17 @@ export class GirModule {
         )
         // Check for overloads among all inherited methods
         let bottom = true
-        this.traverseInheritanceTree(girClass, (e) => {
+        this.traverseInheritanceTree(girClass, (cls) => {
             if (bottom) {
                 bottom = false
                 return
             }
             if (statics) {
-                const funcs = getMethodsDesc(e)
+                const funcs = getMethodsDesc(cls)
                 this.addOverloadableFunctions(fnMap, explicits, funcs, false)
             } else {
                 let self = true
-                this.forEachInterfaceAndSelf(e, (iface) => {
+                this.forEachInterfaceAndSelf(cls, (iface) => {
                     if (self || this.interfaceIsDuplicate(girClass, iface)) {
                         const funcs = getMethodsDesc(iface)
                         this.addOverloadableFunctions(fnMap, explicits, funcs, false)
@@ -2180,14 +2164,10 @@ export class GirModule {
     /**
      * Represents a record or GObject class or interface as a Typescript class
      * @param girClass
-     * @param record
      */
-    public _exportClass(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        record = false,
-    ) {
+    public exportClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         const def: string[] = []
-        girClass._desc = this.setClassDesc(girClass, record)
+        girClass._desc = this.setClassDesc(girClass)
         def.push(...this.generator.generateClass(girClass, this.namespace))
 
         return {
@@ -2212,22 +2192,6 @@ export class GirModule {
         return {
             def: girAlias._desc?.desc || [],
         }
-    }
-
-    public exportRecord(girRecord: GirRecordElement) {
-        return this._exportClass(girRecord, true)
-    }
-
-    public exportUnion(girUnion: GirUnionElement) {
-        return this._exportClass(girUnion, true)
-    }
-
-    public exportClass(girClass: GirClassElement | GirInterfaceElement) {
-        return this._exportClass(girClass, false)
-    }
-
-    public exportInterface(girIface: GirInterfaceElement) {
-        return this._exportClass(girIface, false)
     }
 
     // TODO: Move to TypeDefinitionGenerator
@@ -2291,7 +2255,7 @@ export class GirModule {
 
             if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallbackInterface(cb).def)
 
-            if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportInterface(iface).def)
+            if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClass(iface).def)
 
             // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
@@ -2303,9 +2267,9 @@ export class GirModule {
 
             if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClass(cls).def)
 
-            if (this.ns.record) for (const girRecord of this.ns.record) out.push(...this.exportRecord(girRecord).def)
+            if (this.ns.record) for (const girRecord of this.ns.record) out.push(...this.exportClass(girRecord).def)
 
-            if (this.ns.union) for (const girUnion of this.ns.union) out.push(...this.exportUnion(girUnion).def)
+            if (this.ns.union) for (const girUnion of this.ns.union) out.push(...this.exportClass(girUnion).def)
 
             if (this.ns.alias)
                 // GType is not a number in GJS

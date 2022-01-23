@@ -3,17 +3,14 @@
  * For example, the signal methods are generated here
  */
 
-import fs from 'fs'
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
 import type { GenerateConfig } from './types/index.js'
-import { ESLint } from 'eslint'
-import esLintConfig from './eslint-config.js'
+import prettier from 'prettier'
 import { __dirname, getEnvironmentDir } from './utils.js'
-
-const lint = new ESLint(esLintConfig)
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -40,7 +37,7 @@ export class TemplateProcessor {
      * @param templateFilename
      */
     public async load(templateFilename: string): Promise<string> {
-        const fileContent = this.read(templateFilename)
+        const fileContent = await this.read(templateFilename)
         return await this.render(fileContent)
     }
 
@@ -54,33 +51,37 @@ export class TemplateProcessor {
     public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
         const fileContent = await this.load(templateFilename)
         const renderedCode = await this.render(fileContent)
-        const destPath = await this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.config.pretty ? await this.prettify(destPath, true) : null
+        const destPath = this.getDestPath(outputDir, outputFilename)
+        const prettifiedCode = this.config.pretty ? this.prettifySource(renderedCode, destPath) : null
+        await this.write(renderedCode, outputDir, outputFilename)
         return prettifiedCode || renderedCode
     }
 
-    protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
+    protected getDestPath(outputDir: string, outputFilename: string) {
         const outputEnvDir = getEnvironmentDir(this.config.environment, outputDir)
         const destPath = Path.join(outputEnvDir, outputFilename)
+        return destPath
+    }
+
+    protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
+        const destPath = this.getDestPath(outputDir, outputFilename)
 
         // write template result file
-        await fs.promises.mkdir(outputDir, { recursive: true })
-        await fs.promises.writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
+        mkdirSync(outputDir, { recursive: true })
+        writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
 
-        return destPath
+        return Promise.resolve(destPath)
     }
 
     protected async render(templateString: string, additionalData: Partial<ejs.Options> = {}): Promise<string> {
         try {
-            const renderedCode = await Promise.resolve(
-                ejs.render(templateString, {
-                    async: true,
-                    ...this.config,
-                    ...this.data,
-                    ...additionalData,
-                }),
-            )
-            return renderedCode
+            const renderedCode = ejs.render(templateString, {
+                async: true,
+                ...this.config,
+                ...this.data,
+                ...additionalData,
+            })
+            return Promise.resolve(renderedCode)
         } catch (error) {
             this.log.error(error)
             return ''
@@ -95,56 +96,59 @@ export class TemplateProcessor {
     public exists(templateFilename: string): string | null {
         const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, templateFilename)
         const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, templateFilename)
-        if (fs.existsSync(fullEnvironmentTemplatePath)) {
+        if (existsSync(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath
         }
-        if (fs.existsSync(fullGeneralTemplatePath)) {
+        if (existsSync(fullGeneralTemplatePath)) {
             return fullGeneralTemplatePath
         }
         return null
     }
 
+    public prettifySource(source: string, filepath: string) {
+        let prettyCode: string | null = null
+        this.log.info(`   Prettify ${Path.basename(filepath)}...`)
+        let parser: prettier.LiteralUnion<prettier.BuiltInParserName, string> | prettier.CustomParser | undefined =
+            undefined
+        if (filepath.endsWith('.ts')) {
+            parser = 'typescript'
+        } else if (filepath.endsWith('.js')) {
+            parser = 'espree'
+        }
+        try {
+            prettyCode = prettier.format(source, { parser })
+        } catch (error) {
+            this.log.warn(`Can't prettify file: "${filepath}".`)
+            this.log.warn(error)
+        }
+
+        return prettyCode
+    }
+
     public async prettify(path: string, changeFile = false): Promise<string | null> {
         let hasError = false
-        let reports: ESLint.LintResult[] | undefined
-        let prettifiedCode: string | null = null
+        let prettyCode: string | null = null
         const filename = Path.basename(path)
         this.log.info(`   Prettify ${filename}...`)
         try {
-            reports = await lint.lintFiles([path])
+            const source = readFileSync(Path.resolve('.', path), 'utf8')
+            prettyCode = this.prettifySource(source, path)
         } catch (error) {
             this.log.warn(error)
             hasError = true
         }
 
-        if (reports && reports[0].errorCount > 0) {
-            hasError = true
-        }
-
-        prettifiedCode = (reports && reports[0]?.output) || null
-
         if (hasError) {
-            if (!prettifiedCode) {
+            if (!prettyCode) {
                 this.log.warn(`Can't prettify file: "${path}".`)
-                if (reports) {
-                    // this.log.dir(report)
-                    reports?.forEach((result) => {
-                        if (result.messages) {
-                            for (const message of result.messages) {
-                                // You can also log more than just the message if you need more information
-                                this.log.warn(message.message)
-                            }
-                        }
-                    })
-                }
             }
         } else {
-            if (prettifiedCode && changeFile) {
-                await this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
+            if (prettyCode && changeFile) {
+                await this.write(prettyCode, Path.dirname(path), Path.basename(path))
             }
         }
 
-        return prettifiedCode
+        return prettyCode
     }
 
     /**
@@ -152,10 +156,10 @@ export class TemplateProcessor {
      * @param templateFilename
      * @return The raw template content
      */
-    protected read(templateFilename: string): string {
+    protected async read(templateFilename: string) {
         const path = this.exists(templateFilename)
         if (path) {
-            return fs.readFileSync(path, 'utf8')
+            return Promise.resolve(readFileSync(path, 'utf8'))
         }
         throw new Error(`Template '${templateFilename}' not found'`)
     }

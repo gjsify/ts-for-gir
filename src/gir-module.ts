@@ -1747,7 +1747,7 @@ export class GirModule {
         if (!girClass.$.name) return
         if (!girClass._desc) girClass._desc = this.setClassDesc(girClass)
         if (!girClass._desc) return
-        const { parentName, qualifiedParentName, name } = girClass._desc
+        const { parentName, qualifiedParentName } = girClass._desc
 
         let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
 
@@ -2288,12 +2288,14 @@ export class GirModule {
             out.push(`export default ${this.namespace};`)
         }
 
-        // End of file
-        outStream.write(out.join('\n'))
+        let outResult = out.join('\n')
 
         if (outputPath && this.config.pretty) {
-            await this.templateProcessor.prettify(outputPath)
+            outResult = this.templateProcessor.prettifySource(outResult, outputPath) || outResult
         }
+
+        // End of file
+        outStream.write(outResult)
     }
 
     // TODO: This method should in the future only prepare all types and not export anything.

@@ -17,7 +17,9 @@ import type {
     GirUnionElement,
     GirModulesGrouped,
     GirMethodElement,
+    GirRecordElement,
     GirVirtualMethodElement,
+    GirBitfieldElement,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -118,7 +120,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @returns
      */
     public generateSignalMethodsFromProperties(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
         const def: string[] = []
@@ -136,7 +138,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
     public generateSignalMethods(
         girSignalFunc: GirSignalElement,
-        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         indentCount = 0,
     ) {
         if (!girSignalFunc._desc || !girClass._desc) {
@@ -374,7 +376,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateEnumeration(girEnum: GirEnumElement) {
+    public generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement) {
         if (!girEnum._desc) {
             this.log.error('girEnum', inspect(girEnum))
             throw new Error('[generateEnumeration] Not all required properties set!')
@@ -444,7 +446,9 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateConstructPropsInterface(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateConstructPropsInterface(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
@@ -499,7 +503,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassFields(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassFields(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassFields] Not all required properties set!')
@@ -535,7 +539,9 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassProperties(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassProperties(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassProperties] Not all required properties set!')
@@ -584,7 +590,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassMethods] Not all required methods set!')
@@ -620,7 +626,9 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param name
      */
-    public generateStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement) {
+    public generateStaticFunctions(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
         const def: string[] = []
         if (!girClass._desc) {
             throw new Error('[generateStaticFunctions] Not all required methods set!')
@@ -654,7 +662,9 @@ export default class TypeDefinitionGenerator implements Generator {
      * Instance methods, vfunc_ prefix
      * @param girClass
      */
-    public generateClassVirtualMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassVirtualMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateStaticFunctions] Not all required methods set!')
@@ -685,7 +695,7 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateConstructorAndStaticFunctions(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         indentCount = 1,
     ) {
         const indent = generateIndent(indentCount)
@@ -750,7 +760,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassSignals(girClass: GirClassElement | GirUnionElement | GirInterfaceElement) {
+    public generateClassSignals(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassSignals] Not all required methods set!')
@@ -786,7 +796,10 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param record
      */
-    public generateClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement, namespace: string) {
+    public generateClass(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+    ) {
         const def: string[] = []
 
         if (!girClass._desc) return def

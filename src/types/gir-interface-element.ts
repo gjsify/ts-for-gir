@@ -13,6 +13,7 @@ import {
     GirSignalElement,
     PartOfModule,
     DescClass,
+    TypeClass,
 } from '.'
 
 export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
@@ -50,6 +51,6 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     constant?: GirConstantElement[]
 
     // CUSTOM
-
+    _type?: TypeClass
     _desc?: DescClass
 }

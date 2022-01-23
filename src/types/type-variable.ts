@@ -1,1 +1,1 @@
-export type TypeVariable = 'property' | 'constructor-property' | 'field' | 'constant'
+export type TypeVariable = 'constant'

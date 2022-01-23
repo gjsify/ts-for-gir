@@ -10,7 +10,7 @@ import {
     GenerateConfig,
     GirCallableParamElement,
     GirEnumElement,
-    // GirMemberElement,
+    GirBitfieldElement,
 } from './types/index.js'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
@@ -329,7 +329,7 @@ export class Transformation {
      * @param e The enum
      * @returns The transformed name
      */
-    public transformEnumName(girEnum: GirEnumElement): string {
+    public transformEnumName(girEnum: GirEnumElement | GirBitfieldElement): string {
         let name = girEnum.$.name
         name = this.transform('enumName', name)
         const originalName = `${name}`

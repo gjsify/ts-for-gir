@@ -14,6 +14,6 @@ export interface GirConstantElement extends PartOfModule, GirInfoElements, GirAn
     }
 
     // CUSTOM
-    _type: 'constant'
+    _type?: 'constant'
     _desc?: DescVar
 }

@@ -28,6 +28,6 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
     callback?: GirCallbackElement[]
 
     // CUSTOM
-    _type: 'field'
+    _type?: 'field'
     _desc?: DescVar
 }

@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, PartOfModule } from '.'
+import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, DescEnum, PartOfModule } from '.'
 
 export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
     /** element defining a bit field (as in C) */
@@ -15,4 +15,8 @@ export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
 
     member: GirMemberElement[]
     function: GirFunctionElement[]
+
+    // CUSTOM
+    _type?: 'bitfield'
+    _desc?: DescEnum
 }

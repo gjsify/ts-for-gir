@@ -10,6 +10,7 @@ import {
     GirFunctionElement,
     GirVirtualMethodElement,
     GirSignalElement,
+    GirRecordElement,
 } from '.'
 
 export interface DescClass {
@@ -57,7 +58,7 @@ export interface DescClass {
         /** module packageName + full system name of extended class */
         [key: string]: {
             /** The extended class itself */
-            class: GirClassElement | GirUnionElement | GirInterfaceElement
+            class: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
             /** Fields of extended class */
             fields: GirFieldElement[]
             /** Properties of extended class */
@@ -75,7 +76,7 @@ export interface DescClass {
         /** module packageName + full system name of implemented class / interface */
         [key: string]: {
             /** The implemented class / interface itself */
-            interface: GirClassElement | GirUnionElement | GirInterfaceElement
+            interface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
             /** Properties of implemented class / interface */
             properties: GirPropertyElement[]
             /** Constructor properties of implemented class / interface */

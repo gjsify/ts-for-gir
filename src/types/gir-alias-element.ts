@@ -11,5 +11,7 @@ export interface GirAliasElement extends PartOfClass, GirInfoElements {
     /** Other elements an alias can contain */
     type?: GirType[]
 
+    // CUSTOM
+    _type?: 'alias'
     _desc?: DescAlias
 }

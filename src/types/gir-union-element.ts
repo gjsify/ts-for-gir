@@ -32,6 +32,6 @@ export interface GirUnionElement extends PartOfModule, GirInfoElements {
     record?: GirRecordElement[]
 
     // CUSTOM
-
+    _type?: 'union'
     _desc?: DescClass
 }

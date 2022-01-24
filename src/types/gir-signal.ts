@@ -39,5 +39,7 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
      */
     _class?: GirClassElement | GirRecordElement | GirInterfaceElement
     _girType: 'signal'
+    /** Signals are represented in Typescript as multiple event methods */
+    _tsType: 'event-methods'
     _desc?: DescSignal
 }

@@ -50,7 +50,7 @@ export interface DescClass {
     /** Constructor methods of the base class itself */
     constructors: GirConstructorElement[]
     /** Static functions of the base class itself */
-    staticFunctions: Array<GirFunctionElement | GirConstructorElement>
+    staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
     /** Signals of the base class itself */
     signals: GirSignalElement[]
 

@@ -5,7 +5,7 @@ import type {
     PartOfClass,
     GirCallableParams,
     GirCallableReturn,
-    DescFunction,
+    DescMethod,
     TypeFunction,
 } from '.'
 
@@ -18,5 +18,7 @@ export interface GirFunctionElement extends PartOfClass, GirDocElement {
 
     // CUSTOM
     _girType?: TypeFunction
-    _desc?: DescFunction
+    /** Functions are usually exported as global functions in typescript, but can also be static functions of a class */
+    _tsType?: 'function' | 'static-function'
+    _desc?: DescMethod
 }

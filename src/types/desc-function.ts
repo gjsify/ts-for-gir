@@ -1,11 +1,11 @@
-import { DescParameter, FunctionPrefix, TypeFunction } from '.'
+import { DescParameter, FunctionPrefix } from '.'
 
 export interface DescFunction {
     desc: string[] | null
     name: string
-    type: TypeFunction
     returnType: string
-    arrowType: boolean
+    isArrowType: boolean
+    isStatic: boolean
     overrideReturnType?: string
     patched: boolean
     retTypeIsVoid: boolean

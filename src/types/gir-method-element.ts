@@ -4,7 +4,7 @@ import {
     GirCallableAttrs,
     GirCallableParams,
     GirCallableReturn,
-    DescFunction,
+    DescMethod,
     PartOfClass,
 } from '.'
 
@@ -23,5 +23,7 @@ export interface GirMethodElement extends PartOfClass, GirDocElement {
 
     // CUSTOM
     _girType?: 'method'
-    _desc?: DescFunction
+    /** Will be exported in Typescript as a `method` of a `class` */
+    _tsType?: 'method'
+    _desc?: DescMethod
 }

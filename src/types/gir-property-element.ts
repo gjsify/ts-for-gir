@@ -28,6 +28,8 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
     } & Partial<GirTransferOwnership>
 
     // CUSTOM
-    _girType?: 'property' | 'constructor-property'
+    _girType?: 'property'
+    /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
+    _tsType?: 'field' | 'constructor-property'
     _desc?: DescProperty
 }

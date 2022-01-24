@@ -70,5 +70,7 @@ export interface GirClassElement extends PartOfModule, GirInfoElements {
 
     // CUSTOM
     _girType?: TypeClass
+    /** Will be exported in Typescript as a `class` */
+    _tsType?: 'class'
     _desc?: DescClass
 }

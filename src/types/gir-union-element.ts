@@ -33,5 +33,7 @@ export interface GirUnionElement extends PartOfModule, GirInfoElements {
 
     // CUSTOM
     _girType?: 'union'
+    /** Will be exported in Typescript as a `class` */
+    _tsType?: 'class'
     _desc?: DescClass
 }

@@ -13,5 +13,7 @@ export interface GirAliasElement extends PartOfClass, GirInfoElements {
 
     // CUSTOM
     _girType?: 'alias'
+    /** Will be exported in Typescript as "type": `export type = ${name} = ${type}` */
+    _tsType?: 'type'
     _desc?: DescAlias
 }

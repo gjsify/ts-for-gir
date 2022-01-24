@@ -18,5 +18,7 @@ export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
 
     // CUSTOM
     _girType?: 'bitfield'
+    /** Will be exported in Typescript as "enumeration": `export enum ${name} { ${memberName}: ${memberType}, ... }` */
+    _tsType?: 'enumeration'
     _desc?: DescEnum
 }

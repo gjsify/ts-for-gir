@@ -15,5 +15,7 @@ export interface GirConstantElement extends PartOfModule, GirInfoElements, GirAn
 
     // CUSTOM
     _girType?: 'constant'
+    /** Will be exported in Typescript as a `constant` */
+    _tsType?: 'constant'
     _desc?: DescVar
 }

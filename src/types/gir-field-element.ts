@@ -29,5 +29,7 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
 
     // CUSTOM
     _girType?: 'field'
+    /** Will be exported in Typescript as a `field` of a `class` */
+    _tsType?: 'field'
     _desc?: DescVar
 }

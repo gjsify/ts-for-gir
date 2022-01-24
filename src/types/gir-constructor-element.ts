@@ -9,5 +9,7 @@ export interface GirConstructorElement extends PartOfClass {
 
     // CUSTOM
     _girType?: 'constructor'
+    /** Will be exported in Typescript as a `static function` of a `class` */
+    _tsType?: 'static-function'
     _desc?: DescFunction
 }

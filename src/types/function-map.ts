@@ -1,2 +1,3 @@
-import { GirFunctionElement, GirConstructorElement, GirVirtualMethodElement } from '.'
-export type FunctionMap<T = GirFunctionElement | GirConstructorElement | GirVirtualMethodElement> = Map<string, T>
+import { GirFunctionElement, GirConstructorElement, GirVirtualMethodElement, GirMethodElement } from '.'
+export type FunctionMap<T = GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement> =
+    Map<string, T>

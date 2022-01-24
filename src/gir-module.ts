@@ -1175,14 +1175,13 @@ export class GirModule {
     private setConstructorFunctionDesc(
         name: string,
         girConstructorFunc: GirConstructorElement,
-        prefix: FunctionPrefix = '',
         indentCount = 0,
     ): DescFunction | undefined {
         return this.setFunctionDesc(
             girConstructorFunc,
             'constructor',
-            prefix,
-            /* isStatic */ false,
+            'static ',
+            /* isStatic */ true,
             /* overrideReturnType */ name,
             /* isArrowType */ false,
             indentCount,
@@ -1340,30 +1339,37 @@ export class GirModule {
     private getStaticConstructors(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         girChildClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        filter?: (funcName: string) => boolean,
+        useReference = true,
     ): GirConstructorElement[] {
-        const girConstructors = girClass.constructor
-        if (!Array.isArray(girConstructors) || !girClass._desc) {
-            return []
-        }
-        let ctors = girConstructors
-            .map((girConstructor) => {
-                if (!girChildClass._desc?.name) {
-                    throw new Error('girClass._desc.name not set!')
-                }
-                girConstructor._desc = this.setConstructorFunctionDesc(
-                    girChildClass._desc?.name,
-                    girConstructor,
-                    'static ',
-                    0,
-                )
-                return girConstructor
-            })
-            .filter((girConstructor) => girConstructor?._desc?.name)
+        const constructors = girClass.constructor
+        const girConstructors: GirConstructorElement[] = []
 
-        if (filter)
-            ctors = ctors.filter((girConstructor) => girConstructor?._desc?.name && filter(girConstructor?._desc?.name))
-        return ctors
+        if (!girChildClass._desc?.name) {
+            throw new Error('girClass._desc.name not set!')
+        }
+
+        if (!Array.isArray(constructors) || !girClass._desc) {
+            return girConstructors
+        }
+
+        for (const _girConstructor of constructors) {
+            let girConstructor: GirConstructorElement
+            if (useReference) {
+                girConstructor = _girConstructor
+            } else {
+                girConstructor = clone(_girConstructor)
+            }
+
+            girConstructor._desc = this.setConstructorFunctionDesc(girChildClass._desc?.name, girConstructor, 0)
+
+            if (!girConstructor?._desc?.name) {
+                continue
+            }
+
+            girConstructors.push(girConstructor)
+        }
+
+        return girConstructors
     }
 
     /**
@@ -1537,21 +1543,21 @@ export class GirModule {
         if (girClass._desc?.isDerivedFromGObject) {
             // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
         } else {
-            const girConstructorFuncs = (girClass['constructor'] || []) as GirConstructorElement[]
-            if (Array.isArray(girConstructorFuncs)) {
-                for (const girConstructorFunc of girConstructorFuncs) {
+            const constructors = girClass.constructor
+            if (Array.isArray(constructors)) {
+                for (const girConstructor of constructors) {
                     if (!girClass._desc?.name) continue
-                    girConstructorFunc._desc = this.setConstructorFunctionDesc(
-                        girClass._desc?.name,
-                        girConstructorFunc,
-                        'static ',
-                        0,
-                    )
-                    if (!girConstructorFunc._desc) continue
-                    if (!girConstructorFunc._desc?.name || !girConstructorFunc._desc.desc) continue
-                    if (girConstructorFunc._desc.name !== 'new') continue
 
-                    girConstructors.push(girConstructorFunc)
+                    girConstructor._desc = this.setConstructorFunctionDesc(girClass._desc?.name, girConstructor, 0)
+
+                    if (
+                        !girConstructor._desc?.name ||
+                        !girConstructor._desc.desc ||
+                        girConstructor._desc.name !== 'new'
+                    )
+                        continue
+
+                    girConstructors.push(girConstructor)
                 }
             }
         }
@@ -1714,7 +1720,7 @@ export class GirModule {
         if (!girClass?.$?.name) return undefined
 
         if (girClass._desc) {
-            // FIXME: We need to overwrite the already defined girClass._desc
+            // TODO: We need to overwrite the already defined girClass._desc
             // this.log.warn('girClass._desc was already set')
         }
 
@@ -1732,6 +1738,10 @@ export class GirModule {
             )
         }
 
+        girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
+        // FIXME: If we use the reference the return type is wrong, if we use not the reference (copy) the static prefix is lost
+        girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass, false))
+
         // TODO: Can't export fields for GObjects because names would clash
         if (girClass._girType === 'record')
             girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
@@ -1739,9 +1749,7 @@ export class GirModule {
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
         girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
-        girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
-        girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass))
-        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, true))
+        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, false))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1928,7 +1936,12 @@ export class GirModule {
      * @param type
      */
     private checkOrSetLocalName(
-        girElement: GirMethodElement | GirPropertyElement | GirFieldElement,
+        girElement:
+            | GirMethodElement
+            | GirPropertyElement
+            | GirFieldElement
+            | GirConstructorElement
+            | GirFunctionElement,
         localNames: LocalNames,
         type: LocalNameType,
     ): LocalNameCheck | null {
@@ -2041,32 +2054,6 @@ export class GirModule {
         return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
     }
 
-    private getOtherStaticFunctions(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ): GirFunctionElement[] {
-        const girFunctions: GirFunctionElement[] = []
-        if (girClass.function) {
-            for (const girFunction of girClass.function) {
-                girFunction._desc = this.setFunctionDesc(
-                    girFunction,
-                    'function',
-                    /* prefix */
-                    'static ',
-                    /* isStatic */
-                    true,
-                    /* overrideReturnType */
-                    null,
-                    /* isArrowType */
-                    false,
-                    /* indentCount */
-                    0,
-                )
-                if (girFunction._desc?.name && girFunction._desc?.name !== 'new') girFunctions.push(girFunction)
-            }
-        }
-        return girFunctions
-    }
-
     /**
      * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
      * @param f1
@@ -2153,25 +2140,25 @@ export class GirModule {
      * Used for <method> and <virtual-method>
      * @param girClass
      * @param getMethods
-     * @param statics
+     * @param isStatic
      */
     private getOverloadableMethodsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        getMethodsDesc: (
+        getMethods: (
             girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         ) => Array<GirConstructorElement | GirFunctionElement | GirMethodElement | GirVirtualMethodElement>,
-        statics = false,
+        isStatic = false,
     ) {
         const fnMap: FunctionMap = new Map()
         const explicits = new Set<string>()
-        const funcs = getMethodsDesc(girClass)
+        const funcs = getMethods(girClass)
         this.addOverloadableFunctions(fnMap, explicits, funcs, true)
         // Have to implement methods from girClass' interfaces
         this.forEachInterface(
             girClass,
             (iface) => {
                 if (!this.interfaceIsDuplicate(girClass, iface)) {
-                    const funcs = getMethodsDesc(iface)
+                    const funcs = getMethods(iface)
                     this.addOverloadableFunctions(fnMap, explicits, funcs, true)
                 }
             },
@@ -2184,14 +2171,14 @@ export class GirModule {
                 bottom = false
                 return
             }
-            if (statics) {
-                const funcs = getMethodsDesc(cls)
+            if (isStatic) {
+                const funcs = getMethods(cls)
                 this.addOverloadableFunctions(fnMap, explicits, funcs, false)
             } else {
                 let self = true
                 this.forEachInterfaceAndSelf(cls, (iface) => {
                     if (self || this.interfaceIsDuplicate(girClass, iface)) {
-                        const funcs = getMethodsDesc(iface)
+                        const funcs = getMethods(iface)
                         this.addOverloadableFunctions(fnMap, explicits, funcs, false)
                     }
                     self = false
@@ -2212,6 +2199,43 @@ export class GirModule {
         >
     }
 
+    private getOtherStaticFunctions(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        useReference = true,
+    ): GirFunctionElement[] {
+        const girFunctions: GirFunctionElement[] = []
+        if (girClass.function) {
+            for (const _girFunction of girClass.function) {
+                let girFunction: GirFunctionElement
+                if (useReference) {
+                    girFunction = _girFunction
+                } else {
+                    girFunction = clone(_girFunction)
+                }
+
+                girFunction._desc = this.setFunctionDesc(
+                    girFunction,
+                    'function',
+                    /* prefix */
+                    'static ',
+                    /* isStatic */
+                    true,
+                    /* overrideReturnType */
+                    null,
+                    /* isArrowType */
+                    false,
+                    /* indentCount */
+                    0,
+                )
+
+                if (!girFunction._desc?.name || girFunction._desc?.name === 'new') continue
+
+                girFunctions.push(girFunction)
+            }
+        }
+        return girFunctions
+    }
+
     /**
      * Static methods, <constructor> and <function>
      * @param girClass
@@ -2219,17 +2243,18 @@ export class GirModule {
      */
     private getClassStaticFunctionsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        useReference = true,
     ) {
         const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement | GirMethodElement> = []
 
         girStaticFuncs.push(
             ...this.getStaticFunctions(girClass, (cls) => {
-                return this.getStaticConstructors(cls, girClass)
+                return this.getStaticConstructors(cls, girClass, useReference)
             }),
         )
         girStaticFuncs.push(
             ...this.getStaticFunctions(girClass, (cls) => {
-                return this.getOtherStaticFunctions(cls)
+                return this.getOtherStaticFunctions(cls, useReference)
             }),
         )
         girStaticFuncs.push(

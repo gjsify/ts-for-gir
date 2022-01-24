@@ -264,10 +264,13 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateOutParameterReturn(girParam: GirCallableParamElement) {
-        if (!girParam._desc) {
-            throw new Error('[generateOutParameter] Not all required properties set!')
-        }
         const desc: string[] = []
+
+        if (!girParam._desc) {
+            this.log.warn('[generateOutParameterReturn] Not all required properties set!')
+            return desc
+        }
+
         const { type, name } = girParam._desc
 
         if (this.config.environment === 'gjs') {
@@ -287,8 +290,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirVirtualMethodElement,
     ) {
         if (!girFunc._desc) {
-            this.log.error('girFunc', inspect(girFunc))
-            throw new Error('[generateFunctionReturn] Not all required properties set!')
+            this.log.warn('[generateFunctionReturn] Not all required properties set!')
+            return 'any'
         }
 
         const overrideReturnType = girFunc._desc.overrideReturnType
@@ -442,35 +445,43 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
+        const desc: string[] = []
         if (!girEnumMember._desc) {
-            this.log.error('girEnumMember', inspect(girEnumMember))
-            throw new Error('[generateEnumerationMember] Not all required properties set!')
+            this.log.warn('[generateEnumerationMember] Not all required properties set!')
+            return desc
         }
         const indent = generateIndent(indentCount)
-        return [`${indent}${girEnumMember._desc.name}`]
+        desc.push(`${indent}${girEnumMember._desc.name}`)
+        return desc
     }
 
     public generateConstant(girConst: GirConstantElement, indentCount = 0) {
         const desc: string[] = []
+
+        if (!girConst._desc?.desc) {
+            this.log.warn('[generateConstant] Not all required properties set!')
+            return desc
+        }
+
         const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
 
-        if (girConst._desc?.desc) {
-            for (const constDesc of girConst._desc.desc) {
-                desc.push(`${indent}${exp}const ${constDesc}`)
-            }
+        for (const constDesc of girConst._desc.desc) {
+            desc.push(`${indent}${exp}const ${constDesc}`)
         }
 
         return desc
     }
 
     public generateAlias(girAlias: GirAliasElement, indentCount = 0) {
+        const desc: string[] = []
+
         if (!girAlias._desc) {
-            this.log.error('girAlias', inspect(girAlias))
-            throw new Error('[generateConstant] Not all required properties set!')
+            this.log.warn('[generateAlias] Not all required properties set!')
+            return desc
         }
         const indent = generateIndent(indentCount)
-        const desc: string[] = []
+
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
 
         desc.push(`${indent}${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)

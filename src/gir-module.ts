@@ -29,6 +29,7 @@ import type {
     GirPropertyElement,
     GirAnyElement,
     GirUnionElement,
+    GirInstanceParameter,
     PartOfModule,
     PartOfClass,
     TypeArraySuffix,
@@ -46,6 +47,7 @@ import type {
     ParsedGir,
     GenerateConfig,
     DescProperty,
+    DescInstanceParameter,
     FunctionMap,
     FunctionPrefix,
     LocalNameCheck,
@@ -869,22 +871,34 @@ export class GirModule {
         }
 
         girParam._desc = {
-            desc: null,
             name: paramName,
             optional,
             type: paramType,
         }
 
-        girParam._desc.desc = this.generator.generateParameter(girParam)
-
         return girParam._desc
     }
 
+    private getInstanceParameterDesc(instanceParameter: GirInstanceParameter): DescInstanceParameter | undefined {
+        const typeName = instanceParameter.type?.[0]?.$?.name || undefined
+        const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
+        const structFor = rec?.$['glib:is-gtype-struct-for']
+        const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
+        if (structFor && instanceParameter.$.name) {
+            // TODO: Should use of a constructor, and even of an instance, be discouraged?
+            return {
+                name: instanceParameter.$.name,
+                types: [structFor, 'Function', `${gobject}Type`],
+            }
+        }
+        return undefined
+    }
+
     private setParametersDesc(outArrayLengthIndex: number, girParams?: GirCallableParams[]) {
-        const def: string[] = []
-        const outParams: string[] = []
+        const outParams: GirCallableParamElement[] = []
+        const inParams: GirCallableParamElement[] = []
         const paramNames: string[] = []
-        const paramDescs: DescParameter[] = []
+        const instanceParameters: GirInstanceParameter[] = []
 
         if (girParams && girParams.length > 0) {
             for (const girParam of girParams) {
@@ -893,13 +907,9 @@ export class GirModule {
                 // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
                 const instanceParameter = girParams[0]['instance-parameter']?.[0]
                 if (instanceParameter) {
-                    const typeName = instanceParameter.type?.[0]?.$?.name || undefined
-                    const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
-                    const structFor = rec?.$['glib:is-gtype-struct-for']
-                    const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
-                    if (structFor && instanceParameter.$.name) {
-                        // TODO: Should use of a constructor, and even of an instance, be discouraged?
-                        def.push(`${instanceParameter.$.name}: ${structFor} | Function | ${gobject}Type`)
+                    instanceParameter._desc = this.getInstanceParameterDesc(instanceParameter)
+                    if (instanceParameter._desc) {
+                        instanceParameters.push(instanceParameter)
                     }
                 }
                 if (params.length) {
@@ -917,19 +927,17 @@ export class GirModule {
                         param._desc = this.setParameterDesc(param, params, paramNames, skip)
 
                         const optDirection = param.$.direction
-                        if (optDirection === 'out' || optDirection == 'inout') {
-                            outParams.push(...this.generator.generateOutParameterReturn(param))
-                            if (optDirection == 'out') continue
+                        if (optDirection === 'out' || optDirection === 'inout') {
+                            outParams.push(param /*...this.generator.generateOutParameterReturn(param)*/)
+                            if (optDirection === 'out') continue
                         }
-
-                        paramDescs.push(param._desc)
-                        if (param._desc.desc) def.push(...param._desc.desc)
+                        inParams.push(param)
                     }
                 }
             }
         }
 
-        return { def, outParams, paramNames, paramDescs }
+        return { outParams, paramNames, inParams, instanceParameters }
     }
 
     private setVariableDesc(
@@ -1116,7 +1124,10 @@ export class GirModule {
         const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
         const retTypeIsVoid = returnType === 'void'
 
-        const paramsDef = this.setParametersDesc(outArrayLengthIndex, girFunc.parameters)
+        const { inParams, outParams, instanceParameters } = this.setParametersDesc(
+            outArrayLengthIndex,
+            girFunc.parameters,
+        )
         const shadows = (girFunc as GirMethodElement).$.shadows
 
         if (shadows) {
@@ -1139,9 +1150,9 @@ export class GirModule {
             name,
             overrideReturnType: overrideReturnType || undefined,
             prefix,
-            params: paramsDef.paramDescs,
-            paramsDef: paramsDef.def,
-            outParams: paramsDef.outParams,
+            inParams,
+            instanceParameters,
+            outParams,
         }
 
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
@@ -1199,11 +1210,10 @@ export class GirModule {
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
         const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
         const retTypeIsVoid = returnType === 'void'
-        const {
-            def: paramsDef,
-            paramDescs,
-            outParams,
-        } = this.setParametersDesc(outArrayLengthIndex, girSignalFunc.parameters)
+        const { inParams, outParams, instanceParameters } = this.setParametersDesc(
+            outArrayLengthIndex,
+            girSignalFunc.parameters,
+        )
 
         girSignalFunc._desc = {
             desc: null,
@@ -1214,8 +1224,9 @@ export class GirModule {
             isStatic: false,
             patched: false,
             retTypeIsVoid,
-            params: paramDescs,
-            paramsDef,
+            inParams,
+            instanceParameters,
+
             outParams,
         }
 

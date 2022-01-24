@@ -20,6 +20,7 @@ import type {
     GirRecordElement,
     GirVirtualMethodElement,
     GirBitfieldElement,
+    GirInstanceParameter,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -137,6 +138,22 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
+    public generateInParameters(inParams: GirCallableParamElement[], instanceParameters: GirInstanceParameter[]) {
+        const inParamsDef: string[] = []
+
+        // TODO: Should use of a constructor, and even of an instance, be discouraged?
+        for (const instanceParameter of instanceParameters) {
+            if (instanceParameter._desc)
+                inParamsDef.push(`${instanceParameter._desc.name}: ${instanceParameter._desc.types.join(' | ')}`)
+        }
+
+        for (const inParam of inParams) {
+            inParamsDef.push(...this.generateParameter(inParam))
+        }
+
+        return inParamsDef
+    }
+
     public generateSignalMethods(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
@@ -147,35 +164,39 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error('[generateSignalMethods] Not all required properties set!')
         }
 
-        const { name: sigName, paramsDef, returnType } = girSignalFunc._desc
-        const paramComma = paramsDef.length > 0 ? ', ' : ''
+        const { name: sigName, inParams, instanceParameters, returnType } = girSignalFunc._desc
+        const paramComma = inParams.length > 0 ? ', ' : ''
         const indent = generateIndent(indentCount)
         const def: string[] = []
+
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
 
         def.push(
             `${indent}connect(sigName: "${sigName}", callback: (($obj: ${
                 girClass._desc.name
-            }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
+            }${paramComma}${inParamsDef.join(', ')}) => ${returnType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
                 `${indent}connect_after(sigName: "${sigName}", callback: (($obj: ${
                     girClass._desc.name
-                }${paramComma}${paramsDef.join(', ')}) => ${returnType})): number`,
+                }${paramComma}${inParamsDef.join(', ')}) => ${returnType})): number`,
             )
         }
         if (this.config.environment === 'node') {
             def.push(
-                `${indent}on(sigName: "${sigName}", callback: (${paramsDef.join(
+                `${indent}on(sigName: "${sigName}", callback: (${inParamsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${indent}once(sigName: "${sigName}", callback: (${paramsDef.join(
+                `${indent}once(sigName: "${sigName}", callback: (${inParamsDef.join(
                     ', ',
                 )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${indent}off(sigName: "${sigName}", callback: (${paramsDef.join(', ')}) => void): NodeJS.EventEmitter`,
+                `${indent}off(sigName: "${sigName}", callback: (${inParamsDef.join(
+                    ', ',
+                )}) => void): NodeJS.EventEmitter`,
             )
         }
-        def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${paramsDef.join(', ')}): void`)
+        def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${inParamsDef.join(', ')}): void`)
         return def
     }
 
@@ -305,16 +326,20 @@ export default class TypeDefinitionGenerator implements Generator {
             if (overrideReturnType) {
                 desc = overrideReturnType
             } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+                const outParamsDesc: string[] = []
+
                 if (!retTypeIsVoid) {
-                    const returnTypeDesc = `/* returnType */ ${returnType}`
-                    if (!outParams.includes(returnTypeDesc)) {
-                        outParams.unshift(returnTypeDesc)
-                    }
+                    outParamsDesc.push(`/* returnType */ ${returnType}`)
                 }
-                desc = outParams.join(', ')
+
+                for (const outParam of outParams) {
+                    outParamsDesc.push(...this.generateOutParameterReturn(outParam))
+                }
+
+                desc = outParamsDesc.join(', ')
                 desc = `[ ${desc} ]`
             } else if (outParams.length === 1 && retTypeIsVoid) {
-                desc = outParams[0]
+                desc = this.generateOutParameterReturn(outParams[0]).join(' ')
             }
         }
         // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
@@ -322,13 +347,17 @@ export default class TypeDefinitionGenerator implements Generator {
             if (overrideReturnType) {
                 desc = overrideReturnType
             } else if (outParams.length >= 1) {
+                const outParamsDesc: string[] = []
+
                 if (!retTypeIsVoid) {
-                    const returnTypeDesc = `returnType: ${returnType}`
-                    if (!outParams.includes(returnTypeDesc)) {
-                        outParams.unshift(returnTypeDesc)
-                    }
+                    outParamsDesc.push(`returnType: ${returnType}`)
                 }
-                desc = outParams.join(', ')
+
+                for (const outParam of outParams) {
+                    outParamsDesc.push(...this.generateOutParameterReturn(outParam))
+                }
+
+                desc = outParamsDesc.join(', ')
                 desc = `{ ${desc} }`
             }
         }
@@ -362,7 +391,6 @@ export default class TypeDefinitionGenerator implements Generator {
         let prefix = girFunc._desc.prefix
         let name = girFunc._desc.name
         const isArrowType = girFunc._desc.isArrowType
-        const paramsDef = girFunc._desc.paramsDef
 
         if (methodPatches?.length) {
             this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
@@ -396,7 +424,10 @@ export default class TypeDefinitionGenerator implements Generator {
             retSep = ':'
         }
 
-        def.push(`${indent}${exp}${prefix}${name}(${paramsDef.join(', ')})${retSep} ${returnDesc}`)
+        const { inParams, instanceParameters } = girFunc._desc
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
+
+        def.push(`${indent}${exp}${prefix}${name}(${inParamsDef.join(', ')})${retSep} ${returnDesc}`)
 
         return def
     }
@@ -412,11 +443,13 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
 
-        const { paramsDef, returnType } = girCallback._desc
+        const { inParams, instanceParameters, returnType } = girCallback._desc
         const { name } = girCallback._descInterface
 
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
+
         def.push(indent + this.generateExport('interface', name, '{', indentCount))
-        def.push(`${indentBody}(${paramsDef.join(', ')}): ${returnType}`)
+        def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnType}`)
         def.push(indent + '}')
 
         return def

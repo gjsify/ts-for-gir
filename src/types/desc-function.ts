@@ -1,4 +1,4 @@
-import { DescParameter, FunctionPrefix } from '.'
+import { GirCallableParamElement, FunctionPrefix, GirInstanceParameter } from '.'
 
 export interface DescFunction {
     desc: string[] | null
@@ -10,7 +10,7 @@ export interface DescFunction {
     patched: boolean
     retTypeIsVoid: boolean
     prefix: FunctionPrefix
-    params: DescParameter[]
-    paramsDef: string[]
-    outParams: string[]
+    inParams: GirCallableParamElement[]
+    instanceParameters: GirInstanceParameter[]
+    outParams: GirCallableParamElement[]
 }

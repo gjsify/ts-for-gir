@@ -420,11 +420,13 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
-        if (!girEnum._desc) {
-            this.log.error('girEnum', inspect(girEnum))
-            throw new Error('[generateEnumeration] Not all required properties set!')
-        }
         const desc: string[] = []
+
+        if (!girEnum._desc) {
+            this.log.warn('[generateEnumeration] Not all required properties set!')
+            return desc
+        }
+
         const { name } = girEnum._desc
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.member) {

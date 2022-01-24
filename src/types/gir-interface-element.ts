@@ -51,6 +51,6 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     constant?: GirConstantElement[]
 
     // CUSTOM
-    _type?: TypeClass
+    _girType?: TypeClass
     _desc?: DescClass
 }

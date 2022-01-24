@@ -202,7 +202,7 @@ export class GirModule {
             for (const girParams of girFunc.parameters) {
                 if (girParams.parameter) {
                     for (const girParam of girParams.parameter) {
-                        girParam._type = 'callable-param'
+                        girParam._girType = 'callable-param'
                         girParam._module = this
                         if (girParam.$ && girParam.$.name) {
                             girParam._fullSymName = `${funcName}.${girParam.$.name}`
@@ -220,7 +220,7 @@ export class GirModule {
         if (retVals && girFunc._fullSymName)
             for (const retVal of retVals) {
                 retVal._module = this
-                retVal._type = 'callable-return'
+                retVal._girType = 'callable-return'
                 if (retVal.$ && retVal.$.name) {
                     retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
                 }
@@ -240,7 +240,7 @@ export class GirModule {
         if (Array.isArray(girFuncs))
             for (const girFunc of girFuncs) {
                 if (girFunc?.$?.name) {
-                    girFunc._type = type
+                    girFunc._girType = type
                     girFunc._fullSymName = `${this.namespace}.${girFunc.$.name}`
                     this.annotateFunctionArguments(girFunc)
                     this.annotateFunctionReturn(girFunc)
@@ -290,7 +290,7 @@ export class GirModule {
         if (Array.isArray(girFuncs))
             for (const girFunc of girFuncs) {
                 if (girFunc?.$?.name) {
-                    girFunc._type = type
+                    girFunc._girType = type
                     girFunc._class = girClass
                     const nsName = girClass ? girClass._fullSymName : this.namespace
                     if (nsName) girFunc._fullSymName = `${nsName}.${girFunc.$.name}`
@@ -306,7 +306,7 @@ export class GirModule {
     private annotateVariables(girVars: GirConstantElement[], type: TypeVariable): void {
         for (const girVar of girVars) {
             girVar._module = this
-            girVar._type = type
+            girVar._girType = type
             if (girVar.$ && girVar.$.name) {
                 girVar._fullSymName = `${this.namespace}.${girVar.$.name}`
             }
@@ -336,7 +336,7 @@ export class GirModule {
         for (const girVar of girVars) {
             const nsName = girClass ? girClass._fullSymName : this.namespace
             girVar._module = this
-            girVar._type = type
+            girVar._girType = type
             if (girClass) {
                 girVar._class = girClass
             }
@@ -354,7 +354,7 @@ export class GirModule {
     private annotateClass(girClass: GirClassElement | GirRecordElement | GirInterfaceElement, type: TypeClass) {
         girClass._module = this
         girClass._fullSymName = `${this.namespace}.${girClass.$.name}`
-        girClass._type = type
+        girClass._girType = type
 
         const constructors = girClass.constructor instanceof Array ? girClass.constructor : []
         const signals = ((girClass as GirClassElement | GirInterfaceElement).signal ||
@@ -376,7 +376,7 @@ export class GirModule {
     }
 
     /**
-     * Annotates the custom `_module`, `_fullSymName` and `_type` properties
+     * Annotates the custom `_module`, `_fullSymName` and `_girType` properties
      * and registers the element on the `symTable`.
      * @param girElements
      * @param type
@@ -401,7 +401,7 @@ export class GirModule {
                     if (!girBool((girElement as GirCallableParamElement | GirFunctionElement).$.introspectable, true))
                         continue
                 }
-                girElement._type = type
+                girElement._girType = type
                 girElement._module = this
                 girElement._fullSymName = `${this.namespace}.${girElement.$.name}`
                 if (this.symTable.get(this.allDependencies, girElement._fullSymName)) {
@@ -946,7 +946,7 @@ export class GirModule {
         )
             return undefined
 
-        girVar._type = type
+        girVar._girType = type
 
         let name = girVar.$.name
 
@@ -1015,7 +1015,7 @@ export class GirModule {
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
 
         const readonly = girBool(girProp.$.writable)
-        girProp._type = type
+        girProp._girType = type
         switch (type) {
             case 'property':
             case 'constructor-property':
@@ -1074,7 +1074,7 @@ export class GirModule {
             name = shadows
         }
 
-        girFunc._type = type
+        girFunc._girType = type
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
@@ -1645,7 +1645,7 @@ export class GirModule {
         }
 
         // TODO: Can't export fields for GObjects because names would clash
-        if (girClass._type === 'record')
+        if (girClass._girType === 'record')
             girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
 
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))

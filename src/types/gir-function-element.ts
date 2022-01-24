@@ -17,6 +17,6 @@ export interface GirFunctionElement extends PartOfClass, GirDocElement {
     'return-value'?: GirCallableReturn[]
 
     // CUSTOM
-    _type?: TypeFunction
+    _girType?: TypeFunction
     _desc?: DescFunction
 }

@@ -26,7 +26,7 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     'return-value'?: GirCallableReturn[]
 
     // CUSTOM
-    _type?: 'callback'
+    _girType?: 'callback'
     _desc?: DescCallback
 
     /**

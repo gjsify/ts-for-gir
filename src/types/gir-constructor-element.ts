@@ -8,6 +8,6 @@ export interface GirConstructorElement extends PartOfClass {
     'return-value'?: GirCallableReturn[]
 
     // CUSTOM
-    _type?: 'constructor'
+    _girType?: 'constructor'
     _desc?: DescFunction
 }

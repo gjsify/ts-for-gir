@@ -45,6 +45,6 @@ export interface GirRecordElement extends PartOfModule, GirInfoElements {
     property?: GirPropertyElement[]
 
     // CUSTOM
-    _type?: TypeClass
+    _girType?: TypeClass
     _desc?: DescClass
 }

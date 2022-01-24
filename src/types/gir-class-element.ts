@@ -69,6 +69,6 @@ export interface GirClassElement extends PartOfModule, GirInfoElements {
     callback?: GirCallbackElement[]
 
     // CUSTOM
-    _type?: TypeClass
+    _girType?: TypeClass
     _desc?: DescClass
 }

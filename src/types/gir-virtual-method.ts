@@ -9,5 +9,5 @@ export interface GirVirtualMethodElement extends GirFunctionElement {
 
     // CUSTOM
 
-    _type: 'virtual-method'
+    _girType: 'virtual-method'
 }

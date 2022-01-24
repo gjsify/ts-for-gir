@@ -17,6 +17,6 @@ export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
     function: GirFunctionElement[]
 
     // CUSTOM
-    _type?: 'bitfield'
+    _girType?: 'bitfield'
     _desc?: DescEnum
 }

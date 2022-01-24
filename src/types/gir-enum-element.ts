@@ -18,6 +18,6 @@ export interface GirEnumElement extends PartOfModule, GirInfoElements {
     function?: GirFunctionElement[]
 
     // CUSTOM
-    _type?: 'enumeration'
+    _girType?: 'enumeration'
     _desc?: DescEnum
 }

@@ -28,6 +28,6 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
     } & Partial<GirTransferOwnership>
 
     // CUSTOM
-    _type?: 'property' | 'constructor-property'
+    _girType?: 'property' | 'constructor-property'
     _desc?: DescProperty
 }

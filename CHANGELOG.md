@@ -1,4 +1,5 @@
 # In development
+- Replaced `ESLint` with `prettier` for prettify output
 - New `doc` command for future implementation
 - New class `HtmlDocGenerator` this is not implemented yet, but can serve as a template for a future implementation
 - Fix type `Uint8Array` (should not be `Uint8Array[]`)

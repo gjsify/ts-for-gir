@@ -1,4 +1,3 @@
-import TemplateProcessor from './template-processor.js'
 import TypeDefinitionGenerator from './type-definition-generator.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
@@ -1593,11 +1592,15 @@ export class GirModule {
      *
      * @param girClass This is the class / interface the `parentClass` implements signals from
      * @param girParentClass The main class which implements the signals from `girClass`
+     * @param useReference If `GirSignalElement` of inherited or implemented classes are used no reference should be used here,
+     * otherwise the `GirSignalElement` from other modules will be changed which will lead to hard to understand errors.
+     * On the other hand a copy can take a lot of memory and performance or end in an endless recursion
      * @returns
      */
     private getClassSignalsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         girParentClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        useReference = true,
     ) {
         const girSignals: GirSignalElement[] = []
         if (!girParentClass._desc) {
@@ -1609,9 +1612,15 @@ export class GirModule {
             (girClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
             []
         if (signals) {
-            for (const signal of signals) {
-                signal._desc = this.setSignalFuncDesc(signal, girParentClass)
-                girSignals.push(signal)
+            for (const _girSignal of signals) {
+                let girSignal: GirSignalElement
+                if (useReference) {
+                    girSignal = _girSignal
+                } else {
+                    girSignal = clone(_girSignal)
+                }
+                girSignal._desc = this.setSignalFuncDesc(girSignal, girParentClass)
+                girSignals.push(girSignal)
             }
         }
         return girSignals
@@ -1732,7 +1741,7 @@ export class GirModule {
         girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
         girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
         girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass))
-        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass))
+        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, true))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1762,7 +1771,7 @@ export class GirModule {
             )
             girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
             girClass._desc.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
-            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass))
+            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass, false))
         })
 
         // Copy properties from implemented interface
@@ -1796,7 +1805,7 @@ export class GirModule {
                 ...this.getClassPropertiesDesc(iface, girClass._desc.localNames),
             )
             girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, girClass._desc.localNames))
-            girClass._desc.implements[key].signals.push(...this.getClassSignalsDesc(iface, girClass))
+            girClass._desc.implements[key].signals.push(...this.getClassSignalsDesc(iface, girClass, false))
         })
 
         girClass._desc.propertyNames.push(...this.getClassPropertyNames(girClass))
@@ -2232,113 +2241,6 @@ export class GirModule {
         return girStaticFuncs
     }
 
-    public girToTsType(girType: 'alias', isStatic?: boolean): 'type'
-    public girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
-    public girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
-    public girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
-    public girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
-    public girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
-    public girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
-    public girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
-    public girToTsType(girType: 'function', isStatic: true): 'static-function'
-    public girToTsType(girType: 'function', isStatic: false): 'function'
-    public girToTsType(
-        girType: 'function' | 'method' | 'virtual-method' | 'constructor' | 'callback',
-        isStatic?: boolean,
-    ): 'function' | 'method' | 'interface' | 'static-function'
-    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
-    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
-        switch (girType) {
-            case 'alias':
-                return 'type'
-            case 'enumeration':
-            case 'bitfield':
-                return 'enumeration'
-            case 'callback':
-                return 'interface'
-            case 'class':
-            case 'interface':
-            case 'union':
-            case 'record':
-                return 'class'
-            case 'constant':
-                return 'constant'
-            case 'constructor':
-                return 'static-function'
-            case 'method':
-            case 'virtual-method':
-                return 'method'
-            case 'signal':
-                return 'event-methods'
-            case 'function':
-                if (typeof isStatic === 'undefined') {
-                    throw new Error(
-                        'You must specify if the function is static or not if you want to convert the type of a function!',
-                    )
-                }
-                if (isStatic) {
-                    return 'static-function'
-                }
-                return 'function'
-        }
-        throw new Error(`Unknown gir type: "${String(girType)}"!`)
-    }
-
-    public exportEnumeration(girEnum: GirEnumElement | GirBitfieldElement) {
-        const girEnumDesc = this.setEnumerationDesc(girEnum)
-
-        return { def: girEnumDesc?.desc || [] }
-    }
-
-    public exportConstant(girConst: GirConstantElement) {
-        girConst._desc = this.setConstantDesc(girConst)
-
-        return {
-            def: this.generator.generateConstant(girConst) || [],
-        }
-    }
-
-    /**
-     * Represents a record or GObject class or interface as a Typescript class
-     * @param girClass
-     */
-    public exportClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
-        const def: string[] = []
-        girClass._desc = this.setClassDesc(girClass)
-        def.push(...this.generator.generateClass(girClass, this.namespace))
-
-        return {
-            def,
-        }
-    }
-
-    public exportFunction(girFunc: GirFunctionElement) {
-        girFunc._desc = this.setFunctionDesc(
-            girFunc,
-            'function',
-            /* prefix */ 'function ',
-            /* isStatic */ false,
-            /* overrideReturnType */ null,
-            /* isArrowType */ false,
-            /* indentCount */ 0,
-        )
-        return { def: girFunc._desc?.desc || [] }
-    }
-
-    public exportCallbackInterface(girCallback: GirCallbackElement) {
-        girCallback._descInterface = this.setCallbackInterfaceDesc(girCallback)
-        return {
-            def: girCallback._descInterface?.desc || [],
-        }
-    }
-
-    public exportAlias(girAlias: GirAliasElement) {
-        girAlias._desc = this.setAliasDesc(girAlias)
-        return {
-            def: girAlias._desc?.desc || [],
-        }
-    }
-
     private setModuleDesc() {
         if (this.ns.enumeration)
             for (const girEnum of this.ns.enumeration) {
@@ -2394,17 +2296,61 @@ export class GirModule {
         }
     }
 
-    // TODO: Move to TypeDefinitionGenerator
-    public async exportModuleTS(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
-        this.setModuleDesc()
-        await this.generator.exportModuleTS(outStream, outputPath, this)
+    public girToTsType(girType: 'alias', isStatic?: boolean): 'type'
+    public girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
+    public girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
+    public girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
+    public girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
+    public girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
+    public girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
+    public girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
+    public girToTsType(girType: 'function', isStatic: true): 'static-function'
+    public girToTsType(girType: 'function', isStatic: false): 'function'
+    public girToTsType(
+        girType: 'function' | 'method' | 'virtual-method' | 'constructor' | 'callback',
+        isStatic?: boolean,
+    ): 'function' | 'method' | 'interface' | 'static-function'
+    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
+    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
+        switch (girType) {
+            case 'alias':
+                return 'type'
+            case 'enumeration':
+            case 'bitfield':
+                return 'enumeration'
+            case 'callback':
+                return 'interface'
+            case 'class':
+            case 'interface':
+            case 'union':
+            case 'record':
+                return 'class'
+            case 'constant':
+                return 'constant'
+            case 'constructor':
+                return 'static-function'
+            case 'method':
+            case 'virtual-method':
+                return 'method'
+            case 'signal':
+                return 'event-methods'
+            case 'function':
+                if (typeof isStatic === 'undefined') {
+                    throw new Error(
+                        'You must specify if the function is static or not if you want to convert the type of a function!',
+                    )
+                }
+                if (isStatic) {
+                    return 'static-function'
+                }
+                return 'function'
+        }
+        throw new Error(`Unknown gir type: "${String(girType)}"!`)
     }
 
-    // TODO: This method should in the future only prepare all types and not export anything.
-    // The export should take place in the TypeDefinitionGenerator
     public async start(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
-        // TODO: Move to TypeDefinitionGenerator
-        await this.exportModuleTS(outStream, outputPath)
+        this.setModuleDesc()
+        await this.generator.exportModuleTS(outStream, outputPath, this)
         if (this.config.buildType === 'lib') {
             await this.generator.exportModule(this)
         }

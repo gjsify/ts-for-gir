@@ -26,7 +26,7 @@ import type { GirModule } from './gir-module.js'
 import TemplateProcessor from './template-processor.js'
 import { Environment } from './types/environment.js'
 import { Logger } from './logger.js'
-import { generateIndent } from './utils.js'
+import { generateIndent, findFileInDirs, splitModuleName } from './utils.js'
 import { inspect } from 'util'
 import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 export default class TypeDefinitionGenerator implements Generator {
@@ -303,7 +303,10 @@ export default class TypeDefinitionGenerator implements Generator {
                 desc = overrideReturnType
             } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
                 if (!retTypeIsVoid) {
-                    outParams.unshift(`/* returnType */ ${returnType}`)
+                    const returnTypeDesc = `/* returnType */ ${returnType}`
+                    if (!outParams.includes(returnTypeDesc)) {
+                        outParams.unshift(returnTypeDesc)
+                    }
                 }
                 desc = outParams.join(', ')
                 desc = `[ ${desc} ]`
@@ -317,7 +320,10 @@ export default class TypeDefinitionGenerator implements Generator {
                 desc = overrideReturnType
             } else if (outParams.length >= 1) {
                 if (!retTypeIsVoid) {
-                    outParams.unshift(`returnType: ${returnType}`)
+                    const returnTypeDesc = `returnType: ${returnType}`
+                    if (!outParams.includes(returnTypeDesc)) {
+                        outParams.unshift(returnTypeDesc)
+                    }
                 }
                 desc = outParams.join(', ')
                 desc = `{ ${desc} }`
@@ -336,13 +342,14 @@ export default class TypeDefinitionGenerator implements Generator {
         methodPatches?: string[],
         indentCount = 1,
     ) {
-        if (!girFunc._desc) {
-            this.log.error('girFunc', inspect(girFunc))
-            throw new Error('[generateFunction] Not all required properties set!')
-        }
+        const def: string[] = []
         const indent = generateIndent(indentCount)
 
-        const def: string[] = []
+        if (!girFunc._desc) {
+            this.log.warn('[generateFunction] Not all required properties set!')
+            return def
+        }
+
         let exp = ''
         // `girFunc._tsType === 'function'` are a global methods which can be exported
         if (girFunc._tsType === 'function') {
@@ -392,14 +399,16 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateCallbackInterface(girCallback: GirCallbackElement, indentCount = 0) {
+        const def: string[] = []
+
         if (!girCallback._desc || !girCallback._descInterface) {
-            this.log.error('girCallback', inspect(girCallback))
-            throw new Error('[generateCallbackInterface] Not all required properties set!')
+            this.log.warn('[generateCallbackInterface] Not all required properties set!')
+            return def
         }
+
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
 
-        const def: string[] = []
         const { paramsDef, returnType } = girCallback._desc
         const { name } = girCallback._descInterface
 
@@ -840,6 +849,135 @@ export default class TypeDefinitionGenerator implements Generator {
             const moduleContent = moduleTemplateProcessor.load(template)
             this.log.log(moduleContent)
         }
+    }
+
+    public async exportModuleTS(
+        outStream: NodeJS.WritableStream,
+        outputPath: string | null,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module.d.ts'
+        const out: string[] = []
+
+        const templateProcessor = new TemplateProcessor(
+            {
+                name: girModule.namespace,
+                namespace: girModule.namespace,
+                version: girModule.version,
+                importName: girModule.importName,
+            },
+            girModule.packageName,
+            this.config,
+        )
+
+        if (outputPath) {
+            out.push(await templateProcessor.load(template))
+        }
+
+        out.push(...this.generateTSDocComment(`${girModule.packageName}`))
+
+        out.push('')
+
+        const deps: string[] = girModule.transitiveDependencies
+
+        // Module dependencies as type references or imports
+        if (this.config.environment === 'gjs') {
+            out.push(...this.generateModuleDependenciesImport('Gjs', 'Gjs', false))
+        }
+
+        for (const depPackageName of deps) {
+            // Don't reference yourself as a dependency
+            if (girModule.packageName !== depPackageName) {
+                const girFilename = `${depPackageName}.gir`
+                const { namespace } = splitModuleName(depPackageName)
+                const depFile = findFileInDirs(this.config.girDirectories, girFilename)
+                if (depFile.exists) {
+                    out.push(...this.generateModuleDependenciesImport(namespace, depPackageName, false))
+                } else {
+                    out.push(`// WARN: Dependency not found: '${depPackageName}'`)
+                    this.log.warn(`Dependency gir file not found: '${girFilename}'`)
+                }
+            }
+        }
+
+        // START Namespace
+        {
+            if (this.config.buildType === 'types') {
+                out.push('')
+                out.push(`declare namespace ${girModule.namespace} {`)
+            } else if (this.config.useNamespace) {
+                out.push('')
+                out.push(`export namespace ${girModule.namespace} {`)
+            }
+
+            // Newline
+            out.push('')
+
+            if (girModule.ns.enumeration)
+                for (const girEnum of girModule.ns.enumeration) out.push(...this.generateEnumeration(girEnum))
+
+            if (girModule.ns.bitfield)
+                for (const girBitfield of girModule.ns.bitfield) out.push(...this.generateEnumeration(girBitfield))
+
+            if (girModule.ns.constant)
+                for (const girConst of girModule.ns.constant) out.push(...this.generateConstant(girConst))
+
+            if (girModule.ns.function)
+                for (const girFunc of girModule.ns.function) out.push(...this.generateFunction(girFunc, [], 0))
+
+            if (girModule.ns.callback)
+                for (const girCallback of girModule.ns.callback)
+                    out.push(...this.generateCallbackInterface(girCallback))
+
+            if (girModule.ns.interface)
+                for (const girIface of girModule.ns.interface)
+                    if (girIface._module) out.push(...this.generateClass(girIface, girIface._module.namespace))
+
+            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
+            // E.g. used for GObject-2.0 to help define GObject classes in js;
+            // these aren't part of gi.
+            if (templateProcessor.exists(`${girModule.packageName}.d.ts`)) {
+                const templatePatches = await templateProcessor.load(`${girModule.packageName}.d.ts`)
+                out.push(templatePatches)
+            }
+
+            if (girModule.ns.class)
+                for (const gitClass of girModule.ns.class)
+                    if (gitClass._module) out.push(...this.generateClass(gitClass, gitClass._module.namespace))
+
+            if (girModule.ns.record)
+                for (const girRecord of girModule.ns.record)
+                    if (girRecord._module) out.push(...this.generateClass(girRecord, girRecord._module.namespace))
+
+            if (girModule.ns.union)
+                for (const girUnion of girModule.ns.union)
+                    if (girUnion._module) out.push(...this.generateClass(girUnion, girUnion._module.namespace))
+
+            if (girModule.ns.alias)
+                // GType is not a number in GJS
+                for (const girAlias of girModule.ns.alias)
+                    if (girModule.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
+                        out.push(...this.generateAlias(girAlias))
+
+            if (girModule.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
+        }
+        // END Namespace
+        if (this.config.useNamespace) {
+            out.push(`}`)
+        }
+
+        if (this.config.buildType !== 'types' && this.config.useNamespace) {
+            out.push(`export default ${girModule.namespace};`)
+        }
+
+        let outResult = out.join('\n')
+
+        if (outputPath && this.config.pretty) {
+            outResult = templateProcessor.prettifySource(outResult, outputPath) || outResult
+        }
+
+        // End of file
+        outStream.write(outResult)
     }
 
     public async exportModule(girModule: GirModule) {

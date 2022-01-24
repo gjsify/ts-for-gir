@@ -2,16 +2,7 @@ import TemplateProcessor from './template-processor.js'
 import TypeDefinitionGenerator from './type-definition-generator.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import {
-    isEqual,
-    find,
-    stripParamNames,
-    findFileInDirs,
-    splitModuleName,
-    isCommentLine,
-    clone,
-    girBool,
-} from './utils.js'
+import { isEqual, find, stripParamNames, isCommentLine, clone, girBool } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 import type {
@@ -115,11 +106,6 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
-    /**
-     * TODO: Move to TypeDefinitionGenerator
-     * @deprecated
-     */
-    templateProcessor: TemplateProcessor
     generator: TypeDefinitionGenerator
 
     /**
@@ -143,17 +129,6 @@ export class GirModule {
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
-
-        this.templateProcessor = new TemplateProcessor(
-            {
-                name: this.namespace,
-                namespace: this.namespace,
-                version: this.version,
-                importName: this.importName,
-            },
-            this.packageName,
-            this.config,
-        )
 
         this.generator = new TypeDefinitionGenerator(this.config)
 
@@ -421,7 +396,11 @@ export class GirModule {
      * @param girElements
      * @param girType
      */
-    private annotateAndRegisterGirElement(girElements: GirAnyElement[], girType: TypeGirElement): void {
+    private annotateAndRegisterGirElement(
+        girElements: GirAnyElement[],
+        girType: TypeGirElement,
+        isStatic = false,
+    ): void {
         for (const girElement of girElements) {
             if (girElement?.$ && girElement.$.name) {
                 if ((girElement as GirCallableParamElement | GirFunctionElement).$.introspectable) {
@@ -429,7 +408,7 @@ export class GirModule {
                         continue
                 }
                 girElement._girType = girType
-                girElement._tsType = this.girToTsType(girType)
+                girElement._tsType = this.girToTsType(girType, isStatic)
                 girElement._module = this
                 girElement._fullSymName = `${this.namespace}.${girElement.$.name}`
                 if (this.symTable.get(this.allDependencies, girElement._fullSymName)) {
@@ -1125,8 +1104,8 @@ export class GirModule {
             | GirVirtualMethodElement,
         girType: 'virtual-method' | 'method' | 'constructor' | 'function' | 'callback',
         prefix: FunctionPrefix = '',
-        isStatic: boolean,
-        overrideReturnType: string | null,
+        isStatic = false,
+        overrideReturnType: string | null = null,
         isArrowType = false,
         indentCount = 0,
     ): DescFunction | undefined {
@@ -2360,108 +2339,65 @@ export class GirModule {
         }
     }
 
+    private setModuleDesc() {
+        if (this.ns.enumeration)
+            for (const girEnum of this.ns.enumeration) {
+                girEnum._desc = this.setEnumerationDesc(girEnum)
+            }
+
+        if (this.ns.bitfield)
+            for (const girBitfield of this.ns.bitfield) {
+                girBitfield._desc = this.setEnumerationDesc(girBitfield)
+            }
+
+        if (this.ns.constant)
+            for (const girConst of this.ns.constant) {
+                girConst._desc = this.setConstantDesc(girConst)
+            }
+
+        if (this.ns.function)
+            for (const girFunc of this.ns.function) {
+                girFunc._desc = this.setFunctionDesc(girFunc, 'function', /* prefix */ 'function ')
+            }
+
+        if (this.ns.callback)
+            for (const girCallback of this.ns.callback) {
+                girCallback._descInterface = this.setCallbackInterfaceDesc(girCallback)
+            }
+
+        if (this.ns.interface)
+            for (const girIface of this.ns.interface) {
+                girIface._desc = this.setClassDesc(girIface)
+            }
+
+        if (this.ns.class)
+            for (const girClass of this.ns.class) {
+                girClass._desc = this.setClassDesc(girClass)
+            }
+
+        if (this.ns.record)
+            for (const girRecord of this.ns.record) {
+                girRecord._desc = this.setClassDesc(girRecord)
+            }
+
+        if (this.ns.union)
+            for (const girUnion of this.ns.union) {
+                girUnion._desc = this.setClassDesc(girUnion)
+            }
+
+        if (this.ns.alias) {
+            // GType is not a number in GJS
+            for (const girAlias of this.ns.alias) {
+                if (this.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
+                    girAlias._desc = this.setAliasDesc(girAlias)
+            }
+        }
+    }
+
     // TODO: Move to TypeDefinitionGenerator
     public async exportModuleTS(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
-        const template = 'module.d.ts'
-        const out: string[] = []
-
-        if (outputPath) {
-            out.push(await this.templateProcessor.load(template))
-        }
-
-        out.push(...this.generator.generateTSDocComment(`${this.packageName}`))
-
-        out.push('')
-
-        const deps: string[] = this.transitiveDependencies
-
-        // Module dependencies as type references or imports
-        if (this.config.environment === 'gjs') {
-            out.push(...this.generator.generateModuleDependenciesImport('Gjs', 'Gjs', false))
-        }
-
-        for (const depPackageName of deps) {
-            // Don't reference yourself as a dependency
-            if (this.packageName !== depPackageName) {
-                const girFilename = `${depPackageName}.gir`
-                const { namespace } = splitModuleName(depPackageName)
-                const depFile = findFileInDirs(this.config.girDirectories, girFilename)
-                if (depFile.exists) {
-                    out.push(...this.generator.generateModuleDependenciesImport(namespace, depPackageName, false))
-                } else {
-                    out.push(`// WARN: Dependency not found: '${depPackageName}'`)
-                    this.log.warn(`Dependency gir file not found: '${girFilename}'`)
-                }
-            }
-        }
-
-        // START Namespace
-        {
-            if (this.config.buildType === 'types') {
-                out.push('')
-                out.push(`declare namespace ${this.namespace} {`)
-            } else if (this.config.useNamespace) {
-                out.push('')
-                out.push(`export namespace ${this.namespace} {`)
-            }
-
-            // Newline
-            out.push('')
-
-            if (this.ns.enumeration)
-                for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration).def)
-
-            if (this.ns.bitfield)
-                for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield).def)
-
-            if (this.ns.constant)
-                for (const constant of this.ns.constant) out.push(...this.exportConstant(constant).def)
-
-            if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
-
-            if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallbackInterface(cb).def)
-
-            if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClass(iface).def)
-
-            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
-            // E.g. used for GObject-2.0 to help define GObject classes in js;
-            // these aren't part of gi.
-            if (this.templateProcessor.exists(`${this.packageName}.d.ts`)) {
-                const templatePatches = await this.templateProcessor.load(`${this.packageName}.d.ts`)
-                out.push(templatePatches)
-            }
-
-            if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClass(cls).def)
-
-            if (this.ns.record) for (const girRecord of this.ns.record) out.push(...this.exportClass(girRecord).def)
-
-            if (this.ns.union) for (const girUnion of this.ns.union) out.push(...this.exportClass(girUnion).def)
-
-            if (this.ns.alias)
-                // GType is not a number in GJS
-                for (const alias of this.ns.alias)
-                    if (this.packageName !== 'GObject-2.0' || alias.$.name !== 'Type')
-                        out.push(...this.exportAlias(alias).def)
-
-            if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
-        }
-        // END Namespace
-        if (this.config.useNamespace) {
-            out.push(`}`)
-        }
-
-        if (this.config.buildType !== 'types' && this.config.useNamespace) {
-            out.push(`export default ${this.namespace};`)
-        }
-
-        let outResult = out.join('\n')
-
-        if (outputPath && this.config.pretty) {
-            outResult = this.templateProcessor.prettifySource(outResult, outputPath) || outResult
-        }
-
-        // End of file
-        outStream.write(outResult)
+        this.setModuleDesc()
+        await this.generator.exportModuleTS(outStream, outputPath, this)
     }
 
     // TODO: This method should in the future only prepare all types and not export anything.

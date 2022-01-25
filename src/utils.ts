@@ -29,6 +29,20 @@ export function splitModuleName(packageName: string): { packageName: string; nam
     }
 }
 
+export function removeNamespace(type: string, namespace: string) {
+    if (type.startsWith(namespace + '.')) {
+        type = type.substring(namespace.length + 1)
+    }
+    return type
+}
+
+export function addNamespace(type: string, namespace: string) {
+    if (!type.startsWith(namespace + '.')) {
+        type = namespace + '.' + type
+    }
+    return type
+}
+
 /**
  * Checking whether some variable is iterable
  * see https://stackoverflow.com/a/32538867

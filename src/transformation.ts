@@ -132,7 +132,7 @@ export const FULL_TYPE_MAP = (
         'GObject.Closure': 'Function',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
-        GType: packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type',
+        GType: 'GObject.Type',
     }
 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]

@@ -1,6 +1,6 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { isEqual, find, clone, girBool } from './utils.js'
+import { isEqual, find, clone, girBool, removeNamespace } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 import type {
@@ -417,7 +417,14 @@ export class GirModule {
      * TODO: find better name for this method
      * @param girVar
      * @param fullTypeName
-     * @returns
+     * @returns e.g.
+     * ```ts
+     * {
+     *      fullTypeName: "Gtk.Widget",
+     *      namespace: "Gtk",
+     *      resValue: "Widget"
+     * }
+     *
      */
     private fullTypeLookup(
         girVar:
@@ -441,7 +448,7 @@ export class GirModule {
             }
         }
 
-        // Fully qualify our type name if need be
+        // Fully qualify our type name
         if (!fullTypeName.includes('.')) {
             let tryFullTypeName = ''
 
@@ -618,6 +625,10 @@ export class GirModule {
 
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
+        // if (resValue && namespace && !resValue.startsWith(namespace + '.')) {
+        //     resValue = namespace + '.' + resValue
+        // }
+
         return {
             result: resValue + suffix,
             value: resValue,
@@ -646,7 +657,7 @@ export class GirModule {
         if (girVar) {
             const { result, isCallback } = this.typeLookup(girVar)
             if (isCallback) {
-                debugger
+                throw new Error('Callback type is not implemented here')
             }
             returnType = result
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
@@ -746,7 +757,7 @@ export class GirModule {
         const { result: paramType, isCallback } = this.typeLookup(girParam)
 
         if (isCallback) {
-            debugger
+            throw new Error('Callback type is not implemented here')
         }
 
         let paramName = this.transformation.transformParameterName(girParam, false)
@@ -820,7 +831,7 @@ export class GirModule {
                     this.processParams(params, skip, (girVar) => this.destroyDataIndexLookup(girVar))
 
                     for (const param of params) {
-                        if (skip.indexOf(param) !== -1) {
+                        if (skip.includes(param)) {
                             continue
                         }
 
@@ -898,15 +909,8 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const { result, isCallback, girCallbacks } = this.typeLookup(girVar)
-
-        let typeName = result
-
-        if (isCallback) {
-            debugger
-        }
-
-        typeName = this.transformation.transformTypeName(typeName)
+        const { result, girCallbacks } = this.typeLookup(girVar)
+        const typeName = this.transformation.transformTypeName(result)
 
         girVar._desc = {
             name,
@@ -1956,7 +1960,7 @@ export class GirModule {
 
         if (!f1._desc || !f2._desc) return false
 
-        return isEqual(f1._desc.name, f2._desc.name)
+        return isEqual(f1._desc, f2._desc)
     }
 
     /**
@@ -2290,11 +2294,12 @@ export class GirModule {
         // Only use the fullTypeName as the type if it is found in the symTable
         if (!resValue && this.symTable.get(this.allDependencies, fullTypeName)) {
             if (fullTypeName.startsWith(this.namespace + '.')) {
-                resValue = fullTypeName.substring(this.namespace.length + 1)
+                resValue = removeNamespace(fullTypeName, this.namespace)
                 resValue = this.transformation.transformTypeName(resValue)
                 // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
                 resValue = this.transformation.transformClassName(resValue)
                 namespace = this.namespace
+                resValue = namespace + '.' + resValue
             } else {
                 const resValues = fullTypeName.split('.')
                 resValues.map((name) => this.transformation.transformTypeName(name))

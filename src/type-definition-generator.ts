@@ -27,7 +27,7 @@ import type { GirModule } from './gir-module.js'
 import TemplateProcessor from './template-processor.js'
 import { Environment } from './types/environment.js'
 import { Logger } from './logger.js'
-import { generateIndent, findFileInDirs, splitModuleName } from './utils.js'
+import { generateIndent, findFileInDirs, splitModuleName, removeNamespace } from './utils.js'
 import { inspect } from 'util'
 import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 export default class TypeDefinitionGenerator implements Generator {
@@ -156,6 +156,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const { name, optional, callbacks } = girVar._desc
         let { type } = girVar._desc
 
+        type = removeNamespace(type, namespace)
+
         if (callbacks.length) {
             type = this.generateVariableCallbackType(girVar as GirFieldElement, namespace)
         }
@@ -207,15 +209,19 @@ export default class TypeDefinitionGenerator implements Generator {
         // TODO: Should use of a constructor, and even of an instance, be discouraged?
         for (const instanceParameter of instanceParameters) {
             if (instanceParameter._desc) {
-                const { name, structFor } = instanceParameter._desc
+                let { structFor } = instanceParameter._desc
+                const { name } = instanceParameter._desc
                 const gobject = namespace === 'GObject' || namespace === 'GLib' ? '' : 'GObject.'
+
+                structFor = removeNamespace(structFor, namespace)
+
                 const returnTypes = [structFor, 'Function', `${gobject}Type`]
                 inParamsDef.push(`${name}: ${returnTypes.join(' | ')}`)
             }
         }
 
         for (const inParam of inParams) {
-            inParamsDef.push(...this.generateParameter(inParam))
+            inParamsDef.push(...this.generateParameter(inParam, namespace))
         }
 
         return inParamsDef
@@ -232,7 +238,10 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error('[generateSignal] Not all required properties set!')
         }
 
-        const { name: sigName, inParams, instanceParameters, returnType } = girSignalFunc._desc
+        const { name: sigName, inParams, instanceParameters } = girSignalFunc._desc
+        let { returnType } = girSignalFunc._desc
+
+        returnType = removeNamespace(returnType, namespace)
         const paramComma = inParams.length > 0 ? ', ' : ''
         const indent = generateIndent(indentCount)
         const def: string[] = []
@@ -360,7 +369,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateParameter(girParam: GirCallableParamElement) {
+    private generateParameter(girParam: GirCallableParamElement, namespace: string) {
         if (
             typeof girParam._desc?.name !== 'string' ||
             typeof girParam._desc.optional !== 'boolean' ||
@@ -368,10 +377,11 @@ export default class TypeDefinitionGenerator implements Generator {
         ) {
             throw new Error('[generateParameter] Not all required properties set!')
         }
-        return [`${girParam._desc.name}${girParam._desc.optional ? '?' : ''}: ${girParam._desc.type}`]
+        const type = removeNamespace(girParam._desc.type, namespace)
+        return [`${girParam._desc.name}${girParam._desc.optional ? '?' : ''}: ${type}`]
     }
 
-    private generateOutParameterReturn(girParam: GirCallableParamElement) {
+    private generateOutParameterReturn(girParam: GirCallableParamElement, namespace: string) {
         const desc: string[] = []
 
         if (!girParam._desc) {
@@ -379,7 +389,9 @@ export default class TypeDefinitionGenerator implements Generator {
             return desc
         }
 
-        const { type, name } = girParam._desc
+        let { type } = girParam._desc
+        const { name } = girParam._desc
+        type = removeNamespace(type, namespace)
 
         if (this.config.environment === 'gjs') {
             desc.push(`/* ${name} */ ${type}`)
@@ -396,6 +408,7 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirConstructorElement
             | GirCallbackElement
             | GirVirtualMethodElement,
+        namespace: string,
     ) {
         if (!girFunc._desc) {
             this.log.warn('[generateFunctionReturn] Not all required properties set!')
@@ -405,7 +418,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const overrideReturnType = girFunc._desc.overrideReturnType
         const outParams = girFunc._desc.outParams
         const retTypeIsVoid = girFunc._desc.retTypeIsVoid
-        const returnType = girFunc._desc.returnType
+        const returnType = removeNamespace(girFunc._desc.returnType, namespace)
+
         let desc = returnType
 
         // TODO move gjs / node differences logic to transformation.ts
@@ -420,13 +434,13 @@ export default class TypeDefinitionGenerator implements Generator {
                 }
 
                 for (const outParam of outParams) {
-                    outParamsDesc.push(...this.generateOutParameterReturn(outParam))
+                    outParamsDesc.push(...this.generateOutParameterReturn(outParam, namespace))
                 }
 
                 desc = outParamsDesc.join(', ')
                 desc = `[ ${desc} ]`
             } else if (outParams.length === 1 && retTypeIsVoid) {
-                desc = this.generateOutParameterReturn(outParams[0]).join(' ')
+                desc = this.generateOutParameterReturn(outParams[0], namespace).join(' ')
             }
         }
         // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
@@ -441,7 +455,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 }
 
                 for (const outParam of outParams) {
-                    outParamsDesc.push(...this.generateOutParameterReturn(outParam))
+                    outParamsDesc.push(...this.generateOutParameterReturn(outParam, namespace))
                 }
 
                 desc = outParamsDesc.join(', ')
@@ -504,7 +518,7 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        const returnDesc = this.generateFunctionReturn(girFunc)
+        const returnDesc = this.generateFunctionReturn(girFunc, namespace)
 
         let retSep: string
         if (isArrowType) {
@@ -543,7 +557,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
 
-        const { inParams, instanceParameters, returnType } = girCallback._desc
+        const { inParams, instanceParameters } = girCallback._desc
+        const returnType = removeNamespace(girCallback._desc.returnType, namespace)
         const { name } = girCallback._descInterface
 
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
@@ -609,7 +624,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${exp}const ${desc}`
     }
 
-    private generateAlias(girAlias: GirAliasElement, indentCount = 0) {
+    private generateAlias(girAlias: GirAliasElement, namespace: string, indentCount = 0) {
         const desc: string[] = []
 
         if (!girAlias._desc) {
@@ -619,16 +634,17 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
 
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const type = removeNamespace(girAlias._desc.type, namespace)
 
-        desc.push(`${indent}${exp}type ${girAlias._desc.name} = ${girAlias._desc.type}`)
+        desc.push(`${indent}${exp}type ${girAlias._desc.name} = ${type}`)
         return desc
     }
 
-    private generateAliases(girAliases: GirAliasElement[], comment = '', indentCount = 0) {
+    private generateAliases(girAliases: GirAliasElement[], namespace: string, comment = '', indentCount = 0) {
         const def: string[] = []
         def.push(...this.addComment(girAliases, comment, indentCount))
         for (const girAlias of girAliases) {
-            def.push(...this.generateAlias(girAlias, indentCount))
+            def.push(...this.generateAlias(girAlias, namespace, indentCount))
         }
         return def
     }
@@ -1114,7 +1130,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // GType is not a number in GJS
                 for (const girAlias of girModule.ns.alias)
                     if (girModule.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
-                        out.push(...this.generateAlias(girAlias, 1))
+                        out.push(...this.generateAlias(girAlias, girModule.namespace, 1))
 
             if (girModule.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
@@ -1138,7 +1154,7 @@ export default class TypeDefinitionGenerator implements Generator {
             )
         } else {
             const moduleContent = await moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent + outResult)
+            this.log.log(moduleContent + '\n' + outResult)
         }
     }
 

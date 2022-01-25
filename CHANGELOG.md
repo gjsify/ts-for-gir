@@ -1,4 +1,8 @@
-# In development
+## TODO
+- Refactor Ava test
+
+# v2.0.0
+- Upgrade all dependencies to latest
 - [node-gtk] don't add $obj parameter in connect() method either, thanks to @peat-psuwit
 - [node-gtk] Fixed Return types, see #46
 - New and simpler patch format
@@ -15,9 +19,6 @@
 - The utility functions are no longer static members of a class
 - Fixed a bug in the `forEachInterface` method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md
-
-## TODO
-- Refactor Ava test
 
 # 17 Jan 2022
 - All types in vala-gir can now be built and validated without errors, this can be tested with `npm run test:girs:all`, this test is now also executed with github actions

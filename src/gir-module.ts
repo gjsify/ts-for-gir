@@ -1005,14 +1005,11 @@ export class GirModule {
         typeName = this.transformation.transformTypeName(typeName)
 
         girVar._desc = {
-            desc: null,
             name,
             patched: false,
             optional,
             type: typeName,
         }
-
-        girVar._desc.desc = this.generator.generateVariable(girVar)
 
         return girVar._desc
     }
@@ -1047,7 +1044,6 @@ export class GirModule {
         tsType: 'constructor-property' | 'field',
         construct = false,
         optional = true,
-        indentCount = 0,
     ): DescProperty | undefined {
         if (girBool((girProp as GirPropertyElement).$['construct-only']) && !construct) return undefined
         if (!girBool(girProp.$.writable) && construct) return undefined
@@ -1087,11 +1083,10 @@ export class GirModule {
 
         girProp._desc = {
             ...girProp._desc,
-            desc: null,
             readonly,
         }
 
-        girProp._desc.desc = this.generator.generateProperty(girProp, indentCount)
+        // girProp._desc.desc = this.generator.generateProperty(girProp, indentCount)
 
         return girProp._desc
     }
@@ -1121,7 +1116,7 @@ export class GirModule {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
-        const packageName = this.getPackageName(girFunc)
+        // const packageName = this.getPackageName(girFunc)
         let name = girFunc.$.name
         const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
         const retTypeIsVoid = returnType === 'void'
@@ -1151,7 +1146,6 @@ export class GirModule {
 
         girFunc._desc = {
             patched: true,
-            // desc: null,
             isArrowType,
             isStatic,
             isGlobal,
@@ -1166,11 +1160,8 @@ export class GirModule {
             outParams,
         }
 
-        // TODO move
-        const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
-
-        // TODO: move
-        // girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, this.namespace, indentCount)
+        // TODO:
+        // const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
         return girFunc._desc
     }
@@ -1229,7 +1220,6 @@ export class GirModule {
         )
 
         girSignalFunc._desc = {
-            // desc: null,
             name,
             returnType,
             isArrowType: true,
@@ -1244,23 +1234,18 @@ export class GirModule {
             outParams,
         }
 
-        // TODO: move
-        // girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass, this.namespace)
-
         return girSignalFunc._desc
     }
 
-    public setEnumerationMemberDesc(girEnumMember: GirMemberElement, indentCount = 1) {
+    public setEnumerationMemberDesc(girEnumMember: GirMemberElement) {
         const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
         if (!memberName) {
             return undefined
         }
         const name = this.transformation.transformEnumMember(memberName)
         girEnumMember._desc = {
-            desc: null,
             name,
         }
-        girEnumMember._desc.desc = this.generator.generateEnumerationMember(girEnumMember, indentCount)
         return girEnumMember._desc
     }
 
@@ -1291,12 +1276,9 @@ export class GirModule {
         const typeName = this.typeLookup(girAlias).result
         const name = girAlias.$.name
         girAlias._desc = {
-            desc: null,
             name,
             type: typeName,
         }
-
-        girAlias._desc.desc = this.generator.generateAlias(girAlias)
         return girAlias._desc
     }
 
@@ -1306,7 +1288,7 @@ export class GirModule {
             if (!this.constNames[girConst._desc.name]) {
                 this.constNames[girConst._desc.name] = girConst
             } else {
-                this.log.warn(`The constant '${girConst._desc.desc?.join(', ') || ''}' has already been exported`)
+                this.log.warn(`The constant '${girConst._desc.name}' has already been exported`)
                 girConst._desc = undefined
             }
         }
@@ -1343,18 +1325,18 @@ export class GirModule {
                 continue
             }
 
-            // Apply patches
-            {
-                const packageNameToPatch = this.getPackageName(girConstrProp)
-                const constructPropPatches = girConstrProp._fullSymName
-                    ? this.getPatches(packageNameToPatch, 'constructorProperties', girConstrProp._fullSymName)
-                    : undefined
+            // TODO: Apply patches
+            // {
+            //     const packageNameToPatch = this.getPackageName(girConstrProp)
+            //     const constructPropPatches = girConstrProp._fullSymName
+            //         ? this.getPatches(packageNameToPatch, 'constructorProperties', girConstrProp._fullSymName)
+            //         : undefined
 
-                if (constructPropPatches?.length) {
-                    // this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
-                    girConstrProp._desc.desc = constructPropPatches
-                }
-            }
+            //     if (constructPropPatches?.length) {
+            //         // this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
+            //         girConstrProp._desc.desc = constructPropPatches
+            //     }
+            // }
 
             constructProps.push(girConstrProp)
         }
@@ -1457,9 +1439,6 @@ export class GirModule {
                     /* isVirtual */ false,
                     /* overrideReturnType */ null,
                 )
-                // if (!girMethod._desc?.desc) {
-                //     continue
-                // }
                 const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
                 if (localName?.added && localName.method) {
                     girMethods.push(localName.method)
@@ -1505,9 +1484,6 @@ export class GirModule {
         if (properties) {
             for (const girProperty of properties) {
                 girProperty._desc = this.setPropertyDesc(girProperty, 'property', 'field')
-                if (!girProperty._desc?.desc) {
-                    continue
-                }
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
                 if (localName?.added && localName.property) {
                     girProperties.push(localName.property)
@@ -1551,10 +1527,8 @@ export class GirModule {
             const girProperties = girClass._desc.implements[fullSymName]?.properties
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
-                    if (girProperty._desc?.desc) {
-                        if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
-                            propertyNames.push(girProperty.$.name)
-                        }
+                    if (girProperty._desc && girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                        propertyNames.push(girProperty.$.name)
                     }
                 }
             }
@@ -1772,7 +1746,7 @@ export class GirModule {
         girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
         girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
         girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
-        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, false))
+        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, true))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
@@ -1802,7 +1776,7 @@ export class GirModule {
             )
             girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
             girClass._desc.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
-            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass, false))
+            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass, true))
         })
 
         // Copy properties from implemented interface

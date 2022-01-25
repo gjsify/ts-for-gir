@@ -13,7 +13,7 @@ import {
     GirRecordElement,
 } from '.'
 
-export interface DescClass {
+export interface TsClass {
     name: string
     qualifiedName: string
     parentName?: string

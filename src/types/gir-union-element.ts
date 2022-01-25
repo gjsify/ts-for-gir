@@ -7,7 +7,7 @@ import type {
     GirFieldElement,
     GirRecordElement,
     PartOfModule,
-    DescClass,
+    TsClass,
 } from '.'
 
 export interface GirUnionElement extends PartOfModule, GirInfoElements {
@@ -35,5 +35,5 @@ export interface GirUnionElement extends PartOfModule, GirInfoElements {
     _girType?: 'union'
     /** Will be exported in Typescript as a `class` */
     _tsType?: 'class'
-    _tsData?: DescClass
+    _tsData?: TsClass
 }

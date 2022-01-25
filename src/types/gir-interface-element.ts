@@ -12,7 +12,7 @@ import {
     GirConstantElement,
     GirSignalElement,
     PartOfModule,
-    DescClass,
+    TsClass,
     TypeClass,
 } from '.'
 
@@ -54,5 +54,5 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     _girType?: TypeClass
     /** Will be exported in Typescript as a `class` */
     _tsType?: 'class'
-    _tsData?: DescClass
+    _tsData?: TsClass
 }

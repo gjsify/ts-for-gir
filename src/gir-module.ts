@@ -1,7 +1,6 @@
-import TypeDefinitionGenerator from './type-definition-generator.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { isEqual, find, stripParamNames, isCommentLine, clone, girBool } from './utils.js'
+import { isEqual, find, clone, girBool } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 import type {
@@ -103,10 +102,6 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
-    /**
-     * @deprecated This class should have no dependency on the generator
-     */
-    generator: TypeDefinitionGenerator
 
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
@@ -129,8 +124,6 @@ export class GirModule {
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
-
-        this.generator = new TypeDefinitionGenerator(this.config)
 
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
@@ -417,120 +410,6 @@ export class GirModule {
 
                 this.symTable.set(this.allDependencies, girElement._fullSymName, girElement)
             }
-        }
-    }
-
-    public loadTypes(): void {
-        if (this.ns.bitfield) this.annotateAndRegisterGirElement(this.ns.bitfield, 'bitfield')
-        if (this.ns.callback) this.annotateAndRegisterGirElement(this.ns.callback, 'callback')
-        if (this.ns.class) this.annotateAndRegisterGirElement(this.ns.class, 'class')
-        if (this.ns.constant) this.annotateAndRegisterGirElement(this.ns.constant, 'constant')
-        if (this.ns.enumeration) this.annotateAndRegisterGirElement(this.ns.enumeration, 'enumeration')
-        if (this.ns.function) this.annotateAndRegisterGirElement(this.ns.function, 'function')
-        if (this.ns.interface) this.annotateAndRegisterGirElement(this.ns.interface, 'interface')
-        if (this.ns.record) this.annotateAndRegisterGirElement(this.ns.record, 'record')
-        if (this.ns.union) this.annotateAndRegisterGirElement(this.ns.union, 'union')
-        if (this.ns.alias) this.annotateAndRegisterGirElement(this.ns.alias, 'alias')
-
-        if (this.ns.callback) for (const girCallback of this.ns.callback) this.annotateFunctionArguments(girCallback)
-
-        for (const girClass of this.ns.class || []) {
-            this.annotateClass(girClass, 'class')
-        }
-        for (const girClass of this.ns.record || []) {
-            this.annotateClass(girClass, 'record')
-        }
-        for (const girClass of this.ns.interface || []) {
-            this.annotateClass(girClass, 'interface')
-        }
-
-        if (this.ns.function) this.annotateFunctions(this.ns.function, 'function')
-        if (this.ns.callback) this.annotateFunctions(this.ns.callback, 'callback')
-
-        if (this.ns.constant) this.annotateVariables(this.ns.constant, 'constant')
-    }
-
-    public loadInheritance(inheritanceTable: InheritanceTable): void {
-        // Class hierarchy
-        for (const girClass of this.ns.class ? this.ns.class : []) {
-            let parent: string | null = null
-            if (girClass.$ && girClass.$.parent) parent = girClass.$.parent
-            if (!parent) continue
-            if (!girClass._fullSymName) continue
-
-            if (parent.indexOf('.') < 0) {
-                parent = this.namespace + '.' + parent
-            }
-            const className = girClass._fullSymName
-
-            const arr: string[] = inheritanceTable[className] || []
-            arr.push(parent)
-            inheritanceTable[className] = arr
-        }
-
-        // Class interface implementations
-        for (const girClass of this.ns.class ? this.ns.class : []) {
-            if (!girClass._fullSymName) continue
-
-            const names: string[] = []
-
-            if (girClass.implements) {
-                for (const girImplements of girClass.implements) {
-                    if (girImplements.$.name) {
-                        let name: string = girImplements.$.name
-                        if (name.indexOf('.') < 0) {
-                            name = girClass._fullSymName.substring(0, girClass._fullSymName.indexOf('.') + 1) + name
-                        }
-                        names.push(name)
-                    }
-                }
-            }
-
-            if (names.length > 0) {
-                const className = girClass._fullSymName
-                const arr: string[] = inheritanceTable[className] || []
-                inheritanceTable[className] = arr.concat(names)
-            }
-        }
-    }
-
-    /**
-     * TODO: find better name for this method
-     * @param fullTypeName
-     * @returns
-     */
-    private fullTypeLookupWithNamespace(fullTypeName: string) {
-        let resValue = ''
-        let namespace = ''
-
-        // Check overwrites first
-        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
-            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
-        }
-
-        // Only use the fullTypeName as the type if it is found in the symTable
-        if (!resValue && this.symTable.get(this.allDependencies, fullTypeName)) {
-            if (fullTypeName.startsWith(this.namespace + '.')) {
-                resValue = fullTypeName.substring(this.namespace.length + 1)
-                resValue = this.transformation.transformTypeName(resValue)
-                // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
-                resValue = this.transformation.transformClassName(resValue)
-                namespace = this.namespace
-            } else {
-                const resValues = fullTypeName.split('.')
-                resValues.map((name) => this.transformation.transformTypeName(name))
-                // TODO: check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
-                resValues[resValues.length - 1] = this.transformation.transformClassName(
-                    resValues[resValues.length - 1],
-                )
-                resValue = resValues.join('.')
-                namespace = resValues[0]
-            }
-        }
-
-        return {
-            value: resValue,
-            namespace,
         }
     }
 
@@ -1256,7 +1135,7 @@ export class GirModule {
         return girSignalFunc._desc
     }
 
-    public setEnumerationMemberDesc(girEnumMember: GirMemberElement) {
+    private setEnumerationMemberDesc(girEnumMember: GirMemberElement) {
         const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
         if (!memberName) {
             return undefined
@@ -1268,7 +1147,7 @@ export class GirModule {
         return girEnumMember._desc
     }
 
-    public setEnumerationDesc(girEnum: GirEnumElement | GirBitfieldElement) {
+    private setEnumerationDesc(girEnum: GirEnumElement | GirBitfieldElement) {
         if (!girEnum?.$ || !girBool(girEnum.$.introspectable, true)) return undefined
 
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
@@ -1287,7 +1166,7 @@ export class GirModule {
         return girEnum._desc
     }
 
-    public setAliasDesc(girAlias: GirAliasElement) {
+    private setAliasDesc(girAlias: GirAliasElement) {
         if (!girAlias || !girAlias.$ || !girBool(girAlias.$.introspectable, true)) return undefined
 
         const typeName = this.typeLookup(girAlias).result
@@ -1299,7 +1178,7 @@ export class GirModule {
         return girAlias._desc
     }
 
-    public setConstantDesc(girConst: GirConstantElement) {
+    private setConstantDesc(girConst: GirConstantElement) {
         girConst._desc = this.setVariableDesc(girConst, 'constant', 'constant', false, false)
         if (girConst._desc?.name) {
             if (!this.constNames[girConst._desc.name]) {
@@ -2068,18 +1947,6 @@ export class GirModule {
         return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
     }
 
-    /**
-     * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
-     * TODO: Compare the tsData here instead of the generated function definitions
-     * @param f1
-     * @param f2
-     */
-    private functionSignaturesMatch(f1: string, f2: string) {
-        if (isCommentLine(f1) || isCommentLine(f2)) return false
-        return stripParamNames(f1) == stripParamNames(f2)
-    }
-
-    // TODO: Compare the tsData here instead of the generated function definitions
     private functionMatch(
         f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
         f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
@@ -2087,19 +1954,9 @@ export class GirModule {
         if (!f1._desc) f1._desc = this.setFunctionDesc(f1)
         if (!f2._desc) f2._desc = this.setFunctionDesc(f2)
 
-        const f1Defs = this.generator.generateFunction(f1, [], this.namespace, 0)
-        const f2Defs = this.generator.generateFunction(f2, [], this.namespace, 0)
+        if (!f1._desc || !f2._desc) return false
 
-        let isEqual = false
-        for (const f1Def of f1Defs) {
-            for (const f2Def of f2Defs) {
-                if (this.functionSignaturesMatch(f1Def, f2Def)) {
-                    isEqual = true
-                    break
-                }
-            }
-        }
-        return isEqual
+        return isEqual(f1._desc.name, f2._desc.name)
     }
 
     /**
@@ -2364,22 +2221,22 @@ export class GirModule {
         }
     }
 
-    public girToTsType(girType: 'alias', isStatic?: boolean): 'type'
-    public girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
-    public girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
-    public girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
-    public girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
-    public girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
-    public girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
-    public girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
-    public girToTsType(girType: 'function', isStatic: true): 'static-function'
-    public girToTsType(girType: 'function', isStatic: false): 'function'
-    public girToTsType(
+    private girToTsType(girType: 'alias', isStatic?: boolean): 'type'
+    private girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
+    private girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
+    private girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
+    private girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
+    private girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
+    private girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
+    private girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
+    private girToTsType(girType: 'function', isStatic: true): 'static-function'
+    private girToTsType(girType: 'function', isStatic: false): 'function'
+    private girToTsType(
         girType: 'function' | 'method' | 'virtual-method' | 'constructor' | 'callback',
         isStatic?: boolean,
     ): 'function' | 'method' | 'interface' | 'static-function'
-    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
-    public girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
+    private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
+    private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
         switch (girType) {
             case 'alias':
                 return 'type'
@@ -2416,11 +2273,121 @@ export class GirModule {
         throw new Error(`Unknown gir type: "${String(girType)}"!`)
     }
 
-    public async start(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
-        this.setModuleDesc()
-        await this.generator.exportModuleTS(outStream, outputPath, this)
-        if (this.config.buildType === 'lib') {
-            await this.generator.exportModule(this)
+    /**
+     * TODO: find better name for this method
+     * @param fullTypeName
+     * @returns
+     */
+    private fullTypeLookupWithNamespace(fullTypeName: string) {
+        let resValue = ''
+        let namespace = ''
+
+        // Check overwrites first
+        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
+            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
         }
+
+        // Only use the fullTypeName as the type if it is found in the symTable
+        if (!resValue && this.symTable.get(this.allDependencies, fullTypeName)) {
+            if (fullTypeName.startsWith(this.namespace + '.')) {
+                resValue = fullTypeName.substring(this.namespace.length + 1)
+                resValue = this.transformation.transformTypeName(resValue)
+                // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
+                resValue = this.transformation.transformClassName(resValue)
+                namespace = this.namespace
+            } else {
+                const resValues = fullTypeName.split('.')
+                resValues.map((name) => this.transformation.transformTypeName(name))
+                // TODO: check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                resValues[resValues.length - 1] = this.transformation.transformClassName(
+                    resValues[resValues.length - 1],
+                )
+                resValue = resValues.join('.')
+                namespace = resValues[0]
+            }
+        }
+
+        return {
+            value: resValue,
+            namespace,
+        }
+    }
+
+    public loadInheritance(inheritanceTable: InheritanceTable): void {
+        // Class hierarchy
+        for (const girClass of this.ns.class ? this.ns.class : []) {
+            let parent: string | null = null
+            if (girClass.$ && girClass.$.parent) parent = girClass.$.parent
+            if (!parent) continue
+            if (!girClass._fullSymName) continue
+
+            if (parent.indexOf('.') < 0) {
+                parent = this.namespace + '.' + parent
+            }
+            const className = girClass._fullSymName
+
+            const arr: string[] = inheritanceTable[className] || []
+            arr.push(parent)
+            inheritanceTable[className] = arr
+        }
+
+        // Class interface implementations
+        for (const girClass of this.ns.class ? this.ns.class : []) {
+            if (!girClass._fullSymName) continue
+
+            const names: string[] = []
+
+            if (girClass.implements) {
+                for (const girImplements of girClass.implements) {
+                    if (girImplements.$.name) {
+                        let name: string = girImplements.$.name
+                        if (name.indexOf('.') < 0) {
+                            name = girClass._fullSymName.substring(0, girClass._fullSymName.indexOf('.') + 1) + name
+                        }
+                        names.push(name)
+                    }
+                }
+            }
+
+            if (names.length > 0) {
+                const className = girClass._fullSymName
+                const arr: string[] = inheritanceTable[className] || []
+                inheritanceTable[className] = arr.concat(names)
+            }
+        }
+    }
+
+    public loadTypes(): void {
+        if (this.ns.bitfield) this.annotateAndRegisterGirElement(this.ns.bitfield, 'bitfield')
+        if (this.ns.callback) this.annotateAndRegisterGirElement(this.ns.callback, 'callback')
+        if (this.ns.class) this.annotateAndRegisterGirElement(this.ns.class, 'class')
+        if (this.ns.constant) this.annotateAndRegisterGirElement(this.ns.constant, 'constant')
+        if (this.ns.enumeration) this.annotateAndRegisterGirElement(this.ns.enumeration, 'enumeration')
+        if (this.ns.function) this.annotateAndRegisterGirElement(this.ns.function, 'function')
+        if (this.ns.interface) this.annotateAndRegisterGirElement(this.ns.interface, 'interface')
+        if (this.ns.record) this.annotateAndRegisterGirElement(this.ns.record, 'record')
+        if (this.ns.union) this.annotateAndRegisterGirElement(this.ns.union, 'union')
+        if (this.ns.alias) this.annotateAndRegisterGirElement(this.ns.alias, 'alias')
+
+        if (this.ns.callback) for (const girCallback of this.ns.callback) this.annotateFunctionArguments(girCallback)
+
+        for (const girClass of this.ns.class || []) {
+            this.annotateClass(girClass, 'class')
+        }
+        for (const girClass of this.ns.record || []) {
+            this.annotateClass(girClass, 'record')
+        }
+        for (const girClass of this.ns.interface || []) {
+            this.annotateClass(girClass, 'interface')
+        }
+
+        if (this.ns.function) this.annotateFunctions(this.ns.function, 'function')
+        if (this.ns.callback) this.annotateFunctions(this.ns.callback, 'callback')
+
+        if (this.ns.constant) this.annotateVariables(this.ns.constant, 'constant')
+    }
+
+    public start() {
+        this.setModuleDesc()
     }
 }

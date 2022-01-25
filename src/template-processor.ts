@@ -48,13 +48,19 @@ export class TemplateProcessor {
      * @param outputFilename
      * @return The rendered (and if possible prettified) code string
      */
-    public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
+    public async create(
+        templateFilename: string,
+        outputDir: string,
+        outputFilename: string,
+        append = '',
+    ): Promise<string> {
         const fileContent = await this.load(templateFilename)
         const renderedCode = await this.render(fileContent)
         const destPath = this.getDestPath(outputDir, outputFilename)
         const prettifiedCode = this.config.pretty ? this.prettifySource(renderedCode, destPath) : null
-        await this.write(renderedCode, outputDir, outputFilename)
-        return prettifiedCode || renderedCode
+        const code = (prettifiedCode || renderedCode) + append
+        await this.write(code, outputDir, outputFilename)
+        return code
     }
 
     protected getDestPath(outputDir: string, outputFilename: string) {

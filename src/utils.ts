@@ -147,3 +147,13 @@ export function girBool(boolStr: string | undefined, defaultVal = false): boolea
     }
     return defaultVal
 }
+
+/**
+ * Returns `true` if the definitions in `d1` and `d2` have equivalent signatures
+ * @param d1
+ * @param d2
+ */
+export function signaturesMatch(d1: string, d2: string) {
+    if (isCommentLine(d1) || isCommentLine(d2)) return false
+    return stripParamNames(d1) == stripParamNames(d2)
+}

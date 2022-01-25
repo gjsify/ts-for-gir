@@ -40,7 +40,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * See https://github.com/microsoft/tsdoc
      * @param description
      */
-    public generateTSDocComment(description: string): string[] {
+    private generateTSDocComment(description: string): string[] {
         const def: string[] = []
         def.push('/**')
         def.push(` * ${description}`)
@@ -54,7 +54,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param packageName E.g. 'Gtk-3.0'
      * @param asExternType Currently only used for node type imports
      */
-    public generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
+    private generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const def: string[] = []
         if (this.config.buildType === 'lib') {
             const sas = this.config.useNamespace && packageName !== 'Gjs' ? '' : '* as '
@@ -71,7 +71,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateExport(type: string, name: string, definition: string, indentCount = 0) {
+    private generateExport(type: string, name: string, definition: string, indentCount = 0) {
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         const indent = generateIndent(indentCount)
         if (!definition.startsWith(':')) {
@@ -80,7 +80,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${exp}${type} ${name}${definition}`
     }
 
-    public generateProperty(girProp: GirPropertyElement | GirFieldElement, namespace: string, indentCount = 0) {
+    private generateProperty(girProp: GirPropertyElement | GirFieldElement, namespace: string, indentCount = 0) {
         if (!girProp._desc) {
             this.log.error('girProp', inspect(girProp))
             throw new Error('[generateProperty] Not all required properties set!')
@@ -93,7 +93,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${prefix}${varDesc}`
     }
 
-    public generateProperties(
+    private generateProperties(
         girProps: Array<GirPropertyElement | GirFieldElement>,
         namespace: string,
         comment: string,
@@ -107,7 +107,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateVariableCallbackType(girField: GirFieldElement, namespace: string) {
+    private generateVariableCallbackType(girField: GirFieldElement, namespace: string) {
         // The type of a callback is a functions definition
 
         let type = 'any'
@@ -133,7 +133,7 @@ export default class TypeDefinitionGenerator implements Generator {
             type = funcDesc[0]
         }
 
-        // TODO use suffix from GirModule.typeLookup result here
+        // TODO use suffix from GirModule.typeLookup result here?
         // if (type) {
         //     const suffix: TypeSuffix = (arr + nul) as TypeSuffix
         //     if (suffix.length) type = '(' + type + ')'
@@ -142,7 +142,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return type
     }
 
-    public generateVariable(
+    private generateVariable(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         namespace: string,
         indentCount = 0,
@@ -180,7 +180,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param callbackObjectName
      * @returns
      */
-    public generateSignalMethodsFromProperties(
+    private generateSignalMethodsFromProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -197,7 +197,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateInParameters(
+    private generateInParameters(
         inParams: GirCallableParamElement[],
         instanceParameters: GirInstanceParameter[],
         namespace: string,
@@ -221,7 +221,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return inParamsDef
     }
 
-    public generateSignal(
+    private generateSignal(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
@@ -268,7 +268,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateSignals(
+    private generateSignals(
         girSignals: GirSignalElement[],
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
@@ -281,7 +281,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateGObjectSignalMethods(
+    private generateGObjectSignalMethods(
         propertyName: string,
         callbackObjectName: string,
         namespacePrefix: string,
@@ -305,7 +305,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateGeneralSignalMethods(environment: Environment, indentCount = 1): string[] {
+    private generateGeneralSignalMethods(environment: Environment, indentCount = 1): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         def.push(
@@ -325,7 +325,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public addComment(elements: unknown[], comment?: string, indentCount = 0) {
+    private addComment(elements: unknown[], comment?: string, indentCount = 0) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         if (comment && elements.length > 0) {
@@ -334,7 +334,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public mergeDescs(descs: string[], comment?: string, indentCount = 1) {
+    private mergeDescs(descs: string[], comment?: string, indentCount = 1) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         def.push(...this.addComment(descs, comment, indentCount))
@@ -346,7 +346,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateFunctions(
+    private generateFunctions(
         girElements: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
         namespace: string,
         indentCount = 1,
@@ -360,7 +360,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateParameter(girParam: GirCallableParamElement) {
+    private generateParameter(girParam: GirCallableParamElement) {
         if (
             typeof girParam._desc?.name !== 'string' ||
             typeof girParam._desc.optional !== 'boolean' ||
@@ -371,7 +371,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return [`${girParam._desc.name}${girParam._desc.optional ? '?' : ''}: ${girParam._desc.type}`]
     }
 
-    public generateOutParameterReturn(girParam: GirCallableParamElement) {
+    private generateOutParameterReturn(girParam: GirCallableParamElement) {
         const desc: string[] = []
 
         if (!girParam._desc) {
@@ -389,7 +389,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateFunctionReturn(
+    private generateFunctionReturn(
         girFunc:
             | GirMethodElement
             | GirFunctionElement
@@ -451,7 +451,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateFunction(
+    private generateFunction(
         girFunc:
             | GirMethodElement
             | GirFunctionElement
@@ -532,7 +532,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
+    private generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
         const def: string[] = []
 
         if (!girCallback._desc || !girCallback._descInterface) {
@@ -555,7 +555,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
+    private generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
         const desc: string[] = []
 
         if (!girEnum._desc) {
@@ -577,7 +577,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
+    private generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
         const desc: string[] = []
         if (!girEnumMember._desc) {
             this.log.warn('[generateEnumerationMember] Not all required properties set!')
@@ -588,7 +588,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateEnumerations(girEnums: Array<GirEnumElement | GirBitfieldElement>, comment = '', indentCount = 0) {
+    private generateEnumerations(girEnums: Array<GirEnumElement | GirBitfieldElement>, comment = '', indentCount = 0) {
         const def: string[] = []
         def.push(...this.addComment(girEnums, comment, indentCount))
         for (const girEnum of girEnums) {
@@ -597,7 +597,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateConstant(girConst: GirConstantElement, namespace: string, indentCount = 0) {
+    private generateConstant(girConst: GirConstantElement, namespace: string, indentCount = 0) {
         if (!girConst._desc) {
             this.log.warn('[generateConstant] Not all required properties set!')
             return ''
@@ -609,7 +609,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${exp}const ${desc}`
     }
 
-    public generateAlias(girAlias: GirAliasElement, indentCount = 0) {
+    private generateAlias(girAlias: GirAliasElement, indentCount = 0) {
         const desc: string[] = []
 
         if (!girAlias._desc) {
@@ -624,7 +624,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    public generateAliases(girAliases: GirAliasElement[], comment = '', indentCount = 0) {
+    private generateAliases(girAliases: GirAliasElement[], comment = '', indentCount = 0) {
         const def: string[] = []
         def.push(...this.addComment(girAliases, comment, indentCount))
         for (const girAlias of girAliases) {
@@ -633,7 +633,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateConstructPropsInterface(
+    private generateConstructPropsInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 0,
@@ -686,7 +686,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassFields(
+    private generateClassFields(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -713,7 +713,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassProperties(
+    private generateClassProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -757,7 +757,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateClassMethods(
+    private generateClassMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -806,7 +806,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param name
      */
-    public generateStaticFunctions(
+    private generateStaticFunctions(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -832,7 +832,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * Instance methods, vfunc_ prefix
      * @param girClass
      */
-    public generateClassVirtualMethods(
+    private generateClassVirtualMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -870,7 +870,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateConstructorAndStaticFunctions(
+    private generateConstructorAndStaticFunctions(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -919,7 +919,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return { def }
     }
 
-    public generateClassSignals(
+    private generateClassSignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -962,7 +962,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param record
      */
-    public generateClass(
+    private generateClass(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -1015,7 +1015,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
+    private async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.packageName}.js`)
@@ -1025,28 +1025,9 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public async exportModuleTS(
-        outStream: NodeJS.WritableStream,
-        outputPath: string | null,
-        girModule: GirModule,
-    ): Promise<void> {
+    private async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
         const out: string[] = []
-
-        const templateProcessor = new TemplateProcessor(
-            {
-                name: girModule.namespace,
-                namespace: girModule.namespace,
-                version: girModule.version,
-                importName: girModule.importName,
-            },
-            girModule.packageName,
-            this.config,
-        )
-
-        if (outputPath) {
-            out.push(await templateProcessor.load(template))
-        }
 
         out.push(...this.generateTSDocComment(`${girModule.packageName}`))
 
@@ -1112,8 +1093,8 @@ export default class TypeDefinitionGenerator implements Generator {
             // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
-            if (templateProcessor.exists(`${girModule.packageName}.d.ts`)) {
-                const templatePatches = await templateProcessor.load(`${girModule.packageName}.d.ts`)
+            if (moduleTemplateProcessor.exists(`${girModule.packageName}.d.ts`)) {
+                const templatePatches = await moduleTemplateProcessor.load(`${girModule.packageName}.d.ts`)
                 out.push(templatePatches)
             }
 
@@ -1146,17 +1127,22 @@ export default class TypeDefinitionGenerator implements Generator {
             out.push(`export default ${girModule.namespace};`)
         }
 
-        let outResult = out.join('\n')
+        const outResult = out.join('\n') // End of file
 
-        if (outputPath && this.config.pretty) {
-            outResult = templateProcessor.prettifySource(outResult, outputPath) || outResult
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                `${girModule.packageName}.d.ts`,
+                outResult,
+            )
+        } else {
+            const moduleContent = await moduleTemplateProcessor.load(template)
+            this.log.log(moduleContent + outResult)
         }
-
-        // End of file
-        outStream.write(outResult)
     }
 
-    public async exportModule(girModule: GirModule) {
+    private async exportModule(girModule: GirModule) {
         const moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
@@ -1167,11 +1153,15 @@ export default class TypeDefinitionGenerator implements Generator {
             girModule.packageName,
             this.config,
         )
-        // TODO await this.exportModuleDTS(...)
-        await this.exportModuleJS(moduleTemplateProcessor, girModule)
+
+        await this.exportModuleTS(moduleTemplateProcessor, girModule)
+
+        if (this.config.buildType === 'lib') {
+            await this.exportModuleJS(moduleTemplateProcessor, girModule)
+        }
     }
 
-    public async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    private async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
@@ -1192,7 +1182,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public async exportGjsCastLib(inheritanceTable: InheritanceTable) {
+    private async exportGjsCastLib(inheritanceTable: InheritanceTable) {
         if (!this.config.outdir) return
 
         const inheritanceTableKeys = Object.keys(inheritanceTable)
@@ -1200,7 +1190,7 @@ export default class TypeDefinitionGenerator implements Generator {
         await templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
     }
 
-    public async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
@@ -1213,21 +1203,19 @@ export default class TypeDefinitionGenerator implements Generator {
 
     public async start(
         girModules: GirModule[],
-        girModulesGrouped: GirModulesGrouped[],
-        inheritanceTable: InheritanceTable,
+        girModulesGrouped?: GirModulesGrouped[],
+        inheritanceTable?: InheritanceTable,
     ) {
         for (const girModule of girModules) {
-            if (this.config.buildType === 'lib') {
-                await this.exportModule(girModule)
-            }
+            await this.exportModule(girModule)
         }
 
-        if (this.config.environment === 'node') {
+        if (this.config.environment === 'node' && girModulesGrouped) {
             // node-gtk internal stuff
             await this.exportNodeGtk(girModules, girModulesGrouped)
         }
 
-        if (this.config.environment === 'gjs') {
+        if (this.config.environment === 'gjs' && girModulesGrouped && inheritanceTable) {
             // GJS internal stuff
             await this.exportGjs(girModules, girModulesGrouped)
             await this.exportGjsCastLib(inheritanceTable)

@@ -1,9 +1,8 @@
 import fs from 'fs'
-import Path from 'path'
-
 import { GirModule } from './gir-module.js'
 import { Generator } from './generator.js'
 import TypeDefinitionGenerator from './type-definition-generator.js'
+import HTMLDocGenerator from './html-doc-generator.js'
 import { Logger } from './logger.js'
 import { getEnvironmentDir } from './utils.js'
 import { InheritanceTable, GenerateConfig, GirModulesGrouped, GeneratorType } from './types/index.js'
@@ -19,7 +18,7 @@ export class GenerationHandler {
                 this.generator = new TypeDefinitionGenerator(config)
                 break
             case GeneratorType.HTML_DOC:
-                this.generator = new TypeDefinitionGenerator(config)
+                this.generator = new HTMLDocGenerator(config)
                 break
             default:
                 throw new Error('Unknown Generator')
@@ -64,18 +63,12 @@ export class GenerationHandler {
         this.log.info('Types loaded, generating .d.ts...')
 
         for (const girModule of girModules) {
-            let dtOut: NodeJS.WritableStream = process.stdout
-            let dtOutputPath: string | null = null
             if (this.config.outdir) {
-                const packageName: string = girModule.packageName
                 const outputDir = getEnvironmentDir(this.config.environment, this.config.outdir)
-                const dtFileName = `${packageName}.d.ts`
-                dtOutputPath = Path.join(outputDir, dtFileName)
                 fs.mkdirSync(outputDir, { recursive: true })
-                dtOut = fs.createWriteStream(dtOutputPath)
             }
             this.log.log(` - ${girModule.packageName} ...`)
-            await girModule.start(dtOut, dtOutputPath)
+            girModule.start()
         }
 
         await this.generator.start(girModules, girModulesGrouped, inheritanceTable)

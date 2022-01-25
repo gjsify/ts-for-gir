@@ -1,6 +1,6 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { isEqual, find, clone, girBool, removeNamespace } from './utils.js'
+import { isEqual, find, clone, girBool, removeNamespace, merge } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
 import type {
@@ -29,6 +29,8 @@ import type {
     GirAnyElement,
     GirUnionElement,
     GirInstanceParameter,
+    GirInterfaceElement,
+    GirConstructorElement,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -39,20 +41,20 @@ import type {
     TypeClass,
     TypeGirElement,
     TypeTsElement,
-    GirConstructorElement,
-    InheritanceTable,
-    ParsedGir,
-    GenerateConfig,
-    DescProperty,
-    DescInstanceParameter,
-    FunctionMap,
     LocalNameCheck,
     LocalNameType,
     LocalName,
     LocalNames,
     DescClass,
-    GirInterfaceElement,
+    DescMethod,
     DescFunction,
+    DescProperty,
+    DescParameter,
+    DescInstanceParameter,
+    InheritanceTable,
+    ParsedGir,
+    GenerateConfig,
+    FunctionMap,
 } from './types/index.js'
 
 export class GirModule {
@@ -726,13 +728,17 @@ export class GirModule {
         return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
     }
 
+    private getPatches(packageName: string, type: 'constructorProperties', nsPath: string): Partial<DescProperty>
+    private getPatches(packageName: string, type: 'methods', nsPath: string): Partial<DescMethod>
+    private getPatches(packageName: string, type: 'parameter', nsPath: string): Partial<DescParameter>
+
     /**
      * Get the patches for a given namespace path, type and package name (including the version number)
      * @param packageName E.g. 'Gtk-3.0'
      * @param type E.g 'methods'
      * @param nsPath E.g. 'Gtk.MenuItem.activate'
      */
-    private getPatches(packageName: string, type: 'methods' | 'constructorProperties', nsPath: string) {
+    private getPatches(packageName: string, type: 'methods' | 'constructorProperties' | 'parameter', nsPath: string) {
         const packagePatches = typePatches[packageName]
         if (!packagePatches) {
             return undefined
@@ -837,6 +843,16 @@ export class GirModule {
 
                         param._desc = this.setParameterDesc(param, params, paramNames, skip)
 
+                        // Apply patches
+                        const paramPatches = param._fullSymName
+                            ? this.getPatches(this.packageName, 'parameter', param._fullSymName)
+                            : undefined
+
+                        if (paramPatches) {
+                            this.log.warn(`Patch found for parameter "${param._fullSymName || ''}"!`)
+                            param._desc = merge(param._desc, paramPatches)
+                        }
+
                         const optDirection = param.$.direction
                         if (optDirection === 'out' || optDirection === 'inout') {
                             outParams.push(param)
@@ -918,6 +934,16 @@ export class GirModule {
             optional,
             type: typeName,
             callbacks: girCallbacks,
+        }
+
+        // Apply patches
+        const varPatches = girVar._fullSymName
+            ? this.getPatches(this.packageName, 'methods', girVar._fullSymName)
+            : undefined
+
+        if (varPatches) {
+            this.log.warn(`Patch found for variable "${girVar._fullSymName || ''}"!`)
+            girVar._desc = merge(girVar._desc, varPatches)
         }
 
         return girVar._desc
@@ -1066,8 +1092,15 @@ export class GirModule {
             outParams,
         }
 
-        // TODO:
-        // const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
+        // Apply patches
+        const methodPatches = girFunc._fullSymName
+            ? this.getPatches(this.packageName, 'methods', girFunc._fullSymName)
+            : undefined
+
+        if (methodPatches) {
+            this.log.warn(`Patch found for method "${girFunc._fullSymName || ''}"!`)
+            girFunc._desc = merge(girFunc._desc, methodPatches)
+        }
 
         return girFunc._desc
     }
@@ -1225,18 +1258,17 @@ export class GirModule {
                 continue
             }
 
-            // TODO: Apply patches
-            // {
-            //     const packageNameToPatch = this.getPackageName(girConstrProp)
-            //     const constructPropPatches = girConstrProp._fullSymName
-            //         ? this.getPatches(packageNameToPatch, 'constructorProperties', girConstrProp._fullSymName)
-            //         : undefined
+            // Apply patches
+            {
+                const constructPropPatches = girConstrProp._fullSymName
+                    ? this.getPatches(this.packageName, 'constructorProperties', girConstrProp._fullSymName)
+                    : undefined
 
-            //     if (constructPropPatches?.length) {
-            //         // this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
-            //         girConstrProp._desc.desc = constructPropPatches
-            //     }
-            // }
+                if (constructPropPatches) {
+                    this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
+                    girConstrProp._desc = merge(girConstrProp._desc, constructPropPatches)
+                }
+            }
 
             constructProps.push(girConstrProp)
         }

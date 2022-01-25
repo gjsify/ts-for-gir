@@ -1,4 +1,5 @@
 # In development
+- New and simpler patch format
 - Replaced `ESLint` with `prettier` for prettify output
 - New `doc` command for future implementation
 - New class `HtmlDocGenerator` this is not implemented yet, but can serve as a template for a future implementation
@@ -14,11 +15,7 @@
 - Added this CHANGELOG.md
 
 ## TODO
-- Fix static function prefix
-- Fix overload methods
 - Refactor Ava test
-- Refactor overloading
-- Refactor patches
 
 # 17 Jan 2022
 - All types in vala-gir can now be built and validated without errors, this can be tested with `npm run test:girs:all`, this test is now also executed with github actions

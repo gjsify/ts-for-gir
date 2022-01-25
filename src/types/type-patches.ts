@@ -1,18 +1,10 @@
-import { TsProperty, TsMethod, TsVar, TsParameter } from '.'
+import { TypePatchesEnv } from '.'
 
 export interface TypePatches {
-    [packageName: string]: {
-        methods?: {
-            [methodPath: string]: Partial<TsMethod>
-        }
-        constructorProperties?: {
-            [constructorPropPath: string]: Partial<TsProperty>
-        }
-        variables?: {
-            [variablePath: string]: Partial<TsVar>
-        }
-        parameter?: {
-            [parameterPath: string]: Partial<TsParameter>
-        }
-    }
+    /** Patches for all environments */
+    all: TypePatchesEnv
+    /** Patches only for node.js */
+    node: TypePatchesEnv
+    /** Patches only for gjs */
+    gjs: TypePatchesEnv
 }

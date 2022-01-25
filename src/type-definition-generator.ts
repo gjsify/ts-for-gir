@@ -392,12 +392,7 @@ export default class TypeDefinitionGenerator implements Generator {
         let { type } = girParam._tsData
         const { name } = girParam._tsData
         type = removeNamespace(type, namespace)
-
-        if (this.config.environment === 'gjs') {
-            desc.push(`/* ${name} */ ${type}`)
-        } else if (this.config.environment === 'node') {
-            desc.push(`${name}: ${type}`)
-        }
+        desc.push(`/* ${name} */ ${type}`)
         return desc
     }
 
@@ -422,46 +417,25 @@ export default class TypeDefinitionGenerator implements Generator {
 
         let desc = returnType
 
-        // TODO move gjs / node differences logic to transformation.ts
-        if (this.config.environment === 'gjs') {
-            if (overrideReturnType) {
-                desc = overrideReturnType
-            } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
-                const outParamsDesc: string[] = []
+        if (overrideReturnType) {
+            desc = overrideReturnType
+        } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+            const outParamsDesc: string[] = []
 
-                if (!retTypeIsVoid) {
-                    outParamsDesc.push(`/* returnType */ ${returnType}`)
-                }
-
-                for (const outParam of outParams) {
-                    outParamsDesc.push(...this.generateOutParameterReturn(outParam, namespace))
-                }
-
-                desc = outParamsDesc.join(', ')
-                desc = `[ ${desc} ]`
-            } else if (outParams.length === 1 && retTypeIsVoid) {
-                desc = this.generateOutParameterReturn(outParams[0], namespace).join(' ')
+            if (!retTypeIsVoid) {
+                outParamsDesc.push(`/* returnType */ ${returnType}`)
             }
-        }
-        // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
-        if (this.config.environment === 'node') {
-            if (overrideReturnType) {
-                desc = overrideReturnType
-            } else if (outParams.length >= 1) {
-                const outParamsDesc: string[] = []
 
-                if (!retTypeIsVoid) {
-                    outParamsDesc.push(`returnType: ${returnType}`)
-                }
-
-                for (const outParam of outParams) {
-                    outParamsDesc.push(...this.generateOutParameterReturn(outParam, namespace))
-                }
-
-                desc = outParamsDesc.join(', ')
-                desc = `{ ${desc} }`
+            for (const outParam of outParams) {
+                outParamsDesc.push(...this.generateOutParameterReturn(outParam, namespace))
             }
+
+            desc = outParamsDesc.join(', ')
+            desc = `[ ${desc} ]`
+        } else if (outParams.length === 1 && retTypeIsVoid) {
+            desc = this.generateOutParameterReturn(outParams[0], namespace).join(' ')
         }
+
         return desc
     }
 

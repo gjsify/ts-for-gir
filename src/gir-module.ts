@@ -55,6 +55,7 @@ import type {
     ParsedGir,
     GenerateConfig,
     FunctionMap,
+    Environment,
 } from './types/index.js'
 
 export class GirModule {
@@ -728,9 +729,14 @@ export class GirModule {
         return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
     }
 
-    private getPatches(packageName: string, type: 'constructorProperties', nsPath: string): Partial<TsProperty>
-    private getPatches(packageName: string, type: 'methods', nsPath: string): Partial<TsMethod>
-    private getPatches(packageName: string, type: 'parameter', nsPath: string): Partial<TsParameter>
+    private getPatches(
+        type: 'constructorProperties',
+        nsPath: string,
+        packageName?: string,
+        env?: Environment,
+    ): Partial<TsProperty>
+    private getPatches(type: 'methods', nsPath: string, packageName?: string, env?: Environment): Partial<TsMethod>
+    private getPatches(type: 'parameter', nsPath: string, packageName?: string, env?: Environment): Partial<TsParameter>
 
     /**
      * Get the patches for a given namespace path, type and package name (including the version number)
@@ -738,8 +744,13 @@ export class GirModule {
      * @param type E.g 'methods'
      * @param nsPath E.g. 'Gtk.MenuItem.activate'
      */
-    private getPatches(packageName: string, type: 'methods' | 'constructorProperties' | 'parameter', nsPath: string) {
-        const packagePatches = typePatches[packageName]
+    private getPatches(
+        type: 'methods' | 'constructorProperties' | 'parameter',
+        nsPath: string,
+        packageName = this.packageName,
+        env = this.config.environment,
+    ) {
+        const packagePatches = merge(typePatches[env][packageName], typePatches.all[packageName])
         if (!packagePatches) {
             return undefined
         }
@@ -845,7 +856,7 @@ export class GirModule {
 
                         // Apply patches
                         const paramPatches = param._fullSymName
-                            ? this.getPatches(this.packageName, 'parameter', param._fullSymName)
+                            ? this.getPatches('parameter', param._fullSymName)
                             : undefined
 
                         if (paramPatches) {
@@ -937,9 +948,7 @@ export class GirModule {
         }
 
         // Apply patches
-        const varPatches = girVar._fullSymName
-            ? this.getPatches(this.packageName, 'methods', girVar._fullSymName)
-            : undefined
+        const varPatches = girVar._fullSymName ? this.getPatches('methods', girVar._fullSymName) : undefined
 
         if (varPatches) {
             this.log.warn(`Patch found for variable "${girVar._fullSymName || ''}"!`)
@@ -1093,9 +1102,7 @@ export class GirModule {
         }
 
         // Apply patches
-        const methodPatches = girFunc._fullSymName
-            ? this.getPatches(this.packageName, 'methods', girFunc._fullSymName)
-            : undefined
+        const methodPatches = girFunc._fullSymName ? this.getPatches('methods', girFunc._fullSymName) : undefined
 
         if (methodPatches) {
             this.log.warn(`Patch found for method "${girFunc._fullSymName || ''}"!`)
@@ -1268,7 +1275,7 @@ export class GirModule {
             // Apply patches
             {
                 const constructPropPatches = girConstrProp._fullSymName
-                    ? this.getPatches(this.packageName, 'constructorProperties', girConstrProp._fullSymName)
+                    ? this.getPatches('constructorProperties', girConstrProp._fullSymName)
                     : undefined
 
                 if (constructPropPatches) {

@@ -26,7 +26,7 @@ export interface TsClass {
     constructPropInterfaceName: string
     inheritConstructPropInterfaceName?: string
     /**
-     * `true` if this is this a abstract class.
+     * `true` if this is a abstract class.
      * E.g GObject.ObjectClass is a abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
      */
     isAbstract: boolean

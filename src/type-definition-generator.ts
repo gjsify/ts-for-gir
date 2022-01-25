@@ -239,25 +239,24 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const { name: sigName, inParams, instanceParameters } = girSignalFunc._tsData
-        let { returnType } = girSignalFunc._tsData
-
-        returnType = removeNamespace(returnType, namespace)
+        const { name: className } = girClass._tsData
+        const returnType = removeNamespace(girSignalFunc._tsData.returnType, namespace)
         const paramComma = inParams.length > 0 ? ', ' : ''
         const indent = generateIndent(indentCount)
         const def: string[] = []
-
+        const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(
-            `${indent}connect(sigName: "${sigName}", callback: (($obj: ${
-                girClass._tsData.name
-            }${paramComma}${inParamsDef.join(', ')}) => ${returnType})): number`,
+            `${indent}connect(sigName: "${sigName}", callback: ((${objParam}${inParamsDef.join(
+                ', ',
+            )}) => ${returnType})): number`,
         )
         if (this.config.environment === 'gjs') {
             def.push(
-                `${indent}connect_after(sigName: "${sigName}", callback: (($obj: ${
-                    girClass._tsData.name
-                }${paramComma}${inParamsDef.join(', ')}) => ${returnType})): number`,
+                `${indent}connect_after(sigName: "${sigName}", callback: ((${objParam}${inParamsDef.join(
+                    ', ',
+                )}) => ${returnType})): number`,
             )
         }
         if (this.config.environment === 'node') {
@@ -273,7 +272,9 @@ export default class TypeDefinitionGenerator implements Generator {
                 )}) => void): NodeJS.EventEmitter`,
             )
         }
+
         def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${inParamsDef.join(', ')}): void`)
+
         return def
     }
 
@@ -298,9 +299,10 @@ export default class TypeDefinitionGenerator implements Generator {
     ): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
+        const objParam = this.config.environment === 'node' ? '' : `$obj: ${callbackObjectName}, `
         def.push(
-            `${indent}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-            `${indent}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+            `${indent}connect(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
+            `${indent}connect_after(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
         def.push()
         if (this.config.environment === 'node') {

@@ -1,4 +1,5 @@
 # In development
+- [node-gtk] don't add $obj parameter in connect() method either, thanks to @peat-psuwit
 - [node-gtk] Fixed Return types, see #46
 - New and simpler patch format
 - Replaced `ESLint` with `prettier` for prettify output, this fixes #29

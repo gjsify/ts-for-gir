@@ -1,6 +1,7 @@
 # In development
+- [node-gtk] Fixed Return types, see #46
 - New and simpler patch format
-- Replaced `ESLint` with `prettier` for prettify output
+- Replaced `ESLint` with `prettier` for prettify output, this fixes #29
 - New `doc` command for future implementation
 - New class `HtmlDocGenerator` this is not implemented yet, but can serve as a template for a future implementation
 - Fix type `Uint8Array` (should not be `Uint8Array[]`)
@@ -9,7 +10,7 @@
 - Split option `exportDefault` to `useNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
 - Fix VSCode debugging configuration to work with ESM
 - Debugging information added to README.md
-- Moved many signature generations methods to new TypeDefinitionGenerator
+- Moved all signature generations to new TypeDefinitionGenerator
 - The utility functions are no longer static members of a class
 - Fixed a bug in the `forEachInterface` method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md

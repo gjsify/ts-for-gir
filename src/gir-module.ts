@@ -30,8 +30,6 @@ import type {
     GirAnyElement,
     GirUnionElement,
     GirInstanceParameter,
-    PartOfModule,
-    PartOfClass,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -105,6 +103,9 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
+    /**
+     * @deprecated This class should have no dependency on the generator
+     */
     generator: TypeDefinitionGenerator
 
     /**
@@ -493,6 +494,11 @@ export class GirModule {
         }
     }
 
+    /**
+     * TODO: find better name for this method
+     * @param fullTypeName
+     * @returns
+     */
     private fullTypeLookupWithNamespace(fullTypeName: string) {
         let resValue = ''
         let namespace = ''
@@ -528,6 +534,12 @@ export class GirModule {
         }
     }
 
+    /**
+     * TODO: find better name for this method
+     * @param girVar
+     * @param fullTypeName
+     * @returns
+     */
     private fullTypeLookup(
         girVar:
             | GirCallableParamElement
@@ -603,6 +615,22 @@ export class GirModule {
         }
     }
 
+    /**
+     * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
+     * @param girVar
+     * @returns e.g.
+     * ```ts
+     * {
+     *      result: 'AccelGroup[]',
+     *      value: 'AccelGroup,
+     *      suffix: '[]',
+     *      fullTypeName: 'Gtk.AccelGroup',
+     *      namespace: 'Gtk',
+     *      isFunction: false,
+     *      isCallback: false,
+     *  }
+     * ```
+     */
     private typeLookup(
         girVar:
             | GirCallableReturn
@@ -620,6 +648,8 @@ export class GirModule {
         let resValue = ''
         let namespace = ''
         let isFunction = false
+        let isCallback = false
+        const girCallbacks: GirCallbackElement[] = []
 
         const collection = (girVar as GirCallableReturn | GirFieldElement).array
             ? (girVar as GirCallableReturn | GirFieldElement).array
@@ -653,37 +683,22 @@ export class GirModule {
         const callbacks = (girVar as GirFieldElement).callback
 
         if (!resValue && callbacks?.length) {
-            if (callbacks.length > 1) {
-                // TODO:
-                this.log.warn('Ignore multiple callbacks!', callbacks)
-            }
-            const girCallback = callbacks[0]
-            girCallback._desc = this.setFunctionDesc(
-                girCallback,
-                'callback',
-                /* isStatic */ false,
-                /* isArrowType */ true,
-                /* isGlobal */ false,
-                /* isVirtual */ false,
-                /* overrideReturnType */ null,
-            )
+            for (const girCallback of callbacks) {
+                girCallback._desc = this.setFunctionDesc(
+                    girCallback,
+                    'callback',
+                    /* isStatic */ false,
+                    /* isArrowType */ true,
+                    /* isGlobal */ false,
+                    /* isVirtual */ false,
+                    /* overrideReturnType */ null,
+                )
 
-            // TODO: Makes it sense to set the fullTypeName by the function definition?
-            const funcDesc = this.generator.generateFunction(girCallback, [], this.namespace, 0)
-            if (funcDesc?.length) {
-                if (funcDesc.length > 1) {
-                    this.log.warn('Ignore multiline function description!', funcDesc)
+                if (girCallback._desc) {
+                    girCallbacks.push(girCallback)
+                    isFunction = true
+                    isCallback = true
                 }
-
-                fullTypeName = funcDesc[0]
-                isFunction = true
-            }
-
-            if (fullTypeName) {
-                const suffix: TypeSuffix = (arr + nul) as TypeSuffix
-                if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
-                resValue = fullTypeName
-                isFunction = true
             }
         }
 
@@ -731,6 +746,8 @@ export class GirModule {
             fullTypeName,
             namespace,
             isFunction,
+            isCallback,
+            girCallbacks,
         }
     }
 
@@ -748,7 +765,11 @@ export class GirModule {
 
         const girVar = girFunc['return-value']?.[0] || null
         if (girVar) {
-            returnType = this.typeLookup(girVar).result
+            const { result, isCallback } = this.typeLookup(girVar)
+            if (isCallback) {
+                debugger
+            }
+            returnType = result
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         }
 
@@ -835,13 +856,6 @@ export class GirModule {
         return typePatch?.[nsPath] || undefined
     }
 
-    /**
-     * Get package name of a gir element
-     */
-    private getPackageName(element: PartOfClass | PartOfModule) {
-        return (element as PartOfClass)._class?._module?.packageName || element._module?.packageName || this.packageName
-    }
-
     private setParameterDesc(
         girParam: GirCallableParamElement,
         girParams: GirCallableParamElement[],
@@ -850,7 +864,12 @@ export class GirModule {
     ) {
         // I think it's safest to force inout params to have the
         // same type for in and out
-        const paramType = this.typeLookup(girParam).result
+        const { result: paramType, isCallback } = this.typeLookup(girParam)
+
+        if (isCallback) {
+            debugger
+        }
+
         let paramName = this.transformation.transformParameterName(girParam, false)
 
         if (paramNames.includes(paramName)) {
@@ -930,7 +949,7 @@ export class GirModule {
 
                         const optDirection = param.$.direction
                         if (optDirection === 'out' || optDirection === 'inout') {
-                            outParams.push(param /*...this.generator.generateOutParameterReturn(param)*/)
+                            outParams.push(param)
                             if (optDirection === 'out') continue
                         }
                         inParams.push(param)
@@ -1000,7 +1019,13 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        let typeName = this.typeLookup(girVar).result
+        const { result, isCallback, girCallbacks } = this.typeLookup(girVar)
+
+        let typeName = result
+
+        if (isCallback) {
+            debugger
+        }
 
         typeName = this.transformation.transformTypeName(typeName)
 
@@ -1009,6 +1034,7 @@ export class GirModule {
             patched: false,
             optional,
             type: typeName,
+            callbacks: girCallbacks,
         }
 
         return girVar._desc
@@ -1086,8 +1112,6 @@ export class GirModule {
             readonly,
         }
 
-        // girProp._desc.desc = this.generator.generateProperty(girProp, indentCount)
-
         return girProp._desc
     }
 
@@ -1116,7 +1140,6 @@ export class GirModule {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
-        // const packageName = this.getPackageName(girFunc)
         let name = girFunc.$.name
         const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
         const retTypeIsVoid = returnType === 'void'
@@ -1174,16 +1197,12 @@ export class GirModule {
         const name = girCallback.$.name
 
         girCallback._descInterface = {
-            desc: null,
             name,
         }
 
         if (!girCallback._desc || !girCallback._descInterface) {
             return undefined
         }
-
-        // TODO: move
-        girCallback._descInterface.desc = this.generator.generateCallbackInterface(girCallback, this.namespace)
 
         return girCallback._descInterface
     }
@@ -1256,7 +1275,6 @@ export class GirModule {
         const name = this.transformation.transformEnumName(girEnum)
 
         girEnum._desc = {
-            desc: null,
             name,
         }
 
@@ -1266,7 +1284,6 @@ export class GirModule {
             }
         }
 
-        girEnum._desc.desc = this.generator.generateEnumeration(girEnum)
         return girEnum._desc
     }
 

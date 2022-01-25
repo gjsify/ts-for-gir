@@ -13,6 +13,13 @@
 - Fixed a bug in the `forEachInterface` method, which caused that not all inherited methods were implemented anymore (slipped in with the last PR)
 - Added this CHANGELOG.md
 
+## TODO
+- Fix static function prefix
+- Fix overload methods
+- Refactor Ava test
+- Refactor overloading
+- Refactor patches
+
 # 17 Jan 2022
 - All types in vala-gir can now be built and validated without errors, this can be tested with `npm run test:girs:all`, this test is now also executed with github actions
 - Switch to ESM for ts-for-gir itself

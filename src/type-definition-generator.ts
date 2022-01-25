@@ -162,7 +162,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return inParamsDef
     }
 
-    public generateSignalMethods(
+    public generateSignal(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
@@ -170,7 +170,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         if (!girSignalFunc._desc || !girClass._desc) {
             this.log.error('girSignalFunc', inspect(girSignalFunc))
-            throw new Error('[generateSignalMethods] Not all required properties set!')
+            throw new Error('[generateSignal] Not all required properties set!')
         }
 
         const { name: sigName, inParams, instanceParameters, returnType } = girSignalFunc._desc
@@ -206,6 +206,19 @@ export default class TypeDefinitionGenerator implements Generator {
             )
         }
         def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${inParamsDef.join(', ')}): void`)
+        return def
+    }
+
+    public generateSignals(
+        girSignals: GirSignalElement[],
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+        indentCount = 0,
+    ) {
+        const def: string[] = []
+        for (const girSignal of girSignals) {
+            def.push(...this.generateSignal(girSignal, girClass, namespace, indentCount))
+        }
         return def
     }
 
@@ -254,16 +267,7 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     public generateElements(
-        girElements: Array<
-            | GirFunctionElement
-            | GirConstructorElement
-            | GirVirtualMethodElement
-            | GirMethodElement
-            | GirPropertyElement
-            | GirFieldElement
-            | GirMemberElement
-            | GirSignalElement
-        >,
+        girElements: Array<GirPropertyElement | GirFieldElement | GirMemberElement>,
         indentCount = 1,
         comment?: string,
     ) {
@@ -278,6 +282,37 @@ export default class TypeDefinitionGenerator implements Generator {
                     def.push(`${indent}${desc}`)
                 }
             }
+        }
+        return def
+    }
+
+    public mergeDescs(descs: string[], indentCount = 1, comment?: string) {
+        const def: string[] = []
+        const indent = generateIndent(indentCount)
+        if (comment && descs.length > 0) {
+            def.push(`${indent}/* ${comment} */`)
+        }
+
+        for (const desc of descs) {
+            def.push(`${indent}${desc}`)
+        }
+
+        return def
+    }
+
+    public generateFunctions(
+        girElements: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
+        namespace: string,
+        indentCount = 1,
+        comment?: string,
+    ) {
+        const def: string[] = []
+        const indent = generateIndent(indentCount)
+        if (comment && girElements.length > 0) {
+            def.push(`${indent}/* ${comment} */`)
+        }
+        for (const girElement of girElements) {
+            def.push(...this.generateFunction(girElement, [], namespace, indentCount))
         }
         return def
     }
@@ -438,6 +473,13 @@ export default class TypeDefinitionGenerator implements Generator {
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(`${indent}${exp}${prefix}${name}(${inParamsDef.join(', ')})${retSep} ${returnDesc}`)
+
+        if (girFunc._desc.overloads?.length) {
+            def.push(`${indent}/* Function overloads */`)
+            for (const overload of girFunc._desc.overloads) {
+                def.push(...this.generateFunction(overload, [], namespace, indentCount))
+            }
+        }
 
         return def
     }
@@ -648,6 +690,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
     public generateClassMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -656,8 +699,9 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this.generateElements(
+            ...this.generateFunctions(
                 girClass._desc.methods,
+                namespace,
                 indentCount,
                 `Methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
@@ -665,8 +709,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
             def.push(
-                ...this.generateElements(
+                ...this.generateFunctions(
                     girClass._desc.extends[versionFullSymName].methods,
+                    namespace,
                     indentCount,
                     `Methods of ${versionFullSymName}`,
                 ),
@@ -675,8 +720,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
             def.push(
-                ...this.generateElements(
+                ...this.generateFunctions(
                     girClass._desc.implements[versionFullSymName].methods,
+                    namespace,
                     indentCount,
                     `Methods of ${versionFullSymName}`,
                 ),
@@ -693,6 +739,7 @@ export default class TypeDefinitionGenerator implements Generator {
      */
     public generateStaticFunctions(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -701,8 +748,9 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this.generateElements(
+            ...this.generateFunctions(
                 girClass._desc.staticFunctions,
+                namespace,
                 indentCount,
                 'Static methods and pseudo-constructors',
             ),
@@ -717,6 +765,7 @@ export default class TypeDefinitionGenerator implements Generator {
      */
     public generateClassVirtualMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -730,8 +779,9 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this.generateElements(
+            ...this.generateFunctions(
                 girClass._desc.virtualMethods,
+                namespace,
                 indentCount,
                 `Virtual methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
@@ -739,8 +789,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
             def.push(
-                ...this.generateElements(
+                ...this.generateFunctions(
                     girClass._desc.extends[versionFullSymName].virtualMethods,
+                    namespace,
                     indentCount,
                     `Virtual methods of ${versionFullSymName}`,
                 ),
@@ -752,6 +803,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
     public generateConstructorAndStaticFunctions(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
         indentCount = 1,
     ) {
         const indent = generateIndent(indentCount)
@@ -775,25 +827,21 @@ export default class TypeDefinitionGenerator implements Generator {
                 `${indent}_init (config?: ${girClass._desc?.constructPropInterfaceName}): void`,
             )
         } else {
-            const girConstructorFuncs = girClass._desc.constructors
+            const girConstructors = girClass._desc.constructors
 
-            for (const girConstructorFunc of girConstructorFuncs) {
-                if (!girConstructorFunc._desc?.desc) continue
+            for (const girConstructor of girConstructors) {
+                const descs = this.generateFunction(girConstructor, [], namespace, indentCount)
 
-                for (const desc of girConstructorFunc._desc.desc) {
-                    def.push(`${indent}${desc}`)
-                }
+                def.push(...descs)
 
                 // TODO: Generate a static GirMethodElement for this
-                const jsStyleCtor = girConstructorFunc._desc.desc[0]
-                    .replace('static new', 'constructor')
-                    .replace(/:[^:]+$/, '')
+                const jsStyleCtor = descs[0].replace('static new', 'constructor').replace(/:[^:]+$/, '')
 
                 def.push(`${indent}${jsStyleCtor}`)
             }
         }
 
-        def.push(...this.generateStaticFunctions(girClass))
+        def.push(...this.generateStaticFunctions(girClass, namespace))
 
         if (girClass._desc?.isDerivedFromGObject && girClass._module) {
             def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
@@ -802,38 +850,39 @@ export default class TypeDefinitionGenerator implements Generator {
         return { def }
     }
 
-    public generateClassSignals(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+    public generateClassSignals(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+    ) {
         const def: string[] = []
         if (!girClass._desc || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassSignals] Not all required methods set!')
         }
 
+        const signalDescs = this.generateSignals(girClass._desc.signals, girClass, namespace, 0)
+
         def.push(
-            ...this.generateElements(
-                girClass._desc.signals,
-                1,
-                `Signals of ${girClass._module.packageName}.${girClass._fullSymName}`,
-            ),
+            ...this.mergeDescs(signalDescs, 1, `Signals of ${girClass._module.packageName}.${girClass._fullSymName}`),
         )
 
         for (const versionFullSymName of Object.keys(girClass._desc.extends)) {
-            def.push(
-                ...this.generateElements(
-                    girClass._desc.extends[versionFullSymName].signals,
-                    1,
-                    `Signals of ${versionFullSymName}`,
-                ),
+            const signalDescs = this.generateSignals(
+                girClass._desc.extends[versionFullSymName].signals,
+                girClass,
+                namespace,
+                0,
             )
+            def.push(...this.mergeDescs(signalDescs, 1, `Signals of ${versionFullSymName}`))
         }
 
         for (const versionFullSymName of Object.keys(girClass._desc.implements)) {
-            def.push(
-                ...this.generateElements(
-                    girClass._desc.implements[versionFullSymName].signals,
-                    1,
-                    `Signals of ${versionFullSymName}`,
-                ),
+            const signalDescs = this.generateSignals(
+                girClass._desc.implements[versionFullSymName].signals,
+                girClass,
+                namespace,
+                0,
             )
+            def.push(...this.mergeDescs(signalDescs, 1, `Signals of ${versionFullSymName}`))
         }
 
         return def
@@ -872,13 +921,13 @@ export default class TypeDefinitionGenerator implements Generator {
                 def.push(...this.generateClassFields(girClass))
 
                 // Methods
-                def.push(...this.generateClassMethods(girClass))
+                def.push(...this.generateClassMethods(girClass, namespace))
 
                 // Virtual methods
-                def.push(...this.generateClassVirtualMethods(girClass))
+                def.push(...this.generateClassVirtualMethods(girClass, namespace))
 
                 // Signals
-                def.push(...this.generateClassSignals(girClass))
+                def.push(...this.generateClassSignals(girClass, namespace))
 
                 // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
                 def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
@@ -886,7 +935,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // TODO: Records have fields
 
                 // Static side: default constructor
-                def.push(...this.generateConstructorAndStaticFunctions(girClass).def)
+                def.push(...this.generateConstructorAndStaticFunctions(girClass, namespace).def)
             }
             // END BODY
 

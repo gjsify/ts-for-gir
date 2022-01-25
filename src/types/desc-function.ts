@@ -1,7 +1,15 @@
-import { GirCallableParamElement, FunctionPrefix, GirInstanceParameter } from '.'
+import {
+    GirCallableParamElement,
+    FunctionPrefix,
+    GirInstanceParameter,
+    GirConstructorElement,
+    GirFunctionElement,
+    GirVirtualMethodElement,
+    GirMethodElement,
+} from '.'
 
 export interface DescFunction {
-    desc: string[] | null
+    // desc: string[] | null
     name: string
     returnType: string
     isArrowType: boolean
@@ -13,4 +21,5 @@ export interface DescFunction {
     inParams: GirCallableParamElement[]
     instanceParameters: GirInstanceParameter[]
     outParams: GirCallableParamElement[]
+    overloads: Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
 }

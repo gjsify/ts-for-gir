@@ -659,8 +659,9 @@ export class GirModule {
                 // TODO:
                 this.log.warn('Ignore multiple callbacks!', callbacks)
             }
-            const funcDesc = this.setFunctionDesc(
-                callbacks[0],
+            const girCallback = callbacks[0]
+            girCallback._desc = this.setFunctionDesc(
+                girCallback,
                 'callback',
                 /* prefix */ '',
                 /* isStatic */ false,
@@ -668,11 +669,15 @@ export class GirModule {
                 /* isArrowType */ true,
                 /* indentCount */ 0,
             )
-            if (funcDesc?.desc?.length) {
-                if (funcDesc.desc.length > 1) {
-                    this.log.warn('Ignore multiline function description!', funcDesc.desc)
+
+            // TODO: Makes it sense to set the fullTypeName by the function definition?
+            const funcDesc = this.generator.generateFunction(girCallback, [], this.namespace, 0)
+            if (funcDesc?.length) {
+                if (funcDesc.length > 1) {
+                    this.log.warn('Ignore multiline function description!', funcDesc)
                 }
-                fullTypeName = funcDesc.desc[0]
+
+                fullTypeName = funcDesc[0]
                 isFunction = true
             }
 
@@ -1141,13 +1146,14 @@ export class GirModule {
 
         girFunc._desc = {
             patched: true,
-            desc: null,
+            // desc: null,
             isArrowType,
             isStatic,
             returnType,
             retTypeIsVoid,
             name,
             overrideReturnType: overrideReturnType || undefined,
+            overloads: [],
             prefix,
             inParams,
             instanceParameters,
@@ -1157,7 +1163,7 @@ export class GirModule {
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
         // TODO: move
-        girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, this.namespace, indentCount)
+        // girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, this.namespace, indentCount)
 
         return girFunc._desc
     }
@@ -1217,7 +1223,7 @@ export class GirModule {
         )
 
         girSignalFunc._desc = {
-            desc: null,
+            // desc: null,
             name,
             prefix: '',
             returnType,
@@ -1225,13 +1231,14 @@ export class GirModule {
             isStatic: false,
             patched: false,
             retTypeIsVoid,
+            overloads: [],
             inParams,
             instanceParameters,
-
             outParams,
         }
 
-        girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass, this.namespace)
+        // TODO: move
+        // girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass, this.namespace)
 
         return girSignalFunc._desc
     }
@@ -1441,9 +1448,9 @@ export class GirModule {
                     /* isStatic */ false,
                     /* overrideReturnType */ null,
                 )
-                if (!girMethod._desc?.desc) {
-                    continue
-                }
+                // if (!girMethod._desc?.desc) {
+                //     continue
+                // }
                 const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
                 if (localName?.added && localName.method) {
                     girMethods.push(localName.method)
@@ -1562,12 +1569,7 @@ export class GirModule {
 
                     girConstructor._desc = this.setConstructorFunctionDesc(girClass._desc?.name, girConstructor, 0)
 
-                    if (
-                        !girConstructor._desc?.name ||
-                        !girConstructor._desc.desc ||
-                        girConstructor._desc.name !== 'new'
-                    )
-                        continue
+                    if (!girConstructor._desc?.name || girConstructor._desc.name !== 'new') continue
 
                     girConstructors.push(girConstructor)
                 }
@@ -1959,7 +1961,7 @@ export class GirModule {
     ): LocalNameCheck | null {
         let isOverloadable = false
 
-        if (!girElement._desc?.desc) {
+        if (!girElement._desc) {
             return null
         }
 
@@ -1990,7 +1992,7 @@ export class GirModule {
         if (localNames?.[name]?.[type]?._desc) {
             // Ignore duplicates with the same type
             // TODO should we use `this.functionSignaturesMatch` here?
-            if (isEqual(localNames[name][type]?._desc, girElement._desc?.desc)) {
+            if (isEqual(localNames[name][type]?._desc, girElement._desc)) {
                 return null
             }
 
@@ -2068,6 +2070,7 @@ export class GirModule {
 
     /**
      * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
+     * TODO: Compare the tsData here instead of the generated function definitions
      * @param f1
      * @param f2
      */
@@ -2092,23 +2095,27 @@ export class GirModule {
         let result = false
         if (!girFunc._desc?.name) return result
         const oldFunc = map.get(girFunc._desc.name)
-        if (!oldFunc?._desc?.desc || !girFunc._desc.desc) {
-            if (force && girFunc._desc.desc) map.set(girFunc._desc.name, girFunc)
+        if (!oldFunc?._desc || !girFunc._desc) {
+            if (force && girFunc._desc) map.set(girFunc._desc.name, girFunc)
             return result
         }
 
-        for (const newDef of girFunc._desc.desc) {
-            let match = false
-            for (const oldDef of oldFunc._desc?.desc) {
+        // TODO: Compare the tsData here instead of the generated function definitions
+        const newDefs = this.generator.generateFunction(girFunc, [], this.namespace, 0)
+        const oldDefs = this.generator.generateFunction(oldFunc, [], this.namespace, 0)
+
+        let isEqual = false
+        for (const newDef of newDefs) {
+            for (const oldDef of oldDefs) {
                 if (this.functionSignaturesMatch(newDef, oldDef)) {
-                    match = true
+                    isEqual = true
                     break
                 }
             }
-            if (!match) {
-                oldFunc._desc.desc.push(newDef)
-                result = true
-            }
+        }
+        if (!isEqual) {
+            oldFunc._desc.overloads.push(girFunc)
+            result = true
         }
         return result
     }

@@ -49,7 +49,6 @@ import type {
     DescProperty,
     DescInstanceParameter,
     FunctionMap,
-    FunctionPrefix,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -57,7 +56,6 @@ import type {
     DescClass,
     GirInterfaceElement,
     DescFunction,
-    DescParameter,
 } from './types/index.js'
 
 export class GirModule {
@@ -663,11 +661,11 @@ export class GirModule {
             girCallback._desc = this.setFunctionDesc(
                 girCallback,
                 'callback',
-                /* prefix */ '',
                 /* isStatic */ false,
-                /* overrideReturnType */ null,
                 /* isArrowType */ true,
-                /* indentCount */ 0,
+                /* isGlobal */ false,
+                /* isVirtual */ false,
+                /* overrideReturnType */ null,
             )
 
             // TODO: Makes it sense to set the fullTypeName by the function definition?
@@ -1113,12 +1111,12 @@ export class GirModule {
             | GirConstructorElement
             | GirCallbackElement
             | GirVirtualMethodElement,
-        girType: 'virtual-method' | 'method' | 'constructor' | 'function' | 'callback',
-        prefix: FunctionPrefix = '',
+        girType?: 'virtual-method' | 'method' | 'constructor' | 'function' | 'callback',
         isStatic = false,
-        overrideReturnType: string | null = null,
         isArrowType = false,
-        indentCount = 0,
+        isGlobal = false,
+        isVirtual = false,
+        overrideReturnType: string | null = null,
     ): DescFunction | undefined {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
@@ -1138,6 +1136,13 @@ export class GirModule {
             name = shadows
         }
 
+        // Overwrites
+        girType = girType || girFunc._girType
+        if (!girType) throw new Error('girType not set!')
+        isStatic = isStatic || girFunc._tsType === 'static-function'
+        isGlobal = isGlobal || girFunc._tsType === 'function'
+        isVirtual = isVirtual || girType === 'virtual-method'
+
         girFunc._girType = girType
         girFunc._tsType = this.girToTsType(girType, isStatic)
 
@@ -1149,17 +1154,19 @@ export class GirModule {
             // desc: null,
             isArrowType,
             isStatic,
+            isGlobal,
+            isVirtual,
             returnType,
             retTypeIsVoid,
             name,
             overrideReturnType: overrideReturnType || undefined,
             overloads: [],
-            prefix,
             inParams,
             instanceParameters,
             outParams,
         }
 
+        // TODO move
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
         // TODO: move
@@ -1171,7 +1178,7 @@ export class GirModule {
     private setCallbackInterfaceDesc(girCallback: GirCallbackElement) {
         if (!girCallback || !girCallback.$ || !girBool(girCallback.$.introspectable, true)) return undefined
 
-        girCallback._desc = this.setFunctionDesc(girCallback, 'callback', '', false, null, true, 0)
+        girCallback._desc = this.setFunctionDesc(girCallback, 'callback', false, true, false, false, null)
 
         const name = girCallback.$.name
 
@@ -1193,16 +1200,15 @@ export class GirModule {
     private setConstructorFunctionDesc(
         name: string,
         girConstructorFunc: GirConstructorElement,
-        indentCount = 0,
     ): DescFunction | undefined {
         return this.setFunctionDesc(
             girConstructorFunc,
             'constructor',
-            'static ',
             /* isStatic */ true,
-            /* overrideReturnType */ name,
             /* isArrowType */ false,
-            indentCount,
+            /* isGlobal */ false,
+            /* isVirtual */ false,
+            /* overrideReturnType */ name,
         )
     }
 
@@ -1225,10 +1231,11 @@ export class GirModule {
         girSignalFunc._desc = {
             // desc: null,
             name,
-            prefix: '',
             returnType,
             isArrowType: true,
             isStatic: false,
+            isGlobal: false,
+            isVirtual: false,
             patched: false,
             retTypeIsVoid,
             overloads: [],
@@ -1379,7 +1386,7 @@ export class GirModule {
                 girConstructor = clone(_girConstructor)
             }
 
-            girConstructor._desc = this.setConstructorFunctionDesc(girChildClass._desc?.name, girConstructor, 0)
+            girConstructor._desc = this.setConstructorFunctionDesc(girChildClass._desc?.name, girConstructor)
 
             if (!girConstructor?._desc?.name) {
                 continue
@@ -1418,11 +1425,11 @@ export class GirModule {
                 girMethod._desc = this.setFunctionDesc(
                     girMethod,
                     'function',
-                    'static ',
                     /* isStatic */ true,
-                    /* overrideReturnType */ null,
                     /* isArrowType */ false,
-                    /* indentCount */ 0,
+                    /* isGlobal */ false,
+                    /* isVirtual */ false,
+                    /* overrideReturnType */ null,
                 )
                 return girMethod
             })
@@ -1444,8 +1451,10 @@ export class GirModule {
                 girMethod._desc = this.setFunctionDesc(
                     girMethod,
                     'method',
-                    /* prefix */ '',
                     /* isStatic */ false,
+                    /* isArrowType */ false,
+                    /* isGlobal */ false,
+                    /* isVirtual */ false,
                     /* overrideReturnType */ null,
                 )
                 // if (!girMethod._desc?.desc) {
@@ -1567,7 +1576,7 @@ export class GirModule {
                 for (const girConstructor of constructors) {
                     if (!girClass._desc?.name) continue
 
-                    girConstructor._desc = this.setConstructorFunctionDesc(girClass._desc?.name, girConstructor, 0)
+                    girConstructor._desc = this.setConstructorFunctionDesc(girClass._desc?.name, girConstructor)
 
                     if (!girConstructor._desc?.name || girConstructor._desc.name !== 'new') continue
 
@@ -1589,16 +1598,16 @@ export class GirModule {
                     girVMethod._desc = this.setFunctionDesc(
                         girVMethod,
                         'virtual-method',
-                        /* prefix */
-                        'vfunc_',
                         /* isStatic */
                         false,
+                        /* isArrowType */
+                        false,
+                        /* isGLobal */
+                        false,
+                        /* isVirtual */
+                        true,
                         /* overrideReturnType */
                         null,
-                        /* isArrowType */
-                        undefined,
-                        /* indentCount */
-                        0,
                     )
                     return girVMethod
                 })
@@ -2079,6 +2088,29 @@ export class GirModule {
         return stripParamNames(f1) == stripParamNames(f2)
     }
 
+    // TODO: Compare the tsData here instead of the generated function definitions
+    private functionMatch(
+        f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+        f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+    ) {
+        if (!f1._desc) f1._desc = this.setFunctionDesc(f1)
+        if (!f2._desc) f2._desc = this.setFunctionDesc(f2)
+
+        const f1Defs = this.generator.generateFunction(f1, [], this.namespace, 0)
+        const f2Defs = this.generator.generateFunction(f2, [], this.namespace, 0)
+
+        let isEqual = false
+        for (const f1Def of f1Defs) {
+            for (const f2Def of f2Defs) {
+                if (this.functionSignaturesMatch(f1Def, f2Def)) {
+                    isEqual = true
+                    break
+                }
+            }
+        }
+        return isEqual
+    }
+
     /**
      * See comment for addOverloadableFunctions.
      * Returns `true` if (a definition from) `func` is added to map to satisfy
@@ -2100,19 +2132,7 @@ export class GirModule {
             return result
         }
 
-        // TODO: Compare the tsData here instead of the generated function definitions
-        const newDefs = this.generator.generateFunction(girFunc, [], this.namespace, 0)
-        const oldDefs = this.generator.generateFunction(oldFunc, [], this.namespace, 0)
-
-        let isEqual = false
-        for (const newDef of newDefs) {
-            for (const oldDef of oldDefs) {
-                if (this.functionSignaturesMatch(newDef, oldDef)) {
-                    isEqual = true
-                    break
-                }
-            }
-        }
+        const isEqual = this.functionMatch(girFunc, oldFunc)
         if (!isEqual) {
             oldFunc._desc.overloads.push(girFunc)
             result = true
@@ -2235,16 +2255,16 @@ export class GirModule {
                 girFunction._desc = this.setFunctionDesc(
                     girFunction,
                     'function',
-                    /* prefix */
-                    'static ',
                     /* isStatic */
                     true,
-                    /* overrideReturnType */
-                    null,
                     /* isArrowType */
                     false,
-                    /* indentCount */
-                    0,
+                    /* isGlobal */
+                    false,
+                    /* isVirtual */
+                    false,
+                    /* overrideReturnType */
+                    null,
                 )
 
                 if (!girFunction._desc?.name || girFunction._desc?.name === 'new') continue
@@ -2303,7 +2323,20 @@ export class GirModule {
 
         if (this.ns.function)
             for (const girFunc of this.ns.function) {
-                girFunc._desc = this.setFunctionDesc(girFunc, 'function', /* prefix */ 'function ')
+                girFunc._desc = this.setFunctionDesc(
+                    girFunc,
+                    'function',
+                    /* isStatic */
+                    false,
+                    /* isArrowType */
+                    false,
+                    /* isGlobal */
+                    true,
+                    /* isVirtual */
+                    false,
+                    /* overrideReturnType */
+                    null,
+                )
             }
 
         if (this.ns.callback)

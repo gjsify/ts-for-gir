@@ -427,15 +427,18 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        let exp = ''
-        // `girFunc._tsType === 'function'` are a global methods which can be exported
-        if (girFunc._tsType === 'function') {
-            exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
-        }
+        let { name } = girFunc._desc
+        const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._desc
 
-        let prefix = girFunc._desc.prefix
-        let name = girFunc._desc.name
-        const isArrowType = girFunc._desc.isArrowType
+        const staticStr = isStatic || girFunc._tsType === 'static-function' ? 'static ' : ''
+        const globalStr = isGlobal ? 'function ' : ''
+        const virtualStr = isVirtual ? 'vfunc_' : ''
+
+        let exportStr = ''
+        // `girFunc._tsType === 'function'` are a global methods which can be exported
+        if (isGlobal) {
+            exportStr = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+        }
 
         if (methodPatches?.length) {
             this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
@@ -448,7 +451,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const [i, patchLine] of methodPatches.entries()) {
                     let descLine = ''
                     if (i === 1) {
-                        descLine = `${indent}${exp}${prefix}${patchLine}`
+                        descLine = `${indent}${exportStr}${staticStr}${globalStr}${virtualStr}${patchLine}`
                     } else {
                         descLine = `${indent}${patchLine}`
                     }
@@ -462,17 +465,19 @@ export default class TypeDefinitionGenerator implements Generator {
 
         let retSep: string
         if (isArrowType) {
-            prefix = ''
             name = ''
             retSep = ' =>'
         } else {
             retSep = ':'
         }
 
-        const { inParams, instanceParameters } = girFunc._desc
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
-        def.push(`${indent}${exp}${prefix}${name}(${inParamsDef.join(', ')})${retSep} ${returnDesc}`)
+        def.push(
+            `${indent}${exportStr}${staticStr}${globalStr}${virtualStr}${name}(${inParamsDef.join(
+                ', ',
+            )})${retSep} ${returnDesc}`,
+        )
 
         if (girFunc._desc.overloads?.length) {
             def.push(`${indent}/* Function overloads */`)
@@ -837,11 +842,11 @@ export default class TypeDefinitionGenerator implements Generator {
                 // TODO: Generate a static GirMethodElement for this
                 const jsStyleCtor = descs[0].replace('static new', 'constructor').replace(/:[^:]+$/, '')
 
-                def.push(`${indent}${jsStyleCtor}`)
+                def.push(`${jsStyleCtor}`)
             }
         }
 
-        def.push(...this.generateStaticFunctions(girClass, namespace))
+        def.push(...this.generateStaticFunctions(girClass, namespace, indentCount))
 
         if (girClass._desc?.isDerivedFromGObject && girClass._module) {
             def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)

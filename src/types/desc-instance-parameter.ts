@@ -1,4 +1,4 @@
 export interface DescInstanceParameter {
     name: string
-    types: string[]
+    structFor: string
 }

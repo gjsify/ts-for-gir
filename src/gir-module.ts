@@ -883,12 +883,11 @@ export class GirModule {
         const typeName = instanceParameter.type?.[0]?.$?.name || undefined
         const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
         const structFor = rec?.$['glib:is-gtype-struct-for']
-        const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
         if (structFor && instanceParameter.$.name) {
             // TODO: Should use of a constructor, and even of an instance, be discouraged?
             return {
                 name: instanceParameter.$.name,
-                types: [structFor, 'Function', `${gobject}Type`],
+                structFor,
             }
         }
         return undefined
@@ -1157,7 +1156,8 @@ export class GirModule {
 
         const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
 
-        girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, indentCount)
+        // TODO: move
+        girFunc._desc.desc = this.generator.generateFunction(girFunc, methodPatches, this.namespace, indentCount)
 
         return girFunc._desc
     }
@@ -1178,7 +1178,8 @@ export class GirModule {
             return undefined
         }
 
-        girCallback._descInterface.desc = this.generator.generateCallbackInterface(girCallback)
+        // TODO: move
+        girCallback._descInterface.desc = this.generator.generateCallbackInterface(girCallback, this.namespace)
 
         return girCallback._descInterface
     }
@@ -1230,7 +1231,7 @@ export class GirModule {
             outParams,
         }
 
-        girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass)
+        girSignalFunc._desc.desc = this.generator.generateSignalMethods(girSignalFunc, girClass, this.namespace)
 
         return girSignalFunc._desc
     }

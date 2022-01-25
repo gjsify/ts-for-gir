@@ -138,13 +138,21 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    public generateInParameters(inParams: GirCallableParamElement[], instanceParameters: GirInstanceParameter[]) {
+    public generateInParameters(
+        inParams: GirCallableParamElement[],
+        instanceParameters: GirInstanceParameter[],
+        namespace: string,
+    ) {
         const inParamsDef: string[] = []
 
         // TODO: Should use of a constructor, and even of an instance, be discouraged?
         for (const instanceParameter of instanceParameters) {
-            if (instanceParameter._desc)
-                inParamsDef.push(`${instanceParameter._desc.name}: ${instanceParameter._desc.types.join(' | ')}`)
+            if (instanceParameter._desc) {
+                const { name, structFor } = instanceParameter._desc
+                const gobject = namespace === 'GObject' || namespace === 'GLib' ? '' : 'GObject.'
+                const returnTypes = [structFor, 'Function', `${gobject}Type`]
+                inParamsDef.push(`${name}: ${returnTypes.join(' | ')}`)
+            }
         }
 
         for (const inParam of inParams) {
@@ -157,6 +165,7 @@ export default class TypeDefinitionGenerator implements Generator {
     public generateSignalMethods(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
         indentCount = 0,
     ) {
         if (!girSignalFunc._desc || !girClass._desc) {
@@ -169,7 +178,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         const def: string[] = []
 
-        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(
             `${indent}connect(sigName: "${sigName}", callback: (($obj: ${
@@ -371,7 +380,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirConstructorElement
             | GirCallbackElement
             | GirVirtualMethodElement,
-        methodPatches?: string[],
+        methodPatches: string[] = [],
+        namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -425,14 +435,14 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const { inParams, instanceParameters } = girFunc._desc
-        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(`${indent}${exp}${prefix}${name}(${inParamsDef.join(', ')})${retSep} ${returnDesc}`)
 
         return def
     }
 
-    public generateCallbackInterface(girCallback: GirCallbackElement, indentCount = 0) {
+    public generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
         const def: string[] = []
 
         if (!girCallback._desc || !girCallback._descInterface) {
@@ -446,7 +456,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const { inParams, instanceParameters, returnType } = girCallback._desc
         const { name } = girCallback._descInterface
 
-        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters)
+        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(indent + this.generateExport('interface', name, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnType}`)
@@ -969,11 +979,12 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const girConst of girModule.ns.constant) out.push(...this.generateConstant(girConst))
 
             if (girModule.ns.function)
-                for (const girFunc of girModule.ns.function) out.push(...this.generateFunction(girFunc, [], 0))
+                for (const girFunc of girModule.ns.function)
+                    out.push(...this.generateFunction(girFunc, [], girModule.namespace, 0))
 
             if (girModule.ns.callback)
                 for (const girCallback of girModule.ns.callback)
-                    out.push(...this.generateCallbackInterface(girCallback))
+                    out.push(...this.generateCallbackInterface(girCallback, girModule.namespace))
 
             if (girModule.ns.interface)
                 for (const girIface of girModule.ns.interface)

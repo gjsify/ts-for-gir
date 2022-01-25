@@ -46,11 +46,11 @@ import type {
     LocalName,
     LocalNames,
     DescClass,
-    DescMethod,
-    DescFunction,
-    DescProperty,
-    DescParameter,
-    DescInstanceParameter,
+    TsMethod,
+    TsFunction,
+    TsProperty,
+    TsParameter,
+    TsInstanceParameter,
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
@@ -572,7 +572,7 @@ export class GirModule {
 
         if (!resValue && callbacks?.length) {
             for (const girCallback of callbacks) {
-                girCallback._desc = this.setFunctionDesc(
+                girCallback._tsData = this.setFunctionDesc(
                     girCallback,
                     'callback',
                     /* isStatic */ false,
@@ -582,7 +582,7 @@ export class GirModule {
                     /* overrideReturnType */ null,
                 )
 
-                if (girCallback._desc) {
+                if (girCallback._tsData) {
                     girCallbacks.push(girCallback)
                     isFunction = true
                     isCallback = true
@@ -728,9 +728,9 @@ export class GirModule {
         return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
     }
 
-    private getPatches(packageName: string, type: 'constructorProperties', nsPath: string): Partial<DescProperty>
-    private getPatches(packageName: string, type: 'methods', nsPath: string): Partial<DescMethod>
-    private getPatches(packageName: string, type: 'parameter', nsPath: string): Partial<DescParameter>
+    private getPatches(packageName: string, type: 'constructorProperties', nsPath: string): Partial<TsProperty>
+    private getPatches(packageName: string, type: 'methods', nsPath: string): Partial<TsMethod>
+    private getPatches(packageName: string, type: 'parameter', nsPath: string): Partial<TsParameter>
 
     /**
      * Get the patches for a given namespace path, type and package name (including the version number)
@@ -788,16 +788,16 @@ export class GirModule {
             }
         }
 
-        girParam._desc = {
+        girParam._tsData = {
             name: paramName,
             optional,
             type: paramType,
         }
 
-        return girParam._desc
+        return girParam._tsData
     }
 
-    private getInstanceParameterDesc(instanceParameter: GirInstanceParameter): DescInstanceParameter | undefined {
+    private getInstanceParameterDesc(instanceParameter: GirInstanceParameter): TsInstanceParameter | undefined {
         const typeName = instanceParameter.type?.[0]?.$?.name || undefined
         const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
         const structFor = rec?.$['glib:is-gtype-struct-for']
@@ -824,8 +824,8 @@ export class GirModule {
                 // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
                 const instanceParameter = girParams[0]['instance-parameter']?.[0]
                 if (instanceParameter) {
-                    instanceParameter._desc = this.getInstanceParameterDesc(instanceParameter)
-                    if (instanceParameter._desc) {
+                    instanceParameter._tsData = this.getInstanceParameterDesc(instanceParameter)
+                    if (instanceParameter._tsData) {
                         instanceParameters.push(instanceParameter)
                     }
                 }
@@ -841,7 +841,7 @@ export class GirModule {
                             continue
                         }
 
-                        param._desc = this.setParameterDesc(param, params, paramNames, skip)
+                        param._tsData = this.setParameterDesc(param, params, paramNames, skip)
 
                         // Apply patches
                         const paramPatches = param._fullSymName
@@ -850,7 +850,7 @@ export class GirModule {
 
                         if (paramPatches) {
                             this.log.warn(`Patch found for parameter "${param._fullSymName || ''}"!`)
-                            param._desc = merge(param._desc, paramPatches)
+                            param._tsData = merge(param._tsData, paramPatches)
                         }
 
                         const optDirection = param.$.direction
@@ -873,7 +873,7 @@ export class GirModule {
         tsType: 'field' | 'constructor-property',
         optional: boolean,
         allowQuotes: boolean,
-    ): GirPropertyElement['_desc']
+    ): GirPropertyElement['_tsData']
 
     private setVariableDesc(
         girVar: GirConstantElement,
@@ -881,7 +881,7 @@ export class GirModule {
         tsType: 'constant',
         optional: boolean,
         allowQuotes: boolean,
-    ): GirConstantElement['_desc']
+    ): GirConstantElement['_tsData']
 
     private setVariableDesc(
         girVar: GirFieldElement,
@@ -889,7 +889,7 @@ export class GirModule {
         tsType: 'field',
         optional: boolean,
         allowQuotes: boolean,
-    ): GirFieldElement['_desc']
+    ): GirFieldElement['_tsData']
 
     private setVariableDesc(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
@@ -928,7 +928,7 @@ export class GirModule {
         const { result, girCallbacks } = this.typeLookup(girVar)
         const typeName = this.transformation.transformTypeName(result)
 
-        girVar._desc = {
+        girVar._tsData = {
             name,
             patched: false,
             optional,
@@ -943,10 +943,10 @@ export class GirModule {
 
         if (varPatches) {
             this.log.warn(`Patch found for variable "${girVar._fullSymName || ''}"!`)
-            girVar._desc = merge(girVar._desc, varPatches)
+            girVar._tsData = merge(girVar._tsData, varPatches)
         }
 
-        return girVar._desc
+        return girVar._tsData
     }
 
     private setPropertyDesc(
@@ -956,7 +956,7 @@ export class GirModule {
         construct?: boolean,
         optional?: boolean,
         indentCount?: number,
-    ): DescProperty | undefined
+    ): TsProperty | undefined
 
     private setPropertyDesc(
         girProp: GirFieldElement,
@@ -965,7 +965,7 @@ export class GirModule {
         construct?: boolean,
         optional?: boolean,
         indentCount?: number,
-    ): DescProperty | undefined
+    ): TsProperty | undefined
 
     /**
      * @param girVar
@@ -979,7 +979,7 @@ export class GirModule {
         tsType: 'constructor-property' | 'field',
         construct = false,
         optional = true,
-    ): DescProperty | undefined {
+    ): TsProperty | undefined {
         if (girBool((girProp as GirPropertyElement).$['construct-only']) && !construct) return undefined
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
@@ -988,7 +988,7 @@ export class GirModule {
         girProp._girType = girType
         switch (girType) {
             case 'property':
-                girProp._desc = this.setVariableDesc(
+                girProp._tsData = this.setVariableDesc(
                     girProp as GirPropertyElement,
                     girType,
                     tsType,
@@ -1000,7 +1000,7 @@ export class GirModule {
                 if (tsType !== 'field') {
                     throw new Error(`Wrong tsType: "${tsType}" for girType: "${girType}`)
                 }
-                girProp._desc = this.setVariableDesc(
+                girProp._tsData = this.setVariableDesc(
                     girProp as GirFieldElement,
                     girType,
                     tsType,
@@ -1012,16 +1012,16 @@ export class GirModule {
                 throw new Error(`Unknown property type: ${girType as string}`)
         }
 
-        if (!girProp._desc?.name) {
+        if (!girProp._tsData?.name) {
             return undefined
         }
 
-        girProp._desc = {
-            ...girProp._desc,
+        girProp._tsData = {
+            ...girProp._tsData,
             readonly,
         }
 
-        return girProp._desc
+        return girProp._tsData
     }
 
     /**
@@ -1045,7 +1045,7 @@ export class GirModule {
         isGlobal = false,
         isVirtual = false,
         overrideReturnType: string | null = null,
-    ): DescFunction | undefined {
+    ): TsFunction | undefined {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
@@ -1076,7 +1076,7 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        girFunc._desc = {
+        girFunc._tsData = {
             patched: true,
             isArrowType,
             isStatic,
@@ -1099,34 +1099,34 @@ export class GirModule {
 
         if (methodPatches) {
             this.log.warn(`Patch found for method "${girFunc._fullSymName || ''}"!`)
-            girFunc._desc = merge(girFunc._desc, methodPatches)
+            girFunc._tsData = merge(girFunc._tsData, methodPatches)
         }
 
-        return girFunc._desc
+        return girFunc._tsData
     }
 
     private setCallbackInterfaceDesc(girCallback: GirCallbackElement) {
         if (!girCallback || !girCallback.$ || !girBool(girCallback.$.introspectable, true)) return undefined
 
-        girCallback._desc = this.setFunctionDesc(girCallback, 'callback', false, true, false, false, null)
+        girCallback._tsData = this.setFunctionDesc(girCallback, 'callback', false, true, false, false, null)
 
         const name = girCallback.$.name
 
-        girCallback._descInterface = {
+        girCallback._tsDataInterface = {
             name,
         }
 
-        if (!girCallback._desc || !girCallback._descInterface) {
+        if (!girCallback._tsData || !girCallback._tsDataInterface) {
             return undefined
         }
 
-        return girCallback._descInterface
+        return girCallback._tsDataInterface
     }
 
     private setConstructorFunctionDesc(
         name: string,
         girConstructorFunc: GirConstructorElement,
-    ): DescFunction | undefined {
+    ): TsFunction | undefined {
         return this.setFunctionDesc(
             girConstructorFunc,
             'constructor',
@@ -1142,8 +1142,8 @@ export class GirModule {
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
-        if (!girClass._desc) {
-            throw new Error('girClass._desc not set!')
+        if (!girClass._tsData) {
+            throw new Error('girClass._tsData not set!')
         }
 
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
@@ -1154,7 +1154,7 @@ export class GirModule {
             girSignalFunc.parameters,
         )
 
-        girSignalFunc._desc = {
+        girSignalFunc._tsData = {
             name,
             returnType,
             isArrowType: true,
@@ -1169,7 +1169,7 @@ export class GirModule {
             outParams,
         }
 
-        return girSignalFunc._desc
+        return girSignalFunc._tsData
     }
 
     private setEnumerationMemberDesc(girEnumMember: GirMemberElement) {
@@ -1178,10 +1178,10 @@ export class GirModule {
             return undefined
         }
         const name = this.transformation.transformEnumMember(memberName)
-        girEnumMember._desc = {
+        girEnumMember._tsData = {
             name,
         }
-        return girEnumMember._desc
+        return girEnumMember._tsData
     }
 
     private setEnumerationDesc(girEnum: GirEnumElement | GirBitfieldElement) {
@@ -1190,17 +1190,17 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         const name = this.transformation.transformEnumName(girEnum)
 
-        girEnum._desc = {
+        girEnum._tsData = {
             name,
         }
 
         if (girEnum.member) {
             for (const girEnumMember of girEnum.member) {
-                girEnumMember._desc = this.setEnumerationMemberDesc(girEnumMember)
+                girEnumMember._tsData = this.setEnumerationMemberDesc(girEnumMember)
             }
         }
 
-        return girEnum._desc
+        return girEnum._tsData
     }
 
     private setAliasDesc(girAlias: GirAliasElement) {
@@ -1208,25 +1208,25 @@ export class GirModule {
 
         const typeName = this.typeLookup(girAlias).result
         const name = girAlias.$.name
-        girAlias._desc = {
+        girAlias._tsData = {
             name,
             type: typeName,
         }
-        return girAlias._desc
+        return girAlias._tsData
     }
 
     private setConstantDesc(girConst: GirConstantElement) {
-        girConst._desc = this.setVariableDesc(girConst, 'constant', 'constant', false, false)
-        if (girConst._desc?.name) {
-            if (!this.constNames[girConst._desc.name]) {
-                this.constNames[girConst._desc.name] = girConst
+        girConst._tsData = this.setVariableDesc(girConst, 'constant', 'constant', false, false)
+        if (girConst._tsData?.name) {
+            if (!this.constNames[girConst._tsData.name]) {
+                this.constNames[girConst._tsData.name] = girConst
             } else {
-                this.log.warn(`The constant '${girConst._desc.name}' has already been exported`)
-                girConst._desc = undefined
+                this.log.warn(`The constant '${girConst._tsData.name}' has already been exported`)
+                girConst._tsData = undefined
             }
         }
 
-        return girConst._desc
+        return girConst._tsData
     }
 
     private getClassConstructPropsDesc(
@@ -1246,9 +1246,16 @@ export class GirModule {
                 continue
             }
 
-            girConstrProp._desc = this.setPropertyDesc(girConstrProp, 'property', 'constructor-property', true, true, 0)
+            girConstrProp._tsData = this.setPropertyDesc(
+                girConstrProp,
+                'property',
+                'constructor-property',
+                true,
+                true,
+                0,
+            )
 
-            if (!girConstrProp._desc) {
+            if (!girConstrProp._tsData) {
                 continue
             }
 
@@ -1266,7 +1273,7 @@ export class GirModule {
 
                 if (constructPropPatches) {
                     this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
-                    girConstrProp._desc = merge(girConstrProp._desc, constructPropPatches)
+                    girConstrProp._tsData = merge(girConstrProp._tsData, constructPropPatches)
                 }
             }
 
@@ -1284,11 +1291,11 @@ export class GirModule {
         const constructors = girClass.constructor
         const girConstructors: GirConstructorElement[] = []
 
-        if (!girChildClass._desc?.name) {
-            throw new Error('girClass._desc.name not set!')
+        if (!girChildClass._tsData?.name) {
+            throw new Error('girClass._tsData.name not set!')
         }
 
-        if (!Array.isArray(constructors) || !girClass._desc) {
+        if (!Array.isArray(constructors) || !girClass._tsData) {
             return girConstructors
         }
 
@@ -1300,9 +1307,9 @@ export class GirModule {
                 girConstructor = clone(_girConstructor)
             }
 
-            girConstructor._desc = this.setConstructorFunctionDesc(girChildClass._desc?.name, girConstructor)
+            girConstructor._tsData = this.setConstructorFunctionDesc(girChildClass._tsData?.name, girConstructor)
 
-            if (!girConstructor?._desc?.name) {
+            if (!girConstructor?._tsData?.name) {
                 continue
             }
 
@@ -1336,7 +1343,7 @@ export class GirModule {
         const girMethods = rec.method || []
         return girMethods
             .map((girMethod) => {
-                girMethod._desc = this.setFunctionDesc(
+                girMethod._tsData = this.setFunctionDesc(
                     girMethod,
                     'function',
                     /* isStatic */ true,
@@ -1362,7 +1369,7 @@ export class GirModule {
         const girMethods: GirMethodElement[] = []
         if (girClass.method) {
             for (const girMethod of girClass.method) {
-                girMethod._desc = this.setFunctionDesc(
+                girMethod._tsData = this.setFunctionDesc(
                     girMethod,
                     'method',
                     /* isStatic */ false,
@@ -1385,15 +1392,15 @@ export class GirModule {
         localNames: LocalNames,
     ) {
         const girFields: GirFieldElement[] = []
-        if (!girClass._desc) {
-            this.log.warn('[setClassFieldsDesc] girClass._desc not set!')
+        if (!girClass._tsData) {
+            this.log.warn('[setClassFieldsDesc] girClass._tsData not set!')
             return girFields
         }
 
         if (girClass.field) {
             for (const girField of girClass.field) {
-                girField._desc = this.setVariableDesc(girField, 'field', 'field', false, false)
-                if (!girField._desc) {
+                girField._tsData = this.setVariableDesc(girField, 'field', 'field', false, false)
+                if (!girField._tsData) {
                     continue
                 }
 
@@ -1415,7 +1422,7 @@ export class GirModule {
         const properties = (girClass as GirClassElement | GirInterfaceElement).property
         if (properties) {
             for (const girProperty of properties) {
-                girProperty._desc = this.setPropertyDesc(girProperty, 'property', 'field')
+                girProperty._tsData = this.setPropertyDesc(girProperty, 'property', 'field')
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
                 if (localName?.added && localName.property) {
                     girProperties.push(localName.property)
@@ -1430,11 +1437,11 @@ export class GirModule {
     ) {
         const propertyNames: string[] = []
 
-        if (!girClass._desc) {
+        if (!girClass._tsData) {
             return propertyNames
         }
 
-        const girProperties = girClass._desc.properties
+        const girProperties = girClass._tsData.properties
 
         if (girProperties.length > 0) {
             for (const girProperty of girProperties) {
@@ -1444,8 +1451,8 @@ export class GirModule {
             }
         }
 
-        for (const fullSymName of Object.keys(girClass._desc.extends)) {
-            const girProperties = girClass._desc.extends[fullSymName]?.properties
+        for (const fullSymName of Object.keys(girClass._tsData.extends)) {
+            const girProperties = girClass._tsData.extends[fullSymName]?.properties
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
                     if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
@@ -1455,11 +1462,11 @@ export class GirModule {
             }
         }
 
-        for (const fullSymName of Object.keys(girClass._desc.implements)) {
-            const girProperties = girClass._desc.implements[fullSymName]?.properties
+        for (const fullSymName of Object.keys(girClass._tsData.implements)) {
+            const girProperties = girClass._tsData.implements[fullSymName]?.properties
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
-                    if (girProperty._desc && girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                    if (girProperty._tsData && girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
                         propertyNames.push(girProperty.$.name)
                     }
                 }
@@ -1474,17 +1481,17 @@ export class GirModule {
     ) {
         const girConstructors: GirConstructorElement[] = []
         // JS constructor(s)
-        if (girClass._desc?.isDerivedFromGObject) {
+        if (girClass._tsData?.isDerivedFromGObject) {
             // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
         } else {
             const constructors = girClass.constructor
             if (Array.isArray(constructors)) {
                 for (const girConstructor of constructors) {
-                    if (!girClass._desc?.name) continue
+                    if (!girClass._tsData?.name) continue
 
-                    girConstructor._desc = this.setConstructorFunctionDesc(girClass._desc?.name, girConstructor)
+                    girConstructor._tsData = this.setConstructorFunctionDesc(girClass._tsData?.name, girConstructor)
 
-                    if (!girConstructor._desc?.name || girConstructor._desc.name !== 'new') continue
+                    if (!girConstructor._tsData?.name || girConstructor._tsData.name !== 'new') continue
 
                     girConstructors.push(girConstructor)
                 }
@@ -1501,7 +1508,7 @@ export class GirModule {
             const girVMethods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
             const methods = girVMethods
                 .map((girVMethod) => {
-                    girVMethod._desc = this.setFunctionDesc(
+                    girVMethod._tsData = this.setFunctionDesc(
                         girVMethod,
                         'virtual-method',
                         /* isStatic */
@@ -1517,7 +1524,7 @@ export class GirModule {
                     )
                     return girVMethod
                 })
-                .filter((girVMethod) => girVMethod?._desc?.name)
+                .filter((girVMethod) => girVMethod?._tsData?.name)
             return methods
         }) as GirVirtualMethodElement[]
         return girVMethods
@@ -1535,11 +1542,10 @@ export class GirModule {
     private getClassSignalsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         girParentClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        useReference = true,
     ) {
         const girSignals: GirSignalElement[] = []
-        if (!girParentClass._desc) {
-            this.log.warn('girParentClass._desc not set!')
+        if (!girParentClass._tsData) {
+            this.log.warn('girParentClass._tsData not set!')
         }
 
         const signals: GirSignalElement[] =
@@ -1547,14 +1553,8 @@ export class GirModule {
             (girClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
             []
         if (signals) {
-            for (const _girSignal of signals) {
-                let girSignal: GirSignalElement
-                if (useReference) {
-                    girSignal = _girSignal
-                } else {
-                    girSignal = clone(_girSignal)
-                }
-                girSignal._desc = this.setSignalFuncDesc(girSignal, girParentClass)
+            for (const girSignal of signals) {
+                girSignal._tsData = this.setSignalFuncDesc(girSignal, girParentClass)
                 girSignals.push(girSignal)
             }
         }
@@ -1609,7 +1609,7 @@ export class GirModule {
             localParentName = parentModName == namespace ? parentName : qualifiedParentName
         }
 
-        girClass._desc = {
+        girClass._tsData = {
             name: className,
             qualifiedName,
             parentName,
@@ -1634,13 +1634,13 @@ export class GirModule {
             implements: {},
         }
 
-        if (girClass._desc.qualifiedParentName && localParentName) {
-            girClass._desc.inheritConstructPropInterfaceName = `${localParentName}_ConstructProps`
+        if (girClass._tsData.qualifiedParentName && localParentName) {
+            girClass._tsData.inheritConstructPropInterfaceName = `${localParentName}_ConstructProps`
         }
 
-        girClass._desc.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
+        girClass._tsData.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
-        return girClass._desc
+        return girClass._tsData
     }
 
     private setClassDesc(
@@ -1648,41 +1648,40 @@ export class GirModule {
     ): DescClass | undefined {
         if (!girClass?.$?.name) return undefined
 
-        if (girClass._desc) {
-            // TODO: We need to overwrite the already defined girClass._desc
-            // this.log.warn('girClass._desc was already set')
+        if (girClass._tsData) {
+            // TODO: We need to overwrite the already defined girClass._tsData
+            // this.log.warn('girClass._tsData was already set')
         }
 
-        girClass._desc = this.setClassBaseDesc(girClass)
+        girClass._tsData = this.setClassBaseDesc(girClass)
 
-        if (!girClass._desc) {
+        if (!girClass._tsData) {
             return undefined
         }
 
         // BASE
 
-        if (girClass._desc.isDerivedFromGObject) {
-            girClass._desc.constructProps.push(
-                ...this.getClassConstructPropsDesc(girClass, girClass._desc.constructPropNames),
+        if (girClass._tsData.isDerivedFromGObject) {
+            girClass._tsData.constructProps.push(
+                ...this.getClassConstructPropsDesc(girClass, girClass._tsData.constructPropNames),
             )
         }
 
-        girClass._desc.constructors.push(...this.getClassConstructorsDesc(girClass))
-        // FIXME: If we use the reference the return type is wrong, if we use not the reference (copy) the static prefix is lost
-        girClass._desc.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass, false))
+        girClass._tsData.constructors.push(...this.getClassConstructorsDesc(girClass))
+        girClass._tsData.staticFunctions.push(...this.getClassStaticFunctionsDesc(girClass, false))
 
         // TODO: Can't export fields for GObjects because names would clash
         if (girClass._girType === 'record')
-            girClass._desc.fields.push(...this.getClassFieldsDesc(girClass, girClass._desc.localNames))
+            girClass._tsData.fields.push(...this.getClassFieldsDesc(girClass, girClass._tsData.localNames))
 
-        girClass._desc.properties.push(...this.getClassPropertiesDesc(girClass, girClass._desc.localNames))
-        girClass._desc.methods.push(...this.getClassMethodsDesc(girClass, girClass._desc.localNames))
-        girClass._desc.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
-        girClass._desc.signals.push(...this.getClassSignalsDesc(girClass, girClass, true))
+        girClass._tsData.properties.push(...this.getClassPropertiesDesc(girClass, girClass._tsData.localNames))
+        girClass._tsData.methods.push(...this.getClassMethodsDesc(girClass, girClass._tsData.localNames))
+        girClass._tsData.virtualMethods.push(...this.getClassVirtualMethodsDesc(girClass))
+        girClass._tsData.signals.push(...this.getClassSignalsDesc(girClass, girClass))
 
         // Copy fields and properties from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
-            if (!girClass._desc || !extendsCls._desc || !extendsCls._fullSymName || !extendsCls._module) {
+            if (!girClass._tsData || !extendsCls._tsData || !extendsCls._fullSymName || !extendsCls._module) {
                 return
             }
 
@@ -1691,9 +1690,9 @@ export class GirModule {
             }
 
             const key = extendsCls._module.packageName + '.' + extendsCls._fullSymName
-            if (girClass._desc.extends[key]) return
+            if (girClass._tsData.extends[key]) return
 
-            girClass._desc.extends[key] = {
+            girClass._tsData.extends[key] = {
                 class: extendsCls,
                 fields: [],
                 properties: [],
@@ -1702,18 +1701,22 @@ export class GirModule {
                 signals: [],
             }
 
-            girClass._desc.extends[key].fields.push(...this.getClassFieldsDesc(extendsCls, girClass._desc.localNames))
-            girClass._desc.extends[key].properties.push(
-                ...this.getClassPropertiesDesc(extendsCls, girClass._desc.localNames),
+            girClass._tsData.extends[key].fields.push(
+                ...this.getClassFieldsDesc(extendsCls, girClass._tsData.localNames),
             )
-            girClass._desc.extends[key].methods.push(...this.getClassMethodsDesc(extendsCls, girClass._desc.localNames))
-            girClass._desc.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
-            girClass._desc.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass, true))
+            girClass._tsData.extends[key].properties.push(
+                ...this.getClassPropertiesDesc(extendsCls, girClass._tsData.localNames),
+            )
+            girClass._tsData.extends[key].methods.push(
+                ...this.getClassMethodsDesc(extendsCls, girClass._tsData.localNames),
+            )
+            girClass._tsData.extends[key].virtualMethods.push(...this.getClassVirtualMethodsDesc(extendsCls))
+            girClass._tsData.extends[key].signals.push(...this.getClassSignalsDesc(extendsCls, girClass))
         })
 
         // Copy properties from implemented interface
         this.forEachInterface(girClass, (iface) => {
-            if (!girClass._desc || !iface._desc || !iface._fullSymName || !iface._module) {
+            if (!girClass._tsData || !iface._tsData || !iface._fullSymName || !iface._module) {
                 return
             }
 
@@ -1722,9 +1725,9 @@ export class GirModule {
             }
 
             const key = iface._module.packageName + '.' + iface._fullSymName
-            if (girClass._desc.implements[key]) return
+            if (girClass._tsData.implements[key]) return
 
-            girClass._desc.implements[key] = {
+            girClass._tsData.implements[key] = {
                 interface: iface,
                 properties: [],
                 constructProps: [],
@@ -1732,31 +1735,33 @@ export class GirModule {
                 signals: [],
             }
 
-            if (girClass._desc.isDerivedFromGObject) {
-                girClass._desc.implements[key].constructProps.push(
-                    ...this.getClassConstructPropsDesc(iface, girClass._desc.constructPropNames),
+            if (girClass._tsData.isDerivedFromGObject) {
+                girClass._tsData.implements[key].constructProps.push(
+                    ...this.getClassConstructPropsDesc(iface, girClass._tsData.constructPropNames),
                 )
             }
 
-            girClass._desc.implements[key].properties.push(
-                ...this.getClassPropertiesDesc(iface, girClass._desc.localNames),
+            girClass._tsData.implements[key].properties.push(
+                ...this.getClassPropertiesDesc(iface, girClass._tsData.localNames),
             )
-            girClass._desc.implements[key].methods.push(...this.getClassMethodsDesc(iface, girClass._desc.localNames))
-            girClass._desc.implements[key].signals.push(...this.getClassSignalsDesc(iface, girClass, false))
+            girClass._tsData.implements[key].methods.push(
+                ...this.getClassMethodsDesc(iface, girClass._tsData.localNames),
+            )
+            girClass._tsData.implements[key].signals.push(...this.getClassSignalsDesc(iface, girClass))
         })
 
-        girClass._desc.propertyNames.push(...this.getClassPropertyNames(girClass))
+        girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 
-        return girClass._desc
+        return girClass._tsData
     }
 
     private isDerivedFromGObject(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ): boolean {
-        if (typeof girClass._desc?.isDerivedFromGObject === 'boolean') return girClass._desc.isDerivedFromGObject
+        if (typeof girClass._tsData?.isDerivedFromGObject === 'boolean') return girClass._tsData.isDerivedFromGObject
         let ret = false
         this.traverseInheritanceTree(girClass, (cls) => {
-            if (cls._desc?.isDerivedFromGObject === true || cls._fullSymName === 'GObject.Object') {
+            if (cls._tsData?.isDerivedFromGObject === true || cls._fullSymName === 'GObject.Object') {
                 ret = true
             }
         })
@@ -1770,9 +1775,9 @@ export class GirModule {
         recursive = true,
     ): void {
         if (!girClass.$.name) return
-        if (!girClass._desc) girClass._desc = this.setClassDesc(girClass)
-        if (!girClass._desc) return
-        const { parentName, qualifiedParentName } = girClass._desc
+        if (!girClass._tsData) girClass._tsData = this.setClassDesc(girClass)
+        if (!girClass._tsData) return
+        const { parentName, qualifiedParentName } = girClass._tsData
 
         let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
 
@@ -1800,8 +1805,8 @@ export class GirModule {
         dups = {},
     ): void {
         if (!girIface.$.name) return
-        if (!girIface._desc) girIface._desc = this.setClassDesc(girIface)
-        if (!girIface._desc) return
+        if (!girIface._tsData) girIface._tsData = this.setClassDesc(girIface)
+        if (!girIface._tsData) return
         const girImplements = (girIface as GirInterfaceElement).implements || []
         if (girImplements?.length) {
             for (const girImplement of girImplements) {
@@ -1876,11 +1881,11 @@ export class GirModule {
     ): LocalNameCheck | null {
         let isOverloadable = false
 
-        if (!girElement._desc) {
+        if (!girElement._tsData) {
             return null
         }
 
-        const name = girElement._desc?.name
+        const name = girElement._tsData?.name
 
         if (!name) {
             // this.log.warn(`No name for ${desc}`)
@@ -1904,10 +1909,10 @@ export class GirModule {
         }
 
         // If name is found in localNames this variable was already defined
-        if (localNames?.[name]?.[type]?._desc) {
+        if (localNames?.[name]?.[type]?._tsData) {
             // Ignore duplicates with the same type
             // TODO should we use `this.functionSignaturesMatch` here?
-            if (isEqual(localNames[name][type]?._desc, girElement._desc)) {
+            if (isEqual(localNames[name][type]?._tsData, girElement._tsData)) {
                 return null
             }
 
@@ -1987,12 +1992,12 @@ export class GirModule {
         f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
         f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
     ) {
-        if (!f1._desc) f1._desc = this.setFunctionDesc(f1)
-        if (!f2._desc) f2._desc = this.setFunctionDesc(f2)
+        if (!f1._tsData) f1._tsData = this.setFunctionDesc(f1)
+        if (!f2._tsData) f2._tsData = this.setFunctionDesc(f2)
 
-        if (!f1._desc || !f2._desc) return false
+        if (!f1._tsData || !f2._tsData) return false
 
-        return isEqual(f1._desc, f2._desc)
+        return isEqual(f1._tsData, f2._tsData)
     }
 
     /**
@@ -2009,23 +2014,23 @@ export class GirModule {
         force = true,
     ) {
         let result = false
-        if (!girFunc._desc?.name) return result
-        const oldFunc = map.get(girFunc._desc.name)
-        if (!oldFunc?._desc || !girFunc._desc) {
-            if (force && girFunc._desc) map.set(girFunc._desc.name, girFunc)
+        if (!girFunc._tsData?.name) return result
+        const oldFunc = map.get(girFunc._tsData.name)
+        if (!oldFunc?._tsData || !girFunc._tsData) {
+            if (force && girFunc._tsData) map.set(girFunc._tsData.name, girFunc)
             return result
         }
 
         const isEqual = this.functionMatch(girFunc, oldFunc)
         if (!isEqual) {
-            oldFunc._desc.overloads.push(girFunc)
+            oldFunc._tsData.overloads.push(girFunc)
             result = true
         }
         return result
     }
 
     /**
-     * `fnMap` values are equivalent to the second element of a DescFunction.
+     * `fnMap` values are equivalent to the second element of a TsFunction.
      * If an entry in `fnMap` is changed, its name is added to `explicits` (set of names which must be declared).
      * If `force` is `true`, every function of `f2` is added to `fnMap` and overloads even
      * if it doesn't already contain a function of the same name.
@@ -2041,9 +2046,9 @@ export class GirModule {
         force = false,
     ) {
         for (const func of funcs) {
-            if (!func?._desc?.name) continue
+            if (!func?._tsData?.name) continue
             if (this.mergeOverloadableFunctions(fnMap, func) || force) {
-                explicits.add(func._desc.name)
+                explicits.add(func._tsData.name)
             }
         }
     }
@@ -2136,7 +2141,7 @@ export class GirModule {
                     girFunction = clone(_girFunction)
                 }
 
-                girFunction._desc = this.setFunctionDesc(
+                girFunction._tsData = this.setFunctionDesc(
                     girFunction,
                     'function',
                     /* isStatic */
@@ -2151,7 +2156,7 @@ export class GirModule {
                     null,
                 )
 
-                if (!girFunction._desc?.name || girFunction._desc?.name === 'new') continue
+                if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
 
                 girFunctions.push(girFunction)
             }
@@ -2162,11 +2167,11 @@ export class GirModule {
     /**
      * Static methods, <constructor> and <function>
      * @param girClass
-     * @param name
+     * @param useReference If we use the reference here, the return type is wrong
      */
     private getClassStaticFunctionsDesc(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        useReference = true,
+        useReference = false,
     ) {
         const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement | GirMethodElement> = []
 
@@ -2192,22 +2197,22 @@ export class GirModule {
     private setModuleDesc() {
         if (this.ns.enumeration)
             for (const girEnum of this.ns.enumeration) {
-                girEnum._desc = this.setEnumerationDesc(girEnum)
+                girEnum._tsData = this.setEnumerationDesc(girEnum)
             }
 
         if (this.ns.bitfield)
             for (const girBitfield of this.ns.bitfield) {
-                girBitfield._desc = this.setEnumerationDesc(girBitfield)
+                girBitfield._tsData = this.setEnumerationDesc(girBitfield)
             }
 
         if (this.ns.constant)
             for (const girConst of this.ns.constant) {
-                girConst._desc = this.setConstantDesc(girConst)
+                girConst._tsData = this.setConstantDesc(girConst)
             }
 
         if (this.ns.function)
             for (const girFunc of this.ns.function) {
-                girFunc._desc = this.setFunctionDesc(
+                girFunc._tsData = this.setFunctionDesc(
                     girFunc,
                     'function',
                     /* isStatic */
@@ -2225,34 +2230,34 @@ export class GirModule {
 
         if (this.ns.callback)
             for (const girCallback of this.ns.callback) {
-                girCallback._descInterface = this.setCallbackInterfaceDesc(girCallback)
+                girCallback._tsDataInterface = this.setCallbackInterfaceDesc(girCallback)
             }
 
         if (this.ns.interface)
             for (const girIface of this.ns.interface) {
-                girIface._desc = this.setClassDesc(girIface)
+                girIface._tsData = this.setClassDesc(girIface)
             }
 
         if (this.ns.class)
             for (const girClass of this.ns.class) {
-                girClass._desc = this.setClassDesc(girClass)
+                girClass._tsData = this.setClassDesc(girClass)
             }
 
         if (this.ns.record)
             for (const girRecord of this.ns.record) {
-                girRecord._desc = this.setClassDesc(girRecord)
+                girRecord._tsData = this.setClassDesc(girRecord)
             }
 
         if (this.ns.union)
             for (const girUnion of this.ns.union) {
-                girUnion._desc = this.setClassDesc(girUnion)
+                girUnion._tsData = this.setClassDesc(girUnion)
             }
 
         if (this.ns.alias) {
             // GType is not a number in GJS
             for (const girAlias of this.ns.alias) {
                 if (this.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
-                    girAlias._desc = this.setAliasDesc(girAlias)
+                    girAlias._tsData = this.setAliasDesc(girAlias)
             }
         }
     }

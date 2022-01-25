@@ -6,7 +6,7 @@ import {
     GirUnparsedNumber,
     GirCallbackElement,
     PartOfClass,
-    DescVar,
+    TsVar,
 } from '.'
 
 export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyType {
@@ -31,5 +31,5 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
     _girType?: 'field'
     /** Will be exported in Typescript as a `field` of a `class` */
     _tsType?: 'field'
-    _desc?: DescVar
+    _tsData?: TsVar
 }

@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirInfoElements, GirType, PartOfClass, DescAlias } from '.'
+import { GirInfoAttrs, GirInfoElements, GirType, PartOfClass, TsAlias } from '.'
 
 export interface GirAliasElement extends PartOfClass, GirInfoElements {
     /** Type's name substitution, representing a typedef in C */
@@ -15,5 +15,5 @@ export interface GirAliasElement extends PartOfClass, GirInfoElements {
     _girType?: 'alias'
     /** Will be exported in Typescript as "type": `export type = ${name} = ${type}` */
     _tsType?: 'type'
-    _desc?: DescAlias
+    _tsData?: TsAlias
 }

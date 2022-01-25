@@ -1,18 +1,18 @@
-import { DescProperty, DescMethod, DescVar, DescParameter } from '.'
+import { TsProperty, TsMethod, TsVar, TsParameter } from '.'
 
 export interface TypePatches {
     [packageName: string]: {
         methods?: {
-            [methodPath: string]: Partial<DescMethod>
+            [methodPath: string]: Partial<TsMethod>
         }
         constructorProperties?: {
-            [constructorPropPath: string]: Partial<DescProperty>
+            [constructorPropPath: string]: Partial<TsProperty>
         }
         variables?: {
-            [variablePath: string]: Partial<DescVar>
+            [variablePath: string]: Partial<TsVar>
         }
         parameter?: {
-            [parameterPath: string]: Partial<DescParameter>
+            [parameterPath: string]: Partial<TsParameter>
         }
     }
 }

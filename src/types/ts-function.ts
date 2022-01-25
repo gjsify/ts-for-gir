@@ -7,7 +7,10 @@ import {
     GirMethodElement,
 } from '.'
 
-export interface DescFunction {
+/**
+ * Holds the data to generate a function in/for Typescript
+ */
+export interface TsFunction {
     name: string
     returnType: string
     /** true if this function is a arrow function: `() => {}` */

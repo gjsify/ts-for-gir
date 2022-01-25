@@ -1,4 +1,4 @@
-import { GirBoolean, GirAnyType, GirTransferOwnership, GirDirection, GirType, DescInstanceParameter } from '.'
+import { GirBoolean, GirAnyType, GirTransferOwnership, GirDirection, GirType, TsInstanceParameter } from '.'
 
 /**
  * instance-parameter is a parameter of a C function which is an instance of an existing object.
@@ -21,5 +21,5 @@ export interface GirInstanceParameter extends GirAnyType {
     type?: GirType[]
 
     // CUSTOM
-    _desc?: DescInstanceParameter
+    _tsData?: TsInstanceParameter
 }

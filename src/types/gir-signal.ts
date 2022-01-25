@@ -8,7 +8,7 @@ import {
     GirClassElement,
     GirRecordElement,
     GirInterfaceElement,
-    DescSignal,
+    TsSignal,
 } from '.'
 
 export interface GirSignalElement extends PartOfModule, GirInfoElements {
@@ -41,5 +41,5 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
     _girType: 'signal'
     /** Signals are represented in Typescript as multiple event methods */
     _tsType: 'event-methods'
-    _desc?: DescSignal
+    _tsData?: TsSignal
 }

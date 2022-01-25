@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn, PartOfClass, DescFunction } from '.'
+import { GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn, PartOfClass, TsFunction } from '.'
 
 export interface GirConstructorElement extends PartOfClass {
     /** A constructor of a class */
@@ -11,5 +11,5 @@ export interface GirConstructorElement extends PartOfClass {
     _girType?: 'constructor'
     /** Will be exported in Typescript as a `static function` of a `class` */
     _tsType?: 'static-function'
-    _desc?: DescFunction
+    _tsData?: TsFunction
 }

@@ -3,7 +3,7 @@ import {
     GirInfoAttrs,
     PartOfClass,
     GirDocElement,
-    DescMethod,
+    TsMethod,
     GirCallableReturn,
     GirCallableParams,
 } from '.'
@@ -23,5 +23,5 @@ export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
     _girType: 'virtual-method'
     /** Virtual methods are represented in Typescript as normal methods with the prefix "vfunc_" */
     _tsType: 'method'
-    _desc?: DescMethod
+    _tsData?: TsMethod
 }

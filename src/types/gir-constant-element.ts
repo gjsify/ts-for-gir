@@ -1,4 +1,4 @@
-import type { GirInfoElements, GirAnyType, GirInfoAttrs, PartOfModule, DescVar } from '.'
+import type { GirInfoElements, GirAnyType, GirInfoAttrs, PartOfModule, TsVar } from '.'
 
 export interface GirConstantElement extends PartOfModule, GirInfoElements, GirAnyType {
     /** A constant entity, similar to const variable in C */
@@ -17,5 +17,5 @@ export interface GirConstantElement extends PartOfModule, GirInfoElements, GirAn
     _girType?: 'constant'
     /** Will be exported in Typescript as a `constant` */
     _tsType?: 'constant'
-    _desc?: DescVar
+    _tsData?: TsVar
 }

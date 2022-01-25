@@ -5,8 +5,8 @@ import {
     GirCallableParams,
     GirCallableReturn,
     PartOfModule,
-    DescCallback,
-    DescCallbackInterface,
+    TsCallback,
+    TsCallbackInterface,
 } from '.'
 
 export interface GirCallbackElement extends PartOfModule, GirInfoElements {
@@ -29,10 +29,10 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     _girType?: 'callback'
     /** Will be exported in Typescript as a `interface` to be able to assign this interface to the callbacks or as a global function */
     _tsType?: 'interface'
-    _desc?: DescCallback
+    _tsData?: TsCallback
 
     /**
      * Interface for callback types
      */
-    _descInterface?: DescCallbackInterface
+    _tsDataInterface?: TsCallbackInterface
 }

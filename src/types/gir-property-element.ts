@@ -1,12 +1,4 @@
-import {
-    GirBoolean,
-    GirInfoAttrs,
-    GirInfoElements,
-    GirAnyType,
-    GirTransferOwnership,
-    PartOfClass,
-    DescProperty,
-} from '.'
+import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, PartOfClass, TsProperty } from '.'
 
 export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** Property, that is a variable or members with getter and setter functions */
@@ -31,5 +23,5 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
     _girType?: 'property'
     /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
     _tsType?: 'field' | 'constructor-property'
-    _desc?: DescProperty
+    _tsData?: TsProperty
 }

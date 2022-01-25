@@ -8,7 +8,7 @@ import type {
     GirDirection,
     GirVarArgs,
     PartOfClass,
-    DescParameter,
+    TsParameter,
 } from '.'
 
 export interface GirCallableParamElement extends PartOfClass, GirDocElement, GirAnyType {
@@ -43,5 +43,5 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
 
     // CUSTOM
     _girType?: 'callable-param'
-    _desc?: DescParameter
+    _tsData?: TsParameter
 }

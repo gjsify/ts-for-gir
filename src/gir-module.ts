@@ -40,7 +40,6 @@ import type {
     GirInstanceParameter,
     GirInterfaceElement,
     GirConstructorElement,
-    GirInfoAttrs,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,

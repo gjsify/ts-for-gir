@@ -6,6 +6,7 @@ lib/
 examples/**/@types/
 @types/node-gtk/*
 @types/Gjs/*
-!@types/Gjs/Gtk-4.0.d.ts
-!@types/node-gtk/Gtk-4.0.d.ts
+# Uncommit this to see type build changes
+# !@types/Gjs/Gtk-4.0.d.ts
+# !@types/node-gtk/Gtk-4.0.d.ts
 index.ts.bak

@@ -53,10 +53,8 @@ export class GenerationHandler {
 
         this.log.info('Files parsed, loading types...')
 
-        for (const girModule of girModules) girModule.loadTypes()
-
         const inheritanceTable: InheritanceTable = {}
-        for (const girModule of girModules) girModule.loadInheritance(inheritanceTable)
+        for (const girModule of girModules) girModule.init(inheritanceTable)
 
         this.finalizeInheritance(inheritanceTable)
 

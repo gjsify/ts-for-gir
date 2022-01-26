@@ -3,9 +3,12 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { Environment } from './types/index.js'
+import { Environment, GirInfoAttrs } from './types/index.js'
+import { inspect } from 'util'
 
 import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
+
+export { inspect }
 
 export const isEqual = lodash.isEqual
 
@@ -170,4 +173,25 @@ export function girBool(boolStr: string | undefined, defaultVal = false): boolea
 export function signaturesMatch(d1: string, d2: string) {
     if (isCommentLine(d1) || isCommentLine(d2)) return false
     return stripParamNames(d1) == stripParamNames(d2)
+}
+
+/**
+ * GirElements contains an attribute `introspectable`, which is a GirBoolean.
+ * If this is attribute is falsy the element is not introspectable,
+ * this means doesn't exist in the bindings, due in general to missing information in the annotations in the original C code
+ */
+export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) {
+    if (!girElement) {
+        return false
+    }
+    name = name || girElement?.$?.name
+    if (!name) {
+        return false
+    }
+    // Handle introspectable only if the attribute is also present...
+    if (girElement.$.hasOwnProperty('introspectable') && girElement.$.introspectable !== undefined) {
+        return girBool(girElement.$.introspectable, true)
+    }
+    // ...otherwise we assume that it is introspectable
+    return true
 }

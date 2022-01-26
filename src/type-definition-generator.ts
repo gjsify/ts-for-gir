@@ -27,8 +27,14 @@ import type { GirModule } from './gir-module.js'
 import TemplateProcessor from './template-processor.js'
 import { Environment } from './types/environment.js'
 import { Logger } from './logger.js'
-import { generateIndent, findFileInDirs, splitModuleName, removeNamespace } from './utils.js'
-import { inspect } from 'util'
+import {
+    generateIndent,
+    findFileInDirs,
+    splitModuleName,
+    removeNamespace,
+    girElementIsIntrospectable,
+    inspect,
+} from './utils.js'
 import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 export default class TypeDefinitionGenerator implements Generator {
     protected log: Logger
@@ -233,9 +239,10 @@ export default class TypeDefinitionGenerator implements Generator {
         namespace: string,
         indentCount = 0,
     ) {
+        const def: string[] = []
         if (!girSignalFunc._tsData || !girClass._tsData) {
-            this.log.error('girSignalFunc', inspect(girSignalFunc))
-            throw new Error('[generateSignal] Not all required properties set!')
+            this.log.warn('[generateSignal] Not all required properties set!')
+            return def
         }
 
         const { name: sigName, inParams, instanceParameters } = girSignalFunc._tsData
@@ -243,7 +250,6 @@ export default class TypeDefinitionGenerator implements Generator {
         const returnType = removeNamespace(girSignalFunc._tsData.returnType, namespace)
         const paramComma = inParams.length > 0 ? ', ' : ''
         const indent = generateIndent(indentCount)
-        const def: string[] = []
         const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
@@ -407,6 +413,10 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirVirtualMethodElement,
         namespace: string,
     ) {
+        if (!girElementIsIntrospectable(girFunc)) {
+            return 'any'
+        }
+
         if (!girFunc._tsData) {
             this.log.warn('[generateFunctionReturn] Not all required properties set!')
             return 'any'
@@ -455,8 +465,14 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         const indent = generateIndent(indentCount)
 
+        if (!girElementIsIntrospectable(girFunc)) {
+            return def
+        }
+
         if (!girFunc._tsData) {
-            this.log.warn('[generateFunction] Not all required properties set!')
+            this.log.warn(
+                `[generateFunction] Not all required properties set for "${girFunc._fullSymName || girFunc.$.name}"!`,
+            )
             return def
         }
 
@@ -525,6 +541,10 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
         const def: string[] = []
 
+        if (!girElementIsIntrospectable(girCallback)) {
+            return def
+        }
+
         if (!girCallback._tsData || !girCallback._tsDataInterface) {
             this.log.warn('[generateCallbackInterface] Not all required properties set!')
             return def
@@ -549,6 +569,10 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
         const desc: string[] = []
 
+        if (!girElementIsIntrospectable(girEnum)) {
+            return desc
+        }
+
         if (!girEnum._tsData) {
             this.log.warn('[generateEnumeration] Not all required properties set!')
             return desc
@@ -570,6 +594,11 @@ export default class TypeDefinitionGenerator implements Generator {
 
     private generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
         const desc: string[] = []
+
+        if (!girElementIsIntrospectable(girEnumMember)) {
+            return desc
+        }
+
         if (!girEnumMember._tsData) {
             this.log.warn('[generateEnumerationMember] Not all required properties set!')
             return desc
@@ -579,16 +608,11 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateEnumerations(girEnums: Array<GirEnumElement | GirBitfieldElement>, comment = '', indentCount = 0) {
-        const def: string[] = []
-        def.push(...this.addComment(girEnums, comment, indentCount))
-        for (const girEnum of girEnums) {
-            def.push(...this.generateEnumeration(girEnum, indentCount))
-        }
-        return def
-    }
-
     private generateConstant(girConst: GirConstantElement, namespace: string, indentCount = 0) {
+        if (!girElementIsIntrospectable(girConst)) {
+            return ''
+        }
+
         if (!girConst._tsData) {
             this.log.warn('[generateConstant] Not all required properties set!')
             return ''
@@ -603,6 +627,10 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateAlias(girAlias: GirAliasElement, namespace: string, indentCount = 0) {
         const desc: string[] = []
 
+        if (!girElementIsIntrospectable(girAlias)) {
+            return ''
+        }
+
         if (!girAlias._tsData) {
             this.log.warn('[generateAlias] Not all required properties set!')
             return desc
@@ -616,22 +644,13 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateAliases(girAliases: GirAliasElement[], namespace: string, comment = '', indentCount = 0) {
-        const def: string[] = []
-        def.push(...this.addComment(girAliases, comment, indentCount))
-        for (const girAlias of girAliases) {
-            def.push(...this.generateAlias(girAlias, namespace, indentCount))
-        }
-        return def
-    }
-
     private generateConstructPropsInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 0,
     ) {
         const def: string[] = []
-        const indent = generateIndent(indentCount)
+
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateConstructPropsInterface] Not all required properties set!')
         }
@@ -640,6 +659,7 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
+        const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         let ext = ' '
 
@@ -711,6 +731,7 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 1,
     ) {
         const def: string[] = []
+
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
             throw new Error('[generateClassProperties] Not all required properties set!')
         }

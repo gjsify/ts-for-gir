@@ -206,7 +206,10 @@ code examples/gjs/browser
 ### Browser
 ![browser](examples/browser.png)
 
-This example uses ESM when building the types and executing Gjs, see [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
+This example uses ESM when building the types and executing Gjs.
+On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't support ESM), but this way the types can still be used in ESM format.
+
+See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
 
 Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)
 

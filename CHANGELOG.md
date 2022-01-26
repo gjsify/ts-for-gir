@@ -2,6 +2,7 @@
 - Refactor Ava test
 
 # v2.0.0
+- The browser example now uses ESM for Gjs and Node.js
 - Upgrade all dependencies to latest
 - [node-gtk] don't add $obj parameter in connect() method either, thanks to @peat-psuwit
 - [node-gtk] Fixed Return types, see #46

@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "lib": ["ESNext"],              
+    "target": "ESNext",
+    "module": "CommonJS",
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
@@ -8,7 +10,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES6",
     "sourceMap": true,
     "outDir": "./dist",
     "typeRoots" : ["node_modules/@types", "./@types"]

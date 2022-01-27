@@ -1,10 +1,10 @@
+import { TypePatchesEnv } from '.'
+
 export interface TypePatches {
-    [packageName: string]: {
-        methods?: {
-            [methodPath: string]: string[]
-        }
-        constructorProperties?: {
-            [constructorPropPath: string]: string[]
-        }
-    }
+    /** Patches for all environments */
+    all: TypePatchesEnv
+    /** Patches only for node.js */
+    node: TypePatchesEnv
+    /** Patches only for gjs */
+    gjs: TypePatchesEnv
 }

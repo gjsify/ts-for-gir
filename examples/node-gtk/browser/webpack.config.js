@@ -1,13 +1,15 @@
 const nodeExternals = require('webpack-node-externals');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-module.exports = {
+exports.default = {
+    mode: 'development',
     entry: ['./main.ts'],
-    target: 'node',
+    externalsPresets: { node: true },
     externals: [nodeExternals()],
     output: {
         filename: 'main.js',
     },
+    target: 'node',
     module: {
         rules: [
             {
@@ -21,7 +23,6 @@ module.exports = {
             },
         ],
     },
-    mode: "development",
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },

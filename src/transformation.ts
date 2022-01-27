@@ -10,16 +10,16 @@ import {
     GenerateConfig,
     GirCallableParamElement,
     GirEnumElement,
+    GirBitfieldElement,
 } from './types/index.js'
-import Path from 'path'
-import { Utils } from './utils.js'
+import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
 
-export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
+export const POD_TYPE_MAP_ARRAY = (): { guint8: string; gint8: string; gunichar: string } => {
     return {
-        guint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
+        guint8: 'Uint8Array',
         // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
-        gint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
+        gint8: 'Uint8Array',
         gunichar: 'string',
     }
 }
@@ -132,7 +132,7 @@ export const FULL_TYPE_MAP = (
         'GObject.Closure': 'Function',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
-        GType: packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type',
+        GType: 'GObject.Type',
     }
 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]
@@ -236,7 +236,7 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        enumValue: {
+        enumMember: {
             node: {
                 transformation: 'upperCase',
             },
@@ -329,8 +329,8 @@ export class Transformation {
      * @param e The enum
      * @returns The transformed name
      */
-    public transformEnumName(e: GirEnumElement): string {
-        let name = e.$.name
+    public transformEnumName(girEnum: GirEnumElement | GirBitfieldElement): string {
+        let name = girEnum.$.name
         name = this.transform('enumName', name)
         const originalName = `${name}`
 
@@ -341,9 +341,16 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${e._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${girEnum._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
+    }
+
+    public transformEnumMember(memberName: string): string {
+        memberName = this.transform('enumMember', memberName)
+        memberName = this.transformNumericName(memberName)
+
+        return memberName
     }
 
     public transformFunctionName(name: string): string {
@@ -450,10 +457,10 @@ export class Transformation {
             return transformMe
         }
         if (transformations === 'lowerCamelCase') {
-            return Utils.lowerCamelCase(transformMe)
+            return lowerCamelCase(transformMe)
         }
         if (transformations === 'upperCamelCase') {
-            return Utils.upperCamelCase(transformMe)
+            return upperCamelCase(transformMe)
         }
         if (transformations === 'upperCase') {
             return transformMe.toUpperCase()
@@ -475,25 +482,10 @@ export class Transformation {
      * @param allowQuotes
      */
     private transformNumericName(name: string, allowQuotes = false): string {
-        if (Utils.isFirstCharNumeric(name)) {
+        if (isFirstCharNumeric(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `TODO_${name}`
         }
         return name
-    }
-
-    static getEnvironmentDir(environment: Environment, baseDir: string): string {
-        if (!baseDir.endsWith(environment))
-            if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
-                return Path.join(baseDir, 'Gjs')
-            }
-        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-            return Path.join(baseDir, 'node-gtk')
-        }
-        return baseDir
-    }
-
-    getEnvironmentDir(baseDir: string): string {
-        return Transformation.getEnvironmentDir(this.config.environment, baseDir)
     }
 }

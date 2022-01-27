@@ -1,4 +1,4 @@
-import { BuildType, Environment } from '.'
+import { BuildType, Environment, ModuleType } from '.'
 
 /**
  * Types for config file
@@ -10,6 +10,8 @@ export interface UserConfig {
     outdir: string | null
     /** Definitions generation type */
     buildType?: BuildType
+    /** Module type, can be CommonJS or ESM */
+    moduleType?: ModuleType
     /** GIR directories */
     girDirectories: string[]
     /** Switch on/off the verbose mode */
@@ -24,8 +26,8 @@ export interface UserConfig {
     modules: string[]
     /** modules that should be ignored */
     ignore?: string[]
-    /** Export all symbols for each module as a single entity using ES6 export default */
-    exportDefault: boolean
+    /** Export all symbols for each module as a namespace */
+    useNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
 }

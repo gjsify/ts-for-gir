@@ -1,18 +1,23 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import TemplateProcessor from './template-processor.js'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
-import { Utils } from './utils.js'
+import {
+    isEqual,
+    find,
+    clone,
+    girBool,
+    removeNamespace,
+    addNamespace,
+    merge,
+    girElementIsIntrospectable,
+} from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
-
 import type {
     GirRepository,
     GirNamespace,
     GirAliasElement,
     GirEnumElement,
+    GirMemberElement,
     GirFunctionElement,
     GirClassElement,
     GirArrayType,
@@ -28,38 +33,44 @@ import type {
     GirConstantElement,
     GirBitfieldElement,
     GirFieldElement,
+    GirMethodElement,
     GirPropertyElement,
+    GirAnyElement,
     GirUnionElement,
-    PartOfModule,
-    PartOfClass,
+    GirInstanceParameter,
+    GirInterfaceElement,
+    GirConstructorElement,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
-    GirConstructorElement,
-    InheritanceTable,
-    ParsedGir,
-    GenerateConfig,
-    DescProperty,
-    FunctionMap,
+    TypeFunction,
+    TypeMethod,
+    TypeVariable,
+    TypeField,
+    TypeClass,
+    TypeGirElement,
+    TypeTsElement,
     LocalNameCheck,
     LocalNameType,
     LocalName,
     LocalNames,
-    ClassDetails,
-    ConstantDescription,
-    GirInterfaceElement,
-    DescFunction,
-    DescParameter,
-    DescVar,
+    TsClass,
+    TsMethod,
+    TsFunction,
+    TsProperty,
+    TsVar,
+    TsParameter,
+    TsInstanceParameter,
+    TsCallbackInterface,
+    TsMember,
+    TsEnum,
+    TsAlias,
+    InheritanceTable,
+    ParsedGir,
+    GenerateConfig,
+    FunctionMap,
+    Environment,
 } from './types/index.js'
-
-import {
-    MAXIMUM_RECURSION_DEPTH,
-    STATIC_NAME_ALREADY_EXISTS,
-    COMMENT_REG_EXP,
-    PARAM_REG_EXP,
-    OPT_PARAM_REG_EXP,
-} from './constants.js'
 
 export class GirModule {
     /**
@@ -108,13 +119,12 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
-    templateProcessor: TemplateProcessor
 
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
-    constNames: { [varName: string]: ConstantDescription } = {}
+    constNames: { [varName: string]: GirConstantElement } = {}
 
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
@@ -132,16 +142,6 @@ export class GirModule {
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
 
-        this.templateProcessor = new TemplateProcessor(
-            {
-                name: this.namespace,
-                version: this.version,
-                importName: this.importName,
-            },
-            this.packageName,
-            this.config,
-        )
-
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 
@@ -157,24 +157,24 @@ export class GirModule {
     private checkTransitiveDependencies(transitiveDependencies: string[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
                 transitiveDependencies.push('GObject-2.0')
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
                 transitiveDependencies.push('Unity-7.0')
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
                 transitiveDependencies.push('Unity-6.0')
             }
         }
         if (this.packageName === 'GTop-2.0') {
-            if (!Utils.find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
+            if (!find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
                 transitiveDependencies.push('GLib-2.0')
             }
         }
@@ -183,13 +183,20 @@ export class GirModule {
     }
 
     private annotateFunctionArguments(
-        girFunc: GirFunctionElement | GirConstructorElement | GirVirtualMethodElement,
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirVirtualMethodElement
+            | GirCallbackElement
+            | GirSignalElement,
     ): void {
         const funcName = girFunc._fullSymName
         if (funcName && girFunc.parameters) {
             for (const girParams of girFunc.parameters) {
                 if (girParams.parameter) {
                     for (const girParam of girParams.parameter) {
+                        girParam._girType = 'callable-param'
                         girParam._module = this
                         if (girParam.$ && girParam.$.name) {
                             girParam._fullSymName = `${funcName}.${girParam.$.name}`
@@ -201,26 +208,104 @@ export class GirModule {
     }
 
     private annotateFunctionReturn(
-        girFunc: GirFunctionElement | GirConstructorElement | GirVirtualMethodElement,
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirVirtualMethodElement
+            | GirCallbackElement
+            | GirSignalElement,
     ): void {
         const retVals = girFunc['return-value']
         if (retVals && girFunc._fullSymName)
             for (const retVal of retVals) {
                 retVal._module = this
+                retVal._girType = 'callable-return'
                 if (retVal.$ && retVal.$.name) {
                     retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
                 }
             }
     }
 
+    private annotateFunctions(girFuncs: GirFunctionElement[], girType: 'function'): void
+    private annotateFunctions(girFuncs: GirCallbackElement[], girType: 'callback'): void
+
+    /**
+     * Functions which are not part of a class
+     * @param girFuncs
+     * @param girType
+     */
     private annotateFunctions(
-        girClass: GirClassElement | GirRecordElement | GirInterfaceElement | null,
-        girFuncs: GirFunctionElement[] | GirConstructorElement[] | GirVirtualMethodElement[] | GirSignalElement[],
+        girFuncs: GirFunctionElement[] | GirCallbackElement[],
+        girType: TypeFunction | 'callback',
     ): void {
         if (Array.isArray(girFuncs))
             for (const girFunc of girFuncs) {
                 if (girFunc?.$?.name) {
-                    girFunc._class = girClass || undefined
+                    girFunc._girType = girType
+                    girFunc._fullSymName = `${this.namespace}.${girFunc.$.name}`
+                    this.annotateFunctionArguments(girFunc)
+                    this.annotateFunctionReturn(girFunc)
+                }
+            }
+    }
+
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs: GirVirtualMethodElement[],
+        girType: 'virtual-method',
+        tsType: 'method',
+    ): void
+
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs: GirSignalElement[],
+        girType: 'signal',
+        tsType: 'event-methods',
+    ): void
+
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs: GirMethodElement[],
+        girType: 'method',
+        tsType: 'method',
+    ): void
+
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs: GirFunctionElement[],
+        girType: 'function',
+        /** functions which are part of a class are always static functions */
+        tsType: 'static-function',
+    ): void
+
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs: GirConstructorElement[],
+        girType: 'constructor',
+        tsType: 'static-function',
+    ): void
+
+    /**
+     * Functions and methods of a class
+     */
+    private annotateMethods(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girFuncs:
+            | GirMethodElement[]
+            | GirFunctionElement[]
+            | GirConstructorElement[]
+            | GirVirtualMethodElement[]
+            | GirSignalElement[],
+        girType: TypeMethod,
+        tsType: 'static-function' | 'event-methods' | 'method',
+    ): void {
+        if (Array.isArray(girFuncs))
+            for (const girFunc of girFuncs) {
+                if (girFunc?.$?.name) {
+                    girFunc._girType = girType
+                    girFunc._tsType = tsType
+                    girFunc._class = girClass
                     const nsName = girClass ? girClass._fullSymName : this.namespace
                     if (nsName) girFunc._fullSymName = `${nsName}.${girFunc.$.name}`
                     this.annotateFunctionArguments(girFunc)
@@ -229,188 +314,142 @@ export class GirModule {
             }
     }
 
-    private annotateVariables(
+    /**
+     * Variables which are not part of a class
+     */
+    private annotateVariables(girVars: GirConstantElement[], girType: TypeVariable): void {
+        for (const girVar of girVars) {
+            girVar._module = this
+            girVar._girType = girType
+            girVar._tsType = this.girToTsType(girType)
+            if (girVar.$ && girVar.$.name) {
+                girVar._fullSymName = `${this.namespace}.${girVar.$.name}`
+            }
+        }
+    }
+
+    private annotateFields(
         girClass: GirClassElement | GirRecordElement | GirInterfaceElement | null,
-        girVars?: GirPropertyElement[] | GirFieldElement[],
+        girVars: GirPropertyElement[],
+        girType: 'property',
+        tsType?: 'field' | 'constructor-property',
+    ): void
+
+    private annotateFields(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement | null,
+        girVars: GirFieldElement[],
+        girType: 'field',
+        tsType?: 'field',
+    ): void
+
+    /**
+     * Fields are variables which are part of a class
+     * @see https://www.typescriptlang.org/docs/handbook/2/classes.html#fields
+     */
+    private annotateFields(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girVars: GirPropertyElement[] | GirFieldElement[],
+        girType: TypeField,
+        tsType: 'field' | 'constructor-property' = 'field',
     ): void {
-        if (girVars)
-            for (const girVar of girVars) {
-                const nsName = girClass ? girClass._fullSymName : this.namespace
-                girVar._module = this
-                if (girClass) {
-                    girVar._class = girClass || undefined
-                }
-
-                if (girVar.$ && girVar.$.name && nsName) {
-                    girVar._fullSymName = `${nsName}.${girVar.$.name}`
-                }
+        for (const girVar of girVars) {
+            const nsName = girClass ? girClass._fullSymName : this.namespace
+            girVar._module = this
+            girVar._girType = girType
+            girVar._tsType = tsType
+            if (girClass) {
+                girVar._class = girClass
             }
+
+            if (girVar.$ && girVar.$.name && nsName) {
+                girVar._fullSymName = `${nsName}.${girVar.$.name}`
+            }
+        }
     }
 
-    private loadTypesInternal(
-        elements?:
-            | GirBitfieldElement[]
-            | GirCallbackElement[]
-            | GirClassElement[]
-            | GirConstantElement[]
-            | GirEnumElement[]
-            | GirFunctionElement[]
-            | GirInterfaceElement[]
-            | GirRecordElement[]
-            | GirUnionElement[]
-            | GirAliasElement[],
+    private annotateClass(girClass: GirClassElement, girType: 'class', tsType?: 'class'): void
+    private annotateClass(girClass: GirRecordElement, girType: 'record', tsType?: 'class'): void
+    private annotateClass(girClass: GirInterfaceElement, girType: 'interface', tsType?: 'class'): void
+
+    private annotateClass(
+        girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
+        girType: TypeClass,
+        tsType: 'class' = 'class',
+    ) {
+        girClass._module = this
+        girClass._fullSymName = `${this.namespace}.${girClass.$.name}`
+        girClass._girType = girType
+        girClass._tsType = tsType
+
+        const constructors = girClass.constructor instanceof Array ? girClass.constructor : []
+        const signals = ((girClass as GirClassElement | GirInterfaceElement).signal ||
+            girClass['glib:signal'] ||
+            []) as GirSignalElement[]
+        const functions = girClass.function || []
+        const methods = girClass.method || []
+        const vMethods = (girClass as GirClassElement)['virtual-method'] || new Array<GirVirtualMethodElement>()
+        const properties = girClass.property
+        const fields = girClass.field
+
+        this.annotateMethods(girClass, constructors, 'constructor', 'static-function')
+        this.annotateMethods(girClass, functions, 'function', 'static-function')
+        this.annotateMethods(girClass, methods, 'method', 'method')
+        this.annotateMethods(girClass, vMethods, 'virtual-method', 'method')
+        this.annotateMethods(girClass, signals, 'signal', 'event-methods')
+        if (properties) this.annotateFields(girClass, properties, 'property')
+        if (fields) this.annotateFields(girClass, fields, 'field')
+    }
+
+    /**
+     * Annotates the custom `_module`, `_fullSymName` and `_girType` properties.
+     * Also registers the element on the `symTable`.
+     * @param girElements
+     * @param girType
+     */
+    private annotateAndRegisterGirElement(
+        girElements: GirAnyElement[],
+        girType: TypeGirElement,
+        isStatic = false,
     ): void {
-        if (elements) {
-            for (const element of elements) {
-                if (element?.$ && element.$.name) {
-                    if ((element as GirCallableParamElement | GirFunctionElement).$.introspectable) {
-                        if (
-                            !this.girBool(
-                                (element as GirCallableParamElement | GirFunctionElement).$.introspectable,
-                                true,
-                            )
-                        )
-                            continue
-                    }
-                    const symName = `${this.namespace}.${element.$.name}`
-                    if (this.symTable.get(this.allDependencies, symName)) {
-                        this.log.warn(`Duplicate symbol: ${symName}`)
-                    }
+        for (const girElement of girElements) {
+            if (girElement?.$ && girElement.$.name) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+                if (!girElementIsIntrospectable(girElement as any)) continue
 
-                    element._module = this
-                    element._fullSymName = symName
-                    this.symTable.set(this.allDependencies, symName, element)
+                girElement._girType = girType
+                girElement._tsType = this.girToTsType(girType, isStatic)
+                girElement._module = this
+                girElement._fullSymName = `${this.namespace}.${girElement.$.name}`
+                if (this.symTable.get(this.allDependencies, girElement._fullSymName)) {
+                    this.log.warn(`Duplicate symbol: ${girElement._fullSymName}`)
                 }
+
+                this.symTable.set(this.allDependencies, girElement._fullSymName, girElement)
             }
         }
     }
 
-    public loadTypes(): void {
-        this.loadTypesInternal(this.ns.bitfield)
-        this.loadTypesInternal(this.ns.callback)
-        this.loadTypesInternal(this.ns.class)
-        this.loadTypesInternal(this.ns.constant)
-        this.loadTypesInternal(this.ns.enumeration)
-        this.loadTypesInternal(this.ns.function)
-        this.loadTypesInternal(this.ns.interface)
-        this.loadTypesInternal(this.ns.record)
-        this.loadTypesInternal(this.ns.union)
-        this.loadTypesInternal(this.ns.alias)
-
-        if (this.ns.callback) for (const func of this.ns.callback) this.annotateFunctionArguments(func)
-
-        const girClasses: Array<GirClassElement | GirRecordElement | GirInterfaceElement> = [
-            ...(this.ns.class || []),
-            ...(this.ns.record || []),
-            ...(this.ns.interface || []),
-        ]
-
-        for (const girClass of girClasses) {
-            girClass._module = this
-            girClass._fullSymName = `${this.namespace}.${girClass.$.name}`
-
-            const constructors = girClass.constructor instanceof Array ? girClass.constructor : []
-            const signals: GirSignalElement[] =
-                (girClass as GirClassElement | GirInterfaceElement).signal || girClass['glib:signal'] || []
-            const functions = girClass.function || []
-            const methods = girClass.method || []
-            const vMethods: GirVirtualMethodElement[] = girClass['virtual-method'] || []
-            const properties = girClass.property
-            const fields = girClass.field
-
-            this.annotateFunctions(girClass, constructors)
-            this.annotateFunctions(girClass, functions)
-            this.annotateFunctions(girClass, methods)
-            this.annotateFunctions(girClass, vMethods)
-            this.annotateFunctions(girClass, signals)
-            this.annotateVariables(girClass, properties)
-            this.annotateVariables(girClass, fields)
-        }
-
-        if (this.ns.function) this.annotateFunctions(null, this.ns.function)
-
-        if (this.ns.constant) this.annotateVariables(null, this.ns.constant)
-    }
-
-    public loadInheritance(inheritanceTable: InheritanceTable): void {
-        // Class hierarchy
-        for (const cls of this.ns.class ? this.ns.class : []) {
-            let parent: string | null = null
-            if (cls.$ && cls.$.parent) parent = cls.$.parent
-            if (!parent) continue
-            if (!cls._fullSymName) continue
-
-            if (parent.indexOf('.') < 0) {
-                parent = this.namespace + '.' + parent
-            }
-            const clsName = cls._fullSymName
-
-            const arr: string[] = inheritanceTable[clsName] || []
-            arr.push(parent)
-            inheritanceTable[clsName] = arr
-        }
-
-        // Class interface implementations
-        for (const cls of this.ns.class ? this.ns.class : []) {
-            if (!cls._fullSymName) continue
-
-            const names: string[] = []
-
-            for (const i of cls.implements ? cls.implements : []) {
-                if (i.$.name) {
-                    let name: string = i.$.name
-                    if (name.indexOf('.') < 0) {
-                        name = cls._fullSymName.substring(0, cls._fullSymName.indexOf('.') + 1) + name
-                    }
-                    names.push(name)
-                }
-            }
-
-            if (names.length > 0) {
-                const clsName = cls._fullSymName
-                const arr: string[] = inheritanceTable[clsName] || []
-                inheritanceTable[clsName] = arr.concat(names)
-            }
-        }
-    }
-
-    private fullTypeLookupWithNamespace(fullTypeName: string) {
-        let resValue = ''
-        let namespace = ''
-
-        // Check overwrites first
-        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
-            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
-        }
-
-        // Only use the fullTypeName as the type if it is found in the symTable
-        if (!resValue && this.symTable.get(this.allDependencies, fullTypeName)) {
-            if (fullTypeName.startsWith(this.namespace + '.')) {
-                resValue = fullTypeName.substring(this.namespace.length + 1)
-                resValue = this.transformation.transformTypeName(resValue)
-                // TODO check if resValue this is a class, enum, interface or unify the transformClassName method
-                resValue = this.transformation.transformClassName(resValue)
-                namespace = this.namespace
-            } else {
-                const resValues = fullTypeName.split('.')
-                resValues.map((name) => this.transformation.transformTypeName(name))
-                // TODO check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
-                resValues[resValues.length - 1] = this.transformation.transformClassName(
-                    resValues[resValues.length - 1],
-                )
-                resValue = resValues.join('.')
-                namespace = resValues[0]
-            }
-        }
-
-        return {
-            value: resValue,
-            namespace,
-        }
-    }
-
+    /**
+     * TODO: find better name for this method
+     * @param girVar
+     * @param fullTypeName
+     * @returns e.g.
+     * ```ts
+     * {
+     *      namespace: "Gtk",
+     *      resValue: "Gtk.Widget"
+     * }
+     *
+     */
     private fullTypeLookup(
-        girVar: GirCallableParamElement | GirCallableReturn | GirFieldElement | GirAliasElement,
+        girVar:
+            | GirCallableParamElement
+            | GirCallableReturn
+            | GirFieldElement
+            | GirAliasElement
+            | GirFieldElement
+            | GirPropertyElement
+            | GirConstantElement,
         fullTypeName: string | null,
     ) {
         let resValue = ''
@@ -424,9 +463,9 @@ export class GirModule {
             }
         }
 
-        // Fully qualify our type name if need be
+        // Fully qualify our type name
         if (!fullTypeName.includes('.')) {
-            let tryFullTypeName = ``
+            let tryFullTypeName = ''
 
             if (!resValue && girVar._module && girVar._module !== this) {
                 tryFullTypeName = `${girVar._module.namespace}.${fullTypeName}`
@@ -446,12 +485,22 @@ export class GirModule {
                 }
             }
 
-            if (!resValue && girVar._class?._module?.namespace && girVar._class._module !== this) {
-                tryFullTypeName = `${girVar._class._module.namespace}.${fullTypeName}`
+            const girClass = (
+                girVar as
+                    | GirCallableParamElement
+                    | GirCallableReturn
+                    | GirFieldElement
+                    | GirAliasElement
+                    | GirFieldElement
+                    | GirPropertyElement
+            )._class as GirClassElement | undefined
+
+            if (!resValue && girClass?._module?.namespace && girClass._module !== this) {
+                tryFullTypeName = `${girClass._module.namespace}.${fullTypeName}`
                 resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
                 if (resValue) {
                     fullTypeName = tryFullTypeName
-                    namespace = girVar._class?._module?.namespace
+                    namespace = girClass?._module?.namespace
                 }
             }
         }
@@ -462,12 +511,34 @@ export class GirModule {
 
         return {
             value: resValue,
-            fullTypeName,
             namespace,
         }
     }
 
-    private typeLookup(girVar: GirCallableReturn | GirAliasElement | GirFieldElement) {
+    /**
+     * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
+     * @param girVar
+     * @returns e.g.
+     * ```ts
+     * {
+     *      result: 'Gtk.AccelGroup[]',
+     *      value: 'Gtk.AccelGroup,
+     *      suffix: '[]',
+     *      namespace: 'Gtk',
+     *      isFunction: false,
+     *      isCallback: false,
+     *  }
+     * ```
+     */
+    private typeLookup(
+        girVar:
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirCallableParamElement
+            | GirPropertyElement
+            | GirConstantElement,
+    ) {
         let type: GirType | null = null
         let fullTypeName: string | null = null
         let arr: TypeArraySuffix = ''
@@ -476,11 +547,13 @@ export class GirModule {
         let resValue = ''
         let namespace = ''
         let isFunction = false
+        let isCallback = false
+        const girCallbacks: GirCallbackElement[] = []
 
         const collection = (girVar as GirCallableReturn | GirFieldElement).array
             ? (girVar as GirCallableReturn | GirFieldElement).array
             : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name || '')
-            ? (girVar.type as GirArrayType[])
+            ? girVar.type
             : undefined
 
         if (collection && collection.length > 0) {
@@ -504,29 +577,28 @@ export class GirModule {
             }
         }
 
-        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
         const cType = type?.$ ? type.$['c:type'] : arrCType
         fullTypeName = type?.$?.name || null
         const callbacks = (girVar as GirFieldElement).callback
 
         if (!resValue && callbacks?.length) {
-            if (callbacks.length > 1) {
-                // TODO
-                this.log.warn('Ignore multiple callbacks!', callbacks)
-            }
-            const funcDesc = this.getFunction(callbacks[0], '', '', undefined, true)
-            if (funcDesc?.desc.length) {
-                if (funcDesc.desc.length > 1) {
-                    this.log.warn('Ignore multiline function description!', funcDesc.desc)
-                }
-                fullTypeName = funcDesc.desc[0]
-                isFunction = true
-            }
+            for (const girCallback of callbacks) {
+                if (!girElementIsIntrospectable(girCallback)) continue
+                girCallback._tsData = this.getFunctionTsData(
+                    girCallback,
+                    'callback',
+                    /* isStatic */ false,
+                    /* isArrowType */ true,
+                    /* isGlobal */ false,
+                    /* isVirtual */ false,
+                    /* overrideReturnType */ null,
+                )
 
-            if (fullTypeName) {
-                if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
-                resValue = fullTypeName
-                isFunction = true
+                if (girCallback._tsData) {
+                    girCallbacks.push(girCallback)
+                    isFunction = true
+                    isCallback = true
+                }
             }
         }
 
@@ -534,16 +606,19 @@ export class GirModule {
             const res = this.fullTypeLookup(girVar, fullTypeName)
             if (res.value) {
                 resValue = res.value
-                fullTypeName = res.fullTypeName
+                fullTypeName = resValue
                 namespace = res.namespace
             }
         }
 
-        if (!resValue && type?.$ && arr && type.$.name && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-            resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
+        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY()[type.$.name]) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            resValue = POD_TYPE_MAP_ARRAY()[type.$.name]
+            arr = ''
         }
 
         if (!resValue && type?.$ && type.$.name && POD_TYPE_MAP[type.$.name]) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             resValue = POD_TYPE_MAP[type.$.name]
         }
 
@@ -552,6 +627,7 @@ export class GirModule {
         }
 
         if (!resValue && cType && POD_TYPE_MAP[cType]) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             resValue = POD_TYPE_MAP[cType]
         }
 
@@ -561,31 +637,38 @@ export class GirModule {
             this.log.warn(`Could not find type for "${logName}"`)
         }
 
+        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
+
         return {
             result: resValue + suffix,
             value: resValue,
             suffix,
-            fullTypeName,
             namespace,
             isFunction,
+            isCallback,
+            girCallbacks,
         }
     }
 
-    private girBool(boolStr: string | undefined, defaultVal = false): boolean {
-        if (boolStr) {
-            if (parseInt(boolStr) === 0) return false
-            return true
-        }
-        return defaultVal
-    }
-
-    private getReturnType(girFunc: GirFunctionElement | GirConstructorElement) {
+    private getReturnType(
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirCallbackElement
+            | GirSignalElement
+            | GirVirtualMethodElement,
+    ) {
         let returnType = 'void'
         let outArrayLengthIndex = -1
 
         const girVar = girFunc['return-value']?.[0] || null
         if (girVar) {
-            returnType = this.typeLookup(girVar).result
+            const { result, isCallback } = this.typeLookup(girVar)
+            if (isCallback) {
+                throw new Error('Callback type is not implemented here')
+            }
+            returnType = result
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         }
 
@@ -632,7 +715,7 @@ export class GirModule {
 
     /**
      * Checks if the parameter is nullable or optional.
-     * TODO Check if it makes sense to split this in `paramIsNullable` and `paramIsOptional`
+     * TODO: Check if it makes sense to split this in `paramIsNullable` and `paramIsOptional`
      *
      * @param param Param to test
      *
@@ -640,195 +723,26 @@ export class GirModule {
      * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
      */
     private paramIsNullable(
-        girVar: GirCallableParamElement | GirCallableReturn | GirAliasElement | GirFieldElement,
+        girVar:
+            | GirCallableParamElement
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirConstantElement
+            | GirPropertyElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (this.girBool(a.nullable) || this.girBool(a['allow-none']) || this.girBool(a.optional))
+        return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
     }
 
-    private getParameters(outArrayLengthIndex: number, girParams?: GirCallableParams[]) {
-        const def: string[] = []
-        const outParams: string[] = []
-        const paramNames: string[] = []
-        const paramDecs: DescParameter[] = []
-
-        if (girParams && girParams.length > 0) {
-            for (const girParam of girParams) {
-                const params = girParam?.parameter || []
-
-                // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-                const instanceParameter = girParams[0]['instance-parameter']
-                if (instanceParameter && instanceParameter[0]) {
-                    const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$?.name : undefined
-                    const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
-                    const structFor = rec?.$['glib:is-gtype-struct-for']
-                    const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
-                    if (structFor && instanceParameter[0].$.name) {
-                        // TODO: Should use of a constructor, and even of an instance, be discouraged?
-                        def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
-                    }
-                }
-                if (params.length) {
-                    const skip = outArrayLengthIndex === -1 ? [] : [params[outArrayLengthIndex]]
-
-                    this.processParams(params, skip, (girVar) => this.arrayLengthIndexLookup(girVar))
-                    this.processParams(params, skip, (girVar) => this.closureDataIndexLookup(girVar))
-                    this.processParams(params, skip, (girVar) => this.destroyDataIndexLookup(girVar))
-
-                    for (const param of params) {
-                        if (skip.indexOf(param) !== -1) {
-                            continue
-                        }
-                        // I think it's safest to force inout params to have the
-                        // same type for in and out
-                        const paramType = this.typeLookup(param).result
-                        let paramName = this.transformation.transformParameterName(param, false)
-
-                        if (paramNames.includes(paramName)) {
-                            this.log.warn(
-                                `[${param._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`,
-                            )
-                            paramName += '_'
-                        }
-                        paramNames.push(paramName)
-                        const optDirection = param.$.direction
-                        const out = optDirection === 'out' || optDirection == 'inout'
-
-                        if (out) {
-                            if (this.config.environment === 'gjs') {
-                                outParams.push(`/* ${paramName} */ ${paramType}`)
-                            } else if (this.config.environment === 'node') {
-                                outParams.push(`${paramName}: ${paramType}`)
-                            }
-
-                            if (optDirection == 'out') continue
-                        }
-
-                        let optional = this.paramIsNullable(param)
-
-                        if (optional) {
-                            const index = params.indexOf(param)
-                            const following = params
-                                .slice(index)
-                                .filter(() => skip.indexOf(param) === -1)
-                                .filter((p) => p.$.direction !== 'out')
-
-                            if (following.some((p) => !this.paramIsNullable(p))) {
-                                optional = false
-                            }
-                        }
-
-                        const paramData: DescParameter = {
-                            name: paramName,
-                            optional,
-                            type: paramType,
-                        }
-
-                        paramDecs.push(paramData)
-
-                        param._desc = paramData
-
-                        const paramDesc = this.templateProcessor.generateParameter(param)
-
-                        def.push(paramDesc)
-                    }
-                }
-            }
-        }
-
-        return { def, outParams, paramNames, paramDecs }
-    }
-
-    private getVariable(
-        girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
-        optional = false,
-        allowQuotes = false,
-        type: 'property' | 'constant' | 'field',
-    ): DescVar | null {
-        if (!girVar.$.name) return null
-        if (
-            !girVar ||
-            !girVar.$ ||
-            !this.girBool(girVar.$.introspectable, true) ||
-            this.girBool((girVar as GirFieldElement).$.private)
-        )
-            return null
-
-        let name = girVar.$.name
-
-        switch (type) {
-            case 'property':
-                name = this.transformation.transformPropertyName(girVar.$.name, allowQuotes)
-                break
-            case 'constant':
-                name = this.transformation.transformConstantName(girVar.$.name, allowQuotes)
-                break
-            case 'field':
-                name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
-                break
-        }
-        // Use the out type because it can be a union which isn't appropriate
-        // for a property
-        let typeName = this.typeLookup(girVar).result
-        const affix = optional ? '?' : ''
-
-        typeName = this.transformation.transformTypeName(typeName)
-        const desc = [`${name}${affix}: ${typeName}`]
-
-        girVar._desc = {
-            desc,
-            name,
-            patched: false,
-            optional,
-            affix,
-            type: typeName,
-        }
-
-        return girVar._desc
-    }
-
-    /**
-     * @param girVar
-     * @param indent
-     * @param construct construct means include the property even if it's construct-only,
-     * @param optional optional means if it's construct-only it will also be marked optional (?)
-     */
-    private getProperty(
-        girProp: GirPropertyElement,
-        indent = '',
-        construct = false,
-        optional = true,
-    ): DescProperty | null {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (this.girBool(girProp.$['construct-only']) && !construct) return null
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (!this.girBool(girProp.$.writable) && construct) return null
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        if (this.girBool((girProp as GirFieldElement).$.private)) return null
-
-        const readonly = this.girBool(girProp.$.writable)
-        const prefix = readonly ? '' : 'readonly '
-        const varDesc = this.getVariable(girProp, construct && optional, true, 'property')
-        if (!varDesc?.name) {
-            return null
-        }
-        let origName: string | null = null
-
-        if (girProp.$.name) {
-            // TODO does that make sense here? This also changes the signal names
-            origName = this.transformation.transformTypeName(girProp.$.name)
-        }
-
-        girProp._desc = {
-            desc: [`${indent}${prefix}${varDesc.desc[0]}`],
-            prefix,
-            readonly,
-            origName,
-            var: varDesc,
-        }
-
-        return girProp._desc
-    }
+    private getPatches(
+        type: 'constructorProperties',
+        nsPath: string,
+        packageName?: string,
+        env?: Environment,
+    ): Partial<TsProperty>
+    private getPatches(type: 'methods', nsPath: string, packageName?: string, env?: Environment): Partial<TsMethod>
+    private getPatches(type: 'parameter', nsPath: string, packageName?: string, env?: Environment): Partial<TsParameter>
 
     /**
      * Get the patches for a given namespace path, type and package name (including the version number)
@@ -836,8 +750,13 @@ export class GirModule {
      * @param type E.g 'methods'
      * @param nsPath E.g. 'Gtk.MenuItem.activate'
      */
-    private getPatches(packageName: string, type: 'methods' | 'constructorProperties', nsPath: string) {
-        const packagePatches = typePatches[packageName]
+    private getPatches(
+        type: 'methods' | 'constructorProperties' | 'parameter',
+        nsPath: string,
+        packageName = this.packageName,
+        env = this.config.environment,
+    ) {
+        const packagePatches = merge(typePatches[env][packageName], typePatches.all[packageName])
         if (!packagePatches) {
             return undefined
         }
@@ -850,473 +769,570 @@ export class GirModule {
         return typePatch?.[nsPath] || undefined
     }
 
-    private getPackageName(element: PartOfClass | PartOfModule) {
-        return (element as PartOfClass)._class?._module?.packageName || element._module?.packageName || this.packageName
+    private getParameterTsData(
+        girParam: GirCallableParamElement,
+        girParams: GirCallableParamElement[],
+        paramNames: string[],
+        skip: GirCallableParamElement[],
+    ) {
+        // I think it's safest to force inout params to have the
+        // same type for in and out
+        const { result: paramType, isCallback } = this.typeLookup(girParam)
+
+        if (isCallback) {
+            throw new Error('Callback type is not implemented here')
+        }
+
+        let paramName = this.transformation.transformParameterName(girParam, false)
+
+        if (paramNames.includes(paramName)) {
+            this.log.warn(`[${girParam._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`)
+            paramName += '_'
+        }
+        paramNames.push(paramName)
+
+        let optional = this.paramIsNullable(girParam)
+
+        if (optional) {
+            const index = girParams.indexOf(girParam)
+            const following = girParams
+                .slice(index)
+                .filter(() => skip.indexOf(girParam) === -1)
+                .filter((p) => p.$.direction !== 'out')
+
+            if (following.some((p) => !this.paramIsNullable(p))) {
+                optional = false
+            }
+        }
+
+        const tsData: TsParameter = {
+            name: paramName,
+            optional,
+            type: paramType,
+        }
+
+        return tsData
+    }
+
+    private getInstanceParameterTsData(instanceParameter: GirInstanceParameter): TsInstanceParameter | undefined {
+        const typeName = instanceParameter.type?.[0]?.$?.name || undefined
+        const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
+        const structFor = rec?.$['glib:is-gtype-struct-for']
+        if (structFor && instanceParameter.$.name) {
+            // TODO: Should use of a constructor, and even of an instance, be discouraged?
+            return {
+                name: instanceParameter.$.name,
+                structFor,
+            }
+        }
+        return undefined
+    }
+
+    private setParametersTsData(outArrayLengthIndex: number, girParams?: GirCallableParams[]) {
+        const outParams: GirCallableParamElement[] = []
+        const inParams: GirCallableParamElement[] = []
+        const paramNames: string[] = []
+        const instanceParameters: GirInstanceParameter[] = []
+
+        if (girParams && girParams.length > 0) {
+            for (const girParam of girParams) {
+                const params = girParam?.parameter || []
+
+                // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
+                const instanceParameter = girParams[0]['instance-parameter']?.[0]
+                if (instanceParameter) {
+                    instanceParameter._tsData = this.getInstanceParameterTsData(instanceParameter)
+                    if (instanceParameter._tsData) {
+                        instanceParameters.push(instanceParameter)
+                    }
+                }
+                if (params.length) {
+                    const skip = outArrayLengthIndex === -1 ? [] : [params[outArrayLengthIndex]]
+
+                    this.processParams(params, skip, (girVar) => this.arrayLengthIndexLookup(girVar))
+                    this.processParams(params, skip, (girVar) => this.closureDataIndexLookup(girVar))
+                    this.processParams(params, skip, (girVar) => this.destroyDataIndexLookup(girVar))
+
+                    for (const param of params) {
+                        if (skip.includes(param)) {
+                            continue
+                        }
+
+                        param._tsData = this.getParameterTsData(param, params, paramNames, skip)
+
+                        // Apply patches
+                        const paramPatches = param._fullSymName
+                            ? this.getPatches('parameter', param._fullSymName)
+                            : undefined
+
+                        if (paramPatches) {
+                            this.log.warn(`Patch found for parameter "${param._fullSymName || ''}"!`)
+                            param._tsData = merge(param._tsData, paramPatches)
+                        }
+
+                        const optDirection = param.$.direction
+                        if (optDirection === 'out' || optDirection === 'inout') {
+                            outParams.push(param)
+                            if (optDirection === 'out') continue
+                        }
+                        inParams.push(param)
+                    }
+                }
+            }
+        }
+
+        return { outParams, paramNames, inParams, instanceParameters }
+    }
+
+    private getVariableTsData(
+        girVar: GirPropertyElement,
+        girType: 'property',
+        tsType: 'field' | 'constructor-property',
+        optional: boolean,
+        allowQuotes: boolean,
+    ): GirPropertyElement['_tsData']
+
+    private getVariableTsData(
+        girVar: GirConstantElement,
+        girType: 'constant',
+        tsType: 'constant',
+        optional: boolean,
+        allowQuotes: boolean,
+    ): GirConstantElement['_tsData']
+
+    private getVariableTsData(
+        girVar: GirFieldElement,
+        girType: 'field',
+        tsType: 'field',
+        optional: boolean,
+        allowQuotes: boolean,
+    ): GirFieldElement['_tsData']
+
+    private getVariableTsData(
+        girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
+        girType: 'property' | 'constant' | 'field',
+        tsType: 'constant' | 'field' | 'constructor-property',
+        optional = false,
+        allowQuotes = false,
+    ) {
+        if (!girVar.$.name) return undefined
+        if (
+            !girVar ||
+            !girVar.$ ||
+            !girBool(girVar.$.introspectable, true) ||
+            girBool((girVar as GirFieldElement).$.private)
+        )
+            return undefined
+
+        girVar._girType = girType
+        girVar._tsType = tsType
+
+        let name = girVar.$.name
+
+        switch (girType) {
+            case 'property':
+                name = this.transformation.transformPropertyName(girVar.$.name, allowQuotes)
+                break
+            case 'constant':
+                name = this.transformation.transformConstantName(girVar.$.name, allowQuotes)
+                break
+            case 'field':
+                name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
+                break
+        }
+        // Use the out type because it can be a union which isn't appropriate
+        // for a property
+        const { result, girCallbacks } = this.typeLookup(girVar)
+        const typeName = this.transformation.transformTypeName(result)
+
+        let tsData: TsProperty | TsVar = {
+            name,
+            patched: false,
+            optional,
+            type: typeName,
+            callbacks: girCallbacks,
+        }
+
+        // Apply patches
+        const varPatches = girVar._fullSymName ? this.getPatches('methods', girVar._fullSymName) : undefined
+
+        if (varPatches) {
+            this.log.warn(`Patch found for variable "${girVar._fullSymName || ''}"!`)
+            tsData = merge(tsData, varPatches)
+        }
+
+        return tsData
+    }
+
+    private getPropertyTsData(
+        girProp: GirPropertyElement,
+        girType: 'property',
+        tsType: 'field' | 'constructor-property',
+        construct?: boolean,
+        optional?: boolean,
+        indentCount?: number,
+    ): TsProperty | undefined
+
+    private getPropertyTsData(
+        girProp: GirFieldElement,
+        girType: 'field',
+        tsType: 'field',
+        construct?: boolean,
+        optional?: boolean,
+        indentCount?: number,
+    ): TsProperty | undefined
+
+    /**
+     * @param girVar
+     * @param construct construct means include the property even if it's construct-only,
+     * @param optional optional means if it's construct-only it will also be marked optional (?)
+     * @param indentCount
+     */
+    private getPropertyTsData(
+        girProp: GirPropertyElement | GirFieldElement,
+        girType: 'property' | 'field',
+        tsType: 'constructor-property' | 'field',
+        construct = false,
+        optional = true,
+    ): TsProperty | undefined {
+        if (girBool((girProp as GirPropertyElement).$['construct-only']) && !construct) return undefined
+        if (!girBool(girProp.$.writable) && construct) return undefined
+        if (girBool((girProp as GirFieldElement).$.private)) return undefined
+
+        const readonly = girBool(girProp.$.writable)
+        girProp._girType = girType
+
+        let tsData: TsProperty | TsVar | undefined
+
+        switch (girType) {
+            case 'property':
+                tsData = this.getVariableTsData(
+                    girProp as GirPropertyElement,
+                    girType,
+                    tsType,
+                    construct && optional,
+                    true,
+                )
+                break
+            case 'field':
+                if (tsType !== 'field') {
+                    throw new Error(`Wrong tsType: "${tsType}" for girType: "${girType}`)
+                }
+                tsData = this.getVariableTsData(
+                    girProp as GirFieldElement,
+                    girType,
+                    tsType,
+                    construct && optional,
+                    true,
+                )
+                break
+            default:
+                throw new Error(`Unknown property type: ${girType as string}`)
+        }
+
+        if (!tsData?.name) {
+            return undefined
+        }
+
+        tsData = {
+            ...tsData,
+            readonly,
+        }
+
+        return tsData
     }
 
     /**
      *
-     * @param e
-     * @param indent
+     * @param girFunc
      * @param prefix E.g. vfunc
      * @param overrideReturnType
-     * @param arrowType
+     * @param isArrowType
+     * @param indentCount
      */
-    private getFunction(
-        girFunc: GirFunctionElement | GirCallbackElement | GirConstructorElement,
-        indent = '',
-        prefix = '',
-        overrideReturnType?: string,
-        arrowType = false,
-    ): DescFunction | null {
-        if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
-            return null
+    private getFunctionTsData(
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirCallbackElement
+            | GirVirtualMethodElement,
+        girType?: 'virtual-method' | 'method' | 'constructor' | 'function' | 'callback',
+        isStatic = false,
+        isArrowType = false,
+        isGlobal = false,
+        isVirtual = false,
+        overrideReturnType: string | null = null,
+    ): TsFunction | undefined {
+        if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
+            return undefined
         }
-        const packageName = this.getPackageName(girFunc)
         let name = girFunc.$.name
-        // eslint-disable-next-line prefer-const
-        let { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
+        const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
         const retTypeIsVoid = returnType === 'void'
 
-        const paramsDef = this.getParameters(outArrayLengthIndex, girFunc.parameters)
+        const { inParams, outParams, instanceParameters } = this.setParametersTsData(
+            outArrayLengthIndex,
+            girFunc.parameters,
+        )
+        const shadows = (girFunc as GirMethodElement).$.shadows
 
-        if (girFunc.$['shadows']) {
-            name = girFunc.$['shadows']
+        if (shadows) {
+            name = shadows
         }
+
+        // Overwrites
+        girType = girType || girFunc._girType
+        if (!girType) throw new Error('girType not set!')
+        isStatic = isStatic || girFunc._tsType === 'static-function'
+        isGlobal = isGlobal || girFunc._tsType === 'function'
+        isVirtual = isVirtual || girType === 'virtual-method'
+
+        girFunc._girType = girType
+        girFunc._tsType = this.girToTsType(girType, isStatic)
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        girFunc._desc = {
+        let tsData: TsFunction = {
             patched: true,
-            desc: [],
-            arrowType,
+            isArrowType,
+            isStatic,
+            isGlobal,
+            isVirtual,
             returnType,
             retTypeIsVoid,
             name,
-            overrideReturnType,
-            prefix,
-            params: paramsDef.paramDecs,
-            paramsDef: paramsDef.def,
-            outParams: paramsDef.outParams,
+            overrideReturnType: overrideReturnType || undefined,
+            overloads: [],
+            inParams,
+            instanceParameters,
+            outParams,
         }
 
-        const methodPatches = girFunc._fullSymName ? this.getPatches(packageName, 'methods', girFunc._fullSymName) : []
+        // Apply patches
+        const methodPatches = girFunc._fullSymName ? this.getPatches('methods', girFunc._fullSymName) : undefined
 
-        const desc = this.templateProcessor.generateFunction(indent, girFunc, methodPatches)
+        if (methodPatches) {
+            this.log.warn(`Patch found for method "${girFunc._fullSymName || ''}"!`)
+            tsData = merge(tsData, methodPatches)
+        }
 
-        girFunc._desc.desc = desc
-        return girFunc._desc
+        return tsData
     }
 
-    private getConstructorFunction(
+    private getCallbackInterfaceTsData(girCallback: GirCallbackElement | GirConstructorElement) {
+        if (!girElementIsIntrospectable(girCallback)) return undefined
+
+        const tsDataInterface: TsCallbackInterface = {
+            name: girCallback.$.name,
+        }
+
+        return tsDataInterface
+    }
+
+    private getConstructorFunctionTsData(
         name: string,
-        girConstFunc: GirConstructorElement,
-        indent: string,
-        prefix = '',
-    ): DescFunction | null {
-        return this.getFunction(girConstFunc, indent, prefix, name)
+        girConstructorFunc: GirConstructorElement,
+    ): TsFunction | undefined {
+        if (!girElementIsIntrospectable(girConstructorFunc)) return undefined
+        return this.getFunctionTsData(
+            girConstructorFunc,
+            'constructor',
+            /* isStatic */ true,
+            /* isArrowType */ false,
+            /* isGlobal */ false,
+            /* isVirtual */ false,
+            /* overrideReturnType */ name,
+        )
     }
 
-    private getSignalFunc(girSignalFunc: GirSignalElement, clsName: string) {
-        const sigName = this.transformation.transform('signalName', girSignalFunc.$.name)
+    private getSignalFuncTsData(
+        girSignalFunc: GirSignalElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) {
+            throw new Error('girClass._tsData not set!')
+        }
+
+        // Leads to errors here
+        // if (!girElementIsIntrospectable(girSignalFunc)) return undefined
+
+        const name = this.transformation.transform('signalName', girSignalFunc.$.name)
         const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
-        const { def: params } = this.getParameters(outArrayLengthIndex, girSignalFunc.parameters)
-        const paramComma = params.length > 0 ? ', ' : ''
+        const retTypeIsVoid = returnType === 'void'
+        const { inParams, outParams, instanceParameters } = this.setParametersTsData(
+            outArrayLengthIndex,
+            girSignalFunc.parameters,
+        )
 
-        const { def } = this.templateProcessor.generateSignalMethods(sigName, clsName, paramComma, params, returnType)
-        return {
-            def,
-            sigName,
+        const tsData: TsFunction = {
+            name,
             returnType,
-            params,
+            isArrowType: true,
+            isStatic: false,
+            isGlobal: false,
+            isVirtual: false,
+            patched: false,
+            retTypeIsVoid,
+            overloads: [],
+            inParams,
+            instanceParameters,
+            outParams,
         }
+
+        return tsData
     }
 
-    private traverseInheritanceTree(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement) => void,
-        depth = 0,
-        recursive = true,
-    ): void {
-        const details = this.getClassDetails(girClass)
-        if (!details || !girClass.$.name) return
-        const { parentName, qualifiedParentName } = details
+    private getEnumerationMemberTsData(girEnumMember: GirMemberElement) {
+        const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
+        if (!girElementIsIntrospectable(girEnumMember, memberName)) return undefined
 
-        let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | null = null
-        let name = girClass.$.name
-
-        if (name.indexOf('.') < 0) {
-            name = this.namespace + '.' + name
+        const name = this.transformation.transformEnumMember(memberName)
+        const tsData: TsMember = {
+            name,
         }
-
-        if (parentName && qualifiedParentName) {
-            if (this.symTable.get(this.allDependencies, qualifiedParentName)) {
-                parentPtr = (this.symTable.get(this.allDependencies, qualifiedParentName) as GirClassElement) || null
-            }
-
-            if (!parentPtr && parentName == 'Object') {
-                parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClassElement) || null
-            }
-        }
-
-        callback(girClass)
-
-        if (depth >= MAXIMUM_RECURSION_DEPTH) {
-            this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECURSION_DEPTH} reached for "${girClass.$.name}"`)
-        } else {
-            if (parentPtr && recursive && depth <= MAXIMUM_RECURSION_DEPTH) {
-                this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
-            }
-        }
+        return tsData
     }
 
-    private forEachInterface(
-        girInterface: GirInterfaceElement | GirClassElement | GirUnionElement,
-        callback: (cls: GirInterfaceElement | GirClassElement | GirUnionElement) => void,
-        recurseObjects = false,
-        dups = {},
-    ): void {
-        for (const { $ } of (girInterface as GirInterfaceElement).implements || []) {
-            let name = $.name
+    private getEnumerationTsData(girEnum: GirEnumElement | GirBitfieldElement) {
+        if (!girElementIsIntrospectable(girEnum)) return undefined
 
-            if (name.indexOf('.') < 0) {
-                name = this.namespace + '.' + name
+        // E.g. the NetworkManager-1.0 has enum names starting with 80211
+        const name = this.transformation.transformEnumName(girEnum)
+
+        const tsData: TsEnum = {
+            name,
+        }
+
+        return tsData
+    }
+
+    private getAliasTsData(girAlias: GirAliasElement) {
+        if (!girElementIsIntrospectable(girAlias)) return undefined
+
+        const typeName = this.typeLookup(girAlias).result
+        const name = girAlias.$.name
+        const tsData: TsAlias = {
+            name,
+            type: typeName,
+        }
+        return tsData
+    }
+
+    private getConstantTsData(girConst: GirConstantElement) {
+        if (!girElementIsIntrospectable(girConst)) return undefined
+        let tsData: TsVar | undefined = this.getVariableTsData(girConst, 'constant', 'constant', false, false)
+        if (tsData?.name) {
+            if (!this.constNames[tsData.name]) {
+                this.constNames[tsData.name] = girConst
+            } else {
+                this.log.warn(`The constant '${tsData.name}' has already been exported`)
+                tsData = undefined
             }
-            if (Object.prototype.hasOwnProperty.call(dups, name)) {
+        }
+
+        return tsData
+    }
+
+    private getClassConstructPropsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        constructPropNames: LocalNames,
+    ) {
+        const constructProps: GirPropertyElement[] = []
+        const girProperties = (girClass as GirClassElement | GirInterfaceElement).property
+        if (!girProperties?.length) {
+            return constructProps
+        }
+        for (const girProp of girProperties) {
+            if (!girElementIsIntrospectable(girProp)) continue
+            // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
+            const girConstrProp = clone(girProp)
+
+            if (!girConstrProp.$.name) {
                 continue
             }
-            const key = this.symTable.getKey(this.allDependencies, name)
-            let iface: GirInterfaceElement | null = null
-            const _iface = this.symTable.get(this.allDependencies, name)
-            if (key && (_iface as GirInterfaceElement)?.prerequisite) {
-                dups[key] = true
-                iface = _iface as GirInterfaceElement
+
+            girConstrProp._tsData = this.getPropertyTsData(
+                girConstrProp,
+                'property',
+                'constructor-property',
+                true,
+                true,
+                0,
+            )
+
+            if (!girConstrProp._tsData) {
+                continue
             }
 
-            if (iface) {
-                callback(iface)
-                this.forEachInterface(iface, callback, recurseObjects, dups)
+            const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
+
+            if (!localName?.added) {
+                continue
             }
+
+            // Apply patches
+            {
+                const constructPropPatches = girConstrProp._fullSymName
+                    ? this.getPatches('constructorProperties', girConstrProp._fullSymName)
+                    : undefined
+
+                if (constructPropPatches) {
+                    this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
+                    girConstrProp._tsData = merge(girConstrProp._tsData, constructPropPatches)
+                }
+            }
+
+            constructProps.push(girConstrProp)
         }
-        if ((girInterface as GirInterfaceElement).prerequisite) {
-            let parentName = (girInterface as GirInterfaceElement).prerequisite?.[0].$.name
-            if (!parentName) {
-                return
-            }
-            if (parentName.indexOf('.') < 0) {
-                parentName = this.namespace + '.' + parentName
-            }
-            if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
-            const parentPtr = this.symTable.get(this.allDependencies, parentName)
-            if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
-                // iface's prerequisite is also an interface, or it's
-                // a class and we also want to recurse classes
-                callback(parentPtr as GirInterfaceElement)
-                this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects, dups)
-            }
-        }
-    }
 
-    private forEachInterfaceAndSelf(
-        e: GirClassElement | GirUnionElement | GirInterfaceElement,
-        callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement) => void,
-    ) {
-        callback(e)
-        this.forEachInterface(e, callback)
-    }
-
-    private isDerivedFromGObject(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): boolean {
-        let ret = false
-        this.traverseInheritanceTree(girClass, (cls) => {
-            if (cls._fullSymName === 'GObject.Object') {
-                ret = true
-            }
-        })
-        return ret
+        return constructProps
     }
 
     /**
      *
-     * @param desc
-     * @param name
-     * @param localNames Can be (constructor) properties, fields or methods
-     * @param type
+     * @param girClass
+     * @param girChildClass
+     * @param useReference This method overrides the return value of the constructor functions.
+     * If we would use the reference to the `girElement` this value would be overwritten again by other modules
+     * @returns
      */
-    private checkOrSetLocalName(
-        desc: string[],
-        name: string | null,
-        localNames: LocalNames,
-        type: LocalNameType,
-    ): LocalNameCheck | null {
-        let isOverloadable = false
-
-        if (!desc || !desc.length) {
-            return null
-        }
-
-        if (!name) {
-            // this.log.null(`No name for ${desc}`)
-            return null
-        }
-
-        // Methods are overloadable by typescript
-        // TODO Add support for properties
-        if (type === 'method') {
-            isOverloadable = true
-        }
-
-        // If name is found in localNames this variable was already defined
-        if (localNames[name] && localNames[name].desc) {
-            // Ignore duplicates with the same type
-            // TODO should we use `this.functionSignaturesMatch` here?
-            if (Utils.isEqual(localNames[name].desc, desc)) {
-                return null
-            }
-
-            // Ignore if current method is not overloadable
-            if (!isOverloadable) {
-                return null
-            }
-
-            // Only names of the same type are overloadable
-            if (localNames[name].type !== type) {
-                // This can be happen on node bindings, e.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
-                // See issue https://github.com/romgrk/node-gtk/issues/256
-                // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
-                // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
-
-                return null
-            }
-        }
-
-        localNames[name] = localNames[name] || {}
-        const localName: LocalName = {
-            desc,
-            type,
-        }
-        localNames[name] = localName
-        return { desc, added: true, isOverloadable }
-    }
-
-    private processFields(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
-        const def: string[] = []
-        if (cls.field) {
-            for (const field of cls.field) {
-                const varDesc = this.getVariable(field, false, false, 'field')
-                if (!varDesc) {
-                    continue
-                }
-
-                const localName = this.checkOrSetLocalName(varDesc.desc, varDesc.name, localNames, 'field')
-                if (localName?.added) {
-                    for (const curDesc of localName.desc) {
-                        def.push(`    ${curDesc}`)
-                    }
-                }
-            }
-        }
-        if (def.length && cls._fullSymName) {
-            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
-            def.unshift(`    /* Fields of ${versionPrefix}${cls._fullSymName} */`)
-        }
-        return { def }
-    }
-
-    private processProperties(
-        cls: GirClassElement | GirUnionElement | GirInterfaceElement,
-        localNames: LocalNames,
-        propertyNames: string[],
-    ) {
-        const def: string[] = []
-        const properties = (cls as GirClassElement | GirInterfaceElement).property
-        if (properties) {
-            for (const prop of properties) {
-                const propDesc = this.getProperty(prop)
-                if (!propDesc) {
-                    continue
-                }
-                const localName = this.checkOrSetLocalName(propDesc?.desc, propDesc?.var.name, localNames, 'property')
-                if (localName?.added) {
-                    if (propDesc.origName) propertyNames.push(propDesc.origName)
-                    for (const curDesc of localName.desc) {
-                        def.push(`    ${curDesc}`)
-                    }
-                }
-            }
-        }
-        if (def.length && cls._fullSymName) {
-            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
-            def.unshift(`    /* Properties of ${versionPrefix}${cls._fullSymName} */`)
-        }
-        return { def }
-    }
-
-    /**
-     * Instance methods
-     * @param cls
-     * @param localNames
-     */
-    private processMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement, localNames: LocalNames) {
-        const def: string[] = []
-        if (cls.method) {
-            for (const func of cls.method) {
-                const funcDesc = this.getFunction(func)
-                if (!funcDesc) {
-                    continue
-                }
-                const localName = this.checkOrSetLocalName(funcDesc.desc, funcDesc.name, localNames, 'method')
-                if (localName?.added) {
-                    for (const curDesc of localName.desc) {
-                        def.push(`    ${curDesc}`)
-                    }
-                }
-            }
-        }
-        if (def.length && cls._fullSymName) {
-            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
-            def.unshift(`    /* Methods of ${versionPrefix}${cls._fullSymName} */`)
-        }
-        return { def }
-    }
-
-    private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
-        const def: string[] = []
-        for (const key of Array.from(explicits.values())) {
-            const fDef = fnMap.get(key) || []
-            def.push(...fDef)
-        }
-        return {
-            def,
-        }
-    }
-
-    /**
-     * Instance methods, vfunc_ prefix
-     * @param cls
-     */
-    private processVirtualMethods(cls: GirClassElement | GirUnionElement | GirInterfaceElement) {
-        // Virtual methods currently not supported in node-gtk
-        if (this.config.environment === 'node') {
-            return {
-                def: [],
-            }
-        }
-
-        const def: string[] = []
-        const { fnMap, explicits } = this.processOverloadableMethods(cls, (element) => {
-            const vMethods: GirVirtualMethodElement[] = element['virtual-method'] || []
-            const methods = vMethods
-                .map((virtualFunc) => {
-                    const func = this.getFunction(virtualFunc, '    ', 'vfunc_')
-                    return func
-                })
-                .filter((funcDesc) => funcDesc !== null && funcDesc?.name !== null) as DescFunction[]
-            return methods
-        })
-        def.push(...this.exportOverloadableMethods(fnMap, explicits).def)
-        if (def.length && cls._fullSymName) {
-            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
-            def.unshift(`    /* Virtual methods of ${versionPrefix}${cls._fullSymName} */`)
-        }
-        return {
-            def,
-            fnMap,
-            explicits,
-        }
-    }
-
-    private processSignals(cls: GirClassElement | GirInterfaceElement | GirUnionElement, clsName: string) {
-        const def: string[] = []
-        const signals: GirSignalElement[] =
-            (cls as GirClassElement | GirInterfaceElement).signal ||
-            (cls as GirClassElement | GirInterfaceElement)['glib:signal'] ||
-            []
-        if (signals) {
-            for (const signal of signals) def.push(...this.getSignalFunc(signal, clsName).def)
-        }
-        if (def.length && cls._fullSymName) {
-            const versionPrefix = cls._module?.packageName ? cls._module?.packageName + '.' : ''
-            def.unshift(`    /* Signals of ${versionPrefix}${cls._fullSymName} */`)
-        }
-        return {
-            def,
-        }
-    }
-
-    private stripParamNames(func: string, ignoreTail = false): string {
-        const g = func
-        func = func.replace(COMMENT_REG_EXP, '')
-        const lb = func.split('(', 2)
-        if (lb.length < 2) this.log.error(`Bad function definition ${g}`)
-        const rb = lb[1].split(')')
-        const tail = ignoreTail ? '' : rb[rb.length - 1]
-        let params = rb.slice(0, rb.length - 1).join(')')
-        params = params.replace(PARAM_REG_EXP, ':')
-        params = params.replace(OPT_PARAM_REG_EXP, '?:')
-        return `${lb[0]}(${params})${tail}`
-    }
-
-    /**
-     * Some classes implement interfaces which are also implemented by a superclass
-     * and we need to exclude those in some circumstances
-     * @param cls
-     * @param iface
-     */
-    private interfaceIsDuplicate(
-        cls: GirClassElement | GirInterfaceElement | GirUnionElement,
-        iface: GirClassElement | GirUnionElement | GirInterfaceElement,
-    ): boolean {
-        const ifaceName = iface._fullSymName
-        if (!ifaceName) {
-            return false
-        }
-        let rpt = false
-        let bottom = true
-        this.traverseInheritanceTree(cls, (sub) => {
-            if (rpt) return
-            if (bottom) {
-                bottom = false
-                return
-            }
-            if ((sub as GirInterfaceElement).prerequisite) {
-                this.forEachInterface(
-                    sub,
-                    (element) => {
-                        if (rpt) return
-                        if (element._fullSymName === ifaceName) {
-                            rpt = true
-                        }
-                    },
-                    true,
-                )
-            }
-        })
-        return rpt
-    }
-
     private getStaticConstructors(
-        element: GirClassElement | GirInterfaceElement | GirUnionElement,
-        name: string,
-        filter?: (funcName: string) => boolean,
-    ): DescFunction[] {
-        const constructors = element.constructor
-        if (!Array.isArray(constructors)) {
-            return []
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        girChildClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        useReference = true,
+    ): GirConstructorElement[] {
+        const constructors = girClass.constructor
+        const girConstructors: GirConstructorElement[] = []
+
+        if (!girChildClass._tsData?.name) {
+            throw new Error('girClass._tsData.name not set!')
         }
-        let ctors = constructors
-            .map((constructor) => {
-                return this.getConstructorFunction(name, constructor, '    ', 'static ')
-            })
-            .filter((ctor) => ctor?.name) as DescFunction[]
 
-        if (filter) ctors = ctors.filter((ctor) => ctor?.name && filter(ctor.name))
-        return ctors
-    }
+        if (!Array.isArray(constructors) || !girClass._tsData) {
+            return girConstructors
+        }
 
-    private isGtypeStructFor(e: GirClassElement | GirUnionElement | GirInterfaceElement, rec: GirRecordElement) {
-        const isFor = rec.$['glib:is-gtype-struct-for']
-        return isFor && isFor == e.$.name
+        for (const _girConstructor of constructors) {
+            if (!girElementIsIntrospectable(_girConstructor)) continue
+            let girConstructor: GirConstructorElement
+            if (useReference) {
+                girConstructor = _girConstructor
+            } else {
+                girConstructor = clone(_girConstructor)
+            }
+
+            girConstructor._tsData = this.getConstructorFunctionTsData(girChildClass._tsData?.name, girConstructor)
+
+            if (!girConstructor?._tsData?.name) {
+                continue
+            }
+
+            girConstructors.push(girConstructor)
+        }
+
+        return girConstructors
     }
 
     /**
@@ -1327,49 +1343,272 @@ export class GirModule {
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */
-    private getClassMethods(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): DescFunction[] {
-        if (!girClass.$.name) return []
+    private getClassRecordMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ): GirMethodElement[] {
+        const girMethods: GirMethodElement[] = []
+
+        if (!girClass.$.name) return girMethods
         const fName = girClass.$.name + 'Class'
         let rec = this.ns.record?.find((r) => r.$.name == fName)
         if (!rec || !this.isGtypeStructFor(girClass, rec)) {
             rec = this.ns.record?.find((r) => this.isGtypeStructFor(girClass, r))
             fName == rec?.$.name
         }
-        if (!rec) return []
-        const methods = rec.method || []
-        return methods
-            .map((method) => this.getFunction(method, '    ', 'static '))
-            .filter((method) => method !== null) as DescFunction[]
-    }
+        if (!rec) return girMethods
 
-    private getOtherStaticFunctions(
-        girClass: GirClassElement | GirInterfaceElement | GirUnionElement,
-        stat = true,
-    ): DescFunction[] {
-        const fns: DescFunction[] = []
-        if (girClass.function) {
-            for (const func of girClass.function) {
-                const funcDesc = this.getFunction(func, '    ', stat ? 'static ' : '', undefined, undefined)
-                if (funcDesc?.name && funcDesc?.name !== 'new') fns.push(funcDesc)
+        // Record methods
+        const methods = rec.method || []
+
+        for (const girMethod of methods) {
+            if (!girElementIsIntrospectable(girMethod)) continue
+            girMethod._tsData = this.getFunctionTsData(
+                girMethod,
+                'function',
+                /* isStatic */ true,
+                /* isArrowType */ false,
+                /* isGlobal */ false,
+                /* isVirtual */ false,
+                /* overrideReturnType */ null,
+            )
+            if (girMethod._tsData) {
+                girMethods.push(girMethod)
             }
         }
-        return fns
+        return girMethods
     }
 
-    private getClassDetails(girClass: GirClassElement | GirUnionElement | GirInterfaceElement): ClassDetails | null {
-        if (!girClass?.$?.name) return null
-        const mod: GirModule = girClass._module ? girClass._module : this
+    /**
+     * Instance methods
+     * @param girClass
+     * @param localNames
+     */
+    private getClassMethodsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        localNames: LocalNames,
+    ) {
+        const girMethods: GirMethodElement[] = []
+        if (girClass.method) {
+            for (const girMethod of girClass.method) {
+                if (!girElementIsIntrospectable(girMethod)) continue
+                girMethod._tsData = this.getFunctionTsData(
+                    girMethod,
+                    'method',
+                    /* isStatic */ false,
+                    /* isArrowType */ false,
+                    /* isGlobal */ false,
+                    /* isVirtual */ false,
+                    /* overrideReturnType */ null,
+                )
+                const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
+                if (localName?.added && localName.method) {
+                    girMethods.push(localName.method)
+                }
+            }
+        }
+        return girMethods
+    }
+
+    private getClassFieldsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        localNames: LocalNames,
+    ) {
+        const girFields: GirFieldElement[] = []
+        if (!girClass._tsData) {
+            this.log.warn('[setClassFieldsTsData] girClass._tsData not set!')
+            return girFields
+        }
+
+        if (girClass.field) {
+            for (const girField of girClass.field) {
+                if (!girElementIsIntrospectable(girField)) continue
+                girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false)
+                if (!girField._tsData) {
+                    continue
+                }
+
+                const localName = this.checkOrSetLocalName(girField, localNames, 'field')
+                if (localName?.added && localName.field) {
+                    girFields.push(localName.field)
+                }
+            }
+        }
+
+        return girFields
+    }
+
+    private getClassPropertiesTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        localNames: LocalNames,
+    ) {
+        const girProperties: GirPropertyElement[] = []
+        const properties = (girClass as GirClassElement | GirInterfaceElement).property
+        if (properties) {
+            for (const girProperty of properties) {
+                if (!girElementIsIntrospectable(girProperty)) continue
+                girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'field')
+                const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
+                if (localName?.added && localName.property) {
+                    girProperties.push(localName.property)
+                }
+            }
+        }
+        return girProperties
+    }
+
+    private getClassPropertyNames(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        const propertyNames: string[] = []
+
+        if (!girClass._tsData) {
+            return propertyNames
+        }
+
+        const girProperties = girClass._tsData.properties
+
+        if (girProperties.length > 0) {
+            for (const girProperty of girProperties) {
+                if (!girElementIsIntrospectable(girProperty)) continue
+                if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                    propertyNames.push(girProperty.$.name)
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._tsData.extends)) {
+            const girProperties = girClass._tsData.extends[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                for (const girProperty of girProperties) {
+                    if (!girElementIsIntrospectable(girProperty)) continue
+                    if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                        propertyNames.push(girProperty.$.name)
+                    }
+                }
+            }
+        }
+
+        for (const fullSymName of Object.keys(girClass._tsData.implements)) {
+            const girProperties = girClass._tsData.implements[fullSymName]?.properties
+            if (girProperties.length > 0) {
+                for (const girProperty of girProperties) {
+                    if (!girElementIsIntrospectable(girProperty)) continue
+                    if (girProperty._tsData && girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                        propertyNames.push(girProperty.$.name)
+                    }
+                }
+            }
+        }
+
+        return propertyNames
+    }
+
+    private getClassConstructorsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        const girConstructors: GirConstructorElement[] = []
+        // JS constructor(s)
+        if (girClass._tsData?.isDerivedFromGObject) {
+            // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
+        } else {
+            const constructors = girClass.constructor
+            if (Array.isArray(constructors)) {
+                for (const girConstructor of constructors) {
+                    if (!girElementIsIntrospectable(girConstructor)) continue
+                    if (!girClass._tsData?.name) continue
+
+                    girConstructor._tsData = this.getConstructorFunctionTsData(girClass._tsData?.name, girConstructor)
+
+                    if (!girConstructor._tsData?.name || girConstructor._tsData.name !== 'new') continue
+
+                    girConstructors.push(girConstructor)
+                }
+            }
+        }
+
+        return girConstructors
+    }
+
+    private getClassVirtualMethodsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        const girVMethods = this.getOverloadableMethodsTsData(girClass, (girIface) => {
+            const girMethods: GirVirtualMethodElement[] = []
+
+            const methods: GirVirtualMethodElement[] = (girIface as GirClassElement)['virtual-method'] || []
+
+            for (const girVMethod of methods) {
+                if (!girElementIsIntrospectable(girVMethod)) continue
+
+                girVMethod._tsData = this.getFunctionTsData(
+                    girVMethod,
+                    'virtual-method',
+                    /* isStatic */
+                    false,
+                    /* isArrowType */
+                    false,
+                    /* isGLobal */
+                    false,
+                    /* isVirtual */
+                    true,
+                    /* overrideReturnType */
+                    null,
+                )
+
+                if (girVMethod?._tsData?.name) {
+                    girMethods.push(girVMethod)
+                }
+            }
+
+            return methods
+        }) as GirVirtualMethodElement[]
+        return girVMethods
+    }
+
+    /**
+     *
+     * @param girClass This is the class / interface the `parentClass` implements signals from
+     * @param girParentClass The main class which implements the signals from `girClass`
+     * @returns
+     */
+    private getClassSignalsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        girParentClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        const girSignals: GirSignalElement[] = []
+        if (!girParentClass._tsData) {
+            this.log.warn('girParentClass._tsData not set!')
+        }
+
+        const signals: GirSignalElement[] =
+            (girClass as GirClassElement | GirInterfaceElement).signal ||
+            (girClass as GirClassElement | GirInterfaceElement)['glib:signal'] ||
+            []
+        if (signals) {
+            for (const girSignal of signals) {
+                girSignal._tsData = this.getSignalFuncTsData(girSignal, girParentClass)
+                girSignals.push(girSignal)
+            }
+        }
+        return girSignals
+    }
+
+    private setClassBaseTsData(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        if (!girClass?.$?.name) return undefined
+
+        const girModule: GirModule = girClass._module ? girClass._module : this
         let className = this.transformation.transformClassName(girClass.$.name)
         /**
          * E.g. 'Gtk'
          */
-        const namespace = mod.namespace
+        const namespace = girModule.namespace
         /**
          * E.g. '3.0'
          */
-        const version = mod.version
+        const version = girModule.version
+
         let qualifiedName: string
-        if (className.indexOf('.') < 0) {
+        if (!className.includes('.')) {
             qualifiedName = namespace + '.' + className
         } else {
             qualifiedName = className
@@ -1402,22 +1641,399 @@ export class GirModule {
             localParentName = parentModName == namespace ? parentName : qualifiedParentName
         }
 
-        return { name: className, qualifiedName, parentName, qualifiedParentName, localParentName, namespace, version }
+        girClass._tsData = {
+            name: className,
+            qualifiedName,
+            parentName,
+            qualifiedParentName,
+            localParentName,
+            namespace,
+            version,
+            isAbstract: this.isAbstractClass(girClass),
+            localNames: {},
+            constructPropNames: {},
+            constructPropInterfaceName: `${className}_ConstructProps`,
+            fields: [],
+            properties: [],
+            constructProps: [],
+            propertyNames: [],
+            methods: [],
+            virtualMethods: [],
+            constructors: [],
+            staticFunctions: [],
+            signals: [],
+            extends: {},
+            implements: {},
+        }
+
+        if (girClass._tsData.qualifiedParentName && localParentName) {
+            girClass._tsData.inheritConstructPropInterfaceName = `${localParentName}_ConstructProps`
+        }
+
+        girClass._tsData.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
+
+        return girClass._tsData
     }
 
-    private isCommentLine(line: string) {
-        const lineTrim = line.trim()
-        return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
+    private setClassTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ): TsClass | undefined {
+        if (!girClass?.$?.name) return undefined
+
+        if (girClass._tsData) {
+            // TODO: We need to overwrite the already defined girClass._tsData
+            // this.log.warn('girClass._tsData was already set')
+            return girClass._tsData
+        }
+
+        girClass._tsData = this.setClassBaseTsData(girClass)
+
+        if (!girClass._tsData) {
+            return undefined
+        }
+
+        // BASE
+
+        if (girClass._tsData.isDerivedFromGObject) {
+            girClass._tsData.constructProps.push(
+                ...this.getClassConstructPropsTsData(girClass, girClass._tsData.constructPropNames),
+            )
+        }
+
+        girClass._tsData.constructors.push(...this.getClassConstructorsTsData(girClass))
+        girClass._tsData.staticFunctions.push(...this.getClassStaticFunctionsTsData(girClass, false))
+
+        // TODO: Can't export fields for GObjects because names would clash
+        if (girClass._girType === 'record')
+            girClass._tsData.fields.push(...this.getClassFieldsTsData(girClass, girClass._tsData.localNames))
+
+        girClass._tsData.properties.push(...this.getClassPropertiesTsData(girClass, girClass._tsData.localNames))
+        girClass._tsData.methods.push(...this.getClassMethodsTsData(girClass, girClass._tsData.localNames))
+        girClass._tsData.virtualMethods.push(...this.getClassVirtualMethodsTsData(girClass))
+        girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass, girClass))
+
+        // Copy fields and properties from inheritance tree
+        this.traverseInheritanceTree(girClass, (extendsCls) => {
+            if (!girClass._tsData || !extendsCls._tsData || !extendsCls._fullSymName || !extendsCls._module) {
+                return
+            }
+
+            if (girClass._fullSymName === extendsCls._fullSymName) {
+                return
+            }
+
+            const key = extendsCls._module.packageName + '.' + extendsCls._fullSymName
+            if (girClass._tsData.extends[key]) return
+
+            girClass._tsData.extends[key] = {
+                class: extendsCls,
+                fields: [],
+                properties: [],
+                methods: [],
+                virtualMethods: [],
+                signals: [],
+            }
+
+            girClass._tsData.extends[key].fields.push(
+                ...this.getClassFieldsTsData(extendsCls, girClass._tsData.localNames),
+            )
+            girClass._tsData.extends[key].properties.push(
+                ...this.getClassPropertiesTsData(extendsCls, girClass._tsData.localNames),
+            )
+            girClass._tsData.extends[key].methods.push(
+                ...this.getClassMethodsTsData(extendsCls, girClass._tsData.localNames),
+            )
+            girClass._tsData.extends[key].virtualMethods.push(...this.getClassVirtualMethodsTsData(extendsCls))
+            girClass._tsData.extends[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
+        })
+
+        // Copy properties from implemented interface
+        this.forEachInterface(girClass, (iface) => {
+            if (!girClass._tsData || !iface._tsData || !iface._fullSymName || !iface._module) {
+                return
+            }
+
+            if (girClass._fullSymName === iface._fullSymName) {
+                return
+            }
+
+            const key = iface._module.packageName + '.' + iface._fullSymName
+            if (girClass._tsData.implements[key]) return
+
+            girClass._tsData.implements[key] = {
+                interface: iface,
+                properties: [],
+                constructProps: [],
+                methods: [],
+                signals: [],
+            }
+
+            if (girClass._tsData.isDerivedFromGObject) {
+                girClass._tsData.implements[key].constructProps.push(
+                    ...this.getClassConstructPropsTsData(iface, girClass._tsData.constructPropNames),
+                )
+            }
+
+            girClass._tsData.implements[key].properties.push(
+                ...this.getClassPropertiesTsData(iface, girClass._tsData.localNames),
+            )
+            girClass._tsData.implements[key].methods.push(
+                ...this.getClassMethodsTsData(iface, girClass._tsData.localNames),
+            )
+            girClass._tsData.implements[key].signals.push(...this.getClassSignalsTsData(iface, girClass))
+        })
+
+        girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
+
+        return girClass._tsData
+    }
+
+    private isDerivedFromGObject(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ): boolean {
+        if (typeof girClass._tsData?.isDerivedFromGObject === 'boolean') return girClass._tsData.isDerivedFromGObject
+        let ret = false
+        this.traverseInheritanceTree(girClass, (cls) => {
+            if (cls._tsData?.isDerivedFromGObject === true || cls._fullSymName === 'GObject.Object') {
+                ret = true
+            }
+        })
+        return ret
+    }
+
+    private traverseInheritanceTree(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
+        depth = 0,
+        recursive = true,
+    ): void {
+        if (!girClass.$.name) return
+        if (!girClass._tsData) girClass._tsData = this.setClassTsData(girClass)
+        if (!girClass._tsData) return
+        const { parentName, qualifiedParentName } = girClass._tsData
+
+        let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
+
+        if (parentName && qualifiedParentName) {
+            if (this.symTable.get(this.allDependencies, qualifiedParentName)) {
+                parentPtr = (this.symTable.get(this.allDependencies, qualifiedParentName) as GirClassElement) || null
+            }
+
+            if (!parentPtr && parentName == 'Object') {
+                parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClassElement) || null
+            }
+        }
+
+        callback(girClass)
+
+        if (parentPtr && recursive) {
+            this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
+        }
+    }
+
+    private forEachInterface(
+        girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
+        recurseObjects = false,
+        dups = {},
+    ): void {
+        if (!girIface.$.name) return
+        if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface)
+        if (!girIface._tsData) return
+        const girImplements = (girIface as GirInterfaceElement).implements || []
+        if (girImplements?.length) {
+            for (const girImplement of girImplements) {
+                let name = girImplement.$.name
+                const key = this.symTable.getKey(this.allDependencies, name)
+
+                if (!name.includes('.')) {
+                    name = addNamespace(name, this.namespace)
+                }
+
+                if (key && dups[key]) {
+                    continue
+                }
+
+                let iface: GirInterfaceElement | null = null
+                const _iface = this.symTable.get(this.allDependencies, name)
+                if (key) {
+                    dups[key] = true
+                    iface = _iface as GirInterfaceElement
+                }
+
+                if (iface) {
+                    callback(iface)
+                    this.forEachInterface(iface, callback, recurseObjects, dups)
+                }
+            }
+        }
+        const girPrerequisites = (girIface as GirInterfaceElement).prerequisite || []
+        if (girPrerequisites?.length) {
+            for (const girPrerequisite of girPrerequisites) {
+                let parentName = girPrerequisite.$.name
+                if (!parentName) {
+                    return
+                }
+
+                if (!parentName.includes('.')) {
+                    parentName = addNamespace(parentName, this.namespace)
+                }
+
+                if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
+                const parentPtr = this.symTable.get(this.allDependencies, parentName)
+                if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
+                    // iface's prerequisite is also an interface, or it's
+                    // a class and we also want to recurse classes
+                    callback(parentPtr as GirInterfaceElement)
+                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects, dups)
+                }
+            }
+        }
+    }
+
+    private forEachInterfaceAndSelf(
+        e: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
+    ) {
+        callback(e)
+        this.forEachInterface(e, callback)
     }
 
     /**
-     * Returns `true` if the function definitions in `f1` and `f2` have equivalent signatures
-     * @param f1
-     * @param f2
+     *
+     * @param girElement
+     * @param localNames Can be (constructor) properties, fields or methods
+     * @param type
      */
-    private functionSignaturesMatch(f1: string, f2: string) {
-        if (this.isCommentLine(f1) || this.isCommentLine(f2)) return false
-        return this.stripParamNames(f1) == this.stripParamNames(f2)
+    private checkOrSetLocalName(
+        girElement:
+            | GirMethodElement
+            | GirPropertyElement
+            | GirFieldElement
+            | GirConstructorElement
+            | GirFunctionElement,
+        localNames: LocalNames,
+        type: LocalNameType,
+    ): LocalNameCheck | null {
+        let isOverloadable = false
+
+        if (!girElement._tsData) {
+            return null
+        }
+
+        const name = girElement._tsData?.name
+
+        if (!name) {
+            // this.log.warn(`No name for ${desc}`)
+            return null
+        }
+
+        // Methods are overloadable by typescript
+        // TODO Add support for properties
+        if (type === 'method') {
+            isOverloadable = true
+        }
+
+        // Only names of the same type are overloadable
+        if (localNames[name]?.type && localNames[name].type !== type) {
+            // In GIO there are some methods and properties with the same name
+            // E.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
+            // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
+            // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
+
+            return null
+        }
+
+        // If name is found in localNames this variable was already defined
+        if (localNames?.[name]?.[type]?._tsData) {
+            // Ignore duplicates with the same type
+            // TODO should we use `this.functionSignaturesMatch` here?
+            if (isEqual(localNames[name][type]?._tsData, girElement._tsData)) {
+                return null
+            }
+
+            // Ignore if current method is not overloadable
+            if (!isOverloadable) {
+                return null
+            }
+        }
+
+        localNames[name] = localNames[name] || {}
+        const localName: LocalName = {
+            ...localNames[name],
+            [type]: girElement,
+            type,
+        }
+
+        localNames[name] = localName
+        return { ...localName, added: true, isOverloadable }
+    }
+
+    /**
+     * Some classes implement interfaces which are also implemented by a superclass
+     * and we need to exclude those in some circumstances
+     * @param girClass
+     * @param girIface
+     */
+    private interfaceIsDuplicate(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ): boolean {
+        const ifaceName = girIface._fullSymName
+        if (!ifaceName) {
+            return false
+        }
+        let rpt = false
+        let bottom = true
+        this.traverseInheritanceTree(girClass, (sub) => {
+            if (rpt) return
+            if (bottom) {
+                bottom = false
+                return
+            }
+            if ((sub as GirInterfaceElement).prerequisite) {
+                this.forEachInterface(
+                    sub,
+                    (element) => {
+                        if (rpt) return
+                        if (element._fullSymName === ifaceName) {
+                            rpt = true
+                        }
+                    },
+                    true,
+                )
+            }
+        })
+        return rpt
+    }
+
+    private isGtypeStructFor(
+        e: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        rec: GirRecordElement,
+    ) {
+        const isFor = rec.$['glib:is-gtype-struct-for']
+        return isFor && isFor == e.$.name
+    }
+
+    /**
+     * E.g GObject.ObjectClass is a abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
+     * @param girClass
+     * @returns `true` if this is this a abstract class.
+     */
+    private isAbstractClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
+    }
+
+    private functionMatch(
+        f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+        f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+    ) {
+        if (!f1._tsData) f1._tsData = this.getFunctionTsData(f1)
+        if (!f2._tsData) f2._tsData = this.getFunctionTsData(f2)
+
+        if (!f1._tsData || !f2._tsData) return false
+
+        return isEqual(f1._tsData, f2._tsData)
     }
 
     /**
@@ -1428,69 +2044,84 @@ export class GirModule {
      * @param func
      * @param force
      */
-    private mergeOverloadableFunctions(map: FunctionMap, func: DescFunction, force = true) {
-        if (!func.name) return false
-        const defs = map.get(func.name)
-        if (!defs) {
-            if (force) map.set(func.name, func.desc)
-            return false
-        }
+    private mergeOverloadableFunctions(
+        map: FunctionMap,
+        girFunc: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+        force = true,
+    ) {
         let result = false
-        for (const newDef of func.desc) {
-            let match = false
-            for (const oldDef of defs) {
-                if (this.functionSignaturesMatch(newDef, oldDef)) {
-                    match = true
-                    break
-                }
-            }
-            if (!match) {
-                defs.push(newDef)
-                result = true
-            }
+        if (!girFunc._tsData?.name) return result
+        const oldFunc = map.get(girFunc._tsData.name)
+        if (!oldFunc?._tsData || !girFunc._tsData) {
+            if (force && girFunc._tsData) map.set(girFunc._tsData.name, girFunc)
+            return result
+        }
+
+        const isEqual = this.functionMatch(girFunc, oldFunc)
+        if (!isEqual) {
+            oldFunc._tsData.overloads.push(girFunc)
+            result = true
         }
         return result
     }
 
     /**
-     * fnMap values are equivalent to the second element of a DescFunction.
+     * `fnMap` values are equivalent to the second element of a TsFunction.
      * If an entry in `fnMap` is changed, its name is added to `explicits` (set of names which must be declared).
-     * If `force` is true, every function of `f2` is added to `fnMap` and overloads even
+     * If `force` is `true`, every function of `f2` is added to `fnMap` and overloads even
      * if it doesn't already contain a function of the same name.
      * @param fnMap
      * @param explicits
      * @param funcs
      * @param force
      */
-    private addOverloadableFunctions(fnMap: FunctionMap, explicits: Set<string>, funcs: DescFunction[], force = false) {
+    private addOverloadableFunctions(
+        fnMap: FunctionMap,
+        explicits: Set<string>,
+        funcs: Array<GirConstructorElement | GirFunctionElement | GirMethodElement | GirVirtualMethodElement>,
+        force = false,
+    ) {
         for (const func of funcs) {
-            if (!func.name) continue
+            if (!func?._tsData?.name) continue
             if (this.mergeOverloadableFunctions(fnMap, func) || force) {
-                explicits.add(func.name)
+                explicits.add(func._tsData.name)
             }
         }
     }
 
+    private functionMapToArray<
+        T = GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
+    >(fnMap: FunctionMap<T>, explicits: Set<string>) {
+        const girFunctions: Array<T> = []
+        for (const key of Array.from(explicits.values())) {
+            const func = fnMap.get(key)
+            if (func) girFunctions.push(func)
+        }
+        return girFunctions
+    }
+
     /**
      * Used for <method> and <virtual-method>
-     * @param cls
+     * @param girClass
      * @param getMethods
-     * @param statics
+     * @param isStatic
      */
-    private processOverloadableMethods(
-        cls: GirClassElement | GirInterfaceElement | GirUnionElement,
-        getMethods: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => DescFunction[],
-        statics = false,
+    private getOverloadableMethodsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        getMethods: (
+            girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        ) => Array<GirConstructorElement | GirFunctionElement | GirMethodElement | GirVirtualMethodElement>,
+        isStatic = false,
     ) {
         const fnMap: FunctionMap = new Map()
         const explicits = new Set<string>()
-        const funcs = getMethods(cls)
+        const funcs = getMethods(girClass)
         this.addOverloadableFunctions(fnMap, explicits, funcs, true)
-        // Have to implement methods from cls' interfaces
+        // Have to implement methods from girClass' interfaces
         this.forEachInterface(
-            cls,
+            girClass,
             (iface) => {
-                if (!this.interfaceIsDuplicate(cls, iface)) {
+                if (!this.interfaceIsDuplicate(girClass, iface)) {
                     const funcs = getMethods(iface)
                     this.addOverloadableFunctions(fnMap, explicits, funcs, true)
                 }
@@ -1499,18 +2130,18 @@ export class GirModule {
         )
         // Check for overloads among all inherited methods
         let bottom = true
-        this.traverseInheritanceTree(cls, (e) => {
+        this.traverseInheritanceTree(girClass, (cls) => {
             if (bottom) {
                 bottom = false
                 return
             }
-            if (statics) {
-                const funcs = getMethods(e)
+            if (isStatic) {
+                const funcs = getMethods(cls)
                 this.addOverloadableFunctions(fnMap, explicits, funcs, false)
             } else {
                 let self = true
-                this.forEachInterfaceAndSelf(e, (iface) => {
-                    if (self || this.interfaceIsDuplicate(cls, iface)) {
+                this.forEachInterfaceAndSelf(cls, (iface) => {
+                    if (self || this.interfaceIsDuplicate(girClass, iface)) {
                         const funcs = getMethods(iface)
                         this.addOverloadableFunctions(fnMap, explicits, funcs, false)
                     }
@@ -1518,514 +2149,343 @@ export class GirModule {
                 })
             }
         })
-        return { fnMap, explicits }
+        return this.functionMapToArray(fnMap, explicits)
     }
 
-    private processStaticFunctions(
-        cls: GirClassElement | GirInterfaceElement | GirUnionElement,
-        getter: (e: GirClassElement | GirInterfaceElement | GirUnionElement) => DescFunction[],
+    private getStaticFunctions(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        getter: (
+            e: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        ) => Array<GirConstructorElement | GirFunctionElement | GirMethodElement>,
     ) {
-        const { fnMap, explicits } = this.processOverloadableMethods(cls, getter, true)
-        const { def } = this.exportOverloadableMethods(fnMap, explicits)
-        return { def, fnMap, explicits }
+        return this.getOverloadableMethodsTsData(girClass, getter, true) as Array<
+            GirConstructorElement | GirFunctionElement | GirMethodElement
+        >
     }
 
-    private generateSignalMethods(
-        cls: GirClassElement | GirUnionElement | GirInterfaceElement,
-        propertyNames: string[],
-        callbackObjectName: string,
-    ) {
-        const def: string[] = []
-        const isDerivedFromGObject = this.isDerivedFromGObject(cls)
-        if (isDerivedFromGObject) {
-            let prefix = 'GObject.'
-            if (this.namespace === 'GObject') prefix = ''
-            for (const prop of propertyNames) {
-                def.push(...this.templateProcessor.generateGObjectSignalMethods(prop, callbackObjectName, prefix))
+    /**
+     *
+     * @param girClass
+     * @returns
+     */
+    private getOtherStaticFunctions(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ): GirFunctionElement[] {
+        const girFunctions: GirFunctionElement[] = []
+        if (girClass.function) {
+            for (const girFunction of girClass.function) {
+                girFunction._tsData = this.getFunctionTsData(
+                    girFunction,
+                    'function',
+                    /* isStatic */
+                    true,
+                    /* isArrowType */
+                    false,
+                    /* isGlobal */
+                    false,
+                    /* isVirtual */
+                    false,
+                    /* overrideReturnType */
+                    null,
+                )
+
+                if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
+
+                girFunctions.push(girFunction)
             }
-            def.push(...this.templateProcessor.generateGeneralSignalMethods(this.config.environment))
         }
-        return { def, isDerivedFromGObject }
+        return girFunctions
     }
 
     /**
      * Static methods, <constructor> and <function>
      * @param girClass
-     * @param name
+     * @param useReference This value should be `false` for inherited and implemented classes / interfaces.
+     * Otherwise other modules would overwrite the return value of the constructor methods
      */
-    private getAllStaticFunctions(girClass: GirClassElement | GirInterfaceElement | GirUnionElement, name: string) {
-        const stc: string[] = []
+    private getClassStaticFunctionsTsData(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        useReference = false,
+    ) {
+        const girStaticFuncs: Array<GirFunctionElement | GirConstructorElement | GirMethodElement> = []
 
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getStaticConstructors(cls, name)
-            }).def,
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
+                return this.getStaticConstructors(cls, girClass, useReference)
+            }),
         )
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
                 return this.getOtherStaticFunctions(cls)
-            }).def,
+            }),
         )
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getClassMethods(cls)
-            }).def,
+        girStaticFuncs.push(
+            ...this.getStaticFunctions(girClass, (cls) => {
+                return this.getClassRecordMethods(cls)
+            }),
         )
 
-        if (stc.length > 0) {
-            stc.unshift('    /* Static methods and pseudo-constructors */')
-        }
-        return stc
+        return girStaticFuncs
     }
 
-    private generateConstructorAndStaticMethods(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        name: string,
-        indent = '    ',
-    ) {
-        const def: string[] = []
-        const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
-        if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
-            // Records, classes and interfaces all have a static name
-            def.push(`${indent}static name: string`)
-        }
-
-        // JS constructor(s)
-        if (isDerivedFromGObject) {
-            def.push(
-                `${indent}constructor (config?: ${name}_ConstructProps)`,
-                `${indent}_init (config?: ${name}_ConstructProps): void`,
-            )
-        } else {
-            const constructor_: GirFunctionElement[] = (girClass['constructor'] || []) as GirFunctionElement[]
-            if (constructor_) {
-                if (Array.isArray(constructor_)) {
-                    for (const f of constructor_) {
-                        const constrDesc = this.getConstructorFunction(name, f, '    ', 'static ')
-                        if (!constrDesc?.name) continue
-                        if (constrDesc.name !== 'new') continue
-
-                        def.push(...constrDesc.desc)
-
-                        const jsStyleCtor = constrDesc.desc[0]
-                            .replace('static new', 'constructor')
-                            .replace(/:[^:]+$/, '')
-
-                        def.push(jsStyleCtor)
+    private setModuleTsData() {
+        if (this.ns.enumeration)
+            for (const girEnum of this.ns.enumeration) {
+                if (girEnum.member)
+                    for (const girEnumMember of girEnum.member) {
+                        girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember)
                     }
-                }
+                girEnum._tsData = this.getEnumerationTsData(girEnum)
+            }
+
+        if (this.ns.bitfield)
+            for (const girBitfield of this.ns.bitfield) {
+                if (girBitfield.member)
+                    for (const girEnumMember of girBitfield.member) {
+                        girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember)
+                    }
+                girBitfield._tsData = this.getEnumerationTsData(girBitfield)
+            }
+
+        if (this.ns.constant)
+            for (const girConst of this.ns.constant) {
+                girConst._tsData = this.getConstantTsData(girConst)
+            }
+
+        if (this.ns.function)
+            for (const girFunc of this.ns.function) {
+                girFunc._tsData = this.getFunctionTsData(
+                    girFunc,
+                    'function',
+                    /* isStatic */
+                    false,
+                    /* isArrowType */
+                    false,
+                    /* isGlobal */
+                    true,
+                    /* isVirtual */
+                    false,
+                    /* overrideReturnType */
+                    null,
+                )
+            }
+
+        if (this.ns.callback)
+            for (const girCallback of this.ns.callback) {
+                girCallback._tsData = this.getFunctionTsData(girCallback, 'callback', false, true, false, false, null)
+                girCallback._tsDataInterface = this.getCallbackInterfaceTsData(girCallback)
+            }
+
+        if (this.ns.interface)
+            for (const girIface of this.ns.interface) {
+                girIface._tsData = this.setClassTsData(girIface)
+            }
+
+        if (this.ns.class)
+            for (const girClass of this.ns.class) {
+                girClass._tsData = this.setClassTsData(girClass)
+            }
+
+        if (this.ns.record)
+            for (const girRecord of this.ns.record) {
+                girRecord._tsData = this.setClassTsData(girRecord)
+            }
+
+        if (this.ns.union)
+            for (const girUnion of this.ns.union) {
+                girUnion._tsData = this.setClassTsData(girUnion)
+            }
+
+        if (this.ns.alias) {
+            // GType is not a number in GJS
+            for (const girAlias of this.ns.alias) {
+                if (this.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
+                    girAlias._tsData = this.getAliasTsData(girAlias)
             }
         }
-
-        def.push(...this.getAllStaticFunctions(girClass, name))
-
-        if (isDerivedFromGObject) {
-            def.push(`${indent}static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
-        }
-
-        return { def, isDerivedFromGObject }
     }
 
-    private generateConstructPropsInterface(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        name: string,
-        qualifiedParentName?: string,
-        localParentName?: string,
-    ) {
-        const def: string[] = []
-        const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
-        let patched = false
-        if (isDerivedFromGObject) {
-            let ext = ' '
-
-            if (qualifiedParentName && localParentName) {
-                ext = `extends ${localParentName}_ConstructProps `
-            }
-
-            def.push(`export interface ${name}_ConstructProps ${ext}{`)
-            const constructPropNames: LocalNames = {}
-            const properties = (girClass as GirClassElement | GirInterfaceElement).property
-            if (properties) {
-                for (const property of properties) {
-                    const propDesc = this.getProperty(property, '', true, true)
-                    if (!propDesc) {
-                        continue
-                    }
-                    const localName = this.checkOrSetLocalName(
-                        propDesc.desc,
-                        propDesc?.var.name,
-                        constructPropNames,
-                        'property',
+    private girToTsType(girType: 'alias', isStatic?: boolean): 'type'
+    private girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
+    private girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
+    private girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
+    private girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
+    private girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
+    private girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
+    private girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
+    private girToTsType(girType: 'function', isStatic: true): 'static-function'
+    private girToTsType(girType: 'function', isStatic: false): 'function'
+    private girToTsType(
+        girType: 'function' | 'method' | 'virtual-method' | 'constructor' | 'callback',
+        isStatic?: boolean,
+    ): 'function' | 'method' | 'interface' | 'static-function'
+    private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
+    private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
+        switch (girType) {
+            case 'alias':
+                return 'type'
+            case 'enumeration':
+            case 'bitfield':
+                return 'enumeration'
+            case 'callback':
+                return 'interface'
+            case 'class':
+            case 'interface':
+            case 'union':
+            case 'record':
+                return 'class'
+            case 'constant':
+                return 'constant'
+            case 'constructor':
+                return 'static-function'
+            case 'method':
+            case 'virtual-method':
+                return 'method'
+            case 'signal':
+                return 'event-methods'
+            case 'function':
+                if (typeof isStatic === 'undefined') {
+                    throw new Error(
+                        'You must specify if the function is static or not if you want to convert the type of a function!',
                     )
-
-                    if (localName?.added) {
-                        // Apply patches
-                        const packageNameToPatch = this.getPackageName(property)
-                        const constructPropPatches = property._fullSymName
-                            ? this.getPatches(packageNameToPatch, 'constructorProperties', property._fullSymName)
-                            : undefined
-
-                        if (constructPropPatches?.length) {
-                            this.log.warn(`Patch found for constructor property "${property._fullSymName}"!`)
-                            patched = true
-                            for (const curDesc of constructPropPatches) {
-                                def.push(`    ${curDesc}`)
-                            }
-                        } else {
-                            for (const curDesc of localName.desc) {
-                                def.push(`    ${curDesc}`)
-                            }
-                        }
-                    }
                 }
-            }
-            // Include props of implemented interfaces
-            if ((girClass as GirClassElement | GirInterfaceElement).implements) {
-                this.forEachInterface(girClass, (iface) => {
-                    const properties = (iface as GirClassElement | GirInterfaceElement).property
-                    if (properties) {
-                        for (const property of properties) {
-                            const propDesc = this.getProperty(property, '', true, true)
-                            if (!propDesc) {
-                                continue
-                            }
-                            const localName = this.checkOrSetLocalName(
-                                propDesc.desc,
-                                propDesc.var.name,
-                                constructPropNames,
-                                'property',
-                            )
-                            if (localName?.added) {
-                                // Apply patches
-                                const packageNameToPatch = this.getPackageName(property)
-                                const constructPropPatches = property._fullSymName
-                                    ? this.getPatches(
-                                          packageNameToPatch,
-                                          'constructorProperties',
-                                          property._fullSymName,
-                                      )
-                                    : undefined
-
-                                if (constructPropPatches?.length) {
-                                    this.log.warn(
-                                        `Patch found for constructor property (of implemented interfaces) "${property._fullSymName}"!`,
-                                    )
-                                    patched = true
-                                    for (const curDesc of constructPropPatches) {
-                                        def.push(`    ${curDesc}`)
-                                    }
-                                } else {
-                                    for (const curDesc of localName.desc) {
-                                        def.push(`    ${curDesc}`)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                })
-            }
-            def.push('}')
-        }
-        return {
-            def,
-            patched,
-            isDerivedFromGObject,
-        }
-    }
-
-    public exportEnumeration(e: GirEnumElement) {
-        const def: string[] = []
-
-        if (!e?.$ || !this.girBool(e.$.introspectable, true)) return { def }
-
-        // E.g. the NetworkManager-1.0 has enum names starting with 80211
-        const name = this.transformation.transformEnumName(e)
-
-        def.push(this.templateProcessor.generateExport('enum', name, '{'))
-        if (e.member) {
-            for (const member of e.member) {
-                const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
-                if (!_name) {
-                    continue
+                if (isStatic) {
+                    return 'static-function'
                 }
-                const name = this.transformation.transform('enumValue', _name)
-                if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
-                else def.push(`    ${name},`)
-            }
+                return 'function'
         }
-        def.push('}')
-        return { def, name }
-    }
-
-    public exportConstant(girConst: GirConstantElement) {
-        const def: string[] = []
-        const constDesc = this.getVariable(girConst, false, false, 'constant')
-        if (constDesc?.name) {
-            if (!this.constNames[constDesc.name]) {
-                this.constNames[constDesc.name] = {
-                    desc: constDesc.desc,
-                    name: constDesc.name,
-                    patched: constDesc.patched,
-                }
-                for (const desc of constDesc.desc) {
-                    def.push(`export const ${desc}`)
-                }
-            } else {
-                this.log.warn(`The constant '${constDesc.desc.join(', ')}' has already been exported`)
-            }
-        }
-
-        return {
-            def,
-            constDesc,
-        }
+        throw new Error(`Unknown gir type: "${String(girType)}"!`)
     }
 
     /**
-     * Represents a record or GObject class or interface as a Typescript class
-     * @param girClass
-     * @param isAbstract
-     * @param record
+     * TODO: find better name for this method
+     * @param fullTypeName
+     * @returns
      */
-    public exportClassInternal(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement,
-        record = false,
-        isAbstract = false,
-    ) {
-        const def: string[] = []
-        const localNames: LocalNames = {}
-        const propertyNames: string[] = []
+    private fullTypeLookupWithNamespace(fullTypeName: string) {
+        let resValue = ''
+        let namespace = ''
 
-        // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
-        if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
-            isAbstract = true
+        // Check overwrites first
+        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
+            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
         }
 
-        const details = this.getClassDetails(girClass)
-        if (!details)
-            return {
-                def: [],
-            }
-
-        const { name, qualifiedParentName, localParentName } = details
-        const { def: _def, patched } = this.generateConstructPropsInterface(
-            girClass,
-            name,
-            qualifiedParentName,
-            localParentName,
-        )
-
-        // Properties for construction
-        def.push(..._def)
-
-        // START CLASS
-        {
-            if (isAbstract) {
-                def.push(this.templateProcessor.generateExport('abstract class', name, '{'))
+        // Only use the fullTypeName as the type if it is found in the symTable
+        if (!resValue && this.symTable.get(this.allDependencies, fullTypeName)) {
+            if (fullTypeName.startsWith(this.namespace + '.')) {
+                resValue = removeNamespace(fullTypeName, this.namespace)
+                resValue = this.transformation.transformTypeName(resValue)
+                // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
+                resValue = this.transformation.transformClassName(resValue)
+                namespace = this.namespace
+                resValue = namespace + '.' + resValue
             } else {
-                def.push(this.templateProcessor.generateExport('class', name, '{'))
+                const resValues = fullTypeName.split('.')
+                resValues.map((name) => this.transformation.transformTypeName(name))
+                // TODO: check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                resValues[resValues.length - 1] = this.transformation.transformClassName(
+                    resValues[resValues.length - 1],
+                )
+                resValue = resValues.join('.')
+                namespace = resValues[0]
+            }
+        }
+
+        return {
+            value: resValue,
+            namespace,
+        }
+    }
+
+    private loadInheritance(inheritanceTable: InheritanceTable): void {
+        // Class hierarchy
+        for (const girClass of this.ns.class ? this.ns.class : []) {
+            let parent: string | null = null
+            if (girClass.$ && girClass.$.parent) parent = girClass.$.parent
+            if (!parent) continue
+            if (!girClass._fullSymName) continue
+
+            if (!parent.includes('.')) {
+                parent = addNamespace(parent, this.namespace)
             }
 
-            // Can't export fields for GObjects because names would clash
-            if (record) def.push(...this.processFields(girClass, localNames).def)
+            const className = girClass._fullSymName
 
-            // Copy properties from inheritance tree
-            this.traverseInheritanceTree(girClass, (cls) =>
-                def.push(...this.processProperties(cls, localNames, propertyNames).def),
-            )
-            // Copy properties from implemented interface
-            this.forEachInterface(girClass, (cls) =>
-                def.push(...this.processProperties(cls, localNames, propertyNames).def),
-            )
-            // Copy fields from inheritance tree
-            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processFields(cls, localNames).def))
-            // Copy methods from inheritance tree
-            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
-            // Copy methods from implemented interfaces
-            this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames).def))
-            // Copy virtual methods from inheritance tree
-            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls).def))
-            // Copy signals from inheritance tree
-            this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
-            // Copy signals from implemented interfaces
-            this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name).def))
-
-            def.push(...this.generateSignalMethods(girClass, propertyNames, name).def)
-
-            // TODO: Records have fields
-
-            // Static side: default constructor
-            def.push(...this.generateConstructorAndStaticMethods(girClass, name).def)
-        }
-        // END CLASS
-        def.push('}')
-
-        return {
-            def,
-            patched,
-            name,
-            qualifiedParentName,
-            localParentName,
-            propertyNames,
-            localNames,
-            isAbstract,
-            record,
-        }
-    }
-
-    public exportFunction(girFunc: GirFunctionElement) {
-        const exp = this.config.exportDefault ? '' : 'export '
-        const funcDesc = this.getFunction(girFunc, '', exp + 'function ')
-        return { def: funcDesc?.desc || [] }
-    }
-
-    public exportCallback(func: GirFunctionElement) {
-        const def: string[] = []
-        if (!func || !func.$ || !this.girBool(func.$.introspectable, true))
-            return {
-                def,
-            }
-
-        const name = func.$.name
-        const { returnType, outArrayLengthIndex } = this.getReturnType(func)
-        const { def: params } = this.getParameters(outArrayLengthIndex, func.parameters)
-
-        def.push(this.templateProcessor.generateExport('interface', name, '{'))
-        def.push(`    (${params.join(', ')}): ${returnType}`)
-        def.push('}')
-        return {
-            def,
-        }
-    }
-
-    public exportAlias(girAlias: GirAliasElement) {
-        const def: string[] = []
-        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return { def }
-
-        const typeName = this.typeLookup(girAlias).result
-        const name = girAlias.$.name
-        const exp = this.config.exportDefault ? '' : 'export '
-        def.push(`${exp}type ${name} = ${typeName}`)
-        return {
-            def,
-        }
-    }
-
-    public exportInterface(girClass: GirClassElement) {
-        return this.exportClassInternal(girClass, true)
-    }
-
-    public exportClass(girClass: GirClassElement) {
-        return this.exportClassInternal(girClass, false)
-    }
-
-    public async exportJs(): Promise<void> {
-        const template = 'module.js'
-        if (this.config.outdir) {
-            await this.templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
-        } else {
-            const moduleContent = this.templateProcessor.load(template)
-            this.log.log(moduleContent)
-        }
-    }
-
-    public async export(outStream: NodeJS.WritableStream, outputPath: string | null): Promise<void> {
-        const out: string[] = []
-
-        out.push(...this.templateProcessor.generateTSDocComment(`${this.packageName}`))
-
-        out.push('')
-
-        const deps: string[] = this.transitiveDependencies
-
-        // Module dependencies as type references or imports
-        if (this.config.environment === 'gjs') {
-            out.push(...this.templateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false))
+            const arr: string[] = inheritanceTable[className] || []
+            arr.push(parent)
+            inheritanceTable[className] = arr
         }
 
-        for (const depPackageName of deps) {
-            // Don't reference yourself as a dependency
-            if (this.packageName !== depPackageName) {
-                const girFilename = `${depPackageName}.gir`
-                const { namespace } = Utils.splitModuleName(depPackageName)
-                const depFile = Utils.findFileInDirs(this.config.girDirectories, girFilename)
-                if (depFile.exists) {
-                    out.push(
-                        ...this.templateProcessor.generateModuleDependenciesImport(namespace, depPackageName, false),
-                    )
-                } else {
-                    out.push(`// WARN: Dependency not found: '${depPackageName}'`)
-                    this.log.warn(`Dependency gir file not found: '${girFilename}'`)
+        // Class interface implementations
+        for (const girClass of this.ns.class ? this.ns.class : []) {
+            if (!girClass._fullSymName) continue
+
+            const names: string[] = []
+
+            if (girClass.implements) {
+                for (const girImplements of girClass.implements) {
+                    if (girImplements.$.name) {
+                        let name: string = girImplements.$.name
+                        if (!name.includes('.')) {
+                            name = girClass._fullSymName.substring(0, girClass._fullSymName.indexOf('.') + 1) + name
+                        }
+                        names.push(name)
+                    }
                 }
             }
-        }
 
-        // START Namespace
-        {
-            if (this.config.buildType === 'types') {
-                out.push('')
-                out.push(`export declare namespace ${this.namespace} {`)
-            } else if (this.config.exportDefault) {
-                out.push('')
-                out.push(`export namespace ${this.namespace} {`)
+            if (names.length > 0) {
+                const className = girClass._fullSymName
+                const arr: string[] = inheritanceTable[className] || []
+                inheritanceTable[className] = arr.concat(names)
             }
-
-            // Newline
-            out.push('')
-
-            if (this.ns.enumeration)
-                for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration).def)
-
-            if (this.ns.bitfield)
-                for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield).def)
-
-            if (this.ns.constant)
-                for (const constant of this.ns.constant) out.push(...this.exportConstant(constant).def)
-
-            if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func).def)
-
-            if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb).def)
-
-            if (this.ns.interface)
-                for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface).def)
-
-            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
-            // E.g. used for GObject-2.0 to help define GObject classes in js;
-            // these aren't part of gi.
-            if (this.templateProcessor.exists(`${this.packageName}.d.ts`)) {
-                const templatePatches = await this.templateProcessor.load(`${this.packageName}.d.ts`)
-                out.push(templatePatches)
-            }
-
-            if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false).def)
-
-            if (this.ns.record)
-                for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true).def)
-
-            if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true).def)
-
-            if (this.ns.alias)
-                // GType is not a number in GJS
-                for (const alias of this.ns.alias)
-                    if (this.packageName !== 'GObject-2.0' || alias.$.name !== 'Type')
-                        out.push(...this.exportAlias(alias).def)
-
-            if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
-        // END Namespace
-        if (this.config.buildType === 'types' || this.config.exportDefault) {
-            out.push(`}`)
+    }
+
+    private loadTypes(): void {
+        if (this.ns.bitfield) this.annotateAndRegisterGirElement(this.ns.bitfield, 'bitfield')
+        if (this.ns.callback) this.annotateAndRegisterGirElement(this.ns.callback, 'callback')
+        if (this.ns.class) this.annotateAndRegisterGirElement(this.ns.class, 'class')
+        if (this.ns.constant) this.annotateAndRegisterGirElement(this.ns.constant, 'constant')
+        if (this.ns.enumeration) this.annotateAndRegisterGirElement(this.ns.enumeration, 'enumeration')
+        if (this.ns.function) this.annotateAndRegisterGirElement(this.ns.function, 'function')
+        if (this.ns.interface) this.annotateAndRegisterGirElement(this.ns.interface, 'interface')
+        if (this.ns.record) this.annotateAndRegisterGirElement(this.ns.record, 'record')
+        if (this.ns.union) this.annotateAndRegisterGirElement(this.ns.union, 'union')
+        if (this.ns.alias) this.annotateAndRegisterGirElement(this.ns.alias, 'alias')
+
+        if (this.ns.callback) for (const girCallback of this.ns.callback) this.annotateFunctionArguments(girCallback)
+
+        for (const girClass of this.ns.class || []) {
+            this.annotateClass(girClass, 'class')
+        }
+        for (const girClass of this.ns.record || []) {
+            this.annotateClass(girClass, 'record')
+        }
+        for (const girClass of this.ns.interface || []) {
+            this.annotateClass(girClass, 'interface')
         }
 
-        if (this.config.buildType === 'types' || this.config.exportDefault) {
-            out.push(`export default ${this.namespace};`)
-        }
+        if (this.ns.function) this.annotateFunctions(this.ns.function, 'function')
+        if (this.ns.callback) this.annotateFunctions(this.ns.callback, 'callback')
 
-        // End of file
-        outStream.write(out.join('\n'))
+        if (this.ns.constant) this.annotateVariables(this.ns.constant, 'constant')
+    }
 
-        if (outputPath && this.config.pretty) {
-            await this.templateProcessor.prettify(outputPath)
-        }
+    /**
+     * Before processing the typescript data, each module should be initialized first.
+     * This is done in the `GenerationHandler`.
+     */
+    public init(inheritanceTable: InheritanceTable) {
+        this.loadTypes()
+        this.loadInheritance(inheritanceTable)
+    }
+
+    /**
+     * Start processing the typescript data
+     */
+    public start() {
+        this.setModuleTsData()
     }
 }

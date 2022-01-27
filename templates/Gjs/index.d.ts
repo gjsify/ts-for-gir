@@ -1,8 +1,18 @@
+/*
+ * Type Definitions for Gjs (https://gjs.guide/)
+ *
+ * These type definitions are automatically generated, do not edit them by hand.
+ * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
+ */
+
 import type * as Gjs from "./Gjs";
 <%_ for (const girModule of girModules) { _%>
-import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+  <% if(useNamespace){ %>
+      import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
+    <% } else{ %>  
+      import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+    <% } %>
 <%_ } _%>
-
 
 declare global {
     function print(...args: any[]): void;
@@ -37,3 +47,4 @@ declare global {
 }
 
 export { imports }
+export default imports

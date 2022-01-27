@@ -2,99 +2,196 @@
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
+import { fileURLToPath } from 'url'
+import { Environment, GirInfoAttrs } from './types/index.js'
+import { inspect } from 'util'
 
-export class Utils {
-    public static splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
-        // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
-        const splits = packageName.split('-')
-        const version = splits.splice(-1, 1)[0]
-        const namespace = splits.join('-')
-        return {
-            packageName,
-            namespace,
-            version,
-        }
+import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
+
+export { inspect }
+
+export const isEqual = lodash.isEqual
+
+export const map = lodash.map
+
+export const find = lodash.find
+
+export const merge = lodash.merge
+
+export const clone = lodash.clone
+
+export function splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
+    // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
+    const splits = packageName.split('-')
+    const version = splits.splice(-1, 1)[0]
+    const namespace = splits.join('-')
+    return {
+        packageName,
+        namespace,
+        version,
     }
+}
 
-    /**
-     * Checking whether some variable is iterable
-     * see https://stackoverflow.com/a/32538867
-     * @param obj Variable to check for iterable
-     */
-    public static isIterable(obj: unknown[]): boolean {
-        return obj != null && typeof obj[Symbol.iterator] === 'function'
+export function removeNamespace(type: string, namespace: string) {
+    if (type.startsWith(namespace + '.')) {
+        type = type.substring(namespace.length + 1)
     }
+    return type
+}
 
-    public static isNumeric(str: string): boolean {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return !isNaN((str as any) - parseFloat(str))
+export function addNamespace(type: string, namespace: string) {
+    if (!type.startsWith(namespace + '.')) {
+        type = namespace + '.' + type
     }
+    return type
+}
 
-    public static getFirstChar(str: string): string {
-        return str.charAt(0)
-    }
+/**
+ * Checking whether some variable is iterable
+ * see https://stackoverflow.com/a/32538867
+ * @param obj Variable to check for iterable
+ */
+export function isIterable(obj: unknown[]): boolean {
+    return obj != null && typeof obj[Symbol.iterator] === 'function'
+}
 
-    public static getLastChar(str: string): string {
-        return str.charAt(str.length - 1)
-    }
+export function isNumeric(str: string): boolean {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return !isNaN((str as any) - parseFloat(str))
+}
 
-    public static isFirstCharNumeric(str: string): boolean {
-        return Utils.isNumeric(this.getFirstChar(str))
-    }
+export function getFirstChar(str: string): string {
+    return str.charAt(0)
+}
 
-    public static camelCase(str: string): string {
-        return str
-            .replace(/\s(.)|(\s|-|_|\.)(.)/g, (a) => {
-                return a.toUpperCase()
-            })
-            .replace(/(\s|-|_|\.)/g, '')
-    }
+export function getLastChar(str: string): string {
+    return str.charAt(str.length - 1)
+}
 
-    public static lowerCamelCase(str: string): string {
-        str = this.camelCase(str)
-        str = this.getFirstChar(str).toLowerCase() + str.slice(1)
-        return str
-    }
+export function isFirstCharNumeric(str: string): boolean {
+    return isNumeric(getFirstChar(str))
+}
 
-    public static upperCamelCase(str: string): string {
-        str = this.camelCase(str)
-        str = this.getFirstChar(str).toUpperCase() + str.slice(1)
-        return str
-    }
+export function camelCase(str: string): string {
+    return str
+        .replace(/\s(.)|(\s|-|_|\.)(.)/g, (a) => {
+            return a.toUpperCase()
+        })
+        .replace(/(\s|-|_|\.)/g, '')
+}
 
-    public static findFileInDirs(dirs: string[], filename: string): { path: string | null; exists: boolean } {
-        let exists = false
-        for (const dir of dirs) {
-            const filePath = Path.join(dir, filename)
-            exists = fs.existsSync(filePath)
-            if (exists) {
-                return {
-                    path: filePath,
-                    exists,
-                }
+export function lowerCamelCase(str: string): string {
+    str = camelCase(str)
+    str = getFirstChar(str).toLowerCase() + str.slice(1)
+    return str
+}
+
+export function upperCamelCase(str: string): string {
+    str = camelCase(str)
+    str = getFirstChar(str).toUpperCase() + str.slice(1)
+    return str
+}
+
+export function findFileInDirs(dirs: string[], filename: string): { path: string | null; exists: boolean } {
+    let exists = false
+    for (const dir of dirs) {
+        const filePath = Path.join(dir, filename)
+        exists = fs.existsSync(filePath)
+        if (exists) {
+            return {
+                path: filePath,
+                exists,
             }
         }
-        return {
-            path: null,
-            exists,
+    }
+    return {
+        path: null,
+        exists,
+    }
+}
+
+/**
+ * Union (a ∪ b): create a set that contains the elements of both set a and set b.
+ * See https://2ality.com/2015/01/es6-set-operations.html#union
+ * @param target
+ * @param source
+ */
+export function union<T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> {
+    return (target = new Set<T>([...target, ...source]))
+}
+
+export function stripParamNames(func: string, ignoreTail = false): string {
+    const g = func
+    func = func.replace(COMMENT_REG_EXP, '')
+    const lb = func.split('(', 2)
+    if (lb.length < 2) console.error(`Bad function definition ${g}`)
+    const rb = lb[1].split(')')
+    const tail = ignoreTail ? '' : rb[rb.length - 1]
+    let params = rb.slice(0, rb.length - 1).join(')')
+    params = params.replace(PARAM_REG_EXP, ':')
+    params = params.replace(OPT_PARAM_REG_EXP, '?:')
+    return `${lb[0]}(${params})${tail}`
+}
+
+export function isCommentLine(line: string) {
+    const lineTrim = line.trim()
+    return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
+}
+
+export function generateIndent(indents = 1, spaceForIndent = 4): string {
+    return ' '.repeat(indents * spaceForIndent)
+}
+
+// Get __dirname on ESM
+export const __filename = fileURLToPath(import.meta.url)
+export const __dirname = Path.dirname(__filename)
+
+export function getEnvironmentDir(environment: Environment, baseDir: string): string {
+    if (!baseDir.endsWith(environment))
+        if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
+            return Path.join(baseDir, 'Gjs')
         }
+    if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
+        return Path.join(baseDir, 'node-gtk')
     }
+    return baseDir
+}
 
-    /**
-     * Union (a ∪ b): create a set that contains the elements of both set a and set b.
-     * See https://2ality.com/2015/01/es6-set-operations.html#union
-     * @param target
-     * @param source
-     */
-    public static union<T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> {
-        return (target = new Set<T>([...target, ...source]))
+export function girBool(boolStr: string | undefined, defaultVal = false): boolean {
+    if (boolStr) {
+        if (parseInt(boolStr) === 0) return false
+        return true
     }
+    return defaultVal
+}
 
-    public static isEqual = lodash.isEqual
+/**
+ * Returns `true` if the definitions in `d1` and `d2` have equivalent signatures
+ * @param d1
+ * @param d2
+ */
+export function signaturesMatch(d1: string, d2: string) {
+    if (isCommentLine(d1) || isCommentLine(d2)) return false
+    return stripParamNames(d1) == stripParamNames(d2)
+}
 
-    public static map = lodash.map
-
-    public static find = lodash.find
-
-    public static merge = lodash.merge
+/**
+ * GirElements contains an attribute `introspectable`, which is a GirBoolean.
+ * If this is attribute is falsy the element is not introspectable,
+ * this means doesn't exist in the bindings, due in general to missing information in the annotations in the original C code
+ */
+export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) {
+    if (!girElement) {
+        return false
+    }
+    name = name || girElement?.$?.name
+    if (!name) {
+        return false
+    }
+    // Handle introspectable only if the attribute is also present...
+    if (girElement.$.hasOwnProperty('introspectable') && girElement.$.introspectable !== undefined) {
+        return girBool(girElement.$.introspectable, true)
+    }
+    // ...otherwise we assume that it is introspectable
+    return true
 }

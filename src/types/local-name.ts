@@ -1,6 +1,8 @@
-import { LocalNameType } from './local-name-type'
+import { LocalNameType, GirMethodElement, GirPropertyElement, GirFieldElement } from '.'
 
 export interface LocalName {
-    desc: string[]
     type: LocalNameType
+    method?: GirMethodElement
+    property?: GirPropertyElement
+    field?: GirFieldElement
 }

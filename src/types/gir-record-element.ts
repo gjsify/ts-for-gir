@@ -9,6 +9,8 @@ import {
     GirConstructorElement,
     GirPropertyElement,
     PartOfModule,
+    TsClass,
+    TypeClass,
 } from '.'
 
 export interface GirRecordElement extends PartOfModule, GirInfoElements {
@@ -41,4 +43,10 @@ export interface GirRecordElement extends PartOfModule, GirInfoElements {
     method?: GirMethodElement[]
     constructor?: GirConstructorElement[]
     property?: GirPropertyElement[]
+
+    // CUSTOM
+    _girType?: TypeClass
+    /** Will be exported in Typescript as a `class` */
+    _tsType?: 'class'
+    _tsData?: TsClass
 }

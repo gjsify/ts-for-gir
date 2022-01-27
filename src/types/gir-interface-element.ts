@@ -12,6 +12,8 @@ import {
     GirConstantElement,
     GirSignalElement,
     PartOfModule,
+    TsClass,
+    TypeClass,
 } from '.'
 
 export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
@@ -47,4 +49,10 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     'glib:signal'?: GirSignalElement[]
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
+
+    // CUSTOM
+    _girType?: TypeClass
+    /** Will be exported in Typescript as a `class` */
+    _tsType?: 'class'
+    _tsData?: TsClass
 }

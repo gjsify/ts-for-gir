@@ -1,6 +1,14 @@
-import { GirDocElement, GirInfoAttrs, GirCallableAttrs, GirCallableParams, GirCallableReturn } from '.'
+import {
+    GirDocElement,
+    GirInfoAttrs,
+    GirCallableAttrs,
+    GirCallableParams,
+    GirCallableReturn,
+    TsMethod,
+    PartOfClass,
+} from '.'
 
-export interface GirMethodElement extends GirDocElement {
+export interface GirMethodElement extends PartOfClass, GirDocElement {
     /** element defining a method from a class */
     $: GirInfoAttrs &
         GirCallableAttrs & {
@@ -12,4 +20,10 @@ export interface GirMethodElement extends GirDocElement {
 
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
+
+    // CUSTOM
+    _girType?: 'method'
+    /** Will be exported in Typescript as a `method` of a `class` */
+    _tsType?: 'method'
+    _tsData?: TsMethod
 }

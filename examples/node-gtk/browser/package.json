@@ -2,15 +2,16 @@
   "name": "node-ts-browser-example",
   "version": "0.0.1",
   "description": "",
-  "main": "main.ts",
+  "main": "dist/main.js",
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",
-    "build:types": "../../../lib/start.js generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node",
+    "build:types": "../../../lib/start.js generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node --moduleType esm --useNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",
-    "start": "npm run build && node dist/main.js",
+    "start": "npm run clear && npm run build && npm run start:node",
+    "start:node": "node dist/main.js",
     "watch": "npm run build:wp -- --watch",
     "lint": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,15 +22,16 @@
     "node": "^16"
   },
   "devDependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^17.0.12",
     "fork-ts-checker-webpack-plugin": "^6.5.0",
     "ts-loader": "^9.2.6",
-    "typescript": "^4.5.4",
-    "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1",
+    "typescript": "^4.5.5",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "node-gtk": "^0.10.0"
+    "node-gtk": "^0.10.0",
+    "util": "^0.12.4"
   }
 }

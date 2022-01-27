@@ -6,15 +6,16 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
-import { Utils } from './utils.js'
+import { merge, isEqual } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
+import { APP_NAME, APP_USAGE } from './constants.js'
 
 export class Config {
-    static appName = 'ts-for-gir'
+    static appName = APP_NAME
 
-    static usage = 'Typescript .d.ts generator from GIR for gjs or node-gtk'
+    static usage = APP_USAGE
 
     static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
 
@@ -26,16 +27,14 @@ export class Config {
         pretty: false,
         print: false,
         outdir: './@types',
-        girDirectories:
-            OS.platform() === 'darwin'
-                ? ['/usr/local/share/gir-1.0']
-                : ['/usr/share/gir-1.0', '/usr/share/gnome-shell', '/usr/lib64/mutter-9'],
+        girDirectories: OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
         verbose: true,
         ignoreConflicts: false,
-        exportDefault: false,
+        useNamespace: false,
         buildType: 'lib',
+        moduleType: 'commonjs',
         noComments: false,
     }
 
@@ -61,14 +60,14 @@ export class Config {
         outdir: {
             type: 'string',
             alias: 'o',
-            description: 'directory to output to',
+            description: 'Directory to output to',
             default: Config.defaults.outdir,
             normalize: true,
         } as Options,
         environments: {
             type: 'string',
             alias: 'e',
-            description: 'javascript environment',
+            description: 'Javascript environment',
             array: true,
             choices: ['gjs', 'node'],
             default: Config.defaults.environments,
@@ -77,7 +76,7 @@ export class Config {
         ignore: {
             type: 'string',
             alias: 'i',
-            description: 'modules that should be ignored',
+            description: 'Modules that should be ignored',
             array: true,
             default: Config.defaults.ignore,
             normalize: true,
@@ -85,15 +84,23 @@ export class Config {
         buildType: {
             type: 'string',
             alias: 'b',
-            description: 'definitions generation type',
+            description: 'Definitions generation type',
             array: false,
             choices: ['lib', 'types'],
             default: Config.defaults.buildType,
             normalize: true,
         } as Options,
+        moduleType: {
+            type: 'string',
+            alias: 't',
+            description: 'Specify what module code is generated.',
+            choices: ['esm', 'commonjs'],
+            default: Config.defaults.moduleType,
+            normalize: true,
+        } as Options,
         pretty: {
             type: 'boolean',
-            description: 'prettifies the generated .d.ts files',
+            description: 'Prettifies the generated .d.ts files',
             default: Config.defaults.pretty,
             normalize: true,
         } as Options,
@@ -113,20 +120,20 @@ export class Config {
         print: {
             type: 'boolean',
             alias: 'p',
-            description: 'print the output to console and create no files',
+            description: 'Print the output to console and create no files',
             default: Config.defaults.print,
             normalize: true,
         } as Options,
         configName: {
             type: 'string',
-            description: 'name of the config if you want to use a different name',
+            description: 'Name of the config if you want to use a different name',
             normalize: true,
         } as Options,
-        exportDefault: {
+        useNamespace: {
             type: 'boolean',
             alias: 'd',
-            description: 'Export all symbols for each module as a single entity using ES6 export default',
-            default: Config.defaults.exportDefault,
+            description: 'Export all symbols for each module as a namespace',
+            default: Config.defaults.useNamespace,
             normalize: true,
         } as Options,
         noComments: {
@@ -148,12 +155,13 @@ export class Config {
         environments: this.options.environments,
         ignore: this.options.ignore,
         buildType: this.options.buildType,
+        moduleType: this.options.moduleType,
         pretty: this.options.pretty,
         verbose: this.options.verbose,
         ignoreConflicts: this.options.ignoreConflicts,
         print: this.options.print,
         configName: this.options.configName,
-        exportDefault: this.options.exportDefault,
+        useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
     }
 
@@ -173,7 +181,7 @@ export class Config {
         const userConfig = await this.loadConfigFile()
         const path = userConfig?.filepath || this.configFilePath
         const configToStore = {}
-        Utils.merge(configToStore, userConfig?.config || {}, configsToAdd)
+        merge(configToStore, userConfig?.config || {}, configsToAdd)
         const fileExtension = Path.extname(path)
         let writeConfigString = ''
         switch (fileExtension) {
@@ -229,10 +237,29 @@ export class Config {
             pretty: config.pretty,
             verbose: config.verbose,
             buildType: config.buildType,
-            exportDefault: config.exportDefault,
+            moduleType: config.moduleType,
+            useNamespace: config.useNamespace,
             noComments: config.noComments,
         }
         return generateConfig
+    }
+
+    public static validate(options: UserConfig): UserConfig {
+        if (options.buildType === 'types') {
+            if (options.useNamespace !== true) {
+                Logger.warn('useNamespace must be "true" if buildType is "types"')
+                options.useNamespace = true
+            }
+        }
+
+        if (options.moduleType === 'esm') {
+            if (options.useNamespace !== true) {
+                Logger.warn('useNamespace must be "true" on moduleType "esm"')
+                options.useNamespace = true
+            }
+        }
+
+        return options
     }
 
     /**
@@ -247,6 +274,7 @@ export class Config {
         const config: UserConfig = {
             environments: options.environments,
             buildType: options.buildType,
+            moduleType: options.moduleType,
             verbose: options.verbose,
             ignoreConflicts: options.ignoreConflicts,
             pretty: options.pretty,
@@ -255,18 +283,22 @@ export class Config {
             girDirectories: options.girDirectories,
             ignore: options.ignore,
             modules: options.modules,
-            exportDefault: options.exportDefault,
+            useNamespace: options.useNamespace,
             noComments: options.noComments,
         }
 
         if (configFile) {
             // environments
-            if (Utils.isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
+            if (isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
                 config.environments = configFile.config.environments
             }
             // buildType
             if (configFile.config.buildType) {
                 config.buildType = configFile.config.buildType
+            }
+            // moduleType
+            if (configFile.config.moduleType) {
+                config.moduleType = configFile.config.moduleType
             }
             // verbose
             if (config.verbose === Config.options.verbose.default && typeof configFile.config.verbose === 'boolean') {
@@ -297,24 +329,24 @@ export class Config {
             }
             // ignore
             if (
-                (!config.ignore || config.ignore.length <= 0 || Utils.isEqual(config.ignore, Config.defaults.ignore)) &&
+                (!config.ignore || config.ignore.length <= 0 || isEqual(config.ignore, Config.defaults.ignore)) &&
                 configFile.config.ignore
             ) {
                 config.ignore = configFile.config.ignore
             }
             // modules
             if (
-                (config.modules.length <= 0 || Utils.isEqual(config.modules, Config.defaults.modules)) &&
+                (config.modules.length <= 0 || isEqual(config.modules, Config.defaults.modules)) &&
                 configFile.config.modules
             ) {
                 config.modules = configFile.config.modules
             }
-            // exportDefault
+            // useNamespace
             if (
-                config.exportDefault === Config.options.exportDefault.default &&
-                typeof configFile.config.exportDefault === 'boolean'
+                config.useNamespace === Config.options.useNamespace.default &&
+                typeof configFile.config.useNamespace === 'boolean'
             ) {
-                config.exportDefault = configFile.config.exportDefault
+                config.useNamespace = configFile.config.useNamespace
             }
             // noComments
             if (
@@ -325,6 +357,6 @@ export class Config {
             }
         }
 
-        return config
+        return this.validate(config)
     }
 }

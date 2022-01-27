@@ -1,11 +1,11 @@
 import { inspect } from 'util'
-import * as Gtk from './@types/node-gtk/Gtk-3.0'
-import * as Pango from './@types/node-gtk/Pango-1.0'
-import * as WebKit from './@types/node-gtk/WebKit2-4.0'
+import { Gtk } from './@types/node-gtk/Gtk-3.0'
+import { Pango } from './@types/node-gtk/Pango-1.0'
+import { WebKit2 } from './@types/node-gtk/WebKit2-4.0'
 
 // const Gtk = gi.require('Gtk', '3.0')
 // const Pango = gi.require('Pango', '1.0')
-// const WebKit = gi.require('WebKit2', '4.0')
+// const WebKit2 = gi.require('WebKit2', '4.0')
 
 function makeButton(label: string, callback: () => void): Gtk.Button {
     const but = new Gtk.Button({ label: label })
@@ -22,7 +22,7 @@ const wnd = new Gtk.Window()
 // TODO const wnd = new Gtk.Window({ title: 'Browser Test', defaultWidth: 800, defaultHeight: 600 })
 wnd.setDefaultSize(800, 600)
 wnd.setTitle('Browser Test')
-const webview = new WebKit.WebView({})
+const webview = new WebKit2.WebView({})
 const scrolledWindow = new Gtk.ScrolledWindow({})
 const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL })

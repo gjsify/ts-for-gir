@@ -1,4 +1,5 @@
 {
+  "deno.enable": false,
   "editor.tabSize": 4,
   "typescript.tsdk": "./node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
@@ -72,6 +73,7 @@
     "dbus",
     "Dbusmenu",
     "dcgettext",
+    "Descs",
     "DESERET",
     "detokenize",
     "dgettext",
@@ -82,9 +84,11 @@
     "ELBASAN",
     "ellipsize",
     "EMBOX",
+    "emitable",
     "emitv",
     "enumtype",
     "errorno",
+    "espree",
     "Farstream",
     "FBIG",
     "FCOE",

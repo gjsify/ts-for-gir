@@ -2,6 +2,7 @@
 - Refactor Ava test
 
 # v2.0.0
+- Fix config file loading, see #48
 - The browser example now uses ESM for Gjs and Node.js
 - Upgrade all dependencies to latest
 - [node-gtk] don't add $obj parameter in connect() method either, thanks to @peat-psuwit
@@ -37,7 +38,7 @@
 
 ## Breaking Changes
 - Node.js minimum version is now 16 for ESM support
-- The config files must now also be in ESM format, if they are not in json format:
+- The config files must also be in ESM format if you are inside a ESM Package, this is the case if `"type": "module"` is defined in your package.json. Alternatively, the file can be saved in json format, then it works in both cases.
 
 
 See PR [#44](https://github.com/sammydre/ts-for-gjs/pull/44)

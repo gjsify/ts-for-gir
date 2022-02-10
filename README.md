@@ -155,6 +155,7 @@ In addition to the option of passing options as a CLI flag, you can also write t
 To do that, create a new config file called `.ts-for-girrc.js` in your project root directory, like this:
 
 ```js
+// or on CommonJs: exports.default = {
 export default {
   pretty: false,
   print: false,
@@ -169,6 +170,8 @@ export default {
   moduleType: 'esm'
 }
 ```
+
+The javascript config files must also be in ESM format if you are inside a ESM Package, this is the case if `"type": "module"` is defined in your package.json. Alternatively, the file can be saved in json format, then it works in both cases.
 
 ### About the `--moduleType esm` option
 

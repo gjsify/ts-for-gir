@@ -518,7 +518,7 @@ export class Transformation {
      * @param description
      */
     private transformGirDocCodeBlocks(description: string) {
-        description = description.replaceAll(/\|\[<!-- language="C" -->/gm, '```c').replaceAll(/\]\|/gm, '```')
+        description = description.replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c').replaceAll(/\]\|/gm, '```\n')
         return description
     }
 

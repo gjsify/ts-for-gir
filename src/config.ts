@@ -43,7 +43,6 @@ export class Config {
      */
     static options = {
         modules: {
-            name: 'modules',
             description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
             array: true,
             default: Config.defaults.modules,

@@ -1,5 +1,8 @@
-## TODO
+# TODO
 - Refactor Ava test
+
+# Dev
+- Add initial support for TSDoc
 
 # v2.0.0
 - Fix config file loading, see #48

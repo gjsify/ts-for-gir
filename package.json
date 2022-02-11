@@ -9,7 +9,7 @@
     "node": "^16"
   },
   "scripts": {
-    "start": "node --loader ts-node/esm src/start.ts",
+    "start": "node --max_old_space_size=8192 --loader ts-node/esm src/start.ts",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "test": "npm run regress && npm run test:ava && npm run test:girs:all && npm run build && npm run build:examples:all && npm run start:cli-examples:all",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",

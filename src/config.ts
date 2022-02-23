@@ -43,7 +43,6 @@ export class Config {
      */
     static options = {
         modules: {
-            name: 'modules',
             description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
             array: true,
             default: Config.defaults.modules,
@@ -212,9 +211,16 @@ export class Config {
                 '.js': async (filepath) => {
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     const file = await import(filepath)
-                    if (file.default) {
+
+                    // Files with `exports.default = { ... }`
+                    if (file?.default?.default) {
+                        return file.default.default as Partial<UserConfig>
+                    }
+                    // Files with `export default { ... }`
+                    if (file?.default) {
                         return file.default as Partial<UserConfig>
                     }
+                    // Files with `export { ... }`
                     return file as Partial<UserConfig>
                 },
             },
@@ -293,11 +299,11 @@ export class Config {
                 config.environments = configFile.config.environments
             }
             // buildType
-            if (configFile.config.buildType) {
+            if (config.buildType === Config.options.buildType.default && configFile.config.buildType) {
                 config.buildType = configFile.config.buildType
             }
             // moduleType
-            if (configFile.config.moduleType) {
+            if (config.moduleType === Config.options.moduleType.default && configFile.config.moduleType) {
                 config.moduleType = configFile.config.moduleType
             }
             // verbose

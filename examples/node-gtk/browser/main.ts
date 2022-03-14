@@ -58,6 +58,7 @@ hbox.packStart(spinner, false, false, 5)
 
 wnd.on('delete-event', () => {
     Gtk.mainQuit()
+    return false
 })
 entry.on('activate', () => {
     let uri = entry.text

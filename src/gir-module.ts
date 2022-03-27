@@ -995,11 +995,11 @@ export class GirModule {
         construct = false,
         optional = true,
     ): TsProperty | undefined {
-        if (girBool((girProp as GirPropertyElement).$['construct-only']) && !construct) return undefined
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
 
-        const readonly = girBool(girProp.$.writable)
+        const readonly =
+            !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))
         girProp._girType = girType
 
         let tsData: TsProperty | TsVar | undefined

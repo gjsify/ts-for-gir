@@ -22,4 +22,6 @@ export interface GenerateConfig {
     useNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
+    /** Do not generate debugging inline comments */
+    noDebugComments: boolean
 }

@@ -100,7 +100,7 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 0,
     ) {
         const def: string[] = []
-        if (girProps.length) def.push(...this.addInlineComment(comment, indentCount))
+        if (girProps.length) def.push(...this.addInlineDebugComment(comment, indentCount))
         for (const girProp of girProps) {
             def.push(...this.generateProperty(girProp, namespace, indentCount))
         }
@@ -381,9 +381,9 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param indentCount
      * @returns
      */
-    private addInlineComment(comment?: string, indentCount = 0) {
+    private addInlineDebugComment(comment?: string, indentCount = 0) {
         const def: string[] = []
-        if (this.config.noComments) {
+        if (this.config.noDebugComments) {
             return def
         }
         const indent = generateIndent(indentCount)
@@ -396,7 +396,7 @@ export default class TypeDefinitionGenerator implements Generator {
     private mergeDescs(descs: string[], comment?: string, indentCount = 1) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
-        if (descs.length) def.push(...this.addInlineComment(comment, indentCount))
+        if (descs.length) def.push(...this.addInlineDebugComment(comment, indentCount))
 
         for (const desc of descs) {
             def.push(`${indent}${desc}`)
@@ -412,7 +412,7 @@ export default class TypeDefinitionGenerator implements Generator {
         comment?: string,
     ) {
         const def: string[] = []
-        if (girElements.length) def.push(...this.addInlineComment(comment, indentCount))
+        if (girElements.length) def.push(...this.addInlineDebugComment(comment, indentCount))
         for (const girElement of girElements) {
             def.push(...this.generateFunction(girElement, [], namespace, indentCount))
         }

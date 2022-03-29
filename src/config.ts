@@ -36,6 +36,7 @@ export class Config {
         buildType: 'lib',
         moduleType: 'commonjs',
         noComments: false,
+        noDebugComments: false,
     }
 
     /**
@@ -142,6 +143,13 @@ export class Config {
             default: Config.defaults.noComments,
             normalize: true,
         } as Options,
+        noDebugComments: {
+            type: 'boolean',
+            alias: 'n',
+            description: 'Do not generate debugging inline comments',
+            default: Config.defaults.noDebugComments,
+            normalize: true,
+        } as Options,
     }
 
     /**
@@ -162,6 +170,7 @@ export class Config {
         configName: this.options.configName,
         useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
+        noDebugComments: this.options.noDebugComments,
     }
 
     static listOptions = {
@@ -246,6 +255,7 @@ export class Config {
             moduleType: config.moduleType,
             useNamespace: config.useNamespace,
             noComments: config.noComments,
+            noDebugComments: config.noDebugComments,
         }
         return generateConfig
     }
@@ -291,6 +301,7 @@ export class Config {
             modules: options.modules,
             useNamespace: options.useNamespace,
             noComments: options.noComments,
+            noDebugComments: options.noDebugComments,
         }
 
         if (configFile) {
@@ -360,6 +371,13 @@ export class Config {
                 typeof configFile.config.noComments === 'boolean'
             ) {
                 config.noComments = configFile.config.noComments
+            }
+            // noDebugComments
+            if (
+                config.noDebugComments === Config.options.noDebugComments.default &&
+                typeof configFile.config.noDebugComments === 'boolean'
+            ) {
+                config.noDebugComments = configFile.config.noDebugComments
             }
         }
 

@@ -17,8 +17,6 @@ export class Config {
 
     static usage = APP_USAGE
 
-    static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
-
     /**
      * Default cli flag and argument values
      */
@@ -26,6 +24,7 @@ export class Config {
         environments: ['gjs', 'node'],
         pretty: false,
         print: false,
+        configName: '.ts-for-girrc.js',
         outdir: './@types',
         girDirectories: OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0'],
         modules: ['*'],
@@ -38,6 +37,8 @@ export class Config {
         noComments: false,
         noDebugComments: false,
     }
+
+    static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
 
     /**
      * CLI options used in commands/generate.ts and commands/list.ts
@@ -127,6 +128,7 @@ export class Config {
         configName: {
             type: 'string',
             description: 'Name of the config if you want to use a different name',
+            default: Config.defaults.configName,
             normalize: true,
         } as Options,
         useNamespace: {

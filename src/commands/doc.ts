@@ -9,6 +9,7 @@ import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
 import { ConfigFlags, GeneratorType } from '../types/index.js'
 import { Logger } from '../logger.js'
+import { ERROR_NO_MODULES_FOUND } from '../constants.js'
 
 const command = 'doc [modules..]'
 
@@ -41,9 +42,7 @@ const handler = async (args: any /* TODO */) => {
                 config.ignoreConflicts,
             )
             if (keep.length === 0) {
-                return Logger.error(
-                    'No module found!\nPlease make sure that you have installed the necessary gir files.\nFor example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu or "sudo dnf install gtk3-devel" on Fedora.',
-                )
+                return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
             }
             const tsForGir = new GenerationHandler(generateConfig, GeneratorType.HTML_DOC)
 

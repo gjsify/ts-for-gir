@@ -14,6 +14,9 @@ export const APP_SOURCE = 'https://github.com/sammydre/ts-for-gjs'
 // Error messages
 
 export const ERROR_NO_TSDATA = 'You need to set the tsData first!'
+export const ERROR_NO_MODULES_FOUND = (girDirectories: string[]) => `No module found in ${girDirectories.join(', ')}!
+Please make sure that you have installed the necessary gir files.
+For example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu or "sudo dnf install gtk3-devel" on Fedora.`
 
 // Warn messages
 

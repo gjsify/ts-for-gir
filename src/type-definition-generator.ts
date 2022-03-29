@@ -21,6 +21,7 @@ import type {
     GirVirtualMethodElement,
     GirBitfieldElement,
     GirInstanceParameter,
+    GirDocElement,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -40,18 +41,6 @@ export default class TypeDefinitionGenerator implements Generator {
     protected log: Logger
     constructor(protected readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, TypeDefinitionGenerator.name)
-    }
-
-    /**
-     * See https://github.com/microsoft/tsdoc
-     * @param description
-     */
-    private generateTSDocComment(description: string): string[] {
-        const def: string[] = []
-        def.push('/**')
-        def.push(` * ${description}`)
-        def.push(' */')
-        return def
     }
 
     /**
@@ -92,11 +81,16 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error('[generateProperty] Not all required properties set!')
         }
 
+        const desc: string[] = []
+
+        desc.push(...this.addGirDocComment(girProp, indentCount))
+
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(girProp, namespace, 0)
         const prefix = (girProp as GirPropertyElement)._tsData?.readonly ? 'readonly ' : ''
 
-        return `${indent}${prefix}${varDesc}`
+        desc.push(`${indent}${prefix}${varDesc}`)
+        return desc
     }
 
     private generateProperties(
@@ -106,9 +100,9 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 0,
     ) {
         const def: string[] = []
-        def.push(...this.addComment(girProps, comment, indentCount))
+        if (girProps.length) def.push(...this.addInlineDebugComment(comment, indentCount))
         for (const girProp of girProps) {
-            def.push(this.generateProperty(girProp, namespace, indentCount))
+            def.push(...this.generateProperty(girProp, namespace, indentCount))
         }
         return def
     }
@@ -245,6 +239,8 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
+        def.push(...this.addGirDocComment(girSignalFunc, indentCount))
+
         const { name: sigName, inParams, instanceParameters } = girSignalFunc._tsData
         const { name: className } = girClass._tsData
         const returnType = removeNamespace(girSignalFunc._tsData.returnType, namespace)
@@ -342,10 +338,69 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private addComment(elements: unknown[], comment?: string, indentCount = 0) {
+    /**
+     * Adds documentation comments
+     * @see https://github.com/microsoft/tsdoc
+     * @param lines
+     * @param indentCount
+     */
+    private addTSDocCommentLines(lines: string[], indentCount = 0): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
-        if (comment && elements.length > 0) {
+        def.push(`${indent}/**`)
+        for (const line of lines) {
+            def.push(`${indent} * ${line}`)
+        }
+        def.push(`${indent} */`)
+        return def
+    }
+
+    /**
+     * Adds the documentation as comments
+     * @see https://github.com/microsoft/tsdoc
+     * @param girDoc
+     * @param indentCount
+     * @returns
+     */
+    private addGirDocComment(girDoc: GirDocElement, indentCount = 0) {
+        const desc: string[] = []
+        const indent = generateIndent(indentCount)
+        if (this.config.noComments) {
+            return desc
+        }
+        if (girDoc._tsDoc?.text) {
+            const text = girDoc._tsDoc?.text
+            const lines = text.split('\n')
+            if (!lines.length) return desc
+            desc.push(`${indent}/**`)
+            for (const line of lines) {
+                desc.push(`${indent} * ${line}`)
+            }
+            for (const tag of girDoc._tsDoc.tags) {
+                if (tag.paramName) {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
+                } else {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.text}`)
+                }
+            }
+            desc.push(`${indent} */`)
+        }
+        return desc
+    }
+
+    /**
+     * Adds an inline comment, is used for debugging internally
+     * @param comment
+     * @param indentCount
+     * @returns
+     */
+    private addInlineDebugComment(comment?: string, indentCount = 0) {
+        const def: string[] = []
+        if (this.config.noDebugComments) {
+            return def
+        }
+        const indent = generateIndent(indentCount)
+        if (comment) {
             def.push(`${indent}/* ${comment} */`)
         }
         return def
@@ -354,7 +409,7 @@ export default class TypeDefinitionGenerator implements Generator {
     private mergeDescs(descs: string[], comment?: string, indentCount = 1) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
-        def.push(...this.addComment(descs, comment, indentCount))
+        if (descs.length) def.push(...this.addInlineDebugComment(comment, indentCount))
 
         for (const desc of descs) {
             def.push(`${indent}${desc}`)
@@ -370,7 +425,7 @@ export default class TypeDefinitionGenerator implements Generator {
         comment?: string,
     ) {
         const def: string[] = []
-        def.push(...this.addComment(girElements, comment, indentCount))
+        if (girElements.length) def.push(...this.addInlineDebugComment(comment, indentCount))
         for (const girElement of girElements) {
             def.push(...this.generateFunction(girElement, [], namespace, indentCount))
         }
@@ -385,6 +440,7 @@ export default class TypeDefinitionGenerator implements Generator {
         ) {
             throw new Error('[generateParameter] Not all required properties set!')
         }
+
         const type = removeNamespace(girParam._tsData.type, namespace)
         return [`${girParam._tsData.name}${girParam._tsData.optional ? '?' : ''}: ${type}`]
     }
@@ -476,6 +532,8 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
+        if ((girFunc as GirDocElement).doc) def.push(...this.addGirDocComment(girFunc as GirDocElement, indentCount))
+
         let { name } = girFunc._tsData
         const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._tsData
 
@@ -550,6 +608,8 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
+        def.push(...this.addGirDocComment(girCallback, indentCount))
+
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
 
@@ -578,14 +638,13 @@ export default class TypeDefinitionGenerator implements Generator {
             return desc
         }
 
+        desc.push(...this.addGirDocComment(girEnum, indentCount))
+
         const { name } = girEnum._tsData
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.member) {
             for (const girEnumMember of girEnum.member) {
-                const memberDescs = this.generateEnumerationMember(girEnumMember, indentCount + 1)
-                for (const memberDesc of memberDescs) {
-                    desc.push(`${memberDesc},`)
-                }
+                desc.push(...this.generateEnumerationMember(girEnumMember, indentCount + 1))
             }
         }
         desc.push('}')
@@ -603,25 +662,32 @@ export default class TypeDefinitionGenerator implements Generator {
             this.log.warn('[generateEnumerationMember] Not all required properties set!')
             return desc
         }
+
+        desc.push(...this.addGirDocComment(girEnumMember, indentCount))
+
         const indent = generateIndent(indentCount)
-        desc.push(`${indent}${girEnumMember._tsData.name}`)
+        desc.push(`${indent}${girEnumMember._tsData.name},`)
         return desc
     }
 
     private generateConstant(girConst: GirConstantElement, namespace: string, indentCount = 0) {
+        const desc: string[] = []
         if (!girElementIsIntrospectable(girConst)) {
-            return ''
+            return desc
         }
 
         if (!girConst._tsData) {
             this.log.warn('[generateConstant] Not all required properties set!')
-            return ''
+            return desc
         }
+
+        desc.push(...this.addGirDocComment(girConst, indentCount))
 
         const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
-        const desc = this.generateVariable(girConst, namespace, 0)
-        return `${indent}${exp}const ${desc}`
+        const varDesc = this.generateVariable(girConst, namespace, 0)
+        desc.push(`${indent}${exp}const ${varDesc}`)
+        return desc
     }
 
     private generateAlias(girAlias: GirAliasElement, namespace: string, indentCount = 0) {
@@ -1042,7 +1108,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const template = 'module.d.ts'
         const out: string[] = []
 
-        out.push(...this.generateTSDocComment(`${girModule.packageName}`))
+        out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
 
@@ -1089,7 +1155,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
             if (girModule.ns.constant)
                 for (const girConst of girModule.ns.constant)
-                    out.push(this.generateConstant(girConst, girModule.namespace, 0))
+                    out.push(...this.generateConstant(girConst, girModule.namespace, 0))
 
             if (girModule.ns.function)
                 for (const girFunc of girModule.ns.function)

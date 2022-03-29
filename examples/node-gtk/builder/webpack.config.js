@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: ['./main.ts'],
@@ -7,6 +8,10 @@ module.exports = {
     externals: [nodeExternals()],
     output: {
         filename: 'main.js',
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
     module: {
         rules: [
@@ -25,7 +30,7 @@ module.exports = {
             },
         ],
     },
-    mode: "development",
+    mode: "production",
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },

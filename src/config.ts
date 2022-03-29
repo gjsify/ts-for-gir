@@ -17,8 +17,6 @@ export class Config {
 
     static usage = APP_USAGE
 
-    static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
-
     /**
      * Default cli flag and argument values
      */
@@ -26,6 +24,7 @@ export class Config {
         environments: ['gjs', 'node'],
         pretty: false,
         print: false,
+        configName: '.ts-for-girrc.js',
         outdir: './@types',
         girDirectories: OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0'],
         modules: ['*'],
@@ -36,14 +35,16 @@ export class Config {
         buildType: 'lib',
         moduleType: 'commonjs',
         noComments: false,
+        noDebugComments: false,
     }
+
+    static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
 
     /**
      * CLI options used in commands/generate.ts and commands/list.ts
      */
     static options = {
         modules: {
-            name: 'modules',
             description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
             array: true,
             default: Config.defaults.modules,
@@ -127,6 +128,7 @@ export class Config {
         configName: {
             type: 'string',
             description: 'Name of the config if you want to use a different name',
+            default: Config.defaults.configName,
             normalize: true,
         } as Options,
         useNamespace: {
@@ -141,6 +143,13 @@ export class Config {
             alias: 'n',
             description: 'Do not generate documentation comments',
             default: Config.defaults.noComments,
+            normalize: true,
+        } as Options,
+        noDebugComments: {
+            type: 'boolean',
+            alias: 'n',
+            description: 'Do not generate debugging inline comments',
+            default: Config.defaults.noDebugComments,
             normalize: true,
         } as Options,
     }
@@ -163,6 +172,7 @@ export class Config {
         configName: this.options.configName,
         useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
+        noDebugComments: this.options.noDebugComments,
     }
 
     static listOptions = {
@@ -247,6 +257,7 @@ export class Config {
             moduleType: config.moduleType,
             useNamespace: config.useNamespace,
             noComments: config.noComments,
+            noDebugComments: config.noDebugComments,
         }
         return generateConfig
     }
@@ -292,6 +303,7 @@ export class Config {
             modules: options.modules,
             useNamespace: options.useNamespace,
             noComments: options.noComments,
+            noDebugComments: options.noDebugComments,
         }
 
         if (configFile) {
@@ -361,6 +373,13 @@ export class Config {
                 typeof configFile.config.noComments === 'boolean'
             ) {
                 config.noComments = configFile.config.noComments
+            }
+            // noDebugComments
+            if (
+                config.noDebugComments === Config.options.noDebugComments.default &&
+                typeof configFile.config.noDebugComments === 'boolean'
+            ) {
+                config.noDebugComments = configFile.config.noDebugComments
             }
         }
 

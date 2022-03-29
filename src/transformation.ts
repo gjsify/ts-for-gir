@@ -489,4 +489,49 @@ export class Transformation {
         }
         return name
     }
+
+    /**
+     * Replaces "@any_property" with "`any_property`"
+     * @param description E.g. "Creates a binding between @source_property on @source and @target_property on @target."
+     * @returns E.g. "Creates a binding between `source_property` on `source` and `target_property` on `target`."
+     */
+    private transformGirDocHighlights(description: string) {
+        const highlights = description.match(/@[A-Za-z_-]*[^\s.]/gm)
+        if (highlights) {
+            for (const highlight of highlights) {
+                description = description.replace(highlight, `\`${highlight.slice(1)}\``)
+            }
+        }
+        return description
+    }
+
+    /**
+     * Replaces:
+     * |[<!-- language="C" -->
+     *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
+     * ]|
+     *
+     * with
+     * ```c
+     *   g_object_notify_by_pspec (self, properties[PROP_FOO]);
+     * ```
+     *
+     * @param description
+     */
+    private transformGirDocCodeBlocks(description: string) {
+        description = description.replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c').replaceAll(/\]\|/gm, '```\n')
+        return description
+    }
+
+    /**
+     * Transforms the documentation description to markdown
+     * TODO: Transform references to link tags: https://tsdoc.org/pages/tags/link/
+     * @param description
+     * @returns
+     */
+    public transformGirDoc(description: string) {
+        description = this.transformGirDocHighlights(description)
+        description = this.transformGirDocCodeBlocks(description)
+        return description
+    }
 }

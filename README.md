@@ -17,6 +17,7 @@ git clone https://github.com/sammydre/ts-for-gjs
 cd ts-for-gjs
 git submodule update --init
 npm install
+npm run build
 npm link
 ```
 

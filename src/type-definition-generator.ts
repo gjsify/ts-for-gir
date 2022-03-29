@@ -87,7 +87,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(girProp, namespace, 0)
-        const prefix = (girProp as GirPropertyElement)._tsData?.readonly ? '' : 'readonly '
+        const prefix = (girProp as GirPropertyElement)._tsData?.readonly ? 'readonly ' : ''
 
         desc.push(`${indent}${prefix}${varDesc}`)
         return desc

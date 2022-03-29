@@ -74,6 +74,8 @@ import type {
     Environment,
 } from './types/index.js'
 
+import { ERROR_NO_TSDATA, WARN_ENUM_DUPLICATE_IDENTIFIER, WARN_CONSTANT_ALREADY_EXPORTED } from './constants.js'
+
 export class GirModule {
     /**
      * Array of all gir modules
@@ -1011,11 +1013,11 @@ export class GirModule {
         construct = false,
         optional = true,
     ): TsProperty | undefined {
-        if (girBool((girProp as GirPropertyElement).$['construct-only']) && !construct) return undefined
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
 
-        const readonly = girBool(girProp.$.writable)
+        const readonly =
+            !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))
         girProp._girType = girType
 
         let tsData: TsProperty | TsVar | undefined
@@ -1199,6 +1201,33 @@ export class GirModule {
         return tsData
     }
 
+    private fixEnumerationDuplicateIdentifier(girEnum: GirEnumElement | GirBitfieldElement) {
+        if (!girElementIsIntrospectable(girEnum)) return girEnum
+
+        if (!girEnum._tsData) {
+            throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+        }
+
+        if (!girEnum.member?.length) {
+            return girEnum
+        }
+
+        const memberNames: string[] = []
+
+        for (const girEnumMember of girEnum.member) {
+            if (!girEnumMember._tsData) {
+                throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+            }
+            if (memberNames.find((name) => name === girEnumMember._tsData?.name)) {
+                const renamed = '_' + girEnumMember._tsData.name
+                this.log.warn(WARN_ENUM_DUPLICATE_IDENTIFIER(girEnumMember._tsData.name, renamed))
+                girEnumMember._tsData.name = renamed
+            }
+            memberNames.push(girEnumMember._tsData.name)
+        }
+        return girEnum
+    }
+
     private getEnumerationMemberTsData(girEnumMember: GirMemberElement) {
         const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
         if (!girElementIsIntrospectable(girEnumMember, memberName)) return undefined
@@ -1243,7 +1272,7 @@ export class GirModule {
             if (!this.constNames[tsData.name]) {
                 this.constNames[tsData.name] = girConst
             } else {
-                this.log.warn(`The constant '${tsData.name}' has already been exported`)
+                this.log.warn(WARN_CONSTANT_ALREADY_EXPORTED(tsData.name))
                 tsData = undefined
             }
         }
@@ -2256,16 +2285,19 @@ export class GirModule {
     }
 
     private setModuleTsData() {
-        if (this.ns.enumeration)
+        if (this.ns.enumeration) {
             for (const girEnum of this.ns.enumeration) {
-                if (girEnum.member)
+                if (girEnum.member) {
                     for (const girEnumMember of girEnum.member) {
                         girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember)
                         girEnumMember._tsDoc = this.getTsDoc(girEnumMember)
                     }
+                }
                 girEnum._tsData = this.getEnumerationTsData(girEnum)
+                this.fixEnumerationDuplicateIdentifier(girEnum)
                 girEnum._tsDoc = this.getTsDoc(girEnum)
             }
+        }
 
         if (this.ns.bitfield)
             for (const girBitfield of this.ns.bitfield) {
@@ -2275,6 +2307,7 @@ export class GirModule {
                         girEnumMember._tsDoc = this.getTsDoc(girEnumMember)
                     }
                 girBitfield._tsData = this.getEnumerationTsData(girBitfield)
+                this.fixEnumerationDuplicateIdentifier(girBitfield)
                 girBitfield._tsDoc = this.getTsDoc(girBitfield)
             }
 

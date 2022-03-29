@@ -339,11 +339,12 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     /**
-     * Adds the documentation comment
+     * Adds documentation comments
      * @see https://github.com/microsoft/tsdoc
-     * @param description
+     * @param lines
+     * @param indentCount
      */
-    private addTSDocComment(lines: string[], indentCount = 0): string[] {
+    private addTSDocCommentLines(lines: string[], indentCount = 0): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         def.push(`${indent}/**`)
@@ -363,14 +364,26 @@ export default class TypeDefinitionGenerator implements Generator {
      */
     private addGirDocComment(girDoc: GirDocElement, indentCount = 0) {
         const desc: string[] = []
+        const indent = generateIndent(indentCount)
         if (this.config.noComments) {
             return desc
         }
-        if (girDoc._tsDoc?.description) {
-            const description = girDoc._tsDoc?.description
-            const lines = description.split('\n')
+        if (girDoc._tsDoc?.text) {
+            const text = girDoc._tsDoc?.text
+            const lines = text.split('\n')
             if (!lines.length) return desc
-            desc.push(...this.addTSDocComment(lines, indentCount))
+            desc.push(`${indent}/**`)
+            for (const line of lines) {
+                desc.push(`${indent} * ${line}`)
+            }
+            for (const tag of girDoc._tsDoc.tags) {
+                if (tag.paramName) {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
+                } else {
+                    desc.push(`${indent} * @${tag.tagName} ${tag.text}`)
+                }
+            }
+            desc.push(`${indent} */`)
         }
         return desc
     }
@@ -426,10 +439,6 @@ export default class TypeDefinitionGenerator implements Generator {
             typeof girParam._tsData.type !== 'string'
         ) {
             throw new Error('[generateParameter] Not all required properties set!')
-        }
-
-        if (!this.config.noComments && girParam.doc?.[0]?._) {
-            this.log.debug('TODO generate parameter doc: ', girParam.doc[0]._)
         }
 
         const type = removeNamespace(girParam._tsData.type, namespace)
@@ -1099,7 +1108,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const template = 'module.d.ts'
         const out: string[] = []
 
-        out.push(...this.addTSDocComment([girModule.packageName]))
+        out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
 

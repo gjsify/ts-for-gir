@@ -2,7 +2,9 @@
 - Refactor Ava test
 
 # Dev
-- Add initial support for TSDoc
+- Add initial support for TSDoc with text and `@param` tag support, see #49
+- Upgrade dependencies
+- Fix logic around property's readonly & construct-only, see #52
 
 # v2.0.0
 - Fix config file loading, see #48

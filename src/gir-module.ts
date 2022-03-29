@@ -42,6 +42,7 @@ import type {
     GirConstructorElement,
     GirDocElement,
     TsDoc,
+    TsDocTag,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -188,14 +189,37 @@ export class GirModule {
 
     private getTsDoc(girDoc: GirDocElement) {
         const tsDoc: TsDoc = {
-            description: '',
+            text: '',
+            tags: [],
         }
         if (girDoc.doc?.[0]?._) {
-            let description = girDoc.doc?.[0]?._ || ''
-            description = this.transformation.transformGirDoc(description)
-            tsDoc.description = description
+            let text = girDoc.doc?.[0]?._ || ''
+            text = this.transformation.transformGirDoc(text)
+            tsDoc.text = text
         }
         return tsDoc
+    }
+
+    private getTsDocInParamTags(inParams?: GirCallableParamElement[]): TsDocTag[] {
+        const tags: TsDocTag[] = []
+        if (!inParams?.length) {
+            return tags
+        }
+
+        for (const inParam of inParams) {
+            if (!inParam._tsDoc) {
+                inParam._tsDoc = this.getTsDoc(inParam)
+            }
+            if (inParam._tsDoc?.text && inParam._tsData?.name) {
+                tags.push({
+                    paramName: inParam._tsData.name,
+                    tagName: 'param',
+                    text: inParam._tsDoc.text,
+                })
+            }
+        }
+
+        return tags
     }
 
     private annotateFunctionArguments(
@@ -1418,6 +1442,8 @@ export class GirModule {
                 /* overrideReturnType */ null,
             )
             girMethod._tsDoc = this.getTsDoc(girMethod)
+            girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
+
             if (girMethod._tsData) {
                 girMethods.push(girMethod)
             }
@@ -1447,7 +1473,10 @@ export class GirModule {
                     /* isVirtual */ false,
                     /* overrideReturnType */ null,
                 )
+
                 girMethod._tsDoc = this.getTsDoc(girMethod)
+                girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
+
                 const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
                 if (localName?.added && localName.method) {
                     girMethods.push(localName.method)
@@ -1605,6 +1634,7 @@ export class GirModule {
                     null,
                 )
                 girVMethod._tsDoc = this.getTsDoc(girVMethod)
+                girVMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girVMethod._tsData?.inParams))
 
                 if (girVMethod?._tsData?.name) {
                     girMethods.push(girVMethod)
@@ -1639,6 +1669,8 @@ export class GirModule {
             for (const girSignal of signals) {
                 girSignal._tsData = this.getSignalFuncTsData(girSignal, girParentClass)
                 girSignal._tsDoc = this.getTsDoc(girSignal)
+                girSignal._tsDoc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
+
                 girSignals.push(girSignal)
             }
         }
@@ -2244,6 +2276,7 @@ export class GirModule {
                     null,
                 )
                 girFunction._tsDoc = this.getTsDoc(girFunction)
+                girFunction._tsDoc.tags.push(...this.getTsDocInParamTags(girFunction._tsData?.inParams))
 
                 if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
 

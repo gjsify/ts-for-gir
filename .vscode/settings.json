@@ -338,6 +338,7 @@
     "Toplevel",
     "TOPRIGHT",
     "TRANSCODING",
+    "TSDATA",
     "TXTBSY",
     "TXTBUSY",
     "Uchar",

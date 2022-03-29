@@ -72,6 +72,8 @@ import type {
     Environment,
 } from './types/index.js'
 
+import { ERROR_NO_TSDATA, WARN_ENUM_DUPLICATE_IDENTIFIER } from './constants.js'
+
 export class GirModule {
     /**
      * Array of all gir modules
@@ -1184,6 +1186,33 @@ export class GirModule {
         return tsData
     }
 
+    private fixEnumerationDuplicateIdentifier(girEnum: GirEnumElement | GirBitfieldElement) {
+        if (!girElementIsIntrospectable(girEnum)) return girEnum
+
+        if (!girEnum._tsData) {
+            throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+        }
+
+        if (!girEnum.member?.length) {
+            return girEnum
+        }
+
+        const memberNames: string[] = []
+
+        for (const girEnumMember of girEnum.member) {
+            if (!girEnumMember._tsData) {
+                throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+            }
+            if (memberNames.find((name) => name === girEnumMember._tsData?.name)) {
+                const renamed = '_' + girEnumMember._tsData.name
+                console.warn(WARN_ENUM_DUPLICATE_IDENTIFIER(girEnumMember._tsData.name, renamed))
+                girEnumMember._tsData.name = renamed
+            }
+            memberNames.push(girEnumMember._tsData.name)
+        }
+        return girEnum
+    }
+
     private getEnumerationMemberTsData(girEnumMember: GirMemberElement) {
         const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
         if (!girElementIsIntrospectable(girEnumMember, memberName)) return undefined
@@ -2229,14 +2258,17 @@ export class GirModule {
     }
 
     private setModuleTsData() {
-        if (this.ns.enumeration)
+        if (this.ns.enumeration) {
             for (const girEnum of this.ns.enumeration) {
-                if (girEnum.member)
+                if (girEnum.member) {
                     for (const girEnumMember of girEnum.member) {
                         girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember)
                     }
+                }
                 girEnum._tsData = this.getEnumerationTsData(girEnum)
+                this.fixEnumerationDuplicateIdentifier(girEnum)
             }
+        }
 
         if (this.ns.bitfield)
             for (const girBitfield of this.ns.bitfield) {
@@ -2245,6 +2277,7 @@ export class GirModule {
                         girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember)
                     }
                 girBitfield._tsData = this.getEnumerationTsData(girBitfield)
+                this.fixEnumerationDuplicateIdentifier(girBitfield)
             }
 
         if (this.ns.constant)

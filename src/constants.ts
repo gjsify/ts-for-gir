@@ -18,4 +18,7 @@ export const ERROR_NO_TSDATA = 'You need to set the tsData first!'
 // Warn messages
 
 export const WARN_ENUM_DUPLICATE_IDENTIFIER = (name: string, renamed: string) =>
-    `Enum has a duplicate identifier "${name}", renamed to "${renamed}"!`
+    `Enum has a duplicate identifier '${name}', renamed to '${renamed}'!`
+export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
+export const WARN_PROPERTY_RENAMED = (originalName: string, newName: string) =>
+    `Property name renamed from '${originalName}' to '${newName}'`

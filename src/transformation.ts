@@ -14,6 +14,7 @@ import {
 } from './types/index.js'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
+import { WARN_PROPERTY_RENAMED } from './constants.js'
 
 export const POD_TYPE_MAP_ARRAY = (): { guint8: string; gint8: string; gunichar: string } => {
     return {
@@ -138,6 +139,9 @@ export const FULL_TYPE_MAP = (
     const result = fullTypeMap[value as keyof typeof fullTypeMap]
     return result
 }
+
+/** The reserved variable names listed here cannot be resolved simply by quotation marks */
+export const RESERVED_QUOTE_VARIABLE_NAMES = ['constructor']
 
 export const RESERVED_VARIABLE_NAMES = [
     'in',
@@ -369,6 +373,17 @@ export class Transformation {
         return name
     }
 
+    public transformReservedVariableNames(name: string, allowQuotes: boolean) {
+        if (RESERVED_VARIABLE_NAMES.includes(name)) {
+            if (allowQuotes && !RESERVED_QUOTE_VARIABLE_NAMES.includes(name)) {
+                name = `"${name}"`
+            } else {
+                name = `${name}_`
+            }
+        }
+        return name
+    }
+
     /**
      * E.g. GstVideo-1.0 has a class `VideoScaler` with a method called `2d`
      * or NetworkManager-1.0 has methods starting with `80211`
@@ -377,15 +392,11 @@ export class Transformation {
         name = this.transform('propertyName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES.includes(name)) {
-            if (allowQuotes) name = `"${name}"`
-            else name = `${name}_`
-        }
-
+        name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
 
         if (originalName !== name) {
-            // this.log.warn(`Property name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_PROPERTY_RENAMED(originalName, name))
         }
         return name
     }
@@ -394,12 +405,9 @@ export class Transformation {
         name = this.transform('constantName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES.includes(name)) {
-            if (allowQuotes) name = `"${name}"`
-            else name = `${name}_`
-        }
-
+        name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
+
         if (originalName !== name) {
             this.log.warn(`Constant name renamed from '${originalName}' to '${name}'`)
         }
@@ -410,11 +418,7 @@ export class Transformation {
         name = this.transform('fieldName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES.includes(name)) {
-            if (allowQuotes) name = `"${name}"`
-            else name = `${name}_`
-        }
-
+        name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
             this.log.warn(`Field name renamed from '${originalName}' to '${name}'`)
@@ -430,11 +434,8 @@ export class Transformation {
         }
         name = this.transform('parameterName', name)
         const originalName = `${name}`
-        if (RESERVED_VARIABLE_NAMES.includes(name)) {
-            if (allowQuotes) name = `"${name}"`
-            else name = `${name}_`
-        }
 
+        name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
             this.log.warn(`[${param._fullSymName || ''}] Parameter name renamed from '${originalName}' to '${name}'`)

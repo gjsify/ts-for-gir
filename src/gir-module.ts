@@ -72,7 +72,7 @@ import type {
     Environment,
 } from './types/index.js'
 
-import { ERROR_NO_TSDATA, WARN_ENUM_DUPLICATE_IDENTIFIER } from './constants.js'
+import { ERROR_NO_TSDATA, WARN_ENUM_DUPLICATE_IDENTIFIER, WARN_CONSTANT_ALREADY_EXPORTED } from './constants.js'
 
 export class GirModule {
     /**
@@ -1205,7 +1205,7 @@ export class GirModule {
             }
             if (memberNames.find((name) => name === girEnumMember._tsData?.name)) {
                 const renamed = '_' + girEnumMember._tsData.name
-                console.warn(WARN_ENUM_DUPLICATE_IDENTIFIER(girEnumMember._tsData.name, renamed))
+                this.log.warn(WARN_ENUM_DUPLICATE_IDENTIFIER(girEnumMember._tsData.name, renamed))
                 girEnumMember._tsData.name = renamed
             }
             memberNames.push(girEnumMember._tsData.name)
@@ -1256,7 +1256,7 @@ export class GirModule {
             if (!this.constNames[tsData.name]) {
                 this.constNames[tsData.name] = girConst
             } else {
-                this.log.warn(`The constant '${tsData.name}' has already been exported`)
+                this.log.warn(WARN_CONSTANT_ALREADY_EXPORTED(tsData.name))
                 tsData = undefined
             }
         }

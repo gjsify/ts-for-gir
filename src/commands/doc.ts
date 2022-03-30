@@ -9,7 +9,7 @@ import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
 import { ConfigFlags, GeneratorType } from '../types/index.js'
 import { Logger } from '../logger.js'
-import { ERROR_NO_MODULES_FOUND } from '../constants.js'
+import { ERROR_NO_MODULES_FOUND } from '../messages.js'
 
 const command = 'doc [modules..]'
 

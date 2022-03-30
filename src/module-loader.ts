@@ -23,6 +23,7 @@ import { GirModule } from './gir-module.js'
 import { Config } from './config.js'
 import { Logger } from './logger.js'
 import { splitModuleName, union, isIterable, map, findFileInDirs } from './utils.js'
+import { WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE } from './messages.js'
 
 const bold = chalk.bold
 export class ModuleLoader {
@@ -346,8 +347,6 @@ export class ModuleLoader {
                 result[dep.packageName] = 1
                 this.traverseDependencies(dep.packageName, result)
             }
-        } else {
-            // this.log.warn('`deps` is not iterable: ', deps, packageName, modDependencyMap)
         }
     }
 
@@ -449,7 +448,7 @@ export class ModuleLoader {
                 const girModule = await this.loadAndCreateGirModule(packageName)
                 if (!girModule) {
                     if (!failedGirModules.has(packageName)) {
-                        this.log.warn(`No gir file found for '${packageName}', this module will be ignored`)
+                        this.log.warn(WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE(packageName))
                         failedGirModules.add(packageName)
                     }
                 } else if (girModule && girModule.packageName) {

@@ -1,5 +1,6 @@
 import type { SymTableItems, GenerateConfig, GirAnyElement } from './types/index.js'
 import { Logger } from './logger.js'
+import { WARN_NOT_FOUND_PACKAGE_NAME } from './messages.js'
 
 /**
  * The SymTable is used to get any Type from any dependency to compare or to get information from
@@ -41,7 +42,7 @@ export class SymTable {
         const namespace = split.slice(0, split.length - 1).join('.')
         const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
         if (!packageName) {
-            this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
+            this.log.warn(WARN_NOT_FOUND_PACKAGE_NAME(namespace, implementation))
             return null
         }
         return packageName + '.' + implementation

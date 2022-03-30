@@ -1,6 +1,18 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
 import {
+    NO_TSDATA,
+    WARN_NOT_FOUND_TYPE,
+    WARN_CONSTANT_ALREADY_EXPORTED,
+    WARN_DUPLICATE_SYMBOL,
+    WARN_DUPLICATE_PARAMETER,
+    WARN_DUPLICATE_ENUM_IDENTIFIER,
+    PATCH_FOR_PARAMETER,
+    PATCH_FOR_VARIABLE,
+    PATCH_FOR_METHOD,
+    PATCH_FOR_CONSTRUCTOR_PROPERTY,
+} from './messages.js'
+import {
     isEqual,
     find,
     clone,
@@ -74,8 +86,6 @@ import type {
     FunctionMap,
     Environment,
 } from './types/index.js'
-
-import { ERROR_NO_TSDATA, WARN_ENUM_DUPLICATE_IDENTIFIER, WARN_CONSTANT_ALREADY_EXPORTED } from './constants.js'
 
 export class GirModule {
     /**
@@ -461,7 +471,7 @@ export class GirModule {
                 girElement._module = this
                 girElement._fullSymName = `${this.namespace}.${girElement.$.name}`
                 if (this.symTable.get(this.allDependencies, girElement._fullSymName)) {
-                    this.log.warn(`Duplicate symbol: ${girElement._fullSymName}`)
+                    this.log.warn(WARN_DUPLICATE_SYMBOL(girElement._fullSymName))
                 }
 
                 this.symTable.set(this.allDependencies, girElement._fullSymName, girElement)
@@ -675,7 +685,7 @@ export class GirModule {
         if (!resValue) {
             resValue = 'any'
             const logName = cType || fullTypeName || girVar.$.name || ''
-            this.log.warn(`Could not find type for "${logName}"`)
+            this.log.warn(WARN_NOT_FOUND_TYPE(logName))
         }
 
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
@@ -827,7 +837,7 @@ export class GirModule {
         let paramName = this.transformation.transformParameterName(girParam, false)
 
         if (paramNames.includes(paramName)) {
-            this.log.warn(`[${girParam._fullSymName || ''}] Duplicate parameter name "${paramName}" found!`)
+            this.log.warn(WARN_DUPLICATE_PARAMETER(paramName, girParam._fullSymName))
             paramName += '_'
         }
         paramNames.push(paramName)
@@ -908,7 +918,7 @@ export class GirModule {
                             : undefined
 
                         if (paramPatches) {
-                            this.log.warn(`Patch found for parameter "${param._fullSymName || ''}"!`)
+                            this.log.warn(PATCH_FOR_PARAMETER(param._fullSymName))
                             param._tsData = merge(param._tsData, paramPatches)
                         }
 
@@ -999,7 +1009,7 @@ export class GirModule {
         const varPatches = girVar._fullSymName ? this.getPatches('methods', girVar._fullSymName) : undefined
 
         if (varPatches) {
-            this.log.warn(`Patch found for variable "${girVar._fullSymName || ''}"!`)
+            this.log.warn(PATCH_FOR_VARIABLE(girVar._fullSymName))
             tsData = merge(tsData, varPatches)
         }
 
@@ -1155,7 +1165,7 @@ export class GirModule {
         const methodPatches = girFunc._fullSymName ? this.getPatches('methods', girFunc._fullSymName) : undefined
 
         if (methodPatches) {
-            this.log.warn(`Patch found for method "${girFunc._fullSymName || ''}"!`)
+            this.log.warn(PATCH_FOR_METHOD(girFunc._fullSymName))
             tsData = merge(tsData, methodPatches)
         }
 
@@ -1229,7 +1239,7 @@ export class GirModule {
         if (!girElementIsIntrospectable(girEnum)) return girEnum
 
         if (!girEnum._tsData) {
-            throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+            throw new Error(NO_TSDATA('fixEnumerationDuplicateIdentifier'))
         }
 
         if (!girEnum.member?.length) {
@@ -1240,11 +1250,11 @@ export class GirModule {
 
         for (const girEnumMember of girEnum.member) {
             if (!girEnumMember._tsData) {
-                throw new Error('[fixEnumerationDuplicateIdentifier] ' + ERROR_NO_TSDATA)
+                throw new Error(NO_TSDATA('fixEnumerationDuplicateIdentifier'))
             }
             if (memberNames.find((name) => name === girEnumMember._tsData?.name)) {
                 const renamed = '_' + girEnumMember._tsData.name
-                this.log.warn(WARN_ENUM_DUPLICATE_IDENTIFIER(girEnumMember._tsData.name, renamed))
+                this.log.warn(WARN_DUPLICATE_ENUM_IDENTIFIER(girEnumMember._tsData.name, renamed))
                 girEnumMember._tsData.name = renamed
             }
             memberNames.push(girEnumMember._tsData.name)
@@ -1348,7 +1358,7 @@ export class GirModule {
                     : undefined
 
                 if (constructPropPatches) {
-                    this.log.warn(`Patch found for constructor property "${girConstrProp._fullSymName || ''}"!`)
+                    this.log.warn(PATCH_FOR_CONSTRUCTOR_PROPERTY(girConstrProp._fullSymName))
                     girConstrProp._tsData = merge(girConstrProp._tsData, constructPropPatches)
                     girConstrProp._tsDoc = this.getTsDoc(girConstrProp)
                 }
@@ -1492,7 +1502,7 @@ export class GirModule {
     ) {
         const girFields: GirFieldElement[] = []
         if (!girClass._tsData) {
-            this.log.warn('[setClassFieldsTsData] girClass._tsData not set!')
+            this.log.warn(NO_TSDATA('setClassFieldsTsData'))
             return girFields
         }
 
@@ -1658,7 +1668,7 @@ export class GirModule {
     ) {
         const girSignals: GirSignalElement[] = []
         if (!girParentClass._tsData) {
-            this.log.warn('girParentClass._tsData not set!')
+            this.log.warn(NO_TSDATA('getClassSignalsTsData'))
         }
 
         const signals: GirSignalElement[] =
@@ -1765,8 +1775,6 @@ export class GirModule {
         if (!girClass?.$?.name) return undefined
 
         if (girClass._tsData) {
-            // TODO: We need to overwrite the already defined girClass._tsData
-            // this.log.warn('girClass._tsData was already set')
             return girClass._tsData
         }
 
@@ -2011,7 +2019,6 @@ export class GirModule {
         const name = girElement._tsData?.name
 
         if (!name) {
-            // this.log.warn(`No name for ${desc}`)
             return null
         }
 

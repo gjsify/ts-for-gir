@@ -37,6 +37,14 @@ import {
     inspect,
 } from './utils.js'
 import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
+import {
+    PATCH_FOR_METHOD,
+    NO_TSDATA,
+    WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
+    WARN_IGNORE_MULTIPLE_CALLBACKS,
+    WARN_IGNORE_MULTIPLE_FUNC_DESC,
+} from './messages.js'
+
 export default class TypeDefinitionGenerator implements Generator {
     protected log: Logger
     constructor(protected readonly config: GenerateConfig) {
@@ -119,7 +127,7 @@ export default class TypeDefinitionGenerator implements Generator {
         if (!callbacks.length) return type
 
         if (callbacks.length > 1) {
-            this.log.warn('Multiple callbacks are ignored!')
+            this.log.warn(WARN_IGNORE_MULTIPLE_CALLBACKS)
         }
 
         const girCallback = callbacks[0]
@@ -128,7 +136,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (girCallback._tsData && funcDesc?.length) {
             if (funcDesc.length > 1) {
-                this.log.warn('Ignore multiline function description!', funcDesc)
+                this.log.warn(WARN_IGNORE_MULTIPLE_FUNC_DESC)
             }
             type = funcDesc[0]
         }
@@ -235,7 +243,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girSignalFunc._tsData || !girClass._tsData) {
-            this.log.warn('[generateSignal] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateSignal'))
             return def
         }
 
@@ -449,7 +457,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const desc: string[] = []
 
         if (!girParam._tsData) {
-            this.log.warn('[generateOutParameterReturn] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateOutParameterReturn'))
             return desc
         }
 
@@ -474,7 +482,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girFunc._tsData) {
-            this.log.warn('[generateFunctionReturn] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateFunctionReturn'))
             return 'any'
         }
 
@@ -526,9 +534,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girFunc._tsData) {
-            this.log.warn(
-                `[generateFunction] Not all required properties set for "${girFunc._fullSymName || girFunc.$.name}"!`,
-            )
+            this.log.warn(NO_TSDATA('generateFunction'))
             return def
         }
 
@@ -548,7 +554,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (methodPatches?.length) {
-            this.log.warn(`Patch found for method ${girFunc._fullSymName || name}`)
+            this.log.warn(PATCH_FOR_METHOD(girFunc._fullSymName || name))
             // Replace method by commend
             if (methodPatches.length === 1) {
                 def.push(...methodPatches.map((patch) => indent + patch))
@@ -604,7 +610,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girCallback._tsData || !girCallback._tsDataInterface) {
-            this.log.warn('[generateCallbackInterface] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateCallbackInterface'))
             return def
         }
 
@@ -634,7 +640,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girEnum._tsData) {
-            this.log.warn('[generateEnumeration] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateEnumeration'))
             return desc
         }
 
@@ -659,7 +665,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girEnumMember._tsData) {
-            this.log.warn('[generateEnumerationMember] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateEnumerationMember'))
             return desc
         }
 
@@ -677,7 +683,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girConst._tsData) {
-            this.log.warn('[generateConstant] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateConstant'))
             return desc
         }
 
@@ -698,7 +704,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (!girAlias._tsData) {
-            this.log.warn('[generateAlias] Not all required properties set!')
+            this.log.warn(NO_TSDATA('generateAlias'))
             return desc
         }
         const indent = generateIndent(indentCount)
@@ -718,7 +724,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateConstructPropsInterface] Not all required properties set!')
+            throw new Error(NO_TSDATA('generateConstructPropsInterface'))
         }
 
         if (!girClass._tsData.isDerivedFromGObject) {
@@ -1129,7 +1135,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     out.push(...this.generateModuleDependenciesImport(namespace, depPackageName, false))
                 } else {
                     out.push(`// WARN: Dependency not found: '${depPackageName}'`)
-                    this.log.warn(`Dependency gir file not found: '${girFilename}'`)
+                    this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(girFilename))
                 }
             }
         }

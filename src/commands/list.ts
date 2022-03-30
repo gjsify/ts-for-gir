@@ -5,10 +5,10 @@
 import { Argv } from 'yargs'
 
 import { ModuleLoader } from '../module-loader.js'
-import chalk from 'chalk'
 import { Config } from '../config.js'
 import { ResolveType, ConfigFlags } from '../types/index.js'
 import { Logger } from '../logger.js'
+import { ERROR_NO_MODULES_FOUND } from '../messages.js'
 
 const command = 'list [modules..]'
 
@@ -32,7 +32,7 @@ const handler = async (args: any /* TODO */) => {
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
     const moduleGroups = Object.values(grouped)
     if (Object.keys(grouped).length === 0) {
-        return Logger.error('No modules found in ' + config.girDirectories.join(', '))
+        return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
     }
 
     const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict)
@@ -45,36 +45,36 @@ const handler = async (args: any /* TODO */) => {
         (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
     )
 
-    Logger.log(chalk.blue('\nSelected Modules:'))
+    Logger.info('\nSelected Modules:')
     for (const moduleGroup of byHandModules) {
         for (const depModule of moduleGroup.modules) {
-            Logger.log(chalk.white(`- ${depModule.packageName}`))
+            Logger.white(`- ${depModule.packageName}`)
         }
     }
 
     if (depModules.length > 0) {
-        Logger.log(chalk.yellow('\nDependencies:'))
+        Logger.yellow('\nDependencies:')
         for (const moduleGroup of depModules) {
             for (const depModule of moduleGroup.modules) {
-                Logger.log(chalk.white(`- ${depModule.packageName}`))
+                Logger.white(`- ${depModule.packageName}`)
             }
         }
     }
 
     if (conflictModules.length > 0) {
-        Logger.log(chalk.red('\nConflicts:'))
+        Logger.danger('\nConflicts:')
         for (const moduleGroup of conflictModules) {
-            Logger.log(chalk.white(`- ${moduleGroup.namespace}`))
+            Logger.white(`- ${moduleGroup.namespace}`)
             for (const conflictModule of moduleGroup.modules) {
-                Logger.log(chalk.white(`  - ${conflictModule.packageName}`))
+                Logger.white(`  - ${conflictModule.packageName}`)
             }
         }
     }
 
     if (failed.length > 0) {
-        Logger.log(chalk.red('\nDependencies not found:'))
+        Logger.danger('\nDependencies not found:')
         for (const fail of failed) {
-            Logger.log(chalk.white(`- ${fail}`))
+            Logger.white(`- ${fail}`)
         }
     }
 }

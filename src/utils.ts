@@ -5,6 +5,7 @@ import fs from 'fs'
 import { fileURLToPath } from 'url'
 import { Environment, GirInfoAttrs } from './types/index.js'
 import { inspect } from 'util'
+import { Logger } from './logger.js'
 
 import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
 
@@ -124,7 +125,7 @@ export function stripParamNames(func: string, ignoreTail = false): string {
     const g = func
     func = func.replace(COMMENT_REG_EXP, '')
     const lb = func.split('(', 2)
-    if (lb.length < 2) console.error(`Bad function definition ${g}`)
+    if (lb.length < 2) Logger.error(`Bad function definition ${g}`)
     const rb = lb[1].split(')')
     const tail = ignoreTail ? '' : rb[rb.length - 1]
     let params = rb.slice(0, rb.length - 1).join(')')

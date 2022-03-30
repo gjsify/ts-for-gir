@@ -14,7 +14,15 @@ import {
 } from './types/index.js'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
-import { WARN_PROPERTY_RENAMED } from './constants.js'
+import {
+    WARN_RENAMED_PROPERTY,
+    WARN_RENAMED_CLASS,
+    WARN_RENAMED_CONSTANT,
+    WARN_RENAMED_FIELD,
+    WARN_RENAMED_FUNCTION,
+    WARN_RENAMED_ENUM,
+    WARN_RENAMED_PARAMETER,
+} from './messages.js'
 
 export const POD_TYPE_MAP_ARRAY = (): { guint8: string; gint8: string; gunichar: string } => {
     return {
@@ -323,7 +331,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`Class name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_CLASS(originalName, name))
         }
         return name
     }
@@ -345,7 +353,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${girEnum._fullSymName || ''}] Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_ENUM(originalName, name))
         }
         return name
     }
@@ -368,7 +376,7 @@ export class Transformation {
         }
 
         if (originalName !== name) {
-            this.log.warn(`Function name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_FUNCTION(originalName, name))
         }
         return name
     }
@@ -396,7 +404,7 @@ export class Transformation {
         name = this.transformNumericName(name, allowQuotes)
 
         if (originalName !== name) {
-            this.log.warn(WARN_PROPERTY_RENAMED(originalName, name))
+            this.log.warn(WARN_RENAMED_PROPERTY(originalName, name))
         }
         return name
     }
@@ -409,7 +417,7 @@ export class Transformation {
         name = this.transformNumericName(name, allowQuotes)
 
         if (originalName !== name) {
-            this.log.warn(`Constant name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_CONSTANT(originalName, name))
         }
         return name
     }
@@ -421,7 +429,7 @@ export class Transformation {
         name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`Field name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_FIELD(originalName, name))
         }
         return name
     }
@@ -438,7 +446,7 @@ export class Transformation {
         name = this.transformReservedVariableNames(name, allowQuotes)
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`[${param._fullSymName || ''}] Parameter name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(WARN_RENAMED_PARAMETER(originalName, name))
         }
         return name
     }

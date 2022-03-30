@@ -11,6 +11,7 @@ import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
 import type { GenerateConfig } from './types/index.js'
 import prettier from 'prettier'
 import { __dirname, getEnvironmentDir } from './utils.js'
+import { WARN_PRETTIFY_ERROR } from './messages.js'
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -124,7 +125,7 @@ export class TemplateProcessor {
         try {
             prettyCode = prettier.format(source, { parser })
         } catch (error) {
-            this.log.warn(`Can't prettify file: "${filepath}".`)
+            this.log.warn(WARN_PRETTIFY_ERROR(filepath))
             this.log.warn(error)
         }
 
@@ -146,7 +147,7 @@ export class TemplateProcessor {
 
         if (hasError) {
             if (!prettyCode) {
-                this.log.warn(`Can't prettify file: "${path}".`)
+                this.log.warn(WARN_PRETTIFY_ERROR(path))
             }
         } else {
             if (prettyCode && changeFile) {

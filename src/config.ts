@@ -11,6 +11,11 @@ import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, Genera
 import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
+import {
+    WARN_USE_NAMESPACE_ON_TYPES,
+    WARN_USE_NAMESPACE_ON_ESM,
+    ERROR_CONFIG_EXTENSION_UNSUPPORTED,
+} from './messages.js'
 
 export class Config {
     static appName = APP_NAME
@@ -202,7 +207,7 @@ export class Config {
                 writeConfigString = `${JSON.stringify(configToStore, null, 4)}`
                 break
             default:
-                Logger.error('Only configs with the extension .js and .json are currently supported. Do nothing')
+                Logger.error(ERROR_CONFIG_EXTENSION_UNSUPPORTED)
                 break
         }
         if (writeConfigString && path) {
@@ -265,14 +270,14 @@ export class Config {
     public static validate(options: UserConfig): UserConfig {
         if (options.buildType === 'types') {
             if (options.useNamespace !== true) {
-                Logger.warn('useNamespace must be "true" if buildType is "types"')
+                Logger.warn(WARN_USE_NAMESPACE_ON_TYPES)
                 options.useNamespace = true
             }
         }
 
         if (options.moduleType === 'esm') {
             if (options.useNamespace !== true) {
-                Logger.warn('useNamespace must be "true" on moduleType "esm"')
+                Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
                 options.useNamespace = true
             }
         }

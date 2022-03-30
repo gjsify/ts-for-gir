@@ -87,10 +87,10 @@ export class Logger {
         if (!this.verbose) {
             return
         }
-        console.log(chalk.green(...args))
+        this.log(chalk.green(...args))
     }
     public danger(...args: unknown[]): void {
-        console.log(chalk.red(...args))
+        this.log(chalk.red(...args))
     }
 
     // Static versions (Here it must be ensured that Verbose is activated)
@@ -120,9 +120,15 @@ export class Logger {
         return this.danger(args)
     }
     public static success(...args: unknown[]): void {
-        console.log(chalk.green(...args))
+        this.log(chalk.green(...args))
     }
     public static danger(...args: unknown[]): void {
-        console.log(chalk.red(...args))
+        this.log(chalk.red(...args))
+    }
+    public static white(...args: unknown[]): void {
+        this.log(chalk.white(...args))
+    }
+    public static yellow(...args: unknown[]): void {
+        this.log(chalk.yellow(...args))
     }
 }

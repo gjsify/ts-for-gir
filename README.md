@@ -298,6 +298,7 @@ sudo dnf update && sudo dnf install \
     libgda-devel \
     gobject-introspection-devel \
     gtk3-devel \
+    gtk4-devel \
     gtksourceview3-devel \
     libnotify-devel \
     libsoup-devel \

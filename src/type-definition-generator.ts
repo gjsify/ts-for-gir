@@ -223,7 +223,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
                 structFor = removeNamespace(structFor, namespace)
 
-                const returnTypes = [structFor, 'Function', `${gobject}Type`]
+                const returnTypes = [structFor, 'Function', `${gobject}GType`]
                 inParamsDef.push(`${name}: ${returnTypes.join(' | ')}`)
             }
         }
@@ -998,7 +998,7 @@ export default class TypeDefinitionGenerator implements Generator {
         def.push(...this.generateStaticFunctions(girClass, namespace, indentCount))
 
         if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
-            def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
+            def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType`)
         }
 
         return { def }
@@ -1200,8 +1200,6 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const girAlias of girModule.ns.alias)
                     if (girModule.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
                         out.push(...this.generateAlias(girAlias, girModule.namespace, 1))
-
-            if (girModule.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
         }
         // END Namespace
         if (this.config.useNamespace) {

@@ -139,10 +139,12 @@ export const FULL_TYPE_MAP = (
 
     const fullTypeMap = {
         'GObject.Value': 'any',
-        'GObject.Closure': 'Function',
+        'GObject.Closure': 'GObject.TClosure',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
-        GType: 'GObject.Type',
+        GType: 'GObject.GType',
+        'GObject.Type': 'GObject.GType',
+        Type: 'GType',
     }
 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]

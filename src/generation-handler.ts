@@ -6,6 +6,13 @@ import HTMLDocGenerator from './html-doc-generator.js'
 import { Logger } from './logger.js'
 import { getEnvironmentDir } from './utils.js'
 import { InheritanceTable, GenerateConfig, GirModulesGrouped, GeneratorType } from './types/index.js'
+import {
+    START_MODULE,
+    FILE_PARSING_DONE,
+    TSDATA_PARSING_DONE,
+    GENERATING_TYPES_DONE,
+    ERROR_NO_MODULE_SPECIFIED,
+} from './messages.js'
 
 export class GenerationHandler {
     log: Logger
@@ -39,26 +46,22 @@ export class GenerationHandler {
     }
 
     public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): Promise<void> {
-        this.log.info(
-            `Start to generate .d.ts files for '${this.config.environment}' as '${
-                this.config.buildType || 'unknown'
-            }'.`,
-        )
+        this.log.info(START_MODULE(this.config.environment, this.config.buildType))
 
         if (girModules.length == 0) {
-            this.log.error('Need to specify modules!')
+            this.log.error(ERROR_NO_MODULE_SPECIFIED)
         }
 
         GirModule.allGirModules = girModules
 
-        this.log.info('Files parsed, loading types...')
+        this.log.info(FILE_PARSING_DONE)
 
         const inheritanceTable: InheritanceTable = {}
         for (const girModule of girModules) girModule.init(inheritanceTable)
 
         this.finalizeInheritance(inheritanceTable)
 
-        this.log.info('Types loaded, generating .d.ts...')
+        this.log.info(TSDATA_PARSING_DONE)
 
         for (const girModule of girModules) {
             if (this.config.outdir) {
@@ -71,6 +74,6 @@ export class GenerationHandler {
 
         await this.generator.start(girModules, girModulesGrouped, inheritanceTable)
 
-        this.log.success('Done.')
+        this.log.success(GENERATING_TYPES_DONE)
     }
 }

@@ -157,7 +157,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         if (!girVar._tsData) {
             this.log.error('girVar', inspect(girVar))
-            throw new Error('[generateVariable] Not all required properties set!')
+            throw new Error(NO_TSDATA('generateVariable'))
         }
 
         const indent = generateIndent(indentCount)
@@ -446,7 +446,7 @@ export default class TypeDefinitionGenerator implements Generator {
             typeof girParam._tsData.optional !== 'boolean' ||
             typeof girParam._tsData.type !== 'string'
         ) {
-            throw new Error('[generateParameter] Not all required properties set!')
+            throw new Error(NO_TSDATA('generateParameter'))
         }
 
         const type = removeNamespace(girParam._tsData.type, namespace)
@@ -777,7 +777,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateClassFields] Not all required properties set!')
+            throw new Error(NO_TSDATA('generateClassFields'))
         }
 
         def.push(
@@ -805,7 +805,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateClassProperties] Not all required properties set!')
+            throw new Error(NO_TSDATA('generateClassProperties'))
         }
 
         def.push(
@@ -849,7 +849,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateClassMethods] Not all required methods set!')
+            throw new Error(NO_TSDATA('generateClassMethods'))
         }
 
         def.push(
@@ -898,7 +898,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData) {
-            throw new Error('[generateStaticFunctions] Not all required methods set!')
+            throw new Error(NO_TSDATA('generateStaticFunctions'))
         }
 
         def.push(
@@ -924,7 +924,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateStaticFunctions] Not all required methods set!')
+            throw new Error(NO_TSDATA('generateStaticFunctions'))
         }
 
         // Virtual methods currently not supported in node-gtk
@@ -964,7 +964,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         if (!girClass._tsData) {
-            throw new Error('[generateConstructorAndStaticFunctions] Not all required methods set!')
+            throw new Error(NO_TSDATA('generateConstructorAndStaticFunctions'))
         }
 
         // TODO: Generate a GirPropertyElement for this
@@ -1010,7 +1010,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error('[generateClassSignals] Not all required methods set!')
+            throw new Error(NO_TSDATA('generateClassSignals'))
         }
 
         const signalDescs = this.generateSignals(girClass._tsData.signals, girClass, namespace, 0)

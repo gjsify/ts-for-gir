@@ -1,3 +1,5 @@
+import type { Environment, BuildType } from './types/index.js'
+
 export const NO_TSDATA = (namespace?: string) => {
     let message = 'You need to set the tsData first!'
     if (namespace) message = `[${namespace}] ${message}`
@@ -11,6 +13,7 @@ Please make sure that you have installed the necessary gir files.
 For example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu or "sudo dnf install gtk3-devel" on Fedora.`
 export const ERROR_CONFIG_EXTENSION_UNSUPPORTED =
     'Only configs with the extension .js and .json are currently supported. Do nothing'
+export const ERROR_NO_MODULE_SPECIFIED = 'Need to specify modules!'
 
 // Warn messages
 
@@ -60,5 +63,11 @@ export const PATCH_FOR_METHOD = (name?: string) => `Patch found for method "${na
 export const PATCH_FOR_CONSTRUCTOR_PROPERTY = (name?: string) => `Patch found for constructor property "${name || ''}"!`
 
 // Info messages
+
 export const DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED =
     'The HtmlDocGenerator is currently not implemented. Do nothing...'
+export const START_MODULE = (environment: Environment, buildType?: BuildType) =>
+    `Start to generate .d.ts files for '${environment}' as '${buildType || 'unknown'}'.`
+export const FILE_PARSING_DONE = 'Files parsed, loading types...'
+export const TSDATA_PARSING_DONE = 'Typescript data loaded, generating .d.ts...'
+export const GENERATING_TYPES_DONE = 'Done.'

@@ -14,6 +14,7 @@ import {
 } from './types/index.js'
 import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
 import { Logger } from './logger.js'
+import { NEW_LINE_REG_EXP } from './constants.js'
 import {
     WARN_RENAMED_PROPERTY,
     WARN_RENAMED_CLASS,
@@ -532,14 +533,23 @@ export class Transformation {
     }
 
     /**
-     * Transforms the documentation description to markdown
+     * Transforms the documentation text to markdown
      * TODO: Transform references to link tags: https://tsdoc.org/pages/tags/link/
-     * @param description
+     * @param text
      * @returns
      */
-    public transformGirDoc(description: string) {
-        description = this.transformGirDocHighlights(description)
-        description = this.transformGirDocCodeBlocks(description)
-        return description
+    public transformGirDoc(text: string) {
+        text = this.transformGirDocHighlights(text)
+        text = this.transformGirDocCodeBlocks(text)
+        return text
+    }
+
+    /**
+     * Transforms the tsDoc tag <text> like `@param name <text>`
+     * @param text
+     * @returns
+     */
+    public transformGirDocTagText(text: string) {
+        return text.replace(NEW_LINE_REG_EXP, ' ')
     }
 }

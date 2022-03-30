@@ -220,11 +220,11 @@ export class GirModule {
             if (!inParam._tsDoc) {
                 inParam._tsDoc = this.getTsDoc(inParam)
             }
-            if (inParam._tsDoc?.text && inParam._tsData?.name) {
+            if (inParam._tsData?.name) {
                 tags.push({
                     paramName: inParam._tsData.name,
                     tagName: 'param',
-                    text: inParam._tsDoc.text,
+                    text: inParam._tsDoc.text ? this.transformation.transformGirDocTagText(inParam._tsDoc.text) : '',
                 })
             }
         }

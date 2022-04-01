@@ -330,17 +330,17 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         def.push(
-            `${indent}connect(sigName: string, callback: any): number`,
-            `${indent}connect_after(sigName: string, callback: any): number`,
+            `${indent}connect(sigName: string, callback: (...args: any[]) => void): number`,
+            `${indent}connect_after(sigName: string, callback: (...args: any[]) => void): number`,
             `${indent}emit(sigName: string, ...args: any[]): void`,
             `${indent}disconnect(id: number): void`,
         )
 
         if (environment === 'node') {
             def.push(
-                `${indent}on(sigName: string, callback: any): NodeJS.EventEmitter`,
-                `${indent}once(sigName: string, callback: any): NodeJS.EventEmitter`,
-                `${indent}off(sigName: string, callback: any): NodeJS.EventEmitter`,
+                `${indent}on(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+                `${indent}once(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
+                `${indent}off(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
         return def

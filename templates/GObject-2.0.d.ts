@@ -102,7 +102,7 @@ type SnakeToPascalCase<S extends string> = string extends S
 type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] };
 type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] };
 
-type Ctor = new (...a: any[]) => object;
+type Ctor<T extends object = any> = new (...a: any[]) => T;
 
 type Init = { _init(...args: any[]): void };
 
@@ -137,7 +137,7 @@ export function registerClass<
     }
 >(
     options: MetaInfo<Props, Interfaces, Sigs>,
-    klass: T
+    cls: T
 ): RegisteredClass<T, Props, Interfaces>;
 
-export function registerClass<P extends {}, T extends new (...args: any[]) => P>(cls: T): RegisteredClass<T, {}, []>;
+export function registerClass<P extends {}, T extends Ctor<P>>(cls: T): RegisteredClass<T, {}, []>;

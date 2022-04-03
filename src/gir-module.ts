@@ -783,7 +783,20 @@ export class GirModule {
             | GirPropertyElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
+        return a && (girBool(a.nullable) || girBool(a['allow-none']))
+    }
+
+    private paramIsOptional(
+        girVar:
+            | GirCallableParamElement
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirConstantElement
+            | GirPropertyElement,
+    ): boolean {
+        const a = (girVar as GirCallableParamElement).$
+        return a && (girBool(a.optional) || girBool(a['allow-none']))
     }
 
     private getPatches(
@@ -842,23 +855,28 @@ export class GirModule {
         }
         paramNames.push(paramName)
 
-        let optional = this.paramIsNullable(girParam)
+        let optional = this.paramIsOptional(girParam)
+        let nullable = this.paramIsNullable(girParam)
 
-        if (optional) {
+        if (optional || nullable) {
             const index = girParams.indexOf(girParam)
             const following = girParams
                 .slice(index)
                 .filter(() => skip.indexOf(girParam) === -1)
                 .filter((p) => p.$.direction !== 'out')
 
-            if (following.some((p) => !this.paramIsNullable(p))) {
+            if (following.some((p) => !this.paramIsOptional(p))) {
                 optional = false
+            }
+            if (following.some((p) => !this.paramIsNullable(p))) {
+                nullable = false
             }
         }
 
         const tsData: TsParameter = {
             name: paramName,
             optional,
+            nullable,
             type: paramType,
         }
 
@@ -941,6 +959,7 @@ export class GirModule {
         girType: 'property',
         tsType: 'field' | 'constructor-property',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirPropertyElement['_tsData']
 
@@ -949,6 +968,7 @@ export class GirModule {
         girType: 'constant',
         tsType: 'constant',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirConstantElement['_tsData']
 
@@ -957,6 +977,7 @@ export class GirModule {
         girType: 'field',
         tsType: 'field',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirFieldElement['_tsData']
 
@@ -964,7 +985,8 @@ export class GirModule {
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         girType: 'property' | 'constant' | 'field',
         tsType: 'constant' | 'field' | 'constructor-property',
-        optional = false,
+        optional?: boolean,
+        nullable?: boolean,
         allowQuotes = false,
     ) {
         if (!girVar.$.name) return undefined
@@ -975,6 +997,9 @@ export class GirModule {
             girBool((girVar as GirFieldElement).$.private)
         )
             return undefined
+
+        if (optional === undefined) optional = this.paramIsOptional(girVar)
+        if (nullable === undefined) nullable = this.paramIsNullable(girVar)
 
         girVar._girType = girType
         girVar._tsType = tsType
@@ -1001,6 +1026,7 @@ export class GirModule {
             name,
             patched: false,
             optional,
+            nullable,
             type: typeName,
             callbacks: girCallbacks,
         }
@@ -1022,6 +1048,7 @@ export class GirModule {
         tsType: 'field' | 'constructor-property',
         construct?: boolean,
         optional?: boolean,
+        nullable?: boolean,
         indentCount?: number,
     ): TsProperty | undefined
 
@@ -1031,24 +1058,33 @@ export class GirModule {
         tsType: 'field',
         construct?: boolean,
         optional?: boolean,
+        nullable?: boolean,
         indentCount?: number,
     ): TsProperty | undefined
 
     /**
-     * @param girVar
+     *
+     * @param girProp
+     * @param girType
+     * @param tsType
      * @param construct construct means include the property even if it's construct-only,
      * @param optional optional means if it's construct-only it will also be marked optional (?)
-     * @param indentCount
+     * @param nullable
+     * @returns
      */
     private getPropertyTsData(
         girProp: GirPropertyElement | GirFieldElement,
         girType: 'property' | 'field',
         tsType: 'constructor-property' | 'field',
         construct = false,
-        optional = true,
+        optional?: boolean,
+        nullable?: boolean,
     ): TsProperty | undefined {
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
+
+        if (optional === undefined) optional = this.paramIsOptional(girProp)
+        if (nullable === undefined) nullable = this.paramIsNullable(girProp)
 
         const readonly =
             !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))
@@ -1063,6 +1099,7 @@ export class GirModule {
                     girType,
                     tsType,
                     construct && optional,
+                    construct && nullable,
                     true,
                 )
                 break
@@ -1075,6 +1112,7 @@ export class GirModule {
                     girType,
                     tsType,
                     construct && optional,
+                    construct && nullable,
                     true,
                 )
                 break
@@ -1301,7 +1339,7 @@ export class GirModule {
 
     private getConstantTsData(girConst: GirConstantElement) {
         if (!girElementIsIntrospectable(girConst)) return undefined
-        let tsData: TsVar | undefined = this.getVariableTsData(girConst, 'constant', 'constant', false, false)
+        let tsData: TsVar | undefined = this.getVariableTsData(girConst, 'constant', 'constant', false, false, false)
         if (tsData?.name) {
             if (!this.constNames[tsData.name]) {
                 this.constNames[tsData.name] = girConst
@@ -1335,6 +1373,7 @@ export class GirModule {
                 girConstrProp,
                 'property',
                 'constructor-property',
+                true,
                 true,
                 true,
                 0,
@@ -1509,7 +1548,7 @@ export class GirModule {
         if (girClass.field) {
             for (const girField of girClass.field) {
                 if (!girElementIsIntrospectable(girField)) continue
-                girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false)
+                girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false, false)
                 girField._tsDoc = this.getTsDoc(girField)
                 if (!girField._tsData) {
                     continue

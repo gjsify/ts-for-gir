@@ -4,5 +4,6 @@
 export interface TsParameter {
     name: string
     optional: boolean
+    nullable: boolean
     type: string
 }

@@ -783,7 +783,15 @@ export class GirModule {
             | GirPropertyElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (girBool(a.nullable) || girBool(a['allow-none']))
+
+        if (!a) return false
+
+        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+        if (girBool(a.optional) || girBool(a.nullable)) {
+            return girBool(a.nullable)
+        } else {
+            return girBool(a.nullable) || girBool(a['allow-none'])
+        }
     }
 
     private paramIsOptional(
@@ -796,7 +804,14 @@ export class GirModule {
             | GirPropertyElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (girBool(a.optional) || girBool(a['allow-none']))
+        if (!a) return false
+
+        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+        if (girBool(a.optional) || girBool(a.nullable)) {
+            return girBool(a.optional)
+        } else {
+            return girBool(a.optional) || girBool(a['allow-none'])
+        }
     }
 
     private getPatches(

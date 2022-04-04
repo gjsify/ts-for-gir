@@ -24,15 +24,146 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     InternalChildren?: string[]
 }
 
-// The following are part of gi.ts
-// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
-// Copyright Evan Welsh
+export class Interface<T = unknown> {
+    static _classInit: (cls: any) => any;
+    __name__: string;
+    _construct: (params: any, ...otherArgs: any[]) => any;
+    _init: (params: any) => void;
+    $gtype?: GType<T>;
+}
+
+/**
+ * Use this to signify a function that must be overridden in an
+ * implementation of the interface.
+ */
+export class NotImplementedError extends Error {
+    get name(): 'NotImplementedError'
+}
+
+// Expose GObject static properties for ES6 classes
 
 export const GTypeName: unique symbol;
 export const requires: unique symbol;
 export const interfaces: unique symbol;
 export const properties: unique symbol;
 export const signals: unique symbol;
+
+// fake enum for signal accumulators, keep in sync with gi/object.c
+export enum AccumulatorType {
+    NONE=0,
+    FIRST_WINS=1,
+    TRUE_HANDLED=2,
+}
+
+// A simple workaround if you have a class with .connect, .disconnect or .emit
+// methods (such as Gio.Socket.connect or NMClient.Device.disconnect)
+// The original g_signal_* functions are not introspectable anyway, because
+// we need our own handling of signal argument marshalling
+export function signal_connect(object: Object, name: string, handler: (...args: any[]) => any): number
+export function signal_connect_after(object: Object, name: string, handler: (...args: any[]) => any): number
+export function signal_emit_by_name(object: Object, ...nameAndArgs: any[]): void
+
+/**
+ * Finds the first signal handler that matches certain selection criteria.
+ * The criteria are passed as properties of a match object.
+ * The match object has to be non-empty for successful matches.
+ * If no handler was found, a falsy value is returned.
+ *
+ * @param instance the instance owning the signal handler to be found.
+ * @param match a properties object indicating whether to match by signal ID, detail, or callback function.
+ * @param match.signalId signal the handler has to be connected to.
+ * @param match.detail signal detail the handler has to be connected to.
+ * @param match.func the callback function the handler will invoke.
+ * @returns A valid non-0 signal handler ID for a successful match.
+ */
+export function signal_handler_find(instance: Object, match: {signalId: string, detail: string, func: (...args: any[]) => any}): number | bigint | object | null
+
+/**
+ * Blocks all handlers on an instance that match certain selection criteria.
+ * The criteria are passed as properties of a match object.
+ * The match object has to have at least `func` for successful matches.
+ * If no handlers were found, 0 is returned, the number of blocked handlers
+ * otherwise.
+ *
+ * @param instance the instance owning the signal handler to be found.
+ * @param match a properties object indicating whether to match by signal ID, detail, or callback function.
+ * @param match.signalId signal the handler has to be connected to.
+ * @param match.detail signal detail the handler has to be connected to.
+ * @param match.func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_block_matched(instance: Object, match: {signalId: string, detail: string, func: (...args: any[]) => any}): number
+
+/**
+ * Disconnects all handlers on an instance that match certain selection
+ * criteria.
+ * The criteria are passed as properties of a match object.
+ * The match object has to have at least `func` for successful matches.
+ * If no handlers were found, 0 is returned, the number of disconnected
+ * handlers otherwise.
+ *
+ * @param instance the instance owning the signal handler
+ *   to be found.
+ * @param match a properties object indicating whether to match by signal ID, detail, or callback function.
+ * @param match.signalId signal the handler has to be connected to.
+ * @param match.detail signal detail the handler has to be connected to.
+ * @param match.func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_unblock_matched(instance: Object, match: {signalId: string, detail: string, func: (...args: any[]) => any}): number
+
+/**
+ * Disconnects all handlers on an instance that match certain selection
+ * criteria.
+ * The criteria are passed as properties of a match object.
+ * The match object has to have at least `func` for successful matches.
+ * If no handlers were found, 0 is returned, the number of disconnected
+ * handlers otherwise.
+ *
+ * @param instance the instance owning the signal handler
+ *   to be found.
+ * @param match a properties object indicating whether to match by signal ID, detail, or callback function.
+ * @param match.signalId signal the handler has to be connected to.
+ * @param match.detail signal detail the handler has to be connected to.
+ * @param match.func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_disconnect_matched(instance: Object, match: {signalId: string, detail: string, func: (...args: any[]) => any}): number
+
+// Also match the macros used in C APIs, even though they're not introspected
+
+/**
+ * Blocks all handlers on an instance that match `func`.
+ *
+ * @param instance the instance to block handlers from.
+ * @param func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_block_by_func(instance: Object, func: (...args: any[]) => any): number;
+
+/**
+ * Unblocks all handlers on an instance that match `func`.
+ *
+ * @function
+ * @param instance the instance to unblock handlers from.
+ * @param func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_unblock_by_func(instance: Object, func: (...args: any[]) => any): number;
+
+/**
+ * Disconnects all handlers on an instance that match `func`.
+ *
+ * @param instance the instance to remove handlers from.
+ * @param func the callback function the handler will invoke.
+ * @returns The number of handlers that matched.
+ */
+export function signal_handlers_disconnect_by_func(instance: Object, func: (...args: any[]) => any): number;
+export function signal_handlers_disconnect_by_data(): void;
+
+// The following are part of gi.ts
+// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
+// Copyright Evan Welsh
 
 export type Property<K extends ParamSpec> = K extends ParamSpecBoolean
     ? boolean
@@ -141,3 +272,4 @@ export function registerClass<
 ): RegisteredClass<T, Props, Interfaces>;
 
 export function registerClass<P extends {}, T extends Ctor<P>>(cls: T): RegisteredClass<T, {}, []>;
+

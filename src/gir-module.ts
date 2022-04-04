@@ -1,5 +1,6 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
+import { Injector } from './injector.js'
 import {
     NO_TSDATA,
     WARN_NOT_FOUND_TYPE,
@@ -131,7 +132,9 @@ export class GirModule {
      * Used to find namespaces that are used in other modules
      */
     symTable: SymTable
+
     transformation: Transformation
+    inject: Injector = new Injector()
     extends?: string
     log: Logger
 
@@ -1929,6 +1932,8 @@ export class GirModule {
             )
             girClass._tsData.implements[key].signals.push(...this.getClassSignalsTsData(iface, girClass))
         })
+
+        this.inject.toClass(girClass)
 
         girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 

@@ -25,7 +25,7 @@ export interface GirNamespace {
         'c:identifier-prefixes'?: string
         /** prefixes to filter out from C functions. For example, gtk_window_new will lose gtk_ */
         'c:symbol-prefixes'?: string
-        /** Deprecated: the same as c:identifier-prefixes. Only used for backward compatibility  */
+        /** @deprecated the same as c:identifier-prefixes. Only used for backward compatibility  */
         'c:prefix'?: string
         /** Path to the shared library implementing the namespace. It can be a comma-separated list, with relative path only */
         'shared-library'?: string

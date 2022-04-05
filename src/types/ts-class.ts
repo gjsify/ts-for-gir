@@ -11,6 +11,7 @@ import {
     GirVirtualMethodElement,
     GirSignalElement,
     GirRecordElement,
+    TsGenericParameter,
 } from '.'
 
 export interface TsClass {
@@ -53,6 +54,8 @@ export interface TsClass {
     staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
     /** Signals of the base class itself */
     signals: GirSignalElement[]
+    /** Generic type parameter of this class */
+    generics: TsGenericParameter[]
 
     extends: {
         /** module packageName + full system name of extended class */

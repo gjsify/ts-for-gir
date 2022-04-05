@@ -1215,6 +1215,7 @@ export class GirModule {
             inParams,
             instanceParameters,
             outParams,
+            generics: [],
         }
 
         // Apply patches
@@ -1286,6 +1287,7 @@ export class GirModule {
             inParams,
             instanceParameters,
             outParams,
+            generics: [],
         }
 
         return tsData
@@ -1813,6 +1815,7 @@ export class GirModule {
             constructors: [],
             staticFunctions: [],
             signals: [],
+            generics: [],
             extends: {},
             implements: {},
         }

@@ -14,11 +14,14 @@ import type {
     TsMethod,
     TsParameter,
     TsInstanceParameter,
+    TsGenericParameter,
     InjectionFunction,
     InjectionInstanceParameter,
+    InjectionGenericParameter,
 } from './types/index.js'
 
 import { classes } from './injections/index.js'
+import { GENERIC_NAMES } from './constants.js'
 
 /**
  * Inject additional methods, properties, etc
@@ -47,7 +50,23 @@ export class Injector {
             if (toClass.propertyNames) {
                 girClass._tsData.propertyNames.push(...toClass.propertyNames)
             }
+            if (toClass.generics) {
+                girClass._tsData.generics.push(...this.newGenerics(toClass.generics))
+            }
         }
+    }
+
+    newGenerics(generics: InjectionGenericParameter[]) {
+        const tsGenerics: TsGenericParameter[] = []
+        for (let i = 0; i < generics.length; i++) {
+            const generic = generics[i]
+            const tsGeneric: TsGenericParameter = {
+                name: generic.name || GENERIC_NAMES[i],
+                ...generic,
+            }
+            tsGenerics.push(tsGeneric)
+        }
+        return tsGenerics
     }
 
     newFunctions(functions: InjectionFunction[]) {

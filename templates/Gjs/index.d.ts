@@ -19,6 +19,19 @@ declare global {
     function printerr(...args: any[]): void
     function log(message?: string): void
     function logError(exception: any, message?: string): void
+
+    interface BooleanConstructor {
+        $gtype: GObject20.GType<boolean>;
+    }
+
+    interface NumberConstructor {
+        $gtype: GObject20.GType<number>;
+    }
+
+    interface StringConstructor {
+        $gtype: GObject20.GType<string>;
+    }
+
     const ARGV: string[]
 
     // Timers

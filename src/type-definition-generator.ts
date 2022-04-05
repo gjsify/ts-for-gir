@@ -22,6 +22,7 @@ import type {
     GirBitfieldElement,
     GirInstanceParameter,
     GirDocElement,
+    TsGenericParameter,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -451,6 +452,26 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const type = removeNamespace(girParam._tsData.type, namespace)
         return [`${girParam._tsData.name}${girParam._tsData.optional ? '?' : ''}: ${type}`]
+    }
+
+    private generateGenericParameters(tsGenerics: TsGenericParameter[]) {
+        const desc: string[] = []
+        if (!tsGenerics.length) {
+            return ''
+        }
+
+        for (const tsGeneric of tsGenerics) {
+            let genericStr = `${tsGeneric.name}`
+            if (tsGeneric.extends) {
+                genericStr += ` extends ${tsGeneric.extends}`
+            }
+            if (tsGeneric.default) {
+                genericStr += ` = ${tsGeneric.default}`
+            }
+            desc.push(genericStr)
+        }
+
+        return `<${desc.join(', ')}>`
     }
 
     private generateOutParameterReturn(girParam: GirCallableParamElement, namespace: string) {
@@ -1062,12 +1083,15 @@ export default class TypeDefinitionGenerator implements Generator {
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, namespace))
 
+        const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
+        const classHead = `${girClass._tsData.name}${genericParameters}`
+
         // START CLASS
         {
             if (girClass._tsData.isAbstract) {
-                def.push(this.generateExport('abstract class', girClass._tsData.name, '{'))
+                def.push(this.generateExport('abstract class', classHead, '{'))
             } else {
-                def.push(this.generateExport('class', girClass._tsData.name, '{'))
+                def.push(this.generateExport('class', classHead, '{'))
             }
 
             // START BODY

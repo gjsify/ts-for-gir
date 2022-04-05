@@ -616,4 +616,13 @@ export const classes: InjectionClass[] = [
             },
         ],
     },
+    {
+        qualifiedName: 'Gio.ListStore',
+        generics: [
+            {
+                extends: 'GObject.Object',
+                default: 'GObject.Object',
+            },
+        ],
+    },
 ]

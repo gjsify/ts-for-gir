@@ -1,4 +1,4 @@
-import type { InjectionFunction } from './index.js'
+import type { InjectionFunction, InjectionGenericParameter } from './index.js'
 
 /** Interface to inject additional methods, properties, etc to a class */
 export interface InjectionClass {
@@ -22,4 +22,6 @@ export interface InjectionClass {
     staticFunctions?: InjectionFunction[]
     /** Signals of the base class itself */
     // TODO:signals: InjectionSignal[]
+    /** Generic type parameters */
+    generics?: InjectionGenericParameter[]
 }

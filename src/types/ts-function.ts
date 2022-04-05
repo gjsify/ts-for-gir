@@ -5,6 +5,7 @@ import {
     GirFunctionElement,
     GirVirtualMethodElement,
     GirMethodElement,
+    TsGenericParameter,
 } from '.'
 
 /**
@@ -27,5 +28,6 @@ export interface TsFunction {
     inParams: GirCallableParamElement[]
     instanceParameters: GirInstanceParameter[]
     outParams: GirCallableParamElement[]
+    generics: TsGenericParameter[]
     overloads: Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
 }

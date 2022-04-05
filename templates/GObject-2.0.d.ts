@@ -62,20 +62,6 @@ export let Double: NumberConstructor;
 export let TYPE_STRING: GType<string>;
 export let String: StringConstructor;
 
-declare global {
-    interface BooleanConstructor {
-        $gtype: GType<boolean>;
-    }
-
-    interface NumberConstructor {
-        $gtype: GType<number>;
-    }
-
-    interface StringConstructor {
-        $gtype: GType<string>;
-    }
-}
-
 export let TYPE_NONE: GType<undefined>;
 export let TYPE_POINTER: GType<undefined>;
 export let TYPE_BOXED: GType<unknown>;

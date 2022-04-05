@@ -6,6 +6,7 @@ import {
     GirVirtualMethodElement,
     GirMethodElement,
     TsGenericParameter,
+    TsType,
 } from '.'
 
 /**
@@ -13,7 +14,7 @@ import {
  */
 export interface TsFunction {
     name: string
-    returnType: string
+    returnType: TsType
     /** true if this function is a arrow function: `() => {}` */
     isArrowType: boolean
     /** c `static foobar() {}` */

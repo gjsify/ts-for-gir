@@ -8,352 +8,352 @@ export const classes: InjectionClass[] = [
             // static char(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecChar
             {
                 name: 'char',
-                returnType: 'ParamSpecChar',
+                returnType: { type: 'ParamSpecChar' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static uchar(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUChar
             {
                 name: 'uchar',
-                returnType: 'ParamSpecUChar',
+                returnType: { type: 'ParamSpecUChar' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static int(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt
             {
                 name: 'int',
-                returnType: 'ParamSpecInt',
+                returnType: { type: 'ParamSpecInt' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static uint(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt
             {
                 name: 'uint',
-                returnType: 'ParamSpecUInt',
+                returnType: { type: 'ParamSpecUInt' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static long(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecLong
             {
                 name: 'long',
-                returnType: 'ParamSpecLong',
+                returnType: { type: 'ParamSpecLong' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static ulong(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecULong
             {
                 name: 'ulong',
-                returnType: 'ParamSpecULong',
+                returnType: { type: 'ParamSpecULong' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static int64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt64
             {
                 name: 'int64',
-                returnType: 'ParamSpecInt64',
+                returnType: { type: 'ParamSpecInt64' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static uint64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt64
             {
                 name: 'uint64',
-                returnType: 'ParamSpecUInt64',
+                returnType: { type: 'ParamSpecUInt64' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static float(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecFloat
             {
                 name: 'float',
-                returnType: 'ParamSpecFloat',
+                returnType: { type: 'ParamSpecFloat' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static boolean(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: boolean): ParamSpecBoolean
             {
                 name: 'boolean',
-                returnType: 'ParamSpecBoolean',
+                returnType: { type: 'ParamSpecBoolean' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'boolean',
+                        type: { type: 'boolean' },
                     },
                 ],
             },
@@ -361,256 +361,256 @@ export const classes: InjectionClass[] = [
             // static flags<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, flagsType: GType<T>, defaultValue: number): ParamSpecFlags
             {
                 name: 'flags',
-                returnType: 'ParamSpecFlags',
+                returnType: { type: 'ParamSpecFlags' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'flagsType',
-                        type: 'GType<unknown>',
+                        type: { type: 'GType<unknown>' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'boolean',
+                        type: { type: 'boolean' },
                     },
                 ],
             },
             // static enum<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, enumType: GType<T>, defaultValue: number): ParamSpecEnum
             {
                 name: 'enum',
-                returnType: 'ParamSpecEnum',
+                returnType: { type: 'ParamSpecEnum' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'enumType',
-                        type: 'GType<unknown>',
+                        type: { type: 'GType<unknown>' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'boolean',
+                        type: { type: 'boolean' },
                     },
                 ],
             },
             // static double(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecDouble
             {
                 name: 'double',
-                returnType: 'ParamSpecDouble',
+                returnType: { type: 'ParamSpecDouble' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'minimum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'maximum',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                 ],
             },
             // static string(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: string | null): ParamSpecString
             {
                 name: 'string',
-                returnType: 'ParamSpecString',
+                returnType: { type: 'ParamSpecString' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'defaultValue',
-                        type: 'string | null',
+                        type: { type: 'string | null' },
                     },
                 ],
             },
             // static boxed<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, boxedType: GType<T>): ParamSpecBoxed
             {
                 name: 'boxed',
-                returnType: 'ParamSpecBoxed',
+                returnType: { type: 'ParamSpecBoxed' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'boxedType',
-                        type: 'GType<unknown>',
+                        type: { type: 'GType<unknown>' },
                     },
                 ],
             },
             // static object<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, objectType: GType<T>): ParamSpecObject
             {
                 name: 'object',
-                returnType: 'ParamSpecObject',
+                returnType: { type: 'ParamSpecObject' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'objectType',
-                        type: 'GType<unknown>',
+                        type: { type: 'GType<unknown>' },
                     },
                 ],
             },
             // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
             {
                 name: 'jsobject',
-                returnType: 'ParamSpecBoxed',
+                returnType: { type: 'ParamSpecBoxed' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                 ],
             },
             // static param<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, paramType: GType<T>): ParamSpecParam
             {
                 name: 'param',
-                returnType: 'ParamSpecParam',
+                returnType: { type: 'ParamSpecParam' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'nick',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'blurb',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                     {
                         name: 'flags',
-                        type: 'ParamFlags',
+                        type: { type: 'ParamFlags' },
                     },
                     {
                         name: 'paramType',
-                        type: 'GType<unknown>',
+                        type: { type: 'GType<unknown>' },
                     },
                 ],
             },
             // static override(oclass: Object | Function | GType, property_id: number, name: string): void
             {
                 name: 'override',
-                returnType: 'void',
+                returnType: { type: 'void' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'oclass',
-                        type: 'Object | Function | GType',
+                        type: { type: 'Object | Function | GType' },
                     },
                     {
                         name: 'property_id',
-                        type: 'number',
+                        type: { type: 'number' },
                     },
                     {
                         name: 'name',
-                        type: 'string',
+                        type: { type: 'string' },
                     },
                 ],
             },

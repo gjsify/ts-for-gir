@@ -1,32 +1,14 @@
-import type {
-    GirClassElement,
-    GirRecordElement,
-    GirUnionElement,
-    GirInterfaceElement,
-    GirFunctionElement,
-    GirDocElement,
-    GirVirtualMethodElement,
-    GirCallableParamElement,
-    GirConstructorElement,
-    GirMethodElement,
-    GirInstanceParameter,
-    TsFunction,
-    TsMethod,
-    TsParameter,
-    TsInstanceParameter,
-    TsGenericParameter,
-    InjectionFunction,
-    InjectionInstanceParameter,
-    InjectionGenericParameter,
-} from './types/index.js'
+import type { GirClassElement, GirRecordElement, GirUnionElement, GirInterfaceElement } from './types/index.js'
 
 import { classes } from './injections/index.js'
-import { GENERIC_NAMES } from './constants.js'
+import { GirFactory } from './gir-factory.js'
 
 /**
  * Inject additional methods, properties, etc
  */
 export class Injector {
+    girFactory = new GirFactory()
+
     /** Inject additional methods, properties, etc to a existing class */
     toClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) {
@@ -36,151 +18,23 @@ export class Injector {
         const toClass = classes.find((cls) => cls.qualifiedName === girClass._tsData?.qualifiedName)
         if (toClass) {
             if (toClass.staticFunctions) {
-                girClass._tsData.staticFunctions.push(...this.newFunctions(toClass.staticFunctions))
+                girClass._tsData.staticFunctions.push(...this.girFactory.newFunctions(toClass.staticFunctions))
             }
             if (toClass.constructors) {
-                girClass._tsData.constructors.push(...this.newFunctions(toClass.constructors))
+                girClass._tsData.constructors.push(...this.girFactory.newFunctions(toClass.constructors))
             }
             if (toClass.methods) {
-                girClass._tsData.methods.push(...this.newFunctions(toClass.methods))
+                girClass._tsData.methods.push(...this.girFactory.newFunctions(toClass.methods))
             }
             if (toClass.virtualMethods) {
-                girClass._tsData.virtualMethods.push(...this.newFunctions(toClass.virtualMethods))
+                girClass._tsData.virtualMethods.push(...this.girFactory.newFunctions(toClass.virtualMethods))
             }
             if (toClass.propertyNames) {
                 girClass._tsData.propertyNames.push(...toClass.propertyNames)
             }
             if (toClass.generics) {
-                girClass._tsData.generics.push(...this.newGenerics(toClass.generics))
+                girClass._tsData.generics.push(...this.girFactory.newGenerics(toClass.generics))
             }
-        }
-    }
-
-    newGenerics(generics: InjectionGenericParameter[]) {
-        const tsGenerics: TsGenericParameter[] = []
-        for (let i = 0; i < generics.length; i++) {
-            const generic = generics[i]
-            const tsGeneric: TsGenericParameter = {
-                name: generic.name || GENERIC_NAMES[i],
-                ...generic,
-            }
-            tsGenerics.push(tsGeneric)
-        }
-        return tsGenerics
-    }
-
-    newFunctions(functions: InjectionFunction[]) {
-        const girFunctionElements: Array<
-            GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement
-        > = []
-        for (const injectFunction of functions) {
-            const inParams: GirCallableParamElement[] = []
-            if (injectFunction.inParams?.length) {
-                for (const inParam of injectFunction.inParams) {
-                    inParams.push(this.newGirCallableParamElement(inParam))
-                }
-            }
-
-            const outParams: GirCallableParamElement[] = []
-            if (injectFunction.outParams?.length) {
-                for (const outParam of injectFunction.outParams) {
-                    outParams.push(this.newGirCallableParamElement(outParam))
-                }
-            }
-
-            const instanceParameters: GirInstanceParameter[] = []
-            if (injectFunction.instanceParameters) {
-                for (const instanceParameter of injectFunction.instanceParameters) {
-                    instanceParameters.push(this.newGirInstanceParameter(instanceParameter))
-                }
-            }
-
-            const girFunctionElement = this.newGirFunctionElement({
-                name: injectFunction.name,
-                returnType: injectFunction.returnType,
-                isArrowType: injectFunction.isArrowType,
-                isStatic: injectFunction.isStatic,
-                isGlobal: injectFunction.isGlobal,
-                isVirtual: injectFunction.isVirtual,
-                inParams,
-                outParams,
-                instanceParameters,
-            })
-
-            girFunctionElements.push(girFunctionElement)
-        }
-        return girFunctionElements
-    }
-
-    newGirCallableParamElement(tsData: Partial<TsParameter> & { name: string }): GirCallableParamElement {
-        return {
-            $: this.newGirAttr(),
-            ...this.newGirDocElement(),
-            _tsData: this.newTsParameter(tsData),
-        }
-    }
-
-    newGirInstanceParameter(tsData: InjectionInstanceParameter): GirInstanceParameter {
-        return {
-            $: this.newGirAttr(),
-            ...this.newGirDocElement(),
-            _tsData: this.newTsInstanceParameter(tsData),
-        }
-    }
-
-    newGirFunctionElement(
-        tsData: Partial<TsFunction> & { name: string },
-    ): GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement {
-        const _tsData = this.newTsFunction(tsData)
-        return {
-            $: this.newGirAttr(_tsData.name),
-            ...this.newGirDocElement(),
-            _tsData,
-        }
-    }
-
-    newTsFunction(tsData: Partial<TsFunction> & { name: string }): TsFunction {
-        tsData.returnType ||= 'void'
-        tsData.isArrowType ||= false
-        tsData.isStatic ||= false
-        tsData.isGlobal ||= false
-        tsData.isVirtual ||= false
-        tsData.patched ||= true
-        tsData.retTypeIsVoid ||= tsData.returnType === 'void'
-        tsData.inParams ||= []
-        tsData.outParams ||= []
-        tsData.instanceParameters ||= []
-        tsData.overloads ||= []
-        return tsData as TsFunction & TsMethod
-    }
-
-    newTsParameter(tsData: Partial<TsParameter> & { name: string }) {
-        tsData.optional ||= false
-        tsData.nullable ||= false
-        tsData.type ||= 'any'
-
-        return tsData as TsParameter
-    }
-
-    newTsInstanceParameter(tsData: TsInstanceParameter) {
-        return tsData
-    }
-
-    newGirAttr(
-        name = '',
-    ): (GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement)['$'] {
-        return {
-            name,
-            'glib:set-property': '',
-            'glib:get-property': '',
-        }
-    }
-
-    newGirDocElement(text = '', filename = '', line = '', column = ''): GirDocElement {
-        return {
-            doc: [{ $: { filename, line, column }, _: text }],
-            'doc-deprecated': [{ $: {}, _: '' }],
-            'source-position': [{ filename: '', line: '', column: [''] }],
         }
     }
 }

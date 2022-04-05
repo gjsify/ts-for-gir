@@ -1,6 +1,7 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
 import { Injector } from './injector.js'
+import { GirFactory } from './gir-factory.js'
 import {
     NO_TSDATA,
     WARN_NOT_FOUND_TYPE,
@@ -54,8 +55,6 @@ import type {
     GirInterfaceElement,
     GirConstructorElement,
     GirDocElement,
-    TsDoc,
-    TsDocTag,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -70,6 +69,8 @@ import type {
     LocalNameType,
     LocalName,
     LocalNames,
+    TsDoc,
+    TsDocTag,
     TsClass,
     TsMethod,
     TsFunction,
@@ -81,6 +82,7 @@ import type {
     TsMember,
     TsEnum,
     TsAlias,
+    TsGenericParameter,
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
@@ -134,7 +136,10 @@ export class GirModule {
     symTable: SymTable
 
     transformation: Transformation
-    inject: Injector = new Injector()
+
+    girFactory = new GirFactory()
+
+    inject = new Injector()
     extends?: string
     log: Logger
 
@@ -601,6 +606,8 @@ export class GirModule {
         let namespace = ''
         let isFunction = false
         let isCallback = false
+        let nullable = false
+        let optional = false
         const girCallbacks: GirCallbackElement[] = []
 
         const collection = (girVar as GirCallableReturn | GirFieldElement).array
@@ -624,7 +631,10 @@ export class GirModule {
         }
 
         if (girVar.$) {
-            const nullable = this.paramIsNullable(girVar)
+            nullable = this.paramIsNullable(girVar)
+            optional = this.paramIsOptional(girVar)
+
+            // TODO: remove
             if (nullable) {
                 nul = ' | null'
             }
@@ -701,9 +711,16 @@ export class GirModule {
             isFunction,
             isCallback,
             girCallbacks,
+            nullable,
+            optional,
         }
     }
 
+    /**
+     *
+     * @param girFunc
+     * @returns
+     */
     private getReturnType(
         girFunc:
             | GirMethodElement
@@ -712,19 +729,28 @@ export class GirModule {
             | GirCallbackElement
             | GirSignalElement
             | GirVirtualMethodElement,
+        generics: TsGenericParameter[] = [],
     ) {
-        let returnType = 'void'
+        let returnTypeName = 'void'
         let outArrayLengthIndex = -1
+        let nullable = false
+        let optional = false
 
         const girVar = girFunc['return-value']?.[0] || null
         if (girVar) {
-            const { result, isCallback } = this.typeLookup(girVar)
+            const { result, isCallback, nullable: _nullable, optional: _optional } = this.typeLookup(girVar)
+            nullable = _nullable
+            optional = _optional
+
             if (isCallback) {
                 throw new Error('Callback type is not implemented here')
             }
-            returnType = result
+            returnTypeName = result
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         }
+
+        // TODO: Set additional properties like optional, nullable etc
+        const returnType = this.girFactory.newTsType({ type: returnTypeName, generics, nullable, optional })
 
         return { returnType, outArrayLengthIndex }
     }
@@ -859,7 +885,9 @@ export class GirModule {
     ) {
         // I think it's safest to force inout params to have the
         // same type for in and out
-        const { result: paramType, isCallback } = this.typeLookup(girParam)
+        const typeLook = this.typeLookup(girParam)
+        const { result: paramType, isCallback } = typeLook
+        let { optional, nullable } = typeLook
 
         if (isCallback) {
             throw new Error('Callback type is not implemented here')
@@ -872,9 +900,6 @@ export class GirModule {
             paramName += '_'
         }
         paramNames.push(paramName)
-
-        let optional = this.paramIsOptional(girParam)
-        let nullable = this.paramIsNullable(girParam)
 
         if (optional || nullable) {
             const index = girParams.indexOf(girParam)
@@ -893,9 +918,7 @@ export class GirModule {
 
         const tsData: TsParameter = {
             name: paramName,
-            optional,
-            nullable,
-            type: paramType,
+            type: this.girFactory.newTsType({ type: paramType, optional, nullable }),
         }
 
         return tsData
@@ -1006,6 +1029,7 @@ export class GirModule {
         optional?: boolean,
         nullable?: boolean,
         allowQuotes = false,
+        generics: TsGenericParameter[] = [],
     ) {
         if (!girVar.$.name) return undefined
         if (
@@ -1015,9 +1039,6 @@ export class GirModule {
             girBool((girVar as GirFieldElement).$.private)
         )
             return undefined
-
-        if (optional === undefined) optional = this.paramIsOptional(girVar)
-        if (nullable === undefined) nullable = this.paramIsNullable(girVar)
 
         girVar._girType = girType
         girVar._tsType = tsType
@@ -1037,16 +1058,18 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const { result, girCallbacks } = this.typeLookup(girVar)
+        const { result, girCallbacks: callbacks, optional: _optional, nullable: _nullable } = this.typeLookup(girVar)
+
+        if (optional === undefined) optional = _optional
+        if (nullable === undefined) nullable = _nullable
+
         const typeName = this.transformation.transformTypeName(result)
+
+        const type = this.girFactory.newTsType({ type: typeName, optional, nullable, callbacks, generics })
 
         let tsData: TsProperty | TsVar = {
             name,
-            patched: false,
-            optional,
-            nullable,
-            type: typeName,
-            callbacks: girCallbacks,
+            type,
         }
 
         // Apply patches
@@ -1170,13 +1193,14 @@ export class GirModule {
         isGlobal = false,
         isVirtual = false,
         overrideReturnType: string | null = null,
+        generics: TsGenericParameter[] = [],
     ): TsFunction | undefined {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
         let name = girFunc.$.name
         const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
-        const retTypeIsVoid = returnType === 'void'
+        const retTypeIsVoid = returnType.type === 'void'
 
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
@@ -1215,7 +1239,7 @@ export class GirModule {
             inParams,
             instanceParameters,
             outParams,
-            generics: [],
+            generics,
         }
 
         // Apply patches
@@ -1252,6 +1276,7 @@ export class GirModule {
             /* isGlobal */ false,
             /* isVirtual */ false,
             /* overrideReturnType */ name,
+            /* generics */ [],
         )
     }
 
@@ -1268,7 +1293,7 @@ export class GirModule {
 
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
         const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
-        const retTypeIsVoid = returnType === 'void'
+        const retTypeIsVoid = returnType.type === 'void'
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
             girSignalFunc.parameters,

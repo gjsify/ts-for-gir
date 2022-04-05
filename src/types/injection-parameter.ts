@@ -1,5 +1,6 @@
-import type { TsParameter } from './ts-parameter.js'
+import type { InjectionType } from './injection-type.js'
 
-export interface InjectionParameter extends Partial<TsParameter> {
+export interface InjectionParameter {
     name: string
+    type: InjectionType
 }

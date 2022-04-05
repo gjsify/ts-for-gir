@@ -63,7 +63,7 @@ class App {
         store.set(store.append(), [0, 1, 2, 3], [3, '3D', 'Name 3', false]);
 
         tree = new Gtk.TreeView({ headers_visible: false, vexpand: true, hexpand: true });
-        tree.set_model(store as any); // TODO
+        tree.set_model(store);
         scroll.set_child(tree);
 
         col = new Gtk.TreeViewColumn();

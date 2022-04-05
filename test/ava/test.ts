@@ -386,7 +386,7 @@ test('class', (t) => {
         '    static name: string',
         '    constructor (config?: ApplicationCommandLine_ConstructProps)',
         '    _init (config?: ApplicationCommandLine_ConstructProps): void',
-        '    static $gtype: GObject.Type',
+        '    static $gtype: GObject.GType',
         '}',
     ])
 })

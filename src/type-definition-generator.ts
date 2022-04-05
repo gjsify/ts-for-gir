@@ -974,11 +974,11 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         // JS constructor(s)
-        if (girClass._tsData?.isDerivedFromGObject) {
+        if (girClass._tsData.isDerivedFromGObject) {
             // TODO: Generate a GirMethodElements for this
             def.push(
-                `${indent}constructor (config?: ${girClass._tsData?.constructPropInterfaceName})`,
-                `${indent}_init (config?: ${girClass._tsData?.constructPropInterfaceName}): void`,
+                `${indent}constructor (config?: ${girClass._tsData.constructPropInterfaceName})`,
+                `${indent}_init (config?: ${girClass._tsData.constructPropInterfaceName}): void`,
             )
         } else {
             const girConstructors = girClass._tsData.constructors
@@ -997,8 +997,12 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(...this.generateStaticFunctions(girClass, namespace, indentCount))
 
-        if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
-            def.push(`${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType`)
+        if (girClass._tsData.isDerivedFromGObject && girClass._module) {
+            def.push(
+                `${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType<${
+                    girClass._tsData.name
+                }>`,
+            )
         }
 
         return { def }

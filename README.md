@@ -306,6 +306,7 @@ sudo apt update && sudo apt install \
     libgda-5.0-dev \
     libgirepository1.0-dev \
     libgtk-3-dev \
+    libgtk-4-dev \
     libgtksourceview-3.0-dev \
     libnotify-dev \
     libsoup2.4-dev \

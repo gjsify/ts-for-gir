@@ -48,6 +48,46 @@ export const interfaces: unique symbol;
 export const properties: unique symbol;
 export const signals: unique symbol;
 
+export let gtypeNameBasedOnJSPath: boolean;
+
+export let TYPE_BOOLEAN: GType<boolean>;
+export let Boolean: BooleanConstructor;
+
+export let TYPE_ENUM: GType<number>;
+export let TYPE_FLAGS: GType<number>;
+
+export let TYPE_DOUBLE: GType<number>;
+export let Double: NumberConstructor;
+
+export let TYPE_STRING: GType<string>;
+export let String: StringConstructor;
+
+declare global {
+    interface BooleanConstructor {
+        $gtype: GType<boolean>;
+    }
+
+    interface NumberConstructor {
+        $gtype: GType<number>;
+    }
+
+    interface StringConstructor {
+        $gtype: GType<string>;
+    }
+}
+
+export let TYPE_NONE: GType<undefined>;
+export let TYPE_POINTER: GType<undefined>;
+export let TYPE_BOXED: GType<unknown>;
+export let TYPE_PARAM: GType<unknown>;
+export let TYPE_INTERFACE: GType<unknown>;
+export let TYPE_OBJECT: GType<object>;
+export let TYPE_VARIANT: GType<GLib.Variant>;
+export let TYPE_INT: GType<number>;
+export let TYPE_UINT: GType<number>;
+export let TYPE_INT64: GType<number>;
+export let TYPE_UINT64: GType<number>;
+
 // fake enum for signal accumulators, keep in sync with gi/object.c
 export enum AccumulatorType {
     NONE=0,

@@ -215,7 +215,9 @@ On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't suppor
 
 See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
 
-Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)
+Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)  
+Module: ESM  
+Builder: Webpack  
 
 Build and run:
 ```bash
@@ -230,7 +232,8 @@ npm run start
 ### Builder
 ![builder](examples/builder.png)
 
-Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)
+Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)  
+Builder: Webpack  
 
 Build and run:
 ```bash
@@ -245,7 +248,8 @@ npm run start
 ### Editor
 ![editor](examples/editor.png)
 
-Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)
+Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)  
+Builder: Webpack  
 
 Build and run:
 ```bash
@@ -260,7 +264,8 @@ npm run start
 ### Hello Gtk
 ![hello-gtk](examples/hello-gtk.png)
 
-Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)
+Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)  
+Builder: Webpack  
 
 Build and run:
 ```bash
@@ -269,6 +274,20 @@ npm run start
 
 # or for node-gtk
 cd /examples/node-gtk/hello-gtk
+npm run start
+```
+
+### ListStore
+![list-store](examples/list-store.png)
+
+GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`
+
+Source: [Gjs](/examples/Gjs/list-store)  
+Builder: ESBuild  
+
+Build and run:
+```bash
+cd /examples/Gjs/list-store
 npm run start
 ```
 

@@ -6,13 +6,14 @@
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",
-    "build:types": "../../../lib/start.js generate Gtk-3.0 GtkSource-3.0 -e gjs",
+    "build:types": "npm run ts-for-gir -- generate Gtk-3.0 GtkSource-3.0 -e gjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",
     "start": "npm run build && npm run start:gjs",
     "start:gjs": "gjs dist/main.js",
     "watch": "npm run build -- --watch",
+    "ts-for-gir": "../../../lib/start.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

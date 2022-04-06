@@ -2,6 +2,16 @@
 - Refactor Ava test
 
 # Dev
+- Renamed CHANGELOG.md to NEWS.md because as it is not always a detailed changelog
+- Cleanup detection / generation of Array types
+- Added new Gjs example for `Gtk.ListStore`
+- Inject additional static methods to GObject.ParamSpec and other GObject overrides
+- Export Gjs System namespace
+- Ignore depreciated allow-none if `optional` or `nullable` is used
+- Distinguish between `optional` and `nullable` types
+- Add types for timer functions (`setTimeout`, `setInterval`), supported by Gjs since 1.71.1
+- Renamed GObject.Type to GObject.Gtype
+- General improvements to the generated types
 - Add initial support for generic type parameters
 - Add initial support for TSDoc with text and `@param` tag support, see #49
 - Upgrade dependencies

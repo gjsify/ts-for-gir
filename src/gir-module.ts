@@ -55,7 +55,6 @@ import type {
     GirInterfaceElement,
     GirConstructorElement,
     GirDocElement,
-    TypeArraySuffix,
     TypeFunction,
     TypeMethod,
     TypeVariable,
@@ -630,19 +629,8 @@ export class GirModule {
     /**
      * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
      * @param girVar
-     * @returns e.g.
-     * ```ts
-     * {
-     *      result: 'Gtk.AccelGroup[]',
-     *      value: 'Gtk.AccelGroup,
-     *      suffix: '[]',
-     *      namespace: 'Gtk',
-     *      isFunction: false,
-     *      isCallback: false,
-     *  }
-     * ```
      */
-    private typeLookup(
+    private getTsType(
         girVar:
             | GirCallableReturn
             | GirAliasElement
@@ -654,9 +642,7 @@ export class GirModule {
     ) {
         let type: GirType | undefined = girVar.type?.[0]
         let fullTypeName: string | null = null
-        let arr: TypeArraySuffix = ''
         let typeName = defaults.type || ''
-        let namespace = ''
         let isFunction = defaults.isFunction || false
         let isCallback = defaults.isCallback || false
         const nullable = this.typeIsNullable(girVar) || defaults.nullable || false
@@ -667,10 +653,6 @@ export class GirModule {
 
         if (array.overrideTypeName) {
             typeName = array.overrideTypeName
-        }
-
-        if (array.isArray) {
-            arr = '[]' // TODO: move to type-definition-generator
         }
 
         if (array.arrayType) {
@@ -708,7 +690,6 @@ export class GirModule {
             if (res.value) {
                 typeName = res.value
                 fullTypeName = typeName
-                namespace = res.namespace
             }
         }
 
@@ -734,9 +715,6 @@ export class GirModule {
             this.log.warn(WARN_NOT_FOUND_TYPE(logName))
         }
 
-        // TODO: move to type-definition-generator
-        const suffix = arr
-
         // TODO: transform array to type with generics?
         const tsType = this.girFactory.newTsType({
             ...defaults,
@@ -749,17 +727,7 @@ export class GirModule {
             isCallback,
         })
 
-        if (typeName + suffix === 'GLib.List[]') {
-            debugger
-        }
-
-        return {
-            result: typeName + suffix, // TODO: move to type-definition-generator
-            value: typeName,
-            suffix,
-            namespace,
-            tsType,
-        }
+        return tsType
     }
 
     /**
@@ -777,27 +745,20 @@ export class GirModule {
             | GirVirtualMethodElement,
         generics: TsGenericParameter[] = [],
     ) {
-        const returnTypeName = 'void'
         let outArrayLengthIndex = -1
-        const nullable = false
-        const optional = false
 
         const girVar = girFunc['return-value']?.[0] || null
-        let returnType: TsType
+        let tsType: TsType
 
         if (girVar) {
-            const { result, tsType } = this.typeLookup(girVar, { optional, nullable, generics })
+            tsType = this.getTsType(girVar, { generics })
 
-            // TODO: Move to type-definition-generator
-            tsType.type = result || returnTypeName
-
-            returnType = tsType
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         } else {
-            returnType = this.girFactory.newTsType({ type: returnTypeName, generics, nullable, optional })
+            tsType = this.girFactory.newTsType({ type: 'void', generics })
         }
 
-        return { returnType, outArrayLengthIndex }
+        return { returnType: tsType, outArrayLengthIndex }
     }
 
     private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
@@ -839,13 +800,9 @@ export class GirModule {
     }
 
     /**
-     * Checks if the parameter is nullable or optional.
-     * TODO: Check if it makes sense to split this in `typeIsNullable` and `typeIsOptional`
+     * Checks if the parameter is nullable (which results in ` | null`).
      *
-     * @param param Param to test
-     *
-     * @author realh
-     * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
+     * @param girVar girVar to test
      */
     private typeIsNullable(
         girVar:
@@ -868,6 +825,10 @@ export class GirModule {
         }
     }
 
+    /**
+     * Checks if the parameter is optional (which results in `foo?: bar`).
+     * @param girVar girVar to test
+     */
     private typeIsOptional(
         girVar:
             | GirCallableParamElement
@@ -930,9 +891,7 @@ export class GirModule {
     ) {
         // I think it's safest to force inout params to have the
         // same type for in and out
-        const typeLook = this.typeLookup(girParam)
-        const { result, tsType } = typeLook
-        // let { optional, nullable } = tsType
+        const tsType = this.getTsType(girParam)
 
         if (tsType.isCallback) {
             throw new Error('Callback type is not implemented here')
@@ -960,9 +919,6 @@ export class GirModule {
                 tsType.nullable = false
             }
         }
-
-        // TODO: Move to type-definition-generator
-        tsType.type = result
 
         const tsData: TsParameter = {
             name: paramName,
@@ -1106,12 +1062,7 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const { result, tsType } = this.typeLookup(girVar, { optional, nullable, generics })
-
-        const typeName = this.transformation.transformTypeName(result)
-
-        // TODO: Move to type-definition-generator
-        tsType.type = typeName
+        const tsType = this.getTsType(girVar, { optional, nullable, generics })
 
         let tsData: TsProperty | TsVar = {
             name,
@@ -1419,7 +1370,8 @@ export class GirModule {
     private getAliasTsData(girAlias: GirAliasElement) {
         if (!girElementIsIntrospectable(girAlias)) return undefined
 
-        const typeName = this.typeLookup(girAlias).result
+        // TODO should we really ignore the properties of optional etc of `tsType` here?
+        const { type: typeName } = this.getTsType(girAlias)
         const name = girAlias.$.name
         const tsData: TsAlias = {
             name,
@@ -2620,14 +2572,14 @@ export class GirModule {
             if (fullTypeName.startsWith(this.namespace + '.')) {
                 resValue = removeNamespace(fullTypeName, this.namespace)
                 resValue = this.transformation.transformTypeName(resValue)
-                // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
+                // TODO: check if resValue is a class, enum or interface before transformClassName
                 resValue = this.transformation.transformClassName(resValue)
                 namespace = this.namespace
                 resValue = namespace + '.' + resValue
             } else {
                 const resValues = fullTypeName.split('.')
                 resValues.map((name) => this.transformation.transformTypeName(name))
-                // TODO: check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                // TODO: check if resValues[resValues.length - 1] is a class, enum, interface before transformClassName
                 resValues[resValues.length - 1] = this.transformation.transformClassName(
                     resValues[resValues.length - 1],
                 )

@@ -206,7 +206,6 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     private generateReturnTypeByTsType(tsType: TsType, namespace: string) {
-        const prefix = tsType.nullable ? ' | null' : ''
         let typeName = removeNamespace(tsType.type, namespace)
 
         if (tsType.callbacks.length) {
@@ -216,6 +215,10 @@ export default class TypeDefinitionGenerator implements Generator {
         if (!typeName) {
             throw new Error('[generateVariable] "typeName" not set!')
         }
+
+        let prefix = tsType.isArray ? '[]' : ''
+        prefix += tsType.nullable ? ' | null' : ''
+
         return `${typeName}${prefix}`
     }
 

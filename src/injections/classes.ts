@@ -594,23 +594,19 @@ export const classes: InjectionClass[] = [
                     },
                 ],
             },
-            // static override(oclass: Object | Function | GType, property_id: number, name: string): void
+            // static override(name: string, oclass: Object | Function | GType): void
             {
                 name: 'override',
                 returnType: { type: 'void' },
                 isStatic: true,
                 inParams: [
                     {
-                        name: 'oclass',
-                        type: { type: 'Object | Function | GType' },
-                    },
-                    {
-                        name: 'property_id',
-                        type: { type: 'number' },
-                    },
-                    {
                         name: 'name',
                         type: { type: 'string' },
+                    },
+                    {
+                        name: 'oclass',
+                        type: { type: 'Object | Function | GType' },
                     },
                 ],
             },
@@ -622,6 +618,14 @@ export const classes: InjectionClass[] = [
             {
                 extends: 'GObject.Object',
                 default: 'GObject.Object',
+            },
+        ],
+    },
+    {
+        qualifiedName: 'GLib.List',
+        generics: [
+            {
+                default: 'any',
             },
         ],
     },

@@ -135,6 +135,9 @@ export class GirFactory {
             generics: tsData.generics || [],
             nullable: tsData.nullable || false,
             optional: tsData.optional || false,
+            isArray: tsData.isArray || false,
+            isCallback: tsData.isCallback || false,
+            isFunction: tsData.isFunction || false,
         }
 
         return newTsData

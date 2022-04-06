@@ -9,4 +9,8 @@ export interface TsType {
     type: string
     callbacks: GirCallbackElement[]
     generics: TsGenericParameter[]
+    // TODO: transform array to type with generics?
+    isArray: boolean
+    isFunction: boolean
+    isCallback: boolean
 }

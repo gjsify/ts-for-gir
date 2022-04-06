@@ -1,4 +1,4 @@
-import { GirArrayType, GirBoolean, GirInfoAttrs, GirDocElement } from '.'
+import { GirArrayType, GirBoolean, GirInfoAttrs, GirDocElement } from './index.js'
 
 export interface GirType extends GirDocElement {
     /** A simple type of data (as opposed to an array) */

@@ -25,13 +25,11 @@ import {
     WARN_RENAMED_PARAMETER,
 } from './messages.js'
 
-export const POD_TYPE_MAP_ARRAY = (): { guint8: string; gint8: string; gunichar: string } => {
-    return {
-        guint8: 'Uint8Array',
-        // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
-        gint8: 'Uint8Array',
-        gunichar: 'string',
-    }
+export const POD_TYPE_MAP_ARRAY = {
+    guint8: 'Uint8Array',
+    // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
+    gint8: 'Uint8Array',
+    gunichar: 'string',
 }
 
 /**
@@ -55,8 +53,8 @@ export const POD_TYPE_MAP = {
     'guint32*': 'number',
     guint64: 'number',
     'guint64*': 'number',
-    gunichar: 'number',
-    'gunichar*': 'number',
+    gunichar: 'string',
+    'gunichar*': 'string',
     gint: 'number',
     'gint*': 'number',
     gint8: 'number',

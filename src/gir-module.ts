@@ -574,6 +574,61 @@ export class GirModule {
     }
 
     /**
+     * this method needs to be refactored, an array can also be an array of an array for example
+     * @param girVar
+     * @returns
+     */
+    getArrayData(
+        girVar:
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirCallableParamElement
+            | GirPropertyElement
+            | GirConstantElement,
+    ) {
+        let arrayType: GirType | null = null
+        let arrCType: string | undefined
+        let isArray = false
+        let overrideTypeName: string | undefined
+        let typeArray: GirType[] | undefined
+
+        let collection: GirArrayType[] | GirType[] | undefined
+
+        if ((girVar as GirCallableReturn | GirFieldElement).array) {
+            collection = (girVar as GirCallableReturn | GirFieldElement).array
+        } else if (/^GLib.S?List$/.test(girVar.type?.[0].$?.name || '')) {
+            // This converts GLib.List<T> / GLib.SList<T> to T[]
+            collection = girVar.type
+        }
+
+        if (collection && collection.length > 0) {
+            isArray = true
+            typeArray = collection[0].type
+            if (collection[0].$) {
+                const ea = collection[0].$
+                arrCType = ea['c:type']
+            }
+        }
+
+        if (typeArray && typeArray?.length > 0) {
+            arrayType = typeArray[0]
+        }
+
+        if (isArray && arrayType?.$?.name && POD_TYPE_MAP_ARRAY[arrayType.$.name]) {
+            isArray = false
+            overrideTypeName = POD_TYPE_MAP_ARRAY[arrayType.$.name] as string | undefined
+        }
+
+        return {
+            arrCType,
+            arrayType,
+            isArray,
+            overrideTypeName,
+        }
+    }
+
+    /**
      * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
      * @param girVar
      * @returns e.g.
@@ -597,12 +652,11 @@ export class GirModule {
             | GirPropertyElement
             | GirConstantElement,
     ) {
-        let type: GirType | null = null
+        let type: GirType | undefined = girVar.type?.[0]
         let fullTypeName: string | null = null
         let arr: TypeArraySuffix = ''
-        let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
-        let resValue = ''
+        let typeName = ''
         let namespace = ''
         let isFunction = false
         let isCallback = false
@@ -610,41 +664,31 @@ export class GirModule {
         let optional = false
         const girCallbacks: GirCallbackElement[] = []
 
-        const collection = (girVar as GirCallableReturn | GirFieldElement).array
-            ? (girVar as GirCallableReturn | GirFieldElement).array
-            : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name || '')
-            ? girVar.type
-            : undefined
+        nullable = this.typeIsNullable(girVar)
+        optional = this.typeIsOptional(girVar)
+        const array = this.getArrayData(girVar)
 
-        if (collection && collection.length > 0) {
-            const typeArray = collection[0].type
-            if (collection[0].$) {
-                const ea = collection[0].$
-                arrCType = ea['c:type']
-            }
-            if (typeArray && typeArray.length > 0) {
-                type = typeArray[0]
-            }
-            arr = '[]'
-        } else if (girVar.type) {
-            type = girVar.type[0]
+        if (nullable) {
+            nul = ' | null' // TODO: move to type-definition-generator
         }
 
-        if (girVar.$) {
-            nullable = this.paramIsNullable(girVar)
-            optional = this.paramIsOptional(girVar)
-
-            // TODO: remove
-            if (nullable) {
-                nul = ' | null'
-            }
+        if (array.overrideTypeName) {
+            typeName = array.overrideTypeName
         }
 
-        const cType = type?.$ ? type.$['c:type'] : arrCType
+        if (array.isArray) {
+            arr = '[]' // TODO: move to type-definition-generator
+        }
+
+        if (array.arrayType) {
+            type = array.arrayType
+        }
+
+        const cType = type?.$ ? type.$['c:type'] : array.arrCType
         fullTypeName = type?.$?.name || null
         const callbacks = (girVar as GirFieldElement).callback
 
-        if (!resValue && callbacks?.length) {
+        if (!typeName && callbacks?.length) {
             for (const girCallback of callbacks) {
                 if (!girElementIsIntrospectable(girCallback)) continue
                 girCallback._tsData = this.getFunctionTsData(
@@ -669,43 +713,55 @@ export class GirModule {
         if (!isFunction) {
             const res = this.fullTypeLookup(girVar, fullTypeName)
             if (res.value) {
-                resValue = res.value
-                fullTypeName = resValue
+                typeName = res.value
+                fullTypeName = typeName
                 namespace = res.namespace
             }
         }
 
-        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY()[type.$.name]) {
+        if (!typeName && type?.$?.name && POD_TYPE_MAP[type.$.name]) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP_ARRAY()[type.$.name]
-            arr = ''
+            typeName = POD_TYPE_MAP[type.$.name]
         }
 
-        if (!resValue && type?.$ && type.$.name && POD_TYPE_MAP[type.$.name]) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP[type.$.name]
+        if (cType) {
+            if (!typeName && C_TYPE_MAP(cType)) {
+                typeName = C_TYPE_MAP(cType) || ''
+            }
+
+            if (!typeName && POD_TYPE_MAP[cType]) {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                typeName = POD_TYPE_MAP[cType]
+            }
         }
 
-        if (!resValue && cType && C_TYPE_MAP(cType)) {
-            resValue = C_TYPE_MAP(cType) || ''
-        }
-
-        if (!resValue && cType && POD_TYPE_MAP[cType]) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP[cType]
-        }
-
-        if (!resValue) {
-            resValue = 'any'
+        if (!typeName) {
+            typeName = 'any'
             const logName = cType || fullTypeName || girVar.$.name || ''
             this.log.warn(WARN_NOT_FOUND_TYPE(logName))
         }
 
+        // TODO: move to type-definition-generator
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
+        // TODO: transform array to type with generics?
+        const tsType = this.girFactory.newTsType({
+            type: typeName,
+            optional,
+            nullable,
+            callbacks: girCallbacks,
+            isArray: array.isArray,
+            isFunction,
+            isCallback,
+        })
+
+        if (typeName + suffix === 'GLib.List[]') {
+            debugger
+        }
+
         return {
-            result: resValue + suffix,
-            value: resValue,
+            result: typeName + suffix,
+            value: typeName,
             suffix,
             namespace,
             isFunction,
@@ -713,6 +769,7 @@ export class GirModule {
             girCallbacks,
             nullable,
             optional,
+            tsType,
         }
     }
 
@@ -795,14 +852,14 @@ export class GirModule {
 
     /**
      * Checks if the parameter is nullable or optional.
-     * TODO: Check if it makes sense to split this in `paramIsNullable` and `paramIsOptional`
+     * TODO: Check if it makes sense to split this in `typeIsNullable` and `typeIsOptional`
      *
      * @param param Param to test
      *
      * @author realh
      * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
      */
-    private paramIsNullable(
+    private typeIsNullable(
         girVar:
             | GirCallableParamElement
             | GirCallableReturn
@@ -823,7 +880,7 @@ export class GirModule {
         }
     }
 
-    private paramIsOptional(
+    private typeIsOptional(
         girVar:
             | GirCallableParamElement
             | GirCallableReturn
@@ -908,10 +965,10 @@ export class GirModule {
                 .filter(() => skip.indexOf(girParam) === -1)
                 .filter((p) => p.$.direction !== 'out')
 
-            if (following.some((p) => !this.paramIsOptional(p))) {
+            if (following.some((p) => !this.typeIsOptional(p))) {
                 optional = false
             }
-            if (following.some((p) => !this.paramIsNullable(p))) {
+            if (following.some((p) => !this.typeIsNullable(p))) {
                 nullable = false
             }
         }
@@ -1124,8 +1181,8 @@ export class GirModule {
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
 
-        if (optional === undefined) optional = this.paramIsOptional(girProp)
-        if (nullable === undefined) nullable = this.paramIsNullable(girProp)
+        if (optional === undefined) optional = this.typeIsOptional(girProp)
+        if (nullable === undefined) nullable = this.typeIsNullable(girProp)
 
         const readonly =
             !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))

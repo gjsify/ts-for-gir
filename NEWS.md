@@ -3,6 +3,7 @@
 
 # Dev
 - General improvements #59
+  - Added new Gjs example for http server + client with Soap 3
   - Renamed CHANGELOG.md to NEWS.md because as it is not always a detailed changelog
   - Cleanup detection / generation of Array types
   - Added new Gjs example for `Gtk.ListStore`

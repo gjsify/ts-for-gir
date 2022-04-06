@@ -216,8 +216,8 @@ On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't suppor
 See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
 
 Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)  
-Module: ESM  
 Builder: Webpack  
+Module: ESM  
 
 Build and run:
 ```bash
@@ -234,6 +234,7 @@ npm run start
 
 Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)  
 Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -250,6 +251,7 @@ npm run start
 
 Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)  
 Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -266,6 +268,7 @@ npm run start
 
 Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)  
 Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -284,11 +287,50 @@ GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk
 
 Source: [Gjs](/examples/Gjs/list-store)  
 Builder: ESBuild  
+Module: ESM  
 
 Build and run:
 ```bash
 cd /examples/Gjs/list-store
 npm run start
+```
+
+### HTTP Server + Client
+
+```
+> gjs -m dist/http-server.js
+Visit http://localhost:1080
+```
+
+```
+> gjs -m dist/http-client.js
+Gjs-Message: 21:13:22.007: JS LOG: status: 200 - OK
+Gjs-Message: 21:13:22.007: JS LOG: Date: Wed, 06 Apr 2022 19:13:22 GMT
+Gjs-Message: 21:13:22.007: JS LOG: Content-Type: text/html; charset=utf-8
+Gjs-Message: 21:13:22.007: JS LOG: Content-Length: 135
+Gjs-Message: 21:13:22.008: JS LOG: body:
+
+        <html>
+        <body>
+            Hello, gjs! ☺<br>
+            <a href="/">Go back</a>
+        </body>
+        </html>
+```
+
+
+GJS example showing how to build a http server/client using Soap 3
+
+Source: [Gjs](/examples/Gjs/http)  
+Builder: ESBuild  
+Module: ESM  
+
+Build and run:
+```bash
+cd /examples/Gjs/http
+npm run build
+npm run start:server
+npm run start:client
 ```
 
 ## What it's like

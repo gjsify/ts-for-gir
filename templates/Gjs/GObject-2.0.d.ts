@@ -1,3 +1,7 @@
+// A few things here are inspired by gi.ts 
+// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
+// Copyright Evan Welsh
+
 export type GType<T = unknown> = {
     __type__(arg: never): T
     name: string
@@ -24,6 +28,7 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     InternalChildren?: string[]
 }
 
+/** Interface ob GObject Interface should be implemented by all GObject interfaces */
 export class Interface<T = unknown> {
     static _classInit: (cls: any) => any;
     __name__: string;
@@ -187,10 +192,6 @@ export function signal_handlers_unblock_by_func(instance: Object, func: (...args
 export function signal_handlers_disconnect_by_func(instance: Object, func: (...args: any[]) => any): number;
 export function signal_handlers_disconnect_by_data(): void;
 
-// The following are part of gi.ts
-// See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/lib/src/generators/dts/gobject.ts
-// Copyright Evan Welsh
-
 export type Property<K extends ParamSpec> = K extends ParamSpecBoolean
     ? boolean
     : K extends ParamSpecDouble | ParamSpecInt | ParamSpecUInt | ParamSpecFloat | ParamSpecLong
@@ -213,77 +214,14 @@ export type Property<K extends ParamSpec> = K extends ParamSpecBoolean
     ? GLib.Variant
     : any;
 
-export type Properties<Prototype extends {}, Properties extends { [key: string]: ParamSpec }> = Omit<
-    {
-        [key in keyof Properties | keyof Prototype]: key extends keyof Prototype
-        ? never
-        : key extends keyof Properties
-        ? Property<Properties[key]>
-        : never;
-    },
-    keyof Prototype
->;
-
-type UnionToIntersection<T> = (T extends any ? (x: T) => any : never) extends (x: infer R) => any ? R : never;
-
-type IFaces<Interfaces extends { $gtype: GType<any> }[]> = {
-    [key in keyof Interfaces]: Interfaces[key] extends { $gtype: GType<infer I> } ? I : never;
-};
-
-export type RegisteredPrototype<
-    P extends {},
-    Props extends { [key: string]: ParamSpec },
-    Interfaces extends any[]
-    > = Properties<P, SnakeToCamel<Props> & SnakeToUnderscore<Props>> & UnionToIntersection<Interfaces[number]> & P;
-
-type SnakeToUnderscoreCase<S extends string> = S extends `${infer T}-${infer U}`
-    ? `${T}_${SnakeToUnderscoreCase<U>}`
-    : S extends `${infer T}`
-    ? `${T}`
-    : never;
-
-type SnakeToCamelCase<S extends string> = S extends `${infer T}-${infer U}`
-    ? `${Lowercase<T>}${SnakeToPascalCase<U>}`
-    : S extends `${infer T}`
-    ? `${Lowercase<T>}`
-    : SnakeToPascalCase<S>;
-
-type SnakeToPascalCase<S extends string> = string extends S
-    ? string
-    : S extends `${infer T}-${infer U}`
-    ? `${Capitalize<Lowercase<T>>}${SnakeToPascalCase<U>}`
-    : S extends `${infer T}`
-    ? `${Capitalize<Lowercase<T>>}`
-    : never;
-
-type SnakeToCamel<T> = { [P in keyof T as P extends string ? SnakeToCamelCase<P> : P]: T[P] };
-type SnakeToUnderscore<T> = { [P in keyof T as P extends string ? SnakeToUnderscoreCase<P> : P]: T[P] };
-
-type Ctor<T extends object = any> = new (...a: any[]) => T;
-
-type Init = { _init(...args: any[]): void };
-
 // TODO: What about the generated class Closure 
 export type TClosure<R = any, P = any> = (...args: P[]) => R;
 
-export type RegisteredClass<
-    T extends Ctor,
-    Props extends { [key: string]: ParamSpec },
-    Interfaces extends { $gtype: GType<any> }[]
-    > = T extends { prototype: infer P }
-    ? {
-        $gtype: GType<RegisteredClass<T, Props, IFaces<Interfaces>>>;
-        new(...args: P extends Init ? Parameters<P["_init"]> : [void]): RegisteredPrototype<
-            P,
-            Props,
-            IFaces<Interfaces>
-        >;
-        prototype: RegisteredPrototype<P, Props, IFaces<Interfaces>>;
-    }
-    : never;
+// This should be replaces by a class of GObject.Object as soon as once we have implemented inheritance
+class AnyClass {}
 
 export function registerClass<
-    T extends Ctor,
+    T extends AnyClass,
     Props extends { [key: string]: ParamSpec },
     Interfaces extends { $gtype: GType }[],
     Sigs extends {
@@ -295,7 +233,6 @@ export function registerClass<
 >(
     options: MetaInfo<Props, Interfaces, Sigs>,
     cls: T
-): RegisteredClass<T, Props, Interfaces>;
+): T;
 
-export function registerClass<P extends {}, T extends Ctor<P>>(cls: T): RegisteredClass<T, {}, []>;
-
+export function registerClass<T extends AnyClass>(cls: T): T

@@ -629,4 +629,25 @@ export const classes: InjectionClass[] = [
             },
         ],
     },
+    {
+        qualifiedName: 'GLib.HashTable',
+        // TODO
+        // [key: A]: B;
+        // properties: [
+        //     {
+        //         name: '[key: A]'
+        //         type: 'B'
+        //     }
+        // ],
+        generics: [
+            {
+                name: 'A',
+                default: 'symbol | string | number',
+            },
+            {
+                name: 'B',
+                default: 'string | number | boolean',
+            },
+        ],
+    },
 ]

@@ -7,7 +7,7 @@ export interface InjectionClass {
     /** Fields of the base class itself */
     // TODO: fields: InjectionField[]
     /** Properties of the base class itself */
-    // TODO:properties: InjectionProperty[]
+    // TODO: properties: InjectionProperty[]
     /** Constructor properties of the base class itself */
     // TODO:constructProps: InjectionProperty[]
     /** Array of property names of the base class itself (used to generate signals) */

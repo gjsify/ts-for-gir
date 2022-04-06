@@ -319,6 +319,7 @@ sudo dnf update && sudo dnf install \
     gobject-introspection-devel \
     gtk3-devel \
     gtk4-devel \
+    libsoup3-devel \
     gtksourceview3-devel \
     libnotify-devel \
     libsoup-devel \

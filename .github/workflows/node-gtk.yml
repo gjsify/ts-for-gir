@@ -4,6 +4,7 @@
 name: node-gtk CI
 
 on:
+  pull_request:
   push:
     branches:
       - "*"

@@ -905,7 +905,8 @@ export class GirModule {
         }
         paramNames.push(paramName)
 
-        if (tsType.optional || tsType.nullable) {
+        // In Typescript no optional parameters are allowed if the following ones are not optional
+        if (tsType.optional) {
             const index = girParams.indexOf(girParam)
             const following = girParams
                 .slice(index)
@@ -914,9 +915,6 @@ export class GirModule {
 
             if (following.some((p) => !this.typeIsOptional(p))) {
                 tsType.optional = false
-            }
-            if (following.some((p) => !this.typeIsNullable(p))) {
-                tsType.nullable = false
             }
         }
 

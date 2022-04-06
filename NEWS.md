@@ -97,7 +97,7 @@ See PR [#30](https://github.com/sammydre/ts-for-gjs/pull/30), [#31](https://gith
 - Added tests to README.md
 - Added version to fix
 - Add versions property type to imports.gi for gobject-introspection classes #25
-- Added src to NPM module to fix
+- Added src to NPM module
 - Is it possible to use ts-for-gjs as dev dependency #20
 - Split method exportObjectInternal in more methods to make it more readable
 - Improved debugging by log the full error when an error occurs
@@ -107,7 +107,7 @@ See PR [#27](https://github.com/sammydre/ts-for-gjs/pull/27)
 
 # 10 Oct 2020
 - Add ts-node as devDep to fix running in-tree
-- improve typing for cast.ts
+- Improve typing for cast.ts
 
 See PR [#22](https://github.com/sammydre/ts-for-gjs/pull/22) and [#23](https://github.com/sammydre/ts-for-gjs/pull/23)
 

@@ -218,7 +218,7 @@ export type Property<K extends ParamSpec> = K extends ParamSpecBoolean
 export type TClosure<R = any, P = any> = (...args: P[]) => R;
 
 // This should be replaces by a class of GObject.Object as soon as once we have implemented inheritance
-class AnyClass {}
+export class AnyClass {}
 
 export function registerClass<
     T extends AnyClass,

@@ -1134,6 +1134,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
         const classHead = `${girClass._tsData.name}${genericParameters}`
 
+        def.push(...this.addGirDocComment(girClass, 0))
+
         // START CLASS
         {
             if (girClass._tsData.isAbstract) {

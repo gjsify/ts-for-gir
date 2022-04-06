@@ -1,3 +1,25 @@
+<% if(useNamespace){ %>
+import GObject from './GObject-2.0';
+<% } else { %>  
+import * as GObject from './GObject-2.0';
+<% } %>
+
+export namespace System {
+    export const programInvocationName: string;
+    export const version: number;
+    export const programPath: string | null;
+    /** Equal to ARGV */
+    export const programArgs: string[];
+    export function exit(code: number): void;
+    export function addressOfGObject(o: GObject.Object): object;
+    export function addressOf(o: any): object;
+    /** Runs the garbage collector */
+    export function gc(): void;
+    export function refcount(o: GObject.Object): number;
+    export function dumpHeap(path: string): void;
+    export function dumpMemoryInfo(path: string): void;
+}
+
 export namespace byteArray {
     export class ByteArray {
         constructor(lenOrArray: any) // May be a Uint8Array or any type accepted
@@ -14,13 +36,16 @@ export namespace byteArray {
     export function fromGBytes(input: any): Uint8Array
     export function toString(x: Uint8Array): string
 }
+
 export namespace console {
     export function interact(): void
 }
+
 export namespace Lang {
     // TODO: There is a lot more in Lang
     export function Class(props: any): void
 }
+
 export namespace gettext {
     export enum LocaleCategory {
         ALL, COLLATE, CTYPE, MESSAGES, MONETARY, NUMERIC, TIME
@@ -39,6 +64,7 @@ export namespace gettext {
         pgettext: ((context: any, msgid: string) => any)
     }
 }
+
 export namespace Format {
     export function vprintf(str: string, args: string[]): string
     export function printf(fmt: string, ...args: any[]): void
@@ -56,6 +82,7 @@ export namespace Format {
      */
     export function format(fmt: string, ...args: any[]): string
 }
+
 export namespace Mainloop {
     export function quit(name: string): void
     export function idle_source(handler: any, priority: number): any

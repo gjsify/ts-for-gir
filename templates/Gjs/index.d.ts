@@ -7,11 +7,11 @@
 
 import type * as Gjs from "./Gjs";
 <%_ for (const girModule of girModules) { _%>
-  <% if(useNamespace){ %>
-      import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
-    <% } else{ %>  
-      import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
-    <% } %>
+  <%_ if(useNamespace){ _%>
+import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
+    <%_ } else { _%>  
+import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+    <%_ } _%>
 <%_ } _%>
 
 declare global {
@@ -19,7 +19,51 @@ declare global {
     function printerr(...args: any[]): void
     function log(message?: string): void
     function logError(exception: any, message?: string): void
+
+    interface BooleanConstructor {
+        $gtype: GObject20.GType<boolean>;
+    }
+
+    interface NumberConstructor {
+        $gtype: GObject20.GType<number>;
+    }
+
+    interface StringConstructor {
+        $gtype: GObject20.GType<string>;
+    }
+
     const ARGV: string[]
+
+    // Timers
+    // See https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/esm/_timers.js
+
+    /**
+     * @version Gjs 1.71.1
+     * @param callback a callback function
+     * @param delay the duration in milliseconds to wait before running callback
+     * @param args arguments to pass to callback
+     */
+     function setTimeout(callback: (...args: any[]) => any, delay: number, ...args: any[]): GLib20.Source
+
+     /**
+      * @version Gjs 1.71.1
+      * @param callback a callback function
+      * @param delay the duration in milliseconds to wait between calling callback
+      * @param args arguments to pass to callback
+      */
+    function setInterval(callback: (...args: any[]) => any, delay: number, ...args: any[]): GLib20.Source
+ 
+     /**
+      * @version Gjs 1.71.1
+      * @param timeout the timeout to clear
+      */
+    function clearTimeout(timeout: GLib20.Source): void
+ 
+     /**
+      * @version Gjs 1.71.1
+      * @param timeout the timeout to clear
+      */
+    function clearInterval(timeout: GLib20.Source): void
 
     const imports: typeof Gjs & {
         gi: {

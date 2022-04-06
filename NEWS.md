@@ -2,6 +2,19 @@
 - Refactor Ava test
 
 # Dev
+- General improvements #59
+  - Added new Gjs example for http server + client with Soap 3
+  - Renamed CHANGELOG.md to NEWS.md because as it is not always a detailed changelog
+  - Cleanup detection / generation of Array types
+  - Added new Gjs example for `Gtk.ListStore`
+  - Inject additional static methods to GObject.ParamSpec and other GObject overrides
+  - Export Gjs System namespace
+  - Ignore depreciated allow-none if `optional` or `nullable` is used
+  - Distinguish between `optional` and `nullable` types
+  - Add types for timer functions (`setTimeout`, `setInterval`), supported by Gjs since 1.71.1
+  - Renamed GObject.Type to GObject.Gtype
+  - General improvements to the generated types
+  - Add initial support for generic type parameters
 - Add initial support for TSDoc with text and `@param` tag support, see #49
 - Upgrade dependencies
 - Fix logic around property's readonly & construct-only, see #52
@@ -85,7 +98,7 @@ See PR [#30](https://github.com/sammydre/ts-for-gjs/pull/30), [#31](https://gith
 - Added tests to README.md
 - Added version to fix
 - Add versions property type to imports.gi for gobject-introspection classes #25
-- Added src to NPM module to fix
+- Added src to NPM module
 - Is it possible to use ts-for-gjs as dev dependency #20
 - Split method exportObjectInternal in more methods to make it more readable
 - Improved debugging by log the full error when an error occurs
@@ -95,7 +108,7 @@ See PR [#27](https://github.com/sammydre/ts-for-gjs/pull/27)
 
 # 10 Oct 2020
 - Add ts-node as devDep to fix running in-tree
-- improve typing for cast.ts
+- Improve typing for cast.ts
 
 See PR [#22](https://github.com/sammydre/ts-for-gjs/pull/22) and [#23](https://github.com/sammydre/ts-for-gjs/pull/23)
 

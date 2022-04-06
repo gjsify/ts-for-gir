@@ -1,5 +1,7 @@
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation.js'
 import { Logger } from './logger.js'
+import { Injector } from './injector.js'
+import { GirFactory } from './gir-factory.js'
 import {
     NO_TSDATA,
     WARN_NOT_FOUND_TYPE,
@@ -53,11 +55,6 @@ import type {
     GirInterfaceElement,
     GirConstructorElement,
     GirDocElement,
-    TsDoc,
-    TsDocTag,
-    TypeArraySuffix,
-    TypeNullableSuffix,
-    TypeSuffix,
     TypeFunction,
     TypeMethod,
     TypeVariable,
@@ -69,6 +66,8 @@ import type {
     LocalNameType,
     LocalName,
     LocalNames,
+    TsDoc,
+    TsDocTag,
     TsClass,
     TsMethod,
     TsFunction,
@@ -80,6 +79,8 @@ import type {
     TsMember,
     TsEnum,
     TsAlias,
+    TsType,
+    TsGenericParameter,
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
@@ -131,7 +132,12 @@ export class GirModule {
      * Used to find namespaces that are used in other modules
      */
     symTable: SymTable
+
     transformation: Transformation
+
+    girFactory = new GirFactory()
+
+    inject = new Injector()
     extends?: string
     log: Logger
 
@@ -566,21 +572,11 @@ export class GirModule {
     }
 
     /**
-     * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
+     * this method needs to be refactored, an array can also be an array of an array for example
      * @param girVar
-     * @returns e.g.
-     * ```ts
-     * {
-     *      result: 'Gtk.AccelGroup[]',
-     *      value: 'Gtk.AccelGroup,
-     *      suffix: '[]',
-     *      namespace: 'Gtk',
-     *      isFunction: false,
-     *      isCallback: false,
-     *  }
-     * ```
+     * @returns
      */
-    private typeLookup(
+    getArrayData(
         girVar:
             | GirCallableReturn
             | GirAliasElement
@@ -589,49 +585,85 @@ export class GirModule {
             | GirPropertyElement
             | GirConstantElement,
     ) {
-        let type: GirType | null = null
-        let fullTypeName: string | null = null
-        let arr: TypeArraySuffix = ''
+        let arrayType: GirType | null = null
         let arrCType: string | undefined
-        let nul: TypeNullableSuffix = ''
-        let resValue = ''
-        let namespace = ''
-        let isFunction = false
-        let isCallback = false
-        const girCallbacks: GirCallbackElement[] = []
+        let isArray = false
+        let overrideTypeName: string | undefined
+        let typeArray: GirType[] | undefined
 
-        const collection = (girVar as GirCallableReturn | GirFieldElement).array
-            ? (girVar as GirCallableReturn | GirFieldElement).array
-            : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name || '')
-            ? girVar.type
-            : undefined
+        let collection: GirArrayType[] | GirType[] | undefined
+
+        if ((girVar as GirCallableReturn | GirFieldElement).array) {
+            collection = (girVar as GirCallableReturn | GirFieldElement).array
+        } else if (/^GLib.S?List$/.test(girVar.type?.[0].$?.name || '')) {
+            // This converts GLib.List<T> / GLib.SList<T> to T[]
+            collection = girVar.type
+        }
 
         if (collection && collection.length > 0) {
-            const typeArray = collection[0].type
+            isArray = true
+            typeArray = collection[0].type
             if (collection[0].$) {
                 const ea = collection[0].$
                 arrCType = ea['c:type']
             }
-            if (typeArray && typeArray.length > 0) {
-                type = typeArray[0]
-            }
-            arr = '[]'
-        } else if (girVar.type) {
-            type = girVar.type[0]
         }
 
-        if (girVar.$) {
-            const nullable = this.paramIsNullable(girVar)
-            if (nullable) {
-                nul = ' | null'
-            }
+        if (typeArray && typeArray?.length > 0) {
+            arrayType = typeArray[0]
         }
 
-        const cType = type?.$ ? type.$['c:type'] : arrCType
+        if (isArray && arrayType?.$?.name && POD_TYPE_MAP_ARRAY[arrayType.$.name]) {
+            isArray = false
+            overrideTypeName = POD_TYPE_MAP_ARRAY[arrayType.$.name] as string | undefined
+        }
+
+        return {
+            arrCType,
+            arrayType,
+            isArray,
+            overrideTypeName,
+        }
+    }
+
+    /**
+     * Get the typescript type of a GirElement like a `GirPropertyElement` or `GirCallableReturn`
+     * @param girVar
+     */
+    private getTsType(
+        girVar:
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirCallableParamElement
+            | GirPropertyElement
+            | GirConstantElement,
+        defaults: Partial<TsType> = {},
+    ) {
+        let type: GirType | undefined = girVar.type?.[0]
+        let fullTypeName: string | null = null
+        let typeName = defaults.type || ''
+        let isFunction = defaults.isFunction || false
+        let isCallback = defaults.isCallback || false
+        const nullable = this.typeIsNullable(girVar) || defaults.nullable || false
+        const optional = this.typeIsOptional(girVar) || defaults.optional || false
+
+        const girCallbacks: GirCallbackElement[] = []
+        const array = this.getArrayData(girVar)
+
+        if (array.overrideTypeName) {
+            typeName = array.overrideTypeName
+        }
+
+        if (array.arrayType) {
+            type = array.arrayType
+        }
+
+        const cType = type?.$ ? type.$['c:type'] : array.arrCType
         fullTypeName = type?.$?.name || null
         const callbacks = (girVar as GirFieldElement).callback
 
-        if (!resValue && callbacks?.length) {
+        if (!typeName && callbacks?.length) {
             for (const girCallback of callbacks) {
                 if (!girElementIsIntrospectable(girCallback)) continue
                 girCallback._tsData = this.getFunctionTsData(
@@ -656,51 +688,53 @@ export class GirModule {
         if (!isFunction) {
             const res = this.fullTypeLookup(girVar, fullTypeName)
             if (res.value) {
-                resValue = res.value
-                fullTypeName = resValue
-                namespace = res.namespace
+                typeName = res.value
+                fullTypeName = typeName
             }
         }
 
-        if (!resValue && arr && type?.$?.name && POD_TYPE_MAP_ARRAY()[type.$.name]) {
+        if (!typeName && type?.$?.name && POD_TYPE_MAP[type.$.name]) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP_ARRAY()[type.$.name]
-            arr = ''
+            typeName = POD_TYPE_MAP[type.$.name]
         }
 
-        if (!resValue && type?.$ && type.$.name && POD_TYPE_MAP[type.$.name]) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP[type.$.name]
+        if (cType) {
+            if (!typeName && C_TYPE_MAP(cType)) {
+                typeName = C_TYPE_MAP(cType) || ''
+            }
+
+            if (!typeName && POD_TYPE_MAP[cType]) {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                typeName = POD_TYPE_MAP[cType]
+            }
         }
 
-        if (!resValue && cType && C_TYPE_MAP(cType)) {
-            resValue = C_TYPE_MAP(cType) || ''
-        }
-
-        if (!resValue && cType && POD_TYPE_MAP[cType]) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            resValue = POD_TYPE_MAP[cType]
-        }
-
-        if (!resValue) {
-            resValue = 'any'
+        if (!typeName) {
+            typeName = 'any'
             const logName = cType || fullTypeName || girVar.$.name || ''
             this.log.warn(WARN_NOT_FOUND_TYPE(logName))
         }
 
-        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
-
-        return {
-            result: resValue + suffix,
-            value: resValue,
-            suffix,
-            namespace,
+        // TODO: transform array to type with generics?
+        const tsType = this.girFactory.newTsType({
+            ...defaults,
+            type: typeName,
+            optional,
+            nullable,
+            callbacks: girCallbacks,
+            isArray: array.isArray,
             isFunction,
             isCallback,
-            girCallbacks,
-        }
+        })
+
+        return tsType
     }
 
+    /**
+     *
+     * @param girFunc
+     * @returns
+     */
     private getReturnType(
         girFunc:
             | GirMethodElement
@@ -709,21 +743,22 @@ export class GirModule {
             | GirCallbackElement
             | GirSignalElement
             | GirVirtualMethodElement,
+        generics: TsGenericParameter[] = [],
     ) {
-        let returnType = 'void'
         let outArrayLengthIndex = -1
 
         const girVar = girFunc['return-value']?.[0] || null
+        let tsType: TsType
+
         if (girVar) {
-            const { result, isCallback } = this.typeLookup(girVar)
-            if (isCallback) {
-                throw new Error('Callback type is not implemented here')
-            }
-            returnType = result
+            tsType = this.getTsType(girVar, { generics })
+
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
+        } else {
+            tsType = this.girFactory.newTsType({ type: 'void', generics })
         }
 
-        return { returnType, outArrayLengthIndex }
+        return { returnType: tsType, outArrayLengthIndex }
     }
 
     private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
@@ -765,15 +800,11 @@ export class GirModule {
     }
 
     /**
-     * Checks if the parameter is nullable or optional.
-     * TODO: Check if it makes sense to split this in `paramIsNullable` and `paramIsOptional`
+     * Checks if the parameter is nullable (which results in ` | null`).
      *
-     * @param param Param to test
-     *
-     * @author realh
-     * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
+     * @param girVar girVar to test
      */
-    private paramIsNullable(
+    private typeIsNullable(
         girVar:
             | GirCallableParamElement
             | GirCallableReturn
@@ -783,7 +814,39 @@ export class GirModule {
             | GirPropertyElement,
     ): boolean {
         const a = (girVar as GirCallableParamElement).$
-        return a && (girBool(a.nullable) || girBool(a['allow-none']) || girBool(a.optional))
+
+        if (!a) return false
+
+        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+        if (girBool(a.optional) || girBool(a.nullable)) {
+            return girBool(a.nullable)
+        } else {
+            return girBool(a.nullable) || girBool(a['allow-none'])
+        }
+    }
+
+    /**
+     * Checks if the parameter is optional (which results in `foo?: bar`).
+     * @param girVar girVar to test
+     */
+    private typeIsOptional(
+        girVar:
+            | GirCallableParamElement
+            | GirCallableReturn
+            | GirAliasElement
+            | GirFieldElement
+            | GirConstantElement
+            | GirPropertyElement,
+    ): boolean {
+        const a = (girVar as GirCallableParamElement).$
+        if (!a) return false
+
+        // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
+        if (girBool(a.optional) || girBool(a.nullable)) {
+            return girBool(a.optional)
+        } else {
+            return girBool(a.optional) || girBool(a['allow-none'])
+        }
     }
 
     private getPatches(
@@ -828,9 +891,9 @@ export class GirModule {
     ) {
         // I think it's safest to force inout params to have the
         // same type for in and out
-        const { result: paramType, isCallback } = this.typeLookup(girParam)
+        const tsType = this.getTsType(girParam)
 
-        if (isCallback) {
+        if (tsType.isCallback) {
             throw new Error('Callback type is not implemented here')
         }
 
@@ -842,24 +905,22 @@ export class GirModule {
         }
         paramNames.push(paramName)
 
-        let optional = this.paramIsNullable(girParam)
-
-        if (optional) {
+        // In Typescript no optional parameters are allowed if the following ones are not optional
+        if (tsType.optional) {
             const index = girParams.indexOf(girParam)
             const following = girParams
                 .slice(index)
                 .filter(() => skip.indexOf(girParam) === -1)
                 .filter((p) => p.$.direction !== 'out')
 
-            if (following.some((p) => !this.paramIsNullable(p))) {
-                optional = false
+            if (following.some((p) => !this.typeIsOptional(p))) {
+                tsType.optional = false
             }
         }
 
         const tsData: TsParameter = {
             name: paramName,
-            optional,
-            type: paramType,
+            type: tsType,
         }
 
         return tsData
@@ -939,33 +1000,38 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirPropertyElement,
         girType: 'property',
-        tsType: 'field' | 'constructor-property',
+        tsTypeName: 'field' | 'constructor-property',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirPropertyElement['_tsData']
 
     private getVariableTsData(
         girVar: GirConstantElement,
         girType: 'constant',
-        tsType: 'constant',
+        tsTypeName: 'constant',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirConstantElement['_tsData']
 
     private getVariableTsData(
         girVar: GirFieldElement,
         girType: 'field',
-        tsType: 'field',
+        tsTypeName: 'field',
         optional: boolean,
+        nullable: boolean,
         allowQuotes: boolean,
     ): GirFieldElement['_tsData']
 
     private getVariableTsData(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         girType: 'property' | 'constant' | 'field',
-        tsType: 'constant' | 'field' | 'constructor-property',
+        tsTypeName: 'constant' | 'field' | 'constructor-property',
         optional = false,
+        nullable = false,
         allowQuotes = false,
+        generics: TsGenericParameter[] = [],
     ) {
         if (!girVar.$.name) return undefined
         if (
@@ -977,7 +1043,7 @@ export class GirModule {
             return undefined
 
         girVar._girType = girType
-        girVar._tsType = tsType
+        girVar._tsType = tsTypeName
 
         let name = girVar.$.name
 
@@ -994,15 +1060,11 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const { result, girCallbacks } = this.typeLookup(girVar)
-        const typeName = this.transformation.transformTypeName(result)
+        const tsType = this.getTsType(girVar, { optional, nullable, generics })
 
         let tsData: TsProperty | TsVar = {
             name,
-            patched: false,
-            optional,
-            type: typeName,
-            callbacks: girCallbacks,
+            type: tsType,
         }
 
         // Apply patches
@@ -1022,6 +1084,7 @@ export class GirModule {
         tsType: 'field' | 'constructor-property',
         construct?: boolean,
         optional?: boolean,
+        nullable?: boolean,
         indentCount?: number,
     ): TsProperty | undefined
 
@@ -1031,24 +1094,33 @@ export class GirModule {
         tsType: 'field',
         construct?: boolean,
         optional?: boolean,
+        nullable?: boolean,
         indentCount?: number,
     ): TsProperty | undefined
 
     /**
-     * @param girVar
+     *
+     * @param girProp
+     * @param girType
+     * @param tsType
      * @param construct construct means include the property even if it's construct-only,
      * @param optional optional means if it's construct-only it will also be marked optional (?)
-     * @param indentCount
+     * @param nullable
+     * @returns
      */
     private getPropertyTsData(
         girProp: GirPropertyElement | GirFieldElement,
         girType: 'property' | 'field',
         tsType: 'constructor-property' | 'field',
         construct = false,
-        optional = true,
+        optional?: boolean,
+        nullable?: boolean,
     ): TsProperty | undefined {
         if (!girBool(girProp.$.writable) && construct) return undefined
         if (girBool((girProp as GirFieldElement).$.private)) return undefined
+
+        if (optional === undefined) optional = this.typeIsOptional(girProp)
+        if (nullable === undefined) nullable = this.typeIsNullable(girProp)
 
         const readonly =
             !girBool(girProp.$.writable) || (!construct && girBool((girProp as GirPropertyElement).$['construct-only']))
@@ -1063,6 +1135,7 @@ export class GirModule {
                     girType,
                     tsType,
                     construct && optional,
+                    construct && nullable,
                     true,
                 )
                 break
@@ -1075,6 +1148,7 @@ export class GirModule {
                     girType,
                     tsType,
                     construct && optional,
+                    construct && nullable,
                     true,
                 )
                 break
@@ -1114,13 +1188,14 @@ export class GirModule {
         isGlobal = false,
         isVirtual = false,
         overrideReturnType: string | null = null,
+        generics: TsGenericParameter[] = [],
     ): TsFunction | undefined {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
         }
         let name = girFunc.$.name
         const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
-        const retTypeIsVoid = returnType === 'void'
+        const retTypeIsVoid = returnType.type === 'void'
 
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
@@ -1159,6 +1234,7 @@ export class GirModule {
             inParams,
             instanceParameters,
             outParams,
+            generics,
         }
 
         // Apply patches
@@ -1195,6 +1271,7 @@ export class GirModule {
             /* isGlobal */ false,
             /* isVirtual */ false,
             /* overrideReturnType */ name,
+            /* generics */ [],
         )
     }
 
@@ -1211,7 +1288,7 @@ export class GirModule {
 
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
         const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
-        const retTypeIsVoid = returnType === 'void'
+        const retTypeIsVoid = returnType.type === 'void'
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
             girSignalFunc.parameters,
@@ -1230,6 +1307,7 @@ export class GirModule {
             inParams,
             instanceParameters,
             outParams,
+            generics: [],
         }
 
         return tsData
@@ -1290,7 +1368,8 @@ export class GirModule {
     private getAliasTsData(girAlias: GirAliasElement) {
         if (!girElementIsIntrospectable(girAlias)) return undefined
 
-        const typeName = this.typeLookup(girAlias).result
+        // TODO should we really ignore the properties of optional etc of `tsType` here?
+        const { type: typeName } = this.getTsType(girAlias)
         const name = girAlias.$.name
         const tsData: TsAlias = {
             name,
@@ -1301,7 +1380,7 @@ export class GirModule {
 
     private getConstantTsData(girConst: GirConstantElement) {
         if (!girElementIsIntrospectable(girConst)) return undefined
-        let tsData: TsVar | undefined = this.getVariableTsData(girConst, 'constant', 'constant', false, false)
+        let tsData: TsVar | undefined = this.getVariableTsData(girConst, 'constant', 'constant', false, false, false)
         if (tsData?.name) {
             if (!this.constNames[tsData.name]) {
                 this.constNames[tsData.name] = girConst
@@ -1335,6 +1414,7 @@ export class GirModule {
                 girConstrProp,
                 'property',
                 'constructor-property',
+                true,
                 true,
                 true,
                 0,
@@ -1509,7 +1589,7 @@ export class GirModule {
         if (girClass.field) {
             for (const girField of girClass.field) {
                 if (!girElementIsIntrospectable(girField)) continue
-                girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false)
+                girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false, false)
                 girField._tsDoc = this.getTsDoc(girField)
                 if (!girField._tsData) {
                     continue
@@ -1756,6 +1836,7 @@ export class GirModule {
             constructors: [],
             staticFunctions: [],
             signals: [],
+            generics: [],
             extends: {},
             implements: {},
         }
@@ -1875,6 +1956,8 @@ export class GirModule {
             )
             girClass._tsData.implements[key].signals.push(...this.getClassSignalsTsData(iface, girClass))
         })
+
+        this.inject.toClass(girClass)
 
         girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 
@@ -2487,14 +2570,14 @@ export class GirModule {
             if (fullTypeName.startsWith(this.namespace + '.')) {
                 resValue = removeNamespace(fullTypeName, this.namespace)
                 resValue = this.transformation.transformTypeName(resValue)
-                // TODO: check if resValue this is a class, enum, interface or unify the transformClassName method
+                // TODO: check if resValue is a class, enum or interface before transformClassName
                 resValue = this.transformation.transformClassName(resValue)
                 namespace = this.namespace
                 resValue = namespace + '.' + resValue
             } else {
                 const resValues = fullTypeName.split('.')
                 resValues.map((name) => this.transformation.transformTypeName(name))
-                // TODO: check if resValues[resValues.length - 1] this is a class, enum, interface or unify the transformClassName method
+                // TODO: check if resValues[resValues.length - 1] is a class, enum, interface before transformClassName
                 resValues[resValues.length - 1] = this.transformation.transformClassName(
                     resValues[resValues.length - 1],
                 )

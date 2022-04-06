@@ -5,6 +5,8 @@ import {
     GirFunctionElement,
     GirVirtualMethodElement,
     GirMethodElement,
+    TsGenericParameter,
+    TsType,
 } from '.'
 
 /**
@@ -12,7 +14,7 @@ import {
  */
 export interface TsFunction {
     name: string
-    returnType: string
+    returnType: TsType
     /** true if this function is a arrow function: `() => {}` */
     isArrowType: boolean
     /** c `static foobar() {}` */
@@ -27,5 +29,6 @@ export interface TsFunction {
     inParams: GirCallableParamElement[]
     instanceParameters: GirInstanceParameter[]
     outParams: GirCallableParamElement[]
+    generics: TsGenericParameter[]
     overloads: Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
 }

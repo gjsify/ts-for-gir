@@ -16,7 +16,7 @@ export interface GirCallableReturn extends PartOfClass, GirAnyType, GirDocElemen
         destroy?: GirUnparsedNumber /** integer */
         /**  Binary attribute, true if the parameter can be omitted from the introspected output */
         skip?: GirBoolean
-        /** Deprecated. Replaced by nullable and optional */
+        /** @deprecated Replaced by nullable and optional */
         'allow-none'?: GirBoolean
     } & Partial<GirTransferOwnership>
 

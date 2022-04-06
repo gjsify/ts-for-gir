@@ -11,3 +11,5 @@ export const NEW_LINE_REG_EXP = /[\n\r]+/g
 export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'Typescript .d.ts generator from GIR for gjs or node-gtk'
 export const APP_SOURCE = 'https://github.com/sammydre/ts-for-gjs'
+
+export const GENERIC_NAMES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']

@@ -4,12 +4,14 @@
   export const Format = imports.format;
   export const Mainloop = imports.mainloop;
   export const gettext = imports.gettext;
+  export const System = imports.system;
 <% } else { %>  
   module.exports = {
     byteArray: imports.byteArray,
     Lang: imports.lang,
     Format: imports.format,
     Mainloop: imports.mainloop,
-    gettext: imports.gettext
+    gettext: imports.gettext,
+    System: imports.system
   }
 <% } %>

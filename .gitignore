@@ -10,3 +10,6 @@ examples/**/@types/
 # !@types/Gjs/Gtk-4.0.d.ts
 # !@types/node-gtk/Gtk-4.0.d.ts
 index.ts.bak
+
+examples/**/node_modules/
+examples/**/dist/

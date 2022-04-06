@@ -215,7 +215,9 @@ On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't suppor
 
 See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
 
-Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)
+Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)  
+Builder: Webpack  
+Module: ESM  
 
 Build and run:
 ```bash
@@ -230,7 +232,9 @@ npm run start
 ### Builder
 ![builder](examples/builder.png)
 
-Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)
+Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)  
+Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -245,7 +249,9 @@ npm run start
 ### Editor
 ![editor](examples/editor.png)
 
-Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)
+Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)  
+Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -260,7 +266,9 @@ npm run start
 ### Hello Gtk
 ![hello-gtk](examples/hello-gtk.png)
 
-Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)
+Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)  
+Builder: Webpack  
+Module: CommonJS    
 
 Build and run:
 ```bash
@@ -270,6 +278,59 @@ npm run start
 # or for node-gtk
 cd /examples/node-gtk/hello-gtk
 npm run start
+```
+
+### ListStore
+![list-store](examples/list-store.png)
+
+GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`
+
+Source: [Gjs](/examples/Gjs/list-store)  
+Builder: ESBuild  
+Module: ESM  
+
+Build and run:
+```bash
+cd /examples/Gjs/list-store
+npm run start
+```
+
+### HTTP Server + Client
+
+```
+> gjs -m dist/http-server.js
+Visit http://localhost:1080
+```
+
+```
+> gjs -m dist/http-client.js
+Gjs-Message: 21:13:22.007: JS LOG: status: 200 - OK
+Gjs-Message: 21:13:22.007: JS LOG: Date: Wed, 06 Apr 2022 19:13:22 GMT
+Gjs-Message: 21:13:22.007: JS LOG: Content-Type: text/html; charset=utf-8
+Gjs-Message: 21:13:22.007: JS LOG: Content-Length: 135
+Gjs-Message: 21:13:22.008: JS LOG: body:
+
+        <html>
+        <body>
+            Hello, gjs! ☺<br>
+            <a href="/">Go back</a>
+        </body>
+        </html>
+```
+
+
+GJS example showing how to build a http server/client using Soap 3
+
+Source: [Gjs](/examples/Gjs/http)  
+Builder: ESBuild  
+Module: ESM  
+
+Build and run:
+```bash
+cd /examples/Gjs/http
+npm run build
+npm run start:server
+npm run start:client
 ```
 
 ## What it's like
@@ -287,6 +348,7 @@ sudo apt update && sudo apt install \
     libgda-5.0-dev \
     libgirepository1.0-dev \
     libgtk-3-dev \
+    libgtk-4-dev \
     libgtksourceview-3.0-dev \
     libnotify-dev \
     libsoup2.4-dev \
@@ -298,6 +360,8 @@ sudo dnf update && sudo dnf install \
     libgda-devel \
     gobject-introspection-devel \
     gtk3-devel \
+    gtk4-devel \
+    libsoup3-devel \
     gtksourceview3-devel \
     libnotify-devel \
     libsoup-devel \

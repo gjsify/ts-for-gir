@@ -2,10 +2,10 @@
 export type TypeTsElement =
     | 'class'
     | 'interface'
-    | 'enumeration'
+    | 'enum'
     | 'method'
     | 'function'
-    | 'static-function'
+    | 'static'
     | 'constant'
     | 'event-methods'
     | 'type'

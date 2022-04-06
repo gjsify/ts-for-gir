@@ -22,7 +22,7 @@ export interface GirMethodElement extends PartOfClass, GirDocElement {
     'return-value'?: GirCallableReturn[]
 
     // CUSTOM
-    _girType?: 'method'
+    _girType?: 'method' | 'static'
     /** Will be exported in Typescript as a `method` of a `class` */
     _tsType?: 'method'
     _tsData?: TsMethod

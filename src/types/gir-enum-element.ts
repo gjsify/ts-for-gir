@@ -18,8 +18,8 @@ export interface GirEnumElement extends PartOfModule, GirInfoElements {
     function?: GirFunctionElement[]
 
     // CUSTOM
-    _girType?: 'enumeration'
+    _girType?: 'enum'
     /** Will be exported in Typescript as "enumeration": `export enum ${name} { ${memberName}: ${memberType}, ... }` */
-    _tsType?: 'enumeration'
+    _tsType?: 'enum'
     _tsData?: TsEnum
 }

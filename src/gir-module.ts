@@ -216,6 +216,24 @@ export class GirModule {
         return tsDoc
     }
 
+    private getTsDocGirElementTags(tsType?: string, girType?: string): TsDocTag[] {
+        const tags: TsDocTag[] = []
+
+        const IGNORE_GIR_TAYPE_TS_DOC_TYPES = ['method', 'enum', 'property', 'function']
+
+        if (!girType || tsType === girType || IGNORE_GIR_TAYPE_TS_DOC_TYPES.includes(girType)) {
+            return tags
+        }
+
+        tags.push({
+            tagName: girType,
+            paramName: '',
+            text: '',
+        })
+
+        return tags
+    }
+
     private getTsDocInParamTags(inParams?: GirCallableParamElement[]): TsDocTag[] {
         const tags: TsDocTag[] = []
         if (!inParams?.length) {
@@ -309,7 +327,7 @@ export class GirModule {
     private annotateMethods(
         girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
         girFuncs: GirVirtualMethodElement[],
-        girType: 'virtual-method',
+        girType: 'virtual',
         tsType: 'method',
     ): void
 
@@ -332,14 +350,14 @@ export class GirModule {
         girFuncs: GirFunctionElement[],
         girType: 'function',
         /** functions which are part of a class are always static functions */
-        tsType: 'static-function',
+        tsType: 'static',
     ): void
 
     private annotateMethods(
         girClass: GirClassElement | GirRecordElement | GirInterfaceElement,
         girFuncs: GirConstructorElement[],
         girType: 'constructor',
-        tsType: 'static-function',
+        tsType: 'static',
     ): void
 
     /**
@@ -354,7 +372,7 @@ export class GirModule {
             | GirVirtualMethodElement[]
             | GirSignalElement[],
         girType: TypeMethod,
-        tsType: 'static-function' | 'event-methods' | 'method',
+        tsType: 'static' | 'event-methods' | 'method',
     ): void {
         if (Array.isArray(girFuncs))
             for (const girFunc of girFuncs) {
@@ -447,10 +465,10 @@ export class GirModule {
         const properties = girClass.property
         const fields = girClass.field
 
-        this.annotateMethods(girClass, constructors, 'constructor', 'static-function')
-        this.annotateMethods(girClass, functions, 'function', 'static-function')
+        this.annotateMethods(girClass, constructors, 'constructor', 'static')
+        this.annotateMethods(girClass, functions, 'function', 'static')
         this.annotateMethods(girClass, methods, 'method', 'method')
-        this.annotateMethods(girClass, vMethods, 'virtual-method', 'method')
+        this.annotateMethods(girClass, vMethods, 'virtual', 'method')
         this.annotateMethods(girClass, signals, 'signal', 'event-methods')
         if (properties) this.annotateFields(girClass, properties, 'property')
         if (fields) this.annotateFields(girClass, fields, 'field')
@@ -1182,7 +1200,7 @@ export class GirModule {
             | GirConstructorElement
             | GirCallbackElement
             | GirVirtualMethodElement,
-        girType?: 'virtual-method' | 'method' | 'constructor' | 'function' | 'callback',
+        girType?: 'virtual' | 'method' | 'constructor' | 'function' | 'callback' | 'static',
         isStatic = false,
         isArrowType = false,
         isGlobal = false,
@@ -1210,9 +1228,9 @@ export class GirModule {
         // Overwrites
         girType = girType || girFunc._girType
         if (!girType) throw new Error('girType not set!')
-        isStatic = isStatic || girFunc._tsType === 'static-function'
+        isStatic = isStatic || girFunc._tsType === 'static'
         isGlobal = isGlobal || girFunc._tsType === 'function'
-        isVirtual = isVirtual || girType === 'virtual-method'
+        isVirtual = isVirtual || girType === 'virtual'
 
         girFunc._girType = girType
         girFunc._tsType = this.girToTsType(girType, isStatic)
@@ -1524,7 +1542,7 @@ export class GirModule {
             if (!girElementIsIntrospectable(girMethod)) continue
             girMethod._tsData = this.getFunctionTsData(
                 girMethod,
-                'function',
+                'static',
                 /* isStatic */ true,
                 /* isArrowType */ false,
                 /* isGlobal */ false,
@@ -1532,6 +1550,7 @@ export class GirModule {
                 /* overrideReturnType */ null,
             )
             girMethod._tsDoc = this.getTsDoc(girMethod)
+            girMethod._tsDoc.tags.push(...this.getTsDocGirElementTags(girMethod._tsType, girMethod._girType))
             girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
 
             if (girMethod._tsData) {
@@ -1565,6 +1584,7 @@ export class GirModule {
                 )
 
                 girMethod._tsDoc = this.getTsDoc(girMethod)
+                girMethod._tsDoc.tags.push(...this.getTsDocGirElementTags(girMethod._tsType, girMethod._girType))
                 girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
 
                 const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
@@ -1591,6 +1611,7 @@ export class GirModule {
                 if (!girElementIsIntrospectable(girField)) continue
                 girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false, false)
                 girField._tsDoc = this.getTsDoc(girField)
+                girField._tsDoc.tags.push(...this.getTsDocGirElementTags(girField._tsType, girField._girType))
                 if (!girField._tsData) {
                     continue
                 }
@@ -1614,8 +1635,11 @@ export class GirModule {
         if (properties) {
             for (const girProperty of properties) {
                 if (!girElementIsIntrospectable(girProperty)) continue
+
                 girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'field')
                 girProperty._tsDoc = this.getTsDoc(girProperty)
+                girProperty._tsDoc.tags.push(...this.getTsDocGirElementTags(girProperty._tsType, girProperty._girType))
+
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
                 if (localName?.added && localName.property) {
                     girProperties.push(localName.property)
@@ -1711,7 +1735,7 @@ export class GirModule {
 
                 girVMethod._tsData = this.getFunctionTsData(
                     girVMethod,
-                    'virtual-method',
+                    'virtual',
                     /* isStatic */
                     false,
                     /* isArrowType */
@@ -1724,6 +1748,7 @@ export class GirModule {
                     null,
                 )
                 girVMethod._tsDoc = this.getTsDoc(girVMethod)
+                girVMethod._tsDoc.tags.push(...this.getTsDocGirElementTags(girVMethod._tsType, girVMethod._girType))
                 girVMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girVMethod._tsData?.inParams))
 
                 if (girVMethod?._tsData?.name) {
@@ -1759,6 +1784,7 @@ export class GirModule {
             for (const girSignal of signals) {
                 girSignal._tsData = this.getSignalFuncTsData(girSignal, girParentClass)
                 girSignal._tsDoc = this.getTsDoc(girSignal)
+                girSignal._tsDoc.tags.push(...this.getTsDocGirElementTags(girSignal._tsType, girSignal._girType))
                 girSignal._tsDoc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
 
                 girSignals.push(girSignal)
@@ -1861,6 +1887,7 @@ export class GirModule {
 
         girClass._tsData = this.setClassBaseTsData(girClass)
         girClass._tsDoc = this.getTsDoc(girClass)
+        girClass._tsDoc.tags.push(...this.getTsDocGirElementTags(girClass._tsType, girClass._girType))
 
         if (!girClass._tsData) {
             return undefined
@@ -1878,8 +1905,9 @@ export class GirModule {
         girClass._tsData.staticFunctions.push(...this.getClassStaticFunctionsTsData(girClass, false))
 
         // TODO: Can't export fields for GObjects because names would clash
-        if (girClass._girType === 'record')
+        if (girClass._girType === 'record') {
             girClass._tsData.fields.push(...this.getClassFieldsTsData(girClass, girClass._tsData.localNames))
+        }
 
         girClass._tsData.properties.push(...this.getClassPropertiesTsData(girClass, girClass._tsData.localNames))
         girClass._tsData.methods.push(...this.getClassMethodsTsData(girClass, girClass._tsData.localNames))
@@ -1986,7 +2014,11 @@ export class GirModule {
         if (!girClass.$.name) return
         if (!girClass._tsData) girClass._tsData = this.setClassTsData(girClass)
         if (!girClass._tsData) return
-        if (!girClass._tsDoc) girClass._tsDoc = this.getTsDoc(girClass)
+        if (!girClass._tsDoc) {
+            girClass._tsDoc = this.getTsDoc(girClass)
+            girClass._tsDoc.tags.push(...this.getTsDocGirElementTags(girClass._tsType, girClass._girType))
+        }
+
         const { parentName, qualifiedParentName } = girClass._tsData
 
         let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
@@ -2017,7 +2049,10 @@ export class GirModule {
         if (!girIface.$.name) return
         if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface)
         if (!girIface._tsData) return
-        if (!girIface._tsDoc) girIface._tsDoc = this.getTsDoc(girIface)
+        if (!girIface._tsDoc) {
+            girIface._tsDoc = this.getTsDoc(girIface)
+            girIface._tsDoc.tags.push(...this.getTsDocGirElementTags(girIface._tsType, girIface._girType))
+        }
         const girImplements = (girIface as GirInterfaceElement).implements || []
         if (girImplements?.length) {
             for (const girImplement of girImplements) {
@@ -2366,6 +2401,7 @@ export class GirModule {
                     null,
                 )
                 girFunction._tsDoc = this.getTsDoc(girFunction)
+                girFunction._tsDoc.tags.push(...this.getTsDocGirElementTags(girFunction._tsType, girFunction._girType))
                 girFunction._tsDoc.tags.push(...this.getTsDocInParamTags(girFunction._tsData?.inParams))
 
                 if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
@@ -2432,6 +2468,7 @@ export class GirModule {
                 girBitfield._tsData = this.getEnumerationTsData(girBitfield)
                 this.fixEnumerationDuplicateIdentifier(girBitfield)
                 girBitfield._tsDoc = this.getTsDoc(girBitfield)
+                girBitfield._tsDoc.tags.push(...this.getTsDocGirElementTags(girBitfield._tsType, girBitfield._girType))
             }
 
         if (this.ns.constant)
@@ -2462,6 +2499,7 @@ export class GirModule {
             for (const girCallback of this.ns.callback) {
                 girCallback._tsData = this.getFunctionTsData(girCallback, 'callback', false, true, false, false, null)
                 girCallback._tsDoc = this.getTsDoc(girCallback)
+                girCallback._tsDoc.tags.push(...this.getTsDocGirElementTags(girCallback._tsType, girCallback._girType))
                 girCallback._tsDataInterface = this.getCallbackInterfaceTsData(girCallback)
             }
 
@@ -2469,6 +2507,7 @@ export class GirModule {
             for (const girIface of this.ns.interface) {
                 girIface._tsData = this.setClassTsData(girIface)
                 girIface._tsDoc = this.getTsDoc(girIface)
+                girIface._tsDoc.tags.push(...this.getTsDocGirElementTags(girIface._tsType, girIface._girType))
             }
 
         if (this.ns.class)
@@ -2500,27 +2539,27 @@ export class GirModule {
     }
 
     private girToTsType(girType: 'alias', isStatic?: boolean): 'type'
-    private girToTsType(girType: 'enumeration' | 'bitfield', isStatic?: boolean): 'enumeration'
+    private girToTsType(girType: 'enum' | 'bitfield', isStatic?: boolean): 'enum'
     private girToTsType(girType: 'callback', isStatic?: boolean): 'interface'
     private girToTsType(girType: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
     private girToTsType(girType: 'constant', isStatic?: boolean): 'constant'
-    private girToTsType(girType: 'constructor', isStatic?: boolean): 'static-function'
-    private girToTsType(girType: 'method' | 'virtual-method', isStatic?: boolean): 'method'
-    private girToTsType(girType: 'signal', isStatic?: boolean): 'event-methods'
-    private girToTsType(girType: 'function', isStatic: true): 'static-function'
+    private girToTsType(girType: 'constructor', isStatic?: boolean): 'static'
+    private girToTsType(girType: 'method' | 'virtual', isStatic?: boolean): 'method'
+    private girToTsType(girType: 'signal' | 'method', isStatic?: boolean): 'event-methods'
+    private girToTsType(girType: 'static', isStatic: true): 'static'
     private girToTsType(girType: 'function', isStatic: false): 'function'
     private girToTsType(
-        girType: 'function' | 'method' | 'virtual-method' | 'constructor' | 'callback',
+        girType: 'function' | 'method' | 'virtual' | 'constructor' | 'callback' | 'static',
         isStatic?: boolean,
-    ): 'function' | 'method' | 'interface' | 'static-function'
+    ): 'function' | 'method' | 'interface' | 'static'
     private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement
     private girToTsType(girType: TypeGirElement, isStatic?: boolean): TypeTsElement {
         switch (girType) {
             case 'alias':
                 return 'type'
-            case 'enumeration':
+            case 'enum':
             case 'bitfield':
-                return 'enumeration'
+                return 'enum'
             case 'callback':
                 return 'interface'
             case 'class':
@@ -2531,12 +2570,14 @@ export class GirModule {
             case 'constant':
                 return 'constant'
             case 'constructor':
-                return 'static-function'
+                return 'static'
             case 'method':
-            case 'virtual-method':
+            case 'virtual':
                 return 'method'
             case 'signal':
                 return 'event-methods'
+            case 'static':
+                return 'static'
             case 'function':
                 if (typeof isStatic === 'undefined') {
                     throw new Error(
@@ -2544,7 +2585,7 @@ export class GirModule {
                     )
                 }
                 if (isStatic) {
-                    return 'static-function'
+                    return 'static'
                 }
                 return 'function'
         }
@@ -2642,7 +2683,7 @@ export class GirModule {
         if (this.ns.callback) this.annotateAndRegisterGirElement(this.ns.callback, 'callback')
         if (this.ns.class) this.annotateAndRegisterGirElement(this.ns.class, 'class')
         if (this.ns.constant) this.annotateAndRegisterGirElement(this.ns.constant, 'constant')
-        if (this.ns.enumeration) this.annotateAndRegisterGirElement(this.ns.enumeration, 'enumeration')
+        if (this.ns.enumeration) this.annotateAndRegisterGirElement(this.ns.enumeration, 'enum')
         if (this.ns.function) this.annotateAndRegisterGirElement(this.ns.function, 'function')
         if (this.ns.interface) this.annotateAndRegisterGirElement(this.ns.interface, 'interface')
         if (this.ns.record) this.annotateAndRegisterGirElement(this.ns.record, 'record')

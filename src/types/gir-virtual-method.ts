@@ -20,7 +20,7 @@ export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
 
     // CUSTOM
 
-    _girType?: 'virtual-method'
+    _girType?: 'virtual'
     /** Virtual methods are represented in Typescript as normal methods with the prefix "vfunc_" */
     _tsType?: 'method'
     _tsData?: TsMethod

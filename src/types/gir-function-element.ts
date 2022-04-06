@@ -19,6 +19,6 @@ export interface GirFunctionElement extends PartOfClass, GirDocElement {
     // CUSTOM
     _girType?: TypeFunction
     /** Functions are usually exported as global functions in typescript, but can also be static functions of a class */
-    _tsType?: 'function' | 'static-function'
+    _tsType?: 'function' | 'static'
     _tsData?: TsMethod
 }

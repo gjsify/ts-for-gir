@@ -416,14 +416,19 @@ export default class TypeDefinitionGenerator implements Generator {
         if (this.config.noComments) {
             return desc
         }
-        if (girDoc._tsDoc?.text) {
-            const text = girDoc._tsDoc?.text
-            const lines = text.split('\n')
-            if (!lines.length) return desc
+        if (girDoc._tsDoc?.text || girDoc._tsDoc?.tags.length) {
             desc.push(`${indent}/**`)
-            for (const line of lines) {
-                desc.push(`${indent} * ${line}`)
+
+            if (girDoc._tsDoc?.text) {
+                const text = girDoc._tsDoc?.text
+                const lines = text.split('\n')
+                if (lines.length) {
+                    for (const line of lines) {
+                        desc.push(`${indent} * ${line}`)
+                    }
+                }
             }
+
             for (const tag of girDoc._tsDoc.tags) {
                 if (tag.paramName) {
                     desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
@@ -613,7 +618,7 @@ export default class TypeDefinitionGenerator implements Generator {
         let { name } = girFunc._tsData
         const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._tsData
 
-        const staticStr = isStatic || girFunc._tsType === 'static-function' ? 'static ' : ''
+        const staticStr = isStatic || girFunc._tsType === 'static' ? 'static ' : ''
         const globalStr = isGlobal ? 'function ' : ''
         const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(girFunc._tsData.generics)

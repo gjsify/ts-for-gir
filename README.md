@@ -452,6 +452,7 @@ npm run test:girs:node
 * [gjs-ts](https://github.com/niagr/gjs-ts) - Typescript bindings for GJS
 * [Typescript Doclet](https://github.com/gjsify/doclet) - Experimental TypeScript binding generator written in Vala as a Valadoc extension
 * [gi.ts](https://gitlab.gnome.org/ewlsh/gi.ts) - Highly accurate TypeScript bindings for GJS
+* [gi-ts](https://github.com/gi-ts) TypeScript Type definitions for the GNOME base stack (e.g. GLib, GObject) 
 
 ### Other
 

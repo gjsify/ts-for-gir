@@ -4,6 +4,7 @@
 
 // This is a simple example of a HTTP client in Gjs using libsoup 3
 // https://developer.gnome.org/libsoup/stable/libsoup-client-howto.html
+// https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';

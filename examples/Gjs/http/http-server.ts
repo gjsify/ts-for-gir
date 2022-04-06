@@ -3,6 +3,7 @@
 // Copyright 2022 Pascal Garber <pascal@artandcode.studio>
 
 // This is a simple example of a HTTP server in Gjs using libsoup 3
+// https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';

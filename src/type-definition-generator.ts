@@ -23,6 +23,7 @@ import type {
     GirInstanceParameter,
     GirDocElement,
     TsGenericParameter,
+    TsType,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -142,7 +143,7 @@ export default class TypeDefinitionGenerator implements Generator {
             type = funcDesc[0]
         }
 
-        // TODO use suffix from GirModule.typeLookup result here?
+        // TODO: use suffix from `girField._tsData.type` here?
         // if (type) {
         //     const suffix: TypeSuffix = (arr + nul) as TypeSuffix
         //     if (suffix.length) type = '(' + type + ')'
@@ -163,27 +164,40 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const indent = generateIndent(indentCount)
         const name = girVar._tsData.name
-        const { optional, callbacks, nullable } = girVar._tsData.type
-        let typeName = girVar._tsData.type.type
-
-        typeName = removeNamespace(typeName, namespace)
-
-        if (callbacks.length) {
-            typeName = this.generateVariableCallbackType(girVar as GirFieldElement, namespace)
-        }
+        const { optional } = girVar._tsData.type
 
         if (!name) {
             throw new Error('[generateVariable] "name" not set!')
+        }
+
+        const affix = optional ? '?' : ''
+
+        return `${indent}${name}${affix}: ${this.generateType(girVar, namespace)}`
+    }
+
+    private generateType(
+        girVar: GirPropertyElement | GirFieldElement | GirConstantElement | GirCallableParamElement,
+        namespace: string,
+    ) {
+        if (!girVar._tsData) {
+            this.log.error('girVar', inspect(girVar))
+            throw new Error(NO_TSDATA('generateVariable'))
+        }
+
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        const tsType: TsType = girVar._tsData.type || (girVar as any)._tsData?.returnType // TODO
+        const prefix = tsType.nullable ? ' | null' : ''
+        let typeName = removeNamespace(tsType.type, namespace)
+
+        if (tsType.callbacks.length) {
+            typeName = this.generateVariableCallbackType(girVar as GirFieldElement, namespace)
         }
 
         if (!typeName) {
             throw new Error('[generateVariable] "typeName" not set!')
         }
 
-        const affix = optional ? '?' : ''
-        const prefix = nullable ? ' | null' : ''
-
-        return `${indent}${name}${affix}: ${typeName}${prefix}`
+        return `${typeName}${prefix}`
     }
 
     /**
@@ -450,9 +464,10 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const type = girParam._tsData.type
-        const typeName = removeNamespace(type.type, namespace)
-        const prefix = type.nullable ? ' | null' : ''
-        return [`${girParam._tsData.name}${type.optional ? '?' : ''}: ${typeName}${prefix}`]
+        const typeStr = this.generateType(girParam, namespace)
+        const affix = type.optional ? '?' : ''
+
+        return [`${girParam._tsData.name}${affix}: ${typeStr}`]
     }
 
     /**
@@ -490,9 +505,11 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         // TODO: Do not ignore type properties like optional, nullable, generics etc
-        const { type, name } = girParam._tsData
-        const typeName = removeNamespace(type.type, namespace)
-        desc.push(`/* ${name} */ ${typeName}`)
+        const { name } = girParam._tsData
+
+        const typeStr = this.generateType(girParam, namespace)
+
+        desc.push(`/* ${name} */ ${typeStr}`)
         return desc
     }
 
@@ -518,10 +535,13 @@ export default class TypeDefinitionGenerator implements Generator {
         const outParams = girFunc._tsData.outParams
         const retTypeIsVoid = girFunc._tsData.retTypeIsVoid
         // TODO: Do not ignore returnType properties like optional, nullable, generics etc
-        const returnType = girFunc._tsData.returnType
-        const returnTypeName = removeNamespace(returnType.type, namespace)
+        // const returnType = girFunc._tsData.returnType
+        // const returnTypeName = removeNamespace(returnType.type, namespace)
 
-        let desc = returnTypeName
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        const typeStr = this.generateType(girFunc as any, namespace) // TODO
+
+        let desc = typeStr
 
         if (overrideReturnType) {
             desc = overrideReturnType
@@ -529,7 +549,7 @@ export default class TypeDefinitionGenerator implements Generator {
             const outParamsDesc: string[] = []
 
             if (!retTypeIsVoid) {
-                outParamsDesc.push(`/* returnType */ ${returnTypeName}`)
+                outParamsDesc.push(`/* returnType */ ${typeStr}`)
             }
 
             for (const outParam of outParams) {

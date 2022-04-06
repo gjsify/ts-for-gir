@@ -56,8 +56,6 @@ import type {
     GirConstructorElement,
     GirDocElement,
     TypeArraySuffix,
-    TypeNullableSuffix,
-    TypeSuffix,
     TypeFunction,
     TypeMethod,
     TypeVariable,
@@ -82,6 +80,7 @@ import type {
     TsMember,
     TsEnum,
     TsAlias,
+    TsType,
     TsGenericParameter,
     InheritanceTable,
     ParsedGir,
@@ -651,26 +650,20 @@ export class GirModule {
             | GirCallableParamElement
             | GirPropertyElement
             | GirConstantElement,
+        defaults: Partial<TsType> = {},
     ) {
         let type: GirType | undefined = girVar.type?.[0]
         let fullTypeName: string | null = null
         let arr: TypeArraySuffix = ''
-        let nul: TypeNullableSuffix = ''
-        let typeName = ''
+        let typeName = defaults.type || ''
         let namespace = ''
-        let isFunction = false
-        let isCallback = false
-        let nullable = false
-        let optional = false
+        let isFunction = defaults.isFunction || false
+        let isCallback = defaults.isCallback || false
+        const nullable = this.typeIsNullable(girVar) || defaults.nullable || false
+        const optional = this.typeIsOptional(girVar) || defaults.optional || false
+
         const girCallbacks: GirCallbackElement[] = []
-
-        nullable = this.typeIsNullable(girVar)
-        optional = this.typeIsOptional(girVar)
         const array = this.getArrayData(girVar)
-
-        if (nullable) {
-            nul = ' | null' // TODO: move to type-definition-generator
-        }
 
         if (array.overrideTypeName) {
             typeName = array.overrideTypeName
@@ -742,10 +735,11 @@ export class GirModule {
         }
 
         // TODO: move to type-definition-generator
-        const suffix: TypeSuffix = (arr + nul) as TypeSuffix
+        const suffix = arr
 
         // TODO: transform array to type with generics?
         const tsType = this.girFactory.newTsType({
+            ...defaults,
             type: typeName,
             optional,
             nullable,
@@ -760,15 +754,10 @@ export class GirModule {
         }
 
         return {
-            result: typeName + suffix,
+            result: typeName + suffix, // TODO: move to type-definition-generator
             value: typeName,
             suffix,
             namespace,
-            isFunction,
-            isCallback,
-            girCallbacks,
-            nullable,
-            optional,
             tsType,
         }
     }
@@ -788,26 +777,25 @@ export class GirModule {
             | GirVirtualMethodElement,
         generics: TsGenericParameter[] = [],
     ) {
-        let returnTypeName = 'void'
+        const returnTypeName = 'void'
         let outArrayLengthIndex = -1
-        let nullable = false
-        let optional = false
+        const nullable = false
+        const optional = false
 
         const girVar = girFunc['return-value']?.[0] || null
+        let returnType: TsType
+
         if (girVar) {
-            const { result, isCallback, nullable: _nullable, optional: _optional } = this.typeLookup(girVar)
-            nullable = _nullable
-            optional = _optional
+            const { result, tsType } = this.typeLookup(girVar, { optional, nullable, generics })
 
-            if (isCallback) {
-                throw new Error('Callback type is not implemented here')
-            }
-            returnTypeName = result
+            // TODO: Move to type-definition-generator
+            tsType.type = result || returnTypeName
+
+            returnType = tsType
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
+        } else {
+            returnType = this.girFactory.newTsType({ type: returnTypeName, generics, nullable, optional })
         }
-
-        // TODO: Set additional properties like optional, nullable etc
-        const returnType = this.girFactory.newTsType({ type: returnTypeName, generics, nullable, optional })
 
         return { returnType, outArrayLengthIndex }
     }
@@ -943,10 +931,10 @@ export class GirModule {
         // I think it's safest to force inout params to have the
         // same type for in and out
         const typeLook = this.typeLookup(girParam)
-        const { result: paramType, isCallback } = typeLook
-        let { optional, nullable } = typeLook
+        const { result, tsType } = typeLook
+        // let { optional, nullable } = tsType
 
-        if (isCallback) {
+        if (tsType.isCallback) {
             throw new Error('Callback type is not implemented here')
         }
 
@@ -958,7 +946,7 @@ export class GirModule {
         }
         paramNames.push(paramName)
 
-        if (optional || nullable) {
+        if (tsType.optional || tsType.nullable) {
             const index = girParams.indexOf(girParam)
             const following = girParams
                 .slice(index)
@@ -966,16 +954,19 @@ export class GirModule {
                 .filter((p) => p.$.direction !== 'out')
 
             if (following.some((p) => !this.typeIsOptional(p))) {
-                optional = false
+                tsType.optional = false
             }
             if (following.some((p) => !this.typeIsNullable(p))) {
-                nullable = false
+                tsType.nullable = false
             }
         }
 
+        // TODO: Move to type-definition-generator
+        tsType.type = result
+
         const tsData: TsParameter = {
             name: paramName,
-            type: this.girFactory.newTsType({ type: paramType, optional, nullable }),
+            type: tsType,
         }
 
         return tsData
@@ -1055,7 +1046,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirPropertyElement,
         girType: 'property',
-        tsType: 'field' | 'constructor-property',
+        tsTypeName: 'field' | 'constructor-property',
         optional: boolean,
         nullable: boolean,
         allowQuotes: boolean,
@@ -1064,7 +1055,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirConstantElement,
         girType: 'constant',
-        tsType: 'constant',
+        tsTypeName: 'constant',
         optional: boolean,
         nullable: boolean,
         allowQuotes: boolean,
@@ -1073,7 +1064,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirFieldElement,
         girType: 'field',
-        tsType: 'field',
+        tsTypeName: 'field',
         optional: boolean,
         nullable: boolean,
         allowQuotes: boolean,
@@ -1082,9 +1073,9 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         girType: 'property' | 'constant' | 'field',
-        tsType: 'constant' | 'field' | 'constructor-property',
-        optional?: boolean,
-        nullable?: boolean,
+        tsTypeName: 'constant' | 'field' | 'constructor-property',
+        optional = false,
+        nullable = false,
         allowQuotes = false,
         generics: TsGenericParameter[] = [],
     ) {
@@ -1098,7 +1089,7 @@ export class GirModule {
             return undefined
 
         girVar._girType = girType
-        girVar._tsType = tsType
+        girVar._tsType = tsTypeName
 
         let name = girVar.$.name
 
@@ -1115,18 +1106,16 @@ export class GirModule {
         }
         // Use the out type because it can be a union which isn't appropriate
         // for a property
-        const { result, girCallbacks: callbacks, optional: _optional, nullable: _nullable } = this.typeLookup(girVar)
-
-        if (optional === undefined) optional = _optional
-        if (nullable === undefined) nullable = _nullable
+        const { result, tsType } = this.typeLookup(girVar, { optional, nullable, generics })
 
         const typeName = this.transformation.transformTypeName(result)
 
-        const type = this.girFactory.newTsType({ type: typeName, optional, nullable, callbacks, generics })
+        // TODO: Move to type-definition-generator
+        tsType.type = typeName
 
         let tsData: TsProperty | TsVar = {
             name,
-            type,
+            type: tsType,
         }
 
         // Apply patches

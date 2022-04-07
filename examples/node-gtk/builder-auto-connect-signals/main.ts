@@ -5,7 +5,7 @@ import * as Gtk from './@types/node-gtk/Gtk-3.0'
 // const Gtk = gi.require('Gtk', '3.0')
 
 startLoop()
-Gtk.init()
+Gtk.init(process.argv)
 
 const builder = Gtk.Builder.newFromString(gladeFile, gladeFile.length)
 const win = builder.getObject('mainWindow') as Gtk.Window

@@ -2,6 +2,12 @@
 - Refactor Ava test
 
 # Dev
+- Ported Gjs for http server + client example to node-gtk
+- Split GObject template for separate templates for gjs and node-gtk
+- Do not skip generation of GObject fields anymore
+- Add TSDoc tags which identifies the type with the original gir type
+- Also generate TSDocs for classes 
+- Split Github workflows into gjs and node-gtk
 - General improvements #59
   - Added new Gjs example for http server + client with Soap 3
   - Renamed CHANGELOG.md to NEWS.md because as it is not always a detailed changelog
@@ -20,6 +26,7 @@
 - Fix logic around property's readonly & construct-only, see #52
 - Fix properties with the name of `constructor`
 - Fix enums with duplicate identifiers
+- Disabled Ava test for now, because it needs a refactoring
 
 # v2.0.0
 - Fix config file loading, see #48

@@ -5,7 +5,13 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
     entry: ['./main.ts'],
     target: 'node',
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals(),
+        nodeExternals({
+            // necessary so that it also works with npm workspaces
+            modulesDir: path.resolve(__dirname, '../../../node_modules')
+        }),
+    ],
     output: {
         filename: 'main.js',
     },

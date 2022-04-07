@@ -1,11 +1,17 @@
 const nodeExternals = require('webpack-node-externals');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // TypeScript type checker 
 
 exports.default = {
     mode: 'development',
     entry: ['./main.ts'],
     externalsPresets: { node: true },
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals(),
+        nodeExternals({
+            // necessary so that it also works with npm workspaces
+            modulesDir: path.resolve(__dirname, '../../../node_modules')
+        }),
+    ],
     output: {
         filename: 'main.js',
     },
@@ -24,7 +30,10 @@ exports.default = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.jsx', '.ts', '.js'],
     },
-    plugins: [new ForkTsCheckerWebpackPlugin()]
+    plugins: [
+        // new ResolveTypeScriptPlugin({ includeNodeModules: true }),
+        new ForkTsCheckerWebpackPlugin()
+    ]
 };

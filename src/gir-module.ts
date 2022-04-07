@@ -1904,10 +1904,7 @@ export class GirModule {
         girClass._tsData.constructors.push(...this.getClassConstructorsTsData(girClass))
         girClass._tsData.staticFunctions.push(...this.getClassStaticFunctionsTsData(girClass, false))
 
-        // TODO: Can't export fields for GObjects because names would clash
-        if (girClass._girType === 'record') {
-            girClass._tsData.fields.push(...this.getClassFieldsTsData(girClass, girClass._tsData.localNames))
-        }
+        girClass._tsData.fields.push(...this.getClassFieldsTsData(girClass, girClass._tsData.localNames))
 
         girClass._tsData.properties.push(...this.getClassPropertiesTsData(girClass, girClass._tsData.localNames))
         girClass._tsData.methods.push(...this.getClassMethodsTsData(girClass, girClass._tsData.localNames))

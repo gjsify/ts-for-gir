@@ -34,7 +34,7 @@ jobs:
     - run: npm run build:types:node
     # TODO takes too long and is killed with exit code 137
     # - run: npm run validate:types:node
-    # TODO fix build node-gtk on Github actions
-    # - name: Install dependencies for node-gtk
-    #   run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
-    # - run: npm run build:examples:node
+    - name: Install dependencies for node-gtk
+      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
+    - run: npm run build:examples:node
+    - run: npm run start:cli-examples:node

@@ -4,7 +4,13 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 module.exports = {
     entry: ['./main.ts'],
     target: 'node',
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals(),
+        nodeExternals({
+            // necessary so that it also works with npm workspaces
+            modulesDir: path.resolve(__dirname, '../../../node_modules')
+        }),
+    ],
     output: {
         filename: 'main.js',
     },

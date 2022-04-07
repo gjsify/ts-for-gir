@@ -9,7 +9,7 @@
     "build:types": "npm run ts-for-gir -- generate Gtk-3.0 GtkSource-3.0 -e gjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
-    "clear": "npm run clear:ts && npm run build:types",
+    "clear": "npm run clear:ts && npm run clear:types",
     "start": "npm run build && npm run start:gjs",
     "start:gjs": "gjs dist/main.js",
     "watch": "npm run build -- --watch",

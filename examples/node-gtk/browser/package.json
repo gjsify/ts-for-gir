@@ -5,11 +5,11 @@
   "main": "dist/main.js",
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
-    "build:wp": "npm run clear:ts && webpack --env production",
+    "build:wp": "npm run clear:ts && webpack --config webpack.config.cjs --env production",
     "build:types": "../../../lib/start.js generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node --moduleType esm --useNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
-    "clear": "npm run clear:ts && npm run build:types",
+    "clear": "npm run clear:ts && npm run clear:types",
     "start": "npm run clear && npm run build && npm run start:node",
     "start:node": "node dist/main.js",
     "watch": "npm run build:wp -- --watch",

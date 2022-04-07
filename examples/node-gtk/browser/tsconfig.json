@@ -3,7 +3,7 @@
     "lib": ["ESNext"],   
     "types": ["node"],           
     "target": "ESNext",
-    "module": "CommonJS",
+    "module": "ESNext",
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,

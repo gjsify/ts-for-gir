@@ -1421,13 +1421,9 @@ export class GirModule {
             return constructProps
         }
         for (const girProp of girProperties) {
-            if (!girElementIsIntrospectable(girProp)) continue
+            if (!girElementIsIntrospectable(girProp) || !girProp.$.name) continue
             // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
             const girConstrProp = clone(girProp)
-
-            if (!girConstrProp.$.name) {
-                continue
-            }
 
             girConstrProp._tsData = this.getPropertyTsData(
                 girConstrProp,
@@ -1920,9 +1916,10 @@ export class GirModule {
 
         // TODO handle multiple parents?
         if (girClass._tsData.parents.length) {
-            const parentNameForConstructorProps = girClass._tsData.parents.find(
-                (parent) => parent.type === 'prerequisite' || parent.type === 'parent',
-            )?.localParentName
+            const firstParent = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
+
+            const parentNameForConstructorProps = firstParent
+
             if (parentNameForConstructorProps) {
                 girClass._tsData.inheritConstructPropInterfaceName = `${parentNameForConstructorProps}_ConstructProps`
             }
@@ -2056,6 +2053,11 @@ export class GirModule {
                 ret = true
             }
         })
+        this.forEachInterface(girClass, (iface) => {
+            if (iface._tsData?.isDerivedFromGObject === true || iface._fullSymName === 'GObject.Object') {
+                ret = true
+            }
+        })
         return ret
     }
 
@@ -2107,7 +2109,7 @@ export class GirModule {
     private forEachInterface(
         girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
-        recurseObjects = false,
+        recursive = true,
     ): void {
         if (!girIface.$.name) return
         if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface)
@@ -2126,11 +2128,11 @@ export class GirModule {
 
                 const parentPtr = this.getClassParent(parent)
 
-                if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
+                if (parentPtr && recursive) {
                     // iface's prerequisite is also an interface, or it's
                     // a class and we also want to recurse classes
                     callback(parentPtr as GirInterfaceElement)
-                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects)
+                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive)
                 }
             }
         }

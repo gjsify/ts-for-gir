@@ -2,6 +2,7 @@
 - Refactor Ava test
 
 # Dev
+- Ported Gjs for http server + client example to node-gtk
 - Split GObject template for separate templates for gjs and node-gtk
 - Do not skip generation of GObject fields anymore
 - Add TSDoc tags which identifies the type with the original gir type

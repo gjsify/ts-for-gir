@@ -17,10 +17,10 @@ const byteArray = imports.byteArray;
 const session = new Soup.Session();
 const message = new Soup.Message({
     method: 'GET',
-    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=gjs', GLib.UriFlags.NONE) ,
+    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=node-gtk', GLib.UriFlags.NONE) ,
 });
 
-const read_bytes_async_callback: Gio.AsyncReadyCallback = (inputStream, res) => {
+const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {
     let data;
 
     try {
@@ -52,7 +52,7 @@ const send_async_callback: Gio.AsyncReadyCallback = (self, res) => {
         log(`${name}: ${value}`);
     });
 
-    inputStream.read_bytes_async(message.response_headers.get_content_length(), 0, null, read_bytes_async_callback);
+    inputStream.read_bytes_async(message.response_headers.get_content_length(), 0, null, readBytesAsyncCallback);
 }
 
 session.send_async(message, 0, null, send_async_callback);

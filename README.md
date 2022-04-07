@@ -319,9 +319,10 @@ Gjs-Message: 21:13:22.008: JS LOG: body:
 ```
 
 
-GJS example showing how to build a http server/client using Soap 3
+GJS example showing how to build a http server/client using Soap 3.  
+This example contains a client and a server example, for the client example the server must be running. You can also start the server from the node-gtk example and then request that with the gjs example and vice versa ;)
 
-Source: [Gjs](/examples/Gjs/http)  
+Source: [Gjs](/examples/Gjs/http), [node-gtk](/examples/node-gtk/http)
 Builder: ESBuild  
 Module: ESM  
 

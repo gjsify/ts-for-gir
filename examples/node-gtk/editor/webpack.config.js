@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     entry: ['./main.ts'],

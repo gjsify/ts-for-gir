@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // TypeScript type checker 
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin'); // TypeScript type checker
+const path = require('path');
 
 exports.default = {
     mode: 'development',

@@ -1853,6 +1853,20 @@ export class GirModule {
             if (parentName) parents.push(this.getClassParentObject(parentName, namespace, 'parent'))
         }
 
+        // Please reply: Do all interfaces always inherit from Gobject?
+        // If this is a interface and GObject.Object is not in the parents array add GObject.Object to the parents
+        if (
+            girClass._girType === 'interface' &&
+            !parents.find((parent) => parent.qualifiedParentName === 'GObject.Object')
+        ) {
+            parents.push({
+                qualifiedParentName: 'GObject.Object',
+                localParentName: namespace === 'GObject' ? 'Object' : 'GObject.Object',
+                type: 'parent',
+                parentName: 'Object',
+            })
+        }
+
         return parents
     }
 

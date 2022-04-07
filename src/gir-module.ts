@@ -2128,11 +2128,12 @@ export class GirModule {
 
                 const parentPtr = this.getClassParent(parent)
 
-                if (parentPtr && recursive) {
+                if (parentPtr) {
+                    callback(parentPtr as GirInterfaceElement)
                     // iface's prerequisite is also an interface, or it's
                     // a class and we also want to recurse classes
-                    callback(parentPtr as GirInterfaceElement)
-                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive)
+
+                    if (recursive) this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive)
                 }
             }
         }

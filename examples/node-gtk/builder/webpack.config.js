@@ -5,7 +5,10 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
     entry: ['./main.ts'],
     target: 'node',
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals(),
+        { 'node-gtk':'commonjs node-gtk', }
+    ],
     output: {
         filename: 'main.js',
     },

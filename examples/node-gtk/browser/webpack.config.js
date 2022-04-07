@@ -5,7 +5,10 @@ exports.default = {
     mode: 'development',
     entry: ['./main.ts'],
     externalsPresets: { node: true },
-    externals: [nodeExternals()],
+    externals: [
+        nodeExternals(),
+        { 'node-gtk':'commonjs node-gtk', }
+    ],
     output: {
         filename: 'main.js',
     },

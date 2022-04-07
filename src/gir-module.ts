@@ -1821,11 +1821,12 @@ export class GirModule {
         }
     }
 
-    private getClassParents(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        namespace: string,
-    ) {
+    private getClassParents(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         const parents: ClassParent[] = []
+
+        if (!girClass._module?.namespace) {
+            throw new Error('Namespace not found!')
+        }
 
         const prerequisites = (girClass as GirInterfaceElement)?.prerequisite
         const implmts = (girClass as GirInterfaceElement)?.implements
@@ -1835,7 +1836,7 @@ export class GirModule {
             for (const implement of implmts) {
                 const parentName = implement.$?.name
                 if (!parentName) continue
-                parents.push(this.getClassParentObject(parentName, namespace, 'implements'))
+                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'implements'))
             }
         }
 
@@ -1844,13 +1845,13 @@ export class GirModule {
             for (const prerequisite of prerequisites) {
                 const parentName = prerequisite.$?.name
                 if (!parentName) continue
-                parents.push(this.getClassParentObject(parentName, namespace, 'prerequisite'))
+                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'prerequisite'))
             }
         }
 
         if ((girClass as GirClassElement).$.parent) {
             const parentName = (girClass as GirClassElement).$.parent
-            if (parentName) parents.push(this.getClassParentObject(parentName, namespace, 'parent'))
+            if (parentName) parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'parent'))
         }
 
         // Please reply: Do all interfaces always inherit from Gobject?
@@ -1861,7 +1862,7 @@ export class GirModule {
         ) {
             parents.push({
                 qualifiedParentName: 'GObject.Object',
-                localParentName: namespace === 'GObject' ? 'Object' : 'GObject.Object',
+                localParentName: girClass._module.namespace === 'GObject' ? 'Object' : 'GObject.Object',
                 type: 'parent',
                 parentName: 'Object',
             })
@@ -1893,7 +1894,7 @@ export class GirModule {
             className = split[split.length - 1]
         }
 
-        const parents = this.getClassParents(girClass, namespace)
+        const parents = this.getClassParents(girClass)
 
         girClass._tsData = {
             name: className,

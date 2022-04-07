@@ -6,7 +6,10 @@ module.exports = {
     target: 'node',
     externals: [
         nodeExternals(),
-        { 'node-gtk':'commonjs node-gtk', }
+        nodeExternals({
+            // necessary so that it also works with npm workspaces
+            modulesDir: path.resolve(__dirname, '../../../node_modules')
+        }),
     ],
     output: {
         filename: 'main.js',

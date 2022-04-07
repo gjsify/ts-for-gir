@@ -1831,7 +1831,6 @@ export class GirModule {
         const prerequisites = (girClass as GirInterfaceElement)?.prerequisite
         const implmts = (girClass as GirInterfaceElement)?.implements
 
-        // An interface can implement multiple parents
         if (implmts) {
             for (const implement of implmts) {
                 const parentName = implement.$?.name
@@ -1840,7 +1839,6 @@ export class GirModule {
             }
         }
 
-        // An interface can implement multiple parents
         if (prerequisites) {
             for (const prerequisite of prerequisites) {
                 const parentName = prerequisite.$?.name
@@ -1970,7 +1968,7 @@ export class GirModule {
         girClass._tsData.virtualMethods.push(...this.getClassVirtualMethodsTsData(girClass))
         girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass, girClass))
 
-        // Copy fields and properties from inheritance tree
+        // Copy fields, properties, methods, virtual methods and signals from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
             if (!girClass._tsData || !extendsCls._tsData || !extendsCls._fullSymName || !extendsCls._module) {
                 return
@@ -2005,7 +2003,7 @@ export class GirModule {
             girClass._tsData.extends[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
         })
 
-        // Copy properties from implemented interface
+        // Copy properties, methods and signals from implemented interface
         this.forEachInterface(girClass, (iface) => {
             if (!girClass._tsData || !iface._tsData || !iface._fullSymName || !iface._module) {
                 return
@@ -2074,7 +2072,6 @@ export class GirModule {
         return parentPtr
     }
 
-    // TODO merge with forEachInterface?
     private traverseInheritanceTree(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
@@ -2094,6 +2091,10 @@ export class GirModule {
         const parents = girClass._tsData.parents
         if (parents.length) {
             for (const parent of parents) {
+                if (!parent.parentName || parent.type !== 'parent') {
+                    continue
+                }
+
                 const parentPtr = this.getClassParent(parent)
 
                 if (parentPtr && recursive) {
@@ -2103,7 +2104,6 @@ export class GirModule {
         }
     }
 
-    // TODO merge with traverseInheritanceTree?
     private forEachInterface(
         girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
@@ -2120,7 +2120,7 @@ export class GirModule {
         const parents = girIface._tsData.parents
         if (parents.length) {
             for (const parent of parents) {
-                if (!parent.parentName) {
+                if (!parent.parentName || parent.type === 'parent') {
                     continue
                 }
 
@@ -2372,9 +2372,10 @@ export class GirModule {
             },
             false,
         )
-        // Check for overloads among all inherited methods
+
         let bottom = true
-        this.traverseInheritanceTree(girClass, (cls) => {
+
+        const onParent = (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => {
             if (bottom) {
                 bottom = false
                 return
@@ -2392,7 +2393,10 @@ export class GirModule {
                     self = false
                 })
             }
-        })
+        }
+
+        // Check for overloads among all inherited methods
+        this.traverseInheritanceTree(girClass, onParent)
         return this.functionMapToArray(fnMap, explicits)
     }
 

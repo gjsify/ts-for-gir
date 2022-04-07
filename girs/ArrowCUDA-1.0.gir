@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Arrow" version="1.0"/>
+  <package name="arrow-cuda-glib"/>
+  <namespace name="ArrowCUDA"
+             version="1.0"
+             shared-library="libarrow-cuda-glib.so.600"
+             c:identifier-prefixes="GArrowCUDA"
+             c:symbol-prefixes="garrow_cuda">
+    <class name="Buffer"
+           c:symbol-prefix="buffer"
+           c:type="GArrowCUDABuffer"
+           parent="Arrow.Buffer"
+           glib:type-name="GArrowCUDABuffer"
+           glib:get-type="garrow_cuda_buffer_get_type"
+           glib:type-struct="BufferClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="57"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_buffer_new"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="121"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="278">A newly created #GArrowCUDABuffer on
+  success, %NULL on error.</doc>
+          <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="274">A #GArrowCUDAContext.</doc>
+            <type name="Context" c:type="GArrowCUDAContext*"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="275">The number of bytes to be allocated on GPU device for this context.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_ipc"
+                   c:identifier="garrow_cuda_buffer_new_ipc"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="125"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="303">A newly created #GArrowCUDABuffer on
+  success, %NULL on error. The buffer has data from the IPC target.</doc>
+          <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="299">A #GArrowCUDAContext.</doc>
+            <type name="Context" c:type="GArrowCUDAContext*"/>
+          </parameter>
+          <parameter name="handle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="300">A #GArrowCUDAIPCMemoryHandle to be communicated.</doc>
+            <type name="IPCMemoryHandle" c:type="GArrowCUDAIPCMemoryHandle*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <constructor name="new_record_batch"
+                   c:identifier="garrow_cuda_buffer_new_record_batch"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="129"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="329">A newly created #GArrowCUDABuffer on
+  success, %NULL on error. The buffer has serialized record batch
+  data.</doc>
+          <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="325">A #GArrowCUDAContext.</doc>
+            <type name="Context" c:type="GArrowCUDAContext*"/>
+          </parameter>
+          <parameter name="record_batch" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="326">A #GArrowRecordBatch to be serialized.</doc>
+            <type name="Arrow.RecordBatch" c:type="GArrowRecordBatch*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="copy_from_host"
+              c:identifier="garrow_cuda_buffer_copy_from_host"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="138"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="387">%TRUE on success, %FALSE if there was an error.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="382">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </instance-parameter>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="383">Data on CPU host to be copied.</doc>
+            <array length="1" zero-terminated="0" c:type="const guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="384">The size of data on CPU host to be copied in bytes.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="copy_to_host"
+              c:identifier="garrow_cuda_buffer_copy_to_host"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="133"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="358">A #GBytes that have copied memory on CPU
+  host on success, %NULL on error.</doc>
+          <type name="GLib.Bytes" c:type="GBytes*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="353">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </instance-parameter>
+          <parameter name="position" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="354">The offset of memory on GPU device to be copied.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="355">The size of memory on GPU device to be copied in bytes.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="export"
+              c:identifier="garrow_cuda_buffer_export"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="143"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="409">A newly created
+  #GArrowCUDAIPCMemoryHandle to handle the exported buffer on
+  success, %NULL on error</doc>
+          <type name="IPCMemoryHandle" c:type="GArrowCUDAIPCMemoryHandle*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="406">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_context"
+              c:identifier="garrow_cuda_buffer_get_context"
+              version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="146"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="431">A newly created #GArrowCUDAContext for the
+  buffer. Contexts for the same buffer share the same data internally.</doc>
+          <type name="Context" c:type="GArrowCUDAContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="429">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="read_record_batch"
+              c:identifier="garrow_cuda_buffer_read_record_batch"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="148"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="451">A newly created #GArrowRecordBatch on
+  success, %NULL on error. The record batch data is located on GPU.</doc>
+          <type name="Arrow.RecordBatch" c:type="GArrowRecordBatch*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="446">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </instance-parameter>
+          <parameter name="schema" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="447">A #GArrowSchema for record batch.</doc>
+            <type name="Arrow.Schema" c:type="GArrowSchema*"/>
+          </parameter>
+          <parameter name="options"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="448">A #GArrowReadOptions.</doc>
+            <type name="Arrow.ReadOptions" c:type="GArrowReadOptions*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Arrow.Buffer" c:type="GArrowBuffer"/>
+      </field>
+    </class>
+    <record name="BufferClass"
+            c:type="GArrowCUDABufferClass"
+            glib:is-gtype-struct-for="Buffer">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="57"/>
+      <field name="parent_class">
+        <type name="Arrow.BufferClass" c:type="GArrowBufferClass"/>
+      </field>
+    </record>
+    <class name="BufferInputStream"
+           c:symbol-prefix="buffer_input_stream"
+           c:type="GArrowCUDABufferInputStream"
+           parent="Arrow.BufferInputStream"
+           glib:type-name="GArrowCUDABufferInputStream"
+           glib:get-type="garrow_cuda_buffer_input_stream_get_type"
+           glib:type-struct="BufferInputStreamClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="92"/>
+      <implements name="Arrow.File"/>
+      <implements name="Arrow.Readable"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_buffer_input_stream_new"
+                   version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="169"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="722">A newly created
+  #GArrowCUDABufferInputStream.</doc>
+          <type name="BufferInputStream"
+                c:type="GArrowCUDABufferInputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="720">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent_instance">
+        <type name="Arrow.BufferInputStream" c:type="GArrowBufferInputStream"/>
+      </field>
+    </class>
+    <record name="BufferInputStreamClass"
+            c:type="GArrowCUDABufferInputStreamClass"
+            glib:is-gtype-struct-for="BufferInputStream">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="92"/>
+      <field name="parent_class">
+        <type name="Arrow.BufferInputStreamClass"
+              c:type="GArrowBufferInputStreamClass"/>
+      </field>
+    </record>
+    <class name="BufferOutputStream"
+           c:symbol-prefix="buffer_output_stream"
+           c:type="GArrowCUDABufferOutputStream"
+           parent="Arrow.OutputStream"
+           glib:type-name="GArrowCUDABufferOutputStream"
+           glib:get-type="garrow_cuda_buffer_output_stream_get_type"
+           glib:type-struct="BufferOutputStreamClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="104"/>
+      <implements name="Arrow.File"/>
+      <implements name="Arrow.Writable"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_buffer_output_stream_new"
+                   version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="172"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="755">A newly created
+  #GArrowCUDABufferOutputStream.</doc>
+          <type name="BufferOutputStream"
+                c:type="GArrowCUDABufferOutputStream*"/>
+        </return-value>
+        <parameters>
+          <parameter name="buffer" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="753">A #GArrowCUDABuffer.</doc>
+            <type name="Buffer" c:type="GArrowCUDABuffer*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="get_buffer_size"
+              c:identifier="garrow_cuda_buffer_output_stream_get_buffer_size"
+              version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="179"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="800">The CPU buffer size in bytes.
+
+See garrow_cuda_buffer_output_stream_set_buffer_size() for CPU
+buffer size details.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="798">A #GArrowCUDABufferOutputStream.</doc>
+            <type name="BufferOutputStream"
+                  c:type="GArrowCUDABufferOutputStream*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_buffered_size"
+              c:identifier="garrow_cuda_buffer_output_stream_get_buffered_size"
+              version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="181"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="818">The size of buffered data in bytes.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="816">A #GArrowCUDABufferOutputStream.</doc>
+            <type name="BufferOutputStream"
+                  c:type="GArrowCUDABufferOutputStream*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_buffer_size"
+              c:identifier="garrow_cuda_buffer_output_stream_set_buffer_size"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="175"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="775">%TRUE on success, %FALSE if there was an error.
+
+Sets CPU buffer size. to limit `cudaMemcpy()` calls. If CPU buffer
+size is `0`, buffering is disabled.
+
+The default is `0`.</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="stream" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="771">A #GArrowCUDABufferOutputStream.</doc>
+            <type name="BufferOutputStream"
+                  c:type="GArrowCUDABufferOutputStream*"/>
+          </instance-parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="772">A size of CPU buffer in bytes.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Arrow.OutputStream" c:type="GArrowOutputStream"/>
+      </field>
+    </class>
+    <record name="BufferOutputStreamClass"
+            c:type="GArrowCUDABufferOutputStreamClass"
+            glib:is-gtype-struct-for="BufferOutputStream">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="104"/>
+      <field name="parent_class">
+        <type name="Arrow.OutputStreamClass" c:type="GArrowOutputStreamClass"/>
+      </field>
+    </record>
+    <class name="Context"
+           c:symbol-prefix="context"
+           c:type="GArrowCUDAContext"
+           parent="GObject.Object"
+           glib:type-name="GArrowCUDAContext"
+           glib:get-type="garrow_cuda_context_get_type"
+           glib:type-struct="ContextClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="46"/>
+      <method name="get_allocated_size"
+              c:identifier="garrow_cuda_context_get_allocated_size"
+              version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="117"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="246">The allocated memory by this context in bytes.</doc>
+          <type name="gint64" c:type="gint64"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="244">A #GArrowCUDAContext.</doc>
+            <type name="Context" c:type="GArrowCUDAContext*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="context"
+                version="0.8.0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ContextClass"
+            c:type="GArrowCUDAContextClass"
+            glib:is-gtype-struct-for="Context">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="46"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="DeviceManager"
+           c:symbol-prefix="device_manager"
+           c:type="GArrowCUDADeviceManager"
+           parent="GObject.Object"
+           glib:type-name="GArrowCUDADeviceManager"
+           glib:get-type="garrow_cuda_device_manager_get_type"
+           glib:type-struct="DeviceManagerClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="35"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_device_manager_new"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="107"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="91">A newly created #GArrowCUDADeviceManager on success,
+  %NULL on error.</doc>
+          <type name="DeviceManager" c:type="GArrowCUDADeviceManager*"/>
+        </return-value>
+      </constructor>
+      <method name="get_context"
+              c:identifier="garrow_cuda_device_manager_get_context"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="110"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="115">A newly created #GArrowCUDAContext on
+  success, %NULL on error. Contexts for the same GPU device number
+  share the same data internally.</doc>
+          <type name="Context" c:type="GArrowCUDAContext*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="111">A #GArrowCUDADeviceManager.</doc>
+            <type name="DeviceManager" c:type="GArrowCUDADeviceManager*"/>
+          </instance-parameter>
+          <parameter name="gpu_number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="112">A GPU device number for the target context.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_n_devices"
+              c:identifier="garrow_cuda_device_manager_get_n_devices"
+              version="0.8.0">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="114"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="140">The number of GPU devices.</doc>
+          <type name="gsize" c:type="gsize"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="manager" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="138">A #GArrowCUDADeviceManager.</doc>
+            <type name="DeviceManager" c:type="GArrowCUDADeviceManager*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="DeviceManagerClass"
+            c:type="GArrowCUDADeviceManagerClass"
+            glib:is-gtype-struct-for="DeviceManager">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="35"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="HostBuffer"
+           c:symbol-prefix="host_buffer"
+           c:type="GArrowCUDAHostBuffer"
+           parent="Arrow.MutableBuffer"
+           glib:type-name="GArrowCUDAHostBuffer"
+           glib:get-type="garrow_cuda_host_buffer_get_type"
+           glib:type-struct="HostBufferClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="68"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_host_buffer_new"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="155"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="517">A newly created #GArrowCUDAHostBuffer on success,
+  %NULL on error. The allocated memory is accessible from GPU
+  device for the @context.</doc>
+          <type name="HostBuffer" c:type="GArrowCUDAHostBuffer*"/>
+        </return-value>
+        <parameters>
+          <parameter name="gpu_number" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="513">A GPU device number for the target context.</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="514">The number of bytes to be allocated on CPU host.</doc>
+            <type name="gint64" c:type="gint64"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent_instance">
+        <type name="Arrow.MutableBuffer" c:type="GArrowMutableBuffer"/>
+      </field>
+    </class>
+    <record name="HostBufferClass"
+            c:type="GArrowCUDAHostBufferClass"
+            glib:is-gtype-struct-for="HostBuffer">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="68"/>
+      <field name="parent_class">
+        <type name="Arrow.MutableBufferClass"
+              c:type="GArrowMutableBufferClass"/>
+      </field>
+    </record>
+    <class name="IPCMemoryHandle"
+           c:symbol-prefix="ipc_memory_handle"
+           c:type="GArrowCUDAIPCMemoryHandle"
+           parent="GObject.Object"
+           glib:type-name="GArrowCUDAIPCMemoryHandle"
+           glib:get-type="garrow_cuda_ipc_memory_handle_get_type"
+           glib:type-struct="IPCMemoryHandleClass">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="80"/>
+      <constructor name="new"
+                   c:identifier="garrow_cuda_ipc_memory_handle_new"
+                   version="0.8.0"
+                   throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="160"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="630">A newly created #GArrowCUDAIPCMemoryHandle
+  on success, %NULL on error.</doc>
+          <type name="IPCMemoryHandle" c:type="GArrowCUDAIPCMemoryHandle*"/>
+        </return-value>
+        <parameters>
+          <parameter name="data" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="626">A serialized #GArrowCUDAIPCMemoryHandle.</doc>
+            <array length="1" zero-terminated="0" c:type="const guint8*">
+              <type name="guint8" c:type="guint8"/>
+            </array>
+          </parameter>
+          <parameter name="size" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="627">The size of data.</doc>
+            <type name="gsize" c:type="gsize"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="serialize"
+              c:identifier="garrow_cuda_ipc_memory_handle_serialize"
+              version="0.8.0"
+              throws="1">
+        <source-position filename="../arrow-cuda-glib/cuda.h" line="165"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../arrow-cuda-glib/cuda.cpp"
+               line="653">A newly created #GArrowBuffer on success,
+  %NULL on error. The buffer has serialized @handle. The serialized
+  @handle can be deserialized by garrow_cuda_ipc_memory_handle_new()
+  in other process.</doc>
+          <type name="Arrow.Buffer" c:type="GArrowBuffer*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="handle" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../arrow-cuda-glib/cuda.cpp"
+                 line="650">A #GArrowCUDAIPCMemoryHandle.</doc>
+            <type name="IPCMemoryHandle" c:type="GArrowCUDAIPCMemoryHandle*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="ipc-memory-handle"
+                version="0.8.0"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="IPCMemoryHandleClass"
+            c:type="GArrowCUDAIPCMemoryHandleClass"
+            glib:is-gtype-struct-for="IPCMemoryHandle">
+      <source-position filename="../arrow-cuda-glib/cuda.h" line="80"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <docsection name="cuda">
+      <doc xml:space="preserve"
+           filename="../arrow-cuda-glib/cuda.cpp"
+           line="33">The following classes provide CUDA support for Apache Arrow data.
+
+#GArrowCUDADeviceManager is the starting point. You need at
+least one #GArrowCUDAContext to process Apache Arrow data on
+NVIDIA GPU.
+
+#GArrowCUDAContext is a class to keep context for one GPU. You
+need to create #GArrowCUDAContext for each GPU that you want to
+use. You can create #GArrowCUDAContext by
+garrow_cuda_device_manager_get_context().
+
+#GArrowCUDABuffer is a class for data on GPU. You can copy data
+on GPU to/from CPU by garrow_cuda_buffer_copy_to_host() and
+garrow_cuda_buffer_copy_from_host(). You can share data on GPU
+with other processes by garrow_cuda_buffer_export() and
+garrow_cuda_buffer_new_ipc().
+
+#GArrowCUDAHostBuffer is a class for data on CPU that is
+directly accessible from GPU.
+
+#GArrowCUDAIPCMemoryHandle is a class to share data on GPU with
+other processes. You can export your data on GPU to other processes
+by garrow_cuda_buffer_export() and
+garrow_cuda_ipc_memory_handle_new(). You can import other
+process data on GPU by garrow_cuda_ipc_memory_handle_new() and
+garrow_cuda_buffer_new_ipc().
+
+#GArrowCUDABufferInputStream is a class to read data in
+#GArrowCUDABuffer.
+
+#GArrowCUDABufferOutputStream is a class to write data into
+#GArrowCUDABuffer.</doc>
+    </docsection>
+  </namespace>
+</repository>

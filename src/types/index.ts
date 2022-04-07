@@ -1,5 +1,6 @@
 export * from './answer-version.js'
 export * from './build-type.js'
+export * from './class-parent.js'
 export * from './config-flags.js'
 export * from './construct-name.js'
 export * from './dependency-map.js'

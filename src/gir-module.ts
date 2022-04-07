@@ -86,6 +86,7 @@ import type {
     GenerateConfig,
     FunctionMap,
     Environment,
+    ClassParent,
 } from './types/index.js'
 
 export class GirModule {
@@ -1420,13 +1421,9 @@ export class GirModule {
             return constructProps
         }
         for (const girProp of girProperties) {
-            if (!girElementIsIntrospectable(girProp)) continue
+            if (!girElementIsIntrospectable(girProp) || !girProp.$.name) continue
             // Do not modify the original girProp, create a new one by clone `girProp` to `girConstrProp`
             const girConstrProp = clone(girProp)
-
-            if (!girConstrProp.$.name) {
-                continue
-            }
 
             girConstrProp._tsData = this.getPropertyTsData(
                 girConstrProp,
@@ -1793,6 +1790,81 @@ export class GirModule {
         return girSignals
     }
 
+    getClassParentObject(
+        parentName: string,
+        namespace: string,
+        type: 'parent' | 'prerequisite' | 'implements',
+    ): ClassParent {
+        let qualifiedParentName: string
+        let parentModName: string
+
+        if (parentName.indexOf('.') < 0) {
+            qualifiedParentName = namespace + '.' + parentName
+            parentModName = namespace
+        } else {
+            qualifiedParentName = parentName
+            const split = parentName.split('.')
+            parentName = split[split.length - 1]
+            parentModName = split.slice(0, split.length - 1).join('.')
+        }
+        const localParentName = parentModName == namespace ? parentName : qualifiedParentName
+
+        return {
+            qualifiedParentName,
+            localParentName,
+            type,
+            parentName,
+        }
+    }
+
+    private getClassParents(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        const parents: ClassParent[] = []
+
+        if (!girClass._module?.namespace) {
+            throw new Error('Namespace not found!')
+        }
+
+        const prerequisites = (girClass as GirInterfaceElement)?.prerequisite
+        const implmts = (girClass as GirInterfaceElement)?.implements
+
+        if (implmts) {
+            for (const implement of implmts) {
+                const parentName = implement.$?.name
+                if (!parentName) continue
+                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'implements'))
+            }
+        }
+
+        if (prerequisites) {
+            for (const prerequisite of prerequisites) {
+                const parentName = prerequisite.$?.name
+                if (!parentName) continue
+                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'prerequisite'))
+            }
+        }
+
+        if ((girClass as GirClassElement).$.parent) {
+            const parentName = (girClass as GirClassElement).$.parent
+            if (parentName) parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'parent'))
+        }
+
+        // Please reply: Do all interfaces always inherit from Gobject?
+        // If this is a interface and GObject.Object is not in the parents array add GObject.Object to the parents
+        if (
+            girClass._girType === 'interface' &&
+            !parents.find((parent) => parent.qualifiedParentName === 'GObject.Object')
+        ) {
+            parents.push({
+                qualifiedParentName: 'GObject.Object',
+                localParentName: girClass._module.namespace === 'GObject' ? 'Object' : 'GObject.Object',
+                type: 'parent',
+                parentName: 'Object',
+            })
+        }
+
+        return parents
+    }
+
     private setClassBaseTsData(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass?.$?.name) return undefined
 
@@ -1816,37 +1888,12 @@ export class GirModule {
             className = split[split.length - 1]
         }
 
-        let parentName: string | undefined
-        let qualifiedParentName: string | undefined
-        let localParentName: string | undefined
-
-        const prerequisiteName = (girClass as GirInterfaceElement)?.prerequisite?.[0]?.$?.name
-        if (prerequisiteName) {
-            parentName = prerequisiteName
-        } else if ((girClass as GirClassElement).$.parent) {
-            parentName = (girClass as GirClassElement).$.parent
-        }
-
-        let parentModName: string
-        if (parentName) {
-            if (parentName.indexOf('.') < 0) {
-                qualifiedParentName = namespace + '.' + parentName
-                parentModName = namespace
-            } else {
-                qualifiedParentName = parentName
-                const split = parentName.split('.')
-                parentName = split[split.length - 1]
-                parentModName = split.slice(0, split.length - 1).join('.')
-            }
-            localParentName = parentModName == namespace ? parentName : qualifiedParentName
-        }
+        const parents = this.getClassParents(girClass)
 
         girClass._tsData = {
             name: className,
             qualifiedName,
-            parentName,
-            qualifiedParentName,
-            localParentName,
+            parents,
             namespace,
             version,
             isAbstract: this.isAbstractClass(girClass),
@@ -1867,8 +1914,15 @@ export class GirModule {
             implements: {},
         }
 
-        if (girClass._tsData.qualifiedParentName && localParentName) {
-            girClass._tsData.inheritConstructPropInterfaceName = `${localParentName}_ConstructProps`
+        // TODO handle multiple parents?
+        if (girClass._tsData.parents.length) {
+            const firstParent = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
+
+            const parentNameForConstructorProps = firstParent
+
+            if (parentNameForConstructorProps) {
+                girClass._tsData.inheritConstructPropInterfaceName = `${parentNameForConstructorProps}_ConstructProps`
+            }
         }
 
         girClass._tsData.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
@@ -1911,7 +1965,7 @@ export class GirModule {
         girClass._tsData.virtualMethods.push(...this.getClassVirtualMethodsTsData(girClass))
         girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass, girClass))
 
-        // Copy fields and properties from inheritance tree
+        // Copy fields, properties, methods, virtual methods and signals from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls) => {
             if (!girClass._tsData || !extendsCls._tsData || !extendsCls._fullSymName || !extendsCls._module) {
                 return
@@ -1946,7 +2000,7 @@ export class GirModule {
             girClass._tsData.extends[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
         })
 
-        // Copy properties from implemented interface
+        // Copy properties, methods and signals from implemented interface
         this.forEachInterface(girClass, (iface) => {
             if (!girClass._tsData || !iface._tsData || !iface._fullSymName || !iface._module) {
                 return
@@ -1999,7 +2053,25 @@ export class GirModule {
                 ret = true
             }
         })
+        this.forEachInterface(girClass, (iface) => {
+            if (iface._tsData?.isDerivedFromGObject === true || iface._fullSymName === 'GObject.Object') {
+                ret = true
+            }
+        })
         return ret
+    }
+
+    private getClassParent(parent: ClassParent) {
+        let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
+        if (this.symTable.get(this.allDependencies, parent.qualifiedParentName)) {
+            parentPtr = (this.symTable.get(this.allDependencies, parent.qualifiedParentName) as GirClassElement) || null
+        }
+
+        if (!parentPtr && parent.parentName == 'Object') {
+            parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClassElement) || null
+        }
+
+        return parentPtr
     }
 
     private traverseInheritanceTree(
@@ -2016,32 +2088,28 @@ export class GirModule {
             girClass._tsDoc.tags.push(...this.getTsDocGirElementTags(girClass._tsType, girClass._girType))
         }
 
-        const { parentName, qualifiedParentName } = girClass._tsData
-
-        let parentPtr: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement | null = null
-
-        if (parentName && qualifiedParentName) {
-            if (this.symTable.get(this.allDependencies, qualifiedParentName)) {
-                parentPtr = (this.symTable.get(this.allDependencies, qualifiedParentName) as GirClassElement) || null
-            }
-
-            if (!parentPtr && parentName == 'Object') {
-                parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClassElement) || null
-            }
-        }
-
         callback(girClass)
 
-        if (parentPtr && recursive) {
-            this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
+        const parents = girClass._tsData.parents
+        if (parents.length) {
+            for (const parent of parents) {
+                if (!parent.parentName || parent.type !== 'parent') {
+                    continue
+                }
+
+                const parentPtr = this.getClassParent(parent)
+
+                if (parentPtr && recursive) {
+                    this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
+                }
+            }
         }
     }
 
     private forEachInterface(
         girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
-        recurseObjects = false,
-        dups = {},
+        recursive = true,
     ): void {
         if (!girIface.$.name) return
         if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface)
@@ -2050,52 +2118,22 @@ export class GirModule {
             girIface._tsDoc = this.getTsDoc(girIface)
             girIface._tsDoc.tags.push(...this.getTsDocGirElementTags(girIface._tsType, girIface._girType))
         }
-        const girImplements = (girIface as GirInterfaceElement).implements || []
-        if (girImplements?.length) {
-            for (const girImplement of girImplements) {
-                let name = girImplement.$.name
-                const key = this.symTable.getKey(this.allDependencies, name)
 
-                if (!name.includes('.')) {
-                    name = addNamespace(name, this.namespace)
-                }
-
-                if (key && dups[key]) {
+        const parents = girIface._tsData.parents
+        if (parents.length) {
+            for (const parent of parents) {
+                if (!parent.parentName || parent.type === 'parent') {
                     continue
                 }
 
-                let iface: GirInterfaceElement | null = null
-                const _iface = this.symTable.get(this.allDependencies, name)
-                if (key) {
-                    dups[key] = true
-                    iface = _iface as GirInterfaceElement
-                }
+                const parentPtr = this.getClassParent(parent)
 
-                if (iface) {
-                    callback(iface)
-                    this.forEachInterface(iface, callback, recurseObjects, dups)
-                }
-            }
-        }
-        const girPrerequisites = (girIface as GirInterfaceElement).prerequisite || []
-        if (girPrerequisites?.length) {
-            for (const girPrerequisite of girPrerequisites) {
-                let parentName = girPrerequisite.$.name
-                if (!parentName) {
-                    return
-                }
-
-                if (!parentName.includes('.')) {
-                    parentName = addNamespace(parentName, this.namespace)
-                }
-
-                if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
-                const parentPtr = this.symTable.get(this.allDependencies, parentName)
-                if (parentPtr && ((parentPtr as GirInterfaceElement).prerequisite || recurseObjects)) {
+                if (parentPtr) {
+                    callback(parentPtr as GirInterfaceElement)
                     // iface's prerequisite is also an interface, or it's
                     // a class and we also want to recurse classes
-                    callback(parentPtr as GirInterfaceElement)
-                    this.forEachInterface(parentPtr as GirInterfaceElement, callback, recurseObjects, dups)
+
+                    if (recursive) this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive)
                 }
             }
         }
@@ -2337,9 +2375,10 @@ export class GirModule {
             },
             false,
         )
-        // Check for overloads among all inherited methods
+
         let bottom = true
-        this.traverseInheritanceTree(girClass, (cls) => {
+
+        const onParent = (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => {
             if (bottom) {
                 bottom = false
                 return
@@ -2357,7 +2396,10 @@ export class GirModule {
                     self = false
                 })
             }
-        })
+        }
+
+        // Check for overloads among all inherited methods
+        this.traverseInheritanceTree(girClass, onParent)
         return this.functionMapToArray(fnMap, explicits)
     }
 

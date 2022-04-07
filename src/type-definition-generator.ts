@@ -495,10 +495,6 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateType(girParam, namespace)
         const affix = type.optional ? '?' : ''
 
-        if (name === 'working_directory') {
-            debugger
-        }
-
         return [`${name}${affix}: ${typeStr}`]
     }
 
@@ -832,7 +828,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     ...this.generateProperties(
                         constructProps,
                         namespace,
-                        `Constructor properties of ${versionFullSymName}`,
+                        `Implemented constructor properties of ${versionFullSymName}`,
                         indentCount + 1,
                     ),
                 )
@@ -858,14 +854,21 @@ export default class TypeDefinitionGenerator implements Generator {
             ...this.generateProperties(
                 girClass._tsData.fields,
                 namespace,
-                `Fields of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Own fields of ${girClass._module.packageName}.${girClass._fullSymName}`,
                 indentCount,
             ),
         )
 
         for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
             const girFields = girClass._tsData.extends[versionFullSymName]?.fields
-            def.push(...this.generateProperties(girFields, namespace, `Fields of ${versionFullSymName}`, indentCount))
+            def.push(
+                ...this.generateProperties(
+                    girFields,
+                    namespace,
+                    `Extended fields of ${versionFullSymName}`,
+                    indentCount,
+                ),
+            )
         }
 
         return def
@@ -886,7 +889,7 @@ export default class TypeDefinitionGenerator implements Generator {
             ...this.generateProperties(
                 girClass._tsData.properties,
                 namespace,
-                `Properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Own properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
                 indentCount,
             ),
         )
@@ -896,7 +899,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 ...this.generateProperties(
                     girClass._tsData.extends[versionFullSymName].properties,
                     namespace,
-                    `Properties of ${versionFullSymName}`,
+                    `Extended properties of ${versionFullSymName}`,
                     indentCount,
                 ),
             )
@@ -907,7 +910,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 ...this.generateProperties(
                     girClass._tsData.implements[versionFullSymName].properties,
                     namespace,
-                    `Properties of ${versionFullSymName}`,
+                    `Implemented properties of ${versionFullSymName}`,
                     indentCount,
                 ),
             )
@@ -931,28 +934,30 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.methods,
                 namespace,
                 indentCount,
-                `Methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Owm methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
         )
 
+        // Methods from inheritance
         for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
             def.push(
                 ...this.generateFunctions(
                     girClass._tsData.extends[versionFullSymName].methods,
                     namespace,
                     indentCount,
-                    `Methods of ${versionFullSymName}`,
+                    `Extended methods of ${versionFullSymName}`,
                 ),
             )
         }
 
+        // Methods from interfaces
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
             def.push(
                 ...this.generateFunctions(
                     girClass._tsData.implements[versionFullSymName].methods,
                     namespace,
                     indentCount,
-                    `Methods of ${versionFullSymName}`,
+                    `Implemented methods of ${versionFullSymName}`,
                 ),
             )
         }
@@ -1011,7 +1016,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.virtualMethods,
                 namespace,
                 indentCount,
-                `Virtual methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Own virtual methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
         )
 
@@ -1021,7 +1026,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     girClass._tsData.extends[versionFullSymName].virtualMethods,
                     namespace,
                     indentCount,
-                    `Virtual methods of ${versionFullSymName}`,
+                    `Extended virtual methods of ${versionFullSymName}`,
                 ),
             )
         }
@@ -1094,7 +1099,11 @@ export default class TypeDefinitionGenerator implements Generator {
         const signalDescs = this.generateSignals(girClass._tsData.signals, girClass, namespace, 0)
 
         def.push(
-            ...this.mergeDescs(signalDescs, `Signals of ${girClass._module.packageName}.${girClass._fullSymName}`, 1),
+            ...this.mergeDescs(
+                signalDescs,
+                `Own signals of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                1,
+            ),
         )
 
         for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
@@ -1104,7 +1113,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 namespace,
                 0,
             )
-            def.push(...this.mergeDescs(signalDescs, `Signals of ${versionFullSymName}`, 1))
+            def.push(...this.mergeDescs(signalDescs, `Extended signals of ${versionFullSymName}`, 1))
         }
 
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
@@ -1114,7 +1123,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 namespace,
                 0,
             )
-            def.push(...this.mergeDescs(signalDescs, `Signals of ${versionFullSymName}`, 1))
+            def.push(...this.mergeDescs(signalDescs, `Implemented signals of ${versionFullSymName}`, 1))
         }
 
         return def

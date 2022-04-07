@@ -495,10 +495,6 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateType(girParam, namespace)
         const affix = type.optional ? '?' : ''
 
-        if (name === 'working_directory') {
-            debugger
-        }
-
         return [`${name}${affix}: ${typeStr}`]
     }
 

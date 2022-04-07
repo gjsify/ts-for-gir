@@ -12,14 +12,15 @@ import {
     GirSignalElement,
     GirRecordElement,
     TsGenericParameter,
+    ClassParent,
 } from '.'
 
 export interface TsClass {
     name: string
     qualifiedName: string
-    parentName?: string
-    qualifiedParentName?: string
-    localParentName?: string // qualified if its module != qualifiedName's module
+
+    parents: ClassParent[]
+
     namespace: string
     version: string
     isDerivedFromGObject?: boolean

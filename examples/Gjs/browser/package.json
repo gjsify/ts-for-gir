@@ -12,7 +12,7 @@
     "build:types": "../../../lib/start.js generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --environments gjs --moduleType esm --useNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
-    "clear": "npm run clear:ts && npm run build:types",
+    "clear": "npm run clear:ts && npm run clear:types",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

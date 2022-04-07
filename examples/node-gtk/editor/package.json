@@ -9,7 +9,7 @@
     "build:types": "../../../lib/start.js generate Gtk-3.0 GtkSource-3.0 -e node",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
-    "clear": "npm run clear:ts && npm run build:types",
+    "clear": "npm run clear:ts && npm run clear:types",
     "start": "npm run build && npm run start:node",
     "start:node": "node dist/main.js",
     "watch": "npm run build:wp -- --watch",

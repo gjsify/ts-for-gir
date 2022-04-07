@@ -31,27 +31,27 @@ export let TYPE_PARAM     : GType<unknown>;
 export let TYPE_OBJECT    : GType<object>;
 export let TYPE_GTYPE     : GType<unknown>;
 export let TYPE_VARIANT   : GType<unknown>;
-export let TYPE_UNICHAR   : TYPE_UINT
+export let TYPE_UNICHAR   : GType<number>;
 
-export function typeFromName(name: 'void'): TYPE_INVALID
-export function typeFromName(name: 'GInterface'): TYPE_INTERFACE
-export function typeFromName(name: 'gchar'): TYPE_CHAR
-export function typeFromName(name: 'guchar'): TYPE_UCHAR
-export function typeFromName(name: 'gboolean'): TYPE_BOOLEAN
-export function typeFromName(name: 'gint'): TYPE_INT
-export function typeFromName(name: 'guint'): TYPE_UINT
-export function typeFromName(name: 'glong'): TYPE_LONG
-export function typeFromName(name: 'gulong'): TYPE_ULONG
-export function typeFromName(name: 'gint64'): TYPE_INT64
-export function typeFromName(name: 'guint64'): TYPE_UINT64
-export function typeFromName(name: 'GEnum'): TYPE_ENUM
-export function typeFromName(name: 'GFlags'): TYPE_FLAGS
-export function typeFromName(name: 'gfloat'): TYPE_FLOAT
-export function typeFromName(name: 'gdouble'): TYPE_DOUBLE
-export function typeFromName(name: 'gchararray'): TYPE_STRING
-export function typeFromName(name: 'gpointer'): TYPE_POINTER
-export function typeFromName(name: 'GBoxed'): TYPE_BOXED
-export function typeFromName(name: 'GParam'): TYPE_PARAM
-export function typeFromName(name: 'GObject'): TYPE_OBJECT
-export function typeFromName(name: 'GType'): TYPE_GTYPE
-export function typeFromName(name: 'GVariant'): TYPE_VARIANT
+export function typeFromName(name: 'void'): typeof TYPE_INVALID
+export function typeFromName(name: 'GInterface'): typeof TYPE_INTERFACE
+export function typeFromName(name: 'gchar'): typeof TYPE_CHAR
+export function typeFromName(name: 'guchar'): typeof TYPE_UCHAR
+export function typeFromName(name: 'gboolean'): typeof TYPE_BOOLEAN
+export function typeFromName(name: 'gint'): typeof TYPE_INT
+export function typeFromName(name: 'guint'): typeof TYPE_UINT
+export function typeFromName(name: 'glong'): typeof TYPE_LONG
+export function typeFromName(name: 'gulong'): typeof TYPE_ULONG
+export function typeFromName(name: 'gint64'): typeof TYPE_INT64
+export function typeFromName(name: 'guint64'): typeof TYPE_UINT64
+export function typeFromName(name: 'GEnum'): typeof TYPE_ENUM
+export function typeFromName(name: 'GFlags'): typeof TYPE_FLAGS
+export function typeFromName(name: 'gfloat'): typeof TYPE_FLOAT
+export function typeFromName(name: 'gdouble'): typeof TYPE_DOUBLE
+export function typeFromName(name: 'gchararray'): typeof TYPE_STRING
+export function typeFromName(name: 'gpointer'): typeof TYPE_POINTER
+export function typeFromName(name: 'GBoxed'): typeof TYPE_BOXED
+export function typeFromName(name: 'GParam'): typeof TYPE_PARAM
+export function typeFromName(name: 'GObject'): typeof TYPE_OBJECT
+export function typeFromName(name: 'GType'): typeof TYPE_GTYPE
+export function typeFromName(name: 'GVariant'): typeof TYPE_VARIANT

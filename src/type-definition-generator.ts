@@ -822,6 +822,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 ),
             )
 
+            // Implemented constructor properties
             for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
                 const constructProps = girClass._tsData.implements[versionFullSymName]?.constructProps
                 def.push(
@@ -836,6 +837,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
         // END BODY
         def.push(`${indent}}`)
+        def.push('')
 
         return def
     }
@@ -907,16 +909,16 @@ export default class TypeDefinitionGenerator implements Generator {
         // }
 
         // Properties from implementation
-        for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-            def.push(
-                ...this.generateProperties(
-                    girClass._tsData.implements[versionFullSymName].properties,
-                    namespace,
-                    `Implemented properties of ${versionFullSymName}`,
-                    indentCount,
-                ),
-            )
-        }
+        // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+        //     def.push(
+        //         ...this.generateProperties(
+        //             girClass._tsData.implements[versionFullSymName].properties,
+        //             namespace,
+        //             `Implemented properties of ${versionFullSymName}`,
+        //             indentCount,
+        //         ),
+        //     )
+        // }
 
         return def
     }
@@ -953,16 +955,16 @@ export default class TypeDefinitionGenerator implements Generator {
         // }
 
         // Methods from implementation
-        for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-            def.push(
-                ...this.generateFunctions(
-                    girClass._tsData.implements[versionFullSymName].methods,
-                    namespace,
-                    indentCount,
-                    `Implemented methods of ${versionFullSymName}`,
-                ),
-            )
-        }
+        // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+        //     def.push(
+        //         ...this.generateFunctions(
+        //             girClass._tsData.implements[versionFullSymName].methods,
+        //             namespace,
+        //             indentCount,
+        //             `Implemented methods of ${versionFullSymName}`,
+        //         ),
+        //     )
+        // }
 
         return def
     }
@@ -1121,25 +1123,26 @@ export default class TypeDefinitionGenerator implements Generator {
         // }
 
         // Signals from implementation
-        for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-            const signalDescs = this.generateSignals(
-                girClass._tsData.implements[versionFullSymName].signals,
-                girClass,
-                namespace,
-                0,
-            )
-            def.push(...this.mergeDescs(signalDescs, `Implemented signals of ${versionFullSymName}`, 1))
-        }
+        // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+        //     const signalDescs = this.generateSignals(
+        //         girClass._tsData.implements[versionFullSymName].signals,
+        //         girClass,
+        //         namespace,
+        //         0,
+        //     )
+        //     def.push(...this.mergeDescs(signalDescs, `Implemented signals of ${versionFullSymName}`, 1))
+        // }
 
         return def
     }
 
     /**
-     * Represents a record or GObject class or interface as a Typescript class
+     * In Typescript, interfaces and classes can have the same name,
+     * so we use this to generate interfaces with the same name to implement multiple inheritance
      * @param girClass
-     * @param record
+     * @param namespace
      */
-    private generateClass(
+    private generateImplementationInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -1147,27 +1150,16 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (!girClass._tsData) return def
 
-        // Properties for construction
-        def.push(...this.generateConstructPropsInterface(girClass, namespace))
-
-        def.push(...this.addGirDocComment(girClass, 0))
-
-        if (Object.keys(girClass._tsData.extends).length > 1) {
-            debugger
-        }
-
         const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
-        const parentName = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
-        const ext = parentName ? ` extends ${parentName}` : ''
+        const implementationNames = girClass._tsData.parents
+            .filter((implementation) => implementation.type !== 'parent')
+            .map((implementation) => implementation.localParentName)
+        const ext = implementationNames.length ? ` extends ${implementationNames.join(', ')}` : ''
         const classHead = `${girClass._tsData.name}${genericParameters}${ext}`
 
-        // START CLASS
+        // START INTERFACE
         {
-            if (girClass._tsData.isAbstract) {
-                def.push(this.generateExport('abstract class', classHead, '{'))
-            } else {
-                def.push(this.generateExport('class', classHead, '{'))
-            }
+            def.push(this.generateExport('interface', classHead, '{'))
 
             // START BODY
             {
@@ -1188,8 +1180,71 @@ export default class TypeDefinitionGenerator implements Generator {
 
                 // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
                 def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+            }
+            // END BODY
 
-                // TODO: Records have fields
+            // END INTERFACE
+            def.push('}')
+            def.push('')
+        }
+
+        return def
+    }
+
+    /**
+     * Represents a record, GObject class or interface as a Typescript class
+     * @param girClass
+     * @param namespace
+     */
+    private generateClass(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+    ) {
+        const def: string[] = []
+
+        if (!girClass._tsData) return def
+
+        // Properties for construction
+        def.push(...this.generateConstructPropsInterface(girClass, namespace))
+
+        def.push(...this.generateImplementationInterface(girClass, namespace))
+
+        def.push(...this.addGirDocComment(girClass, 0))
+
+        const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
+        const parentName = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
+        const ext = parentName ? ` extends ${parentName}` : ''
+        const classHead = `${girClass._tsData.name}${genericParameters}${ext}`
+
+        // START CLASS
+        {
+            if (girClass._tsData.isAbstract) {
+                def.push(this.generateExport('abstract class', classHead, '{'))
+            } else {
+                def.push(this.generateExport('class', classHead, '{'))
+            }
+
+            // START BODY
+            {
+                // // Properties
+                // def.push(...this.generateClassProperties(girClass, namespace))
+
+                // // Fields
+                // def.push(...this.generateClassFields(girClass, namespace))
+
+                // // Methods
+                // def.push(...this.generateClassMethods(girClass, namespace))
+
+                // // Virtual methods
+                // def.push(...this.generateClassVirtualMethods(girClass, namespace))
+
+                // // Signals
+                // def.push(...this.generateClassSignals(girClass, namespace))
+
+                // // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
+                // def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+
+                // // TODO: Records have fields
 
                 // Static side: default constructor
                 def.push(...this.generateConstructorAndStaticFunctions(girClass, namespace).def)
@@ -1198,6 +1253,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
             // END CLASS
             def.push('}')
+            def.push('')
         }
 
         return def
@@ -1276,7 +1332,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
             if (girModule.ns.interface)
                 for (const girIface of girModule.ns.interface)
-                    if (girIface._module) out.push(...this.generateClass(girIface, girIface._module.namespace))
+                    if (girIface._module) {
+                        out.push(...this.generateClass(girIface, girIface._module.namespace))
+                    }
 
             // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
@@ -1288,15 +1346,21 @@ export default class TypeDefinitionGenerator implements Generator {
 
             if (girModule.ns.class)
                 for (const gitClass of girModule.ns.class)
-                    if (gitClass._module) out.push(...this.generateClass(gitClass, gitClass._module.namespace))
+                    if (gitClass._module) {
+                        out.push(...this.generateClass(gitClass, gitClass._module.namespace))
+                    }
 
             if (girModule.ns.record)
                 for (const girRecord of girModule.ns.record)
-                    if (girRecord._module) out.push(...this.generateClass(girRecord, girRecord._module.namespace))
+                    if (girRecord._module) {
+                        out.push(...this.generateClass(girRecord, girRecord._module.namespace))
+                    }
 
             if (girModule.ns.union)
                 for (const girUnion of girModule.ns.union)
-                    if (girUnion._module) out.push(...this.generateClass(girUnion, girUnion._module.namespace))
+                    if (girUnion._module) {
+                        out.push(...this.generateClass(girUnion, girUnion._module.namespace))
+                    }
 
             if (girModule.ns.alias)
                 // GType is not a number in GJS

@@ -1966,7 +1966,7 @@ export class GirModule {
         girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass, girClass))
 
         // Copy fields, properties, methods, virtual methods and signals from inheritance tree
-        this.traverseInheritanceTree(girClass, (extendsCls) => {
+        this.traverseInheritanceTree(girClass, (extendsCls, depth) => {
             if (!girClass._tsData || !extendsCls._tsData || !extendsCls._fullSymName || !extendsCls._module) {
                 return
             }
@@ -1979,6 +1979,7 @@ export class GirModule {
             if (girClass._tsData.extends[key]) return
 
             girClass._tsData.extends[key] = {
+                depth,
                 class: extendsCls,
                 fields: [],
                 properties: [],
@@ -2001,7 +2002,7 @@ export class GirModule {
         })
 
         // Copy properties, methods and signals from implemented interface
-        this.forEachInterface(girClass, (iface) => {
+        this.forEachInterface(girClass, (iface, depth) => {
             if (!girClass._tsData || !iface._tsData || !iface._fullSymName || !iface._module) {
                 return
             }
@@ -2014,6 +2015,7 @@ export class GirModule {
             if (girClass._tsData.implements[key]) return
 
             girClass._tsData.implements[key] = {
+                depth,
                 interface: iface,
                 properties: [],
                 constructProps: [],
@@ -2076,7 +2078,10 @@ export class GirModule {
 
     private traverseInheritanceTree(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        callback: (girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
+        callback: (
+            girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+            depth: number,
+        ) => void,
         depth = 0,
         recursive = true,
     ): void {
@@ -2088,10 +2093,11 @@ export class GirModule {
             girClass._tsDoc.tags.push(...this.getTsDocGirElementTags(girClass._tsType, girClass._girType))
         }
 
-        callback(girClass)
+        callback(girClass, depth)
 
         const parents = girClass._tsData.parents
         if (parents.length) {
+            ++depth
             for (const parent of parents) {
                 if (!parent.parentName || parent.type !== 'parent') {
                     continue
@@ -2100,7 +2106,7 @@ export class GirModule {
                 const parentPtr = this.getClassParent(parent)
 
                 if (parentPtr && recursive) {
-                    this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
+                    this.traverseInheritanceTree(parentPtr, callback, depth, recursive)
                 }
             }
         }
@@ -2108,8 +2114,12 @@ export class GirModule {
 
     private forEachInterface(
         girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        callback: (cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) => void,
+        callback: (
+            cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+            depth: number,
+        ) => void,
         recursive = true,
+        depth = 0,
     ): void {
         if (!girIface.$.name) return
         if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface)
@@ -2121,6 +2131,7 @@ export class GirModule {
 
         const parents = girIface._tsData.parents
         if (parents.length) {
+            ++depth
             for (const parent of parents) {
                 if (!parent.parentName || parent.type === 'parent') {
                     continue
@@ -2129,11 +2140,11 @@ export class GirModule {
                 const parentPtr = this.getClassParent(parent)
 
                 if (parentPtr) {
-                    callback(parentPtr as GirInterfaceElement)
+                    callback(parentPtr as GirInterfaceElement, depth)
                     // iface's prerequisite is also an interface, or it's
                     // a class and we also want to recurse classes
 
-                    if (recursive) this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive)
+                    if (recursive) this.forEachInterface(parentPtr as GirInterfaceElement, callback, recursive, depth)
                 }
             }
         }

@@ -66,6 +66,12 @@ export interface TsClass {
     extends: {
         /** module packageName + package version + full system name of extended class */
         [key: string]: {
+            /**
+             * The depth of the inheritance, starts at 1.
+             * 1 means it is a direct inheritance,
+             * greater means it is an indirect inheritance
+             */
+            depth: number
             /** The extended class itself */
             class: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
             /** Fields of extended class */
@@ -85,6 +91,12 @@ export interface TsClass {
     implements: {
         /** module packageName + package version + full system name of implemented class / interface */
         [key: string]: {
+            /**
+             * The depth of the implementation, starts at 1.
+             * 1 means it is a direct implementation,
+             * greater means it is an indirect implementation
+             */
+            depth: number
             /** The implemented class / interface itself */
             interface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
             /** Properties of implemented class / interface */

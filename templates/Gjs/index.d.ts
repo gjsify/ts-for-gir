@@ -198,7 +198,8 @@ declare global {
       logDomain: string
     }
 
-    const console: Console;
+    // TODO: Conflicts with lib.dom.d.ts 
+    // const console: Console;
 
     interface BooleanConstructor {
         $gtype: GObject20.GType<boolean>;

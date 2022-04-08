@@ -222,7 +222,7 @@ export class GirModule {
 
         const IGNORE_GIR_TAYPE_TS_DOC_TYPES = ['method', 'enum', 'property', 'function']
 
-        if (!girType || tsType === girType || IGNORE_GIR_TAYPE_TS_DOC_TYPES.includes(girType)) {
+        if (!girType || IGNORE_GIR_TAYPE_TS_DOC_TYPES.includes(girType)) {
             return tags
         }
 
@@ -1916,9 +1916,9 @@ export class GirModule {
 
         // TODO handle multiple parents?
         if (girClass._tsData.parents.length) {
-            const firstParent = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
+            const parent = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
 
-            const parentNameForConstructorProps = firstParent
+            const parentNameForConstructorProps = parent
 
             if (parentNameForConstructorProps) {
                 girClass._tsData.inheritConstructPropInterfaceName = `${parentNameForConstructorProps}_ConstructProps`

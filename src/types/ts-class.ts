@@ -19,8 +19,6 @@ export interface TsClass {
     name: string
     qualifiedName: string
 
-    parents: ClassParent[]
-
     namespace: string
     version: string
     isDerivedFromGObject?: boolean
@@ -58,8 +56,15 @@ export interface TsClass {
     /** Generic type parameter of this class */
     generics: TsGenericParameter[]
 
+    /**
+     * All direct inheritances and implementations.
+     * Whether it is an inheritance or an implementation can be recognized by the `type` property
+     */
+    parents: ClassParent[]
+
+    /** All extended classes, also the indirect extended classes */
     extends: {
-        /** module packageName + full system name of extended class */
+        /** module packageName + package version + full system name of extended class */
         [key: string]: {
             /** The extended class itself */
             class: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
@@ -76,8 +81,9 @@ export interface TsClass {
         }
     }
 
+    /** All implemented interfaces, also the indirect implemented interfaces */
     implements: {
-        /** module packageName + full system name of implemented class / interface */
+        /** module packageName + package version + full system name of implemented class / interface */
         [key: string]: {
             /** The implemented class / interface itself */
             interface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement

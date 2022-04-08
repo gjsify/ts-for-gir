@@ -859,17 +859,17 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
-        for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
-            const girFields = girClass._tsData.extends[versionFullSymName]?.fields
-            def.push(
-                ...this.generateProperties(
-                    girFields,
-                    namespace,
-                    `Extended fields of ${versionFullSymName}`,
-                    indentCount,
-                ),
-            )
-        }
+        // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
+        //     const girFields = girClass._tsData.extends[versionFullSymName]?.fields
+        //     def.push(
+        //         ...this.generateProperties(
+        //             girFields,
+        //             namespace,
+        //             `Extended fields of ${versionFullSymName}`,
+        //             indentCount,
+        //         ),
+        //     )
+        // }
 
         return def
     }
@@ -894,17 +894,19 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
-        for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
-            def.push(
-                ...this.generateProperties(
-                    girClass._tsData.extends[versionFullSymName].properties,
-                    namespace,
-                    `Extended properties of ${versionFullSymName}`,
-                    indentCount,
-                ),
-            )
-        }
+        // Properties from inheritance
+        // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
+        //     def.push(
+        //         ...this.generateProperties(
+        //             girClass._tsData.extends[versionFullSymName].properties,
+        //             namespace,
+        //             `Extended properties of ${versionFullSymName}`,
+        //             indentCount,
+        //         ),
+        //     )
+        // }
 
+        // Properties from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
             def.push(
                 ...this.generateProperties(
@@ -939,18 +941,18 @@ export default class TypeDefinitionGenerator implements Generator {
         )
 
         // Methods from inheritance
-        for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
-            def.push(
-                ...this.generateFunctions(
-                    girClass._tsData.extends[versionFullSymName].methods,
-                    namespace,
-                    indentCount,
-                    `Extended methods of ${versionFullSymName}`,
-                ),
-            )
-        }
+        // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
+        //     def.push(
+        //         ...this.generateFunctions(
+        //             girClass._tsData.extends[versionFullSymName].methods,
+        //             namespace,
+        //             indentCount,
+        //             `Extended methods of ${versionFullSymName}`,
+        //         ),
+        //     )
+        // }
 
-        // Methods from interfaces
+        // Methods from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
             def.push(
                 ...this.generateFunctions(
@@ -1020,16 +1022,17 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
-        for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
-            def.push(
-                ...this.generateFunctions(
-                    girClass._tsData.extends[versionFullSymName].virtualMethods,
-                    namespace,
-                    indentCount,
-                    `Extended virtual methods of ${versionFullSymName}`,
-                ),
-            )
-        }
+        // Virtual methods from inheritance
+        // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
+        //     def.push(
+        //         ...this.generateFunctions(
+        //             girClass._tsData.extends[versionFullSymName].virtualMethods,
+        //             namespace,
+        //             indentCount,
+        //             `Extended virtual methods of ${versionFullSymName}`,
+        //         ),
+        //     )
+        // }
 
         return def
     }
@@ -1106,16 +1109,18 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
-        for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
-            const signalDescs = this.generateSignals(
-                girClass._tsData.extends[versionFullSymName].signals,
-                girClass,
-                namespace,
-                0,
-            )
-            def.push(...this.mergeDescs(signalDescs, `Extended signals of ${versionFullSymName}`, 1))
-        }
+        // Signals from inheritance
+        // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
+        //     const signalDescs = this.generateSignals(
+        //         girClass._tsData.extends[versionFullSymName].signals,
+        //         girClass,
+        //         namespace,
+        //         0,
+        //     )
+        //     def.push(...this.mergeDescs(signalDescs, `Extended signals of ${versionFullSymName}`, 1))
+        // }
 
+        // Signals from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
             const signalDescs = this.generateSignals(
                 girClass._tsData.implements[versionFullSymName].signals,
@@ -1145,10 +1150,16 @@ export default class TypeDefinitionGenerator implements Generator {
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, namespace))
 
-        const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
-        const classHead = `${girClass._tsData.name}${genericParameters}`
-
         def.push(...this.addGirDocComment(girClass, 0))
+
+        if (Object.keys(girClass._tsData.extends).length > 1) {
+            debugger
+        }
+
+        const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
+        const parentName = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
+        const ext = parentName ? ` extends ${parentName}` : ''
+        const classHead = `${girClass._tsData.name}${genericParameters}${ext}`
 
         // START CLASS
         {

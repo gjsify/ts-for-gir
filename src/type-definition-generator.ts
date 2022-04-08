@@ -24,6 +24,7 @@ import type {
     GirDocElement,
     TsGenericParameter,
     TsType,
+    TsProperty,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -99,7 +100,10 @@ export default class TypeDefinitionGenerator implements Generator {
         const varDesc = this.generateVariable(girProp, namespace, 0)
         const prefix = (girProp as GirPropertyElement)._tsData?.readonly ? 'readonly ' : ''
 
-        desc.push(`${indent}${prefix}${varDesc}`)
+        // temporary solution, will be solved differently later
+        const commentOut = (girProp._tsData as TsProperty).hasConflict ? '// TODO fix conflict: ' : ''
+
+        desc.push(`${indent}${commentOut}${prefix}${varDesc}`)
         return desc
     }
 

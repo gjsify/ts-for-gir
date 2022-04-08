@@ -5,4 +5,6 @@ import { TsVar } from '.'
  */
 export interface TsProperty extends TsVar {
     readonly?: boolean
+    /** Temporary property, we will try later to resolve the conflicts correctly */
+    hasConflict?: boolean
 }

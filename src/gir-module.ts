@@ -1394,7 +1394,6 @@ export class GirModule {
     private getAliasTsData(girAlias: GirAliasElement) {
         if (!girElementIsIntrospectable(girAlias)) return undefined
 
-        // TODO should we really ignore the properties of optional etc of `tsType` here?
         const { type: typeName } = this.getTsType(girAlias)
         const name = girAlias.$.name
         const tsData: TsAlias = {
@@ -2049,6 +2048,8 @@ export class GirModule {
 
         girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 
+        this.fixPropertyConflicts(girClass)
+
         return girClass._tsData
     }
 
@@ -2231,7 +2232,7 @@ export class GirModule {
         }
 
         localNames[name] = localName
-        return { ...localName, added: true, isOverloadable }
+        return { ...localName, added: true }
     }
 
     /**
@@ -2388,6 +2389,50 @@ export class GirModule {
             if (func) girFunctions.push(func)
         }
         return girFunctions
+    }
+
+    private getInterfaceProperties(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getInterfaceProperties'))
+
+        const properties: GirPropertyElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
+            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
+            if (implementation._tsData?.properties.length) properties.push(...implementation._tsData?.properties)
+        }
+
+        return properties
+    }
+
+    /**
+     * With multiple inheritance it can happen that the interfaces have the same properties with different types.
+     * We merge these types here to solve this problem.
+     * @param girClass
+     */
+    private fixPropertyConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('fixPropertyConflicts'))
+
+        // Do not pass a reference of the array here
+        const properties = [...girClass._tsData.properties]
+
+        properties.push(...this.getInterfaceProperties(girClass))
+
+        for (const prop1 of properties) {
+            for (const prop2 of properties) {
+                if (
+                    prop1._tsData &&
+                    prop2._tsData &&
+                    prop1._tsData.name === prop2._tsData.name &&
+                    !isEqual(prop1._tsData, prop2._tsData)
+                ) {
+                    // temporary solution, will be solved differently later
+                    prop1._tsData.hasConflict = true
+                    prop2._tsData.hasConflict = true
+                }
+            }
+        }
     }
 
     /**

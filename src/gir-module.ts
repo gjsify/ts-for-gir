@@ -2282,16 +2282,40 @@ export class GirModule {
         return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
     }
 
+    private paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
+        if (p1s.length !== p2s.length) {
+            return false
+        }
+
+        for (const [i, p1] of p1s.entries()) {
+            // Ignore parameter name, just check the types
+            if (p2s[i]?._tsData?.type !== p1._tsData?.type) {
+                return false
+            }
+        }
+
+        return true
+    }
+
     private functionMatch(
         f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
         f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
     ) {
-        if (!f1._tsData) f1._tsData = this.getFunctionTsData(f1)
-        if (!f2._tsData) f2._tsData = this.getFunctionTsData(f2)
+        if (!f1._tsData || !f2._tsData) throw new Error(NO_TSDATA('functionMatch'))
 
-        if (!f1._tsData || !f2._tsData) return false
+        if (!isEqual(f1._tsData.returnType, f2._tsData.returnType)) {
+            return false
+        }
 
-        return isEqual(f1._tsData, f2._tsData)
+        if (!this.paramsMatch(f1._tsData.inParams, f2._tsData.inParams)) {
+            return false
+        }
+
+        if (!this.paramsMatch(f1._tsData.outParams, f2._tsData.outParams)) {
+            return false
+        }
+
+        return true
     }
 
     /**
@@ -2299,7 +2323,7 @@ export class GirModule {
      * Returns `true` if (a definition from) `func` is added to map to satisfy
      * an overload, but `false` if it was forced
      * @param map
-     * @param func
+     * @param girFunc
      * @param force
      */
     private mergeOverloadableFunctions(
@@ -2309,6 +2333,7 @@ export class GirModule {
     ) {
         let result = false
         if (!girFunc._tsData?.name) return result
+
         const oldFunc = map.get(girFunc._tsData.name)
         if (!oldFunc?._tsData || !girFunc._tsData) {
             if (force && girFunc._tsData) map.set(girFunc._tsData.name, girFunc)

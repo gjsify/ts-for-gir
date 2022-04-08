@@ -110,20 +110,20 @@ export const typePatches: TypePatches = {
         'Gtk-4.0': {
             methods: {
                 'Gtk.FileChooserDialog.get_file': {
-                    returnType: girFactory.newTsType({ type: 'Gio.File' }),
+                    returnTypes: [girFactory.newTsType({ type: 'Gio.File' })],
                 },
                 'Gtk.FileChooserWidget.get_file': {
-                    returnType: girFactory.newTsType({ type: 'Gio.File' }),
+                    returnTypes: [girFactory.newTsType({ type: 'Gio.File' })],
                 },
             },
         },
         'Pango-1.0': {
             methods: {
                 'Pango.Layout.set_markup': {
-                    returnType: girFactory.newTsType({ type: 'string' }),
+                    returnTypes: [girFactory.newTsType({ type: 'string' })],
                 },
                 'Pango.Layout.set_text': {
-                    returnType: girFactory.newTsType({ type: 'string' }),
+                    returnTypes: [girFactory.newTsType({ type: 'string' })],
                 },
             },
         },

@@ -66,7 +66,7 @@ export class GirFactory {
 
             const girFunctionElement = this.newGirFunctionElement({
                 name: injectFunction.name,
-                returnType: this.newTsType(injectFunction.returnType),
+                returnTypes: [this.newTsType(injectFunction.returnType)],
                 isArrowType: injectFunction.isArrowType,
                 isStatic: injectFunction.isStatic,
                 isGlobal: injectFunction.isGlobal,
@@ -109,13 +109,13 @@ export class GirFactory {
     }
 
     newTsFunction(tsData: Partial<TsFunction> & { name: string }): TsFunction {
-        tsData.returnType ||= this.newTsType({ type: 'void' })
+        tsData.returnTypes ||= [this.newTsType({ type: 'void' })]
         tsData.isArrowType ||= false
         tsData.isStatic ||= false
         tsData.isGlobal ||= false
         tsData.isVirtual ||= false
         tsData.patched ||= true
-        tsData.retTypeIsVoid ||= tsData.returnType.type === 'void'
+        tsData.retTypeIsVoid ||= tsData.returnTypes.length === 1 && tsData.returnTypes[0]?.type === 'void'
         tsData.inParams ||= []
         tsData.outParams ||= []
         tsData.instanceParameters ||= []

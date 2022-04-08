@@ -14,8 +14,12 @@ import {
  */
 export interface TsFunction {
     name: string
-    returnType: TsType
-    /** true if this function is a arrow function: `() => {}` */
+    /**
+     * Actually there are no multiple return types in gir.
+     * We still use an array to resolve conflicts with multiple inheritance
+     */
+    returnTypes: TsType[]
+    /** `true` if this function is a arrow function: `() => {}` */
     isArrowType: boolean
     /** c `static foobar() {}` */
     isStatic: boolean

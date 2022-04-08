@@ -169,43 +169,16 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const affix = optional ? '?' : ''
-        const typeStr = this.generateType(girVar, namespace)
+        const typeStr = this.generateReturnType(girVar._tsData.type, namespace)
 
         return `${indent}${name}${affix}: ${typeStr}`
     }
 
-    private generateType(
-        girVar: GirPropertyElement | GirFieldElement | GirConstantElement | GirCallableParamElement,
-        namespace: string,
-    ) {
-        if (!girVar._tsData) {
-            this.log.error('girVar', inspect(girVar))
-            throw new Error(NO_TSDATA('generateVariable'))
-        }
-
-        const tsType = girVar._tsData.type
-        return this.generateReturnTypeByTsType(tsType, namespace)
+    private generateReturnTypes(tsTypes: TsType[], namespace: string) {
+        return tsTypes.map((tsType) => this.generateReturnType(tsType, namespace)).join(' | ')
     }
 
-    private generateReturnType(
-        girVar:
-            | GirMethodElement
-            | GirFunctionElement
-            | GirConstructorElement
-            | GirCallbackElement
-            | GirVirtualMethodElement,
-        namespace: string,
-    ) {
-        if (!girVar._tsData) {
-            this.log.error('girVar', inspect(girVar))
-            throw new Error(NO_TSDATA('generateVariable'))
-        }
-
-        const tsType = girVar._tsData.returnType
-        return this.generateReturnTypeByTsType(tsType, namespace)
-    }
-
-    private generateReturnTypeByTsType(tsType: TsType, namespace: string) {
+    private generateReturnType(tsType: TsType, namespace: string) {
         let typeName = removeNamespace(tsType.type, namespace)
 
         if (tsType.callbacks.length) {
@@ -290,8 +263,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const { name: sigName, inParams, instanceParameters } = girSignalFunc._tsData
         const { name: className } = girClass._tsData
-        // TODO: Do not ignore returnType properties like optional, nullable, generics etc
-        const returnTypeName = removeNamespace(girSignalFunc._tsData.returnType.type, namespace)
+        const returnTypeName = this.generateReturnTypes(girSignalFunc._tsData.returnTypes, namespace)
         const paramComma = inParams.length > 0 ? ', ' : ''
         const indent = generateIndent(indentCount)
         const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
@@ -492,7 +464,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const type = girParam._tsData.type
         const name = girParam._tsData.name
-        const typeStr = this.generateType(girParam, namespace)
+        const typeStr = this.generateReturnType(girParam._tsData.type, namespace)
         const affix = type.optional ? '?' : ''
 
         return [`${name}${affix}: ${typeStr}`]
@@ -533,7 +505,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const { name } = girParam._tsData
-        const typeStr = this.generateType(girParam, namespace)
+        const typeStr = this.generateReturnType(girParam._tsData.type, namespace)
 
         desc.push(`/* ${name} */ ${typeStr}`)
         return desc
@@ -560,7 +532,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const overrideReturnType = girFunc._tsData.overrideReturnType
         const outParams = girFunc._tsData.outParams
         const retTypeIsVoid = girFunc._tsData.retTypeIsVoid
-        const typeStr = this.generateReturnType(girFunc, namespace)
+        const typeStr = this.generateReturnTypes(girFunc._tsData.returnTypes, namespace)
 
         let desc = typeStr
 
@@ -691,7 +663,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
         const { inParams, instanceParameters } = girCallback._tsData
-        const returnTypeStr = this.generateReturnType(girCallback, namespace)
+        const returnTypeStr = this.generateReturnTypes(girCallback._tsData.returnTypes, namespace)
         const { name } = girCallback._tsDataInterface
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 

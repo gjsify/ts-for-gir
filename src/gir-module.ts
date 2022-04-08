@@ -766,18 +766,27 @@ export class GirModule {
     ) {
         let outArrayLengthIndex = -1
 
+        if (girFunc['return-value'] && girFunc['return-value'].length > 1) {
+            throw new Error('Several return values found!')
+        }
+
+        // There are no multiple return values, so we always use index 0
         const girVar = girFunc['return-value']?.[0] || null
-        let tsType: TsType
+
+        // We still use an array to allow multiple return values for later
+        const returnTypes: TsType[] = []
 
         if (girVar) {
-            tsType = this.getTsType(girVar, { generics })
+            returnTypes.push(this.getTsType(girVar, { generics }))
 
             outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         } else {
-            tsType = this.girFactory.newTsType({ type: 'void', generics })
+            returnTypes.push(this.girFactory.newTsType({ type: 'void', generics }))
         }
 
-        return { returnType: tsType, outArrayLengthIndex }
+        const retTypeIsVoid = returnTypes.length === 1 && returnTypes[0].type === 'void'
+
+        return { returnTypes, outArrayLengthIndex, retTypeIsVoid }
     }
 
     private arrayLengthIndexLookup(girVar: GirCallableParamElement): number {
@@ -1213,8 +1222,7 @@ export class GirModule {
             return undefined
         }
         let name = girFunc.$.name
-        const { returnType, outArrayLengthIndex } = this.getReturnType(girFunc)
-        const retTypeIsVoid = returnType.type === 'void'
+        const { returnTypes, outArrayLengthIndex, retTypeIsVoid } = this.getReturnType(girFunc)
 
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
@@ -1245,7 +1253,7 @@ export class GirModule {
             isStatic,
             isGlobal,
             isVirtual,
-            returnType,
+            returnTypes,
             retTypeIsVoid,
             name,
             overrideReturnType: overrideReturnType || undefined,
@@ -1306,8 +1314,7 @@ export class GirModule {
         // if (!girElementIsIntrospectable(girSignalFunc)) return undefined
 
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
-        const { returnType, outArrayLengthIndex } = this.getReturnType(girSignalFunc)
-        const retTypeIsVoid = returnType.type === 'void'
+        const { returnTypes, outArrayLengthIndex, retTypeIsVoid } = this.getReturnType(girSignalFunc)
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
             girSignalFunc.parameters,
@@ -1315,7 +1322,7 @@ export class GirModule {
 
         const tsData: TsFunction = {
             name,
-            returnType,
+            returnTypes,
             isArrowType: true,
             isStatic: false,
             isGlobal: false,
@@ -2303,7 +2310,7 @@ export class GirModule {
     ) {
         if (!f1._tsData || !f2._tsData) throw new Error(NO_TSDATA('functionMatch'))
 
-        if (!isEqual(f1._tsData.returnType, f2._tsData.returnType)) {
+        if (!isEqual(f1._tsData.returnTypes, f2._tsData.returnTypes)) {
             return false
         }
 

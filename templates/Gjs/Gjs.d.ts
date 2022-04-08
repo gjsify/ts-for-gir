@@ -1,7 +1,9 @@
 <% if(useNamespace){ %>
 import GObject from './GObject-2.0';
+import GLib from './GLib-2.0';
 <% } else { %>  
 import * as GObject from './GObject-2.0';
+import * as GLib from './GLib-2.0';
 <% } %>
 
 export namespace System {
@@ -21,20 +23,10 @@ export namespace System {
 }
 
 export namespace byteArray {
-    export class ByteArray {
-        constructor(lenOrArray: any) // May be a Uint8Array or any type accepted
-                                     // as a single arg by its constructor 
-        toGBytes(): any  // GLib.Bytes?
-        toString(encoding?: string): string
-        length: number
-        static get(target: ByteArray, prop: number, receiver?: ByteArray): number
-        static set(target: ByteArray, prop: number, val: number, receiver?: ByteArray): number
-        _array: Uint8Array
-    }
     export function fromString(input: string): Uint8Array
-    export function fromArray(input: number[]): ByteArray   // Odd one out for legacy reasons
-    export function fromGBytes(input: any): Uint8Array
+    export function fromGBytes(input: GLib.Bytes): Uint8Array
     export function toString(x: Uint8Array): string
+    export function toGBytes(x: Uint8Array): GLib.Bytes
 }
 
 export namespace console {

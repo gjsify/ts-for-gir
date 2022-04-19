@@ -224,6 +224,14 @@ export const RESERVED_CLASS_NAMES = [
 
 export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
 
+/**
+ * Some classes already have their own `.connect`, `.disconnect` or `.emit` methods,
+ * so these cannot be overwritten with the Gjs signal methods which have the same name.
+ */
+export const GOBJECT_SIGNAL_METHOD_NAMES = ['connect', 'connect_after', 'emit', 'disconnect']
+
+export const IGNORE_GIR_TYPE_TS_DOC_TYPES = ['method', 'enum', 'property', 'function']
+
 export const RESERVED_NAMESPACE_NAMES = {}
 
 export class Transformation {

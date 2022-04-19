@@ -1,6 +1,52 @@
 import type { InjectionClass } from '../types/index.js'
 
 export const classes: InjectionClass[] = [
+    // {
+    //     qualifiedName: 'GObject.Object',
+    //     // Add signal methods with any type to fix inheritance conflicts (such as Gio.Socket.connect or NMClient.Device.disconnect)
+    //     methods: [
+    //         {
+    //             name: 'connect',
+    //             returnType: { type: 'any' },
+    //             inParams: [
+    //                 {
+    //                     name: '...args',
+    //                     type: { type: 'any', isArray: true },
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: 'connect_after',
+    //             returnType: { type: 'any' },
+    //             inParams: [
+    //                 {
+    //                     name: '...args',
+    //                     type: { type: 'any', isArray: true },
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: 'emit',
+    //             returnType: { type: 'any' },
+    //             inParams: [
+    //                 {
+    //                     name: '...args',
+    //                     type: { type: 'any', isArray: true },
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: 'disconnect',
+    //             returnType: { type: 'any' },
+    //             inParams: [
+    //                 {
+    //                     name: '...args',
+    //                     type: { type: 'any', isArray: true },
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
     {
         qualifiedName: 'GObject.ParamSpec',
         // Static functions injected by GJS, see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/GObject.js

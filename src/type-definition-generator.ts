@@ -209,22 +209,28 @@ export default class TypeDefinitionGenerator implements Generator {
      * Generates signals from all properties of a base class
      * TODO: Build new GirSignalElements instead of generate the strings directly
      * @param girClass
-     * @param callbackObjectName
+     * @param namespace
+     * @param indentCount
      * @returns
      */
     private generateSignalMethodsFromProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
+        indentCount = 1,
     ) {
         const def: string[] = []
 
         if (girClass._tsData?.isDerivedFromGObject) {
             let namespacePrefix = 'GObject.'
             if (namespace === 'GObject') namespacePrefix = ''
+
             for (const prop of girClass._tsData.propertyNames) {
-                def.push(...this.generateGObjectSignalMethods(prop, girClass._tsData.name, namespacePrefix))
+                def.push(
+                    ...this.generateGObjectSignalMethods(prop, girClass._tsData.name, namespacePrefix, indentCount),
+                )
             }
-            def.push(...this.generateGeneralSignalMethods(this.config.environment))
+
+            def.push(...this.generateGeneralSignalMethods(this.config.environment, indentCount))
         }
         return def
     }
@@ -279,6 +285,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
+        // TODO: Create methods of type GirMethodElement for this signal methods
+
         def.push(
             `${indent}connect(sigName: "${sigName}", callback: ((${objParam}${inParamsDef.join(
                 ', ',
@@ -332,11 +340,14 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         const objParam = this.config.environment === 'node' ? '' : `$obj: ${callbackObjectName}, `
+
+        // TODO: Create methods of type GirMethodElement for this signal methods
+
         def.push(
             `${indent}connect(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
             `${indent}connect_after(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
         )
-        def.push()
+
         if (this.config.environment === 'node') {
             def.push(
                 `${indent}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
@@ -351,6 +362,9 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateGeneralSignalMethods(environment: Environment, indentCount = 1): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
+
+        // TODO: Create methods of type GirMethodElement for this signal methods
+
         def.push(
             `${indent}connect(sigName: string, callback: (...args: any[]) => void): number`,
             `${indent}connect_after(sigName: string, callback: (...args: any[]) => void): number`,
@@ -1118,7 +1132,7 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generateConstructorAndStaticFunctions'))
         }
 
-        // TODO: Generate a GirPropertyElement for this
+        // TODO: Generate a GirPropertyElement for this in gir-module.ts
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
             // Records, classes and interfaces all have a static name
             def.push(`${indent}static name: string`)
@@ -1126,7 +1140,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // JS constructor(s)
         if (girClass._tsData.isDerivedFromGObject) {
-            // TODO: Generate a GirMethodElements for this
+            // TODO: Generate a GirMethodElements for this in gir-module.ts
             def.push(
                 `${indent}constructor (config?: ${girClass._tsData.constructPropInterfaceName})`,
                 `${indent}_init (config?: ${girClass._tsData.constructPropInterfaceName}): void`,
@@ -1139,7 +1153,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
                 def.push(...descs)
 
-                // TODO: Generate a static GirMethodElement for this
+                // TODO: Do this in gir-module.ts
                 const jsStyleCtor = descs[0].replace('static new', 'constructor').replace(/:[^:]+$/, '')
 
                 def.push(`${jsStyleCtor}`)
@@ -1178,7 +1192,7 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
-        // Signals from inheritance
+        // // Signals from inheritance
         // for (const versionFullSymName of Object.keys(girClass._tsData.extends)) {
         //     const signalDescs = this.generateSignals(
         //         girClass._tsData.extends[versionFullSymName].signals,
@@ -1189,7 +1203,7 @@ export default class TypeDefinitionGenerator implements Generator {
         //     def.push(...this.mergeDescs(signalDescs, `Extended signals of ${versionFullSymName}`, 1))
         // }
 
-        // Signals from implementation
+        // // Signals from implementation
         // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
         //     const signalDescs = this.generateSignals(
         //         girClass._tsData.implements[versionFullSymName].signals,
@@ -1242,11 +1256,14 @@ export default class TypeDefinitionGenerator implements Generator {
                 // Virtual methods
                 def.push(...this.generateClassVirtualMethods(girClass, namespace))
 
-                // Signals
-                def.push(...this.generateClassSignals(girClass, namespace))
+                // Only generate the signal methods if they are not already assigned
+                if (girClass._tsData.alreadyAssigned.length <= 0) {
+                    // Signals
+                    def.push(...this.generateClassSignals(girClass, namespace))
 
-                // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
-                def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+                    // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
+                    def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+                }
             }
             // END BODY
 

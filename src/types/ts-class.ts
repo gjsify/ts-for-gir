@@ -109,4 +109,14 @@ export interface TsClass {
             signals: GirSignalElement[]
         }
     }
+
+    /**
+     * Some classes already have their own `.connect`, `.disconnect` or `.emit` methods,
+     * so these cannot be overwritten with the Gjs signal methods which have the same name.
+     * If such a name is found, it will be added to this array so that we can omit them during type generation.
+     *
+     * You can instead use `GObject.signal_connect`, `GObject.signal_connect_after` and `GObject.signal_emit_by_name`
+     * @see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/GObject.js#L712
+     */
+    alreadyAssigned: string[]
 }

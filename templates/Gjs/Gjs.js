@@ -5,6 +5,7 @@
   export const Mainloop = imports.mainloop;
   export const gettext = imports.gettext;
   export const System = imports.system;
+  export const Signals = imports.signals;
 <% } else { %>  
   module.exports = {
     byteArray: imports.byteArray,
@@ -12,6 +13,7 @@
     Format: imports.format,
     Mainloop: imports.mainloop,
     gettext: imports.gettext,
-    System: imports.system
+    System: imports.system,
+    Signals: imports.signals,
   }
 <% } %>

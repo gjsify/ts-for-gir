@@ -113,10 +113,14 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 0,
     ) {
         const def: string[] = []
-        if (girProps.length) def.push(...this.addInlineDebugComment(comment, indentCount))
         for (const girProp of girProps) {
             def.push(...this.generateProperty(girProp, namespace, indentCount))
         }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+        }
+
         return def
     }
 
@@ -440,10 +444,13 @@ export default class TypeDefinitionGenerator implements Generator {
     private mergeDescs(descs: string[], comment?: string, indentCount = 1) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
-        if (descs.length) def.push(...this.addInlineDebugComment(comment, indentCount))
 
         for (const desc of descs) {
             def.push(`${indent}${desc}`)
+        }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
         }
 
         return def
@@ -456,10 +463,60 @@ export default class TypeDefinitionGenerator implements Generator {
         comment?: string,
     ) {
         const def: string[] = []
-        if (girElements.length) def.push(...this.addInlineDebugComment(comment, indentCount))
+
         for (const girElement of girElements) {
-            def.push(...this.generateFunction(girElement, [], namespace, indentCount))
+            def.push(...this._generateFunction(girElement, [], false, namespace, indentCount))
         }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+        }
+
+        return def
+    }
+
+    private generateStaticFunctions(
+        girElements: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
+        namespace: string,
+        indentCount = 1,
+        comment?: string,
+    ) {
+        const def: string[] = []
+
+        for (const girElement of girElements) {
+            def.push(...this._generateFunction(girElement, [], true, namespace, indentCount))
+        }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+        }
+        return def
+    }
+
+    /**
+     * Static methods, <constructor> and <function>
+     * @param girClass
+     * @param name
+     */
+    private generatePseudoConstructors(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+        indentCount = 1,
+    ) {
+        const def: string[] = []
+        if (!girClass._tsData) {
+            throw new Error(NO_TSDATA('generatePseudoConstructors'))
+        }
+
+        def.push(
+            ...this.generateStaticFunctions(
+                girClass._tsData.staticFunctions,
+                namespace,
+                indentCount,
+                'Static methods and pseudo-constructors',
+            ),
+        )
+
         return def
     }
 
@@ -564,7 +621,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateFunction(
+    private _generateFunction(
         girFunc:
             | GirMethodElement
             | GirFunctionElement
@@ -572,6 +629,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirCallbackElement
             | GirVirtualMethodElement,
         methodPatches: string[] = [],
+        /** If true only generate static functions otherwise generate only non static functions */
+        onlyStatic: boolean,
         namespace: string,
         indentCount = 1,
     ) {
@@ -587,10 +646,14 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        if ((girFunc as GirDocElement).doc) def.push(...this.addGirDocComment(girFunc as GirDocElement, indentCount))
-
         let { name } = girFunc._tsData
         const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._tsData
+
+        if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
+            return def
+        }
+
+        if ((girFunc as GirDocElement).doc) def.push(...this.addGirDocComment(girFunc as GirDocElement, indentCount))
 
         const staticStr = isStatic || girFunc._tsType === 'static' ? 'static ' : ''
         const globalStr = isGlobal ? 'function ' : ''
@@ -648,11 +711,39 @@ export default class TypeDefinitionGenerator implements Generator {
         if (girFunc._tsData.overloads?.length) {
             def.push(`${indent}/* Function overloads */`)
             for (const overload of girFunc._tsData.overloads) {
-                def.push(...this.generateFunction(overload, [], namespace, indentCount))
+                def.push(...this._generateFunction(overload, [], onlyStatic, namespace, indentCount))
             }
         }
 
         return def
+    }
+
+    private generateFunction(
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirCallbackElement
+            | GirVirtualMethodElement,
+        methodPatches: string[] = [],
+        namespace: string,
+        indentCount = 1,
+    ) {
+        return this._generateFunction(girFunc, methodPatches, false, namespace, indentCount)
+    }
+
+    private generateStaticFunction(
+        girFunc:
+            | GirMethodElement
+            | GirFunctionElement
+            | GirConstructorElement
+            | GirCallbackElement
+            | GirVirtualMethodElement,
+        methodPatches: string[] = [],
+        namespace: string,
+        indentCount = 1,
+    ) {
+        return this._generateFunction(girFunc, methodPatches, true, namespace, indentCount)
     }
 
     private generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
@@ -950,27 +1041,22 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    /**
-     * Static methods, <constructor> and <function>
-     * @param girClass
-     * @param name
-     */
-    private generateStaticFunctions(
+    private generateClassStaticMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
-        if (!girClass._tsData) {
-            throw new Error(NO_TSDATA('generateStaticFunctions'))
+        if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
+            throw new Error(NO_TSDATA('generateClassStaticMethods'))
         }
 
         def.push(
-            ...this.generateFunctions(
-                girClass._tsData.staticFunctions,
+            ...this.generateStaticFunctions(
+                girClass._tsData.methods,
                 namespace,
                 indentCount,
-                'Static methods and pseudo-constructors',
+                `Owm static methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
         )
 
@@ -988,7 +1074,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error(NO_TSDATA('generateStaticFunctions'))
+            throw new Error(NO_TSDATA('generateClassVirtualMethods'))
         }
 
         // Virtual methods currently not supported in node-gtk
@@ -1049,7 +1135,7 @@ export default class TypeDefinitionGenerator implements Generator {
             const girConstructors = girClass._tsData.constructors
 
             for (const girConstructor of girConstructors) {
-                const descs = this.generateFunction(girConstructor, [], namespace, indentCount)
+                const descs = this.generateStaticFunction(girConstructor, [], namespace, indentCount)
 
                 def.push(...descs)
 
@@ -1060,7 +1146,7 @@ export default class TypeDefinitionGenerator implements Generator {
             }
         }
 
-        def.push(...this.generateStaticFunctions(girClass, namespace, indentCount))
+        def.push(...this.generatePseudoConstructors(girClass, namespace, indentCount))
 
         if (girClass._tsData.isDerivedFromGObject && girClass._module) {
             def.push(
@@ -1070,7 +1156,7 @@ export default class TypeDefinitionGenerator implements Generator {
             )
         }
 
-        return { def }
+        return def
     }
 
     private generateClassSignals(
@@ -1216,6 +1302,9 @@ export default class TypeDefinitionGenerator implements Generator {
                 // // Methods
                 // def.push(...this.generateClassMethods(girClass, namespace))
 
+                // Static Methods
+                def.push(...this.generateClassStaticMethods(girClass, namespace))
+
                 // // Virtual methods
                 // def.push(...this.generateClassVirtualMethods(girClass, namespace))
 
@@ -1228,7 +1317,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // // TODO: Records have fields
 
                 // Static side: default constructor
-                def.push(...this.generateConstructorAndStaticFunctions(girClass, namespace).def)
+                def.push(...this.generateConstructorAndStaticFunctions(girClass, namespace))
             }
             // END BODY
 

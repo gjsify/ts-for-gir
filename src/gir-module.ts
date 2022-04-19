@@ -1905,6 +1905,7 @@ export class GirModule {
             isAbstract: this.isAbstractClass(girClass),
             localNames: {},
             constructPropNames: {},
+            inheritConstructPropInterfaceNames: [],
             constructPropInterfaceName: `${className}_ConstructProps`,
             fields: [],
             properties: [],
@@ -1922,13 +1923,9 @@ export class GirModule {
 
         // TODO handle multiple parents?
         if (girClass._tsData.parents.length) {
-            const parent = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
-
-            const parentNameForConstructorProps = parent
-
-            if (parentNameForConstructorProps) {
-                girClass._tsData.inheritConstructPropInterfaceName = `${parentNameForConstructorProps}_ConstructProps`
-            }
+            girClass._tsData.inheritConstructPropInterfaceNames = girClass._tsData.parents.map(
+                (parent) => parent.localParentName + '_ConstructProps',
+            )
         }
 
         girClass._tsData.isDerivedFromGObject = this.isDerivedFromGObject(girClass)
@@ -2048,9 +2045,7 @@ export class GirModule {
 
         girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 
-        this.fixPropertyConflicts(girClass)
-        this.fixFieldConflicts(girClass)
-        this.fixMethodConflicts(girClass)
+        this.fixConflicts(girClass)
 
         return girClass._tsData
     }
@@ -2498,8 +2493,16 @@ export class GirModule {
             ...this.getExtendedClassProperties(girClass),
         ]
 
-        for (const prop1 of properties) {
-            for (const prop2 of properties) {
+        const fields = [
+            ...girClass._tsData.fields,
+            ...this.getImplementedInterfaceFields(girClass),
+            ...this.getExtendedClassFields(girClass),
+        ]
+
+        const propsAndFields = [...properties, ...fields]
+
+        for (const prop1 of propsAndFields) {
+            for (const prop2 of propsAndFields) {
                 if (
                     prop1._tsData &&
                     prop2._tsData &&
@@ -2574,6 +2577,12 @@ export class GirModule {
                 }
             }
         }
+    }
+
+    private fixConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        this.fixPropertyConflicts(girClass)
+        // this.fixFieldConflicts(girClass)
+        this.fixMethodConflicts(girClass)
     }
 
     /**

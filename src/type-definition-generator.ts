@@ -877,8 +877,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         let ext = ' '
 
-        if (girClass._tsData.inheritConstructPropInterfaceName) {
-            ext = `${indent}extends ${girClass._tsData.inheritConstructPropInterfaceName} `
+        if (girClass._tsData.inheritConstructPropInterfaceNames.length) {
+            ext = `${indent}extends ${girClass._tsData.inheritConstructPropInterfaceNames.join(', ')} `
         }
 
         def.push(`${indent}${exp}interface ${girClass._tsData.constructPropInterfaceName} ${ext}{`)
@@ -889,23 +889,23 @@ export default class TypeDefinitionGenerator implements Generator {
                 ...this.generateProperties(
                     girClass._tsData.constructProps,
                     namespace,
-                    `Constructor properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                    `Own constructor properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
                     indentCount + 1,
                 ),
             )
 
             // Implemented constructor properties
-            for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-                const constructProps = girClass._tsData.implements[versionFullSymName]?.constructProps
-                def.push(
-                    ...this.generateProperties(
-                        constructProps,
-                        namespace,
-                        `Implemented constructor properties of ${versionFullSymName}`,
-                        indentCount + 1,
-                    ),
-                )
-            }
+            // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+            //     const constructProps = girClass._tsData.implements[versionFullSymName]?.constructProps
+            //     def.push(
+            //         ...this.generateProperties(
+            //             constructProps,
+            //             namespace,
+            //             `Implemented constructor properties of ${versionFullSymName}`,
+            //             indentCount + 1,
+            //         ),
+            //     )
+            // }
         }
         // END BODY
         def.push(`${indent}}`)

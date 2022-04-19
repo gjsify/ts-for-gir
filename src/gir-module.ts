@@ -2429,16 +2429,21 @@ export class GirModule {
 
         const methods: GirMethodElement[] = []
         const virtualMethods: GirVirtualMethodElement[] = []
+        const staticFunctions: (GirMethodElement | GirConstructorElement | GirFunctionElement)[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
             const implementation = girClass._tsData.implements[ifaceFullSymName].interface
             if (implementation._tsData?.methods.length) methods.push(...implementation._tsData?.methods)
-            if (implementation._tsData?.methods.length) virtualMethods.push(...implementation._tsData?.virtualMethods)
+            if (implementation._tsData?.virtualMethods.length)
+                virtualMethods.push(...implementation._tsData?.virtualMethods)
+            if (implementation._tsData?.staticFunctions.length)
+                staticFunctions.push(...implementation._tsData?.staticFunctions)
         }
 
         return {
             methods,
             virtualMethods,
+            staticFunctions,
         }
     }
 
@@ -2469,16 +2474,19 @@ export class GirModule {
 
         const methods: GirMethodElement[] = []
         const virtualMethods: GirVirtualMethodElement[] = []
+        const staticFunctions: (GirMethodElement | GirConstructorElement | GirFunctionElement)[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
             const inherit = girClass._tsData.extends[ifaceFullSymName].class
             if (inherit._tsData?.methods.length) methods.push(...inherit._tsData?.methods)
             if (inherit._tsData?.virtualMethods.length) virtualMethods.push(...inherit._tsData?.virtualMethods)
+            if (inherit._tsData?.staticFunctions.length) staticFunctions.push(...inherit._tsData?.staticFunctions)
         }
 
         return {
             methods,
             virtualMethods,
+            staticFunctions,
         }
     }
 
@@ -2542,6 +2550,12 @@ export class GirModule {
             ...this.getExtendedClassMethods(girClass).virtualMethods,
         ]
 
+        const staticFunctions = [
+            ...girClass._tsData.methods,
+            ...this.getImplementedInterfaceMethods(girClass).staticFunctions,
+            ...this.getExtendedClassMethods(girClass).staticFunctions,
+        ]
+
         for (const method1 of methods) {
             for (const method2 of methods) {
                 if (
@@ -2559,6 +2573,21 @@ export class GirModule {
 
         for (const method1 of virtualMethods) {
             for (const method2 of virtualMethods) {
+                if (
+                    method1._tsData &&
+                    method2._tsData &&
+                    method1._tsData.name === method2._tsData.name &&
+                    !this.functionMatch(method1, method2)
+                ) {
+                    // temporary solution, will be solved differently later
+                    method1._tsData.hasConflict = true
+                    method2._tsData.hasConflict = true
+                }
+            }
+        }
+
+        for (const method1 of staticFunctions) {
+            for (const method2 of staticFunctions) {
                 if (
                     method1._tsData &&
                     method2._tsData &&

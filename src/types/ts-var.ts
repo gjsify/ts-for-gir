@@ -6,4 +6,6 @@ import { TsType } from '.'
 export interface TsVar {
     name: string | null
     type: TsType
+    /** Temporary property, we will try later to resolve the conflicts correctly */
+    hasConflict?: boolean
 }

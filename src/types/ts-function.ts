@@ -35,4 +35,7 @@ export interface TsFunction {
     outParams: GirCallableParamElement[]
     generics: TsGenericParameter[]
     overloads: Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
+
+    /** Temporary property, we will try later to resolve the conflicts correctly */
+    hasConflict?: boolean
 }

@@ -24,7 +24,6 @@ import type {
     GirDocElement,
     TsGenericParameter,
     TsType,
-    TsProperty,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -101,7 +100,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const prefix = (girProp as GirPropertyElement)._tsData?.readonly ? 'readonly ' : ''
 
         // temporary solution, will be solved differently later
-        const commentOut = (girProp._tsData as TsProperty).hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = girProp._tsData.hasConflict ? '// TODO fix conflict: ' : ''
 
         desc.push(`${indent}${commentOut}${prefix}${varDesc}`)
         return desc
@@ -175,7 +174,10 @@ export default class TypeDefinitionGenerator implements Generator {
         const affix = optional ? '?' : ''
         const typeStr = this.generateReturnType(girVar._tsData.type, namespace)
 
-        return `${indent}${name}${affix}: ${typeStr}`
+        // temporary solution, will be solved differently later
+        const commentOut = girVar._tsData.hasConflict ? '// TODO fix conflict: ' : ''
+
+        return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
 
     private generateReturnTypes(tsTypes: TsType[], namespace: string) {
@@ -595,6 +597,9 @@ export default class TypeDefinitionGenerator implements Generator {
         const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(girFunc._tsData.generics)
 
+        // temporary solution, will be solved differently later
+        const commentOut = girFunc._tsData.hasConflict ? '// TODO fix conflict: ' : ''
+
         let exportStr = ''
         // `girFunc._tsType === 'function'` are a global methods which can be exported
         if (isGlobal) {
@@ -612,7 +617,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const [i, patchLine] of methodPatches.entries()) {
                     let descLine = ''
                     if (i === 1) {
-                        descLine = `${indent}${exportStr}${staticStr}${globalStr}${virtualStr}${patchLine}`
+                        descLine = `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${virtualStr}${patchLine}`
                     } else {
                         descLine = `${indent}${patchLine}`
                     }
@@ -635,7 +640,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(
-            `${indent}${exportStr}${staticStr}${globalStr}${virtualStr}${name}${genericStr}(${inParamsDef.join(
+            `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${virtualStr}${name}${genericStr}(${inParamsDef.join(
                 ', ',
             )})${retSep} ${returnDesc}`,
         )

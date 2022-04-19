@@ -2049,6 +2049,8 @@ export class GirModule {
         girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
 
         this.fixPropertyConflicts(girClass)
+        this.fixFieldConflicts(girClass)
+        this.fixMethodConflicts(girClass)
 
         return girClass._tsData
     }
@@ -2391,10 +2393,10 @@ export class GirModule {
         return girFunctions
     }
 
-    private getInterfaceProperties(
+    private getImplementedInterfaceProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getInterfaceProperties'))
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceProperties'))
 
         const properties: GirPropertyElement[] = []
 
@@ -2406,8 +2408,83 @@ export class GirModule {
         return properties
     }
 
+    private getImplementedInterfaceFields(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceFields'))
+
+        const fields: GirFieldElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
+            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
+            if (implementation._tsData?.fields.length) fields.push(...implementation._tsData?.fields)
+        }
+
+        return fields
+    }
+
+    private getImplementedInterfaceMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceMethods'))
+
+        const methods: GirMethodElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
+            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
+            if (implementation._tsData?.methods.length) methods.push(...implementation._tsData?.methods)
+        }
+
+        return methods
+    }
+
+    private getExtendedClassProperties(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassProperties'))
+
+        const properties: GirPropertyElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
+            const inherit = girClass._tsData.extends[ifaceFullSymName].class
+            if (inherit._tsData?.properties.length) properties.push(...inherit._tsData?.properties)
+        }
+
+        return properties
+    }
+
+    private getExtendedClassFields(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassProperties'))
+
+        const fields: GirFieldElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
+            const inherit = girClass._tsData.extends[ifaceFullSymName].class
+            if (inherit._tsData?.fields.length) fields.push(...inherit._tsData?.fields)
+        }
+
+        return fields
+    }
+
+    private getExtendedClassMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassMethods'))
+
+        const methods: GirMethodElement[] = []
+
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
+            const inherit = girClass._tsData.extends[ifaceFullSymName].class
+            if (inherit._tsData?.methods.length) methods.push(...inherit._tsData?.methods)
+        }
+
+        return methods
+    }
+
     /**
-     * With multiple inheritance it can happen that the interfaces have the same properties with different types.
+     * With multiple implementations or a single inherit it can happen that the interfaces / parent have the same properties with different types.
      * We merge these types here to solve this problem.
      * @param girClass
      */
@@ -2415,9 +2492,11 @@ export class GirModule {
         if (!girClass._tsData) throw new Error(NO_TSDATA('fixPropertyConflicts'))
 
         // Do not pass a reference of the array here
-        const properties = [...girClass._tsData.properties]
-
-        properties.push(...this.getInterfaceProperties(girClass))
+        const properties = [
+            ...girClass._tsData.properties,
+            ...this.getImplementedInterfaceProperties(girClass),
+            ...this.getExtendedClassProperties(girClass),
+        ]
 
         for (const prop1 of properties) {
             for (const prop2 of properties) {
@@ -2430,6 +2509,68 @@ export class GirModule {
                     // temporary solution, will be solved differently later
                     prop1._tsData.hasConflict = true
                     prop2._tsData.hasConflict = true
+                }
+            }
+        }
+    }
+
+    /**
+     * With multiple implementations or a single inherit it can happen that the interfaces / parent have the same properties with different types.
+     * We merge these types here to solve this problem.
+     * @param girClass
+     */
+    private fixFieldConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('fixFieldConflicts'))
+
+        // Do not pass a reference of the array here
+        const fields = [
+            ...girClass._tsData.fields,
+            ...this.getImplementedInterfaceFields(girClass),
+            ...this.getExtendedClassFields(girClass),
+        ]
+
+        for (const field1 of fields) {
+            for (const field2 of fields) {
+                if (
+                    field1._tsData &&
+                    field2._tsData &&
+                    field1._tsData.name === field2._tsData.name &&
+                    !isEqual(field1._tsData, field2._tsData)
+                ) {
+                    // temporary solution, will be solved differently later
+                    field1._tsData.hasConflict = true
+                    field2._tsData.hasConflict = true
+                }
+            }
+        }
+    }
+
+    /**
+     * With multiple implementations or a single inherit it can happen that the interfaces / parent have the same properties with different types.
+     * We merge these types here to solve this problem.
+     * @param girClass
+     */
+    private fixMethodConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        if (!girClass._tsData) throw new Error(NO_TSDATA('fixMethodConflicts'))
+
+        // Do not pass a reference of the array here
+        const methods = [
+            ...girClass._tsData.methods,
+            ...this.getImplementedInterfaceMethods(girClass),
+            ...this.getExtendedClassMethods(girClass),
+        ]
+
+        for (const method1 of methods) {
+            for (const method2 of methods) {
+                if (
+                    method1._tsData &&
+                    method2._tsData &&
+                    method1._tsData.name === method2._tsData.name &&
+                    !isEqual(method1._tsData, method2._tsData)
+                ) {
+                    // temporary solution, will be solved differently later
+                    method1._tsData.hasConflict = true
+                    method2._tsData.hasConflict = true
                 }
             }
         }

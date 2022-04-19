@@ -2287,6 +2287,13 @@ export class GirModule {
         return girClass.$?.['glib:is-gtype-struct-for'] ? true : false
     }
 
+    /**
+     * Returns true if `p1s` and `p2s` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param p1s
+     * @param p2s
+     * @returns
+     */
     private paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
         if (p1s.length !== p2s.length) {
             return false
@@ -2302,6 +2309,13 @@ export class GirModule {
         return true
     }
 
+    /**
+     * Returns true if `f1` and `f2` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param f1
+     * @param f2
+     * @returns
+     */
     private functionMatch(
         f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
         f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
@@ -2394,28 +2408,18 @@ export class GirModule {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceProperties'))
 
         const properties: GirPropertyElement[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
-            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
-            if (implementation._tsData?.properties.length) properties.push(...implementation._tsData?.properties)
-        }
-
-        return properties
-    }
-
-    private getImplementedInterfaceFields(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceFields'))
-
         const fields: GirFieldElement[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
             const implementation = girClass._tsData.implements[ifaceFullSymName].interface
+            if (implementation._tsData?.properties.length) properties.push(...implementation._tsData?.properties)
             if (implementation._tsData?.fields.length) fields.push(...implementation._tsData?.fields)
         }
 
-        return fields
+        return {
+            properties,
+            fields,
+        }
     }
 
     private getImplementedInterfaceMethods(
@@ -2424,13 +2428,18 @@ export class GirModule {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceMethods'))
 
         const methods: GirMethodElement[] = []
+        const virtualMethods: GirVirtualMethodElement[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
             const implementation = girClass._tsData.implements[ifaceFullSymName].interface
             if (implementation._tsData?.methods.length) methods.push(...implementation._tsData?.methods)
+            if (implementation._tsData?.methods.length) virtualMethods.push(...implementation._tsData?.virtualMethods)
         }
 
-        return methods
+        return {
+            methods,
+            virtualMethods,
+        }
     }
 
     private getExtendedClassProperties(
@@ -2439,28 +2448,18 @@ export class GirModule {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassProperties'))
 
         const properties: GirPropertyElement[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
-            const inherit = girClass._tsData.extends[ifaceFullSymName].class
-            if (inherit._tsData?.properties.length) properties.push(...inherit._tsData?.properties)
-        }
-
-        return properties
-    }
-
-    private getExtendedClassFields(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassProperties'))
-
         const fields: GirFieldElement[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
             const inherit = girClass._tsData.extends[ifaceFullSymName].class
+            if (inherit._tsData?.properties.length) properties.push(...inherit._tsData?.properties)
             if (inherit._tsData?.fields.length) fields.push(...inherit._tsData?.fields)
         }
 
-        return fields
+        return {
+            properties,
+            fields,
+        }
     }
 
     private getExtendedClassMethods(
@@ -2469,13 +2468,18 @@ export class GirModule {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassMethods'))
 
         const methods: GirMethodElement[] = []
+        const virtualMethods: GirVirtualMethodElement[] = []
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
             const inherit = girClass._tsData.extends[ifaceFullSymName].class
             if (inherit._tsData?.methods.length) methods.push(...inherit._tsData?.methods)
+            if (inherit._tsData?.virtualMethods.length) virtualMethods.push(...inherit._tsData?.virtualMethods)
         }
 
-        return methods
+        return {
+            methods,
+            virtualMethods,
+        }
     }
 
     /**
@@ -2489,14 +2493,14 @@ export class GirModule {
         // Do not pass a reference of the array here
         const properties = [
             ...girClass._tsData.properties,
-            ...this.getImplementedInterfaceProperties(girClass),
-            ...this.getExtendedClassProperties(girClass),
+            ...this.getImplementedInterfaceProperties(girClass).properties,
+            ...this.getExtendedClassProperties(girClass).properties,
         ]
 
         const fields = [
             ...girClass._tsData.fields,
-            ...this.getImplementedInterfaceFields(girClass),
-            ...this.getExtendedClassFields(girClass),
+            ...this.getImplementedInterfaceProperties(girClass).fields,
+            ...this.getExtendedClassProperties(girClass).fields,
         ]
 
         const propsAndFields = [...properties, ...fields]
@@ -2522,45 +2526,20 @@ export class GirModule {
      * We merge these types here to solve this problem.
      * @param girClass
      */
-    private fixFieldConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('fixFieldConflicts'))
-
-        // Do not pass a reference of the array here
-        const fields = [
-            ...girClass._tsData.fields,
-            ...this.getImplementedInterfaceFields(girClass),
-            ...this.getExtendedClassFields(girClass),
-        ]
-
-        for (const field1 of fields) {
-            for (const field2 of fields) {
-                if (
-                    field1._tsData &&
-                    field2._tsData &&
-                    field1._tsData.name === field2._tsData.name &&
-                    !isEqual(field1._tsData, field2._tsData)
-                ) {
-                    // temporary solution, will be solved differently later
-                    field1._tsData.hasConflict = true
-                    field2._tsData.hasConflict = true
-                }
-            }
-        }
-    }
-
-    /**
-     * With multiple implementations or a single inherit it can happen that the interfaces / parent have the same properties with different types.
-     * We merge these types here to solve this problem.
-     * @param girClass
-     */
     private fixMethodConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('fixMethodConflicts'))
 
         // Do not pass a reference of the array here
         const methods = [
             ...girClass._tsData.methods,
-            ...this.getImplementedInterfaceMethods(girClass),
-            ...this.getExtendedClassMethods(girClass),
+            ...this.getImplementedInterfaceMethods(girClass).methods,
+            ...this.getExtendedClassMethods(girClass).methods,
+        ]
+
+        const virtualMethods = [
+            ...girClass._tsData.methods,
+            ...this.getImplementedInterfaceMethods(girClass).virtualMethods,
+            ...this.getExtendedClassMethods(girClass).virtualMethods,
         ]
 
         for (const method1 of methods) {
@@ -2569,7 +2548,22 @@ export class GirModule {
                     method1._tsData &&
                     method2._tsData &&
                     method1._tsData.name === method2._tsData.name &&
-                    !isEqual(method1._tsData, method2._tsData)
+                    !this.functionMatch(method1, method2)
+                ) {
+                    // temporary solution, will be solved differently later
+                    method1._tsData.hasConflict = true
+                    method2._tsData.hasConflict = true
+                }
+            }
+        }
+
+        for (const method1 of virtualMethods) {
+            for (const method2 of virtualMethods) {
+                if (
+                    method1._tsData &&
+                    method2._tsData &&
+                    method1._tsData.name === method2._tsData.name &&
+                    !this.functionMatch(method1, method2)
                 ) {
                     // temporary solution, will be solved differently later
                     method1._tsData.hasConflict = true

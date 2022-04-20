@@ -24,6 +24,7 @@ import type {
     GirDocElement,
     TsGenericParameter,
     TsType,
+    TsDoc,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -270,7 +271,7 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 0,
     ) {
         const def: string[] = []
-        if (!girSignalFunc._tsData || !girClass._tsData) {
+        if (!girSignalFunc._tsData || !girClass._tsData || !girSignalFunc._tsDataInterface) {
             this.log.warn(NO_TSDATA('generateSignal'))
             return def
         }
@@ -278,42 +279,30 @@ export default class TypeDefinitionGenerator implements Generator {
         def.push(...this.addGirDocComment(girSignalFunc, indentCount))
 
         const { name: sigName, inParams, instanceParameters } = girSignalFunc._tsData
-        const { name: className } = girClass._tsData
-        const returnTypeName = this.generateReturnTypes(girSignalFunc._tsData.returnTypes, namespace)
-        const paramComma = inParams.length > 0 ? ', ' : ''
+        // const { name: className } = girClass._tsData
+        // const returnTypeName = this.generateReturnTypes(girSignalFunc._tsData.returnTypes, namespace)
         const indent = generateIndent(indentCount)
-        const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
-        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
+        // const objParam = this.config.environment === 'node' ? '' : `$obj: ${className}${paramComma}`
+        const emitInParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace).slice(1)
+        const paramComma = emitInParamsDef.length > 0 ? ', ' : ''
 
         // TODO: Create methods of type GirMethodElement for this signal methods
 
-        def.push(
-            `${indent}connect(sigName: "${sigName}", callback: ((${objParam}${inParamsDef.join(
-                ', ',
-            )}) => ${returnTypeName})): number`,
-        )
+        def.push(`${indent}connect(sigName: "${sigName}", callback: ${girSignalFunc._tsDataInterface.name}): number`)
         if (this.config.environment === 'gjs') {
             def.push(
-                `${indent}connect_after(sigName: "${sigName}", callback: ((${objParam}${inParamsDef.join(
-                    ', ',
-                )}) => ${returnTypeName})): number`,
+                `${indent}connect_after(sigName: "${sigName}", callback: ${girSignalFunc._tsDataInterface.name}): number`,
             )
         }
         if (this.config.environment === 'node') {
             def.push(
-                `${indent}on(sigName: "${sigName}", callback: (${inParamsDef.join(
-                    ', ',
-                )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${indent}once(sigName: "${sigName}", callback: (${inParamsDef.join(
-                    ', ',
-                )}) => void, after?: boolean): NodeJS.EventEmitter`,
-                `${indent}off(sigName: "${sigName}", callback: (${inParamsDef.join(
-                    ', ',
-                )}) => void): NodeJS.EventEmitter`,
+                `${indent}on(sigName: "${sigName}", callback: ${girSignalFunc._tsDataInterface.name}, after?: boolean): NodeJS.EventEmitter`,
+                `${indent}once(sigName: "${sigName}", callback: ${girSignalFunc._tsDataInterface.name}, after?: boolean): NodeJS.EventEmitter`,
+                `${indent}off(sigName: "${sigName}", callback: ${girSignalFunc._tsDataInterface.name}): NodeJS.EventEmitter`,
             )
         }
 
-        def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${inParamsDef.join(', ')}): void`)
+        def.push(`${indent}emit(sigName: "${sigName}"${paramComma}${emitInParamsDef.join(', ')}): void`)
 
         return def
     }
@@ -325,7 +314,9 @@ export default class TypeDefinitionGenerator implements Generator {
         indentCount = 0,
     ) {
         const def: string[] = []
+
         for (const girSignal of girSignals) {
+            // def.push(...this.generateFunction(girSignal, [], namespace, indentCount))
             def.push(...this.generateSignal(girSignal, girClass, namespace, indentCount))
         }
         return def
@@ -404,19 +395,23 @@ export default class TypeDefinitionGenerator implements Generator {
      * @see https://github.com/microsoft/tsdoc
      * @param girDoc
      * @param indentCount
+     * @param overwriteDoc
      * @returns
      */
-    private addGirDocComment(girDoc: GirDocElement, indentCount = 0) {
+    private addGirDocComment(girDoc: GirDocElement, indentCount = 0, overwriteDoc?: Partial<TsDoc>) {
         const desc: string[] = []
         const indent = generateIndent(indentCount)
         if (this.config.noComments) {
             return desc
         }
-        if (girDoc._tsDoc?.text || girDoc._tsDoc?.tags.length) {
+
+        const text = overwriteDoc?.text || girDoc._tsDoc?.text
+        const tags = overwriteDoc?.tags || girDoc._tsDoc?.tags || []
+
+        if (text || tags.length) {
             desc.push(`${indent}/**`)
 
-            if (girDoc._tsDoc?.text) {
-                const text = girDoc._tsDoc?.text
+            if (text) {
                 const lines = text.split('\n')
                 if (lines.length) {
                     for (const line of lines) {
@@ -425,7 +420,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 }
             }
 
-            for (const tag of girDoc._tsDoc.tags) {
+            for (const tag of tags) {
                 if (tag.paramName) {
                     desc.push(`${indent} * @${tag.tagName} ${tag.paramName} ${tag.text}`)
                 } else {
@@ -594,7 +589,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirFunctionElement
             | GirConstructorElement
             | GirCallbackElement
-            | GirVirtualMethodElement,
+            | GirVirtualMethodElement
+            | GirSignalElement,
         namespace: string,
     ) {
         if (!girElementIsIntrospectable(girFunc)) {
@@ -641,7 +637,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirFunctionElement
             | GirConstructorElement
             | GirCallbackElement
-            | GirVirtualMethodElement,
+            | GirVirtualMethodElement
+            | GirSignalElement,
         methodPatches: string[] = [],
         /** If true only generate static functions otherwise generate only non static functions */
         onlyStatic: boolean,
@@ -662,6 +659,10 @@ export default class TypeDefinitionGenerator implements Generator {
 
         let { name } = girFunc._tsData
         const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._tsData
+
+        // if (name === 'selected_foreach') {
+        //     debugger
+        // }
 
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
             return def
@@ -738,7 +739,8 @@ export default class TypeDefinitionGenerator implements Generator {
             | GirFunctionElement
             | GirConstructorElement
             | GirCallbackElement
-            | GirVirtualMethodElement,
+            | GirVirtualMethodElement
+            | GirSignalElement,
         methodPatches: string[] = [],
         namespace: string,
         indentCount = 1,
@@ -760,7 +762,11 @@ export default class TypeDefinitionGenerator implements Generator {
         return this._generateFunction(girFunc, methodPatches, true, namespace, indentCount)
     }
 
-    private generateCallbackInterface(girCallback: GirCallbackElement, namespace: string, indentCount = 0) {
+    private generateCallbackInterface(
+        girCallback: GirCallbackElement | GirSignalElement,
+        namespace: string,
+        indentCount = 0,
+    ) {
         const def: string[] = []
 
         if (!girElementIsIntrospectable(girCallback)) {
@@ -772,14 +778,19 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        def.push(...this.addGirDocComment(girCallback, indentCount))
+        def.push(...this.addGirDocComment(girCallback, indentCount, girCallback._tsDataInterface.overwriteDoc))
 
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
         const { inParams, instanceParameters } = girCallback._tsData
         const returnTypeStr = this.generateReturnTypes(girCallback._tsData.returnTypes, namespace)
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { name } = girCallback._tsDataInterface
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
+
+        if (girCallback._girType === 'signal') {
+            debugger
+        }
 
         def.push(indent + this.generateExport('interface', name, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
@@ -1173,6 +1184,23 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
+    private generateClassSignalInterfaces(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+    ) {
+        const def: string[] = []
+        if (!girClass._tsData) {
+            throw new Error(NO_TSDATA('generateClassSignalInterface'))
+        }
+
+        for (const signal of girClass._tsData.signals) {
+            def.push(...this.generateCallbackInterface(signal, namespace))
+            def.push('')
+        }
+
+        return def
+    }
+
     private generateClassSignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
@@ -1237,6 +1265,8 @@ export default class TypeDefinitionGenerator implements Generator {
             .map((implementation) => implementation.localParentName)
         const ext = implementationNames.length ? ` extends ${implementationNames.join(', ')}` : ''
         const classHead = `${girClass._tsData.name}${genericParameters}${ext}`
+
+        def.push(...this.generateClassSignalInterfaces(girClass, namespace))
 
         // START INTERFACE
         {

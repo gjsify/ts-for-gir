@@ -8,3 +8,4 @@ export type ConstructName =
     | 'parameterName'
     | 'enumName'
     | 'importName'
+    | 'signalInterfaceName'

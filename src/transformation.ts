@@ -314,12 +314,25 @@ export class Transformation {
                 transformation: 'upperCamelCase',
             },
         },
+        signalInterfaceName: {
+            node: {
+                transformation: 'upperCamelCase',
+            },
+            gjs: {
+                transformation: 'upperCamelCase',
+            },
+        },
     }
 
     private log: Logger
 
     constructor(moduleName = 'Transformation', private readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, moduleName)
+    }
+
+    public transformSignalInterfaceName(name: string): string {
+        name = this.transform('signalInterfaceName', name)
+        return name
     }
 
     public transformModuleNamespaceName(name: string): string {

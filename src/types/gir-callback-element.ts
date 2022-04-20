@@ -32,7 +32,7 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     _tsData?: TsCallback
 
     /**
-     * Interface for callback types
+     * Interface for the callback type
      */
     _tsDataInterface?: TsCallbackInterface
 }

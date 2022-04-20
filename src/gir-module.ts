@@ -1291,6 +1291,31 @@ export class GirModule {
         return tsDataInterface
     }
 
+    private getSignalCallbackInterfaceTsData(
+        girCallback: GirSignalElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girElementIsIntrospectable(girCallback)) return undefined
+
+        if (!girClass._tsData) {
+            throw new Error(NO_TSDATA('getSignalCallbackTsData'))
+        }
+
+        const className = girClass._tsData.name
+        const signalName = girCallback.$.name
+        const signalInterfaceName = this.transformation.transformSignalInterfaceName(signalName)
+
+        const tsDataInterface: TsCallbackInterface = {
+            name: `${className}_${signalInterfaceName}SignalCallback`,
+            overwriteDoc: {
+                text: `Signal callback interface for \`${signalName}\``,
+                tags: [],
+            },
+        }
+
+        return tsDataInterface
+    }
+
     private getConstructorFunctionTsData(
         name: string,
         girConstructorFunc: GirConstructorElement,
@@ -1308,26 +1333,43 @@ export class GirModule {
         )
     }
 
-    private getSignalFuncTsData(
+    private getSignalCallbackTsData(
         girSignalFunc: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) {
-            throw new Error('girClass._tsData not set!')
+            throw new Error(NO_TSDATA('getSignalCallbackTsData'))
         }
 
         // Leads to errors here
         // if (!girElementIsIntrospectable(girSignalFunc)) return undefined
 
         const name = this.transformation.transform('signalName', girSignalFunc.$.name)
+
         const { returnTypes, outArrayLengthIndex, retTypeIsVoid } = this.getReturnType(girSignalFunc)
+
         const { inParams, outParams, instanceParameters } = this.setParametersTsData(
             outArrayLengthIndex,
             girSignalFunc.parameters,
         )
 
+        if (this.config.environment === 'gjs') {
+            inParams.unshift(
+                this.girFactory.newGirCallableParamElement({
+                    name: '$obj',
+                    type: {
+                        type: girClass._tsData.name,
+                    },
+                }),
+            )
+        }
+
+        if (this.config.environment === 'node') {
+            returnTypes[0].type === 'void'
+        }
+
         const tsData: TsFunction = {
-            name,
+            name, // TODO: 'callback'?
             returnTypes,
             isArrowType: true,
             isStatic: false,
@@ -1343,6 +1385,49 @@ export class GirModule {
         }
 
         return tsData
+    }
+
+    private setSignalTsData(
+        girSignalFunc: GirSignalElement,
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) {
+            throw new Error('girClass._tsData not set!')
+        }
+
+        girSignalFunc._tsData = this.getSignalCallbackTsData(girSignalFunc, girClass)
+        girSignalFunc._tsDataInterface = this.getSignalCallbackInterfaceTsData(girSignalFunc, girClass)
+
+        // const tsData: TsFunction = {
+        //     name,
+        //     returnTypes,
+        //     isArrowType: true,
+        //     isStatic: false,
+        //     isGlobal: false,
+        //     isVirtual: false,
+        //     patched: false,
+        //     retTypeIsVoid,
+        //     overloads: [],
+        //     inParams,
+        //     instanceParameters,
+        //     outParams,
+        //     generics: [],
+        // }
+
+        // const callback = this.girFactory.newGirFunctionElement({
+        //     name: 'callback',
+        //     returnTypes: [
+        //         // {
+        //         //     callbacks: [
+        //         //         {
+        //         //             _tsData: tsData,
+        //         //         },
+        //         //     ],
+        //         // },
+        //     ],
+        // })
+
+        return girSignalFunc._tsData
     }
 
     private fixEnumerationDuplicateIdentifier(girEnum: GirEnumElement | GirBitfieldElement) {
@@ -1793,7 +1878,7 @@ export class GirModule {
             []
         if (signals) {
             for (const girSignal of signals) {
-                girSignal._tsData = this.getSignalFuncTsData(girSignal, girParentClass)
+                girSignal._tsData = this.setSignalTsData(girSignal, girClass)
                 girSignal._tsDoc = this.getTsDoc(girSignal)
                 girSignal._tsDoc.tags.push(...this.getTsDocGirElementTags(girSignal._tsType, girSignal._girType))
                 girSignal._tsDoc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))

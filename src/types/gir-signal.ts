@@ -9,6 +9,7 @@ import {
     GirRecordElement,
     GirInterfaceElement,
     TsSignal,
+    TsCallbackInterface,
 } from '.'
 
 export interface GirSignalElement extends PartOfModule, GirInfoElements {
@@ -42,4 +43,9 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
     /** Signals are represented in Typescript as multiple event methods */
     _tsType: 'event-methods'
     _tsData?: TsSignal
+
+    /**
+     * Interface for the callback type
+     */
+    _tsDataInterface?: TsCallbackInterface
 }

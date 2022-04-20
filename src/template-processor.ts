@@ -10,7 +10,7 @@ import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
 import type { GenerateConfig } from './types/index.js'
 import prettier from 'prettier'
-import { __dirname, getEnvironmentDir } from './utils.js'
+import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { WARN_PRETTIFY_ERROR } from './messages.js'
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
@@ -47,6 +47,7 @@ export class TemplateProcessor {
      * @param templateFilename
      * @param outputDir
      * @param outputFilename
+     * @param append
      * @return The rendered (and if possible prettified) code string
      */
     public async create(
@@ -57,21 +58,15 @@ export class TemplateProcessor {
     ): Promise<string> {
         const fileContent = await this.load(templateFilename)
         const renderedCode = await this.render(fileContent)
-        const destPath = this.getDestPath(outputDir, outputFilename)
+        const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
         const prettifiedCode = this.config.pretty ? this.prettifySource(renderedCode, destPath) : null
         const code = (prettifiedCode || renderedCode) + append
         await this.write(code, outputDir, outputFilename)
         return code
     }
 
-    protected getDestPath(outputDir: string, outputFilename: string) {
-        const outputEnvDir = getEnvironmentDir(this.config.environment, outputDir)
-        const destPath = Path.join(outputEnvDir, outputFilename)
-        return destPath
-    }
-
     protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
-        const destPath = this.getDestPath(outputDir, outputFilename)
+        const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
 
         // write template result file
         mkdirSync(outputDir, { recursive: true })

@@ -1764,8 +1764,8 @@ export class GirModule {
         }
 
         // Extended property names
-        for (const fullSymName of Object.keys(girClass._tsData.extends)) {
-            const girProperties = girClass._tsData.extends[fullSymName]?.properties
+        for (const fullSymName of Object.keys(girClass._tsData.inherit)) {
+            const girProperties = girClass._tsData.inherit[fullSymName]?.properties
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
                     if (!girElementIsIntrospectable(girProperty)) continue
@@ -2033,7 +2033,7 @@ export class GirModule {
             staticFunctions: [],
             signals: [],
             generics: [],
-            extends: {},
+            inherit: {},
             implements: {},
             alreadyAssigned: [],
         }
@@ -2098,9 +2098,9 @@ export class GirModule {
             }
 
             const key = extendsCls._module.packageName + '.' + extendsCls._fullSymName
-            if (girClass._tsData.extends[key]) return
+            if (girClass._tsData.inherit[key]) return
 
-            girClass._tsData.extends[key] = {
+            girClass._tsData.inherit[key] = {
                 depth,
                 class: extendsCls,
                 fields: [],
@@ -2110,17 +2110,17 @@ export class GirModule {
                 signals: [],
             }
 
-            girClass._tsData.extends[key].fields.push(
+            girClass._tsData.inherit[key].fields.push(
                 ...this.getClassFieldsTsData(extendsCls, girClass._tsData.localNames),
             )
-            girClass._tsData.extends[key].properties.push(
+            girClass._tsData.inherit[key].properties.push(
                 ...this.getClassPropertiesTsData(extendsCls, girClass._tsData.localNames),
             )
-            girClass._tsData.extends[key].methods.push(
+            girClass._tsData.inherit[key].methods.push(
                 ...this.getClassMethodsTsData(extendsCls, girClass._tsData.localNames),
             )
-            girClass._tsData.extends[key].virtualMethods.push(...this.getClassVirtualMethodsTsData(extendsCls))
-            girClass._tsData.extends[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
+            girClass._tsData.inherit[key].virtualMethods.push(...this.getClassVirtualMethodsTsData(extendsCls))
+            girClass._tsData.inherit[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
         })
 
         // Copy properties, methods and signals from implemented interface
@@ -2551,11 +2551,11 @@ export class GirModule {
 
         for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
             const implementation = girClass._tsData.implements[ifaceFullSymName].interface
-            if (implementation._tsData?.methods.length) methods.push(...implementation._tsData?.methods)
+            if (implementation._tsData?.methods.length) methods.push(...implementation._tsData.methods)
             if (implementation._tsData?.virtualMethods.length)
-                virtualMethods.push(...implementation._tsData?.virtualMethods)
+                virtualMethods.push(...implementation._tsData.virtualMethods)
             if (implementation._tsData?.staticFunctions.length)
-                staticFunctions.push(...implementation._tsData?.staticFunctions)
+                staticFunctions.push(...implementation._tsData.staticFunctions)
         }
 
         return {
@@ -2565,16 +2565,16 @@ export class GirModule {
         }
     }
 
-    private getExtendedClassProperties(
+    private getInheritedClassProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassProperties'))
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassProperties'))
 
         const properties: GirPropertyElement[] = []
         const fields: GirFieldElement[] = []
 
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
-            const inherit = girClass._tsData.extends[ifaceFullSymName].class
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
+            const inherit = girClass._tsData.inherit[ifaceFullSymName].class
             if (inherit._tsData?.properties.length) properties.push(...inherit._tsData?.properties)
             if (inherit._tsData?.fields.length) fields.push(...inherit._tsData?.fields)
         }
@@ -2585,17 +2585,17 @@ export class GirModule {
         }
     }
 
-    private getExtendedClassMethods(
+    private getInheritedClassMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getExtendedClassMethods'))
+        if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassMethods'))
 
         const methods: GirMethodElement[] = []
         const virtualMethods: GirVirtualMethodElement[] = []
         const staticFunctions: (GirMethodElement | GirConstructorElement | GirFunctionElement)[] = []
 
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.extends)) {
-            const inherit = girClass._tsData.extends[ifaceFullSymName].class
+        for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
+            const inherit = girClass._tsData.inherit[ifaceFullSymName].class
             if (inherit._tsData?.methods.length) methods.push(...inherit._tsData?.methods)
             if (inherit._tsData?.virtualMethods.length) virtualMethods.push(...inherit._tsData?.virtualMethods)
             if (inherit._tsData?.staticFunctions.length) staticFunctions.push(...inherit._tsData?.staticFunctions)
@@ -2620,13 +2620,13 @@ export class GirModule {
         const properties = [
             ...girClass._tsData.properties,
             ...this.getImplementedInterfaceProperties(girClass).properties,
-            ...this.getExtendedClassProperties(girClass).properties,
+            ...this.getInheritedClassProperties(girClass).properties,
         ]
 
         const fields = [
             ...girClass._tsData.fields,
             ...this.getImplementedInterfaceProperties(girClass).fields,
-            ...this.getExtendedClassProperties(girClass).fields,
+            ...this.getInheritedClassProperties(girClass).fields,
         ]
 
         const propsAndFields = [...properties, ...fields]
@@ -2659,19 +2659,19 @@ export class GirModule {
         const methods = [
             ...girClass._tsData.methods,
             ...this.getImplementedInterfaceMethods(girClass).methods,
-            ...this.getExtendedClassMethods(girClass).methods,
+            ...this.getInheritedClassMethods(girClass).methods,
         ]
 
         const virtualMethods = [
             ...girClass._tsData.methods,
             ...this.getImplementedInterfaceMethods(girClass).virtualMethods,
-            ...this.getExtendedClassMethods(girClass).virtualMethods,
+            ...this.getInheritedClassMethods(girClass).virtualMethods,
         ]
 
         const staticFunctions = [
             ...girClass._tsData.methods,
             ...this.getImplementedInterfaceMethods(girClass).staticFunctions,
-            ...this.getExtendedClassMethods(girClass).staticFunctions,
+            ...this.getInheritedClassMethods(girClass).staticFunctions,
         ]
 
         girClass._tsData.alreadyAssigned = this.getAlreadyAssignedSignalMethodsNames(methods)

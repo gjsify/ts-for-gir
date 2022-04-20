@@ -33,6 +33,7 @@
     "start:cli-examples:node": "npm run start --workspace=node-ts-cli-example",
     "build:types:all": "npm run start -- generate --configName='.ts-for-gir.all.rc.js'",
     "build:types:gjs": "npm run clear:types:gjs && npm run build:types:all -- --environments=gjs",
+    "fix:types:gjs": "npm run start -- fix --configName='.ts-for-gir.all.rc.js' --environments=gjs",
     "build:types:node": "npm run clear:types:node && npm run build:types:all -- --environments=node",
     "build:types:gtk3": "npm run clear:types && npm run start -- generate --configName='.ts-for-gir.gtk3.rc.js'",
     "build:types:gtk4": "npm run clear:types && npm run start -- generate --configName='.ts-for-gir.gtk4.rc.js'",
@@ -71,6 +72,7 @@
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
     "@types/change-case": "^2.3.1",
+    "@types/columnify": "^1.5.1",
     "@types/ejs": "^3.1.0",
     "@types/eslint": "^8.4.1",
     "@types/inquirer": "^8.2.1",
@@ -91,6 +93,7 @@
   },
   "dependencies": {
     "chalk": "^5.0.1",
+    "columnify": "^1.6.0",
     "cosmiconfig": "^7.0.1",
     "ejs": "^3.1.6",
     "events": "^3.3.0",

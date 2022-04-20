@@ -158,6 +158,12 @@ export function getEnvironmentDir(environment: Environment, baseDir: string): st
     return baseDir
 }
 
+export function getDestPath(environment: Environment, outputDir: string, outputFilename: string) {
+    const outputEnvDir = getEnvironmentDir(environment, outputDir)
+    const destPath = Path.join(outputEnvDir, outputFilename)
+    return destPath
+}
+
 export function girBool(boolStr: string | undefined, defaultVal = false): boolean {
     if (boolStr) {
         if (parseInt(boolStr) === 0) return false

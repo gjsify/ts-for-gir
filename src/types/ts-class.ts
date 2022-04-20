@@ -63,7 +63,7 @@ export interface TsClass {
     parents: ClassParent[]
 
     /** All extended classes, also the indirect extended classes */
-    extends: {
+    inherit: {
         /** module packageName + package version + full system name of extended class */
         [key: string]: {
             /**

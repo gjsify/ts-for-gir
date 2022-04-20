@@ -13,6 +13,8 @@ import {
     GirVirtualMethodElement,
     GirSignalElement,
     GirConstructorElement,
+    GirFieldElement,
+    GirPropertyElement,
 } from '.'
 export type GirAnyElement =
     | GirBitfieldElement
@@ -29,3 +31,5 @@ export type GirAnyElement =
     | GirVirtualMethodElement
     | GirSignalElement
     | GirConstructorElement
+    | GirFieldElement
+    | GirPropertyElement

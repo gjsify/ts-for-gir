@@ -28,7 +28,6 @@ export interface TsFunction {
     /** true if this function is a virtual method with the `vfunc:` prefix: vfunc_foobar() {} */
     isVirtual: boolean
     overrideReturnType?: string
-    patched: boolean
     retTypeIsVoid: boolean
     inParams: GirCallableParamElement[]
     instanceParameters: GirInstanceParameter[]

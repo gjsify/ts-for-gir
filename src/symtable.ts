@@ -39,7 +39,7 @@ export class SymTable {
         }
 
         const split = implementation.split('.')
-        const namespace = split.slice(0, split.length - 1).join('.')
+        const namespace = split[0]
         const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
         if (!packageName) {
             this.log.warn(WARN_NOT_FOUND_PACKAGE_NAME(namespace, implementation))
@@ -48,13 +48,13 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get(dependencies: string[], fullTypeName: string): GirAnyElement | null {
+    public get<T extends GirAnyElement>(dependencies: string[], fullTypeName: string): T | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
         }
         const result = SymTable.items[key]
-        return result
+        return result as T | null
     }
 
     public getByHand(versionTypeName: string): GirAnyElement | undefined {

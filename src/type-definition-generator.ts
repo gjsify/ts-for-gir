@@ -660,10 +660,6 @@ export default class TypeDefinitionGenerator implements Generator {
         let { name } = girFunc._tsData
         const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = girFunc._tsData
 
-        // if (name === 'selected_foreach') {
-        //     debugger
-        // }
-
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
             return def
         }
@@ -677,6 +673,10 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // temporary solution, will be solved differently later
         const commentOut = girFunc._tsData.hasConflict ? '// TODO fix conflict: ' : ''
+
+        if (name === 'activate_action' && commentOut) {
+            debugger
+        }
 
         let exportStr = ''
         // `girFunc._tsType === 'function'` are a global methods which can be exported
@@ -697,7 +697,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     if (i === 1) {
                         descLine = `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${virtualStr}${patchLine}`
                     } else {
-                        descLine = `${indent}${patchLine}`
+                        descLine = `${indent}${commentOut}${patchLine}`
                     }
                     def.push(descLine)
                 }
@@ -787,10 +787,6 @@ export default class TypeDefinitionGenerator implements Generator {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { name } = girCallback._tsDataInterface
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
-
-        if (girCallback._girType === 'signal') {
-            debugger
-        }
 
         def.push(indent + this.generateExport('interface', name, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)

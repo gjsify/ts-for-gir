@@ -114,7 +114,6 @@ export class GirFactory {
         tsData.isStatic ||= false
         tsData.isGlobal ||= false
         tsData.isVirtual ||= false
-        tsData.patched ||= true
         tsData.retTypeIsVoid ||= tsData.returnTypes.length === 1 && tsData.returnTypes[0]?.type === 'void'
         tsData.inParams ||= []
         tsData.outParams ||= []

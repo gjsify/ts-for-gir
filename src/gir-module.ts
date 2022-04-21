@@ -1989,6 +1989,10 @@ export class GirModule {
 
                     if (!girConstructor._tsData?.name || girConstructor._tsData.name !== 'new') continue
 
+                    if (girConstructor._tsData.name === 'new') {
+                        girConstructor._tsData.name = 'constructor'
+                    }
+
                     if (girConstructor._fullSymName)
                         this.symTable.set(this.allDependencies, girConstructor._fullSymName, girConstructor)
 

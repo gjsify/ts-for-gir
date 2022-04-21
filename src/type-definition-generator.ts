@@ -540,6 +540,10 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     private generateFunctionReturn(tsFunction: TsFunction | TsCallback | TsSignal, namespace: string) {
+        if (tsFunction.name === 'constructor') {
+            return ''
+        }
+
         const overrideReturnType = tsFunction.overrideReturnType
         const outParams = tsFunction.outParams
         const retTypeIsVoid = tsFunction.retTypeIsVoid
@@ -595,7 +599,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (tsDoc) def.push(...this.addGirDocComment(tsDoc, indentCount))
 
-        const staticStr = isStatic || tsType === 'static' ? 'static ' : ''
+        const staticStr = (isStatic || tsType === 'static') && tsFunction.name !== 'constructor' ? 'static ' : ''
         const globalStr = isGlobal ? 'function ' : ''
         const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(tsFunction.generics)
@@ -611,12 +615,14 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const returnDesc = this.generateFunctionReturn(tsFunction, namespace)
 
-        let retSep: string
-        if (isArrowType) {
-            name = ''
-            retSep = ' =>'
-        } else {
-            retSep = ':'
+        let retSep = ''
+        if (returnDesc) {
+            if (isArrowType) {
+                name = ''
+                retSep = ' =>'
+            } else {
+                retSep = ':'
+            }
         }
 
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
@@ -1091,11 +1097,6 @@ export default class TypeDefinitionGenerator implements Generator {
                 const descs = this.generateStaticFunction(girConstructor, namespace, indentCount)
 
                 def.push(...descs)
-
-                // TODO: Do this in gir-module.ts
-                const jsStyleCtor = descs[0].replace('static new', 'constructor').replace(/:[^:]+$/, '')
-
-                def.push(`${jsStyleCtor}`)
             }
         }
 

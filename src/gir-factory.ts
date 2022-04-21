@@ -6,11 +6,14 @@ import type {
     GirConstructorElement,
     GirMethodElement,
     GirInstanceParameter,
+    GirPropertyElement,
+    GirAnnotation,
     TsFunction,
     TsMethod,
     TsParameter,
     TsInstanceParameter,
     TsGenericParameter,
+    TsProperty,
     TsType,
     InjectionFunction,
     InjectionInstanceParameter,
@@ -109,6 +112,19 @@ export class GirFactory {
         }
     }
 
+    newGirPropertyElement(tsData: Partial<TsProperty> & { name: string }): GirPropertyElement {
+        const _tsData = this.newTsProperty(tsData)
+        if (!_tsData.name) throw new Error('The name property is required!')
+        return {
+            $: {
+                ...this.newGirAttr(_tsData.name),
+            },
+            annotation: [],
+            ...this.newGirDocElement(),
+            _tsData,
+        }
+    }
+
     newTsFunction(tsData: Partial<TsFunction> & { name: string }): TsFunction {
         tsData.returnTypes ||= [this.newTsType({ type: 'void' })]
         tsData.isArrowType ||= false
@@ -121,6 +137,11 @@ export class GirFactory {
         tsData.instanceParameters ||= []
         tsData.overloads ||= []
         return tsData as TsFunction & TsMethod
+    }
+
+    newTsProperty(tsData: Partial<TsProperty> & { name: string }): TsProperty {
+        tsData.type ||= this.newTsType()
+        return tsData as TsProperty
     }
 
     newTsType(tsData: InjectionType = {}): TsType {
@@ -278,6 +299,14 @@ export class GirFactory {
             name,
             'glib:set-property': '',
             'glib:get-property': '',
+        }
+    }
+
+    newGirAnnotation(data: Partial<GirAnnotation['$']> = {}): GirAnnotation {
+        data.name ||= ''
+        data.value ||= []
+        return {
+            $: data as GirAnnotation['$'],
         }
     }
 

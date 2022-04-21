@@ -5,6 +5,7 @@ import { TsVar } from './index.js'
  */
 export interface TsProperty extends TsVar {
     readonly?: boolean
+    isStatic?: boolean
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasConflict?: boolean
 }

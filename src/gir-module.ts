@@ -4,9 +4,9 @@ import {
     FULL_TYPE_MAP,
     POD_TYPE_MAP,
     POD_TYPE_MAP_ARRAY,
-    GOBJECT_SIGNAL_METHOD_NAMES,
     IGNORE_GIR_TYPE_TS_DOC_TYPES,
 } from './transformation.js'
+import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 import { Logger } from './logger.js'
 import { Injector } from './injector.js'
 import { GirFactory } from './gir-factory.js'
@@ -1465,15 +1465,17 @@ export class GirModule {
 
         const tsMethods: TsMethod[] = []
 
-        const propertyNames = this.getClassPropertyNames(girClass)
+        const propertyNames = this.getClassNonStaticPropertyNames(girClass)
         const namespacePrefix = this.namespace === 'GObject' ? '' : 'GObject.'
 
         for (const propertyName of propertyNames) {
             let callbackType = 'any'
             if (this.config.environment === 'gjs') {
                 const objParam = `$obj: ${girClass._tsData.name}`
+                // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `((${objParam}, pspec: ${namespacePrefix}ParamSpec) => void)`
             } else if (this.config.environment === 'node') {
+                // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `(...args: any[]) => void`
             }
             tsMethods.push(
@@ -1850,6 +1852,21 @@ export class GirModule {
         return girFields
     }
 
+    private getGObjectProperties(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+        const girProperties: GirPropertyElement[] = []
+        if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
+            // Records, classes and interfaces all have a static name
+            const staticNameProp = this.girFactory.newGirPropertyElement({
+                isStatic: true,
+                name: 'name',
+                type: this.girFactory.newTsType({ type: 'string' }),
+            })
+            girProperties.push(staticNameProp)
+        }
+
+        return girProperties
+    }
+
     private getClassPropertiesTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         localNames: LocalNames,
@@ -1875,7 +1892,7 @@ export class GirModule {
         return girProperties
     }
 
-    private getClassPropertyNames(
+    private getClassNonStaticPropertyNames(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         const propertyNames: string[] = []
@@ -1889,7 +1906,11 @@ export class GirModule {
         if (girProperties.length > 0) {
             for (const girProperty of girProperties) {
                 if (!girElementIsIntrospectable(girProperty)) continue
-                if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                if (
+                    girProperty.$.name &&
+                    !propertyNames.includes(girProperty.$.name) &&
+                    !girProperty._tsData?.isStatic
+                ) {
                     propertyNames.push(girProperty.$.name)
                 }
             }
@@ -1901,7 +1922,11 @@ export class GirModule {
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
                     if (!girElementIsIntrospectable(girProperty)) continue
-                    if (girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                    if (
+                        girProperty.$.name &&
+                        !propertyNames.includes(girProperty.$.name) &&
+                        !girProperty._tsData?.isStatic
+                    ) {
                         propertyNames.push(girProperty.$.name)
                     }
                 }
@@ -1914,7 +1939,12 @@ export class GirModule {
             if (girProperties.length > 0) {
                 for (const girProperty of girProperties) {
                     if (!girElementIsIntrospectable(girProperty)) continue
-                    if (girProperty._tsData && girProperty.$.name && !propertyNames.includes(girProperty.$.name)) {
+                    if (
+                        girProperty._tsData &&
+                        girProperty.$.name &&
+                        !propertyNames.includes(girProperty.$.name) &&
+                        !girProperty._tsData?.isStatic
+                    ) {
                         propertyNames.push(girProperty.$.name)
                     }
                 }
@@ -2002,12 +2032,8 @@ export class GirModule {
      */
     private getClassSignalsTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        girParentClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         const girSignals: GirSignalElement[] = []
-        if (!girParentClass._tsData) {
-            this.log.warn(NO_TSDATA('getClassSignalsTsData'))
-        }
 
         const signals: GirSignalElement[] =
             (girClass as GirClassElement | GirInterfaceElement).signal ||
@@ -2224,7 +2250,9 @@ export class GirModule {
         girClass._tsData.properties.push(...this.getClassPropertiesTsData(girClass, girClass._tsData.localNames))
         girClass._tsData.methods.push(...this.getClassMethodsTsData(girClass, girClass._tsData.localNames))
         girClass._tsData.virtualMethods.push(...this.getClassVirtualMethodsTsData(girClass))
-        girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass, girClass))
+        girClass._tsData.signals.push(...this.getClassSignalsTsData(girClass))
+
+        girClass._tsData.properties.push(...this.getGObjectProperties(girClass))
 
         // Copy fields, properties, methods, virtual methods and signals from inheritance tree
         this.traverseInheritanceTree(girClass, (extendsCls, depth) => {
@@ -2259,7 +2287,7 @@ export class GirModule {
                 ...this.getClassMethodsTsData(extendsCls, girClass._tsData.localNames),
             )
             girClass._tsData.inherit[key].virtualMethods.push(...this.getClassVirtualMethodsTsData(extendsCls))
-            girClass._tsData.inherit[key].signals.push(...this.getClassSignalsTsData(extendsCls, girClass))
+            girClass._tsData.inherit[key].signals.push(...this.getClassSignalsTsData(extendsCls))
         })
 
         // Copy properties, methods and signals from implemented interface
@@ -2296,7 +2324,7 @@ export class GirModule {
             girClass._tsData.implements[key].methods.push(
                 ...this.getClassMethodsTsData(iface, girClass._tsData.localNames),
             )
-            girClass._tsData.implements[key].signals.push(...this.getClassSignalsTsData(iface, girClass))
+            girClass._tsData.implements[key].signals.push(...this.getClassSignalsTsData(iface))
         })
 
         this.inject.toClass(girClass)
@@ -2864,19 +2892,6 @@ export class GirModule {
                 }
             }
         }
-    }
-
-    private getAlreadyAssignedSignalMethodsNames(methods: GirMethodElement[]) {
-        const assigned: string[] = []
-        for (const m of methods) {
-            if (m._tsData?.name && GOBJECT_SIGNAL_METHOD_NAMES.includes(m._tsData.name)) {
-                assigned.push(m._tsData.name)
-
-                // TODO: Also conflicts with GObject
-                m._tsData.hasConflict = true
-            }
-        }
-        return assigned
     }
 
     private fixConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {

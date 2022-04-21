@@ -215,7 +215,10 @@ export default class TypeDefinitionGenerator implements Generator {
         let prefix = tsType.isArray ? '[]' : ''
         prefix += tsType.nullable ? ' | null' : ''
 
-        return `${typeName}${prefix}`
+        const genericValues = tsType.generics.map((g) => g.value).filter((g) => !!g)
+        const generics = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+
+        return `${typeName}${generics}${prefix}`
     }
 
     /**
@@ -505,12 +508,15 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         for (const tsGeneric of tsGenerics) {
+            if (!tsGeneric.name) {
+                continue
+            }
             let genericStr = `${tsGeneric.name}`
             if (!isOut && tsGeneric.extends) {
                 genericStr += ` extends ${tsGeneric.extends}`
             }
-            if (!isOut && tsGeneric.default) {
-                genericStr += ` = ${tsGeneric.default}`
+            if (!isOut && tsGeneric.value) {
+                genericStr += ` = ${tsGeneric.value}`
             }
             desc.push(genericStr)
         }
@@ -1094,14 +1100,6 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(...this.generatePseudoConstructors(girClass, namespace, indentCount))
-
-        if (girClass._tsData.isDerivedFromGObject && girClass._module) {
-            def.push(
-                `${indent}static $gtype: ${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType<${
-                    girClass._tsData.name
-                }>`,
-            )
-        }
 
         return def
     }

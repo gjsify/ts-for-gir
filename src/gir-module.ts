@@ -1864,6 +1864,23 @@ export class GirModule {
             girProperties.push(staticNameProp)
         }
 
+        if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
+            const staticGTypeProp = this.girFactory.newGirPropertyElement({
+                isStatic: true,
+                name: '$gtype',
+                type: this.girFactory.newTsType({
+                    // TODO: Type not as string
+                    type: `${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType`,
+                    generics: this.girFactory.newGenerics([
+                        {
+                            value: girClass._tsData.name,
+                        },
+                    ]),
+                }),
+            })
+            girProperties.push(staticGTypeProp)
+        }
+
         return girProperties
     }
 

@@ -662,8 +662,9 @@ export const classes: InjectionClass[] = [
         qualifiedName: 'Gio.ListStore',
         generics: [
             {
+                name: 'A',
                 extends: 'GObject.Object',
-                default: 'GObject.Object',
+                value: 'GObject.Object',
             },
         ],
     },
@@ -671,7 +672,8 @@ export const classes: InjectionClass[] = [
         qualifiedName: 'GLib.List',
         generics: [
             {
-                default: 'any',
+                name: 'A',
+                value: 'any',
             },
         ],
     },
@@ -688,11 +690,11 @@ export const classes: InjectionClass[] = [
         generics: [
             {
                 name: 'A',
-                default: 'symbol | string | number',
+                value: 'symbol | string | number',
             },
             {
                 name: 'B',
-                default: 'string | number | boolean',
+                value: 'string | number | boolean',
             },
         ],
     },

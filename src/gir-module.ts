@@ -2820,6 +2820,7 @@ export class GirModule {
             ...girClass._tsData.methods.map((m) => m._tsData),
             ...implementations.methods.map((m) => m._tsData),
             ...inheritance.methods.map((m) => m._tsData),
+            ...signalMethods,
         ]
 
         const virtualMethods = [
@@ -2835,7 +2836,7 @@ export class GirModule {
         ]
 
         for (const method1 of methods) {
-            for (const method2 of [...methods, ...signalMethods]) {
+            for (const method2 of methods) {
                 if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
                     // temporary solution, will be solved differently later
                     method1.hasConflict = true

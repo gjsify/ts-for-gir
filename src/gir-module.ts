@@ -89,6 +89,7 @@ import type {
     TsAlias,
     TsType,
     TsGenericParameter,
+    TsSignal,
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
@@ -2807,7 +2808,12 @@ export class GirModule {
         const implementations = this.getImplementedInterfaceMethods(girClass)
         const inheritance = this.getInheritedClassMethods(girClass)
 
+        const tsSignals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
+
         const signalMethods = [...girClass._tsData.propertySignalMethods]
+        for (const tsSignal of tsSignals) {
+            signalMethods.push(...tsSignal.tsMethods)
+        }
 
         // Do not pass a reference of the array here
         const methods = [

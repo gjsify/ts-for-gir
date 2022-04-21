@@ -6,8 +6,7 @@ import {
     GirCallableReturn,
     PartOfModule,
     TsCallback,
-    TsCallbackInterface,
-} from '.'
+} from './index.js'
 
 export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     /** A callback closure, that is a function called when a signal is emitted (as an answer to that signal) */
@@ -30,9 +29,4 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     /** Will be exported in Typescript as a `interface` to be able to assign this interface to the callbacks or as a global function */
     _tsType?: 'interface'
     _tsData?: TsCallback
-
-    /**
-     * Interface for the callback type
-     */
-    _tsDataInterface?: TsCallbackInterface
 }

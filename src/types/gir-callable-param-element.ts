@@ -9,7 +9,7 @@ import type {
     GirVarArgs,
     PartOfClass,
     TsParameter,
-} from '.'
+} from './index.js'
 
 export interface GirCallableParamElement extends PartOfClass, GirDocElement, GirAnyType {
     /** parameter element of a list of parameters */

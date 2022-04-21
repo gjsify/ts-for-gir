@@ -1,4 +1,4 @@
-import { TsVar } from '.'
+import { TsVar } from './index.js'
 
 /**
  * Holds the data to generate a property in/for Typescript

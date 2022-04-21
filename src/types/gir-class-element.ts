@@ -17,7 +17,7 @@ import type {
     GirCallbackElement,
     TsClass,
     TypeClass,
-} from '.'
+} from './index.js'
 
 export interface GirClassElement extends PartOfModule, GirInfoElements {
     /** GObject inherited class definition */

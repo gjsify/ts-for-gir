@@ -1,4 +1,4 @@
-import { BuildType, Environment, ModuleType } from '.'
+import { BuildType, Environment, ModuleType } from './index.js'
 
 /**
  * Type for currently used config e.g. in GirModule

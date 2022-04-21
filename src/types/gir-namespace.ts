@@ -12,7 +12,7 @@ import {
     GirConstantElement,
     GirAnnotation,
     GirBoxedElement,
-} from '.'
+} from './index.js'
 
 /** Namespace which maps metadata entries to C functionality. This a similar concept to namespace in C++, but for GObject-based C libraries */
 export interface GirNamespace {

@@ -6,7 +6,7 @@ import {
     TsMethod,
     GirCallableReturn,
     GirCallableParams,
-} from '.'
+} from './index.js'
 
 export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
     $: GirInfoAttrs &

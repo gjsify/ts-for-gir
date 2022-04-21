@@ -7,7 +7,7 @@ import {
     GirMethodElement,
     TsGenericParameter,
     TsType,
-} from '.'
+} from './index.js'
 
 /**
  * Holds the data to generate a function in/for Typescript

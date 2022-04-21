@@ -1,4 +1,4 @@
-import { GirCallbackElement, TsGenericParameter } from '.'
+import { GirCallbackElement, TsGenericParameter } from './index.js'
 
 /**
  * Holds the data to generate a type in/for Typescript

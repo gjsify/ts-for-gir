@@ -6,7 +6,7 @@ import {
     GirCallableReturn,
     TsMethod,
     PartOfClass,
-} from '.'
+} from './index.js'
 
 export interface GirMethodElement extends PartOfClass, GirDocElement {
     /** element defining a method from a class */

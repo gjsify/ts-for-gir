@@ -691,15 +691,26 @@ export class GirModule {
         if (!typeName && callbacks?.length) {
             for (const girCallback of callbacks) {
                 if (!girElementIsIntrospectable(girCallback)) continue
-                girCallback._tsData = this.getFunctionTsData(
-                    girCallback,
-                    'callback',
-                    /* isStatic */ false,
-                    /* isArrowType */ true,
-                    /* isGlobal */ false,
-                    /* isVirtual */ false,
-                    /* overrideReturnType */ null,
-                )
+
+                if (!girCallback._tsData) {
+                    const tsCallback = this.getFunctionTsData(
+                        girCallback,
+                        'callback',
+                        /* isStatic */ false,
+                        /* isArrowType */ true,
+                        /* isGlobal */ false,
+                        /* isVirtual */ false,
+                        /* overrideReturnType */ null,
+                    )
+
+                    if (!tsCallback) continue
+
+                    girCallback._tsData = {
+                        ...tsCallback,
+                        tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
+                    }
+                }
+
                 girCallback._tsDoc = this.getTsDoc(girCallback)
 
                 if (girCallback._tsData) {
@@ -1248,7 +1259,7 @@ export class GirModule {
 
         // TODO: That we overwrite tsData every time seems wrong to me, but if I just return the already defined `_tsData` leads to problems with the overload methods
         if (girFunc._tsData) {
-            hasConflict = girFunc._tsData.hasConflict // WORKAROUND do not overwrite conflicts
+            hasConflict = girFunc._tsData?.hasConflict // WORKAROUND do not overwrite conflicts
         }
 
         let name = girFunc.$.name
@@ -1403,7 +1414,7 @@ export class GirModule {
             returnTypes[0].type === 'void'
         }
 
-        const tsData: TsFunction = {
+        const tsCallback: TsMethod = {
             name, // TODO: 'callback'?
             returnTypes,
             isArrowType: true,
@@ -1418,50 +1429,112 @@ export class GirModule {
             generics: [],
         }
 
-        return tsData
+        return tsCallback
+    }
+
+    /**
+     * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
+     * @param girSignal
+     * @returns
+     */
+    private getSignalMethodsTsData(girSignal: GirSignalElement) {
+        if (!girSignal._tsData) {
+            throw new Error(NO_TSDATA('getSignalMethodsTsData'))
+        }
+
+        const tsMethods: TsMethod[] = []
+
+        const sigNameInParam = this.girFactory.newGirCallableParamElement({
+            name: 'sigName',
+            type: this.girFactory.newTsType({
+                type: `"${girSignal._tsData?.name}"` || 'any',
+            }),
+        })
+
+        const callbackInParam = this.girFactory.newGirCallableParamElement({
+            name: 'callback',
+            type: this.girFactory.newTsType({
+                type: girSignal._tsData?.tsCallbackInterface?.name || 'any',
+            }),
+        })
+
+        const numberReturnType = this.girFactory.newTsType({
+            type: 'number',
+        })
+
+        const connectTsFn = this.girFactory.newTsFunction({
+            name: 'connect',
+            inParams: [sigNameInParam, callbackInParam],
+            returnTypes: [numberReturnType],
+        })
+        tsMethods.push(connectTsFn)
+
+        if (this.config.environment === 'gjs') {
+            const connectAfterTsFn = this.girFactory.newTsFunction({
+                name: 'connect_after',
+                inParams: [sigNameInParam, callbackInParam],
+                returnTypes: [numberReturnType],
+            })
+            tsMethods.push(connectAfterTsFn)
+        }
+        if (this.config.environment === 'node') {
+            const afterInParam = this.girFactory.newGirCallableParamElement({
+                name: 'after',
+                type: this.girFactory.newTsType({
+                    type: 'boolean',
+                    optional: true,
+                }),
+            })
+
+            const nodeEventEmitterReturnType = this.girFactory.newTsType({
+                type: 'NodeJS.EventEmitter',
+            })
+
+            const onTsFn = this.girFactory.newTsFunction({
+                name: 'on',
+                inParams: [sigNameInParam, callbackInParam, afterInParam],
+                returnTypes: [nodeEventEmitterReturnType],
+            })
+            const onceTsFn = this.girFactory.newTsFunction({
+                name: 'once',
+                inParams: [sigNameInParam, callbackInParam, afterInParam],
+                returnTypes: [nodeEventEmitterReturnType],
+            })
+            const offTsFn = this.girFactory.newTsFunction({
+                name: 'off',
+                inParams: [sigNameInParam, callbackInParam],
+                returnTypes: [nodeEventEmitterReturnType],
+            })
+            tsMethods.push(onTsFn, onceTsFn, offTsFn)
+        }
+
+        const emitTsFn = this.girFactory.newTsFunction({
+            name: 'emit',
+            inParams: [sigNameInParam],
+        })
+        tsMethods.push(emitTsFn)
+
+        return tsMethods
     }
 
     private setSignalTsData(
-        girSignalFunc: GirSignalElement,
+        girSignal: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) {
-            throw new Error('girClass._tsData not set!')
+            throw NO_TSDATA('setSignalTsData')
         }
 
-        if (!girSignalFunc._tsData) girSignalFunc._tsData = this.getSignalCallbackTsData(girSignalFunc, girClass)
-        if (!girSignalFunc._tsDataInterface)
-            girSignalFunc._tsDataInterface = this.getSignalCallbackInterfaceTsData(girSignalFunc, girClass)
+        if (!girSignal._tsData) {
+            girSignal._tsData = {
+                ...this.getSignalCallbackTsData(girSignal, girClass),
+                tsCallbackInterface: this.getSignalCallbackInterfaceTsData(girSignal, girClass),
+                tsMethods: [],
+            }
+            girSignal._tsData.tsMethods = this.getSignalMethodsTsData(girSignal)
+        }
 
-        // const tsData: TsFunction = {
-        //     name,
-        //     returnTypes,
-        //     isArrowType: true,
-        //     isStatic: false,
-        //     isGlobal: false,
-        //     isVirtual: false,
-        //     retTypeIsVoid,
-        //     overloads: [],
-        //     inParams,
-        //     instanceParameters,
-        //     outParams,
-        //     generics: [],
-        // }
-
-        // const callback = this.girFactory.newGirFunctionElement({
-        //     name: 'callback',
-        //     returnTypes: [
-        //         // {
-        //         //     callbacks: [
-        //         //         {
-        //         //             _tsData: tsData,
-        //         //         },
-        //         //     ],
-        //         // },
-        //     ],
-        // })
-
-        return girSignalFunc._tsData
+        return girSignal._tsData
     }
 
     private fixEnumerationDuplicateIdentifier(girEnum: GirEnumElement | GirBitfieldElement) {
@@ -1969,6 +2042,7 @@ export class GirModule {
                 girSignal._tsData = this.setSignalTsData(girSignal, girClass)
                 girSignal._tsDoc = this.getTsDoc(girSignal)
                 girSignal._tsDoc.tags.push(...this.getTsDocGirElementTags(girSignal._tsType, girSignal._girType))
+                // TODO: this are the callback parameters
                 girSignal._tsDoc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
 
                 if (girSignal._fullSymName) this.symTable.set(this.allDependencies, girSignal._fullSymName, girSignal)
@@ -3027,10 +3101,16 @@ export class GirModule {
 
         if (this.ns.callback)
             for (const girCallback of this.ns.callback) {
-                girCallback._tsData = this.getFunctionTsData(girCallback, 'callback', false, true, false, false, null)
+                const tsCallback = this.getFunctionTsData(girCallback, 'callback', false, true, false, false, null)
+                if (tsCallback) {
+                    girCallback._tsData = {
+                        ...tsCallback,
+                        tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
+                    }
+                }
+
                 girCallback._tsDoc = this.getTsDoc(girCallback)
                 girCallback._tsDoc.tags.push(...this.getTsDocGirElementTags(girCallback._tsType, girCallback._girType))
-                girCallback._tsDataInterface = this.getCallbackInterfaceTsData(girCallback)
             }
 
         if (this.ns.interface)

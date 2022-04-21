@@ -1,4 +1,4 @@
-import { BuildType, Environment, ModuleType } from '.'
+import { BuildType, Environment, ModuleType } from './index.js'
 
 /**
  * Types for config file

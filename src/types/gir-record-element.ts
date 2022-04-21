@@ -11,7 +11,7 @@ import {
     PartOfModule,
     TsClass,
     TypeClass,
-} from '.'
+} from './index.js'
 
 export interface GirRecordElement extends PartOfModule, GirInfoElements {
     /** Record definition, equivalent to a C struct, that is a simple structure, not a class */

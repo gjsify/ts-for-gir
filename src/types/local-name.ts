@@ -1,4 +1,4 @@
-import { LocalNameType, GirMethodElement, GirPropertyElement, GirFieldElement } from '.'
+import { LocalNameType, GirMethodElement, GirPropertyElement, GirFieldElement } from './index.js'
 
 export interface LocalName {
     type: LocalNameType

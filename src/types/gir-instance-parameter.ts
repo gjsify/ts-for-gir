@@ -1,4 +1,4 @@
-import { GirBoolean, GirAnyType, GirTransferOwnership, GirDirection, GirType, TsInstanceParameter } from '.'
+import { GirBoolean, GirAnyType, GirTransferOwnership, GirDirection, GirType, TsInstanceParameter } from './index.js'
 
 /**
  * instance-parameter is a parameter of a C function which is an instance of an existing object.

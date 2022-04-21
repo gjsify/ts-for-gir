@@ -1,4 +1,4 @@
-import { TypePatchesEnv } from '.'
+import { TypePatchesEnv } from './index.js'
 
 export interface TypePatches {
     /** Patches for all environments */

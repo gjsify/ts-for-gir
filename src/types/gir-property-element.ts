@@ -1,4 +1,12 @@
-import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, PartOfClass, TsProperty } from '.'
+import {
+    GirBoolean,
+    GirInfoAttrs,
+    GirInfoElements,
+    GirAnyType,
+    GirTransferOwnership,
+    PartOfClass,
+    TsProperty,
+} from './index.js'
 
 export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** Property, that is a variable or members with getter and setter functions */

@@ -1,6 +1,11 @@
-import { TsFunction } from './index.js'
+import { TsMethod, TsCallbackInterface } from './index.js'
 
 /**
  * Holds the data to generate a callback function in/for Typescript
  */
-export type TsCallback = TsFunction
+export interface TsCallback extends TsMethod {
+    /**
+     * Interface for the callback type
+     */
+    tsCallbackInterface?: TsCallbackInterface
+}

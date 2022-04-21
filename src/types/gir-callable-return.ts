@@ -1,4 +1,4 @@
-import { PartOfClass, GirTransferOwnership, GirDocElement, GirAnyType, GirUnparsedNumber, GirBoolean } from '.'
+import { PartOfClass, GirTransferOwnership, GirDocElement, GirAnyType, GirUnparsedNumber, GirBoolean } from './index.js'
 
 export interface GirCallableReturn extends PartOfClass, GirAnyType, GirDocElement {
     /** return value of a callable */

@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, TsEnum, PartOfModule } from '.'
+import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, TsEnum, PartOfModule } from './index.js'
 
 export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
     /** element defining a bit field (as in C) */

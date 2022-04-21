@@ -14,7 +14,7 @@ import {
     PartOfModule,
     TsClass,
     TypeClass,
-} from '.'
+} from './index.js'
 
 export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     /** Abstract interface to other classes */

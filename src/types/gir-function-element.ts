@@ -7,7 +7,7 @@ import type {
     GirCallableReturn,
     TsMethod,
     TypeFunction,
-} from '.'
+} from './index.js'
 
 export interface GirFunctionElement extends PartOfClass, GirDocElement {
     /** element defining a standalone function (as usual in most programming languages) */

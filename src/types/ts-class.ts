@@ -13,7 +13,7 @@ import {
     GirRecordElement,
     TsGenericParameter,
     ClassParent,
-} from '.'
+} from './index.js'
 
 export interface TsClass {
     name: string

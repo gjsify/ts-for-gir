@@ -1434,85 +1434,56 @@ export class GirModule {
 
     /**
      * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
+     * for a default gir signal element
      * @param girSignal
      * @returns
      */
-    private getSignalMethodsTsData(girSignal: GirSignalElement) {
+    private getClassSignalMethodsTsData(girSignal: GirSignalElement) {
         if (!girSignal._tsData) {
-            throw new Error(NO_TSDATA('getSignalMethodsTsData'))
+            throw new Error(NO_TSDATA('getClassSignalMethodsTsData'))
+        }
+
+        return this.girFactory.newTsSignalMethods(
+            girSignal._tsData?.name,
+            girSignal._tsData?.tsCallbackInterface?.name,
+            girSignal._tsData.inParams.slice(1),
+            this.config.environment,
+        )
+    }
+
+    /**
+     * Generates signal methods for the GObject properties of a gir class element
+     * @param girClass
+     */
+    private getClassPropertySignalsMethods(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+    ) {
+        if (!girClass._tsData) {
+            throw new Error(NO_TSDATA('getClassPropertySignalsMethods'))
         }
 
         const tsMethods: TsMethod[] = []
 
-        const sigNameInParam = this.girFactory.newGirCallableParamElement({
-            name: 'sigName',
-            type: this.girFactory.newTsType({
-                type: `"${girSignal._tsData?.name}"` || 'any',
-            }),
-        })
+        const propertyNames = this.getClassPropertyNames(girClass)
+        const namespacePrefix = this.namespace === 'GObject' ? '' : 'GObject.'
 
-        const callbackInParam = this.girFactory.newGirCallableParamElement({
-            name: 'callback',
-            type: this.girFactory.newTsType({
-                type: girSignal._tsData?.tsCallbackInterface?.name || 'any',
-            }),
-        })
-
-        const numberReturnType = this.girFactory.newTsType({
-            type: 'number',
-        })
-
-        const connectTsFn = this.girFactory.newTsFunction({
-            name: 'connect',
-            inParams: [sigNameInParam, callbackInParam],
-            returnTypes: [numberReturnType],
-        })
-        tsMethods.push(connectTsFn)
-
-        if (this.config.environment === 'gjs') {
-            const connectAfterTsFn = this.girFactory.newTsFunction({
-                name: 'connect_after',
-                inParams: [sigNameInParam, callbackInParam],
-                returnTypes: [numberReturnType],
-            })
-            tsMethods.push(connectAfterTsFn)
+        for (const propertyName of propertyNames) {
+            let callbackType = 'any'
+            if (this.config.environment === 'gjs') {
+                const objParam = `$obj: ${girClass._tsData.name}`
+                callbackType = `((${objParam}, pspec: ${namespacePrefix}ParamSpec) => void)`
+            } else if (this.config.environment === 'node') {
+                callbackType = `(...args: any[]) => void`
+            }
+            tsMethods.push(
+                ...this.girFactory.newTsSignalMethods(
+                    `notify::${propertyName}`,
+                    callbackType,
+                    [],
+                    this.config.environment,
+                ),
+            )
         }
-        if (this.config.environment === 'node') {
-            const afterInParam = this.girFactory.newGirCallableParamElement({
-                name: 'after',
-                type: this.girFactory.newTsType({
-                    type: 'boolean',
-                    optional: true,
-                }),
-            })
-
-            const nodeEventEmitterReturnType = this.girFactory.newTsType({
-                type: 'NodeJS.EventEmitter',
-            })
-
-            const onTsFn = this.girFactory.newTsFunction({
-                name: 'on',
-                inParams: [sigNameInParam, callbackInParam, afterInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-            })
-            const onceTsFn = this.girFactory.newTsFunction({
-                name: 'once',
-                inParams: [sigNameInParam, callbackInParam, afterInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-            })
-            const offTsFn = this.girFactory.newTsFunction({
-                name: 'off',
-                inParams: [sigNameInParam, callbackInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-            })
-            tsMethods.push(onTsFn, onceTsFn, offTsFn)
-        }
-
-        const emitTsFn = this.girFactory.newTsFunction({
-            name: 'emit',
-            inParams: [sigNameInParam],
-        })
-        tsMethods.push(emitTsFn)
 
         return tsMethods
     }
@@ -1531,7 +1502,7 @@ export class GirModule {
                 tsCallbackInterface: this.getSignalCallbackInterfaceTsData(girSignal, girClass),
                 tsMethods: [],
             }
-            girSignal._tsData.tsMethods = this.getSignalMethodsTsData(girSignal)
+            girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal)
         }
 
         return girSignal._tsData
@@ -2190,7 +2161,7 @@ export class GirModule {
             fields: [],
             properties: [],
             constructProps: [],
-            propertyNames: [],
+            propertySignalMethods: [],
             methods: [],
             virtualMethods: [],
             constructors: [],
@@ -2326,7 +2297,7 @@ export class GirModule {
 
         this.inject.toClass(girClass)
 
-        girClass._tsData.propertyNames.push(...this.getClassPropertyNames(girClass))
+        girClass._tsData.propertySignalMethods.push(...this.getClassPropertySignalsMethods(girClass))
 
         this.fixConflicts(girClass)
 

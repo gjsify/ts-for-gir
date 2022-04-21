@@ -1,4 +1,4 @@
-import type { InjectionFunction, InjectionGenericParameter } from './index.js'
+import type { InjectionFunction, InjectionGenericParameter, TsMethod } from './index.js'
 
 /** Interface to inject additional methods, properties, etc to a class */
 export interface InjectionClass {
@@ -10,8 +10,8 @@ export interface InjectionClass {
     // TODO: properties: InjectionProperty[]
     /** Constructor properties of the base class itself */
     // TODO:constructProps: InjectionProperty[]
-    /** Array of property names of the base class itself (used to generate signals) */
-    propertyNames?: string[]
+    /** Array of signal methods for GObject properties */
+    propertySignalMethods?: TsMethod[]
     /** Methods of the base class itself */
     methods?: InjectionFunction[]
     /** Virtual methods of the base class itself */

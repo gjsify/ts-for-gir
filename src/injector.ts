@@ -29,8 +29,8 @@ export class Injector {
             if (toClass.virtualMethods) {
                 girClass._tsData.virtualMethods.push(...this.girFactory.newFunctions(toClass.virtualMethods))
             }
-            if (toClass.propertyNames) {
-                girClass._tsData.propertyNames.push(...toClass.propertyNames)
+            if (toClass.propertySignalMethods) {
+                girClass._tsData.propertySignalMethods.push(...toClass.propertySignalMethods)
             }
             if (toClass.generics) {
                 girClass._tsData.generics.push(...this.girFactory.newGenerics(toClass.generics))

@@ -216,7 +216,7 @@ export default class TypeDefinitionGenerator implements Generator {
      * @param indentCount
      * @returns
      */
-    private generateSignalMethodsFromProperties(
+    private generateClassPropertySignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -224,12 +224,16 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         if (girClass._tsData?.isDerivedFromGObject) {
-            let namespacePrefix = 'GObject.'
-            if (namespace === 'GObject') namespacePrefix = ''
-
-            for (const prop of girClass._tsData.propertyNames) {
+            for (const tsSignalMethod of girClass._tsData.propertySignalMethods) {
                 def.push(
-                    ...this.generateGObjectSignalMethods(prop, girClass._tsData.name, namespacePrefix, indentCount),
+                    ...this.generateFunctionByTsData(
+                        tsSignalMethod,
+                        undefined,
+                        undefined,
+                        false,
+                        namespace,
+                        indentCount,
+                    ),
                 )
             }
 
@@ -290,34 +294,6 @@ export default class TypeDefinitionGenerator implements Generator {
                 }
             }
         }
-        return def
-    }
-
-    private generateGObjectSignalMethods(
-        propertyName: string,
-        callbackObjectName: string,
-        namespacePrefix: string,
-        indentCount = 1,
-    ): string[] {
-        const def: string[] = []
-        const indent = generateIndent(indentCount)
-        const objParam = this.config.environment === 'node' ? '' : `$obj: ${callbackObjectName}, `
-
-        // TODO: Create methods of type GirMethodElement for this signal methods
-
-        def.push(
-            `${indent}connect(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-            `${indent}connect_after(sigName: "notify::${propertyName}", callback: ((${objParam}pspec: ${namespacePrefix}ParamSpec) => void)): number`,
-        )
-
-        if (this.config.environment === 'node') {
-            def.push(
-                `${indent}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${indent}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${indent}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-        }
-
         return def
     }
 
@@ -1367,7 +1343,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     def.push(...this.generateClassSignals(girClass, namespace))
 
                     // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
-                    def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+                    def.push(...this.generateClassPropertySignals(girClass, namespace))
                 }
             }
             // END BODY
@@ -1434,7 +1410,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // def.push(...this.generateClassSignals(girClass, namespace))
 
                 // // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
-                // def.push(...this.generateSignalMethodsFromProperties(girClass, namespace))
+                // def.push(...this.generateClassPropertySignals(girClass, namespace))
 
                 // // TODO: Records have fields
 

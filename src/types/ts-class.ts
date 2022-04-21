@@ -12,6 +12,7 @@ import {
     GirSignalElement,
     GirRecordElement,
     TsGenericParameter,
+    TsMethod,
     ClassParent,
 } from './index.js'
 
@@ -41,8 +42,8 @@ export interface TsClass {
     properties: GirPropertyElement[]
     /** Constructor properties of the base class itself */
     constructProps: GirPropertyElement[]
-    /** Array of property names of the base class itself (used to generate signals) */
-    propertyNames: string[]
+    /** Array of signal methods for GObject properties */
+    propertySignalMethods: TsMethod[]
     /** Methods of the base class itself */
     methods: GirMethodElement[]
     /** Virtual methods of the base class itself */

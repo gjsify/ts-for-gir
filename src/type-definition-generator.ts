@@ -1311,14 +1311,11 @@ export default class TypeDefinitionGenerator implements Generator {
                 // Virtual methods
                 def.push(...this.generateClassVirtualMethods(girClass, namespace))
 
-                // Only generate the signal methods if they are not already assigned
-                if (girClass._tsData.alreadyAssigned.length <= 0) {
-                    // Signals
-                    def.push(...this.generateClassSignals(girClass, namespace))
+                // Signals
+                def.push(...this.generateClassSignals(girClass, namespace))
 
-                    // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
-                    def.push(...this.generateClassPropertySignals(girClass, namespace))
-                }
+                // TODO: Generate GirSignalElements instead of generate the signal definition strings directly
+                def.push(...this.generateClassPropertySignals(girClass, namespace))
             }
             // END BODY
 

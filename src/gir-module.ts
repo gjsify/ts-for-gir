@@ -2174,7 +2174,6 @@ export class GirModule {
             generics: [],
             inherit: {},
             implements: {},
-            alreadyAssigned: [],
         }
 
         if (girClass._tsData.parents.length) {
@@ -2473,7 +2472,12 @@ export class GirModule {
             // TODO should we use `this.functionSignaturesMatch` here?
 
             if (type === 'method') {
-                if (this.functionMatch(localNames[name][type] as GirMethodElement, girElement as GirMethodElement)) {
+                const tsMethod1 = (girElement as GirMethodElement)._tsData
+                const tsMethod2 = (localNames[name][type] as GirMethodElement)._tsData
+                if (!tsMethod1 || !tsMethod2) {
+                    return null
+                }
+                if (this.functionMatch(tsMethod1, tsMethod2)) {
                     return null
                 }
             } else {
@@ -2584,21 +2588,16 @@ export class GirModule {
      * @param f2
      * @returns
      */
-    private functionMatch(
-        f1: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
-        f2: GirFunctionElement | GirConstructorElement | GirMethodElement | GirVirtualMethodElement,
-    ) {
-        if (!f1._tsData || !f2._tsData) throw new Error(NO_TSDATA('functionMatch'))
-
-        if (!isEqual(f1._tsData.returnTypes, f2._tsData.returnTypes)) {
+    private functionMatch(f1: TsFunction, f2: TsFunction) {
+        if (!isEqual(f1.returnTypes, f2.returnTypes)) {
             return false
         }
 
-        if (!this.paramsMatch(f1._tsData.inParams, f2._tsData.inParams)) {
+        if (!this.paramsMatch(f1.inParams, f2.inParams)) {
             return false
         }
 
-        if (!this.paramsMatch(f1._tsData.outParams, f2._tsData.outParams)) {
+        if (!this.paramsMatch(f1.outParams, f2.outParams)) {
             return false
         }
 
@@ -2627,7 +2626,7 @@ export class GirModule {
             return result
         }
 
-        const isEqual = this.functionMatch(girFunc, oldFunc)
+        const isEqual = this.functionMatch(girFunc._tsData, oldFunc._tsData)
         if (!isEqual) {
             oldFunc._tsData.overloads.push(girFunc)
             result = true
@@ -2805,68 +2804,56 @@ export class GirModule {
     private fixMethodConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('fixMethodConflicts'))
 
+        const implementations = this.getImplementedInterfaceMethods(girClass)
+        const inheritance = this.getInheritedClassMethods(girClass)
+
+        const signalMethods = [...girClass._tsData.propertySignalMethods]
+
         // Do not pass a reference of the array here
         const methods = [
-            ...girClass._tsData.methods,
-            ...this.getImplementedInterfaceMethods(girClass).methods,
-            ...this.getInheritedClassMethods(girClass).methods,
+            ...girClass._tsData.methods.map((m) => m._tsData),
+            ...implementations.methods.map((m) => m._tsData),
+            ...inheritance.methods.map((m) => m._tsData),
         ]
 
         const virtualMethods = [
-            ...girClass._tsData.methods,
-            ...this.getImplementedInterfaceMethods(girClass).virtualMethods,
-            ...this.getInheritedClassMethods(girClass).virtualMethods,
+            ...girClass._tsData.methods.map((m) => m._tsData),
+            ...implementations.virtualMethods.map((m) => m._tsData),
+            ...inheritance.virtualMethods.map((m) => m._tsData),
         ]
 
         const staticFunctions = [
-            ...girClass._tsData.methods,
-            ...this.getImplementedInterfaceMethods(girClass).staticFunctions,
-            ...this.getInheritedClassMethods(girClass).staticFunctions,
+            ...girClass._tsData.methods.map((m) => m._tsData),
+            ...implementations.staticFunctions.map((m) => m._tsData),
+            ...inheritance.staticFunctions.map((m) => m._tsData),
         ]
 
-        girClass._tsData.alreadyAssigned = this.getAlreadyAssignedSignalMethodsNames(methods)
-
         for (const method1 of methods) {
-            for (const method2 of methods) {
-                if (
-                    method1._tsData &&
-                    method2._tsData &&
-                    method1._tsData.name === method2._tsData.name &&
-                    !this.functionMatch(method1, method2)
-                ) {
+            for (const method2 of [...methods, ...signalMethods]) {
+                if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
                     // temporary solution, will be solved differently later
-                    method1._tsData.hasConflict = true
-                    method2._tsData.hasConflict = true
+                    method1.hasConflict = true
+                    method2.hasConflict = true
                 }
             }
         }
 
         for (const method1 of virtualMethods) {
             for (const method2 of virtualMethods) {
-                if (
-                    method1._tsData &&
-                    method2._tsData &&
-                    method1._tsData.name === method2._tsData.name &&
-                    !this.functionMatch(method1, method2)
-                ) {
+                if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
                     // temporary solution, will be solved differently later
-                    method1._tsData.hasConflict = true
-                    method2._tsData.hasConflict = true
+                    method1.hasConflict = true
+                    method2.hasConflict = true
                 }
             }
         }
 
         for (const method1 of staticFunctions) {
             for (const method2 of staticFunctions) {
-                if (
-                    method1._tsData &&
-                    method2._tsData &&
-                    method1._tsData.name === method2._tsData.name &&
-                    !this.functionMatch(method1, method2)
-                ) {
+                if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
                     // temporary solution, will be solved differently later
-                    method1._tsData.hasConflict = true
-                    method2._tsData.hasConflict = true
+                    method1.hasConflict = true
+                    method2.hasConflict = true
                 }
             }
         }

@@ -166,17 +166,18 @@ export class GirFactory {
      * @returns
      */
     newTsSignalMethods(
-        signalName: string,
+        signalName: string | undefined,
         callbackType: string | undefined,
         emitInParams: GirCallableParamElement[],
         environment: Environment,
+        withDisconnect?: boolean,
     ) {
         const tsMethods: TsMethod[] = []
 
         const sigNameInParam = this.newGirCallableParamElement({
             name: 'sigName',
             type: this.newTsType({
-                type: `"${signalName}"`,
+                type: signalName ? `"${signalName}"` : 'string',
             }),
         })
 
@@ -193,7 +194,7 @@ export class GirFactory {
         const callbackInParam = this.newGirCallableParamElement({
             name: 'callback',
             type: this.newTsType({
-                type: callbackType || 'any',
+                type: callbackType || '(...args: any[]) => void',
             }),
         })
 
@@ -251,6 +252,21 @@ export class GirFactory {
             inParams: [sigNameInParam, ...emitInParams],
         })
         tsMethods.push(emitTsFn)
+
+        if (withDisconnect && environment === 'gjs') {
+            const idInParam = this.newGirCallableParamElement({
+                name: 'id',
+                type: this.newTsType({
+                    type: 'number',
+                }),
+            })
+
+            const emitTsFn = this.newTsFunction({
+                name: 'disconnect',
+                inParams: [idInParam],
+            })
+            tsMethods.push(emitTsFn)
+        }
 
         return tsMethods
     }

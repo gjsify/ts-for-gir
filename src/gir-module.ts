@@ -1488,6 +1488,10 @@ export class GirModule {
         return tsMethods
     }
 
+    private getGeneralSignalsMethods() {
+        return this.girFactory.newTsSignalMethods(undefined, undefined, [], this.config.environment, true)
+    }
+
     private setSignalTsData(
         girSignal: GirSignalElement,
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
@@ -2297,7 +2301,10 @@ export class GirModule {
 
         this.inject.toClass(girClass)
 
-        girClass._tsData.propertySignalMethods.push(...this.getClassPropertySignalsMethods(girClass))
+        girClass._tsData.propertySignalMethods.push(
+            ...this.getClassPropertySignalsMethods(girClass),
+            ...this.getGeneralSignalsMethods(),
+        )
 
         this.fixConflicts(girClass)
 

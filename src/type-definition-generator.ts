@@ -32,7 +32,6 @@ import type {
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
 import TemplateProcessor from './template-processor.js'
-import { Environment } from './types/environment.js'
 import { Logger } from './logger.js'
 import {
     generateIndent,
@@ -236,8 +235,6 @@ export default class TypeDefinitionGenerator implements Generator {
                     ),
                 )
             }
-
-            def.push(...this.generateGeneralSignalMethods(this.config.environment, indentCount))
         }
         return def
     }
@@ -293,29 +290,6 @@ export default class TypeDefinitionGenerator implements Generator {
                     )
                 }
             }
-        }
-        return def
-    }
-
-    private generateGeneralSignalMethods(environment: Environment, indentCount = 1): string[] {
-        const def: string[] = []
-        const indent = generateIndent(indentCount)
-
-        // TODO: Create methods of type GirMethodElement for this signal methods
-
-        def.push(
-            `${indent}connect(sigName: string, callback: (...args: any[]) => void): number`,
-            `${indent}connect_after(sigName: string, callback: (...args: any[]) => void): number`,
-            `${indent}emit(sigName: string, ...args: any[]): void`,
-            `${indent}disconnect(id: number): void`,
-        )
-
-        if (environment === 'node') {
-            def.push(
-                `${indent}on(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${indent}once(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-                `${indent}off(sigName: string, callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
         }
         return def
     }

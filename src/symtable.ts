@@ -48,17 +48,17 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get<T extends GirAnyElement>(dependencies: string[], fullTypeName: string): T | null {
+    public get<T>(dependencies: string[], fullTypeName: string): T | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
         }
-        const result = SymTable.items[key]
-        return result as T | null
+        const result = SymTable.items[key] || null
+        return result as unknown as T | null
     }
 
-    public getByHand(versionTypeName: string): GirAnyElement | undefined {
-        return SymTable.items[versionTypeName]
+    public getByHand<T = GirAnyElement>(key: string): T | null {
+        return (SymTable.items[key] || null) as unknown as T | null
     }
 
     public set(dependencies: string[], fullTypeName: string, GirElement: GirAnyElement): void {

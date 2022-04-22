@@ -6,4 +6,6 @@ import { TsType } from './index.js'
 export interface TsParameter {
     name: string
     type: TsType
+
+    girTypeName: 'callable-param'
 }

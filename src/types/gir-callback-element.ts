@@ -24,9 +24,5 @@ export interface GirCallbackElement extends PartOfModule, GirInfoElements {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 
-    // CUSTOM
-    _girType?: 'callback'
-    /** Will be exported in Typescript as a `interface` to be able to assign this interface to the callbacks or as a global function */
-    _tsType?: 'interface'
     _tsData?: TsCallback
 }

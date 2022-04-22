@@ -21,5 +21,5 @@ export interface GirCallableReturn extends PartOfClass, GirAnyType, GirDocElemen
     } & Partial<GirTransferOwnership>
 
     // CUSTOM
-    _girType?: 'callable-return'
+    girTypeName?: 'callable-return'
 }

@@ -37,4 +37,14 @@ export interface TsFunction {
 
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasConflict?: boolean
+
+    // CUSTOM
+    girTypeName: 'constructor' | 'function' | 'method' | 'static-function' | 'signal' | 'virtual' | 'callback'
+    /**
+     * - Functions are usually exported as global functions in typescript, but can also be static functions of a class
+     * - Signals are represented in Typescript as multiple event methods
+     * - Virtual methods are represented in Typescript as normal methods with the prefix "vfunc_"
+     * - Callbacks are generated as interfaces
+     */
+    tsTypeName: 'static-function' | 'constructor' | 'function' | 'method' | 'event-methods' | 'interface'
 }

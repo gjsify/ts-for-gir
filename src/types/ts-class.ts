@@ -14,6 +14,7 @@ import {
     TsGenericParameter,
     TsMethod,
     ClassParent,
+    TypeClass,
 } from './index.js'
 
 export interface TsClass {
@@ -110,4 +111,9 @@ export interface TsClass {
             signals: GirSignalElement[]
         }
     }
+
+    // CUSTOM
+    girTypeName: TypeClass
+    /** Will be exported in Typescript as a `class` */
+    tsTypeName: 'class'
 }

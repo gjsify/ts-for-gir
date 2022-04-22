@@ -27,7 +27,7 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
             closure?: GirUnparsedNumber /** integer */
             /** the parameter is a destroy_data for callbacks. The value points to a different parameter that is the actual callback */
             destroy?: GirUnparsedNumber /** integer */
-            /** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocationi (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call.  */
+            /** the parameter is a callback, the value indicates the lifetime of the call. For language bindings which want to know when the resources required to do the call can be freed. "notified" valid until a GDestroyNotify argument is called, "async" only valid for the duration of the first callback invocation (can only be called once), "call" only valid for the duration of the call, can be called multiple times during the call.  */
             scope?: 'notified' | 'async' | 'call'
             /** direction of the parameter. "in" goes into the callable, "out" for output parameters from the callable (reference in C++, var in Pascal, etc...), "inout" for both (like a pre-allocated structure which will be filled-in by the callable) */
             direction?: GirDirection
@@ -41,7 +41,5 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
 
     varargs?: GirVarArgs[]
 
-    // CUSTOM
-    _girType?: 'callable-param'
     _tsData?: TsParameter
 }

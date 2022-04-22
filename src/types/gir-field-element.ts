@@ -27,9 +27,5 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
     /* Other elements a property can contain */
     callback?: GirCallbackElement[]
 
-    // CUSTOM
-    _girType?: 'field'
-    /** Will be exported in Typescript as a `field` of a `class` */
-    _tsType?: 'field'
     _tsData?: TsVar
 }

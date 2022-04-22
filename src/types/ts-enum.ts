@@ -3,4 +3,8 @@
  */
 export interface TsEnum {
     name: string
+    // CUSTOM
+    girTypeName: 'bitfield' | 'enum'
+    /** Will be exported in Typescript as "enumeration": `export enum ${name} { ${memberName}: ${memberType}, ... }` */
+    tsTypeName: 'enum'
 }

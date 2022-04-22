@@ -175,6 +175,7 @@ export class GirFactory {
                 type: tsData.type?.type || 'any',
             }),
             name: tsData.name,
+            girTypeName: 'callable-param',
         }
 
         return newTsData

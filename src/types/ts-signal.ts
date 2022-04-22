@@ -10,4 +10,8 @@ export interface TsSignal extends TsCallback {
      * Interface for the callback type
      */
     tsCallbackInterface?: TsCallbackInterface
+
+    girTypeName: 'signal'
+    /** Signals are represented in Typescript as multiple event methods */
+    tsTypeName: 'event-methods'
 }

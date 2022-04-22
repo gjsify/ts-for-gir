@@ -1,1 +1,1 @@
-export type TsTypeName = 'function' | 'method' | 'static' | 'interface' | 'event-methods'
+export type TsTypeName = 'function' | 'method' | 'static-function' | 'interface' | 'event-methods' | 'constructor'

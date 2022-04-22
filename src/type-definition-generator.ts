@@ -295,7 +295,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     def.push(
                         ...this.generateFunctionByTsData(
                             tsSignalMethod,
-                            girSignal._tsType,
+                            girSignal._tsData.tsTypeName,
                             girSignal._tsDoc,
                             false,
                             namespace,
@@ -409,10 +409,11 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         for (const girElement of girElements) {
+            if (!girElement._tsData) continue
             def.push(
                 ...this.generateFunctionByTsData(
                     girElement._tsData,
-                    girElement._tsType,
+                    girElement._tsData.tsTypeName,
                     girElement._tsDoc,
                     false,
                     namespace,
@@ -437,10 +438,11 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         for (const girElement of girElements) {
+            if (!girElement._tsData) continue
             def.push(
                 ...this.generateFunctionByTsData(
                     girElement._tsData,
-                    girElement._tsType,
+                    girElement._tsData.tsTypeName,
                     girElement._tsDoc,
                     true,
                     namespace,
@@ -595,7 +597,8 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (tsDoc) def.push(...this.addGirDocComment(tsDoc, indentCount))
 
-        const staticStr = (isStatic || tsType === 'static') && tsFunction.name !== 'constructor' ? 'static ' : ''
+        const staticStr =
+            (isStatic || tsType === 'static-function') && tsFunction.name !== 'constructor' ? 'static ' : ''
         const globalStr = isGlobal ? 'function ' : ''
         const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(tsFunction.generics)
@@ -632,10 +635,11 @@ export default class TypeDefinitionGenerator implements Generator {
         if (tsFunction.overloads?.length) {
             def.push(`${indent}/* Function overloads */`)
             for (const overload of tsFunction.overloads) {
+                if (!overload._tsData) continue
                 def.push(
                     ...this.generateFunctionByTsData(
                         overload._tsData,
-                        overload._tsType,
+                        overload._tsData.tsTypeName,
                         overload._tsDoc,
                         onlyStatic,
                         namespace,
@@ -661,7 +665,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         return this.generateFunctionByTsData(
             girFunc._tsData,
-            girFunc._tsType,
+            girFunc._tsData?.tsTypeName,
             girFunc._tsDoc,
             false,
             namespace,
@@ -681,7 +685,7 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         return this.generateFunctionByTsData(
             girFunc._tsData,
-            girFunc._tsType,
+            girFunc._tsData?.tsTypeName,
             girFunc._tsDoc,
             true,
             namespace,

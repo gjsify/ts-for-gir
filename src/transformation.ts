@@ -230,7 +230,16 @@ export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
  */
 export const GOBJECT_SIGNAL_METHOD_NAMES = ['connect', 'connect_after', 'emit', 'disconnect']
 
-export const IGNORE_GIR_TYPE_TS_DOC_TYPES = ['method', 'enum', 'property', 'function']
+export const IGNORE_GIR_TYPE_TS_DOC_TYPES = [
+    'method',
+    'enum',
+    'enum-member',
+    'bitfield-member',
+    'property',
+    'function',
+    'static-function',
+    'constant',
+]
 
 export const RESERVED_NAMESPACE_NAMES = {}
 

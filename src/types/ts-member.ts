@@ -3,4 +3,6 @@
  */
 export interface TsMember {
     name: string
+    girTypeName: 'bitfield-member' | 'enum-member'
+    tsTypeName: 'enum-member'
 }

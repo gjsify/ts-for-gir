@@ -10,7 +10,6 @@ import {
     GirPropertyElement,
     PartOfModule,
     TsClass,
-    TypeClass,
 } from './index.js'
 
 export interface GirRecordElement extends PartOfModule, GirInfoElements {
@@ -44,9 +43,5 @@ export interface GirRecordElement extends PartOfModule, GirInfoElements {
     constructor?: GirConstructorElement[]
     property?: GirPropertyElement[]
 
-    // CUSTOM
-    _girType?: TypeClass
-    /** Will be exported in Typescript as a `class` */
-    _tsType?: 'class'
     _tsData?: TsClass
 }

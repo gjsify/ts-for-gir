@@ -8,4 +8,8 @@ export interface TsCallback extends TsMethod {
      * Interface for the callback type
      */
     tsCallbackInterface?: TsCallbackInterface
+    // CUSTOM
+    girTypeName: 'callback' | 'signal'
+    /** Will be exported in Typescript as a `interface` to be able to assign this interface to the callbacks or as a global function */
+    tsTypeName: 'interface' | 'event-methods'
 }

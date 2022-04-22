@@ -1974,10 +1974,30 @@ export class GirModule {
     private getClassConstructorsTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
+        if (!girClass._tsData) {
+            throw new Error(NO_TSDATA('getClassConstructorsTsData'))
+        }
         const girConstructors: GirConstructorElement[] = []
         // JS constructor(s)
         if (girClass._tsData?.isDerivedFromGObject) {
-            // TODO see generateConstructorAndStaticFunctions.generateConstructorAndStaticFunctions
+            const constructorInParam = this.girFactory.newGirCallableParamElement({
+                name: 'config',
+                type: {
+                    optional: true,
+                    type: girClass._tsData.constructPropInterfaceName,
+                },
+            })
+            const realConstructor = this.girFactory.newGirFunctionElement({
+                name: 'constructor',
+                isStatic: true,
+                inParams: [constructorInParam],
+            })
+            const initConstructor = this.girFactory.newGirFunctionElement({
+                name: '_init',
+                inParams: [constructorInParam],
+            })
+            girConstructors.push(realConstructor, initConstructor)
+            debugger
         } else {
             const constructors = girClass.constructor
             if (Array.isArray(constructors)) {
@@ -1989,8 +2009,19 @@ export class GirModule {
 
                     if (!girConstructor._tsData?.name || girConstructor._tsData.name !== 'new') continue
 
+                    // Inject an additional real constructor if static new(...) exists
                     if (girConstructor._tsData.name === 'new') {
-                        girConstructor._tsData.name = 'constructor'
+                        const realConstructor = merge({}, girConstructor, {
+                            _tsData: {
+                                name: 'constructor',
+                            },
+                        })
+                        if (realConstructor._tsData) {
+                            realConstructor._tsData.name = 'constructor'
+                            if (realConstructor._fullSymName)
+                                this.symTable.set(this.allDependencies, realConstructor._fullSymName, realConstructor)
+                            girConstructors.push(realConstructor)
+                        }
                     }
 
                     if (girConstructor._fullSymName)

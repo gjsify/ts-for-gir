@@ -470,14 +470,7 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generatePseudoConstructors'))
         }
 
-        def.push(
-            ...this.generateStaticFunctions(
-                girClass._tsData.staticFunctions,
-                namespace,
-                indentCount,
-                'Static methods and pseudo-constructors',
-            ),
-        )
+        def.push(...this.generateStaticFunctions(girClass._tsData.staticFunctions, namespace, indentCount))
 
         return def
     }
@@ -591,7 +584,10 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         let { name } = tsFunction
-        const { isArrowType, isStatic, isGlobal, isVirtual, inParams, instanceParameters } = tsFunction
+        let { isStatic } = tsFunction
+        // Handle a constructor as a static method even if it has no static keyword
+        isStatic ||= tsFunction.name === 'constructor'
+        const { isArrowType, isGlobal, isVirtual, inParams, instanceParameters } = tsFunction
 
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
             return def
@@ -1076,31 +1072,27 @@ export default class TypeDefinitionGenerator implements Generator {
         namespace: string,
         indentCount = 1,
     ) {
-        const indent = generateIndent(indentCount)
         const def: string[] = []
 
         if (!girClass._tsData) {
             throw new Error(NO_TSDATA('generateConstructorAndStaticFunctions'))
         }
 
-        // JS constructor(s)
-        if (girClass._tsData.isDerivedFromGObject) {
-            // TODO: Generate a GirMethodElements for this in gir-module.ts
-            def.push(
-                `${indent}constructor (config?: ${girClass._tsData.constructPropInterfaceName})`,
-                `${indent}_init (config?: ${girClass._tsData.constructPropInterfaceName}): void`,
-            )
-        } else {
-            const girConstructors = girClass._tsData.constructors
+        const girConstructors = girClass._tsData.constructors
 
-            for (const girConstructor of girConstructors) {
-                const descs = this.generateStaticFunction(girConstructor, namespace, indentCount)
-
-                def.push(...descs)
-            }
+        for (const girConstructor of girConstructors) {
+            def.push(...this.generateStaticFunction(girConstructor, namespace, indentCount))
+            // for the _init method
+            def.push(...this.generateFunction(girConstructor, namespace, indentCount))
         }
 
         def.push(...this.generatePseudoConstructors(girClass, namespace, indentCount))
+
+        if (def.length > 0) {
+            def.unshift(
+                ...this.addInlineDebugComment('Static methods, constructors and pseudo-constructors', indentCount),
+            )
+        }
 
         return def
     }

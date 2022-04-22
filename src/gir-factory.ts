@@ -42,47 +42,51 @@ export class GirFactory {
         return tsGenerics
     }
 
-    newFunctions(functions: InjectionFunction[]) {
+    newFunctions(injectFunctions: InjectionFunction[]) {
         const girFunctionElements: Array<
             GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement
         > = []
-        for (const injectFunction of functions) {
-            const inParams: GirCallableParamElement[] = []
-            if (injectFunction.inParams?.length) {
-                for (const inParam of injectFunction.inParams) {
-                    inParams.push(this.newGirCallableParamElement(inParam))
-                }
-            }
-
-            const outParams: GirCallableParamElement[] = []
-            if (injectFunction.outParams?.length) {
-                for (const outParam of injectFunction.outParams) {
-                    outParams.push(this.newGirCallableParamElement(outParam))
-                }
-            }
-
-            const instanceParameters: GirInstanceParameter[] = []
-            if (injectFunction.instanceParameters) {
-                for (const instanceParameter of injectFunction.instanceParameters) {
-                    instanceParameters.push(this.newGirInstanceParameter(instanceParameter))
-                }
-            }
-
-            const girFunctionElement = this.newGirFunctionElement({
-                name: injectFunction.name,
-                returnTypes: [this.newTsType(injectFunction.returnType)],
-                isArrowType: injectFunction.isArrowType,
-                isStatic: injectFunction.isStatic,
-                isGlobal: injectFunction.isGlobal,
-                isVirtual: injectFunction.isVirtual,
-                inParams,
-                outParams,
-                instanceParameters,
-            })
-
-            girFunctionElements.push(girFunctionElement)
+        for (const injectFunction of injectFunctions) {
+            girFunctionElements.push(this.newFunction(injectFunction))
         }
         return girFunctionElements
+    }
+
+    newFunction(injectFunction: InjectionFunction) {
+        const inParams: GirCallableParamElement[] = []
+        if (injectFunction.inParams?.length) {
+            for (const inParam of injectFunction.inParams) {
+                inParams.push(this.newGirCallableParamElement(inParam))
+            }
+        }
+
+        const outParams: GirCallableParamElement[] = []
+        if (injectFunction.outParams?.length) {
+            for (const outParam of injectFunction.outParams) {
+                outParams.push(this.newGirCallableParamElement(outParam))
+            }
+        }
+
+        const instanceParameters: GirInstanceParameter[] = []
+        if (injectFunction.instanceParameters) {
+            for (const instanceParameter of injectFunction.instanceParameters) {
+                instanceParameters.push(this.newGirInstanceParameter(instanceParameter))
+            }
+        }
+
+        const girFunctionElement = this.newGirFunctionElement({
+            name: injectFunction.name,
+            returnTypes: [this.newTsType(injectFunction.returnType)],
+            isArrowType: injectFunction.isArrowType,
+            isStatic: injectFunction.isStatic,
+            isGlobal: injectFunction.isGlobal,
+            isVirtual: injectFunction.isVirtual,
+            inParams,
+            outParams,
+            instanceParameters,
+        })
+
+        return girFunctionElement
     }
 
     newGirCallableParamElement(tsData: InjectionParameter): GirCallableParamElement {

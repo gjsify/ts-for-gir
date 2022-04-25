@@ -10,6 +10,7 @@ import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
 import { Logger } from './logger.js'
 import { Injector } from './injector.js'
 import { GirFactory } from './gir-factory.js'
+import { ConflictResolver } from './conflict-resolver.js'
 import {
     NO_TSDATA,
     WARN_NOT_FOUND_TYPE,
@@ -31,6 +32,7 @@ import {
     addNamespace,
     merge,
     girElementIsIntrospectable,
+    functionMatch,
 } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
@@ -86,7 +88,6 @@ import type {
     TsAlias,
     TsType,
     TsGenericParameter,
-    TsSignal,
     TsCallback,
     InheritanceTable,
     ParsedGir,
@@ -144,6 +145,8 @@ export class GirModule {
     transformation: Transformation
 
     girFactory = new GirFactory()
+
+    conflictResolver = new ConflictResolver()
 
     inject = new Injector()
     extends?: string
@@ -2348,7 +2351,7 @@ export class GirModule {
             ...this.getGeneralSignalsMethods(),
         )
 
-        this.fixConflicts(girClass)
+        this.conflictResolver.repairClass(girClass)
 
         return girClass._tsData
     }
@@ -2525,7 +2528,7 @@ export class GirModule {
                 if (!tsMethod1 || !tsMethod2) {
                     return null
                 }
-                if (this.functionMatch(tsMethod1, tsMethod2)) {
+                if (functionMatch(tsMethod1, tsMethod2)) {
                     return null
                 }
             } else {
@@ -2611,60 +2614,6 @@ export class GirModule {
     }
 
     /**
-     * Returns true if `p1s` and `p2s` are compatible with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param p1s
-     * @param p2s
-     * @returns
-     */
-    private paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
-        if (p1s.length !== p2s.length) {
-            return false
-        }
-
-        for (const [i, p1] of p1s.entries()) {
-            // Ignore parameter name, just check the types
-            if (p2s[i]?._tsData?.type !== p1._tsData?.type) {
-                return false
-            }
-        }
-
-        return true
-    }
-
-    /**
-     * Returns true if `f1` and `f2` are compatible with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param f1
-     * @param f2
-     * @returns
-     */
-    private functionMatch(f1: TsFunction, f2: TsFunction) {
-        if (!isEqual(f1.returnTypes, f2.returnTypes)) {
-            return false
-        }
-
-        if (!this.paramsMatch(f1.inParams, f2.inParams)) {
-            return false
-        }
-
-        if (!this.paramsMatch(f1.outParams, f2.outParams)) {
-            return false
-        }
-
-        return true
-    }
-
-    private elementMatch(a1: TsFunction | TsVar, b1: TsFunction | TsVar) {
-        // TODO:
-        if (!isEqual(a1, b1)) {
-            return false
-        }
-
-        return false
-    }
-
-    /**
      * See comment for addOverloadableFunctions.
      * Returns `true` if (a definition from) `func` is added to map to satisfy
      * an overload, but `false` if it was forced
@@ -2686,7 +2635,7 @@ export class GirModule {
             return result
         }
 
-        const isEqual = this.functionMatch(girFunc._tsData, oldFunc._tsData)
+        const isEqual = functionMatch(girFunc._tsData, oldFunc._tsData)
         if (!isEqual) {
             oldFunc._tsData.overloads.push(girFunc)
             result = true
@@ -2727,190 +2676,6 @@ export class GirModule {
             if (func) girFunctions.push(func)
         }
         return girFunctions
-    }
-
-    private getImplementedInterfaceProperties(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceProperties'))
-
-        const properties: GirPropertyElement[] = []
-        const fields: GirFieldElement[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
-            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
-            if (implementation._tsData?.properties.length) properties.push(...implementation._tsData?.properties)
-            if (implementation._tsData?.fields.length) fields.push(...implementation._tsData?.fields)
-        }
-
-        return {
-            properties,
-            fields,
-        }
-    }
-
-    private getImplementedInterfaceMethods(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceMethods'))
-
-        const methods: GirMethodElement[] = []
-        const virtualMethods: GirVirtualMethodElement[] = []
-        const staticFunctions: (GirMethodElement | GirConstructorElement | GirFunctionElement)[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
-            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
-            if (implementation._tsData?.methods.length) methods.push(...implementation._tsData.methods)
-            if (implementation._tsData?.virtualMethods.length)
-                virtualMethods.push(...implementation._tsData.virtualMethods)
-            if (implementation._tsData?.staticFunctions.length)
-                staticFunctions.push(...implementation._tsData.staticFunctions)
-        }
-
-        return {
-            methods,
-            virtualMethods,
-            staticFunctions,
-        }
-    }
-
-    private getInheritedClassProperties(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassProperties'))
-
-        const properties: GirPropertyElement[] = []
-        const fields: GirFieldElement[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
-            const inherit = girClass._tsData.inherit[ifaceFullSymName].class
-            if (inherit._tsData?.properties.length) properties.push(...inherit._tsData?.properties)
-            if (inherit._tsData?.fields.length) fields.push(...inherit._tsData?.fields)
-        }
-
-        return {
-            properties,
-            fields,
-        }
-    }
-
-    private getInheritedClassMethods(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassMethods'))
-
-        const methods: GirMethodElement[] = []
-        const virtualMethods: GirVirtualMethodElement[] = []
-        const staticFunctions: (GirMethodElement | GirConstructorElement | GirFunctionElement)[] = []
-
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
-            const inherit = girClass._tsData.inherit[ifaceFullSymName].class
-            if (inherit._tsData?.methods.length) methods.push(...inherit._tsData?.methods)
-            if (inherit._tsData?.virtualMethods.length) virtualMethods.push(...inherit._tsData?.virtualMethods)
-            if (inherit._tsData?.staticFunctions.length) staticFunctions.push(...inherit._tsData?.staticFunctions)
-        }
-
-        return {
-            methods,
-            virtualMethods,
-            staticFunctions,
-        }
-    }
-
-    /**
-     * With multiple implementations or a inherit it can happen that the interfaces / parent have the same properties with different types.
-     * We merge these types here to solve this problem.
-     * @param girClass
-     */
-    private fixConflicts(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('fixMethodConflicts'))
-
-        const implementations = this.getImplementedInterfaceMethods(girClass)
-        const inheritance = this.getInheritedClassMethods(girClass)
-
-        const tsSignals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
-
-        const signalMethods = [...girClass._tsData.propertySignalMethods]
-        for (const tsSignal of tsSignals) {
-            signalMethods.push(...tsSignal.tsMethods)
-        }
-
-        // Do not pass a reference of the array here
-        const properties = [
-            ...girClass._tsData.properties.map((p) => p._tsData),
-            ...this.getImplementedInterfaceProperties(girClass).properties.map((p) => p._tsData),
-            ...this.getInheritedClassProperties(girClass).properties.map((p) => p._tsData),
-        ]
-
-        const fields = [
-            ...girClass._tsData.fields.map((p) => p._tsData),
-            ...this.getImplementedInterfaceProperties(girClass).fields.map((p) => p._tsData),
-            ...this.getInheritedClassProperties(girClass).fields.map((p) => p._tsData),
-        ]
-
-        const propsAndFields = [...properties, ...fields]
-
-        // Do not pass a reference of the array here
-        const methods = [
-            ...girClass._tsData.methods.map((m) => m._tsData),
-            ...implementations.methods.map((m) => m._tsData),
-            ...inheritance.methods.map((m) => m._tsData),
-            ...signalMethods,
-            // TODO: ...propsAndFields,
-        ]
-
-        // virtual methods can be handled separately as they do not overlap with other methods / properties due to their prefixes
-        const virtualMethods = [
-            ...girClass._tsData.methods.map((m) => m._tsData),
-            ...implementations.virtualMethods.map((m) => m._tsData),
-            ...inheritance.virtualMethods.map((m) => m._tsData),
-        ]
-
-        const staticFunctions = [
-            ...girClass._tsData.methods.map((m) => m._tsData),
-            ...implementations.staticFunctions.map((m) => m._tsData),
-            ...inheritance.staticFunctions.map((m) => m._tsData),
-        ]
-
-        for (const a of methods) {
-            for (const b of methods) {
-                if (a && b && a.name === b.name && !this.functionMatch(a, b)) {
-                    // temporary solution, will be solved differently later
-                    a.hasConflict = true
-                    b.hasConflict = true
-                }
-            }
-        }
-
-        for (const method1 of virtualMethods) {
-            for (const method2 of virtualMethods) {
-                if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
-                    // temporary solution, will be solved differently later
-                    method1.hasConflict = true
-                    method2.hasConflict = true
-                }
-            }
-        }
-
-        for (const method1 of staticFunctions) {
-            for (const method2 of staticFunctions) {
-                if (method1 && method2 && method1.name === method2.name && !this.functionMatch(method1, method2)) {
-                    // temporary solution, will be solved differently later
-                    method1.hasConflict = true
-                    method2.hasConflict = true
-                }
-            }
-        }
-
-        for (const prop1 of propsAndFields) {
-            for (const prop2 of propsAndFields) {
-                if (prop1 && prop2 && prop1.name === prop2.name && !isEqual(prop1, prop2)) {
-                    // temporary solution, will be solved differently later
-                    prop1.hasConflict = true
-                    prop2.hasConflict = true
-                }
-            }
-        }
     }
 
     /**

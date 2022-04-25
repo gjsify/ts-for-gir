@@ -1,4 +1,5 @@
 export * from './config.js'
+export * from './conflict-resolver.js'
 export * from './constants.js'
 export * from './generation-handler.js'
 export * from './gir-factory.js'

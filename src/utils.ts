@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs } from './types/index.js'
+import { Environment, GirInfoAttrs, GirCallableParamElement, TsFunction, TsVar } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -201,4 +201,58 @@ export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { na
     }
     // ...otherwise we assume that it is introspectable
     return true
+}
+
+/**
+ * Returns true if `p1s` and `p2s` are compatible with each other.
+ * The parameters must have the same length and the same type but can have different names
+ * @param p1s
+ * @param p2s
+ * @returns
+ */
+export function paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
+    if (p1s.length !== p2s.length) {
+        return false
+    }
+
+    for (const [i, p1] of p1s.entries()) {
+        // Ignore parameter name, just check the types
+        if (p2s[i]?._tsData?.type !== p1._tsData?.type) {
+            return false
+        }
+    }
+
+    return true
+}
+
+/**
+ * Returns true if `f1` and `f2` are compatible with each other.
+ * The parameters must have the same length and the same type but can have different names
+ * @param f1
+ * @param f2
+ * @returns
+ */
+export function functionMatch(f1: TsFunction, f2: TsFunction) {
+    if (!isEqual(f1.returnTypes, f2.returnTypes)) {
+        return false
+    }
+
+    if (!paramsMatch(f1.inParams, f2.inParams)) {
+        return false
+    }
+
+    if (!paramsMatch(f1.outParams, f2.outParams)) {
+        return false
+    }
+
+    return true
+}
+
+export function elementMatch(a1: TsFunction | TsVar, b1: TsFunction | TsVar) {
+    // TODO:
+    if (!isEqual(a1, b1)) {
+        return false
+    }
+
+    return false
 }

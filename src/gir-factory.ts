@@ -15,6 +15,7 @@ import type {
     TsGenericParameter,
     TsProperty,
     TsType,
+    TsDoc,
     InjectionFunction,
     InjectionInstanceParameter,
     InjectionGenericParameter,
@@ -176,6 +177,7 @@ export class GirFactory {
             }),
             name: tsData.name,
             girTypeName: 'callable-param',
+            doc: this.newTsDoc(tsData.doc),
         }
 
         return newTsData
@@ -205,6 +207,7 @@ export class GirFactory {
             type: this.newTsType({
                 type: signalName ? `"${signalName}"` : 'string',
             }),
+            doc: this.newTsDoc(),
         })
 
         const anyArgsInParam = this.newGirCallableParamElement({
@@ -213,6 +216,7 @@ export class GirFactory {
                 type: `any`,
                 isArray: true,
             }),
+            doc: this.newTsDoc(),
         })
 
         emitInParams.push(anyArgsInParam)
@@ -222,6 +226,7 @@ export class GirFactory {
             type: this.newTsType({
                 type: callbackType || '(...args: any[]) => void',
             }),
+            doc: this.newTsDoc(),
         })
 
         const numberReturnType = this.newTsType({
@@ -249,6 +254,7 @@ export class GirFactory {
                     type: 'boolean',
                     optional: true,
                 }),
+                doc: this.newTsDoc(),
             })
 
             const nodeEventEmitterReturnType = this.newTsType({
@@ -285,6 +291,7 @@ export class GirFactory {
                 type: this.newTsType({
                     type: 'number',
                 }),
+                doc: this.newTsDoc(),
             })
 
             const emitTsFn = this.newTsFunction({
@@ -320,6 +327,14 @@ export class GirFactory {
             doc: [{ $: { filename, line, column }, _: text }],
             'doc-deprecated': [{ $: {}, _: '' }],
             'source-position': [{ filename: '', line: '', column: [''] }],
+        }
+    }
+
+    newTsDoc(data: Partial<TsDoc> = {}): TsDoc {
+        return {
+            tags: data.tags || [],
+            text: data.text || '',
+            returns: data.returns || '',
         }
     }
 }

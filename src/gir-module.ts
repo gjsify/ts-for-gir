@@ -247,14 +247,19 @@ export class GirModule {
         }
 
         for (const inParam of inParams) {
-            if (!inParam._tsDoc) {
-                inParam._tsDoc = this.getTsDoc(inParam)
+            if (!inParam._tsData) {
+                throw new Error(NO_TSDATA('getTsDocInParamTags'))
+            }
+            if (!inParam._tsData?.doc) {
+                inParam._tsData.doc = this.getTsDoc(inParam)
             }
             if (inParam._tsData?.name) {
                 tags.push({
                     paramName: inParam._tsData.name,
                     tagName: 'param',
-                    text: inParam._tsDoc.text ? this.transformation.transformGirDocTagText(inParam._tsDoc.text) : '',
+                    text: inParam._tsData.doc.text
+                        ? this.transformation.transformGirDocTagText(inParam._tsData.doc.text)
+                        : '',
                 })
             }
         }
@@ -641,10 +646,9 @@ export class GirModule {
                         girTypeName: 'callback',
                         tsTypeName: this.girTypeNameToTsTypeName('callback'),
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
+                        doc: this.getTsDoc(girCallback),
                     }
                 }
-
-                girCallback._tsDoc = this.getTsDoc(girCallback)
 
                 if (girCallback._tsData) {
                     girCallbacks.push(girCallback)
@@ -905,6 +909,7 @@ export class GirModule {
             name: paramName,
             type: tsType,
             girTypeName: 'callable-param',
+            doc: this.getTsDoc(girParam),
         }
 
         return tsData
@@ -955,7 +960,6 @@ export class GirModule {
                         }
 
                         param._tsData = this.getParameterTsData(param, params, paramNames, skip)
-                        param._tsDoc = this.getTsDoc(param)
 
                         // Apply patches
                         const paramPatches = param._fullSymName
@@ -1054,7 +1058,10 @@ export class GirModule {
             type: tsType,
             girTypeName,
             tsTypeName,
+            doc: this.getTsDoc(girVar),
         }
+
+        tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
 
         // Apply patches
         const varPatches = girVar._fullSymName ? this.getPatches('methods', girVar._fullSymName) : undefined
@@ -1232,7 +1239,11 @@ export class GirModule {
             hasConflict,
             girTypeName,
             tsTypeName: this.girTypeNameToTsTypeName(girTypeName, isStatic),
+            doc: this.getTsDoc(girFunc as GirDocElement),
         }
+
+        tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
+        tsData.doc.tags.push(...this.getTsDocInParamTags(tsData?.inParams))
 
         // Apply patches
         const methodPatches = girFunc._fullSymName ? this.getPatches('methods', girFunc._fullSymName) : undefined
@@ -1358,7 +1369,11 @@ export class GirModule {
             generics: [],
             girTypeName: 'callback',
             tsTypeName: this.girTypeNameToTsTypeName('callback'),
+            doc: this.getTsDoc(girSignalFunc),
         }
+
+        tsCallback.doc.tags.push(...this.getTsDocGirElementTags(tsCallback.tsTypeName, tsCallback.girTypeName))
+        tsCallback.doc.tags.push(...this.getTsDocInParamTags(tsCallback?.inParams))
 
         return tsCallback
     }
@@ -1440,7 +1455,15 @@ export class GirModule {
                 tsMethods: [],
                 girTypeName: 'signal',
                 tsTypeName: this.girTypeNameToTsTypeName('signal'),
+                doc: this.getTsDoc(girSignal),
             }
+
+            girSignal._tsData.doc.tags.push(
+                ...this.getTsDocGirElementTags(girSignal._tsData.tsTypeName, girSignal._tsData.girTypeName),
+            )
+            // TODO: this are the callback parameters
+            girSignal._tsData.doc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
+
             if (!girSignal._tsData) {
                 throw NO_TSDATA('setSignalTsData')
             }
@@ -1494,7 +1517,10 @@ export class GirModule {
             name,
             girTypeName,
             tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            doc: this.getTsDoc(girEnumMember),
         }
+
+        tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
 
         return tsData
     }
@@ -1514,7 +1540,10 @@ export class GirModule {
             name,
             girTypeName,
             tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            doc: this.getTsDoc(girEnum),
         }
+
+        tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
 
         return tsData
     }
@@ -1588,8 +1617,6 @@ export class GirModule {
                 continue
             }
 
-            if (!girConstrProp._tsDoc) girConstrProp._tsDoc = this.getTsDoc(girConstrProp)
-
             const localName = this.checkOrSetLocalName(girConstrProp, constructPropNames, 'property')
 
             if (!localName?.added) {
@@ -1605,7 +1632,6 @@ export class GirModule {
                 if (constructPropPatches) {
                     this.log.warn(PATCH_FOR_CONSTRUCTOR_PROPERTY(girConstrProp._fullSymName))
                     girConstrProp._tsData = merge(girConstrProp._tsData, constructPropPatches)
-                    girConstrProp._tsDoc = this.getTsDoc(girConstrProp)
                 }
             }
 
@@ -1706,14 +1732,6 @@ export class GirModule {
 
             if (!girMethod._tsData) continue
 
-            if (!girMethod._tsDoc) {
-                girMethod._tsDoc = this.getTsDoc(girMethod)
-                girMethod._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girMethod._tsData.tsTypeName, girMethod._tsData.girTypeName),
-                )
-                girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
-            }
-
             if (girMethod._tsData) {
                 if (girMethod._fullSymName) this.symTable.set(this.allDependencies, girMethod._fullSymName, girMethod)
                 girMethods.push(girMethod)
@@ -1749,14 +1767,6 @@ export class GirModule {
 
                 if (!girMethod._tsData) continue
 
-                if (!girMethod._tsDoc) {
-                    girMethod._tsDoc = this.getTsDoc(girMethod)
-                    girMethod._tsDoc.tags.push(
-                        ...this.getTsDocGirElementTags(girMethod._tsData.tsTypeName, girMethod._tsData.girTypeName),
-                    )
-                    girMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girMethod._tsData?.inParams))
-                }
-
                 const localName = this.checkOrSetLocalName(girMethod, localNames, 'method')
                 if (localName?.added && localName.method) {
                     if (girMethod._fullSymName)
@@ -1786,13 +1796,6 @@ export class GirModule {
 
                 if (!girField._tsData) {
                     continue
-                }
-
-                if (!girField._tsDoc) {
-                    girField._tsDoc = this.getTsDoc(girField)
-                    girField._tsDoc.tags.push(
-                        ...this.getTsDocGirElementTags(girField._tsData.tsTypeName, girField._tsData.girTypeName),
-                    )
                 }
 
                 const localName = this.checkOrSetLocalName(girField, localNames, 'field')
@@ -1850,10 +1853,6 @@ export class GirModule {
 
                 girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'field')
                 if (!girProperty._tsData) continue
-                girProperty._tsDoc = this.getTsDoc(girProperty)
-                girProperty._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girProperty._tsData.tsTypeName, girProperty._tsData.girTypeName),
-                )
 
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
                 if (localName?.added && localName.property) {
@@ -2017,11 +2016,6 @@ export class GirModule {
                     null,
                 )
                 if (!girVMethod._tsData) continue
-                girVMethod._tsDoc = this.getTsDoc(girVMethod)
-                girVMethod._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girVMethod._tsData.tsTypeName, girVMethod._tsData.girTypeName),
-                )
-                girVMethod._tsDoc.tags.push(...this.getTsDocInParamTags(girVMethod._tsData?.inParams))
 
                 if (girVMethod?._tsData?.name) {
                     if (girVMethod._fullSymName)
@@ -2054,13 +2048,6 @@ export class GirModule {
             for (const girSignal of signals) {
                 girSignal._tsData = this.setSignalTsData(girSignal, girClass)
                 if (!girSignal._tsData) continue
-                girSignal._tsDoc = this.getTsDoc(girSignal)
-                girSignal._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girSignal._tsData.tsTypeName, girSignal._tsData.girTypeName),
-                )
-                // TODO: this are the callback parameters
-                girSignal._tsDoc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
-
                 if (girSignal._fullSymName) this.symTable.set(this.allDependencies, girSignal._fullSymName, girSignal)
 
                 girSignals.push(girSignal)
@@ -2223,7 +2210,12 @@ export class GirModule {
             implements: {},
             girTypeName,
             tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            doc: this.getTsDoc(girClass),
         }
+
+        girClass._tsData.doc.tags.push(
+            ...this.getTsDocGirElementTags(girClass._tsData.tsTypeName, girClass._tsData.girTypeName),
+        )
 
         girClass._tsData.parents = this.getClassParents(girClass)
 
@@ -2255,11 +2247,6 @@ export class GirModule {
         if (!girClass._tsData) {
             return undefined
         }
-
-        girClass._tsDoc = this.getTsDoc(girClass)
-        girClass._tsDoc.tags.push(
-            ...this.getTsDocGirElementTags(girClass._tsData.tsTypeName, girClass._tsData.girTypeName),
-        )
 
         // BASE
 
@@ -2414,12 +2401,6 @@ export class GirModule {
         if (!girClass._tsData) girClass._tsData = this.setClassTsData(girClass, gitTypeName)
         // if (!girClass._tsData) throw new Error(NO_TSDATA('traverseInheritanceTree'))
         if (!girClass._tsData) return
-        if (!girClass._tsDoc) {
-            girClass._tsDoc = this.getTsDoc(girClass)
-            girClass._tsDoc.tags.push(
-                ...this.getTsDocGirElementTags(girClass._tsData.tsTypeName, girClass._tsData.girTypeName),
-            )
-        }
 
         callback(girClass, depth)
 
@@ -2452,12 +2433,6 @@ export class GirModule {
         if (!girIface._tsData) girIface._tsData = this.setClassTsData(girIface, girTypeName)
         if (!girIface._tsData) {
             throw new Error(NO_TSDATA('forEachInterface'))
-        }
-        if (!girIface._tsDoc) {
-            girIface._tsDoc = this.getTsDoc(girIface)
-            girIface._tsDoc.tags.push(
-                ...this.getTsDocGirElementTags(girIface._tsData.tsTypeName, girIface._tsData.girTypeName),
-            )
         }
 
         const parents = girIface._tsData.parents
@@ -3034,11 +3009,6 @@ export class GirModule {
                     null,
                 )
                 if (!girFunction._tsData) continue
-                girFunction._tsDoc = this.getTsDoc(girFunction)
-                girFunction._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girFunction._tsData.tsTypeName, girFunction._tsData.girTypeName),
-                )
-                girFunction._tsDoc.tags.push(...this.getTsDocInParamTags(girFunction._tsData?.inParams))
 
                 if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
 
@@ -3086,22 +3056,11 @@ export class GirModule {
                     for (const girEnumMember of girEnum.member) {
                         girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember, 'enum-member')
                         if (!girEnumMember._tsData) continue
-                        girEnumMember._tsDoc = this.getTsDoc(girEnumMember)
-                        girEnumMember._tsDoc.tags.push(
-                            ...this.getTsDocGirElementTags(
-                                girEnumMember._tsData.tsTypeName,
-                                girEnumMember._tsData.girTypeName,
-                            ),
-                        )
                     }
                 }
                 girEnum._tsData = this.getEnumerationTsData(girEnum, 'enum')
                 this.fixEnumerationDuplicateIdentifier(girEnum)
                 if (!girEnum._tsData) continue
-                girEnum._tsDoc = this.getTsDoc(girEnum)
-                girEnum._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girEnum._tsData.tsTypeName, girEnum._tsData.girTypeName),
-                )
             }
         }
 
@@ -3110,25 +3069,16 @@ export class GirModule {
                 if (girBitfield.member)
                     for (const girEnumMember of girBitfield.member) {
                         girEnumMember._tsData = this.getEnumerationMemberTsData(girEnumMember, 'bitfield-member')
-                        girEnumMember._tsDoc = this.getTsDoc(girEnumMember)
                     }
                 girBitfield._tsData = this.getEnumerationTsData(girBitfield, 'bitfield')
                 if (!girBitfield._tsData) continue
                 this.fixEnumerationDuplicateIdentifier(girBitfield)
-                girBitfield._tsDoc = this.getTsDoc(girBitfield)
-                girBitfield._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girBitfield._tsData.tsTypeName, girBitfield._tsData.girTypeName),
-                )
             }
 
         if (this.ns.constant)
             for (const girConst of this.ns.constant) {
                 girConst._tsData = this.getConstantTsData(girConst)
                 if (!girConst._tsData) continue
-                girConst._tsDoc = this.getTsDoc(girConst)
-                girConst._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girConst._tsData.tsTypeName, girConst._tsData.girTypeName),
-                )
             }
 
         if (this.ns.function) {
@@ -3148,10 +3098,6 @@ export class GirModule {
                     null,
                 )
                 if (!girFunc._tsData) continue
-                girFunc._tsDoc = this.getTsDoc(girFunc)
-                girFunc._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girFunc._tsData.tsTypeName, girFunc._tsData.girTypeName),
-                )
             }
         }
 
@@ -3166,52 +3112,29 @@ export class GirModule {
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
                     }
                 }
-
-                girCallback._tsDoc = this.getTsDoc(girCallback)
-                if (girCallback._tsData)
-                    girCallback._tsDoc.tags.push(
-                        ...this.getTsDocGirElementTags(girCallback._tsData.tsTypeName, girCallback._tsData.girTypeName),
-                    )
             }
 
         if (this.ns.interface)
             for (const girIface of this.ns.interface) {
                 girIface._tsData = this.setClassTsData(girIface, 'interface')
-                girIface._tsDoc = this.getTsDoc(girIface)
-                if (girIface._tsData)
-                    girIface._tsDoc.tags.push(
-                        ...this.getTsDocGirElementTags(girIface._tsData.tsTypeName, girIface._tsData.girTypeName),
-                    )
             }
 
         if (this.ns.class)
             for (const girClass of this.ns.class) {
                 girClass._tsData = this.setClassTsData(girClass, 'class')
                 if (!girClass._tsData) continue
-                girClass._tsDoc = this.getTsDoc(girClass)
-                girClass._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girClass._tsData.tsTypeName, girClass._tsData.girTypeName),
-                )
             }
 
         if (this.ns.record)
             for (const girRecord of this.ns.record) {
                 girRecord._tsData = this.setClassTsData(girRecord, 'record')
                 if (!girRecord._tsData) continue
-                girRecord._tsDoc = this.getTsDoc(girRecord)
-                girRecord._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girRecord._tsData.tsTypeName, girRecord._tsData.girTypeName),
-                )
             }
 
         if (this.ns.union)
             for (const girUnion of this.ns.union) {
                 girUnion._tsData = this.setClassTsData(girUnion, 'union')
                 if (!girUnion._tsData) continue
-                girUnion._tsDoc = this.getTsDoc(girUnion)
-                girUnion._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girUnion._tsData.tsTypeName, girUnion._tsData.girTypeName),
-                )
             }
 
         if (this.ns.alias) {
@@ -3220,10 +3143,6 @@ export class GirModule {
                 if (this.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
                     girAlias._tsData = this.getAliasTsData(girAlias)
                 if (!girAlias._tsData) continue
-                girAlias._tsDoc = this.getTsDoc(girAlias)
-                girAlias._tsDoc.tags.push(
-                    ...this.getTsDocGirElementTags(girAlias._tsData.tsTypeName, girAlias._tsData.girTypeName),
-                )
             }
         }
     }

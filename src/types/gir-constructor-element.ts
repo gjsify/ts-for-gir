@@ -5,7 +5,6 @@ import {
     GirCallableReturn,
     PartOfClass,
     TsFunction,
-    TsDoc,
 } from './index.js'
 
 export interface GirConstructorElement extends PartOfClass {
@@ -16,6 +15,4 @@ export interface GirConstructorElement extends PartOfClass {
     'return-value'?: GirCallableReturn[]
 
     _tsData?: TsFunction
-    /**Typescript data to generate documentations in TSDoc style */
-    _tsDoc?: TsDoc
 }

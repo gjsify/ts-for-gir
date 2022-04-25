@@ -13,6 +13,7 @@ import {
     GirRecordElement,
     TsGenericParameter,
     TsMethod,
+    TsDoc,
     ClassParent,
     TypeClass,
 } from './index.js'
@@ -116,4 +117,7 @@ export interface TsClass {
     girTypeName: TypeClass
     /** Will be exported in Typescript as a `class` */
     tsTypeName: 'class'
+
+    /** Typescript data to generate documentations in TSDoc style */
+    doc: TsDoc
 }

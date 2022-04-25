@@ -7,11 +7,7 @@ import type {
     GirCallbackElement,
     GirConstructorElement,
     GirSignalElement,
-    GirPropertyElement,
-    GirFieldElement,
-    GirConstantElement,
     GirEnumElement,
-    GirMemberElement,
     GirAliasElement,
     GirInterfaceElement,
     GirUnionElement,
@@ -27,7 +23,9 @@ import type {
     TsFunction,
     TsCallback,
     TsSignal,
-    TsTypeName,
+    TsMember,
+    TsVar,
+    TsProperty,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -39,7 +37,6 @@ import {
     splitModuleName,
     removeNamespace,
     girElementIsIntrospectable,
-    inspect,
 } from './utils.js'
 import {
     NO_TSDATA,
@@ -86,48 +83,42 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${exp}${type} ${name}${definition}`
     }
 
-    private generateProperty(
-        girProp: GirPropertyElement | GirFieldElement,
-        onlyStatic: boolean,
-        namespace: string,
-        indentCount = 0,
-    ) {
-        if (!girProp._tsData) {
-            this.log.error('girProp', inspect(girProp))
+    private generateProperty(tsProp: TsProperty, onlyStatic: boolean, namespace: string, indentCount = 0) {
+        if (!tsProp) {
             throw new Error('[generateProperty] Not all required properties set!')
         }
 
         const desc: string[] = []
-        const isStatic = (girProp as GirPropertyElement)._tsData?.isStatic
+        const isStatic = tsProp.isStatic
 
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
             return desc
         }
 
-        desc.push(...this.addGirDocComment(girProp._tsDoc, indentCount))
+        desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
 
         const indent = generateIndent(indentCount)
-        const varDesc = this.generateVariable(girProp, namespace, 0)
+        const varDesc = this.generateVariable(tsProp, namespace, 0)
         const staticStr = isStatic ? 'static ' : ''
-        const readonly = (girProp as GirPropertyElement)._tsData?.readonly ? 'readonly ' : ''
+        const readonly = tsProp.readonly ? 'readonly ' : ''
 
         // temporary solution, will be solved differently later
-        const commentOut = girProp._tsData.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsProp.hasConflict ? '// TODO fix conflict: ' : ''
 
         desc.push(`${indent}${commentOut}${readonly}${staticStr}${varDesc}`)
         return desc
     }
 
     private generateProperties(
-        girProps: Array<GirPropertyElement | GirFieldElement>,
+        tsProps: TsProperty[],
         onlyStatic: boolean,
         namespace: string,
         comment: string,
         indentCount = 0,
     ) {
         const def: string[] = []
-        for (const girProp of girProps) {
-            def.push(...this.generateProperty(girProp, onlyStatic, namespace, indentCount))
+        for (const tsProp of tsProps) {
+            def.push(...this.generateProperty(tsProp, onlyStatic, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -170,29 +161,20 @@ export default class TypeDefinitionGenerator implements Generator {
         return typeStr
     }
 
-    private generateVariable(
-        girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
-        namespace: string,
-        indentCount = 0,
-    ) {
-        if (!girVar._tsData) {
-            this.log.error('girVar', inspect(girVar))
-            throw new Error(NO_TSDATA('generateVariable'))
-        }
-
+    private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0) {
         const indent = generateIndent(indentCount)
-        const name = girVar._tsData.name
-        const { optional } = girVar._tsData.type
+        const name = tsVar.name
+        const { optional } = tsVar.type
 
         if (!name) {
             throw new Error('[generateVariable] "name" not set!')
         }
 
         const affix = optional ? '?' : ''
-        const typeStr = this.generateReturnType(girVar._tsData.type, namespace)
+        const typeStr = this.generateReturnType(tsVar.type, namespace)
 
         // temporary solution, will be solved differently later
-        const commentOut = girVar._tsData.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsVar.hasConflict ? '// TODO fix conflict: ' : ''
 
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
@@ -238,16 +220,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (girClass._tsData?.isDerivedFromGObject) {
             for (const tsSignalMethod of girClass._tsData.propertySignalMethods) {
-                def.push(
-                    ...this.generateFunctionByTsData(
-                        tsSignalMethod,
-                        undefined,
-                        undefined,
-                        false,
-                        namespace,
-                        indentCount,
-                    ),
-                )
+                def.push(...this.generateFunctionByTsData(tsSignalMethod, false, namespace, indentCount))
             }
         }
         return def
@@ -292,16 +265,7 @@ export default class TypeDefinitionGenerator implements Generator {
         for (const girSignal of girSignals) {
             if (girSignal._tsData?.tsMethods?.length) {
                 for (const tsSignalMethod of girSignal._tsData?.tsMethods) {
-                    def.push(
-                        ...this.generateFunctionByTsData(
-                            tsSignalMethod,
-                            girSignal._tsData.tsTypeName,
-                            girSignal._tsDoc,
-                            false,
-                            namespace,
-                            indentCount,
-                        ),
-                    )
+                    def.push(...this.generateFunctionByTsData(tsSignalMethod, false, namespace, indentCount))
                 }
             }
         }
@@ -410,16 +374,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const girElement of girElements) {
             if (!girElement._tsData) continue
-            def.push(
-                ...this.generateFunctionByTsData(
-                    girElement._tsData,
-                    girElement._tsData.tsTypeName,
-                    girElement._tsDoc,
-                    false,
-                    namespace,
-                    indentCount,
-                ),
-            )
+            def.push(...this.generateFunctionByTsData(girElement._tsData, false, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -439,16 +394,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const girElement of girElements) {
             if (!girElement._tsData) continue
-            def.push(
-                ...this.generateFunctionByTsData(
-                    girElement._tsData,
-                    girElement._tsData.tsTypeName,
-                    girElement._tsDoc,
-                    true,
-                    namespace,
-                    indentCount,
-                ),
-            )
+            def.push(...this.generateFunctionByTsData(girElement._tsData, true, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -570,8 +516,6 @@ export default class TypeDefinitionGenerator implements Generator {
 
     private generateFunctionByTsData(
         tsFunction: TsFunction | TsCallback | TsSignal | undefined,
-        tsType: TsTypeName | undefined,
-        tsDoc: TsDoc | undefined,
         /** If true only generate static functions otherwise generate only non static functions */
         onlyStatic: boolean,
         namespace: string,
@@ -595,10 +539,12 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        if (tsDoc) def.push(...this.addGirDocComment(tsDoc, indentCount))
+        if (tsFunction.doc) def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
 
         const staticStr =
-            (isStatic || tsType === 'static-function') && tsFunction.name !== 'constructor' ? 'static ' : ''
+            (isStatic || tsFunction.tsTypeName === 'static-function') && tsFunction.name !== 'constructor'
+                ? 'static '
+                : ''
         const globalStr = isGlobal ? 'function ' : ''
         const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(tsFunction.generics)
@@ -636,16 +582,7 @@ export default class TypeDefinitionGenerator implements Generator {
             def.push(`${indent}/* Function overloads */`)
             for (const overload of tsFunction.overloads) {
                 if (!overload._tsData) continue
-                def.push(
-                    ...this.generateFunctionByTsData(
-                        overload._tsData,
-                        overload._tsData.tsTypeName,
-                        overload._tsDoc,
-                        onlyStatic,
-                        namespace,
-                        indentCount,
-                    ),
-                )
+                def.push(...this.generateFunctionByTsData(overload._tsData, onlyStatic, namespace, indentCount))
             }
         }
 
@@ -663,66 +600,29 @@ export default class TypeDefinitionGenerator implements Generator {
         namespace: string,
         indentCount = 1,
     ) {
-        return this.generateFunctionByTsData(
-            girFunc._tsData,
-            girFunc._tsData?.tsTypeName,
-            girFunc._tsDoc,
-            false,
-            namespace,
-            indentCount,
-        )
+        return this.generateFunctionByTsData(girFunc._tsData, false, namespace, indentCount)
     }
 
-    private generateStaticFunction(
-        girFunc:
-            | GirMethodElement
-            | GirFunctionElement
-            | GirConstructorElement
-            | GirCallbackElement
-            | GirVirtualMethodElement,
-        namespace: string,
-        indentCount = 1,
-    ) {
-        return this.generateFunctionByTsData(
-            girFunc._tsData,
-            girFunc._tsData?.tsTypeName,
-            girFunc._tsDoc,
-            true,
-            namespace,
-            indentCount,
-        )
+    private generateStaticFunction(tsFunc: TsFunction | TsCallback, namespace: string, indentCount = 1) {
+        return this.generateFunctionByTsData(tsFunc, true, namespace, indentCount)
     }
 
-    private generateCallbackInterface(
-        girCallback: GirCallbackElement | GirSignalElement,
-        namespace: string,
-        indentCount = 0,
-    ) {
+    private generateCallbackInterface(tsCallback: TsCallback | TsSignal, namespace: string, indentCount = 0) {
         const def: string[] = []
 
-        if (!girElementIsIntrospectable(girCallback)) {
-            return def
-        }
-
-        if (!girCallback._tsData?.tsCallbackInterface) {
+        if (!tsCallback?.tsCallbackInterface) {
             this.log.warn(NO_TSDATA('generateCallbackInterface'))
             return def
         }
 
-        def.push(
-            ...this.addGirDocComment(
-                girCallback._tsDoc,
-                indentCount,
-                girCallback._tsData.tsCallbackInterface.overwriteDoc,
-            ),
-        )
+        def.push(...this.addGirDocComment(tsCallback.doc, indentCount, tsCallback.tsCallbackInterface.overwriteDoc))
 
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
-        const { inParams, instanceParameters } = girCallback._tsData
-        const returnTypeStr = this.generateReturnTypes(girCallback._tsData.returnTypes, namespace)
+        const { inParams, instanceParameters } = tsCallback
+        const returnTypeStr = this.generateReturnTypes(tsCallback.returnTypes, namespace)
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const { name } = girCallback._tsData.tsCallbackInterface
+        const { name } = tsCallback.tsCallbackInterface
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(indent + this.generateExport('interface', name, '{', indentCount))
@@ -744,54 +644,43 @@ export default class TypeDefinitionGenerator implements Generator {
             return desc
         }
 
-        desc.push(...this.addGirDocComment(girEnum._tsDoc, indentCount))
+        desc.push(...this.addGirDocComment(girEnum._tsData.doc, indentCount))
 
         const { name } = girEnum._tsData
         desc.push(this.generateExport('enum', name, '{', indentCount))
         if (girEnum.member) {
             for (const girEnumMember of girEnum.member) {
-                desc.push(...this.generateEnumerationMember(girEnumMember, indentCount + 1))
+                if (!girEnumMember._tsData) continue
+                desc.push(...this.generateEnumerationMember(girEnumMember._tsData, indentCount + 1))
             }
         }
         desc.push('}')
         return desc
     }
 
-    private generateEnumerationMember(girEnumMember: GirMemberElement, indentCount = 1) {
+    private generateEnumerationMember(tsMember: TsMember, indentCount = 1) {
         const desc: string[] = []
 
-        if (!girElementIsIntrospectable(girEnumMember)) {
-            return desc
-        }
-
-        if (!girEnumMember._tsData) {
+        if (!tsMember) {
             this.log.warn(NO_TSDATA('generateEnumerationMember'))
             return desc
         }
 
-        desc.push(...this.addGirDocComment(girEnumMember._tsDoc, indentCount))
+        desc.push(...this.addGirDocComment(tsMember.doc, indentCount))
 
         const indent = generateIndent(indentCount)
-        desc.push(`${indent}${girEnumMember._tsData.name},`)
+        desc.push(`${indent}${tsMember.name},`)
         return desc
     }
 
-    private generateConstant(girConst: GirConstantElement, namespace: string, indentCount = 0) {
+    private generateConstant(tsConst: TsVar, namespace: string, indentCount = 0) {
         const desc: string[] = []
-        if (!girElementIsIntrospectable(girConst)) {
-            return desc
-        }
 
-        if (!girConst._tsData) {
-            this.log.warn(NO_TSDATA('generateConstant'))
-            return desc
-        }
-
-        desc.push(...this.addGirDocComment(girConst._tsDoc, indentCount))
+        desc.push(...this.addGirDocComment(tsConst.doc, indentCount))
 
         const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
-        const varDesc = this.generateVariable(girConst, namespace, 0)
+        const varDesc = this.generateVariable(tsConst, namespace, 0)
         desc.push(`${indent}${exp}const ${varDesc}`)
         return desc
     }
@@ -845,7 +734,7 @@ export default class TypeDefinitionGenerator implements Generator {
         {
             def.push(
                 ...this.generateProperties(
-                    girClass._tsData.constructProps,
+                    girClass._tsData.constructProps.map((cp) => cp._tsData).filter((cp) => !!cp) as TsProperty[],
                     false,
                     namespace,
                     `Own constructor properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
@@ -887,7 +776,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(
             ...this.generateProperties(
-                girClass._tsData.fields,
+                girClass._tsData.fields.map((f) => f._tsData).filter((f) => !!f) as TsProperty[],
                 onlyStatic,
                 namespace,
                 `Own fields of ${girClass._module.packageName}.${girClass._fullSymName}`,
@@ -925,7 +814,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(
             ...this.generateProperties(
-                girClass._tsData.properties,
+                girClass._tsData.properties.map((p) => p._tsData).filter((p) => !!p) as TsProperty[],
                 onlyStatic,
                 namespace,
                 `Own properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
@@ -1085,7 +974,8 @@ export default class TypeDefinitionGenerator implements Generator {
         const girConstructors = girClass._tsData.constructors
 
         for (const girConstructor of girConstructors) {
-            def.push(...this.generateStaticFunction(girConstructor, namespace, indentCount))
+            if (!girConstructor._tsData) continue
+            def.push(...this.generateStaticFunction(girConstructor._tsData, namespace, indentCount))
             // for the _init method
             def.push(...this.generateFunction(girConstructor, namespace, indentCount))
         }
@@ -1111,7 +1001,8 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         for (const signal of girClass._tsData.signals) {
-            def.push(...this.generateCallbackInterface(signal, namespace))
+            if (!signal._tsData) continue
+            def.push(...this.generateCallbackInterface(signal._tsData, namespace))
             def.push('')
         }
 
@@ -1237,7 +1128,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(...this.generateImplementationInterface(girClass, namespace))
 
-        def.push(...this.addGirDocComment(girClass._tsDoc, 0))
+        def.push(...this.addGirDocComment(girClass._tsData.doc, 0))
 
         const genericParameters = this.generateGenericParameters(girClass._tsData.generics)
         const parentName = girClass._tsData.parents.find((parent) => parent.type === 'parent')?.localParentName
@@ -1350,16 +1241,20 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const girBitfield of girModule.ns.bitfield) out.push(...this.generateEnumeration(girBitfield))
 
             if (girModule.ns.constant)
-                for (const girConst of girModule.ns.constant)
-                    out.push(...this.generateConstant(girConst, girModule.namespace, 0))
+                for (const girConst of girModule.ns.constant) {
+                    if (!girConst._tsData) continue
+                    out.push(...this.generateConstant(girConst._tsData, girModule.namespace, 0))
+                }
 
             if (girModule.ns.function)
                 for (const girFunc of girModule.ns.function)
                     out.push(...this.generateFunction(girFunc, girModule.namespace, 0))
 
             if (girModule.ns.callback)
-                for (const girCallback of girModule.ns.callback)
-                    out.push(...this.generateCallbackInterface(girCallback, girModule.namespace))
+                for (const girCallback of girModule.ns.callback) {
+                    if (!girCallback._tsData) continue
+                    out.push(...this.generateCallbackInterface(girCallback._tsData, girModule.namespace))
+                }
 
             if (girModule.ns.interface)
                 for (const girIface of girModule.ns.interface)

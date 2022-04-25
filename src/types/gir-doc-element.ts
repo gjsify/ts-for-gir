@@ -1,5 +1,3 @@
-import type { TsDoc } from './index.js'
-
 // Documentation of elements
 // See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/parser/src/xml.ts
 export interface GirDocElement {
@@ -72,7 +70,4 @@ export interface GirDocElement {
             column: string[]
         },
     ]
-
-    /**Typescript data to generate documentations in TSDoc style */
-    _tsDoc?: TsDoc
 }

@@ -7,6 +7,7 @@ import {
     GirMethodElement,
     TsGenericParameter,
     TsType,
+    TsDoc,
 } from './index.js'
 
 /**
@@ -47,4 +48,7 @@ export interface TsFunction {
      * - Callbacks are generated as interfaces
      */
     tsTypeName: 'static-function' | 'constructor' | 'function' | 'method' | 'event-methods' | 'interface'
+
+    /** Typescript data to generate documentations in TSDoc style */
+    doc: TsDoc
 }

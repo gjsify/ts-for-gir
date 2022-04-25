@@ -632,15 +632,14 @@ export class GirModule {
                 if (!girElementIsIntrospectable(girCallback)) continue
 
                 if (!girCallback._tsData) {
-                    const tsCallback = this.getFunctionTsData(
-                        girCallback,
-                        'callback',
-                        /* isStatic */ false,
-                        /* isArrowType */ true,
-                        /* isGlobal */ false,
-                        /* isVirtual */ false,
-                        /* overrideReturnType */ null,
-                    )
+                    const tsCallback = this.getFunctionTsData(girCallback, 'callback', {
+                        isStatic: false,
+                        isArrowType: true,
+                        isGlobal: false,
+                        isVirtual: false,
+                        returnType: null,
+                        generics: [],
+                    })
 
                     if (!tsCallback) continue
 
@@ -1186,12 +1185,15 @@ export class GirModule {
             | GirCallbackElement
             | GirVirtualMethodElement,
         girTypeName: 'virtual' | 'method' | 'constructor' | 'function' | 'callback' | 'static-function',
-        isStatic = false,
-        isArrowType = false,
-        isGlobal = false,
-        isVirtual = false,
-        overrideReturnType: string | null = null,
-        generics: TsGenericParameter[] = [],
+
+        overwrite: {
+            isStatic: boolean
+            isArrowType: boolean
+            isGlobal: boolean
+            isVirtual: boolean
+            returnType: string | null
+            generics: TsGenericParameter[]
+        },
     ): TsFunction | undefined {
         if (!girFunc || !girFunc.$ || !girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return undefined
@@ -1218,30 +1220,30 @@ export class GirModule {
         }
 
         // Overwrites
-        isStatic = isStatic || girTypeName === 'static-function'
-        isGlobal = isGlobal || girTypeName === 'function'
-        isVirtual = isVirtual || girTypeName === 'virtual'
+        overwrite.isStatic = overwrite.isStatic || girTypeName === 'static-function'
+        overwrite.isGlobal = overwrite.isGlobal || girTypeName === 'function'
+        overwrite.isVirtual = overwrite.isVirtual || girTypeName === 'virtual'
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
         let tsData: TsFunction = {
-            isArrowType,
-            isStatic,
-            isGlobal,
-            isVirtual,
+            isArrowType: overwrite.isArrowType,
+            isStatic: overwrite.isStatic,
+            isGlobal: overwrite.isGlobal,
+            isVirtual: overwrite.isVirtual,
             returnTypes,
             retTypeIsVoid,
             name,
-            overrideReturnType: overrideReturnType || undefined,
+            overrideReturnType: overwrite.returnType || undefined,
             overloads: [],
             inParams,
             instanceParameters,
             outParams,
-            generics,
+            generics: overwrite.generics,
             hasConflict,
             girTypeName,
-            tsTypeName: this.girTypeNameToTsTypeName(girTypeName, isStatic),
+            tsTypeName: this.girTypeNameToTsTypeName(girTypeName, overwrite.isStatic),
             doc: this.getTsDoc(girFunc as GirDocElement),
         }
 
@@ -1305,16 +1307,14 @@ export class GirModule {
             return girConstructorFunc._tsData
         }
 
-        return this.getFunctionTsData(
-            girConstructorFunc,
-            'constructor',
-            /* isStatic */ true,
-            /* isArrowType */ false,
-            /* isGlobal */ false,
-            /* isVirtual */ false,
-            /* overrideReturnType */ name,
-            /* generics */ [],
-        )
+        return this.getFunctionTsData(girConstructorFunc, 'constructor', {
+            isStatic: true,
+            isArrowType: false,
+            isGlobal: false,
+            isVirtual: false,
+            returnType: name,
+            generics: [],
+        })
     }
 
     private getSignalCallbackTsData(
@@ -1723,15 +1723,14 @@ export class GirModule {
             if (!girElementIsIntrospectable(girMethod)) continue
 
             if (!girMethod._tsData)
-                girMethod._tsData = this.getFunctionTsData(
-                    girMethod,
-                    'static-function',
-                    /* isStatic */ true,
-                    /* isArrowType */ false,
-                    /* isGlobal */ false,
-                    /* isVirtual */ false,
-                    /* overrideReturnType */ null,
-                )
+                girMethod._tsData = this.getFunctionTsData(girMethod, 'static-function', {
+                    isStatic: true,
+                    isArrowType: false,
+                    isGlobal: false,
+                    isVirtual: false,
+                    returnType: null,
+                    generics: [],
+                })
 
             if (!girMethod._tsData) continue
 
@@ -1758,15 +1757,14 @@ export class GirModule {
                 if (!girElementIsIntrospectable(girMethod)) continue
 
                 if (!girMethod._tsData)
-                    girMethod._tsData = this.getFunctionTsData(
-                        girMethod,
-                        'method',
-                        /* isStatic */ false,
-                        /* isArrowType */ false,
-                        /* isGlobal */ false,
-                        /* isVirtual */ false,
-                        /* overrideReturnType */ null,
-                    )
+                    girMethod._tsData = this.getFunctionTsData(girMethod, 'method', {
+                        isStatic: false,
+                        isArrowType: false,
+                        isGlobal: false,
+                        isVirtual: false,
+                        returnType: null,
+                        generics: [],
+                    })
 
                 if (!girMethod._tsData) continue
 
@@ -2004,20 +2002,14 @@ export class GirModule {
             for (const girVMethod of methods) {
                 if (!girElementIsIntrospectable(girVMethod)) continue
 
-                girVMethod._tsData = this.getFunctionTsData(
-                    girVMethod,
-                    'virtual',
-                    /* isStatic */
-                    false,
-                    /* isArrowType */
-                    false,
-                    /* isGLobal */
-                    false,
-                    /* isVirtual */
-                    true,
-                    /* overrideReturnType */
-                    null,
-                )
+                girVMethod._tsData = this.getFunctionTsData(girVMethod, 'virtual', {
+                    isStatic: false,
+                    isArrowType: false,
+                    isGlobal: false,
+                    isVirtual: true,
+                    returnType: null,
+                    generics: [],
+                })
                 if (!girVMethod._tsData) continue
 
                 if (girVMethod?._tsData?.name) {
@@ -2759,20 +2751,14 @@ export class GirModule {
         const girFunctions: GirFunctionElement[] = []
         if (girClass.function) {
             for (const girFunction of girClass.function) {
-                girFunction._tsData = this.getFunctionTsData(
-                    girFunction,
-                    'static-function',
-                    /* isStatic */
-                    true,
-                    /* isArrowType */
-                    false,
-                    /* isGlobal */
-                    false,
-                    /* isVirtual */
-                    false,
-                    /* overrideReturnType */
-                    null,
-                )
+                girFunction._tsData = this.getFunctionTsData(girFunction, 'static-function', {
+                    isStatic: true,
+                    isArrowType: false,
+                    isGlobal: false,
+                    isVirtual: false,
+                    returnType: null,
+                    generics: [],
+                })
                 if (!girFunction._tsData) continue
 
                 if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
@@ -2848,27 +2834,28 @@ export class GirModule {
 
         if (this.ns.function) {
             for (const girFunc of this.ns.function) {
-                girFunc._tsData = this.getFunctionTsData(
-                    girFunc,
-                    'function',
-                    /* isStatic */
-                    false,
-                    /* isArrowType */
-                    false,
-                    /* isGlobal */
-                    true,
-                    /* isVirtual */
-                    false,
-                    /* overrideReturnType */
-                    null,
-                )
+                girFunc._tsData = this.getFunctionTsData(girFunc, 'function', {
+                    isStatic: false,
+                    isArrowType: false,
+                    isGlobal: true,
+                    isVirtual: false,
+                    returnType: null,
+                    generics: [],
+                })
                 if (!girFunc._tsData) continue
             }
         }
 
         if (this.ns.callback)
             for (const girCallback of this.ns.callback) {
-                const tsCallback = this.getFunctionTsData(girCallback, 'callback', false, true, false, false, null)
+                const tsCallback = this.getFunctionTsData(girCallback, 'callback', {
+                    isStatic: false,
+                    isArrowType: true,
+                    isGlobal: false,
+                    isVirtual: false,
+                    returnType: null,
+                    generics: [],
+                })
                 if (tsCallback) {
                     girCallback._tsData = {
                         ...tsCallback,

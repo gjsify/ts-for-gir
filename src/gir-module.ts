@@ -2061,6 +2061,18 @@ export class GirModule {
         let qualifiedParentName: string
         let parentModName: string
 
+        // Workaround: Fix wrong parent names
+        if (
+            (this.packageName === 'GstAudio-0.10' || this.packageName === 'ClutterGst-1.0') &&
+            (parentName === 'GstBase.BaseTransform' ||
+                parentName === 'GstBase.BaseSink' ||
+                parentName === 'GstBase.PushSrc')
+        ) {
+            const rename = parentName.replace('GstBase.', 'Gst.')
+            this.log.warn(`[getClassParentObject] Rename parent class ${parentName} -> ${rename}`)
+            parentName = rename
+        }
+
         if (parentName.indexOf('.') < 0) {
             qualifiedParentName = namespace + '.' + parentName
             parentModName = namespace
@@ -2761,7 +2773,6 @@ export class GirModule {
                     returnType: null,
                     generics: [],
                 })
-                if (!girFunction._tsData) continue
 
                 if (!girFunction._tsData?.name || girFunction._tsData?.name === 'new') continue
 

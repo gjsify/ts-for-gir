@@ -533,7 +533,7 @@ export default class TypeDefinitionGenerator implements Generator {
         let { isStatic } = tsFunction
         // Handle a constructor as a static method even if it has no static keyword
         isStatic ||= tsFunction.name === 'constructor'
-        const { isArrowType, isGlobal, isVirtual, inParams, instanceParameters } = tsFunction
+        const { isArrowType, isGlobal, inParams, instanceParameters } = tsFunction
 
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
             return def

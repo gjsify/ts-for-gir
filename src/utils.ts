@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs, GirCallableParamElement, TsFunction, TsVar } from './types/index.js'
+import { Environment, GirInfoAttrs } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 

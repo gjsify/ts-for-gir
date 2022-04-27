@@ -1,4 +1,4 @@
-import { TypeClass, TypeMethod, TypeVariable, TypeAlias, TypeEnumeration, TypeInterface } from './index.js'
+import { TypeClass, TypeMethod, TypeVariable, TypeAlias, TypeEnumeration, TypeInterface, TypeField } from './index.js'
 
 /** Any gir element type */
 export type TypeGirElement =
@@ -12,3 +12,4 @@ export type TypeGirElement =
     | 'enum-member'
     | 'bitfield-member'
     | TypeInterface
+    | TypeField

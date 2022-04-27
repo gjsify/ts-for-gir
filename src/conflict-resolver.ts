@@ -1,5 +1,5 @@
 import { NO_TSDATA } from './messages.js'
-import { isEqual, functionMatch } from './utils.js'
+import { isEqual } from './utils.js'
 import type {
     GirFunctionElement,
     GirClassElement,
@@ -11,7 +11,10 @@ import type {
     GirUnionElement,
     GirInterfaceElement,
     GirConstructorElement,
+    GirCallableParamElement,
     TsSignal,
+    TsFunction,
+    TsVar,
 } from './types/index.js'
 
 /**
@@ -19,7 +22,140 @@ import type {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
-    private getImplementedInterfaceProperties(
+    /**
+     * Returns true if `p1s` and `p2s` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param p1s
+     * @param p2s
+     * @returns
+     */
+    static paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
+        if (p1s.length !== p2s.length) {
+            return false
+        }
+
+        for (const [i, p1] of p1s.entries()) {
+            // Ignore parameter name, just check the types
+            if (p2s[i]?._tsData?.type !== p1._tsData?.type) {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    /**
+     * Returns `true` if the function / method types of `a` and `b` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param a
+     * @param b
+     * @returns
+     */
+    static functionMatch(a: TsFunction, b: TsFunction) {
+        if (!isEqual(a.returnTypes, b.returnTypes)) {
+            return false
+        }
+
+        if (!this.paramsMatch(a.inParams, b.inParams)) {
+            return false
+        }
+
+        if (!this.paramsMatch(a.outParams, b.outParams)) {
+            return false
+        }
+
+        return true
+    }
+
+    /**
+     * Returns `true` if the property types of `a` and `b` are compatible with each other.
+     * @param a
+     * @param b
+     * @returns
+     */
+    static propertyMatch(a: TsVar, b: TsVar) {
+        if (!isEqual(a.type, b.type)) {
+            return false
+        }
+
+        return true
+    }
+
+    /**
+     * Returns true if the elements (properties or methods) of `a` and `b` are compatible with each other.
+     * @param a
+     * @param b
+     * @returns
+     */
+    static elementMatch(a: TsFunction | TsVar, b: TsFunction | TsVar) {
+        if (this.tsElementIsMethod(a) && this.tsElementIsMethod(b)) {
+            return this.functionMatch(a as TsFunction, b as TsFunction)
+        }
+
+        if (this.tsElementIsProperty(a) && this.tsElementIsProperty(b)) {
+            return this.propertyMatch(a as TsVar, b as TsVar)
+        }
+
+        if (this.tsElementIsStaticFunction(a) && this.tsElementIsStaticFunction(b)) {
+            return this.functionMatch(a as TsFunction, b as TsFunction)
+        }
+
+        if (this.tsElementIsStaticProperty(a) && this.tsElementIsStaticProperty(b)) {
+            return this.propertyMatch(a as TsVar, b as TsVar)
+        }
+
+        if (!isEqual(a, b)) {
+            // TODO:
+            return false
+        }
+
+        return true
+    }
+
+    static tsElementIsMethod(el: TsFunction | TsVar) {
+        return !this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
+    }
+
+    static tsElementIsStaticFunction(el: TsFunction | TsVar) {
+        return this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
+    }
+
+    static tsElementIsProperty(el: TsFunction | TsVar) {
+        return !this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
+    }
+
+    static tsElementIsStaticProperty(el: TsFunction | TsVar) {
+        return this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
+    }
+
+    static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
+        return (
+            el.tsTypeName === 'constructor' ||
+            el.tsTypeName === 'function' ||
+            el.tsTypeName === 'method' ||
+            el.tsTypeName === 'static-function' ||
+            el.tsTypeName === 'event-methods'
+        )
+    }
+
+    static tsElementIsPropertyOrVariable(el: TsFunction | TsVar) {
+        return (
+            el.tsTypeName === 'constant' ||
+            el.tsTypeName === 'constructor-property' ||
+            el.tsTypeName === 'property' ||
+            el.tsTypeName === 'static-property'
+        )
+    }
+
+    static tsElementIsStatic(el: TsFunction | TsVar) {
+        return (
+            el.tsTypeName === 'constructor' ||
+            el.tsTypeName === 'static-property' ||
+            el.tsTypeName === 'static-function'
+        )
+    }
+
+    static getImplementedInterfaceProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceProperties'))
@@ -39,7 +175,7 @@ export class ConflictResolver {
         }
     }
 
-    private getImplementedInterfaceMethods(
+    static getImplementedInterfaceMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceMethods'))
@@ -64,7 +200,7 @@ export class ConflictResolver {
         }
     }
 
-    private getInheritedClassProperties(
+    static getInheritedClassProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassProperties'))
@@ -84,7 +220,7 @@ export class ConflictResolver {
         }
     }
 
-    private getInheritedClassMethods(
+    static getInheritedClassMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassMethods'))
@@ -108,11 +244,34 @@ export class ConflictResolver {
     }
 
     /**
+     * Check if there is a type conflict between the ts elements a and b
+     * @param a
+     * @param b
+     * @returns
+     */
+    static hasConflict(a: TsFunction | TsVar, b: TsFunction | TsVar) {
+        if (a.name === b.name) {
+            if (this.tsElementIsStatic(a) && this.tsElementIsStatic(b)) {
+                if (!this.elementMatch(a, b)) {
+                    return true
+                }
+            }
+            if (!this.tsElementIsStatic(a) && !this.tsElementIsStatic(b)) {
+                if (!this.elementMatch(a, b)) {
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
+
+    /**
      * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
      * We merge these types here to solve this problem.
      * @param girClass
      */
-    public repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+    static repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('fixMethodConflicts'))
 
         const implementations = this.getImplementedInterfaceMethods(girClass)
@@ -146,25 +305,24 @@ export class ConflictResolver {
             ...implementations.methods.map((m) => m._tsData),
             ...inheritance.methods.map((m) => m._tsData),
             ...signalMethods,
-            // TODO: ...propsAndFields,
+            ...propsAndFields,
         ]
 
         // virtual methods can be handled separately as they do not overlap with other methods / properties due to their prefixes
         const virtualMethods = [
-            ...girClass._tsData.methods.map((m) => m._tsData),
             ...implementations.virtualMethods.map((m) => m._tsData),
             ...inheritance.virtualMethods.map((m) => m._tsData),
         ]
 
         const staticFunctions = [
-            ...girClass._tsData.methods.map((m) => m._tsData),
+            ...girClass._tsData.constructors.map((m) => m._tsData),
             ...implementations.staticFunctions.map((m) => m._tsData),
             ...inheritance.staticFunctions.map((m) => m._tsData),
         ]
 
         for (const a of methods) {
             for (const b of methods) {
-                if (a && b && a.name === b.name && !functionMatch(a, b)) {
+                if (a && b && this.hasConflict(a, b)) {
                     // temporary solution, will be solved differently later
                     a.hasConflict = true
                     b.hasConflict = true
@@ -174,7 +332,7 @@ export class ConflictResolver {
 
         for (const method1 of virtualMethods) {
             for (const method2 of virtualMethods) {
-                if (method1 && method2 && method1.name === method2.name && !functionMatch(method1, method2)) {
+                if (method1 && method2 && this.hasConflict(method1, method2)) {
                     // temporary solution, will be solved differently later
                     method1.hasConflict = true
                     method2.hasConflict = true
@@ -184,20 +342,10 @@ export class ConflictResolver {
 
         for (const method1 of staticFunctions) {
             for (const method2 of staticFunctions) {
-                if (method1 && method2 && method1.name === method2.name && !functionMatch(method1, method2)) {
+                if (method1 && method2 && method1.name === method2.name && this.hasConflict(method1, method2)) {
                     // temporary solution, will be solved differently later
                     method1.hasConflict = true
                     method2.hasConflict = true
-                }
-            }
-        }
-
-        for (const prop1 of propsAndFields) {
-            for (const prop2 of propsAndFields) {
-                if (prop1 && prop2 && prop1.name === prop2.name && !isEqual(prop1, prop2)) {
-                    // temporary solution, will be solved differently later
-                    prop1.hasConflict = true
-                    prop2.hasConflict = true
                 }
             }
         }

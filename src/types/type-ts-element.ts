@@ -10,3 +10,5 @@ export type TypeTsElement =
     | 'constant'
     | 'event-methods'
     | 'type'
+    | 'property'
+    | 'static-property'

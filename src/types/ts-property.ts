@@ -12,7 +12,7 @@ export interface TsProperty extends TsVar {
     // CUSTOM
     girTypeName: 'property'
     /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
-    tsTypeName: 'field' | 'constructor-property'
+    tsTypeName: 'static-property' | 'property' | 'constructor-property'
 
     /** Typescript data to generate documentations in TSDoc style */
     doc: TsDoc

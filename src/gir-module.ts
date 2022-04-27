@@ -32,7 +32,6 @@ import {
     addNamespace,
     merge,
     girElementIsIntrospectable,
-    functionMatch,
 } from './utils.js'
 import { SymTable } from './symtable.js'
 import { typePatches } from './type-patches.js'
@@ -69,6 +68,7 @@ import type {
     TypeClass,
     TypeGirElement,
     TypeTsElement,
+    TypeField,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -145,8 +145,6 @@ export class GirModule {
     transformation: Transformation
 
     girFactory = new GirFactory()
-
-    conflictResolver = new ConflictResolver()
 
     inject = new Injector()
     extends?: string
@@ -399,9 +397,9 @@ export class GirModule {
         }
     }
 
-    private annotateClass(girClass: GirClassElement, girTypeName: 'class', tsTypeName?: 'class'): void
-    private annotateClass(girClass: GirRecordElement, girTypeName: 'record', tsTypeName?: 'class'): void
-    private annotateClass(girClass: GirInterfaceElement, girTypeName: 'interface', tsTypeName?: 'class'): void
+    private annotateClass(girClass: GirClassElement, girTypeName: 'class'): void
+    private annotateClass(girClass: GirRecordElement, girTypeName: 'record'): void
+    private annotateClass(girClass: GirInterfaceElement, girTypeName: 'interface'): void
 
     private annotateClass(girClass: GirClassElement | GirRecordElement | GirInterfaceElement) {
         girClass._module = this
@@ -990,7 +988,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirPropertyElement,
         girTypeName: 'property',
-        tsTypeName: 'field' | 'constructor-property',
+        tsTypeName: 'property' | 'constructor-property' | 'static-property',
         optional: boolean,
         nullable: boolean,
         allowQuotes: boolean,
@@ -1008,7 +1006,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirFieldElement,
         girTypeName: 'field',
-        tsTypeName: 'field',
+        tsTypeName: 'property' | 'static-property',
         optional: boolean,
         nullable: boolean,
         allowQuotes: boolean,
@@ -1017,7 +1015,7 @@ export class GirModule {
     private getVariableTsData(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
         girTypeName: 'property' | TypeVariable | 'field',
-        tsTypeName: 'constant' | 'field' | 'constructor-property',
+        tsTypeName: 'constant' | 'property' | 'constructor-property' | 'static-property',
         optional = false,
         nullable = false,
         allowQuotes = false,
@@ -1079,7 +1077,7 @@ export class GirModule {
     private getPropertyTsData(
         girProp: GirPropertyElement,
         girTypeName: 'property',
-        tsTypeName: 'field' | 'constructor-property',
+        tsTypeName: 'property' | 'constructor-property' | 'static-property',
         construct?: boolean,
         optional?: boolean,
         nullable?: boolean,
@@ -1089,7 +1087,7 @@ export class GirModule {
     private getPropertyTsData(
         girProp: GirFieldElement,
         girTypeName: 'field',
-        tsTypeName: 'field',
+        tsTypeName: 'property' | 'static-property',
         construct?: boolean,
         optional?: boolean,
         nullable?: boolean,
@@ -1109,7 +1107,7 @@ export class GirModule {
     private getPropertyTsData(
         girProp: GirPropertyElement | GirFieldElement,
         girTypeName: 'property' | 'field',
-        tsTypeName: 'constructor-property' | 'field',
+        tsTypeName: 'constructor-property' | 'property' | 'static-property',
         construct = false,
         optional?: boolean,
         nullable?: boolean,
@@ -1142,7 +1140,7 @@ export class GirModule {
                 ) as TsProperty
                 break
             case 'field':
-                if (tsTypeName !== 'field') {
+                if (tsTypeName !== 'property') {
                     throw new Error(`Wrong tsType: "${tsTypeName}" for girType: "${girTypeName}`)
                 }
                 tsData = this.getVariableTsData(
@@ -1223,6 +1221,10 @@ export class GirModule {
         overwrite.isStatic = overwrite.isStatic || girTypeName === 'static-function'
         overwrite.isGlobal = overwrite.isGlobal || girTypeName === 'function'
         overwrite.isVirtual = overwrite.isVirtual || girTypeName === 'virtual'
+
+        if (overwrite.isVirtual) {
+            name = 'vfunc_' + name
+        }
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
@@ -1793,7 +1795,7 @@ export class GirModule {
             for (const girField of girClass.field) {
                 if (!girElementIsIntrospectable(girField)) continue
                 if (!girField._tsData)
-                    girField._tsData = this.getVariableTsData(girField, 'field', 'field', false, false, false)
+                    girField._tsData = this.getVariableTsData(girField, 'field', 'property', false, false, false)
 
                 if (!girField._tsData) {
                     continue
@@ -1852,7 +1854,7 @@ export class GirModule {
             for (const girProperty of properties) {
                 if (!girElementIsIntrospectable(girProperty)) continue
 
-                girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'field')
+                girProperty._tsData = this.getPropertyTsData(girProperty, 'property', 'property')
                 if (!girProperty._tsData) continue
 
                 const localName = this.checkOrSetLocalName(girProperty, localNames, 'property')
@@ -2343,7 +2345,7 @@ export class GirModule {
             ...this.getGeneralSignalsMethods(),
         )
 
-        this.conflictResolver.repairClass(girClass)
+        ConflictResolver.repairClass(girClass)
 
         return girClass._tsData
     }
@@ -2520,7 +2522,7 @@ export class GirModule {
                 if (!tsMethod1 || !tsMethod2) {
                     return null
                 }
-                if (functionMatch(tsMethod1, tsMethod2)) {
+                if (ConflictResolver.functionMatch(tsMethod1, tsMethod2)) {
                     return null
                 }
             } else {
@@ -2627,7 +2629,7 @@ export class GirModule {
             return result
         }
 
-        const isEqual = functionMatch(girFunc._tsData, oldFunc._tsData)
+        const isEqual = ConflictResolver.functionMatch(girFunc._tsData, oldFunc._tsData)
         if (!isEqual) {
             oldFunc._tsData.overloads.push(girFunc)
             result = true
@@ -2912,7 +2914,10 @@ export class GirModule {
     private girTypeNameToTsTypeName(girTypeName: 'method' | 'virtual', isStatic?: boolean): 'method'
     private girTypeNameToTsTypeName(girTypeName: 'signal' | 'method', isStatic?: boolean): 'event-methods'
     private girTypeNameToTsTypeName(girTypeName: 'static-function', isStatic: true): 'static-function'
+    private girTypeNameToTsTypeName(girTypeName: 'function', isStatic: true): 'static-function'
     private girTypeNameToTsTypeName(girTypeName: 'function', isStatic: false): 'function'
+    private girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: false): 'property'
+    private girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: true): 'static-property'
     private girTypeNameToTsTypeName(
         girTypeName: 'function' | 'method' | 'virtual' | 'constructor' | 'callback' | 'static-function',
         isStatic?: boolean,
@@ -2956,6 +2961,17 @@ export class GirModule {
                     return 'static-function'
                 }
                 return 'function'
+            case 'field':
+            case 'property':
+                if (typeof isStatic === 'undefined') {
+                    throw new Error(
+                        'You must specify if the property is static or not if you want to convert the type of a function!',
+                    )
+                }
+                if (isStatic) {
+                    return 'static-property'
+                }
+                return 'property'
         }
         throw new Error(`Unknown gir type: "${String(girTypeName)}"!`)
     }

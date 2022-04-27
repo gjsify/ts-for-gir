@@ -220,7 +220,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (girClass._tsData?.isDerivedFromGObject) {
             for (const tsSignalMethod of girClass._tsData.propertySignalMethods) {
-                def.push(...this.generateFunctionByTsData(tsSignalMethod, false, namespace, indentCount))
+                def.push(...this._generateFunction(tsSignalMethod, false, namespace, indentCount))
             }
         }
         return def
@@ -265,7 +265,7 @@ export default class TypeDefinitionGenerator implements Generator {
         for (const girSignal of girSignals) {
             if (girSignal._tsData?.tsMethods?.length) {
                 for (const tsSignalMethod of girSignal._tsData?.tsMethods) {
-                    def.push(...this.generateFunctionByTsData(tsSignalMethod, false, namespace, indentCount))
+                    def.push(...this._generateFunction(tsSignalMethod, false, namespace, indentCount))
                 }
             }
         }
@@ -374,7 +374,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const girElement of girElements) {
             if (!girElement._tsData) continue
-            def.push(...this.generateFunctionByTsData(girElement._tsData, false, namespace, indentCount))
+            def.push(...this._generateFunction(girElement._tsData, false, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -394,7 +394,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         for (const girElement of girElements) {
             if (!girElement._tsData) continue
-            def.push(...this.generateFunctionByTsData(girElement._tsData, true, namespace, indentCount))
+            def.push(...this._generateFunction(girElement._tsData, true, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -514,7 +514,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateFunctionByTsData(
+    private _generateFunction(
         tsFunction: TsFunction | TsCallback | TsSignal | undefined,
         /** If true only generate static functions otherwise generate only non static functions */
         onlyStatic: boolean,
@@ -546,7 +546,6 @@ export default class TypeDefinitionGenerator implements Generator {
                 ? 'static '
                 : ''
         const globalStr = isGlobal ? 'function ' : ''
-        const virtualStr = isVirtual ? 'vfunc_' : ''
         const genericStr = this.generateGenericParameters(tsFunction.generics)
 
         // temporary solution, will be solved differently later
@@ -573,7 +572,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
         def.push(
-            `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${virtualStr}${name}${genericStr}(${inParamsDef.join(
+            `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
                 ', ',
             )})${retSep} ${returnDesc}`,
         )
@@ -582,7 +581,7 @@ export default class TypeDefinitionGenerator implements Generator {
             def.push(`${indent}/* Function overloads */`)
             for (const overload of tsFunction.overloads) {
                 if (!overload._tsData) continue
-                def.push(...this.generateFunctionByTsData(overload._tsData, onlyStatic, namespace, indentCount))
+                def.push(...this._generateFunction(overload._tsData, onlyStatic, namespace, indentCount))
             }
         }
 
@@ -600,11 +599,11 @@ export default class TypeDefinitionGenerator implements Generator {
         namespace: string,
         indentCount = 1,
     ) {
-        return this.generateFunctionByTsData(girFunc._tsData, false, namespace, indentCount)
+        return this._generateFunction(girFunc._tsData, false, namespace, indentCount)
     }
 
     private generateStaticFunction(tsFunc: TsFunction | TsCallback, namespace: string, indentCount = 1) {
-        return this.generateFunctionByTsData(tsFunc, true, namespace, indentCount)
+        return this._generateFunction(tsFunc, true, namespace, indentCount)
     }
 
     private generateCallbackInterface(tsCallback: TsCallback | TsSignal, namespace: string, indentCount = 0) {

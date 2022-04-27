@@ -1,0 +1,3 @@
+// Workaround
+export interface GraniteServicesSettingsSerializable_ConstructProps extends ServicesSettingsSerializable_ConstructProps {}
+export interface GraniteServicesSettingsSerializable extends ServicesSettingsSerializable {}

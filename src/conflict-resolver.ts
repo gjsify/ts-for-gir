@@ -216,19 +216,15 @@ export class ConflictResolver {
      * @returns
      */
     static elementMatch(a: TsFunction | TsVar, b: TsFunction | TsVar) {
-        if (this.tsElementIsMethod(a) && this.tsElementIsMethod(b)) {
+        if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
+            return true
+        }
+
+        if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
             return this.functionMatch(a as TsFunction, b as TsFunction)
         }
 
-        if (this.tsElementIsProperty(a) && this.tsElementIsProperty(b)) {
-            return this.propertyMatch(a as TsVar, b as TsVar)
-        }
-
-        if (this.tsElementIsStaticFunction(a) && this.tsElementIsStaticFunction(b)) {
-            return this.functionMatch(a as TsFunction, b as TsFunction)
-        }
-
-        if (this.tsElementIsStaticProperty(a) && this.tsElementIsStaticProperty(b)) {
+        if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
             return this.propertyMatch(a as TsVar, b as TsVar)
         }
 
@@ -295,15 +291,8 @@ export class ConflictResolver {
                 return false
             }
 
-            if (this.tsElementIsStatic(a) && this.tsElementIsStatic(b)) {
-                if (!this.elementMatch(a, b)) {
-                    return true
-                }
-            }
-            if (!this.tsElementIsStatic(a) && !this.tsElementIsStatic(b)) {
-                if (!this.elementMatch(a, b)) {
-                    return true
-                }
+            if (!this.elementMatch(a, b)) {
+                return true
             }
         }
 

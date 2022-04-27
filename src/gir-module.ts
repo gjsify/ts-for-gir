@@ -2069,8 +2069,15 @@ export class GirModule {
                 parentName === 'GstBase.PushSrc')
         ) {
             const rename = parentName.replace('GstBase.', 'Gst.')
-            this.log.warn(`[getClassParentObject] Rename parent class ${parentName} -> ${rename}`)
+            this.log.warn(`[getClassParentObject] Rename parent class "${parentName}" -> "${rename}"`)
             parentName = rename
+        }
+
+        if (parentName === 'GraniteServicesSettingsSerializable') {
+            parentName = 'ServicesSettingsSerializable'
+            this.log.warn(
+                `[getClassParentObject] Rename parent class "GraniteServicesSettingsSerializable" -> "ServicesSettingsSerializable"`,
+            )
         }
 
         if (parentName.indexOf('.') < 0) {

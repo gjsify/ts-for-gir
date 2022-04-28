@@ -1,5 +1,5 @@
 import { NO_TSDATA } from './messages.js'
-import { isEqual } from './utils.js'
+import { isEqual, merge, clone } from './utils.js'
 import type {
     GirClassElement,
     GirRecordElement,
@@ -10,6 +10,7 @@ import type {
     TsFunction,
     TsProperty,
     TsVar,
+    TsType,
 } from './types/index.js'
 
 /**
@@ -170,6 +171,51 @@ export class ConflictResolver {
         }
 
         return true
+    }
+
+    static typeIsString(type: TsType) {
+        return (
+            type.type === 'string' ||
+            (type.type.startsWith("'") && type.type.endsWith("'")) ||
+            (type.type.startsWith('"') && type.type.endsWith('"'))
+        )
+    }
+
+    static mergeTypes(dest: TsType[] = [], a: TsType[], b: TsType[]) {
+        if (isEqual(a, b)) {
+            dest = clone(a)
+        } else {
+            dest = []
+            dest = merge(dest, a, b)
+        }
+        return dest
+    }
+
+    // static mergeParams(
+    //     dest: GirCallableParamElement[] = [],
+    //     a: GirCallableParamElement[],
+    //     b: GirCallableParamElement[],
+    // ) {
+    //     const length = Math.max(a.length, b.length)
+    //     for (let i = 0; i < length.length; i++) {
+    //         const aParam = a[i] as GirCallableParamElement | undefined
+    //         const bParam = b[i] as GirCallableParamElement | undefined
+    //         aParam?._tsData?.type
+    //     }
+    // }
+
+    static mergeFunctionTypes(a: TsFunction, b: TsFunction) {
+        const result = merge({}, a, b)
+
+        this.mergeTypes(result.returnTypes, a.returnTypes, b.returnTypes)
+
+        if (!this.paramsMatch(a.inParams, b.inParams)) {
+            return false
+        }
+
+        if (!this.paramsMatch(a.outParams, b.outParams)) {
+            return false
+        }
     }
 
     /**

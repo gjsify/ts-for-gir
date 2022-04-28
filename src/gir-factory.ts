@@ -145,7 +145,7 @@ export class GirFactory {
     }
 
     newTsProperty(tsData: Partial<TsProperty> & { name: string }): TsProperty {
-        tsData.type ||= this.newTsType()
+        tsData.type ||= [this.newTsType()]
         return tsData as TsProperty
     }
 
@@ -171,10 +171,12 @@ export class GirFactory {
 
     newTsParameter(tsData: InjectionParameter) {
         const newTsData: TsParameter = {
-            type: this.newTsType({
-                ...tsData.type,
-                type: tsData.type?.type || 'any',
-            }),
+            type: [
+                this.newTsType({
+                    ...tsData.type,
+                    type: tsData.type?.type || 'any',
+                }),
+            ],
             name: tsData.name,
             girTypeName: 'callable-param',
             doc: this.newTsDoc(tsData.doc),

@@ -37,6 +37,7 @@ import {
     splitModuleName,
     removeNamespace,
     girElementIsIntrospectable,
+    typeIsOptional,
 } from './utils.js'
 import {
     NO_TSDATA,
@@ -164,14 +165,14 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0) {
         const indent = generateIndent(indentCount)
         const name = tsVar.name
-        const { optional } = tsVar.type
+        const optional = typeIsOptional(tsVar.type)
 
         if (!name) {
             throw new Error('[generateVariable] "name" not set!')
         }
 
         const affix = optional ? '?' : ''
-        const typeStr = this.generateReturnType(tsVar.type, namespace)
+        const typeStr = this.generateReturnTypes(tsVar.type, namespace)
 
         // temporary solution, will be solved differently later
         const commentOut = tsVar.hasConflict ? '// TODO fix conflict: ' : ''
@@ -424,14 +425,15 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     private generateParameter(girParam: GirCallableParamElement, namespace: string) {
-        if (typeof girParam._tsData?.name !== 'string' || typeof girParam._tsData.type?.type !== 'string') {
+        if (typeof girParam._tsData?.name !== 'string') {
             throw new Error(NO_TSDATA('generateParameter'))
         }
 
-        const type = girParam._tsData.type
+        const types = girParam._tsData.type
         const name = girParam._tsData.name
-        const typeStr = this.generateReturnType(girParam._tsData.type, namespace)
-        const affix = type.optional ? '?' : ''
+        const typeStr = this.generateReturnTypes(types, namespace)
+        const optional = typeIsOptional(types)
+        const affix = optional ? '?' : ''
 
         return [`${name}${affix}: ${typeStr}`]
     }
@@ -474,7 +476,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const { name } = girParam._tsData
-        const typeStr = this.generateReturnType(girParam._tsData.type, namespace)
+        const typeStr = this.generateReturnTypes(girParam._tsData.type, namespace)
 
         desc.push(`/* ${name} */ ${typeStr}`)
         return desc

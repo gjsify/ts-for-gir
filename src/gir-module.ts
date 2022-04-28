@@ -907,7 +907,7 @@ export class GirModule {
 
         const tsData: TsParameter = {
             name: paramName,
-            type: tsType,
+            type: [tsType],
             girTypeName: 'callable-param',
             doc: this.getTsDoc(girParam),
         }
@@ -1055,7 +1055,7 @@ export class GirModule {
 
         let tsData: TsProperty | TsVar = {
             name,
-            type: tsType,
+            type: [tsType],
             girTypeName,
             tsTypeName,
             doc: this.getTsDoc(girVar),
@@ -1816,27 +1816,29 @@ export class GirModule {
         const girProperties: GirPropertyElement[] = []
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
             // Records, classes and interfaces all have a static name
+            const type = this.girFactory.newTsType({ type: 'string' })
             const staticNameProp = this.girFactory.newGirPropertyElement({
                 isStatic: true,
                 name: 'name',
-                type: this.girFactory.newTsType({ type: 'string' }),
+                type: [type],
             })
             girProperties.push(staticNameProp)
         }
 
         if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
+            const type = this.girFactory.newTsType({
+                // TODO: Type not as string
+                type: `${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType`,
+                generics: this.girFactory.newGenerics([
+                    {
+                        value: girClass._tsData.name,
+                    },
+                ]),
+            })
             const staticGTypeProp = this.girFactory.newGirPropertyElement({
                 isStatic: true,
                 name: '$gtype',
-                type: this.girFactory.newTsType({
-                    // TODO: Type not as string
-                    type: `${girClass._module.packageName === 'GObject-2.0' ? '' : 'GObject.'}GType`,
-                    generics: this.girFactory.newGenerics([
-                        {
-                            value: girClass._tsData.name,
-                        },
-                    ]),
-                }),
+                type: [type],
             })
             girProperties.push(staticGTypeProp)
         }
@@ -2704,7 +2706,7 @@ export class GirModule {
         ) => Array<GirConstructorElement | GirFunctionElement | GirMethodElement | GirVirtualMethodElement>,
         isStatic = false,
     ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getOverloadableMethodsTsData'))
+        if (!girClass._tsData?.girTypeName) throw new Error(NO_TSDATA('getOverloadableMethodsTsData'))
         const fnMap: FunctionMap = new Map()
         const explicits = new Set<string>()
         const funcs = getMethods(girClass)

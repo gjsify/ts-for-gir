@@ -5,7 +5,7 @@ import { TsType, TsDoc } from './index.js'
  */
 export interface TsParameter {
     name: string
-    type: TsType
+    type: TsType[]
 
     girTypeName: 'callable-param'
 

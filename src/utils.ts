@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs } from './types/index.js'
+import { Environment, GirInfoAttrs, TsType } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -201,4 +201,12 @@ export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { na
     }
     // ...otherwise we assume that it is introspectable
     return true
+}
+
+export function typeIsOptional(types: TsType[]) {
+    let optional = false
+    for (const type of types) {
+        optional ||= type.optional
+    }
+    return optional
 }

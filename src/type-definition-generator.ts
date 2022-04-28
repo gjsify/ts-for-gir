@@ -582,8 +582,7 @@ export default class TypeDefinitionGenerator implements Generator {
         if (tsFunction.overloads?.length) {
             def.push(`${indent}/* Function overloads */`)
             for (const overload of tsFunction.overloads) {
-                if (!overload._tsData) continue
-                def.push(...this._generateFunction(overload._tsData, onlyStatic, namespace, indentCount))
+                def.push(...this._generateFunction(overload, onlyStatic, namespace, indentCount))
             }
         }
 

@@ -1,5 +1,5 @@
 import { NO_TSDATA } from './messages.js'
-import { isEqual, merge, clone } from './utils.js'
+import { isEqual, merge, clone, typeIsOptional } from './utils.js'
 import type {
     GirClassElement,
     GirRecordElement,
@@ -18,7 +18,7 @@ import type {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
-    static getImplementedInterfaceElements(
+    private static getImplementedInterfaceElements(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceElements'))
@@ -90,7 +90,7 @@ export class ConflictResolver {
         }
     }
 
-    static getInheritedClassElements(
+    private static getInheritedClassElements(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
     ) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassElements'))
@@ -151,154 +151,23 @@ export class ConflictResolver {
         }
     }
 
-    /**
-     * Returns true if `p1s` and `p2s` are compatible with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param p1s
-     * @param p2s
-     * @returns
-     */
-    static paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
-        if (p1s.length !== p2s.length) {
-            return false
-        }
-
-        for (const [i, p1] of p1s.entries()) {
-            // Ignore parameter name, just check the types
-            if (p2s[i]?._tsData?.type !== p1._tsData?.type) {
-                return false
-            }
-        }
-
-        return true
-    }
-
-    static typeIsString(type: TsType) {
-        return (
-            type.type === 'string' ||
-            (type.type.startsWith("'") && type.type.endsWith("'")) ||
-            (type.type.startsWith('"') && type.type.endsWith('"'))
-        )
-    }
-
-    static mergeTypes(dest: TsType[] = [], a: TsType[], b: TsType[]) {
-        if (isEqual(a, b)) {
-            dest = clone(a)
-        } else {
-            dest = []
-            dest = merge(dest, a, b)
-        }
-        return dest
-    }
-
-    // static mergeParams(
-    //     dest: GirCallableParamElement[] = [],
-    //     a: GirCallableParamElement[],
-    //     b: GirCallableParamElement[],
-    // ) {
-    //     const length = Math.max(a.length, b.length)
-    //     for (let i = 0; i < length.length; i++) {
-    //         const aParam = a[i] as GirCallableParamElement | undefined
-    //         const bParam = b[i] as GirCallableParamElement | undefined
-    //         aParam?._tsData?.type
-    //     }
-    // }
-
-    static mergeFunctionTypes(a: TsFunction, b: TsFunction) {
-        const result = merge({}, a, b)
-
-        this.mergeTypes(result.returnTypes, a.returnTypes, b.returnTypes)
-
-        if (!this.paramsMatch(a.inParams, b.inParams)) {
-            return false
-        }
-
-        if (!this.paramsMatch(a.outParams, b.outParams)) {
-            return false
-        }
-    }
-
-    /**
-     * Returns `true` if the function / method types of `a` and `b` are compatible with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param a
-     * @param b
-     * @returns
-     */
-    static functionMatch(a: TsFunction, b: TsFunction) {
-        if (!isEqual(a.returnTypes, b.returnTypes)) {
-            return false
-        }
-
-        if (!this.paramsMatch(a.inParams, b.inParams)) {
-            return false
-        }
-
-        if (!this.paramsMatch(a.outParams, b.outParams)) {
-            return false
-        }
-
-        return true
-    }
-
-    /**
-     * Returns `true` if the property types of `a` and `b` are compatible with each other.
-     * @param a
-     * @param b
-     * @returns
-     */
-    static propertyMatch(a: TsVar, b: TsVar) {
-        if (!isEqual(a.type, b.type)) {
-            return false
-        }
-
-        return true
-    }
-
-    /**
-     * Returns true if the elements (properties or methods) of `a` and `b` are compatible with each other.
-     * @param a
-     * @param b
-     * @returns
-     */
-    static elementMatch(a: TsFunction | TsVar, b: TsFunction | TsVar) {
-        if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
-            return true
-        }
-
-        if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
-            return this.functionMatch(a as TsFunction, b as TsFunction)
-        }
-
-        if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
-            return this.propertyMatch(a as TsVar, b as TsVar)
-        }
-
-        if (!isEqual(a, b)) {
-            // TODO:
-            return false
-        }
-
-        return true
-    }
-
-    static tsElementIsMethod(el: TsFunction | TsVar) {
+    private static tsElementIsMethod(el: TsFunction | TsVar) {
         return !this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
     }
 
-    static tsElementIsStaticFunction(el: TsFunction | TsVar) {
+    private static tsElementIsStaticFunction(el: TsFunction | TsVar) {
         return this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
     }
 
-    static tsElementIsProperty(el: TsFunction | TsVar) {
+    private static tsElementIsProperty(el: TsFunction | TsVar) {
         return !this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
     }
 
-    static tsElementIsStaticProperty(el: TsFunction | TsVar) {
+    private static tsElementIsStaticProperty(el: TsFunction | TsVar) {
         return this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
     }
 
-    static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
+    private static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
         return (
             el.tsTypeName === 'constructor' ||
             el.tsTypeName === 'function' ||
@@ -308,7 +177,7 @@ export class ConflictResolver {
         )
     }
 
-    static tsElementIsPropertyOrVariable(el: TsFunction | TsVar) {
+    private static tsElementIsPropertyOrVariable(el: TsFunction | TsVar) {
         return (
             el.tsTypeName === 'constant' ||
             el.tsTypeName === 'constructor-property' ||
@@ -317,12 +186,126 @@ export class ConflictResolver {
         )
     }
 
-    static tsElementIsStatic(el: TsFunction | TsVar) {
+    private static tsElementIsStatic(el: TsFunction | TsVar) {
         return (
             el.tsTypeName === 'constructor' ||
             el.tsTypeName === 'static-property' ||
             el.tsTypeName === 'static-function'
         )
+    }
+
+    private static typeIsString(type: TsType) {
+        return (
+            type.type === 'string' ||
+            (type.type.startsWith("'") && type.type.endsWith("'")) ||
+            (type.type.startsWith('"') && type.type.endsWith('"'))
+        )
+    }
+
+    private static mergeType(a: TsType | undefined, b: TsType | undefined) {
+        const dest: TsType[] = []
+        if (!a && !b) {
+            throw new Error('At least one type must be defined!')
+        }
+        if (a && b) {
+            if (isEqual(a, b)) {
+                dest.push(clone(a))
+            } else {
+                dest.push(clone(a), clone(b))
+            }
+        } else {
+            dest.push(clone((a || b) as TsType))
+        }
+
+        return dest
+    }
+
+    private static mergeTypes(a: TsType[], b: TsType[]) {
+        const dest = new Array<TsType>()
+        if (isEqual(a, b)) {
+            dest.push(...clone(a))
+        } else {
+            const length = Math.max(a.length, b.length)
+            for (let i = 0; i < length; i++) {
+                dest.push(...this.mergeType(a[i], b[i]))
+            }
+        }
+
+        if (typeIsOptional(dest)) {
+            this.setTypesProperty(dest, 'optional', true)
+        }
+        return dest
+    }
+
+    private static setTypesProperty(types: TsType[], property: 'optional', value: boolean) {
+        for (const type of types) {
+            type[property] = value
+        }
+    }
+
+    private static mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
+        if (!a?._tsData && !b?._tsData) {
+            throw new Error('At least one parameter must be defined!')
+        }
+
+        let dest: GirCallableParamElement
+
+        if (a?._tsData && b?._tsData) {
+            dest = merge({}, clone(a), clone(b))
+            if (!dest._tsData) {
+                throw new Error('Error on merge parameters!')
+            }
+            dest._tsData.type = []
+            dest._tsData.type = this.mergeTypes(a._tsData.type, b._tsData.type)
+            if (a._tsData.name !== b._tsData.name) {
+                dest._tsData.name = `${a._tsData.name}_or_${b._tsData.name}`
+            }
+        } else {
+            dest = clone((a || b) as GirCallableParamElement)
+            if (!dest._tsData) {
+                throw new Error('Error on merge parameters!')
+            }
+            // If `a` or `b` is undefined make the types optional
+            this.setTypesProperty(dest._tsData.type, 'optional', true)
+        }
+
+        if (typeIsOptional(dest._tsData.type)) {
+            this.setTypesProperty(dest._tsData.type, 'optional', true)
+        }
+
+        return dest
+    }
+
+    private static mergeParams(a: GirCallableParamElement[], b: GirCallableParamElement[]) {
+        let dest: GirCallableParamElement[]
+        if (isEqual(a, b)) {
+            dest = clone(a)
+        } else {
+            const length = Math.max(a.length, b.length)
+            dest = new Array<GirCallableParamElement>(length)
+            for (let i = 0; i < length; i++) {
+                const aParam = a[i] as GirCallableParamElement | undefined
+                const bParam = b[i] as GirCallableParamElement | undefined
+                dest[i] = this.mergeParam(aParam, bParam)
+            }
+        }
+
+        return dest
+    }
+
+    public static mergeFunctions(a: TsFunction, b: TsFunction) {
+        const result = merge({}, clone(a), clone(b))
+
+        result.returnTypes = this.mergeTypes(a.returnTypes, b.returnTypes)
+
+        if (!this.paramsMatch(a.inParams, b.inParams)) {
+            result.inParams = this.mergeParams(a.inParams, b.inParams)
+        }
+
+        if (!this.paramsMatch(a.outParams, b.outParams)) {
+            result.outParams = this.mergeParams(a.outParams, b.outParams)
+        }
+        return result
     }
 
     /**
@@ -331,7 +314,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    static hasConflict(a: TsFunction | TsVar, b: TsFunction | TsVar) {
+    public static hasConflict(a: TsFunction | TsVar, b: TsFunction | TsVar) {
         if (a.name === b.name) {
             if (a.name === 'constructor') {
                 return false
@@ -350,7 +333,7 @@ export class ConflictResolver {
      * We merge these types here to solve this problem.
      * @param girClass
      */
-    static repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+    public static repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('repairClass'))
 
         const implementations = this.getImplementedInterfaceElements(girClass)
@@ -435,5 +418,102 @@ export class ConflictResolver {
                 }
             }
         }
+    }
+
+    /**
+     * Returns true if `p1s` and `p2s` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param p1s
+     * @param p2s
+     * @returns
+     */
+    public static paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
+        if (p1s.length !== p2s.length) {
+            return false
+        }
+
+        for (const [i, p1] of p1s.entries()) {
+            const p2 = p2s[i]
+            if (p2._tsData && p1._tsData) {
+                if (!this.typesMatch(p2._tsData?.type, p1._tsData?.type)) {
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    public static typesMatch(a: TsType[], b: TsType[]) {
+        if (!isEqual(a, b)) {
+            return false
+        }
+        return true
+    }
+
+    /**
+     * Returns `true` if the function / method types of `a` and `b` are compatible with each other.
+     * The parameters must have the same length and the same type but can have different names
+     * @param a
+     * @param b
+     * @returns
+     */
+    public static functionMatch(a: TsFunction, b: TsFunction) {
+        if (!this.typesMatch(a.returnTypes, b.returnTypes)) {
+            return false
+        }
+
+        if (!this.paramsMatch(a.inParams, b.inParams)) {
+            return false
+        }
+
+        if (!this.paramsMatch(a.outParams, b.outParams)) {
+            return false
+        }
+
+        return true
+    }
+
+    /**
+     * Returns `true` if the property types of `a` and `b` are compatible with each other.
+     * @param a
+     * @param b
+     * @returns
+     */
+    public static propertyMatch(a: TsVar, b: TsVar) {
+        if (!isEqual(a.type, b.type)) {
+            return false
+        }
+
+        return true
+    }
+
+    /**
+     * Returns true if the elements (properties or methods) of `a` and `b` are compatible with each other.
+     * @param a
+     * @param b
+     * @returns
+     */
+    public static elementMatch(a: TsFunction | TsVar, b: TsFunction | TsVar) {
+        if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
+            return true
+        }
+
+        if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
+            return this.functionMatch(a as TsFunction, b as TsFunction)
+        }
+
+        if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
+            return this.propertyMatch(a as TsVar, b as TsVar)
+        }
+
+        if (!isEqual(a, b)) {
+            // TODO:
+            return false
+        }
+
+        return true
     }
 }

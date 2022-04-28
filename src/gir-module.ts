@@ -2652,7 +2652,12 @@ export class GirModule {
 
         const isEqual = ConflictResolver.functionMatch(girFunc._tsData, oldFunc._tsData)
         if (!isEqual) {
-            oldFunc._tsData.overloads.push(girFunc)
+            oldFunc._tsData.overloads.push(girFunc._tsData)
+
+            if (girFunc._tsData.name !== 'new') {
+                oldFunc._tsData.overloads.push(ConflictResolver.mergeFunctions(girFunc._tsData, oldFunc._tsData))
+            }
+
             result = true
         }
         return result

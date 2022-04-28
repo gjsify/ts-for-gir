@@ -1,14 +1,4 @@
-import {
-    GirCallableParamElement,
-    GirInstanceParameter,
-    GirConstructorElement,
-    GirFunctionElement,
-    GirVirtualMethodElement,
-    GirMethodElement,
-    TsGenericParameter,
-    TsType,
-    TsDoc,
-} from './index.js'
+import { GirCallableParamElement, GirInstanceParameter, TsGenericParameter, TsType, TsDoc } from './index.js'
 
 /**
  * Holds the data to generate a function in/for Typescript
@@ -34,7 +24,7 @@ export interface TsFunction {
     instanceParameters: GirInstanceParameter[]
     outParams: GirCallableParamElement[]
     generics: TsGenericParameter[]
-    overloads: Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
+    overloads: TsFunction[] // Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
 
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasConflict?: boolean

@@ -64,9 +64,6 @@ export class SymTable {
     public set(dependencies: string[], fullTypeName: string, GirElement: GirAnyElement): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {
-            if (key.endsWith('ServiceAction')) {
-                debugger
-            }
             SymTable.items[key] = GirElement
         }
     }

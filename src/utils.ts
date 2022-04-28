@@ -204,9 +204,8 @@ export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { na
 }
 
 export function typeIsOptional(types: TsType[]) {
-    let optional = false
     for (const type of types) {
-        optional ||= type.optional
+        if (type.optional) return true
     }
-    return optional
+    return false
 }

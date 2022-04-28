@@ -221,7 +221,7 @@ export class ConflictResolver {
     }
 
     private static mergeTypes(a: TsType[], b: TsType[]) {
-        const dest = new Array<TsType>()
+        let dest = new Array<TsType>()
         if (isEqual(a, b)) {
             dest.push(...clone(a))
         } else {
@@ -229,11 +229,11 @@ export class ConflictResolver {
             for (let i = 0; i < length; i++) {
                 dest.push(...this.mergeType(a[i], b[i]))
             }
+            if (typeIsOptional(dest)) {
+                dest = this.setTypesProperty(dest, 'optional', true)
+            }
         }
 
-        if (typeIsOptional(dest)) {
-            this.setTypesProperty(dest, 'optional', true)
-        }
         return dest
     }
 
@@ -241,6 +241,7 @@ export class ConflictResolver {
         for (const type of types) {
             type[property] = value
         }
+        return types
     }
 
     private static mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
@@ -266,11 +267,11 @@ export class ConflictResolver {
                 throw new Error('Error on merge parameters!')
             }
             // If `a` or `b` is undefined make the types optional
-            this.setTypesProperty(dest._tsData.type, 'optional', true)
+            dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
         }
 
         if (typeIsOptional(dest._tsData.type)) {
-            this.setTypesProperty(dest._tsData.type, 'optional', true)
+            dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
         }
 
         return dest
@@ -293,6 +294,43 @@ export class ConflictResolver {
         return dest
     }
 
+    public static paramCanBeOptional(
+        girParam: GirCallableParamElement,
+        girParams: GirCallableParamElement[],
+        skip: GirCallableParamElement[] = [],
+    ) {
+        if (!girParam._tsData) return false
+        let canBeOptional = true
+        const index = girParams.indexOf(girParam)
+        const following = girParams
+            .slice(index)
+            .filter((p) => !!p._tsData)
+            .filter(() => !skip.includes(girParam))
+            .filter((p) => p.$.direction !== 'out')
+            .map((p) => p._tsData)
+
+        if (following.some((p) => p && !typeIsOptional(p.type))) {
+            canBeOptional = false
+        }
+
+        return canBeOptional
+    }
+
+    /**
+     * In Typescript no optional parameters are allowed if the following ones are not optional
+     * @param girParams
+     * @returns
+     */
+    public static fixOptionalParameters(girParams: GirCallableParamElement[]) {
+        for (const girParam of girParams) {
+            if (!girParam._tsData) throw new Error(NO_TSDATA('fixOptionalParameters'))
+            if (typeIsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
+                this.setTypesProperty(girParam._tsData.type, 'optional', false)
+            }
+        }
+        return girParams
+    }
+
     public static mergeFunctions(a: TsFunction, b: TsFunction) {
         const result = merge({}, clone(a), clone(b))
 
@@ -300,6 +338,8 @@ export class ConflictResolver {
 
         if (!this.paramsMatch(a.inParams, b.inParams)) {
             result.inParams = this.mergeParams(a.inParams, b.inParams)
+            // TODO: Not working for get_proxy_type_func_or_cancellable
+            result.inParams = this.fixOptionalParameters(result.inParams)
         }
 
         if (!this.paramsMatch(a.outParams, b.outParams)) {
@@ -316,7 +356,7 @@ export class ConflictResolver {
      */
     public static hasConflict(a: TsFunction | TsVar, b: TsFunction | TsVar) {
         if (a.name === b.name) {
-            if (a.name === 'constructor') {
+            if (a.name === 'constructor' || a.name === 'new' || a.name === '_init') {
                 return false
             }
 

@@ -140,7 +140,6 @@ export class GirFactory {
         tsData.inParams ||= []
         tsData.outParams ||= []
         tsData.instanceParameters ||= []
-        tsData.overloads ||= []
         return tsData as TsFunction & TsMethod
     }
 

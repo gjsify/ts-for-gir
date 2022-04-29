@@ -51,11 +51,6 @@ export class ConflictResolver {
                         .map((m) => m._tsData)
                         .filter((m) => !!m) as TsFunction[]),
                 )
-            // Static functions
-            if (implementation._tsData?.constructors.length)
-                constructors.push(
-                    ...(implementation._tsData.constructors.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
-                )
             // Constructors
             if (implementation._tsData?.constructors.length)
                 constructors.push(
@@ -345,6 +340,7 @@ export class ConflictResolver {
         if (!this.paramsMatch(a.outParams, b.outParams)) {
             result.outParams = this.mergeParams(a.outParams, b.outParams)
         }
+
         return result
     }
 

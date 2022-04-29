@@ -87,6 +87,8 @@ export interface TsClass {
             virtualMethods: GirVirtualMethodElement[]
             /** Signals of extended class */
             signals: GirSignalElement[]
+            /** Static functions of extended class */
+            staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
         }
     }
 
@@ -110,6 +112,8 @@ export interface TsClass {
             methods: GirMethodElement[]
             /** Signals of implemented class / interface */
             signals: GirSignalElement[]
+            /** Static functions of implemented class / interface */
+            staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
         }
     }
 

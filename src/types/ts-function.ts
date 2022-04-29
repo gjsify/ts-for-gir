@@ -24,7 +24,6 @@ export interface TsFunction {
     instanceParameters: GirInstanceParameter[]
     outParams: GirCallableParamElement[]
     generics: TsGenericParameter[]
-    overloads: TsFunction[] // Array<GirConstructorElement | GirFunctionElement | GirVirtualMethodElement | GirMethodElement>
 
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasConflict?: boolean

@@ -289,7 +289,7 @@ export class ConflictResolver {
         return dest
     }
 
-    public static paramCanBeOptional(
+    private static paramCanBeOptional(
         girParam: GirCallableParamElement,
         girParams: GirCallableParamElement[],
         skip: GirCallableParamElement[] = [],
@@ -316,7 +316,7 @@ export class ConflictResolver {
      * @param girParams
      * @returns
      */
-    public static fixOptionalParameters(girParams: GirCallableParamElement[]) {
+    private static fixOptionalParameters(girParams: GirCallableParamElement[]) {
         for (const girParam of girParams) {
             if (!girParam._tsData) throw new Error(NO_TSDATA('fixOptionalParameters'))
             if (typeIsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
@@ -334,7 +334,7 @@ export class ConflictResolver {
         if (!this.paramsMatch(a.inParams, b.inParams)) {
             result.inParams = this.mergeParams(a.inParams, b.inParams)
             // TODO: Not working for get_proxy_type_func_or_cancellable
-            result.inParams = this.fixOptionalParameters(result.inParams)
+            // result.inParams = this.fixOptionalParameters(result.inParams)
         }
 
         if (!this.paramsMatch(a.outParams, b.outParams)) {

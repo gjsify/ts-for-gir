@@ -2605,6 +2605,7 @@ export class GirModule {
     /**
      * Static methods, <constructor> and <function>
      * @param girClass
+     * @param constructorTypeName Used to overwrite the constructor return type
      * @param useReference This value should be `false` for inherited and implemented classes / interfaces.
      * Otherwise other modules would overwrite the return value of the constructor methods
      */

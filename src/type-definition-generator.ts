@@ -4,7 +4,6 @@ import type {
     GirClassElement,
     GirCallableParamElement,
     GirFunctionElement,
-    GirCallbackElement,
     GirConstructorElement,
     GirSignalElement,
     GirEnumElement,
@@ -144,7 +143,11 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const girCallback = callbacks[0]
 
-        const funcDesc = this.generateOnlyNonStaticMethod(girCallback, namespace, 0)
+        if (!girCallback._tsData) {
+            throw new Error(NO_TSDATA('generateVariableCallbackType'))
+        }
+
+        const funcDesc = this.generateOnlyNonStaticFunction(girCallback._tsData, namespace, 0)
 
         if (girCallback._tsData && funcDesc?.length) {
             if (funcDesc.length > 1) {
@@ -353,7 +356,9 @@ export default class TypeDefinitionGenerator implements Generator {
         }
         const indent = generateIndent(indentCount)
         if (comment) {
+            def.push('')
             def.push(`${indent}/* ${comment} */`)
+            def.push('')
         }
         return def
     }
@@ -369,72 +374,6 @@ export default class TypeDefinitionGenerator implements Generator {
         if (def.length > 0) {
             def.unshift(...this.addInlineDebugComment(comment, indentCount))
         }
-
-        return def
-    }
-
-    private generateFunctions(
-        girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
-        namespace: string,
-        indentCount = 1,
-        comment?: string,
-    ) {
-        const def: string[] = []
-
-        for (const girFunction of girFunctions) {
-            if (!girFunction._tsData) continue
-            if (!girFunction._tsData) {
-                // this.log.warn(NO_TSDATA('generateFunctions'))
-                continue
-            }
-            def.push(...this._generateFunction(girFunction._tsData, false, namespace, indentCount))
-        }
-
-        if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
-        }
-
-        return def
-    }
-
-    private generateOnlyStaticFunctions(
-        girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
-        namespace: string,
-        indentCount = 1,
-        comment?: string,
-    ) {
-        const def: string[] = []
-
-        for (const girFunction of girFunctions) {
-            if (!girFunction._tsData) {
-                // this.log.warn(NO_TSDATA('generateOnlyStaticFunctions'))
-                continue
-            }
-            def.push(...this._generateFunction(girFunction._tsData, true, namespace, indentCount))
-        }
-
-        if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
-        }
-        return def
-    }
-
-    /**
-     * Static methods, <constructor> and <function>
-     * @param girClass
-     * @param name
-     */
-    private generateClassOnlyStaticFunctions(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        namespace: string,
-        indentCount = 1,
-    ) {
-        const def: string[] = []
-        if (!girClass._tsData) {
-            throw new Error(NO_TSDATA('generateClassOnlyStaticFunctions'))
-        }
-
-        def.push(...this.generateOnlyStaticFunctions(girClass._tsData.staticFunctions, namespace, indentCount))
 
         return def
     }
@@ -597,30 +536,62 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateOnlyNonStaticMethod(
-        girFunc:
-            | GirMethodElement
-            | GirFunctionElement
-            | GirConstructorElement
-            | GirCallbackElement
-            | GirVirtualMethodElement
-            | GirSignalElement,
-        namespace: string,
-        indentCount = 1,
-    ) {
-        if (!girFunc) {
-            this.log.warn(NO_TSDATA('generateFunction'))
-            return []
-        }
-        return this._generateFunction(girFunc._tsData, false, namespace, indentCount)
+    private generateOnlyNonStaticFunction(tsFunc: TsFunction, namespace: string, indentCount = 1) {
+        return this._generateFunction(tsFunc, false, namespace, indentCount)
     }
 
-    private generateStaticFunction(tsFunc: TsFunction | TsCallback, namespace: string, indentCount = 1) {
+    private generateOnlyStaticFunction(tsFunc: TsFunction | TsCallback, namespace: string, indentCount = 1) {
         if (!tsFunc) {
-            this.log.warn(NO_TSDATA('generateStaticFunction'))
+            this.log.warn(NO_TSDATA('generateOnlyStaticFunction'))
             return []
         }
         return this._generateFunction(tsFunc, true, namespace, indentCount)
+    }
+
+    private generateOnlyNonStaticFunctions(
+        girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
+        namespace: string,
+        indentCount = 1,
+        comment?: string,
+    ) {
+        const def: string[] = []
+
+        for (const girFunction of girFunctions) {
+            if (!girFunction._tsData) continue
+            if (!girFunction._tsData) {
+                // this.log.warn(NO_TSDATA('generateFunctions'))
+                continue
+            }
+            def.push(...this._generateFunction(girFunction._tsData, false, namespace, indentCount))
+        }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+        }
+
+        return def
+    }
+
+    private generateOnlyStaticFunctions(
+        girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
+        namespace: string,
+        indentCount = 1,
+        comment?: string,
+    ) {
+        const def: string[] = []
+
+        for (const girFunction of girFunctions) {
+            if (!girFunction._tsData) {
+                // this.log.warn(NO_TSDATA('generateOnlyStaticFunctions'))
+                continue
+            }
+            def.push(...this._generateFunction(girFunction._tsData, true, namespace, indentCount))
+        }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+        }
+        return def
     }
 
     private generateCallbackInterface(tsCallback: TsCallback | TsSignal, namespace: string, indentCount = 0) {
@@ -876,7 +847,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this.generateFunctions(
+            ...this.generateOnlyNonStaticFunctions(
                 girClass._tsData.methods,
                 namespace,
                 indentCount,
@@ -887,7 +858,7 @@ export default class TypeDefinitionGenerator implements Generator {
         // Methods from inheritance
         // for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
         //     def.push(
-        //         ...this.generateFunctions(
+        //         ...this.generateOnlyNonStaticFunctions(
         //             girClass._tsData.inherit[versionFullSymName].methods,
         //             namespace,
         //             indentCount,
@@ -899,7 +870,7 @@ export default class TypeDefinitionGenerator implements Generator {
         // Methods from implementation
         // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
         //     def.push(
-        //         ...this.generateFunctions(
+        //         ...this.generateOnlyNonStaticFunctions(
         //             girClass._tsData.implements[versionFullSymName].methods,
         //             namespace,
         //             indentCount,
@@ -911,24 +882,31 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassStaticMethods(
+    private generateClassConstructorsAndStaticMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error(NO_TSDATA('generateClassStaticMethods'))
+            throw new Error(NO_TSDATA('generateClassConstructorsAndStaticMethods'))
         }
 
         def.push(
-            ...this.generateOnlyStaticFunctions(
-                girClass._tsData.methods,
-                namespace,
+            ...this.addInlineDebugComment(
+                `Own static methods and constructors of ${girClass._module.packageName}.${girClass._fullSymName}`,
                 indentCount,
-                `Own static methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
         )
+
+        // Static methods of abstract classes
+        def.push(...this.generateOnlyStaticFunctions(girClass._tsData.methods, namespace, indentCount))
+        // Constructors
+        def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+        // _init method
+        def.push(...this.generateOnlyNonStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+        // Pseudo constructors
+        def.push(...this.generateOnlyStaticFunctions(girClass._tsData.staticFunctions, namespace, indentCount))
 
         // Methods from inheritance
         for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
@@ -937,7 +915,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     girClass._tsData.inherit[versionFullSymName].staticFunctions,
                     namespace,
                     indentCount,
-                    `Extended static methods of ${versionFullSymName}`,
+                    `Extended static functions of ${versionFullSymName}`,
                 ),
             )
         }
@@ -949,7 +927,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     girClass._tsData.implements[versionFullSymName].staticFunctions,
                     namespace,
                     indentCount,
-                    `Implemented static methods of ${versionFullSymName}`,
+                    `Implemented static functions of ${versionFullSymName}`,
                 ),
             )
         }
@@ -977,7 +955,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         def.push(
-            ...this.generateFunctions(
+            ...this.generateOnlyNonStaticFunctions(
                 girClass._tsData.virtualMethods,
                 namespace,
                 indentCount,
@@ -988,7 +966,7 @@ export default class TypeDefinitionGenerator implements Generator {
         // Virtual methods from inheritance
         // for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
         //     def.push(
-        //         ...this.generateFunctions(
+        //         ...this.generateOnlyNonStaticFunctions(
         //             girClass._tsData.inherit[versionFullSymName].virtualMethods,
         //             namespace,
         //             indentCount,
@@ -996,40 +974,6 @@ export default class TypeDefinitionGenerator implements Generator {
         //         ),
         //     )
         // }
-
-        return def
-    }
-
-    private generateConstructorAndStaticFunctions(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        namespace: string,
-        indentCount = 1,
-    ) {
-        const def: string[] = []
-
-        if (!girClass._tsData) {
-            throw new Error(NO_TSDATA('generateConstructorAndStaticFunctions'))
-        }
-
-        const girConstructors = girClass._tsData.constructors
-
-        for (const girConstructor of girConstructors) {
-            if (!girConstructor._tsData) {
-                // this.log.warn(NO_TSDATA('generateConstructorAndStaticFunctions constructors'))
-                continue
-            }
-            def.push(...this.generateStaticFunction(girConstructor._tsData, namespace, indentCount))
-            // for the _init method
-            def.push(...this.generateOnlyNonStaticMethod(girConstructor, namespace, indentCount))
-        }
-
-        def.push(...this.generateClassOnlyStaticFunctions(girClass, namespace, indentCount))
-
-        if (def.length > 0) {
-            def.unshift(
-                ...this.addInlineDebugComment('Static methods, constructors and pseudo-constructors', indentCount),
-            )
-        }
 
         return def
     }
@@ -1194,11 +1138,11 @@ export default class TypeDefinitionGenerator implements Generator {
                 // // Fields
                 def.push(...this.generateClassFields(girClass, true, namespace))
 
+                // Static Methods and constructors
+                def.push(...this.generateClassConstructorsAndStaticMethods(girClass, namespace))
+
                 // // Methods
                 // def.push(...this.generateClassMethods(girClass, namespace))
-
-                // Static Methods
-                def.push(...this.generateClassStaticMethods(girClass, namespace))
 
                 // // Virtual methods
                 // def.push(...this.generateClassVirtualMethods(girClass, namespace))
@@ -1210,9 +1154,6 @@ export default class TypeDefinitionGenerator implements Generator {
                 // def.push(...this.generateClassPropertySignals(girClass, namespace))
 
                 // // TODO: Records have fields
-
-                // Static side: default constructor
-                def.push(...this.generateConstructorAndStaticFunctions(girClass, namespace))
             }
             // END BODY
 
@@ -1295,7 +1236,7 @@ export default class TypeDefinitionGenerator implements Generator {
                         // this.log.warn(NO_TSDATA('exportModuleTS functions'))
                         continue
                     }
-                    out.push(...this.generateOnlyNonStaticMethod(girFunc, girModule.namespace, 0))
+                    out.push(...this.generateOnlyNonStaticFunction(girFunc._tsData, girModule.namespace, 0))
                 }
 
             if (girModule.ns.callback)

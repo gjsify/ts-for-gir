@@ -122,7 +122,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+            def.unshift(...this.addInfoComment(comment, indentCount))
         }
 
         return def
@@ -338,12 +338,12 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     /**
-     * Adds an inline comment, is used for debugging internally
+     * Adds an info comment, is used for debugging the generated types
      * @param comment
      * @param indentCount
      * @returns
      */
-    private addInlineDebugComment(comment?: string, indentCount = 0) {
+    private addInfoComment(comment?: string, indentCount = 0) {
         const def: string[] = []
         if (this.config.noDebugComments) {
             return def
@@ -351,8 +351,26 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         if (comment) {
             def.push('')
-            def.push(`${indent}/* ${comment} */`)
+            def.push(`${indent}// ${comment}`)
             def.push('')
+        }
+        return def
+    }
+
+    /**
+     * Adds an inline info comment, is used for debugging the generated types
+     * @param comment
+     * @param indentCount
+     * @returns
+     */
+    private addInlineInfoComment(comment?: string, indentCount = 0) {
+        const def: string[] = []
+        if (this.config.noDebugComments) {
+            return def
+        }
+        const indent = generateIndent(indentCount)
+        if (comment) {
+            def.push(`${indent}/* ${comment} */`)
         }
         return def
     }
@@ -366,7 +384,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+            def.unshift(...this.addInfoComment(comment, indentCount))
         }
 
         return def
@@ -564,7 +582,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
+            def.unshift(...this.addInfoComment(comment, indentCount))
         }
 
         return def
@@ -574,7 +592,6 @@ export default class TypeDefinitionGenerator implements Generator {
         girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
         namespace: string,
         indentCount = 1,
-        comment?: string,
     ) {
         const def: string[] = []
 
@@ -586,9 +603,6 @@ export default class TypeDefinitionGenerator implements Generator {
             def.push(...this.generateOnlyStaticFunction(girFunction._tsData, namespace, indentCount))
         }
 
-        if (def.length > 0) {
-            def.unshift(...this.addInlineDebugComment(comment, indentCount))
-        }
         return def
     }
 
@@ -710,10 +724,15 @@ export default class TypeDefinitionGenerator implements Generator {
         let ext = ' '
 
         if (girClass._tsData.inheritConstructPropInterfaceNames.length) {
-            ext = `${indent}extends ${girClass._tsData.inheritConstructPropInterfaceNames.join(', ')} `
+            const constructPropInterfaceNames = girClass._tsData.inheritConstructPropInterfaceNames.map((n) =>
+                removeNamespace(n, namespace),
+            )
+            ext = `${indent}extends ${constructPropInterfaceNames.join(', ')} `
         }
 
-        def.push(`${indent}${exp}interface ${girClass._tsData.constructPropInterfaceName} ${ext}{`)
+        const constructPropInterfaceName = removeNamespace(girClass._tsData.constructPropInterfaceName, namespace)
+
+        def.push(`${indent}${exp}interface ${constructPropInterfaceName} ${ext}{`)
 
         // START BODY
         {
@@ -890,13 +909,6 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generateClassConstructorsAndStaticMethods'))
         }
 
-        def.push(
-            ...this.addInlineDebugComment(
-                `Own static methods and constructors of ${girClass._module.packageName}.${girClass._fullSymName}`,
-                indentCount,
-            ),
-        )
-
         // Static methods of abstract classes
         def.push(...this.generateOnlyStaticFunctions(girClass._tsData.methods, namespace, indentCount))
         // Constructors
@@ -906,52 +918,61 @@ export default class TypeDefinitionGenerator implements Generator {
         // Pseudo constructors
         def.push(...this.generateOnlyStaticFunctions(girClass._tsData.staticFunctions, namespace, indentCount))
 
-        // Methods from inheritance
-        for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
-            // Static methods of abstract classes
-            def.push(
-                ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.inherit[versionFullSymName].class.methods,
-                    namespace,
+        if (def.length) {
+            def.unshift(
+                ...this.addInfoComment(
+                    `Own static methods and constructors of ${girClass._module.packageName}.${girClass._fullSymName}`,
                     indentCount,
-                    `Extended static methods of ${versionFullSymName}`,
-                ),
-            )
-            // Constructors
-            def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
-            // Pseudo constructors
-            def.push(
-                ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.inherit[versionFullSymName].class.staticFunctions,
-                    namespace,
-                    indentCount,
-                    `Extended static functions of ${versionFullSymName}`,
                 ),
             )
         }
 
+        // Methods from inheritance
+        for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
+            const inherit = girClass._tsData.inherit[versionFullSymName]
+            const inheritDef: string[] = []
+
+            // Static methods of abstract classes
+            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.methods, namespace, indentCount))
+            // Constructors
+            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
+            // Pseudo constructors
+            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.staticFunctions, namespace, indentCount))
+
+            if (inheritDef.length) {
+                inheritDef.unshift(
+                    ...this.addInfoComment(
+                        `Extended static methods and constructors of ${versionFullSymName}`,
+                        indentCount,
+                    ),
+                )
+            }
+
+            def.push(...inheritDef)
+        }
+
         // Methods from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+            const implm = girClass._tsData.implements[versionFullSymName]
+            const implmDef: string[] = []
+
             // Static methods of abstract classes
-            def.push(
-                ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.implements[versionFullSymName].interface.methods,
-                    namespace,
-                    indentCount,
-                    `Implemented static methods of ${versionFullSymName}`,
-                ),
-            )
+            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.methods, namespace, indentCount))
             // Constructors
-            def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.constructors, namespace, indentCount))
             // Pseudo constructors
-            def.push(
-                ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.implements[versionFullSymName].interface.staticFunctions,
-                    namespace,
-                    indentCount,
-                    `Implemented static functions of ${versionFullSymName}`,
-                ),
-            )
+            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.staticFunctions, namespace, indentCount))
+
+            if (implmDef.length) {
+                implmDef.unshift(
+                    ...this.addInfoComment(
+                        `Implemented static methods and constructors of ${versionFullSymName}`,
+                        indentCount,
+                    ),
+                )
+            }
+
+            def.push(...implmDef)
         }
 
         return def

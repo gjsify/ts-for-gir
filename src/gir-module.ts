@@ -2141,7 +2141,7 @@ export class GirModule {
             localNames: {},
             constructPropNames: {},
             inheritConstructPropInterfaceNames: [],
-            constructPropInterfaceName: `${className}_ConstructProps`,
+            constructPropInterfaceName: `${namespace}.${className}_ConstructProps`,
             fields: [],
             properties: [],
             constructProps: [],
@@ -2167,7 +2167,7 @@ export class GirModule {
 
         if (girClass._tsData.parents.length) {
             for (const parent of girClass._tsData.parents) {
-                girClass._tsData.inheritConstructPropInterfaceNames.push(parent.localParentName + '_ConstructProps')
+                girClass._tsData.inheritConstructPropInterfaceNames.push(`${parent.qualifiedParentName}_ConstructProps`)
             }
         }
 

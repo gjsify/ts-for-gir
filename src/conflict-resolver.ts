@@ -11,6 +11,7 @@ import type {
     TsProperty,
     TsVar,
     TsType,
+    TsClass,
 } from './types/index.js'
 
 /**
@@ -18,11 +19,7 @@ import type {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
-    private static getImplementedInterfaceElements(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getImplementedInterfaceElements'))
-
+    private static getImplementedInterfaceElements(tsIface: TsClass) {
         const methods: TsFunction[] = []
         const virtualMethods: TsFunction[] = []
         const staticFunctions: TsFunction[] = []
@@ -32,8 +29,8 @@ export class ConflictResolver {
         const fields: TsVar[] = []
         const constructProps: TsProperty[] = []
 
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
-            const implementation = girClass._tsData.implements[ifaceFullSymName].interface
+        for (const ifaceFullSymName of Object.keys(tsIface.implements)) {
+            const implementation = tsIface.implements[ifaceFullSymName].interface
             // Methods
             if (implementation.methods.length)
                 methods.push(...(implementation.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
@@ -64,6 +61,16 @@ export class ConflictResolver {
                 constructProps.push(
                     ...(implementation.constructProps.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
                 )
+
+            // Also get inheritances of the implemented class
+            const indirect = this.getInheritedClassElements(implementation)
+            methods.push(...indirect.methods)
+            virtualMethods.push(...indirect.virtualMethods)
+            staticFunctions.push(...indirect.staticFunctions)
+            constructors.push(...indirect.constructors)
+            properties.push(...indirect.properties)
+            fields.push(...indirect.fields)
+            constructProps.push(...indirect.constructProps)
         }
 
         return {
@@ -77,11 +84,7 @@ export class ConflictResolver {
         }
     }
 
-    private static getInheritedClassElements(
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-    ) {
-        if (!girClass._tsData) throw new Error(NO_TSDATA('getInheritedClassElements'))
-
+    private static getInheritedClassElements(girClass: TsClass) {
         const methods: TsFunction[] = []
         const virtualMethods: TsFunction[] = []
         const staticFunctions: TsFunction[] = []
@@ -91,8 +94,8 @@ export class ConflictResolver {
         const fields: TsVar[] = []
         const constructProps: TsProperty[] = []
 
-        for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
-            const inherit = girClass._tsData.inherit[ifaceFullSymName].class
+        for (const ifaceFullSymName of Object.keys(girClass.inherit)) {
+            const inherit = girClass.inherit[ifaceFullSymName].class
             // Methods
             if (inherit.methods.length)
                 methods.push(...(inherit.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
@@ -121,6 +124,16 @@ export class ConflictResolver {
                 constructProps.push(
                     ...(inherit.constructProps.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
                 )
+
+            // Also get implementations of the inherited class
+            const indirect = this.getImplementedInterfaceElements(inherit)
+            methods.push(...indirect.methods)
+            virtualMethods.push(...indirect.virtualMethods)
+            staticFunctions.push(...indirect.staticFunctions)
+            constructors.push(...indirect.constructors)
+            properties.push(...indirect.properties)
+            fields.push(...indirect.fields)
+            constructProps.push(...indirect.constructProps)
         }
 
         return {
@@ -339,7 +352,7 @@ export class ConflictResolver {
      * @returns
      */
     public static hasConflict(a: TsFunction | TsVar, b: TsFunction | TsVar) {
-        if (a.name === b.name) {
+        if (a !== b && a.name === b.name) {
             if (a.name === 'constructor' || a.name === 'new' || a.name === '_init') {
                 return false
             }
@@ -360,8 +373,8 @@ export class ConflictResolver {
     public static repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('repairClass'))
 
-        const implementations = this.getImplementedInterfaceElements(girClass)
-        const inheritance = this.getInheritedClassElements(girClass)
+        const implementations = this.getImplementedInterfaceElements(girClass._tsData)
+        const inheritance = this.getInheritedClassElements(girClass._tsData)
 
         const tsSignals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
 

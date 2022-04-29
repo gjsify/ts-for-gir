@@ -2,15 +2,11 @@ import {
     LocalNames,
     GirPropertyElement,
     GirFieldElement,
-    GirClassElement,
-    GirUnionElement,
-    GirInterfaceElement,
     GirMethodElement,
     GirConstructorElement,
     GirFunctionElement,
     GirVirtualMethodElement,
     GirSignalElement,
-    GirRecordElement,
     TsGenericParameter,
     TsMethod,
     TsDoc,
@@ -76,19 +72,7 @@ export interface TsClass {
              */
             depth: number
             /** The extended class itself */
-            class: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
-            /** Fields of extended class */
-            fields: GirFieldElement[]
-            /** Properties of extended class */
-            properties: GirPropertyElement[]
-            /** Methods of extended class */
-            methods: GirMethodElement[]
-            /** Virtual methods of extended class */
-            virtualMethods: GirVirtualMethodElement[]
-            /** Signals of extended class */
-            signals: GirSignalElement[]
-            /** Static functions of extended class */
-            staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
+            class: TsClass
         }
     }
 
@@ -103,17 +87,7 @@ export interface TsClass {
              */
             depth: number
             /** The implemented class / interface itself */
-            interface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
-            /** Properties of implemented class / interface */
-            properties: GirPropertyElement[]
-            /** Constructor properties of implemented class / interface */
-            constructProps: GirPropertyElement[]
-            /** Methods of implemented class / interface */
-            methods: GirMethodElement[]
-            /** Signals of implemented class / interface */
-            signals: GirSignalElement[]
-            /** Static functions of implemented class / interface */
-            staticFunctions: Array<GirFunctionElement | GirConstructorElement | GirMethodElement>
+            interface: TsClass
         }
     }
 

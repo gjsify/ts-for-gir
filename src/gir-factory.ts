@@ -169,13 +169,14 @@ export class GirFactory {
     }
 
     newTsParameter(tsData: InjectionParameter) {
+        const types: TsType[] = []
+        for (const type of tsData.type || []) {
+            type.type = type.type || 'any'
+            types.push(this.newTsType(type))
+        }
+
         const newTsData: TsParameter = {
-            type: [
-                this.newTsType({
-                    ...tsData.type,
-                    type: tsData.type?.type || 'any',
-                }),
-            ],
+            type: types,
             name: tsData.name,
             girTypeName: 'callable-param',
             doc: this.newTsDoc(tsData.doc),
@@ -205,18 +206,22 @@ export class GirFactory {
 
         const sigNameInParam = this.newGirCallableParamElement({
             name: 'sigName',
-            type: this.newTsType({
-                type: signalName ? `"${signalName}"` : 'string',
-            }),
+            type: [
+                this.newTsType({
+                    type: signalName ? `"${signalName}"` : 'string',
+                }),
+            ],
             doc: this.newTsDoc(),
         })
 
         const anyArgsInParam = this.newGirCallableParamElement({
             name: '...args',
-            type: this.newTsType({
-                type: `any`,
-                isArray: true,
-            }),
+            type: [
+                this.newTsType({
+                    type: `any`,
+                    isArray: true,
+                }),
+            ],
             doc: this.newTsDoc(),
         })
 
@@ -224,9 +229,11 @@ export class GirFactory {
 
         const callbackInParam = this.newGirCallableParamElement({
             name: 'callback',
-            type: this.newTsType({
-                type: callbackType || '(...args: any[]) => void',
-            }),
+            type: [
+                this.newTsType({
+                    type: callbackType || '(...args: any[]) => void',
+                }),
+            ],
             doc: this.newTsDoc(),
         })
 
@@ -251,10 +258,12 @@ export class GirFactory {
         } else if (environment === 'node') {
             const afterInParam = this.newGirCallableParamElement({
                 name: 'after',
-                type: this.newTsType({
-                    type: 'boolean',
-                    optional: true,
-                }),
+                type: [
+                    this.newTsType({
+                        type: 'boolean',
+                        optional: true,
+                    }),
+                ],
                 doc: this.newTsDoc(),
             })
 
@@ -289,9 +298,11 @@ export class GirFactory {
         if (withDisconnect && environment === 'gjs') {
             const idInParam = this.newGirCallableParamElement({
                 name: 'id',
-                type: this.newTsType({
-                    type: 'number',
-                }),
+                type: [
+                    this.newTsType({
+                        type: 'number',
+                    }),
+                ],
                 doc: this.newTsDoc(),
             })
 

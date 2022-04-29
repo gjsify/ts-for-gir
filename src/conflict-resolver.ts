@@ -35,42 +35,34 @@ export class ConflictResolver {
         for (const ifaceFullSymName of Object.keys(girClass._tsData.implements)) {
             const implementation = girClass._tsData.implements[ifaceFullSymName].interface
             // Methods
-            if (implementation._tsData?.methods.length)
-                methods.push(
-                    ...(implementation._tsData.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
-                )
+            if (implementation.methods.length)
+                methods.push(...(implementation.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
             // Virtual methods
-            if (implementation._tsData?.virtualMethods.length)
+            if (implementation.virtualMethods.length)
                 virtualMethods.push(
-                    ...(implementation._tsData.virtualMethods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
+                    ...(implementation.virtualMethods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
                 )
             // Static functions
-            if (implementation._tsData?.staticFunctions.length)
+            if (implementation.staticFunctions.length)
                 staticFunctions.push(
-                    ...(implementation._tsData.staticFunctions
-                        .map((m) => m._tsData)
-                        .filter((m) => !!m) as TsFunction[]),
+                    ...(implementation.staticFunctions.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
                 )
             // Constructors
-            if (implementation._tsData?.constructors.length)
+            if (implementation.constructors.length)
                 constructors.push(
-                    ...(implementation._tsData.constructors.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
+                    ...(implementation.constructors.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
                 )
 
             // Properties
-            if (implementation._tsData?.properties.length)
-                properties.push(
-                    ...(implementation._tsData?.properties.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
-                )
+            if (implementation.properties.length)
+                properties.push(...(implementation.properties.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]))
             // Fields
-            if (implementation._tsData?.fields.length)
-                fields.push(...(implementation._tsData?.fields.map((p) => p._tsData).filter((p) => !!p) as TsVar[]))
+            if (implementation.fields.length)
+                fields.push(...(implementation.fields.map((p) => p._tsData).filter((p) => !!p) as TsVar[]))
             // Constructor properties
-            if (implementation._tsData?.constructProps.length)
+            if (implementation.constructProps.length)
                 constructProps.push(
-                    ...(implementation._tsData?.constructProps
-                        .map((p) => p._tsData)
-                        .filter((p) => !!p) as TsProperty[]),
+                    ...(implementation.constructProps.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
                 )
         }
 
@@ -102,36 +94,32 @@ export class ConflictResolver {
         for (const ifaceFullSymName of Object.keys(girClass._tsData.inherit)) {
             const inherit = girClass._tsData.inherit[ifaceFullSymName].class
             // Methods
-            if (inherit._tsData?.methods.length)
-                methods.push(...(inherit._tsData?.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
+            if (inherit.methods.length)
+                methods.push(...(inherit.methods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
             // Virtual methods
-            if (inherit._tsData?.virtualMethods.length)
+            if (inherit.virtualMethods.length)
                 virtualMethods.push(
-                    ...(inherit._tsData?.virtualMethods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
+                    ...(inherit.virtualMethods.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
                 )
             // Static functions
-            if (inherit._tsData?.staticFunctions.length)
+            if (inherit.staticFunctions.length)
                 staticFunctions.push(
-                    ...(inherit._tsData?.staticFunctions.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
+                    ...(inherit.staticFunctions.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
                 )
             // Constructors
-            if (inherit._tsData?.constructors.length)
-                constructors.push(
-                    ...(inherit._tsData?.constructors.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]),
-                )
+            if (inherit.constructors.length)
+                constructors.push(...(inherit.constructors.map((m) => m._tsData).filter((m) => !!m) as TsFunction[]))
 
             // Properties
-            if (inherit._tsData?.properties.length)
-                properties.push(
-                    ...(inherit._tsData?.properties.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
-                )
+            if (inherit.properties.length)
+                properties.push(...(inherit.properties.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]))
             // Fields
-            if (inherit._tsData?.fields.length)
-                fields.push(...(inherit._tsData?.fields.map((p) => p._tsData).filter((p) => !!p) as TsVar[]))
+            if (inherit.fields.length)
+                fields.push(...(inherit.fields.map((p) => p._tsData).filter((p) => !!p) as TsVar[]))
             // Constructor properties
-            if (inherit._tsData?.constructProps.length)
+            if (inherit.constructProps.length)
                 constructProps.push(
-                    ...(inherit._tsData?.constructProps.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
+                    ...(inherit.constructProps.map((p) => p._tsData).filter((p) => !!p) as TsProperty[]),
                 )
         }
 

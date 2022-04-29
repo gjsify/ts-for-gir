@@ -54,352 +54,352 @@ export const classes: InjectionClass[] = [
             // static char(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecChar
             {
                 name: 'char',
-                returnType: { type: 'ParamSpecChar' },
+                returnType: { type: 'GObject.ParamSpecChar' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static uchar(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUChar
             {
                 name: 'uchar',
-                returnType: { type: 'ParamSpecUChar' },
+                returnType: { type: 'GObject.ParamSpecUChar' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static int(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt
             {
                 name: 'int',
-                returnType: { type: 'ParamSpecInt' },
+                returnType: { type: 'GObject.ParamSpecInt' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static uint(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt
             {
                 name: 'uint',
-                returnType: { type: 'ParamSpecUInt' },
+                returnType: { type: 'GObject.ParamSpecUInt' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static long(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecLong
             {
                 name: 'long',
-                returnType: { type: 'ParamSpecLong' },
+                returnType: { type: 'GObject.ParamSpecLong' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static ulong(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecULong
             {
                 name: 'ulong',
-                returnType: { type: 'ParamSpecULong' },
+                returnType: { type: 'GObject.ParamSpecULong' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static int64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt64
             {
                 name: 'int64',
-                returnType: { type: 'ParamSpecInt64' },
+                returnType: { type: 'GObject.ParamSpecInt64' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static uint64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt64
             {
                 name: 'uint64',
-                returnType: { type: 'ParamSpecUInt64' },
+                returnType: { type: 'GObject.ParamSpecUInt64' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static float(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecFloat
             {
                 name: 'float',
-                returnType: { type: 'ParamSpecFloat' },
+                returnType: { type: 'GObject.ParamSpecFloat' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static boolean(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: boolean): ParamSpecBoolean
             {
                 name: 'boolean',
-                returnType: { type: 'ParamSpecBoolean' },
+                returnType: { type: 'GObject.ParamSpecBoolean' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'boolean' },
+                        type: [{ type: 'boolean' }],
                     },
                 ],
             },
@@ -407,240 +407,240 @@ export const classes: InjectionClass[] = [
             // static flags<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, flagsType: GType<T>, defaultValue: number): ParamSpecFlags
             {
                 name: 'flags',
-                returnType: { type: 'ParamSpecFlags' },
+                returnType: { type: 'GObject.ParamSpecFlags' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'flagsType',
-                        type: { type: 'GType<unknown>' },
+                        type: [{ type: 'GObject.GType<unknown>' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'boolean' },
+                        type: [{ type: 'boolean' }],
                     },
                 ],
             },
             // static enum<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, enumType: GType<T>, defaultValue: number): ParamSpecEnum
             {
                 name: 'enum',
-                returnType: { type: 'ParamSpecEnum' },
+                returnType: { type: 'GObject.ParamSpecEnum' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'enumType',
-                        type: { type: 'GType<unknown>' },
+                        type: [{ type: 'GObject.GType<unknown>' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'boolean' },
+                        type: [{ type: 'boolean' }],
                     },
                 ],
             },
             // static double(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecDouble
             {
                 name: 'double',
-                returnType: { type: 'ParamSpecDouble' },
+                returnType: { type: 'GObject.ParamSpecDouble' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'minimum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'maximum',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'number' },
+                        type: [{ type: 'number' }],
                     },
                 ],
             },
             // static string(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: string | null): ParamSpecString
             {
                 name: 'string',
-                returnType: { type: 'ParamSpecString' },
+                returnType: { type: 'GObject.ParamSpecString' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'defaultValue',
-                        type: { type: 'string | null' },
+                        type: [{ type: 'string | null' }],
                     },
                 ],
             },
             // static boxed<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, boxedType: GType<T>): ParamSpecBoxed
             {
                 name: 'boxed',
-                returnType: { type: 'ParamSpecBoxed' },
+                returnType: { type: 'GObject.ParamSpecBoxed' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'boxedType',
-                        type: { type: 'GType<unknown>' },
+                        type: [{ type: 'GObject.GType<unknown>' }],
                     },
                 ],
             },
             // static object<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, objectType: GType<T>): ParamSpecObject
             {
                 name: 'object',
-                returnType: { type: 'ParamSpecObject' },
+                returnType: { type: 'GObject.ParamSpecObject' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'objectType',
-                        type: { type: 'GType<unknown>' },
+                        type: [{ type: 'GObject.GType<unknown>' }],
                     },
                 ],
             },
             // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
             {
                 name: 'jsobject',
-                returnType: { type: 'ParamSpecBoxed' },
+                returnType: { type: 'GObject.ParamSpecBoxed' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                 ],
             },
             // static param<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, paramType: GType<T>): ParamSpecParam
             {
                 name: 'param',
-                returnType: { type: 'ParamSpecParam' },
+                returnType: { type: 'GObject.ParamSpecParam' },
                 isStatic: true,
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'nick',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'blurb',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'flags',
-                        type: { type: 'ParamFlags' },
+                        type: [{ type: 'GObject.ParamFlags' }],
                     },
                     {
                         name: 'paramType',
-                        type: { type: 'GType<unknown>' },
+                        type: [{ type: 'GObject.GType<unknown>' }],
                     },
                 ],
             },
-            // static override(name: string, oclass: Object | Function | GType): void
+            // static override(name: string, oclass: GObject.Object | Function | GObject.GType): void
             {
                 name: 'override',
                 returnType: { type: 'void' },
@@ -648,11 +648,11 @@ export const classes: InjectionClass[] = [
                 inParams: [
                     {
                         name: 'name',
-                        type: { type: 'string' },
+                        type: [{ type: 'string' }],
                     },
                     {
                         name: 'oclass',
-                        type: { type: 'Object | Function | GType' },
+                        type: [{ type: 'GObject.Object' }, { type: 'Function' }, { type: 'GObject.GType' }],
                     },
                 ],
             },

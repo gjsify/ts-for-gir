@@ -156,12 +156,6 @@ export default class TypeDefinitionGenerator implements Generator {
             typeStr = funcDesc[0]
         }
 
-        // TODO: use suffix from `tsVar.type` here?
-        // if (type) {
-        //     const suffix: TypeSuffix = (arr + nul) as TypeSuffix
-        //     if (suffix.length) type = '(' + type + ')'
-        // }
-
         return typeStr
     }
 
@@ -449,7 +443,7 @@ export default class TypeDefinitionGenerator implements Generator {
         let desc = typeStr
 
         if (overrideReturnType) {
-            desc = overrideReturnType
+            desc = removeNamespace(overrideReturnType, namespace)
         } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
             const outParamsDesc: string[] = []
 
@@ -513,10 +507,14 @@ export default class TypeDefinitionGenerator implements Generator {
             exportStr = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
         }
 
-        const returnDesc = this.generateFunctionReturn(tsFunction, namespace)
+        const returnType = this.generateFunctionReturn(tsFunction, namespace)
+
+        if (name === 'new_for_font_type' && returnType === 'PangoCairo.FontMap') {
+            debugger
+        }
 
         let retSep = ''
-        if (returnDesc) {
+        if (returnType) {
             if (isArrowType) {
                 name = ''
                 retSep = ' =>'
@@ -530,7 +528,7 @@ export default class TypeDefinitionGenerator implements Generator {
         def.push(
             `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
                 ', ',
-            )})${retSep} ${returnDesc}`,
+            )})${retSep} ${returnType}`,
         )
 
         return def
@@ -562,7 +560,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // this.log.warn(NO_TSDATA('generateFunctions'))
                 continue
             }
-            def.push(...this._generateFunction(girFunction._tsData, false, namespace, indentCount))
+            def.push(...this.generateOnlyNonStaticFunction(girFunction._tsData, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -585,7 +583,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 // this.log.warn(NO_TSDATA('generateOnlyStaticFunctions'))
                 continue
             }
-            def.push(...this._generateFunction(girFunction._tsData, true, namespace, indentCount))
+            def.push(...this.generateOnlyStaticFunction(girFunction._tsData, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -910,9 +908,21 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Methods from inheritance
         for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
+            // Static methods of abstract classes
             def.push(
                 ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.inherit[versionFullSymName].staticFunctions,
+                    girClass._tsData.inherit[versionFullSymName].class.methods,
+                    namespace,
+                    indentCount,
+                    `Extended static methods of ${versionFullSymName}`,
+                ),
+            )
+            // Constructors
+            def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+            // Pseudo constructors
+            def.push(
+                ...this.generateOnlyStaticFunctions(
+                    girClass._tsData.inherit[versionFullSymName].class.staticFunctions,
                     namespace,
                     indentCount,
                     `Extended static functions of ${versionFullSymName}`,
@@ -922,9 +932,21 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Methods from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+            // Static methods of abstract classes
             def.push(
                 ...this.generateOnlyStaticFunctions(
-                    girClass._tsData.implements[versionFullSymName].staticFunctions,
+                    girClass._tsData.implements[versionFullSymName].interface.methods,
+                    namespace,
+                    indentCount,
+                    `Implemented static methods of ${versionFullSymName}`,
+                ),
+            )
+            // Constructors
+            def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+            // Pseudo constructors
+            def.push(
+                ...this.generateOnlyStaticFunctions(
+                    girClass._tsData.implements[versionFullSymName].interface.staticFunctions,
                     namespace,
                     indentCount,
                     `Implemented static functions of ${versionFullSymName}`,

@@ -109,12 +109,7 @@ export const C_TYPE_MAP = (value: string): string | undefined => {
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
 // See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
-export const FULL_TYPE_MAP = (
-    environment: Environment,
-    packageName: string,
-    value: string,
-    out = true,
-): string | undefined => {
+export const FULL_TYPE_MAP = (environment: Environment, value: string, out = true): string | undefined => {
     let ba: string
     let gb: string | undefined
     if (environment === 'gjs') {
@@ -131,10 +126,6 @@ export const FULL_TYPE_MAP = (
         gb = 'any'
     }
 
-    if (value.endsWith('GType')) {
-        value = 'GType'
-    }
-
     const fullTypeMap = {
         'GObject.Value': 'any',
         'GObject.Closure': 'GObject.TClosure',
@@ -142,7 +133,8 @@ export const FULL_TYPE_MAP = (
         'GLib.Bytes': gb,
         GType: 'GObject.GType',
         'GObject.Type': 'GObject.GType',
-        Type: 'GType',
+        Type: 'GObject.GType',
+        'GObject.GType': 'GObject.GType',
     }
 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]

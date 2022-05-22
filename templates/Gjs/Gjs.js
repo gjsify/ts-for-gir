@@ -5,13 +5,15 @@
   export const Mainloop = imports.mainloop;
   export const gettext = imports.gettext;
   export const System = imports.system;
-<% } else { %>  
+  export const Package = imports.package;
+<% } else { %>
   module.exports = {
     byteArray: imports.byteArray,
     Lang: imports.lang,
     Format: imports.format,
     Mainloop: imports.mainloop,
     gettext: imports.gettext,
-    System: imports.system
+    System: imports.system,
+    Package:imports.package
   }
 <% } %>

@@ -257,6 +257,16 @@ declare global {
             <%_ } _%>
           <%_ } _%>
         }
+        versions: {
+          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+              '<%= girModule.module.version %>'
+              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                |
+              <%_ } _%>
+            <%_ } _%>
+          <%_ } _%>
+        }
         lang: typeof Gjs.Lang
         system: typeof Gjs.System
         package: typeof Gjs.Package

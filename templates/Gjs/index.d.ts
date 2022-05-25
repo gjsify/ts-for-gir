@@ -5,7 +5,7 @@
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
 
-import type * as Gjs from "./Gjs";
+import type * as Gjs from './Gjs'
 <%_ for (const girModule of girModules) { _%>
   <%_ if(useNamespace){ _%>
 import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
@@ -257,7 +257,10 @@ declare global {
             <%_ } _%>
           <%_ } _%>
         }
+        lang: typeof Gjs.Lang
+        system: typeof Gjs.System
         package: typeof Gjs.Package
+        mainloop: typeof Gjs.Mainloop
         searchPath: string[]
     }
 }

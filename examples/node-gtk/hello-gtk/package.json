@@ -19,7 +19,7 @@
   "author": "",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">16"
+    "node": ">=16"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

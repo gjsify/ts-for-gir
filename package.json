@@ -6,7 +6,7 @@
   "type": "module",
   "bin": "./lib/start.js",
   "engines": {
-    "node": ">16"
+    "node": ">=16"
   },
   "scripts": {
     "start": "node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",

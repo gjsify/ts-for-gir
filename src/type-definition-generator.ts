@@ -103,7 +103,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const readonly = tsProp.readonly ? 'readonly ' : ''
 
         // temporary solution, will be solved differently later
-        const commentOut = tsProp.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsProp.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
 
         desc.push(`${indent}${commentOut}${readonly}${staticStr}${varDesc}`)
         return desc
@@ -172,7 +172,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateReturnTypes(tsVar.type, namespace)
 
         // temporary solution, will be solved differently later
-        const commentOut = allowCommentOut && tsVar.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
 
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
@@ -517,7 +517,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const genericStr = this.generateGenericParameters(tsFunction.generics)
 
         // temporary solution, will be solved differently later
-        const commentOut = tsFunction.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsFunction.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
 
         let exportStr = ''
         // `tsType === 'function'` are a global methods which can be exported

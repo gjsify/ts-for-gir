@@ -1196,11 +1196,11 @@ export class GirModule {
             return undefined
         }
 
-        let hasConflict: boolean | undefined
+        let hasUnresolvedConflict: boolean | undefined
 
         // TODO: That we overwrite tsData every time seems wrong to me, but if I just return the already defined `_tsData` leads to problems with the overload methods
         if (girFunc._tsData) {
-            hasConflict = girFunc._tsData?.hasConflict // WORKAROUND do not overwrite conflicts
+            hasUnresolvedConflict = girFunc._tsData?.hasUnresolvedConflict // WORKAROUND do not overwrite conflicts
         }
 
         let name = girFunc.$.name
@@ -1241,7 +1241,7 @@ export class GirModule {
             instanceParameters,
             outParams,
             generics: overwrite.generics,
-            hasConflict,
+            hasUnresolvedConflict,
             girTypeName,
             tsTypeName: this.girTypeNameToTsTypeName(girTypeName, overwrite.isStatic),
             doc: this.getTsDoc(girFunc as GirDocElement),

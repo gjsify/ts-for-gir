@@ -26,7 +26,7 @@ export interface TsFunction {
     generics: TsGenericParameter[]
 
     /** Temporary property, we will try later to resolve the conflicts correctly */
-    hasConflict?: boolean
+    hasUnresolvedConflict?: boolean
 
     // CUSTOM
     girTypeName: 'constructor' | 'function' | 'method' | 'static-function' | 'signal' | 'virtual' | 'callback'

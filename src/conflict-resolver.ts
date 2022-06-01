@@ -244,35 +244,13 @@ export class ConflictResolver {
         )
     }
 
-    private static mergeType(a: TsType | undefined, b: TsType | undefined) {
+    private static mergeTypes(...types: Array<TsType | undefined>) {
         const dest: TsType[] = []
-        if (!a && !b) {
-            throw new Error('At least one type must be defined!')
-        }
-        if (a && b) {
-            if (isEqual(a, b)) {
-                dest.push(clone(a))
-            } else {
-                dest.push(clone(a), clone(b))
-            }
-        } else {
-            dest.push(clone((a || b) as TsType))
-        }
 
-        return dest
-    }
-
-    private static mergeTypes(a: TsType[], b: TsType[]) {
-        let dest = new Array<TsType>()
-        if (isEqual(a, b)) {
-            dest.push(...clone(a))
-        } else {
-            const length = Math.max(a.length, b.length)
-            for (let i = 0; i < length; i++) {
-                dest.push(...this.mergeType(a[i], b[i]))
-            }
-            if (typeIsOptional(dest)) {
-                dest = this.setTypesProperty(dest, 'optional', true)
+        for (const type of types) {
+            if (!type) continue
+            if (!dest.find((destType) => isEqual(destType, type))) {
+                dest.push(type)
             }
         }
 
@@ -299,7 +277,7 @@ export class ConflictResolver {
                 throw new Error('Error on merge parameters!')
             }
             dest._tsData.type = []
-            dest._tsData.type = this.mergeTypes(a._tsData.type, b._tsData.type)
+            dest._tsData.type = this.mergeTypes(...a._tsData.type, ...b._tsData.type)
             if (a._tsData.name !== b._tsData.name) {
                 dest._tsData.name = `${a._tsData.name}_or_${b._tsData.name}`
             }
@@ -319,17 +297,25 @@ export class ConflictResolver {
         return dest
     }
 
-    private static mergeParams(a: GirCallableParamElement[], b: GirCallableParamElement[]) {
-        let dest: GirCallableParamElement[]
-        if (isEqual(a, b)) {
-            dest = clone(a)
-        } else {
-            const length = Math.max(a.length, b.length)
-            dest = new Array<GirCallableParamElement>(length)
-            for (let i = 0; i < length; i++) {
-                const aParam = a[i] as GirCallableParamElement | undefined
-                const bParam = b[i] as GirCallableParamElement | undefined
-                dest[i] = this.mergeParam(aParam, bParam)
+    private static mergeParams(...params: GirCallableParamElement[][]) {
+        let dest: GirCallableParamElement[] = []
+
+        for (const a of params) {
+            for (const b of params) {
+                if (a === b) {
+                    continue
+                }
+                if (isEqual(a, b)) {
+                    dest = clone(a)
+                } else {
+                    const length = Math.max(a.length, b.length)
+                    dest = new Array<GirCallableParamElement>(length)
+                    for (let i = 0; i < length; i++) {
+                        const aParam = a[i] as GirCallableParamElement | undefined
+                        const bParam = b[i] as GirCallableParamElement | undefined
+                        dest[i] = this.mergeParam(aParam, bParam)
+                    }
+                }
             }
         }
 
@@ -373,22 +359,30 @@ export class ConflictResolver {
         return girParams
     }
 
-    public static mergeFunctions(a: TsFunction, b: TsFunction) {
-        const result = merge({}, clone(a), clone(b))
+    public static mergeFunctions(...funcs: TsFunction[]) {
+        const returnTypesMap: TsType[] = []
+        for (const func of funcs) {
+            returnTypesMap.push(...func.returnTypes)
+        }
+        const returnTypes = this.mergeTypes(...returnTypesMap)
 
-        result.returnTypes = this.mergeTypes(a.returnTypes, b.returnTypes)
-
-        if (!this.paramsMatch(a.inParams, b.inParams)) {
-            result.inParams = this.mergeParams(a.inParams, b.inParams)
-            // TODO: Not working for get_proxy_type_func_or_cancellable
-            // result.inParams = this.fixOptionalParameters(result.inParams)
+        const inParamsMap = funcs.map((func) => func.inParams)
+        const inParams: GirCallableParamElement[] = []
+        if (!this.paramsMatch(...inParamsMap)) {
+            inParams.push(...this.mergeParams(...inParamsMap))
         }
 
-        if (!this.paramsMatch(a.outParams, b.outParams)) {
-            result.outParams = this.mergeParams(a.outParams, b.outParams)
+        const outParamsMap = funcs.map((func) => func.outParams)
+        const outParams: GirCallableParamElement[] = []
+        if (!this.paramsMatch(...outParamsMap)) {
+            outParams.push(...this.mergeParams(...outParamsMap))
         }
 
-        return result
+        if (funcs[0]) {
+            funcs[0].returnTypes = returnTypes
+            funcs[0].inParams = inParams
+            funcs[0].outParams = outParams
+        }
     }
 
     /**
@@ -417,14 +411,18 @@ export class ConflictResolver {
     public static fixConflicts(groupedElements: GroupedConflictElements) {
         for (const name of Object.keys(groupedElements)) {
             const elements = groupedElements[name]
-            for (const element of elements) {
-                // temporary solution, will be solved differently later
-                element.data.hasConflict = true
-                // if (element.depth === 0) {
-                //     element.data.hasConflict = true
-                // } else {
-                //     break
-                // }
+            for (const a of elements) {
+                for (const b of elements) {
+                    if (a === b) {
+                        continue
+                    }
+                    if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
+                        this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                    } else {
+                        // Temporary solution, will be solved differently later
+                        a.data.hasUnresolvedConflict = true
+                    }
+                }
             }
         }
     }
@@ -439,11 +437,13 @@ export class ConflictResolver {
             for (const b of elements) {
                 if (a && a.data.name && b && this.hasConflict(a, b)) {
                     groupedConflicts[a.data.name] ||= []
-                    if (!groupedConflicts[a.data.name].includes(a)) {
-                        groupedConflicts[a.data.name].push(a)
+                    const groupedConflict = groupedConflicts[a.data.name]
+
+                    if (!groupedConflict.includes(a)) {
+                        groupedConflict.push(a)
                     }
-                    if (!groupedConflicts[a.data.name].includes(b)) {
-                        groupedConflicts[a.data.name].push(b)
+                    if (!groupedConflict.includes(b)) {
+                        groupedConflict.push(b)
                     }
                 }
             }
@@ -538,27 +538,39 @@ export class ConflictResolver {
     /**
      * Returns true if `p1s` and `p2s` are compatible with each other.
      * The parameters must have the same length and the same type but can have different names
-     * @param p1s
-     * @param p2s
+     * @param params
      * @returns
      */
-    public static paramsMatch(p1s: GirCallableParamElement[], p2s: GirCallableParamElement[]) {
-        if (p1s.length !== p2s.length) {
-            return false
-        }
-
-        for (const [i, p1] of p1s.entries()) {
-            const p2 = p2s[i]
-            if (p2._tsData && p1._tsData) {
-                if (!this.typesMatch(p2._tsData?.type, p1._tsData?.type)) {
-                    return false
+    public static paramsMatch(...params: GirCallableParamElement[][]) {
+        let match = true
+        for (const p1s of params) {
+            for (const p2s of params) {
+                if (p1s === p2s) {
+                    match = true
+                    continue
                 }
-            } else {
-                return false
+
+                if (p1s.length !== p2s.length) {
+                    match = false
+                    return match
+                }
+
+                for (const [i, p1] of p1s.entries()) {
+                    const p2 = p2s[i]
+                    if (p2._tsData && p1._tsData) {
+                        if (!this.typesMatch(p2._tsData?.type, p1._tsData?.type)) {
+                            match = false
+                            return match
+                        }
+                    } else {
+                        match = false
+                        return match
+                    }
+                }
             }
         }
 
-        return true
+        return match
     }
 
     public static typesMatch(a: TsType[], b: TsType[]) {

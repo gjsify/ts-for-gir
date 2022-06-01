@@ -6,6 +6,7 @@
   export const gettext = imports.gettext;
   export const System = imports.system;
   export const Signals = imports.signals;
+  export const Package = imports.package;
 <% } else { %>  
   module.exports = {
     byteArray: imports.byteArray,

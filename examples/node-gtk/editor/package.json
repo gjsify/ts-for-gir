@@ -22,11 +22,11 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@types/node": "^17.0.25",
-    "fork-ts-checker-webpack-plugin": "^7.2.6",
-    "ts-loader": "^9.2.8",
-    "typescript": "^4.6.3",
-    "webpack": "^5.72.0",
+    "@types/node": "^17.0.38",
+    "fork-ts-checker-webpack-plugin": "^7.2.11",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.7.2",
+    "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
   },

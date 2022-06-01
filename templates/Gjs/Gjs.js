@@ -7,8 +7,6 @@
   export const System = imports.system;
   export const Signals = imports.signals;
 <% } else { %>  
-  export const Package = imports.package;
-<% } else { %>
   module.exports = {
     byteArray: imports.byteArray,
     Lang: imports.lang,

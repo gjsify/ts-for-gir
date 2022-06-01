@@ -20,7 +20,7 @@ import type {
     TsClass,
 } from './types/index.js'
 
-interface ChildData {
+interface ChildElement {
     /**
      * The depth of the inheritance, starts at 1.
      * 1 means it is a direct inheritance,
@@ -30,11 +30,15 @@ interface ChildData {
     data: TsFunction | TsProperty | TsVar
 }
 
-interface ChildFunction extends ChildData {
+interface GroupedConflictElements {
+    [name: string]: ChildElement[]
+}
+
+interface ChildFunction extends ChildElement {
     data: TsFunction
 }
 
-interface ChildProperty extends ChildData {
+interface ChildProperty extends ChildElement {
     data: TsProperty | TsVar
 }
 
@@ -43,7 +47,7 @@ interface ChildProperty extends ChildData {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
-    private static girElArrToChildArr<T extends ChildData>(
+    private static girElArrToChildArr<T extends ChildElement>(
         dataArr: Array<
             | GirMethodElement
             | GirVirtualMethodElement
@@ -64,7 +68,7 @@ export class ConflictResolver {
             })
     }
 
-    private static tsElArrToChildArr<T extends ChildData>(
+    private static tsElArrToChildArr<T extends ChildElement>(
         dataArr: Array<TsFunction | TsProperty | TsVar>,
         depth: number,
     ): T[] {
@@ -393,18 +397,64 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    public static hasConflict(a: ChildData, b: ChildData) {
+    public static hasConflict(a: ChildElement, b: ChildElement) {
         if (a !== b && a.data.name === b.data.name) {
             if (a.data.name === 'constructor' || a.data.name === 'new' || a.data.name === '_init') {
                 return false
             }
-
             if (!this.elementMatch(a.data, b.data)) {
                 return true
             }
         }
 
         return false
+    }
+
+    /**
+     * Fix the conflicts by merging the types with each other
+     * @param groupedElements
+     */
+    public static fixConflicts(groupedElements: GroupedConflictElements) {
+        for (const name of Object.keys(groupedElements)) {
+            const elements = groupedElements[name]
+            for (const element of elements) {
+                // temporary solution, will be solved differently later
+                element.data.hasConflict = true
+                // if (element.depth === 0) {
+                //     element.data.hasConflict = true
+                // } else {
+                //     break
+                // }
+            }
+        }
+    }
+
+    /**
+     * Group conflicts by name and sort them by depth for simpler handling of conflicts
+     */
+    public static groupConflicts(elements: ChildElement[]) {
+        const groupedConflicts: GroupedConflictElements = {}
+
+        for (const a of elements) {
+            for (const b of elements) {
+                if (a && a.data.name && b && this.hasConflict(a, b)) {
+                    groupedConflicts[a.data.name] ||= []
+                    if (!groupedConflicts[a.data.name].includes(a)) {
+                        groupedConflicts[a.data.name].push(a)
+                    }
+                    if (!groupedConflicts[a.data.name].includes(b)) {
+                        groupedConflicts[a.data.name].push(b)
+                    }
+                }
+            }
+        }
+
+        // Sort by depth
+        for (const name of Object.keys(groupedConflicts)) {
+            groupedConflicts[name] = groupedConflicts[name].sort((a, b) => a.depth - b.depth)
+        }
+
+        return groupedConflicts
     }
 
     /**
@@ -478,25 +528,11 @@ export class ConflictResolver {
             ...fields,
         ]
 
-        for (const a of elements) {
-            for (const b of elements) {
-                if (a && b && this.hasConflict(a, b)) {
-                    // temporary solution, will be solved differently later
-                    a.data.hasConflict = true
-                    a.data.hasConflict = true
-                }
-            }
-        }
+        const groupedElementConflicts = this.groupConflicts(elements)
+        const groupedConstructPropConflicts = this.groupConflicts(constructProps)
 
-        for (const a of constructProps) {
-            for (const b of constructProps) {
-                if (a && b && this.hasConflict(a, b)) {
-                    // temporary solution, will be solved differently later
-                    a.data.hasConflict = true
-                    a.data.hasConflict = true
-                }
-            }
-        }
+        this.fixConflicts(groupedElementConflicts)
+        this.fixConflicts(groupedConstructPropConflicts)
     }
 
     /**

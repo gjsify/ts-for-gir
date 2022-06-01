@@ -9,9 +9,9 @@ import type * as Gjs from './Gjs'
 <%_ for (const girModule of girModules) { _%>
   <%_ if(useNamespace){ _%>
 import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
-    <%_ } else { _%>
+  <%_ } else { _%>
 import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
-    <%_ } _%>
+  <%_ } _%>
 <%_ } _%>
 
 // See also https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts

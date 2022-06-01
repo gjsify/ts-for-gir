@@ -98,7 +98,7 @@ export default class TypeDefinitionGenerator implements Generator {
         desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
 
         const indent = generateIndent(indentCount)
-        const varDesc = this.generateVariable(tsProp, namespace, 0)
+        const varDesc = this.generateVariable(tsProp, namespace, 0, false)
         const staticStr = isStatic ? 'static ' : ''
         const readonly = tsProp.readonly ? 'readonly ' : ''
 
@@ -159,7 +159,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return typeStr
     }
 
-    private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0) {
+    private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0, allowCommentOut = true) {
         const indent = generateIndent(indentCount)
         const name = tsVar.name
         const optional = typeIsOptional(tsVar.type)
@@ -172,7 +172,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateReturnTypes(tsVar.type, namespace)
 
         // temporary solution, will be solved differently later
-        const commentOut = tsVar.hasConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = allowCommentOut && tsVar.hasConflict ? '// TODO fix conflict: ' : ''
 
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }

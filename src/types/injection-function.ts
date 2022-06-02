@@ -3,7 +3,7 @@ import type { TsFunction, InjectionParameter, InjectionInstanceParameter, Inject
 export interface InjectionFunction
     extends Pick<TsFunction, 'name'>,
         Partial<Pick<TsFunction, 'isArrowType' | 'isStatic' | 'isGlobal' | 'isVirtual'>> {
-    returnType?: InjectionType
+    returnTypes?: InjectionType[]
     inParams?: InjectionParameter[]
     outParams?: InjectionParameter[]
     instanceParameters?: InjectionInstanceParameter[]

@@ -7,7 +7,7 @@ export const classes: InjectionClass[] = [
     //     methods: [
     //         {
     //             name: 'connect',
-    //             returnType: { type: 'any' },
+    //             returnTypes: [{ type: 'any' }],
     //             inParams: [
     //                 {
     //                     name: '...args',
@@ -17,7 +17,7 @@ export const classes: InjectionClass[] = [
     //         },
     //         {
     //             name: 'connect_after',
-    //             returnType: { type: 'any' },
+    //             returnTypes: [{ type: 'any' }],
     //             inParams: [
     //                 {
     //                     name: '...args',
@@ -27,7 +27,7 @@ export const classes: InjectionClass[] = [
     //         },
     //         {
     //             name: 'emit',
-    //             returnType: { type: 'any' },
+    //             returnTypes: [{ type: 'any' }],
     //             inParams: [
     //                 {
     //                     name: '...args',
@@ -37,7 +37,7 @@ export const classes: InjectionClass[] = [
     //         },
     //         {
     //             name: 'disconnect',
-    //             returnType: { type: 'any' },
+    //             returnTypes: [{ type: 'any' }],
     //             inParams: [
     //                 {
     //                     name: '...args',
@@ -54,7 +54,7 @@ export const classes: InjectionClass[] = [
             // static char(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecChar
             {
                 name: 'char',
-                returnType: { type: 'GObject.ParamSpecChar' },
+                returnTypes: [{ type: 'GObject.ParamSpecChar' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -90,7 +90,7 @@ export const classes: InjectionClass[] = [
             // static uchar(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUChar
             {
                 name: 'uchar',
-                returnType: { type: 'GObject.ParamSpecUChar' },
+                returnTypes: [{ type: 'GObject.ParamSpecUChar' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -126,7 +126,7 @@ export const classes: InjectionClass[] = [
             // static int(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt
             {
                 name: 'int',
-                returnType: { type: 'GObject.ParamSpecInt' },
+                returnTypes: [{ type: 'GObject.ParamSpecInt' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -162,7 +162,7 @@ export const classes: InjectionClass[] = [
             // static uint(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt
             {
                 name: 'uint',
-                returnType: { type: 'GObject.ParamSpecUInt' },
+                returnTypes: [{ type: 'GObject.ParamSpecUInt' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -198,7 +198,7 @@ export const classes: InjectionClass[] = [
             // static long(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecLong
             {
                 name: 'long',
-                returnType: { type: 'GObject.ParamSpecLong' },
+                returnTypes: [{ type: 'GObject.ParamSpecLong' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -234,7 +234,7 @@ export const classes: InjectionClass[] = [
             // static ulong(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecULong
             {
                 name: 'ulong',
-                returnType: { type: 'GObject.ParamSpecULong' },
+                returnTypes: [{ type: 'GObject.ParamSpecULong' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -270,7 +270,7 @@ export const classes: InjectionClass[] = [
             // static int64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecInt64
             {
                 name: 'int64',
-                returnType: { type: 'GObject.ParamSpecInt64' },
+                returnTypes: [{ type: 'GObject.ParamSpecInt64' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -306,7 +306,7 @@ export const classes: InjectionClass[] = [
             // static uint64(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecUInt64
             {
                 name: 'uint64',
-                returnType: { type: 'GObject.ParamSpecUInt64' },
+                returnTypes: [{ type: 'GObject.ParamSpecUInt64' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -342,7 +342,7 @@ export const classes: InjectionClass[] = [
             // static float(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecFloat
             {
                 name: 'float',
-                returnType: { type: 'GObject.ParamSpecFloat' },
+                returnTypes: [{ type: 'GObject.ParamSpecFloat' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -378,7 +378,7 @@ export const classes: InjectionClass[] = [
             // static boolean(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: boolean): ParamSpecBoolean
             {
                 name: 'boolean',
-                returnType: { type: 'GObject.ParamSpecBoolean' },
+                returnTypes: [{ type: 'GObject.ParamSpecBoolean' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -407,7 +407,7 @@ export const classes: InjectionClass[] = [
             // static flags<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, flagsType: GType<T>, defaultValue: number): ParamSpecFlags
             {
                 name: 'flags',
-                returnType: { type: 'GObject.ParamSpecFlags' },
+                returnTypes: [{ type: 'GObject.ParamSpecFlags' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -439,7 +439,7 @@ export const classes: InjectionClass[] = [
             // static enum<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, enumType: GType<T>, defaultValue: number): ParamSpecEnum
             {
                 name: 'enum',
-                returnType: { type: 'GObject.ParamSpecEnum' },
+                returnTypes: [{ type: 'GObject.ParamSpecEnum' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -471,7 +471,7 @@ export const classes: InjectionClass[] = [
             // static double(name: string, nick: string, blurb: string, flags: ParamFlags, minimum: number, maximum: number, defaultValue: number): ParamSpecDouble
             {
                 name: 'double',
-                returnType: { type: 'GObject.ParamSpecDouble' },
+                returnTypes: [{ type: 'GObject.ParamSpecDouble' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -507,7 +507,7 @@ export const classes: InjectionClass[] = [
             // static string(name: string, nick: string, blurb: string, flags: ParamFlags, defaultValue: string | null): ParamSpecString
             {
                 name: 'string',
-                returnType: { type: 'GObject.ParamSpecString' },
+                returnTypes: [{ type: 'GObject.ParamSpecString' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -535,7 +535,7 @@ export const classes: InjectionClass[] = [
             // static boxed<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, boxedType: GType<T>): ParamSpecBoxed
             {
                 name: 'boxed',
-                returnType: { type: 'GObject.ParamSpecBoxed' },
+                returnTypes: [{ type: 'GObject.ParamSpecBoxed' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -563,7 +563,7 @@ export const classes: InjectionClass[] = [
             // static object<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, objectType: GType<T>): ParamSpecObject
             {
                 name: 'object',
-                returnType: { type: 'GObject.ParamSpecObject' },
+                returnTypes: [{ type: 'GObject.ParamSpecObject' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -591,7 +591,7 @@ export const classes: InjectionClass[] = [
             // static jsobject(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpecBoxed
             {
                 name: 'jsobject',
-                returnType: { type: 'GObject.ParamSpecBoxed' },
+                returnTypes: [{ type: 'GObject.ParamSpecBoxed' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -615,7 +615,7 @@ export const classes: InjectionClass[] = [
             // static param<T = unknown>(name: string, nick: string, blurb: string, flags: ParamFlags, paramType: GType<T>): ParamSpecParam
             {
                 name: 'param',
-                returnType: { type: 'GObject.ParamSpecParam' },
+                returnTypes: [{ type: 'GObject.ParamSpecParam' }],
                 isStatic: true,
                 inParams: [
                     {
@@ -643,7 +643,7 @@ export const classes: InjectionClass[] = [
             // static override(name: string, oclass: GObject.Object | Function | GObject.GType): void
             {
                 name: 'override',
-                returnType: { type: 'void' },
+                returnTypes: [{ type: 'void' }],
                 isStatic: true,
                 inParams: [
                     {

@@ -77,7 +77,7 @@ export class GirFactory {
 
         const girFunctionElement = this.newGirFunctionElement({
             name: injectFunction.name,
-            returnTypes: [this.newTsType(injectFunction.returnType)],
+            returnTypes: this.newTsTypes(injectFunction.returnTypes || []),
             isArrowType: injectFunction.isArrowType,
             isStatic: injectFunction.isStatic,
             isGlobal: injectFunction.isGlobal,
@@ -166,6 +166,19 @@ export class GirFactory {
         }
 
         return newTsData
+    }
+
+    newTsTypes(tsDataArr: InjectionType[]): TsType[] {
+        const types: TsType[] = []
+        for (const tsData of tsDataArr) {
+            types.push(this.newTsType(tsData))
+        }
+
+        if (tsDataArr.length === 0) {
+            types.push(this.newTsType({}))
+        }
+
+        return types
     }
 
     newTsParameter(tsData: InjectionParameter) {

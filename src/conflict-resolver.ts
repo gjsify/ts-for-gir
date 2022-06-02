@@ -1,3 +1,4 @@
+import { GirFactory } from './gir-factory.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typeIsOptional } from './utils.js'
 import type {
@@ -18,6 +19,7 @@ import type {
     TsVar,
     TsType,
     TsClass,
+    TsParameter,
 } from './types/index.js'
 
 interface ChildElement {
@@ -47,6 +49,8 @@ interface ChildProperty extends ChildElement {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
+    private static girFactory = new GirFactory()
+
     private static girElArrToChildArr<T extends ChildElement>(
         dataArr: Array<
             | GirMethodElement
@@ -378,11 +382,16 @@ export class ConflictResolver {
             outParams.push(...this.mergeParams(...outParamsMap))
         }
 
-        if (funcs[0]) {
-            funcs[0].returnTypes = returnTypes
-            funcs[0].inParams = inParams
-            funcs[0].outParams = outParams
+        if (!funcs[0]) {
+            throw new Error('At least one function must exist!')
         }
+
+        return this.girFactory.newFunction({
+            name: funcs[0].name,
+            returnTypes: returnTypes,
+            inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
+            outParams: outParams.map((outParam) => outParam._tsData).filter((outParam) => !!outParam) as TsParameter[],
+        })
     }
 
     public static mergeProperties(...props: TsVar[]) {
@@ -393,9 +402,14 @@ export class ConflictResolver {
         }
         const types = this.mergeTypes(...typesMap)
 
-        if (props[0]) {
-            props[0].type = types
+        if (!props[0] || !props[0].name) {
+            throw new Error('At least one property must exist!')
         }
+
+        return this.girFactory.newGirPropertyElement({
+            name: props[0].name,
+            type: types,
+        })
     }
 
     /**
@@ -430,17 +444,20 @@ export class ConflictResolver {
                         continue
                     }
                     if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
-                        // TODO: Fixme this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                        // TODO: inject to class: const mergedFunction = this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
                         a.data.hasUnresolvedConflict = true
                     } else if (this.tsElementIsStaticFunction(a.data) && this.tsElementIsStaticFunction(b.data)) {
-                        this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                        // TODO: inject to class: const mergedFunction = this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                        a.data.hasUnresolvedConflict = true
                     } else if (
                         this.tsElementIsPropertyOrVariable(a.data) &&
                         this.tsElementIsPropertyOrVariable(b.data)
                     ) {
-                        this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                        // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                        a.data.hasUnresolvedConflict = true
                     } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
-                        this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                        // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                        a.data.hasUnresolvedConflict = true
                     } else {
                         // Temporary solution, will be solved differently later
                         a.data.hasUnresolvedConflict = true

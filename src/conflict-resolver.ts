@@ -385,6 +385,19 @@ export class ConflictResolver {
         }
     }
 
+    public static mergeProperties(...props: TsVar[]) {
+        // Merge types
+        const typesMap: TsType[] = []
+        for (const prop of props) {
+            typesMap.push(...prop.type)
+        }
+        const types = this.mergeTypes(...typesMap)
+
+        if (props[0]) {
+            props[0].type = types
+        }
+    }
+
     /**
      * Check if there is a type conflict between the ts elements a and b
      * @param a
@@ -417,7 +430,17 @@ export class ConflictResolver {
                         continue
                     }
                     if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
+                        // TODO: Fixme this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                        a.data.hasUnresolvedConflict = true
+                    } else if (this.tsElementIsStaticFunction(a.data) && this.tsElementIsStaticFunction(b.data)) {
                         this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
+                    } else if (
+                        this.tsElementIsPropertyOrVariable(a.data) &&
+                        this.tsElementIsPropertyOrVariable(b.data)
+                    ) {
+                        this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                    } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
+                        this.mergeProperties(a.data as TsVar, b.data as TsVar)
                     } else {
                         // Temporary solution, will be solved differently later
                         a.data.hasUnresolvedConflict = true

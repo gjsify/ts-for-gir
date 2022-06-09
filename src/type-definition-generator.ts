@@ -400,8 +400,9 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateReturnTypes(types, namespace)
         const optional = typeIsOptional(types)
         const affix = optional ? '?' : ''
+        const prefix = girParam._tsData.isRest ? '...' : ''
 
-        return [`${name}${affix}: ${typeStr}`]
+        return [`${prefix}${name}${affix}: ${typeStr}`]
     }
 
     /**
@@ -548,6 +549,18 @@ export default class TypeDefinitionGenerator implements Generator {
                 ', ',
             )})${retSep} ${returnType}`,
         )
+
+        // Overloads
+        if (!tsFunction.overloads) {
+            console.error('Error on function generation: ', tsFunction)
+            throw new Error('overloads not defined!')
+        }
+        if (tsFunction.overloads.length > 0) {
+            def.push(...this.addInlineInfoComment('Overloads', indentCount))
+            for (const func of tsFunction.overloads) {
+                def.push(...this._generateFunction(func, onlyStatic, namespace, indentCount))
+            }
+        }
 
         return def
     }
@@ -953,18 +966,18 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Methods from implementation
         for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-            const implm = girClass._tsData.implements[versionFullSymName]
-            const implmDef: string[] = []
+            const impl = girClass._tsData.implements[versionFullSymName]
+            const implDef: string[] = []
 
             // Static methods of abstract classes
-            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.methods, namespace, indentCount))
+            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.methods, namespace, indentCount))
             // Constructors
-            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.constructors, namespace, indentCount))
+            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
             // Pseudo constructors
-            implmDef.push(...this.generateOnlyStaticFunctions(implm.interface.staticFunctions, namespace, indentCount))
+            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.staticFunctions, namespace, indentCount))
 
-            if (implmDef.length) {
-                implmDef.unshift(
+            if (implDef.length) {
+                implDef.unshift(
                     ...this.addInfoComment(
                         `Implemented static methods and constructors of ${versionFullSymName}`,
                         indentCount,
@@ -972,7 +985,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 )
             }
 
-            def.push(...implmDef)
+            def.push(...implDef)
         }
 
         return def

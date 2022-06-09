@@ -13,6 +13,9 @@ export interface TsCallback extends TsMethod {
     /** Will be exported in Typescript as a `interface` to be able to assign this interface to the callbacks or as a global function */
     tsTypeName: 'interface' | 'event-methods'
 
+    /** Callback overloads, used in `ConflictResolver` */
+    overloads: TsCallback[]
+
     /** Typescript data to generate documentations in TSDoc style */
     doc: TsDoc
 }

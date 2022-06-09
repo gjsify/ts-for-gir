@@ -20,6 +20,7 @@ import type {
     TsType,
     TsClass,
     TsParameter,
+    TypeGirFunction,
 } from './types/index.js'
 
 interface ChildElement {
@@ -386,11 +387,12 @@ export class ConflictResolver {
             throw new Error('At least one function must exist!')
         }
 
-        return this.girFactory.newFunction({
+        return this.girFactory.newGirFunction({
             name: funcs[0].name,
             returnTypes: returnTypes,
             inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
             outParams: outParams.map((outParam) => outParam._tsData).filter((outParam) => !!outParam) as TsParameter[],
+            girTypeName: funcs[0].girTypeName,
         })
     }
 
@@ -431,6 +433,29 @@ export class ConflictResolver {
         return false
     }
 
+    public static setParameterTypeToAny(param: TsVar) {
+        param.type = [this.girFactory.newTsType({ type: 'any' })]
+    }
+
+    /**
+     * Returns a new any function: `name(...args: any[]): any`
+     * @param name The name of the function
+     */
+    public static newAnyTsFunction(name: string, girTypeName: TypeGirFunction) {
+        return this.girFactory.newTsFunction({
+            name,
+            inParams: [
+                {
+                    name: 'args',
+                    isRest: true,
+                    type: [this.girFactory.newTsType({ type: 'any', isArray: true })],
+                },
+            ],
+            returnTypes: [{ type: 'any' }],
+            girTypeName,
+        })
+    }
+
     /**
      * Fix the conflicts by merging the types with each other
      * @param groupedElements
@@ -454,13 +479,20 @@ export class ConflictResolver {
                         this.tsElementIsPropertyOrVariable(b.data)
                     ) {
                         // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
+                        // this.setParameterTypeToAny(a.data as TsVar)
                         a.data.hasUnresolvedConflict = true
                     } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
                         // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
                         a.data.hasUnresolvedConflict = true
                     } else {
-                        // Temporary solution, will be solved differently later
-                        a.data.hasUnresolvedConflict = true
+                        if (a.data.name && this.tsElementIsMethodOrFunction(a.data)) {
+                            const tsData = a.data as TsFunction
+                            tsData.overloads.push(this.newAnyTsFunction(tsData.name, tsData.girTypeName))
+                        } else if (this.tsElementIsPropertyOrVariable(a.data)) {
+                            this.setParameterTypeToAny(a.data as TsVar)
+                        } else {
+                            a.data.hasUnresolvedConflict = true
+                        }
                     }
                 }
             }

@@ -1,4 +1,12 @@
-import { GirCallableParamElement, GirInstanceParameter, TsGenericParameter, TsType, TsDoc } from './index.js'
+import {
+    GirCallableParamElement,
+    GirInstanceParameter,
+    TsGenericParameter,
+    TsType,
+    TsDoc,
+    TypeTsFunction,
+    TypeGirFunction,
+} from './index.js'
 
 /**
  * Holds the data to generate a function in/for Typescript
@@ -25,18 +33,21 @@ export interface TsFunction {
     outParams: GirCallableParamElement[]
     generics: TsGenericParameter[]
 
+    /** Function overloads, used in `ConflictResolver` */
+    overloads: TsFunction[]
+
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasUnresolvedConflict?: boolean
 
     // CUSTOM
-    girTypeName: 'constructor' | 'function' | 'method' | 'static-function' | 'signal' | 'virtual' | 'callback'
+    girTypeName: TypeGirFunction
     /**
      * - Functions are usually exported as global functions in typescript, but can also be static functions of a class
      * - Signals are represented in Typescript as multiple event methods
      * - Virtual methods are represented in Typescript as normal methods with the prefix "vfunc_"
      * - Callbacks are generated as interfaces
      */
-    tsTypeName: 'static-function' | 'constructor' | 'function' | 'method' | 'event-methods' | 'interface'
+    tsTypeName: TypeTsFunction
 
     /** Typescript data to generate documentations in TSDoc style */
     doc: TsDoc

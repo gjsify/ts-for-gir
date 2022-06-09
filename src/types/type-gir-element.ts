@@ -1,10 +1,17 @@
-import { TypeClass, TypeMethod, TypeVariable, TypeAlias, TypeEnumeration, TypeInterface, TypeField } from './index.js'
+import {
+    TypeClass,
+    TypeMethod,
+    TypeVariable,
+    TypeAlias,
+    TypeEnumeration,
+    TypeInterface,
+    TypeField,
+    TypeGirFunction,
+} from './index.js'
 
 /** Any gir element type */
 export type TypeGirElement =
     | TypeClass
-    | 'function'
-    | 'static-function'
     | TypeMethod
     | TypeVariable
     | TypeAlias
@@ -13,3 +20,4 @@ export type TypeGirElement =
     | 'bitfield-member'
     | TypeInterface
     | TypeField
+    | TypeGirFunction

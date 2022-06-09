@@ -66,9 +66,6 @@ import type {
     GirDocElement,
     TypeVariable,
     TypeClass,
-    TypeGirElement,
-    TypeTsElement,
-    TypeField,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -94,6 +91,7 @@ import type {
     GenerateConfig,
     Environment,
     ClassParent,
+    InjectionParameter,
 } from './types/index.js'
 
 export class GirModule {
@@ -643,9 +641,10 @@ export class GirModule {
                     girCallback._tsData = {
                         ...tsCallback,
                         girTypeName: 'callback',
-                        tsTypeName: this.girTypeNameToTsTypeName('callback'),
+                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
                         doc: this.getTsDoc(girCallback),
+                        overloads: [],
                     }
                 }
 
@@ -844,6 +843,8 @@ export class GirModule {
      * @param packageName E.g. 'Gtk-3.0'
      * @param type E.g 'methods'
      * @param nsPath E.g. 'Gtk.MenuItem.activate'
+     *
+     * @deprecated TODO: Remove and use and use injections instead (InjectionClass)
      */
     private getPatches(
         type: 'methods' | 'constructorProperties' | 'parameter',
@@ -907,6 +908,7 @@ export class GirModule {
         const tsData: TsParameter = {
             name: paramName,
             type: [tsType],
+            isRest: false,
             girTypeName: 'callable-param',
             doc: this.getTsDoc(girParam),
         }
@@ -1243,8 +1245,9 @@ export class GirModule {
             generics: overwrite.generics,
             hasUnresolvedConflict,
             girTypeName,
-            tsTypeName: this.girTypeNameToTsTypeName(girTypeName, overwrite.isStatic),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, overwrite.isStatic),
             doc: this.getTsDoc(girFunc as GirDocElement),
+            overloads: [],
         }
 
         tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
@@ -1368,8 +1371,9 @@ export class GirModule {
             outParams,
             generics: [],
             girTypeName: 'callback',
-            tsTypeName: this.girTypeNameToTsTypeName('callback'),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
             doc: this.getTsDoc(girSignalFunc),
+            overloads: [],
         }
 
         tsCallback.doc.tags.push(...this.getTsDocGirElementTags(tsCallback.tsTypeName, tsCallback.girTypeName))
@@ -1389,10 +1393,19 @@ export class GirModule {
             throw new Error(NO_TSDATA('getClassSignalMethodsTsData'))
         }
 
+        const inParams = girSignal._tsData.inParams.slice(1).map((inParam) => {
+            const injectParam: InjectionParameter = {
+                ...inParam._tsData,
+                type: inParam._tsData?.type || [],
+                name: inParam._tsData?.name || 'unknown',
+            }
+            return injectParam
+        })
+
         return this.girFactory.newTsSignalMethods(
             girSignal._tsData?.name,
             girSignal._tsData?.tsCallbackInterface?.name,
-            girSignal._tsData.inParams.slice(1),
+            inParams,
             this.config.environment,
         )
     }
@@ -1454,8 +1467,9 @@ export class GirModule {
                 tsCallbackInterface: this.getSignalCallbackInterfaceTsData(girSignal, girClass),
                 tsMethods: [],
                 girTypeName: 'signal',
-                tsTypeName: this.girTypeNameToTsTypeName('signal'),
+                tsTypeName: this.girFactory.girTypeNameToTsTypeName('signal'),
                 doc: this.getTsDoc(girSignal),
+                overloads: [],
             }
 
             girSignal._tsData.doc.tags.push(
@@ -1516,7 +1530,7 @@ export class GirModule {
         const tsData: TsMember = {
             name,
             girTypeName,
-            tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
             doc: this.getTsDoc(girEnumMember),
         }
 
@@ -1539,7 +1553,7 @@ export class GirModule {
         const tsData: TsEnum = {
             name,
             girTypeName,
-            tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
             doc: this.getTsDoc(girEnum),
         }
 
@@ -1562,7 +1576,7 @@ export class GirModule {
             name,
             type: typeName,
             girTypeName: 'alias',
-            tsTypeName: this.girTypeNameToTsTypeName('alias'),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName('alias'),
         }
         return tsData
     }
@@ -1888,7 +1902,7 @@ export class GirModule {
         const girConstructors: GirConstructorElement[] = []
         // JS constructor(s)
         if (girClass._tsData?.isDerivedFromGObject) {
-            const constructorInParam = this.girFactory.newGirCallableParamElement({
+            const constructorInParam: InjectionParameter = {
                 name: 'config',
                 type: [
                     {
@@ -1896,15 +1910,17 @@ export class GirModule {
                         type: girClass._tsData.constructPropInterfaceName,
                     },
                 ],
-            })
-            const realConstructor = this.girFactory.newGirFunctionElement({
+            }
+            const realConstructor = this.girFactory.newGirFunction({
                 name: 'constructor',
                 isStatic: true,
                 inParams: [constructorInParam],
+                girTypeName: 'constructor',
             })
-            const initConstructor = this.girFactory.newGirFunctionElement({
+            const initConstructor = this.girFactory.newGirFunction({
                 name: '_init',
                 inParams: [constructorInParam],
+                girTypeName: 'method',
             })
             girConstructors.push(realConstructor, initConstructor)
         } else {
@@ -2155,7 +2171,7 @@ export class GirModule {
             inherit: {},
             implements: {},
             girTypeName,
-            tsTypeName: this.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
             doc: this.getTsDoc(girClass),
         }
 
@@ -2594,8 +2610,9 @@ export class GirModule {
                     girCallback._tsData = {
                         ...tsCallback,
                         girTypeName: 'callback',
-                        tsTypeName: this.girTypeNameToTsTypeName('callback'),
+                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
+                        overloads: [],
                     }
                 }
             }
@@ -2631,81 +2648,6 @@ export class GirModule {
                 if (!girAlias._tsData) continue
             }
         }
-    }
-
-    private girTypeNameToTsTypeName(girTypeName: 'alias', isStatic?: boolean): 'type'
-    private girTypeNameToTsTypeName(girTypeName: 'enum' | 'bitfield', isStatic?: boolean): 'enum'
-    private girTypeNameToTsTypeName(girTypeName: 'enum-member' | 'bitfield-member', isStatic?: boolean): 'enum-member'
-    private girTypeNameToTsTypeName(girTypeName: 'callback', isStatic?: boolean): 'interface'
-    private girTypeNameToTsTypeName(
-        girTypeName: 'class' | 'interface' | 'union' | 'record',
-        isStatic?: boolean,
-    ): 'class'
-    private girTypeNameToTsTypeName(girTypeName: 'constant', isStatic?: boolean): 'constant'
-    private girTypeNameToTsTypeName(girTypeName: 'constructor', isStatic?: boolean): 'static-function'
-    private girTypeNameToTsTypeName(girTypeName: 'method' | 'virtual', isStatic?: boolean): 'method'
-    private girTypeNameToTsTypeName(girTypeName: 'signal' | 'method', isStatic?: boolean): 'event-methods'
-    private girTypeNameToTsTypeName(girTypeName: 'static-function', isStatic: true): 'static-function'
-    private girTypeNameToTsTypeName(girTypeName: 'function', isStatic: true): 'static-function'
-    private girTypeNameToTsTypeName(girTypeName: 'function', isStatic: false): 'function'
-    private girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: false): 'property'
-    private girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: true): 'static-property'
-    private girTypeNameToTsTypeName(
-        girTypeName: 'function' | 'method' | 'virtual' | 'constructor' | 'callback' | 'static-function',
-        isStatic?: boolean,
-    ): 'function' | 'method' | 'static-function'
-    private girTypeNameToTsTypeName(girTypeName: TypeGirElement, isStatic?: boolean): TypeTsElement
-    private girTypeNameToTsTypeName(girTypeName: TypeGirElement, isStatic?: boolean): TypeTsElement {
-        switch (girTypeName) {
-            case 'alias':
-                return 'type'
-            case 'enum':
-            case 'bitfield':
-                return 'enum'
-            case 'enum-member':
-            case 'bitfield-member':
-                return 'enum-member'
-            case 'callback':
-                return 'interface'
-            case 'class':
-            case 'interface':
-            case 'union':
-            case 'record':
-                return 'class'
-            case 'constant':
-                return 'constant'
-            case 'constructor':
-                return 'static-function'
-            case 'method':
-            case 'virtual':
-                return 'method'
-            case 'signal':
-                return 'event-methods'
-            case 'static-function':
-                return 'static-function'
-            case 'function':
-                if (typeof isStatic === 'undefined') {
-                    throw new Error(
-                        'You must specify if the function is static or not if you want to convert the type of a function!',
-                    )
-                }
-                if (isStatic) {
-                    return 'static-function'
-                }
-                return 'function'
-            case 'field':
-            case 'property':
-                if (typeof isStatic === 'undefined') {
-                    throw new Error(
-                        'You must specify if the property is static or not if you want to convert the type of a function!',
-                    )
-                }
-                if (isStatic) {
-                    return 'static-property'
-                }
-                return 'property'
-        }
-        throw new Error(`Unknown gir type: "${String(girTypeName)}"!`)
     }
 
     /**

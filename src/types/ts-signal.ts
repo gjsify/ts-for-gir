@@ -6,6 +6,10 @@ import { TsMethod, TsCallback, TsCallbackInterface } from './index.js'
 export interface TsSignal extends TsCallback {
     /** Signal functions like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk */
     tsMethods: TsMethod[]
+
+    /** Signal overloads, used in `ConflictResolver` */
+    overloads: TsSignal[]
+
     /**
      * Interface for the callback type
      */

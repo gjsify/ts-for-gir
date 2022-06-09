@@ -4,6 +4,7 @@ import { GirCallbackElement, TsGenericParameter } from './index.js'
  * Holds the data to generate a type in/for Typescript
  */
 export interface TsType {
+    // TODO: move option property to `TsParameter`
     optional: boolean
     nullable: boolean
     type: string

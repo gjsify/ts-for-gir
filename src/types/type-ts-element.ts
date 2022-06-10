@@ -1,4 +1,4 @@
-import { TypeTsFunction } from './index.js'
+import { TypeTsFunction, TypeTsProperty } from './index.js'
 
 /** Any typescript element type */
 export type TypeTsElement =
@@ -9,6 +9,5 @@ export type TypeTsElement =
     | 'constant'
     | 'event-methods'
     | 'type'
-    | 'property'
-    | 'static-property'
     | TypeTsFunction
+    | TypeTsProperty

@@ -105,7 +105,7 @@ export default class TypeDefinitionGenerator implements Generator {
         // temporary solution, will be solved differently later
         const commentOut = tsProp.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
 
-        desc.push(`${indent}${commentOut}${readonly}${staticStr}${varDesc}`)
+        desc.push(`${indent}${commentOut}${staticStr}${readonly}${varDesc}`)
         return desc
     }
 
@@ -489,6 +489,7 @@ export default class TypeDefinitionGenerator implements Generator {
         onlyStatic: boolean,
         namespace: string,
         indentCount = 1,
+        overloads = true,
     ) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
@@ -550,15 +551,11 @@ export default class TypeDefinitionGenerator implements Generator {
             )})${retSep} ${returnType}`,
         )
 
-        // Overloads
-        if (!tsFunction.overloads) {
-            console.error('Error on function generation: ', tsFunction)
-            throw new Error('overloads not defined!')
-        }
-        if (tsFunction.overloads.length > 0) {
+        // Add overloaded methods
+        if (overloads && tsFunction.overloads.length > 0) {
             def.push(...this.addInlineInfoComment('Overloads', indentCount))
             for (const func of tsFunction.overloads) {
-                def.push(...this._generateFunction(func, onlyStatic, namespace, indentCount))
+                def.push(...this._generateFunction(func, onlyStatic, namespace, indentCount, false))
             }
         }
 

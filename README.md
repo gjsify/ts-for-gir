@@ -447,6 +447,22 @@ npm run test:girs:node
 # or npm run test:girs:all
 ```
 
+## FAQ
+
+Problem: I get the following error:
+
+```
+FATAL ERROR: Scavenger: semi-space copy Allocation failed - JavaScript heap out of memory
+```
+
+Solution:
+
+```bash
+sudo sysctl -w vm.max_map_count=262144
+NODE_OPTIONS=--max-old-space-size=25600 npm run ...
+```
+
+
 ## Related Projects
 
 ### TypeScript Type Definitions

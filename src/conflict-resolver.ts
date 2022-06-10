@@ -214,13 +214,17 @@ export class ConflictResolver {
         return this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
     }
 
+    private static tsElementIsSignal(el: TsFunction | TsVar) {
+        return el.tsTypeName === 'event-methods'
+    }
+
     private static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
         return (
             el.tsTypeName === 'constructor' ||
             el.tsTypeName === 'function' ||
             el.tsTypeName === 'method' ||
-            el.tsTypeName === 'static-function' ||
-            el.tsTypeName === 'event-methods'
+            el.tsTypeName === 'static-function'
+            // el.tsTypeName === 'event-methods'
         )
     }
 
@@ -387,7 +391,7 @@ export class ConflictResolver {
             throw new Error('At least one function must exist!')
         }
 
-        return this.girFactory.newGirFunction({
+        return this.girFactory.newTsFunction({
             name: funcs[0].name,
             returnTypes: returnTypes,
             inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
@@ -396,7 +400,7 @@ export class ConflictResolver {
         })
     }
 
-    public static mergeProperties(...props: TsVar[]) {
+    public static mergeProperties(...props: TsProperty[]) {
         // Merge types
         const typesMap: TsType[] = []
         for (const prop of props) {
@@ -408,9 +412,12 @@ export class ConflictResolver {
             throw new Error('At least one property must exist!')
         }
 
-        return this.girFactory.newGirPropertyElement({
+        return this.girFactory.newTsProperty({
+            readonly: props[0].readonly || false,
+            isStatic: props[0].isStatic || false,
             name: props[0].name,
             type: types,
+            girTypeName: props[0].girTypeName,
         })
     }
 
@@ -463,38 +470,101 @@ export class ConflictResolver {
     public static fixConflicts(groupedElements: GroupedConflictElements) {
         for (const name of Object.keys(groupedElements)) {
             const elements = groupedElements[name]
-            for (const a of elements) {
-                for (const b of elements) {
-                    if (a === b) {
+
+            // Each base element (elements with depth === 0)
+            for (const base of elements) {
+                if (base.depth !== 0) {
+                    continue
+                }
+
+                // Each conflicting elements
+                for (const a of elements) {
+                    if (a === base) {
                         continue
                     }
-                    if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
-                        // TODO: inject to class: const mergedFunction = this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
-                        a.data.hasUnresolvedConflict = true
-                    } else if (this.tsElementIsStaticFunction(a.data) && this.tsElementIsStaticFunction(b.data)) {
-                        // TODO: inject to class: const mergedFunction = this.mergeFunctions(a.data as TsFunction, b.data as TsFunction)
-                        a.data.hasUnresolvedConflict = true
-                    } else if (
-                        this.tsElementIsPropertyOrVariable(a.data) &&
-                        this.tsElementIsPropertyOrVariable(b.data)
-                    ) {
-                        // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
-                        // this.setParameterTypeToAny(a.data as TsVar)
-                        a.data.hasUnresolvedConflict = true
-                    } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
-                        // TODO: inject to class: const mergedProperty = this.mergeProperties(a.data as TsVar, b.data as TsVar)
-                        a.data.hasUnresolvedConflict = true
-                    } else {
-                        if (a.data.name && this.tsElementIsMethodOrFunction(a.data)) {
-                            const tsData = a.data as TsFunction
-                            tsData.overloads.push(this.newAnyTsFunction(tsData.name, tsData.girTypeName))
-                        } else if (this.tsElementIsPropertyOrVariable(a.data)) {
-                            this.setParameterTypeToAny(a.data as TsVar)
-                        } else {
-                            a.data.hasUnresolvedConflict = true
+
+                    // If base element is a function
+                    if (this.tsElementIsMethodOrFunction(base.data)) {
+                        const baseFunc = base.data as TsFunction
+
+                        // If the compared element is also a function
+                        if (this.tsElementIsMethodOrFunction(a.data)) {
+                            const aFunc = a.data as TsFunction
+
+                            // Add a function to overload methods
+                            baseFunc.overloads.push(aFunc)
+                        }
+
+                        // If the compared element is a property / not a function
+                        else if (this.tsElementIsPropertyOrVariable(a.data)) {
+                            baseFunc.hasUnresolvedConflict = true
                         }
                     }
+
+                    // If base element is a property / variable
+                    else if (this.tsElementIsPropertyOrVariable(base.data)) {
+                        const baseProp = base.data as TsProperty
+
+                        // If the compared element is a also property
+                        if (this.tsElementIsPropertyOrVariable(a.data)) {
+                            const aProp = a.data as TsProperty
+                            base.data = this.mergeProperties(baseProp, aProp)
+                        }
+
+                        // If the compared element is a function / not a property
+                        else if (this.tsElementIsMethodOrFunction(a.data)) {
+                            baseProp.hasUnresolvedConflict = true
+                        }
+                    }
+
+                    // Ignore signal conflicts
+                    else if (this.tsElementIsSignal(base.data)) {
+                        // Do nothing
+                    } else {
+                        console.warn('Found unknown element', base)
+                        base.data.hasUnresolvedConflict = true
+                    }
+
+                    /**
+                     * Check conflicts between the implementations / inheritances
+                     * To fix type errors like :
+                     * @example
+                     * ```
+                     *   Interface 'PopoverMenu' cannot simultaneously extend types 'Popover' and 'Native'.
+                     *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
+                     */
+                    // for (const b of elements) {
+                    //     if (a === b || b === base || a.depth !== b.depth) {
+                    //         continue
+                    //     }
+
+                    //     if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
+                    //         // Ok
+                    //     } else if (this.tsElementIsStaticFunction(a.data) && this.tsElementIsStaticFunction(b.data)) {
+                    //         // Ok
+                    //     } else if (
+                    //         this.tsElementIsPropertyOrVariable(a.data) &&
+                    //         this.tsElementIsPropertyOrVariable(b.data)
+                    //     ) {
+                    //         // Ok
+                    //     } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
+                    //         // Ok
+                    //     } else {
+                    //         // Property vs. Function
+                    //         a.data.hasUnresolvedConflict = true
+                    //     }
+                    // }
                 }
+
+                // If base element is a function and has overloaded methods
+                // if (this.tsElementIsMethodOrFunction(base.data)) {
+                //     const baseFunc = base.data as TsFunction
+                //     // Add a function with any types
+                //     baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
+
+                //     // Add a function with merged types and parameters
+                //     baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+                // }
             }
         }
     }

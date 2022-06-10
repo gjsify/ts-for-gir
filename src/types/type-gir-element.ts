@@ -5,7 +5,7 @@ import {
     TypeAlias,
     TypeEnumeration,
     TypeInterface,
-    TypeField,
+    TypeProperty,
     TypeGirFunction,
 } from './index.js'
 
@@ -19,5 +19,5 @@ export type TypeGirElement =
     | 'enum-member'
     | 'bitfield-member'
     | TypeInterface
-    | TypeField
+    | TypeProperty
     | TypeGirFunction

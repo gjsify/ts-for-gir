@@ -641,7 +641,7 @@ export class GirModule {
                     girCallback._tsData = {
                         ...tsCallback,
                         girTypeName: 'callback',
-                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
+                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback', false),
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
                         doc: this.getTsDoc(girCallback),
                         overloads: [],
@@ -1371,7 +1371,7 @@ export class GirModule {
             outParams,
             generics: [],
             girTypeName: 'callback',
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback', false),
             doc: this.getTsDoc(girSignalFunc),
             overloads: [],
         }
@@ -1467,7 +1467,7 @@ export class GirModule {
                 tsCallbackInterface: this.getSignalCallbackInterfaceTsData(girSignal, girClass),
                 tsMethods: [],
                 girTypeName: 'signal',
-                tsTypeName: this.girFactory.girTypeNameToTsTypeName('signal'),
+                tsTypeName: this.girFactory.girTypeNameToTsTypeName('signal', false),
                 doc: this.getTsDoc(girSignal),
                 overloads: [],
             }
@@ -1530,7 +1530,7 @@ export class GirModule {
         const tsData: TsMember = {
             name,
             girTypeName,
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, false),
             doc: this.getTsDoc(girEnumMember),
         }
 
@@ -1553,7 +1553,7 @@ export class GirModule {
         const tsData: TsEnum = {
             name,
             girTypeName,
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, false),
             doc: this.getTsDoc(girEnum),
         }
 
@@ -1576,7 +1576,7 @@ export class GirModule {
             name,
             type: typeName,
             girTypeName: 'alias',
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName('alias'),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName('alias', false),
         }
         return tsData
     }
@@ -1778,10 +1778,11 @@ export class GirModule {
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
             // Records, classes and interfaces all have a static name
             const type = this.girFactory.newTsType({ type: 'string' })
-            const staticNameProp = this.girFactory.newGirPropertyElement({
+            const staticNameProp = this.girFactory.newGirProperty({
                 isStatic: true,
                 name: 'name',
                 type: [type],
+                girTypeName: 'property',
             })
             girProperties.push(staticNameProp)
         }
@@ -1796,10 +1797,11 @@ export class GirModule {
                     },
                 ]),
             })
-            const staticGTypeProp = this.girFactory.newGirPropertyElement({
+            const staticGTypeProp = this.girFactory.newGirProperty({
                 isStatic: true,
                 name: '$gtype',
                 type: [type],
+                girTypeName: 'property',
             })
             girProperties.push(staticGTypeProp)
         }
@@ -2171,7 +2173,7 @@ export class GirModule {
             inherit: {},
             implements: {},
             girTypeName,
-            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName),
+            tsTypeName: this.girFactory.girTypeNameToTsTypeName(girTypeName, false),
             doc: this.getTsDoc(girClass),
         }
 
@@ -2610,7 +2612,7 @@ export class GirModule {
                     girCallback._tsData = {
                         ...tsCallback,
                         girTypeName: 'callback',
-                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback'),
+                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback', false),
                         tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
                         overloads: [],
                     }

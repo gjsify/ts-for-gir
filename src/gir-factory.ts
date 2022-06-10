@@ -20,12 +20,14 @@ import type {
     InjectionGenericParameter,
     InjectionType,
     InjectionParameter,
+    InjectionProperty,
     Environment,
-    TypeField,
+    TypeProperty,
     TypeGirElement,
     TypeTsElement,
     TypeGirFunction,
     TypeTsFunction,
+    TypeTsProperty,
 } from './types/index.js'
 
 import { GENERIC_NAMES } from './constants.js'
@@ -47,22 +49,23 @@ export class GirFactory {
         return tsGenerics
     }
 
-    girTypeNameToTsTypeName(girTypeName: 'alias', isStatic?: boolean): 'type'
-    girTypeNameToTsTypeName(girTypeName: 'enum' | 'bitfield', isStatic?: boolean): 'enum'
-    girTypeNameToTsTypeName(girTypeName: 'enum-member' | 'bitfield-member', isStatic?: boolean): 'enum-member'
-    girTypeNameToTsTypeName(girTypeName: 'callback', isStatic?: boolean): 'interface'
-    girTypeNameToTsTypeName(girTypeName: 'class' | 'interface' | 'union' | 'record', isStatic?: boolean): 'class'
-    girTypeNameToTsTypeName(girTypeName: 'constant', isStatic?: boolean): 'constant'
-    girTypeNameToTsTypeName(girTypeName: 'constructor', isStatic?: boolean): 'static-function'
-    girTypeNameToTsTypeName(girTypeName: 'method' | 'virtual', isStatic?: boolean): 'method'
-    girTypeNameToTsTypeName(girTypeName: 'signal' | 'method', isStatic?: boolean): 'event-methods'
+    girTypeNameToTsTypeName(girTypeName: 'alias', isStatic: boolean): 'type'
+    girTypeNameToTsTypeName(girTypeName: 'enum' | 'bitfield', isStatic: boolean): 'enum'
+    girTypeNameToTsTypeName(girTypeName: 'enum-member' | 'bitfield-member', isStatic: boolean): 'enum-member'
+    girTypeNameToTsTypeName(girTypeName: 'callback', isStatic: boolean): 'interface'
+    girTypeNameToTsTypeName(girTypeName: 'class' | 'interface' | 'union' | 'record', isStatic: boolean): 'class'
+    girTypeNameToTsTypeName(girTypeName: 'constant', isStatic: boolean): 'constant'
+    girTypeNameToTsTypeName(girTypeName: 'constructor', isStatic: boolean): 'static-function'
+    girTypeNameToTsTypeName(girTypeName: 'method' | 'virtual', isStatic: boolean): 'method'
+    girTypeNameToTsTypeName(girTypeName: 'signal' | 'method', isStatic: boolean): 'event-methods'
     girTypeNameToTsTypeName(girTypeName: 'static-function', isStatic: true): 'static-function'
     girTypeNameToTsTypeName(girTypeName: 'function', isStatic: true): 'static-function'
     girTypeNameToTsTypeName(girTypeName: 'function', isStatic: false): 'function'
-    girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: false): 'property'
-    girTypeNameToTsTypeName(girTypeName: TypeField, isStatic: true): 'static-property'
-    girTypeNameToTsTypeName(girTypeName: TypeGirFunction, isStatic?: boolean): TypeTsFunction
-    girTypeNameToTsTypeName(girTypeName: TypeGirElement, isStatic?: boolean): TypeTsElement {
+    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: boolean): TypeTsProperty
+    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: false): 'property' | 'constructor-property'
+    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: true): 'static-property'
+    girTypeNameToTsTypeName(girTypeName: TypeGirFunction, isStatic: boolean): TypeTsFunction
+    girTypeNameToTsTypeName(girTypeName: TypeGirElement, isStatic: boolean): TypeTsElement {
         switch (girTypeName) {
             case 'alias':
                 return 'type'
@@ -168,7 +171,7 @@ export class GirFactory {
         return result
     }
 
-    newGirPropertyElement(tsData: Partial<TsProperty> & { name: string }): GirPropertyElement {
+    newGirProperty(tsData: InjectionProperty): GirPropertyElement {
         const _tsData = this.newTsProperty(tsData)
         if (!_tsData.name) throw new Error('The name property is required!')
         return {
@@ -196,15 +199,23 @@ export class GirFactory {
             generics: this.newGenerics(tsData.generics || []),
             overloads: tsData.overloads || [],
             doc: this.newTsDoc(tsData.doc),
-            tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName),
+            tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName, tsData.isStatic || false),
         }
 
         return tsFunc
     }
 
-    newTsProperty(tsData: Partial<TsProperty> & { name: string }): TsProperty {
+    newTsProperty(tsData: InjectionProperty): TsProperty {
         tsData.type ||= [this.newTsType()]
-        return tsData as TsProperty
+        const tsProp: TsProperty = {
+            ...tsData,
+            readonly: tsData.isStatic || false,
+            isStatic: tsData.isStatic || false,
+            type: this.newTsTypes(tsData.type || []),
+            doc: this.newTsDoc(tsData.doc),
+            tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName, tsData.isStatic || false),
+        }
+        return tsProp
     }
 
     newTsType(tsData: InjectionType = {}): TsType {

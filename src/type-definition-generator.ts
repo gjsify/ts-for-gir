@@ -575,20 +575,15 @@ export default class TypeDefinitionGenerator implements Generator {
     }
 
     private generateOnlyNonStaticFunctions(
-        girFunctions: Array<GirConstructorElement | GirVirtualMethodElement | GirMethodElement | GirFunctionElement>,
+        tsFunctions: TsFunction[],
         namespace: string,
         indentCount = 1,
         comment?: string,
     ) {
         const def: string[] = []
 
-        for (const girFunction of girFunctions) {
-            if (!girFunction._tsData) continue
-            if (!girFunction._tsData) {
-                // this.log.warn(NO_TSDATA('generateFunctions'))
-                continue
-            }
-            def.push(...this.generateOnlyNonStaticFunction(girFunction._tsData, namespace, indentCount))
+        for (const girFunction of tsFunctions) {
+            def.push(...this.generateOnlyNonStaticFunction(girFunction, namespace, indentCount))
         }
 
         if (def.length > 0) {
@@ -836,6 +831,16 @@ export default class TypeDefinitionGenerator implements Generator {
             ),
         )
 
+        def.push(
+            ...this.generateProperties(
+                girClass._tsData.conflictProperties,
+                onlyStatic,
+                namespace,
+                `Conflicting properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                indentCount,
+            ),
+        )
+
         // Properties from inheritance
         // for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
         //     def.push(
@@ -875,10 +880,19 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(
             ...this.generateOnlyNonStaticFunctions(
-                girClass._tsData.methods,
+                girClass._tsData.methods.map((girFunc) => girFunc._tsData).filter((tsFunc) => !!tsFunc) as TsFunction[],
                 namespace,
                 indentCount,
                 `Owm methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
+            ),
+        )
+
+        def.push(
+            ...this.generateOnlyNonStaticFunctions(
+                girClass._tsData.conflictMethods,
+                namespace,
+                indentCount,
+                `Conflicting methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
         )
 
@@ -924,7 +938,15 @@ export default class TypeDefinitionGenerator implements Generator {
         // Constructors
         def.push(...this.generateOnlyStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
         // _init method
-        def.push(...this.generateOnlyNonStaticFunctions(girClass._tsData.constructors, namespace, indentCount))
+        def.push(
+            ...this.generateOnlyNonStaticFunctions(
+                girClass._tsData.constructors
+                    .map((girFunc) => girFunc._tsData)
+                    .filter((tsFunc) => !!tsFunc) as TsFunction[],
+                namespace,
+                indentCount,
+            ),
+        )
         // Pseudo constructors
         def.push(...this.generateOnlyStaticFunctions(girClass._tsData.staticFunctions, namespace, indentCount))
 
@@ -945,7 +967,7 @@ export default class TypeDefinitionGenerator implements Generator {
             // Static methods of abstract classes
             inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.methods, namespace, indentCount))
             // Constructors
-            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
+            // inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
             // Pseudo constructors
             inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.staticFunctions, namespace, indentCount))
 
@@ -969,7 +991,7 @@ export default class TypeDefinitionGenerator implements Generator {
             // Static methods of abstract classes
             implDef.push(...this.generateOnlyStaticFunctions(impl.interface.methods, namespace, indentCount))
             // Constructors
-            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
+            // implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
             // Pseudo constructors
             implDef.push(...this.generateOnlyStaticFunctions(impl.interface.staticFunctions, namespace, indentCount))
 
@@ -1009,7 +1031,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
         def.push(
             ...this.generateOnlyNonStaticFunctions(
-                girClass._tsData.virtualMethods,
+                girClass._tsData.virtualMethods
+                    .map((girFunc) => girFunc._tsData)
+                    .filter((tsFunc) => !!tsFunc) as TsFunction[],
                 namespace,
                 indentCount,
                 `Own virtual methods of ${girClass._module.packageName}.${girClass._fullSymName}`,

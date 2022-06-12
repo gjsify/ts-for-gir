@@ -209,7 +209,7 @@ export class GirFactory {
         tsData.type ||= [this.newTsType()]
         const tsProp: TsProperty = {
             ...tsData,
-            readonly: tsData.isStatic || false,
+            readonly: tsData.readonly || false,
             isStatic: tsData.isStatic || false,
             type: this.newTsTypes(tsData.type || []),
             doc: this.newTsDoc(tsData.doc),

@@ -8,8 +8,7 @@
             "name": "build:types:gtk3",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
-            "program": "./src/start.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.gtk3.rc.js", "-o", "./tmp"
             ],
@@ -20,8 +19,7 @@
             "name": "build:types:gtk4",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
-            "program": "./src/start.ts",
+            "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.gtk4.rc.js", "-o", "./tmp"
             ],
@@ -32,7 +30,6 @@
             "name": "build:types",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
             "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "-o", "./tmp"
@@ -44,31 +41,28 @@
             "name": "build:types:gjs",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
             "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=gjs", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/esm"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
             "name": "build:types:node",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
             "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=node", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "-r", "ts-node/esm"],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
             "name": "regress",
             "type": "node",
             "request": "launch",
-            "protocol": "inspector",
             "program": "${workspaceRoot}/src/start.ts",
             "args": [
                 "generate", "--configName='.ts-for-gir.regress.rc.js", "-o", "./tmp"

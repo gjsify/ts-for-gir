@@ -2162,9 +2162,11 @@ export class GirModule {
             constructPropInterfaceName: `${namespace}.${className}_ConstructProps`,
             fields: [],
             properties: [],
+            conflictProperties: [],
             constructProps: [],
             propertySignalMethods: [],
             methods: [],
+            conflictMethods: [],
             virtualMethods: [],
             constructors: [],
             staticFunctions: [],
@@ -2441,9 +2443,9 @@ export class GirModule {
                 if (!tsMethod1 || !tsMethod2) {
                     return null
                 }
-                if (ConflictResolver.functionMatch(tsMethod1, tsMethod2)) {
-                    return null
-                }
+                // if (ConflictResolver.functionConflict(tsMethod1, tsMethod2)) {
+                //     return null
+                // }
             } else {
                 // TODO better handling of  property and field
                 if (isEqual(localNames[name][type]?._tsData, girElement._tsData)) {

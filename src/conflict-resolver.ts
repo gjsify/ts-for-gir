@@ -21,6 +21,7 @@ import type {
     TsClass,
     TsParameter,
     TypeGirFunction,
+    TypeProperty,
 } from './types/index.js'
 
 interface ChildElement {
@@ -34,7 +35,11 @@ interface ChildElement {
 }
 
 interface GroupedConflictElements {
-    [name: string]: ChildElement[]
+    [name: string]: {
+        baseElements: ChildElement[]
+        inheritedElements: ChildElement[]
+        baseClass: TsClass
+    }
 }
 
 interface ChildFunction extends ChildElement {
@@ -87,7 +92,7 @@ export class ConflictResolver {
             })
     }
 
-    private static getImplementedInterfaceElements(tsIface: TsClass) {
+    private static getImplementedInterfaceElements(tsIface: TsClass, addDepth = 0) {
         const methods: ChildFunction[] = []
         const virtualMethods: ChildFunction[] = []
         const staticFunctions: ChildFunction[] = []
@@ -101,36 +106,54 @@ export class ConflictResolver {
             const { interface: implementation, depth } = tsIface.implements[ifaceFullSymName]
             // Methods
             if (implementation.methods.length)
-                methods.push(...this.girElArrToChildArr<ChildFunction>(implementation.methods, depth))
+                methods.push(...this.girElArrToChildArr<ChildFunction>(implementation.methods, depth + addDepth))
             // Virtual methods
             if (implementation.virtualMethods.length)
-                virtualMethods.push(...this.girElArrToChildArr<ChildFunction>(implementation.virtualMethods, depth))
+                virtualMethods.push(
+                    ...this.girElArrToChildArr<ChildFunction>(implementation.virtualMethods, depth + addDepth),
+                )
             // Static functions
             if (implementation.staticFunctions.length)
-                staticFunctions.push(...this.girElArrToChildArr<ChildFunction>(implementation.staticFunctions, depth))
+                staticFunctions.push(
+                    ...this.girElArrToChildArr<ChildFunction>(implementation.staticFunctions, depth + addDepth),
+                )
             // Constructors
             if (implementation.constructors.length)
-                constructors.push(...this.girElArrToChildArr<ChildFunction>(implementation.constructors, depth))
+                constructors.push(
+                    ...this.girElArrToChildArr<ChildFunction>(implementation.constructors, depth + addDepth),
+                )
 
             // Properties
             if (implementation.properties.length)
-                properties.push(...this.girElArrToChildArr<ChildProperty>(implementation.properties, depth))
+                properties.push(...this.girElArrToChildArr<ChildProperty>(implementation.properties, depth + addDepth))
             // Fields
             if (implementation.fields.length)
-                fields.push(...this.girElArrToChildArr<ChildProperty>(implementation.fields, depth))
+                fields.push(...this.girElArrToChildArr<ChildProperty>(implementation.fields, depth + addDepth))
             // Constructor properties
             if (implementation.constructProps.length)
-                constructProps.push(...this.girElArrToChildArr<ChildProperty>(implementation.constructProps, depth))
+                constructProps.push(
+                    ...this.girElArrToChildArr<ChildProperty>(implementation.constructProps, depth + addDepth),
+                )
 
             // Also get inheritances of the implemented class
-            const indirect = this.getInheritedClassElements(implementation)
-            methods.push(...indirect.methods)
-            virtualMethods.push(...indirect.virtualMethods)
-            staticFunctions.push(...indirect.staticFunctions)
-            constructors.push(...indirect.constructors)
-            properties.push(...indirect.properties)
-            fields.push(...indirect.fields)
-            constructProps.push(...indirect.constructProps)
+            const indirectInheritances = this.getInheritedClassElements(implementation, addDepth + 1)
+            methods.push(...indirectInheritances.methods)
+            virtualMethods.push(...indirectInheritances.virtualMethods)
+            staticFunctions.push(...indirectInheritances.staticFunctions)
+            constructors.push(...indirectInheritances.constructors)
+            properties.push(...indirectInheritances.properties)
+            fields.push(...indirectInheritances.fields)
+            constructProps.push(...indirectInheritances.constructProps)
+
+            // Also get implementations of the implemented class
+            const indirectImplementations = this.getImplementedInterfaceElements(implementation, addDepth + 1)
+            methods.push(...indirectImplementations.methods)
+            virtualMethods.push(...indirectImplementations.virtualMethods)
+            staticFunctions.push(...indirectImplementations.staticFunctions)
+            constructors.push(...indirectImplementations.constructors)
+            properties.push(...indirectImplementations.properties)
+            fields.push(...indirectImplementations.fields)
+            constructProps.push(...indirectImplementations.constructProps)
         }
 
         return {
@@ -144,7 +167,7 @@ export class ConflictResolver {
         }
     }
 
-    private static getInheritedClassElements(girClass: TsClass) {
+    private static getInheritedClassElements(girClass: TsClass, addDepth = 0) {
         const methods: ChildFunction[] = []
         const virtualMethods: ChildFunction[] = []
         const staticFunctions: ChildFunction[] = []
@@ -157,34 +180,48 @@ export class ConflictResolver {
         for (const ifaceFullSymName of Object.keys(girClass.inherit)) {
             const { class: inherit, depth } = girClass.inherit[ifaceFullSymName]
             // Methods
-            if (inherit.methods.length) methods.push(...this.girElArrToChildArr<ChildFunction>(inherit.methods, depth))
+            if (inherit.methods.length)
+                methods.push(...this.girElArrToChildArr<ChildFunction>(inherit.methods, depth + addDepth))
             // Virtual methods
             if (inherit.virtualMethods.length)
-                virtualMethods.push(...this.girElArrToChildArr<ChildFunction>(inherit.virtualMethods, depth))
+                virtualMethods.push(...this.girElArrToChildArr<ChildFunction>(inherit.virtualMethods, depth + addDepth))
             // Static functions
             if (inherit.staticFunctions.length)
-                staticFunctions.push(...this.girElArrToChildArr<ChildFunction>(inherit.staticFunctions, depth))
+                staticFunctions.push(
+                    ...this.girElArrToChildArr<ChildFunction>(inherit.staticFunctions, depth + addDepth),
+                )
             // Constructors
             if (inherit.constructors.length)
-                constructors.push(...this.girElArrToChildArr<ChildFunction>(inherit.constructors, depth))
+                constructors.push(...this.girElArrToChildArr<ChildFunction>(inherit.constructors, depth + addDepth))
             // Properties
             if (inherit.properties.length)
-                properties.push(...this.girElArrToChildArr<ChildProperty>(inherit.properties, depth))
+                properties.push(...this.girElArrToChildArr<ChildProperty>(inherit.properties, depth + addDepth))
             // Fields
-            if (inherit.fields.length) fields.push(...this.girElArrToChildArr<ChildProperty>(inherit.fields, depth))
+            if (inherit.fields.length)
+                fields.push(...this.girElArrToChildArr<ChildProperty>(inherit.fields, depth + addDepth))
             // Constructor properties
             if (inherit.constructProps.length)
-                constructProps.push(...this.girElArrToChildArr<ChildProperty>(inherit.constructProps, depth))
+                constructProps.push(...this.girElArrToChildArr<ChildProperty>(inherit.constructProps, depth + addDepth))
 
             // Also get implementations of the inherited class
-            const indirect = this.getImplementedInterfaceElements(inherit)
-            methods.push(...indirect.methods)
-            virtualMethods.push(...indirect.virtualMethods)
-            staticFunctions.push(...indirect.staticFunctions)
-            constructors.push(...indirect.constructors)
-            properties.push(...indirect.properties)
-            fields.push(...indirect.fields)
-            constructProps.push(...indirect.constructProps)
+            const indirectImplementations = this.getImplementedInterfaceElements(inherit, addDepth + 1)
+            methods.push(...indirectImplementations.methods)
+            virtualMethods.push(...indirectImplementations.virtualMethods)
+            staticFunctions.push(...indirectImplementations.staticFunctions)
+            constructors.push(...indirectImplementations.constructors)
+            properties.push(...indirectImplementations.properties)
+            fields.push(...indirectImplementations.fields)
+            constructProps.push(...indirectImplementations.constructProps)
+
+            // Also get inheritances of the inherited class
+            const indirectInheritances = this.getInheritedClassElements(inherit, addDepth + 1)
+            methods.push(...indirectInheritances.methods)
+            virtualMethods.push(...indirectInheritances.virtualMethods)
+            staticFunctions.push(...indirectInheritances.staticFunctions)
+            constructors.push(...indirectInheritances.constructors)
+            properties.push(...indirectInheritances.properties)
+            fields.push(...indirectInheritances.fields)
+            constructProps.push(...indirectInheritances.constructProps)
         }
 
         return {
@@ -218,17 +255,19 @@ export class ConflictResolver {
         return el.tsTypeName === 'event-methods'
     }
 
+    private static tsElementIsConstructor(el: TsFunction | TsVar) {
+        return el.tsTypeName === 'constructor'
+    }
+
     private static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
         return (
-            el.tsTypeName === 'constructor' ||
-            el.tsTypeName === 'function' ||
-            el.tsTypeName === 'method' ||
-            el.tsTypeName === 'static-function'
+            el.tsTypeName === 'function' || el.tsTypeName === 'method' || el.tsTypeName === 'static-function'
             // el.tsTypeName === 'event-methods'
+            // el.tsTypeName === 'constructor' ||
         )
     }
 
-    private static tsElementIsPropertyOrVariable(el: TsFunction | TsVar) {
+    private static tsElementIsPropertyOrVariable(el: TsFunction | TsVar | TsProperty) {
         return (
             el.tsTypeName === 'constant' ||
             el.tsTypeName === 'constructor-property' ||
@@ -239,9 +278,8 @@ export class ConflictResolver {
 
     private static tsElementIsStatic(el: TsFunction | TsVar) {
         return (
-            el.tsTypeName === 'constructor' ||
-            el.tsTypeName === 'static-property' ||
-            el.tsTypeName === 'static-function'
+            // el.tsTypeName === 'constructor' ||
+            el.tsTypeName === 'static-property' || el.tsTypeName === 'static-function'
         )
     }
 
@@ -273,6 +311,12 @@ export class ConflictResolver {
         return types
     }
 
+    /**
+     * Merges two parameter name and type of two parameters
+     * @param a
+     * @param b
+     * @returns
+     */
     private static mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
         if (!a?._tsData && !b?._tsData) {
             throw new Error('At least one parameter must be defined!')
@@ -306,6 +350,11 @@ export class ConflictResolver {
         return dest
     }
 
+    /**
+     * Merges parameter names and types of multiple functions
+     * @param params
+     * @returns
+     */
     private static mergeParams(...params: GirCallableParamElement[][]) {
         let dest: GirCallableParamElement[] = []
 
@@ -377,13 +426,13 @@ export class ConflictResolver {
 
         const inParamsMap = funcs.map((func) => func.inParams)
         const inParams: GirCallableParamElement[] = []
-        if (!this.paramsMatch(...inParamsMap)) {
+        if (this.paramsHasConflict(...inParamsMap)) {
             inParams.push(...this.mergeParams(...inParamsMap))
         }
 
         const outParamsMap = funcs.map((func) => func.outParams)
         const outParams: GirCallableParamElement[] = []
-        if (!this.paramsMatch(...outParamsMap)) {
+        if (this.paramsHasConflict(...outParamsMap)) {
             outParams.push(...this.mergeParams(...outParamsMap))
         }
 
@@ -408,12 +457,18 @@ export class ConflictResolver {
         }
         const types = this.mergeTypes(...typesMap)
 
+        // Merge readonly
+        let readonly = false
+        for (const prop of props) {
+            readonly = readonly || prop.readonly || false
+        }
+
         if (!props[0] || !props[0].name) {
             throw new Error('At least one property must exist!')
         }
 
         return this.girFactory.newTsProperty({
-            readonly: props[0].readonly || false,
+            readonly: readonly,
             isStatic: props[0].isStatic || false,
             name: props[0].name,
             type: types,
@@ -432,7 +487,7 @@ export class ConflictResolver {
             if (a.data.name === 'constructor' || a.data.name === 'new' || a.data.name === '_init') {
                 return false
             }
-            if (!this.elementMatch(a.data, b.data)) {
+            if (this.elementHasConflict(a.data, b.data)) {
                 return true
             }
         }
@@ -440,8 +495,12 @@ export class ConflictResolver {
         return false
     }
 
-    public static setParameterTypeToAny(param: TsVar) {
-        param.type = [this.girFactory.newTsType({ type: 'any' })]
+    public static newAnyTsProperty(name: string, girTypeName: TypeProperty) {
+        return this.girFactory.newTsProperty({
+            name,
+            girTypeName,
+            type: [{ type: 'any' }],
+        })
     }
 
     /**
@@ -463,22 +522,113 @@ export class ConflictResolver {
         })
     }
 
+    public static getCompatibleTsProperty(elements: TsProperty[], name: string) {
+        return elements.find((el) => el.name === name)
+    }
+
+    public static getCompatibleTsFunction(elements: TsFunction[], baseFunc: TsFunction) {
+        return elements.find((func) => !this.functionHasConflict(baseFunc, func))
+    }
+
+    /**
+     * Check conflicts between the implementations / inheritances
+     * To fix type errors like:
+     * ```
+     *   Interface 'PopoverMenu' cannot simultaneously extend types 'Popover' and 'Native'.
+     *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
+     */
+    public static fixIndirectConflicts(elements: ChildElement[], baseClass: TsClass) {
+        for (const base of elements) {
+            for (const b of elements) {
+                if (b === base) {
+                    continue
+                }
+
+                if (base.data.name === 'parent') {
+                    debugger
+                }
+
+                // If a element is a function / method
+                if (this.tsElementIsMethodOrFunction(base.data)) {
+                    const baseFunc = base.data as TsFunction
+
+                    // Function vs. Property
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        const bProp = b.data as TsProperty
+                        const anyProp = this.newAnyTsProperty(bProp.name || 'unknown', bProp.girTypeName)
+                        if (bProp.name && !this.getCompatibleTsProperty(baseClass.conflictProperties, bProp.name))
+                            baseClass.conflictProperties.push(anyProp)
+                    }
+
+                    // Function vs. Signal
+                    if (this.tsElementIsSignal(b.data)) {
+                        base.data.hasUnresolvedConflict = true
+                    }
+
+                    // Function vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        // const bFunc = b.data as TsFunction
+                        // const mergedFunction = (this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+                        const anyFunc = this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName)
+                        if (!this.getCompatibleTsFunction(baseClass.conflictMethods, anyFunc)) {
+                            baseClass.conflictMethods.push(anyFunc)
+                        }
+                    }
+                }
+
+                // If a element is a property / variable
+                else if (this.tsElementIsPropertyOrVariable(base.data)) {
+                    const baseProp = base.data as TsProperty
+                    // Property vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
+                        if (baseProp.name && !this.getCompatibleTsProperty(baseClass.conflictProperties, baseProp.name))
+                            baseClass.conflictProperties.push(anyProp)
+                    }
+
+                    // Property vs. Property
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        // TODO fix JavaScript heap out of memory
+                        // const bProp = b.data as TsProperty
+                        // const mergedProp = this.mergeProperties(baseProp, ...bProp)
+                        // baseClass.properties.push(this.girFactory.newGirProperty(mergedProp))
+                        const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
+                        if (baseProp.name && !this.getCompatibleTsProperty(baseClass.conflictProperties, baseProp.name))
+                            baseClass.conflictProperties.push(anyProp)
+                    }
+
+                    // Property vs. Signal
+                    if (this.tsElementIsSignal(b.data)) {
+                        base.data.hasUnresolvedConflict = true
+                    }
+                }
+
+                // Other
+                else {
+                    debugger
+                }
+            }
+        }
+    }
+
     /**
      * Fix the conflicts by merging the types with each other
      * @param groupedElements
      */
     public static fixConflicts(groupedElements: GroupedConflictElements) {
         for (const name of Object.keys(groupedElements)) {
+            if (name === 'parent') {
+                debugger
+            }
             const elements = groupedElements[name]
 
-            // Each base element (elements with depth === 0)
-            for (const base of elements) {
-                if (base.depth !== 0) {
-                    continue
-                }
+            const base = elements.baseElements.length > 0 ? elements.baseElements[0] : undefined
 
+            if (!base) {
+                this.fixIndirectConflicts(elements.inheritedElements, elements.baseClass)
+            } else {
                 // Each conflicting elements
-                for (const a of elements) {
+                for (const a of elements.inheritedElements) {
                     if (a === base) {
                         continue
                     }
@@ -487,15 +637,15 @@ export class ConflictResolver {
                     if (this.tsElementIsMethodOrFunction(base.data)) {
                         const baseFunc = base.data as TsFunction
 
-                        // If the compared element is also a function
+                        // Function vs. Function
                         if (this.tsElementIsMethodOrFunction(a.data)) {
                             const aFunc = a.data as TsFunction
 
                             // Add a function to overload methods
-                            baseFunc.overloads.push(aFunc)
+                            if (!this.getCompatibleTsFunction(baseFunc.overloads, aFunc)) baseFunc.overloads.push(aFunc)
                         }
 
-                        // If the compared element is a property / not a function
+                        // Function vs. Property
                         else if (this.tsElementIsPropertyOrVariable(a.data)) {
                             baseFunc.hasUnresolvedConflict = true
                         }
@@ -505,13 +655,13 @@ export class ConflictResolver {
                     else if (this.tsElementIsPropertyOrVariable(base.data)) {
                         const baseProp = base.data as TsProperty
 
-                        // If the compared element is a also property
+                        // Property vs. Property
                         if (this.tsElementIsPropertyOrVariable(a.data)) {
                             const aProp = a.data as TsProperty
                             base.data = this.mergeProperties(baseProp, aProp)
                         }
 
-                        // If the compared element is a function / not a property
+                        // Property vs. Function
                         else if (this.tsElementIsMethodOrFunction(a.data)) {
                             baseProp.hasUnresolvedConflict = true
                         }
@@ -520,40 +670,14 @@ export class ConflictResolver {
                     // Ignore signal conflicts
                     else if (this.tsElementIsSignal(base.data)) {
                         // Do nothing
+                    }
+                    // Ignore constructors
+                    else if (this.tsElementIsConstructor(base.data)) {
+                        // Do nothing
                     } else {
                         console.warn('Found unknown element', base)
                         base.data.hasUnresolvedConflict = true
                     }
-
-                    /**
-                     * Check conflicts between the implementations / inheritances
-                     * To fix type errors like :
-                     * @example
-                     * ```
-                     *   Interface 'PopoverMenu' cannot simultaneously extend types 'Popover' and 'Native'.
-                     *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
-                     */
-                    // for (const b of elements) {
-                    //     if (a === b || b === base || a.depth !== b.depth) {
-                    //         continue
-                    //     }
-
-                    //     if (this.tsElementIsMethodOrFunction(a.data) && this.tsElementIsMethodOrFunction(b.data)) {
-                    //         // Ok
-                    //     } else if (this.tsElementIsStaticFunction(a.data) && this.tsElementIsStaticFunction(b.data)) {
-                    //         // Ok
-                    //     } else if (
-                    //         this.tsElementIsPropertyOrVariable(a.data) &&
-                    //         this.tsElementIsPropertyOrVariable(b.data)
-                    //     ) {
-                    //         // Ok
-                    //     } else if (this.tsElementIsStaticProperty(a.data) && this.tsElementIsStaticProperty(b.data)) {
-                    //         // Ok
-                    //     } else {
-                    //         // Property vs. Function
-                    //         a.data.hasUnresolvedConflict = true
-                    //     }
-                    // }
                 }
 
                 // If base element is a function and has overloaded methods
@@ -572,20 +696,33 @@ export class ConflictResolver {
     /**
      * Group conflicts by name and sort them by depth for simpler handling of conflicts
      */
-    public static groupConflicts(elements: ChildElement[]) {
+    public static groupConflicts(elements: ChildElement[], tsClass: TsClass) {
         const groupedConflicts: GroupedConflictElements = {}
 
         for (const a of elements) {
             for (const b of elements) {
-                if (a && a.data.name && b && this.hasConflict(a, b)) {
-                    groupedConflicts[a.data.name] ||= []
-                    const groupedConflict = groupedConflicts[a.data.name]
-
-                    if (!groupedConflict.includes(a)) {
-                        groupedConflict.push(a)
+                if (a && a.data.name && b && b.data.name && a !== b && this.hasConflict(a, b)) {
+                    groupedConflicts[a.data.name] ||= {
+                        baseElements: [],
+                        inheritedElements: [],
+                        baseClass: tsClass,
                     }
-                    if (!groupedConflict.includes(b)) {
-                        groupedConflict.push(b)
+                    const groupedConflict = groupedConflicts[a.data.name]
+                    const isBaseElement = a.depth === 0
+                    if (isBaseElement) {
+                        if (!groupedConflict.baseElements.includes(a)) {
+                            groupedConflict.baseElements.push(a)
+                        }
+                        if (!groupedConflict.baseElements.includes(b)) {
+                            groupedConflict.baseElements.push(b)
+                        }
+                    } else {
+                        if (!groupedConflict.inheritedElements.includes(a)) {
+                            groupedConflict.inheritedElements.push(a)
+                        }
+                        if (!groupedConflict.inheritedElements.includes(b)) {
+                            groupedConflict.inheritedElements.push(b)
+                        }
                     }
                 }
             }
@@ -593,7 +730,9 @@ export class ConflictResolver {
 
         // Sort by depth
         for (const name of Object.keys(groupedConflicts)) {
-            groupedConflicts[name] = groupedConflicts[name].sort((a, b) => a.depth - b.depth)
+            groupedConflicts[name].inheritedElements = groupedConflicts[name].inheritedElements.sort(
+                (a, b) => a.depth - b.depth,
+            )
         }
 
         return groupedConflicts
@@ -670,119 +809,116 @@ export class ConflictResolver {
             ...fields,
         ]
 
-        const groupedElementConflicts = this.groupConflicts(elements)
-        const groupedConstructPropConflicts = this.groupConflicts(constructProps)
+        const groupedElementConflicts = this.groupConflicts(elements, girClass._tsData)
+        const groupedConstructPropConflicts = this.groupConflicts(constructProps, girClass._tsData)
 
         this.fixConflicts(groupedElementConflicts)
         this.fixConflicts(groupedConstructPropConflicts)
     }
 
     /**
-     * Returns true if `p1s` and `p2s` are compatible with each other.
+     * Returns true if `p1s` and `p2s` conflicting with each other.
      * The parameters must have the same length and the same type but can have different names
      * @param params
      * @returns
      */
-    public static paramsMatch(...params: GirCallableParamElement[][]) {
-        let match = true
+    public static paramsHasConflict(...params: GirCallableParamElement[][]) {
+        let conflict = false
         for (const p1s of params) {
             for (const p2s of params) {
-                if (p1s === p2s) {
-                    match = true
-                    continue
-                }
-
                 if (p1s.length !== p2s.length) {
-                    match = false
-                    return match
+                    conflict = true
+                    return conflict
                 }
 
                 for (const [i, p1] of p1s.entries()) {
                     const p2 = p2s[i]
                     if (p2._tsData && p1._tsData) {
-                        if (!this.typesMatch(p2._tsData?.type, p1._tsData?.type)) {
-                            match = false
-                            return match
+                        if (this.typesHasConflict(p2._tsData?.type, p1._tsData?.type)) {
+                            conflict = true
+                            return conflict
                         }
                     } else {
-                        match = false
-                        return match
+                        conflict = true
+                        return conflict
                     }
                 }
             }
         }
 
-        return match
+        return conflict
     }
 
-    public static typesMatch(a: TsType[], b: TsType[]) {
-        if (!isEqual(a, b)) {
+    public static typesHasConflict(a: TsType[], b: TsType[]) {
+        if (isEqual(a, b)) {
             return false
         }
         return true
     }
 
     /**
-     * Returns `true` if the function / method types of `a` and `b` are compatible with each other.
+     * Returns `true` if the function / method types of `a` and `b` are not compatible with each other.
      * The parameters must have the same length and the same type but can have different names
      * @param a
      * @param b
      * @returns
      */
-    public static functionMatch(a: TsFunction, b: TsFunction) {
-        if (!this.typesMatch(a.returnTypes, b.returnTypes)) {
-            return false
-        }
-
-        if (!this.paramsMatch(a.inParams, b.inParams)) {
-            return false
-        }
-
-        if (!this.paramsMatch(a.outParams, b.outParams)) {
-            return false
-        }
-
-        return true
-    }
-
-    /**
-     * Returns `true` if the property types of `a` and `b` are compatible with each other.
-     * @param a
-     * @param b
-     * @returns
-     */
-    public static propertyMatch(a: TsVar, b: TsVar) {
-        if (!isEqual(a.type, b.type)) {
-            return false
-        }
-
-        return true
-    }
-
-    /**
-     * Returns true if the elements (properties or methods) of `a` and `b` are compatible with each other.
-     * @param a
-     * @param b
-     * @returns
-     */
-    public static elementMatch(a: TsFunction | TsVar, b: TsFunction | TsVar) {
-        if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
+    public static functionHasConflict(a: TsFunction, b: TsFunction) {
+        if (this.typesHasConflict(a.returnTypes, b.returnTypes)) {
             return true
         }
 
-        if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
-            return this.functionMatch(a as TsFunction, b as TsFunction)
+        if (this.paramsHasConflict(a.inParams, b.inParams)) {
+            return true
         }
 
-        if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
-            return this.propertyMatch(a as TsVar, b as TsVar)
+        if (this.paramsHasConflict(a.outParams, b.outParams)) {
+            return true
         }
 
-        if (!isEqual(a, b)) {
-            // TODO:
+        return false
+    }
+
+    /**
+     * Returns `true` if the property types of `a` and `b` are not compatible with each other.
+     * @param a
+     * @param b
+     * @returns
+     */
+    public static propertyHasConflict(a: TsVar & TsProperty, b: TsVar & TsProperty) {
+        if (!!a.isStatic !== !!b.isStatic) return false
+        if (a.name !== b.name) return false
+
+        if (!!a.readonly !== !!b.readonly || this.typesHasConflict(a.type, b.type)) return true
+
+        return false
+    }
+
+    /**
+     * Returns true if the elements (properties or methods) of `a` and `b` are not compatible with each other (has no conflict).
+     * @param a
+     * @param b
+     * @returns
+     */
+    public static elementHasConflict(a: TsFunction | TsVar | TsProperty, b: TsFunction | TsVar | TsProperty) {
+        if (a.name !== b.name) {
             return false
+        } else if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
+            return false
+        } else if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
+            return this.functionHasConflict(a as TsFunction, b as TsFunction)
+        } else if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
+            return this.propertyHasConflict(a as TsVar & TsProperty, b as TsVar & TsProperty)
+        } else if (this.tsElementIsConstructor(a) && this.tsElementIsConstructor(b)) {
+            return this.functionHasConflict(a as TsFunction, b as TsFunction)
+        } else if (this.tsElementIsSignal(a) && this.tsElementIsSignal(b)) {
+            // TODO
+            return !isEqual(a, b)
+        } else if (a.tsTypeName !== b.tsTypeName) {
+            return true
+        } else {
+            debugger
+            return true
         }
-
-        return true
     }
 }

@@ -9,6 +9,7 @@ import {
     GirSignalElement,
     TsGenericParameter,
     TsMethod,
+    TsProperty,
     TsDoc,
     ClassParent,
     TypeClass,
@@ -38,12 +39,16 @@ export interface TsClass {
     fields: GirFieldElement[]
     /** Properties of the base class itself */
     properties: GirPropertyElement[]
+    /** Injected properties to resolve conflicts between properties */
+    conflictProperties: TsProperty[]
     /** Constructor properties of the base class itself */
     constructProps: GirPropertyElement[]
     /** Array of signal methods for GObject properties */
     propertySignalMethods: TsMethod[]
     /** Methods of the base class itself */
     methods: GirMethodElement[]
+    /** Injected methods to resolve conflicts between properties */
+    conflictMethods: TsMethod[]
     /** Virtual methods of the base class itself */
     virtualMethods: GirVirtualMethodElement[]
     /** Constructor methods of the base class itself */

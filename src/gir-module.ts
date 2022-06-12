@@ -1426,6 +1426,7 @@ export class GirModule {
         const propertyNames = this.getClassNonStaticPropertyNames(girClass)
         const namespacePrefix = this.namespace === 'GObject' ? '' : 'GObject.'
 
+        // TODO: Signals: Generate SignalMethods instead of direct types
         for (const propertyName of propertyNames) {
             let callbackType = 'any'
             if (this.config.environment === 'gjs') {

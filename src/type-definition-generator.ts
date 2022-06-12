@@ -836,7 +836,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.conflictProperties,
                 onlyStatic,
                 namespace,
-                `Conflicting properties of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Conflicting properties`,
                 indentCount,
             ),
         )
@@ -892,7 +892,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.conflictMethods,
                 namespace,
                 indentCount,
-                `Conflicting methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
+                `Conflicting methods`,
             ),
         )
 

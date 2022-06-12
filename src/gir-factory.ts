@@ -295,8 +295,9 @@ export class GirFactory {
             doc: this.newTsDoc(),
         }
 
-        const anyArgsInParam = {
-            name: '...args',
+        const anyArgsInParam: InjectionParameter = {
+            name: 'args',
+            isRest: true,
             type: [
                 this.newTsType({
                     type: `any`,

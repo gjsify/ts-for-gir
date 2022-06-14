@@ -3,6 +3,7 @@ import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typeIsOptional } from './utils.js'
 import type {
+    Environment,
     GirClassElement,
     GirRecordElement,
     GirUnionElement,
@@ -25,14 +26,14 @@ import type {
     TypeProperty,
 } from './types/index.js'
 
-interface ChildElement {
+interface ChildElement<T = TsFunction | TsProperty | TsVar> {
     /**
      * The depth of the inheritance, starts at 1.
      * 1 means it is a direct inheritance,
      * greater means it is an indirect inheritance
      */
     depth: number
-    data: TsFunction | TsProperty | TsVar
+    data: T
 }
 
 interface GroupedConflictElements {
@@ -43,24 +44,20 @@ interface GroupedConflictElements {
     }
 }
 
-interface ChildFunction extends ChildElement {
-    data: TsFunction
-}
-
-interface ChildProperty extends ChildElement {
-    data: TsProperty | TsVar
-}
-
 /**
  * Resolve conflicts between types caused by overloads / inheritances and implementations
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
-    private static log = new Logger('', true, 'ConflictResolver')
+    private log: Logger
 
-    private static girFactory = new GirFactory()
+    private girFactory = new GirFactory()
 
-    private static girElArrToChildArr<T extends ChildElement>(
+    constructor(private readonly environment: Environment) {
+        this.log = new Logger(environment, true, 'ConflictResolver')
+    }
+
+    private girElArrToChildArr<T = TsFunction | TsProperty | TsVar>(
         dataArr: Array<
             | GirMethodElement
             | GirVirtualMethodElement
@@ -70,18 +67,19 @@ export class ConflictResolver {
             | GirFieldElement
         >,
         depth: number,
-    ): T[] {
+    ): ChildElement<T>[] {
         return dataArr
-            .filter((m) => !!m?._tsData)
+            .filter((data) => !!data?._tsData)
             .map((data) => {
+                if (!data?._tsData) throw new Error('_tsData not set!')
                 return {
                     depth,
-                    data: data?._tsData,
-                } as T
+                    data: data?._tsData as unknown as T,
+                }
             })
     }
 
-    private static tsElArrToChildArr<T extends ChildElement>(
+    private tsElArrToChildArr<T extends ChildElement>(
         dataArr: Array<TsFunction | TsProperty | TsVar>,
         depth: number,
     ): T[] {
@@ -95,15 +93,15 @@ export class ConflictResolver {
             })
     }
 
-    private static getImplementedInterfaceElements(tsIface: TsClass, addDepth = 0) {
-        const methods: ChildFunction[] = []
-        const virtualMethods: ChildFunction[] = []
-        const staticFunctions: ChildFunction[] = []
-        const constructors: ChildFunction[] = []
+    private getImplementedInterfaceElements(tsIface: TsClass, addDepth = 0) {
+        const methods: ChildElement<TsFunction>[] = []
+        const virtualMethods: ChildElement<TsFunction>[] = []
+        const staticFunctions: ChildElement<TsFunction>[] = []
+        const constructors: ChildElement<TsFunction>[] = []
 
-        const properties: ChildProperty[] = []
-        const fields: ChildProperty[] = []
-        const constructProps: ChildProperty[] = []
+        const properties: ChildElement<TsProperty | TsVar>[] = []
+        const fields: ChildElement<TsProperty | TsVar>[] = []
+        const constructProps: ChildElement<TsProperty | TsVar>[] = []
 
         const tsIfaceFullPackageSymName = `${tsIface.namespace}-${tsIface.version}.${tsIface.namespace}.${tsIface.name}`
 
@@ -116,33 +114,33 @@ export class ConflictResolver {
             const { interface: implementation, depth } = tsIface.implements[ifacePackageFullSymName]
             // Methods
             if (implementation.methods.length)
-                methods.push(...this.girElArrToChildArr<ChildFunction>(implementation.methods, depth + addDepth))
+                methods.push(...this.girElArrToChildArr<TsFunction>(implementation.methods, depth + addDepth))
             // Virtual methods
             if (implementation.virtualMethods.length)
                 virtualMethods.push(
-                    ...this.girElArrToChildArr<ChildFunction>(implementation.virtualMethods, depth + addDepth),
+                    ...this.girElArrToChildArr<TsFunction>(implementation.virtualMethods, depth + addDepth),
                 )
             // Static functions
             if (implementation.staticFunctions.length)
                 staticFunctions.push(
-                    ...this.girElArrToChildArr<ChildFunction>(implementation.staticFunctions, depth + addDepth),
+                    ...this.girElArrToChildArr<TsFunction>(implementation.staticFunctions, depth + addDepth),
                 )
             // Constructors
             if (implementation.constructors.length)
-                constructors.push(
-                    ...this.girElArrToChildArr<ChildFunction>(implementation.constructors, depth + addDepth),
-                )
+                constructors.push(...this.girElArrToChildArr<TsFunction>(implementation.constructors, depth + addDepth))
 
             // Properties
             if (implementation.properties.length)
-                properties.push(...this.girElArrToChildArr<ChildProperty>(implementation.properties, depth + addDepth))
+                properties.push(
+                    ...this.girElArrToChildArr<TsProperty | TsVar>(implementation.properties, depth + addDepth),
+                )
             // Fields
             if (implementation.fields.length)
-                fields.push(...this.girElArrToChildArr<ChildProperty>(implementation.fields, depth + addDepth))
+                fields.push(...this.girElArrToChildArr<TsProperty | TsVar>(implementation.fields, depth + addDepth))
             // Constructor properties
             if (implementation.constructProps.length)
                 constructProps.push(
-                    ...this.girElArrToChildArr<ChildProperty>(implementation.constructProps, depth + addDepth),
+                    ...this.girElArrToChildArr<TsProperty | TsVar>(implementation.constructProps, depth + addDepth),
                 )
 
             // Also get inheritances of the implemented class
@@ -177,15 +175,15 @@ export class ConflictResolver {
         }
     }
 
-    private static getInheritedClassElements(tsClass: TsClass, addDepth = 0) {
-        const methods: ChildFunction[] = []
-        const virtualMethods: ChildFunction[] = []
-        const staticFunctions: ChildFunction[] = []
-        const constructors: ChildFunction[] = []
+    private getInheritedClassElements(tsClass: TsClass, addDepth = 0) {
+        const methods: ChildElement<TsFunction>[] = []
+        const virtualMethods: ChildElement<TsFunction>[] = []
+        const staticFunctions: ChildElement<TsFunction>[] = []
+        const constructors: ChildElement<TsFunction>[] = []
 
-        const properties: ChildProperty[] = []
-        const fields: ChildProperty[] = []
-        const constructProps: ChildProperty[] = []
+        const properties: ChildElement<TsProperty | TsVar>[] = []
+        const fields: ChildElement<TsProperty | TsVar>[] = []
+        const constructProps: ChildElement<TsProperty | TsVar>[] = []
 
         const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
 
@@ -199,27 +197,27 @@ export class ConflictResolver {
 
             // Methods
             if (inherit.methods.length)
-                methods.push(...this.girElArrToChildArr<ChildFunction>(inherit.methods, depth + addDepth))
+                methods.push(...this.girElArrToChildArr<TsFunction>(inherit.methods, depth + addDepth))
             // Virtual methods
             if (inherit.virtualMethods.length)
-                virtualMethods.push(...this.girElArrToChildArr<ChildFunction>(inherit.virtualMethods, depth + addDepth))
+                virtualMethods.push(...this.girElArrToChildArr<TsFunction>(inherit.virtualMethods, depth + addDepth))
             // Static functions
             if (inherit.staticFunctions.length)
-                staticFunctions.push(
-                    ...this.girElArrToChildArr<ChildFunction>(inherit.staticFunctions, depth + addDepth),
-                )
+                staticFunctions.push(...this.girElArrToChildArr<TsFunction>(inherit.staticFunctions, depth + addDepth))
             // Constructors
             if (inherit.constructors.length)
-                constructors.push(...this.girElArrToChildArr<ChildFunction>(inherit.constructors, depth + addDepth))
+                constructors.push(...this.girElArrToChildArr<TsFunction>(inherit.constructors, depth + addDepth))
             // Properties
             if (inherit.properties.length)
-                properties.push(...this.girElArrToChildArr<ChildProperty>(inherit.properties, depth + addDepth))
+                properties.push(...this.girElArrToChildArr<TsProperty | TsVar>(inherit.properties, depth + addDepth))
             // Fields
             if (inherit.fields.length)
-                fields.push(...this.girElArrToChildArr<ChildProperty>(inherit.fields, depth + addDepth))
+                fields.push(...this.girElArrToChildArr<TsProperty | TsVar>(inherit.fields, depth + addDepth))
             // Constructor properties
             if (inherit.constructProps.length)
-                constructProps.push(...this.girElArrToChildArr<ChildProperty>(inherit.constructProps, depth + addDepth))
+                constructProps.push(
+                    ...this.girElArrToChildArr<TsProperty | TsVar>(inherit.constructProps, depth + addDepth),
+                )
 
             // Also get implementations of the inherited class
             const indirectImplementations = this.getImplementedInterfaceElements(inherit, addDepth + 1)
@@ -253,31 +251,31 @@ export class ConflictResolver {
         }
     }
 
-    private static tsElementIsMethod(el: TsFunction | TsVar) {
+    private tsElementIsMethod(el: TsFunction | TsVar) {
         return !this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
     }
 
-    private static tsElementIsStaticFunction(el: TsFunction | TsVar) {
+    private tsElementIsStaticFunction(el: TsFunction | TsVar) {
         return this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
     }
 
-    private static tsElementIsProperty(el: TsFunction | TsVar) {
+    private tsElementIsProperty(el: TsFunction | TsVar) {
         return !this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
     }
 
-    private static tsElementIsStaticProperty(el: TsFunction | TsVar) {
+    private tsElementIsStaticProperty(el: TsFunction | TsVar) {
         return this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
     }
 
-    private static tsElementIsSignal(el: TsFunction | TsVar) {
+    private tsElementIsSignal(el: TsFunction | TsVar) {
         return el.tsTypeName === 'event-methods'
     }
 
-    private static tsElementIsConstructor(el: TsFunction | TsVar) {
+    private tsElementIsConstructor(el: TsFunction | TsVar) {
         return el.tsTypeName === 'constructor'
     }
 
-    private static tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
+    private tsElementIsMethodOrFunction(el: TsFunction | TsVar) {
         return (
             el.tsTypeName === 'function' || el.tsTypeName === 'method' || el.tsTypeName === 'static-function'
             // el.tsTypeName === 'event-methods'
@@ -285,7 +283,7 @@ export class ConflictResolver {
         )
     }
 
-    private static tsElementIsPropertyOrVariable(el: TsFunction | TsVar | TsProperty) {
+    private tsElementIsPropertyOrVariable(el: TsFunction | TsVar | TsProperty) {
         return (
             el.tsTypeName === 'constant' ||
             el.tsTypeName === 'constructor-property' ||
@@ -294,14 +292,14 @@ export class ConflictResolver {
         )
     }
 
-    private static tsElementIsStatic(el: TsFunction | TsVar) {
+    private tsElementIsStatic(el: TsFunction | TsVar) {
         return (
             // el.tsTypeName === 'constructor' ||
             el.tsTypeName === 'static-property' || el.tsTypeName === 'static-function'
         )
     }
 
-    private static typeIsString(type: TsType) {
+    private typeIsString(type: TsType) {
         return (
             type.type === 'string' ||
             (type.type.startsWith("'") && type.type.endsWith("'")) ||
@@ -309,7 +307,7 @@ export class ConflictResolver {
         )
     }
 
-    private static mergeTypes(...types: Array<TsType | undefined>) {
+    private mergeTypes(...types: Array<TsType | undefined>) {
         const dest: TsType[] = []
 
         for (const type of types) {
@@ -322,7 +320,7 @@ export class ConflictResolver {
         return dest
     }
 
-    private static setTypesProperty(types: TsType[], property: 'optional', value: boolean) {
+    private setTypesProperty(types: TsType[], property: 'optional', value: boolean) {
         for (const type of types) {
             type[property] = value
         }
@@ -335,7 +333,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    private static mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
+    private mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
         if (!a?._tsData && !b?._tsData) {
             throw new Error('At least one parameter must be defined!')
         }
@@ -373,7 +371,7 @@ export class ConflictResolver {
      * @param params
      * @returns
      */
-    private static mergeParams(...params: GirCallableParamElement[][]) {
+    private mergeParams(...params: GirCallableParamElement[][]) {
         let dest: GirCallableParamElement[] = []
 
         for (const a of params) {
@@ -398,7 +396,7 @@ export class ConflictResolver {
         return dest
     }
 
-    private static paramCanBeOptional(
+    private paramCanBeOptional(
         girParam: GirCallableParamElement,
         girParams: GirCallableParamElement[],
         skip: GirCallableParamElement[] = [],
@@ -425,7 +423,7 @@ export class ConflictResolver {
      * @param girParams
      * @returns
      */
-    private static fixOptionalParameters(girParams: GirCallableParamElement[]) {
+    private fixOptionalParameters(girParams: GirCallableParamElement[]) {
         for (const girParam of girParams) {
             if (!girParam._tsData) throw new Error(NO_TSDATA('fixOptionalParameters'))
             if (typeIsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
@@ -435,7 +433,7 @@ export class ConflictResolver {
         return girParams
     }
 
-    public static mergeFunctions(...funcs: TsFunction[]) {
+    public mergeFunctions(...funcs: TsFunction[]) {
         const returnTypesMap: TsType[] = []
         for (const func of funcs) {
             returnTypesMap.push(...func.returnTypes)
@@ -467,7 +465,7 @@ export class ConflictResolver {
         })
     }
 
-    public static mergeProperties(...props: TsProperty[]) {
+    public mergeProperties(...props: TsProperty[]) {
         // Merge types
         const typesMap: TsType[] = []
         for (const prop of props) {
@@ -500,7 +498,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    public static hasConflict(a: ChildElement, b: ChildElement) {
+    public hasConflict(a: ChildElement, b: ChildElement) {
         if (a !== b && a.data.name === b.data.name) {
             if (a.data.name === 'constructor' || a.data.name === 'new' || a.data.name === '_init') {
                 return false
@@ -513,7 +511,7 @@ export class ConflictResolver {
         return false
     }
 
-    public static newAnyTsProperty(name: string, girTypeName: TypeProperty) {
+    public newAnyTsProperty(name: string, girTypeName: TypeProperty) {
         return this.girFactory.newTsProperty({
             name,
             girTypeName,
@@ -525,7 +523,7 @@ export class ConflictResolver {
      * Returns a new any function: `name(...args: any[]): any`
      * @param name The name of the function
      */
-    public static newAnyTsFunction(name: string, girTypeName: TypeGirFunction) {
+    public newAnyTsFunction(name: string, girTypeName: TypeGirFunction) {
         return this.girFactory.newTsFunction({
             name,
             inParams: [
@@ -540,11 +538,11 @@ export class ConflictResolver {
         })
     }
 
-    public static getCompatibleTsProperty(elements: TsProperty[], baseProp: TsProperty) {
+    public getCompatibleTsProperty(elements: TsProperty[], baseProp: TsProperty) {
         return elements.find((prop) => !this.propertyHasConflict(baseProp, prop))
     }
 
-    public static getCompatibleTsFunction(elements: TsFunction[], baseFunc: TsFunction) {
+    public getCompatibleTsFunction(elements: TsFunction[], baseFunc: TsFunction) {
         return elements.find((func) => !this.functionHasConflict(baseFunc, func))
     }
 
@@ -554,7 +552,7 @@ export class ConflictResolver {
      * @param name
      * @returns
      */
-    public static getTsPropertyByName(elements: TsProperty[], name: string) {
+    public getTsPropertyByName(elements: TsProperty[], name: string) {
         return elements.find((el) => el.name === name)
     }
 
@@ -564,7 +562,7 @@ export class ConflictResolver {
      * @param name
      * @returns
      */
-    public static getTsFunctionByName(elements: TsFunction[], name: string) {
+    public getTsFunctionByName(elements: TsFunction[], name: string) {
         return elements.find((func) => func.name === name)
     }
 
@@ -575,7 +573,7 @@ export class ConflictResolver {
      *   Interface 'PopoverMenu' can\'t simultaneously extend types 'Popover' and 'Native'.
      *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
      */
-    public static fixIndirectConflicts(elements: ChildElement[], baseClass: TsClass) {
+    public fixIndirectConflicts(elements: ChildElement[], baseClass: TsClass) {
         for (const base of elements) {
             for (const b of elements) {
                 if (b === base) {
@@ -651,7 +649,7 @@ export class ConflictResolver {
      * Fix the conflicts by merging the types with each other
      * @param groupedElements
      */
-    public static fixConflicts(groupedElements: GroupedConflictElements) {
+    public fixConflicts(groupedElements: GroupedConflictElements) {
         for (const name of Object.keys(groupedElements)) {
             const elements = groupedElements[name]
 
@@ -714,9 +712,17 @@ export class ConflictResolver {
                     }
                 }
 
-                // Ignore signal conflicts
+                // If base element is a signal method
                 else if (this.tsElementIsSignal(base.data)) {
-                    // Do nothing
+                    // Signal vs. Property
+                    if (this.tsElementIsPropertyOrVariable(a.data)) {
+                        a.data.hasUnresolvedConflict = true
+                    }
+
+                    // Signal vs. Function
+                    if (this.tsElementIsMethodOrFunction(a.data)) {
+                        a.data.hasUnresolvedConflict = true
+                    }
                 }
                 // Ignore constructors
                 else if (this.tsElementIsConstructor(base.data)) {
@@ -742,7 +748,7 @@ export class ConflictResolver {
     /**
      * Group conflicts by name and sort them by depth for simpler handling of conflicts
      */
-    public static groupConflicts(elements: ChildElement[], tsClass: TsClass) {
+    public groupConflicts(elements: ChildElement[], tsClass: TsClass) {
         const groupedConflicts: GroupedConflictElements = {}
 
         for (const a of elements) {
@@ -792,7 +798,7 @@ export class ConflictResolver {
      * We merge these types here to solve this problem.
      * @param girClass
      */
-    public static repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
+    public repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('repairClass'))
 
         const implementations = this.getImplementedInterfaceElements(girClass._tsData)
@@ -871,7 +877,7 @@ export class ConflictResolver {
      * @param params
      * @returns
      */
-    public static paramsHasConflict(...params: GirCallableParamElement[][]) {
+    public paramsHasConflict(...params: GirCallableParamElement[][]) {
         let conflict = false
         for (const p1s of params) {
             for (const p2s of params) {
@@ -898,7 +904,7 @@ export class ConflictResolver {
         return conflict
     }
 
-    public static typesHasConflict(a: TsType[], b: TsType[]) {
+    public typesHasConflict(a: TsType[], b: TsType[]) {
         if (a.length !== b.length) {
             return true
         }
@@ -933,7 +939,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    public static functionHasConflict(a: TsFunction, b: TsFunction) {
+    public functionHasConflict(a: TsFunction, b: TsFunction) {
         if (this.typesHasConflict(a.returnTypes, b.returnTypes)) {
             return true
         }
@@ -955,7 +961,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    public static propertyHasConflict(a: TsVar & TsProperty, b: TsVar & TsProperty) {
+    public propertyHasConflict(a: TsVar & TsProperty, b: TsVar & TsProperty) {
         if (!!a.isStatic !== !!b.isStatic) return false
         if (a.name !== b.name) return false
 
@@ -964,18 +970,21 @@ export class ConflictResolver {
         return false
     }
 
-    public static signalHasConflict(a: TsSignal, b: TsSignal) {
+    public signalHasConflict(a: TsSignal, b: TsSignal) {
         if (!!a.isStatic !== !!b.isStatic) return false
         if (a.name !== b.name) return false
-        switch (a.name) {
-            case 'connect':
-            case 'connect_after':
-            case 'emit':
-                break
 
-            default:
-                break
-        }
+        // TODO
+        return false
+        // switch (a.name) {
+        //     case 'connect':
+        //     case 'connect_after':
+        //     case 'emit':
+        //         break
+
+        //     default:
+        //         break
+        // }
     }
 
     /**
@@ -984,7 +993,7 @@ export class ConflictResolver {
      * @param b
      * @returns
      */
-    public static elementHasConflict(
+    public elementHasConflict(
         a: TsFunction | TsVar | TsProperty | TsSignal,
         b: TsFunction | TsVar | TsProperty | TsSignal,
     ) {

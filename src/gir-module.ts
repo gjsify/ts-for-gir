@@ -143,9 +143,13 @@ export class GirModule {
 
     girFactory = new GirFactory()
 
-    inject = new Injector()
-    extends?: string
+    conflictResolver: ConflictResolver
+
     log: Logger
+
+    inject = new Injector()
+
+    extends?: string
 
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
@@ -167,6 +171,7 @@ export class GirModule {
         this.packageName = `${this.namespace}-${this.version}`
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
+        this.conflictResolver = new ConflictResolver(config.environment)
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
 
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
@@ -2277,7 +2282,7 @@ export class GirModule {
             ...this.getGeneralSignalsMethods(),
         )
 
-        ConflictResolver.repairClass(girClass)
+        this.conflictResolver.repairClass(girClass)
 
         return girClass._tsData
     }

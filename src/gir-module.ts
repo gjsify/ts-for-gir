@@ -2333,14 +2333,25 @@ export class GirModule {
         callback(girClass, depth)
 
         const parents = girClass._tsData.parents
-        if (parents.length) {
+        if (recursive && parents.length) {
             ++depth
+
+            if (depth >= 100) {
+                this.log.warn('[traverseInheritanceTree] Maximum recursion depth reached')
+                return
+            }
+
             for (const parent of parents) {
                 if (!parent.parentName || parent.type !== 'parent') {
                     continue
                 }
 
-                if (parent.cls && recursive) {
+                if (parent.cls) {
+                    if (parent.cls === girClass) {
+                        this.log.warn('[traverseInheritanceTree] A class cannot inherit itself')
+                        continue
+                    }
+
                     this.traverseInheritanceTree(parent.cls, parent.girTypeName, callback, depth, recursive)
                 }
             }

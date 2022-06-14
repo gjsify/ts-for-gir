@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "build:types:vda1",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/src/start.ts",
+            "args": [
+                "generate", "--configName=.ts-for-gir.vda1.rc.js", "-o", "./tmp"
+            ],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "sourceMaps": true
+        },
+        {
             "name": "build:types:gtk3",
             "type": "node",
             "request": "launch",

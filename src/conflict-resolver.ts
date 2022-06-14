@@ -1,4 +1,5 @@
 import { GirFactory } from './gir-factory.js'
+import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typeIsOptional } from './utils.js'
 import type {
@@ -55,6 +56,8 @@ interface ChildProperty extends ChildElement {
  * With multiple implementations or a inherit it can happen that the interfaces / parent have the same method and/or property name with incompatible types.
  */
 export class ConflictResolver {
+    private static log = new Logger('', true, 'ConflictResolver')
+
     private static girFactory = new GirFactory()
 
     private static girElArrToChildArr<T extends ChildElement>(
@@ -102,8 +105,15 @@ export class ConflictResolver {
         const fields: ChildProperty[] = []
         const constructProps: ChildProperty[] = []
 
-        for (const ifaceFullSymName of Object.keys(tsIface.implements)) {
-            const { interface: implementation, depth } = tsIface.implements[ifaceFullSymName]
+        const tsIfaceFullPackageSymName = `${tsIface.namespace}-${tsIface.version}.${tsIface.namespace}.${tsIface.name}`
+
+        for (const ifacePackageFullSymName of Object.keys(tsIface.implements)) {
+            if (tsIfaceFullPackageSymName === ifacePackageFullSymName) {
+                this.log.warn("[getImplementedInterfaceElements] A interface can't implement itself")
+                continue
+            }
+
+            const { interface: implementation, depth } = tsIface.implements[ifacePackageFullSymName]
             // Methods
             if (implementation.methods.length)
                 methods.push(...this.girElArrToChildArr<ChildFunction>(implementation.methods, depth + addDepth))
@@ -167,7 +177,7 @@ export class ConflictResolver {
         }
     }
 
-    private static getInheritedClassElements(girClass: TsClass, addDepth = 0) {
+    private static getInheritedClassElements(tsClass: TsClass, addDepth = 0) {
         const methods: ChildFunction[] = []
         const virtualMethods: ChildFunction[] = []
         const staticFunctions: ChildFunction[] = []
@@ -177,8 +187,16 @@ export class ConflictResolver {
         const fields: ChildProperty[] = []
         const constructProps: ChildProperty[] = []
 
-        for (const ifaceFullSymName of Object.keys(girClass.inherit)) {
-            const { class: inherit, depth } = girClass.inherit[ifaceFullSymName]
+        const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
+
+        for (const ifaceFullPackageSymName of Object.keys(tsClass.inherit)) {
+            if (tsClassFullPackageSymName === ifaceFullPackageSymName) {
+                this.log.warn("[getInheritedClassElements] A class can't inherit itself")
+                continue
+            }
+
+            const { class: inherit, depth } = tsClass.inherit[ifaceFullPackageSymName]
+
             // Methods
             if (inherit.methods.length)
                 methods.push(...this.girElArrToChildArr<ChildFunction>(inherit.methods, depth + addDepth))
@@ -554,7 +572,7 @@ export class ConflictResolver {
      * Check conflicts between the implementations / inheritances
      * To fix type errors like:
      * ```
-     *   Interface 'PopoverMenu' cannot simultaneously extend types 'Popover' and 'Native'.
+     *   Interface 'PopoverMenu' can\'t simultaneously extend types 'Popover' and 'Native'.
      *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
      */
     public static fixIndirectConflicts(elements: ChildElement[], baseClass: TsClass) {
@@ -704,7 +722,7 @@ export class ConflictResolver {
                 else if (this.tsElementIsConstructor(base.data)) {
                     // Do nothing
                 } else {
-                    console.warn('Found unknown element', base)
+                    this.log.warn('Found unknown element', base)
                     base.data.hasUnresolvedConflict = true
                 }
             }

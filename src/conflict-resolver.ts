@@ -678,6 +678,13 @@ export class ConflictResolver {
                         if (!this.getCompatibleTsFunction(baseFunc.overloads, aFunc)) {
                             baseFunc.overloads.push(aFunc)
                         }
+
+                        // // Also add a any function to resolve more conflicts
+                        // const anyFunc = this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName)
+                        // // Check if any function is not already added
+                        // if (!this.getCompatibleTsFunction(baseFunc.overloads, anyFunc)) {
+                        //     baseFunc.overloads.push(anyFunc)
+                        // }
                     }
 
                     // Function vs. Property
@@ -734,14 +741,14 @@ export class ConflictResolver {
             }
 
             // If base element is a function and has overloaded methods
-            // if (this.tsElementIsMethodOrFunction(base.data)) {
-            //     const baseFunc = base.data as TsFunction
-            //     // Add a function with any types
-            //     baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
+            if (this.tsElementIsMethodOrFunction(base.data)) {
+                const baseFunc = base.data as TsFunction
+                // Add a function with any types
+                // baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
 
-            //     // Add a function with merged types and parameters
-            //     baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
-            // }
+                // Add a function with merged types and parameters
+                baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+            }
         }
     }
 

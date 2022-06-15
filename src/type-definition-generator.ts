@@ -25,6 +25,7 @@ import type {
     TsMember,
     TsVar,
     TsProperty,
+    TsParameter,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -250,7 +251,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         for (const inParam of inParams) {
-            inParamsDef.push(...this.generateParameter(inParam, namespace))
+            if (inParam._tsData) inParamsDef.push(...this.generateParameter(inParam._tsData, namespace))
         }
 
         return inParamsDef
@@ -390,17 +391,17 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateParameter(girParam: GirCallableParamElement, namespace: string) {
-        if (typeof girParam._tsData?.name !== 'string') {
+    private generateParameter(tsParam: TsParameter, namespace: string) {
+        if (typeof tsParam?.name !== 'string') {
             throw new Error(NO_TSDATA('generateParameter'))
         }
 
-        const types = girParam._tsData.type
-        const name = girParam._tsData.name
+        const types = tsParam.type
+        const name = tsParam.name
         const typeStr = this.generateReturnTypes(types, namespace)
-        const optional = typeIsOptional(types)
+        const optional = typeIsOptional(types) && !tsParam.isRest
         const affix = optional ? '?' : ''
-        const prefix = girParam._tsData.isRest ? '...' : ''
+        const prefix = tsParam.isRest ? '...' : ''
 
         return [`${prefix}${name}${affix}: ${typeStr}`]
     }

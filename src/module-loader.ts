@@ -481,17 +481,18 @@ export class ModuleLoader {
         // Load girModules for dependencies
         for (const girModule of girModules) {
             // Load dependencies
-            if (girModule.module.transitiveDependencies.length > 0) {
-                const dependencies = girModule.module.transitiveDependencies.filter((dep) => {
-                    const isIgnored = ignoreDependencies.includes(dep)
-                    if (isIgnored) {
-                        this.log.warn(`Ignore dependency ${dep} (as a dependency of ${girModule.packageName})`)
+            const transitiveDependencies = girModule.module.transitiveDependencies
+            if (transitiveDependencies.length > 0) {
+                for (const transitiveDependency of transitiveDependencies) {
+                    if (ignoreDependencies.includes(transitiveDependency)) {
+                        this.log.warn(
+                            `Load dependency "${transitiveDependency}" which is in the ignore list, if this should really be ignored also ignore "${girModule.packageName}"`,
+                        )
                     }
-                    return !isIgnored
-                })
+                }
 
                 await this.loadGirModules(
-                    dependencies,
+                    transitiveDependencies,
                     ignoreDependencies,
                     girModules,
                     ResolveType.DEPENDENCE,

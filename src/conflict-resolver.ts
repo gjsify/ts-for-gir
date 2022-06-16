@@ -37,10 +37,10 @@ interface ChildElement<T = TsFunction | TsProperty | TsVar> {
     data: T
 }
 
-interface GroupedConflictElements {
+interface GroupedConflictElements<T = TsFunction | TsProperty | TsVar> {
     [name: string]: {
-        baseElements: ChildElement[]
-        inheritedElements: ChildElement[]
+        baseElements: ChildElement<T>[]
+        inheritedElements: ChildElement<T>[]
         baseClass: TsClass
     }
 }
@@ -602,6 +602,58 @@ export class ConflictResolver {
         )
     }
 
+    public groupSignalConflicts(signalsMethods: ChildElement<TsFunction>[], baseClass: TsClass) {
+        const groupedConflicts: GroupedConflictElements = {}
+        for (const base of signalsMethods) {
+            for (const b of signalsMethods) {
+                if (base === b) {
+                    continue
+                }
+
+                if (base.data.name !== 'connect' && base.data.name !== 'connect_after') {
+                    continue
+                }
+
+                const sigNameParam = base.data.inParams[0]
+                const callbackParam = base.data.inParams[1]
+
+                const eventName = sigNameParam?._tsData?.type?.[0]?.type
+                // TODO do not render the callback type as a full string, create a TSCallback instead
+                const callbackType = callbackParam?._tsData?.type?.[0]?.type
+                // console.debug('eventName', eventName, callbackType)
+
+                if (!eventName || eventName === 'string') {
+                    continue
+                }
+                groupedConflicts[eventName] ||= {
+                    baseElements: [],
+                    inheritedElements: [],
+                    baseClass,
+                }
+
+                const groupedConflict = groupedConflicts[eventName]
+                const isBaseElement = base.depth === 0
+                if (isBaseElement) {
+                    if (!groupedConflict.baseElements.includes(base)) {
+                        groupedConflict.baseElements.push(base)
+                    }
+                    if (!groupedConflict.baseElements.includes(b)) {
+                        groupedConflict.baseElements.push(b)
+                    }
+                } else {
+                    if (!groupedConflict.inheritedElements.includes(base)) {
+                        groupedConflict.inheritedElements.push(base)
+                    }
+                    if (!groupedConflict.inheritedElements.includes(b)) {
+                        groupedConflict.inheritedElements.push(b)
+                    }
+                }
+            }
+        }
+
+        return groupedConflicts
+    }
+
     /**
      * Check conflicts between the implementations / inheritances
      * To fix type errors like:
@@ -689,6 +741,27 @@ export class ConflictResolver {
         }
     }
 
+    public fixSignalConflicts(groupedElements: GroupedConflictElements) {
+        for (const eventName of Object.keys(groupedElements)) {
+            const elements = groupedElements[eventName]
+
+            const base = elements.baseElements.length > 0 ? elements.baseElements[0] : undefined
+
+            if (!base) {
+                // TODO
+                // return this.fixIndirectSignalConflicts(elements.inheritedElements, elements.baseClass)
+                return
+            }
+
+            // Each conflicting signal
+            for (const b of elements.inheritedElements) {
+                if (b === base) {
+                    continue
+                }
+            }
+        }
+    }
+
     /**
      * Fix the conflicts by merging the types with each other
      * @param groupedElements
@@ -721,13 +794,6 @@ export class ConflictResolver {
                         if (!this.getCompatibleTsFunction(baseFunc.overloads, aFunc)) {
                             baseFunc.overloads.push(aFunc)
                         }
-
-                        // // Also add a any function to resolve more conflicts
-                        // const anyFunc = this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName)
-                        // // Check if any function is not already added
-                        // if (!this.getCompatibleTsFunction(baseFunc.overloads, anyFunc)) {
-                        //     baseFunc.overloads.push(anyFunc)
-                        // }
                     }
 
                     // Function vs. Property
@@ -747,8 +813,8 @@ export class ConflictResolver {
 
                     // Property vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        const aProp = b.data as TsProperty
-                        base.data = this.mergeProperties(baseProp, aProp)
+                        const bProp = b.data as TsProperty
+                        base.data = this.mergeProperties(baseProp, bProp)
                     }
 
                     // Property vs. Function
@@ -786,11 +852,13 @@ export class ConflictResolver {
             // If base element is a function and has overloaded methods
             if (this.tsElementIsMethodOrFunction(base.data)) {
                 const baseFunc = base.data as TsFunction
-                // Add a function with any types
-                // baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
+                if (baseFunc.overloads.length > 0) {
+                    // Add a function with any types
+                    baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
 
-                // Add a function with merged types and parameters
-                baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+                    // Add a function with merged types and parameters
+                    baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+                }
             }
         }
     }
@@ -912,15 +980,22 @@ export class ConflictResolver {
 
         // Do not pass a reference of the array here
         const elements = [
-            ...methods,
             ...signalMethods,
             ...propertySignalMethods,
+            ...methods,
             ...virtualMethods,
             ...staticFunctions,
             ...constructors,
             ...properties,
             ...fields,
         ]
+
+        // TODO:
+        // const groupedSignalConflicts = this.groupSignalConflicts(
+        //     [...signalMethods, ...propertySignalMethods],
+        //     girClass._tsData,
+        // )
+        // this.fixSignalConflicts(groupedSignalConflicts)
 
         const groupedElementConflicts = this.groupConflicts(elements, girClass._tsData)
         const groupedConstructPropConflicts = this.groupConflicts(constructProps, girClass._tsData)

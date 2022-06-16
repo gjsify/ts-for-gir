@@ -217,13 +217,25 @@ export default class TypeDefinitionGenerator implements Generator {
     ) {
         const def: string[] = []
 
+        if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
+            throw new Error(NO_TSDATA('generateConstructPropsInterface'))
+        }
+
         if (girClass._tsData?.isDerivedFromGObject) {
-            for (const tsSignalMethod of girClass._tsData.propertySignalMethods) {
-                if (!tsSignalMethod) {
-                    // this.log.warn(NO_TSDATA('generateClassPropertySignals'))
-                    continue
+            if (girClass._tsData.propertySignalMethods.length > 0) {
+                def.push(
+                    ...this.addInlineInfoComment(
+                        `Class property signals of ${girClass._module?.packageName}.${girClass._fullSymName}`,
+                        indentCount,
+                    ),
+                )
+                for (const tsSignalMethod of girClass._tsData.propertySignalMethods) {
+                    if (!tsSignalMethod) {
+                        // this.log.warn(NO_TSDATA('generateClassPropertySignals'))
+                        continue
+                    }
+                    def.push(...this._generateFunction(tsSignalMethod, false, namespace, indentCount))
                 }
-                def.push(...this._generateFunction(tsSignalMethod, false, namespace, indentCount))
             }
         }
         return def
@@ -554,7 +566,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Add overloaded methods
         if (overloads && tsFunction.overloads.length > 0) {
-            def.push(...this.addInlineInfoComment('Overloads', indentCount))
+            def.push(...this.addInlineInfoComment(`Overloads of ${name}`, indentCount))
             for (const func of tsFunction.overloads) {
                 def.push(...this._generateFunction(func, onlyStatic, namespace, indentCount, false))
             }

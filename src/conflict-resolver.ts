@@ -2,6 +2,7 @@ import { GirFactory } from './gir-factory.js'
 import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typeIsOptional } from './utils.js'
+import { SIGNAL_METHOD_NAMES } from './constants.js'
 import type {
     Environment,
     GirClassElement,
@@ -94,6 +95,8 @@ export class ConflictResolver {
     }
 
     private getImplementedInterfaceElements(tsIface: TsClass, addDepth = 0) {
+        const signalMethods: ChildElement<TsFunction>[] = []
+        const propertySignalMethods: ChildElement<TsFunction>[] = []
         const methods: ChildElement<TsFunction>[] = []
         const virtualMethods: ChildElement<TsFunction>[] = []
         const staticFunctions: ChildElement<TsFunction>[] = []
@@ -112,6 +115,16 @@ export class ConflictResolver {
             }
 
             const { interface: implementation, depth } = tsIface.implements[ifacePackageFullSymName]
+
+            // Signals
+            const _signals = implementation.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
+            for (const tsSignal of _signals) {
+                signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
+            }
+            // Property signals
+            propertySignalMethods.push(
+                ...this.tsElArrToChildArr<ChildElement<TsFunction>>(implementation.propertySignalMethods, 0),
+            )
             // Methods
             if (implementation.methods.length)
                 methods.push(...this.girElArrToChildArr<TsFunction>(implementation.methods, depth + addDepth))
@@ -145,6 +158,8 @@ export class ConflictResolver {
 
             // Also get inheritances of the implemented class
             const indirectInheritances = this.getInheritedClassElements(implementation, addDepth + 1)
+            signalMethods.push(...indirectInheritances.signalMethods)
+            propertySignalMethods.push(...indirectInheritances.propertySignalMethods)
             methods.push(...indirectInheritances.methods)
             virtualMethods.push(...indirectInheritances.virtualMethods)
             staticFunctions.push(...indirectInheritances.staticFunctions)
@@ -155,6 +170,8 @@ export class ConflictResolver {
 
             // Also get implementations of the implemented class
             const indirectImplementations = this.getImplementedInterfaceElements(implementation, addDepth + 1)
+            signalMethods.push(...indirectImplementations.signalMethods)
+            propertySignalMethods.push(...indirectImplementations.propertySignalMethods)
             methods.push(...indirectImplementations.methods)
             virtualMethods.push(...indirectImplementations.virtualMethods)
             staticFunctions.push(...indirectImplementations.staticFunctions)
@@ -165,6 +182,8 @@ export class ConflictResolver {
         }
 
         return {
+            signalMethods,
+            propertySignalMethods,
             methods,
             virtualMethods,
             staticFunctions,
@@ -176,6 +195,8 @@ export class ConflictResolver {
     }
 
     private getInheritedClassElements(tsClass: TsClass, addDepth = 0) {
+        const signalMethods: ChildElement<TsFunction>[] = []
+        const propertySignalMethods: ChildElement<TsFunction>[] = []
         const methods: ChildElement<TsFunction>[] = []
         const virtualMethods: ChildElement<TsFunction>[] = []
         const staticFunctions: ChildElement<TsFunction>[] = []
@@ -195,6 +216,15 @@ export class ConflictResolver {
 
             const { class: inherit, depth } = tsClass.inherit[ifaceFullPackageSymName]
 
+            // Signals
+            const _signals = inherit.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
+            for (const tsSignal of _signals) {
+                signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
+            }
+            // Property signals
+            propertySignalMethods.push(
+                ...this.tsElArrToChildArr<ChildElement<TsFunction>>(inherit.propertySignalMethods, 0),
+            )
             // Methods
             if (inherit.methods.length)
                 methods.push(...this.girElArrToChildArr<TsFunction>(inherit.methods, depth + addDepth))
@@ -221,6 +251,8 @@ export class ConflictResolver {
 
             // Also get implementations of the inherited class
             const indirectImplementations = this.getImplementedInterfaceElements(inherit, addDepth + 1)
+            signalMethods.push(...indirectImplementations.signalMethods)
+            propertySignalMethods.push(...indirectImplementations.propertySignalMethods)
             methods.push(...indirectImplementations.methods)
             virtualMethods.push(...indirectImplementations.virtualMethods)
             staticFunctions.push(...indirectImplementations.staticFunctions)
@@ -231,6 +263,8 @@ export class ConflictResolver {
 
             // Also get inheritances of the inherited class
             const indirectInheritances = this.getInheritedClassElements(inherit, addDepth + 1)
+            signalMethods.push(...indirectInheritances.signalMethods)
+            propertySignalMethods.push(...indirectInheritances.propertySignalMethods)
             methods.push(...indirectInheritances.methods)
             virtualMethods.push(...indirectInheritances.virtualMethods)
             staticFunctions.push(...indirectInheritances.staticFunctions)
@@ -241,6 +275,8 @@ export class ConflictResolver {
         }
 
         return {
+            signalMethods,
+            propertySignalMethods,
             methods,
             virtualMethods,
             staticFunctions,
@@ -547,23 +583,23 @@ export class ConflictResolver {
     }
 
     /**
-     * Use this instead of `getCompatibleTsProperty` bif you can because it's much faster
+     * Use this instead of `getCompatibleTsProperty` and `getCompatibleTsProperty` if you can, because it's much faster
      * @param elements
      * @param name
      * @returns
      */
-    public getTsPropertyByName(elements: TsProperty[], name: string) {
+    public getTsElementByName(elements: (TsProperty | TsFunction)[], name: string) {
         return elements.find((el) => el.name === name)
     }
 
-    /**
-     * Use this instead of `getCompatibleTsFunction` bif you can because it's much faster
-     * @param elements
-     * @param name
-     * @returns
-     */
-    public getTsFunctionByName(elements: TsFunction[], name: string) {
-        return elements.find((func) => func.name === name)
+    protected canAddConflictProperty(conflictProperties: TsProperty[], prop: TsProperty) {
+        return (
+            prop.name &&
+            // Only one property can be defined, no overloads
+            !this.getTsElementByName(conflictProperties, prop.name) &&
+            // Do not set properties with signal method names
+            !SIGNAL_METHOD_NAMES(this.environment).includes(prop.name)
+        )
     }
 
     /**
@@ -586,10 +622,12 @@ export class ConflictResolver {
 
                     // Function vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        const bProp = b.data as TsProperty
-                        const anyProp = this.newAnyTsProperty(bProp.name || 'unknown', bProp.girTypeName)
-                        if (bProp.name && !this.getTsPropertyByName(baseClass.conflictProperties, bProp.name))
-                            baseClass.conflictProperties.push(anyProp)
+                        b.data.hasUnresolvedConflict = true
+                        // const bProp = b.data as TsProperty
+                        // const anyProp = this.newAnyTsProperty(bProp.name || 'unknown', bProp.girTypeName)
+                        // if (this.canAddConflictProperty(baseClass.conflictProperties, anyProp)) {
+                        //     baseClass.conflictProperties.push(anyProp)
+                        // }
                     }
 
                     // Function vs. Signal
@@ -604,7 +642,7 @@ export class ConflictResolver {
                         const anyFunc = this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName)
 
                         // Check if any function is not already added
-                        if (!this.getTsFunctionByName(baseClass.conflictMethods, anyFunc.name)) {
+                        if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {
                             baseClass.conflictMethods.push(anyFunc)
                         }
                     }
@@ -613,22 +651,28 @@ export class ConflictResolver {
                 // If a element is a property / variable
                 else if (this.tsElementIsPropertyOrVariable(base.data)) {
                     const baseProp = base.data as TsProperty
+
                     // Property vs. Function
                     if (this.tsElementIsMethodOrFunction(b.data)) {
-                        const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
-                        if (baseProp.name && !this.getTsPropertyByName(baseClass.conflictProperties, baseProp.name))
-                            baseClass.conflictProperties.push(anyProp)
+                        baseProp.hasUnresolvedConflict = true
+                        // const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
+                        // if (this.canAddConflictProperty(baseClass.conflictProperties, anyProp)) {
+                        //     baseClass.conflictProperties.push(anyProp)
+                        // }
                     }
 
                     // Property vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        // TODO fix JavaScript heap out of memory
                         // const bProp = b.data as TsProperty
-                        // const mergedProp = this.mergeProperties(baseProp, ...bProp)
-                        // baseClass.properties.push(this.girFactory.newGirProperty(mergedProp))
+                        // const mergedProp = this.mergeProperties(baseProp, bProp)
+                        // if (this.canAddConflictProperty(baseClass.conflictProperties, mergedProp)) {
+                        //     baseClass.conflictProperties.push(mergedProp)
+                        // }
+
                         const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
-                        if (baseProp.name && !this.getTsPropertyByName(baseClass.conflictProperties, baseProp.name))
+                        if (this.canAddConflictProperty(baseClass.conflictProperties, anyProp)) {
                             baseClass.conflictProperties.push(anyProp)
+                        }
                     }
 
                     // Property vs. Signal
@@ -660,8 +704,8 @@ export class ConflictResolver {
             }
 
             // Each conflicting elements
-            for (const a of elements.inheritedElements) {
-                if (a === base) {
+            for (const b of elements.inheritedElements) {
+                if (b === base) {
                     continue
                 }
 
@@ -670,11 +714,10 @@ export class ConflictResolver {
                     const baseFunc = base.data as TsFunction
 
                     // Function vs. Function
-                    if (this.tsElementIsMethodOrFunction(a.data)) {
-                        const aFunc = a.data as TsFunction
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const aFunc = b.data as TsFunction
 
                         // Add a function to overload methods if there is not already a compatible version
-                        // TODO getCompatibleTsFunction is very slow?
                         if (!this.getCompatibleTsFunction(baseFunc.overloads, aFunc)) {
                             baseFunc.overloads.push(aFunc)
                         }
@@ -688,12 +731,12 @@ export class ConflictResolver {
                     }
 
                     // Function vs. Property
-                    else if (this.tsElementIsPropertyOrVariable(a.data)) {
-                        baseFunc.hasUnresolvedConflict = true
+                    else if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        b.data.hasUnresolvedConflict = true
                     }
 
                     // Function vs. Signal
-                    else if (this.tsElementIsSignal(a.data)) {
+                    else if (this.tsElementIsSignal(b.data)) {
                         baseFunc.hasUnresolvedConflict = true
                     }
                 }
@@ -703,18 +746,18 @@ export class ConflictResolver {
                     const baseProp = base.data as TsProperty
 
                     // Property vs. Property
-                    if (this.tsElementIsPropertyOrVariable(a.data)) {
-                        const aProp = a.data as TsProperty
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        const aProp = b.data as TsProperty
                         base.data = this.mergeProperties(baseProp, aProp)
                     }
 
                     // Property vs. Function
-                    else if (this.tsElementIsMethodOrFunction(a.data)) {
+                    else if (this.tsElementIsMethodOrFunction(b.data)) {
                         baseProp.hasUnresolvedConflict = true
                     }
 
                     // Property vs. Signal
-                    else if (this.tsElementIsSignal(a.data)) {
+                    else if (this.tsElementIsSignal(b.data)) {
                         baseProp.hasUnresolvedConflict = true
                     }
                 }
@@ -722,13 +765,13 @@ export class ConflictResolver {
                 // If base element is a signal method
                 else if (this.tsElementIsSignal(base.data)) {
                     // Signal vs. Property
-                    if (this.tsElementIsPropertyOrVariable(a.data)) {
-                        a.data.hasUnresolvedConflict = true
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        b.data.hasUnresolvedConflict = true
                     }
 
                     // Signal vs. Function
-                    if (this.tsElementIsMethodOrFunction(a.data)) {
-                        a.data.hasUnresolvedConflict = true
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        b.data.hasUnresolvedConflict = true
                     }
                 }
                 // Ignore constructors
@@ -811,18 +854,25 @@ export class ConflictResolver {
         const implementations = this.getImplementedInterfaceElements(girClass._tsData)
         const inheritance = this.getInheritedClassElements(girClass._tsData)
 
-        const tsSignals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
-
         const constructProps = [
             ...this.girElArrToChildArr(girClass._tsData.constructProps, 0),
             ...implementations.constructProps,
             ...inheritance.constructProps,
         ]
 
-        const signalMethods = [...this.tsElArrToChildArr(girClass._tsData.propertySignalMethods, 0)]
-        for (const tsSignal of tsSignals) {
-            signalMethods.push(...this.tsElArrToChildArr(tsSignal.tsMethods, 0))
+        // SIGNALS
+        const _signals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
+        const signalMethods: ChildElement<TsFunction>[] = []
+        for (const tsSignal of _signals) {
+            signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
         }
+        signalMethods.push(...implementations.signalMethods, ...inheritance.signalMethods)
+
+        const propertySignalMethods = [
+            ...this.tsElArrToChildArr<ChildElement<TsFunction>>(girClass._tsData.propertySignalMethods, 0),
+            ...implementations.propertySignalMethods,
+            ...inheritance.propertySignalMethods,
+        ]
 
         const methods = [
             ...this.girElArrToChildArr(girClass._tsData.methods, 0),
@@ -864,6 +914,7 @@ export class ConflictResolver {
         const elements = [
             ...methods,
             ...signalMethods,
+            ...propertySignalMethods,
             ...virtualMethods,
             ...staticFunctions,
             ...constructors,

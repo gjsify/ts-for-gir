@@ -8,7 +8,7 @@ on:
     branches:
       - "*"
 jobs:
-  node-gtk-types-gtk4:
+  gjs-types-gtk4:
 
     runs-on: ubuntu-latest
 

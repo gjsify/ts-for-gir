@@ -850,7 +850,7 @@ export class ConflictResolver {
                             baseProp.type[0].type,
                             bFunc,
                         )
-                        baseProp.hasUnresolvedConflict = true
+                        // baseProp.hasUnresolvedConflict = true
                     }
 
                     // Property vs. Property

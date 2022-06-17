@@ -822,7 +822,7 @@ export class ConflictResolver {
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} Internal Function vs. Signal`, baseFunc, b)
-                        base.data.hasUnresolvedConflict = true
+                        // base.data.hasUnresolvedConflict = true
                     }
 
                     // Function vs. Function
@@ -883,7 +883,7 @@ export class ConflictResolver {
     }
 
     /**
-     * Check conflicts of the class properties with the properties  the class itself (ignores implementations / inheritances)
+     * Check conflicts of the class with implementations and inheritances
      */
     public fixDirectConflicts(name: string, elements: GroupedConflictElement) {
         const className = `${elements.baseClass.namespace}-${elements.baseClass.version}.${elements.baseClass.name}`

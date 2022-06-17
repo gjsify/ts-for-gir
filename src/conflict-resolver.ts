@@ -635,11 +635,11 @@ export class ConflictResolver {
                 const groupedConflict = groupedConflicts[eventName]
                 const isBaseElement = base.depth === 0
                 if (isBaseElement) {
-                    if (!groupedConflict.baseElements.includes(base)) {
+                    if (!groupedConflict.baseElements.find((c) => isEqual(c.data, base.data))) {
                         groupedConflict.baseElements.push(base)
                     }
                 } else {
-                    if (!groupedConflict.inheritedElements.includes(base)) {
+                    if (!groupedConflict.inheritedElements.find((c) => isEqual(c.data, base.data))) {
                         groupedConflict.inheritedElements.push(base)
                     }
                 }
@@ -789,7 +789,7 @@ export class ConflictResolver {
             if (bases.length > 1) {
                 // Internal Conflicts
                 this.log.debug('TODO fix internal conflicts')
-                this.log.dir(bases)
+                // this.log.dir(bases)
             }
 
             for (const base of bases) {
@@ -901,11 +901,11 @@ export class ConflictResolver {
                     const groupedConflict = groupedConflicts[a.data.name]
                     const isBaseElement = a.depth === 0
                     if (isBaseElement) {
-                        if (!groupedConflict.baseElements.includes(a)) {
+                        if (!groupedConflict.baseElements.find((c) => isEqual(c.data, a.data))) {
                             groupedConflict.baseElements.push(a)
                         }
                     } else {
-                        if (!groupedConflict.inheritedElements.includes(a)) {
+                        if (!groupedConflict.inheritedElements.find((c) => isEqual(c.data, a.data))) {
                             groupedConflict.inheritedElements.push(a)
                         }
                     }

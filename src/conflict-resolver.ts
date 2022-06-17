@@ -37,12 +37,14 @@ interface ChildElement<T = TsFunction | TsProperty | TsVar> {
     data: T
 }
 
+interface GroupedConflictElement<T = TsFunction | TsProperty | TsVar> {
+    baseElements: ChildElement<T>[]
+    inheritedElements: ChildElement<T>[]
+    baseClass: TsClass
+}
+
 interface GroupedConflictElements<T = TsFunction | TsProperty | TsVar> {
-    [name: string]: {
-        baseElements: ChildElement<T>[]
-        inheritedElements: ChildElement<T>[]
-        baseClass: TsClass
-    }
+    [name: string]: GroupedConflictElement<T>
 }
 
 /**
@@ -662,10 +664,14 @@ export class ConflictResolver {
             }
 
             for (const base of bases) {
+                if (base.data.hasUnresolvedConflict) {
+                    continue
+                }
                 for (const b of elements.inheritedElements) {
-                    if (b === base) {
+                    if (b === base || b.data.hasUnresolvedConflict) {
                         continue
                     }
+                    // TODO
                 }
             }
         }
@@ -680,8 +686,11 @@ export class ConflictResolver {
      */
     public fixIndirectConflicts(name: string, elements: ChildElement[], baseClass: TsClass) {
         for (const base of elements) {
+            if (base.data.hasUnresolvedConflict) {
+                continue
+            }
             for (const b of elements) {
-                if (b === base) {
+                if (b === base || b.data.hasUnresolvedConflict) {
                     continue
                 }
 
@@ -710,10 +719,15 @@ export class ConflictResolver {
 
                     // Function vs. Function
                     else if (this.tsElementIsMethodOrFunction(b.data)) {
-                        this.log.debug(`${className}.${name} External Function vs. Function`, baseFunc, b)
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} External Function vs. Function`,
+                            baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                        )
                         // const bFunc = b.data as TsFunction
                         // const mergedFunction = (this.mergeFunctions(baseFunc, ...baseFunc.overloads))
-                        const anyFunc = this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName)
+                        const anyFunc = this.newAnyTsFunction(name, baseFunc.girTypeName)
 
                         // Check if any function is not already added
                         if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {
@@ -774,131 +788,228 @@ export class ConflictResolver {
 
                 // Other
                 else {
-                    debugger
+                    this.log.debug(`${className}.${name} External Unknown`)
                 }
             }
         }
     }
 
     /**
-     * Fix the conflicts by merging the types with each other
+     * Check conflicts within the class itself (ignores implementations / inheritances)
+     */
+    public fixInternalConflicts(name: string, elements: ChildElement[], baseClass: TsClass) {
+        for (const base of elements) {
+            if (base.data.hasUnresolvedConflict) {
+                continue
+            }
+            for (const b of elements) {
+                if (b === base || b.data.hasUnresolvedConflict) {
+                    continue
+                }
+
+                const className = `${baseClass.namespace}-${baseClass.version}.${baseClass.name}`
+
+                // If a element is a function / method
+                if (this.tsElementIsMethodOrFunction(base.data)) {
+                    const baseFunc = base.data as TsFunction
+
+                    // Function vs. Property
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        this.log.debug(`${className}.${name} Internal Function vs. Property`, baseFunc, b)
+                        b.data.hasUnresolvedConflict = true
+                    }
+
+                    // Function vs. Signal
+                    else if (this.tsElementIsSignal(b.data)) {
+                        this.log.debug(`${className}.${name} Internal Function vs. Signal`, baseFunc, b)
+                        base.data.hasUnresolvedConflict = true
+                    }
+
+                    // Function vs. Function
+                    else if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} Internal Function vs. Function`,
+                            baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                        )
+                    } else {
+                        this.log.debug(`${className}.${name} Internal Unknown`, baseFunc, b)
+                    }
+                }
+
+                // If a element is a property / variable
+                else if (this.tsElementIsPropertyOrVariable(base.data)) {
+                    const baseProp = base.data as TsProperty
+
+                    // Property vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} Internal Property vs. Function`,
+                            baseProp.type[0].type,
+                            bFunc,
+                        )
+                        baseProp.hasUnresolvedConflict = true
+                    }
+
+                    // Property vs. Property
+                    else if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        const bProp = b.data as TsProperty
+                        this.log.debug(
+                            `${className}.${name} Internal Property vs. Property`,
+                            baseProp.type[0].type,
+                            bProp.type[0].type,
+                        )
+
+                        base.data = this.mergeProperties(baseProp, bProp)
+                    }
+
+                    // Property vs. Signal
+                    else if (this.tsElementIsSignal(b.data)) {
+                        this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b)
+                        base.data.hasUnresolvedConflict = true
+                    } else {
+                        this.log.debug(`${className}.${name} Internal Unknown`, baseProp, b)
+                    }
+                }
+
+                // Other
+                else {
+                    this.log.debug(`${className}.${name} Internal Unknown`)
+                }
+            }
+        }
+    }
+
+    /**
+     * Check conflicts of the class properties with the properties  the class itself (ignores implementations / inheritances)
+     */
+    public fixDirectConflicts(name: string, elements: GroupedConflictElement) {
+        const className = `${elements.baseClass.namespace}-${elements.baseClass.version}.${elements.baseClass.name}`
+
+        for (const base of elements.baseElements) {
+            if (base.data.hasUnresolvedConflict) {
+                continue
+            }
+
+            // Each conflicting elements
+            for (const b of elements.inheritedElements) {
+                if (b === base || b.data.hasUnresolvedConflict) {
+                    continue
+                }
+
+                // If base element is a function
+                if (this.tsElementIsMethodOrFunction(base.data)) {
+                    const baseFunc = base.data as TsFunction
+
+                    // Function vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} Function vs. Function`,
+                            baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                        )
+
+                        // Add a function to overload methods if there is not already a compatible version
+                        if (!this.getCompatibleTsFunction(baseFunc.overloads, bFunc)) {
+                            baseFunc.overloads.push(bFunc)
+                        }
+                    }
+
+                    // Function vs. Property
+                    else if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        this.log.debug(`${className}.${name} Function vs. Property`)
+                        b.data.hasUnresolvedConflict = true
+                    }
+
+                    // Function vs. Signal
+                    else if (this.tsElementIsSignal(b.data)) {
+                        this.log.debug(`${className}.${name} Function vs. Signal`)
+                        baseFunc.hasUnresolvedConflict = true
+                    }
+                }
+
+                // If base element is a property / variable
+                else if (this.tsElementIsPropertyOrVariable(base.data)) {
+                    const baseProp = base.data as TsProperty
+
+                    // Property vs. Property
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        const bProp = b.data as TsProperty
+                        this.log.debug(
+                            `${className}.${name} Property vs. Property`,
+                            baseProp.type[0].type,
+                            bProp.type[0].type,
+                        )
+                        base.data = this.mergeProperties(baseProp, bProp)
+                    }
+
+                    // Property vs. Function
+                    else if (this.tsElementIsMethodOrFunction(b.data)) {
+                        this.log.debug(`${className}.${name} Property vs. Function`)
+                        baseProp.hasUnresolvedConflict = true
+                    }
+
+                    // Property vs. Signal
+                    else if (this.tsElementIsSignal(b.data)) {
+                        this.log.debug(`${className}.${name} Property vs. Signal`)
+                        baseProp.hasUnresolvedConflict = true
+                    }
+                }
+
+                // If base element is a signal method
+                else if (this.tsElementIsSignal(base.data)) {
+                    // Signal vs. Property
+                    if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        this.log.debug(`${className}.${name} Signal vs. Property`)
+                        b.data.hasUnresolvedConflict = true
+                    }
+
+                    // Signal vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        this.log.debug(`${className}.${name} Signal vs. Function`)
+                        b.data.hasUnresolvedConflict = true
+                    }
+                }
+                // Ignore constructors
+                else if (this.tsElementIsConstructor(base.data)) {
+                    // Do nothing
+                } else {
+                    this.log.warn(`{className}.${name} Unknown`, base)
+                    base.data.hasUnresolvedConflict = true
+                }
+            }
+
+            // If base element is a function and has overloaded methods
+            if (this.tsElementIsMethodOrFunction(base.data)) {
+                const baseFunc = base.data as TsFunction
+                if (baseFunc.overloads.length > 0) {
+                    // Add a function with any types
+                    baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
+
+                    // Add a function with merged types and parameters
+                    baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
+                }
+            }
+        }
+    }
+
+    /**
+     * Fix the conflicts of a class
      * @param groupedElements
      */
     public fixConflicts(groupedElements: GroupedConflictElements) {
         for (const name of Object.keys(groupedElements)) {
             const elements = groupedElements[name]
 
-            const bases = elements.baseElements
-            const className = `${elements.baseClass.namespace}-${elements.baseClass.version}.${elements.baseClass.name}`
-
-            if (!bases.length) {
-                return this.fixIndirectConflicts(name, elements.inheritedElements, elements.baseClass)
+            if (elements.baseElements.length === 0) {
+                this.fixIndirectConflicts(name, elements.inheritedElements, elements.baseClass)
             }
+            this.fixInternalConflicts(name, elements.baseElements, elements.baseClass)
 
-            if (bases.length > 1) {
-                // Internal Conflicts
-                this.log.debug(`${className}.${name} Internal TODO fix internal conflicts`)
-                // this.log.dir(bases)
-            }
-
-            for (const base of bases) {
-                // Each conflicting elements
-                for (const b of elements.inheritedElements) {
-                    if (b === base) {
-                        continue
-                    }
-
-                    // If base element is a function
-                    if (this.tsElementIsMethodOrFunction(base.data)) {
-                        const baseFunc = base.data as TsFunction
-
-                        // Function vs. Function
-                        if (this.tsElementIsMethodOrFunction(b.data)) {
-                            this.log.debug(`${className}.${name} Function vs. Function`)
-                            const aFunc = b.data as TsFunction
-
-                            // Add a function to overload methods if there is not already a compatible version
-                            if (!this.getCompatibleTsFunction(baseFunc.overloads, aFunc)) {
-                                baseFunc.overloads.push(aFunc)
-                            }
-                        }
-
-                        // Function vs. Property
-                        else if (this.tsElementIsPropertyOrVariable(b.data)) {
-                            this.log.debug(`${className}.${name} Function vs. Property`)
-                            b.data.hasUnresolvedConflict = true
-                        }
-
-                        // Function vs. Signal
-                        else if (this.tsElementIsSignal(b.data)) {
-                            this.log.debug(`${className}.${name} Function vs. Signal`)
-                            baseFunc.hasUnresolvedConflict = true
-                        }
-                    }
-
-                    // If base element is a property / variable
-                    else if (this.tsElementIsPropertyOrVariable(base.data)) {
-                        const baseProp = base.data as TsProperty
-
-                        // Property vs. Property
-                        if (this.tsElementIsPropertyOrVariable(b.data)) {
-                            const bProp = b.data as TsProperty
-                            this.log.debug(
-                                `${className}.${name} Property vs. Property`,
-                                baseProp.type[0].type,
-                                bProp.type[0].type,
-                            )
-                            base.data = this.mergeProperties(baseProp, bProp)
-                        }
-
-                        // Property vs. Function
-                        else if (this.tsElementIsMethodOrFunction(b.data)) {
-                            this.log.debug(`${className}.${name} Property vs. Function`)
-                            baseProp.hasUnresolvedConflict = true
-                        }
-
-                        // Property vs. Signal
-                        else if (this.tsElementIsSignal(b.data)) {
-                            this.log.debug(`${className}.${name} Property vs. Signal`)
-                            baseProp.hasUnresolvedConflict = true
-                        }
-                    }
-
-                    // If base element is a signal method
-                    else if (this.tsElementIsSignal(base.data)) {
-                        // Signal vs. Property
-                        if (this.tsElementIsPropertyOrVariable(b.data)) {
-                            this.log.debug(`${className}.${name} Signal vs. Property`)
-                            b.data.hasUnresolvedConflict = true
-                        }
-
-                        // Signal vs. Function
-                        if (this.tsElementIsMethodOrFunction(b.data)) {
-                            this.log.debug(`${className}.${name} Signal vs. Function`)
-                            b.data.hasUnresolvedConflict = true
-                        }
-                    }
-                    // Ignore constructors
-                    else if (this.tsElementIsConstructor(base.data)) {
-                        // Do nothing
-                    } else {
-                        this.log.warn(`{className}.${name} Unknown`, base)
-                        base.data.hasUnresolvedConflict = true
-                    }
-                }
-
-                // If base element is a function and has overloaded methods
-                if (this.tsElementIsMethodOrFunction(base.data)) {
-                    const baseFunc = base.data as TsFunction
-                    if (baseFunc.overloads.length > 0) {
-                        // Add a function with any types
-                        baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
-
-                        // Add a function with merged types and parameters
-                        baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))
-                    }
-                }
-            }
+            this.fixDirectConflicts(name, elements)
         }
     }
 
@@ -908,9 +1019,17 @@ export class ConflictResolver {
     public groupConflicts(elements: ChildElement[], tsClass: TsClass) {
         const groupedConflicts: GroupedConflictElements = {}
 
+        const IGNORE_CONFLICT_NAMES = ['$gtype']
+
         for (const a of elements) {
             for (const b of elements) {
-                if (a === b) {
+                if (
+                    a === b ||
+                    !a.data.name ||
+                    !b.data.name ||
+                    IGNORE_CONFLICT_NAMES.includes(a.data.name) ||
+                    IGNORE_CONFLICT_NAMES.includes(b.data.name)
+                ) {
                     continue
                 }
                 if (a && a.data.name && b && b.data.name && a !== b && this.hasConflict(a, b)) {

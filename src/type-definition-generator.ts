@@ -224,7 +224,7 @@ export default class TypeDefinitionGenerator implements Generator {
         if (girClass._tsData?.isDerivedFromGObject) {
             if (girClass._tsData.propertySignalMethods.length > 0) {
                 def.push(
-                    ...this.addInlineInfoComment(
+                    ...this.addInfoComment(
                         `Class property signals of ${girClass._module?.packageName}.${girClass._fullSymName}`,
                         indentCount,
                     ),
@@ -566,7 +566,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Add overloaded methods
         if (overloads && tsFunction.overloads.length > 0) {
-            def.push(...this.addInlineInfoComment(`Overloads of ${name}`, indentCount))
+            def.push(...this.addInfoComment(`Overloads of ${name}`, indentCount))
             for (const func of tsFunction.overloads) {
                 def.push(...this._generateFunction(func, onlyStatic, namespace, indentCount, false))
             }

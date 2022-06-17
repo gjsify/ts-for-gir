@@ -1,3 +1,5 @@
+// TODO move this class into a web-worker? https://www.npmjs.com/package/web-worker
+
 import {
     Transformation,
     C_TYPE_MAP,

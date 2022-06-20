@@ -102,7 +102,11 @@ export class ConflictResolver {
      * @param depth
      * @returns
      */
-    private getClassElements(tsClass: TsClass, depth = 0) {
+    private getClassElements(tsClass: TsClass, depth: number, processedClasses: string[]) {
+        const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
+
+        this.log.debug(`[getClassElements] Get elements for ${tsClassFullPackageSymName}`)
+
         const signalMethods: ChildElement<TsFunction>[] = []
         const propertySignalMethods: ChildElement<TsFunction>[] = []
         const methods: ChildElement<TsFunction>[] = []
@@ -113,6 +117,27 @@ export class ConflictResolver {
         const properties: ChildElement<TsProperty | TsVar>[] = []
         const fields: ChildElement<TsProperty | TsVar>[] = []
         const constructProps: ChildElement<TsProperty | TsVar>[] = []
+
+        const depthLimitReached = depth >= MAX_CLASS_PARENT_DEPTH
+        const classAlreadyProcessed = processedClasses.includes(tsClassFullPackageSymName)
+
+        if (depthLimitReached || classAlreadyProcessed) {
+            if (depthLimitReached)
+                this.log.error(`[getClassElements] Maximum recursion depth reached (limit: ${MAX_CLASS_PARENT_DEPTH})!`)
+            // if (classAlreadyProcessed)
+            //     this.log.error(`[getClassElements] Class ${tsClassFullPackageSymName} already processed!`)
+            return {
+                signalMethods,
+                propertySignalMethods,
+                methods,
+                virtualMethods,
+                staticFunctions,
+                constructors,
+                properties,
+                fields,
+                constructProps,
+            }
+        }
 
         // Signals
         const _signals = tsClass.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
@@ -143,23 +168,6 @@ export class ConflictResolver {
         if (tsClass.constructProps.length)
             constructProps.push(...this.girElArrToChildArr<TsProperty | TsVar>(tsClass.constructProps, depth))
 
-        if (depth >= MAX_CLASS_PARENT_DEPTH) {
-            this.log.error('[getClassElements] Maximum recursion depth reached')
-            return {
-                signalMethods,
-                propertySignalMethods,
-                methods,
-                virtualMethods,
-                staticFunctions,
-                constructors,
-                properties,
-                fields,
-                constructProps,
-            }
-        }
-
-        const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
-
         for (const ifacePackageFullSymName of Object.keys(tsClass.implements)) {
             if (tsClassFullPackageSymName === ifacePackageFullSymName) {
                 this.log.warn("[getImplementedInterfaceElements] A interface can't implement itself")
@@ -167,7 +175,11 @@ export class ConflictResolver {
             }
 
             const { interface: implementation, depth: parentDepth } = tsClass.implements[ifacePackageFullSymName]
-            const implementationElements = this.getClassElements(implementation, parentDepth + depth)
+            const implementationElements = this.getClassElements(
+                implementation,
+                parentDepth + depth + 1,
+                processedClasses,
+            )
 
             signalMethods.push(...implementationElements.signalMethods)
             propertySignalMethods.push(...implementationElements.propertySignalMethods)
@@ -187,7 +199,7 @@ export class ConflictResolver {
             }
 
             const { class: inherit, depth: parentDepth } = tsClass.inherit[ifaceFullPackageSymName]
-            const inheritElements = this.getClassElements(inherit, parentDepth + depth)
+            const inheritElements = this.getClassElements(inherit, parentDepth + depth + 1, processedClasses)
 
             signalMethods.push(...inheritElements.signalMethods)
             propertySignalMethods.push(...inheritElements.propertySignalMethods)
@@ -199,6 +211,8 @@ export class ConflictResolver {
             fields.push(...inheritElements.fields)
             constructProps.push(...inheritElements.constructProps)
         }
+
+        processedClasses.push(tsClassFullPackageSymName)
 
         return {
             signalMethods,
@@ -626,7 +640,7 @@ export class ConflictResolver {
 
                     // Function vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        this.log.debug(`${className}.${name} External Function vs. Property`, baseFunc, b)
+                        this.log.debug(`${className}.${name} External Function vs. Property`, baseFunc, b.data)
                         b.data.hasUnresolvedConflict = true
                         // const bProp = b.data as TsProperty
                         // const anyProp = this.newAnyTsProperty(bProp.name || 'unknown', bProp.girTypeName)
@@ -637,7 +651,7 @@ export class ConflictResolver {
 
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} External Function vs. Signal`, baseFunc, b)
+                        this.log.debug(`${className}.${name} External Function vs. Signal`, baseFunc, b.data)
                         base.data.hasUnresolvedConflict = true
                     }
 
@@ -658,7 +672,7 @@ export class ConflictResolver {
                             baseClass.conflictMethods.push(anyFunc)
                         }
                     } else {
-                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseFunc, b)
+                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
                     }
                 }
 
@@ -703,10 +717,10 @@ export class ConflictResolver {
 
                     // Property vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} External Property vs. Signal`, baseProp, b)
+                        this.log.debug(`${className}.${name} External Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b)
+                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b.data)
                     }
                 }
 
@@ -739,13 +753,13 @@ export class ConflictResolver {
 
                     // Function vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        this.log.debug(`${className}.${name} Internal Function vs. Property`, baseFunc, b)
+                        this.log.debug(`${className}.${name} Internal Function vs. Property`, baseFunc, b.data)
                         b.data.hasUnresolvedConflict = true
                     }
 
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} Internal Function vs. Signal`, baseFunc, b)
+                        this.log.debug(`${className}.${name} Internal Function vs. Signal`, baseFunc, b.data)
                         // base.data.hasUnresolvedConflict = true
                     }
 
@@ -758,7 +772,7 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b)
+                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
                     }
                 }
 
@@ -791,10 +805,23 @@ export class ConflictResolver {
 
                     // Property vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b)
+                        this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b)
+                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b.data)
+                    }
+                }
+
+                // If a element is a signal
+                else if (this.tsElementIsSignal(base.data)) {
+                    // Signal vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        this.log.debug(`${className}.${name} Internal Signal vs. Function`, base.data, b.data)
+                    }
+                    // Signal vs. Property
+                    else if (this.tsElementIsPropertyOrVariable(base.data)) {
+                        this.log.debug(`${className}.${name} Internal Signal vs. Property`, base.data, b.data)
+                        b.data.hasUnresolvedConflict = true
                     }
                 }
 
@@ -998,7 +1025,7 @@ export class ConflictResolver {
     public repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('repairClass'))
 
-        const classElements = this.getClassElements(girClass._tsData, 0)
+        const classElements = this.getClassElements(girClass._tsData, 0, [])
 
         // Do not pass a reference of the array here
         const elements = [
@@ -1063,7 +1090,7 @@ export class ConflictResolver {
         if (a.length !== b.length) {
             return true
         }
-        // return !isEqual(a, b)
+        // return !isEqual(a, b.data)
         for (let i = 0; i < a.length; i++) {
             const aType = a[i]
             const bType = b[i]

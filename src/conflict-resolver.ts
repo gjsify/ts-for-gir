@@ -2,7 +2,7 @@ import { GirFactory } from './gir-factory.js'
 import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typeIsOptional } from './utils.js'
-import { SIGNAL_METHOD_NAMES } from './constants.js'
+import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import type {
     Environment,
     GirClassElement,
@@ -96,7 +96,13 @@ export class ConflictResolver {
             })
     }
 
-    private getImplementedInterfaceElements(tsIface: TsClass, addDepth = 0) {
+    /**
+     * Get class elements and parent elements (implementations and inherits)
+     * @param tsClass
+     * @param depth
+     * @returns
+     */
+    private getClassElements(tsClass: TsClass, depth = 0) {
         const signalMethods: ChildElement<TsFunction>[] = []
         const propertySignalMethods: ChildElement<TsFunction>[] = []
         const methods: ChildElement<TsFunction>[] = []
@@ -108,172 +114,90 @@ export class ConflictResolver {
         const fields: ChildElement<TsProperty | TsVar>[] = []
         const constructProps: ChildElement<TsProperty | TsVar>[] = []
 
-        const tsIfaceFullPackageSymName = `${tsIface.namespace}-${tsIface.version}.${tsIface.namespace}.${tsIface.name}`
+        // Signals
+        const _signals = tsClass.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
+        for (const tsSignal of _signals) {
+            signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, depth))
+        }
+        // Property signals
+        propertySignalMethods.push(
+            ...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsClass.propertySignalMethods, depth),
+        )
+        // Methods
+        if (tsClass.methods.length) methods.push(...this.girElArrToChildArr<TsFunction>(tsClass.methods, depth))
+        // Virtual methods
+        if (tsClass.virtualMethods.length)
+            virtualMethods.push(...this.girElArrToChildArr<TsFunction>(tsClass.virtualMethods, depth))
+        // Static functions
+        if (tsClass.staticFunctions.length)
+            staticFunctions.push(...this.girElArrToChildArr<TsFunction>(tsClass.staticFunctions, depth))
+        // Constructors
+        if (tsClass.constructors.length)
+            constructors.push(...this.girElArrToChildArr<TsFunction>(tsClass.constructors, depth))
+        // Properties
+        if (tsClass.properties.length)
+            properties.push(...this.girElArrToChildArr<TsProperty | TsVar>(tsClass.properties, depth))
+        // Fields
+        if (tsClass.fields.length) fields.push(...this.girElArrToChildArr<TsProperty | TsVar>(tsClass.fields, depth))
+        // Constructor properties
+        if (tsClass.constructProps.length)
+            constructProps.push(...this.girElArrToChildArr<TsProperty | TsVar>(tsClass.constructProps, depth))
 
-        for (const ifacePackageFullSymName of Object.keys(tsIface.implements)) {
-            if (tsIfaceFullPackageSymName === ifacePackageFullSymName) {
+        if (depth >= MAX_CLASS_PARENT_DEPTH) {
+            this.log.error('[getClassElements] Maximum recursion depth reached')
+            return {
+                signalMethods,
+                propertySignalMethods,
+                methods,
+                virtualMethods,
+                staticFunctions,
+                constructors,
+                properties,
+                fields,
+                constructProps,
+            }
+        }
+
+        const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
+
+        for (const ifacePackageFullSymName of Object.keys(tsClass.implements)) {
+            if (tsClassFullPackageSymName === ifacePackageFullSymName) {
                 this.log.warn("[getImplementedInterfaceElements] A interface can't implement itself")
                 continue
             }
 
-            const { interface: implementation, depth } = tsIface.implements[ifacePackageFullSymName]
+            const { interface: implementation, depth: parentDepth } = tsClass.implements[ifacePackageFullSymName]
+            const implementationElements = this.getClassElements(implementation, parentDepth + depth)
 
-            // Signals
-            const _signals = implementation.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
-            for (const tsSignal of _signals) {
-                signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
-            }
-            // Property signals
-            propertySignalMethods.push(
-                ...this.tsElArrToChildArr<ChildElement<TsFunction>>(implementation.propertySignalMethods, 0),
-            )
-            // Methods
-            if (implementation.methods.length)
-                methods.push(...this.girElArrToChildArr<TsFunction>(implementation.methods, depth + addDepth))
-            // Virtual methods
-            if (implementation.virtualMethods.length)
-                virtualMethods.push(
-                    ...this.girElArrToChildArr<TsFunction>(implementation.virtualMethods, depth + addDepth),
-                )
-            // Static functions
-            if (implementation.staticFunctions.length)
-                staticFunctions.push(
-                    ...this.girElArrToChildArr<TsFunction>(implementation.staticFunctions, depth + addDepth),
-                )
-            // Constructors
-            if (implementation.constructors.length)
-                constructors.push(...this.girElArrToChildArr<TsFunction>(implementation.constructors, depth + addDepth))
-
-            // Properties
-            if (implementation.properties.length)
-                properties.push(
-                    ...this.girElArrToChildArr<TsProperty | TsVar>(implementation.properties, depth + addDepth),
-                )
-            // Fields
-            if (implementation.fields.length)
-                fields.push(...this.girElArrToChildArr<TsProperty | TsVar>(implementation.fields, depth + addDepth))
-            // Constructor properties
-            if (implementation.constructProps.length)
-                constructProps.push(
-                    ...this.girElArrToChildArr<TsProperty | TsVar>(implementation.constructProps, depth + addDepth),
-                )
-
-            // Also get inheritances of the implemented class
-            const indirectInheritances = this.getInheritedClassElements(implementation, addDepth + 1)
-            signalMethods.push(...indirectInheritances.signalMethods)
-            propertySignalMethods.push(...indirectInheritances.propertySignalMethods)
-            methods.push(...indirectInheritances.methods)
-            virtualMethods.push(...indirectInheritances.virtualMethods)
-            staticFunctions.push(...indirectInheritances.staticFunctions)
-            constructors.push(...indirectInheritances.constructors)
-            properties.push(...indirectInheritances.properties)
-            fields.push(...indirectInheritances.fields)
-            constructProps.push(...indirectInheritances.constructProps)
-
-            // Also get implementations of the implemented class
-            const indirectImplementations = this.getImplementedInterfaceElements(implementation, addDepth + 1)
-            signalMethods.push(...indirectImplementations.signalMethods)
-            propertySignalMethods.push(...indirectImplementations.propertySignalMethods)
-            methods.push(...indirectImplementations.methods)
-            virtualMethods.push(...indirectImplementations.virtualMethods)
-            staticFunctions.push(...indirectImplementations.staticFunctions)
-            constructors.push(...indirectImplementations.constructors)
-            properties.push(...indirectImplementations.properties)
-            fields.push(...indirectImplementations.fields)
-            constructProps.push(...indirectImplementations.constructProps)
+            signalMethods.push(...implementationElements.signalMethods)
+            propertySignalMethods.push(...implementationElements.propertySignalMethods)
+            methods.push(...implementationElements.methods)
+            virtualMethods.push(...implementationElements.virtualMethods)
+            staticFunctions.push(...implementationElements.staticFunctions)
+            constructors.push(...implementationElements.constructors)
+            properties.push(...implementationElements.properties)
+            fields.push(...implementationElements.fields)
+            constructProps.push(...implementationElements.constructProps)
         }
-
-        return {
-            signalMethods,
-            propertySignalMethods,
-            methods,
-            virtualMethods,
-            staticFunctions,
-            constructors,
-            properties,
-            fields,
-            constructProps,
-        }
-    }
-
-    private getInheritedClassElements(tsClass: TsClass, addDepth = 0) {
-        const signalMethods: ChildElement<TsFunction>[] = []
-        const propertySignalMethods: ChildElement<TsFunction>[] = []
-        const methods: ChildElement<TsFunction>[] = []
-        const virtualMethods: ChildElement<TsFunction>[] = []
-        const staticFunctions: ChildElement<TsFunction>[] = []
-        const constructors: ChildElement<TsFunction>[] = []
-
-        const properties: ChildElement<TsProperty | TsVar>[] = []
-        const fields: ChildElement<TsProperty | TsVar>[] = []
-        const constructProps: ChildElement<TsProperty | TsVar>[] = []
-
-        const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
 
         for (const ifaceFullPackageSymName of Object.keys(tsClass.inherit)) {
             if (tsClassFullPackageSymName === ifaceFullPackageSymName) {
-                this.log.warn("[getInheritedClassElements] A class can't inherit itself")
+                this.log.warn("[getClassElements] A class can't inherit itself")
                 continue
             }
 
-            const { class: inherit, depth } = tsClass.inherit[ifaceFullPackageSymName]
+            const { class: inherit, depth: parentDepth } = tsClass.inherit[ifaceFullPackageSymName]
+            const inheritElements = this.getClassElements(inherit, parentDepth + depth)
 
-            // Signals
-            const _signals = inherit.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
-            for (const tsSignal of _signals) {
-                signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
-            }
-            // Property signals
-            propertySignalMethods.push(
-                ...this.tsElArrToChildArr<ChildElement<TsFunction>>(inherit.propertySignalMethods, 0),
-            )
-            // Methods
-            if (inherit.methods.length)
-                methods.push(...this.girElArrToChildArr<TsFunction>(inherit.methods, depth + addDepth))
-            // Virtual methods
-            if (inherit.virtualMethods.length)
-                virtualMethods.push(...this.girElArrToChildArr<TsFunction>(inherit.virtualMethods, depth + addDepth))
-            // Static functions
-            if (inherit.staticFunctions.length)
-                staticFunctions.push(...this.girElArrToChildArr<TsFunction>(inherit.staticFunctions, depth + addDepth))
-            // Constructors
-            if (inherit.constructors.length)
-                constructors.push(...this.girElArrToChildArr<TsFunction>(inherit.constructors, depth + addDepth))
-            // Properties
-            if (inherit.properties.length)
-                properties.push(...this.girElArrToChildArr<TsProperty | TsVar>(inherit.properties, depth + addDepth))
-            // Fields
-            if (inherit.fields.length)
-                fields.push(...this.girElArrToChildArr<TsProperty | TsVar>(inherit.fields, depth + addDepth))
-            // Constructor properties
-            if (inherit.constructProps.length)
-                constructProps.push(
-                    ...this.girElArrToChildArr<TsProperty | TsVar>(inherit.constructProps, depth + addDepth),
-                )
-
-            // Also get implementations of the inherited class
-            const indirectImplementations = this.getImplementedInterfaceElements(inherit, addDepth + 1)
-            signalMethods.push(...indirectImplementations.signalMethods)
-            propertySignalMethods.push(...indirectImplementations.propertySignalMethods)
-            methods.push(...indirectImplementations.methods)
-            virtualMethods.push(...indirectImplementations.virtualMethods)
-            staticFunctions.push(...indirectImplementations.staticFunctions)
-            constructors.push(...indirectImplementations.constructors)
-            properties.push(...indirectImplementations.properties)
-            fields.push(...indirectImplementations.fields)
-            constructProps.push(...indirectImplementations.constructProps)
-
-            // Also get inheritances of the inherited class
-            const indirectInheritances = this.getInheritedClassElements(inherit, addDepth + 1)
-            signalMethods.push(...indirectInheritances.signalMethods)
-            propertySignalMethods.push(...indirectInheritances.propertySignalMethods)
-            methods.push(...indirectInheritances.methods)
-            virtualMethods.push(...indirectInheritances.virtualMethods)
-            staticFunctions.push(...indirectInheritances.staticFunctions)
-            constructors.push(...indirectInheritances.constructors)
-            properties.push(...indirectInheritances.properties)
-            fields.push(...indirectInheritances.fields)
-            constructProps.push(...indirectInheritances.constructProps)
+            signalMethods.push(...inheritElements.signalMethods)
+            propertySignalMethods.push(...inheritElements.propertySignalMethods)
+            methods.push(...inheritElements.methods)
+            virtualMethods.push(...inheritElements.virtualMethods)
+            staticFunctions.push(...inheritElements.staticFunctions)
+            constructors.push(...inheritElements.constructors)
+            properties.push(...inheritElements.properties)
+            fields.push(...inheritElements.fields)
+            constructProps.push(...inheritElements.constructProps)
         }
 
         return {
@@ -618,11 +542,11 @@ export class ConflictResolver {
                 }
 
                 const sigNameParam = base.data.inParams[0]
-                const callbackParam = base.data.inParams[1]
+                // const callbackParam = base.data.inParams[1]
 
                 const eventName = sigNameParam?._tsData?.type?.[0]?.type
                 // TODO do not render the callback type as a full string, create a TSCallback instead
-                const callbackType = callbackParam?._tsData?.type?.[0]?.type
+                // const callbackType = callbackParam?._tsData?.type?.[0]?.type
                 // console.debug('eventName', eventName, callbackType)
 
                 if (!eventName || eventName === 'string') {
@@ -734,7 +658,7 @@ export class ConflictResolver {
                             baseClass.conflictMethods.push(anyFunc)
                         }
                     } else {
-                        this.log.debug(`${className}.${name} External Unknown`, baseFunc, b)
+                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseFunc, b)
                     }
                 }
 
@@ -782,13 +706,13 @@ export class ConflictResolver {
                         this.log.debug(`${className}.${name} External Property vs. Signal`, baseProp, b)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} External Unknown`, baseProp, b)
+                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b)
                     }
                 }
 
                 // Other
                 else {
-                    this.log.debug(`${className}.${name} External Unknown`)
+                    this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`)
                 }
             }
         }
@@ -834,7 +758,7 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown`, baseFunc, b)
+                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b)
                     }
                 }
 
@@ -870,13 +794,13 @@ export class ConflictResolver {
                         this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown`, baseProp, b)
+                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b)
                     }
                 }
 
                 // Other
                 else {
-                    this.log.debug(`${className}.${name} Internal Unknown`)
+                    this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`)
                 }
             }
         }
@@ -977,7 +901,7 @@ export class ConflictResolver {
                 else if (this.tsElementIsConstructor(base.data)) {
                     // Do nothing
                 } else {
-                    this.log.warn(`{className}.${name} Unknown`, base)
+                    this.log.warn(`{className}.${name} Unknown ${b.data.tsTypeName}`, base)
                     base.data.hasUnresolvedConflict = true
                 }
             }
@@ -1074,75 +998,18 @@ export class ConflictResolver {
     public repairClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) throw new Error(NO_TSDATA('repairClass'))
 
-        const implementations = this.getImplementedInterfaceElements(girClass._tsData)
-        const inheritance = this.getInheritedClassElements(girClass._tsData)
-
-        const constructProps = [
-            ...this.girElArrToChildArr(girClass._tsData.constructProps, 0),
-            ...implementations.constructProps,
-            ...inheritance.constructProps,
-        ]
-
-        // SIGNALS
-        const _signals = girClass._tsData.signals.map((s) => s._tsData).filter((s) => !!s) as TsSignal[]
-        const signalMethods: ChildElement<TsFunction>[] = []
-        for (const tsSignal of _signals) {
-            signalMethods.push(...this.tsElArrToChildArr<ChildElement<TsFunction>>(tsSignal.tsMethods, 0))
-        }
-        signalMethods.push(...implementations.signalMethods, ...inheritance.signalMethods)
-
-        const propertySignalMethods = [
-            ...this.tsElArrToChildArr<ChildElement<TsFunction>>(girClass._tsData.propertySignalMethods, 0),
-            ...implementations.propertySignalMethods,
-            ...inheritance.propertySignalMethods,
-        ]
-
-        const methods = [
-            ...this.girElArrToChildArr(girClass._tsData.methods, 0),
-            ...implementations.methods,
-            ...inheritance.methods,
-        ]
-
-        const virtualMethods = [
-            ...this.girElArrToChildArr(girClass._tsData.virtualMethods, 0),
-            ...implementations.virtualMethods,
-            ...inheritance.virtualMethods,
-        ]
-
-        const constructors = [
-            ...this.girElArrToChildArr(girClass._tsData.constructors, 0),
-            ...implementations.constructors,
-            ...inheritance.constructors,
-        ]
-
-        const staticFunctions = [
-            ...this.girElArrToChildArr(girClass._tsData.staticFunctions, 0),
-            ...implementations.staticFunctions,
-            ...inheritance.staticFunctions,
-        ]
-
-        const properties = [
-            ...this.girElArrToChildArr(girClass._tsData.properties, 0),
-            ...implementations.properties,
-            ...inheritance.properties,
-        ]
-
-        const fields = [
-            ...this.girElArrToChildArr(girClass._tsData.fields, 0),
-            ...implementations.fields,
-            ...inheritance.fields,
-        ]
+        const classElements = this.getClassElements(girClass._tsData, 0)
 
         // Do not pass a reference of the array here
         const elements = [
-            ...signalMethods,
-            ...propertySignalMethods,
-            ...methods,
-            ...virtualMethods,
-            ...staticFunctions,
-            ...constructors,
-            ...properties,
-            ...fields,
+            ...classElements.signalMethods,
+            ...classElements.propertySignalMethods,
+            ...classElements.methods,
+            ...classElements.virtualMethods,
+            ...classElements.staticFunctions,
+            ...classElements.constructors,
+            ...classElements.properties,
+            ...classElements.fields,
         ]
 
         // TODO:
@@ -1153,7 +1020,7 @@ export class ConflictResolver {
         // this.fixSignalConflicts(groupedSignalConflicts)
 
         const groupedElementConflicts = this.groupConflicts(elements, girClass._tsData)
-        const groupedConstructPropConflicts = this.groupConflicts(constructProps, girClass._tsData)
+        const groupedConstructPropConflicts = this.groupConflicts(classElements.constructProps, girClass._tsData)
 
         this.fixConflicts(groupedElementConflicts)
         this.fixConflicts(groupedConstructPropConflicts)

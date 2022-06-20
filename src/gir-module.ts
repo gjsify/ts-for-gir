@@ -8,7 +8,7 @@ import {
     POD_TYPE_MAP_ARRAY,
     IGNORE_GIR_TYPE_TS_DOC_TYPES,
 } from './transformation.js'
-import { STATIC_NAME_ALREADY_EXISTS } from './constants.js'
+import { STATIC_NAME_ALREADY_EXISTS, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import { Logger } from './logger.js'
 import { Injector } from './injector.js'
 import { GirFactory } from './gir-factory.js'
@@ -2343,8 +2343,8 @@ export class GirModule {
         if (recursive && parents.length) {
             ++depth
 
-            if (depth >= 100) {
-                this.log.warn('[traverseInheritanceTree] Maximum recursion depth reached')
+            if (depth >= MAX_CLASS_PARENT_DEPTH) {
+                this.log.error('[traverseInheritanceTree] Maximum recursion depth reached')
                 return
             }
 

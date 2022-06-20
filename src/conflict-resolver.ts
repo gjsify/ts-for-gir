@@ -105,8 +105,6 @@ export class ConflictResolver {
     private getClassElements(tsClass: TsClass, depth: number, processedClasses: string[]) {
         const tsClassFullPackageSymName = `${tsClass.namespace}-${tsClass.version}.${tsClass.namespace}.${tsClass.name}`
 
-        this.log.debug(`[getClassElements] Get elements for ${tsClassFullPackageSymName}`)
-
         const signalMethods: ChildElement<TsFunction>[] = []
         const propertySignalMethods: ChildElement<TsFunction>[] = []
         const methods: ChildElement<TsFunction>[] = []
@@ -124,8 +122,6 @@ export class ConflictResolver {
         if (depthLimitReached || classAlreadyProcessed) {
             if (depthLimitReached)
                 this.log.error(`[getClassElements] Maximum recursion depth reached (limit: ${MAX_CLASS_PARENT_DEPTH})!`)
-            // if (classAlreadyProcessed)
-            //     this.log.error(`[getClassElements] Class ${tsClassFullPackageSymName} already processed!`)
             return {
                 signalMethods,
                 propertySignalMethods,
@@ -476,7 +472,12 @@ export class ConflictResolver {
      */
     public hasConflict(a: ChildElement, b: ChildElement) {
         if (a !== b && a.data.name === b.data.name) {
-            if (a.data.name === 'constructor' || a.data.name === 'new' || a.data.name === '_init') {
+            if (
+                a.data.name === 'constructor' ||
+                a.data.name === 'new' ||
+                a.data.name === 'newv' ||
+                a.data.name === '_init'
+            ) {
                 return false
             }
             if (this.elementHasConflict(a.data, b.data)) {
@@ -499,9 +500,10 @@ export class ConflictResolver {
      * Returns a new any function: `name(...args: any[]): any`
      * @param name The name of the function
      */
-    public newAnyTsFunction(name: string, girTypeName: TypeGirFunction) {
+    public newAnyTsFunction(name: string, girTypeName: TypeGirFunction, isStatic: boolean) {
         return this.girFactory.newTsFunction({
             name,
+            isStatic,
             inParams: [
                 {
                     name: 'args',
@@ -665,7 +667,7 @@ export class ConflictResolver {
                         )
                         // const bFunc = b.data as TsFunction
                         // const mergedFunction = (this.mergeFunctions(baseFunc, ...baseFunc.overloads))
-                        const anyFunc = this.newAnyTsFunction(name, baseFunc.girTypeName)
+                        const anyFunc = this.newAnyTsFunction(name, baseFunc.girTypeName, baseFunc.isStatic)
 
                         // Check if any function is not already added
                         if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {
@@ -938,7 +940,9 @@ export class ConflictResolver {
                 const baseFunc = base.data as TsFunction
                 if (baseFunc.overloads.length > 0) {
                     // Add a function with any types
-                    baseFunc.overloads.push(this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName))
+                    baseFunc.overloads.push(
+                        this.newAnyTsFunction(baseFunc.name, baseFunc.girTypeName, baseFunc.isStatic),
+                    )
 
                     // Add a function with merged types and parameters
                     baseFunc.overloads.push(this.mergeFunctions(baseFunc, ...baseFunc.overloads))

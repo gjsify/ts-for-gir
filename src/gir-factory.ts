@@ -55,7 +55,7 @@ export class GirFactory {
     girTypeNameToTsTypeName(girTypeName: 'callback', isStatic: boolean): 'interface'
     girTypeNameToTsTypeName(girTypeName: 'class' | 'interface' | 'union' | 'record', isStatic: boolean): 'class'
     girTypeNameToTsTypeName(girTypeName: 'constant', isStatic: boolean): 'constant'
-    girTypeNameToTsTypeName(girTypeName: 'constructor', isStatic: boolean): 'static-function'
+    girTypeNameToTsTypeName(girTypeName: 'constructor', isStatic: boolean): 'constructor' | 'static-function'
     girTypeNameToTsTypeName(girTypeName: 'method' | 'virtual', isStatic: boolean): 'method'
     girTypeNameToTsTypeName(girTypeName: 'signal' | 'method', isStatic: boolean): 'event-methods'
     girTypeNameToTsTypeName(girTypeName: 'static-function', isStatic: true): 'static-function'
@@ -85,7 +85,7 @@ export class GirFactory {
             case 'constant':
                 return 'constant'
             case 'constructor':
-                return 'static-function'
+                return 'constructor'
             case 'method':
             case 'virtual':
                 return 'method'

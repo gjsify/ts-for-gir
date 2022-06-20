@@ -513,9 +513,8 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         let { name } = tsFunction
-        let { isStatic } = tsFunction
-        // Handle a constructor as a static method even if it has no static keyword
-        isStatic ||= tsFunction.name === 'constructor'
+        const { isStatic } = tsFunction
+
         const { isArrowType, isGlobal, inParams, instanceParameters } = tsFunction
 
         if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
@@ -524,10 +523,8 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (tsFunction.doc) def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
 
-        const staticStr =
-            (isStatic || tsFunction.tsTypeName === 'static-function') && tsFunction.name !== 'constructor'
-                ? 'static '
-                : ''
+        const staticStr = isStatic && tsFunction.name !== 'constructor' ? 'static ' : ''
+
         const globalStr = isGlobal ? 'function ' : ''
         const genericStr = this.generateGenericParameters(tsFunction.generics)
 
@@ -541,10 +538,6 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const returnType = this.generateFunctionReturn(tsFunction, namespace)
-
-        if (name === 'new_for_font_type' && returnType === 'PangoCairo.FontMap') {
-            debugger
-        }
 
         let retSep = ''
         if (returnType) {
@@ -972,6 +965,8 @@ export default class TypeDefinitionGenerator implements Generator {
             )
         }
 
+        // TODO also fix static and constructor conflicts and remove the code above
+
         // Methods from inheritance
         for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
             const inherit = girClass._tsData.inherit[versionFullSymName]
@@ -980,7 +975,7 @@ export default class TypeDefinitionGenerator implements Generator {
             // Static methods of abstract classes
             inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.methods, namespace, indentCount))
             // Constructors
-            // inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
+            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
             // Pseudo constructors
             inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.staticFunctions, namespace, indentCount))
 
@@ -1004,7 +999,7 @@ export default class TypeDefinitionGenerator implements Generator {
             // Static methods of abstract classes
             implDef.push(...this.generateOnlyStaticFunctions(impl.interface.methods, namespace, indentCount))
             // Constructors
-            // implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
+            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
             // Pseudo constructors
             implDef.push(...this.generateOnlyStaticFunctions(impl.interface.staticFunctions, namespace, indentCount))
 

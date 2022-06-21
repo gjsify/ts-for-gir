@@ -42,7 +42,7 @@ export class Config {
         noComments: false,
         noDebugComments: false,
         noCheck: true,
-        fixConflicts: false,
+        fixConflicts: true,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)

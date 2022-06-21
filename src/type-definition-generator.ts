@@ -968,52 +968,52 @@ export default class TypeDefinitionGenerator implements Generator {
         // TODO also fix static and constructor conflicts and remove the code above
 
         // Methods from inheritance
-        for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
-            const inherit = girClass._tsData.inherit[versionFullSymName]
-            const inheritDef: string[] = []
+        // for (const versionFullSymName of Object.keys(girClass._tsData.inherit)) {
+        //     const inherit = girClass._tsData.inherit[versionFullSymName]
+        //     const inheritDef: string[] = []
 
-            // Static methods of abstract classes
-            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.methods, namespace, indentCount))
-            // Constructors
-            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
-            // Pseudo constructors
-            inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.staticFunctions, namespace, indentCount))
+        //     // Static methods of abstract classes
+        //     inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.methods, namespace, indentCount))
+        //     // Constructors
+        //     inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.constructors, namespace, indentCount))
+        //     // Pseudo constructors
+        //     inheritDef.push(...this.generateOnlyStaticFunctions(inherit.class.staticFunctions, namespace, indentCount))
 
-            if (inheritDef.length) {
-                inheritDef.unshift(
-                    ...this.addInfoComment(
-                        `Extended static methods and constructors of ${versionFullSymName}`,
-                        indentCount,
-                    ),
-                )
-            }
+        //     if (inheritDef.length) {
+        //         inheritDef.unshift(
+        //             ...this.addInfoComment(
+        //                 `Extended static methods and constructors of ${versionFullSymName}`,
+        //                 indentCount,
+        //             ),
+        //         )
+        //     }
 
-            def.push(...inheritDef)
-        }
+        //     def.push(...inheritDef)
+        // }
 
         // Methods from implementation
-        for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
-            const impl = girClass._tsData.implements[versionFullSymName]
-            const implDef: string[] = []
+        // for (const versionFullSymName of Object.keys(girClass._tsData.implements)) {
+        //     const impl = girClass._tsData.implements[versionFullSymName]
+        //     const implDef: string[] = []
 
-            // Static methods of abstract classes
-            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.methods, namespace, indentCount))
-            // Constructors
-            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
-            // Pseudo constructors
-            implDef.push(...this.generateOnlyStaticFunctions(impl.interface.staticFunctions, namespace, indentCount))
+        //     // Static methods of abstract classes
+        //     implDef.push(...this.generateOnlyStaticFunctions(impl.interface.methods, namespace, indentCount))
+        //     // Constructors
+        //     implDef.push(...this.generateOnlyStaticFunctions(impl.interface.constructors, namespace, indentCount))
+        //     // Pseudo constructors
+        //     implDef.push(...this.generateOnlyStaticFunctions(impl.interface.staticFunctions, namespace, indentCount))
 
-            if (implDef.length) {
-                implDef.unshift(
-                    ...this.addInfoComment(
-                        `Implemented static methods and constructors of ${versionFullSymName}`,
-                        indentCount,
-                    ),
-                )
-            }
+        //     if (implDef.length) {
+        //         implDef.unshift(
+        //             ...this.addInfoComment(
+        //                 `Implemented static methods and constructors of ${versionFullSymName}`,
+        //                 indentCount,
+        //             ),
+        //         )
+        //     }
 
-            def.push(...implDef)
-        }
+        //     def.push(...implDef)
+        // }
 
         return def
     }

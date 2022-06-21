@@ -1,7 +1,7 @@
 export default {
     modules: ['*'],
     girDirectories: ['./vala-girs/gir-1.0', './girs'],
-    ignoreConflicts: true,
+    ignoreVersionConflicts: true,
     pretty: false,
     ignore: [
         'Colorhug-1.0', // Duplicate of ColorHug-1.0

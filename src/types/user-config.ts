@@ -17,7 +17,7 @@ export interface UserConfig {
     /** Switch on/off the verbose mode */
     verbose: boolean
     /** Do not ask for package versions if multiple versions are found */
-    ignoreConflicts: boolean
+    ignoreVersionConflicts: boolean
     /** print the output to console and create no files */
     print: boolean
     /** prettifies the generated .d.ts files */

@@ -3,5 +3,5 @@ export default {
     girDirectories: ['./vala-girs/gir-1.0'],
     pretty: false,
     ignore: [],
-    ignoreConflicts: true
+    ignoreVersionConflicts: true
 }

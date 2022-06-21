@@ -35,7 +35,7 @@ export class Config {
         modules: ['*'],
         ignore: [],
         verbose: true,
-        ignoreConflicts: false,
+        ignoreVersionConflicts: false,
         useNamespace: false,
         buildType: 'lib',
         moduleType: 'commonjs',
@@ -117,10 +117,10 @@ export class Config {
             default: Config.defaults.verbose,
             normalize: true,
         } as Options,
-        ignoreConflicts: {
+        ignoreVersionConflicts: {
             type: 'boolean',
             description: 'Do not ask for package versions if multiple versions are found',
-            default: Config.defaults.ignoreConflicts,
+            default: Config.defaults.ignoreVersionConflicts,
             normalize: true,
         } as Options,
         print: {
@@ -172,7 +172,7 @@ export class Config {
         moduleType: this.options.moduleType,
         pretty: this.options.pretty,
         verbose: this.options.verbose,
-        ignoreConflicts: this.options.ignoreConflicts,
+        ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
         configName: this.options.configName,
         useNamespace: this.options.useNamespace,
@@ -299,7 +299,7 @@ export class Config {
             buildType: options.buildType,
             moduleType: options.moduleType,
             verbose: options.verbose,
-            ignoreConflicts: options.ignoreConflicts,
+            ignoreVersionConflicts: options.ignoreVersionConflicts,
             pretty: options.pretty,
             print: options.print,
             outdir: options.outdir,
@@ -328,12 +328,12 @@ export class Config {
             if (config.verbose === Config.options.verbose.default && typeof configFile.config.verbose === 'boolean') {
                 config.verbose = configFile.config.verbose
             }
-            // ignoreConflicts
+            // ignoreVersionConflicts
             if (
-                config.ignoreConflicts === Config.options.ignoreConflicts.default &&
-                typeof configFile.config.ignoreConflicts === 'boolean'
+                config.ignoreVersionConflicts === Config.options.ignoreVersionConflicts.default &&
+                typeof configFile.config.ignoreVersionConflicts === 'boolean'
             ) {
-                config.ignoreConflicts = configFile.config.ignoreConflicts
+                config.ignoreVersionConflicts = configFile.config.ignoreVersionConflicts
             }
             // pretty
             if (config.pretty === Config.options.pretty.default && typeof configFile.config.pretty === 'boolean') {

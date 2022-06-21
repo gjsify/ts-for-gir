@@ -23,7 +23,7 @@ const builder = (yargs: Argv) => {
         .option('environments', Config.generateOptions.environments)
         .option('ignore', Config.generateOptions.ignore)
         .option('verbose', Config.generateOptions.verbose)
-        .option('ignoreConflicts', Config.generateOptions.ignoreConflicts)
+        .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
         .option('configName', Config.generateOptions.configName)
         .example(examples)
 }
@@ -39,7 +39,7 @@ const handler = async (args: any /* TODO */) => {
             const { keep, grouped } = await moduleLoader.getModulesResolved(
                 config.modules,
                 config.ignore || [],
-                config.ignoreConflicts,
+                config.ignoreVersionConflicts,
             )
             if (keep.length === 0) {
                 return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))

@@ -21,6 +21,8 @@ export const merge = lodash.merge
 
 export const clone = lodash.clone
 
+export const cloneDeep = lodash.cloneDeep
+
 export function splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
     const splits = packageName.split('-')

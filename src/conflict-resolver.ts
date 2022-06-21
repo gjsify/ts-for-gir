@@ -267,7 +267,7 @@ export class ConflictResolver {
     private tsElementIsStatic(el: TsFunction | TsVar) {
         return (
             // el.tsTypeName === 'constructor' ||
-            el.tsTypeName === 'static-property' || el.tsTypeName === 'static-function'
+            (el as TsFunction).isStatic || el.tsTypeName === 'static-property' || el.tsTypeName === 'static-function'
         )
     }
 
@@ -431,6 +431,7 @@ export class ConflictResolver {
         return this.girFactory.newTsFunction({
             name: funcs[0].name,
             returnTypes: returnTypes,
+            isStatic: funcs[0].isStatic || false,
             inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
             outParams: outParams.map((outParam) => outParam._tsData).filter((outParam) => !!outParam) as TsParameter[],
             girTypeName: funcs[0].girTypeName,
@@ -472,12 +473,8 @@ export class ConflictResolver {
      */
     public hasConflict(a: ChildElement, b: ChildElement) {
         if (a !== b && a.data.name === b.data.name) {
-            if (
-                a.data.name === 'constructor' ||
-                a.data.name === 'new' ||
-                a.data.name === 'newv' ||
-                a.data.name === '_init'
-            ) {
+            // Ignore element with name of:
+            if (a.data.name === 'constructor' || a.data.name === '_init') {
                 return false
             }
             if (this.elementHasConflict(a.data, b.data)) {
@@ -673,8 +670,46 @@ export class ConflictResolver {
                         if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {
                             baseClass.conflictMethods.push(anyFunc)
                         }
-                    } else {
+                    }
+
+                    // Function vs. Constructor
+                    else if (this.tsElementIsConstructor(base.data)) {
+                        this.log.debug(`${className}.${name} External Function vs. Constructor`, baseFunc, b.data)
+                        b.data.hasUnresolvedConflict = true
+                    }
+
+                    // Function vs. Unknown
+                    else {
                         this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
+                        baseFunc.hasUnresolvedConflict = true
+                    }
+                }
+
+                // If a element is a constructor
+                else if (this.tsElementIsConstructor(base.data)) {
+                    const baseConstr = base.data as TsFunction
+
+                    // Constructor vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} External Constructor vs. Function`,
+                            baseConstr.inParams.map((p) => p._tsData?.name).join(', '),
+                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                        )
+                        baseConstr.hasUnresolvedConflict = true
+                    }
+
+                    // Constructor vs. Constructor
+                    else if (this.tsElementIsConstructor(base.data)) {
+                        this.log.debug(`${className}.${name} External Constructor vs. Constructor`, baseConstr, b.data)
+
+                        const anyFunc = this.newAnyTsFunction(name, baseConstr.girTypeName, baseConstr.isStatic)
+
+                        // Check if any function is not already added
+                        if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {
+                            baseClass.conflictMethods.push(anyFunc)
+                        }
                     }
                 }
 
@@ -722,13 +757,14 @@ export class ConflictResolver {
                         this.log.debug(`${className}.${name} External Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b.data)
+                        this.log.error(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b.data)
                     }
                 }
 
                 // Other
                 else {
-                    this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`)
+                    this.log.error(`${className}.${name} External Unknown ${base.data.tsTypeName}`)
+                    base.data.hasUnresolvedConflict = true
                 }
             }
         }
@@ -774,7 +810,8 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
+                        this.log.error(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
+                        b.data.hasUnresolvedConflict = true
                     }
                 }
 
@@ -810,7 +847,7 @@ export class ConflictResolver {
                         this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
                     } else {
-                        this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b.data)
+                        this.log.error(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b.data)
                     }
                 }
 
@@ -829,7 +866,7 @@ export class ConflictResolver {
 
                 // Other
                 else {
-                    this.log.debug(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`)
+                    this.log.error(`${className}.${name} Internal Unknown ${base.data.tsTypeName}`)
                 }
             }
         }
@@ -860,7 +897,7 @@ export class ConflictResolver {
                     if (this.tsElementIsMethodOrFunction(b.data)) {
                         const bFunc = b.data as TsFunction
                         this.log.debug(
-                            `${className}.${name} Function vs. Function`,
+                            `${className}.${name} Direct Function vs. Function`,
                             baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
@@ -873,13 +910,13 @@ export class ConflictResolver {
 
                     // Function vs. Property
                     else if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        this.log.debug(`${className}.${name} Function vs. Property`)
+                        this.log.debug(`${className}.${name} Direct Function vs. Property`)
                         b.data.hasUnresolvedConflict = true
                     }
 
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} Function vs. Signal`)
+                        this.log.debug(`${className}.${name} Direct Function vs. Signal`)
                         baseFunc.hasUnresolvedConflict = true
                     }
                 }
@@ -892,7 +929,7 @@ export class ConflictResolver {
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
                         const bProp = b.data as TsProperty
                         this.log.debug(
-                            `${className}.${name} Property vs. Property`,
+                            `${className}.${name} Direct Property vs. Property`,
                             baseProp.type[0].type,
                             bProp.type[0].type,
                         )
@@ -901,13 +938,13 @@ export class ConflictResolver {
 
                     // Property vs. Function
                     else if (this.tsElementIsMethodOrFunction(b.data)) {
-                        this.log.debug(`${className}.${name} Property vs. Function`)
+                        this.log.debug(`${className}.${name} Direct Property vs. Function`)
                         baseProp.hasUnresolvedConflict = true
                     }
 
                     // Property vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
-                        this.log.debug(`${className}.${name} Property vs. Signal`)
+                        this.log.debug(`${className}.${name} Direct Property vs. Signal`)
                         baseProp.hasUnresolvedConflict = true
                     }
                 }
@@ -916,21 +953,45 @@ export class ConflictResolver {
                 else if (this.tsElementIsSignal(base.data)) {
                     // Signal vs. Property
                     if (this.tsElementIsPropertyOrVariable(b.data)) {
-                        this.log.debug(`${className}.${name} Signal vs. Property`)
+                        this.log.debug(`${className}.${name} Direct Signal vs. Property`)
                         b.data.hasUnresolvedConflict = true
                     }
 
                     // Signal vs. Function
                     if (this.tsElementIsMethodOrFunction(b.data)) {
-                        this.log.debug(`${className}.${name} Signal vs. Function`)
+                        this.log.debug(`${className}.${name} Direct Signal vs. Function`)
                         b.data.hasUnresolvedConflict = true
                     }
                 }
-                // Ignore constructors
+                // If a element is a constructor
                 else if (this.tsElementIsConstructor(base.data)) {
-                    // Do nothing
+                    const baseConstr = base.data as TsFunction
+
+                    // Constructor vs. Function
+                    if (this.tsElementIsMethodOrFunction(b.data)) {
+                        const bFunc = b.data as TsFunction
+                        this.log.debug(
+                            `${className}.${name} Direct Constructor vs. Function`,
+                            baseConstr.inParams.map((p) => p._tsData?.name).join(', '),
+                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                        )
+                        baseConstr.hasUnresolvedConflict = true
+                    }
+
+                    // Constructor vs. Constructor
+                    else if (this.tsElementIsConstructor(base.data)) {
+                        const bConstr = b.data as TsFunction
+                        this.log.debug(`${className}.${name} Direct Constructor vs. Constructor`, baseConstr, bConstr)
+
+                        // Add the constructor to overload methods if there is not already a compatible version
+                        if (!this.getCompatibleTsFunction(baseConstr.overloads, bConstr)) {
+                            baseConstr.overloads.push(bConstr)
+                        }
+
+                        debugger
+                    }
                 } else {
-                    this.log.warn(`{className}.${name} Unknown ${b.data.tsTypeName}`, base)
+                    this.log.warn(`{className}.${name} Unknown ${base.data.tsTypeName}`, base)
                     base.data.hasUnresolvedConflict = true
                 }
             }
@@ -1055,6 +1116,8 @@ export class ConflictResolver {
 
         this.fixConflicts(groupedElementConflicts)
         this.fixConflicts(groupedConstructPropConflicts)
+
+        return girClass
     }
 
     /**

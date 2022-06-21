@@ -1941,17 +1941,27 @@ export class GirModule {
 
                 if (!girConstructor._tsData?.name) continue
 
+                // Also add `new` pseudo constructors
+                const ADD_NEW_PSEUDO_CONSTRUCTOR = true
+
                 // Inject an additional real constructor if static new(...) exists
                 if (girConstructor._tsData.name === 'new') {
                     const realConstructor = clone(girConstructor)
                     realConstructor._tsData = clone(realConstructor._tsData)
-                    if (realConstructor._tsData?.name) {
+
+                    if (realConstructor._tsData) {
+                        realConstructor._tsData.overloads = []
+                        realConstructor.$.name = 'constructor'
                         realConstructor._tsData.name = 'constructor'
                         girConstructors.push(realConstructor)
                     }
-                }
 
-                girConstructors.push(girConstructor)
+                    if (ADD_NEW_PSEUDO_CONSTRUCTOR) {
+                        girConstructors.push(girConstructor)
+                    }
+                } else {
+                    girConstructors.push(girConstructor)
+                }
             }
         }
 

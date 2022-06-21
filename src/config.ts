@@ -42,6 +42,7 @@ export class Config {
         noComments: false,
         noDebugComments: false,
         noCheck: true,
+        fixConflicts: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -165,6 +166,13 @@ export class Config {
             default: Config.defaults.noCheck,
             normalize: true,
         } as Options,
+        fixConflicts: {
+            type: 'boolean',
+            alias: 'fc',
+            description: 'Fix Inheritance and implementation type conflicts',
+            default: Config.defaults.fixConflicts,
+            normalize: true,
+        } as Options,
     }
 
     /**
@@ -187,6 +195,7 @@ export class Config {
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
         noCheck: this.options.noCheck,
+        fixConflicts: this.options.fixConflicts,
     }
 
     static listOptions = {
@@ -273,6 +282,7 @@ export class Config {
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
             noCheck: config.noCheck,
+            fixConflicts: config.fixConflicts,
         }
         return generateConfig
     }
@@ -320,6 +330,7 @@ export class Config {
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
             noCheck: options.noCheck,
+            fixConflicts: options.fixConflicts,
         }
 
         if (configFile) {
@@ -400,6 +411,13 @@ export class Config {
             // noCheck
             if (config.noCheck === Config.options.noCheck.default && typeof configFile.config.noCheck === 'boolean') {
                 config.noCheck = configFile.config.noCheck
+            }
+            // fixConflicts
+            if (
+                config.fixConflicts === Config.options.fixConflicts.default &&
+                typeof configFile.config.fixConflicts === 'boolean'
+            ) {
+                config.fixConflicts = configFile.config.fixConflicts
             }
         }
 

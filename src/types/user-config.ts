@@ -34,4 +34,6 @@ export interface UserConfig {
     noDebugComments: boolean
     /** Disable typescript semantic checks using @ts-nocheck */
     noCheck: boolean
+    /** Fix Inheritance and implementation type conflicts */
+    fixConflicts: boolean
 }

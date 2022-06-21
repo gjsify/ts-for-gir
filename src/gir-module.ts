@@ -2277,7 +2277,9 @@ export class GirModule {
             ...this.getGeneralSignalsMethods(),
         )
 
-        this.conflictResolver.repairClass(girClass)
+        if (this.config.fixConflicts) {
+            this.conflictResolver.repairClass(girClass)
+        }
 
         return girClass._tsData
     }

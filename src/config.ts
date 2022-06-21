@@ -41,6 +41,7 @@ export class Config {
         moduleType: 'commonjs',
         noComments: false,
         noDebugComments: false,
+        noCheck: true,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -152,9 +153,16 @@ export class Config {
         } as Options,
         noDebugComments: {
             type: 'boolean',
-            alias: 'n',
+            alias: 'nd',
             description: 'Do not generate debugging inline comments',
             default: Config.defaults.noDebugComments,
+            normalize: true,
+        } as Options,
+        noCheck: {
+            type: 'boolean',
+            alias: 'nc',
+            description: 'Disable typescript semantic checks using @ts-nocheck',
+            default: Config.defaults.noCheck,
             normalize: true,
         } as Options,
     }
@@ -178,6 +186,7 @@ export class Config {
         useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
+        noCheck: this.options.noCheck,
     }
 
     static listOptions = {
@@ -263,6 +272,7 @@ export class Config {
             useNamespace: config.useNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
+            noCheck: config.noCheck,
         }
         return generateConfig
     }
@@ -309,6 +319,7 @@ export class Config {
             useNamespace: options.useNamespace,
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
+            noCheck: options.noCheck,
         }
 
         if (configFile) {
@@ -385,6 +396,10 @@ export class Config {
                 typeof configFile.config.noDebugComments === 'boolean'
             ) {
                 config.noDebugComments = configFile.config.noDebugComments
+            }
+            // noCheck
+            if (config.noCheck === Config.options.noCheck.default && typeof configFile.config.noCheck === 'boolean') {
+                config.noCheck = configFile.config.noCheck
             }
         }
 

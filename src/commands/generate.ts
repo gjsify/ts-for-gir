@@ -32,6 +32,7 @@ const builder = (yargs: Argv) => {
         .option('useNamespace', Config.generateOptions.useNamespace)
         .option('noComments', Config.generateOptions.noComments)
         .option('noDebugComments', Config.generateOptions.noDebugComments)
+        .option('noCheck', Config.generateOptions.noCheck)
         .example(examples)
 }
 

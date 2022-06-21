@@ -32,4 +32,6 @@ export interface UserConfig {
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
+    /** Disable typescript semantic checks using @ts-nocheck */
+    noCheck: boolean
 }

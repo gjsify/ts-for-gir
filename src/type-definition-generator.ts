@@ -758,10 +758,6 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generateClassFields'))
         }
 
-        if (girClass._tsData.name === 'Spinner') {
-            debugger
-        }
-
         def.push(
             ...this.generateProperties(
                 girClass._tsData.fields.map((f) => f._tsData).filter((f) => !!f) as TsProperty[],

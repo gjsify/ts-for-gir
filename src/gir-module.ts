@@ -2115,7 +2115,7 @@ export class GirModule {
 
         // Please reply: Do all interfaces always inherit from GObject.Object?
         // If this is a interface and GObject.Object is not in the parents array, add GObject.Object to the parents
-        if (girClass._tsData.girTypeName === 'interface') {
+        if (girClass._tsData.girTypeName === 'interface' && girClass._fullSymName !== 'GObject.Object') {
             if (!parents.find((parent) => parent.qualifiedParentName === 'GObject.Object')) {
                 // TODO make sure this class exists in symTable
                 const gObjectObjectCls =

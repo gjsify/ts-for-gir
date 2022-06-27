@@ -24,7 +24,7 @@ const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry()
 entry.set_text('about:none')
 entry.set_alignment(Gtk.Align.FILL)
-const spinner = new Gtk.Spinner() as Gtk.Spinner & Gtk.Widget; // TODO fix type in ts-for-gir
+const spinner = new Gtk.Spinner()
 
 const hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL, spacing: 0})
 hbox.pack_start(

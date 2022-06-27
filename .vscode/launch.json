@@ -15,6 +15,16 @@
             "sourceMaps": true
         },
         {
+            "name": "build:types:gtk2",
+            "type": "node",
+            "request": "launch",
+            "args": [
+                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.gtk2.rc.js", "-o", "./tmp"
+            ],
+            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "sourceMaps": true
+        },
+        {
             "name": "build:types:gtk3",
             "type": "node",
             "request": "launch",

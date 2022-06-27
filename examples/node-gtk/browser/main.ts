@@ -26,7 +26,7 @@ const webview = new WebKit2.WebView({})
 const scrolledWindow = new Gtk.ScrolledWindow({})
 const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL })
-const spinner = new Gtk.Spinner({}) as Gtk.Spinner & Gtk.Widget; // TODO fix type in ts-for-gir
+const spinner = new Gtk.Spinner({});
 
 const hbox = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
 hbox.packStart(

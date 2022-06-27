@@ -945,7 +945,7 @@ export class ConflictResolver {
                             baseProp.type[0].type,
                             bProp.type[0].type,
                         )
-                        base.data = this.mergeProperties(baseProp, baseProp, bProp)
+                        this.mergeProperties(baseProp, baseProp, bProp)
                     }
 
                     // Property vs. Function
@@ -1256,6 +1256,14 @@ export class ConflictResolver {
         a: TsFunction | TsVar | TsProperty | TsSignal,
         b: TsFunction | TsVar | TsProperty | TsSignal,
     ) {
+        if (
+            a.name === b.name &&
+            a.name === 'get_data' &&
+            (a as TsFunction).returnTypes[0].type !== (b as TsFunction).returnTypes[0].type
+        ) {
+            debugger
+        }
+
         if (a.name !== b.name) {
             return false
         } else if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {

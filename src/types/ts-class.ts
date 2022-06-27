@@ -12,7 +12,7 @@ import {
     TsProperty,
     TsDoc,
     ClassParent,
-    TypeClass,
+    TypeGirClass,
 } from './index.js'
 
 export interface TsClass {
@@ -97,7 +97,7 @@ export interface TsClass {
     }
 
     // CUSTOM
-    girTypeName: TypeClass
+    girTypeName: TypeGirClass
     /** Will be exported in Typescript as a `class` */
     tsTypeName: 'class'
 

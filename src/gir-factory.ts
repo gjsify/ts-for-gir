@@ -22,7 +22,7 @@ import type {
     InjectionParameter,
     InjectionProperty,
     Environment,
-    TypeProperty,
+    TypeGirProperty,
     TypeGirElement,
     TypeTsElement,
     TypeGirFunction,
@@ -61,9 +61,9 @@ export class GirFactory {
     girTypeNameToTsTypeName(girTypeName: 'static-function', isStatic: true): 'static-function'
     girTypeNameToTsTypeName(girTypeName: 'function', isStatic: true): 'static-function'
     girTypeNameToTsTypeName(girTypeName: 'function', isStatic: false): 'function'
-    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: boolean): TypeTsProperty
-    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: false): 'property' | 'constructor-property'
-    girTypeNameToTsTypeName(girTypeName: TypeProperty, isStatic: true): 'static-property'
+    girTypeNameToTsTypeName(girTypeName: TypeGirProperty, isStatic: boolean): TypeTsProperty
+    girTypeNameToTsTypeName(girTypeName: TypeGirProperty, isStatic: false): 'property' | 'constructor-property'
+    girTypeNameToTsTypeName(girTypeName: TypeGirProperty, isStatic: true): 'static-property'
     girTypeNameToTsTypeName(girTypeName: TypeGirFunction, isStatic: boolean): TypeTsFunction
     girTypeNameToTsTypeName(girTypeName: TypeGirElement, isStatic: boolean): TypeTsElement {
         switch (girTypeName) {

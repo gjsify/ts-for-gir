@@ -24,7 +24,7 @@ import type {
     TsClass,
     TsParameter,
     TypeGirFunction,
-    TypeProperty,
+    TypeGirProperty,
 } from './types/index.js'
 
 interface ChildElement<T = TsFunction | TsProperty | TsVar> {
@@ -438,7 +438,13 @@ export class ConflictResolver {
         })
     }
 
-    public mergeProperties(...props: TsProperty[]) {
+    /**
+     * Merge property types together
+     * @param baseProp The property to change or null if you want to create a new property
+     * @param props The properties you want to merge
+     * @returns
+     */
+    public mergeProperties(baseProp: TsProperty | null, ...props: TsProperty[]) {
         // Merge types
         const typesMap: TsType[] = []
         for (const prop of props) {
@@ -456,13 +462,19 @@ export class ConflictResolver {
             throw new Error('At least one property must exist!')
         }
 
-        return this.girFactory.newTsProperty({
-            readonly: readonly,
-            isStatic: props[0].isStatic || false,
-            name: props[0].name,
-            type: types,
-            girTypeName: props[0].girTypeName,
-        })
+        if (baseProp) {
+            baseProp.type = types
+            baseProp.readonly = readonly
+            return baseProp
+        } else {
+            return this.girFactory.newTsProperty({
+                readonly: readonly,
+                isStatic: props[0].isStatic || false,
+                name: props[0].name,
+                type: types,
+                girTypeName: props[0].girTypeName,
+            })
+        }
     }
 
     /**
@@ -485,7 +497,7 @@ export class ConflictResolver {
         return false
     }
 
-    public newAnyTsProperty(name: string, girTypeName: TypeProperty) {
+    public newAnyTsProperty(name: string, girTypeName: TypeGirProperty) {
         return this.girFactory.newTsProperty({
             name,
             girTypeName,
@@ -741,7 +753,7 @@ export class ConflictResolver {
                             bProp.type[0].type,
                         )
                         // const bProp = b.data as TsProperty
-                        // const mergedProp = this.mergeProperties(baseProp, bProp)
+                        // const mergedProp = this.mergeProperties(null, baseProp, bProp)
                         // if (this.canAddConflictProperty(baseClass.conflictProperties, mergedProp)) {
                         //     baseClass.conflictProperties.push(mergedProp)
                         // }
@@ -839,7 +851,7 @@ export class ConflictResolver {
                             bProp.type[0].type,
                         )
 
-                        base.data = this.mergeProperties(baseProp, bProp)
+                        this.mergeProperties(baseProp, baseProp, bProp)
                     }
 
                     // Property vs. Signal
@@ -933,7 +945,7 @@ export class ConflictResolver {
                             baseProp.type[0].type,
                             bProp.type[0].type,
                         )
-                        base.data = this.mergeProperties(baseProp, bProp)
+                        base.data = this.mergeProperties(baseProp, baseProp, bProp)
                     }
 
                     // Property vs. Function
@@ -987,8 +999,6 @@ export class ConflictResolver {
                         if (!this.getCompatibleTsFunction(baseConstr.overloads, bConstr)) {
                             baseConstr.overloads.push(bConstr)
                         }
-
-                        debugger
                     }
                 } else {
                     this.log.warn(`{className}.${name} Unknown ${base.data.tsTypeName}`, base)

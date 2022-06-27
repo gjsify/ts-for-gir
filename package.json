@@ -51,7 +51,6 @@
     "build:types:node:rygelcore2": "npm run build:types:rygelcore2 -- --environments=node",
     "build:types:node:gcalc": "npm run build:types:gcalc -- --environments=node",
     "fix:types:gjs": "npm run start -- fix --configName='.ts-for-gir.all.rc.js' --environments=gjs",
-
     "build:test:ava": "tsc -p tsconfig.ava.json",
     "validate": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit",
     "validate:types:all": "npm run validate:types:gjs && npm run validate:types:node",

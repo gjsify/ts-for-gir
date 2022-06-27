@@ -22,6 +22,7 @@ import type {
     TsVar,
     TsProperty,
     TsParameter,
+    TypeGirElement,
 } from './types/index.js'
 import { Generator } from './generator.js'
 import type { GirModule } from './gir-module.js'
@@ -166,7 +167,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const affix = optional ? '?' : ''
-        const typeStr = this.generateReturnTypes(tsVar.type, namespace)
+        const typeStr = this.generateTypes(tsVar.type, namespace, tsVar.girTypeName)
 
         // temporary solution, will be solved differently later
         const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
@@ -174,11 +175,12 @@ export default class TypeDefinitionGenerator implements Generator {
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
 
-    private generateReturnTypes(tsTypes: TsType[], namespace: string) {
-        return tsTypes.map((tsType) => this.generateReturnType(tsType, namespace)).join(' | ')
+    private generateTypes(tsTypes: TsType[], namespace: string, girTypeName: TypeGirElement) {
+        const separator = girTypeName === 'field' || girTypeName === 'property' ? ' & ' : ' | '
+        return tsTypes.map((tsType) => this.generateType(tsType, namespace)).join(separator)
     }
 
-    private generateReturnType(tsType: TsType, namespace: string) {
+    private generateType(tsType: TsType, namespace: string) {
         let typeName = removeNamespace(tsType.type, namespace)
 
         if (tsType.callbacks.length) {
@@ -406,7 +408,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const types = tsParam.type
         const name = tsParam.name
-        const typeStr = this.generateReturnTypes(types, namespace)
+        const typeStr = this.generateTypes(types, namespace, tsParam.girTypeName)
         const optional = typeIsOptional(types) && !tsParam.isRest
         const affix = optional ? '?' : ''
         const prefix = tsParam.isRest ? '...' : ''
@@ -452,7 +454,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         const { name } = girParam._tsData
-        const typeStr = this.generateReturnTypes(girParam._tsData.type, namespace)
+        const typeStr = this.generateTypes(girParam._tsData.type, namespace, girParam._tsData.girTypeName)
 
         desc.push(`/* ${name} */ ${typeStr}`)
         return desc
@@ -466,7 +468,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const overrideReturnType = tsFunction.overrideReturnType
         const outParams = tsFunction.outParams
         const retTypeIsVoid = tsFunction.retTypeIsVoid
-        const typeStr = this.generateReturnTypes(tsFunction.returnTypes, namespace)
+        const typeStr = this.generateTypes(tsFunction.returnTypes, namespace, tsFunction.girTypeName)
 
         let desc = typeStr
 
@@ -597,7 +599,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
         const indentBody = generateIndent(indentCount + 1)
         const { inParams, instanceParameters } = tsCallback
-        const returnTypeStr = this.generateReturnTypes(tsCallback.returnTypes, namespace)
+        const returnTypeStr = this.generateTypes(tsCallback.returnTypes, namespace, tsCallback.girTypeName)
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const { name } = tsCallback.tsCallbackInterface
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
@@ -754,6 +756,10 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
             throw new Error(NO_TSDATA('generateClassFields'))
+        }
+
+        if (girClass._tsData.name === 'Spinner') {
+            debugger
         }
 
         def.push(

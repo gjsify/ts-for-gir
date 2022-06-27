@@ -66,8 +66,8 @@ import type {
     GirInterfaceElement,
     GirConstructorElement,
     GirDocElement,
-    TypeVariable,
-    TypeClass,
+    TypeGirVariable,
+    TypeGirClass,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -1022,7 +1022,7 @@ export class GirModule {
 
     private getVariableTsData(
         girVar: GirPropertyElement | GirFieldElement | GirConstantElement,
-        girTypeName: 'property' | TypeVariable | 'field',
+        girTypeName: 'property' | TypeGirVariable | 'field',
         tsTypeName: 'constant' | 'property' | 'constructor-property' | 'static-property',
         optional = false,
         nullable = false,
@@ -2136,7 +2136,7 @@ export class GirModule {
 
     private setClassBaseTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        girTypeName: TypeClass,
+        girTypeName: TypeGirClass,
     ) {
         if (!girClass?.$?.name) return undefined
 
@@ -2209,7 +2209,7 @@ export class GirModule {
 
     private setClassTsData(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        girTypeName: TypeClass,
+        girTypeName: TypeGirClass,
     ): TsClass | undefined {
         if (!girClass?.$?.name) return undefined
 
@@ -2330,7 +2330,7 @@ export class GirModule {
 
     private traverseInheritanceTree(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        gitTypeName: TypeClass,
+        gitTypeName: TypeGirClass,
         callback: (
             girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
             depth: number,
@@ -2372,7 +2372,7 @@ export class GirModule {
 
     private forEachInterface(
         girIface: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        girTypeName: TypeClass,
+        girTypeName: TypeGirClass,
         callback: (
             cls: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
             depth: number,

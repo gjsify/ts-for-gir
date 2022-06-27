@@ -1,4 +1,4 @@
-import { TsVar, TsDoc, TypeProperty, TypeTsProperty } from './index.js'
+import { TsVar, TsDoc, TypeGirProperty, TypeTsProperty } from './index.js'
 
 /**
  * Holds the data to generate a property in/for Typescript
@@ -10,7 +10,7 @@ export interface TsProperty extends TsVar {
     hasUnresolvedConflict?: boolean
 
     // CUSTOM
-    girTypeName: TypeProperty
+    girTypeName: TypeGirProperty
     /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
     tsTypeName: TypeTsProperty
 

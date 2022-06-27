@@ -1,23 +1,25 @@
 import {
-    TypeClass,
-    TypeMethod,
-    TypeVariable,
-    TypeAlias,
-    TypeEnumeration,
-    TypeInterface,
-    TypeProperty,
+    TypeGirClass,
+    TypeGirMethod,
+    TypeGirVariable,
+    TypeGirAlias,
+    TypeGirEnumeration,
+    TypeGirEnumerationMember,
+    TypeGirInterface,
+    TypeGirParameter,
+    TypeGirProperty,
     TypeGirFunction,
 } from './index.js'
 
 /** Any gir element type */
 export type TypeGirElement =
-    | TypeClass
-    | TypeMethod
-    | TypeVariable
-    | TypeAlias
-    | TypeEnumeration
-    | 'enum-member'
-    | 'bitfield-member'
-    | TypeInterface
-    | TypeProperty
+    | TypeGirClass
+    | TypeGirMethod
+    | TypeGirVariable
+    | TypeGirAlias
+    | TypeGirEnumeration
+    | TypeGirEnumerationMember
+    | TypeGirInterface
+    | TypeGirParameter
+    | TypeGirProperty
     | TypeGirFunction

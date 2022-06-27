@@ -2350,6 +2350,7 @@ export class GirModule {
 
             if (depth >= MAX_CLASS_PARENT_DEPTH) {
                 this.log.error('[traverseInheritanceTree] Maximum recursion depth reached')
+                debugger
                 return
             }
 

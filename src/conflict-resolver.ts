@@ -120,8 +120,10 @@ export class ConflictResolver {
         const classAlreadyProcessed = processedClasses.includes(tsClassFullPackageSymName)
 
         if (depthLimitReached || classAlreadyProcessed) {
-            if (depthLimitReached)
+            if (depthLimitReached) {
                 this.log.error(`[getClassElements] Maximum recursion depth reached (limit: ${MAX_CLASS_PARENT_DEPTH})!`)
+                debugger
+            }
             return {
                 signalMethods,
                 propertySignalMethods,
@@ -485,8 +487,9 @@ export class ConflictResolver {
      */
     public hasConflict(a: ChildElement, b: ChildElement) {
         if (a !== b && a.data.name === b.data.name) {
+            const name = a.data.name
             // Ignore element with name of:
-            if (a.data.name === 'constructor' || a.data.name === '_init') {
+            if (name === 'constructor' || name === '_init' || name === 'get_data' || name === 'set_data') {
                 return false
             }
             if (this.elementHasConflict(a.data, b.data)) {
@@ -1256,14 +1259,6 @@ export class ConflictResolver {
         a: TsFunction | TsVar | TsProperty | TsSignal,
         b: TsFunction | TsVar | TsProperty | TsSignal,
     ) {
-        if (
-            a.name === b.name &&
-            a.name === 'get_data' &&
-            (a as TsFunction).returnTypes[0].type !== (b as TsFunction).returnTypes[0].type
-        ) {
-            debugger
-        }
-
         if (a.name !== b.name) {
             return false
         } else if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {

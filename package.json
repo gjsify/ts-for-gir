@@ -106,9 +106,9 @@
     "ava": "^4.3.0",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^4.1.0",
     "ncu": "^0.2.1",
-    "npm-check-updates": "^14.0.1",
+    "npm-check-updates": "^14.1.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.8.1",
     "typescript": "4.7.4"

@@ -717,48 +717,49 @@ export const classes: InjectionClass[] = [
             },
         ],
     },
-    {
-        // Fix type conflict by adding this overload method
-        qualifiedName: 'Gdk.Drawable',
-        methods: [
-            {
-                name: 'set_data',
-                girTypeName: 'method',
-                inParams: [
-                    {
-                        name: 'key',
-                        type: [
-                            {
-                                type: 'string',
-                            },
-                        ],
-                    },
-                    {
-                        name: 'data',
-                        type: [
-                            {
-                                type: 'object',
-                                nullable: true,
-                            },
-                        ],
-                    },
-                    {
-                        name: 'destroy_func',
-                        type: [
-                            {
-                                type: 'GLib.DestroyNotify',
-                                nullable: true,
-                                optional: true,
-                            },
-                        ],
-                    },
-                ],
-                returnTypes: [
-                    {
-                        type: 'void',
-                    },
-                ],
-            },
-        ],
-    },
+    // {
+    //     // TODO: Only for Gdk-2.0
+    //     // Fix type conflict by adding this overload method
+    //     qualifiedName: 'Gdk.Drawable',
+    //     methods: [
+    //         {
+    //             name: 'set_data',
+    //             girTypeName: 'method',
+    //             inParams: [
+    //                 {
+    //                     name: 'key',
+    //                     type: [
+    //                         {
+    //                             type: 'string',
+    //                         },
+    //                     ],
+    //                 },
+    //                 {
+    //                     name: 'data',
+    //                     type: [
+    //                         {
+    //                             type: 'object',
+    //                             nullable: true,
+    //                         },
+    //                     ],
+    //                 },
+    //                 {
+    //                     name: 'destroy_func',
+    //                     type: [
+    //                         {
+    //                             type: 'GLib.DestroyNotify',
+    //                             nullable: true,
+    //                             optional: true,
+    //                         },
+    //                     ],
+    //                 },
+    //             ],
+    //             returnTypes: [
+    //                 {
+    //                     type: 'void',
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
 ]

@@ -16,10 +16,13 @@ import {
 } from './index.js'
 
 export interface TsClass {
+    /** E.g. "Window" */
     name: string
+    /** E.g. "Gtk.Window "*/
     qualifiedName: string
-
+    /** E.g. "Gtk" */
     namespace: string
+    /** E.g. "3.0" */
     version: string
     isDerivedFromGObject?: boolean
 

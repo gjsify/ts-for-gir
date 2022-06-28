@@ -1,11 +1,11 @@
-import { TsDoc } from './ts-doc'
+import { TsDoc, TypeGirEnumerationMember, TypeTsEnumerationMember } from './index.js'
 
 /**
  * Holds the data to generate a member (of an enum) in/for Typescript
  */
 export interface TsMember {
     name: string
-    girTypeName: 'bitfield-member' | 'enum-member'
-    tsTypeName: 'enum-member'
+    girTypeName: TypeGirEnumerationMember
+    tsTypeName: TypeTsEnumerationMember
     doc: TsDoc
 }

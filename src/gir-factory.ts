@@ -24,8 +24,10 @@ import type {
     Environment,
     TypeGirProperty,
     TypeGirElement,
-    TypeTsElement,
     TypeGirFunction,
+    TypeGirEnumerationMember,
+    TypeTsElement,
+    TypeTsEnumerationMember,
     TypeTsFunction,
     TypeTsProperty,
 } from './types/index.js'
@@ -51,7 +53,7 @@ export class GirFactory {
 
     girTypeNameToTsTypeName(girTypeName: 'alias', isStatic: boolean): 'type'
     girTypeNameToTsTypeName(girTypeName: 'enum' | 'bitfield', isStatic: boolean): 'enum'
-    girTypeNameToTsTypeName(girTypeName: 'enum-member' | 'bitfield-member', isStatic: boolean): 'enum-member'
+    girTypeNameToTsTypeName(girTypeName: TypeGirEnumerationMember, isStatic: boolean): TypeTsEnumerationMember
     girTypeNameToTsTypeName(girTypeName: 'callback', isStatic: boolean): 'interface'
     girTypeNameToTsTypeName(girTypeName: 'class' | 'interface' | 'union' | 'record', isStatic: boolean): 'class'
     girTypeNameToTsTypeName(girTypeName: 'constant', isStatic: boolean): 'constant'
@@ -233,6 +235,7 @@ export class GirFactory {
             isArray: tsData.isArray || false,
             isCallback: tsData.isCallback || false,
             isFunction: tsData.isFunction || false,
+            leftSeparator: tsData.leftSeparator || '|',
         }
 
         return newTsData

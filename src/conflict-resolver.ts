@@ -20,6 +20,7 @@ import type {
     TsFunction,
     TsProperty,
     TsVar,
+    TsTypeSeparator,
     TsType,
     TsClass,
     TsParameter,
@@ -281,13 +282,13 @@ export class ConflictResolver {
         )
     }
 
-    private mergeTypes(...types: Array<TsType | undefined>) {
+    private mergeTypes(leftSeparator: TsTypeSeparator, ...types: Array<TsType | undefined>) {
         const dest: TsType[] = []
 
         for (const type of types) {
             if (!type) continue
             if (!dest.find((destType) => isEqual(destType, type))) {
-                dest.push(type)
+                dest.push({ ...type, leftSeparator })
             }
         }
 
@@ -320,7 +321,7 @@ export class ConflictResolver {
                 throw new Error('Error on merge parameters!')
             }
             dest._tsData.type = []
-            dest._tsData.type = this.mergeTypes(...a._tsData.type, ...b._tsData.type)
+            dest._tsData.type = this.mergeTypes('|', ...a._tsData.type, ...b._tsData.type)
             if (a._tsData.name !== b._tsData.name) {
                 dest._tsData.name = `${a._tsData.name}_or_${b._tsData.name}`
             }
@@ -412,7 +413,7 @@ export class ConflictResolver {
         for (const func of funcs) {
             returnTypesMap.push(...func.returnTypes)
         }
-        const returnTypes = this.mergeTypes(...returnTypesMap)
+        const returnTypes = this.mergeTypes('|', ...returnTypesMap)
 
         const inParamsMap = funcs.map((func) => func.inParams)
         const inParams: GirCallableParamElement[] = []
@@ -446,13 +447,13 @@ export class ConflictResolver {
      * @param props The properties you want to merge
      * @returns
      */
-    public mergeProperties(baseProp: TsProperty | null, ...props: TsProperty[]) {
-        // Merge types
+    public mergeProperties(typeSeparator: TsTypeSeparator, baseProp: TsProperty | null, ...props: TsProperty[]) {
         const typesMap: TsType[] = []
         for (const prop of props) {
             typesMap.push(...prop.type)
         }
-        const types = this.mergeTypes(...typesMap)
+
+        const types = this.mergeTypes(typeSeparator, ...typesMap)
 
         // Merge readonly
         let readonly = false
@@ -461,7 +462,7 @@ export class ConflictResolver {
         }
 
         if (!props[0] || !props[0].name) {
-            throw new Error('At least one property must exist!')
+            throw new Error('At least one property to merge must exist!')
         }
 
         if (baseProp) {
@@ -469,13 +470,14 @@ export class ConflictResolver {
             baseProp.readonly = readonly
             return baseProp
         } else {
-            return this.girFactory.newTsProperty({
+            const newProp = this.girFactory.newTsProperty({
                 readonly: readonly,
                 isStatic: props[0].isStatic || false,
                 name: props[0].name,
                 type: types,
                 girTypeName: props[0].girTypeName,
             })
+            return newProp
         }
     }
 
@@ -755,15 +757,24 @@ export class ConflictResolver {
                             baseProp.type[0].type,
                             bProp.type[0].type,
                         )
-                        // const bProp = b.data as TsProperty
-                        // const mergedProp = this.mergeProperties(null, baseProp, bProp)
-                        // if (this.canAddConflictProperty(baseClass.conflictProperties, mergedProp)) {
-                        //     baseClass.conflictProperties.push(mergedProp)
-                        // }
 
-                        const anyProp = this.newAnyTsProperty(baseProp.name || 'unknown', baseProp.girTypeName)
-                        if (this.canAddConflictProperty(baseClass.conflictProperties, anyProp)) {
-                            baseClass.conflictProperties.push(anyProp)
+                        switch (name) {
+                            case 'parent':
+                            case 'window':
+                            case 'parent_instance':
+                            case 'priv':
+                                const mergedProp = this.mergeProperties('&', null, baseProp, bProp)
+                                if (this.canAddConflictProperty(baseClass.conflictProperties, mergedProp)) {
+                                    baseClass.conflictProperties.push(mergedProp)
+                                }
+                                break
+
+                            default:
+                                const anyProp = this.newAnyTsProperty(name, baseProp.girTypeName)
+                                if (this.canAddConflictProperty(baseClass.conflictProperties, anyProp)) {
+                                    baseClass.conflictProperties.push(anyProp)
+                                }
+                                break
                         }
                     }
 
@@ -854,7 +865,18 @@ export class ConflictResolver {
                             bProp.type[0].type,
                         )
 
-                        this.mergeProperties(baseProp, baseProp, bProp)
+                        switch (name) {
+                            case 'parent':
+                            case 'window':
+                            case 'parent_instance':
+                                this.mergeProperties('&', baseProp, baseProp, bProp)
+                                break
+
+                            default:
+                                // Set property type to any
+                                baseProp.type = [this.girFactory.newTsType({ ...bProp.type, type: 'any' })]
+                                break
+                        }
                     }
 
                     // Property vs. Signal
@@ -948,7 +970,18 @@ export class ConflictResolver {
                             baseProp.type[0].type,
                             bProp.type[0].type,
                         )
-                        this.mergeProperties(baseProp, baseProp, bProp)
+                        switch (name) {
+                            case 'parent':
+                            case 'window':
+                            case 'parent_instance':
+                                this.mergeProperties('&', baseProp, baseProp, bProp)
+                                break
+
+                            default:
+                                // Set property type to any
+                                baseProp.type = [this.girFactory.newTsType({ ...bProp.type, type: 'any' })]
+                                break
+                        }
                     }
 
                     // Property vs. Function

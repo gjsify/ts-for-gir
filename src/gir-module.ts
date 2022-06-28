@@ -68,6 +68,7 @@ import type {
     GirDocElement,
     TypeGirVariable,
     TypeGirClass,
+    TypeGirEnumerationMember,
     LocalNameCheck,
     LocalNameType,
     LocalName,
@@ -1519,10 +1520,7 @@ export class GirModule {
         return girEnum
     }
 
-    private getEnumerationMemberTsData(
-        girEnumMember: GirMemberElement,
-        girTypeName: 'bitfield-member' | 'enum-member',
-    ) {
+    private getEnumerationMemberTsData(girEnumMember: GirMemberElement, girTypeName: TypeGirEnumerationMember) {
         const memberName = girEnumMember.$.name || girEnumMember.$['glib:nick'] || girEnumMember.$['c:identifier']
         if (!girElementIsIntrospectable(girEnumMember, memberName)) return undefined
 

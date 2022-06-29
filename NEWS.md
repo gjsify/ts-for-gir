@@ -3,7 +3,7 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
-# v2.8.0
+# v3.0.0 (in development)
 - Real inheritance and implementations instead of copy all inherited methods / properties to the classes / interfaces, see #63
 - During the implementation of the upper pull request many other small improvements have been made.
 - Upgrade dependencies

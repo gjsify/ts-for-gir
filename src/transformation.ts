@@ -361,7 +361,7 @@ export class Transformation {
 
     /**
      * // E.g. the NetworkManager-1.0 has enum names starting with 80211
-     * @param e The enum
+     * @param girEnum The enum
      * @returns The transformed name
      */
     public transformEnumName(girEnum: GirEnumElement | GirBitfieldElement): string {
@@ -509,7 +509,7 @@ export class Transformation {
     /**
      * In JavaScript there can be no variables, methods, class names or enum names that start with a number.
      * This method converts such names.
-     * TODO ala prepends an `@` to numeric starting names how does gjs and node-gtk do that?
+     * TODO: Prepends an `@` to numeric starting names, how does gjs and node-gtk do that?
      * @param name
      * @param allowQuotes
      */

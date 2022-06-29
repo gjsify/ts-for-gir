@@ -109,12 +109,7 @@ export const C_TYPE_MAP = (value: string): string | undefined => {
 
 // Gjs is permissive for byte-array in parameters but strict for out/return
 // See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
-export const FULL_TYPE_MAP = (
-    environment: Environment,
-    packageName: string,
-    value: string,
-    out = true,
-): string | undefined => {
+export const FULL_TYPE_MAP = (environment: Environment, value: string, out = true): string | undefined => {
     let ba: string
     let gb: string | undefined
     if (environment === 'gjs') {
@@ -131,10 +126,6 @@ export const FULL_TYPE_MAP = (
         gb = 'any'
     }
 
-    if (value.endsWith('GType')) {
-        value = 'GType'
-    }
-
     const fullTypeMap = {
         'GObject.Value': 'any',
         'GObject.Closure': 'GObject.TClosure',
@@ -142,7 +133,8 @@ export const FULL_TYPE_MAP = (
         'GLib.Bytes': gb,
         GType: 'GObject.GType',
         'GObject.Type': 'GObject.GType',
-        Type: 'GType',
+        Type: 'GObject.GType',
+        'GObject.GType': 'GObject.GType',
     }
 
     const result = fullTypeMap[value as keyof typeof fullTypeMap]
@@ -223,6 +215,23 @@ export const RESERVED_CLASS_NAMES = [
 ]
 
 export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
+
+/**
+ * Some classes already have their own `.connect`, `.disconnect` or `.emit` methods,
+ * so these cannot be overwritten with the Gjs signal methods which have the same name.
+ */
+export const GOBJECT_SIGNAL_METHOD_NAMES = ['connect', 'connect_after', 'emit', 'disconnect']
+
+export const IGNORE_GIR_TYPE_TS_DOC_TYPES = [
+    'method',
+    'enum',
+    'enum-member',
+    'bitfield-member',
+    'property',
+    'function',
+    'static-function',
+    'constant',
+]
 
 export const RESERVED_NAMESPACE_NAMES = {}
 
@@ -306,12 +315,25 @@ export class Transformation {
                 transformation: 'upperCamelCase',
             },
         },
+        signalInterfaceName: {
+            node: {
+                transformation: 'upperCamelCase',
+            },
+            gjs: {
+                transformation: 'upperCamelCase',
+            },
+        },
     }
 
     private log: Logger
 
     constructor(moduleName = 'Transformation', private readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, moduleName)
+    }
+
+    public transformSignalInterfaceName(name: string): string {
+        name = this.transform('signalInterfaceName', name)
+        return name
     }
 
     public transformModuleNamespaceName(name: string): string {
@@ -339,7 +361,7 @@ export class Transformation {
 
     /**
      * // E.g. the NetworkManager-1.0 has enum names starting with 80211
-     * @param e The enum
+     * @param girEnum The enum
      * @returns The transformed name
      */
     public transformEnumName(girEnum: GirEnumElement | GirBitfieldElement): string {
@@ -487,7 +509,7 @@ export class Transformation {
     /**
      * In JavaScript there can be no variables, methods, class names or enum names that start with a number.
      * This method converts such names.
-     * TODO ala prepends an `@` to numeric starting names how does gjs and node-gtk do that?
+     * TODO: Prepends an `@` to numeric starting names, how does gjs and node-gtk do that?
      * @param name
      * @param allowQuotes
      */

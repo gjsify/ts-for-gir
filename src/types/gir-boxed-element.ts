@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirFunctionElement } from '.'
+import { GirInfoAttrs, GirFunctionElement } from './index.js'
 
 export interface GirBoxedElement {
     /** Boxed type (wrapper to opaque C structures registered by the type system) */

@@ -1,8 +1,19 @@
-import { TsVar } from '.'
+import { TsVar, TsDoc, TypeGirProperty, TypeTsProperty } from './index.js'
 
 /**
  * Holds the data to generate a property in/for Typescript
  */
 export interface TsProperty extends TsVar {
-    readonly?: boolean
+    readonly: boolean
+    isStatic: boolean
+    /** Temporary property, we will try later to resolve the conflicts correctly */
+    hasUnresolvedConflict?: boolean
+
+    // CUSTOM
+    girTypeName: TypeGirProperty
+    /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
+    tsTypeName: TypeTsProperty
+
+    /** Typescript data to generate documentations in TSDoc style */
+    doc: TsDoc
 }

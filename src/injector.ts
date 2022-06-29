@@ -18,19 +18,19 @@ export class Injector {
         const toClass = classes.find((cls) => cls.qualifiedName === girClass._tsData?.qualifiedName)
         if (toClass) {
             if (toClass.staticFunctions) {
-                girClass._tsData.staticFunctions.push(...this.girFactory.newFunctions(toClass.staticFunctions))
+                girClass._tsData.staticFunctions.push(...this.girFactory.newGirFunctions(toClass.staticFunctions))
             }
             if (toClass.constructors) {
-                girClass._tsData.constructors.push(...this.girFactory.newFunctions(toClass.constructors))
+                girClass._tsData.constructors.push(...this.girFactory.newGirFunctions(toClass.constructors))
             }
             if (toClass.methods) {
-                girClass._tsData.methods.push(...this.girFactory.newFunctions(toClass.methods))
+                girClass._tsData.methods.push(...this.girFactory.newGirFunctions(toClass.methods))
             }
             if (toClass.virtualMethods) {
-                girClass._tsData.virtualMethods.push(...this.girFactory.newFunctions(toClass.virtualMethods))
+                girClass._tsData.virtualMethods.push(...this.girFactory.newGirFunctions(toClass.virtualMethods))
             }
-            if (toClass.propertyNames) {
-                girClass._tsData.propertyNames.push(...toClass.propertyNames)
+            if (toClass.propertySignalMethods) {
+                girClass._tsData.propertySignalMethods.push(...toClass.propertySignalMethods)
             }
             if (toClass.generics) {
                 girClass._tsData.generics.push(...this.girFactory.newGenerics(toClass.generics))

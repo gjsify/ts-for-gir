@@ -13,8 +13,7 @@ import {
     GirSignalElement,
     PartOfModule,
     TsClass,
-    TypeClass,
-} from '.'
+} from './index.js'
 
 export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     /** Abstract interface to other classes */
@@ -50,9 +49,5 @@ export interface GirInterfaceElement extends PartOfModule, GirInfoElements {
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
 
-    // CUSTOM
-    _girType?: TypeClass
-    /** Will be exported in Typescript as a `class` */
-    _tsType?: 'class'
     _tsData?: TsClass
 }

@@ -1,10 +1,9 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: node-gtk CI
+name: Gjs Examples
 
 on:
-  pull_request:
   push:
     branches:
       - "*"
@@ -27,14 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: sudo apt-get update
-    - name: Install dependencies for regress test
+    - name: Install dependencies
       run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libwebkit2gtk-4.0-dev
     - run: npm install
     - run: npm run build
-    - run: npm run build:types:node
-    # TODO takes too long and is killed with exit code 137
-    # - run: npm run validate:types:node
-    - name: Install dependencies for node-gtk
-      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
-    - run: npm run build:examples:node
-    - run: npm run start:cli-examples:node
+    - run: npm run build:examples:gjs
+    - run: npm run start:cli-examples:gjs

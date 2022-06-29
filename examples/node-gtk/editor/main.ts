@@ -8,8 +8,8 @@ import * as GtkSource from './@types/node-gtk/GtkSource-3.0'
 startLoop()
 Gtk.init(null)
 
-const wnd = new Gtk.Window({ title: 'Editor Test', default_width: 600, default_height: 400 } as any) // TODO
-const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL } as any) // TODO
+const wnd = new Gtk.Window({ title: 'Editor Test', defaultWidth: 600, defaultHeight: 400 })
+const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL })
 const notebook = new Gtk.Notebook()
 const srcView = new GtkSource.View()
 

@@ -26,12 +26,14 @@ const builder = (yargs: Argv) => {
         .option('moduleType', Config.generateOptions.moduleType)
         .option('pretty', Config.generateOptions.pretty)
         .option('verbose', Config.generateOptions.verbose)
-        .option('ignoreConflicts', Config.generateOptions.ignoreConflicts)
+        .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
         .option('print', Config.generateOptions.print)
         .option('configName', Config.generateOptions.configName)
         .option('useNamespace', Config.generateOptions.useNamespace)
         .option('noComments', Config.generateOptions.noComments)
         .option('noDebugComments', Config.generateOptions.noDebugComments)
+        .option('noCheck', Config.generateOptions.noCheck)
+        .option('fixConflicts', Config.generateOptions.fixConflicts)
         .example(examples)
 }
 
@@ -39,25 +41,23 @@ const builder = (yargs: Argv) => {
 const handler = async (args: any /* TODO */) => {
     const config = await Config.load(args as ConfigFlags)
 
-    for (let i = 0; i < config.environments.length; i++) {
-        if (config.environments[i]) {
-            const generateConfig = Config.getGenerateConfig(config, config.environments[i])
-            const moduleLoader = new ModuleLoader(generateConfig)
-            const { keep, grouped } = await moduleLoader.getModulesResolved(
-                config.modules,
-                config.ignore || [],
-                config.ignoreConflicts,
-            )
-            if (keep.length === 0) {
-                return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
-            }
-            const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
-
-            await tsForGir.start(
-                Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
-                Object.values(grouped),
-            )
+    for (const env of config.environments) {
+        const generateConfig = Config.getGenerateConfig(config, env)
+        const moduleLoader = new ModuleLoader(generateConfig)
+        const { keep, grouped } = await moduleLoader.getModulesResolved(
+            config.modules,
+            config.ignore || [],
+            config.ignoreVersionConflicts,
+        )
+        if (keep.length === 0) {
+            return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
         }
+        const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+
+        const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
+        const girModulesGrouped = Object.values(grouped)
+
+        await tsForGir.start(girModules, girModulesGrouped)
     }
 }
 

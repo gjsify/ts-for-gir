@@ -129,3 +129,7 @@ export namespace Mainloop {
     export function source_remove(id: any): any
     export function run(name: string): void
 }
+
+export namespace Signals {
+    export function addSignalMethods(proto: object): void
+}

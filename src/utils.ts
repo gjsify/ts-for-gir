@@ -3,7 +3,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs } from './types/index.js'
+import { Environment, GirInfoAttrs, TsType } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -20,6 +20,8 @@ export const find = lodash.find
 export const merge = lodash.merge
 
 export const clone = lodash.clone
+
+export const cloneDeep = lodash.cloneDeep
 
 export function splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
@@ -158,6 +160,12 @@ export function getEnvironmentDir(environment: Environment, baseDir: string): st
     return baseDir
 }
 
+export function getDestPath(environment: Environment, outputDir: string, outputFilename: string) {
+    const outputEnvDir = getEnvironmentDir(environment, outputDir)
+    const destPath = Path.join(outputEnvDir, outputFilename)
+    return destPath
+}
+
 export function girBool(boolStr: string | undefined, defaultVal = false): boolean {
     if (boolStr) {
         if (parseInt(boolStr) === 0) return false
@@ -195,4 +203,11 @@ export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { na
     }
     // ...otherwise we assume that it is introspectable
     return true
+}
+
+export function typeIsOptional(types: TsType[]) {
+    for (const type of types) {
+        if (type.optional) return true
+    }
+    return false
 }

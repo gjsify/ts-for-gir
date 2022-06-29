@@ -1,8 +1,8 @@
 export interface TsGenericParameter {
     /** E.g. `T` */
-    name: string
+    name?: string
     /** E.g. `GObject.Object`, `any` or `unknown` */
-    default?: string
+    value?: string
     /** E.g. `GObject.Object` */
     extends?: string
 }

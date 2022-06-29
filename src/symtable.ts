@@ -39,7 +39,7 @@ export class SymTable {
         }
 
         const split = implementation.split('.')
-        const namespace = split.slice(0, split.length - 1).join('.')
+        const namespace = split[0]
         const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
         if (!packageName) {
             this.log.warn(WARN_NOT_FOUND_PACKAGE_NAME(namespace, implementation))
@@ -48,25 +48,22 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get(dependencies: string[], fullTypeName: string): GirAnyElement | null {
+    public get<T>(dependencies: string[], fullTypeName: string): T | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
         }
-        const result = SymTable.items[key]
-        return result
+        const result = SymTable.items[key] || null
+        return result as unknown as T | null
     }
 
-    public getByHand(versionTypeName: string): GirAnyElement | undefined {
-        return SymTable.items[versionTypeName]
+    public getByHand<T = GirAnyElement>(key: string): T | null {
+        return (SymTable.items[key] || null) as unknown as T | null
     }
 
     public set(dependencies: string[], fullTypeName: string, GirElement: GirAnyElement): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {
-            if (key.endsWith('ServiceAction')) {
-                debugger
-            }
             SymTable.items[key] = GirElement
         }
     }

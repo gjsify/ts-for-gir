@@ -6,7 +6,7 @@ import {
     GirCallableReturn,
     TsMethod,
     PartOfClass,
-} from '.'
+} from './index.js'
 
 export interface GirMethodElement extends PartOfClass, GirDocElement {
     /** element defining a method from a class */
@@ -21,9 +21,5 @@ export interface GirMethodElement extends PartOfClass, GirDocElement {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 
-    // CUSTOM
-    _girType?: 'method' | 'static'
-    /** Will be exported in Typescript as a `method` of a `class` */
-    _tsType?: 'method'
     _tsData?: TsMethod
 }

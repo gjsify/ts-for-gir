@@ -1,6 +1,6 @@
 // See https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/parser/src/xml.ts
 
-import { GirInfoAttrs, GirUnparsedNumber, GirBoolean, GirType } from '.'
+import { GirInfoAttrs, GirUnparsedNumber, GirBoolean, GirType } from './index.js'
 
 export interface GirArrayType {
     /** An array type of data where each element is of the same type */

@@ -16,8 +16,7 @@ import type {
     GirRecordElement,
     GirCallbackElement,
     TsClass,
-    TypeClass,
-} from '.'
+} from './index.js'
 
 export interface GirClassElement extends PartOfModule, GirInfoElements {
     /** GObject inherited class definition */
@@ -68,9 +67,5 @@ export interface GirClassElement extends PartOfModule, GirInfoElements {
     record?: GirRecordElement[]
     callback?: GirCallbackElement[]
 
-    // CUSTOM
-    _girType?: TypeClass
-    /** Will be exported in Typescript as a `class` */
-    _tsType?: 'class'
     _tsData?: TsClass
 }

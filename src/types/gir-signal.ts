@@ -9,7 +9,7 @@ import {
     GirRecordElement,
     GirInterfaceElement,
     TsSignal,
-} from '.'
+} from './index.js'
 
 export interface GirSignalElement extends PartOfModule, GirInfoElements {
     /** A signal as defined in the GObject system (https://docs.gtk.org/gobject/concepts.html#signals) */
@@ -38,8 +38,6 @@ export interface GirSignalElement extends PartOfModule, GirInfoElements {
      * The class this function is defined in
      */
     _class?: GirClassElement | GirRecordElement | GirInterfaceElement
-    _girType: 'signal'
-    /** Signals are represented in Typescript as multiple event methods */
-    _tsType: 'event-methods'
+
     _tsData?: TsSignal
 }

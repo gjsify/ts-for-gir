@@ -6,7 +6,7 @@ import {
     TsMethod,
     GirCallableReturn,
     GirCallableParams,
-} from '.'
+} from './index.js'
 
 export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
     $: GirInfoAttrs &
@@ -18,10 +18,5 @@ export interface GirVirtualMethodElement extends PartOfClass, GirDocElement {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 
-    // CUSTOM
-
-    _girType?: 'virtual'
-    /** Virtual methods are represented in Typescript as normal methods with the prefix "vfunc_" */
-    _tsType?: 'method'
     _tsData?: TsMethod
 }

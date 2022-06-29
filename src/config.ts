@@ -35,12 +35,14 @@ export class Config {
         modules: ['*'],
         ignore: [],
         verbose: true,
-        ignoreConflicts: false,
+        ignoreVersionConflicts: false,
         useNamespace: false,
         buildType: 'lib',
         moduleType: 'commonjs',
         noComments: false,
         noDebugComments: false,
+        noCheck: true,
+        fixConflicts: true,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -117,10 +119,10 @@ export class Config {
             default: Config.defaults.verbose,
             normalize: true,
         } as Options,
-        ignoreConflicts: {
+        ignoreVersionConflicts: {
             type: 'boolean',
             description: 'Do not ask for package versions if multiple versions are found',
-            default: Config.defaults.ignoreConflicts,
+            default: Config.defaults.ignoreVersionConflicts,
             normalize: true,
         } as Options,
         print: {
@@ -152,9 +154,23 @@ export class Config {
         } as Options,
         noDebugComments: {
             type: 'boolean',
-            alias: 'n',
+            alias: 'nd',
             description: 'Do not generate debugging inline comments',
             default: Config.defaults.noDebugComments,
+            normalize: true,
+        } as Options,
+        noCheck: {
+            type: 'boolean',
+            alias: 'nc',
+            description: 'Disable typescript semantic checks using @ts-nocheck',
+            default: Config.defaults.noCheck,
+            normalize: true,
+        } as Options,
+        fixConflicts: {
+            type: 'boolean',
+            alias: 'fc',
+            description: 'Fix Inheritance and implementation type conflicts',
+            default: Config.defaults.fixConflicts,
             normalize: true,
         } as Options,
     }
@@ -172,12 +188,14 @@ export class Config {
         moduleType: this.options.moduleType,
         pretty: this.options.pretty,
         verbose: this.options.verbose,
-        ignoreConflicts: this.options.ignoreConflicts,
+        ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
         configName: this.options.configName,
         useNamespace: this.options.useNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
+        noCheck: this.options.noCheck,
+        fixConflicts: this.options.fixConflicts,
     }
 
     static listOptions = {
@@ -263,6 +281,8 @@ export class Config {
             useNamespace: config.useNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
+            noCheck: config.noCheck,
+            fixConflicts: config.fixConflicts,
         }
         return generateConfig
     }
@@ -299,7 +319,7 @@ export class Config {
             buildType: options.buildType,
             moduleType: options.moduleType,
             verbose: options.verbose,
-            ignoreConflicts: options.ignoreConflicts,
+            ignoreVersionConflicts: options.ignoreVersionConflicts,
             pretty: options.pretty,
             print: options.print,
             outdir: options.outdir,
@@ -309,6 +329,8 @@ export class Config {
             useNamespace: options.useNamespace,
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
+            noCheck: options.noCheck,
+            fixConflicts: options.fixConflicts,
         }
 
         if (configFile) {
@@ -328,12 +350,12 @@ export class Config {
             if (config.verbose === Config.options.verbose.default && typeof configFile.config.verbose === 'boolean') {
                 config.verbose = configFile.config.verbose
             }
-            // ignoreConflicts
+            // ignoreVersionConflicts
             if (
-                config.ignoreConflicts === Config.options.ignoreConflicts.default &&
-                typeof configFile.config.ignoreConflicts === 'boolean'
+                config.ignoreVersionConflicts === Config.options.ignoreVersionConflicts.default &&
+                typeof configFile.config.ignoreVersionConflicts === 'boolean'
             ) {
-                config.ignoreConflicts = configFile.config.ignoreConflicts
+                config.ignoreVersionConflicts = configFile.config.ignoreVersionConflicts
             }
             // pretty
             if (config.pretty === Config.options.pretty.default && typeof configFile.config.pretty === 'boolean') {
@@ -385,6 +407,17 @@ export class Config {
                 typeof configFile.config.noDebugComments === 'boolean'
             ) {
                 config.noDebugComments = configFile.config.noDebugComments
+            }
+            // noCheck
+            if (config.noCheck === Config.options.noCheck.default && typeof configFile.config.noCheck === 'boolean') {
+                config.noCheck = configFile.config.noCheck
+            }
+            // fixConflicts
+            if (
+                config.fixConflicts === Config.options.fixConflicts.default &&
+                typeof configFile.config.fixConflicts === 'boolean'
+            ) {
+                config.fixConflicts = configFile.config.fixConflicts
             }
         }
 

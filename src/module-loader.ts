@@ -393,6 +393,7 @@ export class ModuleLoader {
         if (!file.exists || file.path === null) {
             return null
         }
+
         this.log.log(`Parsing ${file.path}...`)
         const fileContents = fs.readFileSync(file.path, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
@@ -425,13 +426,17 @@ export class ModuleLoader {
     }
 
     /**
-     * Reads the gir xml module files and creates an object of GirModule for each module
+     *  Reads the gir xml module files and creates an object of GirModule for each module
      * @param girModulesToRead
-     * @param girModules is modified and corresponds to the return value
-     * @param config
+     * @param girModules
+     * @param resolvedBy
+     * @param failedGirModules
+     * @param ignoreDependencies
+     * @returns
      */
     private async loadGirModules(
         girModulesToRead: string[] | Set<string>,
+        ignoreDependencies: string[] = [],
         girModules: GirModuleResolvedBy[] = [],
         resolvedBy = ResolveType.BY_HAND,
         failedGirModules = new Set<string>(),
@@ -476,9 +481,19 @@ export class ModuleLoader {
         // Load girModules for dependencies
         for (const girModule of girModules) {
             // Load dependencies
-            if (girModule.module.transitiveDependencies.length > 0) {
+            const transitiveDependencies = girModule.module.transitiveDependencies
+            if (transitiveDependencies.length > 0) {
+                for (const transitiveDependency of transitiveDependencies) {
+                    if (ignoreDependencies.includes(transitiveDependency)) {
+                        this.log.warn(
+                            `Load dependency "${transitiveDependency}" which is in the ignore list, if this should really be ignored also ignore "${girModule.packageName}"`,
+                        )
+                    }
+                }
+
                 await this.loadGirModules(
-                    girModule.module.transitiveDependencies,
+                    transitiveDependencies,
+                    ignoreDependencies,
                     girModules,
                     ResolveType.DEPENDENCE,
                     failedGirModules,
@@ -510,7 +525,11 @@ export class ModuleLoader {
                 let globModules = files.map((file) => Path.basename(file, '.gir'))
                 // Filter out the ignored modules
                 globModules = globModules.filter((mod) => {
-                    return !ignore.includes(mod)
+                    const isIgnored = ignore.includes(mod)
+                    if (isIgnored) {
+                        this.log.warn(`Ignore ${mod}`)
+                    }
+                    return !isIgnored
                 })
                 globModules.forEach((mod) => foundModules.add(mod))
             }
@@ -519,8 +538,7 @@ export class ModuleLoader {
     }
 
     /**
-     * Loads all found modules and sorts out those that the user does not want to use
-     * (if multiple versions of a gir file are found) including their dependencies
+     * Loads all found modules and sorts out those that the user does not want to use including their dependencies
      * @param girDirectories
      * @param modules
      */
@@ -530,7 +548,7 @@ export class ModuleLoader {
         doNotAskForVersionOnConflict = true,
     ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
         const foundGirModules = await this.findModules(modules, ignore)
-        const { loaded, failed } = await this.loadGirModules(foundGirModules)
+        const { loaded, failed } = await this.loadGirModules(foundGirModules, ignore)
         let keep: GirModuleResolvedBy[] = []
         if (doNotAskForVersionOnConflict) {
             keep = loaded
@@ -555,7 +573,7 @@ export class ModuleLoader {
         ignore: string[] = [],
     ): Promise<{ grouped: GirModulesGroupedMap; loaded: GirModuleResolvedBy[]; failed: string[] }> {
         const foundGirModules = await this.findModules(modules, ignore)
-        const { loaded, failed } = await this.loadGirModules(foundGirModules)
+        const { loaded, failed } = await this.loadGirModules(foundGirModules, ignore)
         const grouped = this.groupGirFiles(loaded)
         return { grouped, loaded, failed: Array.from(failed) }
     }

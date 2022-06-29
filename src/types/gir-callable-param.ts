@@ -1,4 +1,4 @@
-import { GirCallableParamElement, GirInstanceParameter } from '.'
+import { GirCallableParamElement, GirInstanceParameter } from './index.js'
 
 // Refer to https://wiki.gnome.org/Projects/GObjectIntrospection/Annotations#Support_for_GObject_closures
 export interface GirCallableParams {

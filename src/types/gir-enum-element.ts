@@ -1,4 +1,11 @@
-import type { GirFunctionElement, GirMemberElement, GirInfoAttrs, GirInfoElements, PartOfModule, TsEnum } from '.'
+import type {
+    GirFunctionElement,
+    GirMemberElement,
+    GirInfoAttrs,
+    GirInfoElements,
+    PartOfModule,
+    TsEnum,
+} from './index.js'
 
 export interface GirEnumElement extends PartOfModule, GirInfoElements {
     /** element defining a enumeration type similar to enum in C/C++ */
@@ -17,9 +24,5 @@ export interface GirEnumElement extends PartOfModule, GirInfoElements {
     member?: GirMemberElement[]
     function?: GirFunctionElement[]
 
-    // CUSTOM
-    _girType?: 'enum'
-    /** Will be exported in Typescript as "enumeration": `export enum ${name} { ${memberName}: ${memberType}, ... }` */
-    _tsType?: 'enum'
     _tsData?: TsEnum
 }

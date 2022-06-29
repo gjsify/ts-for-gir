@@ -1,4 +1,4 @@
-import { TsProperty, TsMethod, TsVar, TsParameter } from '.'
+import { TsProperty, TsMethod, TsVar, TsParameter } from './index.js'
 
 export interface TypePatchesEnv {
     [packageName: string]: {

@@ -1,4 +1,4 @@
-import { GirInfoElements, GirInfoAttrs, TsMember } from '.'
+import { GirInfoElements, GirInfoAttrs, TsMember } from './index.js'
 
 export interface GirMemberElement extends GirInfoElements {
     /** element defining a member of a bit field or an enumeration */

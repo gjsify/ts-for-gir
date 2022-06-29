@@ -9,7 +9,12 @@ examples/**/@types/
 # Uncommit this to see type build changes
 # !@types/Gjs/Gtk-4.0.d.ts
 # !@types/node-gtk/Gtk-4.0.d.ts
+# !@types/Gjs/Gtk-2.0.d.ts
+# !@types/node-gtk/Gtk-2.0.d.ts
+# !@types/Gjs/*
+
 index.ts.bak
 
 examples/**/node_modules/
 examples/**/dist/
+debug.txt

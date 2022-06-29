@@ -1,4 +1,4 @@
-import { BuildType, Environment, ModuleType } from '.'
+import { BuildType, Environment, ModuleType } from './index.js'
 
 /**
  * Types for config file
@@ -17,7 +17,7 @@ export interface UserConfig {
     /** Switch on/off the verbose mode */
     verbose: boolean
     /** Do not ask for package versions if multiple versions are found */
-    ignoreConflicts: boolean
+    ignoreVersionConflicts: boolean
     /** print the output to console and create no files */
     print: boolean
     /** prettifies the generated .d.ts files */
@@ -32,4 +32,8 @@ export interface UserConfig {
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
+    /** Disable typescript semantic checks using @ts-nocheck */
+    noCheck: boolean
+    /** Fix Inheritance and implementation type conflicts */
+    fixConflicts: boolean
 }

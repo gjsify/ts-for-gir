@@ -1,4 +1,4 @@
-import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, TsEnum, PartOfModule } from '.'
+import { GirInfoAttrs, GirFunctionElement, GirInfoElements, GirMemberElement, TsEnum, PartOfModule } from './index.js'
 
 export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
     /** element defining a bit field (as in C) */
@@ -16,9 +16,5 @@ export interface GirBitfieldElement extends PartOfModule, GirInfoElements {
     member: GirMemberElement[]
     function: GirFunctionElement[]
 
-    // CUSTOM
-    _girType?: 'bitfield'
-    /** Will be exported in Typescript as "enumeration": `export enum ${name} { ${memberName}: ${memberType}, ... }` */
-    _tsType?: 'enum'
     _tsData?: TsEnum
 }

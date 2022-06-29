@@ -1,4 +1,4 @@
-import { GirInclude, GirNamespace, GirCInclude, GirPackage } from '.'
+import { GirInclude, GirNamespace, GirCInclude, GirPackage } from './index.js'
 
 /** Root node of a GIR repository. It contains  namespaces, which can in turn be implemented in several libraries */
 export interface GirRepository {

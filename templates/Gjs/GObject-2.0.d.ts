@@ -28,7 +28,7 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     InternalChildren?: string[]
 }
 
-/** Interface ob GObject Interface should be implemented by all GObject interfaces */
+/** Interface of GObject Interface should be implemented by all GObject interfaces */
 export class Interface<T = unknown> {
     static _classInit: (cls: any) => any;
     __name__: string;

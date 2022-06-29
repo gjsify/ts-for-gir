@@ -1,4 +1,12 @@
-import { GirBoolean, GirInfoAttrs, GirInfoElements, GirAnyType, GirTransferOwnership, PartOfClass, TsProperty } from '.'
+import {
+    GirBoolean,
+    GirInfoAttrs,
+    GirInfoElements,
+    GirAnyType,
+    GirTransferOwnership,
+    PartOfClass,
+    TsProperty,
+} from './index.js'
 
 export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** Property, that is a variable or members with getter and setter functions */
@@ -19,9 +27,5 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
         getter?: string
     } & Partial<GirTransferOwnership>
 
-    // CUSTOM
-    _girType?: 'property'
-    /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */
-    _tsType?: 'field' | 'constructor-property'
     _tsData?: TsProperty
 }

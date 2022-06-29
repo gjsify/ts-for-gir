@@ -1,4 +1,4 @@
-import { BuildType, Environment, ModuleType } from '.'
+import { BuildType, Environment, ModuleType } from './index.js'
 
 /**
  * Type for currently used config e.g. in GirModule
@@ -24,4 +24,8 @@ export interface GenerateConfig {
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
+    /** Disable typescript semantic checks using @ts-nocheck */
+    noCheck: boolean
+    /** Fix Inheritance and implementation type conflicts */
+    fixConflicts: boolean
 }

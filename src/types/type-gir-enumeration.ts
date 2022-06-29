@@ -1,2 +1,2 @@
 /** All gir elements which can be a typescript enumeration */
-export type TypeEnumeration = 'enum' | 'bitfield'
+export type TypeGirEnumeration = 'enum' | 'bitfield'

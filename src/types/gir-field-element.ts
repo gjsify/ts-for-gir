@@ -7,7 +7,7 @@ import {
     GirCallbackElement,
     PartOfClass,
     TsVar,
-} from '.'
+} from './index.js'
 
 export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyType {
     /** A field of struct of union structure, that is a C bit field, that is a fixed length in bits variable */
@@ -27,9 +27,5 @@ export interface GirFieldElement extends PartOfClass, GirInfoElements, GirAnyTyp
     /* Other elements a property can contain */
     callback?: GirCallbackElement[]
 
-    // CUSTOM
-    _girType?: 'field'
-    /** Will be exported in Typescript as a `field` of a `class` */
-    _tsType?: 'field'
     _tsData?: TsVar
 }

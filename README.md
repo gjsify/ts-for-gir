@@ -85,7 +85,7 @@ Options:
       --pretty           Prettifies the generated .d.ts files
                                                        [string] [default: false]
   -v, --verbose          Switch on/off the verbose mode [string] [default: true]
-      --ignoreConflicts  Do not ask for package versions if multiple versions ar
+      --ignoreVersionConflicts  Do not ask for package versions if multiple versions ar
                          e found                       [string] [default: false]
   -p, --print            Print the output to console and create no files
                                                        [string] [default: false]
@@ -446,6 +446,22 @@ npm run test:girs:gjs
 npm run test:girs:node
 # or npm run test:girs:all
 ```
+
+## FAQ
+
+Problem: I get the following error:
+
+```
+FATAL ERROR: Scavenger: semi-space copy Allocation failed - JavaScript heap out of memory
+```
+
+Solution:
+
+```bash
+sudo sysctl -w vm.max_map_count=262144
+NODE_OPTIONS=--max-old-space-size=25600 npm run ...
+```
+
 
 ## Related Projects
 

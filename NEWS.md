@@ -1,7 +1,12 @@
 # TODO
 - Refactor Ava test
+- New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
+- Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
-# Dev
+# v2.1.0
+- Expect error on gi ESM imports, see #69, thanks to @HeavenVolkoff
+- Add typing definition for `imports.package`, see #67, thanks to @HeavenVolkoff
+- Allow Node.js versions greater or equal than v16 , see #65, thanks to @HeavenVolkoff
 - Ported Gjs for http server + client example to node-gtk
 - Split GObject template for separate templates for gjs and node-gtk
 - Do not skip generation of GObject fields anymore

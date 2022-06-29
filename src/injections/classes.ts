@@ -1,52 +1,6 @@
 import type { InjectionClass } from '../types/index.js'
 
 export const classes: InjectionClass[] = [
-    // {
-    //     qualifiedName: 'GObject.Object',
-    //     // Add signal methods with any type to fix inheritance conflicts (such as Gio.Socket.connect or NMClient.Device.disconnect)
-    //     methods: [
-    //         {
-    //             name: 'connect',
-    //             returnTypes: [{ type: 'any' }],
-    //             inParams: [
-    //                 {
-    //                     name: '...args',
-    //                     type: { type: 'any', isArray: true },
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: 'connect_after',
-    //             returnTypes: [{ type: 'any' }],
-    //             inParams: [
-    //                 {
-    //                     name: '...args',
-    //                     type: { type: 'any', isArray: true },
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: 'emit',
-    //             returnTypes: [{ type: 'any' }],
-    //             inParams: [
-    //                 {
-    //                     name: '...args',
-    //                     type: { type: 'any', isArray: true },
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: 'disconnect',
-    //             returnTypes: [{ type: 'any' }],
-    //             inParams: [
-    //                 {
-    //                     name: '...args',
-    //                     type: { type: 'any', isArray: true },
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    // },
     {
         qualifiedName: 'GObject.ParamSpec',
         // Static functions injected by GJS, see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/GObject.js
@@ -717,49 +671,4 @@ export const classes: InjectionClass[] = [
             },
         ],
     },
-    // {
-    //     // TODO: Only for Gdk-2.0
-    //     // Fix type conflict by adding this overload method
-    //     qualifiedName: 'Gdk.Drawable',
-    //     methods: [
-    //         {
-    //             name: 'set_data',
-    //             girTypeName: 'method',
-    //             inParams: [
-    //                 {
-    //                     name: 'key',
-    //                     type: [
-    //                         {
-    //                             type: 'string',
-    //                         },
-    //                     ],
-    //                 },
-    //                 {
-    //                     name: 'data',
-    //                     type: [
-    //                         {
-    //                             type: 'object',
-    //                             nullable: true,
-    //                         },
-    //                     ],
-    //                 },
-    //                 {
-    //                     name: 'destroy_func',
-    //                     type: [
-    //                         {
-    //                             type: 'GLib.DestroyNotify',
-    //                             nullable: true,
-    //                             optional: true,
-    //                         },
-    //                     ],
-    //                 },
-    //             ],
-    //             returnTypes: [
-    //                 {
-    //                     type: 'void',
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    // },
 ]

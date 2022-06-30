@@ -3,16 +3,19 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
-# v3.0.0 (in development)
+# Dev
+- Improve typing definition of log and logError, see #71 by @HeavenVolkoff
+
+# 3.0.0-beta.1
 - Real inheritance and implementations instead of copy all inherited methods / properties to the classes / interfaces, see #63
 - During the implementation of the upper pull request many other small improvements have been made.
 - Upgrade dependencies
 - More splitting of the Github workflows so that more can be tested in parallel
 
 # v2.1.0
-- Expect error on gi ESM imports, see #69, thanks to @HeavenVolkoff
-- Add typing definition for `imports.package`, see #67, thanks to @HeavenVolkoff
-- Allow Node.js versions greater or equal than v16 , see #65, thanks to @HeavenVolkoff
+- Expect error on gi ESM imports, see #69 by @HeavenVolkoff
+- Add typing definition for `imports.package`, see #67 by @HeavenVolkoff
+- Allow Node.js versions greater or equal than v16 , see #65 by @HeavenVolkoff
 - Ported Gjs for http server + client example to node-gtk
 - Split GObject template for separate templates for gjs and node-gtk
 - Do not skip generation of GObject fields anymore
@@ -43,7 +46,7 @@
 - Fix config file loading, see #48
 - The browser example now uses ESM for Gjs and Node.js
 - Upgrade all dependencies to latest
-- [node-gtk] don't add $obj parameter in connect() method either, thanks to @peat-psuwit
+- [node-gtk] don't add $obj parameter in connect() method either, by @peat-psuwit
 - [node-gtk] Fixed Return types, see #46
 - New and simpler patch format
 - Replaced `ESLint` with `prettier` for prettify output, this fixes #29

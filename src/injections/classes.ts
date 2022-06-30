@@ -677,15 +677,18 @@ export const classes: InjectionClass[] = [
         methods: [
             {
                 name: 'unpack',
-                returnType: { type: 'unknown' },
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
             },
             {
                 name: 'deepUnpack',
-                returnType: { type: 'unknown' },
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
             },
             {
                 name: 'recursiveUnpack',
-                returnType: { type: 'unknown' },
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
             },
         ],
     },

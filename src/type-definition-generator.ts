@@ -32,6 +32,7 @@ import {
     findFileInDirs,
     splitModuleName,
     removeNamespace,
+    removeClassModule,
     girElementIsIntrospectable,
     typeIsOptional,
 } from './utils.js'
@@ -612,9 +613,9 @@ export default class TypeDefinitionGenerator implements Generator {
         const { inParams, instanceParameters } = tsCallback
         const returnTypeStr = this.generateTypes(tsCallback.returnTypes, namespace)
 
-        // Get name and remove module class name prefix
+        // Get name, remove namespace and remove module class name prefix
         let { name } = tsCallback.tsCallbackInterface
-        if (classModuleName) name = name.replace(`${classModuleName}.`, '')
+        if (classModuleName) name = removeClassModule(removeNamespace(name, namespace), classModuleName)
 
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
@@ -745,10 +746,10 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         // Remove namespace and class module name
-        const constructPropInterfaceName = removeNamespace(
-            girClass._tsData.constructPropInterfaceName,
-            namespace,
-        ).replace(`${girClass._tsData.name}.`, '')
+        const constructPropInterfaceName = removeClassModule(
+            removeNamespace(girClass._tsData.constructPropInterfaceName, namespace),
+            girClass._tsData.name,
+        )
 
         def.push(...this.addInfoComment('Constructor properties interface', indentCount))
 

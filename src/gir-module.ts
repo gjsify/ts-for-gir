@@ -1290,7 +1290,7 @@ export class GirModule {
     ) {
         if (!girElementIsIntrospectable(girCallback)) return undefined
 
-        if (!girClass._tsData) {
+        if (!girClass._tsData || !girClass._module) {
             throw new Error(NO_TSDATA('getSignalCallbackTsData'))
         }
 
@@ -1299,7 +1299,7 @@ export class GirModule {
         const signalInterfaceName = this.transformation.transformSignalInterfaceName(signalName)
 
         const tsDataInterface: TsCallbackInterface = {
-            name: `${className}.${signalInterfaceName}SignalCallback`,
+            name: `${girClass._module.namespace}.${className}.${signalInterfaceName}SignalCallback`,
             overwriteDoc: {
                 text: `Signal callback interface for \`${signalName}\``,
                 tags: [],

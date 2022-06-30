@@ -41,7 +41,7 @@ export class Config {
         moduleType: 'commonjs',
         noComments: false,
         noDebugComments: false,
-        noCheck: true,
+        noCheck: false,
         fixConflicts: true,
     }
 

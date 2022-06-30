@@ -1279,6 +1279,8 @@ export class GirModule {
             name: girCallback.$.name,
         }
 
+        debugger
+
         return tsDataInterface
     }
 
@@ -1288,7 +1290,7 @@ export class GirModule {
     ) {
         if (!girElementIsIntrospectable(girCallback)) return undefined
 
-        if (!girClass._tsData) {
+        if (!girClass._tsData || !girClass._module) {
             throw new Error(NO_TSDATA('getSignalCallbackTsData'))
         }
 
@@ -1297,7 +1299,7 @@ export class GirModule {
         const signalInterfaceName = this.transformation.transformSignalInterfaceName(signalName)
 
         const tsDataInterface: TsCallbackInterface = {
-            name: `${className}_${signalInterfaceName}SignalCallback`,
+            name: `${girClass._module.namespace}.${className}.${signalInterfaceName}SignalCallback`,
             overwriteDoc: {
                 text: `Signal callback interface for \`${signalName}\``,
                 tags: [],
@@ -2168,7 +2170,7 @@ export class GirModule {
             localNames: {},
             constructPropNames: {},
             inheritConstructPropInterfaceNames: [],
-            constructPropInterfaceName: `${namespace}.${className}_ConstructProps`,
+            constructPropInterfaceName: `${namespace}.${className}.ConstructorProperties`,
             fields: [],
             properties: [],
             conflictProperties: [],
@@ -2196,7 +2198,9 @@ export class GirModule {
 
         if (girClass._tsData.parents.length) {
             for (const parent of girClass._tsData.parents) {
-                girClass._tsData.inheritConstructPropInterfaceNames.push(`${parent.qualifiedParentName}_ConstructProps`)
+                girClass._tsData.inheritConstructPropInterfaceNames.push(
+                    `${parent.qualifiedParentName}.ConstructorProperties`,
+                )
             }
         }
 

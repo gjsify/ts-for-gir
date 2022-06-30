@@ -316,7 +316,7 @@ test('class', (t) => {
     const result = mod.exportClass(TestData.classApplicationCommandLine).def
 
     t.deepEqual(result, [
-        'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',
+        'export interface ApplicationCommandLine.ConstructorProperties extends GObject.Object.ConstructorProperties {',
         '    "arguments"?: GLib.Variant',
         '    options?: GLib.Variant',
         '    platform_data?: GLib.Variant',
@@ -384,8 +384,8 @@ test('class', (t) => {
         '    emit(sigName: string, ...args: any[]): void',
         '    disconnect(id: number): void',
         '    static name: string',
-        '    constructor (config?: ApplicationCommandLine_ConstructProps)',
-        '    _init (config?: ApplicationCommandLine_ConstructProps): void',
+        '    constructor (config?: ApplicationCommandLine.ConstructorProperties)',
+        '    _init (config?: ApplicationCommandLine.ConstructorProperties): void',
         '    static $gtype: GObject.GType',
         '}',
     ])

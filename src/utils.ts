@@ -35,12 +35,16 @@ export function splitModuleName(packageName: string): { packageName: string; nam
     }
 }
 
+/** Remove namespace prefix */
 export function removeNamespace(type: string, namespace: string) {
     if (type.startsWith(namespace + '.')) {
         type = type.substring(namespace.length + 1)
     }
     return type
 }
+
+/** Remove class module name prefix */
+export const removeClassModule = removeNamespace
 
 export function addNamespace(type: string, namespace: string) {
     if (!type.startsWith(namespace + '.')) {

@@ -592,7 +592,12 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateCallbackInterface(tsCallback: TsCallback | TsSignal, namespace: string, indentCount = 0) {
+    private generateCallbackInterface(
+        tsCallback: TsCallback | TsSignal,
+        namespace: string,
+        indentCount = 0,
+        classModuleName?: string,
+    ) {
         const def: string[] = []
 
         if (!tsCallback?.tsCallbackInterface) {
@@ -606,12 +611,36 @@ export default class TypeDefinitionGenerator implements Generator {
         const indentBody = generateIndent(indentCount + 1)
         const { inParams, instanceParameters } = tsCallback
         const returnTypeStr = this.generateTypes(tsCallback.returnTypes, namespace)
-        const { name } = tsCallback.tsCallbackInterface
+
+        // Get name and remove module class name prefix
+        let { name } = tsCallback.tsCallbackInterface
+        if (classModuleName) name = name.replace(`${classModuleName}.`, '')
+
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
-        def.push(indent + this.generateExport('interface', name, '{', indentCount))
+        def.push(this.generateExport('interface', name, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
         def.push(indent + '}')
+
+        return def
+    }
+
+    private generateCallbackInterfaces(
+        tsCallbacks: Array<TsCallback | TsSignal>,
+        namespace: string,
+        indentCount = 0,
+        classModuleName: string,
+        comment?: string,
+    ) {
+        const def: string[] = []
+
+        for (const tsCallback of tsCallbacks) {
+            def.push(...this.generateCallbackInterface(tsCallback, namespace, indentCount, classModuleName), '')
+        }
+
+        if (def.length > 0) {
+            def.unshift(...this.addInfoComment(comment, indentCount))
+        }
 
         return def
     }
@@ -712,13 +741,16 @@ export default class TypeDefinitionGenerator implements Generator {
             const constructPropInterfaceNames = girClass._tsData.inheritConstructPropInterfaceNames.map((n) =>
                 removeNamespace(n, namespace),
             )
-            ext = `${indent}extends ${constructPropInterfaceNames.join(', ')} `
+            ext = `extends ${constructPropInterfaceNames.join(', ')} `
         }
 
+        // Remove namespace and class module name
         const constructPropInterfaceName = removeNamespace(
             girClass._tsData.constructPropInterfaceName,
             namespace,
         ).replace(`${girClass._tsData.name}.`, '')
+
+        def.push(...this.addInfoComment('Constructor properties interface', indentCount))
 
         // START BODY
         {
@@ -925,17 +957,26 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateClassSignalInterfaces(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
+        indentCount = 0,
     ) {
         const def: string[] = []
         if (!girClass._tsData) {
             throw new Error(NO_TSDATA('generateClassSignalInterface'))
         }
 
-        for (const signal of girClass._tsData.signals) {
-            if (!signal._tsData) continue
-            def.push(...this.generateCallbackInterface(signal._tsData, namespace))
-            def.push('')
-        }
+        const tsSignals = girClass._tsData.signals
+            .map((signal) => signal._tsData)
+            .filter((signal) => !!signal) as TsSignal[]
+
+        def.push(
+            ...this.generateCallbackInterfaces(
+                tsSignals,
+                namespace,
+                indentCount,
+                girClass._tsData.name,
+                'Signal callback interfaces',
+            ),
+        )
 
         return def
     }
@@ -973,6 +1014,9 @@ export default class TypeDefinitionGenerator implements Generator {
         const indent = generateIndent(indentCount)
 
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+
+        // Signal interfaces
+        bodyDef.push(...this.generateClassSignalInterfaces(girClass, namespace, indentCount + 1))
 
         // Properties interface for construction
         bodyDef.push(...this.generateConstructPropsInterface(girClass, namespace, indentCount + 1))
@@ -1015,8 +1059,6 @@ export default class TypeDefinitionGenerator implements Generator {
             .map((implementation) => implementation.localParentName)
         const ext = implementationNames.length ? ` extends ${implementationNames.join(', ')}` : ''
         const interfaceHead = `${girClass._tsData.name}${genericParameters}${ext}`
-
-        def.push(...this.generateClassSignalInterfaces(girClass, namespace))
 
         // START INTERFACE
         {

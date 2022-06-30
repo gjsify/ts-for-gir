@@ -1279,6 +1279,8 @@ export class GirModule {
             name: girCallback.$.name,
         }
 
+        debugger
+
         return tsDataInterface
     }
 
@@ -1297,7 +1299,7 @@ export class GirModule {
         const signalInterfaceName = this.transformation.transformSignalInterfaceName(signalName)
 
         const tsDataInterface: TsCallbackInterface = {
-            name: `${className}_${signalInterfaceName}SignalCallback`,
+            name: `${className}.${signalInterfaceName}SignalCallback`,
             overwriteDoc: {
                 text: `Signal callback interface for \`${signalName}\``,
                 tags: [],

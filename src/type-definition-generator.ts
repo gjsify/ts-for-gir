@@ -224,7 +224,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
 
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
-            throw new Error(NO_TSDATA('generateConstructPropsInterface'))
+            throw new Error(NO_TSDATA('generateClassPropertySignals'))
         }
 
         if (girClass._tsData?.isDerivedFromGObject) {
@@ -706,7 +706,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
-        let ext = ' '
+        let ext = ''
 
         if (girClass._tsData.inheritConstructPropInterfaceNames.length) {
             const constructPropInterfaceNames = girClass._tsData.inheritConstructPropInterfaceNames.map((n) =>
@@ -715,7 +715,10 @@ export default class TypeDefinitionGenerator implements Generator {
             ext = `${indent}extends ${constructPropInterfaceNames.join(', ')} `
         }
 
-        const constructPropInterfaceName = removeNamespace(girClass._tsData.constructPropInterfaceName, namespace)
+        const constructPropInterfaceName = removeNamespace(
+            girClass._tsData.constructPropInterfaceName,
+            namespace,
+        ).replace(`${girClass._tsData.name}.`, '')
 
         // START BODY
         {
@@ -959,6 +962,39 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
+    private generateClassModules(
+        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
+        namespace: string,
+        indentCount = 0,
+    ) {
+        const def: string[] = []
+        const bodyDef: string[] = []
+        if (!girClass._tsData) return def
+        const indent = generateIndent(indentCount)
+
+        const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+
+        // Properties interface for construction
+        bodyDef.push(...this.generateConstructPropsInterface(girClass, namespace, indentCount + 1))
+
+        if (!bodyDef.length) {
+            return []
+        }
+
+        // START BODY
+        {
+            def.push(`${indent}${exp}module ${girClass._tsData.name} {`)
+
+            // Properties interface for construction
+            def.push(...bodyDef)
+
+            def.push(`${indent}}`, '')
+        }
+        // END BODY
+
+        return def
+    }
+
     /**
      * In Typescript, interfaces and classes can have the same name,
      * so we use this to generate interfaces with the same name to implement multiple inheritance
@@ -978,13 +1014,13 @@ export default class TypeDefinitionGenerator implements Generator {
             .filter((implementation) => implementation.type !== 'parent')
             .map((implementation) => implementation.localParentName)
         const ext = implementationNames.length ? ` extends ${implementationNames.join(', ')}` : ''
-        const classHead = `${girClass._tsData.name}${genericParameters}${ext}`
+        const interfaceHead = `${girClass._tsData.name}${genericParameters}${ext}`
 
         def.push(...this.generateClassSignalInterfaces(girClass, namespace))
 
         // START INTERFACE
         {
-            def.push(this.generateExport('interface', classHead, '{'))
+            def.push(this.generateExport('interface', interfaceHead, '{'))
 
             // START BODY
             {
@@ -1029,8 +1065,7 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (!girClass._tsData) return def
 
-        // Properties for construction
-        def.push(...this.generateConstructPropsInterface(girClass, namespace))
+        def.push(...this.generateClassModules(girClass, namespace))
 
         def.push(...this.generateImplementationInterface(girClass, namespace))
 

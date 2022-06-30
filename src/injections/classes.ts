@@ -671,4 +671,25 @@ export const classes: InjectionClass[] = [
             },
         ],
     },
+    // https://gjs.guide/guides/glib/gvariant.html#unpacking-variants
+    {
+        qualifiedName: 'GLib.Variant',
+        methods: [
+            {
+                name: 'unpack',
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
+            },
+            {
+                name: 'deepUnpack',
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
+            },
+            {
+                name: 'recursiveUnpack',
+                returnTypes: [{ type: 'unknown' }],
+                girTypeName: 'method',
+            },
+        ],
+    },
 ]

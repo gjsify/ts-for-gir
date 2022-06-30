@@ -36,7 +36,7 @@ import {
     girElementIsIntrospectable,
 } from './utils.js'
 import { SymTable } from './symtable.js'
-import { typePatches } from './type-patches.js'
+import { typePatches } from './injections/index.js'
 import type {
     GirRepository,
     GirNamespace,

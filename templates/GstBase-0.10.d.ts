@@ -1,3 +1,5 @@
 // Workaround
 /** @ignore */
-export type BaseSink_ConstructProps = Gst.BaseSink_ConstructProps;
+export module BaseSink {
+    export type ConstructorProperties = Gst.BaseSink.ConstructorProperties;
+}

@@ -665,16 +665,6 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
 
-                        // Conflict between virtual and non-virtual methods (this should only occur in node-gtk, because Gjs has a vfunc_ prefix for virtual methods)
-                        if (baseFunc.isVirtual !== bFunc.isVirtual) {
-                            if (!baseFunc.isVirtual) {
-                                baseFunc.hasUnresolvedConflict = true
-                            } else {
-                                bFunc.hasUnresolvedConflict = true
-                            }
-                            continue
-                        }
-
                         // Just add conflicting methods to the class
                         if (!baseClass.conflictMethods.includes(baseFunc)) {
                             baseClass.conflictMethods.push(baseFunc)
@@ -955,16 +945,6 @@ export class ConflictResolver {
                             baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
-
-                        // Conflict between virtual and non-virtual methods (this should only occur in node-gtk, because Gjs has a vfunc_ prefix for virtual methods)
-                        if (baseFunc.isVirtual !== bFunc.isVirtual) {
-                            if (!baseFunc.isVirtual) {
-                                baseFunc.hasUnresolvedConflict = true
-                            } else {
-                                bFunc.hasUnresolvedConflict = true
-                            }
-                            continue
-                        }
 
                         // Add a function to overload methods if there is not already a compatible version
                         if (!this.getCompatibleTsFunction(baseFunc.overloads, bFunc)) {
@@ -1267,6 +1247,7 @@ export class ConflictResolver {
      * @returns
      */
     public functionHasConflict(a: TsFunction, b: TsFunction) {
+        // TODO find a better solution for that, not all this methods are conflicting
         if (a.isVirtual !== b.isVirtual) {
             return true
         }

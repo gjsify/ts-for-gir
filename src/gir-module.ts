@@ -10,7 +10,7 @@ import {
 } from './transformation.js'
 import { STATIC_NAME_ALREADY_EXISTS, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import { Logger } from './logger.js'
-import { Injector } from './injector.js'
+import { Injector } from './injections/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
 import {
@@ -150,7 +150,7 @@ export class GirModule {
 
     log: Logger
 
-    inject = new Injector()
+    inject: Injector
 
     extends?: string
 
@@ -175,6 +175,7 @@ export class GirModule {
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment)
+        this.inject = new Injector(this.config.environment)
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
 
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
@@ -1231,12 +1232,8 @@ export class GirModule {
         overwrite.isGlobal = overwrite.isGlobal || girTypeName === 'function'
         overwrite.isVirtual = overwrite.isVirtual || girTypeName === 'virtual'
 
-        if (overwrite.isVirtual) {
-            name = 'vfunc_' + name
-        }
-
         // Function name transformation by environment
-        name = this.transformation.transformFunctionName(name)
+        name = this.transformation.transformFunctionName(name, overwrite.isVirtual)
 
         let tsData: TsFunction = {
             isArrowType: overwrite.isArrowType,

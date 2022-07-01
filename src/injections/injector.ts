@@ -1,19 +1,33 @@
-import type { GirClassElement, GirRecordElement, GirUnionElement, GirInterfaceElement } from './types/index.js'
+import type {
+    GirClassElement,
+    GirRecordElement,
+    GirUnionElement,
+    GirInterfaceElement,
+    Environment,
+} from '../types/index.js'
+import { Logger } from '../logger.js'
 
-import { classes } from './injections/index.js'
-import { GirFactory } from './gir-factory.js'
+import { classesAll, classesGjs, classesNode } from './index.js'
+import { GirFactory } from '../gir-factory.js'
 
 /**
  * Inject additional methods, properties, etc
  */
 export class Injector {
     girFactory = new GirFactory()
+    log: Logger
+
+    constructor(private readonly environment: Environment) {
+        this.log = new Logger(environment, true, 'ConflictResolver')
+    }
 
     /** Inject additional methods, properties, etc to a existing class */
     toClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) {
             return
         }
+
+        const classes = this.environment === 'gjs' ? [...classesAll, ...classesGjs] : [...classesAll, ...classesNode]
 
         const toClass = classes.find((cls) => cls.qualifiedName === girClass._tsData?.qualifiedName)
         if (toClass) {

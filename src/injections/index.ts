@@ -1,2 +1,5 @@
-export * from './classes.js'
+export * from './classes-all.js'
+export * from './classes-gjs.js'
+export * from './classes-node.js'
+export * from './injector.js'
 export * from './type-patches.js'

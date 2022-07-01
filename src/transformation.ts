@@ -388,8 +388,14 @@ export class Transformation {
         return memberName
     }
 
-    public transformFunctionName(name: string): string {
+    public transformFunctionName(name: string, isVirtual: boolean): string {
         name = this.transform('functionName', name)
+
+        // node-gtk has no `vfunc_` prefix for virtual methods
+        if (isVirtual && this.config.environment === 'gjs') {
+            name = 'vfunc_' + name
+        }
+
         const originalName = `${name}`
 
         name = this.transformNumericName(name)

@@ -29,7 +29,7 @@ class CustomWidget extends Gtk.Widget {
     return [minimum, natural, minimumBaseline, naturalBaseline] as [number, number, number, number]
   }
 
-  snapshot(snapshot) {
+  snapshot(snapshot: Gtk.Snapshot) {
     const width = this.getAllocatedWidth()
     const color = Gdk.RGBA.create('red')
     const rect = Graphene.Rect.create(10, 10, width / 2, 10)

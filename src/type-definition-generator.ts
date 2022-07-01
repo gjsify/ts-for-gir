@@ -935,11 +935,6 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generateClassVirtualMethods'))
         }
 
-        // Virtual methods currently not supported in node-gtk
-        if (this.config.environment === 'node') {
-            return def
-        }
-
         def.push(
             ...this.generateFunctions(
                 girClass._tsData.virtualMethods

@@ -107,7 +107,6 @@ export class ConflictResolver {
         if (depthLimitReached || classAlreadyProcessed) {
             if (depthLimitReached) {
                 this.log.error(`[getClassElements] Maximum recursion depth reached (limit: ${MAX_CLASS_PARENT_DEPTH})!`)
-                debugger
             }
             return {
                 signalMethods,
@@ -666,6 +665,16 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
 
+                        // Conflict between virtual and non-virtual methods (this should only occur in node-gtk, because Gjs has a vfunc_ prefix for virtual methods)
+                        if (baseFunc.isVirtual !== bFunc.isVirtual) {
+                            if (!baseFunc.isVirtual) {
+                                baseFunc.hasUnresolvedConflict = true
+                            } else {
+                                bFunc.hasUnresolvedConflict = true
+                            }
+                            continue
+                        }
+
                         // Just add conflicting methods to the class
                         if (!baseClass.conflictMethods.includes(baseFunc)) {
                             baseClass.conflictMethods.push(baseFunc)
@@ -832,6 +841,16 @@ export class ConflictResolver {
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
 
+                        // Conflict between virtual and non-virtual methods (this should only occur in node-gtk, because Gjs has a vfunc_ prefix for virtual methods)
+                        if (baseFunc.isVirtual !== bFunc.isVirtual) {
+                            if (!baseFunc.isVirtual) {
+                                baseFunc.hasUnresolvedConflict = true
+                            } else {
+                                bFunc.hasUnresolvedConflict = true
+                            }
+                            continue
+                        }
+
                         // Do nothing..
                     } else {
                         this.log.error(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
@@ -936,6 +955,16 @@ export class ConflictResolver {
                             baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
                             bFunc.inParams.map((p) => p._tsData?.name).join(', '),
                         )
+
+                        // Conflict between virtual and non-virtual methods (this should only occur in node-gtk, because Gjs has a vfunc_ prefix for virtual methods)
+                        if (baseFunc.isVirtual !== bFunc.isVirtual) {
+                            if (!baseFunc.isVirtual) {
+                                baseFunc.hasUnresolvedConflict = true
+                            } else {
+                                bFunc.hasUnresolvedConflict = true
+                            }
+                            continue
+                        }
 
                         // Add a function to overload methods if there is not already a compatible version
                         if (!this.getCompatibleTsFunction(baseFunc.overloads, bFunc)) {
@@ -1066,12 +1095,10 @@ export class ConflictResolver {
      * @param groupedElements
      */
     public fixConflicts(groupedElements: ConflictGroupedElements) {
-        for (const name of Object.keys(groupedElements)) {
-            const elements = groupedElements[name]
-
-            if (elements.baseClass.qualifiedName === 'Gtk.NumerableIcon') {
-                debugger
-            }
+        for (const key of Object.keys(groupedElements)) {
+            const elements = groupedElements[key]
+            // Remove the key prefix `_`
+            const name = key.substring(1)
 
             if (elements.baseElements.length === 0) {
                 this.fixIndirectConflicts(name, elements.inheritedElements, elements.baseClass)
@@ -1091,25 +1118,30 @@ export class ConflictResolver {
         const IGNORE_CONFLICT_NAMES = ['$gtype']
 
         for (const a of elements) {
+            const name = a.data.name
             for (const b of elements) {
                 if (
                     a === b ||
-                    !a.data.name ||
+                    !name ||
                     !b.data.name ||
-                    IGNORE_CONFLICT_NAMES.includes(a.data.name) ||
+                    IGNORE_CONFLICT_NAMES.includes(name) ||
                     IGNORE_CONFLICT_NAMES.includes(b.data.name)
                 ) {
                     continue
                 }
-                if (a && a.data.name && b && b.data.name && a !== b && this.hasConflict(a, b)) {
-                    groupedConflicts[a.data.name] ||= {
+                if (a && name && b && b.data.name && a !== b && this.hasConflict(a, b)) {
+                    const key = `_${name}` // if the key would be `toString` this would be always true so we prefix `_`
+                    groupedConflicts[key] ||= {
                         baseElements: [],
                         inheritedElements: [],
                         baseClass: tsClass,
                     }
-                    const groupedConflict = groupedConflicts[a.data.name]
+                    const groupedConflict = groupedConflicts[key]
                     const isBaseElement = a.depth === 0
                     if (isBaseElement) {
+                        if (!groupedConflict.baseElements) {
+                            debugger
+                        }
                         if (!groupedConflict.baseElements.find((c) => isEqual(c.data, a.data))) {
                             groupedConflict.baseElements.push(a)
                         }
@@ -1126,8 +1158,8 @@ export class ConflictResolver {
         }
 
         // Sort by depth
-        for (const name of Object.keys(groupedConflicts)) {
-            groupedConflicts[name].inheritedElements = groupedConflicts[name].inheritedElements.sort(
+        for (const key of Object.keys(groupedConflicts)) {
+            groupedConflicts[key].inheritedElements = groupedConflicts[key].inheritedElements.sort(
                 (a, b) => a.depth - b.depth,
             )
         }
@@ -1235,6 +1267,10 @@ export class ConflictResolver {
      * @returns
      */
     public functionHasConflict(a: TsFunction, b: TsFunction) {
+        if (a.isVirtual !== b.isVirtual) {
+            return true
+        }
+
         if (this.typesHasConflict(a.returnTypes, b.returnTypes)) {
             return true
         }

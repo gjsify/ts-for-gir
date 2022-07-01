@@ -93,7 +93,9 @@ export default class TypeDefinitionGenerator implements Generator {
             return desc
         }
 
-        desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
+        if (!tsProp.hasUnresolvedConflict) {
+            desc.push(...this.addGirDocComment(tsProp.doc, indentCount))
+        }
 
         const indent = generateIndent(indentCount)
         const varDesc = this.generateVariable(tsProp, namespace, 0, false)
@@ -101,7 +103,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const readonly = tsProp.readonly ? 'readonly ' : ''
 
         // temporary solution, will be solved differently later
-        const commentOut = tsProp.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsProp.hasUnresolvedConflict ? '// Has conflict: ' : ''
 
         desc.push(`${indent}${commentOut}${staticStr}${readonly}${varDesc}`)
         return desc
@@ -170,7 +172,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const typeStr = this.generateTypes(tsVar.type, namespace)
 
         // temporary solution, will be solved differently later
-        const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = allowCommentOut && tsVar.hasUnresolvedConflict ? '// Has conflict: ' : ''
 
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
@@ -526,7 +528,8 @@ export default class TypeDefinitionGenerator implements Generator {
             return def
         }
 
-        if (tsFunction.doc) def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
+        if (tsFunction.doc && !tsFunction.hasUnresolvedConflict)
+            def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
 
         const staticStr = isStatic && tsFunction.name !== 'constructor' ? 'static ' : ''
 
@@ -534,7 +537,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const genericStr = this.generateGenericParameters(tsFunction.generics)
 
         // temporary solution, will be solved differently later
-        const commentOut = tsFunction.hasUnresolvedConflict ? '// TODO fix conflict: ' : ''
+        const commentOut = tsFunction.hasUnresolvedConflict ? '// Has conflict: ' : ''
 
         let exportStr = ''
         // `tsType === 'function'` are a global methods which can be exported
@@ -690,7 +693,9 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateConstant(tsConst: TsVar, namespace: string, indentCount = 0) {
         const desc: string[] = []
 
-        desc.push(...this.addGirDocComment(tsConst.doc, indentCount))
+        if (!tsConst.hasUnresolvedConflict) {
+            desc.push(...this.addGirDocComment(tsConst.doc, indentCount))
+        }
 
         const indent = generateIndent(indentCount)
         const exp = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '

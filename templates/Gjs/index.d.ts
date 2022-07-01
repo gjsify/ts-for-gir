@@ -275,5 +275,5 @@ declare global {
     }
 }
 
-export const _imports: typeof imports
+declare const _imports: typeof imports
 export default _imports

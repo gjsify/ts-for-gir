@@ -2,7 +2,7 @@
   "name": "ts-for-gir-node-gtk-http-example",
   "version": "1.0.0",
   "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
-  "main": "index.js",
+  "main": "dist/http-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "npm run ts-for-gir -- generate Soup-3.0 -e node --useNamespace -t esm",

@@ -1,5 +1,5 @@
-import { TypePatches } from './types/index.js'
-import { GirFactory } from './gir-factory.js'
+import { TypePatches } from '../types/index.js'
+import { GirFactory } from '../gir-factory.js'
 
 const girFactory = new GirFactory()
 

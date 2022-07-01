@@ -18,8 +18,8 @@ import type * as <%= girModule.importName %> from "./<%= girModule.packageName %
 declare global {
     function print(...args: any[]): void
     function printerr(...args: any[]): void
-    function log(message?: string): void
-    function logError(exception: any, message?: string): void
+    function log(message: any): void
+    function logError(exception: object, message?: any): void
 
     interface Console {
         /**

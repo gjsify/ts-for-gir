@@ -68,23 +68,32 @@ test('enumeration', (t) => {
 
 test('constant', (t) => {
     const var_ = {
-        $: {
-            name: 'MY_CONST',
-        },
+        name: 'MY_CONST',
         type: [
             {
-                $: {
-                    name: 'MyType',
-                },
+                type: 'MyType',
+                optional: false,
+                nullable: false,
+                callbacks: [],
+                generics: [],
+                isArray: false,
+                isFunction: false,
+                isCallback: false,
             },
         ],
     }
     const arrVar = {
-        $: { name: 'MY_ARR' },
-        array: [
+        name: 'MY_ARR',
+        type: [
             {
-                $: { length: '1' },
-                type: [{ $: { name: 'MyType' } }],
+                type: 'MyType',
+                optional: false,
+                nullable: false,
+                callbacks: [],
+                generics: [],
+                isArray: true,
+                isFunction: false,
+                isCallback: false,
             },
         ],
     }

@@ -199,9 +199,11 @@ declare global {
         logDomain: string
     }
 
+    <% if(!hasDOMLib){ %>
     const console: Console
+    <% } %>
 
-    // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/esm/_encoding/encodingMap.js#L7-232
+    // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.73.2/modules/esm/_encoding/encodingMap.js#L7-232
     type TextDecoderEncoding =
         | 'unicode-1-1-utf-8'
         | 'unicode11utf8'
@@ -425,7 +427,7 @@ declare global {
         | 'utf-16le'
 
     interface TextDecodeOptions {
-        // A of Gjs 1.72.0 stream mode is not supported yet.
+        // As of Gjs 1.73.2 stream mode is not supported yet.
         // stream?: boolean
     }
 
@@ -440,7 +442,7 @@ declare global {
      * The TextDecoder interface represents a decoder for a specific text encoding.
      * It takes a stream of bytes as input and emits a stream of code points.
      *
-     * @since Gjs 1.69.2
+     * @version Gjs 1.69.2
      */
     interface TextDecoder {
         /** A string containing the name of the decoder, that is a string describing the method the TextDecoder will use. */
@@ -461,10 +463,12 @@ declare global {
         decode(input?: ArrayBufferView | ArrayBuffer, options?: TextDecodeOptions): string
     }
 
+    <% if(!hasDOMLib){ %>
     const TextDecoder: {
-        prototype: TextDecoder
-        new (label?: TextDecoderEncoding, options?: TextDecoderOptions): TextDecoder
+      prototype: TextDecoder
+      new (label?: TextDecoderEncoding, options?: TextDecoderOptions): TextDecoder
     }
+    <% } %>
 
     interface TextEncoderEncodeIntoResult {
         read?: number
@@ -474,7 +478,7 @@ declare global {
     /**
      * TextEncoder takes a stream of code points as input and emits a stream of bytes.
      *
-     * @since Gjs 1.69.2
+     * @version Gjs 1.69.2
      */
     interface TextEncoder {
         readonly encoding: 'utf-8'
@@ -497,10 +501,12 @@ declare global {
         encodeInto(source: string, destination: Uint8Array): TextEncoderEncodeIntoResult
     }
 
+    <% if(!hasDOMLib){ %>
     const TextEncoder: {
         prototype: TextEncoder
         new (): TextEncoder
     }
+    <% } %>
 
     interface BooleanConstructor {
         $gtype: GObject20.GType<boolean>
@@ -520,7 +526,7 @@ declare global {
     // See https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/esm/_timers.js
 
     /**
-     * @since Gjs 1.71.1
+     * @version Gjs 1.71.1
      * @param callback a callback function
      * @param delay the duration in milliseconds to wait before running callback
      * @param args arguments to pass to callback
@@ -528,7 +534,7 @@ declare global {
     function setTimeout(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
 
     /**
-     * @since Gjs 1.71.1
+     * @version Gjs 1.71.1
      * @param callback a callback function
      * @param delay the duration in milliseconds to wait between calling callback
      * @param args arguments to pass to callback
@@ -536,13 +542,13 @@ declare global {
     function setInterval(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
 
     /**
-     * @since Gjs 1.71.1
+     * @version Gjs 1.71.1
      * @param timeout the timeout to clear
      */
     function clearTimeout(timeout: GLib20.Source): void
 
     /**
-     * @since Gjs 1.71.1
+     * @version Gjs 1.71.1
      * @param timeout the timeout to clear
      */
     function clearInterval(timeout: GLib20.Source): void

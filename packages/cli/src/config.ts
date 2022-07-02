@@ -6,12 +6,13 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
-import { merge, isEqual } from './utils.js'
+import { merge, isEqual, readTsJsConfig } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
 import {
+    WARN_HAS_DOM_LIB,
     WARN_USE_NAMESPACE_ON_TYPES,
     WARN_USE_NAMESPACE_ON_ESM,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
@@ -283,6 +284,7 @@ export class Config {
             noDebugComments: config.noDebugComments,
             noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
+            hasDOMLib: config.hasDOMLib,
         }
         return generateConfig
     }
@@ -300,6 +302,10 @@ export class Config {
                 Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
                 options.useNamespace = true
             }
+        }
+
+        if (options.environments.includes('gjs') && options.hasDOMLib) {
+            Logger.warn(WARN_HAS_DOM_LIB)
         }
 
         return options
@@ -331,6 +337,7 @@ export class Config {
             noDebugComments: options.noDebugComments,
             noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
+            hasDOMLib: true,
         }
 
         if (configFile) {
@@ -420,6 +427,23 @@ export class Config {
                 config.fixConflicts = configFile.config.fixConflicts
             }
         }
+
+        const tsConfig = config.outdir ? readTsJsConfig(config.outdir) : null
+        const tsCompilerOptions = (
+            tsConfig &&
+            'compilerOptions' in tsConfig &&
+            typeof tsConfig.compilerOptions === 'object' &&
+            tsConfig.compilerOptions != null
+                ? tsConfig.compilerOptions
+                : {}
+        ) as Record<PropertyKey, unknown>
+
+        config.hasDOMLib =
+            'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
+                ? false // NoLib makes typescript to ignore the lib property
+                : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
+                ? tsCompilerOptions.lib.includes('dom')
+                : true
 
         return this.validate(config)
     }

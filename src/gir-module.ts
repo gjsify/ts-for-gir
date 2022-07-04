@@ -1005,6 +1005,7 @@ export class GirModule {
         const tsData: TsProperty | TsVar = {
             name,
             type: [tsType],
+            isInjected: false,
             girTypeName,
             tsTypeName,
             doc: this.getTsDoc(girVar),
@@ -1130,6 +1131,7 @@ export class GirModule {
             isArrowType: boolean
             isGlobal: boolean
             isVirtual: boolean
+            isInjected?: boolean
             returnType: string | null
             generics: TsGenericParameter[]
         },
@@ -1162,6 +1164,7 @@ export class GirModule {
         overwrite.isStatic = overwrite.isStatic || girTypeName === 'static-function' || girTypeName === 'constructor'
         overwrite.isGlobal = overwrite.isGlobal || girTypeName === 'function'
         overwrite.isVirtual = overwrite.isVirtual || girTypeName === 'virtual'
+        overwrite.isInjected = overwrite.isInjected || false
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name, overwrite.isVirtual)
@@ -1171,6 +1174,7 @@ export class GirModule {
             isStatic: overwrite.isStatic,
             isGlobal: overwrite.isGlobal,
             isVirtual: overwrite.isVirtual,
+            isInjected: overwrite.isInjected,
             returnTypes,
             retTypeIsVoid,
             name,
@@ -1290,6 +1294,7 @@ export class GirModule {
             isStatic: false,
             isGlobal: false,
             isVirtual: false,
+            isInjected: false,
             retTypeIsVoid,
             inParams,
             instanceParameters,

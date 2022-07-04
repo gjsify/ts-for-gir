@@ -806,6 +806,22 @@ export class ConflictResolver {
 
                 const className = `${baseClass.namespace}-${baseClass.version}.${baseClass.name}`
 
+                // Conflict between injected and original elements
+                if (base.data.isInjected !== b.data.isInjected) {
+                    if (!base.data.isInjected) {
+                        base.data.hasUnresolvedConflict = true
+                    } else if (!b.data.isInjected) {
+                        b.data.hasUnresolvedConflict = true
+                    }
+                    // Copy doc from original element if not set in the injected element
+                    if (!b.data.doc.text && base.data.doc.text) {
+                        b.data.doc = base.data.doc
+                    } else if (!base.data.doc.text && b.data.doc.text) {
+                        base.data.doc = b.data.doc
+                    }
+                    continue
+                }
+
                 // If a element is a function / method
                 if (this.tsElementIsMethodOrFunction(base.data)) {
                     const baseFunc = base.data as TsFunction

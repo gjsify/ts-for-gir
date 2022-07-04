@@ -12,13 +12,13 @@ export const classesGObject20Node: InjectionClass[] = [
                 generics: [
                     {
                         name: 'T',
-                        value: 'unknown',
+                        value: 'any',
                     },
                 ],
                 returnTypes: [{ type: 'void' }],
                 inParams: [
                     {
-                        name: 'name',
+                        name: 'propertyName',
                         type: [{ type: 'string' }],
                     },
                     {
@@ -40,7 +40,7 @@ export const classesGObject20Node: InjectionClass[] = [
                 returnTypes: [{ type: 'T' }],
                 inParams: [
                     {
-                        name: 'name',
+                        name: 'propertyName',
                         type: [{ type: 'string' }],
                     },
                 ],

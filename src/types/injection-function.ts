@@ -3,7 +3,10 @@ import type { TsFunction, InjectionParameter, InjectionInstanceParameter, Inject
 export interface InjectionFunction
     extends Pick<TsFunction, 'name' | 'girTypeName'>,
         Partial<
-            Pick<TsFunction, 'isArrowType' | 'isStatic' | 'isGlobal' | 'isVirtual' | 'overloads' | 'generics' | 'doc'>
+            Pick<
+                TsFunction,
+                'isArrowType' | 'isStatic' | 'isGlobal' | 'isVirtual' | 'isInjected' | 'overloads' | 'generics' | 'doc'
+            >
         > {
     returnTypes?: InjectionType[]
     inParams?: InjectionParameter[]

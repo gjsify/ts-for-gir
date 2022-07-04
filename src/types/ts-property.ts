@@ -9,6 +9,9 @@ export interface TsProperty extends TsVar {
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasUnresolvedConflict?: boolean
 
+    /** true if this function was injected using the `Injector`. This information is used in the `ConflictResolver` */
+    isInjected: boolean
+
     // CUSTOM
     girTypeName: TypeGirProperty
     /** Will be exported in Typescript as a `field` of a `class` or as a "constructor-property" */

@@ -38,20 +38,30 @@ export class Injector {
         })
         if (toClass) {
             if (toClass.staticFunctions) {
-                girClass._tsData.staticFunctions.push(...this.girFactory.newGirFunctions(toClass.staticFunctions))
+                girClass._tsData.staticFunctions.push(
+                    ...this.girFactory.newGirFunctions(toClass.staticFunctions, { isInjected: true }),
+                )
             }
             if (toClass.constructors) {
-                girClass._tsData.constructors.push(...this.girFactory.newGirFunctions(toClass.constructors))
+                girClass._tsData.constructors.push(
+                    ...this.girFactory.newGirFunctions(toClass.constructors, { isInjected: true }),
+                )
             }
             if (toClass.methods) {
-                girClass._tsData.methods.push(...this.girFactory.newGirFunctions(toClass.methods))
+                girClass._tsData.methods.push(...this.girFactory.newGirFunctions(toClass.methods, { isInjected: true }))
             }
             if (toClass.virtualMethods) {
-                girClass._tsData.virtualMethods.push(...this.girFactory.newGirFunctions(toClass.virtualMethods))
+                girClass._tsData.virtualMethods.push(
+                    ...this.girFactory.newGirFunctions(toClass.virtualMethods, { isInjected: true }),
+                )
             }
             if (toClass.propertySignalMethods) {
-                girClass._tsData.propertySignalMethods.push(...toClass.propertySignalMethods)
+                for (const propertySignalMethod of toClass.propertySignalMethods) {
+                    propertySignalMethod.isInjected = true
+                    girClass._tsData.propertySignalMethods.push(propertySignalMethod)
+                }
             }
+
             if (toClass.generics) {
                 girClass._tsData.generics.push(...this.girFactory.newGenerics(toClass.generics))
             }

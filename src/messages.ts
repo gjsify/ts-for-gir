@@ -57,11 +57,6 @@ export const WARN_RENAMED_ENUM = (originalName: string, newName: string) =>
 export const WARN_RENAMED_PARAMETER = (originalName: string, newName: string) =>
     `Parameter name renamed from '${originalName}' to '${newName}'`
 
-export const PATCH_FOR_PARAMETER = (name?: string) => `Patch found for parameter "${name || ''}"!`
-export const PATCH_FOR_VARIABLE = (name?: string) => `Patch found for variable "${name || ''}"!`
-export const PATCH_FOR_METHOD = (name?: string) => `Patch found for method "${name || ''}"!`
-export const PATCH_FOR_CONSTRUCTOR_PROPERTY = (name?: string) => `Patch found for constructor property "${name || ''}"!`
-
 // Info messages
 
 export const DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED =

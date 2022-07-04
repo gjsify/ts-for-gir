@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../../types/index.js'
 
-export const classesGObjectGjs: InjectionClass[] = [
+export const classesGObject20Gjs: InjectionClass[] = [
     {
         versions: ['2.0'],
         qualifiedName: 'GObject.ParamSpec',

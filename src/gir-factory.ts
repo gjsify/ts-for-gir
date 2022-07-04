@@ -120,11 +120,12 @@ export class GirFactory {
         throw new Error(`Unknown gir type: "${String(girTypeName)}"!`)
     }
 
-    newGirFunctions(injectFunctions: InjectionFunction[]) {
+    newGirFunctions(injectFunctions: InjectionFunction[], overrideToAll: Partial<InjectionFunction> = {}) {
         const girFunctionElements: Array<
             GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement
         > = []
-        for (const injectFunction of injectFunctions) {
+        for (let injectFunction of injectFunctions) {
+            injectFunction = { ...injectFunction, ...overrideToAll }
             girFunctionElements.push(this.newGirFunction(injectFunction))
         }
         return girFunctionElements
@@ -194,6 +195,7 @@ export class GirFactory {
             isStatic: tsData.isStatic || false,
             isGlobal: tsData.isGlobal || false,
             isVirtual: tsData.isVirtual || false,
+            isInjected: tsData.isInjected || false,
             retTypeIsVoid: tsData.returnTypes?.length === 1 && tsData.returnTypes[0]?.type === 'void',
             inParams: this.newGirCallableParamElements(tsData.inParams),
             outParams: this.newGirCallableParamElements(tsData.outParams),
@@ -213,6 +215,7 @@ export class GirFactory {
             ...tsData,
             readonly: tsData.readonly || false,
             isStatic: tsData.isStatic || false,
+            isInjected: tsData.isInjected || false,
             type: this.newTsTypes(tsData.type || []),
             doc: this.newTsDoc(tsData.doc),
             tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName, tsData.isStatic || false),

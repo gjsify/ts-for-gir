@@ -20,23 +20,9 @@ import {
     WARN_DUPLICATE_SYMBOL,
     WARN_DUPLICATE_PARAMETER,
     WARN_DUPLICATE_ENUM_IDENTIFIER,
-    PATCH_FOR_PARAMETER,
-    PATCH_FOR_VARIABLE,
-    PATCH_FOR_METHOD,
-    PATCH_FOR_CONSTRUCTOR_PROPERTY,
 } from './messages.js'
-import {
-    isEqual,
-    find,
-    clone,
-    girBool,
-    removeNamespace,
-    addNamespace,
-    merge,
-    girElementIsIntrospectable,
-} from './utils.js'
+import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
 import { SymTable } from './symtable.js'
-import { typePatches } from './injection/index.js'
 import type {
     GirRepository,
     GirNamespace,
@@ -92,7 +78,6 @@ import type {
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
-    Environment,
     ClassParent,
     InjectionParameter,
 } from './types/index.js'
@@ -838,42 +823,6 @@ export class GirModule {
         }
     }
 
-    private getPatches(
-        type: 'constructorProperties',
-        nsPath: string,
-        packageName?: string,
-        env?: Environment,
-    ): Partial<TsProperty>
-    private getPatches(type: 'methods', nsPath: string, packageName?: string, env?: Environment): Partial<TsMethod>
-    private getPatches(type: 'parameter', nsPath: string, packageName?: string, env?: Environment): Partial<TsParameter>
-
-    /**
-     * Get the patches for a given namespace path, type and package name (including the version number)
-     * @param packageName E.g. 'Gtk-3.0'
-     * @param type E.g 'methods'
-     * @param nsPath E.g. 'Gtk.MenuItem.activate'
-     *
-     * @deprecated TODO: Remove and use and use injections instead (InjectionClass)
-     */
-    private getPatches(
-        type: 'methods' | 'constructorProperties' | 'parameter',
-        nsPath: string,
-        packageName = this.packageName,
-        env = this.config.environment,
-    ) {
-        const packagePatches = merge(typePatches[env][packageName], typePatches.all[packageName])
-        if (!packagePatches) {
-            return undefined
-        }
-
-        const typePatch = packagePatches[type]
-        if (!typePatch) {
-            return undefined
-        }
-
-        return typePatch?.[nsPath] || undefined
-    }
-
     private getParameterTsData(
         girParam: GirCallableParamElement,
         girParams: GirCallableParamElement[],
@@ -971,16 +920,6 @@ export class GirModule {
 
                         param._tsData = this.getParameterTsData(param, params, paramNames, skip)
 
-                        // Apply patches
-                        const paramPatches = param._fullSymName
-                            ? this.getPatches('parameter', param._fullSymName)
-                            : undefined
-
-                        if (paramPatches) {
-                            this.log.warn(PATCH_FOR_PARAMETER(param._fullSymName))
-                            param._tsData = merge(param._tsData, paramPatches)
-                        }
-
                         const optDirection = param.$.direction
                         if (optDirection === 'out' || optDirection === 'inout') {
                             outParams.push(param)
@@ -1063,23 +1002,16 @@ export class GirModule {
         // for a property
         const tsType = this.getTsType(girVar, { optional, nullable, generics })
 
-        let tsData: TsProperty | TsVar = {
+        const tsData: TsProperty | TsVar = {
             name,
             type: [tsType],
+            isInjected: false,
             girTypeName,
             tsTypeName,
             doc: this.getTsDoc(girVar),
         }
 
         tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
-
-        // Apply patches
-        const varPatches = girVar._fullSymName ? this.getPatches('methods', girVar._fullSymName) : undefined
-
-        if (varPatches) {
-            this.log.warn(PATCH_FOR_VARIABLE(girVar._fullSymName))
-            tsData = merge(tsData, varPatches)
-        }
 
         return tsData
     }
@@ -1199,6 +1131,7 @@ export class GirModule {
             isArrowType: boolean
             isGlobal: boolean
             isVirtual: boolean
+            isInjected?: boolean
             returnType: string | null
             generics: TsGenericParameter[]
         },
@@ -1231,15 +1164,17 @@ export class GirModule {
         overwrite.isStatic = overwrite.isStatic || girTypeName === 'static-function' || girTypeName === 'constructor'
         overwrite.isGlobal = overwrite.isGlobal || girTypeName === 'function'
         overwrite.isVirtual = overwrite.isVirtual || girTypeName === 'virtual'
+        overwrite.isInjected = overwrite.isInjected || false
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name, overwrite.isVirtual)
 
-        let tsData: TsFunction = {
+        const tsData: TsFunction = {
             isArrowType: overwrite.isArrowType,
             isStatic: overwrite.isStatic,
             isGlobal: overwrite.isGlobal,
             isVirtual: overwrite.isVirtual,
+            isInjected: overwrite.isInjected,
             returnTypes,
             retTypeIsVoid,
             name,
@@ -1257,14 +1192,6 @@ export class GirModule {
 
         tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
         tsData.doc.tags.push(...this.getTsDocInParamTags(tsData?.inParams))
-
-        // Apply patches
-        const methodPatches = girFunc._fullSymName ? this.getPatches('methods', girFunc._fullSymName) : undefined
-
-        if (methodPatches) {
-            this.log.warn(PATCH_FOR_METHOD(girFunc._fullSymName))
-            tsData = merge(tsData, methodPatches)
-        }
 
         return tsData
     }
@@ -1367,6 +1294,7 @@ export class GirModule {
             isStatic: false,
             isGlobal: false,
             isVirtual: false,
+            isInjected: false,
             retTypeIsVoid,
             inParams,
             instanceParameters,
@@ -1637,18 +1565,6 @@ export class GirModule {
                 continue
             }
 
-            // Apply patches
-            {
-                const constructPropPatches = girConstrProp._fullSymName
-                    ? this.getPatches('constructorProperties', girConstrProp._fullSymName)
-                    : undefined
-
-                if (constructPropPatches) {
-                    this.log.warn(PATCH_FOR_CONSTRUCTOR_PROPERTY(girConstrProp._fullSymName))
-                    girConstrProp._tsData = merge(girConstrProp._tsData, constructPropPatches)
-                }
-            }
-
             if (girConstrProp._fullSymName)
                 this.symTable.set(this.allDependencies, girConstrProp._fullSymName, girConstrProp)
             constructProps.push(girConstrProp)
@@ -1788,22 +1704,32 @@ export class GirModule {
         }
 
         if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
-            const type = this.girFactory.newTsType({
-                // TODO: Type not as string
-                type: 'GObject.GType',
-                generics: this.girFactory.newGenerics([
-                    {
-                        value: girClass._tsData.name,
-                    },
-                ]),
-            })
-            const staticGTypeProp = this.girFactory.newGirProperty({
-                isStatic: true,
-                name: '$gtype',
-                type: [type],
-                girTypeName: 'property',
-            })
-            girProperties.push(staticGTypeProp)
+            if (this.config.environment === 'gjs') {
+                const type = this.girFactory.newTsType({
+                    // TODO: Type not as string
+                    type: 'GObject.GType',
+                    generics: this.girFactory.newGenerics([
+                        {
+                            value: girClass._tsData.name,
+                        },
+                    ]),
+                })
+                const staticGTypeProp = this.girFactory.newGirProperty({
+                    isStatic: true,
+                    name: '$gtype',
+                    type: [type],
+                    girTypeName: 'property',
+                })
+                girProperties.push(staticGTypeProp)
+            } else if (this.config.environment === 'node') {
+                const staticGTypeProp = this.girFactory.newGirProperty({
+                    isStatic: false,
+                    name: '__gtype__',
+                    type: [{ type: 'number' }],
+                    girTypeName: 'property',
+                })
+                girProperties.push(staticGTypeProp)
+            }
         }
 
         return girProperties

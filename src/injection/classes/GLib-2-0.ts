@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../types/index.js'
 
-export const classesGLibAll: InjectionClass[] = [
+export const classesGLib20All: InjectionClass[] = [
     {
         versions: ['2.0'],
         qualifiedName: 'GLib.List',

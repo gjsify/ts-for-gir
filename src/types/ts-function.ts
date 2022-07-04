@@ -26,6 +26,8 @@ export interface TsFunction {
     isGlobal: boolean
     /** true if this function is a virtual method with the `vfunc:` prefix: vfunc_foobar() {} */
     isVirtual: boolean
+    /** true if this function was injected using the `Injector`. This information is used in the `ConflictResolver` */
+    isInjected: boolean
     overrideReturnType?: string
     retTypeIsVoid: boolean
     inParams: GirCallableParamElement[]

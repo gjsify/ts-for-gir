@@ -1704,22 +1704,32 @@ export class GirModule {
         }
 
         if (girClass._tsData?.isDerivedFromGObject && girClass._module) {
-            const type = this.girFactory.newTsType({
-                // TODO: Type not as string
-                type: 'GObject.GType',
-                generics: this.girFactory.newGenerics([
-                    {
-                        value: girClass._tsData.name,
-                    },
-                ]),
-            })
-            const staticGTypeProp = this.girFactory.newGirProperty({
-                isStatic: true,
-                name: '$gtype',
-                type: [type],
-                girTypeName: 'property',
-            })
-            girProperties.push(staticGTypeProp)
+            if (this.config.environment === 'gjs') {
+                const type = this.girFactory.newTsType({
+                    // TODO: Type not as string
+                    type: 'GObject.GType',
+                    generics: this.girFactory.newGenerics([
+                        {
+                            value: girClass._tsData.name,
+                        },
+                    ]),
+                })
+                const staticGTypeProp = this.girFactory.newGirProperty({
+                    isStatic: true,
+                    name: '$gtype',
+                    type: [type],
+                    girTypeName: 'property',
+                })
+                girProperties.push(staticGTypeProp)
+            } else if (this.config.environment === 'node') {
+                const staticGTypeProp = this.girFactory.newGirProperty({
+                    isStatic: false,
+                    name: '__gtype__',
+                    type: [{ type: 'number' }],
+                    girTypeName: 'property',
+                })
+                girProperties.push(staticGTypeProp)
+            }
         }
 
         return girProperties

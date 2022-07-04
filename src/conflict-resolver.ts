@@ -1111,7 +1111,7 @@ export class ConflictResolver {
     public groupConflicts(elements: ConflictChildElement[], tsClass: TsClass) {
         const groupedConflicts: ConflictGroupedElements = {}
 
-        const IGNORE_CONFLICT_NAMES = ['$gtype']
+        const IGNORE_CONFLICT_NAMES = ['$gtype', '__gtype__']
 
         for (const a of elements) {
             const name = a.data.name

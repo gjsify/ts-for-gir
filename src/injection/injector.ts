@@ -29,7 +29,13 @@ export class Injector {
 
         const classes = this.environment === 'gjs' ? [...classesAll, ...classesGjs] : [...classesAll, ...classesNode]
 
-        const toClass = classes.find((cls) => cls.qualifiedName === girClass._tsData?.qualifiedName)
+        const toClass = classes.find((cls) => {
+            return (
+                girClass._tsData &&
+                cls.qualifiedName === girClass._tsData.qualifiedName &&
+                cls.versions.includes(girClass._tsData.version)
+            )
+        })
         if (toClass) {
             if (toClass.staticFunctions) {
                 girClass._tsData.staticFunctions.push(...this.girFactory.newGirFunctions(toClass.staticFunctions))

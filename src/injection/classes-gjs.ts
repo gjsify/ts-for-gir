@@ -2,6 +2,7 @@ import type { InjectionClass } from '../types/index.js'
 
 export const classesGjs: InjectionClass[] = [
     {
+        versions: ['2.0'],
         qualifiedName: 'GObject.ParamSpec',
         // Static functions injected by GJS, see https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/GObject.js
         staticFunctions: [
@@ -634,6 +635,7 @@ export const classesGjs: InjectionClass[] = [
 
     // https://gjs.guide/guides/glib/gvariant.html#unpacking-variants
     {
+        versions: ['2.0'],
         qualifiedName: 'GLib.Variant',
         methods: [
             {

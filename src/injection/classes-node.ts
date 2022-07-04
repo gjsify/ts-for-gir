@@ -1,8 +1,8 @@
 import type { InjectionClass } from '../types/index.js'
 
 export const classesNode: InjectionClass[] = [
-    // TODO set version GLib-2.0
     {
+        versions: ['2.0'],
         qualifiedName: 'GLib.MainLoop',
         methods: [
             {
@@ -17,9 +17,9 @@ export const classesNode: InjectionClass[] = [
             },
         ],
     },
-    // TODO set version Gdk-4.0
     // See https://github.com/romgrk/node-gtk/blob/master/lib/overrides/Gdk-4.0.js
     {
+        versions: ['4.0'],
         qualifiedName: 'Gdk.RGBA',
         constructors: [
             {
@@ -46,9 +46,9 @@ export const classesNode: InjectionClass[] = [
             },
         ],
     },
-    // TODO set version Graphene-1.0
     // See https://github.com/romgrk/node-gtk/blob/master/lib/overrides/Graphene-1.0.js
     {
+        versions: ['1.0'],
         qualifiedName: 'Graphene.Rect',
         constructors: [
             {
@@ -103,6 +103,7 @@ export const classesNode: InjectionClass[] = [
         ],
     },
     {
+        versions: ['1.0'],
         qualifiedName: 'Graphene.Point',
         constructors: [
             {
@@ -139,6 +140,7 @@ export const classesNode: InjectionClass[] = [
         ],
     },
     {
+        versions: ['1.0'],
         qualifiedName: 'Graphene.Size',
         constructors: [
             {

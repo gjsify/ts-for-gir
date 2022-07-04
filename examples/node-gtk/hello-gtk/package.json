@@ -2,7 +2,7 @@
   "name": "node-ts-hello-gtk-example",
   "version": "0.0.1",
   "description": "",
-  "main": "main.ts",
+  "main": "dist/main.js",
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",

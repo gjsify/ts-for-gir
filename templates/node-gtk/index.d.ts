@@ -27,6 +27,14 @@ declare module 'node-gtk' {
     export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importName %>;
     <%_ } _%>
     export function startLoop(): void;
+    export function registerClass(object: any): void
+
+    declare const gi: {
+        require: typeof require,
+        startLoop: typeof startLoop,
+        registerClass: typeof registerClass,
+    }
+    export default gi
 <%_ if (buildType === 'types') { _%>
 }
 <%_ } _%>

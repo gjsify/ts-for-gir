@@ -1,25 +1,26 @@
 {
-  "name": "ts-for-gir-g-variant-example",
+  "name": "ts-for-gir-node-gtk-gtk-4-custom-widget-example",
   "version": "1.0.0",
-  "description": "ts-for-gir GVariant example based on https://gjs.guide/guides/glib/gvariant.html",
-  "main": "index.js",
-  "type": "module",
+  "description": "This example shows the usage of custom widgets and virtual functions in node-gtk",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "npm run ts-for-gir -- generate GLib-2.0 -e gjs --useNamespace -t esm",
+    "build:types": "npm run ts-for-gir -- generate Gtk-4.0 Gdk-4.0 Graphene-1.0 -e node --useNamespace -t esm",
     "build:app": "node esbuild.js",
     "build": "npm run build:types && npm run build:app",
-    "start:app": "gjs -m dist/index.js",
-    "debug:app": "GTK_DEBUG=interactive npm run start:app",
+    "start:app": "node dist/index.js",
     "start": "npm run build && npm run start:app",
     "validate": "npm run validate:types && npm run validate:app",
-    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
     "validate:app": "tsc --noEmit",
     "ts-for-gir": "../../../lib/start.js"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.14.47"
+    "esbuild": "^0.14.48"
+  },
+  "dependencies": {
+    "node-gtk": "^0.10.0"
   }
 }

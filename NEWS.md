@@ -4,6 +4,7 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
 # Dev
+- node-gtk: Now supports virtual methods, see #77
 - Wrap constructor properties and signal callback interfaces to a class name module, see #73
 - Improve typing definition of log and logError, see #71 by @HeavenVolkoff
 

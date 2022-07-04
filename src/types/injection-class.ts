@@ -2,6 +2,9 @@ import type { InjectionFunction, InjectionGenericParameter, TsMethod } from './i
 
 /** Interface to inject additional methods, properties, etc to a class */
 export interface InjectionClass {
+    /** The versions on which the injections are to be applied. E.g. `["3.0", "2.0"]` */
+    versions: string[]
+    /** The class namespace and name on which the injections are to be applied. E.g. "Gtk.Window "*/
     qualifiedName: string
 
     /** Fields of the base class itself */

@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../../types/index.js'
 
-import { classesGObjectGjs } from './GObject-2.0.js'
-import { classesGLibGjs } from './GLib-2.0.js'
+import { classesGObject20Gjs } from './GObject-2.0.js'
+import { classesGLib20Gjs } from './GLib-2.0.js'
 
-export const classesGjs: InjectionClass[] = [...classesGObjectGjs, ...classesGLibGjs]
+export const classesGjs: InjectionClass[] = [...classesGObject20Gjs, ...classesGLib20Gjs]

@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../../types/index.js'
 
-export const classesGrapheneNode: InjectionClass[] = [
+export const classesGraphene10Node: InjectionClass[] = [
     // See https://github.com/romgrk/node-gtk/blob/master/lib/overrides/Graphene-1.0.js
     {
         versions: ['1.0'],

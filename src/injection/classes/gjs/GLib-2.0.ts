@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../../types/index.js'
 
-export const classesGLibGjs: InjectionClass[] = [
+export const classesGLib20Gjs: InjectionClass[] = [
     // https://gjs.guide/guides/glib/gvariant.html#unpacking-variants
     {
         versions: ['2.0'],

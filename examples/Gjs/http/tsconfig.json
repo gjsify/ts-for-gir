@@ -9,5 +9,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-  }
+  },
+  "files": [
+    "http-client.ts",
+    "http-server.ts"
+  ]
 }

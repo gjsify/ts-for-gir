@@ -143,5 +143,5 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
  */
 export const GjsListStore = GObject.registerClass({
     GTypeName: 'GjsListStore',
-    Implements: [Gio.ListModel as any], // TODO
+    Implements: [Gio.ListModel],
 }, _GjsListStore);

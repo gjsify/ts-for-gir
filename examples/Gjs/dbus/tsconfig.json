@@ -9,5 +9,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-  }
+  },
+  "files": [
+    "dbus-client.ts",
+    "dbus-server.ts"
+  ]
 }

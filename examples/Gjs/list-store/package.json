@@ -9,9 +9,9 @@
     "build:types": "npm run ts-for-gir -- generate Gtk-4.0 -e gjs --useNamespace -t esm",
     "build:app": "node esbuild.js",
     "build": "npm run build:types && npm run build:app",
-    "start:gjs": "gjs -m dist/main.js",
-    "start:gjs:debug": "GTK_DEBUG=interactive gjs -m dist/main.js",
-    "start": "npm run build && npm run start:gjs",
+    "start:app": "gjs -m dist/main.js",
+    "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
+    "start": "npm run build && npm run start:app",
     "ts-for-gir": "../../../lib/start.js"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",

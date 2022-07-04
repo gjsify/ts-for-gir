@@ -1,5 +1,5 @@
 export * from './types/index.js'
-export * from './injections/index.js'
+export * from './injection/index.js'
 export * from './commands/index.js'
 export * from './config.js'
 export * from './conflict-resolver.js'

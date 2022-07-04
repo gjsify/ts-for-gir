@@ -10,7 +10,7 @@ import {
 } from './transformation.js'
 import { STATIC_NAME_ALREADY_EXISTS, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import { Logger } from './logger.js'
-import { Injector } from './injections/injector.js'
+import { Injector } from './injection/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
 import {
@@ -36,7 +36,7 @@ import {
     girElementIsIntrospectable,
 } from './utils.js'
 import { SymTable } from './symtable.js'
-import { typePatches } from './injections/index.js'
+import { typePatches } from './injection/index.js'
 import type {
     GirRepository,
     GirNamespace,

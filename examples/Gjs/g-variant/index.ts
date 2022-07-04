@@ -211,4 +211,4 @@ print("deepDictFull", JSON.stringify(deepDictFull));
 
 // # DBus and GVariant
 
-// TODO solve `Gio.DBus` https://gjs.guide/guides/glib/gvariant.html#dbus-and-gvariant
+// TODO solve `GLib.Gio.DBus` https://gjs.guide/guides/glib/gvariant.html#dbus-and-gvariant

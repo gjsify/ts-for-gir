@@ -2,7 +2,7 @@
 
 [TypeScript](https://www.typescriptlang.org/) binding generator for
 [GJS](https://wiki.gnome.org/Projects/Gjs) and
-[node-gtk](https://github.com/romgrk/node-gtk) (in a very early stage).  Inspired by
+[node-gtk](https://github.com/romgrk/node-gtk).  Inspired by
 [gir2dts](https://github.com/darkoverlordofdata/gir2dts) but re-written and
 re-designed to be a more thorough TypeScript description of the [GObject
 introspection](https://wiki.gnome.org/Projects/GObjectIntrospection)
@@ -20,6 +20,12 @@ npm install
 npm run build
 npm link
 ```
+
+### NPM
+
+WARNING: Do not use [the NPM package](https://www.npmjs.com/package/ts-for-gir), this has not been published by us, is heavily outdated and every attempt to contact the person who published this package on NPM was unsuccessful.
+
+We will publish this project ourselves under a different name on NPM in the near future.
 
 ### CLI
 

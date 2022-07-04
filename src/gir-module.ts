@@ -1316,9 +1316,10 @@ export class GirModule {
      * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
      * for a default gir signal element
      * @param girSignal
+     * @param overwritten If `true` this renames the `connect` and `disconnect` methods to `connectSignal` and `disconnectSignal`. This is for example used in `Gio.DBusProxy`
      * @returns
      */
-    private getClassSignalMethodsTsData(girSignal: GirSignalElement) {
+    private getClassSignalMethodsTsData(girSignal: GirSignalElement, overwritten = false) {
         if (!girSignal._tsData) {
             throw new Error(NO_TSDATA('getClassSignalMethodsTsData'))
         }
@@ -1337,6 +1338,8 @@ export class GirModule {
             girSignal._tsData?.tsCallbackInterface?.name,
             inParams,
             this.config.environment,
+            false,
+            overwritten,
         )
     }
 
@@ -1412,7 +1415,14 @@ export class GirModule {
             if (!girSignal._tsData) {
                 throw NO_TSDATA('setSignalTsData')
             }
-            girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal)
+
+            // WORKAROUND maybe there is a better solution
+            let connectMethodsOverwritten = false
+            if (girClass._tsData.name === 'DBusProxy') {
+                connectMethodsOverwritten = true
+            }
+
+            girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal, connectMethodsOverwritten)
         }
 
         return girSignal._tsData

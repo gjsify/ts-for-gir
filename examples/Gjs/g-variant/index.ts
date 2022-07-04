@@ -2,6 +2,7 @@
 
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';
+import Gio from './@types/Gjs/Gio-2.0.js';
 
 // Serializing JSON to a string
 // Output: {"name":"Mario","lives":3,"active":true}
@@ -11,7 +12,7 @@ const json = {
     active: true,
 };
 
-const jsonString = JSON.stringify(json);
+const jsonString = JSON.stringify(json, null, 2);
 print("jsonString", jsonString);
 
 // Serializing GVariant to a string
@@ -162,7 +163,7 @@ print("unpackedStrv", unpackedStrv);
 //   "one","two"
 variantStrv = GLib.Variant.new_strv(['one', 'two']);
 const deepUnpackedStrv = variantStrv.deepUnpack<string[]>()
-print("deepUnpackedStrv", `"${deepUnpackedStrv}"`, `"${JSON.stringify(deepUnpackedStrv)}" (JSON.stringify)`);
+print("deepUnpackedStrv", `"${deepUnpackedStrv}"`, `"${JSON.stringify(deepUnpackedStrv, null, 2)}" (JSON.stringify)`);
 
 
 // Expected result here is:
@@ -177,7 +178,7 @@ shallowDict = new GLib.Variant('a{ss}', {
 
 const shallowDictUnpacked = shallowDict.deepUnpack<{[key: string]: string}>();
 
-print("shallowDictUnpacked", JSON.stringify(shallowDictUnpacked));
+print("shallowDictUnpacked", JSON.stringify(shallowDictUnpacked, null, 2));
 
 // Expected result here is:
 //   {
@@ -191,7 +192,7 @@ deepDict = new GLib.Variant('a{sv}', {
 
 const deepDictUnpacked = deepDict.deepUnpack<{[key: string]: GLib.Variant}>;
 
-print("deepDictUnpacked", JSON.stringify(deepDictUnpacked));
+print("deepDictUnpacked", JSON.stringify(deepDictUnpacked, null, 2));
 
 // ## recursiveUnpack()
 
@@ -207,8 +208,61 @@ deepDict = new GLib.Variant('a{sv}', {
 
 const deepDictFull = deepDict.recursiveUnpack<{key1: string; key2: boolean}>();
 
-print("deepDictFull", JSON.stringify(deepDictFull));
+print("deepDictFull", JSON.stringify(deepDictFull, null, 2));
 
 // # DBus and GVariant
 
-// TODO solve `GLib.Gio.DBus` https://gjs.guide/guides/glib/gvariant.html#dbus-and-gvariant
+// This method takes three arguments. Remember that JavaScript has no tuple
+// type so we're using an Array instead.
+const parameters = new GLib.Variant('(ssa{sv})', [
+    'some-extension@someone.github.io',
+    '',
+    {},
+]);
+
+// This method has no return value, so the reply variant will be an empty tuple.
+// You can also use this pattern to workaround the lack of `null` type in DBus.
+const emptyReply = Gio.DBus.session.call_sync(
+    'org.gnome.Shell',
+    '/org/gnome/Shell',
+    'org.gnome.Shell.Extensions',
+    'OpenExtensionPrefs',
+    parameters, // The method arguments
+    null,       // The expected reply type
+    Gio.DBusCallFlags.NONE,
+    -1,
+    null
+);
+
+print("emptyReply", JSON.stringify(emptyReply.recursiveUnpack<[]>(), null, 2));
+
+
+// This method takes no arguments. For convenience you can pass `null` instead
+// of an empty tuple.
+//
+// This method returns a value. You may pass `GLib.VariantType` if you want the
+// return value automatically type-checked.
+const reply = Gio.DBus.session.call_sync(
+    'org.gnome.Shell',
+    '/org/gnome/Shell',
+    'org.gnome.Shell.Extensions',
+    'ListExtensions',
+    null,                                // The method arguments
+    new GLib.VariantType('(a{sa{sv}})'), // The expected reply type
+    Gio.DBusCallFlags.NONE,
+    -1,
+    null
+);
+
+print("reply", JSON.stringify(reply.recursiveUnpack<any>(), null, 2));
+
+// We know the first and only child of the tuple is the actual return value
+const value = reply.get_child_value(0);
+
+// Now we can unpack our value
+const extensions = value.recursiveUnpack();
+
+print("extensions", JSON.stringify(extensions, null, 2));
+
+// #GSettings and GVariant
+// TODO: https://gjs.guide/guides/glib/gvariant.html#gsettings-and-gvariant

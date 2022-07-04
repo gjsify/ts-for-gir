@@ -1,6 +1,7 @@
 import type { InjectionClass } from '../../../types/index.js'
 
 import { classesGdk40Node } from './Gdk-4.0.js'
+import { classesGio20Node } from './Gio-2.0.js'
 import { classesGLib20Node } from './GLib-2.0.js'
 import { classesGObject20Node } from './GObject-2.0.js'
 import { classesGraphene10Node } from './Graphene-1.0.js'
@@ -10,6 +11,7 @@ import { classesPango10Node } from './Pango-1.0.js'
 
 export const classesNode: InjectionClass[] = [
     ...classesGdk40Node,
+    ...classesGio20Node,
     ...classesGLib20Node,
     ...classesGObject20Node,
     ...classesGraphene10Node,

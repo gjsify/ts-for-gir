@@ -20,6 +20,7 @@ declare global {
     function printerr(...args: any[]): void
     function log(message: any): void
     function logError(exception: object, message?: any): void
+    function logError(message?: any): void
 
     interface Console {
         /**

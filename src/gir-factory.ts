@@ -278,7 +278,12 @@ export class GirFactory {
     /**
      * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
      * for a default gir signal element
-     * @param girSignal
+     * @param signalName The signal name
+     * @param callbackType The callback type
+     * @param emitInParams
+     * @param environment
+     * @param withDisconnect If `true` this also generates a `disconnect` method
+     * @param overwritten If `true` this renames the `connect` and `disconnect` methods to `connectSignal` and `disconnectSignal`. This is for example used in `Gio.DBusProxy`
      * @returns
      */
     newTsSignalMethods(
@@ -286,7 +291,8 @@ export class GirFactory {
         callbackType: string | undefined,
         emitInParams: InjectionParameter[],
         environment: Environment,
-        withDisconnect?: boolean,
+        withDisconnect = false,
+        overwritten = false,
     ) {
         const tsMethods: TsMethod[] = []
         const girTypeName: TypeGirFunction = 'signal'
@@ -330,7 +336,7 @@ export class GirFactory {
         })
 
         const connectTsFn = this.newTsFunction({
-            name: 'connect',
+            name: overwritten ? 'connectSignal' : 'connect',
             inParams: [sigNameInParam, callbackInParam],
             returnTypes: [numberReturnType],
             girTypeName,
@@ -401,7 +407,7 @@ export class GirFactory {
             }
 
             const emitTsFn = this.newTsFunction({
-                name: 'disconnect',
+                name: overwritten ? 'disconnectSignal' : 'disconnect',
                 inParams: [idInParam],
                 girTypeName,
             })

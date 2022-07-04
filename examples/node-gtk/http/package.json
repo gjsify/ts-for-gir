@@ -1,7 +1,7 @@
 {
   "name": "ts-for-gir-node-gtk-http-example",
   "version": "1.0.0",
-  "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
+  "description": "Node-gtk example showing how to build a http server/client using Soap 3",
   "main": "dist/http-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

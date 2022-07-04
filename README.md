@@ -340,6 +340,25 @@ npm run start:server
 npm run start:client
 ```
 
+### Gtk4 Custom Widget
+![gtk-4-custom-widget](examples/gtk-4-custom-widget.png)
+
+This example shows the usage of custom widgets and virtual functions in Gjs and node-gtk.
+
+Source: [Gjs](/examples/Gjs/gtk-4-custom-widget), [node-gtk](/examples/node-gtk/gtk-4-custom-widget)  
+Builder: ESBuild  
+Module: ESM    
+
+Build and run:
+```bash
+cd /examples/Gjs/gtk-4-custom-widget
+npm run start
+
+# or for node-gtk
+cd /examples/node-gtk/gtk-4-custom-widget
+npm run start
+```
+
 ## What it's like
 
 ![screencast](screencast-01.gif)

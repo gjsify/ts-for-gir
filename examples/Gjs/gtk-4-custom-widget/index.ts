@@ -1,21 +1,22 @@
 // This example is based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4-custom-widget.js
 
-import gi from './@types/node-gtk/index.js';
-import GLib from './@types/node-gtk/GLib-2.0.js';
-import Gtk from './@types/node-gtk/Gtk-4.0.js';
-import Gdk from './@types/node-gtk/Gdk-4.0.js';
-import Graphene from './@types/node-gtk/Graphene-1.0.js';
+import './@types/Gjs/index.js';
+import GObject from './@types/Gjs/GObject-2.0.js'
+import GLib from './@types/Gjs/GLib-2.0.js';
+import Gtk from './@types/Gjs/Gtk-4.0.js';
+import Gdk from './@types/Gjs/Gdk-4.0.js';
+import Graphene from './@types/Gjs/Graphene-1.0.js';
 
-Gtk.init()
+Gtk.init();
 
 /* Define our custom widget */
 
-class CustomWidget extends Gtk.Widget {
+class ICustomWidget extends Gtk.Widget {
   customMethod() {
     console.log("Hello from CustomWidget.customMethod")
   }
 
-  measure(orientation: Gtk.Orientation, forSize: number) {
+  vfunc_measure(orientation: Gtk.Orientation, forSize: number) {
     const [minWidth, natWidth] = [100, 200]
     const [minHeight, natHeight] = [20, 40]
     const isHorizontal = orientation === Gtk.Orientation.HORIZONTAL
@@ -28,22 +29,29 @@ class CustomWidget extends Gtk.Widget {
     return [minimum, natural, minimumBaseline, naturalBaseline] as [number, number, number, number]
   }
 
-  snapshot(snapshot: Gtk.Snapshot) {
-    const width = this.getAllocatedWidth()
-    const color = Gdk.RGBA.create('red')
-    const rect = Graphene.Rect.create(10, 10, width / 2, 10)
-    snapshot.appendColor(color, rect)
+  vfunc_snapshot(snapshot: Gtk.Snapshot) {
+    const width = this.get_allocated_width()
+    const color = new Gdk.RGBA()
+    color.parse('red');
+    const rect = new Graphene.Rect().init(10, 10, width / 2, 10)
+    snapshot.append_color(color, rect)
   }
 }
 
-gi.registerClass(CustomWidget)
+const CustomWidget = GObject.registerClass({
+  GTypeName: 'CustomWidget',
+}, ICustomWidget );
+
 
 
 /* Setup & start the application */
 
 const loop = GLib.MainLoop.new(null, false)
-const app = new Gtk.Application('com.github.romgrk.node-gtk.demo', 0)
-app.on('activate', onActivate)
+const app = new Gtk.Application({
+  application_id: 'com.github.jumplink.gjs.demo',
+  flags: 0
+})
+app.connect('activate', onActivate)
 const status = app.run([])
 
 console.log('Finished with status:', status)
@@ -52,29 +60,29 @@ console.log('Finished with status:', status)
 
 function onActivate() {
   const window = new Gtk.ApplicationWindow(app)
-  window.setTitle('Window')
-  window.setDefaultSize(200, 200)
-  window.on('close-request', onQuit)
+  window.set_title('Window')
+  window.set_default_size(200, 200)
+  window.connect('close-request', onQuit)
 
   const ui = getUI()
-  const builder = Gtk.Builder.newFromString(ui, ui.length)
-  const root = builder.getObject('root') as Gtk.Box
+  const builder = Gtk.Builder.new_from_string(ui, ui.length)
+  const root = builder.get_object('root') as Gtk.Box
   const custom = new CustomWidget()
   root.append(custom)
+  custom.show();
 
-  const actionButton = builder.getObject('actionButton') as Gtk.Button
-  actionButton?.on('clicked', () => {
+  const actionButton = builder.get_object('actionButton') as Gtk.Button
+  actionButton?.connect('clicked', () => {
     console.log('clicked')
     custom.customMethod()
   })
 
-  const closeButton = builder.getObject('closeButton') as Gtk.Button
-  closeButton?.on('clicked', () => window.close())
+  const closeButton = builder.get_object('closeButton') as Gtk.Button
+  closeButton?.connect('clicked', () => window.close())
 
-  if(root) window.setChild(root)
+  if(root) window.set_child(root)
   window.present()
 
-  gi.startLoop()
   loop.run()
 }
 

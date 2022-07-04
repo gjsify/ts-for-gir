@@ -1,7 +1,7 @@
 import { build } from "esbuild";
 
 await build({
-    entryPoints: ['http-client.ts', 'http-server.ts'],
+    entryPoints: ['index.ts'],
     outdir: 'dist',
     bundle: true,
     // target: "firefox60", // Since GJS 1.53.90

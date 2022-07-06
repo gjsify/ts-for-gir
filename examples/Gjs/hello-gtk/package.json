@@ -1,5 +1,5 @@
 {
-  "name": "gjs-ts-hello-gtk-example",
+  "name": "ts-for-gir-hello-gtk-example",
   "version": "0.0.1",
   "description": "",
   "main": "main.ts",

@@ -8,5 +8,8 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-  }
+  },
+  "files": [
+    "main.ts",
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "gjs-ts-browser-example",
+  "name": "ts-for-gir-browser-example",
   "version": "0.0.1",
   "description": "",
   "module": "dist/main.js",

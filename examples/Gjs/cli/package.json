@@ -1,5 +1,5 @@
 {
-  "name": "gjs-ts-cli-example",
+  "name": "ts-for-gir-cli-example",
   "version": "0.0.1",
   "description": "",
   "module": "dist/main.js",

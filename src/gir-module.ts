@@ -101,7 +101,7 @@ export class GirModule {
     packageName: string
     /**
      * E.g. 'Gtk30'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0";`
+     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0.js";`
      */
     importName: string
 

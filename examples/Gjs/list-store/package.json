@@ -12,6 +12,9 @@
     "start:app": "gjs -m dist/main.js",
     "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
     "start": "npm run build && npm run start:app",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
     "ts-for-gir": "../../../lib/start.js"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",

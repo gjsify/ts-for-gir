@@ -15,7 +15,7 @@
     "watch": "npm run build -- --watch",
     "ts-for-gir": "../../../lib/start.js",
     "validate": "npm run validate:types && npm run validate:app",
-    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
     "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

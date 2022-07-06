@@ -1,8 +1,8 @@
 
 <% if(useNamespace){ %>
-    import GObject from './GObject-2.0';
+    import GObject from './GObject-2.0.js';
   <% } else { %>  
-    import * as GObject from './GObject-2.0';
+    import * as GObject from './GObject-2.0.js';
 <% } %>
 
 const inheritanceTable: { [key: string]: string[] } = {

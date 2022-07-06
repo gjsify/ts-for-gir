@@ -13,7 +13,7 @@
     "debug:app": "GTK_DEBUG=interactive npm run start:app",
     "start": "npm run build && npm run start:app",
     "validate": "npm run validate:types && npm run validate:app",
-    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
     "validate:app": "tsc --noEmit",
     "ts-for-gir": "../../../lib/start.js"
   },

@@ -48,7 +48,7 @@ export const classesGio20Gjs: InjectionClass[] = [
                     },
                     {
                         name: 'callback',
-                        type: [{ type: '(proxy: Gio.DBusProxy, name: string, args: T) => boolean | void' }],
+                        type: [{ type: '(proxy: DBusProxy, name: string, args: T) => boolean | void' }],
                     },
                 ],
             },

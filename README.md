@@ -374,7 +374,7 @@ npm run start
 Install GObject Introspection Repository files:
 
 ```bash
-# Ubuntu 18.04
+# Ubuntu 22.04
 sudo apt update && sudo apt install \
     libappindicator3-dev \
     libgda-5.0-dev \
@@ -384,6 +384,7 @@ sudo apt update && sudo apt install \
     libgtksourceview-3.0-dev \
     libnotify-dev \
     libsoup2.4-dev \
+    libsoup-3.0-dev \
     libwebkit2gtk-4.0-dev
 
 # Fedora 35

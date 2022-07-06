@@ -653,7 +653,7 @@ export class ConflictResolver {
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} External Function vs. Signal`, baseFunc, b.data)
-                        base.data.hasUnresolvedConflict = true
+                        baseFunc.hasUnresolvedConflict = true
                     }
 
                     // Function vs. Function
@@ -835,7 +835,7 @@ export class ConflictResolver {
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} Internal Function vs. Signal`, baseFunc, b.data)
-                        // base.data.hasUnresolvedConflict = true
+                        // Do nothing
                     }
 
                     // Function vs. Function
@@ -913,13 +913,15 @@ export class ConflictResolver {
 
                 // If a element is a signal
                 else if (this.tsElementIsSignal(base.data)) {
+                    const baseSig = base.data as TsSignal
                     // Signal vs. Function
                     if (this.tsElementIsMethodOrFunction(b.data)) {
-                        this.log.debug(`${className}.${name} Internal Signal vs. Function`, base.data, b.data)
+                        this.log.debug(`${className}.${name} Internal Signal vs. Function`, baseSig, b.data)
+                        // Do nothing
                     }
                     // Signal vs. Property
-                    else if (this.tsElementIsPropertyOrVariable(base.data)) {
-                        this.log.debug(`${className}.${name} Internal Signal vs. Property`, base.data, b.data)
+                    else if (this.tsElementIsPropertyOrVariable(b.data)) {
+                        this.log.debug(`${className}.${name} Internal Signal vs. Property`, baseSig, b.data)
                         b.data.hasUnresolvedConflict = true
                     }
                 }

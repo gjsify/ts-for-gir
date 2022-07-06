@@ -13,7 +13,9 @@
     "start": "npm run clear && npm run build && npm run start:app",
     "start:app": "node dist/main.js",
     "watch": "npm run build:app -- --watch",
-    "lint": "tsc --noEmit",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

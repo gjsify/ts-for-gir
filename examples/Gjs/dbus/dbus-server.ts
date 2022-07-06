@@ -9,7 +9,7 @@ import Gio from './@types/Gjs/Gio-2.0.js';
 /*
  * An XML DBus Interface
  */
-const ifaceXml = `
+const ifaceExampleXml = `
 <node>
   <interface name="org.gnome.gjs.Test">
     <method name="SimpleMethod"/>
@@ -34,7 +34,7 @@ class Service {
     _readWriteProperty?: boolean;
 
     constructor() {
-        this.dbus = Gio.DBusExportedObject.wrapJSObject(ifaceXml, this);
+        this.dbus = Gio.DBusExportedObject.wrapJSObject(ifaceExampleXml, this);
     }
 
     // Properties

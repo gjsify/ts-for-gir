@@ -23,7 +23,7 @@ export const clone = lodash.clone
 
 export const cloneDeep = lodash.cloneDeep
 
-export function splitModuleName(packageName: string): { packageName: string; namespace: string; version: string } {
+export const splitModuleName = (packageName: string): { packageName: string; namespace: string; version: string } => {
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
     const splits = packageName.split('-')
     const version = splits.splice(-1, 1)[0]
@@ -36,7 +36,7 @@ export function splitModuleName(packageName: string): { packageName: string; nam
 }
 
 /** Remove namespace prefix */
-export function removeNamespace(type: string, namespace: string) {
+export const removeNamespace = (type: string, namespace: string) => {
     if (type.startsWith(namespace + '.')) {
         type = type.substring(namespace.length + 1)
     }
@@ -46,7 +46,7 @@ export function removeNamespace(type: string, namespace: string) {
 /** Remove class module name prefix */
 export const removeClassModule = removeNamespace
 
-export function addNamespace(type: string, namespace: string) {
+export const addNamespace = (type: string, namespace: string) => {
     if (!type.startsWith(namespace + '.')) {
         type = namespace + '.' + type
     }
@@ -58,28 +58,28 @@ export function addNamespace(type: string, namespace: string) {
  * see https://stackoverflow.com/a/32538867
  * @param obj Variable to check for iterable
  */
-export function isIterable(obj: unknown[]): boolean {
+export const isIterable = (obj: unknown[]): boolean => {
     return obj != null && typeof obj[Symbol.iterator] === 'function'
 }
 
-export function isNumeric(str: string): boolean {
+export const isNumeric = (str: string): boolean => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return !isNaN((str as any) - parseFloat(str))
 }
 
-export function getFirstChar(str: string): string {
+export const getFirstChar = (str: string): string => {
     return str.charAt(0)
 }
 
-export function getLastChar(str: string): string {
+export const getLastChar = (str: string): string => {
     return str.charAt(str.length - 1)
 }
 
-export function isFirstCharNumeric(str: string): boolean {
+export const isFirstCharNumeric = (str: string): boolean => {
     return isNumeric(getFirstChar(str))
 }
 
-export function camelCase(str: string): string {
+export const camelCase = (str: string): string => {
     return str
         .replace(/\s(.)|(\s|-|_|\.)(.)/g, (a) => {
             return a.toUpperCase()
@@ -87,19 +87,19 @@ export function camelCase(str: string): string {
         .replace(/(\s|-|_|\.)/g, '')
 }
 
-export function lowerCamelCase(str: string): string {
+export const lowerCamelCase = (str: string): string => {
     str = camelCase(str)
     str = getFirstChar(str).toLowerCase() + str.slice(1)
     return str
 }
 
-export function upperCamelCase(str: string): string {
+export const upperCamelCase = (str: string): string => {
     str = camelCase(str)
     str = getFirstChar(str).toUpperCase() + str.slice(1)
     return str
 }
 
-export function findFileInDirs(dirs: string[], filename: string): { path: string | null; exists: boolean } {
+export const findFileInDirs = (dirs: string[], filename: string): { path: string | null; exists: boolean } => {
     let exists = false
     for (const dir of dirs) {
         const filePath = Path.join(dir, filename)
@@ -123,11 +123,11 @@ export function findFileInDirs(dirs: string[], filename: string): { path: string
  * @param target
  * @param source
  */
-export function union<T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> {
+export const union = <T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> => {
     return (target = new Set<T>([...target, ...source]))
 }
 
-export function stripParamNames(func: string, ignoreTail = false): string {
+export const stripParamNames = (func: string, ignoreTail = false): string => {
     const g = func
     func = func.replace(COMMENT_REG_EXP, '')
     const lb = func.split('(', 2)
@@ -140,12 +140,12 @@ export function stripParamNames(func: string, ignoreTail = false): string {
     return `${lb[0]}(${params})${tail}`
 }
 
-export function isCommentLine(line: string) {
+export const isCommentLine = (line: string) => {
     const lineTrim = line.trim()
     return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
 }
 
-export function generateIndent(indents = 1, spaceForIndent = 4): string {
+export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
     return ' '.repeat(indents * spaceForIndent)
 }
 
@@ -153,7 +153,7 @@ export function generateIndent(indents = 1, spaceForIndent = 4): string {
 export const __filename = fileURLToPath(import.meta.url)
 export const __dirname = Path.dirname(__filename)
 
-export function getEnvironmentDir(environment: Environment, baseDir: string): string {
+export const getEnvironmentDir = (environment: Environment, baseDir: string): string => {
     if (!baseDir.endsWith(environment))
         if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
             return Path.join(baseDir, 'Gjs')
@@ -164,13 +164,13 @@ export function getEnvironmentDir(environment: Environment, baseDir: string): st
     return baseDir
 }
 
-export function getDestPath(environment: Environment, outputDir: string, outputFilename: string) {
+export const getDestPath = (environment: Environment, outputDir: string, outputFilename: string) => {
     const outputEnvDir = getEnvironmentDir(environment, outputDir)
     const destPath = Path.join(outputEnvDir, outputFilename)
     return destPath
 }
 
-export function girBool(boolStr: string | undefined, defaultVal = false): boolean {
+export const girBool = (boolStr: string | undefined, defaultVal = false): boolean => {
     if (boolStr) {
         if (parseInt(boolStr) === 0) return false
         return true
@@ -183,7 +183,7 @@ export function girBool(boolStr: string | undefined, defaultVal = false): boolea
  * @param d1
  * @param d2
  */
-export function signaturesMatch(d1: string, d2: string) {
+export const signaturesMatch = (d1: string, d2: string) => {
     if (isCommentLine(d1) || isCommentLine(d2)) return false
     return stripParamNames(d1) == stripParamNames(d2)
 }
@@ -193,7 +193,7 @@ export function signaturesMatch(d1: string, d2: string) {
  * If this is attribute is falsy the element is not introspectable,
  * this means doesn't exist in the bindings, due in general to missing information in the annotations in the original C code
  */
-export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) {
+export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) => {
     if (!girElement) {
         return false
     }
@@ -209,7 +209,7 @@ export function girElementIsIntrospectable(girElement?: { $: GirInfoAttrs & { na
     return true
 }
 
-export function typeIsOptional(types: TsType[]) {
+export const typeIsOptional = (types: TsType[]) => {
     for (const type of types) {
         if (type.optional) return true
     }

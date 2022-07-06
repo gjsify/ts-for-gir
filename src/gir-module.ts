@@ -1316,10 +1316,9 @@ export class GirModule {
      * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
      * for a default gir signal element
      * @param girSignal
-     * @param overwritten If `true` this renames the `connect` and `disconnect` methods to `connectSignal` and `disconnectSignal`. This is for example used in `Gio.DBusProxy`
      * @returns
      */
-    private getClassSignalMethodsTsData(girSignal: GirSignalElement, overwritten = false) {
+    private getClassSignalMethodsTsData(girSignal: GirSignalElement) {
         if (!girSignal._tsData) {
             throw new Error(NO_TSDATA('getClassSignalMethodsTsData'))
         }
@@ -1339,7 +1338,6 @@ export class GirModule {
             inParams,
             this.config.environment,
             false,
-            overwritten,
         )
     }
 
@@ -1367,7 +1365,6 @@ export class GirModule {
                 // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `((${objParam}, pspec: ${namespacePrefix}ParamSpec) => void)`
             } else if (this.config.environment === 'node') {
-                // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `(...args: any[]) => void`
             }
             tsMethods.push(
@@ -1416,13 +1413,7 @@ export class GirModule {
                 throw NO_TSDATA('setSignalTsData')
             }
 
-            // WORKAROUND maybe there is a better solution
-            let connectMethodsOverwritten = false
-            if (girClass._tsData.name === 'DBusProxy') {
-                connectMethodsOverwritten = true
-            }
-
-            girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal, connectMethodsOverwritten)
+            girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal)
         }
 
         return girSignal._tsData

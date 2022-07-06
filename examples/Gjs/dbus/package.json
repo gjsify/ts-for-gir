@@ -12,6 +12,7 @@
     "start": "npm run build && npm run start:server",
     "start:server": "gjs -m dist/dbus-server.js",
     "start:client": "gjs -m dist/dbus-client.js",
+    "start:client-async": "gjs -m dist/dbus-client-async.js",
     "debug:server": "GTK_DEBUG=interactive npm run start:server",
     "debug:client": "GTK_DEBUG=interactive npm run start:client",
     "validate": "npm run validate:types && npm run validate:app",

@@ -1,7 +1,7 @@
 import { build } from "esbuild";
 
 await build({
-    entryPoints: ['dbus-client.ts', 'dbus-server.ts'],
+    entryPoints: ['dbus-client.ts', 'dbus-client-async.ts', 'dbus-server.ts'],
     outdir: 'dist',
     bundle: true,
     // target: "firefox60", // Since GJS 1.53.90

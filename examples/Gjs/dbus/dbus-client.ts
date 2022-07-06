@@ -5,37 +5,14 @@
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';
 import Gio from './@types/Gjs/Gio-2.0.js';
-
-/*
- * An XML DBus Interface
- */
-const ifaceXml = `
-<node>
-  <interface name="org.gnome.gjs.Test">
-    <method name="SimpleMethod"/>
-    <method name="ComplexMethod">
-      <arg type="s" direction="in" name="input"/>
-      <arg type="u" direction="out" name="length"/>
-    </method>
-    <signal name="TestSignal">
-      <arg name="type" type="s"/>
-      <arg name="value" type="b"/>
-    </signal>
-    <property name="ReadOnlyProperty" type="s" access="read"/>
-    <property name="ReadWriteProperty" type="b" access="readwrite"/>
-  </interface>
-</node>`;
-
-
+import { IfaceXml, ifaceXml } from './ifrace-xml.js'
 
 // Pass the XML string to make a re-usable proxy class for an interface proxies.
-const TestProxy = Gio.DBusProxy.makeProxyWrapper(ifaceXml);
+const TestProxy = Gio.DBusProxy.makeProxyWrapper<IfaceXml>(ifaceXml);
 
-
-let proxy: Gio.DBusProxy | null = null;
+let proxy: (IfaceXml & Gio.DBusProxy) | null = null;
 let proxySignalId = 0;
 let proxyPropId = 0;
-
 
 // Watching a name on DBus. Another option is to create a proxy with the
 // `Gio.DBusProxyFlags.DO_NOT_AUTO_START` flag and watch the `g-name-owner`
@@ -58,7 +35,7 @@ function onNameAppeared(connection: Gio.DBusConnection, name: string, _owner: an
 
     // Proxy wrapper signals use the special functions `connectSignal()` and
     // `disconnectSignal()` to avoid conflicting with regular GObject signals.
-    proxySignalId = proxy.connectSignal('TestSignal', (proxy_: Gio.DBusProxy, name_: string, args: string[]) => {
+    proxySignalId = proxy.connectSignal('TtestSignal', (proxy_, name_, args) => {
         print(`TestSignal: ${args[0]}, ${args[1]}`);
     });
 
@@ -130,38 +107,7 @@ let busWatchId = Gio.bus_watch_name(
 // Start an event loop
 let loop = GLib.MainLoop.new(null, false);
 loop.run();
+print("loop end");
 
 // Unwatching names works just like disconnecting signal handlers.
 Gio.bus_unown_name(busWatchId);
-
-
-/* Asynchronous Usage
- *
- * Below is the alternative, asynchronous usage of proxy wrappers. If creating
- * a proxy asynchronously, you should not consider the proxy ready to use until
- * the callback is invoked without error.
- */
-proxy = null;
-
-TestProxy(
-    Gio.DBus.session,
-    'org.gnome.gjs.Test',
-    '/org/gnome/gjs/Test',
-    (sourceObj, error) => {
-        // If @error is not `null` it will be an Error object indicating the
-        // failure. @proxy will be `null` in this case.
-        if (error !== null) {
-            logError(error);
-            return;
-        }
-
-        // At this point the proxy is initialized and you can start calling
-        // functions, using properties and so on.
-        proxy = sourceObj;
-        print(`ReadOnlyProperty: ${proxy.ReadOnlyProperty}`);
-    },
-    // Optional Gio.Cancellable object. Pass `null` if you need to pass flags.
-    null,
-    // Optional flags passed to the Gio.DBusProxy constructor
-    Gio.DBusProxyFlags.NONE
-);

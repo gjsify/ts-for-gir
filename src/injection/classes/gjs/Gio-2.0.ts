@@ -12,15 +12,54 @@ export const classesGio20Gjs: InjectionClass[] = [
                 name: 'makeProxyWrapper',
                 girTypeName: 'static-function',
                 isStatic: true,
+                generics: [
+                    {
+                        name: 'T',
+                    },
+                ],
                 returnTypes: [
                     {
-                        type: '(bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: AsyncInitable, res: AsyncResult) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags) => DBusProxy',
+                        type: '(bus: DBusConnection, name: string, object: string, asyncCallback?: (initable: (T & DBusProxy) | null, error: unknown | null) => void, cancellable?: Cancellable | null, flags?: DBusProxyFlags) => T & DBusProxy',
                     },
                 ],
                 inParams: [
                     {
                         name: 'interfaceXml',
                         type: [{ type: 'string' }],
+                    },
+                ],
+            },
+        ],
+        methods: [
+            {
+                name: 'connectSignal',
+                girTypeName: 'method',
+                returnTypes: [{ type: 'number' }],
+                generics: [
+                    {
+                        name: 'T',
+                        value: 'any[]',
+                    },
+                ],
+                inParams: [
+                    {
+                        name: 'name',
+                        type: [{ type: 'string' }],
+                    },
+                    {
+                        name: 'callback',
+                        type: [{ type: '(proxy: Gio.DBusProxy, name: string, args: T) => boolean | void' }],
+                    },
+                ],
+            },
+            {
+                name: 'disconnectSignal',
+                girTypeName: 'method',
+                returnTypes: [{ type: 'void' }],
+                inParams: [
+                    {
+                        name: 'id',
+                        type: [{ type: 'number' }],
                     },
                 ],
             },

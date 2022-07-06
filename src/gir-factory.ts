@@ -283,7 +283,6 @@ export class GirFactory {
      * @param emitInParams
      * @param environment
      * @param withDisconnect If `true` this also generates a `disconnect` method
-     * @param overwritten If `true` this renames the `connect` and `disconnect` methods to `connectSignal` and `disconnectSignal`. This is for example used in `Gio.DBusProxy`
      * @returns
      */
     newTsSignalMethods(
@@ -292,7 +291,6 @@ export class GirFactory {
         emitInParams: InjectionParameter[],
         environment: Environment,
         withDisconnect = false,
-        overwritten = false,
     ) {
         const tsMethods: TsMethod[] = []
         const girTypeName: TypeGirFunction = 'signal'
@@ -336,7 +334,7 @@ export class GirFactory {
         })
 
         const connectTsFn = this.newTsFunction({
-            name: overwritten ? 'connectSignal' : 'connect',
+            name: 'connect',
             inParams: [sigNameInParam, callbackInParam],
             returnTypes: [numberReturnType],
             girTypeName,
@@ -407,7 +405,7 @@ export class GirFactory {
             }
 
             const emitTsFn = this.newTsFunction({
-                name: overwritten ? 'disconnectSignal' : 'disconnect',
+                name: 'disconnect',
                 inParams: [idInParam],
                 girTypeName,
             })

@@ -8,5 +8,10 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-  }
+    "moduleResolution": "Node16"
+  },
+  "files": [
+    "http-client.ts",
+    "http-server.ts"
+  ]
 }

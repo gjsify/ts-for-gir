@@ -1,9 +1,9 @@
 <% if(useNamespace){ %>
-import GObject from './GObject-2.0';
-import GLib from './GLib-2.0';
+import GObject from './GObject-2.0.js';
+import GLib from './GLib-2.0.js';
 <% } else { %>
-import * as GObject from './GObject-2.0';
-import * as GLib from './GLib-2.0';
+import * as GObject from './GObject-2.0.js';
+import * as GLib from './GLib-2.0.js';
 <% } %>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js

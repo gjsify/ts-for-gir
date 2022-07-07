@@ -1,6 +1,7 @@
 {
   "compilerOptions": {   
-    "lib": ["ESNext"],              
+    "lib": ["ESNext"],
+    "types": [],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
@@ -8,5 +9,9 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-  }
+  },
+  "files": [
+    "dbus-client.ts",
+    "dbus-server.ts"
+  ]
 }

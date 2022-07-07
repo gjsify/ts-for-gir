@@ -101,7 +101,7 @@ export class GirModule {
     packageName: string
     /**
      * E.g. 'Gtk30'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0";`
+     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0.js";`
      */
     importName: string
 
@@ -1337,6 +1337,7 @@ export class GirModule {
             girSignal._tsData?.tsCallbackInterface?.name,
             inParams,
             this.config.environment,
+            false,
         )
     }
 
@@ -1364,7 +1365,6 @@ export class GirModule {
                 // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `((${objParam}, pspec: ${namespacePrefix}ParamSpec) => void)`
             } else if (this.config.environment === 'node') {
-                // TODO: create arrowType object instead of a pure string type, see Pango-1.0.Pango.FontMapClass.load_font for an example
                 callbackType = `(...args: any[]) => void`
             }
             tsMethods.push(
@@ -1412,6 +1412,7 @@ export class GirModule {
             if (!girSignal._tsData) {
                 throw NO_TSDATA('setSignalTsData')
             }
+
             girSignal._tsData.tsMethods = this.getClassSignalMethodsTsData(girSignal)
         }
 

@@ -1,6 +1,6 @@
-import type { InjectionClass } from '../../types/index.js'
+import type { InjectionClass } from '../../../types/index.js'
 
-export const classesGio20All: InjectionClass[] = [
+export const classesGio20Node: InjectionClass[] = [
     {
         versions: ['2.0'],
         qualifiedName: 'Gio.ListStore',

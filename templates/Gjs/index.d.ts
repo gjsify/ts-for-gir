@@ -5,12 +5,12 @@
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
 
-import type * as Gjs from './Gjs'
+import type * as Gjs from './Gjs.js'
 <%_ for (const girModule of girModules) { _%>
   <%_ if(useNamespace){ _%>
-import type <%= girModule.importName %> from "./<%= girModule.packageName %>";
+import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
   <%_ } else { _%>
-import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
   <%_ } _%>
 <%_ } _%>
 
@@ -20,6 +20,7 @@ declare global {
     function printerr(...args: any[]): void
     function log(message: any): void
     function logError(exception: object, message?: any): void
+    function logError(message?: any): void
 
     interface Console {
         /**

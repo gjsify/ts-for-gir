@@ -5,16 +5,18 @@
   "main": "main.ts",
   "module": "e",
   "scripts": {
-    "build": "npm run build:types && npm run build:wp",
-    "build:wp": "npm run clear:ts && webpack --env production",
+    "build": "npm run build:types && npm run build:app",
+    "build:app": "npm run clear:ts && webpack --env production",
     "build:types": "../../../lib/start.js generate Gtk-3.0 -e node",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run clear:types",
-    "start": "npm run build && npm run start:node",
-    "start:node": "node dist/main.js",
-    "watch": "npm run build:wp -- --watch",
-    "lint": "tsc --noEmit",
+    "start": "npm run build && npm run start:app",
+    "start:app": "node dist/main.js",
+    "watch": "npm run build:app -- --watch",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -23,7 +25,7 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.0.3",
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "raw-loader": "^4.0.2",
     "terser-webpack-plugin": "^5.3.3",

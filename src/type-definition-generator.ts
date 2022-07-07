@@ -59,14 +59,14 @@ export default class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         if (this.config.buildType === 'lib') {
             const sas = this.config.useNamespace && packageName !== 'Gjs' ? '' : '* as '
-            def.push(`import type ${sas}${namespace} from './${packageName}';`)
+            def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
         } else if (this.config.buildType === 'types') {
             if (asExternType) {
                 // def.push(`/// <reference types="${packageName}" />`)
-                def.push(`import ${namespace} from "${packageName}"`)
+                def.push(`import ${namespace} from "${packageName}.js"`)
             } else {
                 def.push(`/// <reference path="${packageName}.d.ts" />`)
-                def.push(`import type ${namespace} from './${packageName}';`)
+                def.push(`import type ${namespace} from './${packageName}.js';`)
             }
         }
         return def

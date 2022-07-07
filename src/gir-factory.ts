@@ -278,7 +278,11 @@ export class GirFactory {
     /**
      * Generates signal methods like `connect`, `connect_after` and `emit` on Gjs or `connect`, `on`, `once`, `off` and `emit` an node-gtk
      * for a default gir signal element
-     * @param girSignal
+     * @param signalName The signal name
+     * @param callbackType The callback type
+     * @param emitInParams
+     * @param environment
+     * @param withDisconnect If `true` this also generates a `disconnect` method
      * @returns
      */
     newTsSignalMethods(
@@ -286,7 +290,7 @@ export class GirFactory {
         callbackType: string | undefined,
         emitInParams: InjectionParameter[],
         environment: Environment,
-        withDisconnect?: boolean,
+        withDisconnect = false,
     ) {
         const tsMethods: TsMethod[] = []
         const girTypeName: TypeGirFunction = 'signal'

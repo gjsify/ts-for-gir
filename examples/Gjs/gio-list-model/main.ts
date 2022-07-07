@@ -2,10 +2,8 @@
  * SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
  * SPDX-FileCopyrightText: 2020 Andy Holmes <andrew.g.r.holmes@gmail.com>
  * @source https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/glistmodel.js
- * 
- * This file is currently not used in this example and just for and is just another example and helpful to test the generated types
  */
-
+import './@types/Gjs/index';
 import GObject from './@types/Gjs/GObject-2.0.js';
 import Gio from './@types/Gjs/Gio-2.0.js';
 
@@ -13,7 +11,7 @@ import Gio from './@types/Gjs/Gio-2.0.js';
  * An example of implementing the GListModel interface in GJS. The only real
  * requirement here is that the class be derived from some GObject.
  */
-export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListModel */ {
+export class IGjsListStore extends GObject.Object implements Gio.ListModel {
 
     _items: GObject.Object[] = [];
 
@@ -24,23 +22,58 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
         this._items = [];
     }
 
+    // TODO: It should not be necessary to implement this method
+    get_item_type() {
+        const res = GObject.Object.$gtype;
+        print("get_item_type", res);
+        return res;
+    }
+
+    // TODO: It should not be necessary to implement this method
+    get_item(position: number) {
+        const res = this._items[position] || null;
+        print("get_item", res);
+        return res; 
+    }
+
+    // TODO: It should not be necessary to implement this method
+    items_changed(position: number, removed: number, added: number) {
+        print(`items_changed position: ${position}, removed: ${removed}, added: ${added}`);
+    }
+
+    // TODO: It should not be necessary to implement this method
+    get_n_items() {
+        const res = this._items.length;
+        print("get_n_items", res);
+        return res; 
+    }
+
     /* Implementing this function amounts to returning a GType. This could be a
-     * more specific GType, but must be a subclass of GObject. */
+     * more specific GType, but must be a subclass of GObject.
+     */
     vfunc_get_item_type() {
-        return GObject.Object.$gtype;
+        const res = GObject.Object.$gtype;
+        print("vfunc_get_item_type", res);
+        return res;
     }
 
     /* Implementing this function just requires returning the GObject at
      * @position or %null if out-of-range. This must explicitly return %null,
-     * not `undefined`. */
+     * not `undefined`.
+     */
     vfunc_get_item(position: number) {
-        return this._items[position] || null;
+        const res = this._items[position] || null;
+        print("vfunc_get_item", res);
+        return res; 
     }
 
     /* Implementing this function is as simple as return the length of the
-     * storage object, in this case an Array. */
+     * storage object, in this case an Array.
+     */
     vfunc_get_n_items() {
-        return this._items.length;
+        const res = this._items.length;
+        print("vfunc_get_n_items", res);
+        return res; 
     }
 
     /**
@@ -59,7 +92,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
             position = this._items.length;
 
         this._items.splice(position, 0, item);
-        (this as any).items_changed(position, 0, 1); // TODO
+        this.items_changed(position, 0, 1);
     }
 
     /**
@@ -74,7 +107,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
         let position = this._items.length;
 
         this._items.push(item);
-        (this as any).items_changed(position, 0, 1);
+        this.items_changed(position, 0, 1);
     }
 
     /**
@@ -87,7 +120,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
             throw new TypeError('not a GObject');
 
         this._items.unshift(item);
-        (this as any).items_changed(0, 0, 1);
+        this.items_changed(0, 0, 1);
     }
 
     /**
@@ -106,7 +139,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
             return;
 
         this._items.splice(position, 1);
-        (this as any).items_changed(position, 1, 0);
+        this.items_changed(position, 1, 0);
     }
 
     /**
@@ -120,7 +153,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
             return;
 
         this._items.splice(position, 1);
-        (this as any).items_changed(position, 1, 0);
+        this.items_changed(position, 1, 0);
     }
 
     /**
@@ -133,7 +166,7 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
             return;
 
         this._items = [];
-        (this as any).items_changed(0, length, 0);
+        this.items_changed(0, length, 0);
     }
 }
 
@@ -144,4 +177,8 @@ export class _GjsListStore extends GObject.Object /* TODO implements Gio.ListMod
 export const GjsListStore = GObject.registerClass({
     GTypeName: 'GjsListStore',
     Implements: [Gio.ListModel],
-}, _GjsListStore);
+}, IGjsListStore);
+
+// TODO: Expand the example which also demonstrates the use of the listStore  
+const listStore = new GjsListStore();
+listStore.insertItem(new GObject.Object(), 0);

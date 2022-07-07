@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {   
+    "lib": ["ESNext"],             
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+  },
+  "files": [
+    "main.ts",
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "name": "ts-for-gir-list-store-example",
+  "name": "ts-for-gir-gio-list-model-example",
   "version": "1.0.0",
-  "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
+  "description": "An example of implementing the GListModel interface in GJS",
   "main": "index.js",
   "type": "module",
   "scripts": {

@@ -3,11 +3,12 @@ import type {
     GirRecordElement,
     GirUnionElement,
     GirInterfaceElement,
+    GirCallbackElement,
     Environment,
 } from '../types/index.js'
 import { Logger } from '../logger.js'
 
-import { classesAll, classesGjs, classesNode } from './index.js'
+import { classesAll, classesGjs, classesNode, callbacksGjs, callbacksNode, callbacksAll } from './index.js'
 import { GirFactory } from '../gir-factory.js'
 
 /**
@@ -21,7 +22,7 @@ export class Injector {
         this.log = new Logger(environment, true, 'ConflictResolver')
     }
 
-    /** Inject additional methods, properties, etc to a existing class */
+    /** Inject additional generics, methods, properties, etc to a existing class */
     toClass(girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement) {
         if (!girClass._tsData) {
             return
@@ -36,6 +37,7 @@ export class Injector {
                 cls.versions.includes(girClass._tsData.version)
             )
         })
+
         if (toClass) {
             if (toClass.staticFunctions) {
                 girClass._tsData.staticFunctions.push(
@@ -66,5 +68,55 @@ export class Injector {
                 girClass._tsData.generics.push(...this.girFactory.newGenerics(toClass.generics))
             }
         }
+
+        return girClass
     }
+
+    /** Inject additional generics to existing callback interfaces */
+    toCallback(girCallback: GirCallbackElement) {
+        const callbacks =
+            this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll, ...callbacksNode]
+
+        if (!girCallback._module || !girCallback._tsData) {
+            return girCallback
+        }
+
+        const toCallback = callbacks.find((iface) => {
+            return (
+                girCallback._module &&
+                girCallback._tsData &&
+                iface.name === girCallback._tsData.name &&
+                girCallback._module.namespace === iface.namespace &&
+                iface.versions.includes(girCallback._module.version)
+            )
+        })
+
+        if (toCallback?.generics) {
+            girCallback._tsData.generics.push(...this.girFactory.newGenerics(toCallback.generics))
+        }
+
+        // NOTICE: We merge the in parameters here
+        // TODO: Unify injections, merges and overrides
+        if (toCallback?.inParams) {
+            for (let i = 0; i < girCallback._tsData.inParams.length; i++) {
+                const newInParam = toCallback.inParams[i]
+                const oldInParam = girCallback._tsData.inParams[i]
+                if (newInParam && oldInParam && oldInParam._tsData?.name === newInParam.name) {
+                    oldInParam._tsData.type = this.girFactory.newTsTypes(newInParam.type)
+                }
+            }
+        }
+
+        if (toCallback?.tsCallbackInterface) {
+            if (toCallback?.tsCallbackInterface.generics) {
+                girCallback._tsData.tsCallbackInterface?.generics.push(
+                    ...this.girFactory.newGenerics(toCallback.tsCallbackInterface.generics),
+                )
+            }
+        }
+
+        return girCallback
+    }
+
+    // TODO: toParameter
 }

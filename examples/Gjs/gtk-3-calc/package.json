@@ -1,7 +1,7 @@
 {
   "name": "ts-for-gir-gtk-3-calc-example",
   "version": "1.0.0",
-  "description": "GJS example showing how to build a http server/client using Soap 3",
+  "description": "Simple Gjs Gtk 3 calculator example app",
   "main": "index.js",
   "type": "module",
   "scripts": {

@@ -832,6 +832,7 @@ export class GirModule {
         // I think it's safest to force inout params to have the
         // same type for in and out
         const tsType = this.getTsType(girParam)
+        // const optDirection = girParam.$.direction
 
         if (girParam._tsData) {
             // this.log.warn('[getParameterTsData] _tsData already set!')
@@ -869,6 +870,10 @@ export class GirModule {
             isRest: false,
             girTypeName: 'callable-param',
             doc: this.getTsDoc(girParam),
+        }
+
+        if (tsType.type === 'Gio.AsyncReadyCallback') {
+            debugger
         }
 
         return tsData
@@ -1199,11 +1204,38 @@ export class GirModule {
     private getCallbackInterfaceTsData(girCallback: GirCallbackElement | GirConstructorElement) {
         if (!girElementIsIntrospectable(girCallback)) return undefined
 
+        const namespace = this.namespace
+
         const tsDataInterface: TsCallbackInterface = {
-            name: girCallback.$.name,
+            name: `${namespace}.${girCallback.$.name}`,
+            generics: [],
         }
 
         return tsDataInterface
+    }
+
+    private setCallbackTsData(girCallback: GirCallbackElement) {
+        const tsFunction = this.getFunctionTsData(girCallback, 'callback', {
+            isStatic: false,
+            isArrowType: true,
+            isGlobal: false,
+            isVirtual: false,
+            returnType: null,
+            generics: [],
+        })
+        if (tsFunction) {
+            const tsCallback: TsCallback = {
+                ...tsFunction,
+                girTypeName: 'callback',
+                tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback', false),
+                tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
+                overloads: [],
+            }
+            girCallback._tsData = tsCallback
+
+            this.inject.toCallback(girCallback)
+        }
+        return girCallback._tsData
     }
 
     private getSignalCallbackInterfaceTsData(
@@ -1219,9 +1251,11 @@ export class GirModule {
         const className = girClass._tsData.name
         const signalName = girCallback.$.name
         const signalInterfaceName = this.transformation.transformSignalInterfaceName(signalName)
+        const namespace = girClass._module.namespace
 
         const tsDataInterface: TsCallbackInterface = {
-            name: `${girClass._module.namespace}.${className}.${signalInterfaceName}SignalCallback`,
+            name: `${namespace}.${className}.${signalInterfaceName}SignalCallback`,
+            generics: [],
             overwriteDoc: {
                 text: `Signal callback interface for \`${signalName}\``,
                 tags: [],
@@ -2547,23 +2581,7 @@ export class GirModule {
 
         if (this.ns.callback)
             for (const girCallback of this.ns.callback) {
-                const tsCallback = this.getFunctionTsData(girCallback, 'callback', {
-                    isStatic: false,
-                    isArrowType: true,
-                    isGlobal: false,
-                    isVirtual: false,
-                    returnType: null,
-                    generics: [],
-                })
-                if (tsCallback) {
-                    girCallback._tsData = {
-                        ...tsCallback,
-                        girTypeName: 'callback',
-                        tsTypeName: this.girFactory.girTypeNameToTsTypeName('callback', false),
-                        tsCallbackInterface: this.getCallbackInterfaceTsData(girCallback),
-                        overloads: [],
-                    }
-                }
+                girCallback._tsData = this.setCallbackTsData(girCallback)
             }
 
         if (this.ns.interface)

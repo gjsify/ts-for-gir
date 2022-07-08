@@ -1,4 +1,4 @@
-import { TsDoc } from './index.js'
+import { TsDoc, TsGenericParameter } from './index.js'
 
 /**
  * Holds the data to generate an interface for `GirCallbackElements` in/for Typescript
@@ -6,4 +6,6 @@ import { TsDoc } from './index.js'
 export interface TsCallbackInterface {
     name: string
     overwriteDoc?: Partial<TsDoc>
+    /** Generic type parameter of this callback interface */
+    generics: TsGenericParameter[]
 }

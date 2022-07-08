@@ -618,13 +618,22 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Get name, remove namespace and remove module class name prefix
         let { name } = tsCallback.tsCallbackInterface
-        if (classModuleName) name = removeClassModule(removeNamespace(name, namespace), classModuleName)
+        const { generics } = tsCallback.tsCallbackInterface
+        name = removeNamespace(name, namespace)
+        if (classModuleName) name = removeClassModule(name, classModuleName)
+        const genericParameters = this.generateGenericParameters(generics)
 
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
-        def.push(this.generateExport('interface', name, '{', indentCount))
+        const interfaceHead = `${name}${genericParameters}`
+
+        def.push(this.generateExport('interface', `${interfaceHead}`, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
         def.push(indent + '}')
+
+        if (name === 'Gio.AsyncReadyCallback') {
+            debugger
+        }
 
         return def
     }

@@ -1,0 +1,31 @@
+{
+  "name": "ts-for-gir-gtk-3-hello-gtk-example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "build": "npm run build:types && npm run build:app",
+    "build:app": "npm run clear:app && webpack --env production",
+    "build:types": "npm run ts-for-gir -- generate Gtk-3.0 GtkSource-3.0 -e gjs",
+    "clear:types": "rm -rf ./@types",
+    "clear:app": "rm -rf ./dist",
+    "clear": "npm run clear:app && npm run clear:types",
+    "start": "npm run build && npm run start:app",
+    "start:app": "gjs dist/main.js",
+    "watch": "npm run build -- --watch",
+    "ts-for-gir": "../../../lib/start.js",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^7.2.11",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

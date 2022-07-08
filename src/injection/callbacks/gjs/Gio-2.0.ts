@@ -5,6 +5,8 @@ export const callbacksGio20Gjs: InjectionCallback[] = [
         versions: ['2.0'],
         namespace: 'Gio',
         name: 'AsyncReadyCallback',
+        // Generics for callback parameters
+        // TODO only use `this` if there is also a _finish method
         generics: [
             {
                 name: 'T',

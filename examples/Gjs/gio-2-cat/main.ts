@@ -17,11 +17,10 @@ const loop = GLib.MainLoop.new(null, false);
 
 function cat(filename: string) {
     const file = Gio.file_new_for_path(filename);
-    // TODO: Set generic to Gio.AsyncReadyCallback: Gio.AsyncReadyCallback<this> using the Injector
     file.load_contents_async(null, (obj, res) => {
         let contents: Uint8Array;
         try {
-            contents = (obj as Gio.File)?.load_contents_finish(res)[1];
+            contents = obj.load_contents_finish(res)[1];
         } catch (e) {
             logError(e);
             loop.quit();

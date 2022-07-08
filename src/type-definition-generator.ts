@@ -191,6 +191,13 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
+    private generateGenericValues(tsType: TsType) {
+        // We just use the generic values here
+        const genericValues = tsType.generics.map((g) => g.value).filter((g) => !!g)
+        const genericStr = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+        return genericStr
+    }
+
     private generateType(tsType: TsType, namespace: string) {
         let typeName = removeNamespace(tsType.type, namespace)
 
@@ -205,10 +212,10 @@ export default class TypeDefinitionGenerator implements Generator {
         let prefix = tsType.isArray ? '[]' : ''
         prefix += tsType.nullable ? ' | null' : ''
 
-        const genericValues = tsType.generics.map((g) => g.value).filter((g) => !!g)
-        const generics = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+        // We just use the generic values here
+        const genericStr = this.generateGenericValues(tsType)
 
-        return `${typeName}${generics}${prefix}`
+        return `${typeName}${genericStr}${prefix}`
     }
 
     /**

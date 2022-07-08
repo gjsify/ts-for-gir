@@ -4,6 +4,7 @@ import type {
     GirUnionElement,
     GirInterfaceElement,
     GirCallbackElement,
+    GirCallableParamElement,
     Environment,
 } from '../types/index.js'
 import { Logger } from '../logger.js'
@@ -41,20 +42,22 @@ export class Injector {
         if (toClass) {
             if (toClass.staticFunctions) {
                 girClass._tsData.staticFunctions.push(
-                    ...this.girFactory.newGirFunctions(toClass.staticFunctions, { isInjected: true }),
+                    ...this.girFactory.newGirFunctions(toClass.staticFunctions, girClass._tsData, { isInjected: true }),
                 )
             }
             if (toClass.constructors) {
                 girClass._tsData.constructors.push(
-                    ...this.girFactory.newGirFunctions(toClass.constructors, { isInjected: true }),
+                    ...this.girFactory.newGirFunctions(toClass.constructors, girClass._tsData, { isInjected: true }),
                 )
             }
             if (toClass.methods) {
-                girClass._tsData.methods.push(...this.girFactory.newGirFunctions(toClass.methods, { isInjected: true }))
+                girClass._tsData.methods.push(
+                    ...this.girFactory.newGirFunctions(toClass.methods, girClass._tsData, { isInjected: true }),
+                )
             }
             if (toClass.virtualMethods) {
                 girClass._tsData.virtualMethods.push(
-                    ...this.girFactory.newGirFunctions(toClass.virtualMethods, { isInjected: true }),
+                    ...this.girFactory.newGirFunctions(toClass.virtualMethods, girClass._tsData, { isInjected: true }),
                 )
             }
             if (toClass.propertySignalMethods) {
@@ -81,19 +84,19 @@ export class Injector {
             return girCallback
         }
 
-        const toCallback = callbacks.find((iface) => {
+        const toCallback = callbacks.find((injectCallback) => {
             return (
                 girCallback._module &&
                 girCallback._tsData &&
-                iface.name === girCallback._tsData.name &&
-                girCallback._module.namespace === iface.namespace &&
-                iface.versions.includes(girCallback._module.version)
+                injectCallback.name === girCallback._tsData.name &&
+                girCallback._module.namespace === injectCallback.namespace &&
+                injectCallback.versions.includes(girCallback._module.version)
             )
         })
 
-        if (toCallback?.generics) {
-            girCallback._tsData.generics.push(...this.girFactory.newGenerics(toCallback.generics))
-        }
+        // if (toCallback?.generics) {
+        //     girCallback._tsData.generics.push(...this.girFactory.newGenerics(toCallback.generics))
+        // }
 
         // NOTICE: We merge the in parameters here
         // TODO: Unify injections, merges and overrides
@@ -118,5 +121,59 @@ export class Injector {
         return girCallback
     }
 
-    // TODO: toParameter
+    toParameterType(girParam: GirCallableParamElement) {
+        const tsTypes = girParam._tsData?.type
+
+        const callbacks =
+            this.environment === 'gjs' ? [...callbacksAll, ...callbacksGjs] : [...callbacksAll, ...callbacksNode]
+
+        if (!girParam._module || !girParam._tsData) {
+            return girParam
+        }
+
+        // Use the the callback generic injections also for the type of the callback parameters
+        if (tsTypes) {
+            for (const tsType of tsTypes) {
+                const toCallback = callbacks.find((injectCallback) => {
+                    return (
+                        girParam._module &&
+                        girParam._tsData &&
+                        // TODO: injectCallback.versions.includes(girParam._module.version) &&
+                        `${injectCallback.namespace}.${injectCallback.name}` === tsType.type
+                    )
+                })
+
+                if (toCallback?.generics) {
+                    const tsFunc = girParam._tsData.parent
+                    const tsClass = tsFunc.parent
+                    for (const generic of toCallback.generics) {
+                        // Currently only used for `Gio.AsyncReadyCallback`
+                        if (generic.value === 'this') {
+                            if (tsFunc.isStatic && tsClass) {
+                                tsType.generics.push({
+                                    ...generic,
+                                    value: tsClass.name,
+                                })
+                            } else if (tsFunc.isGlobal) {
+                                // Add generic parameter to global function
+                                tsFunc.generics.push({
+                                    name: 'Z',
+                                    value: 'unknown',
+                                })
+                                tsType.generics.push({
+                                    value: 'Z',
+                                })
+                            } else {
+                                tsType.generics.push(generic)
+                            }
+                        } else {
+                            tsType.generics.push(generic)
+                        }
+                    }
+                }
+            }
+        }
+
+        return girParam
+    }
 }

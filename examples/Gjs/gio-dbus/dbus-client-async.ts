@@ -5,12 +5,12 @@
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';
 import Gio from './@types/Gjs/Gio-2.0.js';
-import { IfaceXml, ifaceXml } from './ifrace-xml.js'
+import { DbusIfaceXml, dbusIfaceXml } from './dbus-ifrace-xml.js'
 
 // Pass the XML string to make a re-usable proxy class for an interface proxies.
-const TestProxy = Gio.DBusProxy.makeProxyWrapper<IfaceXml>(ifaceXml);
+const TestProxy = Gio.DBusProxy.makeProxyWrapper<DbusIfaceXml>(dbusIfaceXml);
 
-let proxy: (IfaceXml & Gio.DBusProxy) | null = null;
+let proxy: (DbusIfaceXml & Gio.DBusProxy) | null = null;
 
 /* Asynchronous Usage
  *

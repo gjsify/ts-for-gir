@@ -5,12 +5,12 @@
 import './@types/Gjs/index.js';
 import GLib from './@types/Gjs/GLib-2.0.js';
 import Gio from './@types/Gjs/Gio-2.0.js';
-import { IfaceXml, ifaceXml } from './ifrace-xml.js'
+import { DbusIfaceXml, dbusIfaceXml } from './dbus-ifrace-xml.js'
 
 // Pass the XML string to make a re-usable proxy class for an interface proxies.
-const TestProxy = Gio.DBusProxy.makeProxyWrapper<IfaceXml>(ifaceXml);
+const TestProxy = Gio.DBusProxy.makeProxyWrapper<DbusIfaceXml>(dbusIfaceXml);
 
-let proxy: (IfaceXml & Gio.DBusProxy) | null = null;
+let proxy: (DbusIfaceXml & Gio.DBusProxy) | null = null;
 let proxySignalId = 0;
 let proxyPropId = 0;
 
@@ -76,7 +76,7 @@ function onNameAppeared(connection: Gio.DBusConnection, name: string, _owner: an
             return;
         }
 
-        print(`ComplexMethod: ${value}`);
+        print(`ComplexMethod value: ${value}`);
 
         // Methods that return file descriptors are fairly rare, so you should
         // know to expect one or not.
@@ -84,6 +84,23 @@ function onNameAppeared(connection: Gio.DBusConnection, name: string, _owner: an
             //
         }
     });
+
+    proxy.SimpleMethodRemote((value, error, fdList) => {
+        // If @error is not `null`, then an error occurred
+        if (error !== null) {
+            logError(error);
+            return;
+        }
+
+        print(`SimpleMethod value: "${value}"`);
+
+        // Methods that return file descriptors are fairly rare, so you should
+        // know to expect one or not.
+        if (fdList !== null) {
+            //
+        }
+    });
+
 }
 
 function onNameVanished(connection: Gio.DBusConnection, name: string) {

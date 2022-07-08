@@ -1,5 +1,5 @@
 {
-  "name": "ts-for-gir-dbus-example",
+  "name": "ts-for-gir-gio-dbus-example",
   "version": "1.0.0",
   "description": "GJS example showing how to build a DBus server/client",
   "main": "index.js",

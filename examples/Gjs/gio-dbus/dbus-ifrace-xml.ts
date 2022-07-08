@@ -3,7 +3,7 @@ import type Gio from './@types/Gjs/Gio-2.0.js';
 /*
  * An XML DBus Interface
  */
-export const ifaceXml = `
+export const dbusIfaceXml = `
 <node>
   <interface name="org.gnome.gjs.Test">
     <method name="SimpleMethod"/>
@@ -23,17 +23,17 @@ export const ifaceXml = `
 /*
  * The handwritten interface for `ifaceXml`
  */
-export interface IfaceXml {
+export interface DbusIfaceXml {
 
     // SimpleMethod
-    SimpleMethodRemote(): void;
+    SimpleMethodRemote(callback: (value: '', error: any, fdList: Gio.UnixFDList | null) => void): void;
     SimpleMethodSync(): void;
-    SimpleMethodAsync(): void;
+    SimpleMethodAsync(): Promise<void>;
 
     // ComplexMethod
     ComplexMethodRemote(input: string, callback: (value: number, error: any, fdList: Gio.UnixFDList | null) => void): void;
     ComplexMethodSync(input: string): number;
-    ComplexMethodAsync(input: string): number;
+    ComplexMethodAsync(input: string): Promise<number>;
 
     // TestSignal
     connectSignal(name: "TestSignal", callback: (proxy: Gio.DBusProxy, name: string, args: [string, boolean]) => boolean | void): number

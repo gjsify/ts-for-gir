@@ -6,7 +6,7 @@ import inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import fs from 'fs'
-import chalk from 'chalk'
+import { bold } from 'colorette'
 import * as xml2js from 'xml2js'
 import type {
     GirModulesGroupedMap,
@@ -25,7 +25,6 @@ import { Logger } from './logger.js'
 import { splitModuleName, union, isIterable, map, findFileInDirs } from './utils.js'
 import { WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE } from './messages.js'
 
-const bold = chalk.bold
 export class ModuleLoader {
     log: Logger
     /** Transitive module dependencies */
@@ -321,15 +320,9 @@ export class ModuleLoader {
         const answer: { [name: string]: string } = await inquirer.prompt(questions)
 
         if (answer.addToIgnore === 'Yes') {
-            try {
-                await Config.addToConfig({
-                    ignore: Array.from(ignore),
-                })
-            } catch (error) {
-                this.log.error(error)
-                process.exit(1)
-            }
-
+            await Config.addToConfig({
+                ignore: Array.from(ignore),
+            })
             this.log.log(`Add ignored modules to '${Config.configFilePath}'`)
         }
     }

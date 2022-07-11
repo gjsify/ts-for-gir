@@ -35,6 +35,6 @@ wnd.connect('delete-event', () => {
 console.log('hello world')
 // import { gettext } from '../../../@types/Gjs/Gjs';
 // let locale = gettext.setlocale(gettext.LocaleCategory.ALL, null);
-// print('locale', locale);
+// console.log('locale', locale);
 
 Gtk.main()

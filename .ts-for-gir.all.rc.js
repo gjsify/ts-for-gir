@@ -1,6 +1,7 @@
 export default {
     modules: ['*'],
-    girDirectories: ['./vala-girs/gir-1.0', './girs'],
+    girDirectories: ['../../vala-girs/gir-1.0', '../../girs'],
+    outdir: '../../@types',
     ignoreVersionConflicts: true,
     pretty: false,
     noCheck: false,

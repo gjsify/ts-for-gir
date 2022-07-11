@@ -4,6 +4,7 @@
   "description": "Simple Gjs Gtk 3 example app to demonstrate how you can connect to Gtk signals",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "npm run ts-for-gir -- generate Gtk-3.0 -e gjs --useNamespace -t esm",

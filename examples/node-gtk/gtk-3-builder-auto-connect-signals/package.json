@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "main.ts",
+  "private": true,
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack --env production",

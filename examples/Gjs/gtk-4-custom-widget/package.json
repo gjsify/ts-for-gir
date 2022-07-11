@@ -4,6 +4,7 @@
   "description": "This example shows the usage of custom widgets and virtual functions in Gjs",
   "main": "dist/index.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "npm run ts-for-gir -- generate Gtk-4.0 Gdk-4.0 Graphene-1.0 -e gjs --useNamespace -t esm",

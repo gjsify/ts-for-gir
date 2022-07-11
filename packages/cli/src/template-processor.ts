@@ -85,7 +85,7 @@ export class TemplateProcessor {
             })
             return Promise.resolve(renderedCode)
         } catch (error) {
-            this.log.error(error)
+            this.log.error('Error on render', error)
             return ''
         }
     }
@@ -121,7 +121,7 @@ export class TemplateProcessor {
             prettyCode = prettier.format(source, { parser })
         } catch (error) {
             this.log.warn(WARN_PRETTIFY_ERROR(filepath))
-            this.log.warn(error)
+            this.log.warn('Error on prettifySource', error)
         }
 
         return prettyCode
@@ -136,7 +136,7 @@ export class TemplateProcessor {
             const source = readFileSync(Path.resolve('.', path), 'utf8')
             prettyCode = this.prettifySource(source, path)
         } catch (error) {
-            this.log.warn(error)
+            this.log.warn('Error on prettify', error)
             hasError = true
         }
 

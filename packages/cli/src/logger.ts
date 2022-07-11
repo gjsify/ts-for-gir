@@ -3,7 +3,7 @@
  * In addition, the environment or the module currently being processed is also included as prepended to the logging string
  */
 
-import chalk from 'chalk'
+import { blue, yellow, yellowBright, green, red, white } from 'colorette'
 import { Environment } from './types/index.js'
 
 export class Logger {
@@ -59,38 +59,38 @@ export class Logger {
         })
         return
     }
-    public info(...args: unknown[]): void {
+    public info(txt: string | number, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        return console.info(chalk.blue(...args))
+        return console.info(blue(txt), ...args)
     }
-    public warn(...args: unknown[]): void {
+    public warn(txt: string | number, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        args = this.prependInfos(args, 'WARN:')
-        return console.warn(chalk.yellow(...args))
+        args = this.prependInfos([txt], 'WARN:')
+        return console.warn(yellow(txt), ...args)
     }
-    public debug(...args: unknown[]): void {
+    public debug(txt: string | number, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        args = this.prependInfos(args, 'DEBUG:')
-        return console.debug(chalk.yellowBright(...args))
+        args = this.prependInfos([txt], 'DEBUG:')
+        return console.debug(yellowBright(txt), ...args)
     }
-    public error(...args: unknown[]): void {
-        args = this.prependInfos(args, 'ERROR:')
-        return this.danger(args)
+    public error(txt: string | number, ...args: unknown[]): void {
+        args = this.prependInfos([txt], 'ERROR:')
+        return this.danger(txt, args)
     }
-    public success(...args: unknown[]): void {
+    public success(txt: string | number, ...args: unknown[]): void {
         if (!this.verbose) {
             return
         }
-        this.log(chalk.green(...args))
+        this.log(green(txt), ...args)
     }
-    public danger(...args: unknown[]): void {
-        this.log(chalk.red(...args))
+    public danger(txt: string | number, ...args: unknown[]): void {
+        this.log(red(txt), ...args)
     }
 
     // Static versions (Here it must be ensured that Verbose is activated)
@@ -103,32 +103,32 @@ export class Logger {
         })
         return
     }
-    public static info(...args: unknown[]): void {
-        args = this.prepend(args, 'INFO: ')
-        return console.info(chalk.blue(...args))
+    public static info(txt: string | number, ...args: unknown[]): void {
+        args = this.prepend([txt], 'INFO: ')
+        return console.info(blue(txt), ...args)
     }
-    public static warn(...args: unknown[]): void {
-        args = this.prepend(args, 'WARN: ')
-        return console.warn(chalk.yellow(...args))
+    public static warn(txt: string | number, ...args: unknown[]): void {
+        args = this.prepend([txt], 'WARN: ')
+        return console.warn(yellow(txt), ...args)
     }
-    public static debug(...args: unknown[]): void {
-        args = this.prepend(args, 'DEBUG: ')
-        return console.debug(chalk.yellowBright(...args))
+    public static debug(txt: string | number, ...args: unknown[]): void {
+        args = this.prepend([txt], 'DEBUG: ')
+        return console.debug(yellowBright(txt), ...args)
     }
-    public static error(...args: unknown[]): void {
-        args = this.prepend(args, 'ERROR: ')
-        return this.danger(args)
+    public static error(txt: string | number, ...args: unknown[]): void {
+        args = this.prepend([txt], 'ERROR: ')
+        return this.danger(txt, args)
     }
-    public static success(...args: unknown[]): void {
-        this.log(chalk.green(...args))
+    public static success(txt: string | number, ...args: unknown[]): void {
+        this.log(green(txt), ...args)
     }
-    public static danger(...args: unknown[]): void {
-        this.log(chalk.red(...args))
+    public static danger(txt: string | number, ...args: unknown[]): void {
+        this.log(red(txt), ...args)
     }
-    public static white(...args: unknown[]): void {
-        this.log(chalk.white(...args))
+    public static white(txt: string | number, ...args: unknown[]): void {
+        this.log(white(txt), ...args)
     }
-    public static yellow(...args: unknown[]): void {
-        this.log(chalk.yellow(...args))
+    public static yellow(txt: string | number, ...args: unknown[]): void {
+        this.log(yellow(txt), ...args)
     }
 }

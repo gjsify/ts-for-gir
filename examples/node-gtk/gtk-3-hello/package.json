@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/main.js",
+  "private": true,
   "scripts": {
     "build": "npm run build:types && npm run build:app",
     "build:app": "npm run clear:ts && webpack --env production",

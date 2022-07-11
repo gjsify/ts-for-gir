@@ -18,3 +18,12 @@ index.ts.bak
 examples/**/node_modules/
 examples/**/dist/
 debug.txt
+
+# Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

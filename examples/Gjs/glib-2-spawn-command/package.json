@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "module": "dist/main.js",
+  "private": true,
   "scripts": {
     "start": "npm run build && npm run start:gjs",
     "start:gjs": "gjs dist/main.js",

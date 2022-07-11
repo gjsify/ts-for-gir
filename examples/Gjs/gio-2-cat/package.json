@@ -4,9 +4,10 @@
   "description": "Simple Gjs Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "npm run ts-for-gir -- generate Gio-2.0 -e gjs --useNamespace -t esm",
+    "build:types": "npm --prefix . run start --workspace=@ts-for-gir/cli -- generate Gio-2.0 -e gjs --useNamespace -t esm",
     "build:app": "node esbuild.js",
     "build": "npm run build:types && npm run build:app",
     "start:app": "gjs -m dist/main.js main.ts",

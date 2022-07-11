@@ -270,19 +270,19 @@ npm run start
 ```
 
 ### Gtk-3.0 Hello Gtk
-![gtk-3-hello-gtk](examples/gtk-3-hello-gtk.png)
+![gtk-3-hello](examples/gtk-3-hello.png)
 
-Source: [Gjs](/examples/Gjs/gtk-3-hello-gtk), [node-gtk](/examples/node-gtk/gtk-3-hello-gtk)  
+Source: [Gjs](/examples/Gjs/gtk-3-hello), [node-gtk](/examples/node-gtk/gtk-3-hello)  
 Builder: Webpack  
 Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/Gjs/gtk-3-hello-gtk
+cd /examples/Gjs/gtk-3-hello
 npm run start
 
 # or for node-gtk
-cd /examples/node-gtk/gtk-3-hello-gtk
+cd /examples/node-gtk/gtk-3-hello
 npm run start
 ```
 

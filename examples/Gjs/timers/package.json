@@ -1,0 +1,25 @@
+{
+  "name": "ts-for-gir-timers-example",
+  "version": "1.0.0",
+  "description": "Simple Gjs Gtk 4 example app to demonstrate how you can use .ui template XML files",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "npm run ts-for-gir -- generate Gtk-4.0 -e gjs",
+    "build:app": "node esbuild.js",
+    "build": "npm run build:types && npm run build:app",
+    "start:app": "gjs dist/main.js",
+    "debug:app": "GTK_DEBUG=interactive npm run start:app",
+    "start": "npm run build && npm run start:app",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
+    "ts-for-gir": "../../../lib/start.js"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.48"
+  }
+}

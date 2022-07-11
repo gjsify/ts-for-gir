@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.ts",
   "scripts": {
-    "start": "npm run build && npm run start:gjs",
-    "start:gjs": "gjs dist/main.js",
+    "start": "npm run build && npm run start:app",
+    "start:app": "gjs dist/main.js",
     "watch": "npm run build:app -- --watch",
     "build": "npm run build:types && npm run build:app",
     "build:app": "npm run clear:ts && webpack --env production",

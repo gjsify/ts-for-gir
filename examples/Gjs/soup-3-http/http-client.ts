@@ -17,7 +17,7 @@ const byteArray = imports.byteArray;
 const session = new Soup.Session();
 const message = new Soup.Message({
     method: 'GET',
-    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=node-gtk', GLib.UriFlags.NONE) ,
+    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=node-gtk', GLib.UriFlags.NONE),
 });
 
 const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {

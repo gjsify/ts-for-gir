@@ -26,5 +26,5 @@ win.connect('destroy', () => {
     return true
 })
 
-win.add(new Gtk.Label({ label: 'Hello Gtk+' }))
+win.add(new Gtk.Label({ label: 'Hello Gtk 3.0' }))
 win.show_all()

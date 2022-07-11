@@ -11,6 +11,6 @@
     "alwaysStrict": true,
   },
   "files": [
-    "main.ts",
+    "client.ts",
   ]
 }

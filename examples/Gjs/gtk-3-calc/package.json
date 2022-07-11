@@ -1,0 +1,25 @@
+{
+  "name": "ts-for-gir-gtk-3-calc-example",
+  "version": "1.0.0",
+  "description": "Simple Gjs Gtk 3 calculator example app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "npm run ts-for-gir -- generate Gtk-3.0 -e gjs --useNamespace -t esm",
+    "build:app": "node esbuild.js",
+    "build": "npm run build:types && npm run build:app",
+    "start:app": "gjs -m dist/main.js",
+    "debug:app": "GTK_DEBUG=interactive npm run start:app",
+    "start": "npm run build && npm run start:app",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
+    "ts-for-gir": "../../../lib/start.js"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.48"
+  }
+}

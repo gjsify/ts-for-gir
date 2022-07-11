@@ -30,6 +30,7 @@ import type {
     TypeTsEnumerationMember,
     TypeTsFunction,
     TypeTsProperty,
+    TsClass,
 } from './types/index.js'
 
 import { GENERIC_NAMES } from './constants.js'
@@ -120,21 +121,26 @@ export class GirFactory {
         throw new Error(`Unknown gir type: "${String(girTypeName)}"!`)
     }
 
-    newGirFunctions(injectFunctions: InjectionFunction[], overrideToAll: Partial<InjectionFunction> = {}) {
+    newGirFunctions(
+        injectFunctions: InjectionFunction[],
+        parent: TsClass | null,
+        overrideToAll: Partial<InjectionFunction> = {},
+    ) {
         const girFunctionElements: Array<
             GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement
         > = []
         for (let injectFunction of injectFunctions) {
             injectFunction = { ...injectFunction, ...overrideToAll }
-            girFunctionElements.push(this.newGirFunction(injectFunction))
+            girFunctionElements.push(this.newGirFunction(injectFunction, parent))
         }
         return girFunctionElements
     }
 
     newGirFunction(
         tsData: InjectionFunction,
+        parent: TsClass | null,
     ): GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement {
-        const _tsData = this.newTsFunction(tsData)
+        const _tsData = this.newTsFunction(tsData, parent)
         return {
             $: this.newGirAttr(_tsData.name),
             ...this.newGirDocElement(),
@@ -142,18 +148,21 @@ export class GirFactory {
         }
     }
 
-    newGirCallableParamElement(tsData: InjectionParameter): GirCallableParamElement {
+    newGirCallableParamElement(tsData: InjectionParameter, parent: TsFunction): GirCallableParamElement {
         return {
             $: this.newGirAttr(),
             ...this.newGirDocElement(),
-            _tsData: this.newTsParameter(tsData),
+            _tsData: this.newTsParameter(tsData, parent),
         }
     }
 
-    newGirCallableParamElements(injectionParams: InjectionParameter[] = []): GirCallableParamElement[] {
+    newGirCallableParamElements(
+        injectionParams: InjectionParameter[] = [],
+        parent: TsFunction,
+    ): GirCallableParamElement[] {
         const result: GirCallableParamElement[] = []
         for (const injectionParam of injectionParams) {
-            result.push(this.newGirCallableParamElement(injectionParam))
+            result.push(this.newGirCallableParamElement(injectionParam, parent))
         }
         return result
     }
@@ -187,7 +196,7 @@ export class GirFactory {
         }
     }
 
-    newTsFunction(tsData: InjectionFunction): TsFunction {
+    newTsFunction(tsData: InjectionFunction, parent: TsClass | null): TsFunction {
         const tsFunc: TsFunction & TsMethod = {
             ...tsData,
             returnTypes: this.newTsTypes(tsData.returnTypes || []),
@@ -197,14 +206,19 @@ export class GirFactory {
             isVirtual: tsData.isVirtual || false,
             isInjected: tsData.isInjected || false,
             retTypeIsVoid: tsData.returnTypes?.length === 1 && tsData.returnTypes[0]?.type === 'void',
-            inParams: this.newGirCallableParamElements(tsData.inParams),
-            outParams: this.newGirCallableParamElements(tsData.outParams),
-            instanceParameters: this.newGirInstanceParameters(tsData.instanceParameters),
             generics: this.newGenerics(tsData.generics || []),
             overloads: tsData.overloads || [],
             doc: this.newTsDoc(tsData.doc),
             tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName, tsData.isStatic || false),
+            inParams: [],
+            outParams: [],
+            instanceParameters: [],
+            parent,
         }
+
+        tsFunc.inParams.push(...this.newGirCallableParamElements(tsData.inParams, tsFunc))
+        tsFunc.outParams.push(...this.newGirCallableParamElements(tsData.outParams, tsFunc))
+        tsFunc.instanceParameters.push(...this.newGirInstanceParameters(tsData.instanceParameters))
 
         return tsFunc
     }
@@ -257,7 +271,7 @@ export class GirFactory {
         return types
     }
 
-    newTsParameter(tsData: InjectionParameter) {
+    newTsParameter(tsData: InjectionParameter, parent: TsFunction) {
         const types: TsType[] = []
         for (const type of tsData.type || []) {
             type.type = type.type || 'any'
@@ -270,6 +284,7 @@ export class GirFactory {
             isRest: tsData.isRest || false,
             girTypeName: 'callable-param',
             doc: this.newTsDoc(tsData.doc),
+            parent,
         }
 
         return newTsData
@@ -289,6 +304,7 @@ export class GirFactory {
         signalName: string | undefined,
         callbackType: string | undefined,
         emitInParams: InjectionParameter[],
+        parentClass: TsClass,
         environment: Environment,
         withDisconnect = false,
     ) {
@@ -333,21 +349,27 @@ export class GirFactory {
             type: 'number',
         })
 
-        const connectTsFn = this.newTsFunction({
-            name: 'connect',
-            inParams: [sigNameInParam, callbackInParam],
-            returnTypes: [numberReturnType],
-            girTypeName,
-        })
-        tsMethods.push(connectTsFn)
-
-        if (environment === 'gjs') {
-            const connectAfterTsFn = this.newTsFunction({
-                name: 'connect_after',
+        const connectTsFn = this.newTsFunction(
+            {
+                name: 'connect',
                 inParams: [sigNameInParam, callbackInParam],
                 returnTypes: [numberReturnType],
                 girTypeName,
-            })
+            },
+            parentClass,
+        )
+        tsMethods.push(connectTsFn)
+
+        if (environment === 'gjs') {
+            const connectAfterTsFn = this.newTsFunction(
+                {
+                    name: 'connect_after',
+                    inParams: [sigNameInParam, callbackInParam],
+                    returnTypes: [numberReturnType],
+                    girTypeName,
+                },
+                parentClass,
+            )
             tsMethods.push(connectAfterTsFn)
         } else if (environment === 'node') {
             const afterInParam: InjectionParameter = {
@@ -365,32 +387,44 @@ export class GirFactory {
                 type: 'NodeJS.EventEmitter',
             })
 
-            const onTsFn = this.newTsFunction({
-                name: 'on',
-                inParams: [sigNameInParam, callbackInParam, afterInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-                girTypeName,
-            })
-            const onceTsFn = this.newTsFunction({
-                name: 'once',
-                inParams: [sigNameInParam, callbackInParam, afterInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-                girTypeName,
-            })
-            const offTsFn = this.newTsFunction({
-                name: 'off',
-                inParams: [sigNameInParam, callbackInParam],
-                returnTypes: [nodeEventEmitterReturnType],
-                girTypeName,
-            })
+            const onTsFn = this.newTsFunction(
+                {
+                    name: 'on',
+                    inParams: [sigNameInParam, callbackInParam, afterInParam],
+                    returnTypes: [nodeEventEmitterReturnType],
+                    girTypeName,
+                },
+                parentClass,
+            )
+            const onceTsFn = this.newTsFunction(
+                {
+                    name: 'once',
+                    inParams: [sigNameInParam, callbackInParam, afterInParam],
+                    returnTypes: [nodeEventEmitterReturnType],
+                    girTypeName,
+                },
+                parentClass,
+            )
+            const offTsFn = this.newTsFunction(
+                {
+                    name: 'off',
+                    inParams: [sigNameInParam, callbackInParam],
+                    returnTypes: [nodeEventEmitterReturnType],
+                    girTypeName,
+                },
+                parentClass,
+            )
             tsMethods.push(onTsFn, onceTsFn, offTsFn)
         }
 
-        const emitTsFn = this.newTsFunction({
-            name: 'emit',
-            inParams: [sigNameInParam, ...emitInParams],
-            girTypeName,
-        })
+        const emitTsFn = this.newTsFunction(
+            {
+                name: 'emit',
+                inParams: [sigNameInParam, ...emitInParams],
+                girTypeName,
+            },
+            parentClass,
+        )
         tsMethods.push(emitTsFn)
 
         if (withDisconnect && environment === 'gjs') {
@@ -404,11 +438,14 @@ export class GirFactory {
                 doc: this.newTsDoc(),
             }
 
-            const emitTsFn = this.newTsFunction({
-                name: 'disconnect',
-                inParams: [idInParam],
-                girTypeName,
-            })
+            const emitTsFn = this.newTsFunction(
+                {
+                    name: 'disconnect',
+                    inParams: [idInParam],
+                    girTypeName,
+                },
+                parentClass,
+            )
             tsMethods.push(emitTsFn)
         }
 

@@ -1,0 +1,30 @@
+{
+  "name": "ts-for-gir-glib-2-spawn-command-example",
+  "version": "0.0.1",
+  "description": "",
+  "module": "dist/main.js",
+  "scripts": {
+    "start": "npm run build && npm run start:gjs",
+    "start:gjs": "gjs dist/main.js",
+    "watch": "npm run build:app -- --watch",
+    "build": "npm run build:types && npm run build:app",
+    "build:app": "npm run clear:ts && webpack --env production",
+    "build:types": "../../../lib/start.js generate GLib-2.0 --environments gjs",
+    "clear:types": "rm -rf ./@types",
+    "clear:ts": "rm -rf ./dist",
+    "clear": "npm run clear:ts && npm run clear:types",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^7.2.11",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

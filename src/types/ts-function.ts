@@ -6,6 +6,7 @@ import {
     TsDoc,
     TypeTsFunction,
     TypeGirFunction,
+    TsClass,
 } from './index.js'
 
 /**
@@ -41,7 +42,6 @@ export interface TsFunction {
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasUnresolvedConflict?: boolean
 
-    // CUSTOM
     girTypeName: TypeGirFunction
     /**
      * - Functions are usually exported as global functions in typescript, but can also be static functions of a class
@@ -53,4 +53,7 @@ export interface TsFunction {
 
     /** Typescript data to generate documentations in TSDoc style */
     doc: TsDoc
+
+    /** The parent class / interface which contains this function, if this is a global function parent is null */
+    parent: TsClass | null
 }

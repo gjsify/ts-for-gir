@@ -213,91 +213,91 @@ Now open some code with an editor that understands TypeScript and see what happe
 ```bash
 code examples/gjs/browser
 ```
-### Browser
-![browser](examples/browser.png)
+### Gtk-3.0 Browser
+![gtk-3-browser](examples/gtk-3-browser.png)
 
 This example uses ESM when building the types and executing Gjs.
 On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't support ESM), but this way the types can still be used in ESM format.
 
 See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
 
-Source: [Gjs](/examples/Gjs/browser), [node-gtk](/examples/node-gtk/browser)  
+Source: [Gjs](/examples/Gjs/gtk-3-browser), [node-gtk](/examples/node-gtk/gtk-3-browser)  
 Builder: Webpack  
 Module: ESM  
 
 Build and run:
 ```bash
-cd /examples/Gjs/browser
+cd /examples/Gjs/gtk-3-browser
 npm run start
 
 # or for node-gtk
-cd /examples/node-gtk/browser
+cd /examples/node-gtk/gtk-3-browser
 npm run start
 ```
 
-### Builder
-![builder](examples/builder.png)
+### Gtk-3.0 Builder
+![gtk-3-builder](examples/gtk-3-builder.png)
 
-Source: [Gjs](/examples/Gjs/builder), [node-gtk](/examples/node-gtk/builder)  
+Source: [Gjs](/examples/Gjs/gtk-3-builder), [node-gtk](/examples/node-gtk/gtk-3-builder)  
 Builder: Webpack  
 Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/Gjs/builder
+cd /examples/Gjs/gtk-3-builder
 npm run start
 
 # or for node-gtk
-cd /examples/node-gtk/builder
+cd /examples/node-gtk/gtk-3-builder
 npm run start
 ```
 
-### Editor
-![editor](examples/editor.png)
+### Gtk-3.0 Editor
+![gtk-3-editor](examples/gtk-3-editor.png)
 
-Source: [Gjs](/examples/Gjs/editor), [node-gtk](/examples/node-gtk/editor)  
+Source: [Gjs](/examples/Gjs/gtk-3-editor), [node-gtk](/examples/node-gtk/gtk-3-editor)  
 Builder: Webpack  
 Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/Gjs/editor
+cd /examples/Gjs/gtk-3-editor
 npm run start
 
 # or for node-gtk
-cd /examples/node-gtk/editor
+cd /examples/node-gtk/gtk-3-editor
 npm run start
 ```
 
-### Hello Gtk
-![hello-gtk](examples/hello-gtk.png)
+### Gtk-3.0 Hello Gtk
+![gtk-3-hello](examples/gtk-3-hello.png)
 
-Source: [Gjs](/examples/Gjs/hello-gtk), [node-gtk](/examples/node-gtk/hello-gtk)  
+Source: [Gjs](/examples/Gjs/gtk-3-hello), [node-gtk](/examples/node-gtk/gtk-3-hello)  
 Builder: Webpack  
 Module: CommonJS    
 
 Build and run:
 ```bash
-cd /examples/Gjs/hello-gtk
+cd /examples/Gjs/gtk-3-hello
 npm run start
 
 # or for node-gtk
-cd /examples/node-gtk/hello-gtk
+cd /examples/node-gtk/gtk-3-hello
 npm run start
 ```
 
-### ListStore
-![list-store](examples/list-store.png)
+### Gtk-4.0 ListStore
+![gtk-4-list-store](examples/gtk-4-list-store.png)
 
 GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`
 
-Source: [Gjs](/examples/Gjs/list-store)  
+Source: [Gjs](/examples/Gjs/gtk-4-list-store)  
 Builder: ESBuild  
 Module: ESM  
 
 Build and run:
 ```bash
-cd /examples/Gjs/list-store
+cd /examples/Gjs/gtk-4-list-store
 npm run start
 ```
 
@@ -328,19 +328,19 @@ Gjs-Message: 21:13:22.008: JS LOG: body:
 GJS example showing how to build a http server/client using Soap 3.  
 This example contains a client and a server example, for the client example the server must be running. You can also start the server from the node-gtk example and then request that with the gjs example and vice versa ;)
 
-Source: [Gjs](/examples/Gjs/http), [node-gtk](/examples/node-gtk/http)  
+Source: [Gjs](/examples/Gjs/soup-3-http), [node-gtk](/examples/node-gtk/soup-3-http)  
 Builder: ESBuild  
 Module: ESM  
 
 Build and run:
 ```bash
-cd /examples/Gjs/http
+cd /examples/Gjs/soup-3-http
 npm run build
 npm run start:server
 npm run start:client
 
 # or for node-gtk
-cd /examples/node-gtk/http
+cd /examples/node-gtk/soup-3-http
 npm run build
 npm run start:server
 npm run start:client

@@ -191,6 +191,13 @@ export default class TypeDefinitionGenerator implements Generator {
         return def
     }
 
+    private generateGenericValues(tsType: TsType, namespace: string) {
+        // We just use the generic values here
+        const genericValues = tsType.generics.map((g) => removeNamespace(g.value || '', namespace)).filter((g) => !!g)
+        const genericStr = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+        return genericStr
+    }
+
     private generateType(tsType: TsType, namespace: string) {
         let typeName = removeNamespace(tsType.type, namespace)
 
@@ -205,10 +212,10 @@ export default class TypeDefinitionGenerator implements Generator {
         let prefix = tsType.isArray ? '[]' : ''
         prefix += tsType.nullable ? ' | null' : ''
 
-        const genericValues = tsType.generics.map((g) => g.value).filter((g) => !!g)
-        const generics = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+        // We just use the generic values here
+        const genericStr = this.generateGenericValues(tsType, namespace)
 
-        return `${typeName}${generics}${prefix}`
+        return `${typeName}${genericStr}${prefix}`
     }
 
     /**
@@ -618,13 +625,22 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Get name, remove namespace and remove module class name prefix
         let { name } = tsCallback.tsCallbackInterface
-        if (classModuleName) name = removeClassModule(removeNamespace(name, namespace), classModuleName)
+        const { generics } = tsCallback.tsCallbackInterface
+        name = removeNamespace(name, namespace)
+        if (classModuleName) name = removeClassModule(name, classModuleName)
+        const genericParameters = this.generateGenericParameters(generics)
 
         const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
 
-        def.push(this.generateExport('interface', name, '{', indentCount))
+        const interfaceHead = `${name}${genericParameters}`
+
+        def.push(this.generateExport('interface', `${interfaceHead}`, '{', indentCount))
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
         def.push(indent + '}')
+
+        if (name === 'Gio.AsyncReadyCallback') {
+            debugger
+        }
 
         return def
     }

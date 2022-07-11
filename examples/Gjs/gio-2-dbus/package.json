@@ -1,0 +1,28 @@
+{
+  "name": "ts-for-gir-gio-2-dbus-example",
+  "version": "1.0.0",
+  "description": "GJS example showing how to build a DBus server/client",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "npm run ts-for-gir -- generate Gio-2.0 -e gjs --useNamespace -t esm",
+    "build:app": "node esbuild.js",
+    "build": "npm run build:types && npm run build:app",
+    "start": "npm run build && npm run start:server",
+    "start:server": "gjs -m dist/dbus-server.js",
+    "start:client": "gjs -m dist/dbus-client.js",
+    "start:client-async": "gjs -m dist/dbus-client-async.js",
+    "debug:server": "GTK_DEBUG=interactive npm run start:server",
+    "debug:client": "GTK_DEBUG=interactive npm run start:client",
+    "validate": "npm run validate:types && npm run validate:app",
+    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:app": "tsc --noEmit",
+    "ts-for-gir": "../../../lib/start.js"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.48"
+  }
+}

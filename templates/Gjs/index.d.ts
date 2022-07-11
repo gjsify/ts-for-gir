@@ -225,7 +225,7 @@ declare global {
      * @param delay the duration in milliseconds to wait before running callback
      * @param args arguments to pass to callback
      */
-    function setTimeout(callback: (...args: any[]) => any, delay: number, ...args: any[]): GLib20.Source
+    function setTimeout(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
 
     /**
      * @version Gjs 1.71.1
@@ -233,7 +233,7 @@ declare global {
      * @param delay the duration in milliseconds to wait between calling callback
      * @param args arguments to pass to callback
      */
-    function setInterval(callback: (...args: any[]) => any, delay: number, ...args: any[]): GLib20.Source
+    function setInterval(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
 
     /**
      * @version Gjs 1.71.1
@@ -257,16 +257,16 @@ declare global {
               <%_ } _%>
             <%_ } _%>
           <%_ } _%>
-        }
-        versions: {
-          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-              '<%= girModule.module.version %>'
-              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-                |
+          versions: {
+            <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+              <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+                '<%= girModule.module.version %>'
+                <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                  |
+                <%_ } _%>
               <%_ } _%>
             <%_ } _%>
-          <%_ } _%>
+          }
         }
         lang: typeof Gjs.Lang
         system: typeof Gjs.System

@@ -5,7 +5,15 @@ export interface InjectionFunction
         Partial<
             Pick<
                 TsFunction,
-                'isArrowType' | 'isStatic' | 'isGlobal' | 'isVirtual' | 'isInjected' | 'overloads' | 'generics' | 'doc'
+                | 'isArrowType'
+                | 'isStatic'
+                | 'isGlobal'
+                | 'isVirtual'
+                | 'isInjected'
+                | 'overloads'
+                | 'generics'
+                | 'doc'
+                | 'parent'
             >
         > {
     returnTypes?: InjectionType[]

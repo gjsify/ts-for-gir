@@ -421,14 +421,19 @@ export class ConflictResolver {
             return baseFunc
         }
 
-        return this.girFactory.newTsFunction({
-            name: funcs[0].name,
-            returnTypes: returnTypes,
-            isStatic: funcs[0].isStatic || false,
-            inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
-            outParams: outParams.map((outParam) => outParam._tsData).filter((outParam) => !!outParam) as TsParameter[],
-            girTypeName: funcs[0].girTypeName,
-        })
+        return this.girFactory.newTsFunction(
+            {
+                name: funcs[0].name,
+                returnTypes: returnTypes,
+                isStatic: funcs[0].isStatic || false,
+                inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
+                outParams: outParams
+                    .map((outParam) => outParam._tsData)
+                    .filter((outParam) => !!outParam) as TsParameter[],
+                girTypeName: funcs[0].girTypeName,
+            },
+            funcs[0].parent,
+        )
     }
 
     /**
@@ -504,20 +509,23 @@ export class ConflictResolver {
      * Returns a new any function: `name(...args: any[]): any`
      * @param name The name of the function
      */
-    public newAnyTsFunction(name: string, girTypeName: TypeGirFunction, isStatic: boolean) {
-        return this.girFactory.newTsFunction({
-            name,
-            isStatic,
-            inParams: [
-                {
-                    name: 'args',
-                    isRest: true,
-                    type: [this.girFactory.newTsType({ type: 'any', isArray: true })],
-                },
-            ],
-            returnTypes: [{ type: 'any' }],
-            girTypeName,
-        })
+    public newAnyTsFunction(name: string, girTypeName: TypeGirFunction, isStatic: boolean, parent: TsClass | null) {
+        return this.girFactory.newTsFunction(
+            {
+                name,
+                isStatic,
+                inParams: [
+                    {
+                        name: 'args',
+                        isRest: true,
+                        type: [this.girFactory.newTsType({ type: 'any', isArray: true })],
+                    },
+                ],
+                returnTypes: [{ type: 'any' }],
+                girTypeName,
+            },
+            parent,
+        )
     }
 
     public getCompatibleTsProperty(elements: TsProperty[], baseProp: TsProperty) {
@@ -720,7 +728,12 @@ export class ConflictResolver {
                     else if (this.tsElementIsConstructor(base.data)) {
                         this.log.debug(`${className}.${name} External Constructor vs. Constructor`, baseConstr, b.data)
 
-                        const anyFunc = this.newAnyTsFunction(name, baseConstr.girTypeName, baseConstr.isStatic)
+                        const anyFunc = this.newAnyTsFunction(
+                            name,
+                            baseConstr.girTypeName,
+                            baseConstr.isStatic,
+                            baseConstr.parent,
+                        )
 
                         // Check if any function is not already added
                         if (!this.getTsElementByName(baseClass.conflictMethods, anyFunc.name)) {

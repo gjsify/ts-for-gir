@@ -4,6 +4,7 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
 # Dev
+- Ported more examples, see #81
 - Add overrides for Gio-2.0, see #80
 - Add GLib.Variant unpacking methods, see #70 by @HeavenVolkoff
 - node-gtk: Now supports virtual methods, see #77

@@ -23,7 +23,7 @@ export interface MetaInfo<Props, Interfaces, Sigs> {
     Signals?: Sigs
     Implements?: Interfaces
     CssName?: string
-    Template?: string
+    Template?: Uint8Array | GLib.Bytes
     Children?: string[]
     InternalChildren?: string[]
 }

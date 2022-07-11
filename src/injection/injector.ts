@@ -138,7 +138,7 @@ export class Injector {
                     return (
                         girParam._module &&
                         girParam._tsData &&
-                        // TODO: injectCallback.versions.includes(girParam._module.version) &&
+                        // TODO: compare versions
                         `${injectCallback.namespace}.${injectCallback.name}` === tsType.type
                     )
                 })
@@ -152,7 +152,7 @@ export class Injector {
                             if (tsFunc.isStatic && tsClass) {
                                 tsType.generics.push({
                                     ...generic,
-                                    value: tsClass.name,
+                                    value: `${tsClass.namespace}.${tsClass.name}`,
                                 })
                             } else if (tsFunc.isGlobal) {
                                 // Add generic parameter to global function

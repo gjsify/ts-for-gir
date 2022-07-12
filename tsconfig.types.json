@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "noEmit": true,
-    "rootDir": "./",
-    "baseUrl": ".",
-  },
-  "include": ["@types/**/*.ts", "@types/**/*.ts"]
-}

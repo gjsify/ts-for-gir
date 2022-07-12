@@ -1150,9 +1150,6 @@ export class ConflictResolver {
                     const groupedConflict = groupedConflicts[key]
                     const isBaseElement = a.depth === 0
                     if (isBaseElement) {
-                        if (!groupedConflict.baseElements) {
-                            debugger
-                        }
                         if (!groupedConflict.baseElements.find((c) => isEqual(c.data, a.data))) {
                             groupedConflict.baseElements.push(a)
                         }

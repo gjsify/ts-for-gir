@@ -879,10 +879,6 @@ export class GirModule {
 
         girParam._tsData = tsParam
 
-        if (tsType.type === 'Gio.AsyncReadyCallback') {
-            debugger
-        }
-
         // // TODO: remove this, wee need a special solution for Gio.AsyncReadyCallback instead
         girParam = this.inject.toParameterType(girParam)
 

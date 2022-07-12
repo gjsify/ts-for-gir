@@ -638,10 +638,6 @@ export default class TypeDefinitionGenerator implements Generator {
         def.push(`${indentBody}(${inParamsDef.join(', ')}): ${returnTypeStr}`)
         def.push(indent + '}')
 
-        if (name === 'Gio.AsyncReadyCallback') {
-            debugger
-        }
-
         return def
     }
 

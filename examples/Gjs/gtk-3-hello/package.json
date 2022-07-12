@@ -15,7 +15,7 @@
     "start:app": "gjs dist/main.js",
     "watch": "yarn run build -- --watch",
     "validate": "yarn run validate:types && yarn run validate:app",
-    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -14,7 +14,7 @@
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn run update:submodules && yarn run update:packages",
-    "test": "yarn run build: all && yarn run regress && yarn run test:ava && yarn run test:girs:all && yarn run validate:examples:app && yarn run build:all && yarn ts-for-gir:cli-examples:all",
+    "test": "yarn run build: all && yarn run regress && yarn run test:ava && yarn run test:girs:all && yarn run validate:app && yarn run build:all && yarn ts-for-gir:cli-examples:all",
     "test:ava": "yarn run build:ts && yarn run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs:all": "yarn run build:types:all && yarn run validate:types:all",
     "test:girs:gjs": "yarn run build:types:gjs && yarn run validate:types:gjs",
@@ -29,7 +29,7 @@
     "regress": "yarn run build:ts && yarn ts-for-gir generate --configName='.ts-for-gir.regress.rc.js' && yarn run validate",
     "build": "yarn run build:ts",
     "build:ts": "yarn workspace @ts-for-gir/cli run build:ts",
-    "build:all": "yarn run build && yarn workspaces foreach run build",
+    "build:all": "yarn run build && yarn workspaces foreach --parallel run build",
     "start:cli-examples:all": "yarn run start:cli-examples:gjs && yarn run start:cli-examples:node",
     "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start",
     "start:cli-examples:node": "yarn workspace ts-for-gir-node-glib-2-spawn-command-example run start",
@@ -61,8 +61,10 @@
     "build:types:node:rygelcore2": "yarn run build:types:rygelcore2 --environments=node",
     "build:types:node:gcalc": "yarn run build:types:gcalc --environments=node",
     "build:test:ava": "tsc -p tsconfig.ava.json",
-    "validate": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit",
-    "validate:types:all": "yarn run validate:types:gjs && yarn run validate:types:node",
+    "validate": "yarn workspaces foreach --parallel run validate",
+    "validate:types": "yarn workspaces foreach --parallel run validate:types",
+    "validate:app": "yarn workspaces foreach --parallel run validate:app",
+    "validate:types:all": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/*/*.ts",
     "validate:types:gjs": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/Gjs/*.ts",
     "validate:types:node": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/node-gtk/*.ts",
     "validate:types:vda1": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/*/Vda-1.d.ts",
@@ -73,9 +75,6 @@
     "validate:types:timezonemap1": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/*/TimezoneMap-1.0.d.ts",
     "validate:types:rygelcore2": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/*/RygelCore-2.6.d.ts",
     "validate:types:gcalc": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit ./@types/*/GCalc-*.d.ts",
-    "validate:examples": "yarn workspaces --parallel foreach run validate",
-    "validate:examples:type": "yarn workspaces --parallel foreach run validate:type",
-    "validate:examples:app": "yarn workspaces --parallel foreach run validate:app",
     "clear": "yarn run clear:build && yarn run clear:types",
     "clear:build": "yarn workspace @ts-for-gir/cli run clear:build",
     "clear:types": "rimraf ./@types",
@@ -106,7 +105,6 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.8.2",
     "typescript": "4.7.4"
   },
   "workspaces": [
@@ -116,10 +114,5 @@
   "packageManager": "yarn@3.2.1",
   "dependencies": {
     "@yarnpkg/pnpify": "^4.0.0-rc.11"
-  },
-  "dependenciesMeta": {
-    "ts-node@10.8.2": {
-      "unplugged": true
-    }
   }
 }

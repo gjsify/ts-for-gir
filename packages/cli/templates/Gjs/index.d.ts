@@ -25,7 +25,7 @@ declare global {
     interface Console {
         /**
          * Logs a critical message if the condition is not truthy.
-         * {@see console.error()} for additional information.
+         * {@link console.error()} for additional information.
          *
          * @param condition a boolean condition which, if false, causes
          *   the log to print
@@ -45,15 +45,15 @@ declare global {
         clear(): void
 
         /**
-         * Logs a message with severity equal to {@see GLib.LogLevelFlags.DEBUG}.
+         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.DEBUG}.
          *
          * @param  {...any} data formatting substitutions, if applicable
          */
         debug(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@see GLib.LogLevelFlags.CRITICAL}.
-         * Does not use {@see GLib.LogLevelFlags.ERROR} to avoid asserting and
+         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.CRITICAL}.
+         * Does not use {@link GLib20.LogLevelFlags.ERROR} to avoid asserting and
          * forcibly shutting down the application.
          *
          * @param data formatting substitutions, if applicable
@@ -61,14 +61,14 @@ declare global {
         error(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@see GLib.LogLevelFlags.INFO}.
+         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.INFO}.
          *
          * @param data formatting substitutions, if applicable
          */
         info(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@see GLib.LogLevelFlags.MESSAGE}.
+         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.MESSAGE}.
          *
          * @param data formatting substitutions, if applicable
          */
@@ -105,7 +105,7 @@ declare global {
         /**
          * Logs how many times console.count(label) has been called with a given
          * label.
-         * {@see console.countReset()} for resetting a count.
+         * {@link console.countReset()} for resetting a count.
          *
          * @param label unique identifier for this action
          */
@@ -199,8 +199,7 @@ declare global {
         logDomain: string
     }
 
-    // TODO: Conflicts with lib.dom.d.ts
-    // const console: Console;
+    const console: Console;
 
     interface BooleanConstructor {
         $gtype: GObject20.GType<boolean>

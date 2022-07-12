@@ -15,7 +15,7 @@
     "start:app": "yarn node dist/main.js",
     "watch": "yarn run build:wp -- --watch",
     "validate": "yarn run validate:types && yarn run validate:app",
-    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

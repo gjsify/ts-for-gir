@@ -13,14 +13,15 @@
     "start:client": "yarn node dist/http-client.js",
     "start": "yarn run build && yarn run start:server",
     "validate": "yarn run validate:types && yarn run validate:app",
-    "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
+    "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.14.48"
+    "esbuild": "^0.14.48",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "node-gtk": "^0.10.0"

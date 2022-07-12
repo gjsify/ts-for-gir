@@ -34,4 +34,4 @@ jobs:
     - run: yarn install
     - run: yarn run build
     - run: yarn run build:types:node:timezonemap1
-    - run: yarn run validate:types:node
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:node

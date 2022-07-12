@@ -15,7 +15,7 @@
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn run clear:ts && yarn run clear:types",
     "validate": "yarn run validate:types && yarn run validate:app",
-    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
+    "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

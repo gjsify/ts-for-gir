@@ -7,20 +7,20 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "npm run ts-for-gir -- generate Gtk-4.0 -e gjs",
-    "build:app": "node esbuild.js",
-    "build": "npm run build:types && npm run build:app",
+    "build:types": "yarn ts-for-gir generate Gtk-4.0 -e gjs",
+    "build:app": "yarn node esbuild.js",
+    "build": "yarn run build:types && yarn run build:app",
     "start:app": "gjs dist/main.js",
-    "debug:app": "GTK_DEBUG=interactive npm run start:app",
-    "start": "npm run build && npm run start:app",
-    "validate": "npm run validate:types && npm run validate:app",
+    "debug:app": "GTK_DEBUG=interactive yarn run start:app",
+    "start": "yarn run build && yarn run start:app",
+    "validate": "yarn run validate:types && yarn run validate:app",
     "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
-    "validate:app": "tsc --noEmit",
-    "ts-for-gir": "../../../lib/start.js"
+    "validate:app": "tsc --noEmit"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.14.48"
   }
 }

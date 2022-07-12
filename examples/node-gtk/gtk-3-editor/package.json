@@ -1,20 +1,20 @@
 {
-  "name": "node-ts-gtk-3-editor-example",
+  "name": "ts-for-gir-node-gtk-3-editor-example",
   "version": "0.0.1",
   "description": "",
   "main": "main.ts",
   "private": true,
   "scripts": {
-    "build": "npm run build:types && npm run build:app",
-    "build:app": "npm run clear:ts && webpack --env production",
-    "build:types": "../../../lib/start.js generate Gtk-3.0 GtkSource-3.0 -e node",
+    "build": "yarn run build:types && yarn run build:app",
+    "build:app": "yarn run clear:ts && webpack --env production",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 -e node",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
-    "clear": "npm run clear:ts && npm run clear:types",
-    "start": "npm run build && npm run start:app",
-    "start:app": "node dist/main.js",
-    "watch": "npm run build:app -- --watch",
-    "validate": "npm run validate:types && npm run validate:app",
+    "clear": "yarn run clear:ts && yarn run clear:types",
+    "start": "yarn run build && yarn run start:app",
+    "start:app": "yarn node dist/main.js",
+    "watch": "yarn run build:app -- --watch",
+    "validate": "yarn run validate:types && yarn run validate:app",
     "validate:types": "tsc ./@types/node-gtk/*.ts --noEmit",
     "validate:app": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,6 +25,7 @@
     "node": ">=16"
   },
   "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
     "@types/node": "^18.0.3",
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "ts-loader": "^9.3.1",

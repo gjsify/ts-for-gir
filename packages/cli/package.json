@@ -4,7 +4,9 @@
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "type": "module",
-  "bin": "./lib/start.js",
+  "bin": {
+    "ts-for-gir": "./lib/start.js"
+  },
   "engines": {
     "node": ">=16"
   },

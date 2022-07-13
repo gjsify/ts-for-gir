@@ -1,26 +1,12 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],                 
-    "target": "ESNext",
-    "module": "ESNext",
-    "outDir": "lib",
+    "lib": ["ESNext"],
+    "types": [],
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "rootDir": "src",
-    "resolveJsonModule": true,
-    "declaration": true,
-    "skipLibCheck": true,
   },
-  "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "templates"
-  ]
+  "include": ["@types/Gjs/*.ts"]
 }

@@ -1,11 +1,13 @@
 {
   "deno.enable": false,
   "editor.tabSize": 4,
-  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": ["typescript"],
+  "eslint.validate": [
+    "typescript"
+  ],
   "cSpell.words": [
     "ABGR",
     "acceleratable",
@@ -391,5 +393,11 @@
     "ypad",
     "YTHICKNESS",
     "zorder"
-  ]
+  ],
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

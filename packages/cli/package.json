@@ -1,0 +1,72 @@
+{
+  "name": "@ts-for-gir/cli",
+  "version": "3.0.0-beta.2",
+  "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
+  "module": "lib/index.js",
+  "type": "module",
+  "bin": {
+    "ts-for-gir": "./lib/start.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "yarn node --max_old_space_size=9216 lib/start.js",
+    "build": "yarn run clear:build && yarn run lint && yarn run build:ts && yarn run chmod",
+    "chmod": "chmod +x ./lib/start.js",
+    "build:ts": "tsc",
+    "clear": "yarn run clear:build",
+    "clear:build": "rimraf ./lib",
+    "watch": "yarn run build:ts -- --watch",
+    "lint": "eslint . --ext .ts,.tsx --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammydre/ts-for-gjs.git"
+  },
+  "author": "",
+  "files": [
+    "src",
+    "bin",
+    "lib",
+    "templates"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sammydre/ts-for-gjs/issues"
+  },
+  "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
+  "devDependencies": {
+    "@types/change-case": "^2.3.1",
+    "@types/columnify": "^1.5.1",
+    "@types/ejs": "^3.1.1",
+    "@types/eslint": "8.4.5",
+    "@types/inquirer": "^8.2.1",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.0.3",
+    "@types/prettier": "^2.6.3",
+    "@types/xml2js": "^0.4.11",
+    "@types/yargs": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "4.7.4"
+  },
+  "dependencies": {
+    "colorette": "^2.0.19",
+    "columnify": "^1.6.0",
+    "cosmiconfig": "^7.0.1",
+    "ejs": "^3.1.8",
+    "events": "^3.3.0",
+    "globby": "^13.1.2",
+    "inquirer": "^9.0.0",
+    "lodash": "^4.17.21",
+    "prettier": "^2.7.1",
+    "tiny-glob": "^0.2.9",
+    "xml2js": "^0.4.23",
+    "yargs": "^17.5.1"
+  }
+}

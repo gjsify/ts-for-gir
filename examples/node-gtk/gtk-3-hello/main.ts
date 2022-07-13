@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+// Based on https://github.com/romgrk/node-gtk/blob/master/examples/hello-gtk.js
 import { startLoop } from 'node-gtk'
 import * as Gtk from './@types/node-gtk/Gtk-3.0'
 

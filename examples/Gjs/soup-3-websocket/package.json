@@ -1,25 +1,27 @@
 {
   "name": "ts-for-gir-soup-3-websocket-example",
-  "version": "1.0.0",
+  "version": "3.0.0-beta.2",
   "description": "Simple Gjs Soup 3 example app to demonstrate how you can use WebSockets",
   "main": "index.js",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "npm run ts-for-gir -- generate Soup-3.0 -e gjs --useNamespace -t esm",
-    "build:client": "node esbuild.js",
-    "build": "npm run build:types && npm run build:client",
+    "build:types": "yarn ts-for-gir generate Soup-3.0 -e gjs --useNamespace -t esm",
+    "build:client": "yarn node esbuild.js",
+    "build": "yarn run build:types && yarn run build:client",
     "start:client": "gjs -m dist/main.js",
-    "debug:client": "GTK_DEBUG=interactive npm run start:client",
-    "start": "npm run build && npm run start:client",
-    "validate": "npm run validate:types && npm run validate:app",
-    "validate:types": "tsc ./@types/Gjs/*.ts --noEmit",
-    "validate:app": "tsc --noEmit",
-    "ts-for-gir": "../../../lib/start.js"
+    "debug:client": "GTK_DEBUG=interactive yarn run start:client",
+    "start": "yarn run build && yarn run start:client",
+    "validate": "yarn run validate:types && yarn run validate:app",
+    "validate:types": "tsc --project tsconfig.types.json",
+    "validate:app": "tsc --noEmit"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.14.48"
+    "@ts-for-gir/cli": "workspace:^",
+    "esbuild": "^0.14.49",
+    "typescript": "^4.7.4"
   }
 }

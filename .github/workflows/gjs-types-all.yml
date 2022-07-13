@@ -28,9 +28,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build
-    - run: npm run build:types:gjs
-    - run: npm run validate:types:gjs
+    - run: yarn install
+    - run: yarn run build
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:gjs
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:gjs
     # Ava test needs a refactoring
-    # - run: npm run test:ava
+    # - run: yarn run test:ava

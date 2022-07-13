@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "rootDir": "./",
-    "baseUrl": ".",
-  },
-  "include": ["@types/**/*.ts", "@types/**/*.ts"]
-}

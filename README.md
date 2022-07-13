@@ -18,13 +18,15 @@ You can install the project globally:
 npm install @ts-for-gir/cli -g
 ```
 
-or locally in your current project:
+Now you can run `ts-for-gir` .
+
+You can also install `ts-for-gir` locally in your current project:
 
 ```bash
 npm install @ts-for-gir/cli
 ```
 
-and then create a new script in your `package.json` to generate the types, for example like this
+And then create a new script in your `package.json` to generate the types, for example like this
 
 ```json
   ...

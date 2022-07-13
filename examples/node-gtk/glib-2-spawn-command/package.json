@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-glib-2-spawn-command-example",
-  "version": "0.0.1",
+  "version": "3.0.0-beta.2",
   "description": "",
   "main": "main.ts",
   "private": true,

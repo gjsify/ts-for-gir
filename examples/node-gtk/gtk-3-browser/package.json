@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-browser-example",
-  "version": "0.0.1",
+  "version": "3.0.0-beta.2",
   "description": "",
   "main": "dist/main.js",
   "private": true,

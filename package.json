@@ -14,8 +14,10 @@
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn run update:submodules && yarn run update:packages",
+    "publish:next": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --tag next --access public",
+    "publish:latest": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --tag latest --access public",
     "test": "yarn run build:all && yarn run regress && yarn run test:ava && yarn run test:girs:all && yarn run validate:app && yarn run build:all && yarn ts-for-gir:cli-examples:all",
-    "test:ava": "yarn run build:ts && yarn run build:test:ava && ava tmp/test/ava/test.js",
+    "test:ava": "yarn run build:cli && yarn run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs:all": "yarn run build:types:all && yarn run validate:types:all",
     "test:girs:gjs": "yarn run build:types:gjs && yarn run validate:types:gjs",
     "test:girs:node": "yarn run build:types:node && yarn run validate:types:node",
@@ -27,8 +29,8 @@
     "test:girs:timezonemap1": "yarn run build:types:timezonemap1 && yarn run validate:types:timezonemap1",
     "test:girs:rygelcore2": "yarn run build:types:rygelcore2 && yarn run validate:types:rygelcore2",
     "regress": "yarn ts-for-gir generate --configName='.ts-for-gir.regress.rc.js'",
-    "build": "yarn run build:ts",
-    "build:ts": "yarn workspace @ts-for-gir/cli run build:ts",
+    "build": "yarn run build:cli",
+    "build:cli": "yarn workspace @ts-for-gir/cli run build",
     "build:all": "yarn run build && yarn workspaces foreach --parallel run build",
     "start:cli-examples:all": "yarn run start:cli-examples:gjs && yarn run start:cli-examples:node",
     "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start",
@@ -72,19 +74,13 @@
     "clear:types": "rimraf ./@types",
     "clear:types:gjs": "rimraf ./@types/Gjs",
     "clear:types:node": "rimraf ./@types/node-gtk",
-    "watch": "yarn run build:ts --watch"
+    "watch": "yarn run build:cli --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sammydre/ts-for-gjs.git"
   },
-  "author": "",
-  "files": [
-    "src",
-    "bin",
-    "lib",
-    "templates"
-  ],
+  "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sammydre/ts-for-gjs/issues"

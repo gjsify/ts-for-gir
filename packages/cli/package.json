@@ -24,7 +24,7 @@
     "type": "git",
     "url": "git+https://github.com/sammydre/ts-for-gjs.git"
   },
-  "author": "",
+  "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
     "src",
     "bin",

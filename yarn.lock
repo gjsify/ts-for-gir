@@ -238,15 +238,15 @@ __metadata:
     "@types/change-case": ^2.3.1
     "@types/columnify": ^1.5.1
     "@types/ejs": ^3.1.1
-    "@types/eslint": 8.4.3
+    "@types/eslint": 8.4.5
     "@types/inquirer": ^8.2.1
     "@types/lodash": ^4.14.182
     "@types/node": ^18.0.3
     "@types/prettier": ^2.6.3
     "@types/xml2js": ^0.4.11
     "@types/yargs": ^17.0.10
-    "@typescript-eslint/eslint-plugin": ^5.30.5
-    "@typescript-eslint/parser": ^5.30.5
+    "@typescript-eslint/eslint-plugin": ^5.30.6
+    "@typescript-eslint/parser": ^5.30.6
     colorette: ^2.0.19
     columnify: ^1.6.0
     cosmiconfig: ^7.0.1
@@ -321,23 +321,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:*":
+"@types/eslint@npm:*, @types/eslint@npm:8.4.5":
   version: 8.4.5
   resolution: "@types/eslint@npm:8.4.5"
   dependencies:
     "@types/estree": "*"
     "@types/json-schema": "*"
   checksum: 428b0c971a50adb0d08621e76f21b284580a0052a31341a0e6d553f72b54cd0142d549aa1497c7e3bc56e9f6bcc27286e66e0216e1ba76d1a5ecd2279c40bc8c
-  languageName: node
-  linkType: hard
-
-"@types/eslint@npm:8.4.3":
-  version: 8.4.3
-  resolution: "@types/eslint@npm:8.4.3"
-  dependencies:
-    "@types/estree": "*"
-    "@types/json-schema": "*"
-  checksum: cc199be84e22754cc625b171c90852da2b563088d32f4161d310b70470eab47f9bc812774c61eab6530083a214fe634abc32d06ef38e0a5e29f68436331cfabb
   languageName: node
   linkType: hard
 
@@ -480,7 +470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.30.5":
+"@typescript-eslint/eslint-plugin@npm:^5.30.6":
   version: 5.30.6
   resolution: "@typescript-eslint/eslint-plugin@npm:5.30.6"
   dependencies:
@@ -503,7 +493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.30.5":
+"@typescript-eslint/parser@npm:^5.30.6":
   version: 5.30.6
   resolution: "@typescript-eslint/parser@npm:5.30.6"
   dependencies:
@@ -1186,7 +1176,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ava@npm:^4.3.0":
+"ava@npm:^4.3.1":
   version: 4.3.1
   resolution: "ava@npm:4.3.1"
   dependencies:
@@ -2407,7 +2397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.14.48":
+"esbuild@npm:^0.14.49":
   version: 0.14.49
   resolution: "esbuild@npm:0.14.49"
   dependencies:
@@ -2875,7 +2865,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fork-ts-checker-webpack-plugin@npm:^7.2.11":
+"fork-ts-checker-webpack-plugin@npm:^7.2.12":
   version: 7.2.12
   resolution: "fork-ts-checker-webpack-plugin@npm:7.2.12"
   dependencies:
@@ -5846,7 +5836,7 @@ __metadata:
   resolution: "ts-for-gir-gio-2-cat-example@workspace:examples/Gjs/gio-2-cat"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5856,7 +5846,7 @@ __metadata:
   resolution: "ts-for-gir-gio-2-dbus-example@workspace:examples/Gjs/gio-2-dbus"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5866,7 +5856,7 @@ __metadata:
   resolution: "ts-for-gir-gio-2-list-model-example@workspace:examples/Gjs/gio-2-list-model"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5876,7 +5866,7 @@ __metadata:
   resolution: "ts-for-gir-gjs-gtk-4-custom-widget-example@workspace:examples/Gjs/gtk-4-custom-widget"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5886,7 +5876,7 @@ __metadata:
   resolution: "ts-for-gir-glib-2-spawn-command-example@workspace:examples/Gjs/glib-2-spawn-command"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -5899,7 +5889,7 @@ __metadata:
   resolution: "ts-for-gir-glib-2-variant-example@workspace:examples/Gjs/glib-2-variant"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5909,7 +5899,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-application-example@workspace:examples/Gjs/gtk-3-application"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5919,7 +5909,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-browser-example@workspace:examples/Gjs/gtk-3-browser"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -5932,7 +5922,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-builder-example@workspace:examples/Gjs/gtk-3-builder"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -5946,7 +5936,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-calc-example@workspace:examples/Gjs/gtk-3-calc"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5956,7 +5946,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-editor-example@workspace:examples/Gjs/gtk-3-editor"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -5969,7 +5959,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-gettext-example@workspace:examples/Gjs/gtk-3-gettext"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5979,7 +5969,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-hello-2-example@workspace:examples/Gjs/gtk-3-hello-2"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -5989,7 +5979,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-hello-example@workspace:examples/Gjs/gtk-3-hello"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6002,7 +5992,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-template-example@workspace:examples/Gjs/gtk-3-template"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6012,7 +6002,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-webkit-example@workspace:examples/Gjs/gtk-3-webkit"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6022,7 +6012,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-4-list-store-example@workspace:examples/Gjs/gtk-4-list-store"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6032,7 +6022,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-4-template-example@workspace:examples/Gjs/gtk-4-template"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6043,7 +6033,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
@@ -6060,7 +6050,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6077,7 +6067,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
@@ -6094,7 +6084,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     raw-loader: ^4.0.2
     terser-webpack-plugin: ^5.3.3
@@ -6112,7 +6102,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6128,7 +6118,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.11
+    fork-ts-checker-webpack-plugin: ^7.2.12
     node-gtk: ^0.10.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
@@ -6144,7 +6134,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-gtk-4-custom-widget-example@workspace:examples/node-gtk/gtk-4-custom-widget"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     node-gtk: ^0.10.0
     typescript: ^4.7.4
   languageName: unknown
@@ -6155,7 +6145,7 @@ __metadata:
   resolution: "ts-for-gir-node-soup-3-http-example@workspace:examples/node-gtk/soup-3-http"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     node-gtk: ^0.10.0
     typescript: ^4.7.4
   languageName: unknown
@@ -6166,7 +6156,7 @@ __metadata:
   resolution: "ts-for-gir-soup-3-http-example@workspace:examples/Gjs/soup-3-http"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6176,7 +6166,7 @@ __metadata:
   resolution: "ts-for-gir-soup-3-websocket-example@workspace:examples/Gjs/soup-3-websocket"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6186,7 +6176,7 @@ __metadata:
   resolution: "ts-for-gir-timers-example@workspace:examples/Gjs/timers"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.14.48
+    esbuild: ^0.14.49
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6197,7 +6187,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     "@yarnpkg/pnpify": ^4.0.0-rc.11
-    ava: ^4.3.0
+    ava: ^4.3.1
     eslint: ^8.19.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1

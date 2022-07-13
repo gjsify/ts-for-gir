@@ -92,7 +92,7 @@
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "ava": "^4.3.0",
+    "ava": "^4.3.1",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

@@ -24,6 +24,6 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "node-gtk": "^0.10.0"
+    "node-gtk": "^0.11.0"
   }
 }

@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "fork-ts-checker-webpack-plugin": "^7.2.12",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
     "raw-loader": "^4.0.2",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4",

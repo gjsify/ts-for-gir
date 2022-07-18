@@ -481,7 +481,7 @@ __metadata:
     "@types/eslint": 8.4.5
     "@types/inquirer": ^8.2.1
     "@types/lodash": ^4.14.182
-    "@types/node": ^18.0.3
+    "@types/node": ^18.0.6
     "@types/prettier": ^2.6.3
     "@types/xml2js": ^0.4.11
     "@types/yargs": ^17.0.10
@@ -491,12 +491,12 @@ __metadata:
     columnify: ^1.6.0
     cosmiconfig: ^7.0.1
     ejs: ^3.1.8
-    eslint: ^8.19.0
+    eslint: ^8.20.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     events: ^3.3.0
     globby: ^13.1.2
-    inquirer: ^9.0.0
+    inquirer: ^9.0.1
     lodash: ^4.17.21
     prettier: ^2.7.1
     rimraf: ^3.0.2
@@ -639,10 +639,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.0.3":
+"@types/node@npm:*":
   version: 18.0.3
   resolution: "@types/node@npm:18.0.3"
   checksum: 5dec59fbbc1186c808b53df1ca717dad034dbd6a901c75f5b052c845618b531b05f27217122c6254db99529a68618e4cfc534ae3dbf4e88754e9e572df80defa
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.0.6":
+  version: 18.0.6
+  resolution: "@types/node@npm:18.0.6"
+  checksum: 780f8885a6b6eb12f4c0246617747fdc37a451931b3c01ce8148d356c0903b705dcb16cc6a914de63d48b0dc1b002c7a3dfae681f580e1761aa551d3cd996813
   languageName: node
   linkType: hard
 
@@ -1032,17 +1039,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/core@npm:^4.0.0-rc.11":
-  version: 4.0.0-rc.11
-  resolution: "@yarnpkg/core@npm:4.0.0-rc.11"
+"@yarnpkg/core@npm:^4.0.0-rc.12":
+  version: 4.0.0-rc.12
+  resolution: "@yarnpkg/core@npm:4.0.0-rc.12"
   dependencies:
     "@arcanis/slice-ansi": ^1.1.1
     "@types/semver": ^7.1.0
     "@types/treeify": ^1.0.0
-    "@yarnpkg/fslib": ^3.0.0-rc.11
-    "@yarnpkg/libzip": ^3.0.0-rc.11
-    "@yarnpkg/parsers": ^3.0.0-rc.11
-    "@yarnpkg/shell": ^4.0.0-rc.11
+    "@yarnpkg/fslib": ^3.0.0-rc.12
+    "@yarnpkg/libzip": ^3.0.0-rc.12
+    "@yarnpkg/parsers": ^3.0.0-rc.12
+    "@yarnpkg/shell": ^4.0.0-rc.12
     camelcase: ^5.3.1
     chalk: ^3.0.0
     ci-info: ^3.2.0
@@ -1061,71 +1068,71 @@ __metadata:
     treeify: ^1.1.0
     tslib: ^1.13.0
     tunnel: ^0.0.6
-  checksum: d616ca6741e4ec40781951a78ea4bca3d65eb328a263650118c28533dab3cc125d269b5ba5bbeeab276904f66251b388e9a5d2e7f33f39c445ac238338455007
+  checksum: cbf16b586dd403cc4dc6f78a82e2e16e4a9471dd70e37162f0f5f24e79df0c47d014d42131db4b6b8f1a053f7e825320cf2212cf653746e4e8a92e58f2e3d33c
   languageName: node
   linkType: hard
 
-"@yarnpkg/fslib@npm:^3.0.0-rc.11":
-  version: 3.0.0-rc.11
-  resolution: "@yarnpkg/fslib@npm:3.0.0-rc.11"
+"@yarnpkg/fslib@npm:^3.0.0-rc.12":
+  version: 3.0.0-rc.12
+  resolution: "@yarnpkg/fslib@npm:3.0.0-rc.12"
   dependencies:
-    "@yarnpkg/libzip": ^3.0.0-rc.11
+    "@yarnpkg/libzip": ^3.0.0-rc.12
     tslib: ^1.13.0
-  checksum: c42a5161f6d0ed1f3214ef22bccdec25357f841f5ea2e5f9fd23ef9baa21cbf3a475edbc814ac17e5b4ae758993292c6225263983cb5709dd4ec89c0a70190df
+  checksum: 00c4873756074ba851cffbcee6595673c2346dc3d677e62b5e286d1ff702b26efa6d485349c6988d11bf17c4c08897b5143a9459ce8d7806ce342c7f0894390a
   languageName: node
   linkType: hard
 
-"@yarnpkg/libzip@npm:^3.0.0-rc.11":
-  version: 3.0.0-rc.11
-  resolution: "@yarnpkg/libzip@npm:3.0.0-rc.11"
+"@yarnpkg/libzip@npm:^3.0.0-rc.12":
+  version: 3.0.0-rc.12
+  resolution: "@yarnpkg/libzip@npm:3.0.0-rc.12"
   dependencies:
     "@types/emscripten": ^1.39.6
     tslib: ^1.13.0
-  checksum: eab83de1f0b26a0f999de56db0034302ed7b6cedd9d280d1a199bac523b5c678480ea0b02b5e576f4841b2bd1289bbcc4b4c68158994e5e68f5c01b94e3a8e92
+  checksum: 8e96b0b18a290254f95ef25ae2cb43aa03457c24c5a3657f89afc6ba337ae0c28a6147322f6de6620f1394d45a7ea6fb5ab2dc4f5972aff63bfcfb798304c9da
   languageName: node
   linkType: hard
 
-"@yarnpkg/nm@npm:^4.0.0-rc.11":
-  version: 4.0.0-rc.11
-  resolution: "@yarnpkg/nm@npm:4.0.0-rc.11"
+"@yarnpkg/nm@npm:^4.0.0-rc.12":
+  version: 4.0.0-rc.12
+  resolution: "@yarnpkg/nm@npm:4.0.0-rc.12"
   dependencies:
-    "@yarnpkg/core": ^4.0.0-rc.11
-    "@yarnpkg/fslib": ^3.0.0-rc.11
-  checksum: 53d408dea2168337492f4a58b77634623cf170e761ec9791898beefea6dcbb873fe64c0f865454ab5e74ff4fd49f1c9191749ad6fdc420657942b1d56e795d58
+    "@yarnpkg/core": ^4.0.0-rc.12
+    "@yarnpkg/fslib": ^3.0.0-rc.12
+  checksum: 319842795c574207173702ae3d090d91bd48fdf233f9e782593ab7ada50125596923b9ddd52aeac8bd9622b0c3911b2701adcb39e39bcdb7ddee7884e09190b7
   languageName: node
   linkType: hard
 
-"@yarnpkg/parsers@npm:^3.0.0-rc.11":
-  version: 3.0.0-rc.11
-  resolution: "@yarnpkg/parsers@npm:3.0.0-rc.11"
+"@yarnpkg/parsers@npm:^3.0.0-rc.12":
+  version: 3.0.0-rc.12
+  resolution: "@yarnpkg/parsers@npm:3.0.0-rc.12"
   dependencies:
     js-yaml: ^3.10.0
     tslib: ^1.13.0
-  checksum: 7639f374cd5429bd86cc431f460897ff3194f08eccd4291237db420522d353cd7cf8097e13d82b370fabf65559cf14dcfd692b3cbb20b27126589380fff4a32a
+  checksum: 5b39b423214f1be3c2d22723a6413461ed17ebcfb1a949720491944cf09c784e13652de9597b469a1d4cad58e80c8600d33862da3b3365c711c465f23a251caf
   languageName: node
   linkType: hard
 
-"@yarnpkg/pnpify@npm:^4.0.0-rc.11":
-  version: 4.0.0-rc.11
-  resolution: "@yarnpkg/pnpify@npm:4.0.0-rc.11"
+"@yarnpkg/pnpify@npm:^4.0.0-rc.12":
+  version: 4.0.0-rc.12
+  resolution: "@yarnpkg/pnpify@npm:4.0.0-rc.12"
   dependencies:
-    "@yarnpkg/core": ^4.0.0-rc.11
-    "@yarnpkg/fslib": ^3.0.0-rc.11
-    "@yarnpkg/nm": ^4.0.0-rc.11
+    "@yarnpkg/core": ^4.0.0-rc.12
+    "@yarnpkg/fslib": ^3.0.0-rc.12
+    "@yarnpkg/nm": ^4.0.0-rc.12
     clipanion: ^3.2.0-rc.10
     tslib: ^1.13.0
   bin:
     pnpify: ./lib/cli.js
-  checksum: 70f77904b60f051c9ca553a7cd71d419a90495f97174688c708e98c76de6223adb125ffc78260f3682494cf4ed49df5cbe879702dc78e030e61bf86b002d7f2d
+  checksum: 3c56b2329b03417ab672e43090d729b1e86598da7f24f4879f2b4d4ca68e8aec6ed8d5baf0995b54352f4cb327afb4424a3821f5abb0517047c63f0009de2fac
   languageName: node
   linkType: hard
 
-"@yarnpkg/shell@npm:^4.0.0-rc.11":
-  version: 4.0.0-rc.11
-  resolution: "@yarnpkg/shell@npm:4.0.0-rc.11"
+"@yarnpkg/shell@npm:^4.0.0-rc.12":
+  version: 4.0.0-rc.12
+  resolution: "@yarnpkg/shell@npm:4.0.0-rc.12"
   dependencies:
-    "@yarnpkg/fslib": ^3.0.0-rc.11
-    "@yarnpkg/parsers": ^3.0.0-rc.11
+    "@yarnpkg/fslib": ^3.0.0-rc.12
+    "@yarnpkg/parsers": ^3.0.0-rc.12
     chalk: ^3.0.0
     clipanion: ^3.2.0-rc.10
     cross-spawn: 7.0.3
@@ -1134,7 +1141,7 @@ __metadata:
     tslib: ^1.13.0
   bin:
     shell: ./lib/cli.js
-  checksum: bafe2a3595bf0e9d93a01b0eb76405c9c8dd37798bc426458ed801a85f77fd376605abc914e942fe33262f763fe3f8df325cb7e06d8e6a074ab21523e6c0f297
+  checksum: 5f0196df9314e7d66bd95ad702de8cc33ff2be3a8863a13f34f82a5b7ef0e24cec1dcd66204e97f81179cd398dd0136292e7e26fe7eecbc5fd2d5250cc309661
   languageName: node
   linkType: hard
 
@@ -2858,9 +2865,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.19.0":
-  version: 8.19.0
-  resolution: "eslint@npm:8.19.0"
+"eslint@npm:^8.20.0":
+  version: 8.20.0
+  resolution: "eslint@npm:8.20.0"
   dependencies:
     "@eslint/eslintrc": ^1.3.0
     "@humanwhocodes/config-array": ^0.9.2
@@ -2899,7 +2906,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 0bc9df1a3a09dcd5a781ec728f280aa8af3ab19c2d1f14e2668b5ee5b8b1fb0e72dde5c3acf738e7f4281685fb24ec149b6154255470b06cf41de76350bca7a4
+  checksum: a31adf390d71d916925586bc8467b48f620e93dd0416bc1e897d99265af88b48d4eba3985b5ff4653ae5cc46311a360d373574002277e159bb38a4363abf9228
   languageName: node
   linkType: hard
 
@@ -3156,9 +3163,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fork-ts-checker-webpack-plugin@npm:^7.2.12":
-  version: 7.2.12
-  resolution: "fork-ts-checker-webpack-plugin@npm:7.2.12"
+"fork-ts-checker-webpack-plugin@npm:^7.2.13":
+  version: 7.2.13
+  resolution: "fork-ts-checker-webpack-plugin@npm:7.2.13"
   dependencies:
     "@babel/code-frame": ^7.16.7
     chalk: ^4.1.2
@@ -3168,6 +3175,7 @@ __metadata:
     fs-extra: ^10.0.0
     memfs: ^3.4.1
     minimatch: ^3.0.4
+    node-abort-controller: ^3.0.1
     schema-utils: ^3.1.1
     semver: ^7.3.5
     tapable: ^2.2.1
@@ -3178,7 +3186,7 @@ __metadata:
   peerDependenciesMeta:
     vue-template-compiler:
       optional: true
-  checksum: 79ccc4e6275c3f3e04e29bfcf13fe3eec1c61e285c1df942c14c92644a5c4f49deb4044cc73bef3becf24fa567a7fb6e37987f1fe2cae69f63fb4eba93bd9caa
+  checksum: 3d4694c6fee4b8b2f213d0d10a3f40da770ca0ed3aa2a3dc8d1e701ad1ecaed3a1507f77a1b0cea6ef80539b04d8e5f5f02560e688d310bcb9e8c81f684d2950
   languageName: node
   linkType: hard
 
@@ -3776,9 +3784,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "inquirer@npm:9.0.0"
+"inquirer@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "inquirer@npm:9.0.1"
   dependencies:
     ansi-escapes: ^5.0.0
     chalk: ^5.0.1
@@ -3788,14 +3796,14 @@ __metadata:
     figures: ^4.0.1
     lodash: ^4.17.21
     mute-stream: 0.0.8
-    ora: ^6.1.0
+    ora: ^6.1.2
     run-async: ^2.4.0
-    rxjs: ^7.5.5
+    rxjs: ^7.5.6
     string-width: ^5.1.2
     strip-ansi: ^7.0.1
     through: ^2.3.6
     wrap-ansi: ^8.0.1
-  checksum: ea131492517bfc875cbdce1cfcd5c40f203938a4ae93dd95120c9a734b60628db2de6f2050ef156e899f7cbf6156c48d972a134fa00b30d6c7e78620690a473a
+  checksum: 5e4272ecab950d4154442f804a8b9f69d5a39c89ea514901199bc309fea654c4c5ebaa91efb00baeca9331c3990a2fe4a77ef283dd573e2d3bd460fac487a857
   languageName: node
   linkType: hard
 
@@ -4753,6 +4761,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-abort-controller@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "node-abort-controller@npm:3.0.1"
+  checksum: 2b3d75c65249fea99e8ba22da3a8bc553f034f44dd12f5f4b38b520f718b01c88718c978f0c24c2a460fc01de9a80b567028f547b94440cb47adeacfeb82c2ee
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.6.7":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
@@ -4767,9 +4782,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gtk@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "node-gtk@npm:0.10.0"
+"node-gtk@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "node-gtk@npm:0.11.0"
   dependencies:
     "@mapbox/node-pre-gyp": ^1.0.0
     lodash.camelcase: 4.3.0
@@ -4779,7 +4794,7 @@ __metadata:
     node-gyp: ^7.1.2
     remove-trailing-spaces: ^1.0.7
     unindent: ^2.0.0
-  checksum: 4e5e8860df96adfad5875dd9b2e0320e59857d7420c1949d50f95d72cf9ac25116ee0e5ff0f369fffac20c0a7253442d19cbc3a5e4e4d679509d863a10dcf094
+  checksum: 4bffa7fe5f6e557460dd7e7271f2fdf00e64b5d9ec72a18f8703e81f8f75ebf94285cc9da7ab6b59f4679d487e044c84993a291563b4f178b58d5dca4e78b952
   languageName: node
   linkType: hard
 
@@ -4977,7 +4992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ora@npm:^6.1.0":
+"ora@npm:^6.1.2":
   version: 6.1.2
   resolution: "ora@npm:6.1.2"
   dependencies:
@@ -5610,7 +5625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^7.2.0, rxjs@npm:^7.5.5":
+"rxjs@npm:^7.2.0, rxjs@npm:^7.5.6":
   version: 7.5.6
   resolution: "rxjs@npm:7.5.6"
   dependencies:
@@ -6250,7 +6265,7 @@ __metadata:
   resolution: "ts-for-gir-glib-2-spawn-command-example@workspace:examples/Gjs/glib-2-spawn-command"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.12
+    fork-ts-checker-webpack-plugin: ^7.2.13
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6283,7 +6298,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-browser-example@workspace:examples/Gjs/gtk-3-browser"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.12
+    fork-ts-checker-webpack-plugin: ^7.2.13
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6296,7 +6311,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-builder-example@workspace:examples/Gjs/gtk-3-builder"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.12
+    fork-ts-checker-webpack-plugin: ^7.2.13
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6320,7 +6335,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-editor-example@workspace:examples/Gjs/gtk-3-editor"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.12
+    fork-ts-checker-webpack-plugin: ^7.2.13
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6353,7 +6368,7 @@ __metadata:
   resolution: "ts-for-gir-gtk-3-hello-example@workspace:examples/Gjs/gtk-3-hello"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    fork-ts-checker-webpack-plugin: ^7.2.12
+    fork-ts-checker-webpack-plugin: ^7.2.13
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6406,9 +6421,9 @@ __metadata:
   resolution: "ts-for-gir-node-glib-2-spawn-command-example@workspace:examples/node-gtk/glib-2-spawn-command"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6423,9 +6438,9 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-browser-example@workspace:examples/node-gtk/gtk-3-browser"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     util: ^0.12.4
@@ -6440,9 +6455,9 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-builder-auto-connect-signals-example@workspace:examples/node-gtk/gtk-3-builder-auto-connect-signals"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6457,9 +6472,9 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-builder-example@workspace:examples/node-gtk/gtk-3-builder"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     raw-loader: ^4.0.2
     terser-webpack-plugin: ^5.3.3
     ts-loader: ^9.3.1
@@ -6475,9 +6490,9 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-editor-example@workspace:examples/node-gtk/gtk-3-editor"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     ts-loader: ^9.3.1
     typescript: ^4.7.4
     webpack: ^5.73.0
@@ -6491,9 +6506,9 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-hello-example@workspace:examples/node-gtk/gtk-3-hello"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.0.3
-    fork-ts-checker-webpack-plugin: ^7.2.12
-    node-gtk: ^0.10.0
+    "@types/node": ^18.0.6
+    fork-ts-checker-webpack-plugin: ^7.2.13
+    node-gtk: ^0.11.0
     raw-loader: ^4.0.2
     ts-loader: ^9.3.1
     typescript: ^4.7.4
@@ -6509,7 +6524,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     esbuild: ^0.14.49
-    node-gtk: ^0.10.0
+    node-gtk: ^0.11.0
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6520,7 +6535,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
     esbuild: ^0.14.49
-    node-gtk: ^0.10.0
+    node-gtk: ^0.11.0
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -6560,9 +6575,9 @@ __metadata:
   resolution: "ts-for-gir@workspace:."
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@yarnpkg/pnpify": ^4.0.0-rc.11
+    "@yarnpkg/pnpify": ^4.0.0-rc.12
     ava: ^4.3.1
-    eslint: ^8.19.0
+    eslint: ^8.20.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.2.1
     rimraf: ^3.0.2

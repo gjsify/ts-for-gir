@@ -26,8 +26,8 @@
   },
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@types/node": "^18.0.3",
-    "fork-ts-checker-webpack-plugin": "^7.2.12",
+    "@types/node": "^18.0.6",
+    "fork-ts-checker-webpack-plugin": "^7.2.13",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",
@@ -35,7 +35,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "node-gtk": "^0.10.0",
+    "node-gtk": "^0.11.0",
     "util": "^0.12.4"
   }
 }

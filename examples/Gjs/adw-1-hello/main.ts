@@ -1,6 +1,6 @@
 /**
- * GJS example showing how to build javascript applications
- * using Libadwaita Application
+ * GJS example showing how to build javascript applications using Libadwaita Application.
+ * @see https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/examples/hello-world/hello.c
  */
 
 import './@types/Gjs/index';

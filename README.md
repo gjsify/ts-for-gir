@@ -84,7 +84,7 @@ sudo apt update && sudo apt install \
     libsoup-3.0-dev \
     libwebkit2gtk-4.0-dev
 
-# Fedora 35
+# Fedora 36
 sudo dnf update && sudo dnf install \
     libappindicator-gtk3-devel \
     libgda-devel \
@@ -95,7 +95,9 @@ sudo dnf update && sudo dnf install \
     gtksourceview3-devel \
     libnotify-devel \
     libsoup-devel \
-    webkit2gtk3-devel
+    webkit2gtk3-devel \
+    libadwaita \
+    libadwaita-devel 
 ```
 
 Checkout this repository, install the dependencies and build:

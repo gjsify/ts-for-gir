@@ -3,6 +3,8 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
+# Dev
+- Added new simple Gjs example with Libadwaita and Vite
 # 3.0.0-beta.2
 - Rename package to `@ts-for-gir/cli`, see #82
 - Ported more examples, see #81

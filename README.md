@@ -82,7 +82,8 @@ sudo apt update && sudo apt install \
     libnotify-dev \
     libsoup2.4-dev \
     libsoup-3.0-dev \
-    libwebkit2gtk-4.0-dev
+    libwebkit2gtk-4.0-dev \
+    libadwaita-1-dev
 
 # Fedora 36
 sudo dnf update && sudo dnf install \
@@ -96,7 +97,6 @@ sudo dnf update && sudo dnf install \
     libnotify-devel \
     libsoup-devel \
     webkit2gtk3-devel \
-    libadwaita \
     libadwaita-devel 
 ```
 

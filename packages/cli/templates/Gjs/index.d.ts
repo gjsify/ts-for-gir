@@ -199,6 +199,8 @@ declare global {
         logDomain: string
     }
 
+    // Ignore "Cannot redeclare block-scoped variable 'console'""
+    // @ts-ignore
     const console: Console;
 
     interface BooleanConstructor {

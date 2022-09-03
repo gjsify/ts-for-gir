@@ -2,6 +2,7 @@
 /**
  * Default values, parse the config file and handle CLI flags
  */
+import inquirer from 'inquirer'
 import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
@@ -12,7 +13,6 @@ import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
 import {
-    WARN_HAS_DOM_LIB,
     WARN_USE_NAMESPACE_ON_TYPES,
     WARN_USE_NAMESPACE_ON_ESM,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
@@ -304,10 +304,6 @@ export class Config {
             }
         }
 
-        if (options.environments.includes('gjs') && options.hasDOMLib) {
-            Logger.warn(WARN_HAS_DOM_LIB)
-        }
-
         return options
     }
 
@@ -442,8 +438,24 @@ export class Config {
             'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
                 ? false // NoLib makes typescript to ignore the lib property
                 : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
-                ? tsCompilerOptions.lib.includes('dom')
-                : true
+                ? tsCompilerOptions.lib.some((lib) => String(lib).toLowerCase().startsWith('dom'))
+                : true // Typescript icludes DOM lib by default
+
+        if (options.environments.includes('gjs') && config.hasDOMLib) {
+            const answer = (
+                await inquirer.prompt([
+                    {
+                        type: 'list',
+                        name: 'include',
+                        choices: ['Yes', 'No'],
+                        message:
+                            'Your typescript compilerOptions includes the DOM lib, this conflicts with some Gjs global types, do you want to skip generating those types?',
+                    },
+                ])
+            ).include as 'Yes' | 'No'
+
+            if (answer == 'No') config.hasDOMLib = false
+        }
 
         return this.validate(config)
     }

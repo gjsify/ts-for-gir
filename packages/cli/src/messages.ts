@@ -57,9 +57,6 @@ export const WARN_RENAMED_ENUM = (originalName: string, newName: string) =>
 export const WARN_RENAMED_PARAMETER = (originalName: string, newName: string) =>
     `Parameter name renamed from '${originalName}' to '${newName}'`
 
-export const WARN_HAS_DOM_LIB = `The project where definition will be generated is not configured or includes the DOM library in its tsconfig.json or jsconfig.json.
-This conflicts with some gjs global definitions and as such those will no be included.`
-
 // Info messages
 
 export const DANGER_HTML_DOC_GENERATOR_NOT_IMPLEMENTED =

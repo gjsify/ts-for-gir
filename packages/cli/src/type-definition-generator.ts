@@ -1280,6 +1280,11 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const girAlias of girModule.ns.alias)
                     if (girModule.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
                         out.push(...this.generateAlias(girAlias, girModule.namespace, 1))
+
+            // Properties added to every GIRepositoryNamespace
+            // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+            out.push('const __name__: string')
+            out.push('const __version__: string')
         }
         // END Namespace
         if (this.config.useNamespace) {

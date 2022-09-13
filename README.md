@@ -43,6 +43,11 @@ And then create a new script in your `package.json` to generate the types, for e
 
 more examples can be found in the [./examples/](/examples/) subfolder.
 
+### For GJS projects
+It's recommended that you create or modify your `tsconfig.json`/`jsconfig.json`, so it doesn't include the `DOM` lib, as it conflicts with some generated GJS global types and will cause lint warnings and compilation errors with typescript.
+
+Either add/edit the `lib` property so it doesn't include `"DOM"`, or enable the property `noLib` (However the side effects of doing this should be considered). For more information check the documentation for both the [`lib`](https://www.typescriptlang.org/tsconfig/#lib) and [`noLib`](https://www.typescriptlang.org/tsconfig#noLib) properties.
+
 ### CLI
 
 To generate the Typescript type definitions of Gtk-4.0 for Gjs run

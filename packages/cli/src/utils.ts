@@ -238,8 +238,6 @@ function convertTsJsConfigToObject(path: string) {
  * @param path - The directory path to search for a tsconfig.json or jsconfig.json file
  */
 export function readTsJsConfig(path: string) {
-    if (!fs.lstatSync(path, { throwIfNoEntry: false })?.isDirectory()) return null
-
     let config: null | false | Record<PropertyKey, unknown> = null
     let lastPath = ''
     let currentPath = Path.resolve(path)

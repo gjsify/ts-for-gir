@@ -104,19 +104,19 @@ export class Logger {
         return
     }
     public static info(txt: string | number, ...args: unknown[]): void {
-        args = this.prepend([txt], 'INFO: ')
+        ;[txt, ...args] = this.prepend([txt, ...args], 'INFO: ') as [string, ...unknown[]]
         return console.info(blue(txt), ...args)
     }
     public static warn(txt: string | number, ...args: unknown[]): void {
-        args = this.prepend([txt], 'WARN: ')
+        ;[txt, ...args] = this.prepend([txt, ...args], 'WARN: ') as [string, ...unknown[]]
         return console.warn(yellow(txt), ...args)
     }
     public static debug(txt: string | number, ...args: unknown[]): void {
-        args = this.prepend([txt], 'DEBUG: ')
+        ;[txt, ...args] = this.prepend([txt, ...args], 'DEBUG: ') as [string, ...unknown[]]
         return console.debug(yellowBright(txt), ...args)
     }
     public static error(txt: string | number, ...args: unknown[]): void {
-        args = this.prepend([txt], 'ERROR: ')
+        ;[txt, ...args] = this.prepend([txt, ...args], 'ERROR: ') as [string, ...unknown[]]
         return this.danger(txt, args)
     }
     public static success(txt: string | number, ...args: unknown[]): void {

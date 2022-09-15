@@ -41,8 +41,8 @@ export class ConflictResolver {
 
     private girFactory = new GirFactory()
 
-    constructor(private readonly environment: Environment) {
-        this.log = new Logger(environment, true, 'ConflictResolver')
+    constructor(private readonly environment: Environment, private readonly verbose: boolean) {
+        this.log = new Logger(environment, verbose, 'ConflictResolver')
     }
 
     private girElArrToChildArr<T = TsFunction | TsProperty | TsVar>(

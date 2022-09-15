@@ -1280,6 +1280,77 @@ export default class TypeDefinitionGenerator implements Generator {
                 for (const girAlias of girModule.ns.alias)
                     if (girModule.packageName !== 'GObject-2.0' || girAlias.$.name !== 'Type')
                         out.push(...this.generateAlias(girAlias, girModule.namespace, 1))
+
+            if (this.config.environment === 'gjs') {
+                // Properties added to every GIRepositoryNamespace
+                // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L186-190
+                out.push(
+                    ...this.generateConstant(
+                        {
+                            doc: {
+                                text: 'Name of the imported GIR library',
+                                tags: [
+                                    {
+                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L188',
+                                        tagName: 'see',
+                                        paramName: '',
+                                    },
+                                ],
+                            },
+                            name: '__name__',
+                            type: [
+                                {
+                                    type: 'string',
+                                    optional: false,
+                                    nullable: false,
+                                    callbacks: [],
+                                    generics: [],
+                                    isArray: false,
+                                    isFunction: false,
+                                    isCallback: false,
+                                },
+                            ],
+                            isInjected: false,
+                            tsTypeName: 'constant',
+                            girTypeName: 'constant',
+                        },
+                        girModule.namespace,
+                        0,
+                    ),
+                    ...this.generateConstant(
+                        {
+                            doc: {
+                                text: 'Version of the imported GIR library',
+                                tags: [
+                                    {
+                                        text: 'https://gitlab.gnome.org/GNOME/gjs/-/blob/master/gi/ns.cpp#L189',
+                                        tagName: 'see',
+                                        paramName: '',
+                                    },
+                                ],
+                            },
+                            name: '__version__',
+                            type: [
+                                {
+                                    type: 'string',
+                                    optional: false,
+                                    nullable: false,
+                                    callbacks: [],
+                                    generics: [],
+                                    isArray: false,
+                                    isFunction: false,
+                                    isCallback: false,
+                                },
+                            ],
+                            isInjected: false,
+                            tsTypeName: 'constant',
+                            girTypeName: 'constant',
+                        },
+                        girModule.namespace,
+                        0,
+                    ),
+                )
+            }
         }
         // END Namespace
         if (this.config.useNamespace) {

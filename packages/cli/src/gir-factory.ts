@@ -196,6 +196,17 @@ export class GirFactory {
         }
     }
 
+    newGirProperties(
+        InjectionProps: InjectionProperty[],
+        overrideToAll: Partial<InjectionProperty> = {},
+    ): GirPropertyElement[] {
+        const result: GirPropertyElement[] = []
+        for (const InjectionProp of InjectionProps) {
+            result.push(this.newGirProperty({ ...InjectionProp, ...overrideToAll }))
+        }
+        return result
+    }
+
     newTsFunction(tsData: InjectionFunction, parent: TsClass | null): TsFunction {
         const tsFunc: TsFunction & TsMethod = {
             ...tsData,

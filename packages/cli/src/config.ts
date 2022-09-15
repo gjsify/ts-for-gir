@@ -2,11 +2,12 @@
 /**
  * Default values, parse the config file and handle CLI flags
  */
+import inquirer from 'inquirer'
 import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import OS from 'os'
-import { merge, isEqual } from './utils.js'
+import { merge, isEqual, readTsJsConfig } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { promises as fs } from 'fs'
 import { Logger } from './logger.js'
@@ -283,6 +284,7 @@ export class Config {
             noDebugComments: config.noDebugComments,
             noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
+            hasDOMLib: config.hasDOMLib,
         }
         return generateConfig
     }
@@ -331,6 +333,7 @@ export class Config {
             noDebugComments: options.noDebugComments,
             noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
+            hasDOMLib: true,
         }
 
         if (configFile) {
@@ -419,6 +422,39 @@ export class Config {
             ) {
                 config.fixConflicts = configFile.config.fixConflicts
             }
+        }
+
+        const tsConfig = config.outdir ? readTsJsConfig(config.outdir) : null
+        const tsCompilerOptions = (
+            tsConfig &&
+            'compilerOptions' in tsConfig &&
+            typeof tsConfig.compilerOptions === 'object' &&
+            tsConfig.compilerOptions != null
+                ? tsConfig.compilerOptions
+                : {}
+        ) as Record<PropertyKey, unknown>
+
+        config.hasDOMLib =
+            'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
+                ? false // NoLib makes typescript to ignore the lib property
+                : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
+                ? tsCompilerOptions.lib.some((lib) => String(lib).toLowerCase().startsWith('dom'))
+                : true // Typescript icludes DOM lib by default
+
+        if (options.environments.includes('gjs') && config.hasDOMLib) {
+            const answer = (
+                await inquirer.prompt([
+                    {
+                        type: 'list',
+                        name: 'include',
+                        choices: ['Yes', 'No'],
+                        message:
+                            'Your typescript compilerOptions includes the DOM lib, this conflicts with some Gjs global types, do you want to skip generating those types?',
+                    },
+                ])
+            ).include as 'Yes' | 'No'
+
+            if (answer == 'No') config.hasDOMLib = false
         }
 
         return this.validate(config)

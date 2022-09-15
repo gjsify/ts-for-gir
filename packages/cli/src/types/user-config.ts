@@ -36,4 +36,6 @@ export interface UserConfig {
     noCheck: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
+    /** Wheter the project has DOM lib enabled in tsconfig/jsconfig */
+    hasDOMLib: boolean
 }

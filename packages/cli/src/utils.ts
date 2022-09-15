@@ -2,6 +2,7 @@
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
+import ts from 'typescript'
 import { fileURLToPath } from 'url'
 import { Environment, GirInfoAttrs, TsType } from './types/index.js'
 import { inspect } from 'util'
@@ -218,7 +219,10 @@ export const typeIsOptional = (types: TsType[]) => {
 
 function convertTsJsConfigToObject(path: string) {
     try {
-        const config: unknown = JSON.parse(fs.readFileSync(path, 'utf8'))
+        const config: unknown = ts.parseConfigFileTextToJson(
+            Path.basename(path),
+            fs.readFileSync(path, 'utf8').trim(),
+        ).config
         if (typeof config === 'object' && !Array.isArray(config)) return config as Record<PropertyKey, unknown>
     } catch {
         // ignored
@@ -238,7 +242,7 @@ export function readTsJsConfig(path: string) {
 
     let config: null | false | Record<PropertyKey, unknown> = null
     let lastPath = ''
-    let currentPath = path
+    let currentPath = Path.resolve(path)
     while (!config && currentPath !== lastPath) {
         const tsConfigPath = Path.join(currentPath, 'tsconfig.json')
         const jsConfigPath = Path.join(currentPath, 'jsconfig.json')

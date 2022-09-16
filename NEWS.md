@@ -9,7 +9,7 @@
 - Expose GIRepositoryNamespace underscore properties in TS namespace, see #85 by @HeavenVolkoff
 - Solution for #72 + Add type definitions for Text(D)Encoder, see #86 by @HeavenVolkoff
 - Added new simple Gjs example with Libadwaita and Vite
-# 3.0.0-beta.2
+# 3.0.0-beta.3
 - Rename package to `@ts-for-gir/cli`, see #82
 - Ported more examples, see #81
 - Add overrides for Gio-2.0, see #80

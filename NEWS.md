@@ -3,7 +3,11 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
-# Dev
+# 3.0.0-beta.3
+- Follow user defined verbose option in ConflictResolver, see #83 by @HeavenVolkoff
+- Fix prepend logic in Logger's static methods, see #84 by @HeavenVolkoff
+- Expose GIRepositoryNamespace underscore properties in TS namespace, see #85 by @HeavenVolkoff
+- Solution for #72 + Add type definitions for Text(D)Encoder, see #86 by @HeavenVolkoff
 - Added new simple Gjs example with Libadwaita and Vite
 # 3.0.0-beta.2
 - Rename package to `@ts-for-gir/cli`, see #82

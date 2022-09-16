@@ -120,12 +120,12 @@ export namespace Format {
 
 export namespace Mainloop {
     export function quit(name: string): void
-    export function idle_source(handler: any, priority: number): any
-    export function idle_add(handler: any, priority: number): any
-    export function timeout_source(timeout: any, handler: any, priority: number): any
-    export function timeout_seconds_source(timeout: any, handler: any, priority: number): any
-    export function timeout_add(timeout: any, handler: any, priority: number): any
-    export function timeout_add_seconds(timeout: any, handler: any, priority: number): any
+    export function idle_source(handler: any, priority?: number): any
+    export function idle_add(handler: any, priority?: number): any
+    export function timeout_source(timeout: any, handler: any, priority?: number): any
+    export function timeout_seconds_source(timeout: any, handler: any, priority?: number): any
+    export function timeout_add(timeout: any, handler: any, priority?: number): any
+    export function timeout_add_seconds(timeout: any, handler: any, priority?: number): any
     export function source_remove(id: any): any
     export function run(name: string): void
 }

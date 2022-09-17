@@ -219,13 +219,35 @@ export const classesGio20Gjs: InjectionClass[] = [
     {
         versions: ['2.0'],
         qualifiedName: 'Gio.Cancellable',
-        methods: [
+        propertySignalMethods: [
             {
-                // https://gjs-docs.gnome.org/gio20~2.66p/gio.cancellable#method-connect
                 name: 'connect',
-                girTypeName: 'method',
-                returnTypes: [{ type: 'void' }],
-                inParams: [],
+                girTypeName: 'function',
+                returnTypes: [{ type: 'number' }],
+                inParams: [
+                    {
+                        name: 'sigName',
+                        type: [{ type: 'string' }],
+                    },
+                    {
+                        name: 'callback',
+                        type: [{ type: '(...args: any[]) => void' }],
+                    },
+                ],
+                overloads: [
+                    {
+                        // https://gjs-docs.gnome.org/gio20~2.66p/gio.cancellable#method-connect
+                        name: 'connect',
+                        girTypeName: 'function',
+                        returnTypes: [{ type: 'number' }],
+                        inParams: [
+                            {
+                                name: 'callback',
+                                type: [{ type: 'GObject.Callback' }],
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },

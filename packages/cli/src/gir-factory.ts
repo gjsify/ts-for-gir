@@ -207,7 +207,7 @@ export class GirFactory {
             isInjected: tsData.isInjected || false,
             retTypeIsVoid: tsData.returnTypes?.length === 1 && tsData.returnTypes[0]?.type === 'void',
             generics: this.newGenerics(tsData.generics || []),
-            overloads: tsData.overloads || [],
+            overloads: (tsData.overloads || []).map((overload) => this.newTsFunction(overload, parent)),
             doc: this.newTsDoc(tsData.doc),
             tsTypeName: this.girTypeNameToTsTypeName(tsData.girTypeName, tsData.isStatic || false),
             inParams: [],

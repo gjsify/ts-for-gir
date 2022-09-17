@@ -63,7 +63,9 @@ export class Injector {
             if (toClass.propertySignalMethods) {
                 for (const propertySignalMethod of toClass.propertySignalMethods) {
                     propertySignalMethod.isInjected = true
-                    girClass._tsData.propertySignalMethods.push(propertySignalMethod)
+                    girClass._tsData.propertySignalMethods.push(
+                        this.girFactory.newTsFunction(propertySignalMethod, girClass._tsData),
+                    )
                 }
             }
 

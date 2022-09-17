@@ -544,7 +544,7 @@ export default class TypeDefinitionGenerator implements Generator {
         const genericStr = this.generateGenericParameters(tsFunction.generics)
 
         // temporary solution, will be solved differently later
-        const commentOut = tsFunction.hasUnresolvedConflict ? '// Has conflict: ' : ''
+        const commentOut = tsFunction.hasUnresolvedConflict && !tsFunction.isInjected ? '// Has conflict: ' : ''
 
         let exportStr = ''
         // `tsType === 'function'` are a global methods which can be exported

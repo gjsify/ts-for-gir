@@ -216,4 +216,17 @@ export const classesGio20Gjs: InjectionClass[] = [
             },
         ],
     },
+    {
+        versions: ['2.0'],
+        qualifiedName: 'Gio.Cancellable',
+        methods: [
+            {
+                // https://gjs-docs.gnome.org/gio20~2.66p/gio.cancellable#method-connect
+                name: 'connect',
+                girTypeName: 'method',
+                returnTypes: [{ type: 'void' }],
+                inParams: [],
+            },
+        ],
+    },
 ]

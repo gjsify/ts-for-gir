@@ -3,6 +3,8 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 
+# Dev
+- Upgrade dependencies
 # 3.0.0-beta.3
 - Follow user defined verbose option in ConflictResolver, see #83 by @HeavenVolkoff
 - Fix prepend logic in Logger's static methods, see #84 by @HeavenVolkoff

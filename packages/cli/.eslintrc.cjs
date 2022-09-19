@@ -1,4 +1,4 @@
-{
+module.exports = {
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
@@ -16,9 +16,8 @@
         "@typescript-eslint/camelcase": "off"
     },
     "parserOptions": {
-        "requireConfigFile": false,
-        "files": ["*.ts", "*.tsx"],
-        "project": "./tsconfig.json"
+        "tsconfigRootDir": __dirname,
+        "project": ["./tsconfig.json"]
     },
     "globals": {
         "imports": true

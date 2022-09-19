@@ -2,7 +2,7 @@
  * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
  */
 
-import inquirer from 'inquirer'
+import inquirer, { ListQuestion, Answers } from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import fs from 'fs'
@@ -63,7 +63,7 @@ export class ModuleLoader {
     /**
      * Sorts out the module the user has not selected via cli prompt
      * @param girModulesGrouped
-     * @param keepFullName Users selected module packageName
+     * @param selected Users selected module packageName
      */
     private sortVersionsByAnswer(
         girModulesGrouped: GirModulesGrouped,
@@ -99,11 +99,8 @@ export class ModuleLoader {
         }
     }
 
-    private generateContinueQuestion(
-        message = `do you want to continue?`,
-        choices = ['Yes', 'Go back'],
-    ): inquirer.ListQuestion {
-        const question: inquirer.ListQuestion = {
+    private generateContinueQuestion(message = `do you want to continue?`, choices = ['Yes', 'Go back']): ListQuestion {
+        const question: ListQuestion = {
             name: 'continue',
             message,
             type: 'list',
@@ -115,8 +112,8 @@ export class ModuleLoader {
     private generateIgnoreDepsQuestion(
         message = `Do you want to ignore them too?`,
         choices = ['Yes', 'No', 'Go back'],
-    ): inquirer.ListQuestion {
-        const question: inquirer.ListQuestion = {
+    ): ListQuestion {
+        const question: ListQuestion = {
             name: 'continue',
             message,
             type: 'list',
@@ -128,7 +125,7 @@ export class ModuleLoader {
     private async askIgnoreDepsPrompt(
         deps: GirModuleResolvedBy[] | Set<GirModuleResolvedBy>,
     ): Promise<'Yes' | 'No' | 'Go back'> {
-        let question: inquirer.ListQuestion<inquirer.Answers> | null = null
+        let question: ListQuestion<Answers> | null = null
         const size = (deps as GirModuleResolvedBy[]).length || (deps as Set<GirModuleResolvedBy>).size || 0
         if (size > 0) {
             this.log.log(bold('\nThe following modules have the ignored modules as dependencies:'))
@@ -152,13 +149,10 @@ export class ModuleLoader {
      * @param girModuleGrouped
      * @param message
      */
-    private generateModuleVersionQuestion(
-        girModuleGrouped: GirModulesGrouped,
-        message?: string,
-    ): inquirer.ListQuestion {
+    private generateModuleVersionQuestion(girModuleGrouped: GirModulesGrouped, message?: string): ListQuestion {
         message = message || `Multiple versions of '${girModuleGrouped.namespace}' found, which one do you want to use?`
         const choices = ['All', ...girModuleGrouped.modules.map((module) => module.packageName)]
-        const question: inquirer.ListQuestion = {
+        const question: ListQuestion = {
             name: girModuleGrouped.namespace,
             message,
             type: 'list',

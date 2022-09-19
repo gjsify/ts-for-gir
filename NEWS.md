@@ -4,7 +4,7 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Remove casts.js, the types are now so good that this helper is no longer needed 
 
-# Dev
+# 3.0.0-beta.4
 - CLI: Allow to disable generation of types that are in conflict with the DOM types
 - Add typing definition for `GLib.Bytes.toArray()`
 - Upgrade dependencies
@@ -14,7 +14,7 @@
 - Expose GIRepositoryNamespace underscore properties in TS namespace, see #85 by @HeavenVolkoff
 - Solution for #72 + Add type definitions for Text(D)Encoder, see #86 by @HeavenVolkoff
 - Added new simple Gjs example with Libadwaita and Vite
-# 3.0.0-beta.3
+# 3.0.0-beta.2
 - Rename package to `@ts-for-gir/cli`, see #82
 - Ported more examples, see #81
 - Add overrides for Gio-2.0, see #80

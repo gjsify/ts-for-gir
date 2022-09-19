@@ -495,7 +495,7 @@ declare global {
          *
          * This is potentially more performant than the older encode() method.
          *
-         * @param source Text to enconde.
+         * @param source Text to encode.
          * @param destination Buffer where to place the resulting UTF-8 encoded text into.
          */
         encodeInto(source: string, destination: Uint8Array): TextEncoderEncodeIntoResult

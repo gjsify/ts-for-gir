@@ -4,7 +4,7 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Remove casts.js, the types are now so good that this helper is no longer needed 
 
-# Dev
+# 3.0.0-beta.5
 - CLI: Fix noDOMLib option in templates
 # 3.0.0-beta.4
 - CLI: Allow to disable generation of types that are in conflict with the DOM types

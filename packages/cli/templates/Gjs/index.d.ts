@@ -199,7 +199,7 @@ declare global {
         logDomain: string
     }
 
-    <% if(!hasDOMLib){ %>
+    <% if(noDOMLib){ %>
     const console: Console
     <% } %>
 
@@ -463,7 +463,7 @@ declare global {
         decode(input?: ArrayBufferView | ArrayBuffer, options?: TextDecodeOptions): string
     }
 
-    <% if(!hasDOMLib){ %>
+    <% if(noDOMLib){ %>
     const TextDecoder: {
       prototype: TextDecoder
       new (label?: TextDecoderEncoding, options?: TextDecoderOptions): TextDecoder
@@ -501,7 +501,7 @@ declare global {
         encodeInto(source: string, destination: Uint8Array): TextEncoderEncodeIntoResult
     }
 
-    <% if(!hasDOMLib){ %>
+    <% if(noDOMLib){ %>
     const TextEncoder: {
         prototype: TextEncoder
         new (): TextEncoder

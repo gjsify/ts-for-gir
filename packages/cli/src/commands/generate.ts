@@ -33,6 +33,7 @@ const builder = (yargs: Argv) => {
         .option('noComments', Config.generateOptions.noComments)
         .option('noDebugComments', Config.generateOptions.noDebugComments)
         .option('noCheck', Config.generateOptions.noCheck)
+        .option('noDOMLib', Config.generateOptions.noDOMLib)
         .option('fixConflicts', Config.generateOptions.fixConflicts)
         .example(examples)
 }

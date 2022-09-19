@@ -28,6 +28,6 @@ export interface GenerateConfig {
     noCheck: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
-    /** Wheter the project has DOM lib enabled in tsconfig/jsconfig */
-    hasDOMLib: boolean
+    /** Disables the generation of types that are in conflict with the DOM types */
+    noDOMLib: boolean
 }

@@ -5,8 +5,9 @@
 - Remove casts.js, the types are now so good that this helper is no longer needed 
 
 # Dev
-- Upgrade dependencies
+- CLI: Allow to disable generation of types that are in conflict with the DOM types
 - Add typing definition for `GLib.Bytes.toArray()`
+- Upgrade dependencies
 # 3.0.0-beta.3
 - Follow user defined verbose option in ConflictResolver, see #83 by @HeavenVolkoff
 - Fix prepend logic in Logger's static methods, see #84 by @HeavenVolkoff

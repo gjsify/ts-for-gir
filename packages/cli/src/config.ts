@@ -44,6 +44,7 @@ export class Config {
         noDebugComments: false,
         noCheck: false,
         fixConflicts: true,
+        noDOMLib: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -155,23 +156,26 @@ export class Config {
         } as Options,
         noDebugComments: {
             type: 'boolean',
-            alias: 'nd',
             description: 'Do not generate debugging inline comments',
             default: Config.defaults.noDebugComments,
             normalize: true,
         } as Options,
         noCheck: {
             type: 'boolean',
-            alias: 'nc',
             description: 'Disable typescript semantic checks using @ts-nocheck',
             default: Config.defaults.noCheck,
             normalize: true,
         } as Options,
         fixConflicts: {
             type: 'boolean',
-            alias: 'fc',
             description: 'Fix Inheritance and implementation type conflicts',
             default: Config.defaults.fixConflicts,
+            normalize: true,
+        } as Options,
+        noDOMLib: {
+            type: 'boolean',
+            description: 'Disables the generation of types that are in conflict with the DOM types',
+            default: Config.defaults.noDOMLib,
             normalize: true,
         } as Options,
     }
@@ -196,6 +200,7 @@ export class Config {
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
         noCheck: this.options.noCheck,
+        noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
     }
 
@@ -284,34 +289,73 @@ export class Config {
             noDebugComments: config.noDebugComments,
             noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
-            hasDOMLib: config.hasDOMLib,
+            noDOMLib: config.noDOMLib,
         }
         return generateConfig
     }
 
-    public static validate(options: UserConfig): UserConfig {
-        if (options.buildType === 'types') {
-            if (options.useNamespace !== true) {
+    protected static async validateTsConfig(config: UserConfig): Promise<UserConfig> {
+        const tsConfig = config.outdir ? readTsJsConfig(config.outdir) : null
+
+        const tsCompilerOptions = (
+            tsConfig &&
+            'compilerOptions' in tsConfig &&
+            typeof tsConfig.compilerOptions === 'object' &&
+            tsConfig.compilerOptions != null
+                ? tsConfig.compilerOptions
+                : {}
+        ) as Record<PropertyKey, unknown>
+
+        const tsConfigHasDOMLib =
+            'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
+                ? false // NoLib makes typescript to ignore the lib property
+                : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
+                ? tsCompilerOptions.lib.some((lib) => String(lib).toLowerCase().startsWith('dom'))
+                : true // Typescript icludes DOM lib by default
+
+        if (config.environments.includes('gjs') && tsConfigHasDOMLib && !config.noDOMLib) {
+            const answer = (
+                await inquirer.prompt([
+                    {
+                        type: 'list',
+                        name: 'include',
+                        choices: ['Yes', 'No'],
+                        message:
+                            'Your typescript compilerOptions includes the DOM lib, this conflicts with some Gjs global types, do you want to skip generating those types?',
+                    },
+                ])
+            ).include as 'Yes' | 'No'
+
+            if (answer == 'No') config.noDOMLib = true
+        }
+
+        return config
+    }
+
+    public static async validate(config: UserConfig): Promise<UserConfig> {
+        if (config.buildType === 'types') {
+            if (config.useNamespace !== true) {
                 Logger.warn(WARN_USE_NAMESPACE_ON_TYPES)
-                options.useNamespace = true
+                config.useNamespace = true
             }
         }
 
-        if (options.moduleType === 'esm') {
-            if (options.useNamespace !== true) {
+        if (config.moduleType === 'esm') {
+            if (config.useNamespace !== true) {
                 Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
-                options.useNamespace = true
+                config.useNamespace = true
             }
         }
 
-        return options
+        config = await this.validateTsConfig(config)
+
+        return config
     }
 
     /**
      * Loads the values of the config file and concatenate them with passed cli flags / arguments.
      * The values from config file are preferred if the cli flag value is the default (and so not set / overwritten)
      * @param options
-     * @param modules
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
         const configFile = await this.loadConfigFile(options.configName)
@@ -333,7 +377,7 @@ export class Config {
             noDebugComments: options.noDebugComments,
             noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
-            hasDOMLib: true,
+            noDOMLib: options.noDOMLib,
         }
 
         if (configFile) {
@@ -422,41 +466,15 @@ export class Config {
             ) {
                 config.fixConflicts = configFile.config.fixConflicts
             }
+            // noDOMLib
+            if (
+                config.noDOMLib === Config.options.noDOMLib.default &&
+                typeof configFile.config.noDOMLib === 'boolean'
+            ) {
+                config.noDOMLib = configFile.config.noDOMLib
+            }
         }
 
-        const tsConfig = config.outdir ? readTsJsConfig(config.outdir) : null
-        const tsCompilerOptions = (
-            tsConfig &&
-            'compilerOptions' in tsConfig &&
-            typeof tsConfig.compilerOptions === 'object' &&
-            tsConfig.compilerOptions != null
-                ? tsConfig.compilerOptions
-                : {}
-        ) as Record<PropertyKey, unknown>
-
-        config.hasDOMLib =
-            'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
-                ? false // NoLib makes typescript to ignore the lib property
-                : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
-                ? tsCompilerOptions.lib.some((lib) => String(lib).toLowerCase().startsWith('dom'))
-                : true // Typescript icludes DOM lib by default
-
-        if (options.environments.includes('gjs') && config.hasDOMLib) {
-            const answer = (
-                await inquirer.prompt([
-                    {
-                        type: 'list',
-                        name: 'include',
-                        choices: ['Yes', 'No'],
-                        message:
-                            'Your typescript compilerOptions includes the DOM lib, this conflicts with some Gjs global types, do you want to skip generating those types?',
-                    },
-                ])
-            ).include as 'Yes' | 'No'
-
-            if (answer == 'No') config.hasDOMLib = false
-        }
-
-        return this.validate(config)
+        return await this.validate(config)
     }
 }

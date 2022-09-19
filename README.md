@@ -12,18 +12,28 @@ The definitions can be used for both TypeScript or JavaScript projects.
 
 ## Install
 
-You can install the project globally:
+### Globally
+
+You can install the `ts-for-gir` globally if you do not need a package manager like NPM:
 
 ```bash
 npm install @ts-for-gir/cli -g
 ```
 
-Now you can run `ts-for-gir` .
+Now you can run
 
-You can also install `ts-for-gir` locally in your current project:
+```
+ts-for-gir generate Gtk-4.0 -e gjs -t esm
+```
+
+to generate the Type Definitions for Gtk-4.0 and their dependencies for ESM.
+
+### Locally
+
+You can also install `ts-for-gir` locally in your current NPM project:
 
 ```bash
-npm install @ts-for-gir/cli
+npm install @ts-for-gir/cli --save-dev
 ```
 
 And then create a new script in your `package.json` to generate the types, for example like this

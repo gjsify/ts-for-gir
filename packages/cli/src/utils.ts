@@ -28,7 +28,7 @@ export const splitModuleName = (packageName: string): { packageName: string; nam
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
     const splits = packageName.split('-')
     const version = splits.splice(-1, 1)[0]
-    const namespace = splits.join('-')
+    const namespace = splits.join('')
     return {
         packageName,
         namespace,

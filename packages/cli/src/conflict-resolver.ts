@@ -978,7 +978,10 @@ export class ConflictResolver {
                         )
 
                         // Add a function to overload methods if there is not already a compatible version
-                        if (!this.getCompatibleTsFunction(baseFunc.overloads, bFunc)) {
+                        if (
+                            !baseFunc.overloads.includes(bFunc) &&
+                            !this.getCompatibleTsFunction(baseFunc.overloads, bFunc)
+                        ) {
                             baseFunc.overloads.push(bFunc)
                         }
                     }

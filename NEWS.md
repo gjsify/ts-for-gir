@@ -1,9 +1,14 @@
 # TODO
 - Refactor Ava test
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
-- Create a Reporter to create a text or json file with warnings like unknown types, renamings, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
+- Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Remove casts.js, the types are now so good that this helper is no longer needed 
+- Split this project into more submodules like 'cli', 'parser' and 'generator'
 
+# 3.0.0-beta.6
+- Change Class Signal conflict resolution logic, see #91 by @HeavenVolkoff
+- Expose GJS global imports.signals type, see #89 by @HeavenVolkoff
+- Enhance Glib.Error type with GJS specific additions, see #88 by @HeavenVolkoff
 # 3.0.0-beta.5
 - CLI: Fix noDOMLib option in templates
 # 3.0.0-beta.4

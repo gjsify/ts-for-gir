@@ -495,8 +495,8 @@ export class ModuleLoader {
 
     /**
      * Find modules with the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
-     * @param girDirectories
      * @param modules
+     * @param ignore
      */
     private async findModules(modules: string[], ignore: string[] = []): Promise<Set<string>> {
         const foundModules = new Set<string>()
@@ -506,7 +506,11 @@ export class ModuleLoader {
                 const filename = `${modules[i]}.gir`
                 let files: string[] = []
                 for (const girDirectory of this.config.girDirectories) {
-                    files = files.concat(await glob(filename, { cwd: girDirectory }))
+                    try {
+                        files = files.concat(await glob(filename, { cwd: girDirectory }))
+                    } catch (error) {
+                        this.log.warn(`Error on finding "${filename}" in "${girDirectory}"`, error)
+                    }
                 }
 
                 let globModules = files.map((file) => Path.basename(file, '.gir'))

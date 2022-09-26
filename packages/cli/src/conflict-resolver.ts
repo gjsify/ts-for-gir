@@ -1007,7 +1007,7 @@ export class ConflictResolver {
                     // Function vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} Direct Function vs. Signal`)
-                        baseFunc.hasUnresolvedConflict = true
+                        // Do nothing
                     }
                 }
 
@@ -1061,7 +1061,12 @@ export class ConflictResolver {
                     // Signal vs. Function
                     if (this.tsElementIsMethodOrFunction(b.data)) {
                         this.log.debug(`${className}.${name} Direct Signal vs. Function`)
-                        b.data.hasUnresolvedConflict = true
+                        const bFunc = b.data as TsFunction
+                        const baseSignal = base.data as TsFunction
+                        // Add parent class incompatible method as overload
+                        if (!this.getCompatibleTsFunction(baseSignal.overloads, bFunc)) {
+                            baseSignal.overloads.push(bFunc)
+                        }
                     }
                 }
                 // If a element is a constructor

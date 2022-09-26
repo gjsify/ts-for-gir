@@ -465,8 +465,8 @@ declare global {
 
     <% if(!noDOMLib){ %>
     const TextDecoder: {
-      prototype: TextDecoder
-      new (label?: TextDecoderEncoding, options?: TextDecoderOptions): TextDecoder
+        prototype: TextDecoder
+        new (label?: TextDecoderEncoding, options?: TextDecoderOptions): TextDecoder
     }
     <% } %>
 
@@ -555,27 +555,28 @@ declare global {
 
     const imports: typeof Gjs & {
         gi: {
-          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-              typeof <%= girModule.module.importName %>
-              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-                |
-              <%_ } _%>
-            <%_ } _%>
-          <%_ } _%>
-          versions: {
             <%_ for (const girModuleGroup of girModulesGrouped) { _%>
               <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-                '<%= girModule.module.version %>'
+                typeof <%= girModule.module.importName %>
                 <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
                   |
                 <%_ } _%>
               <%_ } _%>
             <%_ } _%>
-          }
+            versions: {
+                <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+                  <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+                    '<%= girModule.module.version %>'
+                    <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                      |
+                    <%_ } _%>
+                  <%_ } _%>
+                <%_ } _%>
+            }
         }
         lang: typeof Gjs.Lang
         system: typeof Gjs.System
+        signals: typeof Gjs.Signals
         package: typeof Gjs.Package
         mainloop: typeof Gjs.Mainloop
         searchPath: string[]

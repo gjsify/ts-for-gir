@@ -45,6 +45,11 @@ export class Injector {
                     ...this.girFactory.newGirFunctions(toClass.staticFunctions, girClass._tsData, { isInjected: true }),
                 )
             }
+            if (toClass.properties) {
+                girClass._tsData.properties.push(
+                    ...this.girFactory.newGirProperties(toClass.properties, { isInjected: true }),
+                )
+            }
             if (toClass.constructors) {
                 girClass._tsData.constructors.push(
                     ...this.girFactory.newGirFunctions(toClass.constructors, girClass._tsData, { isInjected: true }),

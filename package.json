@@ -95,7 +95,7 @@
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
     "ava": "^4.3.3",
-    "eslint": "^8.23.1",
+    "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
@@ -108,6 +108,6 @@
   ],
   "packageManager": "yarn@3.2.3",
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.18"
+    "@yarnpkg/pnpify": "^4.0.0-rc.21"
   }
 }

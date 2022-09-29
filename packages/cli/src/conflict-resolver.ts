@@ -1,7 +1,15 @@
 import { GirFactory } from './gir-factory.js'
 import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
-import { isEqual, merge, clone, typeIsOptional } from './utils.js'
+import {
+    isEqual,
+    merge,
+    clone,
+    typeIsOptional,
+    functionHasConflict,
+    typesHasConflict,
+    paramsHasConflict,
+} from './utils.js'
 import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import type {
     Environment,
@@ -402,13 +410,13 @@ export class ConflictResolver {
 
         const inParamsMap = funcs.map((func) => func.inParams)
         const inParams: GirCallableParamElement[] = []
-        if (this.paramsHasConflict(...inParamsMap)) {
+        if (paramsHasConflict(...inParamsMap)) {
             inParams.push(...this.mergeParams(...inParamsMap))
         }
 
         const outParamsMap = funcs.map((func) => func.outParams)
         const outParams: GirCallableParamElement[] = []
-        if (this.paramsHasConflict(...outParamsMap)) {
+        if (paramsHasConflict(...outParamsMap)) {
             outParams.push(...this.mergeParams(...outParamsMap))
         }
 
@@ -533,7 +541,7 @@ export class ConflictResolver {
     }
 
     public getCompatibleTsFunction(elements: TsFunction[], baseFunc: TsFunction) {
-        return elements.find((func) => !this.functionHasConflict(baseFunc, func))
+        return elements.find((func) => !functionHasConflict(baseFunc, func))
     }
 
     /**
@@ -637,7 +645,7 @@ export class ConflictResolver {
      *   Named property 'parent' of types 'Popover' and 'Native' are not identical.
      */
     public fixIndirectConflicts(name: string, elements: ConflictChildElement[], baseClass: TsClass) {
-        for (const base of elements) {
+        baseLoop: for (const base of elements) {
             if (base.data.hasUnresolvedConflict) {
                 continue
             }
@@ -662,6 +670,7 @@ export class ConflictResolver {
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} External Function vs. Signal`, baseFunc, b.data)
                         baseFunc.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
 
                     // Function vs. Function
@@ -700,6 +709,7 @@ export class ConflictResolver {
                     else {
                         this.log.debug(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseFunc, b.data)
                         baseFunc.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
                 }
 
@@ -755,6 +765,7 @@ export class ConflictResolver {
                             bFunc,
                         )
                         baseProp.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
 
                     // Property vs. Property
@@ -790,6 +801,7 @@ export class ConflictResolver {
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} External Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
+                        continue baseLoop
                     } else {
                         this.log.error(`${className}.${name} External Unknown ${b.data.tsTypeName}`, baseProp, b.data)
                     }
@@ -799,6 +811,7 @@ export class ConflictResolver {
                 else {
                     this.log.error(`${className}.${name} External Unknown ${base.data.tsTypeName}`)
                     base.data.hasUnresolvedConflict = true
+                    continue baseLoop
                 }
             }
         }
@@ -808,7 +821,7 @@ export class ConflictResolver {
      * Check conflicts within the class itself (ignores implementations / inheritances)
      */
     public fixInternalConflicts(name: string, elements: ConflictChildElement[], baseClass: TsClass) {
-        for (const base of elements) {
+        baseLoop: for (const base of elements) {
             if (base.data.hasUnresolvedConflict) {
                 continue
             }
@@ -821,18 +834,20 @@ export class ConflictResolver {
 
                 // Conflict between injected and original elements
                 if (base.data.isInjected !== b.data.isInjected) {
-                    if (!base.data.isInjected) {
-                        base.data.hasUnresolvedConflict = true
-                    } else if (!b.data.isInjected) {
-                        b.data.hasUnresolvedConflict = true
-                    }
                     // Copy doc from original element if not set in the injected element
                     if (!b.data.doc.text && base.data.doc.text) {
                         b.data.doc = base.data.doc
                     } else if (!base.data.doc.text && b.data.doc.text) {
                         base.data.doc = b.data.doc
                     }
-                    continue
+
+                    if (!base.data.isInjected) {
+                        base.data.hasUnresolvedConflict = true
+                        continue baseLoop
+                    } else if (!b.data.isInjected) {
+                        b.data.hasUnresolvedConflict = true
+                        continue
+                    }
                 }
 
                 // If a element is a function / method
@@ -864,10 +879,12 @@ export class ConflictResolver {
                         if (baseFunc.isVirtual !== bFunc.isVirtual) {
                             if (!baseFunc.isVirtual) {
                                 baseFunc.hasUnresolvedConflict = true
+                                if (!bFunc.doc.text && baseFunc.doc.text) bFunc.doc = baseFunc.doc
+                                continue baseLoop
                             } else {
                                 bFunc.hasUnresolvedConflict = true
+                                if (!baseFunc.doc.text && bFunc.doc.text) baseFunc.doc = bFunc.doc
                             }
-                            continue
                         }
 
                         // Do nothing..
@@ -890,6 +907,7 @@ export class ConflictResolver {
                             bFunc,
                         )
                         baseProp.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
 
                     // Property vs. Property
@@ -919,6 +937,7 @@ export class ConflictResolver {
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} Internal Property vs. Signal`, baseProp, b.data)
                         base.data.hasUnresolvedConflict = true
+                        continue baseLoop
                     } else {
                         this.log.error(`${className}.${name} Internal Unknown ${b.data.tsTypeName}`, baseProp, b.data)
                     }
@@ -953,7 +972,7 @@ export class ConflictResolver {
     public fixDirectConflicts(name: string, elements: ConflictGroupedElement) {
         const className = `${elements.baseClass.namespace}-${elements.baseClass.version}.${elements.baseClass.name}`
 
-        for (const base of elements.baseElements) {
+        baseLoop: for (const base of elements.baseElements) {
             if (base.data.hasUnresolvedConflict) {
                 continue
             }
@@ -971,18 +990,32 @@ export class ConflictResolver {
                     // Function vs. Function
                     if (this.tsElementIsMethodOrFunction(b.data)) {
                         const bFunc = b.data as TsFunction
-                        this.log.debug(
-                            `${className}.${name} Direct Function vs. Function`,
-                            baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
-                            bFunc.inParams.map((p) => p._tsData?.name).join(', '),
-                        )
 
-                        // Add a function to overload methods if there is not already a compatible version
-                        if (
-                            !baseFunc.overloads.includes(bFunc) &&
-                            !this.getCompatibleTsFunction(baseFunc.overloads, bFunc)
-                        ) {
-                            baseFunc.overloads.push(bFunc)
+                        if (baseFunc.overloads.length > 0 || functionHasConflict(baseFunc, bFunc)) {
+                            this.log.debug(
+                                `${className}.${name} Direct Function vs. Function`,
+                                baseFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                                bFunc.inParams.map((p) => p._tsData?.name).join(', '),
+                            )
+
+                            baseFunc.ignore = false
+
+                            // Add a function to overload methods if there is not already a compatible version.
+                            if (
+                                !baseFunc.overloads.includes(bFunc) &&
+                                !this.getCompatibleTsFunction(baseFunc.overloads, bFunc)
+                            ) {
+                                baseFunc.overloads.push(
+                                    // There is a posibility that the parent class has this method already ignored
+                                    // if that is the case make a shallow clone of TsFunc with ignore disabled.
+                                    bFunc.ignore ? { ...bFunc, ignore: false } : bFunc,
+                                )
+                            }
+                        } else {
+                            baseFunc.ignore = true
+                            // Can't continue here because we need to check this against all
+                            // inherited functions to ensure the Liskov substitution principle.
+                            // continue baseLoop
                         }
                     }
 
@@ -1044,12 +1077,14 @@ export class ConflictResolver {
                     else if (this.tsElementIsMethodOrFunction(b.data)) {
                         this.log.debug(`${className}.${name} Direct Property vs. Function`)
                         baseProp.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
 
                     // Property vs. Signal
                     else if (this.tsElementIsSignal(b.data)) {
                         this.log.debug(`${className}.${name} Direct Property vs. Signal`)
                         baseProp.hasUnresolvedConflict = true
+                        continue baseLoop
                     }
                 }
 
@@ -1104,6 +1139,7 @@ export class ConflictResolver {
                 } else {
                     this.log.warn(`{className}.${name} Unknown ${base.data.tsTypeName}`, base)
                     base.data.hasUnresolvedConflict = true
+                    continue baseLoop
                 }
             }
         }
@@ -1215,95 +1251,6 @@ export class ConflictResolver {
     }
 
     /**
-     * Returns true if `p1s` and `p2s` conflicting with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param params
-     * @returns
-     */
-    public paramsHasConflict(...params: GirCallableParamElement[][]) {
-        let conflict = false
-        for (const p1s of params) {
-            for (const p2s of params) {
-                if (p1s.length !== p2s.length) {
-                    conflict = true
-                    return conflict
-                }
-
-                for (const [i, p1] of p1s.entries()) {
-                    const p2 = p2s[i]
-                    if (p2._tsData && p1._tsData) {
-                        if (this.typesHasConflict(p2._tsData?.type, p1._tsData?.type)) {
-                            conflict = true
-                            return conflict
-                        }
-                    } else {
-                        conflict = true
-                        return conflict
-                    }
-                }
-            }
-        }
-
-        return conflict
-    }
-
-    public typesHasConflict(a: TsType[], b: TsType[]) {
-        if (a.length !== b.length) {
-            return true
-        }
-        // return !isEqual(a, b.data)
-        for (let i = 0; i < a.length; i++) {
-            const aType = a[i]
-            const bType = b[i]
-            if (
-                aType.type !== bType.type ||
-                aType.nullable !== bType.nullable ||
-                aType.optional !== bType.optional ||
-                aType.isFunction !== bType.isFunction ||
-                aType.isCallback !== bType.isCallback ||
-                aType.isArray !== bType.isArray ||
-                aType.callbacks.length !== bType.callbacks.length ||
-                aType.generics.length !== bType.generics.length ||
-                !isEqual(aType.callbacks, bType.callbacks) ||
-                !isEqual(aType.generics, bType.generics) ||
-                !isEqual(aType, bType) // TODO
-            ) {
-                return true
-            }
-        }
-
-        return false
-    }
-
-    /**
-     * Returns `true` if the function / method types of `a` and `b` are not compatible with each other.
-     * The parameters must have the same length and the same type but can have different names
-     * @param a
-     * @param b
-     * @returns
-     */
-    public functionHasConflict(a: TsFunction, b: TsFunction) {
-        // TODO find a better solution for that, not all this methods are conflicting
-        if (a.isVirtual !== b.isVirtual) {
-            return true
-        }
-
-        if (this.typesHasConflict(a.returnTypes, b.returnTypes)) {
-            return true
-        }
-
-        if (this.paramsHasConflict(a.inParams, b.inParams)) {
-            return true
-        }
-
-        if (this.paramsHasConflict(a.outParams, b.outParams)) {
-            return true
-        }
-
-        return false
-    }
-
-    /**
      * Returns `true` if the property types of `a` and `b` are not compatible with each other.
      * @param a
      * @param b
@@ -1313,7 +1260,7 @@ export class ConflictResolver {
         if (!!a.isStatic !== !!b.isStatic) return false
         if (a.name !== b.name) return false
 
-        if (!!a.readonly !== !!b.readonly || this.typesHasConflict(a.type, b.type)) return true
+        if (!!a.readonly !== !!b.readonly || typesHasConflict(a.type, b.type)) return true
 
         return false
     }
@@ -1341,11 +1288,11 @@ export class ConflictResolver {
         } else if (this.tsElementIsStatic(a) !== this.tsElementIsStatic(b)) {
             return false
         } else if (this.tsElementIsMethodOrFunction(a) && this.tsElementIsMethodOrFunction(b)) {
-            return this.functionHasConflict(a as TsFunction, b as TsFunction)
+            return functionHasConflict(a as TsFunction, b as TsFunction)
         } else if (this.tsElementIsPropertyOrVariable(a) && this.tsElementIsPropertyOrVariable(b)) {
             return this.propertyHasConflict(a as TsVar & TsProperty, b as TsVar & TsProperty)
         } else if (this.tsElementIsConstructor(a) && this.tsElementIsConstructor(b)) {
-            return this.functionHasConflict(a as TsFunction, b as TsFunction)
+            return functionHasConflict(a as TsFunction, b as TsFunction)
         } else if (this.tsElementIsSignal(a) && this.tsElementIsSignal(b)) {
             // TODO
             return this.signalHasConflict(a as TsSignal, b as TsSignal)

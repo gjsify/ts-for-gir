@@ -4,7 +4,7 @@ import Path from 'path'
 import fs from 'fs'
 import { getTsconfig, TsConfigJsonResolved } from 'get-tsconfig'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs, TsType } from './types/index.js'
+import { Environment, GirCallableParamElement, GirInfoAttrs, TsFunction, TsType } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -214,6 +214,97 @@ export const typeIsOptional = (types: TsType[]) => {
     for (const type of types) {
         if (type.optional) return true
     }
+    return false
+}
+
+/**
+ * Returns true if `p1s` and `p2s` conflicting with each other.
+ * The parameters must have the same length and the same type but can have different names
+ * @param params
+ * @returns
+ */
+export function paramsHasConflict(...params: GirCallableParamElement[][]) {
+    let conflict = false
+    for (const p1s of params) {
+        for (const p2s of params) {
+            if (p1s.length !== p2s.length) {
+                conflict = true
+                return conflict
+            }
+
+            for (const [i, p1] of p1s.entries()) {
+                const p2 = p2s[i]
+                if (p2._tsData && p1._tsData) {
+                    if (typesHasConflict(p2._tsData?.type, p1._tsData?.type)) {
+                        conflict = true
+                        return conflict
+                    }
+                } else {
+                    conflict = true
+                    return conflict
+                }
+            }
+        }
+    }
+
+    return conflict
+}
+
+export function typesHasConflict(a: TsType[], b: TsType[]) {
+    if (a.length !== b.length) {
+        return true
+    }
+    // return !isEqual(a, b.data)
+    for (let i = 0; i < a.length; i++) {
+        const aType = a[i]
+        const bType = b[i]
+        if (
+            aType.type !== bType.type ||
+            aType.nullable !== bType.nullable ||
+            aType.optional !== bType.optional ||
+            aType.isFunction !== bType.isFunction ||
+            aType.isCallback !== bType.isCallback ||
+            aType.isArray !== bType.isArray ||
+            aType.callbacks.length !== bType.callbacks.length ||
+            aType.generics.length !== bType.generics.length ||
+            !isEqual(aType.callbacks, bType.callbacks) ||
+            !isEqual(aType.generics, bType.generics) ||
+            !isEqual(aType, bType) // TODO
+        ) {
+            return true
+        }
+    }
+
+    return false
+}
+
+/**
+ * Returns `true` if the function / method types of `a` and `b` are not compatible with each other.
+ * The parameters must have the same length and the same type but can have different names
+ * @param a
+ * @param b
+ * @returns
+ */
+export function functionHasConflict(a: TsFunction, b: TsFunction) {
+    if (a === b) return false
+
+    // TODO find a better solution for that, not all this methods are conflicting
+    if (a.isVirtual !== b.isVirtual) {
+        return true
+    }
+
+    if (typesHasConflict(a.returnTypes, b.returnTypes)) {
+        return true
+    }
+
+    if (paramsHasConflict(a.inParams, b.inParams)) {
+        return true
+    }
+
+    if (paramsHasConflict(a.outParams, b.outParams)) {
+        return true
+    }
+
     return false
 }
 

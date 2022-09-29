@@ -42,6 +42,9 @@ export interface TsFunction {
     /** Temporary property, we will try later to resolve the conflicts correctly */
     hasUnresolvedConflict?: boolean
 
+    /** Ignore function */
+    ignore?: boolean
+
     girTypeName: TypeGirFunction
     /**
      * - Functions are usually exported as global functions in typescript, but can also be static functions of a class

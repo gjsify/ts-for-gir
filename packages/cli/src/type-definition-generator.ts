@@ -35,6 +35,7 @@ import {
     removeClassModule,
     girElementIsIntrospectable,
     typeIsOptional,
+    functionHasConflict,
 } from './utils.js'
 import {
     NO_TSDATA,
@@ -147,7 +148,7 @@ export default class TypeDefinitionGenerator implements Generator {
             throw new Error(NO_TSDATA('generateVariableCallbackType'))
         }
 
-        const funcDesc = this.generateFunction(girCallback._tsData, false, namespace, 0)
+        const funcDesc = this.generateFunction(girCallback._tsData, false, namespace, null, 0)
 
         if (girCallback._tsData && funcDesc?.length) {
             if (funcDesc.length > 1) {
@@ -229,6 +230,7 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateClassPropertySignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
+        uniqs: TsFunction[],
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -249,7 +251,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     if (!tsSignalMethod) {
                         continue
                     }
-                    def.push(...this.generateFunction(tsSignalMethod, false, namespace, indentCount))
+                    def.push(...this.generateFunction(tsSignalMethod, false, namespace, uniqs, indentCount))
                 }
             }
         }
@@ -284,12 +286,7 @@ export default class TypeDefinitionGenerator implements Generator {
         return inParamsDef
     }
 
-    private generateSignals(
-        girSignals: GirSignalElement[],
-        girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
-        namespace: string,
-        indentCount = 0,
-    ) {
+    private generateSignals(girSignals: GirSignalElement[], namespace: string, uniqs: TsFunction[], indentCount = 0) {
         const def: string[] = []
 
         for (const girSignal of girSignals) {
@@ -298,7 +295,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     if (!tsSignalMethod) {
                         continue
                     }
-                    def.push(...this.generateFunction(tsSignalMethod, false, namespace, indentCount))
+                    def.push(...this.generateFunction(tsSignalMethod, false, namespace, uniqs, indentCount))
                 }
             }
         }
@@ -515,69 +512,78 @@ export default class TypeDefinitionGenerator implements Generator {
         /** If true only generate static functions otherwise generate only non static functions */
         onlyStatic: boolean,
         namespace: string,
+        uniqs: null | TsFunction[],
         indentCount = 1,
         overloads = true,
     ) {
         const def: string[] = []
-        const indent = generateIndent(indentCount)
-
         if (!tsFunction) {
             this.log.warn(NO_TSDATA('generateFunction'))
             return def
         }
 
+        if (tsFunction.ignore) return def
+
         let { name } = tsFunction
         const { isStatic } = tsFunction
+        if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) return def
 
-        const { isArrowType, isGlobal, inParams, instanceParameters } = tsFunction
-
-        if ((isStatic && !onlyStatic) || (!isStatic && onlyStatic)) {
-            return def
-        }
-
-        if (tsFunction.doc && !tsFunction.hasUnresolvedConflict)
-            def.push(...this.addGirDocComment(tsFunction.doc, indentCount))
-
-        const staticStr = isStatic && tsFunction.name !== 'constructor' ? 'static ' : ''
-
-        const globalStr = isGlobal ? 'function ' : ''
-        const genericStr = this.generateGenericParameters(tsFunction.generics)
-
-        // temporary solution, will be solved differently later
-        const commentOut = tsFunction.hasUnresolvedConflict ? '// Has conflict: ' : ''
-
-        let exportStr = ''
-        // `tsType === 'function'` are a global methods which can be exported
-        if (isGlobal) {
-            exportStr = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
-        }
-
-        const returnType = this.generateFunctionReturn(tsFunction, namespace)
-
-        let retSep = ''
-        if (returnType) {
-            if (isArrowType) {
-                name = ''
-                retSep = ' =>'
-            } else {
-                retSep = ':'
+        // Skip duplicate functions
+        if (
+            uniqs == null ||
+            !uniqs.some((func: TsFunction) => name === func.name && !functionHasConflict(tsFunction, func))
+        ) {
+            const { doc, isGlobal, hasUnresolvedConflict } = tsFunction
+            if (!hasUnresolvedConflict) {
+                uniqs?.push(tsFunction)
+                if (doc) def.push(...this.addGirDocComment(doc, indentCount))
             }
+
+            const staticStr = isStatic && name !== 'constructor' ? 'static ' : ''
+            const globalStr = isGlobal ? 'function ' : ''
+            const genericStr = this.generateGenericParameters(tsFunction.generics)
+
+            // temporary solution, will be solved differently later
+            const commentOut = hasUnresolvedConflict ? '// Has conflict: ' : ''
+
+            let exportStr = ''
+            // `tsType === 'function'` are a global methods which can be exported
+            if (isGlobal) {
+                exportStr = this.config.useNamespace || this.config.buildType === 'types' ? '' : 'export '
+            }
+
+            const returnType = this.generateFunctionReturn(tsFunction, namespace)
+
+            let retSep = ''
+            if (returnType) {
+                if (tsFunction.isArrowType) {
+                    name = ''
+                    retSep = ' =>'
+                } else {
+                    retSep = ':'
+                }
+            }
+
+            const inParamsDef: string[] = this.generateInParameters(
+                tsFunction.inParams,
+                tsFunction.instanceParameters,
+                namespace,
+            )
+            const indent = generateIndent(indentCount)
+            def.push(
+                `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
+                    ', ',
+                )})${retSep} ${returnType}`,
+            )
         }
-
-        const inParamsDef: string[] = this.generateInParameters(inParams, instanceParameters, namespace)
-
-        def.push(
-            `${indent}${commentOut}${exportStr}${staticStr}${globalStr}${name}${genericStr}(${inParamsDef.join(
-                ', ',
-            )})${retSep} ${returnType}`,
-        )
 
         // Add overloaded methods
         if (overloads && tsFunction.overloads.length > 0) {
-            def.push(...this.addInfoComment(`Overloads of ${name}`, indentCount))
-            for (const func of tsFunction.overloads) {
-                def.push(...this.generateFunction(func, onlyStatic, namespace, indentCount, false))
-            }
+            const overloads = tsFunction.overloads.flatMap((func: TsFunction) =>
+                this.generateFunction(func, onlyStatic, namespace, uniqs, indentCount, false),
+            )
+            if (overloads.length > 0)
+                def.push(...this.addInfoComment(`Overloads of ${name}`, indentCount), ...overloads)
         }
 
         return def
@@ -587,13 +593,14 @@ export default class TypeDefinitionGenerator implements Generator {
         tsFunctions: TsFunction[],
         onlyStatic: boolean,
         namespace: string,
+        uniqs: null | TsFunction[],
         indentCount = 1,
         comment?: string,
     ) {
         const def: string[] = []
 
         for (const girFunction of tsFunctions) {
-            def.push(...this.generateFunction(girFunction, onlyStatic, namespace, indentCount))
+            def.push(...this.generateFunction(girFunction, onlyStatic, namespace, uniqs, indentCount))
         }
 
         if (def.length > 0) {
@@ -852,6 +859,7 @@ export default class TypeDefinitionGenerator implements Generator {
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         onlyStatic: boolean,
         namespace: string,
+        uniqs: TsFunction[],
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -864,6 +872,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.methods.map((girFunc) => girFunc._tsData).filter((tsFunc) => !!tsFunc) as TsFunction[],
                 onlyStatic,
                 namespace,
+                uniqs,
                 indentCount,
                 `Owm ${onlyStatic ? 'static ' : ''}methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
@@ -874,6 +883,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 girClass._tsData.conflictMethods,
                 onlyStatic,
                 namespace,
+                uniqs,
                 indentCount,
                 `Conflicting ${onlyStatic ? 'static ' : ''}methods`,
             ),
@@ -900,6 +910,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     .filter((tsFunc) => !!tsFunc) as TsFunction[],
                 true,
                 namespace,
+                null,
                 indentCount,
             ),
         )
@@ -911,6 +922,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     .filter((tsFunc) => !!tsFunc) as TsFunction[],
                 false,
                 namespace,
+                null,
                 indentCount,
             ),
         )
@@ -922,6 +934,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     .filter((tsFunc) => !!tsFunc) as TsFunction[],
                 true,
                 namespace,
+                null,
                 indentCount,
             ),
         )
@@ -945,6 +958,7 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateClassVirtualMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
+        uniqs: TsFunction[],
         indentCount = 1,
     ) {
         const def: string[] = []
@@ -959,6 +973,7 @@ export default class TypeDefinitionGenerator implements Generator {
                     .filter((tsFunc) => !!tsFunc) as TsFunction[],
                 false,
                 namespace,
+                uniqs,
                 indentCount,
                 `Own virtual methods of ${girClass._module.packageName}.${girClass._fullSymName}`,
             ),
@@ -997,13 +1012,14 @@ export default class TypeDefinitionGenerator implements Generator {
     private generateClassSignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
+        uniqs: TsFunction[],
     ) {
         const def: string[] = []
         if (!girClass._tsData || !girClass._fullSymName || !girClass._module) {
             throw new Error(NO_TSDATA('generateClassSignals'))
         }
 
-        const signalDescs = this.generateSignals(girClass._tsData.signals, girClass, namespace, 0)
+        const signalDescs = this.generateSignals(girClass._tsData.signals, namespace, uniqs, 0)
 
         def.push(
             ...this.mergeDescs(
@@ -1063,6 +1079,7 @@ export default class TypeDefinitionGenerator implements Generator {
         namespace: string,
     ) {
         const def: string[] = []
+        const uniqMethods: TsFunction[] = []
 
         if (!girClass._tsData) return def
 
@@ -1086,16 +1103,16 @@ export default class TypeDefinitionGenerator implements Generator {
                 def.push(...this.generateClassFields(girClass, false, namespace))
 
                 // Methods
-                def.push(...this.generateClassMethods(girClass, false, namespace))
+                def.push(...this.generateClassMethods(girClass, false, namespace, uniqMethods))
 
                 // Virtual methods
-                def.push(...this.generateClassVirtualMethods(girClass, namespace))
+                def.push(...this.generateClassVirtualMethods(girClass, namespace, uniqMethods))
 
                 // Signals
-                def.push(...this.generateClassSignals(girClass, namespace))
+                def.push(...this.generateClassSignals(girClass, namespace, uniqMethods))
 
                 // TODO: Generate `GirSignalElement`s instead of generate the signal definition strings directly
-                def.push(...this.generateClassPropertySignals(girClass, namespace))
+                def.push(...this.generateClassPropertySignals(girClass, namespace, uniqMethods))
             }
             // END BODY
 
@@ -1151,7 +1168,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 def.push(...this.generateClassConstructors(girClass, namespace))
 
                 // Static Methods
-                def.push(...this.generateClassMethods(girClass, true, namespace))
+                def.push(...this.generateClassMethods(girClass, true, namespace, []))
             }
             // END BODY
 
@@ -1234,7 +1251,7 @@ export default class TypeDefinitionGenerator implements Generator {
                         // this.log.warn(NO_TSDATA('exportModuleTS functions'))
                         continue
                     }
-                    out.push(...this.generateFunction(girFunc._tsData, false, girModule.namespace, 0))
+                    out.push(...this.generateFunction(girFunc._tsData, false, girModule.namespace, null, 0))
                 }
 
             if (girModule.ns.callback)

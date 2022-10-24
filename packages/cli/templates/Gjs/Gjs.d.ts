@@ -93,10 +93,12 @@ export namespace gettext {
     export function dcgettext(domainname: string | null, msgid: string, category: number): string
     export function ngettext(msgid: string, msgid_plural: string, n: number): string
     export function dngettext(domainname: string, msgid: string, msgid_plural: string, n: number): string
+    export function pgettext(context: string, msgid: string): string
+    export function dpgettext(dom: string | null, context: string, msgid: string): string
     export function domain(domainName: string): {
         gettext: (msgid: string) => string
         ngettext: (msgid: string, msgid_plural: string, n: number) => string
-        pgettext: (context: any, msgid: string) => any
+        pgettext: (context: string, msgid: string) => string
     }
 }
 

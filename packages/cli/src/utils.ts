@@ -2,7 +2,7 @@
 import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
-import ts from 'typescript'
+import { getTsconfig, TsConfigJsonResolved } from 'get-tsconfig'
 import { fileURLToPath } from 'url'
 import { Environment, GirInfoAttrs, TsType } from './types/index.js'
 import { inspect } from 'util'
@@ -219,11 +219,8 @@ export const typeIsOptional = (types: TsType[]) => {
 
 function convertTsJsConfigToObject(path: string) {
     try {
-        const config: unknown = ts.parseConfigFileTextToJson(
-            Path.basename(path),
-            fs.readFileSync(path, 'utf8').trim(),
-        ).config
-        if (typeof config === 'object' && !Array.isArray(config)) return config as Record<PropertyKey, unknown>
+        const config = getTsconfig(path)?.config
+        if (config) return config
     } catch {
         // ignored
     }
@@ -232,13 +229,11 @@ function convertTsJsConfigToObject(path: string) {
 
 /**
  * Given an directory path search for a tsconfig.json or jsconfig.json file in it or any of its parent directories, then read the file and parse it as json.
- * @see {@link https://github.com/microsoft/TypeScript/blob/5f9c9a6ccf61fa131849797248438e292e7b496a/src/harness/compilerImpl.ts#L11-L35}
- * @see {@link https://github.com/microsoft/TypeScript/blob/3fd8a6e44341f14681aa9d303dc380020ccb2147/src/harness/vfsUtil.ts#L286-L316}
  *
  * @param path - The directory path to search for a tsconfig.json or jsconfig.json file
  */
 export function readTsJsConfig(path: string) {
-    let config: null | false | Record<PropertyKey, unknown> = null
+    let config: null | false | TsConfigJsonResolved = null
     let lastPath = ''
     let currentPath = Path.resolve(path)
     while (!config && currentPath !== lastPath) {
@@ -251,5 +246,5 @@ export function readTsJsConfig(path: string) {
         currentPath = Path.dirname(currentPath)
     }
 
-    return config === false ? null : config
+    return config || null
 }

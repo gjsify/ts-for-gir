@@ -295,23 +295,12 @@ export class Config {
     }
 
     protected static async validateTsConfig(config: UserConfig): Promise<UserConfig> {
-        const tsConfig = config.outdir ? readTsJsConfig(config.outdir) : null
-
-        const tsCompilerOptions = (
-            tsConfig &&
-            'compilerOptions' in tsConfig &&
-            typeof tsConfig.compilerOptions === 'object' &&
-            tsConfig.compilerOptions != null
-                ? tsConfig.compilerOptions
-                : {}
-        ) as Record<PropertyKey, unknown>
-
-        const tsConfigHasDOMLib =
-            'noLib' in tsCompilerOptions && tsCompilerOptions.noLib
-                ? false // NoLib makes typescript to ignore the lib property
-                : 'lib' in tsCompilerOptions && Array.isArray(tsCompilerOptions.lib)
-                ? tsCompilerOptions.lib.some((lib) => String(lib).toLowerCase().startsWith('dom'))
-                : true // Typescript icludes DOM lib by default
+        const tsCompilerOptions = (config.outdir && readTsJsConfig(config.outdir)?.compilerOptions) || {}
+        const tsConfigHasDOMLib = tsCompilerOptions.noLib
+            ? false // NoLib makes typescript to ignore the lib property
+            : Array.isArray(tsCompilerOptions.lib)
+            ? tsCompilerOptions.lib.some((lib) => lib.toLowerCase().startsWith('dom'))
+            : true // Typescript icludes DOM lib by default
 
         if (config.environments.includes('gjs') && tsConfigHasDOMLib && !config.noDOMLib) {
             const answer = (

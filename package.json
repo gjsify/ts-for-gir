@@ -108,7 +108,7 @@
     "examples/*/*",
     "packages/*"
   ],
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "dependencies": {
     "@yarnpkg/pnpify": "^4.0.0-rc.26"
   }

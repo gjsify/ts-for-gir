@@ -22,6 +22,8 @@ import imports from './@types/Gjs/index.js';
 import * as St from './@types/Gjs/St-1.0';
 import * as GObject from './@types/Gjs/GObject-2.0';
 
+import type { Extension } from './@types/Gjs/misc/extensionUtils.js';
+
 const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
@@ -52,10 +54,10 @@ class _Indicator extends PanelMenu.Button {
 
 const Indicator = GObject.registerClass(_Indicator);
 
-class Extension {
+class MyExtension {
     _uuid: string;
     _indicator: _Indicator | null = null;
-    constructor(uuid) {
+    constructor(uuid: string) {
         this._uuid = uuid;
 
         ExtensionUtils.initTranslations(GETTEXT_DOMAIN);
@@ -74,6 +76,6 @@ class Extension {
     }
 }
 
-function init(meta) {
-    return new Extension(meta.uuid);
+function init(meta: {uuid: string}) {
+    return new MyExtension(meta.uuid);
 }

@@ -171,14 +171,6 @@ yarn run validate -- ./@types/Gjs/GObject-2.0.d.ts
 
 ### Test
 
-#### Ava
-
-To run our [ava](https://github.com/avajs/ava) tests just run:
-
-```bash
-yarn run test:ava
-```
-
 #### Test gir files
 
 We have a test which tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.

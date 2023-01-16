@@ -83,18 +83,6 @@
             ],
             "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
             "sourceMaps": true,
-        },
-        {
-            "name": "Launch Test",
-            "type": "node",
-            "request": "launch",
-            "args": [
-                "${workspaceRoot}/node_modules/ava/profile.js",
-                "${workspaceRoot}/test.js",
-                "--no-color"
-            ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
-            "sourceMaps": true,
         }
     ]
 }

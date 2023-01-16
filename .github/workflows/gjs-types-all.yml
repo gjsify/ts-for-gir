@@ -32,5 +32,3 @@ jobs:
     - run: yarn run build
     - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:gjs
     - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:gjs
-    # Ava test needs a refactoring
-    # - run: yarn run test:ava

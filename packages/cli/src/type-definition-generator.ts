@@ -57,8 +57,8 @@ export default class TypeDefinitionGenerator implements Generator {
      */
     private generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
         const def: string[] = []
+        const sas = this.config.useNamespace && packageName !== 'Gjs' ? '' : '* as '
         if (this.config.buildType === 'lib') {
-            const sas = this.config.useNamespace && packageName !== 'Gjs' ? '' : '* as '
             def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
         } else if (this.config.buildType === 'types') {
             if (asExternType) {
@@ -66,7 +66,7 @@ export default class TypeDefinitionGenerator implements Generator {
                 def.push(`import ${namespace} from "${packageName}.js"`)
             } else {
                 def.push(`/// <reference path="${packageName}.d.ts" />`)
-                def.push(`import type ${namespace} from './${packageName}.js';`)
+                def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
             }
         }
         return def
@@ -1357,7 +1357,7 @@ export default class TypeDefinitionGenerator implements Generator {
             out.push(`}`)
         }
 
-        if (this.config.buildType !== 'types' && this.config.useNamespace) {
+        if (this.config.useNamespace) {
             out.push(`export default ${girModule.namespace};`)
         }
 
@@ -1424,7 +1424,9 @@ export default class TypeDefinitionGenerator implements Generator {
 
         const inheritanceTableKeys = Object.keys(inheritanceTable)
         const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable }, 'gjs', this.config)
-        await templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
+        }
     }
 
     private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {

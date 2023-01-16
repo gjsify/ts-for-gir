@@ -355,7 +355,7 @@ export class Config {
      * @param options
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
-        const configFile = await this.loadConfigFile(options.configName)
+        const configFile = (await this.loadConfigFile(options.configName))?.config || {}
 
         const config: UserConfig = {
             environments: options.environments,
@@ -379,96 +379,90 @@ export class Config {
 
         if (configFile) {
             // environments
-            if (isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
-                config.environments = configFile.config.environments
+            if (isEqual(config.environments, Config.defaults.environments) && configFile.environments) {
+                config.environments = configFile.environments
             }
             // buildType
-            if (config.buildType === Config.options.buildType.default && configFile.config.buildType) {
-                config.buildType = configFile.config.buildType
+            if (config.buildType === Config.options.buildType.default && configFile.buildType) {
+                config.buildType = configFile.buildType
             }
             // moduleType
-            if (config.moduleType === Config.options.moduleType.default && configFile.config.moduleType) {
-                config.moduleType = configFile.config.moduleType
+            if (config.moduleType === Config.options.moduleType.default && configFile.moduleType) {
+                config.moduleType = configFile.moduleType
             }
             // verbose
-            if (config.verbose === Config.options.verbose.default && typeof configFile.config.verbose === 'boolean') {
-                config.verbose = configFile.config.verbose
+            if (config.verbose === Config.options.verbose.default && typeof configFile.verbose === 'boolean') {
+                config.verbose = configFile.verbose
             }
             // ignoreVersionConflicts
             if (
                 config.ignoreVersionConflicts === Config.options.ignoreVersionConflicts.default &&
-                typeof configFile.config.ignoreVersionConflicts === 'boolean'
+                typeof configFile.ignoreVersionConflicts === 'boolean'
             ) {
-                config.ignoreVersionConflicts = configFile.config.ignoreVersionConflicts
+                config.ignoreVersionConflicts = configFile.ignoreVersionConflicts
             }
             // pretty
-            if (config.pretty === Config.options.pretty.default && typeof configFile.config.pretty === 'boolean') {
-                config.pretty = configFile.config.pretty
+            if (config.pretty === Config.options.pretty.default && typeof configFile.pretty === 'boolean') {
+                config.pretty = configFile.pretty
             }
             // print
-            if (config.print === Config.options.print.default && typeof configFile.config.print === 'boolean') {
-                config.print = configFile.config.print
+            if (config.print === Config.options.print.default && typeof configFile.print === 'boolean') {
+                config.print = configFile.print
             }
             // outdir
-            if (config.outdir === Config.options.outdir.default && configFile.config.outdir) {
-                config.outdir = config.print ? null : configFile.config.outdir
+            if (config.outdir === Config.options.outdir.default && configFile.outdir) {
+                config.outdir = config.print ? null : configFile.outdir
             }
             // girDirectories
-            if (config.girDirectories === Config.options.girDirectories.default && configFile.config.girDirectories) {
-                config.girDirectories = configFile.config.girDirectories
+            if (config.girDirectories === Config.options.girDirectories.default && configFile.girDirectories) {
+                config.girDirectories = configFile.girDirectories
             }
             // ignore
             if (
                 (!config.ignore || config.ignore.length <= 0 || isEqual(config.ignore, Config.defaults.ignore)) &&
-                configFile.config.ignore
+                configFile.ignore
             ) {
-                config.ignore = configFile.config.ignore
+                config.ignore = configFile.ignore
             }
             // modules
             if (
                 (config.modules.length <= 0 || isEqual(config.modules, Config.defaults.modules)) &&
-                configFile.config.modules
+                configFile.modules
             ) {
-                config.modules = configFile.config.modules
+                config.modules = configFile.modules
             }
             // useNamespace
             if (
                 config.useNamespace === Config.options.useNamespace.default &&
-                typeof configFile.config.useNamespace === 'boolean'
+                typeof configFile.useNamespace === 'boolean'
             ) {
-                config.useNamespace = configFile.config.useNamespace
+                config.useNamespace = configFile.useNamespace
             }
             // noComments
-            if (
-                config.noComments === Config.options.noComments.default &&
-                typeof configFile.config.noComments === 'boolean'
-            ) {
-                config.noComments = configFile.config.noComments
+            if (config.noComments === Config.options.noComments.default && typeof configFile.noComments === 'boolean') {
+                config.noComments = configFile.noComments
             }
             // noDebugComments
             if (
                 config.noDebugComments === Config.options.noDebugComments.default &&
-                typeof configFile.config.noDebugComments === 'boolean'
+                typeof configFile.noDebugComments === 'boolean'
             ) {
-                config.noDebugComments = configFile.config.noDebugComments
+                config.noDebugComments = configFile.noDebugComments
             }
             // noCheck
-            if (config.noCheck === Config.options.noCheck.default && typeof configFile.config.noCheck === 'boolean') {
-                config.noCheck = configFile.config.noCheck
+            if (config.noCheck === Config.options.noCheck.default && typeof configFile.noCheck === 'boolean') {
+                config.noCheck = configFile.noCheck
             }
             // fixConflicts
             if (
                 config.fixConflicts === Config.options.fixConflicts.default &&
-                typeof configFile.config.fixConflicts === 'boolean'
+                typeof configFile.fixConflicts === 'boolean'
             ) {
-                config.fixConflicts = configFile.config.fixConflicts
+                config.fixConflicts = configFile.fixConflicts
             }
             // noDOMLib
-            if (
-                config.noDOMLib === Config.options.noDOMLib.default &&
-                typeof configFile.config.noDOMLib === 'boolean'
-            ) {
-                config.noDOMLib = configFile.config.noDOMLib
+            if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFile.noDOMLib === 'boolean') {
+                config.noDOMLib = configFile.noDOMLib
             }
         }
 

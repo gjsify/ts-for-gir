@@ -2,7 +2,6 @@ import './@types/Gjs/index'
 import * as Gtk from './@types/Gjs/Gtk-3.0'
 import * as GtkSource from './@types/Gjs/GtkSource-3.0'
 import { gettext } from './@types/Gjs/Gjs'
-import { giCast } from './@types/Gjs/cast'
 
 Gtk.init(null)
 
@@ -15,9 +14,7 @@ srcView.auto_indent = true
 srcView.show_line_numbers = true
 srcView.monospace = true
 
-// Unfortunately the "buffer" property is not GtkSource.Buffer so we need to downcast
-// it. giCast gives us a type-check at runtime.
-const buf = giCast<GtkSource.Buffer>(srcView.buffer, GtkSource.Buffer)
+const buf = srcView.buffer as GtkSource.Buffer;
 const lang = GtkSource.LanguageManager.get_default().get_language('js')
 print('lang', lang)
 buf.set_language(lang)

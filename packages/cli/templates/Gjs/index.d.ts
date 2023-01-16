@@ -6,6 +6,7 @@
  */
 
 import type * as Gjs from './Gjs.js'
+import type * as GnomeShell from './GnomeShell.js'
 <%_ for (const girModule of girModules) { _%>
   <%_ if(useNamespace){ _%>
 import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
@@ -579,6 +580,8 @@ declare global {
         signals: typeof Gjs.Signals
         package: typeof Gjs.Package
         mainloop: typeof Gjs.Mainloop
+        misc: typeof GnomeShell.misc
+        ui: typeof GnomeShell.ui
         searchPath: string[]
     }
 }

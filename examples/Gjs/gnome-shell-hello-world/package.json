@@ -1,0 +1,24 @@
+{
+  "name": "ts-for-gir-gnome-shell-hello-world-example",
+  "version": "3.0.0-beta.6",
+  "description": "Simple Gnome Shell Hello World Extension example",
+  "main": "dist/extension.js",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "yarn ts-for-gir generate St-1.0 -e gjs -t commonjs",
+    "build:app": "yarn node esbuild.mjs",
+    "build": "yarn run build:types && yarn run build:app",
+    "validate": "yarn run validate:types && yarn run validate:app",
+    "validate:types": "tsc --project tsconfig.types.json",
+    "validate:app": "tsc --noEmit"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
+    "esbuild": "^0.17.0",
+    "typescript": "^4.9.4"
+  }
+}

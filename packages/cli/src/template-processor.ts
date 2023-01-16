@@ -69,7 +69,7 @@ export class TemplateProcessor {
         const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
 
         // write template result file
-        mkdirSync(outputDir, { recursive: true })
+        mkdirSync(Path.dirname(destPath), { recursive: true })
         writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return Promise.resolve(destPath)

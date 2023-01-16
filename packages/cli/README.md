@@ -122,7 +122,7 @@ export default {
   verbose: true,
   environments: ['gjs', 'node'],
   outdir: '@types',
-  girDirectories: '/usr/share/gir-1.0',
+  girDirectories: ['/usr/share/gir-1.0'],
   modules: ['*'],
   ignore: [],
   useNamespace: true,

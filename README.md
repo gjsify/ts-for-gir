@@ -112,7 +112,7 @@ sudo dnf update && sudo dnf install \
     libnotify-devel \
     libsoup-devel \
     webkit2gtk3-devel \
-    libadwaita-devel 
+    libadwaita-devel
 ```
 
 Checkout this repository, install the dependencies and build:

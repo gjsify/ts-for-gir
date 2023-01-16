@@ -1406,13 +1406,16 @@ export default class TypeDefinitionGenerator implements Generator {
 
         // Types
         await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
+        await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts')
+        await templateProcessor.create('misc/extensionUtils.d.ts', this.config.outdir, 'misc/extensionUtils.d.ts')
         await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
+            await templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js')
+            await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js')
+            await templateProcessor.create('misc/extensionUtils.js', this.config.outdir, 'misc/extensionUtils.js')
             await templateProcessor.create('index.js', this.config.outdir, 'index.js')
-            const template = 'Gjs.js'
-            await templateProcessor.create(template, this.config.outdir, 'Gjs.js')
         }
     }
 

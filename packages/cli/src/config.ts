@@ -43,7 +43,7 @@ export class Config {
                   ],
         modules: ['*'],
         ignore: [],
-        verbose: true,
+        verbose: false,
         ignoreVersionConflicts: false,
         useNamespace: false,
         buildType: 'lib',

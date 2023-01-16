@@ -1419,16 +1419,6 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportGjsCastLib(inheritanceTable: InheritanceTable) {
-        if (!this.config.outdir) return
-
-        const inheritanceTableKeys = Object.keys(inheritanceTable)
-        const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable }, 'gjs', this.config)
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
-        }
-    }
-
     private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         if (!this.config.outdir) return
 
@@ -1457,7 +1447,6 @@ export default class TypeDefinitionGenerator implements Generator {
         if (this.config.environment === 'gjs' && girModulesGrouped && inheritanceTable) {
             // GJS internal stuff
             await this.exportGjs(girModules, girModulesGrouped)
-            await this.exportGjsCastLib(inheritanceTable)
         }
     }
 }

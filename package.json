@@ -14,7 +14,6 @@
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn run update:submodules && yarn run update:packages",
-    "publish::latest-next": "yarn run publish --tag next --tag latest",
     "publish:next": "yarn run publish --tag next",
     "publish:latest": "yarn run publish --tag latest",
     "publish": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --tag latest --access public",
@@ -34,7 +33,7 @@
     "regress": "yarn ts-for-gir generate --configName='.ts-for-gir.regress.rc.js'",
     "build": "yarn run build:cli",
     "build:cli": "yarn workspace @ts-for-gir/cli run build",
-    "build:all": "yarn run build && yarn workspaces foreach --parallel run build",
+    "build:all": "yarn run build:cli && yarn workspaces foreach --exclude @ts-for-gir/cli --parallel run build",
     "start:cli-examples:all": "yarn run start:cli-examples:gjs && yarn run start:cli-examples:node",
     "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start",
     "start:cli-examples:node": "yarn workspace ts-for-gir-node-glib-2-spawn-command-example run start",
@@ -94,22 +93,22 @@
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "ava": "^4.3.3",
-    "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "ava": "^5.1.1",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.8.4"
+    "prettier": "^2.8.3",
+    "rimraf": "^4.0.7",
+    "typescript": "^4.9.4"
   },
   "workspaces": [
     "examples/*/*",
     "packages/*"
   ],
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.26"
+    "@yarnpkg/pnpify": "^4.0.0-rc.35"
   }
 }

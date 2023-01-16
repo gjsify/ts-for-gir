@@ -1,9 +1,17 @@
 # TODO
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
-- Remove casts.js, the types are now so good that this helper is no longer needed 
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 
+# Dev
+- Removed casts.js
+- Removed ava test
+- Upgrade dependencies, yarn and vala-girs
+- Add initial support for GNOME Shell imports, see #99
+- Added new GNOME Shell Extension example, see #99
+- Added new example with types only generation, see #101
+- Add missing 'getttext' functions: 'pgettext', 'dpgettext', see #97 by @HeavenVolkoff
+- Replace typescript runtime dependency with `get-tsconfig`, see #96 by @HeavenVolkoff
 # 3.0.0-beta.6
 - Change Class Signal conflict resolution logic, see #91 by @HeavenVolkoff
 - Expose GJS global imports.signals type, see #89 by @HeavenVolkoff

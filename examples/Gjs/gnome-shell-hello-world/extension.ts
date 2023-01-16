@@ -22,8 +22,6 @@ import imports from './@types/Gjs/index.js';
 import * as St from './@types/Gjs/St-1.0';
 import * as GObject from './@types/Gjs/GObject-2.0';
 
-import type { Extension } from './@types/Gjs/misc/extensionUtils.js';
-
 const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;

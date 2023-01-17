@@ -6,6 +6,7 @@
   "type": "commonjs",
   "private": true,
   "scripts": {
+    "clear": "rm -rf dist @types",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.js",
     "build:app": "yarn node esbuild.mjs",

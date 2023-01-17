@@ -7,19 +7,22 @@ export default defineConfig({
     rollupOptions: {
       input: 'main.ts',
       output: {
-          entryFileNames: 'main.js',
+        entryFileNames: 'main.js',
       },
       external: [
-          new RegExp('^gi:\/\/*', 'i')
+        new RegExp('^gi:\/\/*', 'i')
       ],
       plugins: [
-          babel({ targets: {
-              firefox: 91
-              // firefox: 60, // Since GJS 1.53.90
-              // firefox: 68, // Since GJS 1.63.90
-              // firefox: 78, // Since GJS 1.65.90
-              // firefox: 91, // Since GJS 1.71.1
-          } })
+        babel({
+          babelHelpers: 'bundled',
+          targets: {
+            firefox: 91
+            // firefox: 60, // Since GJS 1.53.90
+            // firefox: 68, // Since GJS 1.63.90
+            // firefox: 78, // Since GJS 1.65.90
+            // firefox: 91, // Since GJS 1.71.1
+          }
+        })
       ]
     }
   }

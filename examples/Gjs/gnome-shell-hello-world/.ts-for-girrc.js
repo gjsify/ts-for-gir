@@ -22,6 +22,5 @@ module.exports = {
         '/usr/lib/x86_64-linux-gnu/mutter-11',
     ],
     pretty: true,
-    moduleType: "commonjs",
-    useNamespace: true
+    moduleType: "commonjs"
 }

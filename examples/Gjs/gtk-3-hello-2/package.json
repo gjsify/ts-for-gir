@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-hello-2-example",
-  "version": "3.0.0-beta.6",
+  "version": "3.0.0-beta.7",
   "description": "Simple Gjs Gtk 3 example app to demonstrate how you can connect to Gtk signals",
   "main": "index.js",
   "type": "module",

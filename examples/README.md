@@ -15,10 +15,8 @@ code examples/gjs/browser
 This example uses ESM when building the types and executing Gjs.
 On Node.js ESM is converted back to CommonJS (as long as node-gtk doesn't support ESM), but this way the types can still be used in ESM format.
 
-See also [About the `--moduleType esm` option](#about-the---moduletype-esm-option).
-
 Source: [Gjs](Gjs/gtk-3-browser), [node-gtk](node-gtk/gtk-3-browser)  
-Builder: Webpack  
+Bundler: Webpack  
 Module: ESM  
 
 Build and run:
@@ -35,7 +33,7 @@ yarn run start
 ![gtk-3-builder](gtk-3-builder.png)
 
 Source: [Gjs](Gjs/gtk-3-builder), [node-gtk](node-gtk/gtk-3-builder)  
-Builder: Webpack  
+Bundler: Webpack  
 Module: CommonJS    
 
 Build and run:
@@ -52,7 +50,7 @@ yarn run start
 ![gtk-3-editor](gtk-3-editor.png)
 
 Source: [Gjs](Gjs/gtk-3-editor), [node-gtk](node-gtk/gtk-3-editor)  
-Builder: Webpack  
+Bundler: Webpack  
 Module: CommonJS    
 
 Build and run:
@@ -69,7 +67,7 @@ yarn run start
 ![gtk-3-hello](gtk-3-hello.png)
 
 Source: [Gjs](Gjs/gtk-3-hello), [node-gtk](node-gtk/gtk-3-hello)  
-Builder: Webpack  
+Bundler: Webpack  
 Module: CommonJS    
 
 Build and run:
@@ -88,7 +86,7 @@ yarn run start
 GJS example showing how to build Gtk4 applications using `Gtk.TreeView` and `Gtk.ListStore`
 
 Source: [Gjs](Gjs/gtk-4-list-store)  
-Builder: ESBuild  
+Bundler: ESBuild  
 Module: ESM  
 
 Build and run:
@@ -125,7 +123,7 @@ GJS example showing how to build a http server/client using Soap 3.
 This example contains a client and a server example, for the client example the server must be running. You can also start the server from the node-gtk example and then request that with the gjs example and vice versa ;)
 
 Source: [Gjs](Gjs/soup-3-http), [node-gtk](node-gtk/soup-3-http)  
-Builder: ESBuild  
+Bundler: ESBuild  
 Module: ESM  
 
 Build and run:
@@ -148,7 +146,7 @@ yarn run start:client
 This example shows the usage of custom widgets and virtual functions in Gjs and node-gtk.
 
 Source: [Gjs](Gjs/gtk-4-custom-widget), [node-gtk](node-gtk/gtk-4-custom-widget)  
-Builder: ESBuild  
+Bundler: ESBuild  
 Module: ESM    
 
 Build and run:

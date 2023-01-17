@@ -3,7 +3,7 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 
-# Dev
+# 3.0.0-beta.7
 - Set verbose to `false` by default
 - Removed casts.js
 - Removed ava test

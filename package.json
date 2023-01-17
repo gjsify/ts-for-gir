@@ -16,7 +16,7 @@
     "update": "yarn run update:submodules && yarn run update:packages",
     "publish:next": "yarn run publish --tag next",
     "publish:latest": "yarn run publish --tag latest",
-    "publish": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --tag latest --access public",
+    "publish": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --access public",
     "test": "yarn run build:all && yarn run regress && yarn run test:girs:all && yarn run validate:app && yarn run build:all && yarn ts-for-gir:cli-examples:all",
     "test:girs:all": "yarn run build:types:all && yarn run validate:types:all",
     "test:girs:gjs": "yarn run build:types:gjs && yarn run validate:types:gjs",

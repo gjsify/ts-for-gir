@@ -5,6 +5,7 @@
 
 # Dev
 - Add new option to enable type generation for GNOME Shell (disabled by default now)
+- Add some more types for GNOME Shell
 # 3.0.0-beta.7
 - Set verbose to `false` by default
 - Removed casts.ts

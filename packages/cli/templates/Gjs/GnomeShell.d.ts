@@ -1,12 +1,14 @@
-
+import type * as DbusUtils from './misc/dbusUtils.js';
 import type * as ExtensionUtils from './misc/extensionUtils.js';
+import type * as FileUtils from './misc/fileUtils.js';
+import type * as GnomeSession from './misc/gnomeSession.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/misc
 export namespace misc {
-    export const dbusUtils: any;
+    export const dbusUtils: typeof DbusUtils;
     export const extensionUtils: typeof ExtensionUtils;
-    export const fileUtils: any;
-    export const gnomeSession: any;
+    export const fileUtils: typeof FileUtils;
+    export const gnomeSession: typeof GnomeSession;
     export const history: any;
     export const ibusManager: any;
     export const inputMethod: any;
@@ -26,6 +28,8 @@ export namespace misc {
     export const util: any;
     export const weather: any;
 }
+
+import type * as UserWidget from './ui/userWidget.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/ui
 export namespace ui {
@@ -103,7 +107,7 @@ export namespace ui {
     export const switchMonitor: any;
     export const switcherPopup: any;
     export const unlockDialog: any;
-    export const userWidget: any;
+    export const userWidget: typeof UserWidget;
     export const welcomeDialog: any;
     export const windowAttentionHandler: any;
     export const windowManager: any;

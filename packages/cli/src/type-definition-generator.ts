@@ -1410,6 +1410,7 @@ export default class TypeDefinitionGenerator implements Generator {
         if (this.config.gnomeShellTypes) {
             await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts')
             await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
+            await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
         }
 
         // Lib
@@ -1419,6 +1420,7 @@ export default class TypeDefinitionGenerator implements Generator {
             if (this.config.gnomeShellTypes) {
                 await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js')
                 await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
+                await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
             }
         }
     }

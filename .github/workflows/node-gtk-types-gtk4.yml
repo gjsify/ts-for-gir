@@ -30,7 +30,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: sudo apt-get update
     - name: Install dependencies for regress test
-      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common
+      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev
     - run: yarn install
     - run: yarn run build
     - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:node:gtk4

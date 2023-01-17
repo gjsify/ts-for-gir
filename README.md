@@ -99,7 +99,8 @@ sudo apt update && sudo apt install \
     libsoup-3.0-dev \
     libwebkit2gtk-4.0-dev \
     libadwaita-1-dev \
-    gnome-shell-common
+    gnome-shell-common \
+    libmutter-10-dev
 
 # Fedora 36
 sudo dnf update && sudo dnf install \

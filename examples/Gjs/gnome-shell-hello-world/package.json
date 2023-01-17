@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate St-1.0 -e gjs -t commonjs",
+    "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.js",
     "build:app": "yarn node esbuild.mjs",
     "build": "yarn run build:types && yarn run build:app",
     "validate": "yarn run validate:types && yarn run validate:app",

@@ -4,6 +4,7 @@
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 
 # Dev
+- Set verbose to `false` by default
 - Removed casts.js
 - Removed ava test
 - Upgrade dependencies, yarn and vala-girs

@@ -1,7 +1,7 @@
 {
     "environments": ["gjs"],
     "modules": ["Gio-2.0"],
-    "prettify": true,
+    "pretty": true,
     "buildType": "types",
     "useNamespace": true,
     "outdir": "./@types"

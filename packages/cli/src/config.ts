@@ -32,15 +32,7 @@ export class Config {
         print: false,
         configName: '.ts-for-girrc.js',
         outdir: './@types',
-        girDirectories:
-            OS.platform() === 'darwin'
-                ? ['/usr/local/share/gir-1.0']
-                : [
-                      '/usr/share/gir-1.0',
-                      '/usr/share/gnome-shell',
-                      '/usr/share/gnome-shell/gir-1.0',
-                      '/usr/lib64/mutter-11',
-                  ],
+        girDirectories: OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
         verbose: false,

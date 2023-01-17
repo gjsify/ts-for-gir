@@ -35,6 +35,7 @@ const builder = (yargs: Argv) => {
         .option('noCheck', Config.generateOptions.noCheck)
         .option('noDOMLib', Config.generateOptions.noDOMLib)
         .option('fixConflicts', Config.generateOptions.fixConflicts)
+        .option('gnomeShellTypes', Config.generateOptions.gnomeShellTypes)
         .example(examples)
 }
 
@@ -73,8 +74,8 @@ const examples: ReadonlyArray<[string, string?]> = [
     [`${Config.appName} generate '*' -e node`, 'Generate .d.ts. files only for node'],
     [`${Config.appName} generate --configName='.ts-for-gir.gtk4.rc.js`, 'Use a special config file'],
     [
-        `${Config.appName} generate --ignore=Gtk-3.0 xrandr-1.3`,
-        'Generate .d.ts. files but not for Gtk-3.0 and xrandr-1.3',
+        `${Config.appName} generate --ignore=Gtk-4.0 xrandr-1.3`,
+        'Generate .d.ts. files but not for Gtk-4.0 and xrandr-1.3',
     ],
 ]
 

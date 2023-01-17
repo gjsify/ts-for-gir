@@ -45,6 +45,7 @@ export class Config {
         noCheck: false,
         fixConflicts: true,
         noDOMLib: false,
+        gnomeShellTypes: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -52,13 +53,13 @@ export class Config {
     /**
      * CLI options used in commands/generate.ts and commands/list.ts
      */
-    static options = {
+    static options: { [name: string]: Options } = {
         modules: {
             description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
             array: true,
             default: Config.defaults.modules,
             normalize: true,
-        } as Options,
+        },
         girDirectories: {
             type: 'string',
             alias: 'g',
@@ -66,14 +67,14 @@ export class Config {
             array: true,
             default: Config.defaults.girDirectories,
             normalize: true,
-        } as Options,
+        },
         outdir: {
             type: 'string',
             alias: 'o',
             description: 'Directory to output to',
             default: Config.defaults.outdir,
             normalize: true,
-        } as Options,
+        },
         environments: {
             type: 'string',
             alias: 'e',
@@ -82,7 +83,7 @@ export class Config {
             choices: ['gjs', 'node'],
             default: Config.defaults.environments,
             normalize: true,
-        } as Options,
+        },
         ignore: {
             type: 'string',
             alias: 'i',
@@ -90,7 +91,7 @@ export class Config {
             array: true,
             default: Config.defaults.ignore,
             normalize: true,
-        } as Options,
+        },
         buildType: {
             type: 'string',
             alias: 'b',
@@ -99,7 +100,7 @@ export class Config {
             choices: ['lib', 'types'],
             default: Config.defaults.buildType,
             normalize: true,
-        } as Options,
+        },
         moduleType: {
             type: 'string',
             alias: 't',
@@ -107,77 +108,83 @@ export class Config {
             choices: ['esm', 'commonjs'],
             default: Config.defaults.moduleType,
             normalize: true,
-        } as Options,
+        },
         pretty: {
             type: 'boolean',
             description: 'Prettifies the generated .d.ts files',
             default: Config.defaults.pretty,
             normalize: true,
-        } as Options,
+        },
         verbose: {
             type: 'boolean',
             alias: 'v',
             description: 'Switch on/off the verbose mode',
             default: Config.defaults.verbose,
             normalize: true,
-        } as Options,
+        },
         ignoreVersionConflicts: {
             type: 'boolean',
             description: 'Do not ask for package versions if multiple versions are found',
             default: Config.defaults.ignoreVersionConflicts,
             normalize: true,
-        } as Options,
+        },
         print: {
             type: 'boolean',
             alias: 'p',
             description: 'Print the output to console and create no files',
             default: Config.defaults.print,
             normalize: true,
-        } as Options,
+        },
         configName: {
             type: 'string',
             description: 'Name of the config if you want to use a different name',
             default: Config.defaults.configName,
             normalize: true,
-        } as Options,
+        },
         useNamespace: {
             type: 'boolean',
             alias: 'd',
             description: 'Export all symbols for each module as a namespace',
             default: Config.defaults.useNamespace,
             normalize: true,
-        } as Options,
+        },
         noComments: {
             type: 'boolean',
             alias: 'n',
             description: 'Do not generate documentation comments',
             default: Config.defaults.noComments,
             normalize: true,
-        } as Options,
+        },
         noDebugComments: {
             type: 'boolean',
             description: 'Do not generate debugging inline comments',
             default: Config.defaults.noDebugComments,
             normalize: true,
-        } as Options,
+        },
         noCheck: {
             type: 'boolean',
             description: 'Disable typescript semantic checks using @ts-nocheck',
             default: Config.defaults.noCheck,
             normalize: true,
-        } as Options,
+        },
         fixConflicts: {
             type: 'boolean',
             description: 'Fix Inheritance and implementation type conflicts',
             default: Config.defaults.fixConflicts,
             normalize: true,
-        } as Options,
+        },
         noDOMLib: {
             type: 'boolean',
             description: 'Disables the generation of types that are in conflict with the DOM types',
             default: Config.defaults.noDOMLib,
             normalize: true,
-        } as Options,
+        },
+        gnomeShellTypes: {
+            type: 'boolean',
+            description: 'Generate types for GNOME Shell',
+            default: Config.defaults.gnomeShellTypes,
+            normalize: true,
+        },
     }
 
     /**
@@ -202,6 +209,7 @@ export class Config {
         noCheck: this.options.noCheck,
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
+        gnomeShellTypes: this.options.gnomeShellTypes,
     }
 
     static listOptions = {
@@ -290,6 +298,7 @@ export class Config {
             noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
+            gnomeShellTypes: config.gnomeShellTypes,
         }
         return generateConfig
     }
@@ -367,6 +376,7 @@ export class Config {
             noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
+            gnomeShellTypes: options.gnomeShellTypes,
         }
 
         if (configFile) {
@@ -455,6 +465,13 @@ export class Config {
             // noDOMLib
             if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFile.noDOMLib === 'boolean') {
                 config.noDOMLib = configFile.noDOMLib
+            }
+            // gnomeShellTypes
+            if (
+                config.gnomeShellTypes === Config.options.gnomeShellTypes.default &&
+                typeof configFile.gnomeShellTypes === 'boolean'
+            ) {
+                config.gnomeShellTypes = configFile.gnomeShellTypes
             }
         }
 

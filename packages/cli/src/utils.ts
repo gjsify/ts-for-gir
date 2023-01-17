@@ -165,9 +165,9 @@ export const getEnvironmentDir = (environment: Environment, baseDir: string): st
     return baseDir
 }
 
-export const getDestPath = (environment: Environment, outputDir: string, outputFilename: string) => {
+export const getDestPath = (environment: Environment, outputDir: string, ...parts: string[]) => {
     const outputEnvDir = getEnvironmentDir(environment, outputDir)
-    const destPath = Path.join(outputEnvDir, outputFilename)
+    const destPath = Path.join(outputEnvDir, ...parts)
     return destPath
 }
 

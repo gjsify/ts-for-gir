@@ -89,6 +89,20 @@
     "url": "https://github.com/sammydre/ts-for-gjs/issues"
   },
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
+  "keywords": [
+    "gjs",
+    "typescript",
+    "generate",
+    "node-gtk",
+    "gir",
+    "gobject-introspection",
+    "gnome",
+    "gtk",
+    "glib",
+    "gobject",
+    "dts",
+    "type definitions"
+  ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^5.48.2",

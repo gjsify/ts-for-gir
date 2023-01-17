@@ -3,7 +3,8 @@
  * For example, the signal methods are generated here
  */
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs'
+import { existsSync } from 'fs'
+import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import Path from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
@@ -34,7 +35,7 @@ export class TemplateProcessor {
     }
 
     /**
-     * Loads and renders a template and gets the rendered string back
+     * Loads and renders a template and gets the rendered templates back
      * @param templateFilename
      */
     public async load(templateFilename: string): Promise<string> {
@@ -43,12 +44,24 @@ export class TemplateProcessor {
     }
 
     /**
+     * Loads and renders all templates in a directory and gets the rendered templates back
+     * @param templateDirname
+     */
+    public async loadAll(templateDirname: string, fileExtension: string): Promise<{ [path: string]: string }> {
+        const fileContents = await this.readAll(templateDirname, fileExtension)
+        for (const file of Object.keys(fileContents)) {
+            fileContents[file] = await this.render(fileContents[file])
+        }
+        return fileContents
+    }
+
+    /**
      * Loads an template, render the template and write the template to the filesystem
      * @param templateFilename
      * @param outputDir
      * @param outputFilename
      * @param append
-     * @return The rendered (and if possible prettified) code string
+     * @return The rendered (and if possible prettified) template string
      */
     public async create(
         templateFilename: string,
@@ -56,34 +69,60 @@ export class TemplateProcessor {
         outputFilename: string,
         append = '',
     ): Promise<string> {
-        const fileContent = await this.load(templateFilename)
-        const renderedCode = await this.render(fileContent)
+        const renderedTpl = await this.load(templateFilename)
         const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
-        const prettifiedCode = this.config.pretty ? this.prettifySource(renderedCode, destPath) : null
-        const code = (prettifiedCode || renderedCode) + append
+        const prettifiedCode = this.config.pretty ? this.prettifySource(renderedTpl, destPath) : null
+        const code = (prettifiedCode || renderedTpl) + append
         await this.write(code, outputDir, outputFilename)
         return code
+    }
+
+    /**
+     * Loads all templates with file extension in dir, render the templates and write the template to the filesystem
+     * @param fileExtension
+     * @param templateDirname
+     * @param outputDir
+     * @param outputDirname
+     * @return The rendered (and if possible prettified) templates
+     */
+    public async createAll(
+        fileExtension: string,
+        templateDirname: string,
+        outputDir: string,
+        outputDirname: string,
+        append = '',
+    ) {
+        const renderedTpls = await this.loadAll(templateDirname, fileExtension)
+        const result: { [path: string]: string } = {}
+        for (const filename of Object.keys(renderedTpls)) {
+            const destPath = getDestPath(this.config.environment, outputDir, outputDirname, filename)
+            const prettifiedCode = this.config.pretty ? this.prettifySource(renderedTpls[filename], destPath) : null
+            result[destPath] = (prettifiedCode || renderedTpls[filename]) + append
+            await this.write(result[destPath], outputDir, Path.join(outputDirname, filename))
+        }
+
+        return result
     }
 
     protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
         const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
 
         // write template result file
-        mkdirSync(Path.dirname(destPath), { recursive: true })
-        writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
+        await mkdir(Path.dirname(destPath), { recursive: true })
+        await writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return Promise.resolve(destPath)
     }
 
     protected async render(templateString: string, additionalData: Partial<ejs.Options> = {}): Promise<string> {
         try {
-            const renderedCode = ejs.render(templateString, {
+            const renderedTpl = ejs.render(templateString, {
                 async: true,
                 ...this.config,
                 ...this.data,
                 ...additionalData,
             })
-            return Promise.resolve(renderedCode)
+            return Promise.resolve(renderedTpl)
         } catch (error) {
             this.log.error('Error on render', error)
             return ''
@@ -91,8 +130,8 @@ export class TemplateProcessor {
     }
 
     /**
-     * Checks if the template file exists and returns the path if found
-     * Tries first to load the file from the environment-specific template folder and otherwise looks for it in the general template folder
+     * Checks if the template file or directory exists and returns the path if found
+     * Tries first to load the file / directory from the environment-specific template folder and otherwise looks for it in the general template folder
      * @param templateFilename
      */
     public exists(templateFilename: string): string | null {
@@ -133,7 +172,7 @@ export class TemplateProcessor {
         const filename = Path.basename(path)
         this.log.info(`   Prettify ${filename}...`)
         try {
-            const source = readFileSync(Path.resolve('.', path), 'utf8')
+            const source = await readFile(Path.resolve('.', path), 'utf8')
             prettyCode = this.prettifySource(source, path)
         } catch (error) {
             this.log.warn('Error on prettify', error)
@@ -161,9 +200,33 @@ export class TemplateProcessor {
     protected async read(templateFilename: string) {
         const path = this.exists(templateFilename)
         if (path) {
-            return Promise.resolve(readFileSync(path, 'utf8'))
+            return await readFile(path, 'utf8')
         }
         throw new Error(`Template '${templateFilename}' not found'`)
+    }
+
+    /**
+     * Reads all template files from a directory and gets the raw strings back
+     * @param templateDirname
+     * @param fileExtension
+     * @return The raw template contents
+     * @throws Error if the template directory does not exist
+     * @throws Error if the template directory is empty
+     */
+    protected async readAll(templateDirname: string, fileExtension: string) {
+        const path = this.exists(templateDirname)
+        if (path) {
+            const files = (await readdir(path)).filter((file) => file.endsWith(fileExtension))
+            if (files.length === 0) {
+                throw new Error(`Template directory '${templateDirname}' is empty'`)
+            }
+            const results: { [path: string]: string } = {}
+            for (const file of files) {
+                results[file] = await readFile(Path.join(path, file), 'utf8')
+            }
+            return results
+        }
+        throw new Error(`Template directory '${templateDirname}' not found'`)
     }
 }
 

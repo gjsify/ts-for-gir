@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.js",
     "build:app": "yarn node esbuild.mjs",
-    "build": "yarn run build:types && yarn run build:app",
+    "build": "yarn run clear && yarn run build:types && yarn run build:app",
     "validate": "yarn run validate:types && yarn run validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit"

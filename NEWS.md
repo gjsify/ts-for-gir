@@ -3,15 +3,17 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 
+# Dev
+- Add new option to enable type generation for GNOME Shell (disabled by default now)
 # 3.0.0-beta.7
 - Set verbose to `false` by default
-- Removed casts.js
+- Removed casts.ts
 - Removed ava test
 - Upgrade dependencies, yarn and vala-girs
 - Add initial support for GNOME Shell imports, see #99
 - Added new GNOME Shell Extension example, see #99
 - Added new example with types only generation, see #101
-- Add missing 'getttext' functions: 'pgettext', 'dpgettext', see #97 by @HeavenVolkoff
+- Add missing `getttext` functions: `pgettext`, `dpgettext`, see #97 by @HeavenVolkoff
 - Replace typescript runtime dependency with `get-tsconfig`, see #96 by @HeavenVolkoff
 # 3.0.0-beta.6
 - Change Class Signal conflict resolution logic, see #91 by @HeavenVolkoff

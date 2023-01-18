@@ -1,3 +1,4 @@
+
 /* extension.js
  *
  * This program is free software: you can redistribute it and/or modify
@@ -17,44 +18,38 @@
  */
 
 /* exported init */
-
-import imports from './@types/Gjs/index.js';
-import * as St from './@types/Gjs/St-1.0';
-import * as GObject from './@types/Gjs/GObject-2.0';
+const { St, GObject } = imports.gi;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 
-const GETTEXT_DOMAIN = 'my-indicator-extension';
 const _ = ExtensionUtils.gettext;
+const GETTEXT_DOMAIN = 'my-indicator-extension';
 
-class _Indicator extends PanelMenu.Button {
+class TIndicator extends PanelMenu.Button {
     _init() {
         super._init(0.0, _('My Shiny Indicator'));
 
-        // TODO: Add types for `PanelMenu.Button`
-        (this as any).add_child(new St.Icon({
+        this.add_child(new St.Icon({
             icon_name: 'face-smile-symbolic',
             style_class: 'system-status-icon',
         }));
 
         let item = new PopupMenu.PopupMenuItem(_('Show Notification'));
         item.connect('activate', () => {
-            Main.notify(_('Whatʼs up, folks?'));
+            Main.notify(_('Hello World! :)'));
         });
-
-        // TODO: Add types for `PanelMenu.Button`
-        (this as any).menu.addMenuItem(item);
+        this.menu.addMenuItem(item);
     }
-};
+}
 
-const Indicator = GObject.registerClass(_Indicator);
+const Indicator = GObject.registerClass(TIndicator);
 
-class MyExtension {
+class Extension {
     _uuid: string;
-    _indicator: _Indicator | null = null;
+    _indicator: TIndicator | null = null;
     constructor(uuid: string) {
         this._uuid = uuid;
 
@@ -67,13 +62,11 @@ class MyExtension {
     }
 
     disable() {
-
-        // TODO: Add types for `PanelMenu.Button`
-        (this._indicator as any)?.destroy();
+        this._indicator?.destroy();
         this._indicator = null;
     }
 }
 
-function init(meta: {uuid: string}) {
-    return new MyExtension(meta.uuid);
+function init(meta: { uuid: string }) {
+    return new Extension(meta.uuid);
 }

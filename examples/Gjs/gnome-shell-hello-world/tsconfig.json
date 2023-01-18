@@ -8,8 +8,9 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
-    "alwaysStrict": true,
+    "alwaysStrict": true
   },
+  "include": ["@types/Gjs/index.d.ts"],
   "files": [
     "extension.ts",
   ]

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     environments: ["gjs"],
     modules: ["St-1.0"],
     girDirectories: [
@@ -22,6 +22,7 @@ module.exports = {
         '/usr/lib/x86_64-linux-gnu/mutter-11',
     ],
     pretty: true,
-    moduleType: "commonjs",
+    buildType: "types",
+    useNamespace: true,
     gnomeShellTypes: true,
 }

@@ -30,6 +30,8 @@ export namespace misc {
     export const weather: any;
 }
 
+import type * as Main from './ui/main.js';
+import type * as NotificationDaemon from './ui/notificationDaemon.js';
 import type * as PanelMenu from './ui/panelMenu.js';
 import type * as PopupMenu from './ui/popupMenu.js';
 import type * as UserWidget from './ui/userWidget.js';
@@ -75,12 +77,12 @@ export namespace ui {
     export const locatePointer: any;
     export const lookingGlass: any;
     export const magnifier: any;
-    export const main: any;
+    export const main: typeof Main;
     export const messageList: any;
     export const messageTray: any;
     export const modalDialog: any;
     export const mpris: any;
-    export const notificationDaemon: any;
+    export const notificationDaemon: typeof NotificationDaemon;
     export const osdMonitorLabeler: any;
     export const osdWindow: any;
     export const overview: any;

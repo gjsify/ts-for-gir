@@ -99,10 +99,12 @@ sudo apt update && sudo apt install \
     libsoup-3.0-dev \
     libwebkit2gtk-4.0-dev \
     libadwaita-1-dev \
+    # The following are for GNOME Shell types
     gnome-shell-common \
-    libmutter-10-dev
+    libmutter-10-dev \
+    libgcr-3-dev
 
-# Fedora 36
+# Fedora 37
 sudo dnf update && sudo dnf install \
     libappindicator-gtk3-devel \
     libgda-devel \
@@ -115,7 +117,9 @@ sudo dnf update && sudo dnf install \
     libsoup-devel \
     webkit2gtk3-devel \
     libadwaita-devel \
-    gnome-shell
+    # The following are for GNOME Shell types
+    gnome-shell \
+    gcr-devel
 ```
 
 Checkout this repository, install the dependencies and build:

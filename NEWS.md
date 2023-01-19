@@ -4,6 +4,7 @@
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
 - Add support for mutter-10 (use Clutter-10.gir here) and mutter-11 (use Clutter-11.gir here), see packages/cli/templates/Gjs/ui/popupMenu.d.ts
+- Add support to generate packages for the types we can publish on NPM 
 
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)

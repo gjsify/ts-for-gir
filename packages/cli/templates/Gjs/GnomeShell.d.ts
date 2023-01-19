@@ -2,6 +2,7 @@ import type * as DbusUtils from './misc/dbusUtils.js';
 import type * as ExtensionUtils from './misc/extensionUtils.js';
 import type * as FileUtils from './misc/fileUtils.js';
 import type * as GnomeSession from './misc/gnomeSession.js';
+import type * as Signals from './misc/signals.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/misc
 export namespace misc {
@@ -22,13 +23,15 @@ export namespace misc {
     export const parentalControlsManager: any;
     export const permissionStore: any;
     export const signalTracker: any;
-    export const signals: any;
+    export const signals: typeof Signals;
     export const smartcardManager: any;
     export const systemActions: any;
     export const util: any;
     export const weather: any;
 }
 
+import type * as PanelMenu from './ui/panelMenu.js';
+import type * as PopupMenu from './ui/popupMenu.js';
 import type * as UserWidget from './ui/userWidget.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/ui
@@ -85,10 +88,10 @@ export namespace ui {
     export const padOsd: any;
     export const pageIndicators: any;
     export const panel: any;
-    export const panelMenu: any;
+    export const panelMenu: typeof PanelMenu;
     export const pointerA11yTimeout: any;
     export const pointerWatcher: any;
-    export const popupMenu: any;
+    export const popupMenu: typeof PopupMenu;
     export const quickSettings: any;
     export const remoteSearch: any;
     export const ripples: any;

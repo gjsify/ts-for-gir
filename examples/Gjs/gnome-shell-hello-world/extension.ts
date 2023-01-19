@@ -23,12 +23,15 @@ const { St, GObject } = imports.gi;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
-const PopupMenu = imports.ui.popupMenu;
+const { PopupMenu, PopupMenuItem } = imports.ui.popupMenu;
 
 const _ = ExtensionUtils.gettext;
 const GETTEXT_DOMAIN = 'my-indicator-extension';
 
 class TIndicator extends PanelMenu.Button {
+    constructor() {
+        super(0.0, _('My Shiny Indicator'));
+    }
     _init() {
         super._init(0.0, _('My Shiny Indicator'));
 
@@ -37,11 +40,12 @@ class TIndicator extends PanelMenu.Button {
             style_class: 'system-status-icon',
         }));
 
-        let item = new PopupMenu.PopupMenuItem(_('Show Notification'));
+        let item = new PopupMenuItem(_('Show Notification'));
         item.connect('activate', () => {
             Main.notify(_('Hello World! :)'));
         });
-        this.menu.addMenuItem(item);
+
+        (this.menu as InstanceType<typeof PopupMenu>).addMenuItem(item);
     }
 }
 

@@ -2062,7 +2062,7 @@ export class GirModule {
         let qualifiedParentName: string
         let parentModName: string
 
-        // Workaround: Fix wrong parent names
+        // WORKAROUND: Fix wrong parent names
         if (
             (this.packageName === 'GstAudio-0.10' || this.packageName === 'ClutterGst-1.0') &&
             (parentName === 'GstBase.BaseTransform' ||
@@ -2092,6 +2092,8 @@ export class GirModule {
         }
         const localParentName = parentModName == namespace ? parentName : qualifiedParentName
 
+        const dependencyExists = !!this.symTable.get(this.allDependencies, qualifiedParentName)
+
         const cls = this.getClassParent({
             qualifiedParentName,
             parentName,
@@ -2103,6 +2105,7 @@ export class GirModule {
             type,
             parentName,
             cls,
+            dependencyExists,
             // TODO: are there other types that can be inherited or implemented?
             girTypeName: type === 'parent' ? 'class' : 'interface',
         }
@@ -2126,7 +2129,10 @@ export class GirModule {
             for (const implement of implmts) {
                 const parentName = implement.$?.name
                 if (!parentName) continue
-                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'implements'))
+                const parent = this.getClassParentObject(parentName, girClass._module.namespace, 'implements')
+                if (parent.dependencyExists) {
+                    parents.push(parent)
+                }
             }
         }
 
@@ -2134,14 +2140,20 @@ export class GirModule {
             for (const prerequisite of prerequisites) {
                 const parentName = prerequisite.$?.name
                 if (!parentName) continue
-                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'prerequisite'))
+                const parent = this.getClassParentObject(parentName, girClass._module.namespace, 'prerequisite')
+                if (parent.dependencyExists) {
+                    parents.push(parent)
+                }
             }
         }
 
         if ((girClass as GirClassElement).$.parent) {
             const parentName = (girClass as GirClassElement).$.parent
             if (parentName) {
-                parents.push(this.getClassParentObject(parentName, girClass._module.namespace, 'parent'))
+                const parent = this.getClassParentObject(parentName, girClass._module.namespace, 'parent')
+                if (parent.dependencyExists) {
+                    parents.push(parent)
+                }
             }
         }
 
@@ -2152,14 +2164,18 @@ export class GirModule {
                 // TODO make sure this class exists in symTable
                 const gObjectObjectCls =
                     this.symTable.getByHand<GirClassElement>('GObject-2.0.GObject.Object') || undefined
-                parents.push({
+                const parent: ClassParent = {
                     qualifiedParentName: 'GObject.Object',
                     localParentName: girClass._module.namespace === 'GObject' ? 'Object' : 'GObject.Object',
                     type: 'parent',
                     parentName: 'Object',
                     cls: gObjectObjectCls,
+                    dependencyExists: !!gObjectObjectCls,
                     girTypeName: 'class',
-                })
+                }
+                if (parent.dependencyExists) {
+                    parents.push(parent)
+                }
             }
         }
 

@@ -50,13 +50,13 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get<T>(dependencies: Dependency[], fullTypeName: string): T | null {
+    public get<T = object>(dependencies: Dependency[], fullTypeName: string): T | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
         }
         const result = SymTable.items[key] || null
-        return result as unknown as T | null
+        return result as T | null
     }
 
     public getByHand<T = GirAnyElement>(key: string): T | null {

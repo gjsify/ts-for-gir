@@ -9,4 +9,6 @@ export interface ClassParent {
     /** Parent class / interface */
     cls?: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement
     girTypeName: TypeGirClass
+    /** True if the parent dependency exists */
+    dependencyExists: boolean
 }

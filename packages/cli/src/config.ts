@@ -9,7 +9,7 @@ import Path from 'path'
 import OS from 'os'
 import { merge, isEqual, readTsJsConfig } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
-import { promises as fs } from 'fs'
+import { writeFile } from 'fs/promises'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
 import {
@@ -243,7 +243,7 @@ export class Config {
                 break
         }
         if (writeConfigString && path) {
-            return fs.writeFile(path, writeConfigString)
+            return writeFile(path, writeConfigString)
         }
     }
 

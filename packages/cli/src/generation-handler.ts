@@ -1,4 +1,4 @@
-import fs from 'fs'
+import { mkdir } from 'fs/promises'
 import { GirModule } from './gir-module.js'
 import { Generator } from './generator.js'
 import TypeDefinitionGenerator from './type-definition-generator.js'
@@ -66,7 +66,7 @@ export class GenerationHandler {
         for (const girModule of girModules) {
             if (this.config.outdir) {
                 const outputDir = getEnvironmentDir(this.config.environment, this.config.outdir)
-                fs.mkdirSync(outputDir, { recursive: true })
+                await mkdir(outputDir, { recursive: true })
             }
             this.log.log(` - ${girModule.packageName} ...`)
             girModule.start()

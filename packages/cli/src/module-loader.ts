@@ -5,7 +5,7 @@
 import inquirer, { ListQuestion, Answers } from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
-import fs from 'fs'
+import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import * as xml2js from 'xml2js'
 import type {
@@ -374,7 +374,7 @@ export class ModuleLoader {
         }
 
         this.log.log(`Parsing ${dependency.path}...`)
-        const fileContents = await fs.promises.readFile(dependency.path, 'utf8')
+        const fileContents = await readFile(dependency.path, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
         const girModule = new GirModule(result, this.config)
         // Figure out transitive module dependencies

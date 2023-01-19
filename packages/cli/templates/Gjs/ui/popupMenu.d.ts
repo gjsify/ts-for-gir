@@ -1,11 +1,13 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/popupMenu.js
 <%_ if(useNamespace){ _%>
     import type St from '../St-1.0.js';
-    // TODO: import type Clutter from '../Clutter-11.js';
+    // TODO: on Ubuntu 22.04 this is Clutter-10
+    // import type Clutter from '../Clutter-11.js';
     import type Gio from '../Gio-2.0.js';
 <%_ } else { _%>
     import type * as St from '../St-1.0.js';
-    // TODO: import type * as Clutter from '../Clutter-11.js';
+    // TODO: on Ubuntu 22.04 this is Clutter-10
+    // import type * as Clutter from '../Clutter-11.js';
     import type * as Gio from '../Gio-2.0.js';
 <%_ } _%>
 import * as Signals from '../misc/signals.js';

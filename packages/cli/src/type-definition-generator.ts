@@ -29,8 +29,6 @@ import TemplateProcessor from './template-processor.js'
 import { Logger } from './logger.js'
 import {
     generateIndent,
-    findFileInDirs,
-    splitModuleName,
     removeNamespace,
     removeClassModule,
     girElementIsIntrospectable,
@@ -1181,24 +1179,21 @@ export default class TypeDefinitionGenerator implements Generator {
 
         out.push('')
 
-        const deps: string[] = girModule.transitiveDependencies
-
         // Module dependencies as type references or imports
         if (this.config.environment === 'gjs') {
             out.push(...this.generateModuleDependenciesImport('Gjs', 'Gjs', false))
         }
 
-        for (const depPackageName of deps) {
+        for (const dependency of girModule.transitiveDependencies) {
             // Don't reference yourself as a dependency
-            if (girModule.packageName !== depPackageName) {
-                const girFilename = `${depPackageName}.gir`
-                const { namespace } = splitModuleName(depPackageName)
-                const depFile = findFileInDirs(this.config.girDirectories, girFilename)
-                if (depFile.exists) {
-                    out.push(...this.generateModuleDependenciesImport(namespace, depPackageName, false))
+            if (girModule.packageName !== dependency.packageName) {
+                if (dependency.exists) {
+                    out.push(
+                        ...this.generateModuleDependenciesImport(dependency.namespace, dependency.packageName, false),
+                    )
                 } else {
-                    out.push(`// WARN: Dependency not found: '${depPackageName}'`)
-                    this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(girFilename))
+                    out.push(`// WARN: Dependency not found: '${dependency.packageName}'`)
+                    this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(dependency.filename))
                 }
             }
         }

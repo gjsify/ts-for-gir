@@ -1,4 +1,6 @@
-export interface Dependency {
+import { FileInfo } from './file-info.js'
+
+export interface Dependency extends FileInfo {
     /**
      * E.g. 'Gtk'
      */

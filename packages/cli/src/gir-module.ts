@@ -21,9 +21,19 @@ import {
     WARN_DUPLICATE_PARAMETER,
     WARN_DUPLICATE_ENUM_IDENTIFIER,
 } from './messages.js'
-import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
+import {
+    isEqual,
+    find,
+    clone,
+    girBool,
+    removeNamespace,
+    addNamespace,
+    girElementIsIntrospectable,
+    getDependency,
+} from './utils.js'
 import { SymTable } from './symtable.js'
 import type {
+    Dependency,
     GirRepository,
     GirNamespace,
     GirAliasElement,
@@ -106,23 +116,23 @@ export class GirModule {
      */
     importName: string
 
-    dependencies: string[] = []
-    private _transitiveDependencies: string[] = []
+    dependencies: Dependency[] = []
+    private _transitiveDependencies: Dependency[] = []
 
-    set transitiveDependencies(deps: string[]) {
+    set transitiveDependencies(deps: Dependency[]) {
         this._transitiveDependencies = this.checkTransitiveDependencies(deps)
     }
 
-    get transitiveDependencies(): string[] {
+    get transitiveDependencies(): Dependency[] {
         return this._transitiveDependencies
     }
 
-    get allDependencies(): string[] {
+    get allDependencies(): Dependency[] {
         return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
     }
 
     repo: GirRepository
-    ns: GirNamespace = { $: { name: '', version: '' } }
+    ns: GirNamespace = { $: { name: '', version: '0.0' } }
     /**
      * Used to find namespaces that are used in other modules
      */
@@ -153,7 +163,7 @@ export class GirModule {
             throw new Error(`Namespace not found!`)
         }
 
-        this.dependencies = this.loadDependencies(this.repo.include || [])
+        this.dependencies = this.girIncludesToDependencies(this.repo.include || [])
         this.ns = this.repo.namespace[0]
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
@@ -167,37 +177,41 @@ export class GirModule {
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 
-    private loadDependencies(girInclude: GirInclude[]): string[] {
-        const dependencies: string[] = []
-        for (const i of girInclude) {
-            dependencies.unshift(`${i.$.name}-${i.$.version || ''}`)
+    /**
+     * Transforms a gir include object array to a dependency object array
+     * @param girIncludes - Array of gir includes
+     * @returns Array of dependencies
+     */
+    private girIncludesToDependencies(girIncludes: GirInclude[]): Dependency[] {
+        const dependencies: Dependency[] = []
+        for (const i of girIncludes) {
+            dependencies.unshift(getDependency(this.config.girDirectories, i.$.name, i.$.version || '0.0'))
         }
-
         return dependencies
     }
 
-    private checkTransitiveDependencies(transitiveDependencies: string[]) {
+    private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
-            if (!find(transitiveDependencies, (x) => x === 'GObject-2.0')) {
-                transitiveDependencies.push('GObject-2.0')
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GObject-2.0')) {
+                transitiveDependencies.push(getDependency(this.config.girDirectories, 'GObject', '2.0'))
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
-            if (!find(transitiveDependencies, (x) => x === 'Unity-7.0')) {
-                transitiveDependencies.push('Unity-7.0')
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-7.0')) {
+                transitiveDependencies.push(getDependency(this.config.girDirectories, 'Unity', '7.0'))
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
-            if (!find(transitiveDependencies, (x) => x === 'Unity-6.0')) {
-                transitiveDependencies.push('Unity-6.0')
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-6.0')) {
+                transitiveDependencies.push(getDependency(this.config.girDirectories, 'Unity', '6.0'))
             }
         }
         if (this.packageName === 'GTop-2.0') {
-            if (!find(transitiveDependencies, (x) => x === 'GLib-2.0')) {
-                transitiveDependencies.push('GLib-2.0')
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
+                transitiveDependencies.push(getDependency(this.config.girDirectories, 'GLib', '2.0'))
             }
         }
 

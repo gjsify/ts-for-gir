@@ -1,4 +1,4 @@
-import type { SymTableItems, GenerateConfig, GirAnyElement } from './types/index.js'
+import type { SymTableItems, GenerateConfig, GirAnyElement, Dependency } from './types/index.js'
 import { Logger } from './logger.js'
 import { WARN_NOT_FOUND_PACKAGE_NAME } from './messages.js'
 
@@ -25,7 +25,7 @@ export class SymTable {
      * @param implementation E.g. Gtk.Window
      * @returns E.g. 'Gtk-3.0.Gtk.Window'
      */
-    public getKey(dependencies: string[], implementation: string): string | null {
+    public getKey(dependencies: Dependency[], implementation: string): string | null {
         if (implementation.startsWith(this.modPackageName + '.')) {
             return implementation
         }
@@ -40,7 +40,9 @@ export class SymTable {
 
         const split = implementation.split('.')
         const namespace = split[0]
-        const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
+        const packageName = dependencies.find((dependency) =>
+            dependency.packageName.startsWith(namespace + '-'),
+        )?.packageName
         if (!packageName) {
             this.log.warn(WARN_NOT_FOUND_PACKAGE_NAME(namespace, implementation))
             return null
@@ -48,7 +50,7 @@ export class SymTable {
         return packageName + '.' + implementation
     }
 
-    public get<T>(dependencies: string[], fullTypeName: string): T | null {
+    public get<T>(dependencies: Dependency[], fullTypeName: string): T | null {
         const key = this.getKey(dependencies, fullTypeName)
         if (!key || !SymTable.items[key]) {
             return null
@@ -61,7 +63,7 @@ export class SymTable {
         return (SymTable.items[key] || null) as unknown as T | null
     }
 
-    public set(dependencies: string[], fullTypeName: string, GirElement: GirAnyElement): void {
+    public set(dependencies: Dependency[], fullTypeName: string, GirElement: GirAnyElement): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {
             SymTable.items[key] = GirElement

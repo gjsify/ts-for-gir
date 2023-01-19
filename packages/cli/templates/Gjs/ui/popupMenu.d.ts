@@ -1,14 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/popupMenu.js
 <%_ if(useNamespace){ _%>
     import type St from '../St-1.0.js';
-    import type Clutter from '../Clutter-11.js';
+    // TODO: import type Clutter from '../Clutter-11.js';
     import type Gio from '../Gio-2.0.js';
 <%_ } else { _%>
     import type * as St from '../St-1.0.js';
-    import type * as Clutter from '../Clutter-11.js';
+    // TODO: import type * as Clutter from '../Clutter-11.js';
     import type * as Gio from '../Gio-2.0.js';
 <%_ } _%>
 import * as Signals from '../misc/signals.js';
+
+// TODO: Replace this with the actual ClutterEvent type
+type ClutterEvent = any;
 
 export enum Ornament {
     NONE = 0,
@@ -35,7 +38,7 @@ declare class PopupBaseMenuItem extends St.BoxLayout {
     constructor(params?: PopupBaseMenuItem.ConstructorProperties);
     override _init(...args: any[]): void;
 
-    activate(event: Clutter.Event): void;
+    activate(event: ClutterEvent): void;
 
     // General signal handler methods
     connect(sigName: string, callback: (...args: any[]) => void): number
@@ -44,8 +47,8 @@ declare class PopupBaseMenuItem extends St.BoxLayout {
     disconnect(id: number): void
 
     // Specific signal handler methods
-    connect(sigName: "activate", callback: (($obj: PopupBaseMenuItem, event: Clutter.Event) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: PopupBaseMenuItem, event: Clutter.Event) => void)): number
+    connect(sigName: "activate", callback: (($obj: PopupBaseMenuItem, event: ClutterEvent) => void)): number
+    connect_after(sigName: "activate", callback: (($obj: PopupBaseMenuItem, event: ClutterEvent) => void)): number
 
     syncSensitive(): boolean;
     getSensitive(): boolean;
@@ -99,7 +102,7 @@ export class PopupSwitchMenuItem extends PopupBaseMenuItem {
     override _init(text: string, active: boolean, params?: PopupSwitchMenuItem.ConstructorProperties): void;
 
     setStatus(text: string): void;
-    activate(event: Clutter.Event): void;
+    activate(event: ClutterEvent): void;
     toggle(): void;
     setToggleState(state: boolean): void;
     checkAccessibleState(): void;
@@ -200,7 +203,7 @@ export class PopupSubMenuMenuItem extends PopupBaseMenuItem {
 
     syncSensitive(): boolean;
     setSubmenuShown(open: boolean): void;
-    activate(event: Clutter.Event): void;
+    activate(event: ClutterEvent): void;
 }
 
 export namespace PopupMenuManager {

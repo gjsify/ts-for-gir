@@ -1,14 +1,16 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/popupMenu.js
 <%_ if(useNamespace){ _%>
+    import type Gio from '../Gio-2.0.js';
     import type St from '../St-1.0.js';
+    import type Shell from '../Shell-0.1.js';
     // TODO: on Ubuntu 22.04 this is Clutter-10
     // import type Clutter from '../Clutter-11.js';
-    import type Gio from '../Gio-2.0.js';
 <%_ } else { _%>
+    import type * as Gio from '../Gio-2.0.js';
     import type * as St from '../St-1.0.js';
+    import type * as Shell from '../Shell-0.1.js';
     // TODO: on Ubuntu 22.04 this is Clutter-10
     // import type * as Clutter from '../Clutter-11.js';
-    import type * as Gio from '../Gio-2.0.js';
 <%_ } _%>
 import * as Signals from '../misc/signals.js';
 
@@ -210,7 +212,7 @@ export class PopupSubMenuMenuItem extends PopupBaseMenuItem {
 
 export namespace PopupMenuManager {
     export interface ConstructorProperties {
-        actionMode?: any; // TODO: Shell.ActionMode;
+        actionMode?: Shell.ActionMode;
     }
 }
 

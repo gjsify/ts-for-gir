@@ -2,6 +2,8 @@
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
+- Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
+- Add support for mutter-10 (use Clutter-10.gir here) and mutter-11 (use Clutter-11.gir here), see packages/cli/templates/Gjs/ui/popupMenu.d.ts
 
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)

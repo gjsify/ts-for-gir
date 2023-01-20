@@ -77,7 +77,7 @@ export class PopupSeparatorMenuItem extends PopupBaseMenuItem {
 export class Switch extends St.Bin {
     state: boolean;
     constructor(state: boolean);
-    /** @ignore Defined only to resolve type conflicts */
+    /** @hidden Defined only to resolve type conflicts */
     override _init(config?: St.Bin.ConstructorProperties): void
     override _init(state: boolean): void;
 

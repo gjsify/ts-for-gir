@@ -111,7 +111,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.3",
-    "rimraf": "^4.1.0",
+    "rimraf": "^4.1.1",
     "typescript": "^4.9.4"
   },
   "workspaces": [
@@ -120,6 +120,6 @@
   ],
   "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.35"
+    "@yarnpkg/pnpify": "^4.0.0-rc.36"
   }
 }

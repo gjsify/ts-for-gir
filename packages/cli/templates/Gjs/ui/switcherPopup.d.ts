@@ -65,7 +65,7 @@ export abstract class SwitcherPopup extends St.Widget {
 }
 
 export class SwitcherList extends St.Widget {
-    /** @ignore Defined only to resolve type conflicts */
+    /** @hidden Defined only to resolve type conflicts */
     _init(config?: St.Widget.ConstructorProperties): void;
     _init(squareItems: any[]): void
 

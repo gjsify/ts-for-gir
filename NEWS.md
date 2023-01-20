@@ -10,6 +10,7 @@
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists
 - Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found
+- Upgrade dependencies
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)
 - Add some more types for GNOME Shell

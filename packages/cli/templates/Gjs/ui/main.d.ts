@@ -6,10 +6,11 @@
 
 import { ComponentManager } from './components/__init__.js';
 import { NotificationDaemon } from './notificationDaemon.js';
+import { Panel } from './panel.js';
 
 export declare const componentManager: ComponentManager;
 
-export declare const panel: any;
+export declare const panel: Panel;
 
 export declare const notificationDaemon: NotificationDaemon;
 

@@ -29,19 +29,23 @@ export namespace misc {
     export const util: any;
     export const weather: any;
 }
-
+import type * as Components from './ui/components/index.js';
+import type * as AccessDialog from './ui/accessDialog.js';
+import type * as AltTab from './ui/altTab.js';
 import type * as Main from './ui/main.js';
 import type * as NotificationDaemon from './ui/notificationDaemon.js';
+import type * as Panel from './ui/panel.js';
 import type * as PanelMenu from './ui/panelMenu.js';
 import type * as PopupMenu from './ui/popupMenu.js';
+import type * as SwitcherPopup from './ui/switcherPopup.js';
 import type * as UserWidget from './ui/userWidget.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/ui
 export namespace ui {
-    export const components: any;
+    export const components: typeof Components;
     export const status: any;
-    export const accessDialog: any;
-    export const altTab: any;
+    export const accessDialog: typeof AccessDialog;
+    export const altTab: typeof AltTab;
     export const animation: any;
     export const appDisplay: any;
     export const appFavorites: any;
@@ -89,7 +93,7 @@ export namespace ui {
     export const overviewControls: any;
     export const padOsd: any;
     export const pageIndicators: any;
-    export const panel: any;
+    export const panel: typeof Panel;
     export const panelMenu: typeof PanelMenu;
     export const pointerA11yTimeout: any;
     export const pointerWatcher: any;
@@ -110,7 +114,7 @@ export namespace ui {
     export const slider: any;
     export const swipeTracker: any;
     export const switchMonitor: any;
-    export const switcherPopup: any;
+    export const switcherPopup: typeof SwitcherPopup;
     export const unlockDialog: any;
     export const userWidget: typeof UserWidget;
     export const welcomeDialog: any;

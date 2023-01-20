@@ -6,6 +6,10 @@
 - Add support for mutter-10 (use Clutter-10.gir here) and mutter-11 (use Clutter-11.gir here), see packages/cli/templates/Gjs/ui/popupMenu.d.ts
 - Add support to generate packages for the types we can publish on NPM 
 
+# Unreleased
+- Improved GNOME Shell types
+- Only extend class/interface parent if the dependency of the parent exists
+- Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)
 - Add some more types for GNOME Shell

@@ -1,11 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/switcherPopup.js
 
+<% const glib = dep.find('GLib') %>
+<% const st = dep.find('St') %>
+<% const clutter = dep.find('Clutter') %>
+
 <%_ if(useNamespace){ _%>
-    import type GLib from '../GLib-2.0.js';
-    import type St from '../St-1.0.js';
+    import type GLib from '../<%= glib.packageName %>.js';
+    import type St from '../<%= st.packageName %>.js';
+    import type Clutter from '../<%= clutter.packageName %>.js';
 <%_ } else { _%>
-    import type * as GLib from '../GLib-2.0.js';
-    import type * as St from '../St-1.0.js';
+    import type * as GLib from '../<%= glib.packageName %>.js';
+    import type * as St from '../<%= st.packageName %>.js';
+    import type * as Clutter from '../<%= clutter.packageName %>.js';
 <%_ } _%>
 
 export abstract class SwitcherPopup extends St.Widget {
@@ -25,17 +31,17 @@ export abstract class SwitcherPopup extends St.Widget {
 
     _previous(): any;
 
-    _keyPressHandler(_keysym: any, _action: any): boolean /* Clutter.EVENT_PROPAGATE | Clutter.EVENT_STOP */
+    _keyPressHandler(_keysym: any, _action: any): typeof Clutter.EVENT_PROPAGATE | typeof Clutter.EVENT_STOP
 
-    vfunc_key_press_event(keyEvent: any /* Clutter.KeyEvent */): boolean /* Clutter.EVENT_PROPAGATE | Clutter.EVENT_STOP */
+    vfunc_key_press_event(keyEvent: Clutter.KeyEvent): typeof Clutter.EVENT_PROPAGATE | typeof Clutter.EVENT_STOP
 
-    vfunc_key_release_event(keyEvent: any /* Clutter.KeyEvent */): boolean /* Clutter.EVENT_PROPAGATE | Clutter.EVENT_STOP */
+    vfunc_key_release_event(keyEvent: Clutter.KeyEvent): typeof Clutter.EVENT_PROPAGATE | typeof Clutter.EVENT_STOP
 
-    vfunc_button_press_event(): boolean /* Clutter.EVENT_PROPAGATE | Clutter.EVENT_STOP */
+    vfunc_button_press_event(): typeof Clutter.EVENT_PROPAGATE | typeof Clutter.EVENT_STOP
 
     _scrollHandler(direction: any): void;
 
-    vfunc_scroll_event(scrollEvent: any /* Clutter.ScrollEvent */): boolean /* Clutter.EVENT_PROPAGATE | Clutter.EVENT_STOP */
+    vfunc_scroll_event(scrollEvent: any /* Clutter.ScrollEvent */): typeof Clutter.EVENT_PROPAGATE | typeof Clutter.EVENT_STOP
 
     _itemActivatedHandler(n: number): void;
 

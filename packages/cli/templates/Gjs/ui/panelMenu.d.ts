@@ -1,9 +1,13 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/panelMenu.js
+
+<% const st = dep.find('St') %>
+
 <%_ if(useNamespace){ _%>
-    import type St from '../St-1.0.js';
+    import type St from '../<%= st.packageName %>.js';
 <%_ } else { _%>
-    import type * as St from '../St-1.0.js';
+    import type * as St from '../<%= st.packageName %>.js';
 <%_ } _%>
+
 import type { PopupMenu, PopupDummyMenu } from './popupMenu.js';
 
 declare namespace ButtonBox {
@@ -16,8 +20,9 @@ declare namespace ButtonBox {
 
 declare class ButtonBox extends St.Widget {
     constructor(params?: ButtonBox.ConstructorProperties);
-    // _init(params: ButtonBox.ConstructorProperties): void;
-    _init(...args: any[]): void;
+    /** @hidden Defined to resolve version conflicts */
+    // _init(params: St.Widget.ConstructorProperties): void;
+    _init(params: ButtonBox.ConstructorProperties): void;
     container: St.Bin;
 }
 
@@ -25,6 +30,8 @@ declare class ButtonBox extends St.Widget {
 export class Button extends ButtonBox {
     menu: PopupMenu | PopupDummyMenu;
     constructor(menuAlignment: number, nameText: string, dontCreateMenu?: boolean);
+    /** @hidden Defined to resolve version conflicts */
+    _init(params?: ButtonBox.ConstructorProperties): void;
     _init(menuAlignment: number, nameText: string, dontCreateMenu?: boolean): void;
     setSensitive(sensitive: boolean): void;
     setMenu(menu: PopupMenu | PopupDummyMenu): void;

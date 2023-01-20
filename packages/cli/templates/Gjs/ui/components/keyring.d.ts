@@ -1,13 +1,14 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/components/keyring.js
+
+<% const gcr = dep.find('Gcr') %>
+
 <%_ if(useNamespace){ _%>
-    // TODO: on Ubuntu 22.04 this is Gcr-3
-    // import type Gcr from '../Gcr-4.js';
+    import type Gcr from '../../<%= gcr.packageName %>.js';
 <%_ } else { _%>
-    // TODO: on Ubuntu 22.04 this is Gcr-3
-    // import type * as Gcr from '../Gcr-4.js';
+    import type * as Gcr from '../../<%= gcr.packageName %>.js';
 <%_ } _%>
 
-declare class KeyringPrompter /*extends Gcr.SystemPrompter */{
+declare class KeyringPrompter extends Gcr.SystemPrompter {
     constructor();
     _init(): void
 

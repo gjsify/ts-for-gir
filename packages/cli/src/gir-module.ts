@@ -13,6 +13,7 @@ import { Logger } from './logger.js'
 import { Injector } from './injection/injector.js'
 import { GirFactory } from './gir-factory.js'
 import { ConflictResolver } from './conflict-resolver.js'
+import { DependencyManager } from './dependency-manager.js'
 import {
     NO_TSDATA,
     WARN_NOT_FOUND_TYPE,
@@ -21,16 +22,7 @@ import {
     WARN_DUPLICATE_PARAMETER,
     WARN_DUPLICATE_ENUM_IDENTIFIER,
 } from './messages.js'
-import {
-    isEqual,
-    find,
-    clone,
-    girBool,
-    removeNamespace,
-    addNamespace,
-    girElementIsIntrospectable,
-    getDependency,
-} from './utils.js'
+import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
 import { SymTable } from './symtable.js'
 import type {
     Dependency,
@@ -142,6 +134,8 @@ export class GirModule {
 
     girFactory = new GirFactory()
 
+    dependencyManager: DependencyManager
+
     conflictResolver: ConflictResolver
 
     log: Logger
@@ -163,7 +157,8 @@ export class GirModule {
             throw new Error(`Namespace not found!`)
         }
 
-        this.dependencies = this.girIncludesToDependencies(this.repo.include || [])
+        this.dependencyManager = DependencyManager.getInstance(this.config)
+        this.dependencies = this.dependencyManager.fromGirIncludes(this.repo.include || [])
         this.ns = this.repo.namespace[0]
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
@@ -177,41 +172,28 @@ export class GirModule {
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 
-    /**
-     * Transforms a gir include object array to a dependency object array
-     * @param girIncludes - Array of gir includes
-     * @returns Array of dependencies
-     */
-    private girIncludesToDependencies(girIncludes: GirInclude[]): Dependency[] {
-        const dependencies: Dependency[] = []
-        for (const i of girIncludes) {
-            dependencies.unshift(getDependency(this.config.girDirectories, i.$.name, i.$.version || '0.0'))
-        }
-        return dependencies
-    }
-
     private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'GObject-2.0')) {
-                transitiveDependencies.push(getDependency(this.config.girDirectories, 'GObject', '2.0'))
+                transitiveDependencies.push(this.dependencyManager.get('GObject', '2.0'))
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-7.0')) {
-                transitiveDependencies.push(getDependency(this.config.girDirectories, 'Unity', '7.0'))
+                transitiveDependencies.push(this.dependencyManager.get('Unity', '7.0'))
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-6.0')) {
-                transitiveDependencies.push(getDependency(this.config.girDirectories, 'Unity', '6.0'))
+                transitiveDependencies.push(this.dependencyManager.get('Unity', '6.0'))
             }
         }
         if (this.packageName === 'GTop-2.0') {
             if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
-                transitiveDependencies.push(getDependency(this.config.girDirectories, 'GLib', '2.0'))
+                transitiveDependencies.push(this.dependencyManager.get('GLib', '2.0'))
             }
         }
 

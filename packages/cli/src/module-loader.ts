@@ -22,15 +22,18 @@ import { ResolveType } from './types/index.js'
 import { GirModule } from './gir-module.js'
 import { Config } from './config.js'
 import { Logger } from './logger.js'
-import { splitModuleName, union, isIterable, getDependency } from './utils.js'
+import { DependencyManager } from './dependency-manager.js'
+import { splitModuleName, union, isIterable } from './utils.js'
 import { WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE } from './messages.js'
 
 export class ModuleLoader {
     log: Logger
+    dependencyManager: DependencyManager
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
     constructor(private readonly config: GenerateConfig) {
         this.log = new Logger('', config.verbose, 'ModuleLoader')
+        this.dependencyManager = DependencyManager.getInstance(config)
     }
 
     /**
@@ -524,7 +527,7 @@ export class ModuleLoader {
     private packageNamesToDependencies(packageNames: Set<string>): Dependency[] {
         return Array.from(packageNames).map((packageName) => {
             const { namespace, version } = splitModuleName(packageName)
-            return getDependency(this.config.girDirectories, namespace, version)
+            return this.dependencyManager.get(namespace, version)
         })
     }
 

@@ -7,6 +7,7 @@
 - Add support to generate packages for the types we can publish on NPM 
 
 # Unreleased
+- Add new DependencyManager to be able to search for any dependency version 
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists
 - Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found

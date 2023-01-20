@@ -1,14 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/panel.js
+
+<% const st = dep.find('St') %>
+<% const clutter = dep.find('Clutter') %>
+<% const meta = dep.find('Meta') %>
+
 <%_ if(useNamespace){ _%>
-    import type St from '../St-1.0.js';
-    // TODO: on Ubuntu 22.04 this is Clutter-10
-    // import type Clutter from '../Clutter-11.js';
-    // import type Meta from '../Meta-11.js';
+    import type St from '../<%= st.packageName %>.js';
+    import type Clutter from '../<%= clutter.packageName %>.js';
+    import type Meta from '../<%= meta.packageName %>.js';
 <%_ } else { _%>
-    import type * as St from '../St-1.0.js';
-    // TODO: on Ubuntu 22.04 this is Clutter-10
-    // import type * as Clutter from '../Clutter-11.js';
-    // import type * as Meta from '../Meta-11.js';
+    import type * as St from '../<%= st.packageName %>.js';
+    import type * as Clutter from '../<%= clutter.packageName %>.js';
+    import type * as Meta from '../<%= meta.packageName %>.js';
 <%_ } _%>
 
 import type { Button } from './panelMenu.js';
@@ -26,11 +29,11 @@ export class Panel extends St.Widget {
     constructor()
     _init(): void;
 
-    _tryDragWindow(event: any /*Clutter.Event*/): boolean; /*Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE*/;
+    _tryDragWindow(event: Clutter.Event): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE;
 
-    _onButtonPress(actor: St.Widget, event: any /*Clutter.Event*/): boolean; /*Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE*/;
+    _onButtonPress(actor: St.Widget, event: Clutter.Event): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE;
 
-    _onTouchEvent(actor: St.Widget, event: any /*Clutter.Event*/): boolean; /*Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE*/;
+    _onTouchEvent(actor: St.Widget, event: Clutter.Event): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE;
 
     _toggleMenu(indicator: Button): void;
 
@@ -58,5 +61,5 @@ export class Panel extends St.Widget {
 
     _onMenuSet(indicator: Button): void;
 
-    _getDraggableWindowForPosition(stageX: number): any; /*Meta.Window | null*/;
+    _getDraggableWindowForPosition(stageX: number): Meta.Window | null;
 }

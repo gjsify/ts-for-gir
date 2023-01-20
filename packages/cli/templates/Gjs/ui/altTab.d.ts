@@ -1,13 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/altTab.js
 
+<% const glib = dep.find('GLib') %>
+<% const clutter = dep.find('Clutter') %>
+<% const meta = dep.find('Meta') %>
+
 <%_ if(useNamespace){ _%>
-    import type GLib from '../GLib-2.0.js';
-    // TODO: on Ubuntu 22.04 this is Clutter-10
-    // import type Clutter from '../Clutter-11.js';
+    import type GLib from '../<%= glib.packageName %>.js';
+    import type Clutter from '../<%= clutter.packageName %>.js';
+    import type Meta from '../<%= meta.packageName %>.js';
 <%_ } else { _%>
-    import type * as GLib from '../GLib-2.0.js';
-    // TODO: on Ubuntu 22.04 this is Clutter-10
-    // import type * as Clutter from '../Clutter-11.js';
+    import type * as GLib from '../<%= glib.packageName %>.js';
+    import type * as Clutter from '../<%= clutter.packageName %>.js';
+    import type * as Meta from '../<%= meta.packageName %>.js';
 <%_ } _%>
 
 import { SwitcherPopup } from './switcherPopup.js'
@@ -26,9 +30,9 @@ export class AppSwitcherPopup extends SwitcherPopup {
 
     _quitApplication(appIndex: number): void
 
-    _keyPressHandler(keysym: any, action: any): boolean; // Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE
+    _keyPressHandler(keysym: any, action: any): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE
 
-    _scrollHandler(direction: number /* Clutter.ScrollDirection */): void;
+    _scrollHandler(direction: Clutter.ScrollDirection): void;
 
     _itemActivatedHandler(n: any): void
 
@@ -92,20 +96,20 @@ export class GroupCyclerPopup extends CyclerPopup {
     constructor()
     _init(): void
 
-    _getWindows(): any; // Meta.Window[]
+    _getWindows(): Meta.Window[]
 
-    _keyPressHandler(keysym: any, action: any): boolean; // Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE
+    _keyPressHandler(keysym: any, action: any): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE
 }
 
 export class WindowSwitcherPopup extends SwitcherPopup {
     constructor()
     _init(): void
 
-    _getWindowList(): any; // Meta.Window[]
+    _getWindowList(): Meta.Window[]
 
     _closeWindow(windowIndex: number): void
 
-    _keyPressHandler(keysym: any, action: any): boolean; // Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE
+    _keyPressHandler(keysym: any, action: any): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE
 
     _finish(): void
 
@@ -114,7 +118,7 @@ export class WindowSwitcherPopup extends SwitcherPopup {
 export class WindowCyclerPopup extends CyclerPopup {
     init(): void
 
-    _getWindows(): any; // Meta.Window[]
+    _getWindows(): Meta.Window[]
 
-    _keyPressHandler(keysym: any, action: any): boolean; // Clutter.EVENT_STOP | Clutter.EVENT_PROPAGATE
+    _keyPressHandler(keysym: any, action: any): typeof Clutter.EVENT_STOP | typeof Clutter.EVENT_PROPAGATE
 }

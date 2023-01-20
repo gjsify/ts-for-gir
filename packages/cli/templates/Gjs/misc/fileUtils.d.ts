@@ -1,9 +1,11 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/misc/fileUtils.js
 
+<% const gio = dep.find('Gio') %>
+
 <%_ if(useNamespace){ _%>
-    import type Gio from '../Gio-2.0.js';
+    import type Gio from '../<%= gio.packageName %>.js';
 <%_ } else { _%>
-    import type * as Gio from '../Gio-2.0.js';
+    import type * as Gio from '../<%= gio.packageName %>.js';
 <%_ } _%>
 
 export interface SubdirInfo {

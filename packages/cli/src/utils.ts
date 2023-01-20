@@ -4,7 +4,7 @@ import Path from 'path'
 import fs from 'fs'
 import { getTsconfig, TsConfigJsonResolved } from 'get-tsconfig'
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs, TsType, FileInfo, Dependency } from './types/index.js'
+import { Environment, GirInfoAttrs, TsType, FileInfo } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -101,9 +101,9 @@ export const merge = lodash.merge
  * Creates a shallow clone of value.
  *
  * Note: This method is loosely based on the structured clone algorithm and supports cloning arrays,
- * array buffers, booleans, date objects, maps, numbers, Object objects, regexes, sets, strings, symbols,
+ * array buffers, booleans, date objects, maps, numbers, Object objects, regex's, sets, strings, symbols,
  * and typed arrays. The own enumerable properties of arguments objects are cloned as plain objects. An empty
- * object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps.
+ * object is returned for not cloneable values such as error objects, functions, DOM nodes, and WeakMaps.
  *
  * @param value The value to clone.
  * @return Returns the cloned value.
@@ -261,26 +261,6 @@ export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
 }
 
 /**
- * Get the dependency object by namespace and version
- * @param namespace The namespace of the dependency
- * @param version The version of the dependency
- * @returns The dependency object
- */
-export const getDependency = (dirs: string[], namespace: string, version: string): Dependency => {
-    const packageName = `${namespace}-${version}`
-    const filename = `${packageName}.gir`
-    const { exists, path } = findFileInDirs(dirs, filename)
-    return {
-        namespace,
-        exists,
-        filename,
-        path,
-        packageName,
-        version,
-    }
-}
-
-/**
  * Union (a ∪ b): create a set that contains the elements of both set a and set b.
  * See https://2ality.com/2015/01/es6-set-operations.html#union
  * @param target
@@ -303,19 +283,37 @@ export const stripParamNames = (func: string, ignoreTail = false): string => {
     return `${lb[0]}(${params})${tail}`
 }
 
+/**
+ * Check if a line is a comment line
+ * @param line The line to check
+ * @returns Whether the line is a comment line or not
+ */
 export const isCommentLine = (line: string) => {
     const lineTrim = line.trim()
     return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
 }
 
+/**
+ * Add indents to a string
+ * @param indents The number of indents
+ * @param spaceForIndent The number of spaces for each indent
+ * @returns The indented string
+ */
 export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
     return ' '.repeat(indents * spaceForIndent)
 }
 
-// Get __dirname on ESM
+// Get __filename on ESM
 export const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM
 export const __dirname = Path.dirname(__filename)
 
+/**
+ * Get the output or input directory of the environment
+ * @param environment The environment to get the directory for
+ * @param baseDir The base directory
+ * @returns The path to the directory
+ */
 export const getEnvironmentDir = (environment: Environment, baseDir: string): string => {
     if (!baseDir.endsWith(environment))
         if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
@@ -327,12 +325,25 @@ export const getEnvironmentDir = (environment: Environment, baseDir: string): st
     return baseDir
 }
 
+/**
+ * Get the destination path for the environment
+ * @param environment The environment to get the destination path for
+ * @param outputDir The output directory
+ * @param parts The path parts
+ * @returns The destination path
+ */
 export const getDestPath = (environment: Environment, outputDir: string, ...parts: string[]) => {
     const outputEnvDir = getEnvironmentDir(environment, outputDir)
     const destPath = Path.join(outputEnvDir, ...parts)
     return destPath
 }
 
+/**
+ * Convert a GirBoolean to a boolean
+ * @param boolStr The GirBoolean string
+ * @param defaultVal The default value
+ * @returns The boolean value
+ */
 export const girBool = (boolStr: string | undefined, defaultVal = false): boolean => {
     if (boolStr) {
         if (parseInt(boolStr) === 0) return false
@@ -372,6 +383,11 @@ export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { na
     return true
 }
 
+/**
+ * Check if a type is optional
+ * @param types The types to check
+ * @returns Whether the type is optional or not
+ */
 export const typeIsOptional = (types: TsType[]) => {
     for (const type of types) {
         if (type.optional) return true
@@ -379,7 +395,12 @@ export const typeIsOptional = (types: TsType[]) => {
     return false
 }
 
-function convertTsJsConfigToObject(path: string) {
+/**
+ * Get a typescript or javascript config by path
+ * @param path The path to search for a tsconfig.json or jsconfig.json file
+ * @returns The config or null if not found
+ */
+export const getTsJsConfigByPath = (path: string) => {
     try {
         const config = getTsconfig(path)?.config
         if (config) return config
@@ -402,8 +423,8 @@ export function readTsJsConfig(path: string) {
         const tsConfigPath = Path.join(currentPath, 'tsconfig.json')
         const jsConfigPath = Path.join(currentPath, 'jsconfig.json')
         config =
-            (fs.existsSync(tsConfigPath) && convertTsJsConfigToObject(tsConfigPath)) ||
-            (fs.existsSync(jsConfigPath) && convertTsJsConfigToObject(jsConfigPath))
+            (fs.existsSync(tsConfigPath) && getTsJsConfigByPath(tsConfigPath)) ||
+            (fs.existsSync(jsConfigPath) && getTsJsConfigByPath(jsConfigPath))
         lastPath = currentPath
         currentPath = Path.dirname(currentPath)
     }

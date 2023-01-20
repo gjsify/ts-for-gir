@@ -1,10 +1,13 @@
-<% if(useNamespace){ %>
-import GObject from './GObject-2.0.js';
-import GLib from './GLib-2.0.js';
-<% } else { %>
-import * as GObject from './GObject-2.0.js';
-import * as GLib from './GLib-2.0.js';
-<% } %>
+<% const gobject = dep.find('GObject') %>
+<% const glib = dep.find('GLib') %>
+
+<%_ if(useNamespace){ _%>
+    import type GObject from './<%= gobject.packageName %>.js';
+    import type GLib from './<%= glib.packageName %>.js';
+<%_ } else { _%>
+    import type * as GObject from './<%= gobject.packageName %>.js';
+    import type * as GLib from './<%= glib.packageName %>.js';
+<%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
 export namespace Package {

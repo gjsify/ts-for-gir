@@ -13,6 +13,7 @@ import type { GenerateConfig } from './types/index.js'
 import prettier from 'prettier'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { WARN_PRETTIFY_ERROR } from './messages.js'
+import { DependencyManager } from './dependency-manager.js'
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
@@ -24,11 +25,13 @@ export class TemplateProcessor {
         protected readonly packageName: string,
         protected readonly config: GenerateConfig,
     ) {
+        const dep = DependencyManager.getInstance(config)
         this.data = {
             ...this.data,
             APP_NAME,
             APP_USAGE,
             APP_SOURCE,
+            dep,
         }
         this.environmentTemplateDir = getEnvironmentDir(config.environment, TEMPLATE_DIR)
         this.log = new Logger(config.environment, config.verbose, this.packageName)
@@ -114,15 +117,20 @@ export class TemplateProcessor {
         return Promise.resolve(destPath)
     }
 
-    protected async render(templateString: string, additionalData: Partial<ejs.Options> = {}): Promise<string> {
+    protected async render(templateString: string, options: Partial<ejs.Options> = {}): Promise<string> {
         try {
-            const renderedTpl = ejs.render(templateString, {
-                async: true,
-                ...this.config,
-                ...this.data,
-                ...additionalData,
-            })
-            return Promise.resolve(renderedTpl)
+            const renderedTpl = await ejs.render(
+                templateString,
+                {
+                    ...this.config,
+                    ...this.data,
+                },
+                {
+                    async: true,
+                    ...options,
+                },
+            )
+            return renderedTpl
         } catch (error) {
             this.log.error('Error on render', error)
             return ''

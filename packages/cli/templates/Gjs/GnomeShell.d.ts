@@ -41,6 +41,7 @@ import type * as NotificationDaemon from './ui/notificationDaemon.js';
 import type * as Panel from './ui/panel.js';
 import type * as PanelMenu from './ui/panelMenu.js';
 import type * as PopupMenu from './ui/popupMenu.js';
+import type * as Search from './ui/search.js';
 import type * as SwitcherPopup from './ui/switcherPopup.js';
 import type * as UserWidget from './ui/userWidget.js';
 
@@ -109,7 +110,7 @@ export namespace ui {
     export const screenShield: any;
     export const screenshot: any;
     export const scripting: any;
-    export const search: any;
+    export const search: typeof Search;
     export const searchController: any;
     export const sessionMode: any;
     export const shellDBus: any;

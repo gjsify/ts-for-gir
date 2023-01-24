@@ -14,7 +14,7 @@
     import type * as Clutter from '../<%= clutter.packageName %>.js';
 <%_ } _%>
 
-declare class GridSearchResult {}; // TODO import { GridSearchResult } from './search.js';
+import { GridSearchResult } from './search.js';
 
 import { IconGrid, BaseIcon } from './iconGrid.js';
 import { DragMotionResult } from './dnd.js';

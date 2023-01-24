@@ -3,11 +3,10 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
-- Add support for mutter-10 (use Clutter-10.gir here) and mutter-11 (use Clutter-11.gir here), see packages/cli/templates/Gjs/ui/popupMenu.d.ts
 - Add support to generate packages for the types we can publish on NPM 
 
 # Unreleased
-- Add new DependencyManager to be able to search for any dependency version 
+- Add new DependencyManager to be able to search for a dependency regardless of the version 
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists
 - Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found

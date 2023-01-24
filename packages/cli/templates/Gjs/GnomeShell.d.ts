@@ -32,6 +32,10 @@ export namespace misc {
 import type * as Components from './ui/components/index.js';
 import type * as AccessDialog from './ui/accessDialog.js';
 import type * as AltTab from './ui/altTab.js';
+import type * as Animation from './ui/animation.js';
+import type * as AppDisplay from './ui/appDisplay.js';
+import type * as DnD from './ui/dnd.js';
+import type * as IconGrid from './ui/iconGrid.js';
 import type * as Main from './ui/main.js';
 import type * as NotificationDaemon from './ui/notificationDaemon.js';
 import type * as Panel from './ui/panel.js';
@@ -46,8 +50,8 @@ export namespace ui {
     export const status: any;
     export const accessDialog: typeof AccessDialog;
     export const altTab: typeof AltTab;
-    export const animation: any;
-    export const appDisplay: any;
+    export const animation: typeof Animation;
+    export const appDisplay: typeof AppDisplay;
     export const appFavorites: any;
     export const appMenu: any;
     export const audioDeviceSelection: any;
@@ -62,7 +66,7 @@ export namespace ui {
     export const dash: any;
     export const dateMenu: any;
     export const dialog: any;
-    export const dnd: any;
+    export const dnd: typeof DnD;
     export const edgeDragAction: any;
     export const endSessionDialog: any;
     export const environment: any;
@@ -71,7 +75,7 @@ export namespace ui {
     export const focusCaretTracker: any;
     export const grabHelper: any;
     export const ibusCandidatePopup: any;
-    export const iconGrid: any;
+    export const iconGrid: typeof IconGrid;
     export const inhibitShortcutsDialog: any;
     export const init: any;
     export const kbdA11yDialog: any;

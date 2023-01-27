@@ -1,21 +1,21 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/popupMenu.js
 
-<% const gio = dep.find('Gio') %>
-<% const st = dep.find('St') %>
+<% const Gio = dep.find('Gio') %>
+<% const St = dep.find('St') %>
 <% const shell = dep.find('Shell') %>
-<% const clutter = dep.find('Clutter') %>
-<% const meta = dep.find('Meta') %>
+<% const Clutter = dep.find('Clutter') %>
+<% const Meta = dep.find('Meta') %>
 
 <%_ if(useNamespace){ _%>
-    import type Gio from '../<%= gio.packageName %>.js';
-    import type St from '../<%= st.packageName %>.js';
+    import type Gio from '../<%= Gio.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
     import type Shell from '../<%= shell.packageName %>.js';
-    import type Clutter from '../<%= clutter.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } else { _%>
-    import type * as Gio from '../<%= gio.packageName %>.js';
-    import type * as St from '../<%= st.packageName %>.js';
+    import type * as Gio from '../<%= Gio.packageName %>.js';
+    import type * as St from '../<%= St.packageName %>.js';
     import type * as Shell from '../<%= shell.packageName %>.js';
-    import type * as Clutter from '../<%= clutter.packageName %>.js';
+    import type * as Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } _%>
 
 import * as Signals from '../misc/signals.js';

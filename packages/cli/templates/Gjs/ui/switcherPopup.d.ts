@@ -1,17 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/switcherPopup.js
 
 <% const glib = dep.find('GLib') %>
-<% const st = dep.find('St') %>
-<% const clutter = dep.find('Clutter') %>
+<% const St = dep.find('St') %>
+<% const Clutter = dep.find('Clutter') %>
 
 <%_ if(useNamespace){ _%>
     import type GLib from '../<%= glib.packageName %>.js';
-    import type St from '../<%= st.packageName %>.js';
-    import type Clutter from '../<%= clutter.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } else { _%>
     import type * as GLib from '../<%= glib.packageName %>.js';
-    import type * as St from '../<%= st.packageName %>.js';
-    import type * as Clutter from '../<%= clutter.packageName %>.js';
+    import type * as St from '../<%= St.packageName %>.js';
+    import type * as Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } _%>
 
 export abstract class SwitcherPopup extends St.Widget {

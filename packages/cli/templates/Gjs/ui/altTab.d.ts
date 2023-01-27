@@ -1,17 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/altTab.js
 
 <% const glib = dep.find('GLib') %>
-<% const clutter = dep.find('Clutter') %>
-<% const meta = dep.find('Meta') %>
+<% const Clutter = dep.find('Clutter') %>
+<% const Meta = dep.find('Meta') %>
 
 <%_ if(useNamespace){ _%>
     import type GLib from '../<%= glib.packageName %>.js';
-    import type Clutter from '../<%= clutter.packageName %>.js';
-    import type Meta from '../<%= meta.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type Meta from '../<%= Meta.packageName %>.js';
 <%_ } else { _%>
     import type * as GLib from '../<%= glib.packageName %>.js';
-    import type * as Clutter from '../<%= clutter.packageName %>.js';
-    import type * as Meta from '../<%= meta.packageName %>.js';
+    import type * as Clutter from '../<%= Clutter.packageName %>.js';
+    import type * as Meta from '../<%= Meta.packageName %>.js';
 <%_ } _%>
 
 import { SwitcherPopup } from './switcherPopup.js'

@@ -1,14 +1,52 @@
-<% const gio = dep.find('Gio') %>
+<% const Gio = dep.find('Gio') %>
 
 <%_ if(useNamespace){ _%>
-    import type Gio from '../<%= gio.packageName %>.js';
+    import type Gio from '../<%= Gio.packageName %>.js';
 <%_ } else { _%>
-    import type * as Gio from '../<%= gio.packageName %>.js';
+    import type * as Gio from '../<%= Gio.packageName %>.js';
 <%_ } _%>
 
 import { ComponentManager } from './components/__init__.js';
-import { NotificationDaemon } from './notificationDaemon.js';
+// const AccessDialog = imports.ui.accessDialog;
+// const AudioDeviceSelection = imports.ui.audioDeviceSelection;
+// const Components = imports.ui.components;
+// const CtrlAltTab = imports.ui.ctrlAltTab;
+// const EndSessionDialog = imports.ui.endSessionDialog;
+// const ExtensionSystem = imports.ui.extensionSystem;
+// const ExtensionDownloader = imports.ui.extensionDownloader;
+// const InputMethod = imports.misc.inputMethod;
+// const Introspect = imports.misc.introspect;
+// const Keyboard = imports.ui.keyboard;
+// const MessageTray = imports.ui.messageTray;
+// const ModalDialog = imports.ui.modalDialog;
+// const OsdWindow = imports.ui.osdWindow;
+// const OsdMonitorLabeler = imports.ui.osdMonitorLabeler;
+// const Overview = imports.ui.overview;
+// const PadOsd = imports.ui.padOsd;
 import { Panel } from './panel.js';
+// const Params = imports.misc.params;
+// const RunDialog = imports.ui.runDialog;
+// const WelcomeDialog = imports.ui.welcomeDialog;
+import { LayoutManager } from './layout.js';
+// const LoginManager = imports.misc.loginManager;
+// const LookingGlass = imports.ui.lookingGlass;
+import { NotificationDaemon } from './notificationDaemon.js';
+// const WindowAttentionHandler = imports.ui.windowAttentionHandler;
+// const Screenshot = imports.ui.screenshot;
+// const ScreenShield = imports.ui.screenShield;
+// const Scripting = imports.ui.scripting;
+// const SessionMode = imports.ui.sessionMode;
+// const ShellDBus = imports.ui.shellDBus;
+// const ShellMountOperation = imports.ui.shellMountOperation;
+// const WindowManager = imports.ui.windowManager;
+// const Magnifier = imports.ui.magnifier;
+// const XdndHandler = imports.ui.xdndHandler;
+// const KbdA11yDialog = imports.ui.kbdA11yDialog;
+// const LocatePointer = imports.ui.locatePointer;
+// const PointerA11yTimeout = imports.ui.pointerA11yTimeout;
+// const ParentalControlsManager = imports.misc.parentalControlsManager;
+// const Config = imports.misc.config;
+// const Util = imports.misc.util;
 
 export declare const componentManager: ComponentManager;
 
@@ -44,11 +82,15 @@ export declare const xdndHandler: any;
 
 export declare const keyboard: any;
 
+export declare const layoutManager: LayoutManager;
+
 export declare const kbdA11yDialog: any;
+
+export declare const inputMethod: any;
 
 export declare const introspectService: any;
 
-export declare const start: any;
+export declare const locatePointer: any;
 
 /**
  * pushModal:
@@ -146,6 +188,8 @@ export function notify(msg: string, details?: string): void;
  */
 
 export function notifyError(msg: string, details?: string): void;
+
+export function start(): void;
 
 /**
  * getThemeStylesheet:

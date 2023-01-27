@@ -1,17 +1,17 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/panel.js
 
-<% const st = dep.find('St') %>
-<% const clutter = dep.find('Clutter') %>
-<% const meta = dep.find('Meta') %>
+<% const St = dep.find('St') %>
+<% const Clutter = dep.find('Clutter') %>
+<% const Meta = dep.find('Meta') %>
 
 <%_ if(useNamespace){ _%>
-    import type St from '../<%= st.packageName %>.js';
-    import type Clutter from '../<%= clutter.packageName %>.js';
-    import type Meta from '../<%= meta.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type Meta from '../<%= Meta.packageName %>.js';
 <%_ } else { _%>
-    import type * as St from '../<%= st.packageName %>.js';
-    import type * as Clutter from '../<%= clutter.packageName %>.js';
-    import type * as Meta from '../<%= meta.packageName %>.js';
+    import type * as St from '../<%= St.packageName %>.js';
+    import type * as Clutter from '../<%= Clutter.packageName %>.js';
+    import type * as Meta from '../<%= Meta.packageName %>.js';
 <%_ } _%>
 
 import type { Button } from './panelMenu.js';

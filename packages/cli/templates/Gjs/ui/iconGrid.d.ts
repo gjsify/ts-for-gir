@@ -1,16 +1,16 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/iconGrid.js
 
-<% const clutter = dep.find('Clutter') %>
-<% const st = dep.find('St') %>
+<% const Clutter = dep.find('Clutter') %>
+<% const St = dep.find('St') %>
 <% const shell = dep.find('Shell') %>
 
 <%_ if(useNamespace){ _%>
-    import type Clutter from '../<%= clutter.packageName %>.js';
-    import type St from '../<%= st.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
     import type Shell from '../<%= shell.packageName %>.js';
 <%_ } else { _%>
-    import type * as Clutter from '../<%= clutter.packageName %>.js';
-    import type * as St from '../<%= st.packageName %>.js';
+    import type * as Clutter from '../<%= Clutter.packageName %>.js';
+    import type * as St from '../<%= St.packageName %>.js';
     import type * as Shell from '../<%= shell.packageName %>.js';
 <%_ } _%>
 

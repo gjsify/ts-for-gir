@@ -102,7 +102,8 @@ sudo apt update && sudo apt install \
     # The following are for GNOME Shell types
     gnome-shell-common \
     libmutter-10-dev \
-    libgcr-3-dev
+    libgcr-3-dev \
+    libgnome-desktop-3-dev # GnomeDesktop-3.0.gir
 
 # Fedora 37
 sudo dnf update && sudo dnf install \
@@ -119,7 +120,8 @@ sudo dnf update && sudo dnf install \
     libadwaita-devel \
     # The following are for GNOME Shell types
     gnome-shell \
-    gcr-devel
+    gcr-devel \
+    gnome-desktop3-devel # GnomeDesktop-3.0.gir
 ```
 
 Checkout this repository, install the dependencies and build:

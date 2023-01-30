@@ -10,43 +10,27 @@
   <img src="https://badgen.net/npm/dw/@ts-for-gir/cli" />
 </p>
 
-<p align="center">Combine the power of Typescript with the power of GJS</p>
+<p align="center">TypeScript type definition generator for GObject introspection interfaces</p>
 
-## About
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://wiki.gnome.org/Projects/Gjs) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject
-introspection](https://wiki.gnome.org/Projects/GObjectIntrospection) interfaces. With ts-for-gir, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
-## Install
+introspection](https://wiki.gnome.org/Projects/GObjectIntrospection) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
-Install `ts-for-gir` via NPM.
+## Getting Started
 
-```bash
-npm install @ts-for-gir/cli --save-dev
+Install the latest LTS version of Node.js. We recommend using [NVM](https://github.com/nvm-sh/nvm) for this purpose. After Node.js has been installed, `ts-for-gir` can be executed with the following command:
+
+```
+npx @ts-for-gir/cli --help
 ```
 
-And then create a new script in your `package.json` to generate the types, for example like this
+That's it, you can start generating your types 👩‍💻.
 
-```json
-  ...
-  "scripts": {
-    "build": "npm run build:types && npm run build:app",
-    "build:types": "ts-for-gir generate Gtk-4.0 -e gjs --useNamespace -t esm",
-    "build:app": "node esbuild.js",
-    "start": "npm run build && npm run start:app",
-    "start:app": "gjs -m dist/main.js",
-    "debug:app": "GTK_DEBUG=interactive gjs -m dist/main.js",
-  },
-  ...
-```
+> Alternatively, you can also install ts-for-gir globally, then you only need the ts-for-gir command.
 
-more examples can be found in the [./examples/](/examples/) subfolder.
+>For more advanced examples, take a look in our [examples](/examples/) directory. Here you will find different examples using different bundlers.
 
-### For GJS projects
-It's recommended that you create or modify your `tsconfig.json`/`jsconfig.json`, so it doesn't include the `DOM` lib, as it conflicts with some generated GJS global types and will cause lint warnings and compilation errors with typescript.
-
-Either add/edit the `lib` property so it doesn't include `"DOM"`, or enable the property `noLib` (However the side effects of doing this should be considered). For more information check the documentation for both the [`lib`](https://www.typescriptlang.org/tsconfig/#lib) and [`noLib`](https://www.typescriptlang.org/tsconfig#noLib) properties.
-
-### CLI
+## CLI
 
 To generate the Typescript type definitions of Gtk-4.0 for Gjs run
 
@@ -60,6 +44,12 @@ To generate this types for node-gtk run
 ts-for-gir generate Gtk-4.0 -e node
 ```
 You can also look at the [examples](/examples/) to see how the types are generated there and at the [CLI Package](/packages/cli) for the full CLI documentation.
+
+## tsconfig.json
+It's recommended that you create or modify your `tsconfig.json`/`jsconfig.json`, so it doesn't include the `DOM` lib, as it conflicts with some generated GJS global types and will cause lint warnings and compilation errors with typescript.
+
+Either add/edit the `lib` property so it doesn't include `"DOM"`, or enable the property `noLib` (However the side effects of doing this should be considered). For more information check the documentation for both the [`lib`](https://www.typescriptlang.org/tsconfig/#lib) and [`noLib`](https://www.typescriptlang.org/tsconfig#noLib) properties.
+
 
 ## Examples
 

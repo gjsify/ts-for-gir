@@ -1,36 +1,24 @@
-# ts-for-gjs
+<p align="center">
+  <img  src=".github/ts-for-gir.png" />
+  <h1 align="center">TS <small>for</small> GIR</h1>
+</p>
 
-[TypeScript](https://www.typescriptlang.org/) binding generator for
-[GJS](https://wiki.gnome.org/Projects/Gjs) and
-[node-gtk](https://github.com/romgrk/node-gtk).  Inspired by
-[gir2dts](https://github.com/darkoverlordofdata/gir2dts) but re-written and
-re-designed to be a more thorough TypeScript description of the [GObject
-introspection](https://wiki.gnome.org/Projects/GObjectIntrospection)
-interfaces.
+<p align="center">
+  <img src="https://badgen.net/github/checks/gjsify/ts-for-gir" />
+  <img src="https://badgen.net/github/license/gjsify/ts-for-gir" />
+  <img src="https://badgen.net/npm/v/@ts-for-gir/cli" />
+  <img src="https://badgen.net/npm/dw/@ts-for-gir/cli" />
+</p>
 
-The definitions can be used for both TypeScript or JavaScript projects.
+<p align="center">Combine the power of Typescript with the power of GJS</p>
 
+## About
+
+`ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://wiki.gnome.org/Projects/Gjs) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject
+introspection](https://wiki.gnome.org/Projects/GObjectIntrospection) interfaces. With ts-for-gir, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 ## Install
 
-### Globally
-
-You can install the `ts-for-gir` globally if you do not need a package manager like NPM:
-
-```bash
-npm install @ts-for-gir/cli -g
-```
-
-Now you can run
-
-```
-ts-for-gir generate Gtk-4.0 -e gjs -t esm
-```
-
-to generate the Type Definitions for Gtk-4.0 and their dependencies for ESM.
-
-### Locally
-
-You can also install `ts-for-gir` locally in your current NPM project:
+Install `ts-for-gir` via NPM.
 
 ```bash
 npm install @ts-for-gir/cli --save-dev

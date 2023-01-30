@@ -26,7 +26,7 @@ npx @ts-for-gir/cli --help
 
 That's it, you can start generating your types 👩‍💻.
 
-> Alternatively, you can also install ts-for-gir globally, then you only need the ts-for-gir command.
+> Alternatively, you can also install ts-for-gir globally, then you only need the `ts-for-gir` command.
 
 >For more advanced examples, take a look in our [examples](/examples/) directory. Here you will find different examples using different bundlers.
 
@@ -105,7 +105,7 @@ sudo dnf update && sudo dnf install \
 Checkout this repository, install the dependencies and build:
 
 ```bash
-git clone https://github.com/sammydre/ts-for-gjs
+git clone https://github.com/gjsify/ts-for-gjs
 cd ts-for-gjs
 git submodule update --init
 yarn install

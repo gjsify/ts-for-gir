@@ -81,14 +81,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sammydre/ts-for-gjs.git"
+    "url": "git+https://github.com/gjsify/ts-for-gjs.git"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/sammydre/ts-for-gjs/issues"
+    "url": "https://github.com/gjsify/ts-for-gjs/issues"
   },
-  "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
+  "homepage": "https://github.com/gjsify/ts-for-gjs#readme",
   "keywords": [
     "gjs",
     "typescript",

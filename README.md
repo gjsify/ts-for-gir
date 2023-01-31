@@ -26,10 +26,6 @@ Install the latest LTS version of Node.js. We recommend using [NVM](https://gith
 
 ```bash
 npx @ts-for-gir/cli --help
-
-# Alternatively you can install ts-for-gir globally:
-# npm install -g @ts-for-gir/cli
-# ts-for-gir --help
 ```
 
 That's it, you can start generating your types 👩‍💻.
@@ -38,7 +34,7 @@ That's it, you can start generating your types 👩‍💻.
 
 [Examples](/examples/README.md) - Take a look at many different examples to see how you can use TypeScript with different bundlers.  
 [CLI](/packages/cli/README.md) - Learn about the CLI options and what to keep in mind when using them.  
-[Development](/DEVELOPMENT.md) - Learn how you can contribute to this project
+[Development](/DEVELOPMENT.md) - Learn how you can contribute to this project.
 
 ## Related Projects
 

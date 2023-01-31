@@ -23,11 +23,16 @@ CLI tool to generate Typescript Type Definition files for Gjs and node-gtk.
 ## Getting started
 
 ``` bash
-npm install @ts-for-gir/cli -g
+npm install -g @ts-for-gir/cli
 ts-for-gir --help
 ```
 
-After you have installed `@ts-for-gir/cli` globally you can run the `ts-for-gir` command:
+> Alternatively you can also add @ts-for-gir/cli to your dependencies:
+> ```bash
+> npm install --save-dev @ts-for-gir/cli
+> ```
+
+After you have installed `@ts-for-gir/cli` you can run the `ts-for-gir` command:
 
 ```bash
 $ ts-for-gir --help

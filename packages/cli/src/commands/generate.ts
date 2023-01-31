@@ -36,7 +36,7 @@ const builder = (yargs: Argv) => {
         .option('noDOMLib', Config.generateOptions.noDOMLib)
         .option('fixConflicts', Config.generateOptions.fixConflicts)
         .option('gnomeShellTypes', Config.generateOptions.gnomeShellTypes)
-        .option('generateAmbient', Config.generateOptions.generateAmbient)
+        .option('generateAlias', Config.generateOptions.generateAlias)
         .example(examples)
 }
 

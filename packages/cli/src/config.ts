@@ -15,8 +15,8 @@ import { APP_NAME, APP_USAGE } from './constants.js'
 import {
     WARN_USE_NAMESPACE_ON_TYPES,
     WARN_USE_NAMESPACE_ON_ESM,
-    WARN_USE_ESM_FOR_AMBIENT,
-    WARN_USE_GJS_FOR_AMBIENT,
+    WARN_USE_ESM_FOR_ALIAS,
+    WARN_USE_GJS_FOR_ALIAS,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
 } from './messages.js'
 
@@ -48,7 +48,7 @@ export class Config {
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
-        generateAmbient: false,
+        generateAlias: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -188,11 +188,11 @@ export class Config {
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },
-        generateAmbient: {
+        generateAlias: {
             type: 'boolean',
             alias: 'a',
-            description: 'Generate ambient definitions',
-            default: Config.defaults.generateAmbient,
+            description: 'Generate an alias tsconfig file',
+            default: Config.defaults.generateAlias,
             normalize: true,
         },
     }
@@ -220,7 +220,7 @@ export class Config {
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
-        generateAmbient: this.options.generateAmbient,
+        generateAlias: this.options.generateAlias,
     }
 
     static listOptions = {
@@ -310,7 +310,7 @@ export class Config {
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
-            generateAmbient: config.generateAmbient,
+            generateAlias: config.generateAlias,
         }
         return generateConfig
     }
@@ -357,13 +357,13 @@ export class Config {
             }
         }
 
-        if (config.generateAmbient) {
+        if (config.generateAlias) {
             if (!config.environments.includes('gjs')) {
-                Logger.warn(WARN_USE_GJS_FOR_AMBIENT)
+                Logger.warn(WARN_USE_GJS_FOR_ALIAS)
                 config.environments.push('gjs')
             }
             if (config.moduleType !== 'esm') {
-                Logger.warn(WARN_USE_ESM_FOR_AMBIENT)
+                Logger.warn(WARN_USE_ESM_FOR_ALIAS)
                 config.moduleType = 'esm'
             }
             if (config.useNamespace !== true) {
@@ -404,7 +404,7 @@ export class Config {
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
-            generateAmbient: options.generateAmbient,
+            generateAlias: options.generateAlias,
         }
 
         if (configFile) {
@@ -501,12 +501,12 @@ export class Config {
             ) {
                 config.gnomeShellTypes = configFile.gnomeShellTypes
             }
-            // generateAmbient
+            // generateAlias
             if (
-                config.generateAmbient === Config.options.generateAmbient.default &&
-                typeof configFile.generateAmbient === 'boolean'
+                config.generateAlias === Config.options.generateAlias.default &&
+                typeof configFile.generateAlias === 'boolean'
             ) {
-                config.generateAmbient = configFile.generateAmbient
+                config.generateAlias = configFile.generateAlias
             }
         }
 

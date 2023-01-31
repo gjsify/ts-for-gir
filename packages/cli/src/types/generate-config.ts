@@ -32,6 +32,6 @@ export interface GenerateConfig {
     noDOMLib: boolean
     /** Generate types for GNOME Shell */
     gnomeShellTypes: boolean
-    /** Generate ambient */
-    generateAmbient: boolean
+    /** Generate a tsconfig alias */
+    generateAlias: boolean
 }

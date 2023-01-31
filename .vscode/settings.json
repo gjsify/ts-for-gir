@@ -1,7 +1,7 @@
 {
   "deno.enable": false,
   "editor.tabSize": 4,
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.tsdk": "",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },

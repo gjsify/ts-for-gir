@@ -7,6 +7,14 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "typeRoots": ["@types/Gjs/*"],
+    "paths": {
+      "*": [
+        "*",
+        "@types/Gjs/*"
+      ]
+    },
+    "baseUrl": "."
   },
   "include": ["@types/Gjs/*.ts"]
 }

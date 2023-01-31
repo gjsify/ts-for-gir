@@ -15,6 +15,8 @@ import { APP_NAME, APP_USAGE } from './constants.js'
 import {
     WARN_USE_NAMESPACE_ON_TYPES,
     WARN_USE_NAMESPACE_ON_ESM,
+    WARN_USE_ESM_FOR_AMBIENT,
+    WARN_USE_GJS_FOR_AMBIENT,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
 } from './messages.js'
 
@@ -46,6 +48,7 @@ export class Config {
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
+        generateAmbient: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -185,6 +188,13 @@ export class Config {
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },
+        generateAmbient: {
+            type: 'boolean',
+            alias: 'a',
+            description: 'Generate ambient definitions',
+            default: Config.defaults.generateAmbient,
+            normalize: true,
+        },
     }
 
     /**
@@ -210,6 +220,7 @@ export class Config {
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
+        generateAmbient: this.options.generateAmbient,
     }
 
     static listOptions = {
@@ -299,6 +310,7 @@ export class Config {
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
+            generateAmbient: config.generateAmbient,
         }
         return generateConfig
     }
@@ -345,6 +357,21 @@ export class Config {
             }
         }
 
+        if (config.generateAmbient) {
+            if (!config.environments.includes('gjs')) {
+                Logger.warn(WARN_USE_GJS_FOR_AMBIENT)
+                config.environments.push('gjs')
+            }
+            if (config.moduleType !== 'esm') {
+                Logger.warn(WARN_USE_ESM_FOR_AMBIENT)
+                config.moduleType = 'esm'
+            }
+            if (config.useNamespace !== true) {
+                Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
+                config.useNamespace = true
+            }
+        }
+
         config = await this.validateTsConfig(config)
 
         return config
@@ -377,6 +404,7 @@ export class Config {
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
+            generateAmbient: options.generateAmbient,
         }
 
         if (configFile) {

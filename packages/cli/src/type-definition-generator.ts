@@ -1371,6 +1371,16 @@ export default class TypeDefinitionGenerator implements Generator {
         }
     }
 
+    private async exportModuleAmbient(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
+        const template = 'ambient.d.ts'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(template, this.config.outdir, `ambient_${girModule.packageName}.d.ts`)
+        } else {
+            const moduleContent = moduleTemplateProcessor.load(template)
+            this.log.log(moduleContent)
+        }
+    }
+
     private async exportModule(girModule: GirModule) {
         const moduleTemplateProcessor = new TemplateProcessor(
             {
@@ -1387,6 +1397,10 @@ export default class TypeDefinitionGenerator implements Generator {
 
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(moduleTemplateProcessor, girModule)
+        }
+
+        if (this.config.moduleType === 'esm' && this.config.generateAmbient) {
+            await this.exportModuleAmbient(moduleTemplateProcessor, girModule)
         }
     }
 

@@ -501,6 +501,13 @@ export class Config {
             ) {
                 config.gnomeShellTypes = configFile.gnomeShellTypes
             }
+            // generateAmbient
+            if (
+                config.generateAmbient === Config.options.generateAmbient.default &&
+                typeof configFile.generateAmbient === 'boolean'
+            ) {
+                config.generateAmbient = configFile.generateAmbient
+            }
         }
 
         return await this.validate(config)

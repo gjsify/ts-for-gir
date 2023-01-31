@@ -1,5 +1,5 @@
 <p align="center">
-  <img  src=".github/ts-for-gir.png" />
+  <img src=".github/ts-for-gir.png" />
   <h1 align="center">TS <small>for</small> GIR</h1>
 </p>
 
@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">TypeScript type definition generator for GObject introspection interfaces</p>
+
+<p align="center">
+  <img src=".github/feeling.gif" />
+</p>
 
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://wiki.gnome.org/Projects/Gjs) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject
@@ -45,7 +49,7 @@ ts-for-gir generate Gtk-4.0 -e node
 ```
 You can also look at the [examples](/examples/) to see how the types are generated there and at the [CLI Package](/packages/cli) for the full CLI documentation.
 
-## tsconfig.json
+## tsconfig.json / jsconfig.json
 It's recommended that you create or modify your `tsconfig.json`/`jsconfig.json`, so it doesn't include the `DOM` lib, as it conflicts with some generated GJS global types and will cause lint warnings and compilation errors with typescript.
 
 Either add/edit the `lib` property so it doesn't include `"DOM"`, or enable the property `noLib` (However the side effects of doing this should be considered). For more information check the documentation for both the [`lib`](https://www.typescriptlang.org/tsconfig/#lib) and [`noLib`](https://www.typescriptlang.org/tsconfig#noLib) properties.
@@ -54,10 +58,6 @@ Either add/edit the `lib` property so it doesn't include `"DOM"`, or enable the 
 ## Examples
 
 We have ported some examples from Gjs and node-gtk to typescript but also created our own. You can find a more detailed description of the examples in the [./examples/](/examples/) subfolder.
-
-## What it's like
-
-![screencast](screencast-01.gif)
 
 ## Development
 

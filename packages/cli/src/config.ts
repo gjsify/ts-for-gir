@@ -350,13 +350,6 @@ export class Config {
             }
         }
 
-        if (config.moduleType === 'esm') {
-            if (config.useNamespace !== true) {
-                Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
-                config.useNamespace = true
-            }
-        }
-
         if (config.generateAmbient) {
             if (!config.environments.includes('gjs')) {
                 Logger.warn(WARN_USE_GJS_FOR_AMBIENT)
@@ -366,6 +359,9 @@ export class Config {
                 Logger.warn(WARN_USE_ESM_FOR_AMBIENT)
                 config.moduleType = 'esm'
             }
+        }
+
+        if (config.moduleType === 'esm') {
             if (config.useNamespace !== true) {
                 Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
                 config.useNamespace = true

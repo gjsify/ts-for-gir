@@ -35,7 +35,6 @@ import type {
     GirClassElement,
     GirArrayType,
     GirType,
-    GirInclude,
     GirCallableParams,
     GirCallableParamElement,
     GirVirtualMethodElement,

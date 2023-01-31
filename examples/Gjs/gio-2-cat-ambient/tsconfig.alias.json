@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {   
+    "paths": {
+      "gi://Gio?version=2.0": ["./@types/Gjs/Gio-2.0.d.ts"],
+      "gi://Gio": ["./@types/Gjs/Gio-2.0.d.ts"],
+      "gi://GLib?version=2.0":  ["./@types/Gjs/GLib-2.0.d.ts"],
+      "gi://GLib": ["./@types/Gjs/GLib-2.0.d.ts"],
+      "gi://GObject?version=2.0": ["./@types/Gjs/GObject-2.0.d.ts"],
+      "gi://GObject": ["./@types/Gjs/GObject-2.0.d.ts"],
+    },
+  }
+}

@@ -402,5 +402,49 @@
     "**/.pnp.*": true
   },
   "eslint.nodePath": ".yarn/sdks",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "presentation-mode.active": {
+    "commands": [
+      "workbench.action.closeSidebar"
+    ],
+    "editor.fontSize": 16,
+    "editor.matchBrackets": "never",
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.visible": false,
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.colorCustomizations": {
+      "[GitHub Dark Default]": {
+        "activityBar.background": "#000",
+        "editor.background": "#000",
+        "editor.lineHighlightBackground": "#0000",
+        "editor.lineHighlightBorder": "#0000",
+        "panel.background": "#000",
+        "sideBar.background": "#000",
+        "terminal.background": "#000"
+      },
+      "[GitHub Light Default]": {
+        "activityBar.background": "#fff",
+        "editor.background": "#fff",
+        "editor.lineHighlightBackground": "#fff0",
+        "editor.lineHighlightBorder": "#fff0",
+        "panel.background": "#fff",
+        "sideBar.background": "#fff",
+        "terminal.background": "#fff"
+      }
+    },
+    "window.zoomLevel": 2
+  },
+  "presentation-mode.configBackup": {
+    "editor.fontSize": "undefined",
+    "editor.matchBrackets": "undefined",
+    "editor.minimap.enabled": "undefined",
+    "editor.scrollbar.verticalScrollbarSize": "undefined",
+    "workbench.activityBar.visible": "undefined",
+    "workbench.statusBar.visible": "undefined",
+    "workbench.colorTheme": "undefined",
+    "workbench.colorCustomizations": "undefined",
+    "window.zoomLevel": "undefined"
+  }
 }

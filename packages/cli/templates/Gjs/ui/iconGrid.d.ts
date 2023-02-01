@@ -4,14 +4,14 @@
 <% const St = dep.find('St') %>
 <% const shell = dep.find('Shell') %>
 
-<%_ if(useNamespace){ _%>
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-    import type Shell from '../<%= shell.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
     import type * as St from '../<%= St.packageName %>.js';
     import type * as Shell from '../<%= shell.packageName %>.js';
+<%_ } else { _%>
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
+    import type Shell from '../<%= shell.packageName %>.js';
 <%_ } _%>
 
 export namespace BaseIcon {

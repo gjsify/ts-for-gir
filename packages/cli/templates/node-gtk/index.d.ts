@@ -9,10 +9,10 @@
 
 <%_ for (const girModule of girModules) { _%>
     <%_ if (buildType === 'lib') { _%>
-        <% if(useNamespace){ %>
-import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
-        <% } else { %>  
+        <% if(noNamespace){ %>
 import type * as <%= girModule.importName %> from './<%= girModule.packageName %>.js';
+        <% } else { %>
+import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
         <% } %>
     <%_ } else if (buildType === 'types') { _%>
 import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";

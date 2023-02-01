@@ -4,14 +4,14 @@
 <% const Clutter = dep.find('Clutter') %>
 <% const Meta = dep.find('Meta') %>
 
-<%_ if(useNamespace){ _%>
-    import type GLib from '../<%= glib.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type Meta from '../<%= Meta.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as GLib from '../<%= glib.packageName %>.js';
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
     import type * as Meta from '../<%= Meta.packageName %>.js';
+<%_ } else { _%>
+    import type GLib from '../<%= glib.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type Meta from '../<%= Meta.packageName %>.js';
 <%_ } _%>
 
 import { SwitcherPopup } from './switcherPopup.js'

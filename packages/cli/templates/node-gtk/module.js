@@ -6,7 +6,7 @@
 <% } else { %>  
     const { require: giRequire } = require('node-gtk');
     const <%= name %> = giRequire('<%= name %>', '<%= version %>');
-    <% if(useNamespace){ %>
+    <% if(!noNamespace){ %>
         module.exports = { <%= name %> };
         exports.default = <%= name %>;
     <% } else { %>  

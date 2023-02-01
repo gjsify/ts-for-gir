@@ -6,7 +6,7 @@ export default <%= name %>;
 <% } else { %>
 imports.gi.versions.<%= name %> = '<%= version %>'
 const <%= name %> = imports.gi.<%= name %>;
-  <% if(useNamespace){ %>
+  <% if(!noNamespace){ %>
 module.exports = { <%= name %> };
 exports.default = <%= name %>;
   <% } else { %>

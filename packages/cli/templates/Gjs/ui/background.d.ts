@@ -99,16 +99,16 @@
 <% const Meta = dep.find('Meta') %>
 <% const GnomeDesktop = dep.find('GnomeDesktop') %>
 
-<%_ if(useNamespace){ _%>
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type Meta from '../<%= Meta.packageName %>.js';
-    import type GnomeDesktop from '../<%= GnomeDesktop.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Gio from '../<%= Gio.packageName %>.js';
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
     import type * as Meta from '../<%= Meta.packageName %>.js';
     import type * as GnomeDesktop from '../<%= GnomeDesktop.packageName %>.js';
+<%_ } else { _%>
+    import type Gio from '../<%= Gio.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
+    import type Meta from '../<%= Meta.packageName %>.js';
+    import type GnomeDesktop from '../<%= GnomeDesktop.packageName %>.js';
 <%_ } _%>
 
 import { EventEmitter } from '../misc/signals.js';

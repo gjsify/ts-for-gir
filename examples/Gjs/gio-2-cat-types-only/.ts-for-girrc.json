@@ -3,6 +3,6 @@
     "modules": ["Gio-2.0"],
     "pretty": true,
     "buildType": "types",
-    "useNamespace": true,
+    "moduleType": "esm",
     "outdir": "./@types"
 }

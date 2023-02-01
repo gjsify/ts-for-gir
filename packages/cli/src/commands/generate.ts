@@ -29,7 +29,7 @@ const builder = (yargs: Argv) => {
         .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
         .option('print', Config.generateOptions.print)
         .option('configName', Config.generateOptions.configName)
-        .option('useNamespace', Config.generateOptions.useNamespace)
+        .option('noNamespace', Config.generateOptions.noNamespace)
         .option('noComments', Config.generateOptions.noComments)
         .option('noDebugComments', Config.generateOptions.noDebugComments)
         .option('noCheck', Config.generateOptions.noCheck)

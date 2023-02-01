@@ -26,8 +26,8 @@ export interface UserConfig {
     modules: string[]
     /** modules that should be ignored */
     ignore?: string[]
-    /** Export all symbols for each module as a namespace */
-    useNamespace: boolean
+    /** Do not export all symbols for each module as a namespace */
+    noNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
     /** Do not generate debugging inline comments */

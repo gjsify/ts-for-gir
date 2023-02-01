@@ -191,7 +191,7 @@ export class Config {
         generateAlias: {
             type: 'boolean',
             alias: 'a',
-            description: 'Generate an alias tsconfig file',
+            description: 'Generate an alias tsconfig file to support GJS ESM module imports',
             default: Config.defaults.generateAlias,
             normalize: true,
         },

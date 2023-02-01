@@ -4,6 +4,7 @@
     "pretty": true,
     "buildType": "lib",
     "moduleType": "esm",
-    "useNamespace": false,
-    "outdir": "./@types"
+    "useNamespace": true,
+    "outdir": "./@types",
+    "generateAlias": true
 }

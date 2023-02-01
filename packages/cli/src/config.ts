@@ -303,6 +303,7 @@ export class Config {
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
+            promisify: config.promisify,
         }
         return generateConfig
     }

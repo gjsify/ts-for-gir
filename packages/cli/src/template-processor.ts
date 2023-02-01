@@ -64,6 +64,7 @@ export class TemplateProcessor {
      * @param outputDir
      * @param outputFilename
      * @param append
+     * @param prependEnv
      * @return The rendered (and if possible prettified) template string
      */
     public async create(
@@ -71,12 +72,15 @@ export class TemplateProcessor {
         outputDir: string,
         outputFilename: string,
         append = '',
+        prependEnv = true,
     ): Promise<string> {
         const renderedTpl = await this.load(templateFilename)
-        const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
+        const destPath = prependEnv
+            ? getDestPath(this.config.environment, outputDir, outputFilename)
+            : Path.join(outputDir, outputFilename)
         const prettifiedCode = this.config.pretty ? this.prettifySource(renderedTpl, destPath) : null
         const code = (prettifiedCode || renderedTpl) + append
-        await this.write(code, outputDir, outputFilename)
+        await this.write(code, outputDir, outputFilename, prependEnv)
         return code
     }
 
@@ -107,8 +111,15 @@ export class TemplateProcessor {
         return result
     }
 
-    protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
-        const destPath = getDestPath(this.config.environment, outputDir, outputFilename)
+    protected async write(
+        content: string,
+        outputDir: string,
+        outputFilename: string,
+        prependEnv = true,
+    ): Promise<string> {
+        const destPath = prependEnv
+            ? getDestPath(this.config.environment, outputDir, outputFilename)
+            : Path.join(outputDir, outputFilename)
 
         // write template result file
         await mkdir(Path.dirname(destPath), { recursive: true })

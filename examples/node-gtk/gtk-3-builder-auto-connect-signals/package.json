@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn run build:types && yarn run build:wp",
     "build:wp": "yarn run clear:ts && webpack --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 -e node",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 -e node --noNamespace -t commonjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn run clear:ts && yarn run clear:types",

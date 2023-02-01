@@ -4,5 +4,6 @@
     "pretty": true,
     "buildType": "types",
     "useNamespace": true,
+    "moduleType": "esm",
     "outdir": "./@types"
 }

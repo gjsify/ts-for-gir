@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn run build:types && yarn run build:app",
     "build:app": "yarn run clear:ts && webpack --config webpack.config.cjs --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node --moduleType esm --useNamespace",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e node -t esm --useNamespace",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn run clear:ts && yarn run clear:types",

@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn run build:types && yarn run build:app",
     "build:app": "yarn run clear:app && webpack --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 -e gjs",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 GtkSource-3.0 -e gjs --noNamespace -t commonjs",
     "clear:types": "rm -rf ./@types",
     "clear:app": "rm -rf ./dist",
     "clear": "yarn run clear:app && yarn run clear:types",

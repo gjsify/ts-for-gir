@@ -189,6 +189,44 @@ The javascript config files must also be in ESM format if you are inside a ESM P
 
 ## Options
 
+### girDirectories
+
+Directories in which *.gir files are to be searched for. Default is `["/usr/share/gir-1.0"]`. More than one can be specified. If you want to generate the types for the GNOME Shell you have to search in several folders for the corresponding types: 
+```js
+girDirectories: [
+  // General gir files
+  '/usr/share/gir-1.0',
+
+  // GNOME Shell gir file (package: gnome-shell-common / gnome-shell)
+  '/usr/share/gnome-shell',
+  '/usr/share/gnome-shell/gir-1.0',
+
+  // GNOME Shell gir file dependencies on Fedora Workstation 37 (package: mutter)
+  '/usr/lib64/mutter-11',
+
+  //  GNOME Shell gir file dependencies on Ubuntu 22.10 (package: libmutter-11-dev)
+  '/usr/lib/x86_64-linux-gnu/mutter-11',
+]
+```
+
+### outdir
+Name of the directory in which the types should be saved. Default ist `"./@types"`.
+
+### environments
+
+The Javascript environment for which you want to generate the types. Possible values are `"gjs"` and `"node"`. You can also specify both. Default is `["gjs"]`.
+
+### ignore
+
+Modules that should be ignored, this is useful if you have several versions of a library installed but only want to generate the types for one of them. For example `"Gtk-3.0"` or `"Gtk-4.0"`.
+
+### buildType
+`ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
+
+If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
+
+If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/Gjs/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
+
 ### noDOMLib
 
 It's recommended that you create or modify your `tsconfig.json`/`jsconfig.json`, so it doesn't include the `DOM` lib, as it conflicts with some generated GJS global types and will cause lint warnings and compilation errors with typescript.

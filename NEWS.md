@@ -6,6 +6,11 @@
 - Add support to generate packages for the types we can publish on NPM 
 
 # Unreleased
+- README.md greatly simplified and split into several files
+- Changed default options to:
+  - `useNamespace: true` (was `false` before)
+  - `environments: ["gjs"]` (was `["gjs", "node"]` before)
+  - `moduleType: "esm"` (was `"commonjs"` before)
 - Add new DependencyManager to be able to search for a dependency regardless of the version 
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists

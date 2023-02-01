@@ -27,7 +27,7 @@ export class Config {
      * Default cli flag and argument values
      */
     static defaults = {
-        environments: ['gjs', 'node'],
+        environments: ['gjs'],
         pretty: false,
         print: false,
         configName: '.ts-for-girrc.js',
@@ -37,9 +37,9 @@ export class Config {
         ignore: [],
         verbose: false,
         ignoreVersionConflicts: false,
-        useNamespace: false,
+        useNamespace: true,
         buildType: 'lib',
-        moduleType: 'commonjs',
+        moduleType: 'esm',
         noComments: false,
         noDebugComments: false,
         noCheck: false,

@@ -2,6 +2,7 @@ import type * as DbusUtils from './misc/dbusUtils.js';
 import type * as ExtensionUtils from './misc/extensionUtils.js';
 import type * as FileUtils from './misc/fileUtils.js';
 import type * as GnomeSession from './misc/gnomeSession.js';
+import type * as ParentalControlsManager from './misc/parentalControlsManager.js';
 import type * as Signals from './misc/signals.js';
 
 // TODO: https://gitlab.gnome.org/GNOME/gnome-shell/-/tree/main/js/misc
@@ -20,7 +21,7 @@ export namespace misc {
     export const modemManager: any;
     export const objectManager: any;
     export const params: any;
-    export const parentalControlsManager: any;
+    export const parentalControlsManager: typeof ParentalControlsManager;
     export const permissionStore: any;
     export const signalTracker: any;
     export const signals: typeof Signals;
@@ -34,6 +35,8 @@ import type * as AccessDialog from './ui/accessDialog.js';
 import type * as AltTab from './ui/altTab.js';
 import type * as Animation from './ui/animation.js';
 import type * as AppDisplay from './ui/appDisplay.js';
+import type * as AppFavorites from './ui/appFavorites.js';
+import type * as AppMenu from './ui/appMenu.js';
 import type * as AudioDeviceSelection from './ui/audioDeviceSelection.js';
 import type * as Background from './ui/background.js';
 import type * as Dialog from './ui/dialog.js';
@@ -59,8 +62,8 @@ export namespace ui {
     export const altTab: typeof AltTab;
     export const animation: typeof Animation;
     export const appDisplay: typeof AppDisplay;
-    export const appFavorites: any;
-    export const appMenu: any;
+    export const appFavorites: typeof AppFavorites;
+    export const appMenu: typeof AppMenu;
     export const audioDeviceSelection: typeof AudioDeviceSelection;
     export const background: typeof Background;
     export const backgroundMenu: any;

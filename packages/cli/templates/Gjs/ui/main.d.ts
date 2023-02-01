@@ -7,7 +7,7 @@
 <%_ } _%>
 
 import { ComponentManager } from './components/__init__.js';
-// const AccessDialog = imports.ui.accessDialog;
+import { AccessDialogDBus } from './accessDialog.js';
 // const AudioDeviceSelection = imports.ui.audioDeviceSelection;
 // const Components = imports.ui.components;
 // const CtrlAltTab = imports.ui.ctrlAltTab;
@@ -68,7 +68,7 @@ export declare const shellMountOpDBusService: any;
 
 export declare const shellDBusService: any;
 
-export declare const shellAccessDialogDBusService: any;
+export declare const shellAccessDialogDBusService: AccessDialogDBus;
 
 export declare const shellAudioSelectionDBusService: any;
 

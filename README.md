@@ -28,7 +28,7 @@ Install the latest LTS version of Node.js. We recommend using [NVM](https://gith
 npx @ts-for-gir/cli --help
 ```
 
-That's it, you can start generating your types 👩‍💻.
+That's it, you can start generating your types 👩‍💻☕
 
 ## Further information
 

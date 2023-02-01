@@ -42,6 +42,7 @@ export class Config {
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
+        promisify: false,
     }
 
     static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
@@ -181,6 +182,12 @@ export class Config {
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },
+        promisify: {
+            type: 'boolean',
+            description: 'Generate promisified functions for async/finish calls',
+            default: Config.defaults.promisify,
+            normalize: true,
+        },
     }
 
     /**
@@ -206,6 +213,7 @@ export class Config {
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
+        promisify: this.options.promisify,
     }
 
     static listOptions = {
@@ -373,6 +381,7 @@ export class Config {
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
+            promisify: options.promisify,
         }
 
         if (configFile) {
@@ -468,6 +477,10 @@ export class Config {
                 typeof configFile.gnomeShellTypes === 'boolean'
             ) {
                 config.gnomeShellTypes = configFile.gnomeShellTypes
+            }
+            // promisify
+            if (config.promisify === Config.options.promisify.default && typeof configFile.promisify === 'boolean') {
+                config.promisify = configFile.promisify
             }
         }
 

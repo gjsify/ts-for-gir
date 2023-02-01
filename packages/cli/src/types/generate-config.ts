@@ -18,8 +18,8 @@ export interface GenerateConfig {
     verbose: boolean
     /** prettifies the generated .d.ts files */
     pretty: boolean
-    /** Export all symbols for each module as a namespace */
-    useNamespace: boolean
+    /** Do not export all symbols for each module as a namespace */
+    noNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
     /** Do not generate debugging inline comments */

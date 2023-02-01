@@ -12,11 +12,7 @@ import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, Genera
 import { writeFile } from 'fs/promises'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
-import {
-    WARN_USE_NAMESPACE_ON_TYPES,
-    WARN_USE_NAMESPACE_ON_ESM,
-    ERROR_CONFIG_EXTENSION_UNSUPPORTED,
-} from './messages.js'
+import { WARN_NO_NAMESPACE_ON_TYPES, WARN_NO_NAMESPACE_ON_ESM, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from './messages.js'
 
 export class Config {
     static appName = APP_NAME
@@ -37,7 +33,7 @@ export class Config {
         ignore: [],
         verbose: false,
         ignoreVersionConflicts: false,
-        useNamespace: true,
+        noNamespace: false,
         buildType: 'lib',
         moduleType: 'esm',
         noComments: false,
@@ -141,19 +137,11 @@ export class Config {
             default: Config.defaults.configName,
             normalize: true,
         },
-        useNamespace: {
-            type: 'boolean',
-            alias: 'd',
-            description: 'Export all symbols for each module as a namespace',
-            default: Config.defaults.useNamespace,
-            normalize: true,
-            hidden: true,
-        },
         noNamespace: {
             type: 'boolean',
             alias: 'd',
             description: 'Do not export all symbols for each module as a namespace',
-            default: !Config.defaults.useNamespace,
+            default: Config.defaults.noNamespace,
             normalize: true,
         },
         noComments: {
@@ -211,7 +199,6 @@ export class Config {
         ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
         configName: this.options.configName,
-        useNamespace: this.options.useNamespace,
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
@@ -301,7 +288,7 @@ export class Config {
             verbose: config.verbose,
             buildType: config.buildType,
             moduleType: config.moduleType,
-            useNamespace: config.useNamespace,
+            noNamespace: config.noNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
             noCheck: config.noCheck,
@@ -341,16 +328,16 @@ export class Config {
 
     public static async validate(config: UserConfig): Promise<UserConfig> {
         if (config.buildType === 'types') {
-            if (config.useNamespace !== true) {
-                Logger.warn(WARN_USE_NAMESPACE_ON_TYPES)
-                config.useNamespace = true
+            if (config.noNamespace !== false) {
+                Logger.warn(WARN_NO_NAMESPACE_ON_TYPES)
+                config.noNamespace = false
             }
         }
 
         if (config.moduleType === 'esm') {
-            if (config.useNamespace !== true) {
-                Logger.warn(WARN_USE_NAMESPACE_ON_ESM)
-                config.useNamespace = true
+            if (config.noNamespace !== false) {
+                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
+                config.noNamespace = false
             }
         }
 
@@ -379,7 +366,7 @@ export class Config {
             girDirectories: options.girDirectories,
             ignore: options.ignore,
             modules: options.modules,
-            useNamespace: !options.noNamespace,
+            noNamespace: options.noNamespace,
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
             noCheck: options.noCheck,
@@ -442,12 +429,12 @@ export class Config {
             ) {
                 config.modules = configFile.modules
             }
-            // useNamespace
+            // noNamespace
             if (
-                config.useNamespace === Config.options.useNamespace.default &&
-                typeof configFile.useNamespace === 'boolean'
+                config.noNamespace === Config.options.noNamespace.default &&
+                typeof configFile.noNamespace === 'boolean'
             ) {
-                config.useNamespace = configFile.useNamespace
+                config.noNamespace = configFile.noNamespace
             }
             // noComments
             if (config.noComments === Config.options.noComments.default && typeof configFile.noComments === 'boolean') {

@@ -2,10 +2,10 @@
 
 <% const Gio = dep.find('Gio') %>
 
-<%_ if(useNamespace){ _%>
-    import type Gio from '../<%= Gio.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Gio from '../<%= Gio.packageName %>.js';
+<%_ } else { _%>
+    import type Gio from '../<%= Gio.packageName %>.js';
 <%_ } _%>
 
 /**

@@ -2,10 +2,10 @@
 
 <% const St = dep.find('St') %>
 
-<%_ if(useNamespace){ _%>
-    import type St from '../<%= St.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as St from '../<%= St.packageName %>.js';
+<%_ } else { _%>
+    import type St from '../<%= St.packageName %>.js';
 <%_ } _%>
 
 import type { PopupMenu, PopupDummyMenu } from './popupMenu.js';

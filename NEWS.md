@@ -8,7 +8,7 @@
 # Unreleased
 - README.md greatly simplified and split into several files
 - Changed default options to:
-  - `useNamespace: true` (was `false` before)
+  - `noNamespace: true` (was `useNamespace: false` before)
   - `environments: ["gjs"]` (was `["gjs", "node"]` before)
   - `moduleType: "esm"` (was `"commonjs"` before)
 - Add new DependencyManager to be able to search for a dependency regardless of the version 

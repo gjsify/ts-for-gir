@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Soup-3.0 -e node --useNamespace -t esm",
+    "build:types": "yarn ts-for-gir generate Soup-3.0 -e node",
     "build:app": "yarn node esbuild.js",
     "build": "yarn run build:types && yarn run build:app",
     "start:server": "yarn node dist/http-server.js",

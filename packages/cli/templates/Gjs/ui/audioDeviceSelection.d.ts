@@ -3,12 +3,12 @@
 <% const Gio = dep.find('Gio') %>
 <% const St = dep.find('St') %>
 
-<%_ if(useNamespace){ _%>
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Gio from '../<%= Gio.packageName %>.js';
     import type * as St from '../<%= St.packageName %>.js';
+<%_ } else { _%>
+    import type Gio from '../<%= Gio.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
 <%_ } _%>
 
 import type { ModalDialog } from './modalDialog.js';

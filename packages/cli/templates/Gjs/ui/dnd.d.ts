@@ -3,12 +3,12 @@
 <% const Meta = dep.find('Meta') %>
 <% const Clutter = dep.find('Clutter') %>
 
-<%_ if(useNamespace){ _%>
-    import type Meta from '../<%= Meta.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Meta from '../<%= Meta.packageName %>.js';
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
+<%_ } else { _%>
+    import type Meta from '../<%= Meta.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } _%>
 
 import { EventEmitter } from '../misc/signals.js';

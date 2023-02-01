@@ -104,7 +104,7 @@ Options:
                                                        [string] [default: false]
       --configName       Name of the config if you want to use a different name
                                                                         [string]
-  -d, --useNamespace     Export all symbols for each module as a namespace
+  -d, --noNamespace      Do not export all symbols for each module as a namespace
                                                        [string] [default: false]
   -n, --noComments       Do not generate documentation comments
                                                        [string] [default: false]
@@ -179,7 +179,7 @@ export default {
   girDirectories: ['/usr/share/gir-1.0'],
   modules: ['*'],
   ignore: [],
-  useNamespace: true,
+  noNamespace: false,
   buildType: 'lib',
   moduleType: 'esm'
 }

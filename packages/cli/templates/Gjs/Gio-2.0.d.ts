@@ -62,3 +62,6 @@ export class DBusExportedObject {
     emit_signal(name: string, variant: GLib.Variant): void;
     emit_property_changed(name: string, variant: GLib.Variant): void;
 }
+
+// See https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/core/overrides/Gio.js
+export function _promisify(proto: any, asyncFunc: string, finishFunc?: string): void;

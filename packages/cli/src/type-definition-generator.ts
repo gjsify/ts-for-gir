@@ -40,6 +40,7 @@ import {
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
 } from './messages.js'
+import { PromisifyFunc } from './types/promisify-func.js'
 
 export default class TypeDefinitionGenerator implements Generator {
     protected log: Logger
@@ -589,6 +590,82 @@ export default class TypeDefinitionGenerator implements Generator {
         comment?: string,
     ) {
         const def: string[] = []
+
+        if (this.config.promisify) {
+            const promisifyAsyncReturn = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
+            const promisifyFuncMap = {} as { [name: string]: PromisifyFunc }
+
+            // Find the functions that can be promisified
+            for (const girFunction of tsFunctions) {
+                // Check if function name satisfies async,finish scheme
+                const isAsync = girFunction.name.endsWith('_async')
+                const isFinish = girFunction.name.endsWith('_finish')
+                if (!isAsync && !isFinish) continue
+
+                // Handle async functions
+                if (isAsync) {
+                    if (girFunction.inParams.length === 0) continue
+                    const lastParam = girFunction.inParams[girFunction.inParams.length - 1]
+                    if (lastParam.type && lastParam.type.length > 0) {
+                        const type = lastParam.type[0].$.name
+                        if (type && promisifyAsyncReturn.includes(type)) {
+                            if (!(girFunction.name in promisifyFuncMap)) promisifyFuncMap[girFunction.name] = {}
+                            promisifyFuncMap[girFunction.name].async = girFunction
+                        }
+                    }
+                }
+
+                // Handle finish functions
+                if (isFinish) {
+                    if (girFunction.returnTypes.length === 0) continue
+                    const name = `${girFunction.name.replace(/(_finish)$/, '')}_async`
+                    if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
+                    promisifyFuncMap[name].finish = girFunction
+                }
+            }
+
+            // Generate TsFunctions for promisify-able functions and add to the array
+            for (const [name, func] of Object.entries(promisifyFuncMap)) {
+                if (func.async === undefined || func.finish === undefined) continue
+                const f: TsFunction = {
+                    name: name,
+                    returnTypes: func.finish.returnTypes.map(
+                        (type) =>
+                            ({
+                                type: `Promise<${type.type}>`,
+                                optional: false,
+                                nullable: false,
+                                callbacks: [],
+                                generics: [],
+                                isArray: false,
+                                isFunction: false,
+                                isCallback: false,
+                            } as TsType),
+                    ),
+                    isArrowType: func.async.isArrowType,
+                    isStatic: func.async.isStatic,
+                    isGlobal: func.async.isGlobal,
+                    isVirtual: func.async.isVirtual,
+                    isInjected: func.async.isInjected,
+                    retTypeIsVoid: false,
+                    inParams: [...func.async.inParams.slice(0, -1)],
+                    outParams: func.async.outParams,
+                    instanceParameters: func.async.instanceParameters,
+                    generics: func.async.generics,
+                    overloads: func.async.overloads,
+                    girTypeName: func.async.girTypeName,
+                    tsTypeName: func.async.tsTypeName,
+                    doc: {
+                        text: func.async.doc.text,
+                        tags: func.async.doc.tags.filter((tag) => tag.paramName !== 'callback'),
+                        returns: func.async.doc.returns,
+                    },
+                    parent: func.async.parent,
+                }
+                const asyncIndex = tsFunctions.indexOf(func.async)
+                tsFunctions.splice(asyncIndex, 0, f)
+            }
+        }
 
         for (const girFunction of tsFunctions) {
             def.push(...this.generateFunction(girFunction, onlyStatic, namespace, indentCount))

@@ -6,11 +6,17 @@
 - Add support to generate packages for the types we can publish on NPM 
 
 # Unreleased
+- README.md greatly simplified and split into several files
 - Add new DependencyManager to be able to search for a dependency regardless of the version 
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists
 - Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found
 - Upgrade dependencies
+## Breaking Changes
+- Changed default options to:
+  - `noNamespace: true` (was `useNamespace: false` before)
+  - `environments: ["gjs"]` (was `["gjs", "node"]` before)
+  - `moduleType: "esm"` (was `"commonjs"` before)
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)
 - Add some more types for GNOME Shell

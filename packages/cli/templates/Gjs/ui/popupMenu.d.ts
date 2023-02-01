@@ -6,16 +6,16 @@
 <% const Clutter = dep.find('Clutter') %>
 <% const Meta = dep.find('Meta') %>
 
-<%_ if(useNamespace){ _%>
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-    import type Shell from '../<%= shell.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Gio from '../<%= Gio.packageName %>.js';
     import type * as St from '../<%= St.packageName %>.js';
     import type * as Shell from '../<%= shell.packageName %>.js';
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
+<%_ } else { _%>
+    import type Gio from '../<%= Gio.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
+    import type Shell from '../<%= shell.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } _%>
 
 import * as Signals from '../misc/signals.js';

@@ -4,14 +4,14 @@
 <% const St = dep.find('St') %>
 <% const Clutter = dep.find('Clutter') %>
 
-<%_ if(useNamespace){ _%>
-    import type GLib from '../<%= glib.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as GLib from '../<%= glib.packageName %>.js';
     import type * as St from '../<%= St.packageName %>.js';
     import type * as Clutter from '../<%= Clutter.packageName %>.js';
+<%_ } else { _%>
+    import type GLib from '../<%= glib.packageName %>.js';
+    import type St from '../<%= St.packageName %>.js';
+    import type Clutter from '../<%= Clutter.packageName %>.js';
 <%_ } _%>
 
 export abstract class SwitcherPopup extends St.Widget {

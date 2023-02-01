@@ -10,10 +10,10 @@ import type * as Gjs from './Gjs.js'
 import type * as GnomeShell from './GnomeShell.js'
 <%_ } _%>
 <%_ for (const girModule of girModules) { _%>
-  <%_ if(useNamespace){ _%>
-import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
-  <%_ } else { _%>
+  <%_ if(noNamespace){ _%>
 import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
+  <%_ } else { _%>
+import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
   <%_ } _%>
 <%_ } _%>
 

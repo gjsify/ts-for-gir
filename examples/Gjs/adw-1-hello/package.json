@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Adw-1 -e gjs --useNamespace -t esm",
+    "build:types": "yarn ts-for-gir generate Adw-1",
     "build:app": "vite build",
     "build": "yarn run build:types && yarn run build:app",
     "start:app": "gjs -m dist/main.js",
@@ -23,8 +23,8 @@
     "@babel/core": "^7.20.12",
     "@rollup/plugin-babel": "^6.0.3",
     "@ts-for-gir/cli": "workspace:^",
-    "rollup": "^3.10.0",
-    "typescript": "^4.9.4",
+    "rollup": "^3.12.1",
+    "typescript": "^4.9.5",
     "vite": "^4.0.4"
   }
 }

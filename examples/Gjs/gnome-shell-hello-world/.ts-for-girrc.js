@@ -23,6 +23,6 @@ export default {
     ],
     pretty: true,
     buildType: "types",
-    useNamespace: true,
+    noNamespace: false,
     gnomeShellTypes: true,
 }

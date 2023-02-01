@@ -1,12 +1,12 @@
 <% const gobject = dep.find('GObject') %>
 <% const glib = dep.find('GLib') %>
 
-<%_ if(useNamespace){ _%>
-    import type GObject from './<%= gobject.packageName %>.js';
-    import type GLib from './<%= glib.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as GObject from './<%= gobject.packageName %>.js';
     import type * as GLib from './<%= glib.packageName %>.js';
+<%_ } else { _%>
+    import type GObject from './<%= gobject.packageName %>.js';
+    import type GLib from './<%= glib.packageName %>.js';
 <%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js

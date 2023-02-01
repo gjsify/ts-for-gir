@@ -2,10 +2,10 @@
 
 <% const gcr = dep.find('Gcr') %>
 
-<%_ if(useNamespace){ _%>
-    import type Gcr from '../../<%= gcr.packageName %>.js';
-<%_ } else { _%>
+<%_ if(noNamespace){ _%>
     import type * as Gcr from '../../<%= gcr.packageName %>.js';
+<%_ } else { _%>
+    import type Gcr from '../../<%= gcr.packageName %>.js';
 <%_ } _%>
 
 declare class KeyringPrompter extends Gcr.SystemPrompter {

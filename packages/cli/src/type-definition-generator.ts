@@ -1471,7 +1471,7 @@ export default class TypeDefinitionGenerator implements Generator {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModulesGrouped },
+            { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
             'gjs',
             this.config,
         )
@@ -1496,6 +1496,11 @@ export default class TypeDefinitionGenerator implements Generator {
                 await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
                 await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')
             }
+        }
+
+        // Alias
+        if (this.config.generateAlias) {
+            await templateProcessor.create('tsconfig.alias.json', './', 'tsconfig.alias.json', '', false)
         }
     }
 

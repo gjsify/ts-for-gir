@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {   
+        "baseUrl": ".",
+        "paths": { <% girModules.forEach(function(module, idx) { %>
+            "gi://<%= module.namespace %>?version=<%= module.version %>": ["<%= typeDir %>/<%= module.namespace %>-<%= module.version %>.d.ts"],
+            "gi://<%= module.namespace %>": ["<%= typeDir %>/<%= module.namespace %>-<%= module.version %>.d.ts"]<% if (idx < girModules.length - 1) { %>,<% } %><% }); %>
+        }
+    },
+    "include": ["<%= typeDir %>/*.ts"]
+}

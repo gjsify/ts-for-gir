@@ -22,6 +22,8 @@ export const WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE = (packageName: string) =>
 export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
 export const WARN_NO_NAMESPACE_ON_TYPES = "noNamespace must be 'false' if buildType is 'types'"
 export const WARN_NO_NAMESPACE_ON_ESM = "noNamespace must be 'false' on moduleType 'esm'"
+export const WARN_USE_ESM_FOR_ALIAS = "moduleType must be 'esm' if generateAlias is true!"
+export const WARN_USE_GJS_FOR_ALIAS = "environments must include 'gjs' if generateAlias is true!"
 export const WARN_PRETTIFY_ERROR = (filepath: string) => `Can't prettify file: "${filepath}".`
 
 export const WARN_IGNORE_MULTIPLE_CALLBACKS = 'Multiple callbacks are ignored!'

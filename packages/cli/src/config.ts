@@ -12,7 +12,13 @@ import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, Genera
 import { writeFile } from 'fs/promises'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE } from './constants.js'
-import { WARN_NO_NAMESPACE_ON_TYPES, WARN_NO_NAMESPACE_ON_ESM, ERROR_CONFIG_EXTENSION_UNSUPPORTED } from './messages.js'
+import {
+    WARN_NO_NAMESPACE_ON_TYPES,
+    WARN_NO_NAMESPACE_ON_ESM,
+    ERROR_CONFIG_EXTENSION_UNSUPPORTED,
+    WARN_USE_ESM_FOR_ALIAS,
+    WARN_USE_GJS_FOR_ALIAS,
+} from './messages.js'
 
 export class Config {
     static appName = APP_NAME
@@ -42,6 +48,7 @@ export class Config {
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
+        generateAlias: false,
         promisify: false,
     }
 
@@ -182,6 +189,13 @@ export class Config {
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },
+        generateAlias: {
+            type: 'boolean',
+            alias: 'a',
+            description: 'Generate an alias tsconfig file to support GJS ESM module imports',
+            default: Config.defaults.generateAlias,
+            normalize: true,
+        },
         promisify: {
             type: 'boolean',
             description: 'Generate promisified functions for async/finish calls',
@@ -213,6 +227,7 @@ export class Config {
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
+        generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
     }
 
@@ -303,6 +318,7 @@ export class Config {
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
+            generateAlias: config.generateAlias,
             promisify: config.promisify,
         }
         return generateConfig
@@ -350,6 +366,24 @@ export class Config {
             }
         }
 
+        if (config.generateAlias) {
+            if (!config.environments.includes('gjs')) {
+                Logger.warn(WARN_USE_GJS_FOR_ALIAS)
+                config.environments.push('gjs')
+            }
+            if (config.moduleType !== 'esm') {
+                Logger.warn(WARN_USE_ESM_FOR_ALIAS)
+                config.moduleType = 'esm'
+            }
+        }
+
+        if (config.moduleType === 'esm') {
+            if (config.noNamespace !== false) {
+                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
+                config.noNamespace = false
+            }
+        }
+
         config = await this.validateTsConfig(config)
 
         return config
@@ -382,6 +416,7 @@ export class Config {
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
+            generateAlias: options.generateAlias,
             promisify: options.promisify,
         }
 
@@ -478,6 +513,13 @@ export class Config {
                 typeof configFile.gnomeShellTypes === 'boolean'
             ) {
                 config.gnomeShellTypes = configFile.gnomeShellTypes
+            }
+            // generateAlias
+            if (
+                config.generateAlias === Config.options.generateAlias.default &&
+                typeof configFile.generateAlias === 'boolean'
+            ) {
+                config.generateAlias = configFile.generateAlias
             }
             // promisify
             if (config.promisify === Config.options.promisify.default && typeof configFile.promisify === 'boolean') {

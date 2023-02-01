@@ -1,0 +1,10 @@
+{
+    "environments": ["gjs"],
+    "modules": ["Gio-2.0"],
+    "pretty": true,
+    "buildType": "lib",
+    "moduleType": "esm",
+    "useNamespace": true,
+    "outdir": "./@types",
+    "generateAlias": true
+}

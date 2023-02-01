@@ -5814,6 +5814,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ts-for-gir-gio-2-cat-alias-example@workspace:examples/Gjs/gio-2-cat-alias":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-gio-2-cat-alias-example@workspace:examples/Gjs/gio-2-cat-alias"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: ^0.17.5
+    typescript: ^4.9.4
+  languageName: unknown
+  linkType: soft
+
 "ts-for-gir-gio-2-cat-example@workspace:examples/Gjs/gio-2-cat":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gio-2-cat-example@workspace:examples/Gjs/gio-2-cat"
@@ -6296,7 +6306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.5":
+"typescript@npm:^4.9.4, typescript@npm:^4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -6306,7 +6316,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"
   bin:

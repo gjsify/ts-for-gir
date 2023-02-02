@@ -184,7 +184,7 @@ export class Config {
         },
         gnomeShellTypes: {
             type: 'boolean',
-            description: 'Generate types for GNOME Shell',
+            description: 'Generate types for GNOME Shell (Experimental)',
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },

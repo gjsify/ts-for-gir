@@ -1,0 +1,27 @@
+{
+  "name": "ts-for-gir-gio-2-cat-promisify-example",
+  "version": "3.0.0-beta.8",
+  "description": "Simple Gjs Gtk 3 example app that shows how you can translate strings with gettext",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.json",
+    "build:app": "yarn node esbuild.js",
+    "build": "yarn run build:types && yarn run build:app",
+    "start:app": "gjs -m dist/main.js main.ts",
+    "debug:app": "GTK_DEBUG=interactive yarn run start:app",
+    "start": "yarn run build && yarn run start:app",
+    "validate": "yarn run validate:types && yarn run validate:app",
+    "validate:types": "tsc --project tsconfig.types.json",
+    "validate:app": "tsc --noEmit"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
+    "esbuild": "^0.17.5",
+    "typescript": "^4.9.4"
+  }
+}

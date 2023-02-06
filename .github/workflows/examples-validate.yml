@@ -28,8 +28,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: sudo apt-get update
-    - name: 
+    - name: Install updates (with workaround for bad mirror)
+      run: sudo gem install apt-spy2; sudo apt-spy2 check; sudo apt-spy2 fix --commit; sudo apt-get update
+    - name: Install dependencies
       run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev
     - run: yarn install
     - run: yarn run build:all

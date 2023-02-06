@@ -1,4 +1,5 @@
 export default {
+    environments: ['gjs', 'node'],
     modules: ['*'],
     girDirectories: ['./vala-girs/gir-1.0', './girs'],
     ignoreVersionConflicts: true,

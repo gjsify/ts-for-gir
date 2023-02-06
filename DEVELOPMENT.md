@@ -54,7 +54,7 @@ yarn run build
 Generate example type definitions:
 
 ```bash
-yarn run regress
+yarn run test:girs:gtk4
 ```
 
 ## Gir XML Format

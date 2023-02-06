@@ -28,3 +28,6 @@ debug.txt
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Generated configs
+tsconfig.alias.json

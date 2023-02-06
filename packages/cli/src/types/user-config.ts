@@ -32,8 +32,6 @@ export interface UserConfig {
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
-    /** Disable typescript semantic checks using @ts-nocheck */
-    noCheck: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
     /** Disables the generation of types that are in conflict with the DOM types */

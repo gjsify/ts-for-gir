@@ -44,7 +44,6 @@ export class Config {
         moduleType: 'esm',
         noComments: false,
         noDebugComments: false,
-        noCheck: false,
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
@@ -164,12 +163,6 @@ export class Config {
             default: Config.defaults.noDebugComments,
             normalize: true,
         },
-        noCheck: {
-            type: 'boolean',
-            description: 'Disable typescript semantic checks using @ts-nocheck',
-            default: Config.defaults.noCheck,
-            normalize: true,
-        },
         fixConflicts: {
             type: 'boolean',
             description: 'Fix Inheritance and implementation type conflicts',
@@ -216,7 +209,6 @@ export class Config {
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
-        noCheck: this.options.noCheck,
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
@@ -306,7 +298,6 @@ export class Config {
             noNamespace: config.noNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
-            noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
@@ -403,7 +394,6 @@ export class Config {
             noNamespace: options.noNamespace,
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
-            noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
@@ -481,10 +471,6 @@ export class Config {
                 typeof configFile.noDebugComments === 'boolean'
             ) {
                 config.noDebugComments = configFile.noDebugComments
-            }
-            // noCheck
-            if (config.noCheck === Config.options.noCheck.default && typeof configFile.noCheck === 'boolean') {
-                config.noCheck = configFile.noCheck
             }
             // fixConflicts
             if (

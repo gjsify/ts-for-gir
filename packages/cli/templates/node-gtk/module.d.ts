@@ -1,7 +1,3 @@
-<% if (noCheck) { -%>
-// @ts-nocheck
-<% } -%>
-
 /*
  * Type Definitions for node-gtk (https://github.com/romgrk/node-gtk)
  *

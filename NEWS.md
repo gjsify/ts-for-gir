@@ -5,7 +5,7 @@
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
 - Add support to generate packages for the types we can publish on NPM 
 
-# Unreleased
+# 3.0.0-beta.9
 - Add support for the `"gi://..."` import syntax, see #103 by @CharlieQLe
 - README.md greatly simplified and split into several files
 - Add new DependencyManager to be able to search for a dependency regardless of the version 

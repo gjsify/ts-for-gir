@@ -16,8 +16,6 @@ export interface GenerateConfig {
     girDirectories: string[]
     /** Switch on/off the verbose mode */
     verbose: boolean
-    /** prettifies the generated .d.ts files */
-    pretty: boolean
     /** Do not export all symbols for each module as a namespace */
     noNamespace: boolean
     /** Do not generate documentation comments */

@@ -20,8 +20,6 @@ export interface UserConfig {
     ignoreVersionConflicts: boolean
     /** print the output to console and create no files */
     print: boolean
-    /** prettifies the generated .d.ts files */
-    pretty: boolean
     /** GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules */
     modules: string[]
     /** modules that should be ignored */

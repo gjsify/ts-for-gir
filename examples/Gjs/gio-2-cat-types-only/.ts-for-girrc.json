@@ -1,7 +1,6 @@
 {
     "environments": ["gjs"],
     "modules": ["Gio-2.0"],
-    "pretty": true,
     "buildType": "types",
     "moduleType": "esm",
     "outdir": "./@types"

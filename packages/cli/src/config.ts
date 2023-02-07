@@ -30,7 +30,6 @@ export class Config {
      */
     static defaults = {
         environments: ['gjs'],
-        pretty: false,
         print: false,
         configName: '.ts-for-girrc.js',
         outdir: './@types',
@@ -109,12 +108,6 @@ export class Config {
             description: 'Specify what module code is generated.',
             choices: ['esm', 'commonjs'],
             default: Config.defaults.moduleType,
-            normalize: true,
-        },
-        pretty: {
-            type: 'boolean',
-            description: 'Prettifies the generated .d.ts files',
-            default: Config.defaults.pretty,
             normalize: true,
         },
         verbose: {
@@ -201,7 +194,6 @@ export class Config {
         ignore: this.options.ignore,
         buildType: this.options.buildType,
         moduleType: this.options.moduleType,
-        pretty: this.options.pretty,
         verbose: this.options.verbose,
         ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
@@ -291,7 +283,6 @@ export class Config {
             environment: environment,
             girDirectories: config.girDirectories,
             outdir: config.outdir,
-            pretty: config.pretty,
             verbose: config.verbose,
             buildType: config.buildType,
             moduleType: config.moduleType,
@@ -385,7 +376,6 @@ export class Config {
             moduleType: options.moduleType,
             verbose: options.verbose,
             ignoreVersionConflicts: options.ignoreVersionConflicts,
-            pretty: options.pretty,
             print: options.print,
             outdir: options.outdir,
             girDirectories: options.girDirectories,
@@ -423,10 +413,6 @@ export class Config {
                 typeof configFile.ignoreVersionConflicts === 'boolean'
             ) {
                 config.ignoreVersionConflicts = configFile.ignoreVersionConflicts
-            }
-            // pretty
-            if (config.pretty === Config.options.pretty.default && typeof configFile.pretty === 'boolean') {
-                config.pretty = configFile.pretty
             }
             // print
             if (config.print === Config.options.print.default && typeof configFile.print === 'boolean') {

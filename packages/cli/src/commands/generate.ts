@@ -24,7 +24,6 @@ const builder = (yargs: Argv) => {
         .option('ignore', Config.generateOptions.ignore)
         .option('buildType', Config.generateOptions.buildType)
         .option('moduleType', Config.generateOptions.moduleType)
-        .option('pretty', Config.generateOptions.pretty)
         .option('verbose', Config.generateOptions.verbose)
         .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
         .option('print', Config.generateOptions.print)

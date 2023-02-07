@@ -10,9 +10,7 @@ import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
 import type { GenerateConfig } from './types/index.js'
-import prettier from 'prettier'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
-import { WARN_PRETTIFY_ERROR } from './messages.js'
 import { DependencyManager } from './dependency-manager.js'
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
@@ -75,11 +73,7 @@ export class TemplateProcessor {
         prependEnv = true,
     ): Promise<string> {
         const renderedTpl = await this.load(templateFilename)
-        const destPath = prependEnv
-            ? getDestPath(this.config.environment, outputDir, outputFilename)
-            : Path.join(outputDir, outputFilename)
-        const prettifiedCode = this.config.pretty ? this.prettifySource(renderedTpl, destPath) : null
-        const code = (prettifiedCode || renderedTpl) + append
+        const code = renderedTpl + append
         await this.write(code, outputDir, outputFilename, prependEnv)
         return code
     }
@@ -103,8 +97,7 @@ export class TemplateProcessor {
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(renderedTpls)) {
             const destPath = getDestPath(this.config.environment, outputDir, outputDirname, filename)
-            const prettifiedCode = this.config.pretty ? this.prettifySource(renderedTpls[filename], destPath) : null
-            result[destPath] = (prettifiedCode || renderedTpls[filename]) + append
+            result[destPath] = renderedTpls[filename] + append
             await this.write(result[destPath], outputDir, Path.join(outputDirname, filename))
         }
 
@@ -163,52 +156,6 @@ export class TemplateProcessor {
             return fullGeneralTemplatePath
         }
         return null
-    }
-
-    public prettifySource(source: string, filepath: string) {
-        let prettyCode: string | null = null
-        this.log.info(`   Prettify ${Path.basename(filepath)}...`)
-        let parser: prettier.LiteralUnion<prettier.BuiltInParserName, string> | prettier.CustomParser | undefined =
-            undefined
-        if (filepath.endsWith('.ts')) {
-            parser = 'typescript'
-        } else if (filepath.endsWith('.js')) {
-            parser = 'espree'
-        }
-        try {
-            prettyCode = prettier.format(source, { parser })
-        } catch (error) {
-            this.log.warn(WARN_PRETTIFY_ERROR(filepath))
-            this.log.warn('Error on prettifySource', error)
-        }
-
-        return prettyCode
-    }
-
-    public async prettify(path: string, changeFile = false): Promise<string | null> {
-        let hasError = false
-        let prettyCode: string | null = null
-        const filename = Path.basename(path)
-        this.log.info(`   Prettify ${filename}...`)
-        try {
-            const source = await readFile(Path.resolve('.', path), 'utf8')
-            prettyCode = this.prettifySource(source, path)
-        } catch (error) {
-            this.log.warn('Error on prettify', error)
-            hasError = true
-        }
-
-        if (hasError) {
-            if (!prettyCode) {
-                this.log.warn(WARN_PRETTIFY_ERROR(path))
-            }
-        } else {
-            if (prettyCode && changeFile) {
-                await this.write(prettyCode, Path.dirname(path), Path.basename(path))
-            }
-        }
-
-        return prettyCode
     }
 
     /**

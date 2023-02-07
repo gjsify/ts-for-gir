@@ -18,19 +18,19 @@ export enum DragMotionResult {
     COPY_DROP = 1,
     MOVE_DROP = 2,
     CONTINUE =  3,
-};
+}
 
 export enum DragState {
     INIT =      0,
     DRAGGING =  1,
     CANCELLED = 2,
-};
+}
 
 export enum DragDropResult {
     FAILURE =  0,
     SUCCESS =  1,
     CONTINUE = 2,
-};
+}
 
 export function addDragMonitor(monitor: _Draggable): void;
 

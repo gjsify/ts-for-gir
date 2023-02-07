@@ -254,9 +254,7 @@ The `moduleType` CLI option determines the format in which the generated JavaScr
 
 > This option is only relevant if the `buildType` is set to `"lib"`. The choice of `moduleType` may affect how the generated code is used in other parts of your project, so it's important to choose the right format that works best for your use case.
 
-This option can be useful for the bundler (Webpack, esbuild, ...) you want to use as these often convert the imports / exports, but it also depends on what you need the types for, whether for a Gjs application, a GNOME Shell Extension or for node-gtk.
-
-> You can use a bundler like Webpack, ESBuild, Vite or Parcel to handle the imports, see [examples](https://github.com/gjsify/ts-for-gir/tree/main/examples) for examples with different bundlers and different moduleType formats.
+The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"commonjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"commonjs"`. If you want to build a regular Gjs Application we recommend to use `ESM`.
 
 When `"esm"` is set, the generated JavaScript files will use the ECMAScript module (ESM) format for imports and exports. For example, the generated code might look like this:
 
@@ -282,7 +280,7 @@ export default Gtk;
 
 > The `"esm"` module type is recommended for Gjs applications as it makes use of the ESM import syntax, which is more modern and flexible compared to imports.gi / CommonJS imports. This allows for a more streamlined and convenient way of using the generated types in your Gjs application. Support for ES modules can be activated in `gjs` with its `gjs -m` flag.
 
-When `"commonjs"` and `noNamespace` is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
+When `"commonjs"` and [`noNamespace`](#nonamespace) is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
 
 ```ts
 // Gtk-4.0.d.ts
@@ -303,9 +301,7 @@ module.exports = { Gtk };
 exports.default = Gtk;
 ```
 
-> It is recommended to use the `"commonjs"` moduleType if you are building the types for `node-gtk` or if you are working on a GNOME Shell Extension.
-
-> It is recommended to also set the `noNamespace` option to true when using the `"commonjs"` moduleType option. This will ensure that the generated code is fully compatible with the CommonJS format.
+> It is recommended to also set the [noNamespace](#nonamespace) option to true when using the `"commonjs"` moduleType option. This will ensure that the generated code is fully compatible with the CommonJS format.
 
 
 ### verbose
@@ -371,3 +367,54 @@ In summary, the `noDOMLib` option provides a convenient way to prevent the gener
 The `fixConflicts` CLI option is used to resolve type conflicts between the GObject Introspection descriptions in GIR XML format and TypeScript. For example, properties in the GIR XML format can be overwritten by methods, which is not allowed in TypeScript. When this option is active, `ts-for-gir` attempts to resolve these conflicts. However, it's important to note that this may result in generating types that do not exist.
 
 > If you have found an issue with the `fixConflicts` CLI option, we encourage you to report it. Reporting issues helps improve the quality of `ts-for-gir` and makes it a better tool for everyone.
+
+### gnomeShellTypes
+The `gnomeShellTypes` CLI option generates types for GNOME Shell Extensions and is currently experimental. It is recommended to use this option if you are developing a GNOME Shell Extension and would like to benefit from type checking and auto-completion while writing your code. When this option is enabled, additional types will be generated for the GNOME Shell API.
+
+Note that the generated types may contain experimental or incomplete parts, so use this option with caution and report any issues you encounter. Also note that the generated types are specific to the version of GNOME Shell that you are targeting, so make sure that you are using the correct version of GNOME Shell and `gir` files.
+
+> The example in [examples/Gjs/gnome-shell-hello-world](https://github.com/gjsify/ts-for-gir/tree/main/examples/Gjs/gnome-shell-hello-world) demonstrates the usage of the `gnomeShellTypes` option and how you can build a GNOME Shell Extension with TypeScript using the generated types from `ts-for-gir`.
+
+### generateAlias
+The `generateAlias` CLI option, when active, generates an alias `tsconfig.alias.json` file to support ESM module imports in GJS. This is particularly useful if you want to import GIR modules in your GJS code using the `'gi://...'` syntax. The generated `tsconfig.alias.json` file will contain the necessary path aliases to enable TypeScript to properly resolve the imported modules, allowing for improved code editor functionality, such as type checking and code completion.
+
+The generateAlias option is particularly useful for GJS applications, as it allows you to import GIR modules using the standard ESM syntax, rather than having to use the global imports object.
+
+You can extend the generated `tsconfig.alias.json` file in your main tsconfig.json file by setting the extends field to `./tsconfig.alias.json`.
+
+```json
+// tsconfig.alias.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { 
+      "gi://Gio?version=2.0": ["./@types/Gjs/Gio-2.0.d.ts"],
+      "gi://Gio": ["./@types/Gjs/Gio-2.0.d.ts"],
+      "gi://GObject?version=2.0": ["./@types/Gjs/GObject-2.0.d.ts"],
+      "gi://GObject": ["./@types/Gjs/GObject-2.0.d.ts"],
+      "gi://GLib?version=2.0": ["./@types/Gjs/GLib-2.0.d.ts"],
+      "gi://GLib": ["./@types/Gjs/GLib-2.0.d.ts"]
+    }
+  },
+  "include": ["./@types/Gjs/*.ts"]
+}
+```
+
+```json
+// tsconfig.json
+{
+  "extends": "./tsconfig.alias.json",
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "include": ["@types/Gjs/index.d.ts"],
+  "files": [
+    "main.ts",
+  ]
+}
+```
+
+> The example in [examples/Gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/Gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a Gjs project and provides a clear understanding of how this option can be used in practice.

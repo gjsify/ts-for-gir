@@ -6,7 +6,7 @@
 - Add support to generate packages for the types we can publish on NPM 
 
 # Unreleased
-- Add support for the "gi://..." import syntax, see #103 by @CharlieQLe
+- Add support for the `"gi://..."` import syntax, see #103 by @CharlieQLe
 - README.md greatly simplified and split into several files
 - Add new DependencyManager to be able to search for a dependency regardless of the version 
 - Improved GNOME Shell types
@@ -14,6 +14,7 @@
 - Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found
 - Upgrade dependencies
 ## Breaking Changes
+- Removed the `pretty` and ` noCheck` options
 - Changed default options to:
   - `noNamespace: true` (was `useNamespace: false` before)
   - `environments: ["gjs"]` (was `["gjs", "node"]` before)

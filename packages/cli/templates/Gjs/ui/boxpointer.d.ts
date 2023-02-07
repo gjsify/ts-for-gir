@@ -16,7 +16,7 @@ export enum PopupAnimation {
     SLIDE =1 << 0,
     FADE = 1 << 1,
     FULL = ~0,
-};
+}
 
 /**
  * An actor which displays a triangle "arrow" pointing to a given

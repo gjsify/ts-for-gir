@@ -25,7 +25,7 @@ export enum Ornament {
     DOT = 1,
     CHECK = 2,
     HIDDEN = 3,
-};
+}
 
 declare namespace PopupBaseMenuItem {
     export interface ConstructorProperties {

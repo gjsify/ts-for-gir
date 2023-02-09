@@ -10,7 +10,7 @@
   <img src="https://badgen.net/npm/dw/@ts-for-gir/cli" />
 </p>
 
-<p align="center">TypeScript type definition generator for GObject introspection interfaces</p>
+<p align="center">TypeScript type definition generator for GObject introspection GIR files</p>
 
 <p align="center">
   <img src=".github/feeling.gif" />

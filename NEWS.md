@@ -11,7 +11,7 @@
 - Add new DependencyManager to be able to search for a dependency regardless of the version 
 - Improved GNOME Shell types
 - Only extend class/interface parent if the dependency of the parent exists
-- Add more properties to the dependency object like `exists` to be able to check if a dependency gir file was found
+- Add more properties to the dependency object like `exists` to be able to check if a dependency `gir` file was found
 - Upgrade dependencies
 ## Breaking Changes
 - Removed the `pretty` and ` noCheck` options

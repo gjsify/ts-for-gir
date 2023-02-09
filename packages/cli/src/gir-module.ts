@@ -210,6 +210,7 @@ export class GirModule {
             text = this.transformation.transformGirDoc(text)
             tsDoc.text = text
         }
+
         return tsDoc
     }
 
@@ -1286,16 +1287,28 @@ export class GirModule {
                 ),
             )
 
+            // TODO: This property is currently unused
+            let docReturns = func.finishFn.doc.returns
+            if (docReturns) {
+                docReturns = `Promisified result of: ${docReturns}`
+            } else {
+                docReturns = `A Promise of the the result of {@link ${func.asyncFn.name}}`
+            }
+
+            const docText = `Promisified version of {@link ${func.finishFn.name}}\n\n${func.asyncFn.doc.text}`
+
+            const doc = this.girFactory.newTsDoc({
+                text: docText,
+                tags: func.asyncFn.doc.tags.filter((tag) => tag.paramName !== 'callback'),
+                returns: docReturns,
+            })
+
             const promisifyFn = this.girFactory.newTsFunction(
                 {
                     ...func.asyncFn,
                     inParams,
                     returnTypes,
-                    doc: {
-                        text: func.asyncFn.doc.text,
-                        tags: func.asyncFn.doc.tags.filter((tag) => tag.paramName !== 'callback'),
-                        returns: func.asyncFn.doc.returns,
-                    },
+                    doc,
                 },
                 func.asyncFn.parent,
             )

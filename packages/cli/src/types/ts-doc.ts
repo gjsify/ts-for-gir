@@ -18,6 +18,7 @@ export interface TsDoc {
 
     /**
      * The text of the ```@returns``` tag if present.
+     * TODO: This property is currently unused
      */
     returns?: string
 }

@@ -20,8 +20,6 @@ export interface UserConfig {
     ignoreVersionConflicts: boolean
     /** print the output to console and create no files */
     print: boolean
-    /** prettifies the generated .d.ts files */
-    pretty: boolean
     /** GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules */
     modules: string[]
     /** modules that should be ignored */
@@ -32,8 +30,6 @@ export interface UserConfig {
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
-    /** Disable typescript semantic checks using @ts-nocheck */
-    noCheck: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
     /** Disables the generation of types that are in conflict with the DOM types */

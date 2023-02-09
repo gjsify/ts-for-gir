@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-browser-example",
-  "version": "3.0.0-beta.8",
+  "version": "3.0.0-beta.9",
   "description": "",
   "main": "dist/main.js",
   "private": true,
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.11.19",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",

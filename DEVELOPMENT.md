@@ -4,7 +4,7 @@ Install GObject Introspection Repository files:
 
 ```bash
 # Ubuntu 22.04
-sudo apt update && sudo apt install \
+sudo apt-get update && sudo apt-get install \
     libappindicator3-dev \
     libgda-5.0-dev \
     libgirepository1.0-dev \
@@ -54,7 +54,7 @@ yarn run build
 Generate example type definitions:
 
 ```bash
-yarn run regress
+yarn run test:girs:gtk4
 ```
 
 ## Gir XML Format

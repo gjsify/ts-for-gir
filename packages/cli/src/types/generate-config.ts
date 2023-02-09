@@ -16,16 +16,12 @@ export interface GenerateConfig {
     girDirectories: string[]
     /** Switch on/off the verbose mode */
     verbose: boolean
-    /** prettifies the generated .d.ts files */
-    pretty: boolean
     /** Do not export all symbols for each module as a namespace */
     noNamespace: boolean
     /** Do not generate documentation comments */
     noComments: boolean
     /** Do not generate debugging inline comments */
     noDebugComments: boolean
-    /** Disable typescript semantic checks using @ts-nocheck */
-    noCheck: boolean
     /** Fix Inheritance and implementation type conflicts */
     fixConflicts: boolean
     /** Disables the generation of types that are in conflict with the DOM types */

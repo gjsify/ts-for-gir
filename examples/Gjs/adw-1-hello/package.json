@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-adw-1-hello-example",
-  "version": "3.0.0-beta.8",
+  "version": "3.0.0-beta.9",
   "description": "Simple Gjs Typescript hello-world example using Libadwaita",
   "main": "index.js",
   "type": "module",
@@ -23,8 +23,8 @@
     "@babel/core": "^7.20.12",
     "@rollup/plugin-babel": "^6.0.3",
     "@ts-for-gir/cli": "workspace:^",
-    "rollup": "^3.12.1",
+    "rollup": "^3.14.0",
     "typescript": "^4.9.5",
-    "vite": "^4.0.4"
+    "vite": "^4.1.1"
   }
 }

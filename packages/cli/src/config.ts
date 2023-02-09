@@ -30,7 +30,6 @@ export class Config {
      */
     static defaults = {
         environments: ['gjs'],
-        pretty: false,
         print: false,
         configName: '.ts-for-girrc.js',
         outdir: './@types',
@@ -44,7 +43,6 @@ export class Config {
         moduleType: 'esm',
         noComments: false,
         noDebugComments: false,
-        noCheck: false,
         fixConflicts: true,
         noDOMLib: false,
         gnomeShellTypes: false,
@@ -113,12 +111,6 @@ export class Config {
             default: Config.defaults.moduleType,
             normalize: true,
         },
-        pretty: {
-            type: 'boolean',
-            description: 'Prettifies the generated .d.ts files',
-            default: Config.defaults.pretty,
-            normalize: true,
-        },
         verbose: {
             type: 'boolean',
             alias: 'v',
@@ -165,12 +157,6 @@ export class Config {
             default: Config.defaults.noDebugComments,
             normalize: true,
         },
-        noCheck: {
-            type: 'boolean',
-            description: 'Disable typescript semantic checks using @ts-nocheck',
-            default: Config.defaults.noCheck,
-            normalize: true,
-        },
         fixConflicts: {
             type: 'boolean',
             description: 'Fix Inheritance and implementation type conflicts',
@@ -185,7 +171,7 @@ export class Config {
         },
         gnomeShellTypes: {
             type: 'boolean',
-            description: 'Generate types for GNOME Shell',
+            description: 'Generate types for GNOME Shell (Experimental)',
             default: Config.defaults.gnomeShellTypes,
             normalize: true,
         },
@@ -215,7 +201,6 @@ export class Config {
         ignore: this.options.ignore,
         buildType: this.options.buildType,
         moduleType: this.options.moduleType,
-        pretty: this.options.pretty,
         verbose: this.options.verbose,
         ignoreVersionConflicts: this.options.ignoreVersionConflicts,
         print: this.options.print,
@@ -223,7 +208,6 @@ export class Config {
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
-        noCheck: this.options.noCheck,
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         gnomeShellTypes: this.options.gnomeShellTypes,
@@ -307,14 +291,12 @@ export class Config {
             environment: environment,
             girDirectories: config.girDirectories,
             outdir: config.outdir,
-            pretty: config.pretty,
             verbose: config.verbose,
             buildType: config.buildType,
             moduleType: config.moduleType,
             noNamespace: config.noNamespace,
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
-            noCheck: config.noCheck,
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
             gnomeShellTypes: config.gnomeShellTypes,
@@ -403,7 +385,6 @@ export class Config {
             moduleType: options.moduleType,
             verbose: options.verbose,
             ignoreVersionConflicts: options.ignoreVersionConflicts,
-            pretty: options.pretty,
             print: options.print,
             outdir: options.outdir,
             girDirectories: options.girDirectories,
@@ -412,7 +393,6 @@ export class Config {
             noNamespace: options.noNamespace,
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
-            noCheck: options.noCheck,
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
             gnomeShellTypes: options.gnomeShellTypes,
@@ -443,10 +423,6 @@ export class Config {
                 typeof configFile.ignoreVersionConflicts === 'boolean'
             ) {
                 config.ignoreVersionConflicts = configFile.ignoreVersionConflicts
-            }
-            // pretty
-            if (config.pretty === Config.options.pretty.default && typeof configFile.pretty === 'boolean') {
-                config.pretty = configFile.pretty
             }
             // print
             if (config.print === Config.options.print.default && typeof configFile.print === 'boolean') {
@@ -491,10 +467,6 @@ export class Config {
                 typeof configFile.noDebugComments === 'boolean'
             ) {
                 config.noDebugComments = configFile.noDebugComments
-            }
-            // noCheck
-            if (config.noCheck === Config.options.noCheck.default && typeof configFile.noCheck === 'boolean') {
-                config.noCheck = configFile.noCheck
             }
             // fixConflicts
             if (

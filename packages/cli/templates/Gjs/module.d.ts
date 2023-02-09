@@ -1,7 +1,3 @@
-<% if (noCheck) { -%>
-// @ts-nocheck
-<% } -%>
-
 /*
  * Type Definitions for Gjs (https://gjs.guide/)
  *

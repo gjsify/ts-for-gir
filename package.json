@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "3.0.0-beta.8",
+  "version": "3.0.0-beta.9",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "type": "module",
@@ -17,7 +17,7 @@
     "publish:next": "yarn run publish --tag next",
     "publish:latest": "yarn run publish --tag latest",
     "publish": "yarn run build && yarn workspace @ts-for-gir/cli npm publish --tolerate-republish --access public",
-    "test": "yarn run build:all && yarn run regress && yarn run test:girs:all && yarn run validate:app && yarn run build:all && yarn ts-for-gir:cli-examples:all",
+    "test": "yarn run build:all && yarn run test:girs:all && yarn run validate:app && yarn ts-for-gir:cli-examples:all",
     "test:girs:all": "yarn run build:types:all && yarn run validate:types:all",
     "test:girs:gjs": "yarn run build:types:gjs && yarn run validate:types:gjs",
     "test:girs:node": "yarn run build:types:node && yarn run validate:types:node",
@@ -29,7 +29,6 @@
     "test:girs:modemmanager1": "yarn run build:types:modemmanager1 && yarn run validate:types:modemmanager1",
     "test:girs:timezonemap1": "yarn run build:types:timezonemap1 && yarn run validate:types:timezonemap1",
     "test:girs:rygelcore2": "yarn run build:types:rygelcore2 && yarn run validate:types:rygelcore2",
-    "regress": "yarn ts-for-gir generate --configName='.ts-for-gir.regress.rc.js'",
     "build": "yarn run build:cli",
     "build:cli": "yarn workspace @ts-for-gir/cli run build",
     "build:all": "yarn run build:cli && yarn workspaces foreach --exclude @ts-for-gir/cli --parallel run build",
@@ -120,6 +119,6 @@
   ],
   "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.37"
+    "@yarnpkg/pnpify": "^4.0.0-rc.38"
   }
 }

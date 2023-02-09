@@ -21,7 +21,6 @@ export default {
         //  GNOME Shell gir file dependencies on Ubuntu 22.10 (package: libmutter-11-dev)
         '/usr/lib/x86_64-linux-gnu/mutter-11',
     ],
-    pretty: true,
     buildType: "types",
     noNamespace: false,
     gnomeShellTypes: true,

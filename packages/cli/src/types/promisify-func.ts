@@ -2,6 +2,8 @@ import { TsFunction } from './ts-function'
 
 // Identify promisified funcs
 export interface PromisifyFunc {
-    async?: TsFunction
-    finish?: TsFunction
+    /** The Gio async function */
+    asyncFn?: TsFunction
+    /** The Gio finish function to get the result of the `asyncFn` */
+    finishFn?: TsFunction
 }

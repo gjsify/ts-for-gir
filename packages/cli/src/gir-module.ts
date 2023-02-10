@@ -82,6 +82,7 @@ import type {
     ClassParent,
     InjectionParameter,
     TsSignal,
+    PromisifyFunc,
 } from './types/index.js'
 
 export class GirModule {
@@ -209,6 +210,7 @@ export class GirModule {
             text = this.transformation.transformGirDoc(text)
             tsDoc.text = text
         }
+
         return tsDoc
     }
 
@@ -1222,6 +1224,90 @@ export class GirModule {
         return tsData
     }
 
+    overloadPromisifiedFunctions(girFunctions: GirFunctionElement[]): void {
+        if (!this.config.promisify) return
+
+        const promisifyAsyncReturn = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
+        const promisifyFuncMap = {} as { [name: string]: PromisifyFunc }
+
+        // Find the functions that can be promisified
+        for (const girFunction of girFunctions) {
+            const tsFunction = girFunction._tsData
+            if (!tsFunction) continue
+
+            // Check if function name satisfies async,finish scheme
+            const isAsync = tsFunction.name.endsWith('_async') || tsFunction.name.endsWith('_begin')
+            const isFinish = tsFunction.name.endsWith('_finish')
+            if (!isAsync && !isFinish) continue
+
+            // Handle async functions
+            if (isAsync) {
+                if (tsFunction.inParams.length === 0) continue
+                const lastParam = tsFunction.inParams[tsFunction.inParams.length - 1]
+                if (lastParam.type && lastParam.type.length > 0) {
+                    const type = lastParam.type[0].$.name
+                    if (type && promisifyAsyncReturn.includes(type)) {
+                        if (!(tsFunction.name in promisifyFuncMap)) promisifyFuncMap[tsFunction.name] = {}
+                        promisifyFuncMap[tsFunction.name].asyncFn = tsFunction
+                    }
+                }
+            }
+
+            // Handle finish functions
+            if (isFinish) {
+                if (tsFunction.returnTypes.length === 0) continue
+                let name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
+                if (!(name in promisifyFuncMap)) name = `${tsFunction.name.replace(/(_finish)$/, '')}_begin`
+                if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
+                promisifyFuncMap[name].finishFn = tsFunction
+            }
+        }
+
+        // Generate TsFunctions for promisify-able functions and add to the array
+        for (const [, func] of Object.entries(promisifyFuncMap)) {
+            if (!func.asyncFn || !func.finishFn) continue
+
+            const inParams = this.girFactory.newGirCallableParamElements(
+                func.asyncFn.inParams.slice(0, -1),
+                func.asyncFn,
+            )
+
+            const outParams = this.girFactory.newGirCallableParamElements(func.finishFn.outParams, func.asyncFn)
+
+            const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
+
+            // TODO: This property is currently unused
+            let docReturns = func.finishFn.doc.returns
+            if (docReturns) {
+                docReturns = `Promisified result of: ${docReturns}`
+            } else {
+                docReturns = `A Promise of the the result of {@link ${func.asyncFn.name}}`
+            }
+
+            const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
+
+            const doc = this.girFactory.newTsDoc({
+                text: docText,
+                tags: func.asyncFn.doc.tags.filter((tag) => tag.paramName !== 'callback'),
+                returns: docReturns,
+            })
+
+            const promisifyFn = this.girFactory.newTsFunction(
+                {
+                    ...func.asyncFn,
+                    inParams,
+                    outParams,
+                    returnTypes,
+                    isPromise: true,
+                    doc,
+                },
+                func.asyncFn.parent,
+            )
+
+            func.asyncFn.overloads.push(promisifyFn)
+        }
+    }
+
     private getCallbackInterfaceTsData(girCallback: GirCallbackElement | GirConstructorElement) {
         if (!girElementIsIntrospectable(girCallback)) return undefined
 
@@ -1696,6 +1782,9 @@ export class GirModule {
                 girMethods.push(girMethod)
             }
         }
+
+        this.overloadPromisifiedFunctions(methods)
+
         return girMethods
     }
 
@@ -1732,6 +1821,8 @@ export class GirModule {
                     girMethods.push(localName.method)
                 }
             }
+
+            this.overloadPromisifiedFunctions(girClass.method)
         }
         return girMethods
     }
@@ -2653,6 +2744,8 @@ export class GirModule {
                 })
                 if (!girFunc._tsData) continue
             }
+
+            this.overloadPromisifiedFunctions(this.ns.function)
         }
 
         if (this.ns.callback)

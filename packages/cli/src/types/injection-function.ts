@@ -1,4 +1,11 @@
-import type { TsFunction, InjectionParameter, InjectionInstanceParameter, InjectionType } from './index.js'
+import type {
+    TsFunction,
+    InjectionParameter,
+    InjectionInstanceParameter,
+    InjectionType,
+    GirCallableParamElement,
+    GirInstanceParameter,
+} from './index.js'
 
 export interface InjectionFunction
     extends Pick<TsFunction, 'name' | 'girTypeName'>,
@@ -10,6 +17,7 @@ export interface InjectionFunction
                 | 'isGlobal'
                 | 'isVirtual'
                 | 'isInjected'
+                | 'isPromise'
                 | 'overloads'
                 | 'generics'
                 | 'doc'
@@ -17,7 +25,7 @@ export interface InjectionFunction
             >
         > {
     returnTypes?: InjectionType[]
-    inParams?: InjectionParameter[]
-    outParams?: InjectionParameter[]
-    instanceParameters?: InjectionInstanceParameter[]
+    inParams?: Array<InjectionParameter | GirCallableParamElement>
+    outParams?: Array<InjectionParameter | GirCallableParamElement>
+    instanceParameters?: Array<InjectionInstanceParameter | GirInstanceParameter>
 }

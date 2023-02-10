@@ -31,6 +31,7 @@ import type {
     TypeTsFunction,
     TypeTsProperty,
     TsClass,
+    TsInstanceParameter,
 } from './types/index.js'
 
 import { GENERIC_NAMES } from './constants.js'
@@ -148,7 +149,10 @@ export class GirFactory {
         }
     }
 
-    newGirCallableParamElement(tsData: InjectionParameter, parent: TsFunction): GirCallableParamElement {
+    newGirCallableParamElement(
+        tsData: InjectionParameter | GirCallableParamElement,
+        parent: TsFunction,
+    ): GirCallableParamElement {
         return {
             $: this.newGirAttr(),
             ...this.newGirDocElement(),
@@ -157,7 +161,7 @@ export class GirFactory {
     }
 
     newGirCallableParamElements(
-        injectionParams: InjectionParameter[] = [],
+        injectionParams: Array<InjectionParameter | GirCallableParamElement> = [],
         parent: TsFunction,
     ): GirCallableParamElement[] {
         const result: GirCallableParamElement[] = []
@@ -167,7 +171,13 @@ export class GirFactory {
         return result
     }
 
-    newGirInstanceParameter(tsData: InjectionInstanceParameter): GirInstanceParameter {
+    newGirInstanceParameter(
+        data: InjectionInstanceParameter | GirInstanceParameter | TsInstanceParameter,
+    ): GirInstanceParameter {
+        const tsData = (data as GirInstanceParameter)._tsData
+            ? (data as GirInstanceParameter)._tsData
+            : (data as InjectionInstanceParameter | TsInstanceParameter)
+
         return {
             $: this.newGirAttr(),
             ...this.newGirDocElement(),
@@ -175,7 +185,9 @@ export class GirFactory {
         }
     }
 
-    newGirInstanceParameters(injectionInstanceParams: InjectionInstanceParameter[] = []): GirInstanceParameter[] {
+    newGirInstanceParameters(
+        injectionInstanceParams: Array<InjectionInstanceParameter | GirInstanceParameter> = [],
+    ): GirInstanceParameter[] {
         const result: GirInstanceParameter[] = []
         for (const injectionInstanceParam of injectionInstanceParams) {
             result.push(this.newGirInstanceParameter(injectionInstanceParam))
@@ -282,23 +294,39 @@ export class GirFactory {
         return types
     }
 
-    newTsParameter(tsData: InjectionParameter, parent: TsFunction) {
+    newTsParameter(tsData: InjectionParameter | GirCallableParamElement, parent: TsFunction) {
         const types: TsType[] = []
-        for (const type of tsData.type || []) {
+        const tsTypes = (tsData as GirCallableParamElement)._tsData?.type || (tsData as InjectionParameter).type || []
+        for (const type of tsTypes) {
             type.type = type.type || 'any'
             types.push(this.newTsType(type))
         }
 
+        const name = (tsData as InjectionParameter).name || (tsData as GirCallableParamElement)._tsData?.name
+        const isRest =
+            (tsData as InjectionParameter).isRest || (tsData as GirCallableParamElement)._tsData?.isRest || false
+        const doc = (tsData as InjectionParameter).doc || (tsData as GirCallableParamElement)._tsData?.doc
+
+        if (!name) throw new Error('[GirFactory.newTsParameter] The name property is required!')
+
         const newTsData: TsParameter = {
             type: types,
-            name: tsData.name,
-            isRest: tsData.isRest || false,
+            name: name,
+            isRest: isRest,
             girTypeName: 'callable-param',
-            doc: this.newTsDoc(tsData.doc),
+            doc: this.newTsDoc(doc),
             parent,
         }
 
         return newTsData
+    }
+
+    newTsParameters(datas: Array<InjectionParameter | GirCallableParamElement>, parent: TsFunction) {
+        const tsParameters: TsParameter[] = []
+        for (const data of datas) {
+            tsParameters.push(this.newTsParameter(data, parent))
+        }
+        return tsParameters
     }
 
     /**

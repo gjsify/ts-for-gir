@@ -10,14 +10,17 @@ export interface TsType {
     type: string
     callbacks: GirCallbackElement[]
     generics: TsGenericParameter[]
-    // TODO: transform array to type with generics?
+    /**
+     * This appends `[]` to the generated type
+     * TODO: we should transform this to a generic like `Array<...>`
+     **/
     isArray: boolean
     isFunction: boolean
     isCallback: boolean
     /**
      * Left type separated, used if multiple types found.
-     * If nothing os set, `|` will be used by default.
-     *
+     * If nothing is set, `|` will be used by default.
+     * TODO: This should be refactored
      * @Example
      * `string | number` or `Gtk.Window & Gtk.Widget`
      * */

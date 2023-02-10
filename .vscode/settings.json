@@ -274,6 +274,7 @@
     "printf",
     "PRIO",
     "PROGRESSBAR",
+    "promisified",
     "pspec",
     "Pspecs",
     "psuwit",

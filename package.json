@@ -2,15 +2,14 @@
   "name": "ts-for-gir",
   "version": "3.0.0-beta.9",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
-  "module": "lib/index.js",
   "type": "module",
-  "bin": "./lib/start.js",
   "private": true,
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "start": "yarn ts-for-gir",
+    "start:dev": "yarn workspace @ts-for-gir/cli run start:dev",
     "update:submodules": "git submodule update --init --recursive && git submodule foreach git pull origin master",
     "update:packages": "yarn upgrade-interactive",
     "update": "yarn run update:submodules && yarn run update:packages",
@@ -104,12 +103,12 @@
   ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.50.0",
-    "@typescript-eslint/parser": "^5.50.0",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "rimraf": "^4.1.2",
     "typescript": "^4.9.5"
   },
@@ -119,6 +118,6 @@
   ],
   "packageManager": "yarn@3.3.1",
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.38"
+    "@yarnpkg/pnpify": "^4.0.0-rc.39"
   }
 }

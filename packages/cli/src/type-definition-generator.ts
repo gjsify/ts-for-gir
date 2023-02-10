@@ -482,13 +482,16 @@ export default class TypeDefinitionGenerator implements Generator {
         const overrideReturnType = tsFunction.overrideReturnType
         const outParams = tsFunction.outParams
         const retTypeIsVoid = tsFunction.retTypeIsVoid
+        const isPromise = tsFunction.isPromise || false
         const typeStr = this.generateTypes(tsFunction.returnTypes, namespace)
 
         let desc = typeStr
 
         if (overrideReturnType) {
             desc = removeNamespace(overrideReturnType, namespace)
-        } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+        }
+        // TODO: Transform the outParams to `tsFunction.returnTypes` to move this logic to `gir-module.ts`
+        else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
             const outParamsDesc: string[] = []
 
             if (!retTypeIsVoid) {
@@ -503,6 +506,10 @@ export default class TypeDefinitionGenerator implements Generator {
             desc = `[ ${desc} ]`
         } else if (outParams.length === 1 && retTypeIsVoid) {
             desc = this.generateOutParameterReturn(outParams[0], namespace).join(' ')
+        }
+
+        if (isPromise) {
+            desc = `Promise<${desc}>`
         }
 
         return desc

@@ -8,70 +8,95 @@
             "name": "build:types:vda1",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.vda1.rc.js", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.vda1.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
         },
         {
             "name": "build:types:gtk2",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.gtk2.rc.js", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk2.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
         },
         {
             "name": "build:types:gtk3",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.gtk3.rc.js", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk3.rc.js", "--outdir", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
         },
         {
-            "name": "build:types:gtk4",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.gtk4.rc.js", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "Gtk-4.0", "--verbose", "--promisify", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
-            "sourceMaps": true
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
+            "sourceMaps": true,
+        },
+        {
+            "name": "build:types:gio",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
+            "args": [
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "Gio-2.0", "--verbose", "--promisify", "-o", "./tmp"
+            ],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
+            "sourceMaps": true,
         },
         {
             "name": "build:types",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
             "name": "build:types:gjs",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=gjs", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=gjs", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         },
         {
             "name": "build:types:node",
             "type": "node",
             "request": "launch",
+            "cwd": "${workspaceRoot}/packages/cli",
+            "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=node", "-o", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--environments=node", "-o", "./tmp"
             ],
-            "runtimeArgs": ["--nolazy", "--loader", "ts-node/esm"],
+            "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
         }
     ]

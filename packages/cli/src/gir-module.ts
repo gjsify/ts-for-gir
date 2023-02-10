@@ -1271,6 +1271,8 @@ export class GirModule {
                 func.asyncFn,
             )
 
+            debugger
+
             const returnTypes = this.girFactory.newTsTypes(
                 func.finishFn.returnTypes.map(
                     (type) =>

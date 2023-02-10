@@ -17,6 +17,7 @@ export interface InjectionFunction
                 | 'isGlobal'
                 | 'isVirtual'
                 | 'isInjected'
+                | 'isPromise'
                 | 'overloads'
                 | 'generics'
                 | 'doc'

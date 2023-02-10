@@ -1236,7 +1236,7 @@ export class GirModule {
             if (!tsFunction) continue
 
             // Check if function name satisfies async,finish scheme
-            const isAsync = tsFunction.name.endsWith('_async')
+            const isAsync = tsFunction.name.endsWith('_async') || tsFunction.name.endsWith('_begin')
             const isFinish = tsFunction.name.endsWith('_finish')
             if (!isAsync && !isFinish) continue
 
@@ -1256,7 +1256,8 @@ export class GirModule {
             // Handle finish functions
             if (isFinish) {
                 if (tsFunction.returnTypes.length === 0) continue
-                const name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
+                let name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
+                if (!(name in promisifyFuncMap)) name = `${tsFunction.name.replace(/(_finish)$/, '')}_begin`
                 if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
                 promisifyFuncMap[name].finishFn = tsFunction
             }
@@ -1264,30 +1265,16 @@ export class GirModule {
 
         // Generate TsFunctions for promisify-able functions and add to the array
         for (const [, func] of Object.entries(promisifyFuncMap)) {
-            if (func.asyncFn === undefined || func.finishFn === undefined) continue
+            if (!func.asyncFn || !func.finishFn) continue
 
             const inParams = this.girFactory.newGirCallableParamElements(
                 func.asyncFn.inParams.slice(0, -1),
                 func.asyncFn,
             )
 
-            debugger
+            const outParams = this.girFactory.newGirCallableParamElements(func.finishFn.outParams, func.asyncFn)
 
-            const returnTypes = this.girFactory.newTsTypes(
-                func.finishFn.returnTypes.map(
-                    (type) =>
-                        ({
-                            type: `Promise<${type.type}>`,
-                            optional: false,
-                            nullable: false,
-                            callbacks: [],
-                            generics: [],
-                            isArray: false,
-                            isFunction: false,
-                            isCallback: false,
-                        } as TsType),
-                ),
-            )
+            const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
 
             // TODO: This property is currently unused
             let docReturns = func.finishFn.doc.returns
@@ -1297,7 +1284,7 @@ export class GirModule {
                 docReturns = `A Promise of the the result of {@link ${func.asyncFn.name}}`
             }
 
-            const docText = `Promisified version of {@link ${func.finishFn.name}}\n\n${func.asyncFn.doc.text}`
+            const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
 
             const doc = this.girFactory.newTsDoc({
                 text: docText,
@@ -1309,7 +1296,9 @@ export class GirModule {
                 {
                     ...func.asyncFn,
                     inParams,
+                    outParams,
                     returnTypes,
+                    isPromise: true,
                     doc,
                 },
                 func.asyncFn.parent,

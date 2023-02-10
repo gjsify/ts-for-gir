@@ -63,7 +63,10 @@ See [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobj
 
 ## Debugging
 
-It is strongly recommended to use the debugger. For Visual Studio Code there are some predefined launch configurations for it. Take a look at the following video:
+It is strongly recommended to use the debugger. For Visual Studio Code there are some predefined launch configurations for it.
+The VSCode launch.json configuration is intended that Node was installed via [NVM](https://github.com/nvm-sh/nvm) and yarn was installed globally using npm.
+
+Take a look at the following video, to see how the debugging process looks like:
 
 https://user-images.githubusercontent.com/1073989/150143112-1c0a2dab-3d4c-4472-818f-8404a620cc53.mp4
 

@@ -3,7 +3,13 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
-- Add support to generate packages for the types we can publish on NPM 
+- Add support to generate packages for the types we can publish on NPM
+- Implement `@returns` TSDoc tag
+
+# Unreleased
+- Fixed VSCode launch.json
+- Reenable `ts-node` to develop without the need to rebuild `ts-for-gir` for debugging
+- Add support for promisified function generation, see #104 by @CharlieQLe
 
 # 3.0.0-beta.9
 - Add support for the `"gi://..."` import syntax, see #103 by @CharlieQLe

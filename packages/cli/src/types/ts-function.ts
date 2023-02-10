@@ -29,10 +29,21 @@ export interface TsFunction {
     isVirtual: boolean
     /** true if this function was injected using the `Injector`. This information is used in the `ConflictResolver` */
     isInjected: boolean
+    /** Define this to override the return type defined in `returnTypes` */
     overrideReturnType?: string
+    /** True if the return type is void */
     retTypeIsVoid: boolean
+    /**
+     * True if the return types are a promise
+     * TODO: we should transform this to a generic `returnTypes`
+     **/
+    isPromise?: boolean
     inParams: GirCallableParamElement[]
     instanceParameters: GirInstanceParameter[]
+    /**
+     * Additional return types
+     * TODO: we should transform this to `returnTypes`
+     **/
     outParams: GirCallableParamElement[]
     generics: TsGenericParameter[]
 

@@ -5,7 +5,7 @@
 import inquirer from 'inquirer'
 import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
-import Path from 'path'
+import { join, extname, dirname, resolve } from 'path'
 import OS from 'os'
 import { merge, isEqual, readTsJsConfig } from './utils.js'
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
@@ -50,7 +50,7 @@ export class Config {
         promisify: false,
     }
 
-    static configFilePath = Path.join(process.cwd(), Config.defaults.configName)
+    static configFilePath = join(process.cwd(), Config.defaults.configName)
 
     /**
      * CLI options used in commands/generate.ts and commands/list.ts
@@ -232,7 +232,7 @@ export class Config {
         const path = userConfig?.filepath || this.configFilePath
         const configToStore = {}
         merge(configToStore, userConfig?.config || {}, configsToAdd)
-        const fileExtension = Path.extname(path)
+        const fileExtension = extname(path)
         let writeConfigString = ''
         switch (fileExtension) {
             case '.js':
@@ -281,8 +281,25 @@ export class Config {
         }
         const userConfig: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
         if (userConfig?.filepath) {
-            Config.configFilePath = userConfig?.filepath
+            Config.configFilePath = userConfig.filepath
+            const configDir = dirname(userConfig.filepath)
+
+            // If outdir is not absolute, make it relative to the config file
+            if (userConfig.config.outdir && !userConfig.config.outdir?.startsWith('/')) {
+                userConfig.config.outdir = resolve(configDir, userConfig.config.outdir)
+            }
+
+            // Same for girDirectories
+            if (userConfig.config.girDirectories) {
+                userConfig.config.girDirectories = userConfig.config.girDirectories.map((dir) => {
+                    if (!dir.startsWith('/')) {
+                        return resolve(configDir, dir)
+                    }
+                    return dir
+                })
+            }
         }
+
         return userConfig
     }
 
@@ -377,7 +394,8 @@ export class Config {
      * @param options
      */
     public static async load(options: ConfigFlags): Promise<UserConfig> {
-        const configFile = (await this.loadConfigFile(options.configName))?.config || {}
+        const configFile = await this.loadConfigFile(options.configName)
+        const configFileData = configFile?.config || {}
 
         const config: UserConfig = {
             environments: options.environments,
@@ -400,102 +418,108 @@ export class Config {
             promisify: options.promisify,
         }
 
-        if (configFile) {
+        if (configFileData) {
             // environments
-            if (isEqual(config.environments, Config.defaults.environments) && configFile.environments) {
-                config.environments = configFile.environments
+            if (isEqual(config.environments, Config.defaults.environments) && configFileData.environments) {
+                config.environments = configFileData.environments
             }
             // buildType
-            if (config.buildType === Config.options.buildType.default && configFile.buildType) {
-                config.buildType = configFile.buildType
+            if (config.buildType === Config.options.buildType.default && configFileData.buildType) {
+                config.buildType = configFileData.buildType
             }
             // moduleType
-            if (config.moduleType === Config.options.moduleType.default && configFile.moduleType) {
-                config.moduleType = configFile.moduleType
+            if (config.moduleType === Config.options.moduleType.default && configFileData.moduleType) {
+                config.moduleType = configFileData.moduleType
             }
             // verbose
-            if (config.verbose === Config.options.verbose.default && typeof configFile.verbose === 'boolean') {
-                config.verbose = configFile.verbose
+            if (config.verbose === Config.options.verbose.default && typeof configFileData.verbose === 'boolean') {
+                config.verbose = configFileData.verbose
             }
             // ignoreVersionConflicts
             if (
                 config.ignoreVersionConflicts === Config.options.ignoreVersionConflicts.default &&
-                typeof configFile.ignoreVersionConflicts === 'boolean'
+                typeof configFileData.ignoreVersionConflicts === 'boolean'
             ) {
-                config.ignoreVersionConflicts = configFile.ignoreVersionConflicts
+                config.ignoreVersionConflicts = configFileData.ignoreVersionConflicts
             }
             // print
-            if (config.print === Config.options.print.default && typeof configFile.print === 'boolean') {
-                config.print = configFile.print
+            if (config.print === Config.options.print.default && typeof configFileData.print === 'boolean') {
+                config.print = configFileData.print
             }
             // outdir
-            if (config.outdir === Config.options.outdir.default && configFile.outdir) {
-                config.outdir = config.print ? null : configFile.outdir
+            if (config.outdir === Config.options.outdir.default && configFileData.outdir) {
+                config.outdir = config.print ? null : configFileData.outdir
             }
             // girDirectories
-            if (config.girDirectories === Config.options.girDirectories.default && configFile.girDirectories) {
-                config.girDirectories = configFile.girDirectories
+            if (config.girDirectories === Config.options.girDirectories.default && configFileData.girDirectories) {
+                config.girDirectories = configFileData.girDirectories
             }
             // ignore
             if (
                 (!config.ignore || config.ignore.length <= 0 || isEqual(config.ignore, Config.defaults.ignore)) &&
-                configFile.ignore
+                configFileData.ignore
             ) {
-                config.ignore = configFile.ignore
+                config.ignore = configFileData.ignore
             }
             // modules
             if (
                 (config.modules.length <= 0 || isEqual(config.modules, Config.defaults.modules)) &&
-                configFile.modules
+                configFileData.modules
             ) {
-                config.modules = configFile.modules
+                config.modules = configFileData.modules
             }
             // noNamespace
             if (
                 config.noNamespace === Config.options.noNamespace.default &&
-                typeof configFile.noNamespace === 'boolean'
+                typeof configFileData.noNamespace === 'boolean'
             ) {
-                config.noNamespace = configFile.noNamespace
+                config.noNamespace = configFileData.noNamespace
             }
             // noComments
-            if (config.noComments === Config.options.noComments.default && typeof configFile.noComments === 'boolean') {
-                config.noComments = configFile.noComments
+            if (
+                config.noComments === Config.options.noComments.default &&
+                typeof configFileData.noComments === 'boolean'
+            ) {
+                config.noComments = configFileData.noComments
             }
             // noDebugComments
             if (
                 config.noDebugComments === Config.options.noDebugComments.default &&
-                typeof configFile.noDebugComments === 'boolean'
+                typeof configFileData.noDebugComments === 'boolean'
             ) {
-                config.noDebugComments = configFile.noDebugComments
+                config.noDebugComments = configFileData.noDebugComments
             }
             // fixConflicts
             if (
                 config.fixConflicts === Config.options.fixConflicts.default &&
-                typeof configFile.fixConflicts === 'boolean'
+                typeof configFileData.fixConflicts === 'boolean'
             ) {
-                config.fixConflicts = configFile.fixConflicts
+                config.fixConflicts = configFileData.fixConflicts
             }
             // noDOMLib
-            if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFile.noDOMLib === 'boolean') {
-                config.noDOMLib = configFile.noDOMLib
+            if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFileData.noDOMLib === 'boolean') {
+                config.noDOMLib = configFileData.noDOMLib
             }
             // gnomeShellTypes
             if (
                 config.gnomeShellTypes === Config.options.gnomeShellTypes.default &&
-                typeof configFile.gnomeShellTypes === 'boolean'
+                typeof configFileData.gnomeShellTypes === 'boolean'
             ) {
-                config.gnomeShellTypes = configFile.gnomeShellTypes
+                config.gnomeShellTypes = configFileData.gnomeShellTypes
             }
             // generateAlias
             if (
                 config.generateAlias === Config.options.generateAlias.default &&
-                typeof configFile.generateAlias === 'boolean'
+                typeof configFileData.generateAlias === 'boolean'
             ) {
-                config.generateAlias = configFile.generateAlias
+                config.generateAlias = configFileData.generateAlias
             }
             // promisify
-            if (config.promisify === Config.options.promisify.default && typeof configFile.promisify === 'boolean') {
-                config.promisify = configFile.promisify
+            if (
+                config.promisify === Config.options.promisify.default &&
+                typeof configFileData.promisify === 'boolean'
+            ) {
+                config.promisify = configFileData.promisify
             }
         }
 

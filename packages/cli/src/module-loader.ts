@@ -4,7 +4,7 @@
 
 import inquirer, { ListQuestion, Answers } from 'inquirer'
 import glob from 'tiny-glob'
-import Path from 'path'
+import { basename } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import * as xml2js from 'xml2js'
@@ -509,7 +509,7 @@ export class ModuleLoader {
                     }
                 }
 
-                let globModules = files.map((file) => Path.basename(file, '.gir'))
+                let globModules = files.map((file) => basename(file, '.gir'))
                 // Filter out the ignored modules
                 globModules = globModules.filter((mod) => {
                     const isIgnored = ignore.includes(mod)

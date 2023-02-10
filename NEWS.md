@@ -10,6 +10,7 @@
 - Fixed VSCode launch.json
 - Reenable `ts-node` to develop without the need to rebuild `ts-for-gir` for debugging
 - Add support for promisified function generation, see #104 by @CharlieQLe
+- Upgrade dependencies
 
 # 3.0.0-beta.9
 - Add support for the `"gi://..."` import syntax, see #103 by @CharlieQLe

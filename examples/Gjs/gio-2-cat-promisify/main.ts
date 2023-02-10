@@ -20,7 +20,6 @@ Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish'
 async function cat(filename: string) {
     const file = Gio.file_new_for_path(filename);
 
-    // TODO: fix Promise return type
     const [contents] = await file.load_contents_async(null);
     print(ByteArray.toString(contents));
     loop.quit();

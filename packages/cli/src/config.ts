@@ -279,19 +279,19 @@ export class Config {
         if (configName) {
             configSearchOptions.searchPlaces = [configName]
         }
-        const userConfig: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
-        if (userConfig?.filepath) {
-            Config.configFilePath = userConfig.filepath
-            const configDir = dirname(userConfig.filepath)
+        const configFile: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
+        if (configFile?.filepath) {
+            Config.configFilePath = configFile.filepath
+            const configDir = dirname(configFile.filepath)
 
             // If outdir is not absolute, make it relative to the config file
-            if (userConfig.config.outdir && !userConfig.config.outdir?.startsWith('/')) {
-                userConfig.config.outdir = resolve(configDir, userConfig.config.outdir)
+            if (configFile.config.outdir && !configFile.config.outdir?.startsWith('/')) {
+                configFile.config.outdir = resolve(configDir, configFile.config.outdir)
             }
 
             // Same for girDirectories
-            if (userConfig.config.girDirectories) {
-                userConfig.config.girDirectories = userConfig.config.girDirectories.map((dir) => {
+            if (configFile.config.girDirectories) {
+                configFile.config.girDirectories = configFile.config.girDirectories.map((dir) => {
                     if (!dir.startsWith('/')) {
                         return resolve(configDir, dir)
                     }
@@ -300,7 +300,7 @@ export class Config {
             }
         }
 
-        return userConfig
+        return configFile
     }
 
     public static getGenerateConfig(config: UserConfig, environment: Environment = 'gjs'): GenerateConfig {

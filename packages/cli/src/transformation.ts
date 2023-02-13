@@ -566,7 +566,7 @@ export class Transformation {
      * @param text
      * @returns
      */
-    public transformGirDoc(text: string) {
+    public transformGirDocText(text: string) {
         text = this.transformGirDocHighlights(text)
         text = this.transformGirDocCodeBlocks(text)
         return text
@@ -578,6 +578,7 @@ export class Transformation {
      * @returns
      */
     public transformGirDocTagText(text: string) {
+        // return this.transformGirDocHighlights(text.replace(NEW_LINE_REG_EXP, ' '))
         return text.replace(NEW_LINE_REG_EXP, ' ')
     }
 }

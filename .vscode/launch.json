@@ -11,7 +11,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.vda1.rc.js", "--verbose", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.vda1.rc.js", "--verbose", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
@@ -23,7 +23,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk2.rc.js", "--verbose", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk2.rc.js", "--verbose", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
@@ -35,7 +35,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk3.rc.js", "--verbose", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk3.rc.js", "--verbose", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true
@@ -47,7 +47,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk4.rc.js", "--verbose", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gtk4.rc.js", "--verbose", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
@@ -59,7 +59,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "Gio-2.0", "--verbose", "--promisify", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.gio.rc.js", "--verbose", "--promisify", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
@@ -71,7 +71,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
@@ -83,7 +83,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--environments=gjs", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--environments=gjs", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,
@@ -95,7 +95,7 @@
             "cwd": "${workspaceRoot}/packages/cli",
             "runtimeExecutable": "${env:NVM_DIR}/nvm-exec",
             "args": [
-                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--environments=node", "--outdir", "./tmp"
+                "${workspaceRoot}/packages/cli/src/start.ts", "generate", "--configName=.ts-for-gir.all.rc.js", "--verbose", "--environments=node", "--outdir", "../../../tmp"
             ],
             "runtimeArgs": ["node", "--inspect", "--loader", "ts-node/esm"],
             "sourceMaps": true,

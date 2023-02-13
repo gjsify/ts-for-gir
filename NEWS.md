@@ -4,10 +4,10 @@
 - Split this project into more submodules like 'cli', 'parser' and 'generator'
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
 - Add support to generate packages for the types we can publish on NPM
-- Implement `@returns` TSDoc tag
 
 # Unreleased
-- Fixed VSCode launch.json
+- Add TSDoc `@returns` for return values
+- Fixed VSCode launch.json for debugging
 - Reenable `ts-node` to develop without the need to rebuild `ts-for-gir` for debugging
 - Add support for promisified function generation, see #104 by @CharlieQLe
 - Upgrade dependencies

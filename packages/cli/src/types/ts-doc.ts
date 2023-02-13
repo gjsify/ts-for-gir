@@ -15,10 +15,4 @@ export interface TsDoc {
      * All associated tags.
      */
     tags: TsDocTag[]
-
-    /**
-     * The text of the ```@returns``` tag if present.
-     * TODO: This property is currently unused
-     */
-    returns?: string
 }

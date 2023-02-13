@@ -521,7 +521,6 @@ export class GirFactory {
         return {
             tags: data.tags || [],
             text: data.text || '',
-            returns: data.returns || '',
         }
     }
 }

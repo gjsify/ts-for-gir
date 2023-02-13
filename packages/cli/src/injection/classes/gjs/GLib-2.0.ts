@@ -81,9 +81,14 @@ export const classesGLib20Gjs: InjectionClass[] = [
                 returnTypes: [{ type: 'Uint8Array' }],
                 girTypeName: 'method',
                 doc: {
-                    returns: 'A `Uint8Array`',
                     text: 'Convert a [`GLib.Bytes`](https://gjs-docs.gnome.org/glib20/glib.bytes) object to a `Uint8Array` object.',
-                    tags: [],
+                    tags: [
+                        {
+                            tagName: '@returns',
+                            paramName: '',
+                            text: 'A `Uint8Array`',
+                        },
+                    ],
                 },
             },
         ],

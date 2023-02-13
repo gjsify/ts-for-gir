@@ -207,7 +207,7 @@ export class GirModule {
         }
         if (girDoc.doc?.[0]?._) {
             let text = girDoc.doc?.[0]?._ || ''
-            text = this.transformation.transformGirDoc(text)
+            text = this.transformation.transformGirDocText(text)
             tsDoc.text = text
         }
 
@@ -228,6 +228,28 @@ export class GirModule {
         })
 
         return tags
+    }
+
+    private getTsDocReturnTags(
+        girElement?:
+            | GirCallbackElement
+            | GirConstructorElement
+            | GirFunctionElement
+            | GirMethodElement
+            | GirSignalElement
+            | GirVirtualMethodElement,
+    ): TsDocTag[] {
+        const girReturnValue = girElement?.['return-value']?.[0]
+        if (!girReturnValue || !girReturnValue.doc?.[0]?._) {
+            return []
+        }
+        const returnTag: TsDocTag = {
+            tagName: 'returns',
+            paramName: '',
+            text: this.transformation.transformGirDocTagText(girReturnValue.doc[0]._),
+        }
+
+        return [returnTag]
     }
 
     private getTsDocInParamTags(inParams?: GirCallableParamElement[]): TsDocTag[] {
@@ -1220,6 +1242,7 @@ export class GirModule {
 
         tsData.doc.tags.push(...this.getTsDocGirElementTags(tsData.tsTypeName, tsData.girTypeName))
         tsData.doc.tags.push(...this.getTsDocInParamTags(tsData?.inParams))
+        tsData.doc.tags.push(...this.getTsDocReturnTags(girFunc))
 
         return tsData
     }
@@ -1276,20 +1299,28 @@ export class GirModule {
 
             const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
 
-            // TODO: This property is currently unused
-            let docReturns = func.finishFn.doc.returns
-            if (docReturns) {
-                docReturns = `Promisified result of: ${docReturns}`
+            let docReturnText = func.finishFn.doc.tags.find((tag) => tag.tagName === 'returns')?.text || ''
+            if (docReturnText) {
+                docReturnText = `A Promise of: ${docReturnText}`
             } else {
-                docReturns = `A Promise of the the result of {@link ${func.asyncFn.name}}`
+                docReturnText = `A Promise of the result of {@link ${func.asyncFn.name}}`
             }
 
             const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
 
+            const docTags = func.asyncFn.doc.tags.filter(
+                (tag) => tag.paramName !== 'callback' && tag.paramName !== 'returns',
+            )
+
+            docTags.push({
+                tagName: 'returns',
+                text: docReturnText,
+                paramName: '',
+            })
+
             const doc = this.girFactory.newTsDoc({
                 text: docText,
-                tags: func.asyncFn.doc.tags.filter((tag) => tag.paramName !== 'callback'),
-                returns: docReturns,
+                tags: docTags,
             })
 
             const promisifyFn = this.girFactory.newTsFunction(
@@ -1458,6 +1489,7 @@ export class GirModule {
 
         tsCallback.doc.tags.push(...this.getTsDocGirElementTags(tsCallback.tsTypeName, tsCallback.girTypeName))
         tsCallback.doc.tags.push(...this.getTsDocInParamTags(tsCallback?.inParams))
+        tsCallback.doc.tags.push(...this.getTsDocReturnTags(girSignalFunc))
 
         return tsCallback
     }
@@ -1560,6 +1592,7 @@ export class GirModule {
             )
             // TODO: this are the callback parameters
             girSignal._tsData.doc.tags.push(...this.getTsDocInParamTags(girSignal._tsData?.inParams))
+            girSignal._tsData.doc.tags.push(...this.getTsDocReturnTags(girSignal))
 
             if (!girSignal._tsData) {
                 throw NO_TSDATA('setSignalTsData')

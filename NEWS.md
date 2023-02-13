@@ -6,6 +6,10 @@
 - Add support to generate packages for the types we can publish on NPM
 
 # Unreleased
+- Add GNOME Shell types for:
+  - ui/checkBox
+  - ui/closeDialog
+- Paths in the config file are now relative to the path of the config file itself
 - Add TSDoc `@returns` for return values
 - Fixed VSCode launch.json for debugging
 - Reenable `ts-node` to develop without the need to rebuild `ts-for-gir` for debugging

@@ -40,7 +40,7 @@ export class Dialog extends St.Widget {
     protected _setInitialKeyFocus(actor: St.Widget): void;
 }
 
-declare class MessageDialogContent extends St.BoxLayout {
+export class MessageDialogContent extends St.BoxLayout {
     public title: string;
     public description: string;
 

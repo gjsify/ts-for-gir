@@ -509,7 +509,7 @@ export default class TypeDefinitionGenerator implements Generator {
         }
 
         if (isPromise) {
-            desc = `Promise<${desc}>`
+            desc = `globalThis.Promise<${desc}>`
         }
 
         return desc

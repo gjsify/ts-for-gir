@@ -1,18 +1,19 @@
 import { mkdir } from 'fs/promises'
-import { GirModule } from './gir-module.js'
-import { Generator } from './generator.js'
-import TypeDefinitionGenerator from './type-definition-generator.js'
-import HTMLDocGenerator from './html-doc-generator.js'
-import { Logger } from './logger.js'
-import { getEnvironmentDir } from './utils.js'
-import { InheritanceTable, GenerateConfig, GirModulesGrouped, GeneratorType } from './types/index.js'
 import {
+    GirModule,
+    Logger,
+    getEnvironmentDir,
     START_MODULE,
     FILE_PARSING_DONE,
     TSDATA_PARSING_DONE,
     GENERATING_TYPES_DONE,
     ERROR_NO_MODULE_SPECIFIED,
-} from './messages.js'
+} from '@ts-for-gir/lib'
+import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
+import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
+import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
+
+import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from '@ts-for-gir/lib'
 
 export class GenerationHandler {
     log: Logger
@@ -25,7 +26,7 @@ export class GenerationHandler {
                 this.generator = new TypeDefinitionGenerator(config)
                 break
             case GeneratorType.HTML_DOC:
-                this.generator = new HTMLDocGenerator(config)
+                this.generator = new HtmlDocGenerator(config)
                 break
             default:
                 throw new Error('Unknown Generator')

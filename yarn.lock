@@ -829,6 +829,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@workspace:packages/cli"
   dependencies:
+    "@ts-for-gir/generator-base": "workspace:^"
+    "@ts-for-gir/generator-html-doc": "workspace:^"
+    "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@types/inquirer": ^9.0.3
     "@types/node": ^18.13.0
@@ -850,6 +853,59 @@ __metadata:
     yargs: ^17.6.2
   bin:
     ts-for-gir: ./lib/start.js
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/generator-base@workspace:^, @ts-for-gir/generator-base@workspace:packages/generator-base":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/generator-base@workspace:packages/generator-base"
+  dependencies:
+    "@ts-for-gir/lib": "workspace:^"
+    "@types/node": ^18.13.0
+    "@typescript-eslint/eslint-plugin": ^5.52.0
+    "@typescript-eslint/parser": ^5.52.0
+    eslint: ^8.34.0
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-prettier: ^4.2.1
+    prettier: ^2.8.4
+    rimraf: ^4.1.2
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/generator-html-doc@workspace:^, @ts-for-gir/generator-html-doc@workspace:packages/generator-html-doc":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/generator-html-doc@workspace:packages/generator-html-doc"
+  dependencies:
+    "@ts-for-gir/generator-base": "workspace:^"
+    "@ts-for-gir/lib": "workspace:^"
+    "@types/node": ^18.13.0
+    "@typescript-eslint/eslint-plugin": ^5.52.0
+    "@typescript-eslint/parser": ^5.52.0
+    eslint: ^8.34.0
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-prettier: ^4.2.1
+    prettier: ^2.8.4
+    rimraf: ^4.1.2
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
+"@ts-for-gir/generator-typescript@workspace:^, @ts-for-gir/generator-typescript@workspace:packages/generator-typescript":
+  version: 0.0.0-use.local
+  resolution: "@ts-for-gir/generator-typescript@workspace:packages/generator-typescript"
+  dependencies:
+    "@ts-for-gir/generator-base": "workspace:^"
+    "@ts-for-gir/lib": "workspace:^"
+    "@types/node": ^18.13.0
+    "@typescript-eslint/eslint-plugin": ^5.52.0
+    "@typescript-eslint/parser": ^5.52.0
+    eslint: ^8.34.0
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-prettier: ^4.2.1
+    prettier: ^2.8.4
+    rimraf: ^4.1.2
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 

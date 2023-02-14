@@ -4,7 +4,9 @@
 
 import { Argv } from 'yargs'
 
-import { GenerationHandler, ERROR_NO_MODULES_FOUND, Logger, GeneratorType } from '@ts-for-gir/lib'
+import { ERROR_NO_MODULES_FOUND, Logger } from '@ts-for-gir/lib'
+import { GeneratorType } from '@ts-for-gir/generator-base'
+import { GenerationHandler } from '../generation-handler.js'
 import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
 

@@ -1,3 +1,18 @@
+import { Generator } from '@ts-for-gir/generator-base'
+import {
+    Logger,
+    generateIndent,
+    removeNamespace,
+    removeClassModule,
+    girElementIsIntrospectable,
+    typeIsOptional,
+    TemplateProcessor,
+    NO_TSDATA,
+    WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
+    WARN_IGNORE_MULTIPLE_CALLBACKS,
+    WARN_IGNORE_MULTIPLE_FUNC_DESC,
+} from '@ts-for-gir/lib'
+
 import type {
     GenerateConfig,
     InheritanceTable,
@@ -12,6 +27,7 @@ import type {
     GirRecordElement,
     GirBitfieldElement,
     GirInstanceParameter,
+    GirModule,
     TsGenericParameter,
     TsType,
     TsDoc,
@@ -22,26 +38,9 @@ import type {
     TsVar,
     TsProperty,
     TsParameter,
-} from './types/index.js'
-import { Generator } from './generator.js'
-import type { GirModule } from './gir-module.js'
-import TemplateProcessor from './template-processor.js'
-import { Logger } from './logger.js'
-import {
-    generateIndent,
-    removeNamespace,
-    removeClassModule,
-    girElementIsIntrospectable,
-    typeIsOptional,
-} from './utils.js'
-import {
-    NO_TSDATA,
-    WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
-    WARN_IGNORE_MULTIPLE_CALLBACKS,
-    WARN_IGNORE_MULTIPLE_FUNC_DESC,
-} from './messages.js'
+} from '@ts-for-gir/lib'
 
-export default class TypeDefinitionGenerator implements Generator {
+export class TypeDefinitionGenerator implements Generator {
     protected log: Logger
     constructor(protected readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, TypeDefinitionGenerator.name)

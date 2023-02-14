@@ -9,11 +9,11 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "yarn run lint && yarn run build:ts",
+    "build": "yarn lint && yarn build:ts",
     "build:ts": "tsc",
-    "clear": "yarn run clear:build",
+    "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
-    "watch": "yarn run build:ts -- --watch",
+    "watch": "yarn build:ts -- --watch",
     "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "repository": {

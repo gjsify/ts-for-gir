@@ -1,5 +1,4 @@
-import type { InheritanceTable, GirModulesGrouped } from './types/index.js'
-import type { GirModule } from './gir-module.js'
+import type { InheritanceTable, GirModulesGrouped, GirModule } from '@ts-for-gir/lib'
 
 export interface Generator {
     start(

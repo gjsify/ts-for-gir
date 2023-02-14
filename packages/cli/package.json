@@ -3,6 +3,7 @@
   "version": "3.0.0-beta.10",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
+  "main": "lib/index.js",
   "type": "module",
   "bin": {
     "ts-for-gir": "./lib/start.js"
@@ -13,12 +14,12 @@
   "scripts": {
     "start": "yarn node --max_old_space_size=9216 lib/start.js",
     "start:dev": "yarn node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",
-    "build": "yarn run lint && yarn run build:ts && yarn run chmod",
+    "build": "yarn lint && yarn build:ts && yarn chmod",
     "chmod": "chmod +x ./lib/start.js",
     "build:ts": "tsc",
-    "clear": "yarn run clear:build",
+    "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
-    "watch": "yarn run build:ts -- --watch",
+    "watch": "yarn build:ts -- --watch",
     "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
@@ -49,7 +50,8 @@
     "glib",
     "gobject",
     "dts",
-    "type definitions"
+    "type definitions",
+    "cli"
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
@@ -66,6 +68,9 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@ts-for-gir/generator-base": "workspace:^",
+    "@ts-for-gir/generator-html-doc": "workspace:^",
+    "@ts-for-gir/generator-typescript": "workspace:^",
     "@ts-for-gir/lib": "workspace:^",
     "colorette": "^2.0.19",
     "cosmiconfig": "^8.0.0",

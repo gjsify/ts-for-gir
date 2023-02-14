@@ -1,20 +1,15 @@
 {
-  "name": "@ts-for-gir/cli",
+  "name": "@ts-for-gir/lib",
   "version": "3.0.0-beta.10",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
+  "main": "lib/index.js",
   "type": "module",
-  "bin": {
-    "ts-for-gir": "./lib/start.js"
-  },
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "start": "yarn node --max_old_space_size=9216 lib/start.js",
-    "start:dev": "yarn node --max_old_space_size=9216 --loader ts-node/esm src/start.ts",
-    "build": "yarn run lint && yarn run build:ts && yarn run chmod",
-    "chmod": "chmod +x ./lib/start.js",
+    "build": "yarn run lint && yarn run build:ts",
     "build:ts": "tsc",
     "clear": "yarn run clear:build",
     "clear:build": "rimraf ./lib",
@@ -27,8 +22,6 @@
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
-    "src",
-    "bin",
     "lib",
     "templates"
   ],
@@ -52,9 +45,11 @@
     "type definitions"
   ],
   "devDependencies": {
-    "@types/inquirer": "^9.0.3",
+    "@types/ejs": "^3.1.1",
+    "@types/eslint": "8.21.1",
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.13.0",
-    "@types/yargs": "^17.0.22",
+    "@types/xml2js": "^0.4.11",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "eslint": "^8.34.0",
@@ -62,16 +57,12 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.4",
     "rimraf": "^4.1.2",
-    "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@ts-for-gir/lib": "workspace:^",
     "colorette": "^2.0.19",
-    "cosmiconfig": "^8.0.0",
-    "get-tsconfig": "^4.4.0",
-    "inquirer": "^9.1.4",
-    "tiny-glob": "^0.2.9",
-    "yargs": "^17.6.2"
+    "ejs": "^3.1.8",
+    "lodash": "^4.17.21",
+    "xml2js": "^0.4.23"
   }
 }

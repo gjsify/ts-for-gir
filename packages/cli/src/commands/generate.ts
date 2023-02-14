@@ -4,12 +4,11 @@
 
 import { Argv } from 'yargs'
 
-import { GenerationHandler } from '../generation-handler.js'
+import { GenerationHandler, ERROR_NO_MODULES_FOUND, Logger, GeneratorType } from '@ts-for-gir/lib'
 import { Config } from '../config.js'
 import { ModuleLoader } from '../module-loader.js'
-import { ConfigFlags, GeneratorType } from '../types/index.js'
-import { Logger } from '../logger.js'
-import { ERROR_NO_MODULES_FOUND } from '../messages.js'
+
+import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 

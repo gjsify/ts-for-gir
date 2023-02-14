@@ -6,9 +6,9 @@ import { Argv } from 'yargs'
 
 import { ModuleLoader } from '../module-loader.js'
 import { Config } from '../config.js'
-import { ResolveType, ConfigFlags } from '../types/index.js'
-import { Logger } from '../logger.js'
-import { ERROR_NO_MODULES_FOUND } from '../messages.js'
+import { Logger, ERROR_NO_MODULES_FOUND, ResolveType } from '@ts-for-gir/lib'
+
+import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'list [modules..]'
 

@@ -6,19 +6,23 @@ import inquirer from 'inquirer'
 import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
-import OS from 'os'
-import { merge, isEqual, readTsJsConfig } from './utils.js'
-import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types/index.js'
 import { writeFile } from 'fs/promises'
-import { Logger } from './logger.js'
-import { APP_NAME, APP_USAGE } from './constants.js'
+import OS from 'os'
 import {
+    merge,
+    isEqual,
+    Logger,
+    APP_NAME,
+    APP_USAGE,
     WARN_NO_NAMESPACE_ON_TYPES,
     WARN_NO_NAMESPACE_ON_ESM,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
     WARN_USE_ESM_FOR_ALIAS,
     WARN_USE_GJS_FOR_ALIAS,
-} from './messages.js'
+} from '@ts-for-gir/lib'
+import { readTsJsConfig } from './utils.js'
+
+import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
 
 export class Config {
     static appName = APP_NAME

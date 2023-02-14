@@ -3,7 +3,7 @@
 packages-lock.json
 node_modules/
 tmp/
-lib/
+packages/*/lib/
 examples/**/@types/
 @types/node-gtk/*
 @types/Gjs/*

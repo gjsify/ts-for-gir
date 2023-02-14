@@ -8,6 +8,18 @@ import { basename } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import * as xml2js from 'xml2js'
+import {
+    DependencyManager,
+    ResolveType,
+    GirModule,
+    Logger,
+    splitModuleName,
+    union,
+    isIterable,
+    WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE,
+} from '@ts-for-gir/lib'
+import { Config } from './config.js'
+
 import type {
     GirModulesGroupedMap,
     ParsedGir,
@@ -17,14 +29,7 @@ import type {
     DependencyMap,
     Dependency,
     AnswerVersion,
-} from './types/index.js'
-import { ResolveType } from './types/index.js'
-import { GirModule } from './gir-module.js'
-import { Config } from './config.js'
-import { Logger } from './logger.js'
-import { DependencyManager } from './dependency-manager.js'
-import { splitModuleName, union, isIterable } from './utils.js'
-import { WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE } from './messages.js'
+} from '@ts-for-gir/lib'
 
 export class ModuleLoader {
     log: Logger

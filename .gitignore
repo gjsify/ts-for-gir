@@ -14,12 +14,11 @@ examples/**/@types/
 # !@types/node-gtk/Gtk-2.0.d.ts
 # !@types/Gjs/*
 
-tsconfig.alias.json
-
 index.ts.bak
 
 examples/**/node_modules/
 examples/**/dist/
+examples/**/tsconfig.alias.json
 debug.txt
 
 # Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
@@ -30,6 +29,3 @@ debug.txt
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-# Generated configs
-tsconfig.alias.json

@@ -3,8 +3,8 @@
 // SPDX-FileCopyrightText: 2020 Andy Holmes <andrew.g.r.holmes@gmail.com>
 
 import './@types/Gjs/index.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gio from './@types/Gjs/Gio-2.0.js';
+import GLib from 'gi://GLib?version=2.0';
+import Gio from 'gi://Gio?version=2.0';
 
 /*
  * An XML DBus Interface

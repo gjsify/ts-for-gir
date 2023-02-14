@@ -1,8 +1,8 @@
 // This example is based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html#basic-usage
 
 import './@types/Gjs/index.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gio from './@types/Gjs/Gio-2.0.js';
+import GLib from 'gi://GLib?version=2.0';
+import Gio from 'gi://Gio?version=2.0';
 
 // Serializing JSON to a string
 // Output: {"name":"Mario","lives":3,"active":true}

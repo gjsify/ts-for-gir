@@ -1,7 +1,7 @@
 import './@types/Gjs/index'
-import Gtk from './@types/Gjs/Gtk-3.0'
-import Pango from './@types/Gjs/Pango-1.0'
-import WebKit2 from './@types/Gjs/WebKit2-4.0'
+import Gtk from 'gi://Gtk?version=3.0';
+import Pango from 'gi://Pango?version=1.0'
+import WebKit2 from 'gi://WebKit2?version=4.0'
 
 function makeButton(label: string, callback: () => void): Gtk.Button {
     const but = new Gtk.Button()

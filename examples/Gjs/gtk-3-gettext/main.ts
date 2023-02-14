@@ -10,7 +10,8 @@
 
 import './@types/Gjs/index.js';
 import { gettext } from './@types/Gjs/Gjs.js';
-import Gtk from './@types/Gjs/Gtk-3.0.js';
+import Gtk from 'gi://Gtk?version=3.0';
+
 
 gettext.bindtextdomain('gnome-shell', '/usr/share/locale');
 gettext.textdomain('gnome-shell');

@@ -4,7 +4,7 @@
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/calc.js
 
 import './@types/Gjs/index.js';
-import Gtk from './@types/Gjs/Gtk-3.0.js';
+import Gtk from 'gi://Gtk?version=3.0';
 
 Gtk.init(null);
 

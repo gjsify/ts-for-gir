@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],
@@ -12,6 +13,7 @@
   },
   "files": [
     "dbus-client.ts",
-    "dbus-server.ts"
+    "dbus-server.ts",
+    "dbus-client-async.ts"
   ]
 }

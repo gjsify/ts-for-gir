@@ -11,7 +11,7 @@
     "watch": "yarn build:app -- --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --config webpack.config.cjs --env production",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --environments gjs -t esm -- --fixConflicts",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --generateAlias",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "yarn clear:ts && yarn clear:types",

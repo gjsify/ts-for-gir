@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Soup-3.0",
+    "build:types": "yarn ts-for-gir generate Soup-3.0 --generateAlias",
     "build:client": "yarn node esbuild.js",
     "build": "yarn build:types && yarn build:client",
     "start:client": "gjs -m dist/main.js",

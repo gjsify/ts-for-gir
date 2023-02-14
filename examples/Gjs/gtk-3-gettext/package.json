@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:types": "yarn ts-for-gir generate Gtk-3.0",
+    "build:types": "yarn ts-for-gir generate Gtk-3.0 --generateAlias",
     "build:app": "yarn node esbuild.js",
     "build": "yarn build:types && yarn build:app",
     "start:app": "gjs -m dist/main.js",

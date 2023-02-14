@@ -5,8 +5,8 @@
 
 import './@types/Gjs/index.js';
 
-import Gtk from './@types/Gjs/Gtk-3.0';
-import WebKit from './@types/Gjs/WebKit2-4.0';
+import Gtk from 'gi://Gtk?version=3.0';
+import WebKit from 'gi://WebKit2?version=4.0';
 
 Gtk.init(null);
 

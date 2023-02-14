@@ -6,8 +6,8 @@
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
 import './@types/Gjs/index.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Soup from './@types/Gjs/Soup-3.0.js';
+import GLib from 'gi://GLib?version=2.0';
+import Soup from 'gi://Soup?version=3.0';
 
 // GJS version of GLib.HashTable
 // TODO fix in ts-for-gir

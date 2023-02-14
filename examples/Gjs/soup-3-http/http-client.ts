@@ -7,9 +7,9 @@
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
 import './@types/Gjs/index.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Soup from './@types/Gjs/Soup-3.0.js';
-import Gio from './@types/Gjs/Gio-2.0.js';
+import Gio from 'gi://Gio?version=2.0';
+import GLib from 'gi://GLib?version=2.0';
+import Soup from 'gi://Soup?version=3.0';
 
 const loop = GLib.MainLoop.new(null, false);
 const byteArray = imports.byteArray;

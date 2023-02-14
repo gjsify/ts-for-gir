@@ -5,10 +5,10 @@
 
 import './@types/Gjs/index.js';
 
-import GObject from './@types/Gjs/GObject-2.0';
-import Gio from './@types/Gjs/Gio-2.0';
-import GLib from './@types/Gjs/GLib-2.0';
-import Gtk from './@types/Gjs/Gtk-4.0';
+import GObject from 'gi://GObject?version=2.0';
+import Gio from 'gi://Gio?version=2.0';
+import GLib from 'gi://GLib?version=2.0';
+import Gtk from 'gi://Gtk?version=4.0';
 
 Gtk.init();
 

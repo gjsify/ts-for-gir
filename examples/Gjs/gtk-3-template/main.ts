@@ -5,9 +5,9 @@
 
 import './@types/Gjs/index.js';
 
-import GObject from './@types/Gjs/GObject-2.0';
-import Gio from './@types/Gjs/Gio-2.0';
-import Gtk from './@types/Gjs/Gtk-3.0';
+import GObject from 'gi://GObject?version=2.0';
+import Gio from 'gi://Gio?version=2.0';
+import Gtk from 'gi://Gtk?version=3.0';
 
 Gtk.init(null);
 

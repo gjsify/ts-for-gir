@@ -4,8 +4,8 @@
  * @source https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/glistmodel.js
  */
 import './@types/Gjs/index';
-import GObject from './@types/Gjs/GObject-2.0.js';
-import Gio from './@types/Gjs/Gio-2.0.js';
+import GObject from 'gi://GObject?version=2.0';
+import Gio from 'gi://Gio?version=2.0';
 
 /**
  * An example of implementing the GListModel interface in GJS. The only real

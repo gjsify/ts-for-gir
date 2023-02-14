@@ -6,9 +6,9 @@
 
 import './@types/Gjs/index';
 import { System } from './@types/Gjs/Gjs.js'
-import GObject from './@types/Gjs/GObject-2.0.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gtk from './@types/Gjs/Gtk-4.0.js';
+import GObject from 'gi://GObject?version=2.0';
+import GLib from 'gi://GLib?version=2.0';
+import Gtk from 'gi://Gtk?version=4.0';
 
 class App {
     title = 'Example List';

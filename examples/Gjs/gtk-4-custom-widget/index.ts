@@ -1,11 +1,11 @@
 // This example is based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4-custom-widget.js
 
 import './@types/Gjs/index.js';
-import GObject from './@types/Gjs/GObject-2.0.js'
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gtk from './@types/Gjs/Gtk-4.0.js';
-import Gdk from './@types/Gjs/Gdk-4.0.js';
-import Graphene from './@types/Gjs/Graphene-1.0.js';
+import GObject from 'gi://GObject?version=2.0';
+import GLib from 'gi://GLib?version=2.0';
+import Gtk from 'gi://Gtk?version=4.0';
+import Gdk from 'gi://Gdk?version=4.0';
+import Graphene from 'gi://Graphene?version=1.0';
 
 Gtk.init();
 

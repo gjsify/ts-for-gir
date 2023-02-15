@@ -8,7 +8,7 @@
   "scripts": {
     "start": "yarn build && yarn start:app",
     "start:app": "gjs -m dist/main.js",
-    "watch": "yarn build:app -- --watch",
+    "watch": "yarn build:app --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --config webpack.config.cjs --env production",
     "build:types": "yarn ts-for-gir generate Gtk-3.0 Pango-1.0 WebKit2-4.0 --generateAlias",

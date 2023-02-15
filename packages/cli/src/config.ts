@@ -52,6 +52,7 @@ export class Config {
         gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
+        package: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -192,6 +193,12 @@ export class Config {
             default: Config.defaults.promisify,
             normalize: true,
         },
+        package: {
+            type: 'boolean',
+            description: 'Generates an NPM compatible packages for each type',
+            default: Config.defaults.package,
+            normalize: true,
+        },
     }
 
     /**
@@ -217,6 +224,7 @@ export class Config {
         gnomeShellTypes: this.options.gnomeShellTypes,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
+        package: this.options.package,
     }
 
     static listOptions = {
@@ -225,6 +233,17 @@ export class Config {
         ignore: Config.options.ignore,
         configName: Config.options.configName,
         verbose: Config.options.verbose,
+    }
+
+    static docOptions = {
+        modules: this.options.modules,
+        girDirectories: Config.options.girDirectories,
+        outdir: Config.options.outdir,
+        environments: Config.options.environments,
+        ignore: Config.options.ignore,
+        verbose: Config.options.verbose,
+        ignoreVersionConflicts: Config.options.ignoreVersionConflicts,
+        configName: Config.options.configName,
     }
 
     /**
@@ -323,6 +342,7 @@ export class Config {
             gnomeShellTypes: config.gnomeShellTypes,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
+            package: config.package,
         }
         return generateConfig
     }
@@ -420,6 +440,7 @@ export class Config {
             gnomeShellTypes: options.gnomeShellTypes,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
+            package: options.package,
         }
 
         if (configFileData) {
@@ -524,6 +545,10 @@ export class Config {
                 typeof configFileData.promisify === 'boolean'
             ) {
                 config.promisify = configFileData.promisify
+            }
+            // package
+            if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
+                config.package = configFileData.package
             }
         }
 

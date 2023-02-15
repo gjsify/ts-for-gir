@@ -19,7 +19,7 @@
     "build:ts": "tsc",
     "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
-    "watch": "yarn build:ts -- --watch",
+    "watch": "yarn build:ts --watch",
     "lint": "eslint . --ext .ts,.tsx --fix"
   },
   "repository": {

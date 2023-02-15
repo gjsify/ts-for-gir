@@ -5,7 +5,7 @@
 
 import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import Path from 'path'
+import { join, dirname } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
@@ -13,7 +13,7 @@ import type { GenerateConfig } from './types/index.js'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
 
-const TEMPLATE_DIR = Path.join(__dirname, '../templates')
+const TEMPLATE_DIR = join(__dirname, '../templates')
 
 export class TemplateProcessor {
     protected environmentTemplateDir: string
@@ -58,64 +58,83 @@ export class TemplateProcessor {
 
     /**
      * Loads an template, render the template and write the template to the filesystem
-     * @param templateFilename
-     * @param outputDir
-     * @param outputFilename
-     * @param append
-     * @param prependEnv
+     * @param templateFilename The filename of the template
+     * @param baseOutputPath The base output directory path where the templates should be written to
+     * @param outputFilename The filename of the output file
+     * @param packageName The name of the package
+     * @param append A (optional) string that should be appended to the rendered template
+     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
+     * @param append A (optional) string that should be appended to the rendered template
      * @return The rendered (and if possible prettified) template string
      */
     public async create(
         templateFilename: string,
-        outputDir: string,
+        baseOutputPath: string,
         outputFilename: string,
-        append = '',
+        packageName: string,
         prependEnv = true,
+        append = '',
     ): Promise<string> {
         const renderedTpl = await this.load(templateFilename)
         const code = renderedTpl + append
-        await this.write(code, outputDir, outputFilename, prependEnv)
+        await this.write(code, baseOutputPath, outputFilename, packageName, prependEnv)
         return code
     }
 
     /**
      * Loads all templates with file extension in dir, render the templates and write the template to the filesystem
-     * @param fileExtension
-     * @param templateDirname
-     * @param outputDir
-     * @param outputDirname
+     * @param fileExtension The file extension of the templates
+     * @param templateDirname The directory where the templates are located
+     * @param baseOutputPath The base output directory path where the templates should be written to
+     * @param outputDirname The child output directory of the base output directory where the templates should be written to
+     * @param packageName The name of the package
+     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
+     * @param append A (optional) string that should be appended to the rendered template
      * @return The rendered (and if possible prettified) templates
      */
     public async createAll(
         fileExtension: string,
         templateDirname: string,
-        outputDir: string,
+        baseOutputPath: string,
         outputDirname: string,
+        packageName: string,
+        prependEnv = true,
         append = '',
     ) {
         const renderedTpls = await this.loadAll(templateDirname, fileExtension)
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(renderedTpls)) {
-            const destPath = getDestPath(this.config.environment, outputDir, outputDirname, filename)
+            const destPath = getDestPath(this.config.environment, baseOutputPath, outputDirname, filename)
             result[destPath] = renderedTpls[filename] + append
-            await this.write(result[destPath], outputDir, Path.join(outputDirname, filename))
+            await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), packageName, prependEnv)
         }
 
         return result
     }
 
+    /**
+     * Writes the `content` to the filesystem
+     * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
+     * @param baseOutputPath The base output directory path where the templates should be written to
+     * @param outputFilename The filename of the output file
+     * @param packageName The name of the package
+     * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
+     * @returns 
+     */
     protected async write(
         content: string,
-        outputDir: string,
+        baseOutputPath: string,
         outputFilename: string,
+        packageName: string,
         prependEnv = true,
     ): Promise<string> {
+        const filePath = this.config.package ? join(packageName, outputFilename) : outputFilename
         const destPath = prependEnv
-            ? getDestPath(this.config.environment, outputDir, outputFilename)
-            : Path.join(outputDir, outputFilename)
+            ? getDestPath(this.config.environment, baseOutputPath, filePath)
+            : join(baseOutputPath, filePath)
 
         // write template result file
-        await mkdir(Path.dirname(destPath), { recursive: true })
+        await mkdir(dirname(destPath), { recursive: true })
         await writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return Promise.resolve(destPath)
@@ -147,8 +166,8 @@ export class TemplateProcessor {
      * @param templateFilename
      */
     public exists(templateFilename: string): string | null {
-        const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, templateFilename)
-        const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, templateFilename)
+        const fullEnvironmentTemplatePath = join(this.environmentTemplateDir, templateFilename)
+        const fullGeneralTemplatePath = join(TEMPLATE_DIR, templateFilename)
         if (existsSync(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath
         }
@@ -188,7 +207,7 @@ export class TemplateProcessor {
             }
             const results: { [path: string]: string } = {}
             for (const file of files) {
-                results[file] = await readFile(Path.join(path, file), 'utf8')
+                results[file] = await readFile(join(path, file), 'utf8')
             }
             return results
         }

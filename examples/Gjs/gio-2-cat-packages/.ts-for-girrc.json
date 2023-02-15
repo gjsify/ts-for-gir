@@ -1,0 +1,12 @@
+{
+    "environments": ["gjs"],
+    "modules": ["Gio-2.0"],
+    "buildType": "lib",
+    "moduleType": "esm",
+    "useNamespace": true,
+    "outdir": "./@types",
+    "gnomeShellTypes": true,
+    "generateAlias": true,
+    "promisify": true,
+    "package": true
+}

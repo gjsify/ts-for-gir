@@ -1170,7 +1170,12 @@ export class TypeDefinitionGenerator implements Generator {
     private async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
         if (this.config.outdir) {
-            await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.packageName}.js`)
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                `${girModule.packageName}.js`,
+                girModule.packageName,
+            )
         } else {
             const moduleContent = moduleTemplateProcessor.load(template)
             this.log.log(moduleContent)
@@ -1369,6 +1374,8 @@ export class TypeDefinitionGenerator implements Generator {
                 template,
                 this.config.outdir,
                 `${girModule.packageName}.d.ts`,
+                girModule.packageName,
+                true,
                 outResult,
             )
         } else {
@@ -1406,24 +1413,36 @@ export class TypeDefinitionGenerator implements Generator {
         )
 
         // Types
-        await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+        await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts', 'Gjs')
+        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts', 'Gjs')
         if (this.config.gnomeShellTypes) {
-            await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts')
-            await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
-            await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
-            await templateProcessor.createAll('.d.ts', 'ui/components', this.config.outdir, 'ui/components')
+            await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts', 'GnomeShell')
+            await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc', 'GnomeShell')
+            await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui', 'GnomeShell')
+            await templateProcessor.createAll(
+                '.d.ts',
+                'ui/components',
+                this.config.outdir,
+                'ui/components',
+                'GnomeShell',
+            )
         }
 
         // Lib
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js')
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
+            await templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js', 'Gjs')
+            await templateProcessor.create('index.js', this.config.outdir, 'index.js', 'Gjs')
             if (this.config.gnomeShellTypes) {
-                await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js')
-                await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
-                await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
-                await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')
+                await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js', 'GnomeShell')
+                await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc', 'GnomeShell')
+                await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui', 'GnomeShell')
+                await templateProcessor.createAll(
+                    '.js',
+                    'ui/components',
+                    this.config.outdir,
+                    'ui/components',
+                    'GnomeShell',
+                )
             }
         }
 
@@ -1438,9 +1457,9 @@ export class TypeDefinitionGenerator implements Generator {
 
         const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
 
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts', 'Gjs')
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
+            await templateProcessor.create('index.js', this.config.outdir, 'index.js', 'Gjs')
         }
     }
 

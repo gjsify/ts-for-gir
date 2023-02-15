@@ -13,7 +13,7 @@
     "clear": "yarn clear:app && yarn clear:types",
     "start": "yarn build && yarn start:app",
     "start:app": "gjs dist/main.js",
-    "watch": "yarn build -- --watch",
+    "watch": "yarn build --watch",
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",

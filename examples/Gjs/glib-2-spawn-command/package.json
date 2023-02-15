@@ -7,7 +7,7 @@
   "scripts": {
     "start": "yarn build && yarn start:gjs",
     "start:gjs": "gjs dist/main.js",
-    "watch": "yarn build:app -- --watch",
+    "watch": "yarn build:app --watch",
     "build": "yarn build:types && yarn build:app",
     "build:app": "yarn clear:ts && webpack --env production",
     "build:types": "yarn ts-for-gir generate GLib-2.0 --environments gjs --noNamespace -t commonjs",

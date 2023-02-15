@@ -15,13 +15,11 @@ const command = 'list [modules..]'
 const description = 'Lists all available GIR modules'
 
 const builder = (yargs: Argv) => {
-    return yargs
-        .option('modules', Config.listOptions.modules)
-        .option('girDirectories', Config.listOptions.girDirectories)
-        .option('ignore', Config.listOptions.ignore)
-        .option('verbose', Config.listOptions.verbose)
-        .option('configName', Config.listOptions.configName)
-        .example(examples)
+    const optionNames = Object.keys(Config.listOptions)
+    for (const optionName of optionNames) {
+        yargs = yargs.option(optionName, Config.listOptions[optionName])
+    }
+    return yargs.example(examples)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

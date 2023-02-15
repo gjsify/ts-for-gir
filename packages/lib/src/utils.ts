@@ -328,12 +328,12 @@ export const getEnvironmentDir = (environment: Environment, baseDir: string): st
 /**
  * Get the destination path for the environment
  * @param environment The environment to get the destination path for
- * @param outputDir The output directory
+ * @param baseOutputPath The output directory
  * @param parts The path parts
  * @returns The destination path
  */
-export const getDestPath = (environment: Environment, outputDir: string, ...parts: string[]) => {
-    const outputEnvDir = getEnvironmentDir(environment, outputDir)
+export const getDestPath = (environment: Environment, baseOutputPath: string, ...parts: string[]) => {
+    const outputEnvDir = getEnvironmentDir(environment, baseOutputPath)
     const destPath = join(outputEnvDir, ...parts)
     return destPath
 }

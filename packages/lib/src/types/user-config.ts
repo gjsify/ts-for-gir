@@ -40,6 +40,8 @@ export interface UserConfig {
     generateAlias: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
+    /** Scope of the generated NPM packages */
+    packageScope: string
     /** Generates an NPM compatible packages for each type */
-    package: boolean;
+    package: boolean
 }

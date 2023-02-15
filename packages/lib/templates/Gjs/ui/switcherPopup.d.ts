@@ -1,18 +1,11 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/switcherPopup.js
 
-<% const glib = dep.find('GLib') %>
-<% const St = dep.find('St') %>
-<% const Clutter = dep.find('Clutter') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as GLib from '../<%= glib.packageName %>.js';
-    import type * as St from '../<%= St.packageName %>.js';
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
-    import type GLib from '../<%= glib.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } _%>
+<%_ const GLib = dep.find('GLib', '..') _%>
+<%_ const St = dep.find('St', '..') _%>
+<%_ const Clutter = dep.find('Clutter', '..') _%>
+<%- GLib ? GLib.importDef : '' %>
+<%- St ? St.importDef : '' %>
+<%- Clutter ? Clutter.importDef : '' %>
 
 export abstract class SwitcherPopup extends St.Widget {
     /** @hidden Only defined to resolve type conflict */

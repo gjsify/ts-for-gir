@@ -11,6 +11,7 @@ import {
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
+    Dependency,
 } from '@ts-for-gir/lib'
 
 import type {
@@ -52,20 +53,26 @@ export class TypeDefinitionGenerator implements Generator {
      * @param packageName E.g. 'Gtk-3.0'
      * @param asExternType Currently only used for node type imports
      */
-    private generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
+    private generateModuleDependenciesImport(dep: { namespace: string; packageName: string } | Dependency): string[] {
         const def: string[] = []
-        const sas = !this.config.noNamespace && packageName !== 'Gjs' ? '' : '* as '
-        if (this.config.buildType === 'lib') {
-            def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
-        } else if (this.config.buildType === 'types') {
-            if (asExternType) {
-                // def.push(`/// <reference types="${packageName}" />`)
-                def.push(`import ${namespace} from "${packageName}.js"`)
-            } else {
-                def.push(`/// <reference path="${packageName}.d.ts" />`)
-                def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
+        const as = !this.config.noNamespace && dep.packageName !== 'Gjs' ? '' : '* as '
+
+        if (this.config.package) {
+            if (this.config.buildType === 'types') {
+                // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+                def.push(`/// <reference types="${this.config.packageScope}/${dep.packageName}" />`)
             }
+            def.push(`import type ${as}${dep.namespace} from '${this.config.packageScope}/${dep.packageName}';`)
+            return def
         }
+
+        if (this.config.buildType === 'types') {
+            // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+            def.push(`/// <reference path="${dep.packageName}.d.ts" />`)
+        }
+
+        def.push(`import type ${as}${dep.namespace} from './${dep.packageName}.js';`)
+
         return def
     }
 
@@ -1185,18 +1192,16 @@ export class TypeDefinitionGenerator implements Generator {
 
         out.push('')
 
-        // Module dependencies as type references or imports
-        if (this.config.environment === 'gjs') {
-            out.push(...this.generateModuleDependenciesImport('Gjs', 'Gjs', false))
-        }
+        // if (this.config.environment === 'gjs') {
+        //     out.push(...this.generateModuleDependenciesImport({ namespace: 'Gjs', packageName: 'Gjs' }))
+        // }
 
+        // Module dependencies as type references or imports
         for (const dependency of girModule.transitiveDependencies) {
             // Don't reference yourself as a dependency
             if (girModule.packageName !== dependency.packageName) {
                 if (dependency.exists) {
-                    out.push(
-                        ...this.generateModuleDependenciesImport(dependency.namespace, dependency.packageName, false),
-                    )
+                    out.push(...this.generateModuleDependenciesImport(dependency))
                 } else {
                     out.push(`// WARN: Dependency not found: '${dependency.packageName}'`)
                     this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(dependency.filename))

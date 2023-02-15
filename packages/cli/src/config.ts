@@ -52,6 +52,7 @@ export class Config {
         gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
+        packageScope: '@gjsify',
         package: false,
     }
 
@@ -193,6 +194,12 @@ export class Config {
             default: Config.defaults.promisify,
             normalize: true,
         },
+        packageScope: {
+            type: 'string',
+            description: 'Scope of the generated NPM packages',
+            default: Config.defaults.packageScope,
+            normalize: true,
+        },
         package: {
             type: 'boolean',
             description: 'Generates an NPM compatible packages for each type',
@@ -224,6 +231,7 @@ export class Config {
         gnomeShellTypes: this.options.gnomeShellTypes,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
+        packageScope: this.options.packageScope,
         package: this.options.package,
     }
 
@@ -342,6 +350,7 @@ export class Config {
             gnomeShellTypes: config.gnomeShellTypes,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
+            packageScope: config.packageScope,
             package: config.package,
         }
         return generateConfig
@@ -440,6 +449,7 @@ export class Config {
             gnomeShellTypes: options.gnomeShellTypes,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
+            packageScope: options.packageScope,
             package: options.package,
         }
 
@@ -545,6 +555,10 @@ export class Config {
                 typeof configFileData.promisify === 'boolean'
             ) {
                 config.promisify = configFileData.promisify
+            }
+            // packageScope
+            if (config.packageScope === Config.options.packageScope.default && configFileData.packageScope) {
+                config.packageScope = configFileData.packageScope
             }
             // package
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {

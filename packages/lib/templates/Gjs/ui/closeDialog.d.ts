@@ -1,13 +1,7 @@
-<% const GObject = dep.find('GObject') %>
-<% const Meta = dep.find('Meta') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as GObject from '../<%= GObject.packageName %>.js';
-    import type * as Meta from '../<%= Meta.packageName %>.js';
-<%_ } else { _%>
-    import type GObject from '../<%= GObject.packageName %>.js';
-    import type Meta from '../<%= Meta.packageName %>.js';
-<%_ } _%>
+<%_ const GObject = dep.find('GObject', '..') _%>
+<%_ const Meta = dep.find('Meta', '..') _%>
+<%- GObject ? GObject.importDef : '' %>
+<%- Meta ? Meta.importDef : '' %>
 
 import { Dialog, MessageDialogContent } from './dialog.js'
 

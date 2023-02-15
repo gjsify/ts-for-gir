@@ -1,12 +1,7 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/components/polkitAgent.js
 
-<% const shell = dep.find('Shell') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as Shell from '../../<%= shell.packageName %>.js';
-<%_ } else { _%>
-    import type Shell from '../../<%= shell.packageName %>.js';
-<%_ } _%>
+<% const Shell = dep.find('Shell', '../..') %>
+<%- Shell ? Shell.importDef : '' %>
 
 declare class AuthenticationAgent extends Shell.PolkitAuthenticationAgent {
     constructor()

@@ -1,15 +1,9 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/dnd.js
 
-<% const Meta = dep.find('Meta') %>
-<% const Clutter = dep.find('Clutter') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as Meta from '../<%= Meta.packageName %>.js';
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
-    import type Meta from '../<%= Meta.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } _%>
+<%_ const Meta = dep.find('Meta', '..') _%>
+<%_ const Clutter = dep.find('Clutter', '..') _%>
+<%- Meta ? Meta.importDef : '' %>
+<%- Clutter ? Clutter.importDef : '' %>
 
 import { EventEmitter } from '../misc/signals.js';
 

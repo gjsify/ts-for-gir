@@ -577,11 +577,11 @@ declare global {
                 <%_ } _%>
             }
         }
-        lang: typeof Gjs.Lang
-        system: typeof Gjs.System
-        signals: typeof Gjs.Signals
-        package: typeof Gjs.Package
-        mainloop: typeof Gjs.Mainloop
+        lang: typeof Gjs.lang
+        system: typeof Gjs.system
+        signals: typeof Gjs.signals
+        package: typeof Gjs.package
+        mainloop: typeof Gjs.mainloop
         searchPath: string[]
         <%_ if(gnomeShellTypes){ _%>
           misc: typeof GnomeShell.misc
@@ -592,3 +592,4 @@ declare global {
 
 declare const _imports: typeof imports
 export default _imports
+export { _imports as imports }

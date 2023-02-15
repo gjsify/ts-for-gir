@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.alias.json",
+  "extends": "./@types/Gjs/Gjs/tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],

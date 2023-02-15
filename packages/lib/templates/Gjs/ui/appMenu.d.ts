@@ -1,19 +1,11 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/appMenu.js
 
-<% const St = dep.find('St') %>
-<% const Clutter = dep.find('Clutter') %>
-<% const Shell = dep.find('Shell') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as St from '../<%= St.packageName %>.js';
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-    import type * as Shell from '../<%= Shell.packageName %>.js';
-<%_ } else { _%>
-    import type St from '../<%= St.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type Shell from '../<%= Shell.packageName %>.js';
-<%_ } _%>
-
+<%_ const St = dep.find('St', '..') _%>
+<%_ const Clutter = dep.find('Clutter', '..') _%>
+<%_ const Shell = dep.find('Shell', '..') _%>
+<%- St ? St.importDef : '' %>
+<%- Clutter ? Clutter.importDef : '' %>
+<%- Shell ? Shell.importDef : '' %>
 
 import type { PopupMenu, PopupSeparatorMenuItem, PopupMenuSection } from './popupMenu.js';
 import type { getAppFavorites } from './appFavorites.js';

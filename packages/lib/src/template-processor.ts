@@ -108,6 +108,14 @@ export class TemplateProcessor {
         return result
     }
 
+    public getOutputPath(baseOutputPath: string, outputFilename: string, prependEnv = true): string {
+        const filePath = this.config.package ? join(this.packageName, outputFilename) : outputFilename
+        const outputPath = prependEnv
+            ? getDestPath(this.config.environment, baseOutputPath, filePath)
+            : join(baseOutputPath, filePath)
+        return outputPath
+    }
+
     /**
      * Writes the `content` to the filesystem
      * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
@@ -122,16 +130,13 @@ export class TemplateProcessor {
         outputFilename: string,
         prependEnv = true,
     ): Promise<string> {
-        const filePath = this.config.package ? join(this.packageName, outputFilename) : outputFilename
-        const destPath = prependEnv
-            ? getDestPath(this.config.environment, baseOutputPath, filePath)
-            : join(baseOutputPath, filePath)
+        const outputPath = this.getOutputPath(baseOutputPath, outputFilename, prependEnv)
 
         // write template result file
-        await mkdir(dirname(destPath), { recursive: true })
-        await writeFile(destPath, content, { encoding: 'utf8', flag: 'w' })
+        await mkdir(dirname(outputPath), { recursive: true })
+        await writeFile(outputPath, content, { encoding: 'utf8', flag: 'w' })
 
-        return Promise.resolve(destPath)
+        return Promise.resolve(outputPath)
     }
 
     protected async render(templateString: string, options: Partial<ejs.Options> = {}): Promise<string> {

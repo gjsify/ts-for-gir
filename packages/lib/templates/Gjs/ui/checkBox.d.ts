@@ -1,10 +1,5 @@
-<% const St = dep.find('St') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as St from '../<%= St.packageName %>.js';
-<%_ } else { _%>
-    import type St from '../<%= St.packageName %>.js';
-<%_ } _%>
+<%_ const St = dep.find('St', '..') _%>
+<%- St ? St.importDef : '' %>
 
 export class CheckBox extends St.Button {
 

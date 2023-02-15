@@ -1,15 +1,9 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/modalDialog.js
 
-<% const St = dep.find('St') %>
-<% const shell = dep.find('Shell') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as St from '../<%= St.packageName %>.js';
-    import type * as Shell from '../<%= shell.packageName %>.js';
-<%_ } else { _%>
-    import type St from '../<%= St.packageName %>.js';
-    import type Shell from '../<%= shell.packageName %>.js';
-<%_ } _%>
+<%_ const St = dep.find('St', '..') _%>
+<%_ const Shell = dep.find('Shell', '..') _%>
+<%- St ? St.importDef : '' %>
+<%- Shell ? Shell.importDef : '' %>
 
 import type { MonitorConstraint } from './layout.js';
 import type { Dialog } from './dialog.js';

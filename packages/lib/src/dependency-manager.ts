@@ -25,6 +25,15 @@ export class DependencyManager {
         return this.instance
     }
 
+    getImportPath(packageName: string, relativeTo = '.'): string {
+        let importPath = this.config.package ? `${this.config.packageScope}/${packageName}` : `${relativeTo}/${packageName}`;
+        return importPath
+    }
+
+    getImportDef(namespace: string, importPath: string): string {
+        return this.config.noNamespace || namespace === 'Gjs' || namespace === 'GnomeShell' ? `import type * as ${namespace} from '${importPath}'` : `import type ${namespace} from '${importPath}';`;
+    }
+
     /**
      * Get the dependency object by namespace and version
      * @param namespace The namespace of the dependency
@@ -38,6 +47,9 @@ export class DependencyManager {
         }
         const filename = `${packageName}.gir`
         const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
+        const importPath = this.getImportPath(packageName)
+        const importDef = this.getImportDef(namespace, importPath)
+
         const dependency: Dependency = {
             namespace,
             exists,
@@ -45,6 +57,8 @@ export class DependencyManager {
             path,
             packageName,
             version,
+            importPath,
+            importDef,
         }
 
         this.cache[packageName] = dependency
@@ -68,9 +82,19 @@ export class DependencyManager {
     /**
      * Find a dependency by it's namespace from the cache
      * @param namespace The namespace of the dependency
+     * @param relativeTo The relative path to the dependency
      * @returns The dependency object or null if not found
      */
-    find(namespace: string): Dependency | null {
+    find(namespace: string, relativeTo = '.'): Dependency | null {
+
+        // Special case for Gjs and GnomeShell
+        if(namespace === 'Gjs') {
+            return this.getGjs(relativeTo)
+        }
+        if(namespace === 'GnomeShell') {
+            return this.getGnomeShell(relativeTo)
+        }
+
         const packageNames = Object.keys(this.cache)
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
@@ -82,10 +106,63 @@ export class DependencyManager {
 
         const latestVersion = candidates.sort().pop()
 
-        if (latestVersion) {
-            return this.cache[latestVersion]
+        if (latestVersion && this.cache[latestVersion]) {
+            const dep = this.cache[latestVersion]
+            const importPath = relativeTo === '.' ? dep.importPath : this.getImportPath(latestVersion, relativeTo)
+            const importDef = relativeTo === '.' ? dep.importDef : this.getImportDef(dep.namespace, importPath)
+            return { ...dep, importPath, importDef}
         }
 
         return null
+    }
+
+    getGjs(relativeTo = '.'): Dependency {
+        if(this.cache['Gjs'] && relativeTo === '.') {
+            return this.cache['Gjs']
+        }
+
+        const importPath = this.getImportPath('Gjs', relativeTo)
+        const importDef = this.getImportDef('Gjs', importPath)
+
+        const dep: Dependency = {
+            namespace: 'Gjs',
+            exists: true,
+            filename: '',
+            path: '',
+            packageName: 'Gjs',
+            version: '0.0',
+            importPath,
+            importDef,
+        }
+
+        if(relativeTo === '.') {
+            this.cache['Gjs'] = dep
+        }
+        return dep
+    }
+
+    getGnomeShell(relativeTo = '.'): Dependency {
+        if(this.cache['GnomeShell'] && relativeTo === '.') {
+            return this.cache['GnomeShell']
+        }
+
+        const importPath = this.getImportPath('GnomeShell', relativeTo)
+        const importDef = this.getImportDef('GnomeShell', importPath)
+
+        const dep: Dependency = {
+            namespace: 'GnomeShell',
+            exists: true,
+            filename: '',
+            path: '',
+            packageName: 'GnomeShell',
+            version: '0.0',
+            importPath,
+            importDef,
+        }
+
+        if(relativeTo === '.') {
+            this.cache['GnomeShell'] = dep
+        }
+        return dep
     }
 }

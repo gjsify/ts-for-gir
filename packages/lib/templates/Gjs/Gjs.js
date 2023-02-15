@@ -1,21 +1,31 @@
 <% if(moduleType === 'esm') { %>
   export const byteArray = imports.byteArray;
-  export const Lang = imports.lang;
-  export const Format = imports.format;
-  export const Mainloop = imports.mainloop;
+  export const lang = imports.lang;
+  export const format = imports.format;
+  export const mainloop = imports.mainloop;
   export const gettext = imports.gettext;
-  export const System = imports.system;
-  export const Signals = imports.signals;
-  export const Package = imports.package;
+  export const system = imports.system;
+  export const signals = imports.signals;
+  export const package = imports.package;
+  export default {
+    byteArray,
+    lang,
+    format,
+    mainloop,
+    gettext,
+    system,
+    signals,
+    package
+  }
 <% } else { %>  
   module.exports = {
     byteArray: imports.byteArray,
-    Lang: imports.lang,
-    Format: imports.format,
-    Mainloop: imports.mainloop,
+    lang: imports.lang,
+    format: imports.format,
+    mainloop: imports.mainloop,
     gettext: imports.gettext,
-    System: imports.system,
-    Signals: imports.signals,
-    Package: imports.package
+    system: imports.system,
+    signals: imports.signals,
+    package: imports.package
   }
 <% } %>

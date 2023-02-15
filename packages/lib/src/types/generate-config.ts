@@ -32,6 +32,11 @@ export interface GenerateConfig {
     generateAlias: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
+    /**
+     * Scope of the generated NPM packages
+     * @see https://docs.npmjs.com/cli/v7/using-npm/scope
+     */
+    packageScope: string
     /** Generates an NPM compatible packages for each type */
-    package: boolean;
+    package: boolean
 }

@@ -1,16 +1,10 @@
-<% const gobject = dep.find('GObject') %>
-<% const glib = dep.find('GLib') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as GObject from './<%= gobject.packageName %>.js';
-    import type * as GLib from './<%= glib.packageName %>.js';
-<%_ } else { _%>
-    import type GObject from './<%= gobject.packageName %>.js';
-    import type GLib from './<%= glib.packageName %>.js';
-<%_ } _%>
+<%_ const GObject = dep.find('GObject') _%>
+<%_ const GLib = dep.find('GLib') _%>
+<%- GObject ? GObject.importDef : '' %>
+<%- GLib ? GLib.importDef : '' %>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
-export namespace Package {
+export namespace package {
     /**
      * Although there are references in the documentation of more properties that
      * this object should accepts, only the following are actually used in the init code,
@@ -46,7 +40,7 @@ export namespace Package {
     export function initSubmodule(module: string): void
 }
 
-export namespace System {
+export namespace system {
     export const programInvocationName: string
     export const version: number
     export const programPath: string | null
@@ -73,7 +67,7 @@ export namespace console {
     export function interact(): void
 }
 
-export namespace Lang {
+export namespace lang {
     // TODO: There is a lot more in Lang
     export function Class(props: any): void
 }
@@ -105,7 +99,7 @@ export namespace gettext {
     }
 }
 
-export namespace Format {
+export namespace format {
     export function vprintf(str: string, args: string[]): string
     export function printf(fmt: string, ...args: any[]): void
     // Following docs from gjs/modules/format.js
@@ -123,7 +117,7 @@ export namespace Format {
     export function format(fmt: string, ...args: any[]): string
 }
 
-export namespace Mainloop {
+export namespace mainloop {
     export function quit(name: string): void
     export function idle_source(handler: any, priority?: number): any
     export function idle_add(handler: any, priority?: number): any
@@ -135,7 +129,7 @@ export namespace Mainloop {
     export function run(name: string): void
 }
 
-export namespace Signals {
+export namespace signals {
 
     /**
      * You can use the `Signals.addSignalMethods` method to apply the `Signals` convenience methods to an `Object`.
@@ -201,4 +195,16 @@ export namespace Signals {
     }
 
     export function addSignalMethods<T = any>(proto: T): proto is T & Methods;
+}
+
+export default {
+    package,
+    system,
+    byteArray,
+    console,
+    lang,
+    gettext,
+    format,
+    mainloop,
+    signals,
 }

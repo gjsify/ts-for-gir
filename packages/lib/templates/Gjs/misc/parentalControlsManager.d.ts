@@ -1,18 +1,11 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/misc/parentalControlsManager.js
 
-<% const GObject = dep.find('GObject') %>
-<% const Gio = dep.find('Gio') %>
-<% const Shell = dep.find('Shell') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as GObject from '../<%= GObject.packageName %>.js';
-    import type * as Gio from '../<%= Gio.packageName %>.js';
-    import type * as Shell from '../<%= Shell.packageName %>.js';
-<%_ } else { _%>
-    import type GObject from '../<%= GObject.packageName %>.js';
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type Shell from '../<%= Shell.packageName %>.js';
-<%_ } _%>
+<%_ const GObject = dep.find('GObject', '..') _%>
+<%_ const Gio = dep.find('Gio', '..') _%>
+<%_ const Shell = dep.find('Shell', '..') _%>
+<%- GObject ? GObject.importDef : '' %>
+<%- Gio ? Gio.importDef : '' %>
+<%- Shell ? Shell.importDef : '' %>
 
 declare class ParentalControlsManager extends GObject.Object {
 

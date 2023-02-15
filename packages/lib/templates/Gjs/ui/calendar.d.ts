@@ -1,21 +1,13 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/calendar.js
 
-<% const GObject = dep.find('GObject') %>
-<% const Gio = dep.find('Gio') %>
-<% const St = dep.find('St') %>
-<% const Clutter = dep.find('Clutter') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as GObject from '../<%= GObject.packageName %>.js';
-    import type * as Gio from '../<%= Gio.packageName %>.js';
-    import type * as St from '../<%= St.packageName %>.js';
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } else { _%>
-    import type GObject from '../<%= GObject.packageName %>.js';
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-<%_ } _%>
+<%_ const GObject = dep.find('GObject', '..') _%>
+<%_ const Gio = dep.find('Gio', '..') _%>
+<%_ const St = dep.find('St', '..') _%>
+<%_ const Clutter = dep.find('Clutter', '..') _%>
+<%- GObject ? GObject.importDef : '' %>
+<%- Gio ? Gio.importDef : '' %>
+<%- St ? St.importDef : '' %>
+<%- Clutter ? Clutter.importDef : '' %>
 
 import type { Message, MessageListSection } from './messageList.js';
 import type { Notification, MessageTray, Source } from './messageTray.js';

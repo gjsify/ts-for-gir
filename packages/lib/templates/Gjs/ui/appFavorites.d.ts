@@ -1,12 +1,7 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/appFavorites.js
 
-<% const Shell = dep.find('Shell') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as Shell from '../<%= Shell.packageName %>.js';
-<%_ } else { _%>
-    import type Shell from '../<%= Shell.packageName %>.js';
-<%_ } _%>
+<%_ const Shell = dep.find('Shell', '..') _%>
+<%- Shell ? Shell.importDef : '' %>
 
 import { EventEmitter } from '../misc/signals.js';
 

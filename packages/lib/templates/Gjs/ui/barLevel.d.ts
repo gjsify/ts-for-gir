@@ -1,15 +1,9 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/barLevel.js
 
-<% const St = dep.find('St') %>
-<% const Atk = dep.find('Atk') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as St from '../<%= St.packageName %>.js';
-    import type * as Atk from '../<%= Atk.packageName %>.js';
-<%_ } else { _%>
-    import type St from '../<%= St.packageName %>.js';
-    import type Atk from '../<%= Atk.packageName %>.js';
-<%_ } _%>
+<%_ const St = dep.find('St', '..') _%>
+<%_ const Atk = dep.find('Atk', '..') _%>
+<%- St ? St.importDef : '' %>
+<%- Atk ? Atk.importDef : '' %>
 
 export namespace BarLevel {
     export interface ConstructorProperties extends St.DrawingArea.ConstructorProperties {

@@ -94,22 +94,14 @@
  * @see https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/background.js
  */
 
-<% const Gio = dep.find('Gio') %>
-<% const Clutter = dep.find('Clutter') %>
-<% const Meta = dep.find('Meta') %>
-<% const GnomeDesktop = dep.find('GnomeDesktop') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as Gio from '../<%= Gio.packageName %>.js';
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-    import type * as Meta from '../<%= Meta.packageName %>.js';
-    import type * as GnomeDesktop from '../<%= GnomeDesktop.packageName %>.js';
-<%_ } else { _%>
-    import type Gio from '../<%= Gio.packageName %>.js';
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type Meta from '../<%= Meta.packageName %>.js';
-    import type GnomeDesktop from '../<%= GnomeDesktop.packageName %>.js';
-<%_ } _%>
+<%_ const Gio = dep.find('Gio', '..') _%>
+<%_ const Clutter = dep.find('Clutter', '..') _%>
+<%_ const Meta = dep.find('Meta', '..') _%>
+<%_ const GnomeDesktop = dep.find('GnomeDesktop', '..') _%>
+<%- Gio ? Gio.importDef : '' %>
+<%- Clutter ? Clutter.importDef : '' %>
+<%- Meta ? Meta.importDef : '' %>
+<%- GnomeDesktop ? GnomeDesktop.importDef : '' %>
 
 import { EventEmitter } from '../misc/signals.js';
 

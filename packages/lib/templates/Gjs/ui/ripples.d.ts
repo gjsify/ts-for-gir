@@ -1,15 +1,9 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/ripples.js
 
-<% const Clutter = dep.find('Clutter') %>
-<% const St = dep.find('St') %>
-
-<%_ if(noNamespace){ _%>
-    import type * as Clutter from '../<%= Clutter.packageName %>.js';
-    import type * as St from '../<%= St.packageName %>.js';
-<%_ } else { _%>
-    import type Clutter from '../<%= Clutter.packageName %>.js';
-    import type St from '../<%= St.packageName %>.js';
-<%_ } _%>
+<% const Clutter = dep.find('Clutter', '..') %>
+<% const St = dep.find('St', '..') %>
+<%- Clutter ? Clutter.importDef : '' %>
+<%- St ? St.importDef : '' %>
 
 export class Ripples {
     _x: number;

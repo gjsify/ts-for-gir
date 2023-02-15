@@ -16,7 +16,7 @@
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
     "validate:app": "tsc --noEmit",
-    "clear": "rm -rf dist @types"
+    "clear": "rm -rf dist @types tsconfig.alias.json"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",

@@ -61,7 +61,6 @@ export class TemplateProcessor {
      * @param templateFilename The filename of the template
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
-     * @param packageName The name of the package
      * @param append A (optional) string that should be appended to the rendered template
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param append A (optional) string that should be appended to the rendered template
@@ -71,13 +70,12 @@ export class TemplateProcessor {
         templateFilename: string,
         baseOutputPath: string,
         outputFilename: string,
-        packageName: string,
         prependEnv = true,
         append = '',
     ): Promise<string> {
         const renderedTpl = await this.load(templateFilename)
         const code = renderedTpl + append
-        await this.write(code, baseOutputPath, outputFilename, packageName, prependEnv)
+        await this.write(code, baseOutputPath, outputFilename, prependEnv)
         return code
     }
 
@@ -87,7 +85,6 @@ export class TemplateProcessor {
      * @param templateDirname The directory where the templates are located
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputDirname The child output directory of the base output directory where the templates should be written to
-     * @param packageName The name of the package
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param append A (optional) string that should be appended to the rendered template
      * @return The rendered (and if possible prettified) templates
@@ -97,7 +94,6 @@ export class TemplateProcessor {
         templateDirname: string,
         baseOutputPath: string,
         outputDirname: string,
-        packageName: string,
         prependEnv = true,
         append = '',
     ) {
@@ -106,7 +102,7 @@ export class TemplateProcessor {
         for (const filename of Object.keys(renderedTpls)) {
             const destPath = getDestPath(this.config.environment, baseOutputPath, outputDirname, filename)
             result[destPath] = renderedTpls[filename] + append
-            await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), packageName, prependEnv)
+            await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), prependEnv)
         }
 
         return result
@@ -117,7 +113,6 @@ export class TemplateProcessor {
      * @param content The content (normally the content of a rendered template file) that should be written to the filesystem
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
-     * @param packageName The name of the package
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @returns 
      */
@@ -125,10 +120,9 @@ export class TemplateProcessor {
         content: string,
         baseOutputPath: string,
         outputFilename: string,
-        packageName: string,
         prependEnv = true,
     ): Promise<string> {
-        const filePath = this.config.package ? join(packageName, outputFilename) : outputFilename
+        const filePath = this.config.package ? join(this.packageName, outputFilename) : outputFilename
         const destPath = prependEnv
             ? getDestPath(this.config.environment, baseOutputPath, filePath)
             : join(baseOutputPath, filePath)

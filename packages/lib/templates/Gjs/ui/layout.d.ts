@@ -1,9 +1,11 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/ui/layout.js
 
+<%_ const GObject = dep.find('GObject', '..') _%>
 <%_ const Gio = dep.find('Gio', '..') _%>
 <%_ const Clutter = dep.find('Clutter', '..') _%>
 <%_ const St = dep.find('St', '..') _%>
 <%_ const Meta = dep.find('Meta', '..') _%>
+<%- GObject ? GObject.importDef : '' %>
 <%- Gio ? Gio.importDef : '' %>
 <%- Clutter ? Clutter.importDef : '' %>
 <%- St ? St.importDef : '' %>

@@ -28,7 +28,7 @@ export class DependencyManager {
     getImportPath(packageName: string, relativeTo = '.'): string {
         const importPath = this.config.package
             ? `${this.config.packageScope}/${packageName}`
-            : `${relativeTo}/${packageName}`
+            : `${relativeTo}/${packageName}.js`
         return importPath
     }
 

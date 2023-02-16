@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node-gtk Types All
+name: Gjs Types Gtk4
 
 on:
   push:
@@ -29,13 +29,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    # - name: Workaround for bad mirror
-    #   run: sudo gem install apt-spy2; sudo apt-spy2 check; sudo apt-spy2 fix --commit;
-    - name: Install updates
-      run: sudo apt-get update; sudo apt-get upgrade
-    - name: Install dependencies
-      run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev
     - run: yarn install
     - run: yarn run build
-    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:node
-    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:node
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run build:types:gnomeShell
+    - run: NODE_OPTIONS=--max_old_space_size=9216 yarn run validate:types:gjs

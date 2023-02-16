@@ -7,7 +7,6 @@
 
 import type * as Gjs from './Gjs.js'
 <%_ if(gnomeShellTypes){ _%>
-import type * as GnomeShell from './GnomeShell.js'
 <%- dep.getGnomeShell().importDef %>
 <%_ } _%>
 <%_ for (const girModule of girModules) { _%>

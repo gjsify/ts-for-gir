@@ -153,7 +153,9 @@ export namespace ui {
     export const xdndHandler: any;
 }
 
-export default {
-    misc,
-    ui
+declare const GnomeShell: {
+    misc: typeof misc,
+    ui: typeof ui,
 }
+
+export default GnomeShell

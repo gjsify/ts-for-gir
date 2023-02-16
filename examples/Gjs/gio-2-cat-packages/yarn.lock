@@ -186,30 +186,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gjsify/GLib-2.0@workspace:@types/Gjs/GLib-2.0":
-  version: 0.0.0-use.local
-  resolution: "@gjsify/GLib-2.0@workspace:@types/Gjs/GLib-2.0"
-  languageName: unknown
-  linkType: soft
-
-"@gjsify/GObject-2.0@workspace:@types/Gjs/GObject-2.0":
-  version: 0.0.0-use.local
-  resolution: "@gjsify/GObject-2.0@workspace:@types/Gjs/GObject-2.0"
-  languageName: unknown
-  linkType: soft
-
-"@gjsify/Gio-2.0@workspace:@types/Gjs/Gio-2.0":
-  version: 0.0.0-use.local
-  resolution: "@gjsify/Gio-2.0@workspace:@types/Gjs/Gio-2.0"
-  languageName: unknown
-  linkType: soft
-
-"@gjsify/Gjs@workspace:@types/Gjs/Gjs":
-  version: 0.0.0-use.local
-  resolution: "@gjsify/Gjs@workspace:@types/Gjs/Gjs"
-  languageName: unknown
-  linkType: soft
-
 "@ts-for-gir/cli@portal:../../../packages/cli::locator=ts-for-gir-gio-2-cat-promisify-packages%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@portal:../../../packages/cli::locator=ts-for-gir-gio-2-cat-promisify-packages%40workspace%3A."

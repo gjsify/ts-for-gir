@@ -1,0 +1,37 @@
+
+{
+    "name": "@gjsify/Gio-2.0",
+    "version": "3.0.0-beta.10",
+    "description": "TypeScript type definitions for Gio-2.0",
+    "main": "Gio-2.0.js",
+    "module": "Gio-2.0.js",
+    "types": "Gio-2.0.d.ts",
+    "exports": {
+      ".": {
+        "import": "./Gio-2.0.js",
+        "default": "./Gio-2.0.js",
+        "types": "./Gio-2.0.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+          ".": [
+              "Gio-2.0.d.ts"
+          ]
+      }
+    },
+    "scripts": {
+      "test": "tsc --noEmit Gio-2.0.d.ts"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
+    "keywords": ["Gir", "TypeScript", "Gio-2.0"],
+    "author": "ts-for-gir",
+    "license": "Apache-2.0",
+    "bugs": {
+      "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+}

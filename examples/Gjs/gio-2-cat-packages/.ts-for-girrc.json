@@ -5,7 +5,6 @@
     "moduleType": "esm",
     "useNamespace": true,
     "outdir": "./@types",
-    "gnomeShellTypes": true,
     "generateAlias": true,
     "promisify": true,
     "package": true

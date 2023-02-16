@@ -1,8 +1,8 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/misc/signals.js
 
-import type { Signals } from '../Gjs.js';
+import type { signals } from '../Gjs.js';
 
-export interface EventEmitter extends Signals.Methods {}
+export interface EventEmitter extends signals.Methods {}
 
 export class EventEmitter {
     connectObject(...args: any[]): number // TODO: return type is return type of imports.misc.signalTracker.connectObject

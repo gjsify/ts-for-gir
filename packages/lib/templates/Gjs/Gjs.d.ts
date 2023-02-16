@@ -197,14 +197,14 @@ export namespace signals {
     export function addSignalMethods<T = any>(proto: T): proto is T & Methods;
 }
 
-export default {
-    package,
-    system,
-    byteArray,
-    console,
-    lang,
-    gettext,
-    format,
-    mainloop,
-    signals,
+declare const Gjs: {
+    byteArray: typeof byteArray,
+    lang: typeof lang,
+    format: typeof format,
+    mainloop: typeof mainloop,
+    gettext: typeof gettext,
+    system: typeof system,
+    signals: typeof signals,
+    package: typeof package
 }
+export default Gjs

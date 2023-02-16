@@ -26,12 +26,16 @@ export class DependencyManager {
     }
 
     getImportPath(packageName: string, relativeTo = '.'): string {
-        let importPath = this.config.package ? `${this.config.packageScope}/${packageName}` : `${relativeTo}/${packageName}`;
+        const importPath = this.config.package
+            ? `${this.config.packageScope}/${packageName}`
+            : `${relativeTo}/${packageName}`
         return importPath
     }
 
     getImportDef(namespace: string, importPath: string): string {
-        return this.config.noNamespace || namespace === 'Gjs' || namespace === 'GnomeShell' ? `import type * as ${namespace} from '${importPath}'` : `import type ${namespace} from '${importPath}';`;
+        return this.config.noNamespace || namespace === 'Gjs' || namespace === 'GnomeShell'
+            ? `import type * as ${namespace} from '${importPath}'`
+            : `import type ${namespace} from '${importPath}';`
     }
 
     /**
@@ -86,12 +90,11 @@ export class DependencyManager {
      * @returns The dependency object or null if not found
      */
     find(namespace: string, relativeTo = '.'): Dependency | null {
-
         // Special case for Gjs and GnomeShell
-        if(namespace === 'Gjs') {
+        if (namespace === 'Gjs') {
             return this.getGjs(relativeTo)
         }
-        if(namespace === 'GnomeShell') {
+        if (namespace === 'GnomeShell') {
             return this.getGnomeShell(relativeTo)
         }
 
@@ -110,14 +113,14 @@ export class DependencyManager {
             const dep = this.cache[latestVersion]
             const importPath = relativeTo === '.' ? dep.importPath : this.getImportPath(latestVersion, relativeTo)
             const importDef = relativeTo === '.' ? dep.importDef : this.getImportDef(dep.namespace, importPath)
-            return { ...dep, importPath, importDef}
+            return { ...dep, importPath, importDef }
         }
 
         return null
     }
 
     getGjs(relativeTo = '.'): Dependency {
-        if(this.cache['Gjs'] && relativeTo === '.') {
+        if (this.cache['Gjs'] && relativeTo === '.') {
             return this.cache['Gjs']
         }
 
@@ -135,14 +138,14 @@ export class DependencyManager {
             importDef,
         }
 
-        if(relativeTo === '.') {
+        if (relativeTo === '.') {
             this.cache['Gjs'] = dep
         }
         return dep
     }
 
     getGnomeShell(relativeTo = '.'): Dependency {
-        if(this.cache['GnomeShell'] && relativeTo === '.') {
+        if (this.cache['GnomeShell'] && relativeTo === '.') {
             return this.cache['GnomeShell']
         }
 
@@ -160,7 +163,7 @@ export class DependencyManager {
             importDef,
         }
 
-        if(relativeTo === '.') {
+        if (relativeTo === '.') {
             this.cache['GnomeShell'] = dep
         }
         return dep

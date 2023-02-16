@@ -5,7 +5,7 @@
  */
 
 import './@types/Gjs/index';
-import { System } from './@types/Gjs/Gjs.js'
+import { system } from './@types/Gjs/Gjs.js'
 import GObject from 'gi://GObject?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';
@@ -93,4 +93,4 @@ class App {
 
 // Run the application
 let app = new App();
-app.run([System.programInvocationName, ...ARGV]);
+app.run([system.programInvocationName, ...ARGV]);

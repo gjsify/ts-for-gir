@@ -1,10 +1,11 @@
 {
-  "extends": "./@types/Gjs/Gjs/tsconfig.alias.json",
+  "extends": "@gjsify/Gjs/tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "ESNext",
+    "moduleResolution": "node"
   },
   "include": ["@types/Gjs/index.d.ts"],
   "files": [

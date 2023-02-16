@@ -16,7 +16,6 @@ import {
 
 import type {
     GenerateConfig,
-    InheritanceTable,
     GirClassElement,
     GirCallableParamElement,
     GirSignalElement,
@@ -1383,13 +1382,26 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportModule(girModule: GirModule) {
+    private async exportModulePackageJson(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'package.json'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(template, this.config.outdir, 'package.json')
+        } else {
+            const moduleContent = moduleTemplateProcessor.load(template)
+            this.log.log(moduleContent)
+        }
+    }
+
+    private async exportModule(girModule: GirModule, girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
         const moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
                 namespace: girModule.namespace,
                 version: girModule.version,
                 importName: girModule.importName,
+                girModule,
+                girModules,
+                girModulesGrouped,
             },
             girModule.packageName,
             this.config,
@@ -1399,6 +1411,10 @@ export class TypeDefinitionGenerator implements Generator {
 
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(moduleTemplateProcessor, girModule)
+        }
+
+        if (this.config.package) {
+            await this.exportModulePackageJson(moduleTemplateProcessor)
         }
     }
 
@@ -1432,6 +1448,11 @@ export class TypeDefinitionGenerator implements Generator {
                 await templateProcessor.create('tsconfig.alias.json', './', 'tsconfig.alias.json', false)
             }
         }
+
+        // Package
+        if (this.config.package) {
+            await this.exportModulePackageJson(templateProcessor)
+        }
     }
 
     private async exportGnomeShell(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
@@ -1457,6 +1478,11 @@ export class TypeDefinitionGenerator implements Generator {
             await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
             await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')
         }
+
+        // Package
+        if (this.config.package) {
+            await this.exportModulePackageJson(templateProcessor)
+        }
     }
 
     private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
@@ -1471,21 +1497,17 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    public async start(
-        girModules: GirModule[],
-        girModulesGrouped?: GirModulesGrouped[],
-        inheritanceTable?: InheritanceTable,
-    ) {
+    public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[] = []) {
         for (const girModule of girModules) {
-            await this.exportModule(girModule)
+            await this.exportModule(girModule, girModules, girModulesGrouped)
         }
 
-        if (this.config.environment === 'node' && girModulesGrouped) {
+        if (this.config.environment === 'node') {
             // node-gtk internal stuff
             await this.exportNodeGtk(girModules, girModulesGrouped)
         }
 
-        if (this.config.environment === 'gjs' && girModulesGrouped && inheritanceTable) {
+        if (this.config.environment === 'gjs') {
             // GJS internal stuff
             await this.exportGjs(girModules, girModulesGrouped)
             if (this.config.gnomeShellTypes) {

@@ -119,6 +119,7 @@
   },
   "workspaces": [
     "examples/*/*",
+    "!examples/Gjs/gio-2-cat-packages",
     "packages/*"
   ],
   "packageManager": "yarn@3.4.1"

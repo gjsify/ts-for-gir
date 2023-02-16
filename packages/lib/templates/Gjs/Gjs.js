@@ -6,8 +6,9 @@
   export const gettext = imports.gettext;
   export const system = imports.system;
   export const signals = imports.signals;
-  export const package = imports.package;
-  export default {
+  // "package" is a reserved word and cannot be used in strict mode / an ECMAScript module
+  export const Package = imports.package;
+  const Gjs = {
     byteArray,
     lang,
     format,
@@ -15,8 +16,9 @@
     gettext,
     system,
     signals,
-    package
+    package: Package
   }
+  export default Gjs
 <% } else { %>  
   module.exports = {
     byteArray: imports.byteArray,

@@ -4,7 +4,7 @@
  */
 
 import './@types/Gjs/index';
-import { System } from './@types/Gjs/Gjs.js'
+import { system } from './@types/Gjs/Gjs.js'
 import Gio from './@types/Gjs/Gio-2.0.js';
 import GLib from './@types/Gjs/GLib-2.0.js';
 import Gtk from './@types/Gjs/Gtk-4.0.js';
@@ -38,5 +38,5 @@ const onActivate = (app: Adw.Application) => {
 }
 
 app.connect('activate', onActivate)
-app.run([System.programInvocationName].concat(ARGV));
+app.run([system.programInvocationName].concat(ARGV));
 loop.run()

@@ -1,7 +1,7 @@
 {
   "name": "@ts-for-gir/cli",
   "version": "3.0.0-beta.10",
-  "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
+  "description": "TypeScript type definition generator for GObject introspection GIR files",
   "module": "lib/index.js",
   "main": "lib/index.js",
   "type": "module",

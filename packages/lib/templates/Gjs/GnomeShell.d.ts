@@ -152,3 +152,8 @@ export namespace ui {
     export const workspacesView: any;
     export const xdndHandler: any;
 }
+
+export default {
+    misc,
+    ui
+}

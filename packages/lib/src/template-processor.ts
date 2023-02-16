@@ -8,7 +8,7 @@ import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
-import { APP_NAME, APP_USAGE, APP_SOURCE } from './constants.js'
+import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
 import type { GenerateConfig } from './types/index.js'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
@@ -29,6 +29,9 @@ export class TemplateProcessor {
             APP_NAME,
             APP_USAGE,
             APP_SOURCE,
+            APP_VERSION,
+            PACKAGE_DESC: PACKAGE_DESC(packageName),
+            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
             dep,
         }
         this.environmentTemplateDir = getEnvironmentDir(config.environment, TEMPLATE_DIR)
@@ -122,7 +125,7 @@ export class TemplateProcessor {
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
-     * @returns 
+     * @returns
      */
     protected async write(
         content: string,
@@ -146,6 +149,7 @@ export class TemplateProcessor {
                 {
                     ...this.config,
                     ...this.data,
+                    packageName: this.packageName,
                 },
                 {
                     async: true,
@@ -154,6 +158,7 @@ export class TemplateProcessor {
             )
             return renderedTpl
         } catch (error) {
+            console.error(error)
             this.log.error('Error on render', error)
             return ''
         }

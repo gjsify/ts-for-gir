@@ -24,5 +24,16 @@
     "@ts-for-gir/cli": "workspace:^",
     "esbuild": "^0.17.8",
     "typescript": "^4.9.5"
-  }
+  },
+  "workspaces": [
+    "@types/Gjs/*"
+  ],
+  "resolutions": {
+    "@ts-for-gir/cli": "portal:../../../packages/cli",
+    "@ts-for-gir/generator-base": "portal:../../../packages/generator-base",
+    "@ts-for-gir/generator-html-doc": "portal:../../../packages/generator-html-doc",
+    "@ts-for-gir/generator-typescript": "portal:../../../packages/generator-typescript",
+    "@ts-for-gir/lib": "portal:../../../packages/lib"
+  },
+  "packageManager": "yarn@3.4.1"
 }

@@ -1,0 +1,41 @@
+<%# This template is used if the Option `package` is enabled %>
+<%_ const entryPointName = packageName === 'Gjs' ? 'index' : packageName _%>
+{
+    "name": "<%- packageScope %>/<%- packageName %>",
+    "version": "<%- APP_VERSION %>",
+    "description": "<%- PACKAGE_DESC %>",
+    "main": "<%- entryPointName %>.js",
+    "module": "<%- entryPointName %>.js",
+    "types": "<%- entryPointName %>.d.ts",
+    "exports": {
+      <%_ if (packageName === 'Gjs' && generateAlias) { _%>
+      "./tsconfig.alias.json": "./tsconfig.alias.json",
+      <%_ } _%>
+      ".": {
+        "import": "./<%- entryPointName %>.js",
+        "default": "./<%- entryPointName %>.js",
+        "types": "./<%- entryPointName %>.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+          ".": [
+              "<%- entryPointName %>.d.ts"
+          ]
+      }
+    },
+    "scripts": {
+      "test": "tsc --noEmit <%- entryPointName %>.d.ts"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
+    "keywords": [<%- PACKAGE_KEYWORDS %>],
+    "author": "<%- APP_NAME %>",
+    "license": "Apache-2.0",
+    "bugs": {
+      "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+}

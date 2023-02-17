@@ -1,0 +1,42 @@
+{
+  "name": "ts-for-gir-node-gtk-gio-2-cat-promisify-packages",
+  "version": "3.0.0-beta.8",
+  "description": "Simple Node Gtk 3 example app that shows how you can translate strings with gettext",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.json",
+    "build:app": "yarn node esbuild.js",
+    "build": "yarn build:types && yarn build:app",
+    "start:app": "node dist/main.js main.ts",
+    "debug:app": "GTK_DEBUG=interactive yarn start:app",
+    "start": "yarn build && yarn start:app",
+    "validate": "yarn validate:types && yarn validate:app",
+    "validate:types": "tsc --project tsconfig.types.json",
+    "validate:app": "tsc --noEmit",
+    "clear": "rm -rf dist @types tsconfig.alias.json"
+  },
+  "author": "Pascal Garber <pascal@artandcode.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "@ts-for-gir/cli": "workspace:^",
+    "esbuild": "^0.17.8",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "node-gtk": "^0.11.0"
+  },
+  "workspaces": [
+    "@types/node-gtk/*"
+  ],
+  "resolutions": {
+    "@ts-for-gir/cli": "portal:../../../packages/cli",
+    "@ts-for-gir/generator-base": "portal:../../../packages/generator-base",
+    "@ts-for-gir/generator-html-doc": "portal:../../../packages/generator-html-doc",
+    "@ts-for-gir/generator-typescript": "portal:../../../packages/generator-typescript",
+    "@ts-for-gir/lib": "portal:../../../packages/lib"
+  },
+  "packageManager": "yarn@3.4.1"
+}

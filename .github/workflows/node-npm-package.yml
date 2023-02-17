@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Gjs NPM Package
+name: node-gtk NPM Package
 
 on:
   push:
@@ -35,17 +35,17 @@ jobs:
     - name: yarn run build (ts-for-gir)
       run: yarn run build
     - name: yarn install (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/node-gtk/gio-2-cat-packages
       run: yarn install --frozen-lockfile
     - name: yarn run build (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/node-gtk/gio-2-cat-packages
       run: yarn run build
     - name: again yarn install (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/node-gtk/gio-2-cat-packages
       run: yarn install --frozen-lockfile
     - name: yarn run start:app (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/node-gtk/gio-2-cat-packages
       run: yarn run start:app
     - name: yarn run validate (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/node-gtk/gio-2-cat-packages
       run: yarn run validate

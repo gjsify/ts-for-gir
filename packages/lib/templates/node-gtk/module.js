@@ -1,5 +1,6 @@
 <% if(moduleType === 'esm'){ %>
-    import { require as giRequire } from 'node-gtk';
+    import gi from 'node-gtk';
+    const { require: giRequire } = gi;
     const <%= name %> = giRequire('<%= name %>', '<%= version %>');
     export { <%= name %> };
     export default <%= name %>;

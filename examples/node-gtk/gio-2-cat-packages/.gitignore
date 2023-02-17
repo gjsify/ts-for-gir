@@ -1,0 +1,18 @@
+# Yarn https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# !@types/
+# @types/Gjs/Gio-2.0/*
+# !@types/Gjs/Gio-2.0/package.json
+# @types/Gjs/Gjs/*
+# !@types/Gjs/Gjs/package.json
+# @types/Gjs/GLib-2.0/*
+# !@types/Gjs/GLib-2.0/package.json
+# @types/Gjs/GObject-2.0/*
+# !@types/Gjs/GObject-2.0/package.json

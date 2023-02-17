@@ -1512,9 +1512,17 @@ export class TypeDefinitionGenerator implements Generator {
             this.config,
         )
 
+        // Types
         await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+
+        // Lib
         if (this.config.buildType === 'lib') {
             await templateProcessor.create('index.js', this.config.outdir, 'index.js')
+        }
+
+        // Package
+        if (this.config.package) {
+            await this.exportModulePackageJson(templateProcessor)
         }
     }
 

@@ -1184,9 +1184,9 @@ __metadata:
   linkType: hard
 
 "type-fest@npm:^3.0.0":
-  version: 3.5.7
-  resolution: "type-fest@npm:3.5.7"
-  checksum: 06358352daa706d6f582d2041945e629fdd236c3c94678c4d87efb5d2e77bab78740337449f44bbd09a736c966e70570e901e2e2576b59b369891ffc1bf87bb6
+  version: 3.6.0
+  resolution: "type-fest@npm:3.6.0"
+  checksum: 3cb3b27fc1dc69e0a7524041d9d32cfd3786b16591952e0b2b87ca44b53acaed1bf86ee62a7cc3033a55154d44542e8b488d500d1b363d828f62a9fae9d2a043
   languageName: node
   linkType: hard
 
@@ -1280,8 +1280,8 @@ __metadata:
   linkType: hard
 
 "yargs@npm:^17.6.2":
-  version: 17.6.2
-  resolution: "yargs@npm:17.6.2"
+  version: 17.7.0
+  resolution: "yargs@npm:17.7.0"
   dependencies:
     cliui: ^8.0.1
     escalade: ^3.1.1
@@ -1290,6 +1290,6 @@ __metadata:
     string-width: ^4.2.3
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
-  checksum: 47da1b0d854fa16d45a3ded57b716b013b2179022352a5f7467409da5a04a1eef5b3b3d97a2dfc13e8bbe5f2ffc0afe3bc6a4a72f8254e60f5a4bd7947138643
+  checksum: e7d5f5b60e63b04ded7c27c3d4b194565565cac3ea19fffcdbb183bed973a83106822a04dda28ebba4811ce92949a9d9858d3935186ff8f343548bf98aab2120
   languageName: node
   linkType: hard

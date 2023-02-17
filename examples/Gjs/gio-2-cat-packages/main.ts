@@ -8,6 +8,7 @@
  * the label should show a translation of 'Print help'
  */
 
+import "@gir/Gjs";
 import GLib from "@gir/GLib-2.0";
 import Gio from "@gir/Gio-2.0";
 

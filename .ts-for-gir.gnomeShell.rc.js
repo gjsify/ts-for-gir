@@ -1,6 +1,6 @@
 export default {
     environments: ["gjs"],
-    modules: ["St-*", "Shell-*", "Gcr-*", "GnomeDesktop-*"],
+    modules: ["St-*", "Shell-*", "Gcr-*", "GnomeDesktop-*", "Meta-*"],
     girDirectories: [
         // General gir files
         '/usr/share/gir-1.0',

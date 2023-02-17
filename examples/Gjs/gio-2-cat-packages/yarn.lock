@@ -186,6 +186,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gir/GLib-2.0@workspace:@types/Gjs/GLib-2.0, @gir/GLib-2.0@workspace:^":
+  version: 0.0.0-use.local
+  resolution: "@gir/GLib-2.0@workspace:@types/Gjs/GLib-2.0"
+  dependencies:
+    "@gir/GObject-2.0": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@gir/GObject-2.0@workspace:@types/Gjs/GObject-2.0, @gir/GObject-2.0@workspace:^":
+  version: 0.0.0-use.local
+  resolution: "@gir/GObject-2.0@workspace:@types/Gjs/GObject-2.0"
+  dependencies:
+    "@gir/GLib-2.0": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@gir/Gio-2.0@workspace:@types/Gjs/Gio-2.0, @gir/Gio-2.0@workspace:^":
+  version: 0.0.0-use.local
+  resolution: "@gir/Gio-2.0@workspace:@types/Gjs/Gio-2.0"
+  dependencies:
+    "@gir/GLib-2.0": "workspace:^"
+    "@gir/GObject-2.0": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@gir/Gjs@workspace:@types/Gjs/Gjs":
+  version: 0.0.0-use.local
+  resolution: "@gir/Gjs@workspace:@types/Gjs/Gjs"
+  dependencies:
+    "@gir/GLib-2.0": "workspace:^"
+    "@gir/GObject-2.0": "workspace:^"
+    "@gir/Gio-2.0": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
 "@ts-for-gir/cli@portal:../../../packages/cli::locator=ts-for-gir-gio-2-cat-promisify-packages%40workspace%3A.":
   version: 0.0.0-use.local
   resolution: "@ts-for-gir/cli@portal:../../../packages/cli::locator=ts-for-gir-gio-2-cat-promisify-packages%40workspace%3A."

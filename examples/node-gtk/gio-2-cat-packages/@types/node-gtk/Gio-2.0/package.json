@@ -1,3 +1,4 @@
+
 {
     "name": "@gir/Gio-2.0",
     "version": "3.0.0-beta.10",
@@ -6,39 +7,36 @@
     "module": "Gio-2.0.js",
     "types": "Gio-2.0.d.ts",
     "exports": {
-        ".": {
-            "import": "./Gio-2.0.js",
-            "default": "./Gio-2.0.js",
-            "types": "./Gio-2.0.d.ts"
-        }
+      ".": {
+        "import": "./Gio-2.0.js",
+        "default": "./Gio-2.0.js",
+        "types": "./Gio-2.0.d.ts"
+      }
     },
     "typesVersions": {
-        "*": {
-            ".": [
-                "Gio-2.0.d.ts"
-            ]
-        }
+      "*": {
+          ".": [
+              "Gio-2.0.d.ts"
+          ]
+      }
     },
     "scripts": {
-        "test": "tsc --noEmit Gio-2.0.d.ts"
+      "test": "tsc --noEmit Gio-2.0.d.ts"
     },
     "dependencies": {
-        "@gir/GLib-2.0": "workspace:^",
-        "@gir/GObject-2.0": "workspace:^"
+      
+      "@gir/GObject-2.0": "workspace:^",            
+      "@gir/GLib-2.0": "workspace:^"      
     },
-    "keywords": [
-        "Gir",
-        "TypeScript",
-        "Gio-2.0"
-    ],
+    "keywords": ["Gir", "TypeScript", "Gio-2.0"],
     "author": "ts-for-gir",
     "license": "Apache-2.0",
     "repository": {
-        "type": "git",
-        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
     },
     "bugs": {
-        "url": "https://github.com/gjsify/ts-for-gir/issues"
+      "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
     "homepage": "https://github.com/gjsify/ts-for-gir#readme"
 }

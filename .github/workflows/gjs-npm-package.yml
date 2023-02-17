@@ -29,7 +29,7 @@ jobs:
     - name: Install updates
       run: sudo apt-get update; sudo apt-get upgrade
     - name: Install dependencies
-      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
+      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev gjs
     - name: yarn install (ts-for-gir)
       run: yarn install
     - name: yarn run build (ts-for-gir)

@@ -10,10 +10,11 @@ import type * as Gjs from './Gjs.js'
 <%- dep.getGnomeShell().importDef %>
 <%_ } _%>
 <%_ for (const girModule of girModules) { _%>
+  <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
   <%_ if(noNamespace){ _%>
-import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
+import type * as <%= girModule.importName %> from "<%= pkg.importPath %>";
   <%_ } else { _%>
-import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
+import type <%= girModule.importName %> from "<%= pkg.importPath %>";
   <%_ } _%>
 <%_ } _%>
 

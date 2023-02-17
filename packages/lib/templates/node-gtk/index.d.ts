@@ -8,11 +8,12 @@
  */
 
 <%_ for (const girModule of girModules) { _%>
-    <% if(noNamespace){ %>
-import type * as <%= girModule.importName %> from './<%= girModule.packageName %>.js';
-    <% } else { %>
-import type <%= girModule.importName %> from "./<%= girModule.packageName %>.js";
-    <% } %>
+    <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
+    <%_ if(noNamespace){ _%>
+import type * as <%= girModule.importName %> from "<%= pkg.importPath %>";
+    <%_ } else { _%>
+import type <%= girModule.importName %> from "<%= pkg.importPath %>";
+    <%_ } _%>
 <%_ } _%>
 
 <%_ if (buildType === 'types') { _%>

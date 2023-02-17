@@ -1,3 +1,4 @@
+
 {
     "name": "@gir/Gjs",
     "version": "3.0.0-beta.10",
@@ -6,41 +7,38 @@
     "module": "index.js",
     "types": "index.d.ts",
     "exports": {
-        "./tsconfig.alias.json": "./tsconfig.alias.json",
-        ".": {
-            "import": "./index.js",
-            "default": "./index.js",
-            "types": "./index.d.ts"
-        }
+      "./tsconfig.alias.json": "./tsconfig.alias.json",
+      ".": {
+        "import": "./index.js",
+        "default": "./index.js",
+        "types": "./index.d.ts"
+      }
     },
     "typesVersions": {
-        "*": {
-            ".": [
-                "index.d.ts"
-            ]
-        }
+      "*": {
+          ".": [
+              "index.d.ts"
+          ]
+      }
     },
     "scripts": {
-        "test": "tsc --noEmit index.d.ts"
+      "test": "tsc --noEmit index.d.ts"
     },
     "dependencies": {
-        "@gir/GLib-2.0": "workspace:^",
-        "@gir/GObject-2.0": "workspace:^",
-        "@gir/Gio-2.0": "workspace:^"
+      
+      "@gir/Gio-2.0": "workspace:^",            
+      "@gir/GObject-2.0": "workspace:^",            
+      "@gir/GLib-2.0": "workspace:^"      
     },
-    "keywords": [
-        "Gir",
-        "TypeScript",
-        "Gjs"
-    ],
+    "keywords": ["Gir", "TypeScript", "Gjs"],
     "author": "ts-for-gir",
     "license": "Apache-2.0",
     "repository": {
-        "type": "git",
-        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
     },
     "bugs": {
-        "url": "https://github.com/gjsify/ts-for-gir/issues"
+      "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
     "homepage": "https://github.com/gjsify/ts-for-gir#readme"
 }

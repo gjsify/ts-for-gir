@@ -52,7 +52,7 @@ export class Config {
         gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
-        packageScope: '@gjsify',
+        packageScope: '@gir',
         package: false,
     }
 

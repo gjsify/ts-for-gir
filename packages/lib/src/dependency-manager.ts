@@ -1,5 +1,6 @@
 import { findFileInDirs } from './utils.js'
 import { Logger } from './logger.js'
+import { GNOME_SHELL_NAMESPACES } from './constants.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 
@@ -23,6 +24,25 @@ export class DependencyManager {
         }
         this.instance = new DependencyManager(config)
         return this.instance
+    }
+
+    /**
+     * Get all dependencies in the cache
+     * @returns All dependencies in the cache
+     */
+    all(): Dependency[] {
+        return Object.values(this.cache)
+    }
+
+    forGnomeShell(): Dependency[] {
+        const deps: Dependency[] = []
+        for (const ns of GNOME_SHELL_NAMESPACES) {
+            const dep = this.find(ns);
+            if(dep) {
+                deps.push(dep)
+            }
+        }
+        return deps
     }
 
     getImportPath(packageName: string, relativeTo = '.'): string {

@@ -9,9 +9,10 @@ import { join, dirname } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
-import type { GenerateConfig } from './types/index.js'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
+
+import type { GenerateConfig, Dependency } from './types/index.js'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 
@@ -21,6 +22,7 @@ export class TemplateProcessor {
     constructor(
         protected readonly data: ejs.Data | undefined,
         protected readonly packageName: string,
+        protected readonly dependencies: Dependency[],
         protected readonly config: GenerateConfig,
     ) {
         const dep = DependencyManager.getInstance(config)
@@ -33,6 +35,7 @@ export class TemplateProcessor {
             PACKAGE_DESC: PACKAGE_DESC(packageName),
             PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
             dep,
+            deps: dependencies,
         }
         this.environmentTemplateDir = getEnvironmentDir(config.environment, TEMPLATE_DIR)
         this.log = new Logger(config.environment, config.verbose, this.packageName)

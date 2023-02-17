@@ -7,12 +7,12 @@
 !.yarn/sdks
 !.yarn/versions
 
-!@types/
-@types/Gjs/Gio-2.0/*
-!@types/Gjs/Gio-2.0/package.json
-@types/Gjs/Gjs/*
-!@types/Gjs/Gjs/package.json
-@types/Gjs/GLib-2.0/*
-!@types/Gjs/GLib-2.0/package.json
-@types/Gjs/GObject-2.0/*
-!@types/Gjs/GObject-2.0/package.json
+# !@types/
+# @types/Gjs/Gio-2.0/*
+# !@types/Gjs/Gio-2.0/package.json
+# @types/Gjs/Gjs/*
+# !@types/Gjs/Gjs/package.json
+# @types/Gjs/GLib-2.0/*
+# !@types/Gjs/GLib-2.0/package.json
+# @types/Gjs/GObject-2.0/*
+# !@types/Gjs/GObject-2.0/package.json

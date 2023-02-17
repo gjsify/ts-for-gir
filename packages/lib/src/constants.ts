@@ -1,4 +1,4 @@
-import { Environment } from './types/index.js'
+import { Environment, Dependency } from './types/index.js'
 
 /**
  * In gjs all classes have a static name property but the classes listed below already have a static name property
@@ -16,6 +16,11 @@ export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'
 export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gjs'
 export const APP_VERSION = '3.0.0-beta.10'
+
+/**
+ * The namespaces of the dependencies that are used in Gnome Shell
+ */
+export const GNOME_SHELL_NAMESPACES: string[] = ['GObject', 'GLib', 'Gio', 'Shell', 'St', 'Clutter', 'Meta', 'Gcr', 'Atk']
 
 export const PACKAGE_DESC = (packageName: string) => `TypeScript type definitions for ${packageName}`
 export const PACKAGE_KEYWORDS = (packageName: string) => `"Gir", "TypeScript", "${packageName}"`

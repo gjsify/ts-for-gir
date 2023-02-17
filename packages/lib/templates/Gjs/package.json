@@ -27,13 +27,19 @@
     "scripts": {
       "test": "tsc --noEmit <%- entryPointName %>.d.ts"
     },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    "dependencies": {
+      <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
+      <% const dep = deps[i] %>
+      "<%- dep.importPath %>": "workspace:^"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
+      <% } %>
     },
     "keywords": [<%- PACKAGE_KEYWORDS %>],
     "author": "<%- APP_NAME %>",
     "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
     "bugs": {
       "url": "https://github.com/gjsify/ts-for-gir/issues"
     },

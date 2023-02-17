@@ -7,11 +7,12 @@ import {
     girElementIsIntrospectable,
     typeIsOptional,
     TemplateProcessor,
+    Dependency,
+    DependencyManager,
     NO_TSDATA,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
-    Dependency,
 } from '@ts-for-gir/lib'
 
 import type {
@@ -1404,6 +1405,7 @@ export class TypeDefinitionGenerator implements Generator {
                 girModulesGrouped,
             },
             girModule.packageName,
+            girModule.transitiveDependencies,
             this.config,
         )
 
@@ -1418,13 +1420,18 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    private async exportGjs(
+        dependencies: Dependency[],
+        girModules: GirModule[],
+        girModulesGrouped: GirModulesGrouped[],
+    ) {
         if (!this.config.outdir) return
         const packageName = 'Gjs'
 
         const templateProcessor = new TemplateProcessor(
             { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
             packageName,
+            dependencies,
             this.config,
         )
 
@@ -1455,13 +1462,18 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportGnomeShell(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    private async exportGnomeShell(
+        dependencies: Dependency[],
+        girModules: GirModule[],
+        girModulesGrouped: GirModulesGrouped[],
+    ) {
         if (!this.config.outdir) return
         const packageName = 'GnomeShell'
 
         const templateProcessor = new TemplateProcessor(
             { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
             packageName,
+            dependencies,
             this.config,
         )
 
@@ -1485,11 +1497,20 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    private async exportNodeGtk(
+        dependencies: Dependency[],
+        girModules: GirModule[],
+        girModulesGrouped: GirModulesGrouped[],
+    ) {
         if (!this.config.outdir) return
         const packageName = 'node-gtk'
 
-        const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, packageName, this.config)
+        const templateProcessor = new TemplateProcessor(
+            { girModules, girModulesGrouped },
+            packageName,
+            dependencies,
+            this.config,
+        )
 
         await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
         if (this.config.buildType === 'lib') {
@@ -1502,16 +1523,18 @@ export class TypeDefinitionGenerator implements Generator {
             await this.exportModule(girModule, girModules, girModulesGrouped)
         }
 
+        const dependencyManager = DependencyManager.getInstance(this.config)
+
         if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            await this.exportNodeGtk(girModules, girModulesGrouped)
+            await this.exportNodeGtk(dependencyManager.all(), girModules, girModulesGrouped)
         }
 
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            await this.exportGjs(girModules, girModulesGrouped)
+            await this.exportGjs(dependencyManager.all(), girModules, girModulesGrouped)
             if (this.config.gnomeShellTypes) {
-                await this.exportGnomeShell(girModules, girModulesGrouped)
+                await this.exportGnomeShell(dependencyManager.forGnomeShell(), girModules, girModulesGrouped)
             }
         }
     }

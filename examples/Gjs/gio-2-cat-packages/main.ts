@@ -14,8 +14,6 @@ import Gio from "@gir/Gio-2.0";
 
 const ByteArray = imports.byteArray;
 
-const loop = GLib.MainLoop.new(null, false);
-
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 
 async function cat(filename: string) {
@@ -23,12 +21,10 @@ async function cat(filename: string) {
 
     const [contents] = await file.load_contents_async(null);
     print(ByteArray.toString(contents));
-    loop.quit();
-
-    loop.run();
 }
 
 if (ARGV.length !== 1)
     printerr('Usage: gio-cat.js filename');
-else
+else {
     await cat(ARGV[0]);
+}

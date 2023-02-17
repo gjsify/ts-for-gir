@@ -9,11 +9,7 @@
  */
 
 const ByteArray = imports.byteArray;
-
-import GLib from "gi://GLib";
 import Gio from "gi://Gio";
-
-const loop = GLib.MainLoop.new(null, false);
 
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 
@@ -22,9 +18,6 @@ async function cat(filename: string) {
 
     const [contents] = await file.load_contents_async(null);
     print(ByteArray.toString(contents));
-    loop.quit();
-
-    loop.run();
 }
 
 if (ARGV.length !== 1)

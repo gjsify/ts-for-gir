@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
     "raw-loader": "^4.0.2",
     "ts-loader": "^9.4.2",

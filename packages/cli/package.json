@@ -55,7 +55,7 @@
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "@types/yargs": "^17.0.22",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
@@ -77,6 +77,6 @@
     "get-tsconfig": "^4.4.0",
     "inquirer": "^9.1.4",
     "tiny-glob": "^0.2.9",
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.0"
   }
 }

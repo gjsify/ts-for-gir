@@ -52,7 +52,7 @@ export class Config {
         gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
-        packageScope: '@gir',
+        npmScope: '@gir',
         package: false,
     }
 
@@ -194,10 +194,10 @@ export class Config {
             default: Config.defaults.promisify,
             normalize: true,
         },
-        packageScope: {
+        npmScope: {
             type: 'string',
             description: 'Scope of the generated NPM packages',
-            default: Config.defaults.packageScope,
+            default: Config.defaults.npmScope,
             normalize: true,
         },
         package: {
@@ -231,7 +231,7 @@ export class Config {
         gnomeShellTypes: this.options.gnomeShellTypes,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
-        packageScope: this.options.packageScope,
+        npmScope: this.options.npmScope,
         package: this.options.package,
     }
 
@@ -350,7 +350,7 @@ export class Config {
             gnomeShellTypes: config.gnomeShellTypes,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
-            packageScope: config.packageScope,
+            npmScope: config.npmScope,
             package: config.package,
         }
         return generateConfig
@@ -449,7 +449,7 @@ export class Config {
             gnomeShellTypes: options.gnomeShellTypes,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
-            packageScope: options.packageScope,
+            npmScope: options.npmScope,
             package: options.package,
         }
 
@@ -556,9 +556,9 @@ export class Config {
             ) {
                 config.promisify = configFileData.promisify
             }
-            // packageScope
-            if (config.packageScope === Config.options.packageScope.default && configFileData.packageScope) {
-                config.packageScope = configFileData.packageScope
+            // npmScope
+            if (config.npmScope === Config.options.npmScope.default && configFileData.npmScope) {
+                config.npmScope = configFileData.npmScope
             }
             // package
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {

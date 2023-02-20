@@ -9,7 +9,7 @@
  */
 
 import gi from "@gir/node-gtk";
-import Gio from "@gir/Gio-2.0";
+import Gio from "@gir/gio-2.0";
 
 function cat(filename: string) {
     const file = Gio.fileNewForPath(filename);

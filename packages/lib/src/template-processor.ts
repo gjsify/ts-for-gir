@@ -11,6 +11,7 @@ import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
 import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
+import { Transformation } from './transformation.js'
 
 import type { GenerateConfig, Dependency } from './types/index.js'
 
@@ -19,12 +20,14 @@ const TEMPLATE_DIR = join(__dirname, '../templates')
 export class TemplateProcessor {
     protected environmentTemplateDir: string
     protected log: Logger
+    protected transformation: Transformation
     constructor(
         protected readonly data: ejs.Data | undefined,
         protected readonly packageName: string,
         protected readonly dependencies: Dependency[],
         protected readonly config: GenerateConfig,
     ) {
+        this.transformation = new Transformation(config)
         const dep = DependencyManager.getInstance(config)
         this.data = {
             ...this.data,
@@ -34,6 +37,7 @@ export class TemplateProcessor {
             APP_VERSION,
             PACKAGE_DESC: PACKAGE_DESC(packageName),
             PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
+            importName: this.transformation.transformImportName(packageName),
             dep,
             deps: dependencies,
         }

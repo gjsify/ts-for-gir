@@ -163,7 +163,7 @@ export class GirModule {
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
         this.packageName = `${this.namespace}-${this.version}`
-        this.transformation = new Transformation(this.packageName, config)
+        this.transformation = new Transformation(config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment, config.verbose)
         this.inject = new Injector(this.config.environment)

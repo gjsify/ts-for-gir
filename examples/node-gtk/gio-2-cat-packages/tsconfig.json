@@ -6,7 +6,6 @@
     "module": "ESNext",
     "moduleResolution": "node"
   },
-  "include": ["@types/node-gtk/index.d.ts"],
   "files": [
     "main.ts",
   ]

@@ -307,7 +307,7 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        importName: {
+        importNamespaceName: {
             node: {
                 transformation: 'upperCamelCase',
             },
@@ -323,12 +323,20 @@ export class Transformation {
                 transformation: 'upperCamelCase',
             },
         },
+        importName: {
+            node: {
+                transformation: 'lowerCase',
+            },
+            gjs: {
+                transformation: 'lowerCase',
+            },
+        }
     }
 
     private log: Logger
 
-    constructor(moduleName = 'Transformation', private readonly config: GenerateConfig) {
-        this.log = new Logger(config.environment, config.verbose, moduleName)
+    constructor(private readonly config: GenerateConfig, logName = 'Transformation') {
+        this.log = new Logger(config.environment, config.verbose, logName)
     }
 
     public transformSignalInterfaceName(name: string): string {
@@ -338,7 +346,7 @@ export class Transformation {
 
     public transformModuleNamespaceName(name: string): string {
         name = this.transformNumericName(name)
-        name = this.transform('importName', name)
+        name = this.transform('importNamespaceName', name)
 
         if (RESERVED_NAMESPACE_NAMES[name]) {
             name = `${name}_`
@@ -580,5 +588,9 @@ export class Transformation {
     public transformGirDocTagText(text: string) {
         // return this.transformGirDocHighlights(text.replace(NEW_LINE_REG_EXP, ' '))
         return text.replace(NEW_LINE_REG_EXP, ' ')
+    }
+
+    public transformImportName(packageName: string): string {
+        return this.transform('importName', packageName)
     }
 }

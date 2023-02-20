@@ -1,17 +1,20 @@
-import { findFileInDirs } from './utils.js'
+import { findFileInDirs, splitModuleName } from './utils.js'
 import { Logger } from './logger.js'
 import { GNOME_SHELL_NAMESPACES } from './constants.js'
+import { Transformation } from './transformation.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
 
 export class DependencyManager {
     protected log: Logger
+    protected transformation: Transformation
 
     cache: { [key: string]: Dependency } = {}
 
     static instance: DependencyManager
 
     protected constructor(protected readonly config: GenerateConfig) {
+        this.transformation = new Transformation(config)
         this.log = new Logger(config.environment, config.verbose, 'DependencyManager')
     }
 
@@ -37,8 +40,8 @@ export class DependencyManager {
     forGnomeShell(): Dependency[] {
         const deps: Dependency[] = []
         for (const ns of GNOME_SHELL_NAMESPACES) {
-            const dep = this.find(ns);
-            if(dep) {
+            const dep = this.find(ns)
+            if (dep) {
                 deps.push(dep)
             }
         }
@@ -47,7 +50,7 @@ export class DependencyManager {
 
     getImportPath(packageName: string, relativeTo = '.'): string {
         const importPath = this.config.package
-            ? `${this.config.packageScope}/${packageName}`
+            ? `${this.config.npmScope}/${this.transformation.transformImportName(packageName)}`
             : `${relativeTo}/${packageName}.js`
         return importPath
     }
@@ -64,8 +67,22 @@ export class DependencyManager {
      * @param version The version of the dependency
      * @returns The dependency object
      */
-    get(namespace: string, version: string): Dependency {
-        const packageName = `${namespace}-${version}`
+    get(packageName: string): Dependency
+    get(namespace: string, version: string): Dependency 
+    get(namespaceOrPackageName: string, _version?: string): Dependency {
+        let packageName: string
+        let namespace: string
+        let version: string
+        if(_version) {
+            packageName = `${namespaceOrPackageName}-${_version}`
+            namespace = namespaceOrPackageName
+            version = _version
+        } else {
+            packageName = namespaceOrPackageName
+            const { namespace: _namespace, version: _version } = splitModuleName(packageName)
+            namespace = _namespace
+            version = _version
+        }
         if (this.cache[packageName]) {
             return this.cache[packageName]
         }
@@ -80,6 +97,7 @@ export class DependencyManager {
             filename,
             path,
             packageName,
+            importName: this.transformation.transformImportName(packageName),
             version,
             importPath,
             importDef,
@@ -153,6 +171,7 @@ export class DependencyManager {
             filename: '',
             path: '',
             packageName: 'Gjs',
+            importName: this.transformation.transformImportName('Gjs'),
             version: '0.0',
             importPath,
             importDef,
@@ -178,6 +197,7 @@ export class DependencyManager {
             filename: '',
             path: '',
             packageName: 'GnomeShell',
+            importName: this.transformation.transformImportName('GnomeShell'),
             version: '0.0',
             importPath,
             importDef,

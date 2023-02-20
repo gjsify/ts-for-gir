@@ -1,9 +1,7 @@
 # TODO
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
-- NPM package
-  - Generate both types for NPM packages: cjs and esm
-  - Package names in lower case
+
 # Unreleased
 - Add support to generate a NPM package for each generated module type definition
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'

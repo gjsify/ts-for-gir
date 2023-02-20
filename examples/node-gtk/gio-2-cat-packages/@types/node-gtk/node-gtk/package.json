@@ -25,9 +25,9 @@
     },
     "dependencies": {
       
-      "@gir/Gio-2.0": "workspace:^",            
-      "@gir/GObject-2.0": "workspace:^",            
-      "@gir/GLib-2.0": "workspace:^"      
+      "@gir/gio-2.0": "workspace:^",            
+      "@gir/gobject-2.0": "workspace:^",            
+      "@gir/glib-2.0": "workspace:^"      
     },
     "keywords": ["Gir", "TypeScript", "node-gtk"],
     "author": "ts-for-gir",

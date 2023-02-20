@@ -193,28 +193,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gir/GLib-2.0@workspace:@types/node-gtk/GLib-2.0, @gir/GLib-2.0@workspace:^":
+"@gir/gio-2.0@workspace:@types/node-gtk/Gio-2.0, @gir/gio-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/GLib-2.0@workspace:@types/node-gtk/GLib-2.0"
+  resolution: "@gir/gio-2.0@workspace:@types/node-gtk/Gio-2.0"
   dependencies:
-    "@gir/GObject-2.0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/GObject-2.0@workspace:@types/node-gtk/GObject-2.0, @gir/GObject-2.0@workspace:^":
+"@gir/glib-2.0@workspace:@types/node-gtk/GLib-2.0, @gir/glib-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/GObject-2.0@workspace:@types/node-gtk/GObject-2.0"
+  resolution: "@gir/glib-2.0@workspace:@types/node-gtk/GLib-2.0"
   dependencies:
-    "@gir/GLib-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/Gio-2.0@workspace:@types/node-gtk/Gio-2.0, @gir/Gio-2.0@workspace:^":
+"@gir/gobject-2.0@workspace:@types/node-gtk/GObject-2.0, @gir/gobject-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/Gio-2.0@workspace:@types/node-gtk/Gio-2.0"
+  resolution: "@gir/gobject-2.0@workspace:@types/node-gtk/GObject-2.0"
   dependencies:
-    "@gir/GLib-2.0": "workspace:^"
-    "@gir/GObject-2.0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -222,9 +222,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@gir/node-gtk@workspace:@types/node-gtk/node-gtk"
   dependencies:
-    "@gir/GLib-2.0": "workspace:^"
-    "@gir/GObject-2.0": "workspace:^"
-    "@gir/Gio-2.0": "workspace:^"
+    "@gir/gio-2.0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 

@@ -43,8 +43,10 @@ import type {
 
 export class TypeDefinitionGenerator implements Generator {
     protected log: Logger
+    protected dependencyManager: DependencyManager
     constructor(protected readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, TypeDefinitionGenerator.name)
+        this.dependencyManager = DependencyManager.getInstance(this.config)
     }
 
     /**
@@ -53,25 +55,23 @@ export class TypeDefinitionGenerator implements Generator {
      * @param packageName E.g. 'Gtk-3.0'
      * @param asExternType Currently only used for node type imports
      */
-    private generateModuleDependenciesImport(dep: { namespace: string; packageName: string } | Dependency): string[] {
+    private generateModuleDependenciesImport(packageName: string): string[] {
         const def: string[] = []
-        const as = !this.config.noNamespace && dep.packageName !== 'Gjs' ? '' : '* as '
+        const dep = this.dependencyManager.get(packageName)
 
         if (this.config.package) {
             if (this.config.buildType === 'types') {
                 // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-                def.push(`/// <reference types="${this.config.packageScope}/${dep.packageName}" />`)
+                def.push(`/// <reference types="${this.config.npmScope}/${dep.packageName}" />`)
             }
-            def.push(`import type ${as}${dep.namespace} from '${this.config.packageScope}/${dep.packageName}';`)
-            return def
+        } else {
+            if (this.config.buildType === 'types') {
+                // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+                def.push(`/// <reference path="${dep.packageName}.d.ts" />`)
+            }
         }
 
-        if (this.config.buildType === 'types') {
-            // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-            def.push(`/// <reference path="${dep.packageName}.d.ts" />`)
-        }
-
-        def.push(`import type ${as}${dep.namespace} from './${dep.packageName}.js';`)
+        def.push(dep.importDef)
 
         return def
     }
@@ -1193,7 +1193,7 @@ export class TypeDefinitionGenerator implements Generator {
         out.push('')
 
         // if (this.config.environment === 'gjs') {
-        //     out.push(...this.generateModuleDependenciesImport({ namespace: 'Gjs', packageName: 'Gjs' }))
+        //     out.push(...this.generateModuleDependenciesImport('Gjs')
         // }
 
         // Module dependencies as type references or imports
@@ -1201,7 +1201,7 @@ export class TypeDefinitionGenerator implements Generator {
             // Don't reference yourself as a dependency
             if (girModule.packageName !== dependency.packageName) {
                 if (dependency.exists) {
-                    out.push(...this.generateModuleDependenciesImport(dependency))
+                    out.push(...this.generateModuleDependenciesImport(dependency.packageName))
                 } else {
                     out.push(`// WARN: Dependency not found: '${dependency.packageName}'`)
                     this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(dependency.filename))
@@ -1531,18 +1531,16 @@ export class TypeDefinitionGenerator implements Generator {
             await this.exportModule(girModule, girModules, girModulesGrouped)
         }
 
-        const dependencyManager = DependencyManager.getInstance(this.config)
-
         if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            await this.exportNodeGtk(dependencyManager.all(), girModules, girModulesGrouped)
+            await this.exportNodeGtk(this.dependencyManager.all(), girModules, girModulesGrouped)
         }
 
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            await this.exportGjs(dependencyManager.all(), girModules, girModulesGrouped)
+            await this.exportGjs(this.dependencyManager.all(), girModules, girModulesGrouped)
             if (this.config.gnomeShellTypes) {
-                await this.exportGnomeShell(dependencyManager.forGnomeShell(), girModules, girModulesGrouped)
+                await this.exportGnomeShell(this.dependencyManager.forGnomeShell(), girModules, girModulesGrouped)
             }
         }
     }

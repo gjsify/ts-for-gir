@@ -14,6 +14,11 @@ export interface Dependency extends FileInfo {
      */
     packageName: string
     /**
+     * The NPM package name
+     * E.g. 'gtk-4.0'
+     */
+    importName: string
+    /**
      * Import path for the package
      * E.g. './Gtk-4.0.js' or '@gir/Gtk-4.0'
      */

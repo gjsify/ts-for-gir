@@ -41,7 +41,7 @@ export interface UserConfig {
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
     /** Scope of the generated NPM packages */
-    packageScope: string
+    npmScope: string
     /** Generates an NPM compatible packages for each type */
     package: boolean
 }

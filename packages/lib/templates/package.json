@@ -1,7 +1,7 @@
 <%# This template is used if the Option `package` is enabled %>
 <%_ const entryPointName = packageName === 'Gjs' || packageName === 'node-gtk' ? 'index' : packageName _%>
 {
-    "name": "<%- packageScope %>/<%- packageName %>",
+    "name": "<%- npmScope %>/<%- importName %>",
     "version": "<%- APP_VERSION %>",
     "description": "<%- PACKAGE_DESC %>",
     "main": "<%- entryPointName %>.js",

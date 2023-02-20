@@ -20,7 +20,21 @@ export const APP_VERSION = '3.0.0-beta.10'
 /**
  * The namespaces of the dependencies that are used in Gnome Shell
  */
-export const GNOME_SHELL_NAMESPACES: string[] = ['GObject', 'GLib', 'Gio', 'Shell', 'St', 'Clutter', 'Meta', 'Gcr', 'Atk', 'GnomeDesktop', 'Cogl', 'Cally', 'Shew']
+export const GNOME_SHELL_NAMESPACES: string[] = [
+    'GObject',
+    'GLib',
+    'Gio',
+    'Shell',
+    'St',
+    'Clutter',
+    'Meta',
+    'Gcr',
+    'Atk',
+    'GnomeDesktop',
+    'Cogl',
+    'Cally',
+    'Shew',
+]
 
 export const PACKAGE_DESC = (packageName: string) => `TypeScript type definitions for ${packageName}`
 export const PACKAGE_KEYWORDS = (packageName: string) => `"Gir", "TypeScript", "${packageName}"`

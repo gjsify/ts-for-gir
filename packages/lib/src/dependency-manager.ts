@@ -68,12 +68,12 @@ export class DependencyManager {
      * @returns The dependency object
      */
     get(packageName: string): Dependency
-    get(namespace: string, version: string): Dependency 
+    get(namespace: string, version: string): Dependency
     get(namespaceOrPackageName: string, _version?: string): Dependency {
         let packageName: string
         let namespace: string
         let version: string
-        if(_version) {
+        if (_version) {
             packageName = `${namespaceOrPackageName}-${_version}`
             namespace = namespaceOrPackageName
             version = _version

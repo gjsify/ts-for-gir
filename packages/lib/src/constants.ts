@@ -1,4 +1,4 @@
-import { Environment, Dependency } from './types/index.js'
+import { Environment } from './types/index.js'
 
 /**
  * In gjs all classes have a static name property but the classes listed below already have a static name property

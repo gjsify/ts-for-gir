@@ -330,7 +330,7 @@ export class Transformation {
             gjs: {
                 transformation: 'lowerCase',
             },
-        }
+        },
     }
 
     private log: Logger

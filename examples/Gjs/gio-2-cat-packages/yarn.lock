@@ -234,7 +234,7 @@ __metadata:
     get-tsconfig: ^4.4.0
     inquirer: ^9.1.4
     tiny-glob: ^0.2.9
-    yargs: ^17.6.2
+    yargs: ^17.7.0
   bin:
     ts-for-gir: ./lib/start.js
   languageName: node
@@ -1279,7 +1279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.6.2":
+"yargs@npm:^17.7.0":
   version: 17.7.0
   resolution: "yargs@npm:17.7.0"
   dependencies:

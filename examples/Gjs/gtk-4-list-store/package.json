@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-4-list-store-example",
-  "version": "3.0.0-beta.10",
+  "version": "3.0.0-beta.11",
   "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
   "main": "index.js",
   "type": "module",
@@ -21,7 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.17.8",
+    "esbuild": "^0.17.10",
     "typescript": "^4.9.5"
   }
 }

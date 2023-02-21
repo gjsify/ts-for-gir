@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/cli",
-  "version": "3.0.0-beta.10",
+  "version": "3.0.0-beta.11",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -55,10 +55,10 @@
   ],
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "@types/yargs": "^17.0.22",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -77,6 +77,6 @@
     "get-tsconfig": "^4.4.0",
     "inquirer": "^9.1.4",
     "tiny-glob": "^0.2.9",
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.0"
   }
 }

@@ -4,8 +4,9 @@
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
 - Add support to generate packages for the types we can publish on NPM
 
-# Unreleased
+# 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
+- Fix node bin path for ts-for-gir execution
 
 # 3.0.0-beta.10
 - Add GNOME Shell types for:

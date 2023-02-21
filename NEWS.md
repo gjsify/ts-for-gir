@@ -7,6 +7,7 @@
 # 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
 - Fix node bin path for ts-for-gir execution
+- Upgrade dependencies
 
 # 3.0.0-beta.10
 - Add GNOME Shell types for:

@@ -185,7 +185,6 @@ export class GirModule {
         let major: number | undefined = undefined;
         let minor: number | undefined = undefined;
         let patch: number | undefined = undefined;
-        let tag: string
 
         const [_major, _minor, _micro] = this.version.split(".").filter(v => v != "");
         if(_major) {
@@ -213,7 +212,7 @@ export class GirModule {
         major ||= 0;
         minor ||= 0;
         patch ||= 0;
-        tag = `${major}.${minor}.${patch}`
+        const tag = `${major}.${minor}.${patch}`
 
         return {
             major,

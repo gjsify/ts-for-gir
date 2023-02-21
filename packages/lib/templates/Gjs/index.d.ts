@@ -561,7 +561,7 @@ declare global {
         gi: {
             <%_ for (const girModuleGroup of girModulesGrouped) { _%>
               <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-                typeof <%= girModule.module.importName %>
+                typeof <%- girModule.module.importName %>
                 <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
                   |
                 <%_ } _%>
@@ -570,7 +570,7 @@ declare global {
             versions: {
                 <%_ for (const girModuleGroup of girModulesGrouped) { _%>
                   <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-                    '<%= girModule.module.version %>'
+                    '<%- girModule.module.version %>'
                     <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
                       |
                     <%_ } _%>
@@ -590,6 +590,23 @@ declare global {
         <%_ } _%>
     }
 }
+
+<%_ if(moduleType === 'esm') { %>
+  <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+    <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+      declare module "gi://<%= girModule.module.namespace %>?version=<%= girModule.module.version %>" {
+        export default <%- girModule.module.importName -%>;
+      }
+    <%_ } _%>
+    <%_ if (girModuleGroup.modules.length === 1) { _%>
+      <%_ const girModule = girModuleGroup.modules[0].module _%>
+      declare module "gi://<%= girModule.namespace %>" {
+        export default <%- girModule.importName %>;
+      }
+    <%_ } _%>
+  <%_ } _%>
+
+<%_ } _%>
 
 declare const _imports: typeof imports
 export default _imports

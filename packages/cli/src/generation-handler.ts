@@ -70,7 +70,7 @@ export class GenerationHandler {
                 await mkdir(outputDir, { recursive: true })
             }
             this.log.log(` - ${girModule.packageName} ...`)
-            girModule.start()
+            girModule.start(girModules)
         }
 
         await this.generator.start(girModules, girModulesGrouped, inheritanceTable)

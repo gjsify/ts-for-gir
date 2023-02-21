@@ -24,6 +24,7 @@ import {
 } from './messages.js'
 import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
 import { SymTable } from './symtable.js'
+
 import type {
     Dependency,
     GirRepository,
@@ -60,6 +61,7 @@ import type {
     LocalNameType,
     LocalName,
     LocalNames,
+    LibraryVersion,
     TsDoc,
     TsDocTag,
     TsClass,
@@ -95,18 +97,24 @@ export class GirModule {
      */
     namespace: string
     /**
-     * E.g. '3.0'
+     * E.g. '4.0'
      */
     version = '0.0'
     /**
-     * E.g. 'Gtk-3.0'
+     * E.g. 'Gtk-4.0'
      */
     packageName: string
     /**
-     * E.g. 'Gtk30'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0.js";`
+     * E.g. 'Gtk40'
+     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
      */
     importName: string
+
+    /**
+     * The version of the library as an object.
+     * E.g. { major: 4, minor: 0, patch: 0, tag: '4.0.0' }
+     */
+    libraryVersion: LibraryVersion
 
     dependencies: Dependency[] = []
     private _transitiveDependencies: Dependency[] = []
@@ -163,13 +171,56 @@ export class GirModule {
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
         this.packageName = `${this.namespace}-${this.version}`
+        this.libraryVersion = this.parseLibraryVersion()
         this.transformation = new Transformation(config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment, config.verbose)
         this.inject = new Injector(this.config.environment)
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
-
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
+    }
+
+    private parseLibraryVersion() {
+        const constants = this.ns.constant || []
+        let major: number | undefined = undefined;
+        let minor: number | undefined = undefined;
+        let patch: number | undefined = undefined;
+        let tag: string
+
+        const [_major, _minor, _micro] = this.version.split(".").filter(v => v != "");
+        if(_major) {
+            major = Number(_major) || undefined;
+        }
+        if(_minor) {
+            minor = Number(_minor) || undefined;
+        }
+        if(_micro) {
+            patch = Number(_micro) || undefined;
+        }
+
+        for (const constant of constants) {
+            if(constant.$.name === 'MAJOR_VERSION' || constant.$.name === 'VERSION_MAJOR' && constant.$.value) {
+                major = Number(constant.$.value) || undefined;
+            }
+            if(constant.$.name === 'MINOR_VERSION' || constant.$.name === 'VERSION_MINOR' && constant.$.value) {
+                minor = Number(constant.$.value) || undefined;
+            }
+            if(constant.$.name === 'MICRO_VERSION' || constant.$.name === 'VERSION_MICRO' && constant.$.value) {
+                patch = Number(constant.$.value) || undefined;
+            }
+        }
+
+        major ||= 0;
+        minor ||= 0;
+        patch ||= 0;
+        tag = `${major}.${minor}.${patch}`
+
+        return {
+            major,
+            minor,
+            patch,
+            tag
+        }
     }
 
     private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
@@ -2947,7 +2998,18 @@ export class GirModule {
     /**
      * Start processing the typescript data
      */
-    public start() {
+    public start(girModules: GirModule[]) {
+
+        // GObject and Gio are following the version of GLib
+        if(this.namespace === 'GObject' || this.namespace === 'Gio') {
+            const glibModule = girModules.find((girModule) => girModule.namespace === 'GLib')
+            if(glibModule) {
+                this.libraryVersion = glibModule.libraryVersion
+            }
+        }
+
+        console.debug(this.packageName, "library version: ", this.libraryVersion);
+
         this.setModuleTsData()
     }
 }

@@ -26,8 +26,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install updates
-      run: sudo apt-get update; sudo apt-get upgrade
+    # - name: Install updates
+    #   run: sudo apt-get update; sudo apt-get upgrade
     - name: Install dependencies
       run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2 libcairo2-dev
     - run: yarn install

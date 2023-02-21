@@ -604,8 +604,8 @@ declare global {
         export default <%- girModule.importName %>;
       }
     <%_ } _%>
-  <%_ } _%>
 
+  <%_ } _%>
 <%_ } _%>
 
 declare const _imports: typeof imports

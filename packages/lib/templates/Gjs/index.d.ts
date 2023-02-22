@@ -591,20 +591,23 @@ declare global {
     }
 }
 
-<%_ if(moduleType === 'esm') { %>
-  <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-    <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-      declare module "gi://<%= girModule.module.namespace %>?version=<%= girModule.module.version %>" {
-        export default <%- girModule.module.importName -%>;
-      }
-    <%_ } _%>
-    <%_ if (girModuleGroup.modules.length === 1) { _%>
-      <%_ const girModule = girModuleGroup.modules[0].module _%>
-      declare module "gi://<%= girModule.namespace %>" {
-        export default <%- girModule.importName %>;
-      }
-    <%_ } _%>
+<%# Disabled, this declares modules but this seems to be not working %>
+<%_ if(false) { %>
+  <%_ if(moduleType === 'esm') { %>
+    <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+      <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+        declare module "gi://<%= girModule.module.namespace %>?version=<%= girModule.module.version %>" {
+          export default <%- girModule.module.importName -%>;
+        }
+      <%_ } _%>
+      <%_ if (girModuleGroup.modules.length === 1) { _%>
+        <%_ const girModule = girModuleGroup.modules[0].module _%>
+        declare module "gi://<%= girModule.namespace %>" {
+          export default <%- girModule.importName %>;
+        }
+      <%_ } _%>
 
+    <%_ } _%>
   <%_ } _%>
 <%_ } _%>
 

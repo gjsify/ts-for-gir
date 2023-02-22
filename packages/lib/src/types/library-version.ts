@@ -1,6 +1,6 @@
 export interface LibraryVersion {
-    major: number;
-    minor: number;
-    patch: number;
-    tag: string;
+    major: number
+    minor: number
+    patch: number
+    tag: string
 }

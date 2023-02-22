@@ -182,43 +182,43 @@ export class GirModule {
 
     private parseLibraryVersion() {
         const constants = this.ns.constant || []
-        let major: number | undefined = undefined;
-        let minor: number | undefined = undefined;
-        let patch: number | undefined = undefined;
+        let major: number | undefined = undefined
+        let minor: number | undefined = undefined
+        let patch: number | undefined = undefined
 
-        const [_major, _minor, _micro] = this.version.split(".").filter(v => v != "");
-        if(_major) {
-            major = Number(_major) || undefined;
+        const [_major, _minor, _micro] = this.version.split('.').filter((v) => v != '')
+        if (_major) {
+            major = Number(_major) || undefined
         }
-        if(_minor) {
-            minor = Number(_minor) || undefined;
+        if (_minor) {
+            minor = Number(_minor) || undefined
         }
-        if(_micro) {
-            patch = Number(_micro) || undefined;
+        if (_micro) {
+            patch = Number(_micro) || undefined
         }
 
         for (const constant of constants) {
-            if(constant.$.name === 'MAJOR_VERSION' || constant.$.name === 'VERSION_MAJOR' && constant.$.value) {
-                major = Number(constant.$.value) || undefined;
+            if (constant.$.name === 'MAJOR_VERSION' || (constant.$.name === 'VERSION_MAJOR' && constant.$.value)) {
+                major = Number(constant.$.value) || undefined
             }
-            if(constant.$.name === 'MINOR_VERSION' || constant.$.name === 'VERSION_MINOR' && constant.$.value) {
-                minor = Number(constant.$.value) || undefined;
+            if (constant.$.name === 'MINOR_VERSION' || (constant.$.name === 'VERSION_MINOR' && constant.$.value)) {
+                minor = Number(constant.$.value) || undefined
             }
-            if(constant.$.name === 'MICRO_VERSION' || constant.$.name === 'VERSION_MICRO' && constant.$.value) {
-                patch = Number(constant.$.value) || undefined;
+            if (constant.$.name === 'MICRO_VERSION' || (constant.$.name === 'VERSION_MICRO' && constant.$.value)) {
+                patch = Number(constant.$.value) || undefined
             }
         }
 
-        major ||= 0;
-        minor ||= 0;
-        patch ||= 0;
+        major ||= 0
+        minor ||= 0
+        patch ||= 0
         const tag = `${major}.${minor}.${patch}`
 
         return {
             major,
             minor,
             patch,
-            tag
+            tag,
         }
     }
 
@@ -2998,16 +2998,13 @@ export class GirModule {
      * Start processing the typescript data
      */
     public start(girModules: GirModule[]) {
-
         // GObject and Gio are following the version of GLib
-        if(this.namespace === 'GObject' || this.namespace === 'Gio') {
+        if (this.namespace === 'GObject' || this.namespace === 'Gio') {
             const glibModule = girModules.find((girModule) => girModule.namespace === 'GLib')
-            if(glibModule) {
+            if (glibModule) {
                 this.libraryVersion = glibModule.libraryVersion
             }
         }
-
-        console.debug(this.packageName, "library version: ", this.libraryVersion);
 
         this.setModuleTsData()
     }

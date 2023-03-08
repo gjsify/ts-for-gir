@@ -1,11 +1,11 @@
 import type { GirConstantElement } from './types/index.js'
 
 export class LibraryVersion {
-    major?: number
-    minor?: number
-    patch?: number
+    major: number | undefined
+    minor: number | undefined
+    patch: number | undefined
 
-    constructor(constants: GirConstantElement[] = [], version: string = '0.0.0') {
+    constructor(constants: GirConstantElement[] = [], version = '0.0.0') {
         const [_major, _minor, _micro] = version.split('.').filter((v) => v != '')
         if (_major) {
             this.major = Number(_major) || undefined
@@ -28,13 +28,9 @@ export class LibraryVersion {
                 this.patch = Number(constant.$.value) || undefined
             }
         }
-
-        this.major ||= 0
-        this.minor ||= 0
-        this.patch ||= 0
     }
 
     toString() {
-        return `${this.major}.${this.minor}.${this.patch}`
+        return `${this.major || '0'}.${this.minor || '0'}.${this.patch || '0'}`
     }
 }

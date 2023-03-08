@@ -70,7 +70,6 @@ export class DependencyManager {
     get(packageName: string): Dependency
     get(namespace: string, version: string): Dependency
     get(namespaceOrPackageName: string, _version?: string): Dependency {
-
         // Special case for Gjs and GnomeShell
         if (namespaceOrPackageName === 'Gjs') {
             return this.getGjs()

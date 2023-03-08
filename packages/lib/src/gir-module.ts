@@ -112,7 +112,7 @@ export class GirModule {
 
     /**
      * The version of the library as an object.
-     * E.g. { major: 4, minor: 0, patch: 0, tag: '4.0.0' }
+     * E.g. `{ major: 4, minor: 0, patch: 0 }` or as string `4.0.0`'
      */
     libraryVersion: LibraryVersion
 

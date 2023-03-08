@@ -13,7 +13,7 @@ import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
 import { Transformation } from './transformation.js'
 
-import type { GenerateConfig, Dependency } from './types/index.js'
+import type { GenerateConfig, Dependency, TemplateData } from './types/index.js'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 
@@ -22,7 +22,7 @@ export class TemplateProcessor {
     protected log: Logger
     protected transformation: Transformation
     constructor(
-        protected readonly data: ejs.Data | undefined,
+        protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
         protected readonly dependencies: Dependency[],
         protected readonly config: GenerateConfig,

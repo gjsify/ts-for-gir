@@ -1,4 +1,5 @@
-import { Environment } from './types/index.js'
+import type { Environment,  } from './types/index.js'
+import type { LibraryVersion } from './library-version.js'
 
 /**
  * In gjs all classes have a static name property but the classes listed below already have a static name property
@@ -36,7 +37,12 @@ export const GNOME_SHELL_NAMESPACES: string[] = [
     'Shew',
 ]
 
-export const PACKAGE_DESC = (packageName: string) => `TypeScript type definitions for ${packageName}`
+export const PACKAGE_DESC = (packageName: string, libraryVersion?: LibraryVersion) => {
+    if (libraryVersion) {
+        return `TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion}`
+    }
+    return `TypeScript type definitions for ${packageName}`
+}
 export const PACKAGE_KEYWORDS = (packageName: string) => `"Gir", "TypeScript", "${packageName}"`
 
 export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']

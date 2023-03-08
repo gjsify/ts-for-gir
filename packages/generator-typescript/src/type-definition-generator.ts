@@ -1383,10 +1383,25 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    private async exportModulePackageJson(moduleTemplateProcessor: TemplateProcessor) {
+    private async exportNPMPackage(moduleTemplateProcessor: TemplateProcessor) {
+        await this.exportNPMPackageJson(moduleTemplateProcessor)
+        await this.exportNPMReadme(moduleTemplateProcessor)
+    }
+
+    private async exportNPMPackageJson(moduleTemplateProcessor: TemplateProcessor) {
         const template = 'package.json'
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, 'package.json')
+        } else {
+            const moduleContent = moduleTemplateProcessor.load(template)
+            this.log.log(moduleContent)
+        }
+    }
+
+    private async exportNPMReadme(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'README.md'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(template, this.config.outdir, 'README.md')
         } else {
             const moduleContent = moduleTemplateProcessor.load(template)
             this.log.log(moduleContent)
@@ -1416,7 +1431,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         if (this.config.package) {
-            await this.exportModulePackageJson(moduleTemplateProcessor)
+            await this.exportNPMPackage(moduleTemplateProcessor)
         }
     }
 
@@ -1458,7 +1473,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Package
         if (this.config.package) {
-            await this.exportModulePackageJson(templateProcessor)
+            await this.exportNPMPackage(templateProcessor)
         }
     }
 
@@ -1493,7 +1508,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Package
         if (this.config.package) {
-            await this.exportModulePackageJson(templateProcessor)
+            await this.exportNPMPackage(templateProcessor)
         }
     }
 
@@ -1522,7 +1537,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Package
         if (this.config.package) {
-            await this.exportModulePackageJson(templateProcessor)
+            await this.exportNPMPackage(templateProcessor)
         }
     }
 

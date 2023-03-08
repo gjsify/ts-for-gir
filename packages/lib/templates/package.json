@@ -2,7 +2,11 @@
 <%_ const entryPointName = packageName === 'Gjs' || packageName === 'node-gtk' ? 'index' : packageName _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
+    <%_ if(typeof girModule !== "undefined"){ _%>
+    "version": "<%- girModule.libraryVersion %>-<%- APP_VERSION %>",
+    <%_ } else { _%>
     "version": "<%- APP_VERSION %>",
+    <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",
     "main": "<%- entryPointName %>.js",
     "module": "<%- entryPointName %>.js",

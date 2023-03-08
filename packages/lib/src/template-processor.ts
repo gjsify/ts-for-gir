@@ -35,7 +35,7 @@ export class TemplateProcessor {
             APP_USAGE,
             APP_SOURCE,
             APP_VERSION,
-            PACKAGE_DESC: PACKAGE_DESC(packageName),
+            PACKAGE_DESC: PACKAGE_DESC(packageName, this.data?.girModule?.libraryVersion),
             PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
             importName: this.transformation.transformImportName(packageName),
             dep,

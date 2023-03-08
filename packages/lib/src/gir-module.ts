@@ -24,8 +24,9 @@ import {
 } from './messages.js'
 import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
 import { SymTable } from './symtable.js'
+import { LibraryVersion } from './library-version.js'
 
-import type {
+import {
     Dependency,
     GirRepository,
     GirNamespace,
@@ -61,7 +62,6 @@ import type {
     LocalNameType,
     LocalName,
     LocalNames,
-    LibraryVersion,
     TsDoc,
     TsDocTag,
     TsClass,
@@ -171,55 +171,13 @@ export class GirModule {
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
         this.packageName = `${this.namespace}-${this.version}`
-        this.libraryVersion = this.parseLibraryVersion()
+        this.libraryVersion = new LibraryVersion(this.ns.constant, this.version)
         this.transformation = new Transformation(config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment, config.verbose)
         this.inject = new Injector(this.config.environment)
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
-    }
-
-    private parseLibraryVersion() {
-        const constants = this.ns.constant || []
-        let major: number | undefined = undefined
-        let minor: number | undefined = undefined
-        let patch: number | undefined = undefined
-
-        const [_major, _minor, _micro] = this.version.split('.').filter((v) => v != '')
-        if (_major) {
-            major = Number(_major) || undefined
-        }
-        if (_minor) {
-            minor = Number(_minor) || undefined
-        }
-        if (_micro) {
-            patch = Number(_micro) || undefined
-        }
-
-        for (const constant of constants) {
-            if (constant.$.name === 'MAJOR_VERSION' || (constant.$.name === 'VERSION_MAJOR' && constant.$.value)) {
-                major = Number(constant.$.value) || undefined
-            }
-            if (constant.$.name === 'MINOR_VERSION' || (constant.$.name === 'VERSION_MINOR' && constant.$.value)) {
-                minor = Number(constant.$.value) || undefined
-            }
-            if (constant.$.name === 'MICRO_VERSION' || (constant.$.name === 'VERSION_MICRO' && constant.$.value)) {
-                patch = Number(constant.$.value) || undefined
-            }
-        }
-
-        major ||= 0
-        minor ||= 0
-        patch ||= 0
-        const tag = `${major}.${minor}.${patch}`
-
-        return {
-            major,
-            minor,
-            patch,
-            tag,
-        }
     }
 
     private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {

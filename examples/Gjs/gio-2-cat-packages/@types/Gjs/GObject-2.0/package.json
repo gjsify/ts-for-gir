@@ -1,6 +1,6 @@
 
 {
-    "name": "@gir/gobject-2.0",
+    "name": "@gir/gobject-2-0",
     "version": "2.74.0-3.0.0-beta.10",
     "description": "TypeScript type definitions for GObject-2.0, generated from library version 2.74.0",
     "main": "GObject-2.0.js",
@@ -25,7 +25,7 @@
     },
     "dependencies": {
       
-      "@gir/glib-2.0": "workspace:^"      
+      "@gir/glib-2-0": "workspace:^"      
     },
     "keywords": ["Gir", "TypeScript", "GObject-2.0"],
     "author": "ts-for-gir",

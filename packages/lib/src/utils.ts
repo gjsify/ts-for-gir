@@ -202,7 +202,7 @@ export const isFirstCharNumeric = (str: string): boolean => {
 }
 
 /**
- * Convert a string to camelCase
+ * Convert a string to camelCase, keeps the first alphabet character as it is.
  * @param str The string to convert
  * @returns The converted string
  */
@@ -215,7 +215,7 @@ export const camelCase = (str: string): string => {
 }
 
 /**
- * Convert a string to lowerCamelCase
+ * Convert a string to `lowerCamelCase`
  * @param str The string to convert
  * @returns The converted string
  */
@@ -226,15 +226,53 @@ export const lowerCamelCase = (str: string): string => {
 }
 
 /**
- * Convert a string to UpperCamelCase
+ * Convert a string to `PascalCase`
  * @param str The string to convert
  * @returns The converted string
  */
-export const upperCamelCase = (str: string): string => {
+export const pascalCase = (str: string): string => {
     str = camelCase(str)
     str = getFirstChar(str).toUpperCase() + str.slice(1)
     return str
 }
+
+/** Alias for {@link pascalCase} */
+export const upperCamelCase = pascalCase
+
+/**
+ * Convert a string to `snake_case`
+ * @param str The string to convert
+ * @returns The converted string
+ */
+export const snakeCase = (str: string): string => {
+    return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+    .replace(/[^a-zA-Z0-9-]+/g, '_') // replace non-alphanumeric characters with underscore
+    .replace(/^_+|_+$/g, '') // remove any leading or trailing underscores
+    .toLowerCase();
+}
+
+/**
+ * Convert a string to `kebab-case`
+ * @param str The string to convert
+ * @returns The converted string
+ */
+export const kebabCase = (str: string): string => {
+    return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+    .replace(/[^a-zA-Z0-9-]+/g, '-') // replace non-alphanumeric characters with hyphen
+    .replace(/^-+|-+$/g, '') // remove any leading or trailing hyphens
+    .toLowerCase();
+}
+
+
+/** Alias for {@link kebabCase} */
+export const slugCase = kebabCase
+
+export const underscores = (str: string): string => {
+    return str.replace(/-|_/g, '_')
+}
+
 
 /**
  * Find a file in a list of directories

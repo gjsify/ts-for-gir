@@ -5,3 +5,5 @@ export type TransformationCase =
     | 'upperCase'
     | 'lowerCase'
     | 'underscores'
+    | 'snakeCase'
+    | 'slugCase'

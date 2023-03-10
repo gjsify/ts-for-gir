@@ -108,6 +108,8 @@ export class GirModule {
      * E.g. 'Gtk40'
      * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
      */
+    importNamespace: string
+
     importName: string
 
     /**
@@ -176,7 +178,8 @@ export class GirModule {
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment, config.verbose)
         this.inject = new Injector(this.config.environment)
-        this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
+        this.importNamespace = this.transformation.transformModuleNamespaceName(this.packageName)
+        this.importName = this.transformation.transformImportName(this.packageName)
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 

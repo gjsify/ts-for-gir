@@ -10,9 +10,9 @@
 <%_ for (const girModule of girModules) { _%>
     <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
     <%_ if(noNamespace){ _%>
-import type * as <%= girModule.importName %> from "<%= pkg.importPath %>";
+import type * as <%= girModule.importNamespace %> from "<%= pkg.importPath %>";
     <%_ } else { _%>
-import type <%= girModule.importName %> from "<%= pkg.importPath %>";
+import type <%= girModule.importNamespace %> from "<%= pkg.importPath %>";
     <%_ } _%>
 <%_ } _%>
 
@@ -21,7 +21,7 @@ declare module 'node-gtk' {
 <%_ } _%>
     export function require(ns: string, ver?: string): any;
     <%_ for (const girModule of girModules) { _%>
-    export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importName %>;
+    export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importNamespace %>;
     <%_ } _%>
     export function startLoop(): void;
     export function registerClass(object: any): void

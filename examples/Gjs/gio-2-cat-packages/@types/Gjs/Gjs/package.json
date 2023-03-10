@@ -26,9 +26,11 @@
     },
     "dependencies": {
       
-      "@gir/gio-2.0": "workspace:^",            
-      "@gir/gobject-2.0": "workspace:^",            
-      "@gir/glib-2.0": "workspace:^"      
+      "@gir/gio-2-0": "workspace:^",            
+      "@gir/gdk-pixbuf-2-0": "workspace:^",            
+      "@gir/gobject-2-0": "workspace:^",            
+      "@gir/gmodule-2-0": "workspace:^",            
+      "@gir/glib-2-0": "workspace:^"      
     },
     "keywords": ["Gir", "TypeScript", "Gjs"],
     "author": "ts-for-gir",

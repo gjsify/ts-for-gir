@@ -12,7 +12,7 @@ import {
     GirEnumElement,
     GirBitfieldElement,
 } from './types/index.js'
-import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
+import { lowerCamelCase, upperCamelCase, isFirstCharNumeric, underscores, slugCase, snakeCase } from './utils.js'
 import { Logger } from './logger.js'
 import { NEW_LINE_REG_EXP } from './constants.js'
 import {
@@ -325,10 +325,10 @@ export class Transformation {
         },
         importName: {
             node: {
-                transformation: 'lowerCase',
+                transformation: 'slugCase',
             },
             gjs: {
-                transformation: 'lowerCase',
+                transformation: 'slugCase',
             },
         },
     }
@@ -499,25 +499,26 @@ export class Transformation {
 
     public transform(construct: ConstructName, transformMe: string): string {
         const transformations = this.transformations[construct][this.config.environment].transformation
-        if (transformations === 'original') {
-            return transformMe
+
+        switch (transformations) {
+            case 'lowerCamelCase':
+                return lowerCamelCase(transformMe)
+            case 'upperCamelCase':
+                return upperCamelCase(transformMe)
+            case 'slugCase':
+                return slugCase(transformMe)
+            case 'snakeCase':
+                return snakeCase(transformMe)
+            case 'upperCase':
+                return transformMe.toUpperCase()
+            case 'lowerCase':
+                return transformMe.toLowerCase()
+            case 'underscores':
+                return underscores(transformMe)
+            case 'original':
+            default:
+                return transformMe
         }
-        if (transformations === 'lowerCamelCase') {
-            return lowerCamelCase(transformMe)
-        }
-        if (transformations === 'upperCamelCase') {
-            return upperCamelCase(transformMe)
-        }
-        if (transformations === 'upperCase') {
-            return transformMe.toUpperCase()
-        }
-        if (transformations === 'lowerCase') {
-            return transformMe.toLowerCase()
-        }
-        if (transformations === 'underscores') {
-            return transformMe.replace(/-|_/g, '_')
-        }
-        return transformMe
     }
 
     /**

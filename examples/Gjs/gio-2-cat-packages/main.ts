@@ -9,7 +9,7 @@
  */
 
 import '@gir/gjs';
-import Gio from "@gir/gio-2.0";
+import Gio from "@gir/gio-2-0";
 
 const ByteArray = imports.byteArray;
 

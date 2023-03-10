@@ -1,25 +1,22 @@
-<%# This template is used if the Option `package` is enabled %>
-# <%- packageName %>
 
-<%- PACKAGE_DESC %>.
+# GModule-2.0
 
-Generated with [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
+TypeScript type definitions for GModule-2.0, generated from library version 2.0.0.
+
+Generated with [ts-for-gir](https://github.com/gjsify/ts-for-gjs) v3.0.0-beta.10.
 
 ## Install
 
 To use this type definitions, install them with NPM like this:
 ```bash
-npm install <%- npmScope %>/<%- importName %>
+npm install @gir/gmodule-2-0
 ```
 
-<%_ const pkg = dep.get(packageName) _%>
-<%_ if(pkg){ _%>
 ## Usage
 
 You can import this package into your project like this:
 ```ts
-import <%- pkg.namespace %> from "<%- pkg.importPath %>";
+import GModule from "@gir/gmodule-2-0";
 ```
-<%_ } _%>
 
 Depending on your project configuration, it is recommended to use a bundler like [esbuild](https://esbuild.github.io/). You can find examples using different bundlers [here](https://github.com/gjsify/ts-for-gir/tree/main/examples).

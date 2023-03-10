@@ -9,7 +9,7 @@ export class DependencyManager {
     protected log: Logger
     protected transformation: Transformation
 
-    cache: { [key: string]: Dependency } = {}
+    cache: { [packageName: string]: Dependency } = {}
 
     static instance: DependencyManager
 
@@ -49,9 +49,10 @@ export class DependencyManager {
     }
 
     getImportPath(packageName: string, relativeTo = '.'): string {
+        const importName = this.transformation.transformImportName(packageName)
         const importPath = this.config.package
-            ? `${this.config.npmScope}/${this.transformation.transformImportName(packageName)}`
-            : `${relativeTo}/${packageName}.js`
+            ? `${this.config.npmScope}/${importName}`
+            : `${relativeTo}/${importName}.js`
         return importPath
     }
 
@@ -166,53 +167,55 @@ export class DependencyManager {
     }
 
     getGjs(relativeTo = '.'): Dependency {
-        if (this.cache['Gjs'] && relativeTo === '.') {
-            return this.cache['Gjs']
+        const packageName = 'Gjs'
+        if (this.cache[packageName] && relativeTo === '.') {
+            return this.cache[packageName]
         }
 
-        const importPath = this.getImportPath('Gjs', relativeTo)
-        const importDef = this.getImportDef('Gjs', importPath)
+        const importPath = this.getImportPath(packageName, relativeTo)
+        const importDef = this.getImportDef(packageName, importPath)
 
         const dep: Dependency = {
-            namespace: 'Gjs',
+            namespace: packageName,
             exists: true,
             filename: '',
             path: '',
-            packageName: 'Gjs',
-            importName: this.transformation.transformImportName('Gjs'),
+            packageName: packageName,
+            importName: this.transformation.transformImportName(packageName),
             version: '0.0',
             importPath,
             importDef,
         }
 
         if (relativeTo === '.') {
-            this.cache['Gjs'] = dep
+            this.cache[packageName] = dep
         }
         return dep
     }
 
     getGnomeShell(relativeTo = '.'): Dependency {
-        if (this.cache['GnomeShell'] && relativeTo === '.') {
-            return this.cache['GnomeShell']
+        const packageName = 'GnomeShell'
+        if (this.cache[packageName] && relativeTo === '.') {
+            return this.cache[packageName]
         }
 
-        const importPath = this.getImportPath('GnomeShell', relativeTo)
-        const importDef = this.getImportDef('GnomeShell', importPath)
+        const importPath = this.getImportPath(packageName, relativeTo)
+        const importDef = this.getImportDef(packageName, importPath)
 
         const dep: Dependency = {
-            namespace: 'GnomeShell',
+            namespace: packageName,
             exists: true,
             filename: '',
             path: '',
-            packageName: 'GnomeShell',
-            importName: this.transformation.transformImportName('GnomeShell'),
+            packageName: packageName,
+            importName: this.transformation.transformImportName(packageName),
             version: '0.0',
             importPath,
             importDef,
         }
 
         if (relativeTo === '.') {
-            this.cache['GnomeShell'] = dep
+            this.cache[packageName] = dep
         }
         return dep
     }

@@ -62,12 +62,12 @@ export class TypeDefinitionGenerator implements Generator {
         if (this.config.package) {
             if (this.config.buildType === 'types') {
                 // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-                def.push(`/// <reference types="${this.config.npmScope}/${dep.packageName}" />`)
+                def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
             }
         } else {
             if (this.config.buildType === 'types') {
                 // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-                def.push(`/// <reference path="${dep.packageName}.d.ts" />`)
+                def.push(`/// <reference path="${dep.importName}.d.ts" />`)
             }
         }
 
@@ -1177,7 +1177,7 @@ export class TypeDefinitionGenerator implements Generator {
     private async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
         if (this.config.outdir) {
-            await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.packageName}.js`)
+            await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.importName}.js`)
         } else {
             const moduleContent = moduleTemplateProcessor.load(template)
             this.log.log(moduleContent)
@@ -1255,11 +1255,11 @@ export class TypeDefinitionGenerator implements Generator {
                         out.push(...this.generateClass(girIface, girIface._module.namespace))
                     }
 
-            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
+            // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
-            if (moduleTemplateProcessor.exists(`${girModule.packageName}.d.ts`)) {
-                const templatePatches = await moduleTemplateProcessor.load(`${girModule.packageName}.d.ts`)
+            if (moduleTemplateProcessor.exists(`${girModule.importName}.d.ts`)) {
+                const templatePatches = await moduleTemplateProcessor.load(`${girModule.importName}.d.ts`)
                 out.push(templatePatches)
             }
 
@@ -1373,7 +1373,7 @@ export class TypeDefinitionGenerator implements Generator {
             await moduleTemplateProcessor.create(
                 template,
                 this.config.outdir,
-                `${girModule.packageName}.d.ts`,
+                `${girModule.importName}.d.ts`,
                 true,
                 outResult,
             )
@@ -1444,19 +1444,19 @@ export class TypeDefinitionGenerator implements Generator {
         const packageName = 'Gjs'
 
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
+            { girModules: girModules, girModulesGrouped },
             packageName,
             dependencies,
             this.config,
         )
 
         // Types
-        await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
+        await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
         await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js')
+            await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
             await templateProcessor.create('index.js', this.config.outdir, 'index.js')
         }
 
@@ -1486,21 +1486,21 @@ export class TypeDefinitionGenerator implements Generator {
         const packageName = 'GnomeShell'
 
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
+            { girModules: girModules, girModulesGrouped },
             packageName,
             dependencies,
             this.config,
         )
 
         // Types
-        await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts')
+        await templateProcessor.create('gnome-shell.d.ts', this.config.outdir, 'gnome-shell.d.ts')
         await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
         await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
         await templateProcessor.createAll('.d.ts', 'ui/components', this.config.outdir, 'ui/components')
 
         // Lib
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js')
+            await templateProcessor.create('gnome-shell.js', this.config.outdir, 'gnome-shell.js')
             await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
             await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
             await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')

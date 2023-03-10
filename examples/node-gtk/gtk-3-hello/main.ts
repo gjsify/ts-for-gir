@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Based on https://github.com/romgrk/node-gtk/blob/master/examples/hello-gtk.js
 import { startLoop } from 'node-gtk'
-import * as Gtk from './@types/node-gtk/Gtk-3.0'
+import * as Gtk from './@types/node-gtk/gtk-3.0'
 
 startLoop()
 Gtk.init(process.argv)

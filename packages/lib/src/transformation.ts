@@ -325,10 +325,10 @@ export class Transformation {
         },
         importName: {
             node: {
-                transformation: 'slugCase',
+                transformation: 'lowerCase',
             },
             gjs: {
-                transformation: 'slugCase',
+                transformation: 'lowerCase',
             },
         },
     }

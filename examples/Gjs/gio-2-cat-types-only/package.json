@@ -15,7 +15,8 @@
     "start": "yarn build && yarn start:app",
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
-    "validate:app": "tsc --noEmit"
+    "validate:app": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",

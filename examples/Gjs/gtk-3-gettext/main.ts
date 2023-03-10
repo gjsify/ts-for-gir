@@ -9,7 +9,7 @@
  */
 
 import './@types/Gjs/index.js';
-import { gettext } from './@types/Gjs/Gjs.js';
+import { gettext } from './@types/Gjs/gjs.js';
 import Gtk from 'gi://Gtk?version=3.0';
 
 

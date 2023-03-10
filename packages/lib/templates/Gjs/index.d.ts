@@ -5,7 +5,7 @@
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
 
-import type * as Gjs from './Gjs.js'
+import type * as Gjs from './<%- dep.getGjs().importName %>.js'
 <%_ if(gnomeShellTypes){ _%>
 <%- dep.getGnomeShell().importDef %>
 <%_ } _%>

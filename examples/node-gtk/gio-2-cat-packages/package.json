@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "yarn ts-for-gir generate --configName=.ts-for-girrc.json",
     "build:app": "yarn node esbuild.js",
-    "build": "yarn build:types && yarn build:app",
+    "build": "yarn build:types && yarn install && yarn build:app",
     "start:app": "node dist/main.js main.ts",
     "debug:app": "GTK_DEBUG=interactive yarn start:app",
     "start": "yarn build && yarn start:app",

@@ -34,7 +34,6 @@ exports.default = {
         extensions: ['.tsx', '.jsx', '.ts', '.js'],
     },
     plugins: [
-        // new ResolveTypeScriptPlugin({ includeNodeModules: true }),
         new ForkTsCheckerWebpackPlugin()
     ]
 };

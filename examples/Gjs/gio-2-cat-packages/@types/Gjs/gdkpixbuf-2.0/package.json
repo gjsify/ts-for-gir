@@ -1,0 +1,46 @@
+{
+    "name": "@gir/gdkpixbuf-2.0",
+    "version": "2.0.0-3.0.0-beta.10",
+    "description": "TypeScript type definitions for GdkPixbuf-2.0, generated from library version 2.0.0",
+    "main": "gdkpixbuf-2.0.js",
+    "module": "gdkpixbuf-2.0.js",
+    "types": "gdkpixbuf-2.0.d.ts",
+    "exports": {
+        ".": {
+            "import": "./gdkpixbuf-2.0.js",
+            "default": "./gdkpixbuf-2.0.js",
+            "types": "./gdkpixbuf-2.0.d.ts"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            ".": [
+                "gdkpixbuf-2.0.d.ts"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "tsc --noEmit gdkpixbuf-2.0.d.ts"
+    },
+    "dependencies": {
+        "@gir/gio-2.0": "workspace:^",
+        "@gir/glib-2.0": "workspace:^",
+        "@gir/gmodule-2.0": "workspace:^",
+        "@gir/gobject-2.0": "workspace:^"
+    },
+    "keywords": [
+        "Gir",
+        "TypeScript",
+        "GdkPixbuf-2.0"
+    ],
+    "author": "ts-for-gir",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+    },
+    "bugs": {
+        "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+}

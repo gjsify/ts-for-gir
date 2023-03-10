@@ -1,4 +1,3 @@
-
 {
     "name": "@gir/node-gtk",
     "version": "3.0.0-beta.10",
@@ -7,37 +6,40 @@
     "module": "index.js",
     "types": "index.d.ts",
     "exports": {
-      ".": {
-        "import": "./index.js",
-        "default": "./index.js",
-        "types": "./index.d.ts"
-      }
+        ".": {
+            "import": "./index.js",
+            "default": "./index.js",
+            "types": "./index.d.ts"
+        }
     },
     "typesVersions": {
-      "*": {
-          ".": [
-              "index.d.ts"
-          ]
-      }
+        "*": {
+            ".": [
+                "index.d.ts"
+            ]
+        }
     },
     "scripts": {
-      "test": "tsc --noEmit index.d.ts"
+        "test": "tsc --noEmit index.d.ts"
     },
     "dependencies": {
-      
-      "@gir/gio-2.0": "workspace:^",            
-      "@gir/gobject-2.0": "workspace:^",            
-      "@gir/glib-2.0": "workspace:^"      
+        "@gir/gio-2-0": "workspace:^",
+        "@gir/glib-2-0": "workspace:^",
+        "@gir/gobject-2-0": "workspace:^"
     },
-    "keywords": ["Gir", "TypeScript", "node-gtk"],
+    "keywords": [
+        "Gir",
+        "TypeScript",
+        "node-gtk"
+    ],
     "author": "ts-for-gir",
     "license": "Apache-2.0",
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/gjsify/ts-for-gir.git"
+        "type": "git",
+        "url": "git+https://github.com/gjsify/ts-for-gir.git"
     },
     "bugs": {
-      "url": "https://github.com/gjsify/ts-for-gir/issues"
+        "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
     "homepage": "https://github.com/gjsify/ts-for-gir#readme"
 }

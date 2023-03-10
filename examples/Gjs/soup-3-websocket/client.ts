@@ -12,7 +12,7 @@ import './@types/Gjs/index.js';
 import GLib from 'gi://GLib?version=2.0';
 import Soup from 'gi://Soup?version=3.0';
 import Gio from 'gi://Gio?version=2.0';
-import { byteArray } from'./@types/Gjs/Gjs'
+import { byteArray } from'./@types/Gjs/gjs'
 
 const loop = GLib.MainLoop.new(null, false);
 

@@ -4,7 +4,8 @@
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "ESNext",
+    "moduleResolution": "node",
   },
   "include": ["@types/Gjs/index.d.ts"],
   "files": [

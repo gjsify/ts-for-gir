@@ -1,4 +1,4 @@
-import type Gio from './@types/Gjs/Gio-2.0.js';
+import type Gio from 'gi://Gio?version=2.0';
 
 /*
  * An XML DBus Interface

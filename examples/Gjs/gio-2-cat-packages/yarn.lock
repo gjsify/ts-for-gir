@@ -186,60 +186,60 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gir/gdk-pixbuf-2-0@workspace:@types/Gjs/GdkPixbuf-2.0, @gir/gdk-pixbuf-2-0@workspace:^":
+"@gir/gdkpixbuf-2.0@workspace:@types/Gjs/gdkpixbuf-2.0, @gir/gdkpixbuf-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gdk-pixbuf-2-0@workspace:@types/Gjs/GdkPixbuf-2.0"
+  resolution: "@gir/gdkpixbuf-2.0@workspace:@types/Gjs/gdkpixbuf-2.0"
   dependencies:
-    "@gir/gio-2-0": "workspace:^"
-    "@gir/glib-2-0": "workspace:^"
-    "@gir/gmodule-2-0": "workspace:^"
-    "@gir/gobject-2-0": "workspace:^"
+    "@gir/gio-2.0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gmodule-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gio-2-0@workspace:@types/Gjs/Gio-2.0, @gir/gio-2-0@workspace:^":
+"@gir/gio-2.0@workspace:@types/Gjs/gio-2.0, @gir/gio-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gio-2-0@workspace:@types/Gjs/Gio-2.0"
+  resolution: "@gir/gio-2.0@workspace:@types/Gjs/gio-2.0"
   dependencies:
-    "@gir/glib-2-0": "workspace:^"
-    "@gir/gobject-2-0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gjs@workspace:@types/Gjs/Gjs":
+"@gir/gjs@workspace:@types/Gjs/gjs":
   version: 0.0.0-use.local
-  resolution: "@gir/gjs@workspace:@types/Gjs/Gjs"
+  resolution: "@gir/gjs@workspace:@types/Gjs/gjs"
   dependencies:
-    "@gir/gdk-pixbuf-2-0": "workspace:^"
-    "@gir/gio-2-0": "workspace:^"
-    "@gir/glib-2-0": "workspace:^"
-    "@gir/gmodule-2-0": "workspace:^"
-    "@gir/gobject-2-0": "workspace:^"
+    "@gir/gdkpixbuf-2.0": "workspace:^"
+    "@gir/gio-2.0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gmodule-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/glib-2-0@workspace:@types/Gjs/GLib-2.0, @gir/glib-2-0@workspace:^":
+"@gir/glib-2.0@workspace:@types/Gjs/glib-2.0, @gir/glib-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/glib-2-0@workspace:@types/Gjs/GLib-2.0"
+  resolution: "@gir/glib-2.0@workspace:@types/Gjs/glib-2.0"
   dependencies:
-    "@gir/gobject-2-0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gmodule-2-0@workspace:@types/Gjs/GModule-2.0, @gir/gmodule-2-0@workspace:^":
+"@gir/gmodule-2.0@workspace:@types/Gjs/gmodule-2.0, @gir/gmodule-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gmodule-2-0@workspace:@types/Gjs/GModule-2.0"
+  resolution: "@gir/gmodule-2.0@workspace:@types/Gjs/gmodule-2.0"
   dependencies:
-    "@gir/glib-2-0": "workspace:^"
-    "@gir/gobject-2-0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
+    "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gobject-2-0@workspace:@types/Gjs/GObject-2.0, @gir/gobject-2-0@workspace:^":
+"@gir/gobject-2.0@workspace:@types/Gjs/gobject-2.0, @gir/gobject-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gobject-2-0@workspace:@types/Gjs/GObject-2.0"
+  resolution: "@gir/gobject-2.0@workspace:@types/Gjs/gobject-2.0"
   dependencies:
-    "@gir/glib-2-0": "workspace:^"
+    "@gir/glib-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 

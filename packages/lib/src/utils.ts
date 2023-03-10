@@ -12,6 +12,11 @@ import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.j
 
 export { inspect }
 
+// Get __filename on ESM
+export const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM
+export const __dirname = dirname(__filename)
+
 /**
  * Performs a deep comparison between two values to determine if they are
  * equivalent.
@@ -246,10 +251,10 @@ export const upperCamelCase = pascalCase
  */
 export const snakeCase = (str: string): string => {
     return str
-    .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
-    .replace(/[^a-zA-Z0-9-]+/g, '_') // replace non-alphanumeric characters with underscore
-    .replace(/^_+|_+$/g, '') // remove any leading or trailing underscores
-    .toLowerCase();
+        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+        .replace(/[^a-zA-Z0-9-]+/g, '_') // replace non-alphanumeric characters with underscore
+        .replace(/^_+|_+$/g, '') // remove any leading or trailing underscores
+        .toLowerCase()
 }
 
 /**
@@ -259,12 +264,11 @@ export const snakeCase = (str: string): string => {
  */
 export const kebabCase = (str: string): string => {
     return str
-    .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
-    .replace(/[^a-zA-Z0-9-]+/g, '-') // replace non-alphanumeric characters with hyphen
-    .replace(/^-+|-+$/g, '') // remove any leading or trailing hyphens
-    .toLowerCase();
+        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+        .replace(/[^a-zA-Z0-9-]+/g, '-') // replace non-alphanumeric characters with hyphen
+        .replace(/^-+|-+$/g, '') // remove any leading or trailing hyphens
+        .toLowerCase()
 }
-
 
 /** Alias for {@link kebabCase} */
 export const slugCase = kebabCase
@@ -272,7 +276,6 @@ export const slugCase = kebabCase
 export const underscores = (str: string): string => {
     return str.replace(/-|_/g, '_')
 }
-
 
 /**
  * Find a file in a list of directories
@@ -340,11 +343,6 @@ export const isCommentLine = (line: string) => {
 export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
     return ' '.repeat(indents * spaceForIndent)
 }
-
-// Get __filename on ESM
-export const __filename = fileURLToPath(import.meta.url)
-// Get __dirname on ESM
-export const __dirname = dirname(__filename)
 
 /**
  * Get the output or input directory of the environment

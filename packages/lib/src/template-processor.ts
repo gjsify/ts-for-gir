@@ -40,6 +40,9 @@ export class TemplateProcessor {
             importName: this.transformation.transformImportName(packageName),
             dep,
             deps: dependencies,
+            typeDir: getDestPath(this.config.environment, config.outdir || './'),
+            join,
+            dirname,
         }
         this.environmentTemplateDir = getEnvironmentDir(config.environment, TEMPLATE_DIR)
         this.log = new Logger(config.environment, config.verbose, this.packageName)
@@ -119,7 +122,9 @@ export class TemplateProcessor {
     }
 
     public getOutputPath(baseOutputPath: string, outputFilename: string, prependEnv = true): string {
-        const filePath = this.config.package ? join(this.packageName, outputFilename) : outputFilename
+        const filePath = this.config.package
+            ? join(this.data?.importName || this.packageName, outputFilename)
+            : outputFilename
         const outputPath = prependEnv
             ? getDestPath(this.config.environment, baseOutputPath, filePath)
             : join(baseOutputPath, filePath)

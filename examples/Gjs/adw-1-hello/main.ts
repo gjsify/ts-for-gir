@@ -4,11 +4,11 @@
  */
 
 import './@types/Gjs/index';
-import { system } from './@types/Gjs/Gjs.js'
-import Gio from './@types/Gjs/Gio-2.0.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gtk from './@types/Gjs/Gtk-4.0.js';
-import Adw from './@types/Gjs/Adw-1.js';
+import { system } from './@types/Gjs/gjs.js'
+import Gio from './@types/Gjs/gio-2.0.js';
+import GLib from './@types/Gjs/glib-2.0.js';
+import Gtk from './@types/Gjs/gtk-4.0.js';
+import Adw from './@types/Gjs/adw-1.js';
 
 const loop = GLib.MainLoop.new(null, false)
 

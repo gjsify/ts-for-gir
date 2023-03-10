@@ -7,8 +7,8 @@
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
 import './@types/node-gtk/index.js';
-import GLib from './@types/node-gtk/GLib-2.0.js';
-import Soup from './@types/node-gtk/Soup-3.0.js';
+import GLib from './@types/node-gtk/glib-2-0.js';
+import Soup from './@types/node-gtk/soup-3.0.js';
 import Gio from './@types/node-gtk/Gio-2.0.js';
 
 const loop = GLib.MainLoop.new(null, false);

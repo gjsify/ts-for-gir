@@ -5,7 +5,7 @@
  */
 
 import './@types/Gjs/index';
-import { system } from './@types/Gjs/Gjs.js'
+import { system } from './@types/Gjs/gjs.js'
 import GObject from 'gi://GObject?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';

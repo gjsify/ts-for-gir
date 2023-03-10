@@ -1,7 +1,7 @@
 import { inspect } from 'util'
-import { Gtk } from './@types/node-gtk/Gtk-3.0'
-import { Pango } from './@types/node-gtk/Pango-1.0'
-import { WebKit2 } from './@types/node-gtk/WebKit2-4.0'
+import { Gtk } from './@types/node-gtk/gtk-3.0'
+import { Pango } from './@types/node-gtk/pango-1-0'
+import { WebKit2 } from './@types/node-gtk/web-kit2-4-0'
 
 // const Gtk = gi.require('Gtk', '3.0')
 // const Pango = gi.require('Pango', '1.0')

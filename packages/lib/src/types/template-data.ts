@@ -3,4 +3,5 @@ import type { GirModule } from '../gir-module.js'
 
 export interface TemplateData extends Data {
     girModule?: GirModule
+    importName?: string
 }

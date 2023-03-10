@@ -18,7 +18,8 @@
     "debug:client": "GTK_DEBUG=interactive yarn start:client",
     "validate": "yarn validate:types && yarn validate:app",
     "validate:types": "tsc --project tsconfig.types.json",
-    "validate:app": "tsc --noEmit"
+    "validate:app": "tsc --noEmit",
+    "clear": "rm -rf dist @types"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",

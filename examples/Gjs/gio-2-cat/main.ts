@@ -9,9 +9,9 @@
  */
 
 import './@types/Gjs/index.js';
-import { byteArray as ByteArray } from './@types/Gjs/Gjs.js';
-import GLib from './@types/Gjs/GLib-2.0.js';
-import Gio from './@types/Gjs/Gio-2.0.js';
+import { byteArray as ByteArray } from './@types/Gjs/gjs.js';
+import GLib from './@types/Gjs/glib-2.0.js';
+import Gio from './@types/Gjs/gio-2.0.js';
 
 const loop = GLib.MainLoop.new(null, false);
 

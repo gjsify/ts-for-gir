@@ -1,6 +1,6 @@
 import type { InjectionClass } from '../../types/index.js'
 
-import { classesGLib20All } from './GLib-2-0.js'
+import { classesGLib20All } from './glib-2.0.js'
 
 export { classesGjs } from './gjs/index.js'
 export { classesNode } from './node-gtk/index.js'

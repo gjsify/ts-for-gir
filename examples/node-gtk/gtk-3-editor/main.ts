@@ -1,6 +1,6 @@
 import { startLoop } from 'node-gtk'
 import * as Gtk from './@types/node-gtk/gtk-3.0'
-import * as GtkSource from './@types/node-gtk/GtkSource-3.0'
+import * as GtkSource from './@types/node-gtk/gtksource-3.0'
 
 // const Gtk = gi.require('Gtk', '3.0')
 // const GtkSource = gi.require('GtkSource')

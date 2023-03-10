@@ -6,7 +6,7 @@
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
 import './@types/node-gtk/index.js';
-import GLib from './@types/node-gtk/glib-2-0.js';
+import GLib from './@types/node-gtk/glib-2.0.js';
 import Soup from './@types/node-gtk/soup-3.0.js';
 
 // GJS version of GLib.HashTable

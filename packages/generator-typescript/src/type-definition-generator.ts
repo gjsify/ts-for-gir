@@ -1493,14 +1493,14 @@ export class TypeDefinitionGenerator implements Generator {
         )
 
         // Types
-        await templateProcessor.create('gnome-shell.d.ts', this.config.outdir, 'gnome-shell.d.ts')
+        await templateProcessor.create('gnomeshell.d.ts', this.config.outdir, 'gnomeshell.d.ts')
         await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
         await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
         await templateProcessor.createAll('.d.ts', 'ui/components', this.config.outdir, 'ui/components')
 
         // Lib
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('gnome-shell.js', this.config.outdir, 'gnome-shell.js')
+            await templateProcessor.create('gnomeshell.js', this.config.outdir, 'gnomeshell.js')
             await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
             await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
             await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')

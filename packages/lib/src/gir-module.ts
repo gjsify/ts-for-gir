@@ -809,9 +809,10 @@ export class GirModule {
         if (!a) return false
 
         const type: GirType | undefined = girVar.type?.[0]
+        const cType = type?.$?.['c:type']
 
         // Pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
-        if (type?.$?.['c:type']?.endsWith('*')) {
+        if (cType?.endsWith('*')) {
             return true
         }
 

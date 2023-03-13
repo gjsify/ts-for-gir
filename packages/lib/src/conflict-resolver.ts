@@ -1,7 +1,7 @@
 import { GirFactory } from './gir-factory.js'
 import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
-import { isEqual, merge, clone, typeIsOptional } from './utils.js'
+import { isEqual, merge, clone, typesContainsOptional } from './utils.js'
 import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 import type {
     Environment,
@@ -261,12 +261,28 @@ export class ConflictResolver {
         )
     }
 
+    private tsTypeIsEqual(a: TsType, b: TsType) {
+        return (
+            a &&
+            b &&
+            a.optional === b.optional &&
+            a.nullable === b.nullable &&
+            a.type === b.type &&
+            a.isArray === b.isArray &&
+            a.isFunction === b.isFunction &&
+            a.isCallback === b.isCallback &&
+            a.leftSeparator === b.leftSeparator &&
+            isEqual(a.callbacks, b.callbacks) &&
+            isEqual(a.generics, b.generics)
+        )
+    }
+
     private mergeTypes(leftSeparator: TsTypeSeparator, ...types: Array<TsType | undefined>) {
         const dest: TsType[] = []
 
         for (const type of types) {
             if (!type) continue
-            if (!dest.find((destType) => isEqual(destType, type))) {
+            if (!dest.find((destType) => this.tsTypeIsEqual(destType, type))) {
                 dest.push({ ...type, leftSeparator })
             }
         }
@@ -313,7 +329,7 @@ export class ConflictResolver {
             dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
         }
 
-        if (typeIsOptional(dest._tsData.type)) {
+        if (typesContainsOptional(dest._tsData.type)) {
             dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
         }
 
@@ -365,7 +381,7 @@ export class ConflictResolver {
             .filter((p) => p.$.direction !== 'out')
             .map((p) => p._tsData)
 
-        if (following.some((p) => p && !typeIsOptional(p.type))) {
+        if (following.some((p) => p && !typesContainsOptional(p.type))) {
             canBeOptional = false
         }
 
@@ -380,7 +396,7 @@ export class ConflictResolver {
     private fixOptionalParameters(girParams: GirCallableParamElement[]) {
         for (const girParam of girParams) {
             if (!girParam._tsData) throw new Error(NO_TSDATA('fixOptionalParameters'))
-            if (typeIsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
+            if (typesContainsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
                 this.setTypesProperty(girParam._tsData.type, 'optional', false)
             }
         }

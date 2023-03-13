@@ -4,6 +4,9 @@
 - Define required .gir files for GNOME Shell type generation (e.g. Clutter-11.gir / Clutter-10.gir, St-1.0.gir, Shell-0.1.gir, ...)
 - Add support to generate packages for the types we can publish on NPM
 
+# Unreleased
+- c type pointers are nullable, so any returned pointer is handled as nullable now, see #108
+- Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps
 # 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
 - Fix node bin path for ts-for-gir execution

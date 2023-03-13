@@ -2,10 +2,9 @@
 
 import {
     Transformation,
-    C_TYPE_MAP,
     FULL_TYPE_MAP,
-    POD_TYPE_MAP,
-    POD_TYPE_MAP_ARRAY,
+    PRIMITIVE_TYPE_MAP,
+    ARRAY_TYPE_MAP,
     IGNORE_GIR_TYPE_TS_DOC_TYPES,
 } from './transformation.js'
 import { STATIC_NAME_ALREADY_EXISTS, MAX_CLASS_PARENT_DEPTH } from './constants.js'
@@ -586,9 +585,9 @@ export class GirModule {
             arrayType = typeArray[0]
         }
 
-        if (isArray && arrayType?.$?.name && POD_TYPE_MAP_ARRAY[arrayType.$.name]) {
+        if (isArray && arrayType?.$?.name && ARRAY_TYPE_MAP[arrayType.$.name]) {
             isArray = false
-            overrideTypeName = POD_TYPE_MAP_ARRAY[arrayType.$.name] as string | undefined
+            overrideTypeName = ARRAY_TYPE_MAP[arrayType.$.name] as string | undefined
         }
 
         return {
@@ -679,19 +678,15 @@ export class GirModule {
             }
         }
 
-        if (!typeName && type?.$?.name && POD_TYPE_MAP[type.$.name]) {
+        if (!typeName && type?.$?.name && PRIMITIVE_TYPE_MAP[type.$.name]) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            typeName = POD_TYPE_MAP[type.$.name]
+            typeName = PRIMITIVE_TYPE_MAP[type.$.name]
         }
 
         if (cType) {
-            if (!typeName && C_TYPE_MAP(cType)) {
-                typeName = C_TYPE_MAP(cType) || ''
-            }
-
-            if (!typeName && POD_TYPE_MAP[cType]) {
+            if (!typeName && PRIMITIVE_TYPE_MAP[cType]) {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                typeName = POD_TYPE_MAP[cType]
+                typeName = PRIMITIVE_TYPE_MAP[cType]
             }
         }
 
@@ -812,6 +807,9 @@ export class GirModule {
         const a = (girVar as GirCallableParamElement).$
 
         if (!a) return false
+
+        // If the default value is NULL, handle this as nullable
+        if (a['default-value'] === 'NULL') return true
 
         // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
         if (girBool(a.optional) || girBool(a.nullable)) {

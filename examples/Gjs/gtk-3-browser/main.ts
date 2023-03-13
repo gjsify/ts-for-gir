@@ -60,7 +60,7 @@ wnd.connect('delete-event', () => {
 })
 entry.connect('activate', (self) => {
     let uri = self.text
-    if (!(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri
+    if (uri && !(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri
     webview.load_uri(uri)
 })
 webview.connect('notify::uri', () => {

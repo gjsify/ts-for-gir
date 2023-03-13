@@ -808,6 +808,13 @@ export class GirModule {
 
         if (!a) return false
 
+        const type: GirType | undefined = girVar.type?.[0]
+
+        // Pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
+        if (type?.$?.['c:type']?.endsWith('*')) {
+            return true
+        }
+
         // If the default value is NULL, handle this as nullable
         if (a['default-value'] === 'NULL') return true
 

@@ -15,9 +15,9 @@ srcView.show_line_numbers = true
 srcView.monospace = true
 
 const buf = srcView.buffer as GtkSource.Buffer;
-const lang = GtkSource.LanguageManager.get_default().get_language('js')
+const lang = GtkSource.LanguageManager.get_default()?.get_language('js')
 print('lang', lang)
-buf.set_language(lang)
+if(lang) buf.set_language(lang)
 
 notebook.add(srcView)
 

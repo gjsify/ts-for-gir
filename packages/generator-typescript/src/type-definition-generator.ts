@@ -5,7 +5,7 @@ import {
     removeNamespace,
     removeClassModule,
     girElementIsIntrospectable,
-    typeIsOptional,
+    typesContainsOptional,
     TemplateProcessor,
     Dependency,
     DependencyManager,
@@ -166,7 +166,7 @@ export class TypeDefinitionGenerator implements Generator {
     private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0, allowCommentOut = true) {
         const indent = generateIndent(indentCount)
         const name = tsVar.name
-        const optional = typeIsOptional(tsVar.type)
+        const optional = typesContainsOptional(tsVar.type)
 
         if (!name) {
             throw new Error('[generateVariable] "name" not set!')
@@ -181,28 +181,7 @@ export class TypeDefinitionGenerator implements Generator {
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
 
-    private generateTypes(tsTypes: TsType[], namespace: string) {
-        let def = ''
-        for (const tsType of tsTypes) {
-            const separator = tsType.leftSeparator || '|'
-            const typeStr = this.generateType(tsType, namespace)
-            if (!def) {
-                def = typeStr
-            } else {
-                def += ` ${separator} ${typeStr}`
-            }
-        }
-        return def
-    }
-
-    private generateGenericValues(tsType: TsType, namespace: string) {
-        // We just use the generic values here
-        const genericValues = tsType.generics.map((g) => removeNamespace(g.value || '', namespace)).filter((g) => !!g)
-        const genericStr = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
-        return genericStr
-    }
-
-    private generateType(tsType: TsType, namespace: string) {
+    private generateType(tsType: TsType, namespace: string, generateNullable = true) {
         let typeName = removeNamespace(tsType.type, namespace)
 
         if (tsType.callbacks.length) {
@@ -214,12 +193,43 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         let prefix = tsType.isArray ? '[]' : ''
-        prefix += tsType.nullable ? ' | null' : ''
+        if (generateNullable && tsType.nullable) {
+            prefix += ' | null'
+        }
 
         // We just use the generic values here
         const genericStr = this.generateGenericValues(tsType, namespace)
 
         return `${typeName}${genericStr}${prefix}`
+    }
+
+    private generateTypes(tsTypes: TsType[], namespace: string) {
+        let def = ''
+        for (const tsType of tsTypes) {
+            const separator = tsType.leftSeparator || '|'
+            const typeStr = this.generateType(tsType, namespace, false)
+            if (!def) {
+                def = typeStr
+            } else {
+                def += ` ${separator} ${typeStr}`
+            }
+        }
+        const hasNullable = typesContainsOptional(tsTypes)
+        if (hasNullable) {
+            if (tsTypes.length > 1) {
+                def = `(${def}) | null`
+            } else {
+                def += ' | null'
+            }
+        }
+        return def
+    }
+
+    private generateGenericValues(tsType: TsType, namespace: string) {
+        // We just use the generic values here
+        const genericValues = tsType.generics.map((g) => removeNamespace(g.value || '', namespace)).filter((g) => !!g)
+        const genericStr = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
+        return genericStr
     }
 
     /**
@@ -429,7 +439,7 @@ export class TypeDefinitionGenerator implements Generator {
         const types = tsParam.type
         const name = tsParam.name
         const typeStr = this.generateTypes(types, namespace)
-        const optional = typeIsOptional(types) && !tsParam.isRest
+        const optional = typesContainsOptional(types) && !tsParam.isRest
         const affix = optional ? '?' : ''
         const prefix = tsParam.isRest ? '...' : ''
 

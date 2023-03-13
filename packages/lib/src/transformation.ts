@@ -25,7 +25,7 @@ import {
     WARN_RENAMED_PARAMETER,
 } from './messages.js'
 
-export const POD_TYPE_MAP_ARRAY = {
+export const ARRAY_TYPE_MAP = {
     guint8: 'Uint8Array',
     // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
     gint8: 'Uint8Array',
@@ -33,13 +33,49 @@ export const POD_TYPE_MAP_ARRAY = {
 }
 
 /**
+ * Used to parse `name` and
  * @see https://developer.gnome.org/glib/stable/glib-Basic-Types.html
+ * @see https://gi.readthedocs.io/en/latest/annotations/giannotations.html
  */
-export const POD_TYPE_MAP = {
-    utf8: 'string',
+export const PRIMITIVE_TYPE_MAP = {
+    // Special
+
     none: 'void',
-    double: 'number',
-    'double*': 'number',
+    va_list: 'any',
+
+    guintptr: 'never', // You can't use pointers in Gjs
+
+    // Strings
+    utf8: 'string',
+    filename: 'string',
+    gunichar: 'string',
+    'gunichar*': 'string',
+    'char*': 'string',
+    'gchar*': 'string', // TODO CHECKME
+    'gchar**': 'string', // TODO CHECKME
+    'gchar***': 'string', // TODO CHECKME
+    'const gchar*': 'string', // TODO CHECKME
+    'const char*': 'string', // TODO CHECKME
+
+    // Booleans
+    gboolean: 'boolean',
+    'gboolean*': 'boolean',
+
+    gpointer: 'any', // This is typically used in callbacks to pass data, so we allow any here.
+    'gpointer*': 'any',
+    gconstpointer: 'any',
+
+    // Numbers
+    gchar: 'number',
+    guchar: 'number',
+    glong: 'number',
+    gulong: 'number',
+    gdouble: 'number',
+    gssize: 'number',
+    gsize: 'number',
+    gshort: 'number',
+    guint32: 'number',
+    'guint32*': 'number',
     guint: 'number',
     'guint*': 'number',
     guint8: 'number',
@@ -49,12 +85,10 @@ export const POD_TYPE_MAP = {
     'guint16*': 'number',
     gint16: 'number',
     'gint16*': 'number',
-    guint32: 'number',
-    'guint32*': 'number',
     guint64: 'number',
     'guint64*': 'number',
-    gunichar: 'string',
-    'gunichar*': 'string',
+    gfloat: 'number',
+    'gfloat*': 'number',
     gint: 'number',
     'gint*': 'number',
     gint8: 'number',
@@ -65,46 +99,29 @@ export const POD_TYPE_MAP = {
     'gint64*': 'number',
     gushort: 'number',
     'gushort*': 'number',
-    gfloat: 'number',
-    'gfloat*': 'number',
-    gboolean: 'boolean',
-    'gboolean*': 'boolean',
-    gpointer: 'object',
-    'gpointer*': 'object',
-    gconstpointer: 'object',
-    gchar: 'number',
-    guchar: 'number',
-    glong: 'number',
-    gulong: 'number',
-    gdouble: 'number',
-    gssize: 'number',
-    gsize: 'number',
-    long: 'number',
-    object: 'any',
-    gshort: 'number',
-    filename: 'string',
-    va_list: 'any',
-    guintptr: 'number',
-}
 
-export const C_TYPE_MAP = (value: string): string | undefined => {
-    const cTypeMap = {
-        'char*': 'string',
-        'gchar*': 'string',
-        'gchar**': 'string', // TODO CHECKME
-        'gchar***': 'string', // TODO CHECKME
-        'const gchar*': 'string', // TODO CHECKME
-        'const char*': 'string', // TODO CHECKME
-        uint8: 'number',
-        int8: 'number',
-        int32: 'number',
-        uint16: 'number',
-        'int*': 'number',
-        int: 'number',
-        boolean: 'boolean',
-    }
-    const result = cTypeMap[value as keyof typeof cTypeMap]
-    return result
+    // Bad numerical types
+    long: 'number',
+    double: 'number',
+    'double*': 'number',
+    uint32: 'number',
+    int32: 'number',
+    uint8: 'number',
+    int8: 'number',
+    uint16: 'number',
+    'int*': 'number',
+    int: 'number',
+
+    // TypeScript types
+    this: 'this',
+    never: 'never',
+    unknown: 'unknown',
+    any: 'any',
+    number: 'number',
+    string: 'string',
+    boolean: 'boolean',
+    object: 'object',
+    void: 'void',
 }
 
 // Gjs is permissive for byte-array in parameters but strict for out/return

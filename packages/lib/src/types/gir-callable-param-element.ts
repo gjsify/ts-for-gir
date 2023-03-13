@@ -17,7 +17,7 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
         Partial<GirTransferOwnership> & {
             /** name of the parameter */
             name?: string
-            /** Binary attribute, true if the parameter can have a null value */
+            /** Binary attribute, `true` if the parameter can have a null value */
             nullable?: GirBoolean
             /** @deprecated Replaced by nullable and optional */
             'allow-none'?: GirBoolean
@@ -31,11 +31,11 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
             scope?: 'notified' | 'async' | 'call'
             /** direction of the parameter. "in" goes into the callable, "out" for output parameters from the callable (reference in C++, var in Pascal, etc...), "inout" for both (like a pre-allocated structure which will be filled-in by the callable) */
             direction?: GirDirection
-            /** Binary attribute, true if the caller should allocate the parameter before calling the callable */
+            /** Binary attribute, `true` if the caller should allocate the parameter before calling the callable */
             'caller-allocates'?: GirBoolean
-            /** Binary attribute, true if the parameter is optional */
+            /** Binary attribute, `true` if the parameter is optional */
             optional?: GirBoolean
-            /**  Binary attribute, true if the parameter can be omitted from the introspected output */
+            /** Binary attribute, `true` if the parameter can be omitted from the introspected output */
             skip?: GirBoolean
         }
 

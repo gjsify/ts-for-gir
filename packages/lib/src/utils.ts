@@ -424,9 +424,25 @@ export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { na
  * @param types The types to check
  * @returns Whether the type is optional or not
  */
-export const typeIsOptional = (types: TsType[]) => {
-    for (const type of types) {
-        if (type.optional) return true
+export const typesContainsNullable = (tsTypes: TsType[]) => {
+    for (const tsType of tsTypes) {
+        if (tsType.nullable) {
+            return true
+        }
+    }
+    return false
+}
+
+/**
+ * Check if a type is optional
+ * @param types The types to check
+ * @returns Whether the type is optional or not
+ */
+export const typesContainsOptional = (tsTypes: TsType[]) => {
+    for (const tsType of tsTypes) {
+        if (tsType.optional) {
+            return true
+        }
     }
     return false
 }

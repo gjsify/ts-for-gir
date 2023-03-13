@@ -25,6 +25,8 @@ export interface GirPropertyElement extends PartOfClass, GirInfoElements, GirAny
         setter?: string
         /** The getter function for this property */
         getter?: string
+        /** The value of the property when it is not set */
+        'default-value'?: string
     } & Partial<GirTransferOwnership>
 
     _tsData?: TsProperty

@@ -6,6 +6,9 @@
 # Unreleased
 - Add support to generate a NPM package for each generated module type definition
 
+# Unreleased
+- c type pointers are nullable, so any returned pointer is handled as nullable now, see #108
+- Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps
 # 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
 - Fix node bin path for ts-for-gir execution

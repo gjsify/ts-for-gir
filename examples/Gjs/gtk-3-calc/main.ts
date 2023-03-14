@@ -43,12 +43,12 @@ function pressedEquals() {
 }
 
 function pressedOperator(button: Gtk.Button) {
-    calcVal += button.label;
+    calcVal += button.label || '';
     updateDisplay();
 }
 
 function pressedNumber(button: Gtk.Button) {
-    calcVal = (calcVal === 0 ? '' : calcVal) + button.label;
+    calcVal = (calcVal === 0 ? '' : calcVal) + (button.label || '');
     updateDisplay();
 }
 

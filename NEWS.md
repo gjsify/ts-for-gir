@@ -7,8 +7,10 @@
 - Add support to generate a NPM package for each generated module type definition
 
 # Unreleased
-- c type pointers are nullable, so any returned pointer is handled as nullable now, see #108
+- UTF-8 string pointers are nullable, so all of this pointers are handled as nullable now, see #108
 - Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps
+## Breaking Changes
+  - More parameters and returned UTF-8 strings are nullable now, so maybe you need to update your code to check if the string is not null. Please give us feedback about this change
 # 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
 - Fix node bin path for ts-for-gir execution

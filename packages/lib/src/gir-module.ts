@@ -25,7 +25,8 @@ import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElemen
 import { SymTable } from './symtable.js'
 import { LibraryVersion } from './library-version.js'
 
-import {
+import { GirDirection } from './types/index.js'
+import type {
     Dependency,
     GirRepository,
     GirNamespace,
@@ -695,9 +696,10 @@ export class GirModule {
         }
 
         if (cType) {
-            if (!typeName && PRIMITIVE_TYPE_MAP[cType]) {
+            const parsedCType = PRIMITIVE_TYPE_MAP[cType] as string | undefined
+            if (!typeName && parsedCType) {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                typeName = PRIMITIVE_TYPE_MAP[cType]
+                typeName = parsedCType
             }
         }
 
@@ -822,8 +824,8 @@ export class GirModule {
         const type: GirType | undefined = girVar.type?.[0]
         const cType = type?.$?.['c:type']
 
-        // Pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
-        if (cType?.endsWith('*')) {
+        // UTF-8 string pointers can be null, e.g. `gchar*`, see https://github.com/gjsify/ts-for-gir/issues/108
+        if (type?.$?.name === 'utf8' && cType?.endsWith('*')) {
             return true
         }
 
@@ -831,10 +833,10 @@ export class GirModule {
         if (a['default-value'] === 'NULL') return true
 
         // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-        if (girBool(a.optional) || girBool(a.nullable)) {
+        if (a.optional || a.nullable) {
             return girBool(a.nullable)
         } else {
-            return girBool(a.nullable) || girBool(a['allow-none'])
+            return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
         }
     }
 
@@ -855,10 +857,10 @@ export class GirModule {
         if (!a) return false
 
         // Ignore depreciated `allow-none` if one of the new implementation `optional` or `nullable` is set
-        if (girBool(a.optional) || girBool(a.nullable)) {
+        if (a.optional || a.nullable) {
             return girBool(a.optional)
         } else {
-            return girBool(a.optional) || girBool(a['allow-none'])
+            return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
         }
     }
 
@@ -897,7 +899,7 @@ export class GirModule {
             const following = girParams
                 .slice(index)
                 .filter(() => skip.indexOf(girParam) === -1)
-                .filter((p) => p.$.direction !== 'out')
+                .filter((p) => p.$.direction !== GirDirection.Out)
 
             if (following.some((p) => !this.typeIsOptional(p))) {
                 tsType.optional = false
@@ -972,9 +974,13 @@ export class GirModule {
                         param._tsData = this.setParameterTsData(param, params, paramNames, skip, parent)
 
                         const optDirection = param.$.direction
-                        if (optDirection === 'out' || optDirection === 'inout') {
+                        if (
+                            optDirection === GirDirection.Out ||
+                            optDirection === GirDirection.Inout ||
+                            optDirection === GirDirection.InOut
+                        ) {
                             outParams.push(param)
-                            if (optDirection === 'out') continue
+                            if (optDirection === GirDirection.Out) continue
                         }
                         inParams.push(param)
                     }

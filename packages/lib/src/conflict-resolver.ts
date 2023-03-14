@@ -3,6 +3,8 @@ import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
 import { isEqual, merge, clone, typesContainsOptional } from './utils.js'
 import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
+import { GirDirection } from './types/gir-direction.js'
+
 import type {
     Environment,
     GirClassElement,
@@ -378,7 +380,7 @@ export class ConflictResolver {
             .slice(index)
             .filter((p) => !!p._tsData)
             .filter(() => !skip.includes(girParam))
-            .filter((p) => p.$.direction !== 'out')
+            .filter((p) => p.$.direction !== GirDirection.Out)
             .map((p) => p._tsData)
 
         if (following.some((p) => p && !typesContainsOptional(p.type))) {

@@ -572,12 +572,14 @@ export class Config {
 
 function getDefaultGirDirectories(): string[] {
     const girDirectories = OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0']
-    // NixOS does not have a /usr/local/share directory.  Instead, the nix store paths with Gir
-    // files are set as XDG_DATA_DIRS.  See:
-    //   https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
+    // NixOS and other distributions does not have a /usr/local/share directory.
+    // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
+    // See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
     const dataDirs = process.env['XDG_DATA_DIRS']?.split(':') || []
     for (const dataDir of dataDirs) {
-        girDirectories.push(join(dataDir, 'gir-1.0'))
+        if (!girDirectories.includes(dataDir)) {
+            girDirectories.push(join(dataDir, 'gir-1.0'))
+        }
     }
     return girDirectories
 }

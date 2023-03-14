@@ -9,7 +9,7 @@
  */
 
 import gi from "@gir/node-gtk";
-import Gio from "@gir/gio-2-0";
+import Gio from "@gir/gio-2.0";
 
 function cat(filename: string) {
     const file = Gio.fileNewForPath(filename);
@@ -22,8 +22,6 @@ function cat(filename: string) {
         console.error("Failed to read file", filename);
         process.exit(1);
     }
-
-    console.debug("contents", contents);
 
     console.log(Buffer.from(contents).toString());
     process.exit(0);

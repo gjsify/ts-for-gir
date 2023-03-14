@@ -23,9 +23,9 @@
         "test": "tsc --noEmit index.d.ts"
     },
     "dependencies": {
-        "@gir/gio-2-0": "workspace:^",
-        "@gir/glib-2-0": "workspace:^",
-        "@gir/gobject-2-0": "workspace:^"
+        "@gir/gio-2.0": "workspace:^",
+        "@gir/glib-2.0": "workspace:^",
+        "@gir/gobject-2.0": "workspace:^"
     },
     "keywords": [
         "Gir",

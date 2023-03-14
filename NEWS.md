@@ -6,7 +6,7 @@
 # Unreleased
 - Add support to generate a NPM package for each generated module type definition
 
-# Unreleased
+# 3.0.0-beta.12
 - UTF-8 string pointers are nullable, so all of this pointers are handled as nullable now, see #108
 - Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps
 ## Breaking Changes

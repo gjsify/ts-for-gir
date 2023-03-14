@@ -1,6 +1,7 @@
 // https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/misc/signals.js
 
-import type { signals } from '../Gjs.js';
+<%_ const Gjs = dep.getGjs('..') _%>
+import type { signals } from '<%- Gjs.importPath %>';
 
 export interface EventEmitter extends signals.Methods {}
 

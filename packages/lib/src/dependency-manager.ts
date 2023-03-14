@@ -63,14 +63,21 @@ export class DependencyManager {
     }
 
     /**
-     * Get the dependency object by namespace and version
-     * @param namespace The namespace of the dependency
-     * @param version The version of the dependency
+     * Get the dependency object by packageName
+     * @param packageName The package name (with version affix) of the dependency
+     * @param relativeTo Get the import path relative to this path
      * @returns The dependency object
      */
-    get(packageName: string): Dependency
-    get(namespace: string, version: string): Dependency
-    get(namespaceOrPackageName: string, _version?: string): Dependency {
+    get(packageName: string, relativeTo?: string): Dependency
+    /**
+     * Get the dependency object by namespace and version, optional relative to a path
+     * @param namespace The namespace of the dependency
+     * @param version The version of the dependency
+     * @param relativeTo Get the import path relative to this path
+     * @returns The dependency object
+     */
+    get(namespace: string, version: string, relativeTo?: string): Dependency
+    get(namespaceOrPackageName: string, versionOrRelativeTo?: string, relativeTo?: string): Dependency {
         // Special case for Gjs and GnomeShell
         if (namespaceOrPackageName === 'Gjs') {
             return this.getGjs()
@@ -81,11 +88,24 @@ export class DependencyManager {
 
         let packageName: string
         let namespace: string
-        let version: string
-        if (_version) {
-            packageName = `${namespaceOrPackageName}-${_version}`
+        let version: string | undefined
+
+        if(relativeTo && versionOrRelativeTo) {
+            version = versionOrRelativeTo;
+        } else if (versionOrRelativeTo?.startsWith('.')) {
+            relativeTo = versionOrRelativeTo;
+        } else {
+            version = versionOrRelativeTo;
+        }
+
+        if(!relativeTo) {
+            relativeTo = '.';
+        }
+
+        if (version) {
+            packageName = `${namespaceOrPackageName}-${version}`
             namespace = namespaceOrPackageName
-            version = _version
+            version = version
         } else {
             packageName = namespaceOrPackageName
             const { namespace: _namespace, version: _version } = splitModuleName(packageName)
@@ -97,7 +117,7 @@ export class DependencyManager {
         }
         const filename = `${packageName}.gir`
         const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
-        const importPath = this.getImportPath(packageName)
+        const importPath = this.getImportPath(packageName, relativeTo)
         const importDef = this.getImportDef(namespace, importPath)
 
         const dependency: Dependency = {

@@ -13,4 +13,15 @@ export const classesGooCanvas30All: InjectionClass[] = [
             },
         ],
     },
+    {
+        versions: ['3.0'],
+        qualifiedName: 'GooCanvas.CanvasItemModel',
+        properties: [
+            {
+                name: 'parent',
+                type: [{ type: 'GooCanvas.CanvasItemModel', nullable: true }],
+                girTypeName: 'property',
+            },
+        ],
+    },
 ]

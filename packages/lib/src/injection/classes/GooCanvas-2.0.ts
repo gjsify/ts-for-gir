@@ -8,7 +8,7 @@ export const classesGooCanvas20All: InjectionClass[] = [
         properties: [
             {
                 name: 'parent',
-                type: [{ type: 'GooCanvas.CanvasItem', optional: true }],
+                type: [{ type: 'GooCanvas.CanvasItem', nullable: true }],
                 girTypeName: 'property',
             },
         ],

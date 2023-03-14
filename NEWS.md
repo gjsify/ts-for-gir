@@ -5,8 +5,10 @@
 - Add support to generate packages for the types we can publish on NPM
 
 # Unreleased
-- c type pointers are nullable, so any returned pointer is handled as nullable now, see #108
+- c-type pointers are nullable, so any returned pointer is handled as nullable now, see #108
 - Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps
+## Breaking Changes
+  - More parameters and returned types are nullable now, so maybe you need to update your code to check if the type is not null 
 # 3.0.0-beta.11
 - Split this project into more submodules: 'cli', 'lib', 'generator-base', 'generator-typescript' and 'generator-html-doc'
 - Fix node bin path for ts-for-gir execution

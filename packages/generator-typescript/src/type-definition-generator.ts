@@ -160,7 +160,8 @@ export class TypeDefinitionGenerator implements Generator {
     private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0, allowCommentOut = true) {
         const indent = generateIndent(indentCount)
         const name = tsVar.name
-        const optional = typesContainsOptional(tsVar.type)
+        // Constants are not optional
+        const optional = tsVar.tsTypeName !== 'constant' && typesContainsOptional(tsVar.type)
 
         if (!name) {
             throw new Error('[generateVariable] "name" not set!')

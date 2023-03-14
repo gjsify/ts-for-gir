@@ -6,6 +6,7 @@ import {
     removeClassModule,
     girElementIsIntrospectable,
     typesContainsOptional,
+    typesContainsNullable,
     TemplateProcessor,
     NO_TSDATA,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
@@ -207,7 +208,7 @@ export class TypeDefinitionGenerator implements Generator {
                 def += ` ${separator} ${typeStr}`
             }
         }
-        const hasNullable = typesContainsOptional(tsTypes)
+        const hasNullable = typesContainsNullable(tsTypes)
         if (hasNullable) {
             if (tsTypes.length > 1) {
                 def = `(${def}) | null`

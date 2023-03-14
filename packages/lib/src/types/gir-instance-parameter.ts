@@ -12,6 +12,8 @@ export interface GirInstanceParameter extends GirAnyType {
         nullable?: GirBoolean
         /** @deprecated Replaced by nullable and optional */
         'allow-none'?: GirBoolean
+        /** @deprecated Replaced by {@link allow-none} */
+        'null-ok'?: GirBoolean
         /** direction of the parameter. "in" goes into the callable, "out" for output parameters from the callable (reference in C++, var in Pascal, etc...), "inout" for both (like a pre-allocated structure which will be filled-in by the callable) */
         direction?: GirDirection
         /** Binary attribute, true if the caller should allocate the parameter before calling the callable */

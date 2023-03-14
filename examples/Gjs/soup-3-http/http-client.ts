@@ -25,6 +25,9 @@ const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {
 
     try {
         data = (inputStream as Gio.InputStream).read_bytes_finish(res);
+        if(!data) {
+            throw new Error('data is null');
+        }
     } catch (e) {
         logError(e);
         loop.quit();
@@ -37,10 +40,13 @@ const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {
 }
 
 const send_async_callback: Gio.AsyncReadyCallback = (self, res) => {
-    let inputStream;
+    let inputStream:  Gio.InputStream | null = null;
 
     try {
         inputStream = session.send_finish(res);
+        if(!inputStream) {
+            throw new Error('inputStream is null');
+        }
     } catch (e) {
         logError(e);
         loop.quit();

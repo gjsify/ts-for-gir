@@ -19,6 +19,10 @@ const loop = GLib.MainLoop.new(null, false);
 const byteArray = imports.byteArray;
 
 const handler: Soup.ServerCallback = (server, msg, path, query) => {
+    if(!msg) {
+        throw new Error("msg is null");
+    }
+
     msg.set_status(200, null);
 
     const body = byteArray.fromString(`
@@ -37,6 +41,10 @@ const handler: Soup.ServerCallback = (server, msg, path, query) => {
 }
 
 const helloHandler: Soup.ServerCallback = (server, msg, path, query) => {
+    if(!msg) {
+        throw new Error("msg is null");
+    }
+
     if (!query) {
         msg.set_redirect(302, '/');
         return;

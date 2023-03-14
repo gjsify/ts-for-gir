@@ -19,7 +19,9 @@ export interface GirCallableParamElement extends PartOfClass, GirDocElement, Gir
             name?: string
             /** Binary attribute, `true` if the parameter can have a null value */
             nullable?: GirBoolean
-            /** @deprecated Replaced by nullable and optional */
+            /** @deprecated Replaced by {@link allow-none} */
+            'null-ok'?: GirBoolean
+            /** @deprecated Replaced by {@link nullable} and {@link optional} */
             'allow-none'?: GirBoolean
             /** Binary attribute which is GirBoolean(false) if the element is not introspectable. It doesn't exist in the bindings, due in general to missing information in the annotations in the original C code */
             introspectable?: GirBoolean

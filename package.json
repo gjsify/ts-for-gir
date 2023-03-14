@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "3.0.0-beta.11",
+  "version": "3.0.0-beta.12",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "type": "module",
   "private": true,

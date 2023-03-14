@@ -239,11 +239,11 @@ __metadata:
     "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     colorette: ^2.0.19
-    cosmiconfig: ^8.0.0
+    cosmiconfig: ^8.1.0
     get-tsconfig: ^4.4.0
     inquirer: ^9.1.4
     tiny-glob: ^0.2.9
-    yargs: ^17.7.0
+    yargs: ^17.7.1
   bin:
     ts-for-gir: ./lib/start.js
   languageName: node
@@ -280,7 +280,7 @@ __metadata:
   resolution: "@ts-for-gir/lib@portal:../../../packages/lib::locator=ts-for-gir-gio-2-cat-promisify-packages%40workspace%3A."
   dependencies:
     colorette: ^2.0.19
-    ejs: ^3.1.8
+    ejs: ^3.1.9
     lodash: ^4.17.21
     xml2js: ^0.4.23
   languageName: node
@@ -531,7 +531,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^8.0.0":
+"cosmiconfig@npm:^8.1.0":
   version: 8.1.0
   resolution: "cosmiconfig@npm:8.1.0"
   dependencies:
@@ -559,7 +559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ejs@npm:^3.1.8":
+"ejs@npm:^3.1.9":
   version: 3.1.9
   resolution: "ejs@npm:3.1.9"
   dependencies:
@@ -593,7 +593,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.17.10":
+"esbuild@npm:^0.17.11":
   version: 0.17.11
   resolution: "esbuild@npm:0.17.11"
   dependencies:
@@ -1180,7 +1180,7 @@ __metadata:
   resolution: "ts-for-gir-gio-2-cat-promisify-packages@workspace:."
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.17.10
+    esbuild: ^0.17.11
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
@@ -1288,7 +1288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.7.0":
+"yargs@npm:^17.7.1":
   version: 17.7.1
   resolution: "yargs@npm:17.7.1"
   dependencies:

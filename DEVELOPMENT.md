@@ -103,7 +103,7 @@ yarn run validate:types:node
 You can also validate a single type definition file like this
 
 ```bash
-yarn run validate -- ./@types/Gjs/GObject-2.0.d.ts
+yarn run validate -- ./@types/gjs/gobject-2.0.d.ts
 ```
 
 ## Test

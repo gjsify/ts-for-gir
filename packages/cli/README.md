@@ -247,7 +247,7 @@ Note that ignoring a module will prevent ts-for-gir from generating types for th
 `ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
 
 * If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
-* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/Gjs/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
+* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
 
 ### moduleType
 The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"commonjs"` as its value, with `"esm"` being the default.
@@ -373,7 +373,7 @@ The `gnomeShellTypes` CLI option generates types for GNOME Shell Extensions and 
 
 Note that the generated types may contain experimental or incomplete parts, so use this option with caution and report any issues you encounter. Also note that the generated types are specific to the version of GNOME Shell that you are targeting, so make sure that you are using the correct version of GNOME Shell and `gir` files.
 
-> The example in [examples/Gjs/gnome-shell-hello-world](https://github.com/gjsify/ts-for-gir/tree/main/examples/Gjs/gnome-shell-hello-world) demonstrates the usage of the `gnomeShellTypes` option and how you can build a GNOME Shell Extension with TypeScript using the generated types from `ts-for-gir`.
+> The example in [examples/gjs/gnome-shell-hello-world](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gnome-shell-hello-world) demonstrates the usage of the `gnomeShellTypes` option and how you can build a GNOME Shell Extension with TypeScript using the generated types from `ts-for-gir`.
 
 ### generateAlias
 The `generateAlias` CLI option, when active, generates an alias `tsconfig.alias.json` file to support ESM module imports in GJS. This is particularly useful if you want to import GIR modules in your GJS code using the `'gi://...'` syntax. The generated `tsconfig.alias.json` file will contain the necessary path aliases to enable TypeScript to properly resolve the imported modules, allowing for improved code editor functionality, such as type checking and code completion.
@@ -388,15 +388,15 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { 
-      "gi://Gio?version=2.0": ["./@types/Gjs/Gio-2.0.d.ts"],
-      "gi://Gio": ["./@types/Gjs/Gio-2.0.d.ts"],
-      "gi://GObject?version=2.0": ["./@types/Gjs/GObject-2.0.d.ts"],
-      "gi://GObject": ["./@types/Gjs/GObject-2.0.d.ts"],
-      "gi://GLib?version=2.0": ["./@types/Gjs/GLib-2.0.d.ts"],
-      "gi://GLib": ["./@types/Gjs/GLib-2.0.d.ts"]
+      "gi://Gio?version=2.0": ["./@types/gjs/Gio-2.0.d.ts"],
+      "gi://Gio": ["./@types/gjs/Gio-2.0.d.ts"],
+      "gi://GObject?version=2.0": ["./@types/gjs/GObject-2.0.d.ts"],
+      "gi://GObject": ["./@types/gjs/GObject-2.0.d.ts"],
+      "gi://GLib?version=2.0": ["./@types/gjs/GLib-2.0.d.ts"],
+      "gi://GLib": ["./@types/gjs/GLib-2.0.d.ts"]
     }
   },
-  "include": ["./@types/Gjs/*.ts"]
+  "include": ["./@types/gjs/*.ts"]
 }
 ```
 
@@ -410,11 +410,11 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
     "target": "ESNext",
     "module": "ESNext"
   },
-  "include": ["@types/Gjs/index.d.ts"],
+  "include": ["@types/gjs/index.d.ts"],
   "files": [
     "main.ts",
   ]
 }
 ```
 
-> The example in [examples/Gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/Gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a Gjs project and provides a clear understanding of how this option can be used in practice.
+> The example in [examples/gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a Gjs project and provides a clear understanding of how this option can be used in practice.

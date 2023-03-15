@@ -7,7 +7,7 @@ export interface UserConfig {
     /** javascript environment */
     environments: Environment[]
     /** root / working directory of your project */
-    root: string;
+    root: string
     /** directory to output to */
     outdir: string | null
     /** Definitions generation type */

@@ -352,8 +352,8 @@ export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
  */
 export const getEnvironmentDir = (environment: Environment, baseDir: string): string => {
     if (!baseDir.endsWith(environment))
-        if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
-            return join(baseDir, 'Gjs')
+        if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
+            return join(baseDir, 'gjs')
         }
     if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
         return join(baseDir, 'node-gtk')

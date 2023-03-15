@@ -29,7 +29,7 @@ export class TemplateProcessor {
     ) {
         this.transformation = new Transformation(config)
         const dep = DependencyManager.getInstance(config)
-        let outdir = config.outdir || './'        
+        let outdir = config.outdir || './'
         // Make outdir relative to the root directory
         outdir = relative(config.root, outdir)
         const typeDir = getDestPath(this.config.environment, outdir)

@@ -35,17 +35,17 @@ jobs:
     - name: yarn run build (ts-for-gir)
       run: yarn run build
     - name: yarn install (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/gjs/gio-2-cat-packages
       run: yarn install --frozen-lockfile
     - name: yarn run build (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/gjs/gio-2-cat-packages
       run: yarn run build
     - name: again yarn install (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/gjs/gio-2-cat-packages
       run: yarn install --frozen-lockfile
     - name: yarn run start:app (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/gjs/gio-2-cat-packages
       run: yarn run start:app
     - name: yarn run validate (gio-2-cat-packages)
-      working-directory: ./examples/Gjs/gio-2-cat-packages
+      working-directory: ./examples/gjs/gio-2-cat-packages
       run: yarn run validate

@@ -142,7 +142,7 @@
 - Replaced `oclif` with `yargs` for CLI parsing (`yargs` has ESM Support, `oclif` not)
 - Improved @realh's Gjs ESM support
 - Improved types based on [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) and [gi.ts/parser/src/xml.ts](https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/parser/src/xml.ts)
-- Changed `examples/Gjs/builder` example to use the Gjs ESM feature using `gi://` imports
+- Changed `examples/gjs/builder` example to use the Gjs ESM feature using `gi://` imports
 - Version conflicts in Gir modules fixed, now multiple versions of the same module name can be generated
 - Made the source code more readable in some places, this mainly affects places where an array was returned, here a more meaningful tuple / object is now returned
 - Dependencies updated

@@ -5538,7 +5538,11 @@ __metadata:
     fork-ts-checker-webpack-plugin: ^8.0.0
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
   languageName: unknown
   linkType: soft
@@ -5581,7 +5585,11 @@ __metadata:
     fork-ts-checker-webpack-plugin: ^8.0.0
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
   languageName: unknown
   linkType: soft
@@ -5595,7 +5603,11 @@ __metadata:
     raw-loader: ^4.0.2
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
   languageName: unknown
   linkType: soft
@@ -5618,7 +5630,11 @@ __metadata:
     fork-ts-checker-webpack-plugin: ^8.0.0
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
   languageName: unknown
   linkType: soft
@@ -5651,7 +5667,11 @@ __metadata:
     fork-ts-checker-webpack-plugin: ^8.0.0
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
   languageName: unknown
   linkType: soft
@@ -5707,7 +5727,11 @@ __metadata:
     raw-loader: ^4.0.2
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -5724,7 +5748,11 @@ __metadata:
     ts-loader: ^9.4.2
     typescript: ^4.9.5
     util: ^0.12.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -5741,7 +5769,11 @@ __metadata:
     raw-loader: ^4.0.2
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -5759,7 +5791,11 @@ __metadata:
     terser-webpack-plugin: ^5.3.7
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -5775,7 +5811,11 @@ __metadata:
     node-gtk: ^0.11.0
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -5792,7 +5832,11 @@ __metadata:
     raw-loader: ^4.0.2
     ts-loader: ^9.4.2
     typescript: ^4.9.5
+<<<<<<< HEAD
     webpack: ^5.76.1
+=======
+    webpack: ^5.76.0
+>>>>>>> main
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
   languageName: unknown
@@ -6226,7 +6270,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "webpack@npm:^5.76.1":
+=======
+"webpack@npm:^5.76.0":
+>>>>>>> main
   version: 5.76.1
   resolution: "webpack@npm:5.76.1"
   dependencies:

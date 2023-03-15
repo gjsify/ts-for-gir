@@ -132,8 +132,8 @@ export const FULL_TYPE_MAP = (environment: Environment, value: string, out = tru
     if (environment === 'gjs') {
         ba = 'Uint8Array'
         if (out === false) {
-            ba += ' | Gjs.byteArray.ByteArray'
-            gb = 'GLib.Bytes | Uint8Array | Gjs.byteArray.ByteArray'
+            ba += ' | imports.byteArray.ByteArray'
+            gb = 'GLib.Bytes | Uint8Array | imports.byteArray.ByteArray'
         } else {
             gb = undefined // No transformation
         }

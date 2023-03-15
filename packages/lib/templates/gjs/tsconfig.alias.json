@@ -5,7 +5,6 @@
         "paths": { <% girModules.forEach(function(module, idx) { %>
             <%_ const pkg = dep.get(module.namespace, module.version) _%>
             <%_ const path = package ? join(typeDir, pkg.importName, pkg.importName) : join(typeDir, pkg.importName) _%>
-            <%# Disabled to fix version conflicts: "gi://<%= module.namespace %>": ["<%= path %>.d.ts"], %>
             "gi://<%= module.namespace %>?version=<%= module.version %>": ["<%= path %>.d.ts"]<% if (idx < girModules.length - 1) { %>,<% } %><% }); %>
         }
     },

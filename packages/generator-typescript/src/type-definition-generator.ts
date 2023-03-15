@@ -1470,12 +1470,10 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Types
         await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
             await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
         }
 
         // Alias

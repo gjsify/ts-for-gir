@@ -57,7 +57,7 @@ export class DependencyManager {
     }
 
     getImportDef(namespace: string, importPath: string): string {
-        return this.config.noNamespace || namespace === 'Gjs' || namespace === 'GnomeShell'
+        return this.config.noNamespace || namespace === 'GnomeShell'
             ? `import type * as ${namespace} from '${importPath}'`
             : `import type ${namespace} from '${importPath}';`
     }

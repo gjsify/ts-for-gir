@@ -2,25 +2,25 @@
     "name": "@gir/node-gtk",
     "version": "3.0.0-beta.10",
     "description": "TypeScript type definitions for node-gtk",
-    "main": "index.js",
-    "module": "index.js",
-    "types": "index.d.ts",
+    "main": "node-gtk.js",
+    "module": "node-gtk.js",
+    "types": "node-gtk.d.ts",
     "exports": {
         ".": {
-            "import": "./index.js",
-            "default": "./index.js",
-            "types": "./index.d.ts"
+            "import": "./node-gtk.js",
+            "default": "./node-gtk.js",
+            "types": "./node-gtk.d.ts"
         }
     },
     "typesVersions": {
         "*": {
             ".": [
-                "index.d.ts"
+                "node-gtk.d.ts"
             ]
         }
     },
     "scripts": {
-        "test": "tsc --noEmit index.d.ts"
+        "test": "tsc --noEmit node-gtk.d.ts"
     },
     "dependencies": {
         "@gir/node-gio-2.0": "workspace:^",

@@ -1546,11 +1546,11 @@ export class TypeDefinitionGenerator implements Generator {
         )
 
         // Types
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
+        await templateProcessor.create('node-gtk.d.ts', this.config.outdir, 'node-gtk.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
+            await templateProcessor.create('node-gtk.js', this.config.outdir, 'node-gtk.js')
         }
 
         // Package

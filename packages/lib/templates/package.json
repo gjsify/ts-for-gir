@@ -1,5 +1,11 @@
 <%# This template is used if the Option `package` is enabled %>
-<%_ const entryPointName = packageName === 'Gjs' || packageName === 'node-gtk' ? 'index' : importName _%>
+<%_ let entryPointName = importName _%>
+<%_ if (packageName === 'Gjs') { _%>
+  <%_ entryPointName = 'index' _%>
+<%_ } _%>
+<%_ if (packageName === 'node-gtk') { _%>
+  <%_ entryPointName = 'node-gtk' _%>
+<%_ } _%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
     <%_ if(typeof girModule !== "undefined"){ _%>

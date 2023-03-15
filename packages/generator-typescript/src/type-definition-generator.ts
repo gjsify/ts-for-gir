@@ -1191,13 +1191,14 @@ export class TypeDefinitionGenerator implements Generator {
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.importName}.js`)
         } else {
-            const moduleContent = moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent)
+            const { append, prepend } = await moduleTemplateProcessor.load(template)
+            this.log.log(append + prepend)
         }
     }
 
     private async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
+        const explicitTemplate = `${girModule.importName}.d.ts`
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
@@ -1270,9 +1271,10 @@ export class TypeDefinitionGenerator implements Generator {
             // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
-            if (moduleTemplateProcessor.exists(`${girModule.importName}.d.ts`)) {
-                const templatePatches = await moduleTemplateProcessor.load(`${girModule.importName}.d.ts`)
-                out.push(templatePatches)
+            if (moduleTemplateProcessor.exists(explicitTemplate)) {
+                const { append, prepend } = await moduleTemplateProcessor.load(explicitTemplate)
+                // TODO push prepend and append to the right position
+                out.push(append + prepend)
             }
 
             if (girModule.ns.class)
@@ -1390,8 +1392,8 @@ export class TypeDefinitionGenerator implements Generator {
                 outResult,
             )
         } else {
-            const moduleContent = await moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent + '\n' + outResult)
+            const { append, prepend } = await moduleTemplateProcessor.load(template)
+            this.log.log(append + '\n' + outResult + prepend)
         }
     }
 
@@ -1405,8 +1407,8 @@ export class TypeDefinitionGenerator implements Generator {
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, 'package.json')
         } else {
-            const moduleContent = moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent)
+            const { append, prepend } = await moduleTemplateProcessor.load(template)
+            this.log.log(append + prepend)
         }
     }
 
@@ -1415,8 +1417,8 @@ export class TypeDefinitionGenerator implements Generator {
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(template, this.config.outdir, 'README.md')
         } else {
-            const moduleContent = moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent)
+            const { append, prepend } = await moduleTemplateProcessor.load(template)
+            this.log.log(append + prepend)
         }
     }
 

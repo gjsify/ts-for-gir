@@ -120,7 +120,7 @@ export class Config {
             type: 'string',
             alias: 't',
             description: 'Specify what module code is generated.',
-            choices: ['esm', 'commonjs'],
+            choices: ['esm', 'commonjs', 'cjs'],
             default: Config.defaults.moduleType,
             normalize: true,
         },
@@ -565,6 +565,10 @@ export class Config {
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
                 config.package = configFileData.package
             }
+        }
+
+        if ((config.moduleType as string) === 'commonjs') {
+            config.moduleType = 'cjs'
         }
 
         // If outdir is not absolute, make it absolute to the root path

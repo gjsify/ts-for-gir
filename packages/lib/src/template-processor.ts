@@ -5,7 +5,7 @@
 
 import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname, relative } from 'path'
+import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
@@ -52,13 +52,36 @@ export class TemplateProcessor {
         this.log = new Logger(config.environment, config.verbose, this.packageName)
     }
 
+    protected getAppendTemplateName(templateFilename: string) {
+        let appendTemplateFilename = templateFilename
+
+        if(appendTemplateFilename.endsWith('.d.ts')) {
+            appendTemplateFilename = appendTemplateFilename.replace('.d.ts', '.append.d.ts')
+        } else if(extname(appendTemplateFilename)) {
+            const ext = extname(appendTemplateFilename);
+            appendTemplateFilename = appendTemplateFilename.replace(ext, '.append' + ext)
+        } else {
+            appendTemplateFilename += '.append'
+        }
+        return appendTemplateFilename
+    }
+
     /**
      * Loads and renders a template and gets the rendered templates back
      * @param templateFilename
      */
-    public async load(templateFilename: string): Promise<string> {
+    public async load(templateFilename: string): Promise<{prepend: string, append: string}> {
         const fileContent = await this.read(templateFilename)
-        return await this.render(fileContent)
+        const prepend = await this.render(fileContent)
+        let append = ''
+
+        const appendTemplateFilename = this.getAppendTemplateName(templateFilename)
+        if (this.exists(appendTemplateFilename)) {
+            const appendFileContent = await this.read(appendTemplateFilename)
+            append = await this.render(appendFileContent)
+        }
+
+        return {prepend, append};
     }
 
     /**
@@ -78,9 +101,8 @@ export class TemplateProcessor {
      * @param templateFilename The filename of the template
      * @param baseOutputPath The base output directory path where the templates should be written to
      * @param outputFilename The filename of the output file
-     * @param append A (optional) string that should be appended to the rendered template
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
-     * @param append A (optional) string that should be appended to the rendered template
+     * @param content A (optional) string that should be appended to the rendered template
      * @return The rendered (and if possible prettified) template string
      */
     public async create(
@@ -88,10 +110,10 @@ export class TemplateProcessor {
         baseOutputPath: string,
         outputFilename: string,
         prependEnv = true,
-        append = '',
+        content = '',
     ): Promise<string> {
-        const renderedTpl = await this.load(templateFilename)
-        const code = renderedTpl + append
+        const { prepend, append } = await this.load(templateFilename)
+        const code = prepend + content + append
         await this.write(code, baseOutputPath, outputFilename, prependEnv)
         return code
     }

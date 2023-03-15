@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2008 litl, LLC
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk.js
 
-import './@types/gjs/index.js';
+import './@types/index.js';
 
 // Include this in case both GTK3 and GTK4 installed, otherwise an exception
 // will be thrown

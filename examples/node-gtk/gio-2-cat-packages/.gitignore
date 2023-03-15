@@ -8,11 +8,11 @@
 !.yarn/versions
 
 !@types/
-@types/node-gtk/node-gio-2.0/*
-!@types/node-gtk/node-gio-2.0/package.json
-@types/node-gtk/node-glib-2.0/*
-!@types/node-gtk/node-glib-2.0/package.json
-@types/node-gtk/node-gobject-2.0/*
-!@types/node-gtk/node-gobject-2.0/package.json
-@types/node-gtk/node-gtk/*
-!@types/node-gtk/node-gtk/package.json
+@types/node-gio-2.0/*
+!@types/node-gio-2.0/package.json
+@types/node-glib-2.0/*
+!@types/node-glib-2.0/package.json
+@types/node-gobject-2.0/*
+!@types/node-gobject-2.0/package.json
+@types/node-gtk/*
+!@types/node-gtk/package.json

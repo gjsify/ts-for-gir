@@ -9,11 +9,11 @@ import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
-import { __dirname, getEnvironmentDir, getDestPath } from './utils.js'
+import { __dirname, getDestPath } from './utils.js'
 import { DependencyManager } from './dependency-manager.js'
 import { Transformation } from './transformation.js'
 
-import type { GenerateConfig, Dependency, TemplateData } from './types/index.js'
+import type { GenerateConfig, Dependency, TemplateData, Environment } from './types/index.js'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 
@@ -32,7 +32,7 @@ export class TemplateProcessor {
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory
         outdir = relative(config.root, outdir)
-        const typeDir = getDestPath(this.config.environment, outdir)
+        const typeDir = getDestPath(outdir)
         this.data = {
             ...this.data,
             APP_NAME,
@@ -48,8 +48,25 @@ export class TemplateProcessor {
             join,
             dirname,
         }
-        this.environmentTemplateDir = getEnvironmentDir(config.environment, TEMPLATE_DIR)
+        this.environmentTemplateDir = this.getEnvironmentDir(config.environment, TEMPLATE_DIR)
         this.log = new Logger(config.environment, config.verbose, this.packageName)
+    }
+
+    /**
+     * Get the output or input directory of the environment
+     * @param environment The environment to get the directory for
+     * @param baseDir The base directory
+     * @returns The path to the directory
+     */
+    protected getEnvironmentDir = (environment: Environment, baseDir: string): string => {
+        if (!baseDir.endsWith(environment))
+            if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
+                return join(baseDir, 'gjs')
+            }
+        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
+            return join(baseDir, 'node-gtk')
+        }
+        return baseDir
     }
 
     protected getAppendTemplateName(templateFilename: string) {
@@ -139,7 +156,7 @@ export class TemplateProcessor {
         const renderedTpls = await this.loadAll(templateDirname, fileExtension)
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(renderedTpls)) {
-            const destPath = getDestPath(this.config.environment, baseOutputPath, outputDirname, filename)
+            const destPath = getDestPath(baseOutputPath, outputDirname, filename)
             result[destPath] = renderedTpls[filename] + append
             await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), prependEnv)
         }
@@ -151,9 +168,7 @@ export class TemplateProcessor {
         const filePath = this.config.package
             ? join(this.data?.importName || this.packageName, outputFilename)
             : outputFilename
-        const outputPath = prependEnv
-            ? getDestPath(this.config.environment, baseOutputPath, filePath)
-            : join(baseOutputPath, filePath)
+        const outputPath = prependEnv ? getDestPath(baseOutputPath, filePath) : join(baseOutputPath, filePath)
         return outputPath
     }
 

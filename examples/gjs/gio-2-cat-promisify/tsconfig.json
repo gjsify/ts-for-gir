@@ -6,7 +6,7 @@
     "target": "ESNext",
     "module": "ESNext"
   },
-  "include": ["@types/gjs/index.d.ts"],
+  "include": ["@types/index.d.ts"],
   "files": [
     "main.ts",
   ]

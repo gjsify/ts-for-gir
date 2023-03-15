@@ -2,7 +2,6 @@ import { mkdir } from 'fs/promises'
 import {
     GirModule,
     Logger,
-    getEnvironmentDir,
     START_MODULE,
     FILE_PARSING_DONE,
     TSDATA_PARSING_DONE,
@@ -66,8 +65,7 @@ export class GenerationHandler {
 
         for (const girModule of girModules) {
             if (this.config.outdir) {
-                const outputDir = getEnvironmentDir(this.config.environment, this.config.outdir)
-                await mkdir(outputDir, { recursive: true })
+                await mkdir(this.config.outdir, { recursive: true })
             }
             this.log.log(` - ${girModule.packageName} ...`)
             girModule.start(girModules)

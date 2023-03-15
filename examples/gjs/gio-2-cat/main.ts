@@ -8,10 +8,10 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs/index.js';
-import { byteArray as ByteArray } from './@types/gjs/gjs.js';
-import GLib from './@types/gjs/glib-2.0.js';
-import Gio from './@types/gjs/gio-2.0.js';
+import './@types/index.js';
+import { byteArray as ByteArray } from './@types/gjs.js';
+import GLib from './@types/glib-2.0.js';
+import Gio from './@types/gio-2.0.js';
 
 const loop = GLib.MainLoop.new(null, false);
 

@@ -8,5 +8,5 @@
     "noImplicitThis": true,
     "alwaysStrict": true
   },
-  "include": ["@types/gjs/*.ts"]
+  "include": ["@types/*.ts"]
 }

@@ -3,7 +3,7 @@ import { startLoop } from 'node-gtk'
 import { performance } from 'perf_hooks'
 import gladeFile from './builderExample.glade'
 
-import * as Gtk from './@types/node-gtk/node-gtk-3.0'
+import * as Gtk from './@types/node-gtk-3.0'
 // const Gtk = gi.require('Gtk', '3.0')
 
 startLoop()

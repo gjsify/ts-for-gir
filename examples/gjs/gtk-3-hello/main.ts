@@ -1,5 +1,5 @@
-import './@types/gjs/index'
-import * as Gtk from './@types/gjs/gtk-3.0'
+import './@types/index'
+import * as Gtk from './@types/gtk-3.0'
 
 Gtk.init(null)
 

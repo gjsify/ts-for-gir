@@ -1,6 +1,6 @@
 // This example is based on the GJS GVariant guide: https://gjs.guide/guides/glib/gvariant.html#basic-usage
 
-import './@types/gjs/index.js';
+import './@types/index.js';
 import GLib from 'gi://GLib?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 

@@ -4,7 +4,7 @@ import { join, dirname } from 'path'
 import { existsSync } from 'fs'
 
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs, TsType, FileInfo } from './types/index.js'
+import { GirInfoAttrs, TsType, FileInfo } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
@@ -345,32 +345,13 @@ export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
 }
 
 /**
- * Get the output or input directory of the environment
- * @param environment The environment to get the directory for
- * @param baseDir The base directory
- * @returns The path to the directory
- */
-export const getEnvironmentDir = (environment: Environment, baseDir: string): string => {
-    if (!baseDir.endsWith(environment))
-        if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
-            return join(baseDir, 'gjs')
-        }
-    if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-        return join(baseDir, 'node-gtk')
-    }
-    return baseDir
-}
-
-/**
  * Get the destination path for the environment
- * @param environment The environment to get the destination path for
- * @param baseOutputPath The output directory
+ * @param baseOutputPath The base output path
  * @param parts The path parts
  * @returns The destination path
  */
-export const getDestPath = (environment: Environment, baseOutputPath: string, ...parts: string[]) => {
-    const outputEnvDir = getEnvironmentDir(environment, baseOutputPath)
-    const destPath = join(outputEnvDir, ...parts)
+export const getDestPath = (baseOutputPath: string, ...parts: string[]) => {
+    const destPath = join(baseOutputPath, ...parts)
     return destPath
 }
 

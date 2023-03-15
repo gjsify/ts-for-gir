@@ -247,7 +247,7 @@ Note that ignoring a module will prevent ts-for-gir from generating types for th
 `ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
 
 * If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
-* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
+* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
 
 ### moduleType
 The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"cjs"` as its value, with `"esm"` being the default.
@@ -388,15 +388,15 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { 
-      "gi://Gio?version=2.0": ["./@types/gjs/Gio-2.0.d.ts"],
-      "gi://Gio": ["./@types/gjs/Gio-2.0.d.ts"],
-      "gi://GObject?version=2.0": ["./@types/gjs/GObject-2.0.d.ts"],
-      "gi://GObject": ["./@types/gjs/GObject-2.0.d.ts"],
-      "gi://GLib?version=2.0": ["./@types/gjs/GLib-2.0.d.ts"],
-      "gi://GLib": ["./@types/gjs/GLib-2.0.d.ts"]
+      "gi://Gio?version=2.0": ["./@types/gio-2.0.d.ts"],
+      "gi://Gio": ["./@types/gio-2.0.d.ts"],
+      "gi://GObject?version=2.0": ["./@types/gobject-2.0.d.ts"],
+      "gi://GObject": ["./@types/gobject-2.0.d.ts"],
+      "gi://GLib?version=2.0": ["./@types/glib-2.0.d.ts"],
+      "gi://GLib": ["./@types/glib-2.0.d.ts"]
     }
   },
-  "include": ["./@types/gjs/*.ts"]
+  "include": ["./@types/*.ts"]
 }
 ```
 
@@ -410,7 +410,7 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
     "target": "ESNext",
     "module": "ESNext"
   },
-  "include": ["@types/gjs/index.d.ts"],
+  "include": ["@types/index.d.ts"],
   "files": [
     "main.ts",
   ]

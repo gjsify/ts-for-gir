@@ -1,7 +1,7 @@
 // Example based on https://gist.github.com/buzztaiki/1487781/74ea93d3a30f20c7f094327db9cb263a6286f6d6
-import './@types/gjs/index'
-import { byteArray } from './@types/gjs/gjs'
-import * as GLib from './@types/gjs/glib-2.0'
+import './@types/index'
+import { byteArray } from './@types/gjs'
+import * as GLib from './@types/glib-2.0'
 
 let [res, out, err, status] = GLib.spawn_command_line_sync('ls -la');
 if (out) print(byteArray.toString(out));

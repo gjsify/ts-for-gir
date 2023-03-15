@@ -186,18 +186,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gir/gio-2.0@workspace:@types/gjs/gio-2.0, @gir/gio-2.0@workspace:^":
+"@gir/gio-2.0@workspace:@types/gio-2.0, @gir/gio-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gio-2.0@workspace:@types/gjs/gio-2.0"
+  resolution: "@gir/gio-2.0@workspace:@types/gio-2.0"
   dependencies:
     "@gir/glib-2.0": "workspace:^"
     "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gjs@workspace:@types/gjs/gjs":
+"@gir/gjs@workspace:@types/gjs":
   version: 0.0.0-use.local
-  resolution: "@gir/gjs@workspace:@types/gjs/gjs"
+  resolution: "@gir/gjs@workspace:@types/gjs"
   dependencies:
     "@gir/gio-2.0": "workspace:^"
     "@gir/glib-2.0": "workspace:^"
@@ -205,17 +205,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gir/glib-2.0@workspace:@types/gjs/glib-2.0, @gir/glib-2.0@workspace:^":
+"@gir/glib-2.0@workspace:@types/glib-2.0, @gir/glib-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/glib-2.0@workspace:@types/gjs/glib-2.0"
+  resolution: "@gir/glib-2.0@workspace:@types/glib-2.0"
   dependencies:
     "@gir/gobject-2.0": "workspace:^"
   languageName: unknown
   linkType: soft
 
-"@gir/gobject-2.0@workspace:@types/gjs/gobject-2.0, @gir/gobject-2.0@workspace:^":
+"@gir/gobject-2.0@workspace:@types/gobject-2.0, @gir/gobject-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/gobject-2.0@workspace:@types/gjs/gobject-2.0"
+  resolution: "@gir/gobject-2.0@workspace:@types/gobject-2.0"
   dependencies:
     "@gir/glib-2.0": "workspace:^"
   languageName: unknown

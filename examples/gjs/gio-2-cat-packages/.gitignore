@@ -8,11 +8,11 @@
 !.yarn/versions
 
 !@types/
-@types/gjs/gio-2.0/*
-!@types/gjs/gio-2.0/package.json
-@types/gjs/gjs/*
-!@types/gjs/gjs/package.json
-@types/gjs/glib-2.0/*
-!@types/gjs/glib-2.0/package.json
-@types/gjs/gobject-2.0/*
-!@types/gjs/gobject-2.0/package.json
+@types/gio-2.0/*
+!@types/gio-2.0/package.json
+@types/gjs/*
+!@types/gjs/package.json
+@types/glib-2.0/*
+!@types/glib-2.0/package.json
+@types/gobject-2.0/*
+!@types/gobject-2.0/package.json

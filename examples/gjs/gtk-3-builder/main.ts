@@ -1,7 +1,7 @@
 import './global'
-import './@types/gjs/index'
+import './@types/index'
 import gladeFile from './builderExample.glade'
-import * as Gtk from './@types/gjs/gtk-3.0'
+import * as Gtk from './@types/gtk-3.0'
 
 Gtk.init(null)
 

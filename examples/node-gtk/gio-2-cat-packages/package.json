@@ -29,7 +29,7 @@
     "node-gtk": "^0.11.0"
   },
   "workspaces": [
-    "@types/node-gtk/*"
+    "@types/*"
   ],
   "resolutions": {
     "@ts-for-gir/cli": "portal:../../../packages/cli",

@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["node"],
   },
-  "include": ["@types/node-gtk/*.ts"]
+  "include": ["@types/*.ts"]
 }

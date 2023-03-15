@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT OR LGPL-2.0-or-later
 // SPDX-FileCopyrightText: 2020 Andy Holmes <andrew.g.r.holmes@gmail.com>
 
-import './@types/gjs/index.js';
+import './@types/index.js';
 import GLib from 'gi://GLib?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 

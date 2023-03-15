@@ -8,8 +8,8 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/gjs/index.js';
-import { gettext } from './@types/gjs/gjs.js';
+import './@types/index.js';
+import { gettext } from './@types/gjs.js';
 import Gtk from 'gi://Gtk?version=3.0';
 
 

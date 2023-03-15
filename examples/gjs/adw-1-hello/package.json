@@ -21,7 +21,7 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.21.0",
+    "@babel/core": "^7.21.3",
     "@rollup/plugin-babel": "^6.0.3",
     "@ts-for-gir/cli": "workspace:^",
     "rollup": "^3.19.1",

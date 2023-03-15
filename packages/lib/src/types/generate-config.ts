@@ -6,6 +6,8 @@ import { BuildType, Environment, ModuleType } from './index.js'
 export interface GenerateConfig {
     /** javascript environment */
     environment: Environment
+    /** root / working directory of your project */
+    root: string;
     /** directory to output to */
     outdir: string | null
     /** Definitions generation type */

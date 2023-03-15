@@ -213,15 +213,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@gir/gmodule-2.0@workspace:@types/Gjs/gmodule-2.0":
-  version: 0.0.0-use.local
-  resolution: "@gir/gmodule-2.0@workspace:@types/Gjs/gmodule-2.0"
-  dependencies:
-    "@gir/glib-2.0": "workspace:^"
-    "@gir/gobject-2.0": "workspace:^"
-  languageName: unknown
-  linkType: soft
-
 "@gir/gobject-2.0@workspace:@types/Gjs/gobject-2.0, @gir/gobject-2.0@workspace:^":
   version: 0.0.0-use.local
   resolution: "@gir/gobject-2.0@workspace:@types/Gjs/gobject-2.0"

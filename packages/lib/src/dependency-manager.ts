@@ -90,16 +90,16 @@ export class DependencyManager {
         let namespace: string
         let version: string | undefined
 
-        if(relativeTo && versionOrRelativeTo) {
-            version = versionOrRelativeTo;
+        if (relativeTo && versionOrRelativeTo) {
+            version = versionOrRelativeTo
         } else if (versionOrRelativeTo?.startsWith('.')) {
-            relativeTo = versionOrRelativeTo;
+            relativeTo = versionOrRelativeTo
         } else {
-            version = versionOrRelativeTo;
+            version = versionOrRelativeTo
         }
 
-        if(!relativeTo) {
-            relativeTo = '.';
+        if (!relativeTo) {
+            relativeTo = '.'
         }
 
         if (version) {

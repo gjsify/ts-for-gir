@@ -36,6 +36,7 @@ export class Config {
         environments: ['gjs'],
         print: false,
         configName: '.ts-for-girrc.js',
+        root: process.cwd(),
         outdir: './@types',
         girDirectories: getDefaultGirDirectories(),
         modules: ['*'],
@@ -74,6 +75,12 @@ export class Config {
             description: 'GIR directories',
             array: true,
             default: Config.defaults.girDirectories,
+            normalize: true,
+        },
+        root: {
+            type: 'string',
+            description: 'Root directory of your project',
+            default: Config.defaults.root,
             normalize: true,
         },
         outdir: {
@@ -214,6 +221,7 @@ export class Config {
     static generateOptions = {
         modules: this.options.modules,
         girDirectories: this.options.girDirectories,
+        root: this.options.root,
         outdir: this.options.outdir,
         environments: this.options.environments,
         ignore: this.options.ignore,
@@ -255,11 +263,11 @@ export class Config {
     }
 
     /**
-     * Overwrites values in the user config
+     * Overwrites values in the user config file
      * @param configsToAdd
      */
-    public static async addToConfig(configsToAdd: Partial<UserConfig>): Promise<void> {
-        const userConfig = await this.loadConfigFile()
+    public static async addToConfig(configsToAdd: Partial<UserConfig>, configName?: string): Promise<void> {
+        const userConfig = await this.loadConfigFile(configName)
         const path = userConfig?.filepath || this.configFilePath
         const configToStore = {}
         merge(configToStore, userConfig?.config || {}, configsToAdd)
@@ -313,22 +321,6 @@ export class Config {
         const configFile: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
         if (configFile?.filepath) {
             Config.configFilePath = configFile.filepath
-            const configDir = dirname(configFile.filepath)
-
-            // If outdir is not absolute, make it relative to the config file
-            if (configFile.config.outdir && !configFile.config.outdir?.startsWith('/')) {
-                configFile.config.outdir = resolve(configDir, configFile.config.outdir)
-            }
-
-            // Same for girDirectories
-            if (configFile.config.girDirectories) {
-                configFile.config.girDirectories = configFile.config.girDirectories.map((dir) => {
-                    if (!dir.startsWith('/')) {
-                        return resolve(configDir, dir)
-                    }
-                    return dir
-                })
-            }
         }
 
         return configFile
@@ -338,6 +330,7 @@ export class Config {
         const generateConfig: GenerateConfig = {
             environment: environment,
             girDirectories: config.girDirectories,
+            root: config.root,
             outdir: config.outdir,
             verbose: config.verbose,
             buildType: config.buildType,
@@ -437,6 +430,7 @@ export class Config {
             verbose: options.verbose,
             ignoreVersionConflicts: options.ignoreVersionConflicts,
             print: options.print,
+            root: options.root,
             outdir: options.outdir,
             girDirectories: options.girDirectories,
             ignore: options.ignore,
@@ -480,6 +474,13 @@ export class Config {
             // print
             if (config.print === Config.options.print.default && typeof configFileData.print === 'boolean') {
                 config.print = configFileData.print
+            }
+            // root
+            if (config.root === Config.options.root.default && (configFileData.root || configFile?.filepath)) {
+                // Use the config file path as the root path if no root path is set
+                config.root =
+                    configFileData.root ||
+                    (configFile?.filepath ? dirname(configFile.filepath) : (Config.options.root.default as string))
             }
             // outdir
             if (config.outdir === Config.options.outdir.default && configFileData.outdir) {
@@ -564,6 +565,21 @@ export class Config {
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
                 config.package = configFileData.package
             }
+        }
+
+        // If outdir is not absolute, make it absolute to the root path
+        if (config.outdir && !config.outdir?.startsWith('/')) {
+            config.outdir = resolve(config.root, config.outdir)
+        }
+
+        // Same for girDirectories
+        if (config.girDirectories) {
+            config.girDirectories = config.girDirectories.map((dir) => {
+                if (!dir.startsWith('/')) {
+                    return resolve(config.root, dir)
+                }
+                return dir
+            })
         }
 
         return await this.validate(config)

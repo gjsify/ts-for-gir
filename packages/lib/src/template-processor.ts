@@ -5,7 +5,7 @@
 
 import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
-import { join, dirname } from 'path'
+import { join, dirname, relative } from 'path'
 import ejs from 'ejs'
 import { Logger } from './logger.js'
 import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
@@ -29,6 +29,10 @@ export class TemplateProcessor {
     ) {
         this.transformation = new Transformation(config)
         const dep = DependencyManager.getInstance(config)
+        let outdir = config.outdir || './'        
+        // Make outdir relative to the root directory
+        outdir = relative(config.root, outdir)
+        const typeDir = getDestPath(this.config.environment, outdir)
         this.data = {
             ...this.data,
             APP_NAME,
@@ -40,7 +44,7 @@ export class TemplateProcessor {
             importName: this.transformation.transformImportName(packageName),
             dep,
             deps: dependencies,
-            typeDir: getDestPath(this.config.environment, config.outdir || './'),
+            typeDir,
             join,
             dirname,
         }

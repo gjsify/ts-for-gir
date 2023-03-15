@@ -55,10 +55,10 @@ export class TemplateProcessor {
     protected getAppendTemplateName(templateFilename: string) {
         let appendTemplateFilename = templateFilename
 
-        if(appendTemplateFilename.endsWith('.d.ts')) {
+        if (appendTemplateFilename.endsWith('.d.ts')) {
             appendTemplateFilename = appendTemplateFilename.replace('.d.ts', '.append.d.ts')
-        } else if(extname(appendTemplateFilename)) {
-            const ext = extname(appendTemplateFilename);
+        } else if (extname(appendTemplateFilename)) {
+            const ext = extname(appendTemplateFilename)
             appendTemplateFilename = appendTemplateFilename.replace(ext, '.append' + ext)
         } else {
             appendTemplateFilename += '.append'
@@ -70,7 +70,7 @@ export class TemplateProcessor {
      * Loads and renders a template and gets the rendered templates back
      * @param templateFilename
      */
-    public async load(templateFilename: string): Promise<{prepend: string, append: string}> {
+    public async load(templateFilename: string): Promise<{ prepend: string; append: string }> {
         const fileContent = await this.read(templateFilename)
         const prepend = await this.render(fileContent)
         let append = ''
@@ -81,7 +81,7 @@ export class TemplateProcessor {
             append = await this.render(appendFileContent)
         }
 
-        return {prepend, append};
+        return { prepend, append }
     }
 
     /**

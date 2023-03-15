@@ -609,6 +609,10 @@ export class Transformation {
     }
 
     public transformImportName(packageName: string): string {
-        return this.transform('importName', packageName)
+        let importName = this.transform('importName', packageName)
+        if (this.config.environment === 'node' && !importName.startsWith('node-')) {
+            importName = 'node-' + importName
+        }
+        return importName
     }
 }

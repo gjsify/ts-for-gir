@@ -97,7 +97,7 @@ Options:
   -b, --buildType               Definitions generation type
                              [string] [choices: "lib", "types"] [default: "lib"]
   -t, --moduleType              Specify what module code is generated.
-                          [string] [choices: "esm", "commonjs"] [default: "esm"]
+                              [string] [choices: "esm", "cjs"] [default: "esm"]
   -v, --verbose                 Switch on/off the verbose mode
                                                        [string] [default: false]
       --ignoreVersionConflicts  Do not ask for package versions if multiple vers
@@ -250,11 +250,11 @@ Note that ignoring a module will prevent ts-for-gir from generating types for th
 * If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
 
 ### moduleType
-The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"commonjs"` as its value, with `"esm"` being the default.
+The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"cjs"` as its value, with `"esm"` being the default.
 
 > This option is only relevant if the `buildType` is set to `"lib"`. The choice of `moduleType` may affect how the generated code is used in other parts of your project, so it's important to choose the right format that works best for your use case.
 
-The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"commonjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"commonjs"`. If you want to build a regular Gjs Application we recommend to use `ESM`.
+The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"cjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"cjs"`. If you want to build a regular Gjs Application we recommend to use `ESM`.
 
 When `"esm"` is set, the generated JavaScript files will use the ECMAScript module (ESM) format for imports and exports. For example, the generated code might look like this:
 
@@ -280,7 +280,7 @@ export default Gtk;
 
 > The `"esm"` module type is recommended for Gjs applications as it makes use of the ESM import syntax, which is more modern and flexible compared to imports.gi / CommonJS imports. This allows for a more streamlined and convenient way of using the generated types in your Gjs application. Support for ES modules can be activated in `gjs` with its `gjs -m` flag.
 
-When `"commonjs"` and [`noNamespace`](#nonamespace) is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
+When `"cjs"` and [`noNamespace`](#nonamespace) is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
 
 ```ts
 // Gtk-4.0.d.ts
@@ -301,7 +301,7 @@ module.exports = { Gtk };
 exports.default = Gtk;
 ```
 
-> It is recommended to also set the [noNamespace](#nonamespace) option to true when using the `"commonjs"` moduleType option. This will ensure that the generated code is fully compatible with the CommonJS format.
+> It is recommended to also set the [noNamespace](#nonamespace) option to true when using the `"cjs"` moduleType option. This will ensure that the generated code is fully compatible with the CommonJS format.
 
 
 ### verbose

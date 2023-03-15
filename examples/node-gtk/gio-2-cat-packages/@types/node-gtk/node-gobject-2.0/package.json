@@ -1,35 +1,34 @@
 {
-    "name": "@gir/gio-2.0",
+    "name": "@gir/node-gobject-2.0",
     "version": "2.74.0-3.0.0-beta.10",
-    "description": "TypeScript type definitions for Gio-2.0, generated from library version 2.74.0",
-    "main": "gio-2.0.js",
-    "module": "gio-2.0.js",
-    "types": "gio-2.0.d.ts",
+    "description": "TypeScript type definitions for GObject-2.0, generated from library version 2.74.0",
+    "main": "node-gobject-2.0.js",
+    "module": "node-gobject-2.0.js",
+    "types": "node-gobject-2.0.d.ts",
     "exports": {
         ".": {
-            "import": "./gio-2.0.js",
-            "default": "./gio-2.0.js",
-            "types": "./gio-2.0.d.ts"
+            "import": "./node-gobject-2.0.js",
+            "default": "./node-gobject-2.0.js",
+            "types": "./node-gobject-2.0.d.ts"
         }
     },
     "typesVersions": {
         "*": {
             ".": [
-                "gio-2.0.d.ts"
+                "node-gobject-2.0.d.ts"
             ]
         }
     },
     "scripts": {
-        "test": "tsc --noEmit gio-2.0.d.ts"
+        "test": "tsc --noEmit node-gobject-2.0.d.ts"
     },
     "dependencies": {
-        "@gir/glib-2.0": "workspace:^",
-        "@gir/gobject-2.0": "workspace:^"
+        "@gir/node-glib-2.0": "workspace:^"
     },
     "keywords": [
         "Gir",
         "TypeScript",
-        "Gio-2.0"
+        "GObject-2.0"
     ],
     "author": "ts-for-gir",
     "license": "Apache-2.0",

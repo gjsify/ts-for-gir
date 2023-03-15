@@ -1198,7 +1198,11 @@ export class TypeDefinitionGenerator implements Generator {
 
     private async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
-        const explicitTemplate = `${girModule.importName}.d.ts`
+        let explicitTemplate = `${girModule.importName}.d.ts`
+        // Remove `node-` prefix for node environment
+        if (this.config.environment === 'node' && explicitTemplate.startsWith('node-')) {
+            explicitTemplate = explicitTemplate.substring(5)
+        }
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))

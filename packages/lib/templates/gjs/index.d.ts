@@ -557,6 +557,7 @@ declare global {
      */
     function clearInterval(timeout: GLib20.Source): void
 
+    // TODO use only latest version of each gir module?
     const imports: typeof Gjs & {
         gi: {
             <%_ for (const girModuleGroup of girModulesGrouped) { _%>

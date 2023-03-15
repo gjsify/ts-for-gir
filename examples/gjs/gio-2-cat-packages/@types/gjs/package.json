@@ -2,26 +2,26 @@
     "name": "@gir/gjs",
     "version": "3.0.0-beta.10",
     "description": "TypeScript type definitions for Gjs",
-    "main": "index.js",
-    "module": "index.js",
-    "types": "index.d.ts",
+    "main": "gjs.js",
+    "module": "gjs.js",
+    "types": "gjs.d.ts",
     "exports": {
         "./tsconfig.alias.json": "./tsconfig.alias.json",
         ".": {
-            "import": "./index.js",
-            "default": "./index.js",
-            "types": "./index.d.ts"
+            "import": "./gjs.js",
+            "default": "./gjs.js",
+            "types": "./gjs.d.ts"
         }
     },
     "typesVersions": {
         "*": {
             ".": [
-                "index.d.ts"
+                "gjs.d.ts"
             ]
         }
     },
     "scripts": {
-        "test": "tsc --noEmit index.d.ts"
+        "test": "tsc --noEmit gjs.d.ts"
     },
     "dependencies": {
         "@gir/gio-2.0": "workspace:^",

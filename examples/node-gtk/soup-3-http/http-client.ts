@@ -6,7 +6,7 @@
 // https://developer.gnome.org/libsoup/stable/libsoup-client-howto.html
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
-import './@types/gjs.js';
+import './@types/node-gtk.js';
 import GLib from './@types/node-glib-2.0.js';
 import Soup from './@types/node-soup-3.0.js';
 import Gio from './@types/node-gio-2.0.js';

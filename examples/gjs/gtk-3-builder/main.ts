@@ -1,4 +1,3 @@
-import './global.js'
 import './@types/gjs.js'
 import gladeFile from './builderExample.glade'
 import * as Gtk from './@types/gtk-3.0'

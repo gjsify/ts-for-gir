@@ -1,13 +1,12 @@
 {
-  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
-    "types": [],
+    "types": ["node"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
   },
-  "include": ["@types/gjs.d.ts"],
+  "include": ["@types/node-ambient.d.ts"],
   "files": [
     "main.ts",
   ]

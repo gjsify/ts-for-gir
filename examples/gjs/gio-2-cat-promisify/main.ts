@@ -9,7 +9,7 @@
  */
 
 const ByteArray = imports.byteArray;
-import Gio from "gi://Gio";
+import Gio from "gi://Gio?version=2.0";
 
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 

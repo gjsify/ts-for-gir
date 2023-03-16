@@ -5470,6 +5470,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ts-for-gir-gio-2-cat-ambient-example@workspace:examples/gjs/gio-2-cat-ambient":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-gio-2-cat-ambient-example@workspace:examples/gjs/gio-2-cat-ambient"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: ^0.17.11
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
+
 "ts-for-gir-gio-2-cat-example@workspace:examples/gjs/gio-2-cat":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gio-2-cat-example@workspace:examples/gjs/gio-2-cat"
@@ -5795,6 +5805,17 @@ __metadata:
     webpack: ^5.76.1
     webpack-cli: ^5.0.1
     webpack-node-externals: ^3.0.0
+  languageName: unknown
+  linkType: soft
+
+"ts-for-gir-node-gtk-gio-2-cat-ambient@workspace:examples/node-gtk/gio-2-cat-ambient":
+  version: 0.0.0-use.local
+  resolution: "ts-for-gir-node-gtk-gio-2-cat-ambient@workspace:examples/node-gtk/gio-2-cat-ambient"
+  dependencies:
+    "@ts-for-gir/cli": "workspace:^"
+    esbuild: ^0.17.11
+    node-gtk: ^0.11.0
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 

@@ -82,7 +82,7 @@ export class DBusExportedObject {
  * 
  * @example
  * ```js
- * import Gio from "gi://Gio";
+ * import Gio from "gi://Gio?version=2.0";
  * 
  * Gio._promisify(Gio.InputStream.prototype, 'read_bytes_async', 'read_bytes_finish');
  * 

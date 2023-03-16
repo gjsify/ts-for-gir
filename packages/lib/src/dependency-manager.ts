@@ -80,10 +80,11 @@ export class DependencyManager {
     get(namespaceOrPackageName: string, versionOrRelativeTo?: string, relativeTo?: string): Dependency {
         // Special case for Gjs and GnomeShell
         if (namespaceOrPackageName === 'Gjs') {
-            return this.getGjs()
-        }
-        if (namespaceOrPackageName === 'GnomeShell') {
-            return this.getGnomeShell()
+            return this.getGjs(relativeTo)
+        } else if (namespaceOrPackageName === 'GnomeShell') {
+            return this.getGnomeShell(relativeTo)
+        } else if (namespaceOrPackageName === 'node-gtk') {
+            return this.getNodeGtk(relativeTo)
         }
 
         let packageName: string
@@ -160,9 +161,10 @@ export class DependencyManager {
         // Special case for Gjs and GnomeShell
         if (namespace === 'Gjs') {
             return this.getGjs(relativeTo)
-        }
-        if (namespace === 'GnomeShell') {
+        } else if (namespace === 'GnomeShell') {
             return this.getGnomeShell(relativeTo)
+        } else if (namespace === 'node-gtk') {
+            return this.getNodeGtk(relativeTo)
         }
 
         const packageNames = Object.keys(this.cache)
@@ -186,8 +188,7 @@ export class DependencyManager {
         return null
     }
 
-    getGjs(relativeTo = '.'): Dependency {
-        const packageName = 'Gjs'
+    protected getPseudoPackage(packageName: string, relativeTo = '.'): Dependency {
         if (this.cache[packageName] && relativeTo === '.') {
             return this.cache[packageName]
         }
@@ -213,30 +214,15 @@ export class DependencyManager {
         return dep
     }
 
+    getGjs(relativeTo = '.'): Dependency {
+        return this.getPseudoPackage('Gjs', relativeTo)
+    }
+
     getGnomeShell(relativeTo = '.'): Dependency {
-        const packageName = 'GnomeShell'
-        if (this.cache[packageName] && relativeTo === '.') {
-            return this.cache[packageName]
-        }
+        return this.getPseudoPackage('GnomeShell', relativeTo)
+    }
 
-        const importPath = this.getImportPath(packageName, relativeTo)
-        const importDef = this.getImportDef(packageName, importPath)
-
-        const dep: Dependency = {
-            namespace: packageName,
-            exists: true,
-            filename: '',
-            path: '',
-            packageName: packageName,
-            importName: this.transformation.transformImportName(packageName),
-            version: '0.0',
-            importPath,
-            importDef,
-        }
-
-        if (relativeTo === '.') {
-            this.cache[packageName] = dep
-        }
-        return dep
+    getNodeGtk(relativeTo = '.'): Dependency {
+        return this.getPseudoPackage('node-gtk', relativeTo)
     }
 }

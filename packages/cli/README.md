@@ -247,7 +247,7 @@ Note that ignoring a module will prevent ts-for-gir from generating types for th
 `ts-for-gir` supports two build types for generating the types: `"lib"` and `"types"`.
 
 * If `"lib"` is specified, `.js` files are generated as well as `.d.ts`, this is useful for some bundlers that expect a `.js` file. Some bundlers are also able to generate the import of this file only once, even if it occurs multiple times in your code.
-* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/index.d.ts" ` under `"include"` in the `tsconfig` to make the generated types known in your project. If you also want to use imports in `ESM` format, you should also enable the `generateAlias` option.
+* If `"types"` is specified, only `.d.ts` files are generated. In this mode it is recommended to add the generated `"@types/gjs.d.ts"` and `"@types/ambient.d.ts"` under `"include"` in the `tsconfig` to make the generated types known in your project. If you have problems to use imports in `ESM` format, you can also enable the `generateAlias` option and extend your `tsconfig` from the generated `"tsconfig.alias.json"`.
 
 ### moduleType
 The `moduleType` CLI option determines the format in which the generated JavaScript files should be exported. The option takes either `"esm"` or `"cjs"` as its value, with `"esm"` being the default.

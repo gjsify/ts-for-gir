@@ -16,22 +16,17 @@ import type <%= girModule.importNamespace %> from "<%= pkg.importPath %>";
     <%_ } _%>
 <%_ } _%>
 
-<%_ if (buildType === 'types') { _%>
-declare module 'node-gtk' {
-<%_ } _%>
-    export function require(ns: string, ver?: string): any;
-    <%_ for (const girModule of girModules) { _%>
-    export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importNamespace %>;
-    <%_ } _%>
-    export function startLoop(): void;
-    export function registerClass(object: any): void
 
-    declare const gi: {
-        require: typeof require,
-        startLoop: typeof startLoop,
-        registerClass: typeof registerClass,
-    }
-    export default gi
-<%_ if (buildType === 'types') { _%>
-}
+export function require(ns: string, ver?: string): any;
+<%_ for (const girModule of girModules) { _%>
+export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importNamespace %>;
 <%_ } _%>
+export function startLoop(): void;
+export function registerClass(object: any): void
+
+declare const gi: {
+    require: typeof require,
+    startLoop: typeof startLoop,
+    registerClass: typeof registerClass,
+}
+export default gi

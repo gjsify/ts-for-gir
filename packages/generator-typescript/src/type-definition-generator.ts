@@ -60,17 +60,17 @@ export class TypeDefinitionGenerator implements Generator {
         const def: string[] = []
         const dep = this.dependencyManager.get(packageName)
 
-        if (this.config.package) {
-            if (this.config.buildType === 'types') {
-                // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-                def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
-            }
-        } else {
-            if (this.config.buildType === 'types') {
-                // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
-                def.push(`/// <reference path="${dep.importName}.d.ts" />`)
-            }
-        }
+        // if (this.config.package) {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
+        //     }
+        // } else {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference path="${dep.importName}.d.ts" />`)
+        //     }
+        // }
 
         def.push(dep.importDef)
 
@@ -1470,6 +1470,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Types
         await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
+        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {
@@ -1545,6 +1546,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Types
         await templateProcessor.create('node-gtk.d.ts', this.config.outdir, 'node-gtk.d.ts')
+        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'node-ambient.d.ts')
 
         // Lib
         if (this.config.buildType === 'lib') {

@@ -6,6 +6,7 @@
     "module": "node-gtk.js",
     "types": "node-gtk.d.ts",
     "exports": {
+        "./node-ambient": "./node-ambient.d.ts",
         ".": {
             "import": "./node-gtk.js",
             "default": "./node-gtk.js",

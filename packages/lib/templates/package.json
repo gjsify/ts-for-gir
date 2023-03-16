@@ -21,6 +21,12 @@
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
       "./tsconfig.alias.json": "./tsconfig.alias.json",
       <%_ } _%>
+      <%_ if (packageName === 'Gjs') { _%>
+      "./ambient": "./ambient.d.ts",
+      <%_ } _%>
+      <%_ if (packageName === 'node-gtk') { _%>
+      "./node-ambient": "./node-ambient.d.ts",
+      <%_ } _%>
       ".": {
         "import": "./<%- entryPointName %>.js",
         "default": "./<%- entryPointName %>.js",

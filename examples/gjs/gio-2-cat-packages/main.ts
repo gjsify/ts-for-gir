@@ -9,7 +9,8 @@
  */
 
 import '@gir/gjs';
-import Gio from "@gir/gio-2.0";
+import '@gir/gjs/ambient';
+import Gio from "gi://Gio?version=2.0";
 
 const ByteArray = imports.byteArray;
 

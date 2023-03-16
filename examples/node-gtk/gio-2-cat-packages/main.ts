@@ -7,8 +7,8 @@
  * LANGUAGE=fr_FR gjs gettext.js
  * the label should show a translation of 'Print help'
  */
-
-import gi from "@gir/node-gtk";
+import "@gir/node-gtk/node-ambient"
+import gi from "node-gtk";
 import Gio from "@gir/node-gio-2.0";
 
 function cat(filename: string) {

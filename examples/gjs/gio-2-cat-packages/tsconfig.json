@@ -1,5 +1,4 @@
 {
-  "extends": "@gir/gjs/tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],
@@ -7,6 +6,7 @@
     "module": "ESNext",
     "moduleResolution": "node"
   },
+  "include": ["@gir/gjs/ambient"],
   "files": [
     "main.ts",
   ]

@@ -7,6 +7,7 @@
     "types": "gjs.d.ts",
     "exports": {
         "./tsconfig.alias.json": "./tsconfig.alias.json",
+        "./ambient": "./ambient.d.ts",
         ".": {
             "import": "./gjs.js",
             "default": "./gjs.js",

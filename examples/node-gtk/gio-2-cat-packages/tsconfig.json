@@ -1,11 +1,13 @@
 {
-  "compilerOptions": {   
+  "compilerOptions": {
+    "baseUrl": ".",
     "lib": ["ESNext"],
     "types": ["node"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node"
   },
+  "include": ["@gir/node-gtk/node-ambient"],
   "files": [
     "main.ts",
   ]

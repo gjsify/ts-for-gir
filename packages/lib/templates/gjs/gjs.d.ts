@@ -23,7 +23,7 @@
 <%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
-namespace package {
+declare namespace package {
     /**
      * Although there are references in the documentation of more properties that
      * this object should accepts, only the following are actually used in the init code,
@@ -59,7 +59,7 @@ namespace package {
     export function initSubmodule(module: string): void
 }
 
-namespace system {
+declare namespace system {
     export const programInvocationName: string
     export const version: number
     export const programPath: string | null
@@ -75,7 +75,7 @@ namespace system {
     export function dumpMemoryInfo(path: string): void
 }
 
-namespace byteArray {
+declare namespace byteArray {
     export class ByteArray {
         static get(target: any, property: string, receiver: any): any
         static set(target: any, property: string, value: any, receiver: any): boolean
@@ -105,16 +105,16 @@ namespace byteArray {
     export function fromArray(array: Iterable<number>): ByteArray
 }
 
-namespace console {
+declare namespace console {
     export function interact(): void
 }
 
-namespace lang {
+declare namespace lang {
     // TODO: There is a lot more in Lang
     export function Class(props: any): void
 }
 
-namespace gettext {
+declare namespace gettext {
     export enum LocaleCategory {
         ALL,
         COLLATE,
@@ -141,7 +141,7 @@ namespace gettext {
     }
 }
 
-namespace format {
+declare namespace format {
     export function vprintf(str: string, args: string[]): string
     export function printf(fmt: string, ...args: any[]): void
     // Following docs from gjs/modules/format.js
@@ -159,7 +159,7 @@ namespace format {
     export function format(fmt: string, ...args: any[]): string
 }
 
-namespace mainloop {
+declare namespace mainloop {
     export function quit(name: string): void
     export function idle_source(handler: any, priority?: number): any
     export function idle_add(handler: any, priority?: number): any
@@ -171,7 +171,7 @@ namespace mainloop {
     export function run(name: string): void
 }
 
-namespace signals {
+declare namespace signals {
 
     /**
      * You can use the `Signals.addSignalMethods` method to apply the `Signals` convenience methods to an `Object`.

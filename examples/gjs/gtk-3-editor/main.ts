@@ -1,7 +1,7 @@
-import './@types/index'
+import imports from './@types/gjs.js'
 import * as Gtk from './@types/gtk-3.0'
 import * as GtkSource from './@types/gtksource-3.0'
-import { gettext } from './@types/gjs'
+const { gettext } = imports;
 
 Gtk.init(null)
 

@@ -4,11 +4,11 @@
  * @source https://github.com/optimisme/gjs-examples/blob/master/egList.js
  */
 
-import './@types/index';
-import { system } from './@types/gjs.js'
+import imports from './@types/gjs.js'
 import GObject from 'gi://GObject?version=2.0';
 import GLib from 'gi://GLib?version=2.0';
 import Gtk from 'gi://Gtk?version=4.0';
+const { system } = imports;
 
 class App {
     title = 'Example List';

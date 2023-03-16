@@ -410,7 +410,7 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
     "target": "ESNext",
     "module": "ESNext"
   },
-  "include": ["@types/index.d.ts"],
+  "include": ["@types/gjs.d.ts"],
   "files": [
     "main.ts",
   ]

@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2020 Andy Holmes <andrew.g.r.holmes@gmail.com>
  * @source https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/glistmodel.js
  */
-import './@types/index';
+import './@types/gjs.js';
 import GObject from 'gi://GObject?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 

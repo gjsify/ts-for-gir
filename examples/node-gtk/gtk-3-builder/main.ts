@@ -1,5 +1,5 @@
 import './global'
-import { startLoop } from 'node-gtk'
+import { startLoop } from './@types/node-gtk'
 import { performance } from 'perf_hooks'
 import gladeFile from './builderExample.glade'
 

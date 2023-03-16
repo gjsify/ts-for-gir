@@ -1,4 +1,4 @@
-import './@types/index'
+import './@types/gjs.js'
 import Gtk from 'gi://Gtk?version=3.0';
 import Pango from 'gi://Pango?version=1.0'
 import WebKit2 from 'gi://WebKit2?version=4.0'

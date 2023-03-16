@@ -1,6 +1,6 @@
 // This example is based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4-custom-widget.js
 
-import gi from './@types/index.js';
+import gi from './@types/node-gtk.js';
 import GLib from './@types/node-glib-2.0.js';
 import Gtk from './@types/node-gtk-4.0.js';
 import Gdk from './@types/node-gdk-4.0.js';

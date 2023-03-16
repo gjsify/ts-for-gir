@@ -3,8 +3,7 @@
  * @see https://gitlab.gnome.org/GNOME/libadwaita/-/blob/main/examples/hello-world/hello.c
  */
 
-import './@types/index';
-import { system } from './@types/gjs.js'
+import imports from './@types/gjs.js'
 import Gio from './@types/gio-2.0.js';
 import GLib from './@types/glib-2.0.js';
 import Gtk from './@types/gtk-4.0.js';
@@ -38,5 +37,5 @@ const onActivate = (app: Adw.Application) => {
 }
 
 app.connect('activate', onActivate)
-app.run([system.programInvocationName].concat(ARGV));
+app.run([imports.system.programInvocationName].concat(ARGV));
 loop.run()

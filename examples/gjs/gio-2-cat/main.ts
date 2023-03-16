@@ -8,8 +8,7 @@
  * the label should show a translation of 'Print help'
  */
 
-import './@types/index.js';
-import { byteArray as ByteArray } from './@types/gjs.js';
+import imports from './@types/gjs.js';
 import GLib from './@types/glib-2.0.js';
 import Gio from './@types/gio-2.0.js';
 
@@ -26,7 +25,7 @@ function cat(filename: string) {
             loop.quit();
             return;
         }
-        print(ByteArray.toString(contents));
+        print(imports.byteArray.toString(contents));
         loop.quit();
     });
 

@@ -3,41 +3,12 @@
 // SPDX-FileCopyrightText: 2021 Andy Holmes <andyholmes@gnome.org>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk3-template.js
 
-import './@types/index.js';
-
+import './@types/gjs.js';
 import GObject from 'gi://GObject?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 import Gtk from 'gi://Gtk?version=3.0';
 
 Gtk.init(null);
-
-const templateStr=`<!-- SPDX-License-Identifier: MIT OR LGPL-2.0-or-later -->
-<!-- SPDX-FileCopyrightText: 2021 Andy Holmes <andyholmes@gnome.org> -->
-<interface>
-  <template class="ExampleWindow" parent="GtkWindow">
-    <property name="default-width">480</property>
-    <property name="default-height">320</property>
-    <child>
-      <object class="GtkBox" id="box">
-        <property name="visible">True</property>
-        <child>
-          <object class="GtkButton" id="button">
-            <property name="label">Button</property>
-            <property name="halign">center</property>
-            <property name="hexpand">True</property>
-            <property name="valign">center</property>
-            <property name="visible">True</property>
-            <signal name="clicked"
-                    handler="_onButtonClicked"
-                    swapped="no"
-                    object="ExampleWindow"/>
-          </object>
-        </child>
-      </object>
-    </child>
-  </template>
-</interface>
-`
 
 /* In this example the template contents are loaded from the file as a string.
  *

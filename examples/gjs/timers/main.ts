@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2021 Evan Welsh <contact@evanwelsh.com>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/timers.js
 
-import './@types/index.js';
+import './@types/gjs.js';
 
 // This example demonstrates that Promises always execute prior
 // to timeouts. It should log "java" then "script".

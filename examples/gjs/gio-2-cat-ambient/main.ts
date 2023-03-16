@@ -7,12 +7,10 @@
  * LANGUAGE=fr_FR gjs gettext.js
  * the label should show a translation of 'Print help'
  */
-
-const ByteArray = imports.byteArray;
-
 import GLib from "gi://GLib?version=2.0";
 import Gio from "gi://Gio?version=2.0";
 
+const ByteArray = imports.byteArray;
 const loop = GLib.MainLoop.new(null, false);
 
 function cat(filename: string) {

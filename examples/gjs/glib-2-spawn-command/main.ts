@@ -1,5 +1,4 @@
 // Example based on https://gist.github.com/buzztaiki/1487781/74ea93d3a30f20c7f094327db9cb263a6286f6d6
-import imports from './@types/gjs.js';
 import * as GLib from './@types/glib-2.0.js';
 const { byteArray } = imports;
 

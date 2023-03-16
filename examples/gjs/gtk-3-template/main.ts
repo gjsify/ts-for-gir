@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2021 Andy Holmes <andyholmes@gnome.org>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/gtk3-template.js
 
-import './@types/gjs.js';
 import GObject from 'gi://GObject?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
 import Gtk from 'gi://Gtk?version=3.0';

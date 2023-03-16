@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2008 Robert Carr <carrr@rpi.edu>
 // Based on https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/calc.js
 
-import './@types/gjs.js';
 import Gtk from 'gi://Gtk?version=3.0';
 
 Gtk.init(null);

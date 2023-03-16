@@ -1,9 +1,8 @@
-import './@types/gjs.js'
 import Gtk from 'gi://Gtk?version=3.0';
 import Pango from 'gi://Pango?version=1.0'
 import WebKit2 from 'gi://WebKit2?version=4.0'
 
-function makeButton(label: string, callback: () => void): Gtk.Button {
+function makeButton(label: string, callback: () => void) {
     const but = new Gtk.Button()
     but.set_label(label)
     but.get_child()?.modify_font(Pango.FontDescription.from_string('sans bold 16'))

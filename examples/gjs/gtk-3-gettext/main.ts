@@ -7,8 +7,6 @@
  * LANGUAGE=fr_FR gjs gettext.js
  * the label should show a translation of 'Print help'
  */
-
-import imports from './@types/gjs.js';
 import Gtk from 'gi://Gtk?version=3.0';
 const { gettext } = imports;
 

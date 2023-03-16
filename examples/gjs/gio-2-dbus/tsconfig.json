@@ -11,6 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
+  "include": ["@types/gjs.d.ts", "@types/ambient.d.ts"],
   "files": [
     "dbus-client.ts",
     "dbus-server.ts",

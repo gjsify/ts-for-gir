@@ -1,12 +1,13 @@
 {
-  "compilerOptions": {   
+  "compilerOptions": {  
+    "baseUrl": ".", 
     "lib": ["ESNext"],
     "types": [],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node"
   },
-  "include": ["@gir/gjs/ambient"],
+  "include": ["@gir/gjs", "@gir/gjs/ambient"],
   "files": [
     "main.ts",
   ]

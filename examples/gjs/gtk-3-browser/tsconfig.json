@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.alias.json",
   "compilerOptions": {   
     "lib": ["ESNext"],
     "types": [],
@@ -11,6 +10,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
+  "include": ["@types/gjs.d.ts", "@types/ambient.d.ts"],
   "files": [
     "main.ts"
   ]

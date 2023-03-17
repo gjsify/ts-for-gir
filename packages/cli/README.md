@@ -470,6 +470,8 @@ In TypeScript, ambient modules are a way to define external modules that are not
 When using ambient modules, it is recommended to activate the [`--package`](#package) option, as exporting namespaces without NPM packages currently does not work.
 > If you find a solution to make ambient modules work without NPM packages, please let us know.
 
+If for some reason you don't want to or can't generate NPM packages, you can instead use the [`--generateAlias`](#generatealias) CLI option. This way you can also use imports in the `gi://` syntax with the generated types.
+
 To use ambient modules, the `ambient.d.ts` file must be imported either in the code like `import '@gir/gjs/ambient'` or by adding an entry to the `includes` property in the `tsconfig` file. The `ambient.d.ts` file is automatically generated.
 
 ```json

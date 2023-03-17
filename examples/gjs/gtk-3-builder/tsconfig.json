@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ESNext"],
-    "types": ["./globals.d.ts"],
+    "types": [],
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,

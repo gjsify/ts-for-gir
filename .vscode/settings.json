@@ -449,5 +449,6 @@
     "workbench.colorTheme": "undefined",
     "workbench.colorCustomizations": "undefined",
     "window.zoomLevel": "undefined"
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

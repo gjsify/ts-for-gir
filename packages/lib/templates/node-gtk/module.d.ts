@@ -1,3 +1,4 @@
+<%# This template is used for the generated .d.ts file of each GIR module like Gtk-4.0, GObject-2.0, ... %>
 /*
  * Type Definitions for node-gtk (https://github.com/romgrk/node-gtk)
  *

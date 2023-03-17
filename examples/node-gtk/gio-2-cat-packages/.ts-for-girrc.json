@@ -3,7 +3,7 @@
     "modules": ["Gio-2.0"],
     "buildType": "lib",
     "moduleType": "esm",
-    "useNamespace": true,
+    "noNamespace": false,
     "outdir": "./@types",
     "generateAlias": false,
     "promisify": true,

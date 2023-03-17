@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/ambient.d.ts"],
+  "include": ["@types/gjs.d.ts"],
   "files": [
     "main.ts",
   ]

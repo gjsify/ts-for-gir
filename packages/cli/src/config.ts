@@ -14,8 +14,6 @@ import {
     Logger,
     APP_NAME,
     APP_USAGE,
-    WARN_NO_NAMESPACE_ON_TYPES,
-    WARN_NO_NAMESPACE_ON_ESM,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
     WARN_USE_ESM_FOR_ALIAS,
     WARN_USE_GJS_FOR_ALIAS,
@@ -377,20 +375,6 @@ export class Config {
     }
 
     public static async validate(config: UserConfig): Promise<UserConfig> {
-        if (config.buildType === 'types') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_TYPES)
-                config.noNamespace = false
-            }
-        }
-
-        if (config.moduleType === 'esm') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
-                config.noNamespace = false
-            }
-        }
-
         if (config.generateAlias) {
             if (!config.environments.includes('gjs')) {
                 Logger.warn(WARN_USE_GJS_FOR_ALIAS)
@@ -399,13 +383,6 @@ export class Config {
             if (config.moduleType !== 'esm') {
                 Logger.warn(WARN_USE_ESM_FOR_ALIAS)
                 config.moduleType = 'esm'
-            }
-        }
-
-        if (config.moduleType === 'esm') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
-                config.noNamespace = false
             }
         }
 

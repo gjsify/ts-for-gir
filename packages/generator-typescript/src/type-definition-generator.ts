@@ -78,7 +78,7 @@ export class TypeDefinitionGenerator implements Generator {
     }
 
     private generateExport(type: string, name: string, definition: string, indentCount = 0) {
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         const indent = generateIndent(indentCount)
         if (!definition.startsWith(':')) {
             definition = ' ' + definition
@@ -572,7 +572,7 @@ export class TypeDefinitionGenerator implements Generator {
         let exportStr = ''
         // `tsType === 'function'` are a global methods which can be exported
         if (isGlobal) {
-            exportStr = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+            exportStr = !this.config.noNamespace ? '' : 'export '
         }
 
         const returnType = this.generateFunctionReturn(tsFunction, namespace)
@@ -733,7 +733,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         const indent = generateIndent(indentCount)
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         const varDesc = this.generateVariable(tsConst, namespace, 0)
         desc.push(`${indent}${exp}const ${varDesc}`)
         return desc
@@ -752,7 +752,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
         const indent = generateIndent(indentCount)
 
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         const type = removeNamespace(girAlias._tsData.type, namespace)
 
         desc.push(`${indent}${exp}type ${girAlias._tsData.name} = ${type}`)
@@ -775,7 +775,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         const indent = generateIndent(indentCount)
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         let ext = ''
 
         if (girClass._tsData.inheritConstructPropInterfaceNames.length) {
@@ -1049,7 +1049,7 @@ export class TypeDefinitionGenerator implements Generator {
         if (!girClass._tsData) return def
         const indent = generateIndent(indentCount)
 
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
 
         // Signal interfaces
         bodyDef.push(...this.generateClassSignalInterfaces(girClass, namespace, indentCount + 1))
@@ -1228,10 +1228,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // START Namespace
         {
-            if (this.config.buildType === 'types') {
-                out.push('')
-                out.push(`declare namespace ${girModule.namespace} {`)
-            } else if (!this.config.noNamespace) {
+            if (!this.config.noNamespace) {
                 out.push('')
                 out.push(`export namespace ${girModule.namespace} {`)
             }
@@ -1379,9 +1376,7 @@ export class TypeDefinitionGenerator implements Generator {
         // END Namespace
         if (!this.config.noNamespace) {
             out.push(`}`)
-        }
-
-        if (!this.config.noNamespace) {
+            out.push('')
             out.push(`export default ${girModule.namespace};`)
         }
 

@@ -2,6 +2,5 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": true
-  },
-  "include": ["./@types"]
+  }
 }

@@ -8,9 +8,9 @@
       declare module 'gi://<%= girModule.module.namespace %>?version=<%= girModule.module.version %>' {
         <%_ if(package){ _%>
           <%_ if(noNamespace){ _%>
-            import type * as <%= girModule.module.importNamespace %> from '<%= pkg.importPath %>';
+            import * as <%= girModule.module.importNamespace %> from '<%= pkg.importPath %>';
           <%_ } else { _%>
-            import type <%= girModule.module.importNamespace %> from '<%= pkg.importPath %>';
+            import <%= girModule.module.importNamespace %> from '<%= pkg.importPath %>';
           <%_ } _%>
         <%_ } else { _%>
             // Use import() to avoid `ts(2439)`: Import or export declaration in an ambient module declaration cannot reference module through relative module name.
@@ -32,9 +32,9 @@
       declare module 'gi://<%= module.namespace %>' {
         <%_ if(package){ _%>
           <%_ if(noNamespace){ _%>
-            import type * as <%= module.importNamespace %> from '<%= pkg.importPath %>';
+            import * as <%= module.importNamespace %> from '<%= pkg.importPath %>';
           <%_ } else { _%>
-            import type <%= module.importNamespace %> from '<%= pkg.importPath %>';
+            import <%= module.importNamespace %> from '<%= pkg.importPath %>';
           <%_ } _%>
         <%_ } else { _%>
           <%_ if(noNamespace){ _%>

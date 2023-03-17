@@ -199,6 +199,8 @@ __metadata:
   dependencies:
     "@gir/node-glib-2.0": "workspace:^"
     "@gir/node-gobject-2.0": "workspace:^"
+  peerDependencies:
+    node-gtk: "*"
   languageName: unknown
   linkType: soft
 
@@ -207,6 +209,8 @@ __metadata:
   resolution: "@gir/node-glib-2.0@workspace:@types/node-glib-2.0"
   dependencies:
     "@gir/node-gobject-2.0": "workspace:^"
+  peerDependencies:
+    node-gtk: "*"
   languageName: unknown
   linkType: soft
 
@@ -215,6 +219,8 @@ __metadata:
   resolution: "@gir/node-gobject-2.0@workspace:@types/node-gobject-2.0"
   dependencies:
     "@gir/node-glib-2.0": "workspace:^"
+  peerDependencies:
+    node-gtk: "*"
   languageName: unknown
   linkType: soft
 
@@ -225,6 +231,8 @@ __metadata:
     "@gir/node-gio-2.0": "workspace:^"
     "@gir/node-glib-2.0": "workspace:^"
     "@gir/node-gobject-2.0": "workspace:^"
+  peerDependencies:
+    node-gtk: "*"
   languageName: unknown
   linkType: soft
 

@@ -49,6 +49,11 @@
       "<%- dep.importPath %>": "workspace:^"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
       <% } %>
     },
+    <%_ if (environment === 'node') { _%>
+    "peerDependencies": {
+      "node-gtk": "*"
+    },
+    <%_ } _%>
     "keywords": [<%- PACKAGE_KEYWORDS %>],
     "author": "<%- APP_NAME %>",
     "license": "Apache-2.0",

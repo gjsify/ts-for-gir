@@ -447,6 +447,10 @@ const button = new Gtk.Button();
 
 It is recommended to use the `--package` option when generating TypeScript type definitions for a GObject introspection module, as it allows for easy distribution and consumption of the generated types. However, please note that the generated NPM packages will only work with a package manager like NPM or Yarn, and cannot be used directly in a GJS or Node.js project.
 
+> Here are some examples are making use of the `--package` option:
+> * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - Gjs example with `--package` option
+> * [examples/node-gtk/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/node-gtk/gio-2-cat-packages) - node-gtk example with `--package` option
+
 ## npmScope
 
 The `--npmScope` CLI option can be used to specify a custom NPM package scope name for the generated packages. By default, the scope name is `@gir`.

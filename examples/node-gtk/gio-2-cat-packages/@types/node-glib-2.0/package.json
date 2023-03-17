@@ -25,6 +25,9 @@
     "dependencies": {
         "@gir/node-gobject-2.0": "workspace:^"
     },
+    "peerDependencies": {
+        "node-gtk": "*"
+    },
     "keywords": [
         "Gir",
         "TypeScript",

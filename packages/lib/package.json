@@ -14,7 +14,8 @@
     "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
     "watch": "yarn build:ts --watch",
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "update-package-descriptions": "wget https://raw.githubusercontent.com/vala-lang/valadoc-org/master/documentation/packages.xml"
   },
   "repository": {
     "type": "git",

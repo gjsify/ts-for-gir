@@ -36,7 +36,7 @@ export class ModuleLoader {
     dependencyManager: DependencyManager
     /** Transitive module dependencies */
     modDependencyMap: DependencyMap = {}
-    constructor(private readonly config: GenerateConfig) {
+    constructor(protected readonly config: GenerateConfig) {
         this.log = new Logger('', config.verbose, 'ModuleLoader')
         this.dependencyManager = DependencyManager.getInstance(config)
     }
@@ -46,7 +46,7 @@ export class ModuleLoader {
      * E.g. Gtk-3.0 and Gtk-4.0 will be grouped
      * @param girFiles
      */
-    private groupGirFiles(resolveGirModules: Set<GirModuleResolvedBy> | GirModuleResolvedBy[]): GirModulesGroupedMap {
+    protected groupGirFiles(resolveGirModules: Set<GirModuleResolvedBy> | GirModuleResolvedBy[]): GirModulesGroupedMap {
         const girModulesGrouped: GirModulesGroupedMap = {}
 
         for (const resolveGirModule of resolveGirModules) {
@@ -73,7 +73,7 @@ export class ModuleLoader {
      * @param girModulesGrouped
      * @param selected Users selected module packageName
      */
-    private sortVersionsByAnswer(
+    protected sortVersionsByAnswer(
         girModulesGrouped: GirModulesGrouped,
         selected: string[],
     ): { keep: Set<GirModuleResolvedBy>; ignore: string[] } {
@@ -107,7 +107,10 @@ export class ModuleLoader {
         }
     }
 
-    private generateContinueQuestion(message = `do you want to continue?`, choices = ['Yes', 'Go back']): ListQuestion {
+    protected generateContinueQuestion(
+        message = `do you want to continue?`,
+        choices = ['Yes', 'Go back'],
+    ): ListQuestion {
         const question: ListQuestion = {
             name: 'continue',
             message,
@@ -117,7 +120,7 @@ export class ModuleLoader {
         return question
     }
 
-    private generateIgnoreDepsQuestion(
+    protected generateIgnoreDepsQuestion(
         message = `Do you want to ignore them too?`,
         choices = ['Yes', 'No', 'Go back'],
     ): ListQuestion {
@@ -130,7 +133,7 @@ export class ModuleLoader {
         return question
     }
 
-    private async askIgnoreDepsPrompt(
+    protected async askIgnoreDepsPrompt(
         deps: GirModuleResolvedBy[] | Set<GirModuleResolvedBy>,
     ): Promise<'Yes' | 'No' | 'Go back'> {
         let question: ListQuestion<Answers> | null = null
@@ -157,7 +160,7 @@ export class ModuleLoader {
      * @param girModuleGrouped
      * @param message
      */
-    private generateModuleVersionQuestion(girModuleGrouped: GirModulesGrouped, message?: string): ListQuestion {
+    protected generateModuleVersionQuestion(girModuleGrouped: GirModulesGrouped, message?: string): ListQuestion {
         message = message || `Multiple versions of '${girModuleGrouped.namespace}' found, which one do you want to use?`
         const choices = ['All', ...girModuleGrouped.modules.map((module) => module.packageName)]
         const question: ListQuestion = {
@@ -174,7 +177,7 @@ export class ModuleLoader {
      * @param girModulesGroupedMap
      * @param packageName
      */
-    private findPackageNamesDependOnPackage(
+    protected findPackageNamesDependOnPackage(
         girModulesGroupedMap: GirModulesGroupedMap,
         packageName: string,
     ): GirModuleResolvedBy[] {
@@ -199,7 +202,7 @@ export class ModuleLoader {
      * @param girModulesGroupedMap
      * @param packageName
      */
-    private findPackageNamesDependOnPackages(
+    protected findPackageNamesDependOnPackages(
         girModulesGroupedMap: GirModulesGroupedMap,
         packageNames: string[],
     ): GirModuleResolvedBy[] {
@@ -210,7 +213,7 @@ export class ModuleLoader {
         return girModules
     }
 
-    private async askForVersionsPrompt(girModulesGrouped: GirModulesGrouped): Promise<AnswerVersion> {
+    protected async askForVersionsPrompt(girModulesGrouped: GirModulesGrouped): Promise<AnswerVersion> {
         const question = this.generateModuleVersionQuestion(girModulesGrouped)
         const choices = question.choices as string[]
         if (!choices) {
@@ -241,7 +244,7 @@ export class ModuleLoader {
      * Ignores also modules that depend on a module that should be ignored
      * @param resolveFirModules
      */
-    private async askForEachConflictVersionsPrompt(
+    protected async askForEachConflictVersionsPrompt(
         girModulesGroupedMap: GirModulesGroupedMap,
         ignore: string[],
     ): Promise<{ keep: Set<GirModuleResolvedBy>; ignore: string[] }> {
@@ -311,7 +314,7 @@ export class ModuleLoader {
      * Asks via cli prompt if the user wants to add the ignored modules to his config file
      * @param ignoredModules
      */
-    private async askAddToIgnoreToConfigPrompt(ignoredModules: string[] | Set<string>): Promise<void> {
+    protected async askAddToIgnoreToConfigPrompt(ignoredModules: string[] | Set<string>): Promise<void> {
         const questions = [
             {
                 name: 'addToIgnore',
@@ -337,7 +340,7 @@ export class ModuleLoader {
      * @param packageName
      * @param result
      */
-    private traverseDependencies(packageName: string, result: { [name: string]: Dependency } = {}): void {
+    protected traverseDependencies(packageName: string, result: { [name: string]: Dependency } = {}): void {
         const deps = this.modDependencyMap[packageName]
         if (isIterable(deps)) {
             for (const dep of deps) {
@@ -353,7 +356,7 @@ export class ModuleLoader {
      * should be called for each girModule so that the modDependencyMap is complete
      * @param girModule
      */
-    private extendDependencyMapByGirModule(girModule: GirModule): void {
+    protected extendDependencyMapByGirModule(girModule: GirModule): void {
         this.modDependencyMap[girModule.packageName] = girModule.dependencies
     }
 
@@ -362,7 +365,7 @@ export class ModuleLoader {
      * is required so that all dependencies can be found internally when generating the dependency imports for the module .d.ts file
      * @param girModules
      */
-    private setTraverseDependenciesForModules(girModules: GirModuleResolvedBy[]): void {
+    protected setTraverseDependenciesForModules(girModules: GirModuleResolvedBy[]): void {
         for (const girModule of girModules) {
             const result: { [name: string]: Dependency } = {}
             this.traverseDependencies(girModule.packageName, result)
@@ -376,7 +379,7 @@ export class ModuleLoader {
      * @param fillName
      * @param config
      */
-    private async loadAndCreateGirModule(dependency: Dependency): Promise<GirModule | null> {
+    protected async loadAndCreateGirModule(dependency: Dependency): Promise<GirModule | null> {
         if (!dependency.exists || dependency.path === null) {
             return null
         }
@@ -395,7 +398,7 @@ export class ModuleLoader {
      * @param girModules Array of girModules
      * @param packageNames Full name like 'Gtk-3.0' you are looking for
      */
-    private findGirModuleByFullNames(
+    protected findGirModuleByFullNames(
         girModules: (GirModuleResolvedBy | GirModule)[],
         packageNames: string[],
     ): Array<GirModuleResolvedBy | GirModule> {
@@ -407,7 +410,7 @@ export class ModuleLoader {
      * @param girModules
      * @param packageName
      */
-    private existsGirModules(girModules: (GirModuleResolvedBy | GirModule)[], packageName: string): boolean {
+    protected existsGirModules(girModules: (GirModuleResolvedBy | GirModule)[], packageName: string): boolean {
         const foundModule = this.findGirModuleByFullNames(girModules, [packageName])
         return foundModule.length > 0
     }
@@ -421,7 +424,7 @@ export class ModuleLoader {
      * @param ignoreDependencies
      * @returns
      */
-    private async loadGirModules(
+    protected async loadGirModules(
         dependencies: Dependency[],
         ignoreDependencies: string[] = [],
         girModules: GirModuleResolvedBy[] = [],
@@ -499,7 +502,7 @@ export class ModuleLoader {
      * @param modules
      * @param ignore
      */
-    private async findPackageNames(modules: string[], ignore: string[] = []): Promise<Set<string>> {
+    protected async findPackageNames(modules: string[], ignore: string[] = []): Promise<Set<string>> {
         const foundModules = new Set<string>()
 
         for (let i = 0; i < modules.length; i++) {
@@ -529,7 +532,7 @@ export class ModuleLoader {
         return foundModules
     }
 
-    private packageNamesToDependencies(packageNames: Set<string>): Dependency[] {
+    protected packageNamesToDependencies(packageNames: Set<string>): Dependency[] {
         return Array.from(packageNames).map((packageName) => {
             const { namespace, version } = splitModuleName(packageName)
             return this.dependencyManager.get(namespace, version)

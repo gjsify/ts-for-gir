@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Source: https://github.com/vala-lang/valadoc-org/blob/master/documentation/packages.xml -->
+<packages>
+	<section name="GNOME &amp; Friends">
+
+		<section name="Core">
+			<package name="glib-2.0" flags="--pkg posix" home="https://www.gtk.org/" gir="GLib-2.0" c-docs="https://docs.gtk.org/glib/">
+				GLib provides the core application building blocks for libraries and applications written in C.
+				It provides the core object system used in GNOME, the main loop implementation, and a large set of
+				utility functions for strings and common data structures.
+			</package>
+			<package name="gobject-2.0" home="https://www.gtk.org/" gir="GObject-2.0" c-docs="https://docs.gtk.org/gobject/">
+				GObject provides the object system used for Pango and GTK+.
+			</package>
+			<package name="gee-0.8" home="https://wiki.gnome.org/Projects/Libgee">
+				Libgee is a collection library providing GObject-based interfaces and
+				classes for commonly used data structures.
+			</package>
+			<package name="gio-2.0" home="https://www.gtk.org/" gir="Gio-2.0" c-docs="https://docs.gtk.org/gio/">
+				GIO provides a modern and easy-to-use VFS API. It provides a file system abstraction which
+				allows applications to access local and remote files with a single consistent API.
+			</package>
+			<package name="gio-unix-2.0" home="https://www.gtk.org/" gir="Gio-2.0" c-docs="https://docs.gtk.org/gio/">
+				UNIX-specific file abstractions for GIO.
+			</package>
+			<package name="gmodule-2.0" home="https://www.gtk.org/" gir="GModule-2.0" c-docs="https://docs.gtk.org/gmodule/">
+				Portable method for dynamically loading 'plug-ins'
+			</package>
+			<package name="libpeas-gtk-1.0" gir="PeasGtk-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
+				A GObject-based plugins engine
+			</package>
+		</section>
+
+		<section name="User Interface">
+			<package name="gtk4" gallery="https://docs.gtk.org/gtk4/visual_index.html" home="https://www.gtk.org/" gir="Gsk-4.0,Gdk-4.0,Gtk-4.0" c-docs="https://docs.gtk.org/gtk4/">
+				GTK is the primary library used to construct user interfaces in GNOME applications.
+				It provides user interface controls and signal callbacks to control user interfaces.
+			</package>
+			<package name="gtk+-3.0" gallery="https://developer-old.gnome.org/gtk3/unstable/ch03.html" home="https://www.gtk.org/" gir="Gtk-3.0" c-docs="https://docs.gtk.org/gtk3/">
+				GTK+ is the primary library used to construct user interfaces in GNOME applications.
+				It provides user interface controls and signal callbacks to control user interfaces.
+			</package>
+			<package name="clutter-1.0" deprecated="true" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Clutter-1.0" c-docs="https://gitlab.gnome.org/GNOME/clutter/-/tree/master/doc/reference/">
+				Clutter is a GObject based library for creating fast, visually rich, graphical user interfaces.
+			</package>
+			<package name="clutter-gtk-1.0" deprecated="true" home="http://www.clutter-project.org/" gir="GtkClutter-1.0" c-docs="https://developer-old.gnome.org/clutter-gtk/unstable/">
+				GTK clutter widget.
+			</package>
+			<package name="gegl-gtk3-0.1" gir="GeglGtk3-0.1">
+				Utility library for using GEGL in GTK+ 3 based applications
+			</package>
+			<package name="gtksourceview-3.0" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-3.0" c-docs="https://developer-old.gnome.org/gtksourceview/unstable/">
+				GtkSourceView is a portable C library that extends the standard GTK+ framework for multiline text editing
+				with support for configurable syntax highlighting, unlimited undo/redo, search and replace, a completion
+				framework, printing and other features typical of a source code editor.
+			</package>
+			<package name="gtksourceview-4" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-4" c-docs="https://developer-old.gnome.org/gtksourceview/unstable/">
+				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
+				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
+				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
+			</package>
+			<package name="gtksourceview-5" home="https://wiki.gnome.org/Projects/GtkSourceView" gir="GtkSource-5" c-docs="https://gnome.pages.gitlab.gnome.org/gtksourceview/gtksourceview5/">
+				GtkSourceView is a GNOME library that extends GtkTextView, the standard GTK+ widget for multiline text editing.
+				GtkSourceView adds support for syntax highlighting, undo/redo, file loading and saving, search and replace,
+				a completion system, printing, displaying line numbers, and other features typical of a source code editor.
+			</package>
+			<package name="libadwaita-1" gir="Adw-1" flags="--pkg=gio-2.0 --pkg=gtk4" c-docs="https://gnome.pages.gitlab.gnome.org/libadwaita/doc/" home="https://gitlab.gnome.org/GNOME/libadwaita/">
+				Building blocks for modern GNOME applications
+			</package>
+			<package name="libhandy-1" gir="Handy-1" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://gnome.pages.gitlab.gnome.org/libhandy/" home="https://gitlab.gnome.org/GNOME/libhandy">
+				Building blocks for modern adaptive GNOME apps
+			</package>
+			<package name="libhandy-0.0" deprecated="true" gir="Handy-0.0" flags="--pkg=gio-2.0 --pkg=gtk+-3.0" c-docs="https://honk.sigxcpu.org/projects/libhandy/doc/" home="https://source.puri.sm/Librem5/libhandy">
+				A library full of GTK+ widgets for mobile phones
+			</package>
+			<package name="vte-2.91" gir="Vte-2.91" flags="--pkg gtk+-3.0" c-docs="https://developer-old.gnome.org/vte/unstable/">
+				Terminal emulator widget used by GNOME terminal.
+			</package>
+			<package name="webkit2gtk-web-extension-4.0" gir="WebKit2WebExtension-4.0" flags="--pkg libsoup-2.4" c-docs="https://webkitgtk.org/reference/webkit2gtk-web-extension/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
+			</package>
+			<package name="webkit2gtk-web-extension-4.1" gir="WebKit2WebExtension-4.1" c-docs="https://webkitgtk.org/reference/webkit2gtk-web-extension/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
+			</package>
+			<package name="webkitgtk-web-extension-6.0" gir="WebKitWebExtension-6.0" c-docs="https://webkitgtk.org/reference/webkit2gtk-web-extension/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to build extensions running in the separated webprocess.
+			</package>
+			<package name="webkit2gtk-4.0" gir="WebKit2-4.0" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+			</package>
+			<package name="webkit2gtk-4.1" gir="WebKit2-4.1" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+			</package>
+			<package name="webkitgtk-6.0" gir="WebKit-6.0" c-docs="https://webkitgtk.org/reference/webkit2gtk/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+			</package>
+			<package name="javascriptcoregtk-4.0" gir="JavaScriptCore-4.0" c-docs="https://webkitgtk.org/reference/jsc-glib/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to acces JavaScript from WebKitGTK.
+			</package>
+			<package name="javascriptcoregtk-4.1" gir="JavaScriptCore-4.1" c-docs="https://webkitgtk.org/reference/jsc-glib/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to acces JavaScript from WebKitGTK.
+			</package>
+			<package name="javascriptcoregtk-6.0" gir="JavaScriptCore-6.0" c-docs="https://webkitgtk.org/reference/jsc-glib/unstable/" home="https://webkitgtk.org/">
+				WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.
+				This is the library to use to acces JavaScript from WebKitGTK.
+			</package>
+			<package name="shumate-1.0" gir="Shumate-1.0" home="https://wiki.gnome.org/Projects/libshumate" c-docs="https://gnome.pages.gitlab.gnome.org/libshumate/">
+				Shumate is a library providing a widget to display maps in applications.
+			</package>
+			<package name="champlain-gtk-0.12" deprecated="true" gir="GtkChamplain-0.12" flags="--pkg gtk+-3.0 --pkg champlain-0.12 --pkg clutter-1.0" c-docs="https://developer-old.gnome.org/libchamplain/unstable/" home="https://projects.gnome.org/libchamplain/">
+				Libchamplain-gtk is a C library on top of libchamplain providing a Gtk+ widget to display maps
+				in GTK+ applications.
+			</package>
+			<package name="libgnome-menu-3.0" flags="--pkg gio-2.0 --pkg gio-unix-2.0" gir="GnomeDesktop-3.0">
+				Utility library for loading .desktop files.
+			</package>
+			<package name="libgda-ui-5.0" gir="Gdaui-5.0">
+				Libgda is a (relatively small) database access library. This package provides GTK+ widgets to database access.
+			</package>
+			<package name="libdazzle-1.0" gir="Dazzle-1.0">
+			  The libdazzle library is a companion library to GObject and Gtk+. It provides various features that we wish were
+			  in the underlying library but cannot for various reasons. In most cases, they are wildly out of scope for those
+			  libraries. In other cases, our design isn't quite generic enough to work for everyone.
+			</package>
+			<package name="goocanvas-2.0" gir="GooCanvas-2.0" c-docs="https://developer-old.gnome.org/goocanvas/stable/">
+				GooCanvas is a canvas widget for GTK+ that uses the cairo 2D library for drawing.
+			</package>
+		</section>
+
+		<section name="Multimedia">
+			<package name="gstreamer-1.0" home="https://gstreamer.freedesktop.org/" gir="Gst-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/gstreamer/gi-index.html">
+				Powerful framework for creating multimedia applications. Supports both Audio and Video.
+			</package>
+			<package name="gstreamer-base-1.0" home="https://gstreamer.freedesktop.org/" gir="GstBase-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/base/index.html">
+				GStreamer Multimedia Framework Base plugin libraries.
+			</package>
+			<package name="gstreamer-allocators-1.0" gir="GstAllocators-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/allocators/index.html">
+				GStreamer Allocators Library
+			</package>
+			<package name="gstreamer-app-1.0" home="https://gstreamer.freedesktop.org/" gir="GstApp-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/applib/index.html">
+				GStreamer App Library
+			</package>
+			<package name="gstreamer-audio-1.0" home="https://gstreamer.freedesktop.org/" gir="GstAudio-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/audio/index.html">
+				GStreamer Audio Library
+			</package>
+			<package name="gstreamer-check-1.0" home="https://gstreamer.freedesktop.org/" gir="GstCheck-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/check/index.html">
+				GStreamer Check Unit Testing
+			</package>
+			<package name="gstreamer-controller-1.0" home="https://gstreamer.freedesktop.org/" gir="GstController-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/controller/index.html">
+				GStreamer Dynamic Parameter Control
+			</package>
+			<package name="gstreamer-net-1.0" flags="--pkg gio-2.0" home="https://gstreamer.freedesktop.org/" gir="GstNet-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/net/index.html">
+				GStreamer Network Classes
+			</package>
+			<package name="gstreamer-fft-1.0" home="https://gstreamer.freedesktop.org/" gir="GstFft-1.0" c-docs="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-libs/html/">
+				GStreamer FFT Library
+			</package>
+			<package name="gstreamer-riff-1.0" home="https://gstreamer.freedesktop.org/" gir="GstRiff-1.0"  c-docs="https://gstreamer.freedesktop.org/documentation/riff/index.html">
+				GStreamer RIFF Library
+			</package>
+			<package name="gstreamer-pbutils-1.0" home="https://gstreamer.freedesktop.org/" gir="GstPbutils-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/pbutils/index.html">
+				General Application and Plugin Utility Library
+			</package>
+			<package name="gstreamer-player-1.0" home="https://gstreamer.freedesktop.org/" gir="GstPlayer-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/player/index.html">
+				GStreamer Player Library
+			</package>
+			<package name="gstreamer-rtp-1.0" home="https://gstreamer.freedesktop.org/" gir="GstRtp-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/rtplib/index.html">
+				GStreamer RTP Library
+			</package>
+			<package name="gstreamer-rtsp-1.0" home="https://gstreamer.freedesktop.org/" gir="GstRtsp-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/rtsplib/index.html">
+				GStreamer RTSP Library
+			</package>
+			<package name="gstreamer-rtsp-server-1.0" home="https://gstreamer.freedesktop.org/" gir="GstRtspServer-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/gst-rtsp-server/index.html">
+				GStreamer RTSP Server-Library
+			</package>
+			<package name="gstreamer-sdp-1.0" home="https://gstreamer.freedesktop.org/" gir="GstSdp-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/sdp/index.html">
+				GStreamer SDP Library
+			</package>
+			<package name="gstreamer-tag-1.0" home="https://gstreamer.freedesktop.org/" gir="GstTag-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/tag/index.html">
+				GStreamer Tag Support Library
+			</package>
+			<package name="gstreamer-video-1.0" flags="--pkg gstreamer-base-1.0" home="https://gstreamer.freedesktop.org/documentation/video/index.html">
+				Support library for video operations
+			</package>
+			<package name="gstreamer-webrtc-1.0" home="https://gstreamer.freedesktop.org/" gir="GstWebRTC-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/webrtclib/index.html">
+				GStreamer WebRTC Library
+			</package>
+			<package name="gst-editing-services-1.0" flags="--pkg gstreamer-base-1.0" home="https://gstreamer.freedesktop.org/" gir="GES-1.0" c-docs="https://gstreamer.freedesktop.org/documentation/gst-editing-services/index.html">
+				The GStreamer Editing Services (GES) aims to fill the gap between
+				GStreamer/NLE and the application developer by offering a series of
+				classes to simplify the creation of many kind of editing-related
+				applications.
+			</package>
+			<package name="grilo-0.3" gir="Grl-0.3" c-docs="https://developer-old.gnome.org/grilo/unstable/">
+				Framework that provides access to various sources of multimedia content
+			</package>
+			<package name="grilo-net-0.3" gir="GrlNet-0.3" c-docs="https://developer-old.gnome.org/grilo/unstable/">
+				Network classes for Grilo
+			</package>
+			<package name="libcanberra-gtk" flags="--pkg libcanberra --pkg gtk+-3.0" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="https://developer-old.gnome.org/libcanberra/unstable/">
+				Libcanberra-gtk provides a few functions that simplify libcanberra usage from Gtk+.
+			</package>
+			<package name="libcanberra" home="http://0pointer.de/lennart/projects/libcanberra/" c-docs="https://developer-old.gnome.org/libcanberra/unstable/">
+				A small and lightweight implementation of the XDG Sound Theme Specification.
+			</package>
+			<package name="clutter-gst-3.0" deprecated="true" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="ClutterGst-3.0" c-docs="https://developer-old.gnome.org/clutter-gst/unstable/">
+				GStreamer bindings for clutter.
+			</package>
+			<package name="babl-0.1" home="http://www.gegl.org/babl/" gir="Babl-0.1">
+				babl is pixel encoding and color space conversion engine in C.
+				It allows converting between different methods of storing pixels known as pixel formats
+				that have with different bitdepths and other data representations, color models, color
+				spaces and component permutations.
+				A vocabulary to formulate new pixel formats from existing primitives is provided as well
+				as the framework to add new color models, spaces and data types.
+			</package>
+			<package name="gegl-0.3" deprecated="true" home="http://www.gegl.org/" gir="Gegl-0.3">
+				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
+				floating point processing and non-destructive image processing capabilities to GNU Image
+				Manipulation Program and other projects (imgflo, GNOME Photos, gcut, iconographer, …)
+			</package>
+			<package name="gegl-0.4" home="http://www.gegl.org/" gir="Gegl-0.4">
+				GEGL (Generic Graphics Library) is a data flow based image processing framework, providing
+				floating point processing and non-destructive image processing capabilities to GNU Image
+				Manipulation Program and other projects (imgflo, GNOME Photos, gcut, iconographer, …)
+			</package>
+			<package name="gexiv2" home="https://wiki.gnome.org/Projects/gexiv2" gir="GExiv2-0.10">
+				gexiv2 is a GObject wrapper around the Exiv2 photo metadata library. It allows for GNOME
+				applications to easily inspect and update EXIF, IPTC, and XMP metadata in photo and video
+				files of various formats
+			</package>
+			<package name="gupnp-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnP-1.0" c-docs="https://developer-old.gnome.org/gupnp/unstable/">
+				Core UPnP API built on top of gssdp
+			</package>
+			<package name="gupnp-av-1.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPAV-1.0" c-docs="https://developer-old.gnome.org/gupnp-av/unstable/">
+				Small utility library that aims to ease the handling and implementation of UPnP audio/video profiles
+			</package>
+			<package name="gupnp-dlna-2.0" home="https://wiki.gnome.org/Projects/GUPnP" gir="GUPnPDLNA-2.0" c-docs="https://developer-old.gnome.org/gupnp-dlna/unstable/">
+				GUPnP DLNA is a set of utility APIs to simplify DLNA-specific bits
+				of MediaServer implementations, such as DLNA media profile guessing. 
+			</package>
+			<package name="gupnp-dlna-gst-2.0" gir="GUPnPDLNAGst-2.0">
+				GStreamer integration for GUPnP DLNA
+			</package>
+			<package name="rygel-core-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-core/unstable/">
+				Librygel-core is a collection of classes useful to Rygel's server and renderer implementation
+				libraries and useful to plugin implementors.
+			</package>
+			<package name="rygel-db-2.6" flags="--pkg gio-2.0" home="https://wiki.gnome.org/Projects/Rygel">
+				This library implements a generic database abstraction used by rygel and rygel plugins
+			</package>
+			<package name="rygel-server-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-server/unstable/">
+				This library may be used to create UPnP or DLNA servers, Rygel Server plugins or
+				Rygel Media Engines
+			</package>
+			<package name="rygel-renderer-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-renderer/unstable/">
+				This library may be used to create UPnP or DLNA Renderers. For instance, librygel-renderer-gst
+				uses librygel-renderer with GStreamer to implement its RygelPlaybinRenderer renderer. 
+			</package>
+			<package name="rygel-renderer-gst-2.6" home="https://wiki.gnome.org/Projects/Rygel" c-docs="https://developer-old.gnome.org/librygel-renderer-gst/unstable/">
+				This library may be used to create UPnP or DLNA Renderers using GStreamer. The RygelPlaybinRenderer
+				may wrap an existing GStreamer playbin or create its own. See the example. 
+			</package>
+			<package name="rygel-ruih-2.0" home="https://wiki.gnome.org/Projects/Rygel">
+				This library implements the Remote User Interface Server protocol interfaces.
+			</package>
+			<package name="gssdp-1.0" gir="GSSDP-1.0">
+				GObject-based API for handling resource discovery and announcement over SSDP.
+			</package>
+		</section>
+
+		<section name="Under the Hood">
+			<package name="atk" home="https://www.gtk.org/" gir="Atk-1.0" c-docs="https://docs.gtk.org/atk/">
+				ATK provides the set of accessibility interfaces that are implemented by other toolkits and
+				applications. Using the ATK interfaces, accessibility tools have full access to view and
+				control running applications.
+			</package>
+			<package name="atspi-2" gir="Atspi-2.0" c-docs="https://developer-old.gnome.org/libatspi/unstable/" home="https://wiki.linuxfoundation.org/accessibility/atk/at-spi/at-spi_on_d-bus">
+				AT-SPI2 is a D-Bus based accessibility framework. It defines a D-Bus
+				protocol for providing and accessing application accessibility
+				information. The project includes a library for bridging the D-Bus
+				protocol to the ATK API, allowing Gtk based applications to be made
+				accessible.
+			</package>
+			<package name="cairo" home="http://cairographics.org/" gir="cairo-1.0" c-docs="http://cairographics.org/manual/">
+				Cairo is a 2D graphics library with support for multiple output devices like the X Window System (via both Xlib and XCB),
+				Quartz, Win32, image buffers, PostScript, PDF, and SVG.
+			</package>
+			<!-- TODO: libvala-0.26 bug -->
+			<package ignore="true" deprecated="true" name="cairo-xcb" home="http://cairographics.org/">
+				Cairo with XCB as a backend.
+			</package>
+			<package name="cogl-1.0" deprecated="true" home="http://www.clutter-project.org/" maintainers="Ali Sabil" gir="Cogl-1.0" c-docs="https://gitlab.gnome.org/GNOME/cogl/-/tree/cogl-1.22/doc/reference/cogl/">
+				COGL is a low level OpenGL abstraction library developed for (and part of) Clutter.
+				It is used primarily by Clutter to provide a common rendering API that works transparently
+				across OpenGL >=1.4, OpenGL ES 1.1 and OpenGL ES 2.0.
+			</package>
+			<package name="cogl-pango-1.0" deprecated="true" flags="--pkg pangocairo" gir="CoglPango-1.0">
+				Binding for the CoglPango 1.0 library.
+			</package>
+			<package name="pango" home="https://www.gtk.org/" gir="Pango-1.0" c-docs="https://docs.gtk.org/Pango/">
+				Pango is the core text and font handling library used in GNOME applications. It has extensive support for
+				the different writing systems used throughout the world.
+			</package>
+			<package name="pangocairo" home="https://www.gtk.org/" gir="PangoCairo-1.0" c-docs="https://docs.gtk.org/PangoCairo/">
+				Rendering with the Cairo backend.
+			</package>
+			<package name="gdk-3.0" home="https://www.gtk.org/" gir="Gdk-3.0" c-docs="https://docs.gtk.org/gdk3/">
+				An intermediate layer which isolates GTK+ from the details of the windowing system.
+			</package>
+			<package name="gdk-x11-3.0" home="https://www.gtk.org/" gir="GdkX11-3.0" c-docs="https://docs.gtk.org/gdk3-x11/">
+				X backend-specific API for gdk.
+			</package>
+			<package name="gtk4-wayland" home="https://www.gtk.org/" gir="GdkWayland-4.0" c-docs="https://docs.gtk.org/gdk4-wayland/">
+				Wayland backend-specific API for gdk4.
+			</package>
+			<package name="gtk4-x11" home="https://www.gtk.org/" gir="GdkX11-4.0" c-docs="https://docs.gtk.org/gdk4-x11/">
+				X11 backend-specific API for gdk4.
+			</package>
+			<package name="gdk-pixbuf-2.0"  home="https://www.gtk.org/" gir="GdkPixbuf-2.0" c-docs="https://docs.gtk.org/gdk-pixbuf/">
+				GdkPixbuf is a library for image loading and manipulation. The GdkPixbuf documentation contains both the
+				programmer's guide and the API reference.
+			</package>
+			<package name="graphene-gobject-1.0" home="http://ebassi.github.io/graphene/" gir="Graphene-1.0" c-docs="https://ebassi.github.io/graphene/docs/">
+				A thin layer of types for graphic libraries
+			</package>
+			<package name="ibus-1.0" home="https://github.com/ibus/ibus/wiki" gir="IBus-1.0" c-docs="http://ibus.github.io/docs/ibus-1.5/index.html">
+				Next Generation Input Bus for Linux.
+			</package>
+			<!-- Seems as we do not support callback-elements correctly -->
+			<package ignore="true" name="caribou-1.0" gir="Caribou-1.0" home="https://live.gnome.org/Caribou">
+				Configurable onscreen keyboard with scanning mode.
+			</package>
+			<package name="librsvg-2.0" flags="--pkg gdk-3.0 --pkg gio-2.0" gir="Rsvg-2.0" c-docs="https://developer-old.gnome.org/rsvg/unstable/">
+				Library for rendering of SVG vector graphics.
+			</package>
+		</section>
+
+		<section name="Data Storage">
+			<package name="libsecret-1" gir="Secret-1" home="https://wiki.gnome.org/Projects/Libsecret" c-docs="https://developer-old.gnome.org/libsecret/unstable/">
+				libsecret is a library for storing and retrieving passwords and other secrets.
+				It communicates with the "Secret Service" using DBus. gnome-keyring and ksecretservice
+				are both implementations of a Secret Service.
+			</package>
+			<package name="libgda-5.0" gir="Gda-5.0">
+				Libgda is a (relatively small) database access library.
+			</package>
+			<package name="libgda-6.0" gir="Gda-6.0">
+				Libgda is a (relatively small) database access library.
+			</package>
+			<package name="sqlite3" home="http://www.sqlite.org/" c-docs="http://www.sqlite.org/c3ref/intro.html">
+			 	A C library that implements an SQL database engine.
+			</package>
+			<package name="libical-glib" gir="ICalGLib-3.0" home="http://libical.github.io/libical/" c-docs="http://libical.github.io/libical/apidocs/index.html">
+				Implementation of the iCalendar protocols and protocol data units.
+				The iCalendar specification describes how calendar clients can communicate with calendar
+				servers so users can store their calendar data and arrange meetings with other users.
+			</package>
+			<package name="camel-1.2" gir="Camel-1.2" c-docs="https://developer-old.gnome.org/camel/unstable/">
+				Camel is a generic messaging library. It supports the standard messaging system for 
+				receiving and sending messages. It is the messaging backend for Evolution.
+			</package>
+			<package name="libebook-1.2" flags="--pkg libedataserver-1.2" gir="EBook-1.2" c-docs="https://developer-old.gnome.org/libebook/stable/">
+				This package is a client library for evolution addressbooks.
+			</package>
+			<package name="libebook-contacts-1.2" flags="--pkg libedataserver-1.2" gir="EBookContacts-1.2" c-docs="https://developer-old.gnome.org/libebook-contacts/stable/">
+				This package is a client library for evolution addressbooks.
+			</package>
+			<package name="libecal-2.0" gir="ECal-2.0" c-docs="https://developer-old.gnome.org/libecal/stable/">
+				This package is a client library for evolution calendars.
+			</package>
+			<package name="libecalendar-1.2" gir="ECalendar-1.2" c-docs="https://developer-old.gnome.org/libecal/stable/" flags="--pkg libedataserver-1.2">
+				This package is a client library for evolution calendars.
+			</package>
+			<package name="libedataserver-1.2" gir="EDataServer-1.2" flags="--pkg gio-2.0 --pkg libxml-2.0" c-docs="https://developer-old.gnome.org/libedataserver/stable/">
+				The data server, called "Evolution Data Server" is responsible for managing calendar and
+				addressbook information. 
+			</package>
+			<package name="libgeoclue-2.0" gir="Geoclue-2.0" flags="--pkg=glib-2.0 --pkg=gobject-2.0 --pkg=gio-2.0" home="https://gitlab.freedesktop.org/geoclue/geoclue/-/wikis/home" c-docs="https://www.freedesktop.org/software/geoclue/docs/libgeoclue/">
+				GeoClue is a D-Bus geoinformation service. The goal of the Geoclue project is to make creating location-aware applications as simple as possible.
+			</package>
+			<package name="tracker-control-2.0" gir="TrackerControl-2.0" c-docs="https://developer-old.gnome.org/libtracker-control/stable/">
+				External control and monitoring of miners
+			</package>
+			<package name="tracker-miner-2.0" gir="Tracker-2.0" c-docs="https://developer-old.gnome.org/libtracker-miner/stable/">
+				The libtracker-miner library is the foundation for Tracker data miners,
+				these miners will extract metadata and insert it in SPARQL form to
+				a TrackerSparqlConnection. 
+			</package>
+			<package name="tracker-sparql-2.0" c-docs="https://developer-old.gnome.org/libtracker-sparql/stable/">
+				The libtracker-sparql library is the foundation for Tracker querying and inserting
+				into the data store. The data store allows both querying and inserting using SPARQL
+				based on the Nepomuk ontology. 
+			</package>
+			<package name="folks" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
+				Libfolks is a library that aggregates people from multiple sources (eg, Telepathy connection managers
+				and eventually evolution data server, Facebook, etc.) to create metacontacts. 
+			</package>
+			<package name="folks-eds" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks/c/">
+				Folks, eds-backend
+			</package>
+			<package name="folks-telepathy" home="https://wiki.gnome.org/Projects/Folks" maintainers="Travis Reitter" c-docs="http://telepathy.freedesktop.org/doc/folks-telepathy/c/">
+				Folks, telepathy-backend
+			</package>
+			<package name="libmediaart-1.0" flags="--pkg gio-2.0" gir="MediaArt-1.0" c-docs="https://developer-old.gnome.org/libmediaart/unstable/">
+				 The libmediaart library is the foundation for media art caching,
+				 extraction and lookup for applications on the desktop. 
+			</package>
+			<package name="libaccounts-glib" gir="Accounts-1.0" home="https://gitlab.com/accounts-sso/libaccounts-glib" c-docs="http://accounts-sso.gitlab.io/libaccounts-glib/">
+				Accounts management library for online services.
+			</package>
+			<package name="gcalc-1" home="https://gitlab.gnome.org/GNOME/gnome-calculator" gir="GCalc-1">
+				GNOME Calculator's library to parse and evaluate math expressions
+			</package>
+			<package name="vda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vda-1">
+				Vala Data Access library, a set of interfaces to connect to databases and execute queries
+			</package>
+			<package name="vgpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgpg-1">
+				VDA implementation using GDA as backend to connect to PostgreSQL databases
+			</package>
+			<package name="vgsl-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgsl-1">
+				VDA implementation using GDA as backend to connect to SQLite databases
+			</package>
+			<package name="vgda-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vgda-1">
+				VDA implementation using GDA as backend, suitable to implement new GDA supported implementations
+			</package>
+			<package name="vpg-1" home="https://gitlab.gnome.org/esodan/libvda/wikis/home" gir="Vpg-1">
+				VDA implementation using to connect directly to PostgreSQL databases
+			</package>
+		</section>
+
+		<section name="Web Services &amp; HTTP">
+			<package name="libsoup-3.0" gir="Soup-3.0" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://libsoup.org/">
+				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
+				to integrate well with GNOME applications.
+			</package>
+			<package name="libsoup-2.4" maintainers="Zeeshan Ali" gir="Soup-2.4" home="https://wiki.gnome.org/Projects/libsoup" c-docs="https://developer-old.gnome.org/libsoup/stable/">
+				libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop,
+				to integrate well with GNOME applications.
+			</package>
+			<package name="rest-0.7" deprecated="true" gir="Rest-0.7" c-docs="https://developer-old.gnome.org/rest/unstable/">
+				A helper library for RESTful services.
+			</package>
+			<package name="rest-extras-0.7" deprecated="true" gir="RestExtras-0.7">
+				This extra package provides Facebook and Flickr support.
+			</package>
+			<package name="rest-1.0" gir="Rest-1.0" c-docs="https://gnome.pages.gitlab.gnome.org/librest/">
+				A helper library for RESTful services.
+			</package>
+			<package name="rest-extras-1.0" gir="RestExtras-1.0">
+				This extra package provides LastFM, Youtube and Flickr support.
+			</package>
+			<package name="gmime-3.0" gir="GMime-3.0" home="https://github.com/jstedfast/gmime" c-docs="https://developer-old.gnome.org/gmime/stable/">
+				MIME message parser and creator library
+			</package>
+			<package name="gnutls" maintainer="Jiří Zárevúcky" home="http://www.gnutls.org/" c-docs="http://www.gnutls.org/documentation.html">
+				A library which provides a secure layer over a reliable transport layer
+			</package>
+			<package name="telepathy-glib" gir="TelepathyGLib-0.12" home="https://telepathy.freedesktop.org/" c-docs="https://telepathy.freedesktop.org/doc/telepathy-glib/">
+				Telepathy is a D-Bus framework for unifying real time communication, including instant messaging,
+				voice calls and video calls. It abstracts differences between protocols to provide a unified
+				interface for applications.
+			</package>
+			<package name="libgdata" flags="--pkg Goa-1.0" gir="GData-0.0" c-docs="https://developer-old.gnome.org/gdata/unstable/">
+				GData (Google data) is a set of Application Programming Interfaces (APIs) for the Common Language
+				Infrastructure (CLI) which provide a simple protocol for reading and writing data on the web. 
+			</package>
+			<package name="goa-1.0" gir="Goa-1.0" home="https://wiki.gnome.org/Projects/GnomeOnlineAccounts" c-docs="https://developer-old.gnome.org/goa/stable/">
+				A centralized service that allows a set of online accounts to be configured for use with core GNOME applications.
+				In UX terms, GOA provides a static list of online accounts that can be setup by users (through the Online Accounts panel in System Settings).
+				These accounts can then be used by core GNOME applications.
+ 			</package>
+			<package name="gweather4" flags="--pkg gio-2.0" gir="GWeather-4.0" c-docs="https://gnome.pages.gitlab.gnome.org/libgweather/">
+				Location and timezone database and weather-lookup library.
+			</package>
+			<package name="gweather-3.0" flags="--pkg gtk+-3.0" gir="GWeather-3.0" c-docs="https://developer-old.gnome.org/libgweather/unstable/">
+				Location and timezone database and weather-lookup library.
+			</package>
+			<package name="libuhttpmock-0.0">
+				HTTP web service mocking project for projects which use libsoup
+			</package>
+			<package name="mock-service-0">
+				Mock service
+			</package>
+			<package name="gsignond" gir="GSignond-1.0" home="https://gitlab.com/accounts-sso/gsignond" c-docs="http://accounts-sso.gitlab.io/gsignond/">
+				Single signon daemon library.
+			</package>
+			<package name="libsignon-glib" gir="Signon-2.0" home="https://gitlab.com/accounts-sso/libsignon-glib" c-docs="http://accounts-sso.gitlab.io/libsignon-glib/">
+				Single signon authentication library for online services.
+			</package>
+			<package name="vsgi-0.3" home="https://github.com/valum-framework/valum">
+				Middleware that interfaces various Web server technologies
+			</package>
+			<package name="valum-0.3" home="https://github.com/valum-framework/valum">
+				Web micro-framework written in Vala
+			</package>
+			<package name="libcurl" home="http://curl.haxx.se/" c-docs="http://curl.haxx.se/docs/">
+				An open source command line tool and library for transferring data with URL syntax, supporting
+				DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP,
+				SMB, SMTP, SMTPS, Telnet and TFTP. curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading,
+				HTTP form based upload, proxies, HTTP/2, cookies, user+password authentication (Basic, Plain, Digest,
+				CRAM-MD5, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more. 
+			</package>
+			<package name="libnm" home="http://projects.gnome.org/NetworkManager/" gir="NM-1.0" c-docs="https://developer-old.gnome.org/libnm/unstable/">
+				Network management framework.
+			</package>
+			<package name="libnm-glib" deprecated="true" home="http://projects.gnome.org/NetworkManager/" gir="NMClient-1.0" c-docs="https://developer-old.gnome.org/libnm-glib/unstable/">
+				Network management framework. (replaced by libnm)
+			</package>
+			<package name="libnm-util" home="http://projects.gnome.org/NetworkManager/" gir="NetworkManager-1.0" c-docs="https://developer-old.gnome.org/libnm-util/unstable/">
+				Network management framework, utils.
+			</package>
+		</section>
+
+		<section name="Markup">
+			<package name="gxml-0.20" maintainers="Daniel Espinosa" home="https://wiki.gnome.org/GXml" >
+				GObject XML library and serialization framework.
+			</package>
+			<package name="json-glib-1.0" maintainers="Tomaž Vajngerl" gir="Json-1.0" c-docs="https://developer-old.gnome.org/json-glib/unstable/">
+				JSON-GLib is a library for reading and parsing JSON using GLib and GObject data types and API.
+			</package>
+			<package name="libgrss" home="https://wiki.gnome.org/Projects/Libgrss" gir="Grss-0.7" c-docs="https://developer-old.gnome.org/libgrss/0.7/">
+			  LibGRSS is a library for easy management of RSS/Atom/Pie feeds.
+			  Includes methods to fetch, parse and handle XML documents, an implementation of PubSubHubBub client, an OPML parser and some more utility.
+			</package>
+			<package name="libxml-2.0" maintainers="Tomaž Vajngerl" gir="libxml2-2.0" c-docs="http://xmlsoft.org/html/">
+				Powerful and feature complete XML handling library.
+			</package>
+			<package name="template-glib-1.0" home="https://gitlab.gnome.org/GNOME/template-glib" gir="Template-1.0">
+				Template-GLib is a library to generate text from a template and user defined state.
+				Template-GLib allows you to access properties on GObjects as well as call
+simple methods via GObject-Introspection
+				Template-GLib does not use a language runtime, so it is safe to use from any GObject-Introspectable language.
+			</package>
+		</section>
+
+		<section name="Remote Display Systems &amp; Virtualization">
+			<package name="spice-client-glib-2.0" gir="SpiceClientGLib-2.0" home="http://spice-space.org/">
+				GObject for communicating with Spice servers.
+			</package>
+			<package name="spice-client-gtk-3.0" gir="SpiceClientGtk-3.0" home="http://spice-space.org/">
+				A Gtk client and libraries for SPICE remote desktop servers.
+			</package>
+			<package name="spice-protocol" home="http://spice-space.org/">
+				Headers for SPICE protocol.
+			</package>
+			<package name="gtk-vnc-2.0" gir="GtkVnc-2.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+				A VNC viewer widget for GTK+.
+			</package>
+			<package name="libguestfs-gobject-1.0" gir="Guestfs-1.0" home="http://libguestfs.org/" c-docs="http://libguestfs.org/guestfs-gobject.3.html">
+				GObject binding for libguestfs, a set of tools for accessing and
+				modifying virtual machine disk images.
+			</package>
+			<package name="gvnc-1.0" gir="GVnc-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+				VNC gobject wrapper.
+			</package>
+			<package name="gvncpulse-1.0" flags="--pkg gvnc-1.0" gir="GVncPulse-1.0" home="https://wiki.gnome.org/Projects/gtk-vnc">
+				A bridge to the Pulse Audio system for VNC.
+				It allows VNC clients to play back audio on the local system
+			</package>
+			<package name="libvirt-glib-1.0" gir="LibvirtGLib-1.0" home="http://libvirt.org/">
+				API for controlling virtualization engines. (openvz,kvm,qemu,virtualbox,xen,etc)
+			</package>
+			<package name="libvirt-gobject-1.0" flags="--pkg gio-2.0" gir="LibvirtGObject-1.0" home="http://libvirt.org/">
+				GLib and GObject mapping of libvirt.
+			</package>
+			<package name="libvirt-gconfig-1.0" gir="LibvirtGConfig-1.0" home="http://libvirt.org/">
+				libvirt object APIs for processing object configuration.
+			</package>
+		</section>
+
+		<section name="Other">
+			<package name="colord" flags="--pkg gio-2.0" home="http://www.freedesktop.org/software/colord/" c-docs="http://www.freedesktop.org/software/colord/gtk-doc/" gir="Colord-1.0">
+				System daemon for managing color devices.
+			</package>
+			<package name="colord-gtk" flags="--pkg colord --pkg gio-2.0 --pkg gtk+-3.0" home="http://www.freedesktop.org/software/colord/" gir="ColordGtk-1.0">
+				GTK integration for libcolord.
+			</package>
+			<package name="gedit" gir="Gedit-3.0" home="http://projects.gnome.org/gedit/" maintainers="Andrea Del Signore" c-docs="https://developer-old.gnome.org/gedit/unstable/">
+				Official text editor of the GNOME desktop environment.
+			</package>
+			<package name="poppler-glib" gir="Poppler-0.18" home="https://poppler.freedesktop.org/" c-docs="https://poppler.freedesktop.org/api/glib/">
+				PDF rendering library.
+			</package>
+			<package deprecated="true" name="gdl-1.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="https://developer-old.gnome.org/gdl/unstable/">
+				The GNOME Devtools Library package provides a docking system and several utilities useful to GNOME
+				development tools and GNOME applications in general.
+			</package>
+			<package name="gdl-3.0" maintainers="Nicolas Joseph" gir="Gdl-3" c-docs="https://developer-old.gnome.org/gdl/unstable/">
+				The GNOME Devtools Library package provides a docking system and several utilities useful to GNOME
+				development tools and GNOME applications in general.
+			</package>
+			<package name="enchant" home="https://abiword.github.io/enchant/">
+				A wrapper library for generic spell checking.
+			</package>
+			<package name="libepc-1.0" gir="Epc-1.0">
+				The Easy Publish and Consume library (libepc) provides an easy method to publish data
+				using HTTPS, announce that information via DNS-SD, find that information and finally
+				consume it.
+			</package>
+			<package name="avahi-gobject" home="http://www.avahi.org/" maintainers="Sebastian Noack">
+				Avahi is a system which facilitates service discovery on a local network via the mDNS/DNS-SD protocol suite.
+				This enables you to plug your laptop or computer into a network and instantly be able to view other people
+				who you can chat with, find printers to print to or find files being shared. Compatible technology is found
+				in Apple MacOS X (branded  Bonjour and sometimes Zeroconf).
+			</package>
+			<package name="avahi-client" flags="--pkg avahi-gobject" home="http://www.avahi.org/" maintainers="Sebastian Noack">
+				The Avahi package is a system which facilitates service discovery on a local network.
+			</package>
+			<package name="champlain-0.12" deprecated="true" flags="--pkg clutter-1.0" home="http://projects.gnome.org/libchamplain/" gir="Champlain-0.12">
+				Libchamplain is a C library providing a ClutterActor to display maps.
+			</package>
+			<package name="libwnck-3.0" gir="Wnck-3.0" c-docs="https://developer-old.gnome.org/libwnck/unstable/">
+				Library to manage X windows and workspaces (via pagers, tasklists, etc.)
+			</package>
+			<package name="libpeas-1.0" gir="Peas-1.0" c-docs="https://developer-old.gnome.org/libpeas/unstable/">
+				libpeas is a gobject-based plugins engine, and is targetted at giving every application
+				the chance to assume its own extensibility.
+			</package>
+			<package name="libnotify" gir="Notify-0.7" c-docs="https://developer-old.gnome.org/libnotify/unstable/">
+			    libnotify is a library that sends desktop notifications to a notification daemon, as defined in
+			    the Desktop Notifications spec. These notifications can be used to inform the user about an event
+			    or display some form of information without getting in the user's way.
+			</package>
+			<package name="libgsf-1">
+			    Structured File Library (GSF) is an I/O abstraction for reading/writing compound files.
+			</package>
+			<package name="udisks2" gir="UDisks-2.0">
+				Disk Management Service.
+			</package>
+			<package name="libarchive" home="http://www.libarchive.org/">
+				Library that can create and read several streaming archive formats.
+			</package>
+			<package name="gudev-1.0" home="https://gitlab.gnome.org/GNOME/libgudev" gir="GUdev-1.0">
+			  GUdev (libgudev) is a library with GObject bindings to libudev, now made independent, after being part of udev itself, and later systemd.
+			</package>
+			<package name="liboobs-1">
+				GObject based interface to system-tools-backends.
+			</package>
+			<package name="libosinfo-1.0" gir="Libosinfo-1.0" flags="--pkg gio-2.0">
+				Library for managing information about operating systems and hypervisors.
+			</package>
+			<package name="packagekit-glib2" gir="PackageKitGlib-1.0" home="http://www.packagekit.org/" c-docs="http://www.freedesktop.org/software/PackageKit/gtk-doc/">
+				Library for accessing PackageKit using GLib.
+			</package>
+			<package name="pkcs11" gir="P11Kit-1.0" c-docs="http://p11-glue.freedesktop.org/doc/p11-kit/reference.html" home="http://p11-glue.freedesktop.org/p11-kit.html">
+				Provides a way to load and enumerate PKCS#11 modules.
+				Provides a standard configuration setup for installing PKCS#11
+				modules in such a way that they're discoverable.
+			</package>
+			<package name="accountsservice" gir="AccountsService-1.0">
+				Query and manipulate user account information 
+			</package>
+			<package name="gobject-introspection-1.0" gir="GIRepository-2.0" home="https://gi.readthedocs.io" c-docs="https://developer-old.gnome.org/gi/unstable/">
+				GObject introspection is a middleware layer between C libraries (using GObject) and language bindings.
+			</package>
+			<package name="geocode-glib-2.0" gir="GeocodeGlib-2.0">
+				Geocode Helper library
+			</package>
+			<package name="geocode-glib-1.0" gir="GeocodeGlib-1.0" c-docs="https://developer-old.gnome.org/geocode-glib/unstable/">
+				Geocode Helper library
+			</package>
+			<package name="libdmapsharing-3.0" flags="--pkg gio-2.0 --pkg libsoup-2.4 --pkg avahi-gobject --pkg gstreamer-1.0" gir="DMAP-3.0" c-docs="https://www.flyn.org/projects/libdmapsharing/doc/">
+				A library that implements the DMAP family of protocols
+			</package>
+			<package name="gcr-4" gir="Gcr-4" c-docs="https://gnome.pages.gitlab.gnome.org/gcr/gcr-4/">
+				A library for bits of crypto UI and parsing
+			</package>
+			<package name="gcr-3" deprecated="true" gir="Gcr-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
+				A library for bits of crypto UI and parsing
+			</package>
+			<package name="gcr-ui-3" deprecated="true" gir="GcrUi-3" c-docs="https://developer-old.gnome.org/gcr/unstable/">
+				GCR	widgets
+			</package>
+			<package name="gck-2" gir="Gck-2" c-docs="https://gnome.pages.gitlab.gnome.org/gcr/gck-2/">
+				GLib wrapper library for PKCS#11
+			</package>
+			<package name="gck-1" deprecated="true" gir="Gck-1" c-docs="https://developer-old.gnome.org/gck/unstable/">
+				GLib wrapper library for PKCS#11
+			</package>
+			<package name="libgit2-glib-1.0" gir="Ggit-1.0">
+				GLib wrapper library around the libgit2 git access library.
+			</package>
+			<package name="libgitg-1.0" flags="--pkg libgit2-glib-1.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="Gitg-1.0">
+				Small, fast and convenient set of widgets to visualize the history of git repositories.
+			</package>
+			<package name="libgitg-ext-1.0" flags="--pkg libgitg-1.0 --pkg libgit2-glib-1.0 --pkg gee-0.8 --pkg gtk+-3.0" gir="GitgExt-1.0">
+				Gitg extensions library.
+			</package>
+			<package name="appstream" gir="AppStream-1.0" home="https://www.freedesktop.org/wiki/Distributions/AppStream/" c-docs="https://www.freedesktop.org/software/appstream/docs/api/">
+				AppStream is a cross-distro effort for enhancing the way we interact with the software
+				repositories provided by the distribution by standardizing sets of additional metadata.
+			</package>
+			<package deprecated="true" name="dbus-glib-1" gir="DBusGLib-1.0" c-docs="https://developer-old.gnome.org/dbus-glib/unstable/">
+				Initial D-Bus Support (Do not use in new projects, use DBus support included in GLib instead)
+			</package>
+			<package name="jsonrpc-glib-1.0" gir="Jsonrpc-1.0">
+				Jsonrpc-GLib is a library to communicate with JSON-RPC based peers in either a synchronous or asynchronous fashion.
+				It also allows communicating using the GVariant serialization format instead of JSON when both peers support it.
+				You might want that when communicating on a single host to avoid parser overhead and memory-allocator fragmentation
+			</package>
+		</section>
+	</section>
+
+	<section name="Ubuntu">
+		<package name="unity">
+			A library for instrumenting- and integrating with all aspects of the Unity shell.
+		</package>
+		<package name="unity-trace">
+			Logging using Unity's Trace system.
+		</package>
+		<package name="dee-1.0" gir="Dee-1.0">
+			Library to provide objects allowing to create Model-View-Controller type programs across DBus.
+		</package>
+		<package name="snapd-glib" gir="Snapd-1">
+			Library providing a GLib interface to snapd
+		</package>
+		<package name="zeitgeist-2.0" flags="--pkg gio-2.0 --pkg zeitgeist-datamodel-2.0" home="https://zeitgeist.freedesktop.org/" c-docs="https://zeitgeist.freedesktop.org/documentation/latest/C/index.html">
+			Zeitgeist is a service which logs the users's activities and events (files opened, websites
+			visites, conversations held with other people, etc.) and makes relevant information available
+			to other applications. It is able to establish relationships between items based on similarity
+			and usage patterns.
+		</package>
+		<package name="zeitgeist-datamodel-2.0" flags="--pkg gio-2.0" home="https://zeitgeist.freedesktop.org/" c-docs="https://zeitgeist.freedesktop.org/documentation/latest/C/index.html">
+			Zeitgeist, data model
+		</package>
+		<package name="dbusmenu-glib-0.4" gir="Dbusmenu-0.4" home="https://launchpad.net/dbusmenu">
+			A small little library that was created by pulling out some comon code out of indicator-applet.
+			It passes a menu structure across DBus so that a program can create a menu simply without worrying
+			about how it is displayed on the other side of the bus.
+		</package>
+		<package name="dbusmenu-gtk3-0.4" flags="--pkg gtk+-3.0 --pkg dbusmenu-glib-0.4" gir="DbusmenuGtk3-0.4" home="https://launchpad.net/dbusmenu">
+			A small little library that was created by pulling out some comon code out of indicator-applet.
+			It passes a menu structure across DBus so that a program can create a menu simply without worrying
+			about how it is displayed on the other side of the bus.
+		</package>
+	</section>
+
+	<section name="Pantheon">
+		<package name="granite" vapi-image-source="https://github.com/elementary/granite/tree/master/doc/images/" home="https://github.com/elementary/granite/tree/master">
+			Granite is an extension of GTK+. Among other things, it provides complex widgets and convenience functions designed for use in apps built for elementary OS.
+		</package>
+		<package name="granite-7" vapi-image-source="https://github.com/elementary/granite/tree/main/doc/images/" home="https://github.com/elementary/granite">
+			Granite is a platform library for Gtk 4. It provides complex widgets and convenience functions designed for use in apps built for elementary OS.
+		</package>
+		<package name="switchboard-2.0" gir="Switchboard-1.0" home="https://github.com/elementary/switchboard">
+			Switchboard is a modular system settings hub containing plugs (settings panels)
+		</package>
+	</section>
+
+	<section name="SDL">
+		<package name="sdl2" home="https://www.libsdl.org/" c-docs="http://wiki.libsdl.org/CategoryAPI">
+			Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio,
+			keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software,
+			emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.
+		</package>
+		<package name="SDL2_gfx" home="http://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/" c-docs="https://www.ferzkopp.net/Software/SDL2_gfx/Docs/html/index.html">
+			Provides the basic drawing functions such as lines, circles or polygons provided by SDL_gfx on SDL2 against renderers of SDL2.
+		</package>
+		<package name="SDL2_image" home="https://www.libsdl.org/">
+			An image file loading library.
+		</package>
+		<package name="SDL2_mixer" home="https://www.libsdl.org/">
+			A sample multi-channel audio mixer library.
+		</package>
+		<package name="SDL2_net" home="https://www.libsdl.org/">
+			 A small sample cross-platform networking library, with a sample chat client and server application.
+			 The chat client uses the GUIlib GUI framework library.
+		</package>
+		<package name="SDL2_ttf" home="https://www.libsdl.org/">
+			A sample library which allows you to use TrueType fonts in your SDL applications. It comes with an example
+			program "showfont" which displays an example string for a given TrueType font file.
+		</package>
+		<package name="sdl2-android" home="https://www.libsdl.org/">
+			Android-specific API for SDL.
+		</package>
+		<package name="sdl2-ios" home="https://www.libsdl.org/">
+			IOS-specific API for SDL.
+		</package>
+		<package name="sdl2-windows" home="https://www.libsdl.org/">
+			Windows-specific API for SDL.
+		</package>
+	</section>
+
+	<section name="Databases &amp; Resource Description">
+		<package name="libpq" home="http://www.postgresql.org/" c-docs="http://www.postgresql.org/docs/8.1/static/libpq.html">
+			Client API for PostgreSQL.
+		</package>
+		<package name="mysql" home="http://www.mysql.com/">
+			Client API for MySQL.
+		</package>
+		<package name="tokyocabinet" home="http://fallabs.com/kyotocabinet/">
+			Kyoto Cabinet is a library of routines for managing a database.
+		</package>
+		<package name="rasqal" home="http://librdf.org/rasqal/" c-docs="http://librdf.org/rasqal/docs/api/index.html">
+			A free library that handles Resource Description Framework (RDF) query syntaxes, query construction and
+			query execution returning result bindings
+		</package>
+		<package name="raptor" home="http://librdf.org/raptor/">
+			A library that parses RDF/XML/N-Triples into RDF triples
+		</package>
+	</section>
+
+	<section name="System">
+		<package name="atasmart">
+			ATA S.M.A.R.T. Reading and Parsing Library
+		</package>
+		<package name="alsa" home="http://www.alsa-project.org/" maintainers="Michael 'Mickey' Lauer">
+			An alternative implementation of Linux sound support
+		</package>
+		<package name="libpulse-mainloop-glib">
+			A featureful, general-purpose sound server (client library)
+		</package>
+		<package name="libpulse-simple" flags="--pkg libpulse">
+			A featureful, general-purpose sound server (client library)
+		</package>
+		<package name="libpulse">
+			A featureful, general-purpose sound server (client library)
+		</package>
+		<package name="v4l2">
+			A universal control panel for Video for Linux Two (V4L2) devices
+		</package>
+		<package name="fuse" home="http://fuse.sourceforge.net/">
+			A library that makes it possible to implement a filesystem in a userspace program.
+		</package>
+		<package name="posix" maintainers="Michael 'Mickey' Lauer">
+			 The Portable Operating System Interface.
+		</package>
+		<package name="linux" maintainers="Michael 'Mickey' Lauer">
+			API for the Linux-based GNU systems.
+		</package>
+		<package name="libnl-3.0" maintainers="Michael 'Mickey' Lauer">
+			The libnl suite is a collection of libraries providing APIs to netlink protocol
+			based Linux kernel interfaces. 
+		</package>
+		<package name="hal">
+			These pages attempt to provide a specification and an implementation of a hardware
+			abstraction layer. 
+		</package>
+		<package name="x11" home="http://www.x.org" c-docs="https://www.x.org/releases/current/doc/libX11/libX11/libX11.html">
+			Binding to the X11 graphics library.
+		</package>
+		<package ignore="true" name="xcb" home="https://xcb.freedesktop.org/" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 client-side library.
+		</package>
+		<package name="xtst">
+			X11 Testing -- Resource extension library.
+		</package>
+		<package name="curses">
+			Character screen handling and windowing.
+		</package>
+		<package name="libusb-1.0">
+			A cross-platform user-mode library, for generic access to USB devices
+		</package>
+		<package name="gusb" flags="--pkg gio-2.0" gir="GUsb-1.0">
+			GLib wrapper around libusb-1.0
+		</package>
+		<package name="libftdi">
+			A library to talk to FTDI chips.
+		</package>
+		<package name="readline">
+			GNU readline library.
+		</package>
+		<package name="libmm-glib" gir="ModemManager-1.0" c-docs="https://developer-old.gnome.org/ModemManager/unstable/">
+			ModemManager provides a unified high level API for communicating
+			with (mobile broadband) modems.
+		</package>
+		<package name="fwupd" gir="Fwupd-2.0" home="https://fwupd.org/" c-docs="https://fwupd.github.io/">
+			This project aims to make updating firmware on Linux automatic, safe and reliable.
+		</package>
+		<package name="libportal" gir="Xdp-1.0" home="https://github.com/flatpak/libportal" c-docs="https://flatpak.github.io/libportal/">
+			libportal provides GIO-style async APIs for most Flatpak portals.
+		</package>
+	</section>
+
+	<section name="Multimedia">
+		<package name="libgvc" home="https://www.graphviz.org/">
+			Graph visualization software.
+		</package>
+		<package name="libmagic" home="http://libmagic.sourceforge.net/">
+			An image manipulation library.
+		</package>
+		<package name="tiff" home="http://www.libtiff.org/">
+			Library for manipulation of TIFF images.
+		</package>
+		<package name="pixman-1">
+			The pixel-manipulation library for X and cairo.
+		</package>
+		<package name="taglib_c">
+			TagLib Audio Meta-Data Library.
+		</package>
+	</section>
+
+	<section name="Other">
+		<package name="bump-0.1" home="https://github.com/nemequ/bump" maintainers="Evan Nemerson">
+			Bump is a library designed to make asynchronous programming easy by providing high-level data
+			structures for concurrency management, including multi-threading and main loop callbacks, in
+			GObject/GIO based projects, especially those written in Vala.
+		</package>
+	 	<package name="libproxy-1.0">
+	 		Automatic proxy configuration management library.
+	 	</package>
+		<package name="libesmtp" maintainers="Adrien Bustany">
+			LibESMTP is a library to manage posting (or submission of) electronic mail using SMTP to a
+			preconfigured Mail Transport Agent (MTA) such as Exim. It may be used as part of a Mail
+			User Agent (MUA) or another program that must be able to post electronic mail but where mail
+			functionality is not the program's primary purpose.
+	 	</package>
+		<package name="loudmouth-1.0">
+			Loudmouth is a C library that enables applications to use the Jabber protocol. It is designed
+			to be cross platform, and straightforward to use.
+	 	</package>
+		<package name="libdaemon">
+			Libdaemon is a leightweight C library which eases the writing of UNIX daemons.
+	 	</package>
+		<package name="purple" maintainers="Adrien Bustany">
+			IM library extracted from Pidgin.
+	 	</package>
+		<package name="libosso">
+			Libosso is a wrapper library for user applications for platform-specific, frequently-used D-Bus services.
+	 	</package>
+		<package name="orc-0.4">
+			The Open Resource Container is a general-purpose, platform-independant file format for storing many different
+			types of data that applications may need.
+		</package>
+		<package name="bzlib">
+			Libraries and include files for the bzip2 compressor library.
+		</package>
+		<package name="zlib" home="http://www.zlib.net/">
+			A Massively Spiffy Yet Delicately Unobtrusive Compression Library
+		</package>
+		<package name="lua">
+			Programming language designed for extending applications.
+		</package>
+		<package name="gsl" maintainer="Matias De la Puente" home="http://www.gnu.org/software/gsl/manual/html_node/" c-docs="http://www.gnu.org/software/gsl/manual/html_node/">
+			A collection of numerical routines for scientific computing.
+		</package>
+		<package name="gpseq-1.0" maintainer="Космическое П." home="https://gitlab.com/kosmospredanie/gpseq/" c-docs="https://gitlab.com/kosmospredanie/gpseq/-/jobs/artifacts/master/file/gtkdoc/html/index.html?job=build">
+			A parallelism library for Vala and GObject.
+		</package>
+		<external-package name="libvala" home="https://wiki.gnome.org/Projects/Vala" link="https://gnome.pages.gitlab.gnome.org/vala/docs/vala/index.htm">
+			valac, the Vala compiler, is a self-hosting compiler that translates Vala source code
+			into C source and header files. It uses the GObject type system to create classes and
+			interfaces declared in the Vala source code.
+		</external-package>
+	</section>
+
+	<section name="Vala Extra Vapis">
+		<package name="aubio" home="http://www.abisource.com/">
+			Plugins to allow abiword to import file types from other wordprocessors.
+		</package>
+		<package name="augeas">
+			A library for changing configuration files.
+		</package>
+		<package name="cairo-xcb" home="http://cairographics.org/">
+			Cairo - multi-platform 2D graphics library
+		</package>
+		<package name="check" flags="--pkg posix --pkg glib-2.0" home="https://libcheck.github.io/check/" c-docs="https://libcheck.github.io/check/doc/doxygen/html/check_8h.html">
+			Check is a unit testing framework for C. It features a simple interface for
+			defining unit tests, putting little in the way of the developer. Tests are run
+			in a separate address space, so both assertion failures and code errors that
+			cause segmentation faults or other signals can be caught. Test results are reportable
+			in the following: Subunit, TAP, XML, and a generic logging format.
+		</package>
+		<package name="cpufreq" home="http://cvs.mandriva.com/cgi-bin/cvsweb.cgi/SPECS/cpufreq/">
+			An initscript to set CPU frequency settings.
+		</package>
+		<package name="ctpl" flags="--pkg gio-2.0" home="http://ctpl.tuxfamily.org/">
+			CTPL is a template library written in C. It allows fast and easy parsing of
+			templates from many sources (including in-memory data and local and remote
+			streaming, thanks to GIO) and fine control over template parsing environment.
+		</package>
+		<package name="cups" home="http://www.cups.org/">
+			CUPS printing system.
+		</package>
+		<package name="fcgi" home="http://www.fastcgi.com/#TheDevKit">
+			A language independent, scalable, open extension to CGI that
+			provides high performance without the limitations of server specific APIs.
+		</package>
+		<package name="gcrypt" home="http://www.gnupg.org/">
+			A general purpose crypto library based on the code used
+			in GNU Privacy Guard.  This is a development version.
+		</package>
+		<package name="glesv2" home="https://www.khronos.org/opengles/2_X/">
+			The Standard for Embedded Accelerated 3D Graphics.
+		</package>
+		<package name="glfw3" home="http://www.glfw.org">
+			A free, open source, multi-platform library for OpenGL application
+			development that provides a powerful API for handling operating system specific
+			tasks such as opening an OpenGL window, reading keyboard, mouse, joystick and
+			time input, creating threads, and more.
+		</package>
+		<package name="gpg-error" home="ftp://ftp.gnupg.org/gcrypt/libgpg-error/">
+			This is a library that defines common error values for all GnuPG
+			components.  Among these are GPG, GPGSM, GPGME, GPG-Agent, libgcrypt,
+			pinentry, SmartCard Daemon and possibly more in the future.
+		</package>
+		<package name="gpgme" home="http://www.gnupg.org/related_software/gpgme/">
+			A library designed to make access to GnuPG
+			easier for applications. It provides a high-level Crypto API for
+			encryption, decryption, signing, signature verification, and key
+			management. Currently it uses GnuPG as its back-end, but the API is not
+			restricted to this engine.
+		</package>
+		<package name="kiss_fft" home="http://sourceforge.net/projects/kissfft/">
+			A Fast Fourier Transform based up on the principle, "Keep It Simple, Stupid." Kiss FFT is a very small,
+			reasonably efficient, mixed radix FFT library that can use either fixed or floating point data types.
+		</package>
+		<package name="leveldb" home="https://github.com/google/leveldb#readme">
+			A fast key-value storage library written at Google that provides an
+			ordered mapping from string keys to string values.
+		</package>
+		<package name="libcolumbus" home="https://launchpad.net/libcolumbus">
+			A lightweight library for document indexing and fuzzy searching.
+		</package>
+		<package name="libcouchbase" home="http://www.couchbase.com/communities/c/getting-started">
+			The C library provides fast access to documents in Couchbase Server 2.0.
+			With JSON documents and Couchbase server 2.0 you have new ways to index
+			and query data stored in the cluster through views. This client library,
+			libcouchbase, also simplifies requests to Views through its handling of
+			HTTP transport.
+		</package>
+		<package name="libevent" home="http://sourceforge.net/projects/levent/">
+			Abstract asynchronous event notification library.
+			The libevent API provides a mechanism to execute a callback function
+			when a specific event occurs on a file descriptor or after a timeout
+			has been reached. libevent is meant to replace the asynchronous event
+			loop found in event driven network servers.
+		</package>
+		<package name="libgsasl" home="http://www.gnu.org/software/gsasl/">
+			The library includes support for the SASL framework
+			and at least partial support for the CRAM-MD5, EXTERNAL,
+			GSSAPI, ANONYMOUS, PLAIN, SECURID, DIGEST-MD5, LOGIN,
+			and NTLM mechanisms.
+		</package>
+		<package name="libmatheval" home="http://www.gnu.org/software/libmatheval/" c-docs="http://www.gnu.org/software/libmatheval/manual/libmatheval.html">
+			Library for parsing and evaluating symbolic expressions input as text
+		</package>
+		<package name="libmemcached" home="http://libmemcached.org/" c-docs="http://docs.libmemcached.org/">
+			Client library and command line tools for memcached server
+		</package>
+		<package name="libmemcachedutil" home="http://danga.com/memcached">
+			Libmemcached is a C and C++ client library to the memcached server.
+			It has been designed to be light on memory usage, thread safe, and provide full access to server side methods.
+			The libmemcachedutil library contains utility functions used by libmemcached.
+		</package>
+		<package name="libqpid-proton" home="http://qpid.apache.org/proton/">
+			Qpid Proton is a high-performance, lightweight messaging library. It can be used in the widest range of messaging
+			applications, including brokers, client libraries, routers, bridges, proxies, and more. Proton makes it trivial
+			to integrate with the AMQP 1.0 ecosystem from any platform, environment, or language.
+		</package>
+		<package name="librabbitmq" home="https://github.com/alanxz/rabbitmq-c">
+			This is a C-language AMQP client library for use with AMQP servers.
+		</package>
+		<package name="libserialport" home="http://sigrok.org/wiki/libserialport">
+			libserialport is a minimal library written in C that is intended to take care
+			of the OS-specific details when writing software that uses serial ports.
+			By writing your serial code to use libserialport, you enable it to work
+			transparently on any platform supported by the library.
+		</package>
+		<package name="libstemmer" home="http://snowball.tartarus.org">
+			Snowball stemming algorithms for use in Information Retrieval Snowball
+			provides access to efficient algorithms for calculating a "stemmed"
+			form of a word.  This is a form with most of the common morphological
+			endings removed; hopefully representing a common linguistic base form.
+			This is most useful in building search engines and information
+			retrieval software; for example, a search with stemming enabled should
+			be able to find a document containing "cycling" given the query
+			"cycles".
+		</package>
+		<package name="libsystemd-id128" home="http://www.freedesktop.org/wiki/Software/systemd">
+			This package provides the systemd-id128 shared library.
+		</package>
+		<package name="libsystemd-journal" home="http://www.freedesktop.org/wiki/Software/systemd">
+			This package provides the systemd-journal shared library.
+		</package>
+		<package name="libzmq" home="http://www.zeromq.org/">
+			The 0MQ lightweight messaging kernel is a library which extends the
+			standard socket interfaces with features traditionally provided by
+			specialised messaging middleware products. 0MQ sockets provide an
+			abstraction of asynchronous message queues, multiple messaging patterns,
+			message filtering (subscriptions), seamless access to multiple transport
+			protocols and more.
+		</package>
+		<package name="magic" home="http://opencircuitdesign.com/magic/index.html">
+			A very capable VLSI layout tool.
+		</package>
+		<package name="oniguruma" home="http://www.geocities.jp/kosako3/oniguruma/">
+			Oniguruma is a regular expressions library.
+			The characteristics of this library is that different character encoding
+			for every regular expression object can be specified.
+			(supported APIs: GNU regex, POSIX and Oniguruma native)
+		</package>
+		<package name="OpenCL" home="https://www.khronos.org/opencl/">
+			OpenCL (Open Computing Language) is the open, royalty-free standard for cross-platform, parallel programming of diverse processors found
+			in personal computers, servers, mobile devices and embedded platforms.			
+		</package>
+		<package name="opencv" home="http://opencv.org/" c-docs="http://docs.opencv.org/">
+			OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library.
+		</package>
+		<package name="pa_ringbuffer" home="http://portaudio.com/" c-docs="http://portaudio.com/docs/v19-doxydocs-dev/pa__ringbuffer_8h.html">
+			Single-reader single-writer lock-free ring buffer. 
+		</package>
+		<package name="portaudio" home="http://www.portaudio.com/">
+			PortAudio is a portable audio I/O library designed for cross-platform
+			support of audio. It uses a callback mechanism to request audio
+			processing. Audio can be generated in various formats, including 32 bit
+			floating point, and will be converted to the native format internally.
+		</package>
+		<package name="portmidi" home="http://www-2.cs.cmu.edu/~music/portmusic/">
+			Real-time MIDI input/output, audio I/O library.
+		</package>
+		<package name="pwquality" home="https://github.com/libpwquality/libpwquality">
+			The library purpose is to provide common functions for password
+			quality checking and also scoring them based on their apparent randomness.
+			The library also provides a function for generating random passwords with good
+			pronounceability. The library supports reading and parsing of a configuration
+			file.
+		</package>
+		<package name="libqrencode" home="https://fukuchi.org/works/qrencode/" c-docs="https://fukuchi.org/works/qrencode/manual/index.html">
+			QRencode is a library to encode a string as a QR code and save it as a PNG image.
+		</package>
+		<package name="samplerate">
+			A Sample Rate Converter for audio.
+		</package>
+		<package name="sane-backends" home="http://www.sane-project.org">
+			Scanner Access Now Easy (SANE) is a universal scanner interface.  The
+			SANE application programming interface (API) provides standardized
+			access to any raster image scanner hardware (flatbed scanner,
+			hand-held scanner, video and still cameras, frame-grabbers, etc.).
+		</package>
+		<package name="sensors" home="http://www.lm-sensors.org/">
+			Hardware health monitoring for Linux.
+			Includes programs that show data from some sensor chips.
+			The interface /proc/bus/i2c/ is provided by loading kernel modules.
+		</package>
+		<package name="snappy" home="http://google.github.io/snappy/">
+			Fast compression and decompression library. It does not aim for maximum
+			compression, or compatibility with any other compression library; instead, it
+			aims for very high speeds and reasonable compression.
+		</package>
+		<package name="sndfile" home="http://www.gnustep.org/" c-docs="http://www.gnustep.org/developers/documentation.html">
+			GNUstep GUI package.
+		</package>
+		<package name="tcc" home="http://bellard.org/tcc">
+			Tiny C Compiler.
+		</package>
+		<package name="uchardet" home="https://github.com/BYVoid/uchardet">
+			Universal charset detection.
+		</package>
+		<package name="uuid" home="http://www.ossp.org/pkg/lib/uuid/">
+			Universally Unique Identifier library.
+		</package>
+		<package name="xcb-composite" flags="--pkg xcb --pkg xcb-xfixes --pkg xcb-shape --pkg xcb-render" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Composite Extension C library.
+		</package>
+		<package name="xcb-damage" flags="--pkg xcb --pkg xcb-xfixes --pkg xcb-shape --pkg xcb-render" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Damage Extension C library.
+		</package>
+		<package name="xcb-dri2" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 DRI2 Extension C library.
+		</package>
+		<package name="xcb-dri3" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 DRI3 Extension C library.
+		</package>
+		<package name="xcb" home="https://xcb.freedesktop.org/" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			The X protocol C-language Binding (XCB) is a replacement for Xlib featuring a small footprint, latency hiding,
+			direct access to the protocol, improved threading support, and extensibility.
+		</package>
+		<package name="xcb-icccm" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			XCB utility module for client- and WM-side ICCCM helpers.
+		</package>
+		<package name="xcb-present" flags="--pkg xcb --pkg xcb-xfixes --pkg xcb-shape --pkg xcb-render --pkg xcb-sync --pkg xcb-randr" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Present Extension C library.
+		</package>
+		<package name="xcb-randr" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 RandR Extension C library.
+		</package>
+		<package name="xcb-render" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			XCB utility module for the Render extension.
+		</package>
+		<package name="xcb-res" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Resource Extension library.
+		</package>
+		<package name="xcb-shape" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Shape Extension library.
+		</package>
+		<package name="xcb-shm" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Shared Memory Extension library.
+		</package>
+		<package name="xcb-sync" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Sync Extension library.
+		</package>
+		<package name="xcb-xfixes" flags="--pkg xcb --pkg xcb-shape --pkg xcb-render" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Xfixes Extension library.
+		</package>
+		<package name="xcb-xinerama" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 Xinerama Extension library.
+		</package>
+		<package name="xcb-xtest" flags="--pkg xcb" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 XTEST Extension library.
+		</package>
+		<package name="xcb-xv" flags="--pkg xcb --pkg xcb-shm" home="https://xcb.freedesktop.org" c-docs="https://xcb.freedesktop.org/XcbApi/">
+			X11 video Extension library.
+		</package>
+	</section>
+
+</packages>

@@ -11,6 +11,7 @@ import {
     Dependency,
     DependencyManager,
     NO_TSDATA,
+    PackageDataParser,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
@@ -45,6 +46,7 @@ import type {
 export class TypeDefinitionGenerator implements Generator {
     protected log: Logger
     protected dependencyManager: DependencyManager
+    protected packageData?: PackageDataParser
 
     /** Override config, used to override the config temporarily to generate both ESM and CJS for NPM packages */
     protected overrideConfig: Partial<GenerateConfig> = {}
@@ -60,6 +62,9 @@ export class TypeDefinitionGenerator implements Generator {
     constructor(protected readonly _config: GenerateConfig) {
         this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
         this.dependencyManager = DependencyManager.getInstance(this.config)
+        if (this.config.package) {
+            this.packageData = new PackageDataParser(this.config)
+        }
     }
 
     /**
@@ -1679,6 +1684,10 @@ export class TypeDefinitionGenerator implements Generator {
     }
 
     public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[] = []) {
+        if (this.config.package && this.packageData) {
+            await this.packageData.start()
+        }
+
         for (const girModule of girModules) {
             await this.exportModule(girModule, girModules, girModulesGrouped)
         }

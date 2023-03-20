@@ -9,7 +9,7 @@ await build({
     // target: "firefox78", // Since GJS 1.65.90
     target: "firefox91", // Since GJS 1.71.1
     // target: firefox102 // Since GJS 1.73.2
-    format: 'esm',
+    format: 'cjs',
     platform: 'node',
     external: ['node-gtk', 'gi://*'],
 })

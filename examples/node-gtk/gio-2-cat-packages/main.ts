@@ -8,8 +8,8 @@
  * the label should show a translation of 'Print help'
  */
 import "@gir/node-gtk/node-ambient"
-import gi from "node-gtk";
-import Gio from "@gir/node-gio-2.0";
+import gi = require("node-gtk");
+const Gio = gi.require("Gio", "2.0");
 
 function cat(filename: string) {
     const file = Gio.fileNewForPath(filename);

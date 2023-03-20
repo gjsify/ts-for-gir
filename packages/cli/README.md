@@ -493,3 +493,16 @@ To use ambient modules, the `ambient.d.ts` file must be imported either in the c
 > Here are some examples demonstrating the usage of ambient modules:
 > * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - Gjs example with `--package` option
 > * [examples/node-gtk/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/node-gtk/gio-2-cat-packages) - node-gtk example with `--package` option
+
+### Without version specifier
+
+The ambient modules declarations are only defined with the version specifier to prevent version conflicts e.g. between Gtk-3.0 and Gtk-4.0.
+If you want to import the modules without the version specifier you can define the module declarations by yourself, similarly to this:
+
+```ts
+// gtk4-ambient.d.ts
+declare module "gi://Gtk" {
+  import Gtk from "gi://Gtk?version=4.0";
+  export default Gtk;
+}
+```

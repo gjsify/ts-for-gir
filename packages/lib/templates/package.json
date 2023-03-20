@@ -14,9 +14,14 @@
     "version": "<%- APP_VERSION %>",
     <%_ } _%>
     "description": "<%- PACKAGE_DESC %>",
-    "main": "<%- entryPointName %>.js",
+    <%_ if (moduleType === 'esm') { _%>
+    "type": "module",
     "module": "<%- entryPointName %>.js",
-    "types": "<%- entryPointName %>.d.ts",
+    <%_ } else { _%>
+    "type": "commonjs",
+    "module": "<%- entryPointName %>.mjs",
+    <%_ } _%>
+    "main": "<%- entryPointName %>.js",
     "exports": {
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
       "./tsconfig.alias.json": "./tsconfig.alias.json",
@@ -28,20 +33,36 @@
       "./node-ambient": "./node-ambient.d.ts",
       <%_ } _%>
       ".": {
-        "import": "./<%- entryPointName %>.js",
-        "default": "./<%- entryPointName %>.js",
-        "types": "./<%- entryPointName %>.d.ts"
-      }
-    },
-    "typesVersions": {
-      "*": {
-          ".": [
-              "<%- entryPointName %>.d.ts"
-          ]
+        <%_ if (moduleType === 'esm') { _%>
+        "import": {
+          "types": "./<%- entryPointName %>.d.ts",
+          "default": "./<%- entryPointName %>.js"
+        },
+        "require": {
+          "types": "./<%- entryPointName %>.d.cts",
+          "default": "./<%- entryPointName %>.cjs"
+        }
+        <%_ } else { _%>
+        "import": {
+          "types": "./<%- entryPointName %>.d.mts",
+          "default": "./<%- entryPointName %>.mjs"
+        },
+        "require": {
+          "types": "./<%- entryPointName %>.d.ts",
+          "default": "./<%- entryPointName %>.js"
+        }
+        <%_ } _%>
       }
     },
     "scripts": {
-      "test": "tsc --noEmit <%- entryPointName %>.d.ts"
+      "test": "yarn test:esm && yarn test:cjs",
+      <%_ if (moduleType === 'esm') { _%>
+      "test:esm": "tsc --noEmit <%- entryPointName %>.d.ts",
+      "test:cjs": "tsc --noEmit <%- entryPointName %>.d.cts"
+      <%_ } else { _%>
+      "test:esm": "tsc --noEmit <%- entryPointName %>.d.mts",
+      "test:cjs": "tsc --noEmit <%- entryPointName %>.d.ts"
+      <%_ } _%>
     },
     "dependencies": {
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
@@ -54,6 +75,9 @@
       "node-gtk": "*"
     },
     <%_ } _%>
+    "devDependencies": {
+      "typescript": "^*"
+    },
     "keywords": [<%- PACKAGE_KEYWORDS %>],
     "author": "<%- APP_NAME %>",
     "license": "Apache-2.0",

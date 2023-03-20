@@ -2,28 +2,31 @@
     "name": "@gir/gobject-2.0",
     "version": "2.74.0-3.0.0-beta.10",
     "description": "TypeScript type definitions for GObject-2.0, generated from library version 2.74.0",
-    "main": "gobject-2.0.js",
+    "type": "module",
     "module": "gobject-2.0.js",
-    "types": "gobject-2.0.d.ts",
+    "main": "gobject-2.0.js",
     "exports": {
         ".": {
-            "import": "./gobject-2.0.js",
-            "default": "./gobject-2.0.js",
-            "types": "./gobject-2.0.d.ts"
-        }
-    },
-    "typesVersions": {
-        "*": {
-            ".": [
-                "gobject-2.0.d.ts"
-            ]
+            "import": {
+                "types": "./gobject-2.0.d.ts",
+                "default": "./gobject-2.0.js"
+            },
+            "require": {
+                "types": "./gobject-2.0.d.cts",
+                "default": "./gobject-2.0.cjs"
+            }
         }
     },
     "scripts": {
-        "test": "tsc --noEmit gobject-2.0.d.ts"
+        "test": "yarn test:esm && yarn test:cjs",
+        "test:esm": "tsc --noEmit gobject-2.0.d.ts",
+        "test:cjs": "tsc --noEmit gobject-2.0.d.cts"
     },
     "dependencies": {
         "@gir/glib-2.0": "workspace:^"
+    },
+    "devDependencies": {
+        "typescript": "^*"
     },
     "keywords": [
         "Gir",

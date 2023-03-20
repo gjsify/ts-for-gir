@@ -87,15 +87,19 @@ export class TemplateProcessor {
      * Loads and renders a template and gets the rendered templates back
      * @param templateFilename
      */
-    public async load(templateFilename: string): Promise<{ prepend: string; append: string }> {
+    public async load(
+        templateFilename: string,
+        options: Partial<ejs.Options> = {},
+        overrideTemplateData: TemplateData = {},
+    ): Promise<{ prepend: string; append: string }> {
         const fileContent = await this.read(templateFilename)
-        const prepend = await this.render(fileContent)
+        const prepend = await this.render(fileContent, options, overrideTemplateData)
         let append = ''
 
         const appendTemplateFilename = this.getAppendTemplateName(templateFilename)
         if (this.exists(appendTemplateFilename)) {
             const appendFileContent = await this.read(appendTemplateFilename)
-            append = await this.render(appendFileContent)
+            append = await this.render(appendFileContent, options, overrideTemplateData)
         }
 
         return { prepend, append }
@@ -104,11 +108,20 @@ export class TemplateProcessor {
     /**
      * Loads and renders all templates in a directory and gets the rendered templates back
      * @param templateDirname
+     * @param fileExtension
+     * @param options EJS options
+     * @param overrideTemplateData Override template data if you want
+     * @returns The rendered templates
      */
-    public async loadAll(templateDirname: string, fileExtension: string): Promise<{ [path: string]: string }> {
+    public async loadAll(
+        templateDirname: string,
+        fileExtension: string,
+        options: Partial<ejs.Options> = {},
+        overrideTemplateData: TemplateData = {},
+    ): Promise<{ [path: string]: string }> {
         const fileContents = await this.readAll(templateDirname, fileExtension)
         for (const file of Object.keys(fileContents)) {
-            fileContents[file] = await this.render(fileContents[file])
+            fileContents[file] = await this.render(fileContents[file], options, overrideTemplateData)
         }
         return fileContents
     }
@@ -120,7 +133,9 @@ export class TemplateProcessor {
      * @param outputFilename The filename of the output file
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param content A (optional) string that should be appended to the rendered template
-     * @return The rendered (and if possible prettified) template string
+     * @param options EJS options
+     * @param overrideTemplateData Override template data if you want
+     * @return The rendered template string
      */
     public async create(
         templateFilename: string,
@@ -128,8 +143,10 @@ export class TemplateProcessor {
         outputFilename: string,
         prependEnv = true,
         content = '',
+        options: Partial<ejs.Options> = {},
+        overrideTemplateData: TemplateData = {},
     ): Promise<string> {
-        const { prepend, append } = await this.load(templateFilename)
+        const { prepend, append } = await this.load(templateFilename, options, overrideTemplateData)
         const code = prepend + content + append
         await this.write(code, baseOutputPath, outputFilename, prependEnv)
         return code
@@ -143,6 +160,8 @@ export class TemplateProcessor {
      * @param outputDirname The child output directory of the base output directory where the templates should be written to
      * @param prependEnv A (optional) boolean that indicates if the environment should be prepended to the output path
      * @param append A (optional) string that should be appended to the rendered template
+     * @param options EJS options
+     * @param overrideTemplateData Override template data if you want
      * @return The rendered (and if possible prettified) templates
      */
     public async createAll(
@@ -152,8 +171,10 @@ export class TemplateProcessor {
         outputDirname: string,
         prependEnv = true,
         append = '',
+        options: Partial<ejs.Options> = {},
+        overrideTemplateData: TemplateData = {},
     ) {
-        const renderedTpls = await this.loadAll(templateDirname, fileExtension)
+        const renderedTpls = await this.loadAll(templateDirname, fileExtension, options, overrideTemplateData)
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(renderedTpls)) {
             const destPath = getDestPath(baseOutputPath, outputDirname, filename)
@@ -195,7 +216,18 @@ export class TemplateProcessor {
         return Promise.resolve(outputPath)
     }
 
-    protected async render(templateString: string, options: Partial<ejs.Options> = {}): Promise<string> {
+    /**
+     *
+     * @param templateString The template content string that should be rendered
+     * @param options EJS options
+     * @param overrideTemplateData Override template data if you want
+     * @returns
+     */
+    protected async render(
+        templateString: string,
+        options: Partial<ejs.Options> = {},
+        overrideTemplateData: TemplateData = {},
+    ): Promise<string> {
         try {
             const renderedTpl = await ejs.render(
                 templateString,
@@ -203,6 +235,7 @@ export class TemplateProcessor {
                     ...this.config,
                     ...this.data,
                     packageName: this.packageName,
+                    ...overrideTemplateData,
                 },
                 {
                     async: true,

@@ -4,7 +4,7 @@
     "lib": ["ESNext"],
     "types": ["node"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node"
   },
   "include": ["@gir/node-gtk/node-ambient"],

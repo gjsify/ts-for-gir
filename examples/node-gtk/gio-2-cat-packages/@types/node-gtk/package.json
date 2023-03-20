@@ -2,26 +2,26 @@
     "name": "@gir/node-gtk",
     "version": "3.0.0-beta.10",
     "description": "TypeScript type definitions for node-gtk",
+    "type": "commonjs",
+    "module": "node-gtk.mjs",
     "main": "node-gtk.js",
-    "module": "node-gtk.js",
-    "types": "node-gtk.d.ts",
     "exports": {
         "./node-ambient": "./node-ambient.d.ts",
         ".": {
-            "import": "./node-gtk.js",
-            "default": "./node-gtk.js",
-            "types": "./node-gtk.d.ts"
-        }
-    },
-    "typesVersions": {
-        "*": {
-            ".": [
-                "node-gtk.d.ts"
-            ]
+            "import": {
+                "types": "./node-gtk.d.mts",
+                "default": "./node-gtk.mjs"
+            },
+            "require": {
+                "types": "./node-gtk.d.ts",
+                "default": "./node-gtk.js"
+            }
         }
     },
     "scripts": {
-        "test": "tsc --noEmit node-gtk.d.ts"
+        "test": "yarn test:esm && yarn test:cjs",
+        "test:esm": "tsc --noEmit node-gtk.d.mts",
+        "test:cjs": "tsc --noEmit node-gtk.d.ts"
     },
     "dependencies": {
         "@gir/node-gio-2.0": "workspace:^",
@@ -30,6 +30,9 @@
     },
     "peerDependencies": {
         "node-gtk": "*"
+    },
+    "devDependencies": {
+        "typescript": "^*"
     },
     "keywords": [
         "Gir",

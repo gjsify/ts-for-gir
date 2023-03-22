@@ -127,10 +127,18 @@ export const cloneDeep = lodash.cloneDeep
  * Split a package name into namespace and version
  */
 export const splitModuleName = (packageName: string): { packageName: string; namespace: string; version: string } => {
+    if (!packageName.includes('-')) {
+        return {
+            packageName,
+            namespace: packageName,
+            version: '',
+        }
+    }
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
     const splits = packageName.split('-')
     const version = splits.splice(-1, 1)[0]
     const namespace = splits.join('')
+
     return {
         packageName,
         namespace,
@@ -158,6 +166,17 @@ export const addNamespace = (type: string, namespace: string) => {
     }
     return type
 }
+
+/**
+ * Removes line breaks and consecutive white spaces from a given string
+ * @param str 
+ * @returns 
+ */
+export const cleanString = (str: string) => {
+    str = str.replace(/\r?\n|\r/g, ' ');
+    str = str.replace(/\s+/g, ' ');
+    return str.trim();
+  }
 
 /**
  * Checking whether some variable is iterable

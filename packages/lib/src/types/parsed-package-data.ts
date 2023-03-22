@@ -1,7 +1,7 @@
-import type { PackageSection } from './index.js'
+import type { PackageSectionParsed } from './index.js'
 
 export interface ParsedPackageData {
     packages: {
-        section: PackageSection[]
+        section: PackageSectionParsed[]
     }
 }

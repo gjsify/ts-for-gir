@@ -1,4 +1,5 @@
 import { LibraryVersion } from './library-version.js'
+import { pascalCase } from './utils.js'
 
 import type { Environment } from './types/index.js'
 
@@ -17,7 +18,7 @@ export const MAX_CLASS_PARENT_DEPTH = 100
 export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'
 export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gjs'
-export const APP_VERSION = '3.0.0-beta.10'
+export const APP_VERSION = '3.0.0-beta.12'
 
 /**
  * The namespaces of the dependencies that are used in Gnome Shell
@@ -38,11 +39,12 @@ export const GNOME_SHELL_NAMESPACES: string[] = [
     'Shew',
 ]
 
-export const PACKAGE_DESC = (packageName: string, libraryVersion?: LibraryVersion) => {
+export const PACKAGE_DESC = (packageName: string, environment: Environment, libraryVersion?: LibraryVersion) => {
+    const envStr = environment === 'node' ? 'Node.js' : 'GJS'
     if (libraryVersion) {
-        return `TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
+        return `${envStr} TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
     }
-    return `TypeScript type definitions for ${packageName}`
+    return `${envStr} TypeScript type definitions for ${packageName}`
 }
 export const PACKAGE_KEYWORDS = (packageName: string) => `"Gir", "TypeScript", "${packageName}"`
 

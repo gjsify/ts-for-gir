@@ -15,6 +15,7 @@ import {
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
+    PackageData,
 } from '@ts-for-gir/lib'
 
 import type {
@@ -1482,6 +1483,10 @@ export class TypeDefinitionGenerator implements Generator {
         girModules: GirModule[],
         girModulesGrouped: GirModulesGrouped[],
     ) {
+        let pkgData: PackageData | undefined
+        if (this.packageData) {
+            pkgData = this.packageData.get(girModule.packageName)
+        }
         const moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
@@ -1491,6 +1496,7 @@ export class TypeDefinitionGenerator implements Generator {
                 girModule,
                 girModules,
                 girModulesGrouped,
+                pkgData,
             },
             girModule.packageName,
             girModule.transitiveDependencies,

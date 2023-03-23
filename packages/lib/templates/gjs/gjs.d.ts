@@ -246,6 +246,7 @@ declare global {
     function logError(exception: object, message?: any): void
     function logError(message?: any): void
 
+    const pkg: typeof package
     interface Console {
         /**
          * Logs a critical message if the condition is not truthy.
@@ -422,8 +423,6 @@ declare global {
 
         logDomain: string
     }
-  
-    const pkg: typeof Gjs.Package
 
     <% if(!noDOMLib){ %>
         const console: Console

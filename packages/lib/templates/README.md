@@ -46,12 +46,12 @@ If you want to use [ambient modules](https://github.com/gjsify/ts-for-gir/tree/m
     <%_ } _%>
     <%_ if (packageName === 'Gjs') {_%>
 ```ts
-import '@gir/gjs/ambient'
+import '@girs/gjs/ambient'
 ```
     <%_ } _%>
     <%_ if (packageName === 'node-gtk') {_%>
 ```ts
-import '@gir/node-gtk/node-ambient'
+import '@girs/node-gtk/node-ambient'
 ```
     <%_ } _%>
 <%_ } _%>

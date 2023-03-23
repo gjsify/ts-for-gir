@@ -425,22 +425,22 @@ The `--package` option of ts-for-gir is used to package the generated TypeScript
 
 > Another advantage is NPM packages is, that you can use them in a monorepo using a package manager with support for workspaces such as Yarn, PNPM and Lerna. To use the generated packages in a monorepo, you can add them as dependencies to your project's package.json file, and use relative file paths or the file: protocol to point to the local package directories. This way, you can import the generated types from within your project like any other TypeScript module.
 
-When this option is used, each GObject introspection module will be packaged into its own NPM package. The package name will be in the format of `@gir/<lower case module name>-<version>`.
+When this option is used, each GObject introspection module will be packaged into its own NPM package. The package name will be in the format of `@girs/<lower case module name>-<version>`.
 
-For example, if the `--package` option is used to generate the TypeScript type definitions for the `Gtk-4.0` module, then the generated NPM package will have the name `@gir/gtk-3.0`.
+For example, if the `--package` option is used to generate the TypeScript type definitions for the `Gtk-4.0` module, then the generated NPM package will have the name `@girs/gtk-3.0`.
 
 > YOu can change the NPM package scope name with the [`--npmScope`](#npmscope) option.
 
 To use the generated NPM package in your TypeScript project, you can also install our pregenerated packages:
 
 ```bash
-npm install @gir/gtk-3.0
+npm install @girs/gtk-3.0
 ```
 
 Then, import the desired module in your TypeScript code:
 
 ```ts
-import Gtk from '@gir/gtk-4.0';
+import Gtk from '@girs/gtk-4.0';
 
 const button = new Gtk.Button();
 ```
@@ -453,7 +453,7 @@ It is recommended to use the `--package` option when generating TypeScript type 
 
 ## npmScope
 
-The `--npmScope` CLI option can be used to specify a custom NPM package scope name for the generated packages. By default, the scope name is `@gir`.
+The `--npmScope` CLI option can be used to specify a custom NPM package scope name for the generated packages. By default, the scope name is `@girs`.
 
 Here's an example command to generate NPM packages with a custom scope name:
 
@@ -461,7 +461,7 @@ Here's an example command to generate NPM packages with a custom scope name:
 ts-for-gir --buildType lib --package --npmScope my-scope
 ```
 
-This command will generate NPM packages with the scope `my-scope` instead of the default `@gir` scope. For `Gtk-4.0` this would generate a package with the name of `@my-scope/gtk-4.0`.
+This command will generate NPM packages with the scope `my-scope` instead of the default `@girs` scope. For `Gtk-4.0` this would generate a package with the name of `@my-scope/gtk-4.0`.
 
 ## Ambient modules
 
@@ -472,7 +472,7 @@ When using ambient modules, it is recommended to activate the [`--package`](#pac
 
 If for some reason you don't want to or can't generate NPM packages, you can instead use the [`--generateAlias`](#generatealias) CLI option. This way you can also use imports in the `gi://` syntax with the generated types.
 
-To use ambient modules, the `ambient.d.ts` file must be imported either in the code like `import '@gir/gjs/ambient'` or by adding an entry to the `includes` property in the `tsconfig` file. The `ambient.d.ts` file is automatically generated.
+To use ambient modules, the `ambient.d.ts` file must be imported either in the code like `import '@girs/gjs/ambient'` or by adding an entry to the `includes` property in the `tsconfig` file. The `ambient.d.ts` file is automatically generated.
 
 ```json
 // tsconfig.json
@@ -483,7 +483,7 @@ To use ambient modules, the `ambient.d.ts` file must be imported either in the c
     "target": "ESNext",
     "module": "ESNext"
   },
-  "include": ["@gir/gjs", "@gir/gjs/ambient"],
+  "include": ["@girs/gjs", "@girs/gjs/ambient"],
   "files": [
     "main.ts",
   ]

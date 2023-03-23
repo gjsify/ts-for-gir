@@ -7,7 +7,7 @@
  * LANGUAGE=fr_FR gjs gettext.js
  * the label should show a translation of 'Print help'
  */
-import "@gir/node-gtk/node-ambient"
+import "@girs/node-gtk/node-ambient"
 import gi = require("node-gtk");
 const Gio = gi.require("Gio", "2.0");
 

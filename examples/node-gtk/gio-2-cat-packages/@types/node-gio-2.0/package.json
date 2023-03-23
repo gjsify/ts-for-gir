@@ -1,5 +1,5 @@
 {
-    "name": "@gir/node-gio-2.0",
+    "name": "@girs/node-gio-2.0",
     "version": "2.74.0-3.0.0-beta.12",
     "description": "Node.js TypeScript type definitions for Gio-2.0, generated from library version 2.74.0",
     "type": "commonjs",
@@ -29,8 +29,8 @@
         "test:cjs": "tsc --noEmit node-gio-2.0.d.ts"
     },
     "dependencies": {
-        "@gir/node-glib-2.0": "workspace:^",
-        "@gir/node-gobject-2.0": "workspace:^"
+        "@girs/node-glib-2.0": "workspace:^",
+        "@girs/node-gobject-2.0": "workspace:^"
     },
     "peerDependencies": {
         "node-gtk": "*"

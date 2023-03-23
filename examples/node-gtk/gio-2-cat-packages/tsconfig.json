@@ -7,7 +7,7 @@
     "module": "CommonJS",
     "moduleResolution": "node"
   },
-  "include": ["@gir/node-gtk/node-ambient"],
+  "include": ["@girs/node-gtk/node-ambient"],
   "files": [
     "main.ts",
   ]

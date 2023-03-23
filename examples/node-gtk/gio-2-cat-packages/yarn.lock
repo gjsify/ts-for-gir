@@ -193,47 +193,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gir/node-gio-2.0@workspace:@types/node-gio-2.0, @gir/node-gio-2.0@workspace:^":
+"@girs/node-gio-2.0@workspace:@types/node-gio-2.0, @girs/node-gio-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/node-gio-2.0@workspace:@types/node-gio-2.0"
+  resolution: "@girs/node-gio-2.0@workspace:@types/node-gio-2.0"
   dependencies:
-    "@gir/node-glib-2.0": "workspace:^"
-    "@gir/node-gobject-2.0": "workspace:^"
+    "@girs/node-glib-2.0": "workspace:^"
+    "@girs/node-gobject-2.0": "workspace:^"
     typescript: ^*
   peerDependencies:
     node-gtk: "*"
   languageName: unknown
   linkType: soft
 
-"@gir/node-glib-2.0@workspace:@types/node-glib-2.0, @gir/node-glib-2.0@workspace:^":
+"@girs/node-glib-2.0@workspace:@types/node-glib-2.0, @girs/node-glib-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/node-glib-2.0@workspace:@types/node-glib-2.0"
+  resolution: "@girs/node-glib-2.0@workspace:@types/node-glib-2.0"
   dependencies:
-    "@gir/node-gobject-2.0": "workspace:^"
+    "@girs/node-gobject-2.0": "workspace:^"
     typescript: ^*
   peerDependencies:
     node-gtk: "*"
   languageName: unknown
   linkType: soft
 
-"@gir/node-gobject-2.0@workspace:@types/node-gobject-2.0, @gir/node-gobject-2.0@workspace:^":
+"@girs/node-gobject-2.0@workspace:@types/node-gobject-2.0, @girs/node-gobject-2.0@workspace:^":
   version: 0.0.0-use.local
-  resolution: "@gir/node-gobject-2.0@workspace:@types/node-gobject-2.0"
+  resolution: "@girs/node-gobject-2.0@workspace:@types/node-gobject-2.0"
   dependencies:
-    "@gir/node-glib-2.0": "workspace:^"
+    "@girs/node-glib-2.0": "workspace:^"
     typescript: ^*
   peerDependencies:
     node-gtk: "*"
   languageName: unknown
   linkType: soft
 
-"@gir/node-gtk@workspace:@types/node-gtk":
+"@girs/node-gtk@workspace:@types/node-gtk":
   version: 0.0.0-use.local
-  resolution: "@gir/node-gtk@workspace:@types/node-gtk"
+  resolution: "@girs/node-gtk@workspace:@types/node-gtk"
   dependencies:
-    "@gir/node-gio-2.0": "workspace:^"
-    "@gir/node-glib-2.0": "workspace:^"
-    "@gir/node-gobject-2.0": "workspace:^"
+    "@girs/node-gio-2.0": "workspace:^"
+    "@girs/node-glib-2.0": "workspace:^"
+    "@girs/node-gobject-2.0": "workspace:^"
     typescript: ^*
   peerDependencies:
     node-gtk: "*"

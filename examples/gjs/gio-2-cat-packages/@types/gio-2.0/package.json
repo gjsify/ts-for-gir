@@ -1,5 +1,5 @@
 {
-    "name": "@gir/gio-2.0",
+    "name": "@girs/gio-2.0",
     "version": "2.74.0-3.0.0-beta.12",
     "description": "GJS TypeScript type definitions for Gio-2.0, generated from library version 2.74.0",
     "type": "module",
@@ -29,8 +29,8 @@
         "test:cjs": "tsc --noEmit gio-2.0.d.cts"
     },
     "dependencies": {
-        "@gir/glib-2.0": "workspace:^",
-        "@gir/gobject-2.0": "workspace:^"
+        "@girs/glib-2.0": "workspace:^",
+        "@girs/gobject-2.0": "workspace:^"
     },
     "devDependencies": {
         "typescript": "^*"

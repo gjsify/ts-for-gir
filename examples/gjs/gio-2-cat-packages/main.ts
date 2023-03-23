@@ -8,8 +8,8 @@
  * the label should show a translation of 'Print help'
  */
 
-import '@gir/gjs';
-import '@gir/gjs/ambient';
+import '@girs/gjs';
+import '@girs/gjs/ambient';
 import Gio from "gi://Gio?version=2.0";
 
 const ByteArray = imports.byteArray;

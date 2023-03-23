@@ -50,7 +50,7 @@ export class Config {
         gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
-        npmScope: '@gir',
+        npmScope: '@girs',
         package: false,
     }
 

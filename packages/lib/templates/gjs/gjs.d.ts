@@ -422,6 +422,8 @@ declare global {
 
         logDomain: string
     }
+  
+    const pkg: typeof Gjs.Package
 
     <% if(!noDOMLib){ %>
         const console: Console

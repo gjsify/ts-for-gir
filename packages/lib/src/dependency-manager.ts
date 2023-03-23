@@ -1,4 +1,4 @@
-import { findFileInDirs, splitModuleName } from './utils.js'
+import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
 import { Logger } from './logger.js'
 import { GNOME_SHELL_NAMESPACES } from './constants.js'
 import { Transformation } from './transformation.js'
@@ -197,7 +197,7 @@ export class DependencyManager {
         const importDef = this.getImportDef(packageName, importPath)
 
         const dep: Dependency = {
-            namespace: packageName,
+            namespace: pascalCase(packageName),
             exists: true,
             filename: '',
             path: '',

@@ -7,7 +7,6 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
-import OS from 'os'
 import {
     merge,
     isEqual,
@@ -353,7 +352,7 @@ export class Config {
             ? false // NoLib makes typescript to ignore the lib property
             : Array.isArray(tsCompilerOptions.lib)
             ? tsCompilerOptions.lib.some((lib) => lib.toLowerCase().startsWith('dom'))
-            : true // Typescript icludes DOM lib by default
+            : true // Typescript includes DOM lib by default
 
         if (config.environments.includes('gjs') && tsConfigHasDOMLib && !config.noDOMLib) {
             const answer = (
@@ -568,14 +567,24 @@ export class Config {
 }
 
 function getDefaultGirDirectories(): string[] {
-    const girDirectories = OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0']
+    const girDirectories = [
+        '/usr/local/share/gir-1.0',
+        '/usr/share/gir-1.0',
+        '/usr/share/gnome-shell',
+        '/usr/share/gnome-shell/gir-1.0',
+        '/usr/lib64/mutter-10',
+        '/usr/lib64/mutter-11',
+        '/usr/lib/x86_64-linux-gnu/mutter-10',
+        '/usr/lib/x86_64-linux-gnu/mutter-11',
+    ]
     // NixOS and other distributions does not have a /usr/local/share directory.
     // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
     // See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
     const dataDirs = process.env['XDG_DATA_DIRS']?.split(':') || []
-    for (const dataDir of dataDirs) {
+    for (let dataDir of dataDirs) {
+        dataDir = join(dataDir, 'gir-1.0')
         if (!girDirectories.includes(dataDir)) {
-            girDirectories.push(join(dataDir, 'gir-1.0'))
+            girDirectories.push(dataDir)
         }
     }
     return girDirectories

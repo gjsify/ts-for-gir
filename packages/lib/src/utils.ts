@@ -127,6 +127,14 @@ export const cloneDeep = lodash.cloneDeep
  * Split a package name into namespace and version
  */
 export const splitModuleName = (packageName: string): { packageName: string; namespace: string; version: string } => {
+    // Workaround for Vte-4-2.91
+    if (packageName.startsWith('Vte-4')) {
+        return {
+            packageName,
+            namespace: 'Vte',
+            version: packageName.replace('Vte-', ''),
+        }
+    }
     if (!packageName.includes('-')) {
         return {
             packageName,

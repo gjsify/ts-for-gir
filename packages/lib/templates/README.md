@@ -28,18 +28,32 @@ Or if you prefer CommonJS, you can also use this:
 const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 ```
 
+    <%_ if(packageName !== 'Gjs' && packageName !== 'node-gtk'){ _%>
 If you use [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules), you can also import this module like you would do this in JavaScript:
 
-<%_ if(environment === 'gjs'){ _%>
+        <%_ if(environment === 'gjs'){ _%>
 ```ts
 import <%= pkg.namespace %> from 'gi://<%= pkg.namespace %>?version=<%= pkg.version %>';
 ```
-<%_ } else { _%>
+        <%_ } else { _%>
 ```ts
 const gi = require('node-gtk')
 const <%= pkg.namespace %> = gi.require('<%= pkg.namespace %>', '<%= pkg.version %>')
 ```
-<%_ } _%>
+        <%_ } _%>
+    <%_ } else {_%>
+If you want to use [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules), you can import all ambient module types like this:
+    <%_ } _%>
+    <%_ if (packageName === 'Gjs') {_%>
+```ts
+import '@gir/gjs/ambient'
+```
+    <%_ } _%>
+    <%_ if (packageName === 'node-gtk') {_%>
+```ts
+import '@gir/node-gtk/node-ambient'
+```
+    <%_ } _%>
 <%_ } _%>
 
 Depending on your project configuration, it is recommended to use a bundler like [esbuild](https://esbuild.github.io/). You can find examples using different bundlers [here](https://github.com/gjsify/ts-for-gir/tree/main/examples).

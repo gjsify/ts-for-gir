@@ -18,7 +18,7 @@ export class PackageDataParser {
     protected packages: PackageData[] = []
 
     constructor(protected readonly config: GenerateConfig) {
-        this.log = new Logger('', config.verbose || true, 'ModuleLoader')
+        this.log = new Logger('', config.verbose, 'ModuleLoader')
     }
 
     public get(name: string): PackageData | undefined {

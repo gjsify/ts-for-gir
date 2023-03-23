@@ -1,5 +1,4 @@
 import { LibraryVersion } from './library-version.js'
-import { pascalCase } from './utils.js'
 
 import type { Environment } from './types/index.js'
 

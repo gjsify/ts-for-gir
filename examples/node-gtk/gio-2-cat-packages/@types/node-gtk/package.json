@@ -5,6 +5,12 @@
     "type": "commonjs",
     "module": "node-gtk.mjs",
     "main": "node-gtk.js",
+    "typedoc": {
+        "entryPoint": "./node-gtk.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "node-gtk",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         "./node-ambient": "./node-ambient.d.ts",
         ".": {

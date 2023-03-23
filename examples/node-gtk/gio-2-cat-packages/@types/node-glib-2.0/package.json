@@ -5,6 +5,12 @@
     "type": "commonjs",
     "module": "node-glib-2.0.mjs",
     "main": "node-glib-2.0.js",
+    "typedoc": {
+        "entryPoint": "./node-glib-2.0.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "GLib-2.0",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         ".": {
             "import": {

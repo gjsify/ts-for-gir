@@ -169,14 +169,14 @@ export const addNamespace = (type: string, namespace: string) => {
 
 /**
  * Removes line breaks and consecutive white spaces from a given string
- * @param str 
- * @returns 
+ * @param str
+ * @returns
  */
 export const cleanString = (str: string) => {
-    str = str.replace(/\r?\n|\r/g, ' ');
-    str = str.replace(/\s+/g, ' ');
-    return str.trim();
-  }
+    str = str.replace(/\r?\n|\r/g, ' ')
+    str = str.replace(/\s+/g, ' ')
+    return str.trim()
+}
 
 /**
  * Checking whether some variable is iterable

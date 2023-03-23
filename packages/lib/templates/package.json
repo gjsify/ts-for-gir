@@ -22,6 +22,12 @@
     "module": "<%- entryPointName %>.mjs",
     <%_ } _%>
     "main": "<%- entryPointName %>.js",
+    "typedoc": {
+      "entryPoint": "./<%- entryPointName %>.d.ts",
+      "readmeFile": "./README.md",
+      "displayName": "<%- packageName %>",
+      "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
       "./tsconfig.alias.json": "./tsconfig.alias.json",

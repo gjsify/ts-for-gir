@@ -1,0 +1,30 @@
+<%_ let entryPointName = importName _%>
+<%_ if (packageName === 'Gjs') { _%>
+  <%_ entryPointName = 'gjs' _%>
+<%_ } _%>
+<%_ if (packageName === 'node-gtk') { _%>
+  <%_ entryPointName = 'node-gtk' _%>
+<%_ } _%>
+{
+  "compilerOptions": {
+    // General settings for code interpretation
+    "target": "ESNext",
+    <%_ if (moduleType === 'esm') { _%>
+    "module": "ESNext",
+    <%_ } else { _%>
+    "module": "CommonJS",
+    <%_ } _%>
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noEmitOnError": false,
+    "baseUrl": "./",
+    "rootDir": ".",
+    // General settings for code generation
+    "removeComments": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "newLine": "LF"
+  },
+  "include": ["./<%- entryPointName %>.d.ts"]
+}

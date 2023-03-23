@@ -5,6 +5,12 @@
     "type": "module",
     "module": "gio-2.0.js",
     "main": "gio-2.0.js",
+    "typedoc": {
+        "entryPoint": "./gio-2.0.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "Gio-2.0",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         ".": {
             "import": {

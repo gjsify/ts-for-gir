@@ -5,6 +5,12 @@
     "type": "commonjs",
     "module": "node-gio-2.0.mjs",
     "main": "node-gio-2.0.js",
+    "typedoc": {
+        "entryPoint": "./node-gio-2.0.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "Gio-2.0",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         ".": {
             "import": {

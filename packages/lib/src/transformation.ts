@@ -582,7 +582,10 @@ export class Transformation {
      * @param description
      */
     private transformGirDocCodeBlocks(description: string) {
-        description = description.replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c').replaceAll(/\]\|/gm, '```\n')
+        description = description
+            .replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c') // C-Code
+            .replaceAll(/\|\[/gm, '\n```') // Other code
+            .replaceAll(/\]\|/gm, '```\n') // End of code
         return description
     }
 

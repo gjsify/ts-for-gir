@@ -5,6 +5,12 @@
     "type": "module",
     "module": "gjs.js",
     "main": "gjs.js",
+    "typedoc": {
+        "entryPoint": "./gjs.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "Gjs",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         "./tsconfig.alias.json": "./tsconfig.alias.json",
         "./ambient": "./ambient.d.ts",

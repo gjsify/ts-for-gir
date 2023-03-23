@@ -5,6 +5,12 @@
     "type": "module",
     "module": "gobject-2.0.js",
     "main": "gobject-2.0.js",
+    "typedoc": {
+        "entryPoint": "./gobject-2.0.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "GObject-2.0",
+        "tsconfig": "./tsconfig.doc.json"
+    },
     "exports": {
         ".": {
             "import": {

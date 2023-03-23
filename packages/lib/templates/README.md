@@ -28,7 +28,7 @@ Or if you prefer CommonJS, you can also use this:
 const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 ```
 
-If you use ambient modules, you can also import this module like you would do this in JavaScript:
+If you use [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules), you can also import this module like you would do this in JavaScript:
 
 <%_ if(environment === 'gjs'){ _%>
 ```ts
@@ -40,7 +40,6 @@ const gi = require('node-gtk')
 const <%= pkg.namespace %> = gi.require('<%= pkg.namespace %>', '<%= pkg.version %>')
 ```
 <%_ } _%>
-
 <%_ } _%>
 
 Depending on your project configuration, it is recommended to use a bundler like [esbuild](https://esbuild.github.io/). You can find examples using different bundlers [here](https://github.com/gjsify/ts-for-gir/tree/main/examples).

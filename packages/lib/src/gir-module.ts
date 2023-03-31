@@ -82,7 +82,6 @@ import type {
     ClassParent,
     InjectionParameter,
     TsSignal,
-    PromisifyFunc,
 } from './types/index.js'
 
 export class GirModule {
@@ -1262,92 +1261,94 @@ export class GirModule {
     overloadPromisifiedFunctions(girFunctions: GirFunctionElement[]): void {
         if (!this.config.promisify) return
 
-        const promisifyAsyncReturn = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
-        const promisifyFuncMap = {} as { [name: string]: PromisifyFunc }
+        const promisifyAsyncReady = ['Gio.AsyncReadyCallback', 'AsyncReadyCallback']
+        const promisifyAsyncResult = ['Gio.AsyncResult', 'AsyncResult']
+        const promisifyAsyncMap = {} as { [name: string]: TsFunction }
+        const promisifyFinishMap = {} as { [name: string]: TsFunction }
 
         // Find the functions that can be promisified
         for (const girFunction of girFunctions) {
             const tsFunction = girFunction._tsData
             if (!tsFunction) continue
 
-            // Check if function name satisfies async,finish scheme
-            const isAsync = tsFunction.name.endsWith('_async') || tsFunction.name.endsWith('_begin')
-            const isFinish = tsFunction.name.endsWith('_finish')
-            if (!isAsync && !isFinish) continue
-
-            // Handle async functions
-            if (isAsync) {
-                if (tsFunction.inParams.length === 0) continue
+            // If the function ends with an AsyncReadyCallback, it can possibly be promisified
+            if (tsFunction.inParams.length > 0) {
                 const lastParam = tsFunction.inParams[tsFunction.inParams.length - 1]
                 if (lastParam.type && lastParam.type.length > 0) {
                     const type = lastParam.type[0].$.name
-                    if (type && promisifyAsyncReturn.includes(type)) {
-                        if (!(tsFunction.name in promisifyFuncMap)) promisifyFuncMap[tsFunction.name] = {}
-                        promisifyFuncMap[tsFunction.name].asyncFn = tsFunction
+                    if (type && promisifyAsyncReady.includes(type)) {
+                        promisifyAsyncMap[tsFunction.name] = tsFunction
+                        continue
                     }
                 }
             }
 
-            // Handle finish functions
-            if (isFinish) {
-                if (tsFunction.returnTypes.length === 0) continue
-                let name = `${tsFunction.name.replace(/(_finish)$/, '')}_async`
-                if (!(name in promisifyFuncMap)) name = `${tsFunction.name.replace(/(_finish)$/, '')}_begin`
-                if (!(name in promisifyFuncMap)) promisifyFuncMap[name] = {}
-                promisifyFuncMap[name].finishFn = tsFunction
+            // If the function has a return type and exactly one AsyncResult parameter, it can possibly be promisified
+            if (tsFunction.returnTypes.length > 0 && tsFunction.inParams.length === 1) {
+                const firstParam = tsFunction.inParams[0]
+                if (firstParam.type && firstParam.type.length > 0) {
+                    const type = firstParam.type[0].$.name
+                    if (type && promisifyAsyncResult.includes(type)) {
+                        promisifyFinishMap[tsFunction.name.replace(/(_finish)$/, '')] = tsFunction
+                    }
+                }
             }
         }
 
-        // Generate TsFunctions for promisify-able functions and add to the array
-        for (const [, func] of Object.entries(promisifyFuncMap)) {
-            if (!func.asyncFn || !func.finishFn) continue
+        const asyncMapEntries = Object.entries(promisifyAsyncMap)
+        for (const [finishName, finishFunc] of Object.entries(promisifyFinishMap)) {
+            for (const [asyncName, asyncFunc] of asyncMapEntries) {
+                if (asyncName.startsWith(finishName)) {
+                    const inParams = this.girFactory.newGirCallableParamElements(
+                        asyncFunc.inParams.slice(0, -1),
+                        asyncFunc,
+                    )
 
-            const inParams = this.girFactory.newGirCallableParamElements(
-                func.asyncFn.inParams.slice(0, -1),
-                func.asyncFn,
-            )
+                    const outParams = this.girFactory.newGirCallableParamElements(finishFunc.outParams, asyncFunc)
 
-            const outParams = this.girFactory.newGirCallableParamElements(func.finishFn.outParams, func.asyncFn)
+                    const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : finishFunc.returnTypes)
 
-            const returnTypes = this.girFactory.newTsTypes(outParams.length > 0 ? [] : func.finishFn.returnTypes)
+                    let docReturnText = finishFunc.doc.tags.find((tag) => tag.tagName === 'returns')?.text || ''
+                    if (docReturnText) {
+                        docReturnText = `A Promise of: ${docReturnText}`
+                    } else {
+                        docReturnText = `A Promise of the result of {@link ${asyncFunc.name}}`
+                    }
 
-            let docReturnText = func.finishFn.doc.tags.find((tag) => tag.tagName === 'returns')?.text || ''
-            if (docReturnText) {
-                docReturnText = `A Promise of: ${docReturnText}`
-            } else {
-                docReturnText = `A Promise of the result of {@link ${func.asyncFn.name}}`
+                    const docText = `Promisified version of {@link ${asyncFunc.name}}\n\n${asyncFunc.doc.text}`
+
+                    const docTags = asyncFunc.doc.tags.filter(
+                        (tag) => tag.paramName !== 'callback' && tag.paramName !== 'returns',
+                    )
+
+                    docTags.push({
+                        tagName: 'returns',
+                        text: docReturnText,
+                        paramName: '',
+                    })
+
+                    const doc = this.girFactory.newTsDoc({
+                        text: docText,
+                        tags: docTags,
+                    })
+
+                    const promisifyFn = this.girFactory.newTsFunction(
+                        {
+                            ...asyncFunc,
+                            inParams,
+                            outParams,
+                            returnTypes,
+                            isPromise: true,
+                            doc,
+                        },
+                        asyncFunc.parent,
+                    )
+
+                    asyncFunc.overloads.push(promisifyFn)
+
+                    break
+                }
             }
-
-            const docText = `Promisified version of {@link ${func.asyncFn.name}}\n\n${func.asyncFn.doc.text}`
-
-            const docTags = func.asyncFn.doc.tags.filter(
-                (tag) => tag.paramName !== 'callback' && tag.paramName !== 'returns',
-            )
-
-            docTags.push({
-                tagName: 'returns',
-                text: docReturnText,
-                paramName: '',
-            })
-
-            const doc = this.girFactory.newTsDoc({
-                text: docText,
-                tags: docTags,
-            })
-
-            const promisifyFn = this.girFactory.newTsFunction(
-                {
-                    ...func.asyncFn,
-                    inParams,
-                    outParams,
-                    returnTypes,
-                    isPromise: true,
-                    doc,
-                },
-                func.asyncFn.parent,
-            )
-
-            func.asyncFn.overloads.push(promisifyFn)
         }
     }
 

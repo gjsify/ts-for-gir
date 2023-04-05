@@ -1269,7 +1269,7 @@ export class GirModule {
         // Find the functions that can be promisified
         for (const girFunction of girFunctions) {
             const tsFunction = girFunction._tsData
-            if (!tsFunction) continue
+            if (!tsFunction || tsFunction.name === 'connect' || tsFunction.name === 'disconnect') continue
 
             // If the function ends with an AsyncReadyCallback, it can possibly be promisified
             if (tsFunction.inParams.length > 0) {

@@ -35,5 +35,5 @@
     "@ts-for-gir/generator-typescript": "portal:../../../packages/generator-typescript",
     "@ts-for-gir/lib": "portal:../../../packages/lib"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.5.0"
 }

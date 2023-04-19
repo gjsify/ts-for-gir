@@ -33,7 +33,7 @@
         "@girs/gobject-2.0": "workspace:^"
     },
     "devDependencies": {
-        "typescript": "^*"
+        "typescript": "^5.0.4"
     },
     "keywords": [
         "Gir",

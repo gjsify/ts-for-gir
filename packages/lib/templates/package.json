@@ -82,7 +82,7 @@
     },
     <%_ } _%>
     "devDependencies": {
-      "typescript": "^*"
+      "typescript": "^5.0.4"
     },
     "keywords": [<%- PACKAGE_KEYWORDS %>],
     "author": "<%- APP_NAME %>",

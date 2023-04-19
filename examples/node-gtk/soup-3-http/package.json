@@ -23,8 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.17.12",
-    "typescript": "^5.0.2"
+    "esbuild": "^0.17.17",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "node-gtk": "^0.11.0"

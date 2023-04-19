@@ -86,7 +86,7 @@
     },
     "keywords": [<%- PACKAGE_KEYWORDS %>],
     "author": "<%- APP_NAME %>",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "repository": {
       "type": "git",
       "url": "git+https://github.com/gjsify/ts-for-gir.git"
@@ -94,5 +94,5 @@
     "bugs": {
       "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
-    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+    "homepage": "https://github.com/gjsify/types/tree/main/<%- importName %>#readme"
 }

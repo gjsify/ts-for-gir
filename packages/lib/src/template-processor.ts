@@ -40,7 +40,7 @@ export class TemplateProcessor {
             APP_SOURCE,
             APP_VERSION,
             PACKAGE_DESC: PACKAGE_DESC(packageName, this.config.environment, this.data?.girModule?.libraryVersion),
-            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
+            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName, this.config.environment),
             importName: this.transformation.transformImportName(packageName),
             dep,
             deps: dependencies,

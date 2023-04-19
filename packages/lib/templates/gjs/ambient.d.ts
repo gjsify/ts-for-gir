@@ -1,6 +1,6 @@
 // https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
 // https://stackoverflow.com/questions/45099605/ambient-declaration-with-an-imported-type-in-typescript
-<%# This declares the module for TypeScript %>
+<%# /* This declares the ambient modules for TypeScript */ %>
 <%_ if(moduleType === 'esm') { %>
   <%_ for (const girModuleGroup of girModulesGrouped) { _%>
     <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
@@ -13,12 +13,12 @@
             import <%= girModule.module.importNamespace %> from '<%= pkg.importPath %>';
           <%_ } _%>
         <%_ } else { _%>
-            // Use import() to avoid `ts(2439)`: Import or export declaration in an ambient module declaration cannot reference module through relative module name.
+          // Use `import()` to avoid `ts(2439)`: Import or export declaration in an ambient module declaration cannot reference module through relative module name.*/ %>
           <%_ if(noNamespace){ _%>
             const <%= girModule.module.importNamespace %>: typeof import('<%= pkg.importPath %>');
           <%_ } else { _%>
             // However, this has the disadvantage that the module cannot be re-exported as a namespace,
-            // so you need to use use the`typeof` operator in your code or alternatively make use of the `--generateAlias` or `--package` option instead
+            // so you need to use use the `typeof` operator in your code or alternatively make use of the `--generateAlias` or `--package` option instead
             const <%= girModule.module.importNamespace %>: typeof import('<%= pkg.importPath %>').default;
           <%_ } _%>
         <%_ } _%>

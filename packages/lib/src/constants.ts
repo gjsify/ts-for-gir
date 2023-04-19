@@ -45,7 +45,10 @@ export const PACKAGE_DESC = (packageName: string, environment: Environment, libr
     }
     return `${envStr} TypeScript type definitions for ${packageName}`
 }
-export const PACKAGE_KEYWORDS = (packageName: string) => `"Gir", "TypeScript", "${packageName}"`
+export const PACKAGE_KEYWORDS = (packageName: string, environment: Environment) => {
+    const envKeywords = environment === 'node' ? '"node", "node-gtk"' : '"GJS"'
+    return `"Gir", "TypeScript", "types", "GObject-Introspection", ${envKeywords}, "${packageName}"`
+}
 
 export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']
 

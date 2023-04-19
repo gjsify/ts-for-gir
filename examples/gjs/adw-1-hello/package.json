@@ -21,11 +21,11 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.21.3",
+    "@babel/core": "^7.21.4",
     "@rollup/plugin-babel": "^6.0.3",
     "@ts-for-gir/cli": "workspace:^",
-    "rollup": "^3.19.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.2.0"
+    "rollup": "^3.20.6",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.2"
   }
 }

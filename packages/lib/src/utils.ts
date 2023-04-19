@@ -420,7 +420,7 @@ export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { na
         return false
     }
     // Handle introspectable only if the attribute is also present...
-    if (girElement.$.hasOwnProperty('introspectable') && girElement.$.introspectable !== undefined) {
+    if ({}.hasOwnProperty.call(girElement.$, 'introspectable') && girElement.$.introspectable !== undefined) {
         return girBool(girElement.$.introspectable, true)
     }
     // ...otherwise we assume that it is introspectable

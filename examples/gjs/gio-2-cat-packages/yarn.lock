@@ -192,7 +192,7 @@ __metadata:
   dependencies:
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    typescript: ^*
+    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
@@ -203,7 +203,7 @@ __metadata:
     "@girs/gio-2.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
-    typescript: ^*
+    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
@@ -212,7 +212,7 @@ __metadata:
   resolution: "@girs/glib-2.0@workspace:@types/glib-2.0"
   dependencies:
     "@girs/gobject-2.0": "workspace:^"
-    typescript: ^*
+    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
@@ -221,7 +221,7 @@ __metadata:
   resolution: "@girs/gobject-2.0@workspace:@types/gobject-2.0"
   dependencies:
     "@girs/glib-2.0": "workspace:^"
-    typescript: ^*
+    typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 

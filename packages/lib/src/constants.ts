@@ -17,7 +17,7 @@ export const MAX_CLASS_PARENT_DEPTH = 100
 export const APP_NAME = 'ts-for-gir'
 export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'
 export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gjs'
-export const APP_VERSION = '3.0.0-beta.12'
+export const APP_VERSION = '3.0.0-beta.13'
 
 /**
  * The namespaces of the dependencies that are used in Gnome Shell

@@ -5,7 +5,7 @@
 - Make use of packages/lib/templates/gjs/types.d.ts
 
 # Unreleased
-- Add support to generate a NPM package for each generated module type definition
+- Add support to generate a NPM package for each generated module type definition, see #106
 
 # 3.0.0-beta.12
 - UTF-8 string pointers are nullable, so all of this pointers are handled as nullable now, see #108

@@ -1,3 +1,6 @@
 [submodule "test/girs/vala-girs"]
 	path = vala-girs
 	url = https://github.com/nemequ/vala-girs.git
+[submodule "types"]
+	path = types
+	url = https://github.com/gjsify/types

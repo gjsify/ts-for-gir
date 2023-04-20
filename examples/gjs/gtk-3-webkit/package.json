@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-webkit-example",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.0-beta.13",
   "description": "Simple Gjs Gtk 3 example app to demonstrate how you can use WebKit2",
   "main": "index.js",
   "type": "module",

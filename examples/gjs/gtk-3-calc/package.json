@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-calc-example",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.0-beta.13",
   "description": "Simple Gjs Gtk 3 calculator example app",
   "main": "index.js",
   "type": "module",

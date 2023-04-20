@@ -9,6 +9,9 @@
 <%_ const GLib = dep.find('GLib') _%>
 <%- GObject ? GObject.importDef : '' %>
 <%- GLib ? GLib.importDef : '' %>
+import gettext from './gettext.js';
+import system from './system.js';
+import cairo from './cairo.js';
 
 <%_ if(gnomeShellTypes){ _%>
     <%- dep.getGnomeShell().importDef %>
@@ -59,22 +62,6 @@ declare namespace package {
     export function initSubmodule(module: string): void
 }
 
-declare namespace system {
-    export const programInvocationName: string
-    export const version: number
-    export const programPath: string | null
-    /** Equal to ARGV */
-    export const programArgs: string[]
-    export function exit(code: number): void
-    export function addressOfGObject(o: GObject.Object): object
-    export function addressOf(o: any): object
-    /** Runs the garbage collector */
-    export function gc(): void
-    export function refcount(o: GObject.Object): number
-    export function dumpHeap(path: string): void
-    export function dumpMemoryInfo(path: string): void
-}
-
 declare namespace byteArray {
     export class ByteArray {
         static get(target: any, property: string, receiver: any): any
@@ -112,33 +99,6 @@ declare namespace console {
 declare namespace lang {
     // TODO: There is a lot more in Lang
     export function Class(props: any): void
-}
-
-declare namespace gettext {
-    export enum LocaleCategory {
-        ALL,
-        COLLATE,
-        CTYPE,
-        MESSAGES,
-        MONETARY,
-        NUMERIC,
-        TIME,
-    }
-    export function setlocale(category: number, locale: string | null): string
-    export function textdomain(domainname: string | null): string
-    export function bindtextdomain(domainname: string, dirname: string | null): string
-    export function gettext(msgid: string): string
-    export function dgettext(domainname: string | null, msgid: string): string
-    export function dcgettext(domainname: string | null, msgid: string, category: number): string
-    export function ngettext(msgid: string, msgid_plural: string, n: number): string
-    export function dngettext(domainname: string, msgid: string, msgid_plural: string, n: number): string
-    export function pgettext(context: string, msgid: string): string
-    export function dpgettext(dom: string | null, context: string, msgid: string): string
-    export function domain(domainName: string): {
-        gettext: (msgid: string) => string
-        ngettext: (msgid: string, msgid_plural: string, n: number) => string
-        pgettext: (context: string, msgid: string) => string
-    }
 }
 
 declare namespace format {
@@ -816,6 +776,7 @@ declare global {
         gettext: typeof gettext
         byteArray: typeof byteArray
         format: typeof format
+        cairo: typeof cairo
     }
 }
 

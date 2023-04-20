@@ -14,6 +14,36 @@
     "exports": {
         "./tsconfig.alias.json": "./tsconfig.alias.json",
         "./ambient": "./ambient.d.ts",
+        "./gettext": {
+            "import": {
+                "types": "./gettext.d.ts",
+                "default": "./gettext.js"
+            },
+            "require": {
+                "types": "./gettext.d.cts",
+                "default": "./gettext.cjs"
+            }
+        },
+        "./system": {
+            "import": {
+                "types": "./system.d.ts",
+                "default": "./system.js"
+            },
+            "require": {
+                "types": "./system.d.cts",
+                "default": "./system.cjs"
+            }
+        },
+        "./cairo": {
+            "import": {
+                "types": "./cairo.d.ts",
+                "default": "./cairo.js"
+            },
+            "require": {
+                "types": "./cairo.d.cts",
+                "default": "./cairo.cjs"
+            }
+        },
         ".": {
             "import": {
                 "types": "./gjs.d.ts",

@@ -1577,10 +1577,16 @@ export class TypeDefinitionGenerator implements Generator {
 
         // TS
         await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
+        await templateProcessor.create('gettext.d.ts', this.config.outdir, 'gettext.d.ts')
+        await templateProcessor.create('system.d.ts', this.config.outdir, 'system.d.ts')
+        await templateProcessor.create('cairo.d.ts', this.config.outdir, 'cairo.d.ts')
 
         // JS
         if (this.config.buildType === 'lib') {
             await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
+            await templateProcessor.create('gettext.js', this.config.outdir, 'gettext.js')
+            await templateProcessor.create('system.js', this.config.outdir, 'system.js')
+            await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
         }
 
         // If you build an NPM package, we also build the Gjs module for the other module type
@@ -1591,13 +1597,76 @@ export class TypeDefinitionGenerator implements Generator {
                 'gjs.d.ts',
                 this.config.outdir,
                 this.overrideConfig.moduleType === 'cjs' ? 'gjs.d.cts' : 'gjs.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
             )
+            await templateProcessor.create(
+                'gettext.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'gettext.d.cts' : 'gettext.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+            await templateProcessor.create(
+                'system.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'system.d.cts' : 'system.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+            await templateProcessor.create(
+                'cairo.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'cairo.d.cts' : 'cairo.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+
             // JS
             if (this.config.buildType === 'lib') {
                 await templateProcessor.create(
                     'gjs.js',
                     this.config.outdir,
                     this.overrideConfig.moduleType === 'cjs' ? 'gjs.cjs' : 'gjs.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'gettext.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'gettext.cjs' : 'gettext.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'system.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'system.cjs' : 'system.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'cairo.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'cairo.cjs' : 'cairo.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
                 )
             }
             this.resetOverrideConfig()

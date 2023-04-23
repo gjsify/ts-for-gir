@@ -1,6 +1,5 @@
 import { findFileInDirs, splitModuleName, pascalCase } from './utils.js'
 import { Logger } from './logger.js'
-import { GNOME_SHELL_NAMESPACES } from './constants.js'
 import { Transformation } from './transformation.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
@@ -37,17 +36,6 @@ export class DependencyManager {
         return Object.values(this.cache)
     }
 
-    forGnomeShell(): Dependency[] {
-        const deps: Dependency[] = []
-        for (const ns of GNOME_SHELL_NAMESPACES) {
-            const dep = this.find(ns)
-            if (dep) {
-                deps.push(dep)
-            }
-        }
-        return deps
-    }
-
     getImportPath(packageName: string, relativeTo = '.'): string {
         const importName = this.transformation.transformImportName(packageName)
         const importPath = this.config.package
@@ -57,7 +45,7 @@ export class DependencyManager {
     }
 
     getImportDef(namespace: string, importPath: string): string {
-        return this.config.noNamespace || namespace === 'GnomeShell'
+        return this.config.noNamespace
             ? `import type * as ${namespace} from '${importPath}'`
             : `import type ${namespace} from '${importPath}';`
     }
@@ -78,11 +66,9 @@ export class DependencyManager {
      */
     get(namespace: string, version: string, relativeTo?: string): Dependency
     get(namespaceOrPackageName: string, versionOrRelativeTo?: string, relativeTo?: string): Dependency {
-        // Special case for Gjs and GnomeShell
+        // Special case for Gjs
         if (namespaceOrPackageName === 'Gjs') {
             return this.getGjs(relativeTo)
-        } else if (namespaceOrPackageName === 'GnomeShell') {
-            return this.getGnomeShell(relativeTo)
         } else if (namespaceOrPackageName === 'node-gtk') {
             return this.getNodeGtk(relativeTo)
         }
@@ -158,11 +144,9 @@ export class DependencyManager {
      * @returns The dependency object or null if not found
      */
     find(namespace: string, relativeTo = '.'): Dependency | null {
-        // Special case for Gjs and GnomeShell
+        // Special case for Gjs
         if (namespace === 'Gjs') {
             return this.getGjs(relativeTo)
-        } else if (namespace === 'GnomeShell') {
-            return this.getGnomeShell(relativeTo)
         } else if (namespace === 'node-gtk') {
             return this.getNodeGtk(relativeTo)
         }
@@ -216,10 +200,6 @@ export class DependencyManager {
 
     getGjs(relativeTo = '.'): Dependency {
         return this.getPseudoPackage('Gjs', relativeTo)
-    }
-
-    getGnomeShell(relativeTo = '.'): Dependency {
-        return this.getPseudoPackage('GnomeShell', relativeTo)
     }
 
     getNodeGtk(relativeTo = '.'): Dependency {

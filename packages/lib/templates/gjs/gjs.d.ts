@@ -13,9 +13,6 @@ import gettext from './gettext.js';
 import system from './system.js';
 import cairo from './cairo.js';
 
-<%_ if(gnomeShellTypes){ _%>
-    <%- dep.getGnomeShell().importDef %>
-<%_ } _%>
 <%_ for (const girModule of girModules) { _%>
     <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
     <%_ if(noNamespace){ _%>
@@ -761,11 +758,6 @@ declare global {
                 <%_ } _%>
             }
         }
-
-        <%_ if(gnomeShellTypes){ _%>
-            misc: typeof GnomeShell.misc
-            ui: typeof GnomeShell.ui
-        <%_ } _%>
 
         lang: typeof lang
         system: typeof system

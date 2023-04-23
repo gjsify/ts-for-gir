@@ -19,25 +19,6 @@ export const APP_USAGE = 'TypeScript type definition generator for GObject intro
 export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gjs'
 export const APP_VERSION = '3.0.0-beta.13'
 
-/**
- * The namespaces of the dependencies that are used in Gnome Shell
- */
-export const GNOME_SHELL_NAMESPACES: string[] = [
-    'GObject',
-    'GLib',
-    'Gio',
-    'Shell',
-    'St',
-    'Clutter',
-    'Meta',
-    'Gcr',
-    'Atk',
-    'GnomeDesktop',
-    'Cogl',
-    'Cally',
-    'Shew',
-]
-
 export const PACKAGE_DESC = (packageName: string, environment: Environment, libraryVersion?: LibraryVersion) => {
     const envStr = environment === 'node' ? 'Node.js' : 'GJS'
     if (libraryVersion) {

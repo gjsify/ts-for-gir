@@ -36,8 +36,6 @@ export interface UserConfig {
     fixConflicts: boolean
     /** Disables the generation of types that are in conflict with the DOM types */
     noDOMLib: boolean
-    /** Generate types for GNOME Shell */
-    gnomeShellTypes: boolean
     /** Generate a tsconfig alias */
     generateAlias: boolean
     /** Generate promisified functions for async/finish calls */

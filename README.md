@@ -34,7 +34,8 @@ That's it, you can start generating your types 👩‍💻☕
 
 [Examples](/examples/README.md) - Take a look at many different examples to see how you can use TypeScript with different bundlers.  
 [CLI](/packages/cli/README.md) - Learn about the CLI options and what to keep in mind when using them.  
-[Development](/DEVELOPMENT.md) - Learn how you can contribute to this project.
+[Development](/DEVELOPMENT.md) - Learn how you can contribute to this project.  
+[GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Additional hand written type definitions for GNOME Shell Extensions.
 
 ## Related Projects
 

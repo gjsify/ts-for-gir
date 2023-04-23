@@ -7,8 +7,8 @@ export default {
         './vala-girs/gir-1.0',
         './girs',
 
-        // "/usr/local/share/gir-1.0",
-        // "/usr/share/gir-1.0",
+        "/usr/local/share/gir-1.0",
+        "/usr/share/gir-1.0",
 
         // GNOME Shell gir file (package: gnome-shell-common / gnome-shell)
         '/usr/share/gnome-shell',

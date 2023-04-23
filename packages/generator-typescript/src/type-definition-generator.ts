@@ -1690,41 +1690,6 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportGnomeShell(
-        dependencies: Dependency[],
-        girModules: GirModule[],
-        girModulesGrouped: GirModulesGrouped[],
-    ) {
-        if (!this.config.outdir) return
-        const packageName = 'GnomeShell'
-
-        const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModulesGrouped },
-            packageName,
-            dependencies,
-            this.config,
-        )
-
-        // TS
-        await templateProcessor.create('gnomeshell.d.ts', this.config.outdir, 'gnomeshell.d.ts')
-        await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
-        await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
-        await templateProcessor.createAll('.d.ts', 'ui/components', this.config.outdir, 'ui/components')
-
-        // JS
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('gnomeshell.js', this.config.outdir, 'gnomeshell.js')
-            await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
-            await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
-            await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')
-        }
-
-        // Package
-        if (this.config.package) {
-            await this.exportNPMPackage(templateProcessor)
-        }
-    }
-
     protected async exportNodeGtk(
         dependencies: Dependency[],
         girModules: GirModule[],
@@ -1794,9 +1759,6 @@ export class TypeDefinitionGenerator implements Generator {
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
             await this.exportGjs(this.dependencyManager.all(), girModules, girModulesGrouped)
-            if (this.config.gnomeShellTypes) {
-                await this.exportGnomeShell(this.dependencyManager.forGnomeShell(), girModules, girModulesGrouped)
-            }
         }
     }
 }

@@ -1,8 +1,0 @@
-{
-  "name": "Hello World",
-  "description": "Simple Gnome Shell Hello World Extension example",
-  "uuid": "ts-for-gir-gnome-shell-hello-world-example",
-  "shell-version": [
-    "43"
-  ]
-}

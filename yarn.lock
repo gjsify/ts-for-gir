@@ -5635,16 +5635,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"ts-for-gir-gnome-shell-hello-world-example@workspace:examples/gjs/gnome-shell-hello-world":
-  version: 0.0.0-use.local
-  resolution: "ts-for-gir-gnome-shell-hello-world-example@workspace:examples/gjs/gnome-shell-hello-world"
-  dependencies:
-    "@ts-for-gir/cli": "workspace:^"
-    esbuild: ^0.17.17
-    typescript: ^5.0.4
-  languageName: unknown
-  linkType: soft
-
 "ts-for-gir-gtk-3-application-example@workspace:examples/gjs/gtk-3-application":
   version: 0.0.0-use.local
   resolution: "ts-for-gir-gtk-3-application-example@workspace:examples/gjs/gtk-3-application"

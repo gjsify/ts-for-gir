@@ -117,8 +117,6 @@ Options:
                                                        [string] [default: false]
       --fixConflicts            Fix Inheritance and implementation type conflict
                                 s                       [string] [default: true]
-      --gnomeShellTypes         Generate types for GNOME Shell (Experimental)
-                                                       [string] [default: false]
   -a, --generateAlias           Generate an alias tsconfig file to support GJS E
                                 SM module imports      [string] [default: false]
 ```
@@ -367,13 +365,6 @@ In summary, the `noDOMLib` option provides a convenient way to prevent the gener
 The `fixConflicts` CLI option is used to resolve type conflicts between the GObject Introspection descriptions in GIR XML format and TypeScript. For example, properties in the GIR XML format can be overwritten by methods, which is not allowed in TypeScript. When this option is active, `ts-for-gir` attempts to resolve these conflicts. However, it's important to note that this may result in generating types that do not exist.
 
 > If you have found an issue with the `fixConflicts` CLI option, we encourage you to report it. Reporting issues helps improve the quality of `ts-for-gir` and makes it a better tool for everyone.
-
-### gnomeShellTypes
-The `gnomeShellTypes` CLI option generates types for GNOME Shell Extensions and is currently experimental. It is recommended to use this option if you are developing a GNOME Shell Extension and would like to benefit from type checking and auto-completion while writing your code. When this option is enabled, additional types will be generated for the GNOME Shell API.
-
-Note that the generated types may contain experimental or incomplete parts, so use this option with caution and report any issues you encounter. Also note that the generated types are specific to the version of GNOME Shell that you are targeting, so make sure that you are using the correct version of GNOME Shell and `gir` files.
-
-> The example in [examples/gjs/gnome-shell-hello-world](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gnome-shell-hello-world) demonstrates the usage of the `gnomeShellTypes` option and how you can build a GNOME Shell Extension with TypeScript using the generated types from `ts-for-gir`.
 
 ### generateAlias
 The `generateAlias` CLI option, when active, generates an alias `tsconfig.alias.json` file to support ESM module imports in GJS. This is particularly useful if you want to import GIR modules in your GJS code using the `'gi://...'` syntax. The generated `tsconfig.alias.json` file will contain the necessary path aliases to enable TypeScript to properly resolve the imported modules, allowing for improved code editor functionality, such as type checking and code completion.

@@ -47,7 +47,6 @@ export class Config {
         noDebugComments: false,
         fixConflicts: true,
         noDOMLib: false,
-        gnomeShellTypes: false,
         generateAlias: false,
         promisify: false,
         npmScope: '@girs',
@@ -179,12 +178,6 @@ export class Config {
             default: Config.defaults.noDOMLib,
             normalize: true,
         },
-        gnomeShellTypes: {
-            type: 'boolean',
-            description: 'Generate types for GNOME Shell (Experimental)',
-            default: Config.defaults.gnomeShellTypes,
-            normalize: true,
-        },
         generateAlias: {
             type: 'boolean',
             alias: 'a',
@@ -233,7 +226,6 @@ export class Config {
         noDebugComments: this.options.noDebugComments,
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
-        gnomeShellTypes: this.options.gnomeShellTypes,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
@@ -337,7 +329,6 @@ export class Config {
             noDebugComments: config.noDebugComments,
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
-            gnomeShellTypes: config.gnomeShellTypes,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
             npmScope: config.npmScope,
@@ -416,7 +407,6 @@ export class Config {
             noDebugComments: options.noDebugComments,
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
-            gnomeShellTypes: options.gnomeShellTypes,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
             npmScope: options.npmScope,
@@ -511,13 +501,6 @@ export class Config {
             // noDOMLib
             if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFileData.noDOMLib === 'boolean') {
                 config.noDOMLib = configFileData.noDOMLib
-            }
-            // gnomeShellTypes
-            if (
-                config.gnomeShellTypes === Config.options.gnomeShellTypes.default &&
-                typeof configFileData.gnomeShellTypes === 'boolean'
-            ) {
-                config.gnomeShellTypes = configFileData.gnomeShellTypes
             }
             // generateAlias
             if (

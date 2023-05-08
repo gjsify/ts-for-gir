@@ -156,26 +156,26 @@
 - The config files must also be in ESM format if you are inside a ESM Package, this is the case if `"type": "module"` is defined in your package.json. Alternatively, the file can be saved in json format, then it works in both cases.
 
 
-See PR [#44](https://github.com/gjsify/ts-for-gjs/pull/44)
+See PR [#44](https://github.com/gjsify/ts-for-gir/pull/44)
 # 5 Jan 2022
 - Fix error type
 
-See PR [#43](https://github.com/gjsify/ts-for-gjs/pull/43)
+See PR [#43](https://github.com/gjsify/ts-for-gir/pull/43)
 
 # 1 Aug 2021
 - Add support for ES modules using default exports
 
-See PR [#41](https://github.com/gjsify/ts-for-gjs/pull/41)
+See PR [#41](https://github.com/gjsify/ts-for-gir/pull/41)
 
 # 14 Jan 2021
 - Use /usr/local/share when on Darwin systems
 
-See PR [#39](https://github.com/gjsify/ts-for-gjs/pull/39)
+See PR [#39](https://github.com/gjsify/ts-for-gir/pull/39)
 
 # 21 Apr 2021
 - Missing quote in generate example
 
-See PR [#38](https://github.com/gjsify/ts-for-gjs/pull/38)
+See PR [#38](https://github.com/gjsify/ts-for-gir/pull/38)
 
 # 13 Dec 2020
 - Use qualified names in circular dependency check (fixes #28)
@@ -184,7 +184,7 @@ See PR [#38](https://github.com/gjsify/ts-for-gjs/pull/38)
 - Expose instance parameters of class methods
 - Add CI / action tests using Github workflow
 
-See PR [#30](https://github.com/gjsify/ts-for-gjs/pull/30), [#31](https://github.com/gjsify/ts-for-gjs/pull/31), [#34](https://github.com/gjsify/ts-for-gjs/pull/34), [#36](https://github.com/gjsify/ts-for-gjs/pull/36) and [#37](https://github.com/gjsify/ts-for-gjs/pull/37)
+See PR [#30](https://github.com/gjsify/ts-for-gir/pull/30), [#31](https://github.com/gjsify/ts-for-gir/pull/31), [#34](https://github.com/gjsify/ts-for-gir/pull/34), [#36](https://github.com/gjsify/ts-for-gir/pull/36) and [#37](https://github.com/gjsify/ts-for-gir/pull/37)
 
 # 16 Oct 2020
 - Improved types and also use more types in test data
@@ -194,18 +194,18 @@ See PR [#30](https://github.com/gjsify/ts-for-gjs/pull/30), [#31](https://github
 - Added version to fix
 - Add versions property type to imports.gi for gobject-introspection classes #25
 - Added src to NPM module
-- Is it possible to use ts-for-gjs as dev dependency #20
+- Is it possible to use ts-for-gir as dev dependency #20
 - Split method exportObjectInternal in more methods to make it more readable
 - Improved debugging by log the full error when an error occurs
 - Some improvements taken from @realh `s fork
 
-See PR [#27](https://github.com/gjsify/ts-for-gjs/pull/27)
+See PR [#27](https://github.com/gjsify/ts-for-gir/pull/27)
 
 # 10 Oct 2020
 - Add ts-node as devDep to fix running in-tree
 - Improve typing for cast.ts
 
-See PR [#22](https://github.com/gjsify/ts-for-gjs/pull/22) and [#23](https://github.com/gjsify/ts-for-gjs/pull/23)
+See PR [#22](https://github.com/gjsify/ts-for-gir/pull/22) and [#23](https://github.com/gjsify/ts-for-gir/pull/23)
 
 # 7 Mar 2020
 - Moved CLI specific code to `cli.ts`
@@ -235,21 +235,21 @@ See PR [#22](https://github.com/gjsify/ts-for-gjs/pull/22) and [#23](https://git
 - Fixed data type errors
 - Added a new list
 
-See PR [#19](https://github.com/gjsify/ts-for-gjs/pull/19)
+See PR [#19](https://github.com/gjsify/ts-for-gir/pull/19)
 
 
 # 19 Jul 2019
 - Export symbols used by registerClass
 
-See PR [#16](https://github.com/gjsify/ts-for-gjs/pull/16)
+See PR [#16](https://github.com/gjsify/ts-for-gir/pull/16)
 
 # 14 Jul 2019
 - Add GObject signal connect methods
 - Fix GType and add $gtype properties
 
-See PR [#14](https://github.com/gjsify/ts-for-gjs/pull/14) and [#15](https://github.com/gjsify/ts-for-gjs/pull/15)
+See PR [#14](https://github.com/gjsify/ts-for-gir/pull/14) and [#15](https://github.com/gjsify/ts-for-gir/pull/15)
 
 # 2 Jul 2019
 - Fix return value of signal connect methods
 
-See PR [#10](https://github.com/gjsify/ts-for-gjs/pull/10)
+See PR [#10](https://github.com/gjsify/ts-for-gir/pull/10)

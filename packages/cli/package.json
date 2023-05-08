@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gjsify/ts-for-gjs.git"
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
@@ -35,9 +35,9 @@
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/gjsify/ts-for-gjs/issues"
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
   },
-  "homepage": "https://github.com/gjsify/ts-for-gjs#readme",
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
   "keywords": [
     "gjs",
     "typescript",

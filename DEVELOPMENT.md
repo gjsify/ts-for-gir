@@ -44,8 +44,8 @@ sudo dnf update && sudo dnf install \
 Checkout this repository, install the dependencies and build:
 
 ```bash
-git clone https://github.com/gjsify/ts-for-gjs
-cd ts-for-gjs
+git clone https://github.com/gjsify/ts-for-gir
+cd ts-for-gir
 git submodule update --init
 yarn install
 yarn run build
@@ -112,7 +112,7 @@ yarn run validate -- ./@types/gobject-2.0.d.ts
 
 We have a test which tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.
 
-Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gjs:
+Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gir:
 
 ```bash
 git submodule update --init

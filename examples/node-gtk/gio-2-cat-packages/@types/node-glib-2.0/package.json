@@ -1,7 +1,7 @@
 {
     "name": "@girs/node-glib-2.0",
-    "version": "2.74.0-3.0.0-beta.13",
-    "description": "Node.js TypeScript type definitions for GLib-2.0, generated from library version 2.74.0",
+    "version": "2.76.0-3.0.0-beta.14",
+    "description": "Node.js TypeScript type definitions for GLib-2.0, generated from library version 2.76.0",
     "type": "commonjs",
     "module": "node-glib-2.0.mjs",
     "main": "node-glib-2.0.js",
@@ -40,10 +40,14 @@
     "keywords": [
         "Gir",
         "TypeScript",
+        "types",
+        "GObject-Introspection",
+        "node",
+        "node-gtk",
         "GLib-2.0"
     ],
     "author": "ts-for-gir",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gjsify/ts-for-gir.git"
@@ -51,5 +55,5 @@
     "bugs": {
         "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
-    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+    "homepage": "https://github.com/gjsify/types/tree/main/node-glib-2.0#readme"
 }

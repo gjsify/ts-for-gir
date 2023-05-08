@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "3.0.0-beta.13",
+  "version": "3.0.0-beta.14",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "type": "module",
   "private": true,
@@ -137,10 +137,10 @@
   ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "concurrently": "^8.0.1",
-    "eslint": "^8.39.0",
+    "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",

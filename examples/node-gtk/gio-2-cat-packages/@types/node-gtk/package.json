@@ -1,6 +1,6 @@
 {
     "name": "@girs/node-gtk",
-    "version": "3.0.0-beta.13",
+    "version": "3.0.0-beta.14",
     "description": "Node.js TypeScript type definitions for node-gtk",
     "type": "commonjs",
     "module": "node-gtk.mjs",
@@ -43,10 +43,14 @@
     "keywords": [
         "Gir",
         "TypeScript",
+        "types",
+        "GObject-Introspection",
+        "node",
+        "node-gtk",
         "node-gtk"
     ],
     "author": "ts-for-gir",
-    "license": "Apache-2.0",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gjsify/ts-for-gir.git"
@@ -54,5 +58,5 @@
     "bugs": {
         "url": "https://github.com/gjsify/ts-for-gir/issues"
     },
-    "homepage": "https://github.com/gjsify/ts-for-gir#readme"
+    "homepage": "https://github.com/gjsify/types/tree/main/node-gtk#readme"
 }

@@ -1721,6 +1721,10 @@ export class TypeDefinitionGenerator implements Generator {
                 'node-gtk.d.ts',
                 this.config.outdir,
                 this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.d.cts' : 'node-gtk.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.overrideConfig,
             )
             // JS
             if (this.config.buildType === 'lib') {
@@ -1728,6 +1732,10 @@ export class TypeDefinitionGenerator implements Generator {
                     'node-gtk.js',
                     this.config.outdir,
                     this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.cjs' : 'node-gtk.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.overrideConfig,
                 )
             }
             this.resetOverrideConfig()

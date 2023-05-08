@@ -557,8 +557,10 @@ function getDefaultGirDirectories(): string[] {
         '/usr/share/gnome-shell/gir-1.0',
         '/usr/lib64/mutter-10',
         '/usr/lib64/mutter-11',
+        '/usr/lib64/mutter-12',
         '/usr/lib/x86_64-linux-gnu/mutter-10',
         '/usr/lib/x86_64-linux-gnu/mutter-11',
+        '/usr/lib/x86_64-linux-gnu/mutter-12',
     ]
     // NixOS and other distributions does not have a /usr/local/share directory.
     // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.

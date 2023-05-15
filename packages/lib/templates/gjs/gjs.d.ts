@@ -197,6 +197,42 @@ declare namespace signals {
 
 // See also https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts
 declare global {
+
+    interface GjsGiImports {
+        // <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+        //     <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+        //     typeof <%- girModule.module.importNamespace %>
+        //     <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+        //         |
+        //     <%_ } _%>
+        //     <%_ } _%>
+        // <%_ } _%>
+        // versions: {
+        //     <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+        //         <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+        //         '<%- girModule.module.version %>'
+        //         <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+        //             |
+        //         <%_ } _%>
+        //         <%_ } _%>
+        //     <%_ } _%>
+        // }
+    }
+    
+    interface GjsImports {
+        gi: GjsGiImports
+        lang: typeof lang
+        system: typeof system
+        signals: typeof signals
+        package: typeof package
+        mainloop: typeof mainloop
+        searchPath: string[]
+        gettext: typeof gettext
+        byteArray: typeof byteArray
+        format: typeof format
+        cairo: typeof cairo
+    }
+
     function print(...args: any[]): void
     function printerr(...args: any[]): void
     function log(message: any): void
@@ -735,43 +771,9 @@ declare global {
      */
     function clearInterval(timeout: GLib20.Source): void
 
-    const imports: {
-        // TODO: Use only latest version of each gir module?
-        // TODO: Move this to ./types.d.ts
-        gi: {
-            <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-              <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-                typeof <%- girModule.module.importNamespace %>
-                <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-                  |
-                <%_ } _%>
-              <%_ } _%>
-            <%_ } _%>
-            versions: {
-                <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-                  <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-                    '<%- girModule.module.version %>'
-                    <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-                      |
-                    <%_ } _%>
-                  <%_ } _%>
-                <%_ } _%>
-            }
-        }
-
-        lang: typeof lang
-        system: typeof system
-        signals: typeof signals
-        package: typeof package
-        mainloop: typeof mainloop
-        searchPath: string[]
-        gettext: typeof gettext
-        byteArray: typeof byteArray
-        format: typeof format
-        cairo: typeof cairo
-    }
+    const imports: GjsImports
 }
 
-declare const _imports: typeof imports
+declare const _imports: GjsImports
 export default _imports
 export { _imports as imports }

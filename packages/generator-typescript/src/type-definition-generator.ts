@@ -1232,6 +1232,68 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
+    protected async exportModuleAmbientTS(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-ambient.d.ts'
+        let target = `${girModule.importName}-ambient.d.ts`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-ambient.d.cts`
+            } else {
+                target = `${girModule.importName}-ambient.d.mts`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModuleRequire(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-require.d.ts'
+        let target = `${girModule.importName}-require.d.ts`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-require.d.cts`
+            } else {
+                target = `${girModule.importName}-require.d.mts`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
     protected async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
         let explicitTemplate = `${girModule.importName}.d.ts`
@@ -1524,6 +1586,12 @@ export class TypeDefinitionGenerator implements Generator {
 
         await this.exportModuleTS(moduleTemplateProcessor, girModule)
 
+        if (this.config.environment === 'gjs') {
+            await this.exportModuleAmbientTS(moduleTemplateProcessor, girModule)
+        } else if (this.config.environment === 'node') {
+            await this.exportModuleRequire(moduleTemplateProcessor, girModule)
+        }
+
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(moduleTemplateProcessor, girModule)
         }
@@ -1674,6 +1742,8 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Import ambient types
         await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
+
+        // Import ambient path alias
         if (this.config.generateAlias) {
             if (this.config.package) {
                 // Write tsconfig.alias.json to the root of the package

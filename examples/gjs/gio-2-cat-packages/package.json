@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.17.18",
+    "esbuild": "^0.17.19",
     "typescript": "^5.0.4"
   },
   "workspaces": [
@@ -35,5 +35,5 @@
     "@ts-for-gir/generator-typescript": "portal:../../../packages/generator-typescript",
     "@ts-for-gir/lib": "portal:../../../packages/lib"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.5.1"
 }

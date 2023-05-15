@@ -5,8 +5,33 @@
 - Make use of packages/lib/templates/gjs/types.d.ts
 
 # Unreleased
-- Add support to generate a NPM package for each generated module type definition, see #106
-
+- Add support to generate a package for each type we can publish on NPM, see #106
+- Add a new CLI option to generate NPM packages
+- Add a new CLI option to change the NPM package scope name
+- Documentation for the new CLI options
+- Generate a package.json for each package
+- One folder for each package
+- New example
+- Add dependencies to each package.json
+- Package names in lower case
+- Separate package names for node-gtk types
+- Package directory and file names in lower case
+- Parse library versions
+- Add a README.md for each NPM package
+- Different README.md for node-gtk NPM packages
+- Add an test to CI
+- Fix tsconfig.alias.json
+- Add support for [ambient modules](https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules)
+- Documentation for ambient modules
+- Generate both CJS and ESM modules
+- Add node-gtk to the peer dependencies to the node-gtk NPM packages 
+- Remove destination environment directory
+- Separate README.md for the main NPM packages (`@gir/gjs` and `@gir/node-gtk`)
+- Generate and publish the new [NPM packages](https://www.npmjs.com/search?q=%40girs)
+- Provide system and gettext as ESM, see #114
+- Add repository and homepage to package.json
+- Updated Documentation for the new NPM packages
+- Move the GNOME Shell type definitions to a [NPM package](https://github.com/gjsify/gnome-shell) and make use of the new generated NPM packages
 # 3.0.0-beta.12
 - UTF-8 string pointers are nullable, so all of this pointers are handled as nullable now, see #108
 - Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps

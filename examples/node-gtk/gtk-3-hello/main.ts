@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // Based on https://github.com/romgrk/node-gtk/blob/master/examples/hello-gtk.js
-import { startLoop } from './@types/node-gtk'
-import * as Gtk from './@types/node-gtk-3.0'
+import gi from './@types/node-gtk.js'
+import * as Gtk from './@types/node-gtk-3.0.js'
 
-startLoop()
+gi.startLoop()
 Gtk.init(process.argv)
 
 const settings = Gtk.Settings.getDefault()

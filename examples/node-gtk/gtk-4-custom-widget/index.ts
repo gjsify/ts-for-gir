@@ -1,4 +1,5 @@
 // This example is based on https://github.com/romgrk/node-gtk/blob/master/examples/gtk-4-custom-widget.js
+// TODO? https://github.com/romgrk/node-gtk/issues/341
 
 import gi from './@types/node-gtk.js';
 import GLib from './@types/node-glib-2.0.js';
@@ -7,6 +8,7 @@ import Gdk from './@types/node-gdk-4.0.js';
 import Graphene from './@types/node-graphene-1.0.js';
 
 Gtk.init()
+console.log('Init Gtk DONE')
 
 /* Define our custom widget */
 
@@ -37,11 +39,11 @@ class CustomWidget extends Gtk.Widget {
 }
 
 gi.registerClass(CustomWidget)
-
+console.log('registerClass DONE')
 
 /* Setup & start the application */
 
-const loop = GLib.MainLoop.new(null, false)
+const loop = new GLib.MainLoop(null, false)
 const app = new Gtk.Application('com.github.romgrk.node-gtk.demo', 0)
 app.on('activate', onActivate)
 const status = app.run([])
@@ -51,6 +53,7 @@ console.log('Finished with status:', status)
 /* Event handlers */
 
 function onActivate() {
+  console.log('onActivate...')
   const window = new Gtk.ApplicationWindow(app)
   window.setTitle('Window')
   window.setDefaultSize(200, 200)
@@ -59,28 +62,36 @@ function onActivate() {
   const ui = getUI()
   const builder = Gtk.Builder.newFromString(ui, ui.length)
   const root = builder.getObject('root') as Gtk.Box
+  console.log('getObject root:', root)
   const custom = new CustomWidget()
   root.append(custom)
 
   const actionButton = builder.getObject('actionButton') as Gtk.Button
   actionButton?.on('clicked', () => {
-    console.log('clicked')
+    console.log('actionButton clicked...')
     custom.customMethod()
   })
 
   const closeButton = builder.getObject('closeButton') as Gtk.Button
-  closeButton?.on('clicked', () => window.close())
+  closeButton?.on('clicked', () => {
+    console.log('closeButton clicked...')
+    window.close()
+  })
 
-  if(root) window.setChild(root)
+  window.setChild(root)
   window.present()
 
+  console.log('startLoop...')
   gi.startLoop()
   loop.run()
+  console.log('startLoop DONE')
 }
 
 function onQuit() {
+  console.log('onQuit...')
   loop.quit()
   app.quit()
+  console.log('onQuit DONE')
   return false
 }
 

@@ -1,9 +1,9 @@
 <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
 <%_ if(package){ _%>
     <%_ if(noNamespace){ _%>
-import * as <%= girModule.importNamespace %> from '.';
+import * as <%= girModule.importNamespace %> from '<%= pkg.importPath %>';
     <%_ } else { _%>
-import <%= girModule.importNamespace %> from '.';
+import <%= girModule.importNamespace %> from '<%= pkg.importPath %>';
     <%_ } _%>
 <%_ } else { _%>
     <%_ if(noNamespace){ _%>

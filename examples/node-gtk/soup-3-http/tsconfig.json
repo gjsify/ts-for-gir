@@ -5,6 +5,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,

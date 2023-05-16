@@ -16,4 +16,9 @@ declare global {
 }
 
 declare const gi: NodeGtkGi;
-export default gi;
+
+<% if(moduleType === 'esm'){ %>
+    export default gi;
+<% } else { %>  
+    export = gi;
+<% } %>

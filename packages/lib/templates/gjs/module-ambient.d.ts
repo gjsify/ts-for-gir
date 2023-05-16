@@ -20,8 +20,8 @@ declare module 'gi://<%= name %>?version=<%= version %>' {
     export default <%- girModule.importNamespace -%>;
 }
 
-declare module 'gi://<%= name %>' {
-    <%- moduleImportStr %>;
-    export default <%- girModule.importNamespace -%>;
-}
+// declare module 'gi://<%= name %>' {
+//     <%- moduleImportStr %>;
+//     export default <%- girModule.importNamespace -%>;
+// }
 

@@ -1,9 +1,9 @@
 import './global'
-import { startLoop } from './@types/node-gtk'
+import gi from './@types/node-gtk.js'
 import gladeFile from './builder-auto-connect-signals.glade'
-import * as Gtk from './@types/node-gtk-3.0'
+import * as Gtk from './@types/node-gtk-3.0.js'
 
-startLoop()
+gi.startLoop()
 Gtk.init(process.argv)
 
 const builder = Gtk.Builder.newFromString(gladeFile, gladeFile.length)

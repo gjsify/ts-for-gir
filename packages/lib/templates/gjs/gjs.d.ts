@@ -4,6 +4,7 @@
  * These type definitions are automatically generated, do not edit them by hand.
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
+import './ambient.d.ts';
 
 <%_ const GObject = dep.find('GObject') _%>
 <%_ const GLib = dep.find('GLib') _%>
@@ -12,15 +13,6 @@
 import gettext from './gettext.js';
 import system from './system.js';
 import cairo from './cairo.js';
-
-<%_ for (const girModule of girModules) { _%>
-    <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
-    <%_ if(noNamespace){ _%>
-        import type * as <%= girModule.importNamespace %> from "<%= pkg.importPath %>";
-    <%_ } else { _%>
-        import type <%= girModule.importNamespace %> from "<%= pkg.importPath %>";
-    <%_ } _%>
-<%_ } _%>
 
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/1.72.0/modules/script/package.js
 declare namespace package {
@@ -199,24 +191,7 @@ declare namespace signals {
 declare global {
 
     interface GjsGiImports {
-        // <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-        //     <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-        //     typeof <%- girModule.module.importNamespace %>
-        //     <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-        //         |
-        //     <%_ } _%>
-        //     <%_ } _%>
-        // <%_ } _%>
-        // versions: {
-        //     <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-        //         <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
-        //         '<%- girModule.module.version %>'
-        //         <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
-        //             |
-        //         <%_ } _%>
-        //         <%_ } _%>
-        //     <%_ } _%>
-        // }
+        // Will be extended by the import of more gir types
     }
     
     interface GjsImports {
@@ -263,15 +238,15 @@ declare global {
         clear(): void
 
         /**
-         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.DEBUG}.
+         * Logs a message with severity equal to {@link GLib.LogLevelFlags.DEBUG}.
          *
          * @param  {...any} data formatting substitutions, if applicable
          */
         debug(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.CRITICAL}.
-         * Does not use {@link GLib20.LogLevelFlags.ERROR} to avoid asserting and
+         * Logs a message with severity equal to {@link GLib.LogLevelFlags.CRITICAL}.
+         * Does not use {@link GLib.LogLevelFlags.ERROR} to avoid asserting and
          * forcibly shutting down the application.
          *
          * @param data formatting substitutions, if applicable
@@ -279,14 +254,14 @@ declare global {
         error(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.INFO}.
+         * Logs a message with severity equal to {@link GLib.LogLevelFlags.INFO}.
          *
          * @param data formatting substitutions, if applicable
          */
         info(...data: any[]): void
 
         /**
-         * Logs a message with severity equal to {@link GLib20.LogLevelFlags.MESSAGE}.
+         * Logs a message with severity equal to {@link GLib.LogLevelFlags.MESSAGE}.
          *
          * @param data formatting substitutions, if applicable
          */
@@ -727,15 +702,15 @@ declare global {
     <% } %>
 
     interface BooleanConstructor {
-        $gtype: GObject20.GType<boolean>
+        $gtype: GObject.GType<boolean>
     }
 
     interface NumberConstructor {
-        $gtype: GObject20.GType<number>
+        $gtype: GObject.GType<number>
     }
 
     interface StringConstructor {
-        $gtype: GObject20.GType<string>
+        $gtype: GObject.GType<string>
     }
 
     const ARGV: string[]
@@ -749,7 +724,7 @@ declare global {
      * @param delay the duration in milliseconds to wait before running callback
      * @param args arguments to pass to callback
      */
-    function setTimeout(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
+    function setTimeout(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib.Source
 
     /**
      * @version Gjs 1.71.1
@@ -757,19 +732,19 @@ declare global {
      * @param delay the duration in milliseconds to wait between calling callback
      * @param args arguments to pass to callback
      */
-    function setInterval(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib20.Source
+    function setInterval(callback: (...args: any[]) => any, delay?: number, ...args: any[]): GLib.Source
 
     /**
      * @version Gjs 1.71.1
      * @param timeout the timeout to clear
      */
-    function clearTimeout(timeout: GLib20.Source): void
+    function clearTimeout(timeout: GLib.Source): void
 
     /**
      * @version Gjs 1.71.1
      * @param timeout the timeout to clear
      */
-    function clearInterval(timeout: GLib20.Source): void
+    function clearInterval(timeout: GLib.Source): void
 
     const imports: GjsImports
 }

@@ -8,20 +8,13 @@
     <%_ } _%>
 <%_ } else { _%>
     <%_ if(noNamespace){ _%>
-        <%_ moduleImportStr = `type ${girModule.importNamespace} = typeof import('${pkg.importPath}')`; _%>
+        <%_ moduleImportStr = `const ${girModule.importNamespace}: typeof import('${pkg.importPath}')`; _%>
     <%_ } else { _%>
-        <%_ moduleImportStr = `type ${girModule.importNamespace} = typeof import('${pkg.importPath}').default`; _%>
+        <%_ moduleImportStr = `const ${girModule.importNamespace}: typeof import('${pkg.importPath}').default`; _%>
     <%_ } _%>
 <%_ } _%>
-
 
 declare module 'gi://<%= name %>?version=<%= version %>' {
     <%- moduleImportStr %>;
     export default <%- girModule.importNamespace -%>;
 }
-
-// declare module 'gi://<%= name %>' {
-//     <%- moduleImportStr %>;
-//     export default <%- girModule.importNamespace -%>;
-// }
-

@@ -8,8 +8,8 @@
  * the label should show a translation of 'Print help'
  */
 
-const ByteArray = imports.byteArray;
 import Gio from "gi://Gio?version=2.0";
+const ByteArray = imports.byteArray;
 
 Gio._promisify(Gio.File.prototype, 'load_contents_async', 'load_contents_finish');
 

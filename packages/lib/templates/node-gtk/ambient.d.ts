@@ -6,13 +6,13 @@ declare module 'node-gtk' {
         <% if(moduleType === 'esm'){ %>
             import gi from '<%= pkg.importPath %>';
         <% } else { %>  
-            export * as gi from '<%= pkg.importPath %>';
+            import * as gi from '<%= pkg.importPath %>';
         <% } %>
     <%_ } else { _%>
         <% if(moduleType === 'esm'){ %>
-            type gi = typeof import('<%= pkg.importPath %>');
-        <% } else { %>  
             type gi = typeof import('<%= pkg.importPath %>').default;
+        <% } else { %>  
+            type gi = typeof import('<%= pkg.importPath %>');
         <% } %>
     <%_ } _%>
     export = gi;

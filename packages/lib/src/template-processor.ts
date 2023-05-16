@@ -147,7 +147,7 @@ export class TemplateProcessor {
         overrideTemplateData: TemplateData = {},
     ): Promise<string> {
         const { prepend, append } = await this.load(templateFilename, options, overrideTemplateData)
-        const code = prepend + content + append
+        const code = prepend + '\n' + content + '\n' + append
         await this.write(code, baseOutputPath, outputFilename, prependEnv)
         return code
     }
@@ -178,7 +178,7 @@ export class TemplateProcessor {
         const result: { [path: string]: string } = {}
         for (const filename of Object.keys(renderedTpls)) {
             const destPath = getDestPath(baseOutputPath, outputDirname, filename)
-            result[destPath] = renderedTpls[filename] + append
+            result[destPath] = renderedTpls[filename] + '\n' + append
             await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), prependEnv)
         }
 

@@ -15,6 +15,12 @@ type <%= girModule.importNamespace %> = typeof import('<%= pkg.importPath %>').d
 
 declare global {
     interface NodeGtkGi {
+        <%_ if(package){ _%>
         require(ns: '<%= girModule.namespace %>', ver?: '<%= girModule.version %>'): typeof <%= girModule.importNamespace %>;
+        <%_ } else { _%>
+        require(ns: '<%= girModule.namespace %>', ver?: '<%= girModule.version %>'): <%= girModule.importNamespace %>;
+        <%_ } _%>
     }
 }
+
+export { NodeGtkGi };

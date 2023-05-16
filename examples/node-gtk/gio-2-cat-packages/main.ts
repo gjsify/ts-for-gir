@@ -8,6 +8,8 @@
  * the label should show a translation of 'Print help'
  */
 import "@girs/node-gtk/node-ambient"
+import "@girs/node-gio-2.0"
+
 import gi = require("node-gtk");
 const Gio = gi.require("Gio", "2.0");
 

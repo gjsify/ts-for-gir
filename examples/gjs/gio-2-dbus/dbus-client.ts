@@ -112,6 +112,7 @@ function onNameVanished(connection: Gio.DBusConnection, name: string) {
     }
 }
 
+print("Start DBus client");
 let busWatchId = Gio.bus_watch_name(
     Gio.BusType.SESSION,
     'org.gnome.gjs.Test',
@@ -123,7 +124,6 @@ let busWatchId = Gio.bus_watch_name(
 // Start an event loop
 let loop = GLib.MainLoop.new(null, false);
 loop.run();
-print("loop end");
 
 // Unwatching names works just like disconnecting signal handlers.
 Gio.bus_unown_name(busWatchId);

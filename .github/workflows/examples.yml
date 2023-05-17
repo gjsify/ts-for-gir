@@ -35,7 +35,7 @@ jobs:
     - run: yarn install
     - run: yarn run build
     - run: yarn run build:all
-    - run: yarn run validate:app
+    - run: yarn run validate:examples
     - run: gjs --version
     - run: yarn run start:cli-examples:gjs
     - name: Install dependencies for node-gtk

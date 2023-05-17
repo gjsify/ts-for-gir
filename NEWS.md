@@ -29,6 +29,7 @@
 - Separate README.md for the main NPM packages (`@gir/gjs` and `@gir/node-gtk`)
 - Generate and publish the new [NPM packages](https://www.npmjs.com/search?q=%40girs)
 - Provide system and gettext as ESM, see #114
+- Include only desired types (instead of all existing ones)
 - Add repository and homepage to package.json
 - Updated Documentation for the new NPM packages
 - Move the GNOME Shell type definitions to a [NPM package](https://github.com/gjsify/gnome-shell) and make use of the new generated NPM packages

@@ -4,27 +4,7 @@
 
 import GLib from 'gi://GLib?version=2.0';
 import Gio from 'gi://Gio?version=2.0';
-
-/*
- * An XML DBus Interface
- */
-const ifaceExampleXml = `
-<node>
-  <interface name="org.gnome.gjs.Test">
-    <method name="SimpleMethod"/>
-    <method name="ComplexMethod">
-      <arg type="s" direction="in" name="input"/>
-      <arg type="u" direction="out" name="length"/>
-    </method>
-    <signal name="TestSignal">
-      <arg name="type" type="s"/>
-      <arg name="value" type="b"/>
-    </signal>
-    <property name="ReadOnlyProperty" type="s" access="read"/>
-    <property name="ReadWriteProperty" type="b" access="readwrite"/>
-  </interface>
-</node>`;
-
+import { dbusIfaceXml } from './dbus-ifrace-xml.js'
 
 // An example of the service-side implementation of the above interface.
 class Service {
@@ -33,7 +13,7 @@ class Service {
     _readWriteProperty?: boolean;
 
     constructor() {
-        this.dbus = Gio.DBusExportedObject.wrapJSObject(ifaceExampleXml, this);
+        this.dbus = Gio.DBusExportedObject.wrapJSObject(dbusIfaceXml, this);
     }
 
     // Properties
@@ -116,6 +96,7 @@ function onNameLost(_connection: Gio.DBusConnection, _name: string) {
     }
 }
 
+print("Start DBus server");
 let ownerId = Gio.bus_own_name(
     Gio.BusType.SESSION,
     'org.gnome.gjs.Test',

@@ -43,6 +43,8 @@ TestProxy(
     Gio.DBusProxyFlags.NONE
 );
 
+print("Start DBus client (async)");
+
 // Start an event loop
 let loop = GLib.MainLoop.new(null, false);
 loop.run();

@@ -3,6 +3,7 @@ import { Logger } from './logger.js'
 import { Transformation } from './transformation.js'
 
 import type { Dependency, GenerateConfig, GirInclude } from './types/index.js'
+import type { GirModule } from './gir-module.js'
 
 export class DependencyManager {
     protected log: Logger
@@ -36,6 +37,14 @@ export class DependencyManager {
         return Object.values(this.cache)
     }
 
+    /**
+     * Get the core dependencies
+     * @returns
+     */
+    core(): Dependency[] {
+        return [this.get('GObject-2.0'), this.get('GLib-2.0')]
+    }
+
     getImportPath(packageName: string, relativeTo = '.'): string {
         const importName = this.transformation.transformImportName(packageName)
         const importPath = this.config.package
@@ -44,7 +53,7 @@ export class DependencyManager {
         return importPath
     }
 
-    getImportDef(namespace: string, importPath: string): string {
+    createImportDef(namespace: string, importPath: string): string {
         return this.config.noNamespace
             ? `import type * as ${namespace} from '${importPath}'`
             : `import type ${namespace} from '${importPath}';`
@@ -105,7 +114,7 @@ export class DependencyManager {
         const filename = `${packageName}.gir`
         const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
         const importPath = this.getImportPath(packageName, relativeTo)
-        const importDef = this.getImportDef(namespace, importPath)
+        const importDef = this.createImportDef(namespace, importPath)
 
         const dependency: Dependency = {
             namespace,
@@ -125,6 +134,17 @@ export class DependencyManager {
     }
 
     /**
+     * Add all dependencies from an array of gir modules
+     * @param girModules
+     */
+    addAll(girModules: GirModule[]): Dependency[] {
+        for (const girModule of girModules) {
+            this.get(girModule.namespace, girModule.version || '0.0')
+        }
+        return this.all()
+    }
+
+    /**
      * Transforms a gir include object array to a dependency object array
      * @param girIncludes - Array of gir includes
      * @returns Array of dependencies
@@ -138,7 +158,36 @@ export class DependencyManager {
     }
 
     /**
-     * Find a dependency by it's namespace from the cache
+     * Check if multiple dependencies with the given namespace exist in the cache
+     * @param namespace The namespace of the dependency
+     * @returns
+     */
+    hasConflict(namespace: string): boolean {
+        const packageNames = Object.keys(this.cache)
+        const candidates = packageNames.filter((packageName) => {
+            return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
+        })
+
+        return candidates.length > 1
+    }
+
+    /**
+     * Check if the given version is the latest version of the dependency
+     * @param namespace The namespace of the dependency
+     * @param version The version of the dependency
+     * @returns
+     */
+    isLatestVersion(namespace: string, version: string): boolean {
+        const hasConflict = this.hasConflict(namespace)
+        if (!hasConflict) {
+            return true
+        }
+        const latestVersion = this.find(namespace)
+        return latestVersion?.version === version
+    }
+
+    /**
+     * Find a dependency by it's namespace from the cache, if multiple versions are found, the latest version is returned
      * @param namespace The namespace of the dependency
      * @param relativeTo The relative path to the dependency
      * @returns The dependency object or null if not found
@@ -165,7 +214,7 @@ export class DependencyManager {
         if (latestVersion && this.cache[latestVersion]) {
             const dep = this.cache[latestVersion]
             const importPath = relativeTo === '.' ? dep.importPath : this.getImportPath(latestVersion, relativeTo)
-            const importDef = relativeTo === '.' ? dep.importDef : this.getImportDef(dep.namespace, importPath)
+            const importDef = relativeTo === '.' ? dep.importDef : this.createImportDef(dep.namespace, importPath)
             return { ...dep, importPath, importDef }
         }
 
@@ -178,7 +227,7 @@ export class DependencyManager {
         }
 
         const importPath = this.getImportPath(packageName, relativeTo)
-        const importDef = this.getImportDef(packageName, importPath)
+        const importDef = this.createImportDef(packageName, importPath)
 
         const dep: Dependency = {
             namespace: pascalCase(packageName),

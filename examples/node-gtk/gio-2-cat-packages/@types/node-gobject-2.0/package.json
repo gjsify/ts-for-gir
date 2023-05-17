@@ -12,6 +12,8 @@
         "tsconfig": "./tsconfig.doc.json"
     },
     "exports": {
+        "./ambient": "./node-gobject-2.0-ambient.d.ts",
+        "./import": "./node-gobject-2.0-import.d.ts",
         ".": {
             "import": {
                 "types": "./node-gobject-2.0.d.mts",

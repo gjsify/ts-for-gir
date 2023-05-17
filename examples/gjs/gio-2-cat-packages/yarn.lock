@@ -186,7 +186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@girs/gio-2.0@workspace:@types/gio-2.0, @girs/gio-2.0@workspace:^":
+"@girs/gio-2.0@workspace:@types/gio-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/gio-2.0@workspace:@types/gio-2.0"
   dependencies:
@@ -200,7 +200,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gjs@workspace:@types/gjs"
   dependencies:
-    "@girs/gio-2.0": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: ^5.0.4

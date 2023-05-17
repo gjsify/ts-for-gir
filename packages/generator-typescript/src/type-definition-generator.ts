@@ -1263,18 +1263,18 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportModuleRequire(
+    protected async exportModuleImportTS(
         moduleTemplateProcessor: TemplateProcessor,
         girModule: GirModule,
     ): Promise<void> {
-        const template = 'module-require.d.ts'
-        let target = `${girModule.importName}-require.d.ts`
+        const template = 'module-import.d.ts'
+        let target = `${girModule.importName}-import.d.ts`
 
         if (this.overrideConfig.moduleType) {
             if (this.overrideConfig.moduleType === 'cjs') {
-                target = `${girModule.importName}-require.d.cts`
+                target = `${girModule.importName}-import.d.cts`
             } else {
-                target = `${girModule.importName}-require.d.mts`
+                target = `${girModule.importName}-import.d.mts`
             }
         }
 
@@ -1588,9 +1588,8 @@ export class TypeDefinitionGenerator implements Generator {
 
         if (this.config.environment === 'gjs') {
             await this.exportModuleAmbientTS(moduleTemplateProcessor, girModule)
-        } else if (this.config.environment === 'node') {
-            await this.exportModuleRequire(moduleTemplateProcessor, girModule)
         }
+        await this.exportModuleImportTS(moduleTemplateProcessor, girModule)
 
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(moduleTemplateProcessor, girModule)
@@ -1821,6 +1820,8 @@ export class TypeDefinitionGenerator implements Generator {
     }
 
     public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[] = []) {
+        this.dependencyManager.addAll(girModules)
+
         if (this.config.package && this.packageData) {
             await this.packageData.start()
         }
@@ -1831,12 +1832,12 @@ export class TypeDefinitionGenerator implements Generator {
 
         if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            await this.exportNodeGtk(this.dependencyManager.all(), girModules, girModulesGrouped)
+            await this.exportNodeGtk(this.dependencyManager.core(), girModules, girModulesGrouped)
         }
 
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            await this.exportGjs(this.dependencyManager.all(), girModules, girModulesGrouped)
+            await this.exportGjs(this.dependencyManager.core(), girModules, girModulesGrouped)
         }
     }
 }

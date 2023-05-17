@@ -1,3 +1,7 @@
+<%#
+    This EJS template is used for the generated .d.ts files for ambient typescript module support.
+    See https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules
+%>
 <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
 <%_ let moduleImportStr = ""; _%>
 <%_ if(package){ _%>
@@ -18,3 +22,10 @@ declare module 'gi://<%= name %>?version=<%= version %>' {
     <%- moduleImportStr %>;
     export default <%- girModule.importNamespace -%>;
 }
+
+<%_ if(!dep.hasConflict(name, version)){ _%>
+declare module 'gi://<%= name %>' {
+    <%- moduleImportStr %>;
+    export default <%- girModule.importNamespace -%>;
+}
+<%_ } _%>

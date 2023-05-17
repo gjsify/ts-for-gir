@@ -193,7 +193,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@girs/node-gio-2.0@workspace:@types/node-gio-2.0, @girs/node-gio-2.0@workspace:^":
+"@girs/node-gio-2.0@workspace:@types/node-gio-2.0":
   version: 0.0.0-use.local
   resolution: "@girs/node-gio-2.0@workspace:@types/node-gio-2.0"
   dependencies:
@@ -231,7 +231,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/node-gtk@workspace:@types/node-gtk"
   dependencies:
-    "@girs/node-gio-2.0": "workspace:^"
     "@girs/node-glib-2.0": "workspace:^"
     "@girs/node-gobject-2.0": "workspace:^"
     typescript: ^5.0.4

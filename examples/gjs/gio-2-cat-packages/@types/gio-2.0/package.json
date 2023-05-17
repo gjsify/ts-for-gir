@@ -12,6 +12,8 @@
         "tsconfig": "./tsconfig.doc.json"
     },
     "exports": {
+        "./ambient": "./gio-2.0-ambient.d.ts",
+        "./import": "./gio-2.0-import.d.ts",
         ".": {
             "import": {
                 "types": "./gio-2.0.d.ts",

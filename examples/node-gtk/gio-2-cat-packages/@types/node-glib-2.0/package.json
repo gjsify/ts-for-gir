@@ -12,6 +12,8 @@
         "tsconfig": "./tsconfig.doc.json"
     },
     "exports": {
+        "./ambient": "./node-glib-2.0-ambient.d.ts",
+        "./import": "./node-glib-2.0-import.d.ts",
         ".": {
             "import": {
                 "types": "./node-glib-2.0.d.mts",

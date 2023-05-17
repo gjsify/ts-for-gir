@@ -1,4 +1,4 @@
-<%# This template is used for the generated .d.ts file of each GIR module like Gtk-4.0, GObject-2.0, ... %>
+<%# This EJS template is used for the generated .d.ts file of each GIR module like Gtk-4.0, GObject-2.0, ... %>
 /*
  * Type Definitions for Gjs (https://gjs.guide/)
  *
@@ -6,3 +6,4 @@
  * If you found a bug fix it in `<%= APP_NAME %>` or create a bug report on <%= APP_SOURCE %>
  */
 import './<%= importName %>-ambient.d.ts';
+import './<%= importName %>-import.d.ts';

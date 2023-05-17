@@ -98,8 +98,13 @@
         <%_ } _%>
       },
       <%_ } _%>
-      <%_ if (packageName === 'node-gtk') { _%>
-      "./node-ambient": "./node-ambient.d.ts",
+      <%_ if (entryPointName === 'gjs') { _%>
+      "./ambient": "./ambient.d.ts",
+      <%_ } else if (entryPointName === 'node-gtk') { _%>
+      "./ambient": "./node-ambient.d.ts",
+      <%_ } else {_%>
+      "./ambient": "./<%- entryPointName %>-ambient.d.ts",
+      "./import": "./<%- entryPointName %>-import.d.ts",
       <%_ } _%>
       ".": {
         <%_ if (moduleType === 'esm') { _%>

@@ -1,3 +1,6 @@
+<%#
+    This EJS template is used to extend the global NodeGtkGi interface with the GIR module, for `gi.require(namespace) node-gtk GIR types`
+%>
 <%_ const pkg = dep.get(girModule.namespace, girModule.version) _%>
 <%_ if(package){ _%>
     <%_ if(noNamespace){ _%>
@@ -23,4 +26,4 @@ declare global {
     }
 }
 
-export { NodeGtkGi };
+export default NodeGtkGi;

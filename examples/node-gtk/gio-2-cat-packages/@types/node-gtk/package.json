@@ -12,7 +12,7 @@
         "tsconfig": "./tsconfig.doc.json"
     },
     "exports": {
-        "./node-ambient": "./node-ambient.d.ts",
+        "./ambient": "./node-ambient.d.ts",
         ".": {
             "import": {
                 "types": "./node-gtk.d.mts",
@@ -30,7 +30,6 @@
         "test:cjs": "tsc --noEmit node-gtk.d.ts"
     },
     "dependencies": {
-        "@girs/node-gio-2.0": "workspace:^",
         "@girs/node-glib-2.0": "workspace:^",
         "@girs/node-gobject-2.0": "workspace:^"
     },

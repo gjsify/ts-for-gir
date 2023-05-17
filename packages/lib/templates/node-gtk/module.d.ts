@@ -6,4 +6,7 @@
  * If you found a bug fix it in <%= APP_NAME %> itself or create a bug report on <%= APP_SOURCE %>
  */
 
-import './<%= importName %>-require.d.ts';
+<%_ if(package || dep.isLatestVersion(girModule.namespace, girModule.version)){ _%>
+import './<%= importName %>-import.d.ts';
+<%_ } _%>
+    

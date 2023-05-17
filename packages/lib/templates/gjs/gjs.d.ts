@@ -192,6 +192,9 @@ declare global {
 
     interface GjsGiImports {
         // Will be extended by the import of more gir types
+        versions: {
+            [namespace: string]: string
+        }
     }
     
     interface GjsImports {

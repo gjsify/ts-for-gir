@@ -11,7 +11,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts"],
+  "include": ["@types/gjs.d.ts", "@types/gtk-3.0.d.ts"],
   "files": [
     "main.ts",
   ]

@@ -15,6 +15,7 @@
     "sourceMap": true,
     "outDir": "./dist"
   },
+  "include": ["@types/node-gtk.d.ts", "@types/node-gtk-3.0.d.ts", "@types/node-pango-1.0.d.ts", "@types/node-webkit2-4.0.d.ts"],
   "files": [
     "main.ts"
   ]

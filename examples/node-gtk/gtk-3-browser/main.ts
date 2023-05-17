@@ -1,13 +1,15 @@
 import { inspect } from 'util'
+
 import { Gtk } from './@types/node-gtk-3.0'
 import { Pango } from './@types/node-pango-1.0'
 import { WebKit2 } from './@types/node-webkit2-4.0'
 
+// import gi from 'node-gtk';
 // const Gtk = gi.require('Gtk', '3.0')
 // const Pango = gi.require('Pango', '1.0')
 // const WebKit2 = gi.require('WebKit2', '4.0')
 
-function makeButton(label: string, callback: () => void): Gtk.Button {
+function makeButton(label: string, callback: () => void) {
     const but = new Gtk.Button({ label: label })
     but.getChild()?.modifyFont(Pango.FontDescription.fromString('sans bold 16'))
     but.on('clicked', () => {

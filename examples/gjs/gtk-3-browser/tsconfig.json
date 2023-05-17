@@ -10,7 +10,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts", "@types/ambient.d.ts"],
+  "include": ["@types/gjs", "@types/pango-1.0.d.ts", "@types/gtk-3.0.d.ts", "@types/webkit2-4.0.d.ts"],
   "files": [
     "main.ts"
   ]

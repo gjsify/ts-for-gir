@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Validate Examples
+name: Build, validate and run examples
 
 on:
   push:
@@ -33,5 +33,11 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get --yes install gjs libappindicator3-dev libgda-5.0-dev libgirepository1.0-dev libgtk-3-dev libgtk-4-dev libgtksourceview-3.0-dev libnotify-dev libsoup2.4-dev libsoup-3.0-dev libwebkit2gtk-4.0-dev libadwaita-1-dev gnome-shell-common libmutter-10-dev libgcr-3-dev libgnome-desktop-3-dev
     - run: yarn install
+    - run: yarn run build
     - run: yarn run build:all
     - run: yarn run validate:app
+    - run: gjs --version
+    - run: yarn run start:cli-examples:gjs
+    - name: Install dependencies for node-gtk
+      run: sudo apt-get --yes install build-essential gobject-introspection libgirepository1.0-dev libcairo2-dev
+    - run: yarn run start:cli-examples:node

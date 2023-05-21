@@ -175,11 +175,11 @@ export class TemplateProcessor {
         options: Partial<ejs.Options> = {},
         overrideTemplateData: TemplateData = {},
     ) {
-        const renderedTpls = await this.loadAll(templateDirname, fileExtension, options, overrideTemplateData)
+        const rendered = await this.loadAll(templateDirname, fileExtension, options, overrideTemplateData)
         const result: { [path: string]: string } = {}
-        for (const filename of Object.keys(renderedTpls)) {
+        for (const filename of Object.keys(rendered)) {
             const destPath = getDestPath(baseOutputPath, outputDirname, filename)
-            result[destPath] = renderedTpls[filename] + '\n' + append
+            result[destPath] = rendered[filename] + '\n' + append
             await this.write(result[destPath], baseOutputPath, join(outputDirname, filename), prependEnv)
         }
 

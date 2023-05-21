@@ -11,7 +11,7 @@ export class DependencyManager {
 
     cache: { [packageName: string]: Dependency } = {}
 
-    static instance: DependencyManager
+    static instances: { [env: string]: DependencyManager } = {}
 
     protected constructor(protected readonly config: GenerateConfig) {
         this.transformation = new Transformation(config)
@@ -22,11 +22,11 @@ export class DependencyManager {
      * Get the DependencyManager singleton instance
      */
     static getInstance(config: GenerateConfig): DependencyManager {
-        if (this.instance) {
-            return this.instance
+        if (this.instances[config.environment]) {
+            return this.instances[config.environment]
         }
-        this.instance = new DependencyManager(config)
-        return this.instance
+        this.instances[config.environment] = new DependencyManager(config)
+        return this.instances[config.environment]
     }
 
     /**
@@ -45,11 +45,18 @@ export class DependencyManager {
         return [this.get('GObject-2.0'), this.get('GLib-2.0')]
     }
 
-    getImportPath(packageName: string, relativeTo = '.'): string {
+    createImportProperties(namespace: string, packageName: string) {
+        const importPath = this.createImportPath(packageName)
+        const importDef = this.createImportDef(namespace, importPath)
+        return {
+            importPath,
+            importDef,
+        }
+    }
+
+    createImportPath(packageName: string): string {
         const importName = this.transformation.transformImportName(packageName)
-        const importPath = this.config.package
-            ? `${this.config.npmScope}/${importName}`
-            : `${relativeTo}/${importName}.js`
+        const importPath = this.config.package ? `${this.config.npmScope}/${importName}` : `./${importName}.js`
         return importPath
     }
 
@@ -62,46 +69,30 @@ export class DependencyManager {
     /**
      * Get the dependency object by packageName
      * @param packageName The package name (with version affix) of the dependency
-     * @param relativeTo Get the import path relative to this path
      * @returns The dependency object
      */
-    get(packageName: string, relativeTo?: string): Dependency
+    get(packageName: string): Dependency
     /**
-     * Get the dependency object by namespace and version, optional relative to a path
+     * Get the dependency object by namespace and version
      * @param namespace The namespace of the dependency
      * @param version The version of the dependency
-     * @param relativeTo Get the import path relative to this path
      * @returns The dependency object
      */
-    get(namespace: string, version: string, relativeTo?: string): Dependency
-    get(namespaceOrPackageName: string, versionOrRelativeTo?: string, relativeTo?: string): Dependency {
+    get(namespace: string, version: string): Dependency
+    get(namespaceOrPackageName: string, version?: string): Dependency {
         // Special case for Gjs
         if (namespaceOrPackageName === 'Gjs') {
-            return this.getGjs(relativeTo)
+            return this.getGjs()
         } else if (namespaceOrPackageName === 'node-gtk') {
-            return this.getNodeGtk(relativeTo)
+            return this.getNodeGtk()
         }
 
         let packageName: string
         let namespace: string
-        let version: string | undefined
-
-        if (relativeTo && versionOrRelativeTo) {
-            version = versionOrRelativeTo
-        } else if (versionOrRelativeTo?.startsWith('.')) {
-            relativeTo = versionOrRelativeTo
-        } else {
-            version = versionOrRelativeTo
-        }
-
-        if (!relativeTo) {
-            relativeTo = '.'
-        }
 
         if (version) {
             packageName = `${namespaceOrPackageName}-${version}`
             namespace = namespaceOrPackageName
-            version = version
         } else {
             packageName = namespaceOrPackageName
             const { namespace: _namespace, version: _version } = splitModuleName(packageName)
@@ -109,12 +100,11 @@ export class DependencyManager {
             version = _version
         }
         if (this.cache[packageName]) {
-            return this.cache[packageName]
+            const dep = this.cache[packageName]
+            return dep
         }
         const filename = `${packageName}.gir`
         const { exists, path } = findFileInDirs(this.config.girDirectories, filename)
-        const importPath = this.getImportPath(packageName, relativeTo)
-        const importDef = this.createImportDef(namespace, importPath)
 
         const dependency: Dependency = {
             namespace,
@@ -124,8 +114,7 @@ export class DependencyManager {
             packageName,
             importName: this.transformation.transformImportName(packageName),
             version,
-            importPath,
-            importDef,
+            ...this.createImportProperties(namespace, packageName),
         }
 
         this.cache[packageName] = dependency
@@ -163,7 +152,7 @@ export class DependencyManager {
      * @returns
      */
     hasConflict(namespace: string): boolean {
-        const packageNames = Object.keys(this.cache)
+        const packageNames = Object.keys([this.config.environment])
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
         })
@@ -189,15 +178,14 @@ export class DependencyManager {
     /**
      * Find a dependency by it's namespace from the cache, if multiple versions are found, the latest version is returned
      * @param namespace The namespace of the dependency
-     * @param relativeTo The relative path to the dependency
      * @returns The dependency object or null if not found
      */
-    find(namespace: string, relativeTo = '.'): Dependency | null {
+    find(namespace: string): Dependency | null {
         // Special case for Gjs
         if (namespace === 'Gjs') {
-            return this.getGjs(relativeTo)
+            return this.getGjs()
         } else if (namespace === 'node-gtk') {
-            return this.getNodeGtk(relativeTo)
+            return this.getNodeGtk()
         }
 
         const packageNames = Object.keys(this.cache)
@@ -213,21 +201,16 @@ export class DependencyManager {
 
         if (latestVersion && this.cache[latestVersion]) {
             const dep = this.cache[latestVersion]
-            const importPath = relativeTo === '.' ? dep.importPath : this.getImportPath(latestVersion, relativeTo)
-            const importDef = relativeTo === '.' ? dep.importDef : this.createImportDef(dep.namespace, importPath)
-            return { ...dep, importPath, importDef }
+            return dep
         }
 
         return null
     }
 
-    protected getPseudoPackage(packageName: string, relativeTo = '.'): Dependency {
-        if (this.cache[packageName] && relativeTo === '.') {
+    protected getPseudoPackage(packageName: string): Dependency {
+        if (this.cache[packageName]) {
             return this.cache[packageName]
         }
-
-        const importPath = this.getImportPath(packageName, relativeTo)
-        const importDef = this.createImportDef(packageName, importPath)
 
         const dep: Dependency = {
             namespace: pascalCase(packageName),
@@ -237,21 +220,17 @@ export class DependencyManager {
             packageName: packageName,
             importName: this.transformation.transformImportName(packageName),
             version: '0.0',
-            importPath,
-            importDef,
+            ...this.createImportProperties(packageName, packageName),
         }
 
-        if (relativeTo === '.') {
-            this.cache[packageName] = dep
-        }
         return dep
     }
 
-    getGjs(relativeTo = '.'): Dependency {
-        return this.getPseudoPackage('Gjs', relativeTo)
+    getGjs(): Dependency {
+        return this.getPseudoPackage('Gjs')
     }
 
-    getNodeGtk(relativeTo = '.'): Dependency {
-        return this.getPseudoPackage('node-gtk', relativeTo)
+    getNodeGtk(): Dependency {
+        return this.getPseudoPackage('node-gtk')
     }
 }

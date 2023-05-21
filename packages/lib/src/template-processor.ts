@@ -24,7 +24,7 @@ export class TemplateProcessor {
     constructor(
         protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
-        protected readonly dependencies: Dependency[],
+        protected readonly deps: Dependency[],
         protected readonly config: GenerateConfig,
     ) {
         this.transformation = new Transformation(config)
@@ -33,6 +33,7 @@ export class TemplateProcessor {
         // Make outdir relative to the root directory
         outdir = relative(config.root, outdir)
         const typeDir = getDestPath(outdir)
+
         this.data = {
             ...this.data,
             APP_NAME,
@@ -43,7 +44,7 @@ export class TemplateProcessor {
             PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName, this.config.environment),
             importName: this.transformation.transformImportName(packageName),
             dep,
-            deps: dependencies,
+            deps,
             typeDir,
             join,
             dirname,

@@ -1323,6 +1323,7 @@ export class TypeDefinitionGenerator implements Generator {
         // }
 
         // Module dependencies as type references or imports
+        // TODO: Move to template
         for (const dependency of girModule.transitiveDependencies) {
             // Don't reference yourself as a dependency
             if (girModule.packageName !== dependency.packageName) {

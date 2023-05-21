@@ -139,6 +139,13 @@
       <%_ } _%>
     },
     "dependencies": {
+      <%_ if (packageName !== 'Gjs' && packageName !== 'node-gtk') { _%>
+        <%_ if (environment === 'node') { _%>
+      "<%- npmScope %>/node-gtk": "workspace:^"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
+        <%_ } else { _%>
+      "<%- npmScope %>/gjs": "workspace:^"<%_ if(deps.length > 0 ) { _%>,<%_ } _%>
+        <%_ } _%>
+      <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
       <% const dep = deps[i] %>
       "<%- dep.importPath %>": "workspace:^"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>

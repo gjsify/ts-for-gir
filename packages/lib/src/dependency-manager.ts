@@ -146,13 +146,17 @@ export class DependencyManager {
         return dependencies
     }
 
+    getAllPackageNames(): string[] {
+        return Object.keys(this.cache)
+    }
+
     /**
      * Check if multiple dependencies with the given namespace exist in the cache
      * @param namespace The namespace of the dependency
      * @returns
      */
     hasConflict(namespace: string): boolean {
-        const packageNames = Object.keys([this.config.environment])
+        const packageNames = this.getAllPackageNames();
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
         })
@@ -188,7 +192,7 @@ export class DependencyManager {
             return this.getNodeGtk()
         }
 
-        const packageNames = Object.keys(this.cache)
+        const packageNames = this.getAllPackageNames();
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
         })

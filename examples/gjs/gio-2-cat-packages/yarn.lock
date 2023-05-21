@@ -190,13 +190,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gio-2.0@workspace:@types/gio-2.0"
   dependencies:
+    "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: ^5.0.4
   languageName: unknown
   linkType: soft
 
-"@girs/gjs@workspace:@types/gjs":
+"@girs/gjs@workspace:@types/gjs, @girs/gjs@workspace:^":
   version: 0.0.0-use.local
   resolution: "@girs/gjs@workspace:@types/gjs"
   dependencies:
@@ -210,6 +211,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/glib-2.0@workspace:@types/glib-2.0"
   dependencies:
+    "@girs/gjs": "workspace:^"
     "@girs/gobject-2.0": "workspace:^"
     typescript: ^5.0.4
   languageName: unknown
@@ -219,6 +221,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@girs/gobject-2.0@workspace:@types/gobject-2.0"
   dependencies:
+    "@girs/gjs": "workspace:^"
     "@girs/glib-2.0": "workspace:^"
     typescript: ^5.0.4
   languageName: unknown

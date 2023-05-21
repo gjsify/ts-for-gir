@@ -199,6 +199,7 @@ __metadata:
   dependencies:
     "@girs/node-glib-2.0": "workspace:^"
     "@girs/node-gobject-2.0": "workspace:^"
+    "@girs/node-gtk": "workspace:^"
     typescript: ^5.0.4
   peerDependencies:
     node-gtk: "*"
@@ -210,6 +211,7 @@ __metadata:
   resolution: "@girs/node-glib-2.0@workspace:@types/node-glib-2.0"
   dependencies:
     "@girs/node-gobject-2.0": "workspace:^"
+    "@girs/node-gtk": "workspace:^"
     typescript: ^5.0.4
   peerDependencies:
     node-gtk: "*"
@@ -221,13 +223,14 @@ __metadata:
   resolution: "@girs/node-gobject-2.0@workspace:@types/node-gobject-2.0"
   dependencies:
     "@girs/node-glib-2.0": "workspace:^"
+    "@girs/node-gtk": "workspace:^"
     typescript: ^5.0.4
   peerDependencies:
     node-gtk: "*"
   languageName: unknown
   linkType: soft
 
-"@girs/node-gtk@workspace:@types/node-gtk":
+"@girs/node-gtk@workspace:@types/node-gtk, @girs/node-gtk@workspace:^":
   version: 0.0.0-use.local
   resolution: "@girs/node-gtk@workspace:@types/node-gtk"
   dependencies:

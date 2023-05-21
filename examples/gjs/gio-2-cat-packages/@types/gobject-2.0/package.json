@@ -31,6 +31,7 @@
         "test:cjs": "tsc --noEmit gobject-2.0.d.cts"
     },
     "dependencies": {
+        "@girs/gjs": "workspace:^",
         "@girs/glib-2.0": "workspace:^"
     },
     "devDependencies": {
@@ -48,7 +49,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+        "url": "git+https://github.com/gjsify/types.git"
     },
     "bugs": {
         "url": "https://github.com/gjsify/ts-for-gir/issues"

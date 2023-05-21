@@ -31,7 +31,8 @@
         "test:cjs": "tsc --noEmit node-glib-2.0.d.ts"
     },
     "dependencies": {
-        "@girs/node-gobject-2.0": "workspace:^"
+        "@girs/node-gobject-2.0": "workspace:^",
+        "@girs/node-gtk": "workspace:^"
     },
     "peerDependencies": {
         "node-gtk": "*"
@@ -52,7 +53,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gjsify/ts-for-gir.git"
+        "url": "git+https://github.com/gjsify/types.git"
     },
     "bugs": {
         "url": "https://github.com/gjsify/ts-for-gir/issues"

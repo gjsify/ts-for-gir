@@ -1,14 +1,14 @@
 {
     "name": "@girs/gjs",
     "version": "3.0.1",
-    "description": "GJS TypeScript type definitions for GJS",
+    "description": "GJS TypeScript type definitions for Gjs",
     "type": "module",
     "module": "gjs.js",
     "main": "gjs.js",
     "typedoc": {
         "entryPoint": "./gjs.d.ts",
         "readmeFile": "./README.md",
-        "displayName": "GJS",
+        "displayName": "Gjs",
         "tsconfig": "./tsconfig.doc.json"
     },
     "exports": {
@@ -72,7 +72,8 @@
         "TypeScript",
         "types",
         "GObject-Introspection",
-        "GJS"
+        "GJS",
+        "Gjs"
     ],
     "author": "ts-for-gir",
     "license": "MIT",

@@ -17,8 +17,7 @@
 </p>
 
 
-`ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://wiki.gnome.org/Projects/Gjs) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject
-introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
+`ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
 ## Getting Started
 
@@ -55,4 +54,4 @@ All pre-generated NPM packages can be found on [gjsify/types](https://github.com
 [CLI](/packages/cli/README.md) - Learn about the CLI options and what to keep in mind when using them.  
 [Development](/DEVELOPMENT.md) - Learn how you can contribute to this project.  
 [gjsify/types](https://github.com/gjsify/types) - Pre-generated NPM packages that you can use directly without needing ts-for-gir for it.
-[GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Additional hand written type definitions for GNOME Shell Extensions.
+[GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Very experimental additional hand written type definitions for GNOME Shell Extensions.

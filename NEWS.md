@@ -6,14 +6,6 @@
 # 3.0.0
 This is the first stable release of version 3.0.0 with support for NPM package generation.
 
-## Braking changes
- * All filenames for the generated types now contain the name of the module
- * All filenames for the generated types are now lowercase
- * All filenames for the generated types for Node.js now have a `node-` prefix 
- * Now no parent folder `Gjs` or `note-gtk` is created. When types are generated for both environments, they all end up in the same folder
- * Now not all GIR modules are imported in the gjs.js, who wants to have types for a certain GIR module, must include this module now itself. This saves a lot of processing work in your IDE
- * Some default values of the CLI options have changed, for example now by default only the types for Gjs are generated and the default module format is now ESM with namespaces
-
 ## Changelog
 - Add support to generate a package for each type we can publish on NPM, see #106
 - Add a new CLI option to generate NPM packages
@@ -43,6 +35,14 @@ This is the first stable release of version 3.0.0 with support for NPM package g
 - Add repository and homepage to package.json
 - Updated Documentation for the new NPM packages
 - Move the GNOME Shell type definitions to a [NPM package](https://github.com/gjsify/gnome-shell) and make use of the new generated NPM packages
+
+## Braking changes
+ * All filenames for the generated types now contain the name of the module
+ * All filenames for the generated types are now lowercase
+ * All filenames for the generated types for Node.js now have a `node-` prefix 
+ * Now no parent folder `Gjs` or `note-gtk` is created. When types are generated for both environments, they all end up in the same folder
+ * Now not all GIR modules are imported in the gjs.js, who wants to have types for a certain GIR module, must include this module now itself. This saves a lot of processing work in your IDE
+ * Some default values of the CLI options have changed, for example now by default only the types for Gjs are generated and the default module format is now ESM with namespaces
 # 3.0.0-beta.12
 - UTF-8 string pointers are nullable, so all of this pointers are handled as nullable now, see #108
 - Extract default GIR directories from `XDG_DATA_DIRS` environment variable, this fixes ts-for-gir on NixOS. See #107 by @samdroid-apps

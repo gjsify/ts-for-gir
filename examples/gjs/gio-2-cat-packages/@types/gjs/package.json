@@ -1,6 +1,6 @@
 {
     "name": "@girs/gjs",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "GJS TypeScript type definitions for GJS",
     "type": "module",
     "module": "gjs.js",

@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-builder-auto-connect-signals-example",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "main": "main.ts",
   "private": true,
@@ -33,7 +33,7 @@
     "typescript": "^5.0.4",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.1"
   },
   "dependencies": {
     "node-gtk": "^0.11.0"

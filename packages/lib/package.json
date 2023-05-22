@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/lib",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -24,7 +24,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
     "lib",
-    "templates"
+    "templates",
+    "packages.xml"
   ],
   "license": "Apache-2.0",
   "bugs": {

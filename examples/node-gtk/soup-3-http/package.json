@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-soup-3-http-example",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Node-gtk example showing how to build a http server/client using Soap 3",
   "main": "dist/http-server.js",
   "private": true,

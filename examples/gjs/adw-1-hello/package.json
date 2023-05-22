@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-adw-1-hello-example",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Simple GJS Typescript hello-world example using Libadwaita",
   "main": "index.js",
   "type": "module",

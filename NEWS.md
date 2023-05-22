@@ -7,14 +7,14 @@
 This is the first stable release of version 3.0.0 with support for NPM package generation.
 
 ## Changelog
-- Add support to generate a package for each type we can publish on NPM, see #106
+- Add support to generate a package for each GIR module we can publish on NPM, see #106
 - Add a new CLI option to generate NPM packages
 - Add a new CLI option to change the NPM package scope name
 - Documentation for the new CLI options
-- Generate a package.json for each package
+- Generate a `package.json` for each package
 - One folder for each package
 - New example
-- Add dependencies to each package.json
+- Add dependencies to each `package.json`
 - Package names in lower case
 - Separate package names for node-gtk types
 - Package directory and file names in lower case
@@ -22,7 +22,7 @@ This is the first stable release of version 3.0.0 with support for NPM package g
 - Add a README.md for each NPM package
 - Different README.md for node-gtk NPM packages
 - Add an test to CI
-- Fix tsconfig.alias.json
+- Fix `tsconfig.alias.json`
 - Add support for [ambient modules](https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules)
 - Documentation for ambient modules
 - Generate both CJS and ESM modules
@@ -32,7 +32,7 @@ This is the first stable release of version 3.0.0 with support for NPM package g
 - Generate and publish the new [NPM packages](https://www.npmjs.com/search?q=%40girs)
 - Provide system and gettext as ESM, see #114
 - Include only desired types (instead of all existing ones)
-- Add repository and homepage to package.json
+- Add repository and homepage to `package.json`
 - Updated Documentation for the new NPM packages
 - Move the GNOME Shell type definitions to a [NPM package](https://github.com/gjsify/gnome-shell) and make use of the new generated NPM packages
 
@@ -189,7 +189,7 @@ This is the first stable release of version 3.0.0 with support for NPM package g
 
 ## Breaking Changes
 - Node.js minimum version is now 16 for ESM support
-- The config files must also be in ESM format if you are inside a ESM Package, this is the case if `"type": "module"` is defined in your package.json. Alternatively, the file can be saved in json format, then it works in both cases.
+- The config files must also be in ESM format if you are inside a ESM Package, this is the case if `"type": "module"` is defined in your `package.json`. Alternatively, the file can be saved in json format, then it works in both cases.
 
 
 See PR [#44](https://github.com/gjsify/ts-for-gir/pull/44)

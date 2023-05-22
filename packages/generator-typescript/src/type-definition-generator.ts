@@ -8,15 +8,18 @@ import {
     typesContainsOptional,
     typesContainsNullable,
     TemplateProcessor,
+    Dependency,
+    DependencyManager,
     NO_TSDATA,
+    PackageDataParser,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
+    PackageData,
 } from '@ts-for-gir/lib'
 
-import type {
+import {
     GenerateConfig,
-    InheritanceTable,
     GirClassElement,
     GirCallableParamElement,
     GirSignalElement,
@@ -43,8 +46,26 @@ import type {
 
 export class TypeDefinitionGenerator implements Generator {
     protected log: Logger
-    constructor(protected readonly config: GenerateConfig) {
-        this.log = new Logger(config.environment, config.verbose, TypeDefinitionGenerator.name)
+    protected dependencyManager: DependencyManager
+    protected packageData?: PackageDataParser
+
+    /** Override config, used to override the config temporarily to generate both ESM and CJS for NPM packages */
+    protected overrideConfig: Partial<GenerateConfig> = {}
+
+    /** Get the current config, including the override config */
+    protected get config(): GenerateConfig {
+        return { ...this._config, ...this.overrideConfig }
+    }
+
+    /**
+     * @param _config The config to use without the override config
+     */
+    constructor(protected readonly _config: GenerateConfig) {
+        this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
+        this.dependencyManager = DependencyManager.getInstance(this.config)
+        if (this.config.package) {
+            this.packageData = new PackageDataParser(this.config)
+        }
     }
 
     /**
@@ -53,25 +74,29 @@ export class TypeDefinitionGenerator implements Generator {
      * @param packageName E.g. 'Gtk-3.0'
      * @param asExternType Currently only used for node type imports
      */
-    private generateModuleDependenciesImport(namespace: string, packageName: string, asExternType = false): string[] {
+    protected generateModuleDependenciesImport(packageName: string): string[] {
         const def: string[] = []
-        const sas = !this.config.noNamespace && packageName !== 'Gjs' ? '' : '* as '
-        if (this.config.buildType === 'lib') {
-            def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
-        } else if (this.config.buildType === 'types') {
-            if (asExternType) {
-                // def.push(`/// <reference types="${packageName}" />`)
-                def.push(`import ${namespace} from "${packageName}.js"`)
-            } else {
-                def.push(`/// <reference path="${packageName}.d.ts" />`)
-                def.push(`import type ${sas}${namespace} from './${packageName}.js';`)
-            }
-        }
+        const dep = this.dependencyManager.get(packageName)
+
+        // if (this.config.package) {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference types="${this.config.npmScope}/${dep.importName}" />`)
+        //     }
+        // } else {
+        //     if (this.config.buildType === 'types') {
+        //         // See https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+        //         def.push(`/// <reference path="${dep.importName}.d.ts" />`)
+        //     }
+        // }
+
+        def.push(dep.importDef)
+
         return def
     }
 
-    private generateExport(type: string, name: string, definition: string, indentCount = 0) {
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+    protected generateExport(type: string, name: string, definition: string, indentCount = 0) {
+        const exp = !this.config.noNamespace ? '' : 'export '
         const indent = generateIndent(indentCount)
         if (!definition.startsWith(':')) {
             definition = ' ' + definition
@@ -79,7 +104,7 @@ export class TypeDefinitionGenerator implements Generator {
         return `${indent}${exp}${type} ${name}${definition}`
     }
 
-    private generateProperty(tsProp: TsProperty, onlyStatic: boolean, namespace: string, indentCount = 0) {
+    protected generateProperty(tsProp: TsProperty, onlyStatic: boolean, namespace: string, indentCount = 0) {
         if (!tsProp) {
             throw new Error('[generateProperty] Not all required properties set!')
         }
@@ -107,7 +132,7 @@ export class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateProperties(
+    protected generateProperties(
         tsProps: TsProperty[],
         onlyStatic: boolean,
         namespace: string,
@@ -126,7 +151,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateVariableCallbackType(tsType: TsType, namespace: string) {
+    protected generateVariableCallbackType(tsType: TsType, namespace: string) {
         // The type of a callback is a functions definition
 
         let typeStr = 'any'
@@ -157,7 +182,7 @@ export class TypeDefinitionGenerator implements Generator {
         return typeStr
     }
 
-    private generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0, allowCommentOut = true) {
+    protected generateVariable(tsVar: TsProperty | TsVar, namespace: string, indentCount = 0, allowCommentOut = true) {
         const indent = generateIndent(indentCount)
         const name = tsVar.name
         // Constants are not optional
@@ -176,7 +201,7 @@ export class TypeDefinitionGenerator implements Generator {
         return `${indent}${commentOut}${name}${affix}: ${typeStr}`
     }
 
-    private generateType(tsType: TsType, namespace: string, generateNullable = true) {
+    protected generateType(tsType: TsType, namespace: string, generateNullable = true) {
         let typeName = removeNamespace(tsType.type, namespace)
 
         if (tsType.callbacks.length) {
@@ -198,7 +223,7 @@ export class TypeDefinitionGenerator implements Generator {
         return `${typeName}${genericStr}${prefix}`
     }
 
-    private generateTypes(tsTypes: TsType[], namespace: string) {
+    protected generateTypes(tsTypes: TsType[], namespace: string) {
         let def = ''
         for (const tsType of tsTypes) {
             const separator = tsType.leftSeparator || '|'
@@ -220,7 +245,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateGenericValues(tsType: TsType, namespace: string) {
+    protected generateGenericValues(tsType: TsType, namespace: string) {
         // We just use the generic values here
         const genericValues = tsType.generics.map((g) => removeNamespace(g.value || '', namespace)).filter((g) => !!g)
         const genericStr = tsType.generics.length ? `<${genericValues.join(', ')}>` : ''
@@ -235,7 +260,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param indentCount
      * @returns
      */
-    private generateClassPropertySignals(
+    protected generateClassPropertySignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -265,7 +290,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateInParameters(
+    protected generateInParameters(
         inParams: GirCallableParamElement[],
         instanceParameters: GirInstanceParameter[],
         namespace: string,
@@ -293,7 +318,7 @@ export class TypeDefinitionGenerator implements Generator {
         return inParamsDef
     }
 
-    private generateSignals(
+    protected generateSignals(
         girSignals: GirSignalElement[],
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
@@ -320,7 +345,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param lines
      * @param indentCount
      */
-    private addTSDocCommentLines(lines: string[], indentCount = 0): string[] {
+    protected addTSDocCommentLines(lines: string[], indentCount = 0): string[] {
         const def: string[] = []
         const indent = generateIndent(indentCount)
         def.push(`${indent}/**`)
@@ -339,7 +364,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param overwriteDoc
      * @returns
      */
-    private addGirDocComment(tsDoc: TsDoc | undefined, indentCount = 0, overwriteDoc?: Partial<TsDoc>) {
+    protected addGirDocComment(tsDoc: TsDoc | undefined, indentCount = 0, overwriteDoc?: Partial<TsDoc>) {
         const desc: string[] = []
         const indent = generateIndent(indentCount)
         if (this.config.noComments) {
@@ -379,7 +404,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param indentCount
      * @returns
      */
-    private addInfoComment(comment?: string, indentCount = 0) {
+    protected addInfoComment(comment?: string, indentCount = 0) {
         const def: string[] = []
         if (this.config.noDebugComments) {
             return def
@@ -399,7 +424,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param indentCount
      * @returns
      */
-    private addInlineInfoComment(comment?: string, indentCount = 0) {
+    protected addInlineInfoComment(comment?: string, indentCount = 0) {
         const def: string[] = []
         if (this.config.noDebugComments) {
             return def
@@ -411,7 +436,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private mergeDescs(descs: string[], comment?: string, indentCount = 1) {
+    protected mergeDescs(descs: string[], comment?: string, indentCount = 1) {
         const def: string[] = []
         const indent = generateIndent(indentCount)
 
@@ -426,7 +451,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateParameter(tsParam: TsParameter, namespace: string) {
+    protected generateParameter(tsParam: TsParameter, namespace: string) {
         if (typeof tsParam?.name !== 'string') {
             throw new Error(NO_TSDATA('generateParameter'))
         }
@@ -447,7 +472,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param isOut If this generic parameters are out do only generate the type parameter names
      * @returns
      */
-    private generateGenericParameters(tsGenerics?: TsGenericParameter[], isOut = false) {
+    protected generateGenericParameters(tsGenerics?: TsGenericParameter[], isOut = false) {
         const desc: string[] = []
         if (!tsGenerics?.length) {
             return ''
@@ -470,7 +495,7 @@ export class TypeDefinitionGenerator implements Generator {
         return `<${desc.join(', ')}>`
     }
 
-    private generateOutParameterReturn(girParam: GirCallableParamElement, namespace: string) {
+    protected generateOutParameterReturn(girParam: GirCallableParamElement, namespace: string) {
         const desc: string[] = []
 
         if (!girParam._tsData) {
@@ -485,7 +510,7 @@ export class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateFunctionReturn(tsFunction: TsFunction | TsCallback | TsSignal, namespace: string) {
+    protected generateFunctionReturn(tsFunction: TsFunction | TsCallback | TsSignal, namespace: string) {
         if (tsFunction.name === 'constructor') {
             return ''
         }
@@ -526,7 +551,7 @@ export class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateFunction(
+    protected generateFunction(
         tsFunction: TsFunction | TsCallback | TsSignal | undefined,
         /** If true only generate static functions otherwise generate only non static functions */
         onlyStatic: boolean,
@@ -565,7 +590,7 @@ export class TypeDefinitionGenerator implements Generator {
         let exportStr = ''
         // `tsType === 'function'` are a global methods which can be exported
         if (isGlobal) {
-            exportStr = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+            exportStr = !this.config.noNamespace ? '' : 'export '
         }
 
         const returnType = this.generateFunctionReturn(tsFunction, namespace)
@@ -599,7 +624,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateFunctions(
+    protected generateFunctions(
         tsFunctions: TsFunction[],
         onlyStatic: boolean,
         namespace: string,
@@ -619,7 +644,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateCallbackInterface(
+    protected generateCallbackInterface(
         tsCallback: TsCallback | TsSignal,
         namespace: string,
         indentCount = 0,
@@ -657,7 +682,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateCallbackInterfaces(
+    protected generateCallbackInterfaces(
         tsCallbacks: Array<TsCallback | TsSignal>,
         namespace: string,
         indentCount = 0,
@@ -677,7 +702,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
+    protected generateEnumeration(girEnum: GirEnumElement | GirBitfieldElement, indentCount = 0) {
         const desc: string[] = []
 
         if (!girElementIsIntrospectable(girEnum)) {
@@ -703,7 +728,7 @@ export class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateEnumerationMember(tsMember: TsMember, indentCount = 1) {
+    protected generateEnumerationMember(tsMember: TsMember, indentCount = 1) {
         const desc: string[] = []
 
         if (!tsMember) {
@@ -718,7 +743,7 @@ export class TypeDefinitionGenerator implements Generator {
         return desc
     }
 
-    private generateConstant(tsConst: TsVar, namespace: string, indentCount = 0) {
+    protected generateConstant(tsConst: TsVar, namespace: string, indentCount = 0) {
         const desc: string[] = []
 
         if (!tsConst.hasUnresolvedConflict) {
@@ -726,13 +751,13 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         const indent = generateIndent(indentCount)
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         const varDesc = this.generateVariable(tsConst, namespace, 0)
         desc.push(`${indent}${exp}const ${varDesc}`)
         return desc
     }
 
-    private generateAlias(girAlias: GirAliasElement, namespace: string, indentCount = 0) {
+    protected generateAlias(girAlias: GirAliasElement, namespace: string, indentCount = 0) {
         const desc: string[] = []
 
         if (!girElementIsIntrospectable(girAlias)) {
@@ -745,14 +770,14 @@ export class TypeDefinitionGenerator implements Generator {
         }
         const indent = generateIndent(indentCount)
 
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         const type = removeNamespace(girAlias._tsData.type, namespace)
 
         desc.push(`${indent}${exp}type ${girAlias._tsData.name} = ${type}`)
         return desc
     }
 
-    private generateConstructPropsInterface(
+    protected generateConstructPropsInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 0,
@@ -768,7 +793,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         const indent = generateIndent(indentCount)
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
         let ext = ''
 
         if (girClass._tsData.inheritConstructPropInterfaceNames.length) {
@@ -805,7 +830,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassFields(
+    protected generateClassFields(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         onlyStatic: boolean,
         namespace: string,
@@ -829,7 +854,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassProperties(
+    protected generateClassProperties(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         onlyStatic: boolean,
         namespace: string,
@@ -864,7 +889,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassMethods(
+    protected generateClassMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         onlyStatic: boolean,
         namespace: string,
@@ -898,7 +923,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassConstructors(
+    protected generateClassConstructors(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -958,7 +983,7 @@ export class TypeDefinitionGenerator implements Generator {
      * Instance methods, vfunc_ prefix
      * @param girClass
      */
-    private generateClassVirtualMethods(
+    protected generateClassVirtualMethods(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 1,
@@ -983,7 +1008,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassSignalInterfaces(
+    protected generateClassSignalInterfaces(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 0,
@@ -1010,7 +1035,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassSignals(
+    protected generateClassSignals(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -1032,7 +1057,7 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private generateClassModules(
+    protected generateClassModules(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
         indentCount = 0,
@@ -1042,7 +1067,7 @@ export class TypeDefinitionGenerator implements Generator {
         if (!girClass._tsData) return def
         const indent = generateIndent(indentCount)
 
-        const exp = !this.config.noNamespace || this.config.buildType === 'types' ? '' : 'export '
+        const exp = !this.config.noNamespace ? '' : 'export '
 
         // Signal interfaces
         bodyDef.push(...this.generateClassSignalInterfaces(girClass, namespace, indentCount + 1))
@@ -1074,7 +1099,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param namespace
      */
-    private generateImplementationInterface(
+    protected generateImplementationInterface(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -1128,7 +1153,7 @@ export class TypeDefinitionGenerator implements Generator {
      * @param girClass
      * @param namespace
      */
-    private generateClass(
+    protected generateClass(
         girClass: GirClassElement | GirUnionElement | GirInterfaceElement | GirRecordElement,
         namespace: string,
     ) {
@@ -1179,36 +1204,131 @@ export class TypeDefinitionGenerator implements Generator {
         return def
     }
 
-    private async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
+    protected async exportModuleJS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.js'
+        let target = `${girModule.importName}.js`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}.cjs`
+            } else {
+                target = `${girModule.importName}.mjs`
+            }
+        }
+
         if (this.config.outdir) {
-            await moduleTemplateProcessor.create(template, this.config.outdir, `${girModule.packageName}.js`)
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
         } else {
-            const moduleContent = moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent)
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
         }
     }
 
-    private async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
+    protected async exportModuleAmbientTS(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-ambient.d.ts'
+        let target = `${girModule.importName}-ambient.d.ts`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-ambient.d.cts`
+            } else {
+                target = `${girModule.importName}-ambient.d.mts`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModuleImportTS(
+        moduleTemplateProcessor: TemplateProcessor,
+        girModule: GirModule,
+    ): Promise<void> {
+        const template = 'module-import.d.ts'
+        let target = `${girModule.importName}-import.d.ts`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}-import.d.cts`
+            } else {
+                target = `${girModule.importName}-import.d.mts`
+            }
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                target,
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModuleTS(moduleTemplateProcessor: TemplateProcessor, girModule: GirModule): Promise<void> {
         const template = 'module.d.ts'
+        let explicitTemplate = `${girModule.importName}.d.ts`
+
+        let target = `${girModule.importName}.d.ts`
+
+        if (this.overrideConfig.moduleType) {
+            if (this.overrideConfig.moduleType === 'cjs') {
+                target = `${girModule.importName}.d.cts`
+            } else {
+                target = `${girModule.importName}.d.mts`
+            }
+        }
+
+        // Remove `node-` prefix for node environment
+        if (this.config.environment === 'node' && explicitTemplate.startsWith('node-')) {
+            explicitTemplate = explicitTemplate.substring(5)
+        }
         const out: string[] = []
 
         out.push(...this.addTSDocCommentLines([girModule.packageName]))
 
         out.push('')
 
-        // Module dependencies as type references or imports
-        if (this.config.environment === 'gjs') {
-            out.push(...this.generateModuleDependenciesImport('Gjs', 'Gjs', false))
-        }
+        // if (this.config.environment === 'gjs') {
+        //     out.push(...this.generateModuleDependenciesImport('Gjs')
+        // }
 
+        // Module dependencies as type references or imports
+        // TODO: Move to template
         for (const dependency of girModule.transitiveDependencies) {
             // Don't reference yourself as a dependency
             if (girModule.packageName !== dependency.packageName) {
                 if (dependency.exists) {
-                    out.push(
-                        ...this.generateModuleDependenciesImport(dependency.namespace, dependency.packageName, false),
-                    )
+                    out.push(...this.generateModuleDependenciesImport(dependency.packageName))
                 } else {
                     out.push(`// WARN: Dependency not found: '${dependency.packageName}'`)
                     this.log.warn(WARN_NOT_FOUND_DEPENDENCY_GIR_FILE(dependency.filename))
@@ -1218,10 +1338,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // START Namespace
         {
-            if (this.config.buildType === 'types') {
-                out.push('')
-                out.push(`declare namespace ${girModule.namespace} {`)
-            } else if (!this.config.noNamespace) {
+            if (!this.config.noNamespace) {
                 out.push('')
                 out.push(`export namespace ${girModule.namespace} {`)
             }
@@ -1262,12 +1379,13 @@ export class TypeDefinitionGenerator implements Generator {
                         out.push(...this.generateClass(girIface, girIface._module.namespace))
                     }
 
-            // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
+            // Extra interfaces if a template with the module name  (e.g. '../templates/gobject-2-0.d.ts') is found
             // E.g. used for GObject-2.0 to help define GObject classes in js;
             // these aren't part of gi.
-            if (moduleTemplateProcessor.exists(`${girModule.packageName}.d.ts`)) {
-                const templatePatches = await moduleTemplateProcessor.load(`${girModule.packageName}.d.ts`)
-                out.push(templatePatches)
+            if (moduleTemplateProcessor.exists(explicitTemplate)) {
+                const { append, prepend } = await moduleTemplateProcessor.load(explicitTemplate, {}, this.config)
+                // TODO push prepend and append to the right position
+                out.push(append + prepend)
             }
 
             if (girModule.ns.class)
@@ -1368,111 +1486,366 @@ export class TypeDefinitionGenerator implements Generator {
         // END Namespace
         if (!this.config.noNamespace) {
             out.push(`}`)
-        }
-
-        if (!this.config.noNamespace) {
+            out.push('')
             out.push(`export default ${girModule.namespace};`)
         }
 
         const outResult = out.join('\n') // End of file
 
         if (this.config.outdir) {
-            await moduleTemplateProcessor.create(
-                template,
-                this.config.outdir,
-                `${girModule.packageName}.d.ts`,
-                outResult,
-            )
+            await moduleTemplateProcessor.create(template, this.config.outdir, target, true, outResult, {}, this.config)
         } else {
-            const moduleContent = await moduleTemplateProcessor.load(template)
-            this.log.log(moduleContent + '\n' + outResult)
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + '\n' + outResult + prepend)
         }
     }
 
-    private async exportModule(girModule: GirModule) {
+    protected async exportNPMPackage(moduleTemplateProcessor: TemplateProcessor, girModuleImportName: string) {
+        await this.exportNPMPackageJson(moduleTemplateProcessor)
+        await this.exportNPMReadme(moduleTemplateProcessor, girModuleImportName)
+        await this.exportDocTSConfig(moduleTemplateProcessor)
+    }
+
+    protected async exportNPMPackageJson(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'package.json'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                template, // output filename
+                undefined,
+                undefined,
+                {},
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportNPMReadme(moduleTemplateProcessor: TemplateProcessor, girModuleImportName: string) {
+        // E.g. `README-GJS.md` or `README-GTK-4.0.md`
+        let template = girModuleImportName ? `README-${girModuleImportName.toUpperCase()}.md` : 'README.md'
+        const outputFilename = 'README.md'
+
+        if (!moduleTemplateProcessor.exists(template)) {
+            template = 'README.md'
+        }
+
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                outputFilename,
+                undefined,
+                undefined,
+                {},
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportDocTSConfig(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'tsconfig.doc.json'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                template, // output filename
+                undefined,
+                undefined,
+                {},
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportModule(
+        girModule: GirModule,
+        girModules: GirModule[],
+        girModulesGrouped: GirModulesGrouped[],
+    ) {
+        let pkgData: PackageData | undefined
+        if (this.packageData) {
+            pkgData = this.packageData.get(girModule.packageName)
+        }
         const moduleTemplateProcessor = new TemplateProcessor(
             {
                 name: girModule.namespace,
                 namespace: girModule.namespace,
                 version: girModule.version,
                 importName: girModule.importName,
+                girModule,
+                girModules,
+                girModulesGrouped,
+                pkgData,
             },
             girModule.packageName,
+            girModule.transitiveDependencies,
             this.config,
         )
 
         await this.exportModuleTS(moduleTemplateProcessor, girModule)
 
+        if (this.config.environment === 'gjs') {
+            await this.exportModuleAmbientTS(moduleTemplateProcessor, girModule)
+        }
+        await this.exportModuleImportTS(moduleTemplateProcessor, girModule)
+
         if (this.config.buildType === 'lib') {
             await this.exportModuleJS(moduleTemplateProcessor, girModule)
         }
+
+        if (this.config.package) {
+            this.setOverrideConfigForOtherModuleType()
+            await this.exportModuleTS(moduleTemplateProcessor, girModule)
+            if (this.config.buildType === 'lib') {
+                await this.exportModuleJS(moduleTemplateProcessor, girModule)
+            }
+            this.resetOverrideConfig()
+        }
+
+        if (this.config.package) {
+            await this.exportNPMPackage(moduleTemplateProcessor, girModule.importName)
+        }
     }
 
-    private async exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
+    /**
+     * We build both module types if we build an NPM package,
+     * so we need to switch the module type and use the default noNamespace value for the module type
+     */
+    protected setOverrideConfigForOtherModuleType() {
+        if (this.config.moduleType === 'esm') {
+            this.overrideConfig.moduleType = 'cjs'
+            this.overrideConfig.noNamespace = true
+        } else {
+            this.overrideConfig.moduleType = 'esm'
+            this.overrideConfig.noNamespace = false
+        }
+    }
+
+    protected resetOverrideConfig() {
+        this.overrideConfig = {}
+    }
+
+    protected async exportGjs(
+        dependencies: Dependency[],
+        girModules: GirModule[],
+        girModulesGrouped: GirModulesGrouped[],
+    ) {
         if (!this.config.outdir) return
+        const packageName = 'Gjs'
 
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModulesGrouped, typeDir: this.config.outdir + '/Gjs' },
-            'gjs',
+            { girModules: girModules, girModulesGrouped },
+            packageName,
+            dependencies,
             this.config,
         )
 
-        // Types
-        await templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
-        if (this.config.gnomeShellTypes) {
-            await templateProcessor.create('GnomeShell.d.ts', this.config.outdir, 'GnomeShell.d.ts')
-            await templateProcessor.createAll('.d.ts', 'misc', this.config.outdir, 'misc')
-            await templateProcessor.createAll('.d.ts', 'ui', this.config.outdir, 'ui')
-            await templateProcessor.createAll('.d.ts', 'ui/components', this.config.outdir, 'ui/components')
+        // TS
+        await templateProcessor.create('gjs.d.ts', this.config.outdir, 'gjs.d.ts')
+        await templateProcessor.create('gettext.d.ts', this.config.outdir, 'gettext.d.ts')
+        await templateProcessor.create('system.d.ts', this.config.outdir, 'system.d.ts')
+        await templateProcessor.create('cairo.d.ts', this.config.outdir, 'cairo.d.ts')
+
+        // JS
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('gjs.js', this.config.outdir, 'gjs.js')
+            await templateProcessor.create('gettext.js', this.config.outdir, 'gettext.js')
+            await templateProcessor.create('system.js', this.config.outdir, 'system.js')
+            await templateProcessor.create('cairo.js', this.config.outdir, 'cairo.js')
         }
 
-        // Lib
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js')
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
-            if (this.config.gnomeShellTypes) {
-                await templateProcessor.create('GnomeShell.js', this.config.outdir, 'GnomeShell.js')
-                await templateProcessor.createAll('.js', 'misc', this.config.outdir, 'misc')
-                await templateProcessor.createAll('.js', 'ui', this.config.outdir, 'ui')
-                await templateProcessor.createAll('.js', 'ui/components', this.config.outdir, 'ui/components')
+        // If you build an NPM package, we also build the Gjs module for the other module type
+        if (this.config.package) {
+            this.setOverrideConfigForOtherModuleType()
+            // TS
+            await templateProcessor.create(
+                'gjs.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'gjs.d.cts' : 'gjs.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+            await templateProcessor.create(
+                'gettext.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'gettext.d.cts' : 'gettext.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+            await templateProcessor.create(
+                'system.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'system.d.cts' : 'system.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+            await templateProcessor.create(
+                'cairo.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'cairo.d.cts' : 'cairo.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.config,
+            )
+
+            // JS
+            if (this.config.buildType === 'lib') {
+                await templateProcessor.create(
+                    'gjs.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'gjs.cjs' : 'gjs.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'gettext.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'gettext.cjs' : 'gettext.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'system.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'system.cjs' : 'system.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+                await templateProcessor.create(
+                    'cairo.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'cairo.cjs' : 'cairo.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.config,
+                )
+            }
+            this.resetOverrideConfig()
+        }
+
+        // Import ambient types
+        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'ambient.d.ts')
+
+        // Import ambient path alias
+        if (this.config.generateAlias) {
+            if (this.config.package) {
+                // Write tsconfig.alias.json to the root of the package
+                await templateProcessor.create('tsconfig.alias.json', this.config.outdir, 'tsconfig.alias.json', true)
+            } else {
+                // Write tsconfig.alias.json to the root of the project
+                await templateProcessor.create('tsconfig.alias.json', './', 'tsconfig.alias.json', false)
             }
         }
 
-        // Alias
-        if (this.config.generateAlias) {
-            await templateProcessor.create('tsconfig.alias.json', './', 'tsconfig.alias.json', '', false)
+        // Package
+        if (this.config.package) {
+            await this.exportNPMPackage(templateProcessor, 'Gjs')
         }
     }
 
-    private async exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]) {
-        if (!this.config.outdir) return
-
-        const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
-
-        await templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
-        if (this.config.buildType === 'lib') {
-            await templateProcessor.create('index.js', this.config.outdir, 'index.js')
-        }
-    }
-
-    public async start(
+    protected async exportNodeGtk(
+        dependencies: Dependency[],
         girModules: GirModule[],
-        girModulesGrouped?: GirModulesGrouped[],
-        inheritanceTable?: InheritanceTable,
+        girModulesGrouped: GirModulesGrouped[],
     ) {
+        if (!this.config.outdir) return
+        const packageName = 'node-gtk'
+
+        const templateProcessor = new TemplateProcessor(
+            { girModules, girModulesGrouped },
+            packageName,
+            dependencies,
+            this.config,
+        )
+
+        // TS
+        await templateProcessor.create('node-gtk.d.ts', this.config.outdir, 'node-gtk.d.ts')
+
+        // JS
+        if (this.config.buildType === 'lib') {
+            await templateProcessor.create('node-gtk.js', this.config.outdir, 'node-gtk.js')
+        }
+
+        // If you build an NPM package, we also build the node-gtk module for the other module type
+        if (this.config.package) {
+            this.setOverrideConfigForOtherModuleType()
+            // TS
+            await templateProcessor.create(
+                'node-gtk.d.ts',
+                this.config.outdir,
+                this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.d.cts' : 'node-gtk.d.mts',
+                undefined,
+                undefined,
+                undefined,
+                this.overrideConfig,
+            )
+            // JS
+            if (this.config.buildType === 'lib') {
+                await templateProcessor.create(
+                    'node-gtk.js',
+                    this.config.outdir,
+                    this.overrideConfig.moduleType === 'cjs' ? 'node-gtk.cjs' : 'node-gtk.mjs',
+                    undefined,
+                    undefined,
+                    undefined,
+                    this.overrideConfig,
+                )
+            }
+            this.resetOverrideConfig()
+        }
+
+        // Import ambient types
+        await templateProcessor.create('ambient.d.ts', this.config.outdir, 'node-ambient.d.ts')
+
+        // Package
+        if (this.config.package) {
+            await this.exportNPMPackage(templateProcessor, 'node-gtk')
+        }
+    }
+
+    public async start(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[] = []) {
+        this.dependencyManager.addAll(girModules)
+
+        if (this.config.package && this.packageData) {
+            await this.packageData.start()
+        }
+
         for (const girModule of girModules) {
-            await this.exportModule(girModule)
+            await this.exportModule(girModule, girModules, girModulesGrouped)
         }
 
-        if (this.config.environment === 'node' && girModulesGrouped) {
+        if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            await this.exportNodeGtk(girModules, girModulesGrouped)
+            await this.exportNodeGtk(this.dependencyManager.core(), girModules, girModulesGrouped)
         }
 
-        if (this.config.environment === 'gjs' && girModulesGrouped && inheritanceTable) {
+        if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            await this.exportGjs(girModules, girModulesGrouped)
+            await this.exportGjs(this.dependencyManager.core(), girModules, girModulesGrouped)
         }
     }
 }

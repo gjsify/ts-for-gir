@@ -1,1 +1,1 @@
-export type ModuleType = 'esm' | 'commonjs'
+export type ModuleType = 'esm' | 'cjs'

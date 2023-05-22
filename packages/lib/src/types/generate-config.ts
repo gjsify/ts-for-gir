@@ -6,6 +6,8 @@ import { BuildType, Environment, ModuleType } from './index.js'
 export interface GenerateConfig {
     /** javascript environment */
     environment: Environment
+    /** root / working directory of your project */
+    root: string
     /** directory to output to */
     outdir: string | null
     /** Definitions generation type */
@@ -26,10 +28,15 @@ export interface GenerateConfig {
     fixConflicts: boolean
     /** Disables the generation of types that are in conflict with the DOM types */
     noDOMLib: boolean
-    /** Generate types for GNOME Shell */
-    gnomeShellTypes: boolean
     /** Generate a tsconfig alias */
     generateAlias: boolean
     /** Generate promisified functions for async/finish calls */
     promisify: boolean
+    /**
+     * Scope of the generated NPM packages
+     * @see https://docs.npmjs.com/cli/v7/using-npm/scope
+     */
+    npmScope: string
+    /** Generates an NPM compatible packages for each GIR module */
+    package: boolean
 }

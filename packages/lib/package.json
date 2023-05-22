@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/lib",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.0",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -13,12 +13,13 @@
     "build:ts": "tsc",
     "clear": "yarn clear:build",
     "clear:build": "rimraf ./lib",
-    "watch": "yarn build:ts -- --watch",
-    "lint": "eslint . --ext .ts,.tsx --fix"
+    "watch": "yarn build:ts --watch",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "update-package-descriptions": "wget https://raw.githubusercontent.com/vala-lang/valadoc-org/master/documentation/packages.xml"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gjsify/ts-for-gjs.git"
+    "url": "git+https://github.com/gjsify/ts-for-gir.git"
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
@@ -27,9 +28,9 @@
   ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/gjsify/ts-for-gjs/issues"
+    "url": "https://github.com/gjsify/ts-for-gir/issues"
   },
-  "homepage": "https://github.com/gjsify/ts-for-gjs#readme",
+  "homepage": "https://github.com/gjsify/ts-for-gir#readme",
   "keywords": [
     "gjs",
     "typescript",
@@ -46,23 +47,23 @@
   ],
   "devDependencies": {
     "@types/ejs": "^3.1.2",
-    "@types/eslint": "8.21.1",
-    "@types/lodash": "^4.14.191",
-    "@types/node": "^18.14.0",
+    "@types/eslint": "8.37.0",
+    "@types/lodash": "^4.14.194",
+    "@types/node": "^18.16.14",
     "@types/xml2js": "^0.4.11",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4",
-    "rimraf": "^4.1.2",
-    "typescript": "^4.9.5"
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
-    "colorette": "^2.0.19",
-    "ejs": "^3.1.8",
+    "colorette": "^2.0.20",
+    "ejs": "^3.1.9",
     "lodash": "^4.17.21",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.5.0"
   }
 }

@@ -5,14 +5,14 @@ node_modules/
 tmp/
 packages/*/lib/
 examples/**/@types/
-@types/node-gtk/*
-@types/Gjs/*
+@types/*
+@types/*
 # Uncommit this to see type build changes
-# !@types/Gjs/Gtk-4.0.d.ts
-# !@types/node-gtk/Gtk-4.0.d.ts
-# !@types/Gjs/Gtk-2.0.d.ts
-# !@types/node-gtk/Gtk-2.0.d.ts
-# !@types/Gjs/*
+# !@types/Gtk-4.0.d.ts
+# !@types/Gtk-4.0.d.ts
+# !@types/Gtk-2.0.d.ts
+# !@types/Gtk-2.0.d.ts
+# !@types/*
 
 index.ts.bak
 

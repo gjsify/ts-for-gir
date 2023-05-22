@@ -44,8 +44,8 @@ sudo dnf update && sudo dnf install \
 Checkout this repository, install the dependencies and build:
 
 ```bash
-git clone https://github.com/gjsify/ts-for-gjs
-cd ts-for-gjs
+git clone https://github.com/gjsify/ts-for-gir
+cd ts-for-gir
 git submodule update --init
 yarn install
 yarn run build
@@ -88,7 +88,7 @@ To validate all your generated type definition files in this project run
 yarn run validate:types:all
 ```
 
-To validate only your type definition files for Gjs
+To validate only your type definition files for GJS
 
 ```bash
 yarn run validate:types:gjs
@@ -103,7 +103,7 @@ yarn run validate:types:node
 You can also validate a single type definition file like this
 
 ```bash
-yarn run validate -- ./@types/Gjs/GObject-2.0.d.ts
+yarn run validate -- ./@types/gobject-2.0.d.ts
 ```
 
 ## Test
@@ -112,7 +112,7 @@ yarn run validate -- ./@types/Gjs/GObject-2.0.d.ts
 
 We have a test which tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.
 
-Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gjs:
+Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gir:
 
 ```bash
 git submodule update --init

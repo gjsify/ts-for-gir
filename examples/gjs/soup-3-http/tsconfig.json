@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.alias.json",
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+  },
+  "include": ["@types/gjs.d.ts"],
+  "files": [
+    "http-client.ts",
+    "http-server.ts"
+  ]
+}

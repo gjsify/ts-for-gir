@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.alias.json",
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+  },
+  "include": ["@types/gjs.d.ts"],
+  "files": [
+    "dbus-client.ts",
+    "dbus-server.ts",
+    "dbus-client-async.ts"
+  ]
+}

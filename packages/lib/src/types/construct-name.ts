@@ -7,5 +7,6 @@ export type ConstructName =
     | 'propertyName'
     | 'parameterName'
     | 'enumName'
-    | 'importName'
+    | 'importNamespaceName'
     | 'signalInterfaceName'
+    | 'importName'

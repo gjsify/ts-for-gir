@@ -4,13 +4,18 @@ import { join, dirname } from 'path'
 import { existsSync } from 'fs'
 
 import { fileURLToPath } from 'url'
-import { Environment, GirInfoAttrs, TsType, FileInfo } from './types/index.js'
+import { GirInfoAttrs, TsType, FileInfo } from './types/index.js'
 import { inspect } from 'util'
 import { Logger } from './logger.js'
 
 import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
 
 export { inspect }
+
+// Get __filename on ESM
+export const __filename = fileURLToPath(import.meta.url)
+// Get __dirname on ESM
+export const __dirname = dirname(__filename)
 
 /**
  * Performs a deep comparison between two values to determine if they are
@@ -122,10 +127,26 @@ export const cloneDeep = lodash.cloneDeep
  * Split a package name into namespace and version
  */
 export const splitModuleName = (packageName: string): { packageName: string; namespace: string; version: string } => {
+    // Workaround for Vte-4-2.91
+    if (packageName.startsWith('Vte-4')) {
+        return {
+            packageName,
+            namespace: 'Vte',
+            version: packageName.replace('Vte-', ''),
+        }
+    }
+    if (!packageName.includes('-')) {
+        return {
+            packageName,
+            namespace: packageName,
+            version: '',
+        }
+    }
     // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
     const splits = packageName.split('-')
     const version = splits.splice(-1, 1)[0]
     const namespace = splits.join('')
+
     return {
         packageName,
         namespace,
@@ -152,6 +173,17 @@ export const addNamespace = (type: string, namespace: string) => {
         type = namespace + '.' + type
     }
     return type
+}
+
+/**
+ * Removes line breaks and consecutive white spaces from a given string
+ * @param str
+ * @returns
+ */
+export const cleanString = (str: string) => {
+    str = str.replace(/\r?\n|\r/g, ' ')
+    str = str.replace(/\s+/g, ' ')
+    return str.trim()
 }
 
 /**
@@ -202,7 +234,7 @@ export const isFirstCharNumeric = (str: string): boolean => {
 }
 
 /**
- * Convert a string to camelCase
+ * Convert a string to camelCase, keeps the first alphabet character as it is.
  * @param str The string to convert
  * @returns The converted string
  */
@@ -215,7 +247,7 @@ export const camelCase = (str: string): string => {
 }
 
 /**
- * Convert a string to lowerCamelCase
+ * Convert a string to `lowerCamelCase`
  * @param str The string to convert
  * @returns The converted string
  */
@@ -226,14 +258,50 @@ export const lowerCamelCase = (str: string): string => {
 }
 
 /**
- * Convert a string to UpperCamelCase
+ * Convert a string to `PascalCase`
  * @param str The string to convert
  * @returns The converted string
  */
-export const upperCamelCase = (str: string): string => {
+export const pascalCase = (str: string): string => {
     str = camelCase(str)
     str = getFirstChar(str).toUpperCase() + str.slice(1)
     return str
+}
+
+/** Alias for {@link pascalCase} */
+export const upperCamelCase = pascalCase
+
+/**
+ * Convert a string to `snake_case`
+ * @param str The string to convert
+ * @returns The converted string
+ */
+export const snakeCase = (str: string): string => {
+    return str
+        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+        .replace(/[^a-zA-Z0-9-]+/g, '_') // replace non-alphanumeric characters with underscore
+        .replace(/^_+|_+$/g, '') // remove any leading or trailing underscores
+        .toLowerCase()
+}
+
+/**
+ * Convert a string to `kebab-case`
+ * @param str The string to convert
+ * @returns The converted string
+ */
+export const kebabCase = (str: string): string => {
+    return str
+        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
+        .replace(/[^a-zA-Z0-9-]+/g, '-') // replace non-alphanumeric characters with hyphen
+        .replace(/^-+|-+$/g, '') // remove any leading or trailing hyphens
+        .toLowerCase()
+}
+
+/** Alias for {@link kebabCase} */
+export const slugCase = kebabCase
+
+export const underscores = (str: string): string => {
+    return str.replace(/-|_/g, '_')
 }
 
 /**
@@ -303,38 +371,14 @@ export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
     return ' '.repeat(indents * spaceForIndent)
 }
 
-// Get __filename on ESM
-export const __filename = fileURLToPath(import.meta.url)
-// Get __dirname on ESM
-export const __dirname = dirname(__filename)
-
-/**
- * Get the output or input directory of the environment
- * @param environment The environment to get the directory for
- * @param baseDir The base directory
- * @returns The path to the directory
- */
-export const getEnvironmentDir = (environment: Environment, baseDir: string): string => {
-    if (!baseDir.endsWith(environment))
-        if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
-            return join(baseDir, 'Gjs')
-        }
-    if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-        return join(baseDir, 'node-gtk')
-    }
-    return baseDir
-}
-
 /**
  * Get the destination path for the environment
- * @param environment The environment to get the destination path for
- * @param outputDir The output directory
+ * @param baseOutputPath The base output path
  * @param parts The path parts
  * @returns The destination path
  */
-export const getDestPath = (environment: Environment, outputDir: string, ...parts: string[]) => {
-    const outputEnvDir = getEnvironmentDir(environment, outputDir)
-    const destPath = join(outputEnvDir, ...parts)
+export const getDestPath = (baseOutputPath: string, ...parts: string[]) => {
+    const destPath = join(baseOutputPath, ...parts)
     return destPath
 }
 
@@ -376,7 +420,7 @@ export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { na
         return false
     }
     // Handle introspectable only if the attribute is also present...
-    if (girElement.$.hasOwnProperty('introspectable') && girElement.$.introspectable !== undefined) {
+    if ({}.hasOwnProperty.call(girElement.$, 'introspectable') && girElement.$.introspectable !== undefined) {
         return girBool(girElement.$.introspectable, true)
     }
     // ...otherwise we assume that it is introspectable

@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-soup-3-http-example",
-  "version": "3.0.0-beta.12",
+  "version": "3.0.0",
   "description": "Node-gtk example showing how to build a http server/client using Soap 3",
   "main": "dist/http-server.js",
   "private": true,
@@ -9,6 +9,9 @@
     "build:types": "yarn ts-for-gir generate Soup-3.0 -e node",
     "build:app": "yarn node esbuild.js",
     "build": "yarn build:types && yarn build:app",
+    "clear:types": "rm -rf ./@types",
+    "clear:ts": "rm -rf ./dist",
+    "clear": "yarn clear:ts && yarn clear:types",
     "start:server": "yarn node dist/http-server.js",
     "start:client": "yarn node dist/http-client.js",
     "start": "yarn build && yarn start:server",
@@ -20,8 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.17.10",
-    "typescript": "^4.9.5"
+    "esbuild": "^0.17.19",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "node-gtk": "^0.11.0"

@@ -1,0 +1,12 @@
+<%# This template is used if the Option `generateAlias` is enabled %>
+{
+    "compilerOptions": {   
+        "baseUrl": ".",
+        "paths": { <% girModules.forEach(function(module, idx) { %>
+            <%_ const pkg = dep.get(module.namespace, module.version) _%>
+            <%_ const path = package ? join(typeDir, pkg.importName, pkg.importName) : join(typeDir, pkg.importName) _%>
+            "gi://<%= module.namespace %>?version=<%= module.version %>": ["<%= path %>.d.ts"]<% if (idx < girModules.length - 1) { %>,<% } %><% }); %>
+        }
+    },
+    "include": ["<%= typeDir %>/*.ts"]
+}

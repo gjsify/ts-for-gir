@@ -5,9 +5,9 @@
 // This is a simple example of a HTTP server in Gjs using libsoup 3
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
-import './@types/node-gtk/index.js';
-import GLib from './@types/node-gtk/GLib-2.0.js';
-import Soup from './@types/node-gtk/Soup-3.0.js';
+import './@types/node-gtk.js';
+import GLib from './@types/node-glib-2.0.js';
+import Soup from './@types/node-soup-3.0.js';
 
 // GJS version of GLib.HashTable
 // TODO fix in ts-for-gir

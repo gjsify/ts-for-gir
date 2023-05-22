@@ -1,0 +1,63 @@
+{
+    "name": "@girs/node-gio-2.0",
+    "version": "2.76.0-3.0.0",
+    "description": "Node.js TypeScript type definitions for Gio-2.0, generated from library version 2.76.0",
+    "type": "commonjs",
+    "module": "node-gio-2.0.mjs",
+    "main": "node-gio-2.0.js",
+    "typedoc": {
+        "entryPoint": "./node-gio-2.0.d.ts",
+        "readmeFile": "./README.md",
+        "displayName": "Gio-2.0",
+        "tsconfig": "./tsconfig.doc.json"
+    },
+    "exports": {
+        "./ambient": "./node-gio-2.0-ambient.d.ts",
+        "./import": "./node-gio-2.0-import.d.ts",
+        ".": {
+            "import": {
+                "types": "./node-gio-2.0.d.mts",
+                "default": "./node-gio-2.0.mjs"
+            },
+            "require": {
+                "types": "./node-gio-2.0.d.ts",
+                "default": "./node-gio-2.0.js"
+            }
+        }
+    },
+    "scripts": {
+        "test": "yarn test:esm && yarn test:cjs",
+        "test:esm": "tsc --noEmit node-gio-2.0.d.mts",
+        "test:cjs": "tsc --noEmit node-gio-2.0.d.ts"
+    },
+    "dependencies": {
+        "@girs/node-glib-2.0": "workspace:^",
+        "@girs/node-gobject-2.0": "workspace:^",
+        "@girs/node-gtk": "workspace:^"
+    },
+    "peerDependencies": {
+        "node-gtk": "*"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.4"
+    },
+    "keywords": [
+        "Gir",
+        "TypeScript",
+        "types",
+        "GObject-Introspection",
+        "node",
+        "node-gtk",
+        "Gio-2.0"
+    ],
+    "author": "ts-for-gir",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gjsify/types.git"
+    },
+    "bugs": {
+        "url": "https://github.com/gjsify/ts-for-gir/issues"
+    },
+    "homepage": "https://github.com/gjsify/types/tree/main/node-gio-2.0#readme"
+}

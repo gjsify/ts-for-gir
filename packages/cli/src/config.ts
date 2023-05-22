@@ -7,15 +7,12 @@ import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
 import { writeFile } from 'fs/promises'
-import OS from 'os'
 import {
     merge,
     isEqual,
     Logger,
     APP_NAME,
     APP_USAGE,
-    WARN_NO_NAMESPACE_ON_TYPES,
-    WARN_NO_NAMESPACE_ON_ESM,
     ERROR_CONFIG_EXTENSION_UNSUPPORTED,
     WARN_USE_ESM_FOR_ALIAS,
     WARN_USE_GJS_FOR_ALIAS,
@@ -36,6 +33,7 @@ export class Config {
         environments: ['gjs'],
         print: false,
         configName: '.ts-for-girrc.js',
+        root: process.cwd(),
         outdir: './@types',
         girDirectories: getDefaultGirDirectories(),
         modules: ['*'],
@@ -49,9 +47,10 @@ export class Config {
         noDebugComments: false,
         fixConflicts: true,
         noDOMLib: false,
-        gnomeShellTypes: false,
         generateAlias: false,
-        promisify: false,
+        promisify: true,
+        npmScope: '@girs',
+        package: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -72,6 +71,12 @@ export class Config {
             description: 'GIR directories',
             array: true,
             default: Config.defaults.girDirectories,
+            normalize: true,
+        },
+        root: {
+            type: 'string',
+            description: 'Root directory of your project',
+            default: Config.defaults.root,
             normalize: true,
         },
         outdir: {
@@ -111,7 +116,7 @@ export class Config {
             type: 'string',
             alias: 't',
             description: 'Specify what module code is generated.',
-            choices: ['esm', 'commonjs'],
+            choices: ['esm', 'commonjs', 'cjs'],
             default: Config.defaults.moduleType,
             normalize: true,
         },
@@ -173,12 +178,6 @@ export class Config {
             default: Config.defaults.noDOMLib,
             normalize: true,
         },
-        gnomeShellTypes: {
-            type: 'boolean',
-            description: 'Generate types for GNOME Shell (Experimental)',
-            default: Config.defaults.gnomeShellTypes,
-            normalize: true,
-        },
         generateAlias: {
             type: 'boolean',
             alias: 'a',
@@ -192,6 +191,18 @@ export class Config {
             default: Config.defaults.promisify,
             normalize: true,
         },
+        npmScope: {
+            type: 'string',
+            description: 'Scope of the generated NPM packages',
+            default: Config.defaults.npmScope,
+            normalize: true,
+        },
+        package: {
+            type: 'boolean',
+            description: 'Generates an NPM compatible packages for each GIR module',
+            default: Config.defaults.package,
+            normalize: true,
+        },
     }
 
     /**
@@ -200,6 +211,7 @@ export class Config {
     static generateOptions = {
         modules: this.options.modules,
         girDirectories: this.options.girDirectories,
+        root: this.options.root,
         outdir: this.options.outdir,
         environments: this.options.environments,
         ignore: this.options.ignore,
@@ -214,9 +226,10 @@ export class Config {
         noDebugComments: this.options.noDebugComments,
         noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
-        gnomeShellTypes: this.options.gnomeShellTypes,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
+        npmScope: this.options.npmScope,
+        package: this.options.package,
     }
 
     static listOptions = {
@@ -227,12 +240,23 @@ export class Config {
         verbose: Config.options.verbose,
     }
 
+    static docOptions = {
+        modules: this.options.modules,
+        girDirectories: Config.options.girDirectories,
+        outdir: Config.options.outdir,
+        environments: Config.options.environments,
+        ignore: Config.options.ignore,
+        verbose: Config.options.verbose,
+        ignoreVersionConflicts: Config.options.ignoreVersionConflicts,
+        configName: Config.options.configName,
+    }
+
     /**
-     * Overwrites values in the user config
+     * Overwrites values in the user config file
      * @param configsToAdd
      */
-    public static async addToConfig(configsToAdd: Partial<UserConfig>): Promise<void> {
-        const userConfig = await this.loadConfigFile()
+    public static async addToConfig(configsToAdd: Partial<UserConfig>, configName?: string): Promise<void> {
+        const userConfig = await this.loadConfigFile(configName)
         const path = userConfig?.filepath || this.configFilePath
         const configToStore = {}
         merge(configToStore, userConfig?.config || {}, configsToAdd)
@@ -286,22 +310,6 @@ export class Config {
         const configFile: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
         if (configFile?.filepath) {
             Config.configFilePath = configFile.filepath
-            const configDir = dirname(configFile.filepath)
-
-            // If outdir is not absolute, make it relative to the config file
-            if (configFile.config.outdir && !configFile.config.outdir?.startsWith('/')) {
-                configFile.config.outdir = resolve(configDir, configFile.config.outdir)
-            }
-
-            // Same for girDirectories
-            if (configFile.config.girDirectories) {
-                configFile.config.girDirectories = configFile.config.girDirectories.map((dir) => {
-                    if (!dir.startsWith('/')) {
-                        return resolve(configDir, dir)
-                    }
-                    return dir
-                })
-            }
         }
 
         return configFile
@@ -311,6 +319,7 @@ export class Config {
         const generateConfig: GenerateConfig = {
             environment: environment,
             girDirectories: config.girDirectories,
+            root: config.root,
             outdir: config.outdir,
             verbose: config.verbose,
             buildType: config.buildType,
@@ -320,9 +329,10 @@ export class Config {
             noDebugComments: config.noDebugComments,
             fixConflicts: config.fixConflicts,
             noDOMLib: config.noDOMLib,
-            gnomeShellTypes: config.gnomeShellTypes,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
+            npmScope: config.npmScope,
+            package: config.package,
         }
         return generateConfig
     }
@@ -333,7 +343,7 @@ export class Config {
             ? false // NoLib makes typescript to ignore the lib property
             : Array.isArray(tsCompilerOptions.lib)
             ? tsCompilerOptions.lib.some((lib) => lib.toLowerCase().startsWith('dom'))
-            : true // Typescript icludes DOM lib by default
+            : true // Typescript includes DOM lib by default
 
         if (config.environments.includes('gjs') && tsConfigHasDOMLib && !config.noDOMLib) {
             const answer = (
@@ -355,20 +365,6 @@ export class Config {
     }
 
     public static async validate(config: UserConfig): Promise<UserConfig> {
-        if (config.buildType === 'types') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_TYPES)
-                config.noNamespace = false
-            }
-        }
-
-        if (config.moduleType === 'esm') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
-                config.noNamespace = false
-            }
-        }
-
         if (config.generateAlias) {
             if (!config.environments.includes('gjs')) {
                 Logger.warn(WARN_USE_GJS_FOR_ALIAS)
@@ -377,13 +373,6 @@ export class Config {
             if (config.moduleType !== 'esm') {
                 Logger.warn(WARN_USE_ESM_FOR_ALIAS)
                 config.moduleType = 'esm'
-            }
-        }
-
-        if (config.moduleType === 'esm') {
-            if (config.noNamespace !== false) {
-                Logger.warn(WARN_NO_NAMESPACE_ON_ESM)
-                config.noNamespace = false
             }
         }
 
@@ -408,6 +397,7 @@ export class Config {
             verbose: options.verbose,
             ignoreVersionConflicts: options.ignoreVersionConflicts,
             print: options.print,
+            root: options.root,
             outdir: options.outdir,
             girDirectories: options.girDirectories,
             ignore: options.ignore,
@@ -417,9 +407,10 @@ export class Config {
             noDebugComments: options.noDebugComments,
             fixConflicts: options.fixConflicts,
             noDOMLib: options.noDOMLib,
-            gnomeShellTypes: options.gnomeShellTypes,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
+            npmScope: options.npmScope,
+            package: options.package,
         }
 
         if (configFileData) {
@@ -449,6 +440,13 @@ export class Config {
             // print
             if (config.print === Config.options.print.default && typeof configFileData.print === 'boolean') {
                 config.print = configFileData.print
+            }
+            // root
+            if (config.root === Config.options.root.default && (configFileData.root || configFile?.filepath)) {
+                // Use the config file path as the root path if no root path is set
+                config.root =
+                    configFileData.root ||
+                    (configFile?.filepath ? dirname(configFile.filepath) : (Config.options.root.default as string))
             }
             // outdir
             if (config.outdir === Config.options.outdir.default && configFileData.outdir) {
@@ -504,13 +502,6 @@ export class Config {
             if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFileData.noDOMLib === 'boolean') {
                 config.noDOMLib = configFileData.noDOMLib
             }
-            // gnomeShellTypes
-            if (
-                config.gnomeShellTypes === Config.options.gnomeShellTypes.default &&
-                typeof configFileData.gnomeShellTypes === 'boolean'
-            ) {
-                config.gnomeShellTypes = configFileData.gnomeShellTypes
-            }
             // generateAlias
             if (
                 config.generateAlias === Config.options.generateAlias.default &&
@@ -525,6 +516,33 @@ export class Config {
             ) {
                 config.promisify = configFileData.promisify
             }
+            // npmScope
+            if (config.npmScope === Config.options.npmScope.default && configFileData.npmScope) {
+                config.npmScope = configFileData.npmScope
+            }
+            // package
+            if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
+                config.package = configFileData.package
+            }
+        }
+
+        if ((config.moduleType as string) === 'commonjs') {
+            config.moduleType = 'cjs'
+        }
+
+        // If outdir is not absolute, make it absolute to the root path
+        if (config.outdir && !config.outdir?.startsWith('/')) {
+            config.outdir = resolve(config.root, config.outdir)
+        }
+
+        // Same for girDirectories
+        if (config.girDirectories) {
+            config.girDirectories = config.girDirectories.map((dir) => {
+                if (!dir.startsWith('/')) {
+                    return resolve(config.root, dir)
+                }
+                return dir
+            })
         }
 
         return await this.validate(config)
@@ -532,14 +550,26 @@ export class Config {
 }
 
 function getDefaultGirDirectories(): string[] {
-    const girDirectories = OS.platform() === 'darwin' ? ['/usr/local/share/gir-1.0'] : ['/usr/share/gir-1.0']
+    const girDirectories = [
+        '/usr/local/share/gir-1.0',
+        '/usr/share/gir-1.0',
+        '/usr/share/gnome-shell',
+        '/usr/share/gnome-shell/gir-1.0',
+        '/usr/lib64/mutter-10',
+        '/usr/lib64/mutter-11',
+        '/usr/lib64/mutter-12',
+        '/usr/lib/x86_64-linux-gnu/mutter-10',
+        '/usr/lib/x86_64-linux-gnu/mutter-11',
+        '/usr/lib/x86_64-linux-gnu/mutter-12',
+    ]
     // NixOS and other distributions does not have a /usr/local/share directory.
     // Instead, the nix store paths with Gir files are set as XDG_DATA_DIRS.
     // See https://github.com/NixOS/nixpkgs/blob/96e18717904dfedcd884541e5a92bf9ff632cf39/pkgs/development/libraries/gobject-introspection/setup-hook.sh#L7-L10
     const dataDirs = process.env['XDG_DATA_DIRS']?.split(':') || []
-    for (const dataDir of dataDirs) {
+    for (let dataDir of dataDirs) {
+        dataDir = join(dataDir, 'gir-1.0')
         if (!girDirectories.includes(dataDir)) {
-            girDirectories.push(join(dataDir, 'gir-1.0'))
+            girDirectories.push(dataDir)
         }
     }
     return girDirectories

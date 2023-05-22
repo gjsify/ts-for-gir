@@ -23,6 +23,8 @@ import {
 } from './messages.js'
 import { isEqual, find, clone, girBool, removeNamespace, addNamespace, girElementIsIntrospectable } from './utils.js'
 import { SymTable } from './symtable.js'
+import { LibraryVersion } from './library-version.js'
+
 import { GirDirection } from './types/index.js'
 import type {
     Dependency,
@@ -95,18 +97,26 @@ export class GirModule {
      */
     namespace: string
     /**
-     * E.g. '3.0'
+     * E.g. '4.0'
      */
     version = '0.0'
     /**
-     * E.g. 'Gtk-3.0'
+     * E.g. 'Gtk-4.0'
      */
     packageName: string
     /**
-     * E.g. 'Gtk30'
-     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0.js";`
+     * E.g. 'Gtk40'
+     * Is used in the generated index.d.ts, for example: `import * as Gtk40 from "./Gtk-4.0.js";`
      */
+    importNamespace: string
+
     importName: string
+
+    /**
+     * The version of the library as an object.
+     * E.g. `{ major: 4, minor: 0, patch: 0 }` or as string `4.0.0`'
+     */
+    libraryVersion: LibraryVersion
 
     dependencies: Dependency[] = []
     private _transitiveDependencies: Dependency[] = []
@@ -163,12 +173,13 @@ export class GirModule {
         this.namespace = this.ns.$.name
         this.version = this.ns.$.version
         this.packageName = `${this.namespace}-${this.version}`
-        this.transformation = new Transformation(this.packageName, config)
+        this.libraryVersion = new LibraryVersion(this.ns.constant, this.version)
+        this.transformation = new Transformation(config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.conflictResolver = new ConflictResolver(config.environment, config.verbose)
         this.inject = new Injector(this.config.environment)
-        this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
-
+        this.importNamespace = this.transformation.transformModuleNamespaceName(this.packageName)
+        this.importName = this.transformation.transformImportName(this.packageName)
         this.symTable = new SymTable(this.config, this.packageName, this.namespace)
     }
 
@@ -2959,7 +2970,15 @@ export class GirModule {
     /**
      * Start processing the typescript data
      */
-    public start() {
+    public start(girModules: GirModule[]) {
+        // GObject and Gio are following the version of GLib
+        if (this.namespace === 'GObject' || this.namespace === 'Gio') {
+            const glibModule = girModules.find((girModule) => girModule.namespace === 'GLib')
+            if (glibModule) {
+                this.libraryVersion = glibModule.libraryVersion
+            }
+        }
+
         this.setModuleTsData()
     }
 }

@@ -16,16 +16,11 @@ const command = 'doc [modules..]'
 const description = 'The HTML documentation generator is not yet implemented, but feel free to implement it 🤗'
 
 const builder = (yargs: Argv) => {
-    return yargs
-        .option('modules', Config.generateOptions.modules)
-        .option('girDirectories', Config.generateOptions.girDirectories)
-        .option('outdir', Config.generateOptions.outdir)
-        .option('environments', Config.generateOptions.environments)
-        .option('ignore', Config.generateOptions.ignore)
-        .option('verbose', Config.generateOptions.verbose)
-        .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
-        .option('configName', Config.generateOptions.configName)
-        .example(examples)
+    const optionNames = Object.keys(Config.docOptions)
+    for (const optionName of optionNames) {
+        yargs = yargs.option(optionName, Config.docOptions[optionName])
+    }
+    return yargs.example(examples)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

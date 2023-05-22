@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ESNext"],
+    "types": ["node"],
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node"
+  },
+  "include": ["@girs/node-gtk/ambient"],
+  "files": [
+    "main.ts",
+  ]
+}

@@ -1,4 +1,6 @@
-import { Environment } from './types/index.js'
+import { LibraryVersion } from './library-version.js'
+
+import type { Environment } from './types/index.js'
 
 /**
  * In gjs all classes have a static name property but the classes listed below already have a static name property
@@ -13,8 +15,21 @@ export const NEW_LINE_REG_EXP = /[\n\r]+/g
 export const MAX_CLASS_PARENT_DEPTH = 100
 
 export const APP_NAME = 'ts-for-gir'
-export const APP_USAGE = 'Typescript .d.ts generator from GIR for gjs or node-gtk'
-export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gjs'
+export const APP_USAGE = 'TypeScript type definition generator for GObject introspection GIR files'
+export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gir'
+export const APP_VERSION = '3.0.0'
+
+export const PACKAGE_DESC = (packageName: string, environment: Environment, libraryVersion?: LibraryVersion) => {
+    const envStr = environment === 'node' ? 'Node.js' : 'GJS'
+    if (libraryVersion) {
+        return `${envStr} TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
+    }
+    return `${envStr} TypeScript type definitions for ${packageName}`
+}
+export const PACKAGE_KEYWORDS = (packageName: string, environment: Environment) => {
+    const envKeywords = environment === 'node' ? '"node", "node-gtk"' : '"GJS"'
+    return `"Gir", "TypeScript", "types", "GObject-Introspection", ${envKeywords}, "${packageName}"`
+}
 
 export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']
 

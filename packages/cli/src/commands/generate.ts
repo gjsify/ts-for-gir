@@ -14,30 +14,14 @@ import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for gjs or node-gtk'
+const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
 
 const builder = (yargs: Argv) => {
-    return yargs
-        .option('modules', Config.generateOptions.modules)
-        .option('girDirectories', Config.generateOptions.girDirectories)
-        .option('outdir', Config.generateOptions.outdir)
-        .option('environments', Config.generateOptions.environments)
-        .option('ignore', Config.generateOptions.ignore)
-        .option('buildType', Config.generateOptions.buildType)
-        .option('moduleType', Config.generateOptions.moduleType)
-        .option('verbose', Config.generateOptions.verbose)
-        .option('ignoreVersionConflicts', Config.generateOptions.ignoreVersionConflicts)
-        .option('print', Config.generateOptions.print)
-        .option('configName', Config.generateOptions.configName)
-        .option('noNamespace', Config.generateOptions.noNamespace)
-        .option('noComments', Config.generateOptions.noComments)
-        .option('noDebugComments', Config.generateOptions.noDebugComments)
-        .option('noDOMLib', Config.generateOptions.noDOMLib)
-        .option('fixConflicts', Config.generateOptions.fixConflicts)
-        .option('gnomeShellTypes', Config.generateOptions.gnomeShellTypes)
-        .option('generateAlias', Config.generateOptions.generateAlias)
-        .option('promisify', Config.generateOptions.promisify)
-        .example(examples)
+    const optionNames = Object.keys(Config.generateOptions)
+    for (const optionName of optionNames) {
+        yargs = yargs.option(optionName, Config.generateOptions[optionName])
+    }
+    return yargs.example(examples)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

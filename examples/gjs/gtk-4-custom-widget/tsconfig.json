@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.alias.json",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "moduleResolution":"Node16"
+  },
+  "include": ["@types/gjs.d.ts"],
+  "files": [
+    "index.ts"
+  ]
+}

@@ -10,7 +10,7 @@ export const NO_TSDATA = (namespace?: string) => {
 
 export const ERROR_NO_MODULES_FOUND = (girDirectories: string[]) => `No module found in ${girDirectories.join(', ')}!
 Please make sure that you have installed the necessary gir files.
-For example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu or "sudo dnf install gtk3-devel" on Fedora.`
+For example with "sudo apt install libgtk-4-dev" for Gtk4 on Ubuntu or "sudo dnf install gtk4-devel" on Fedora.`
 export const ERROR_CONFIG_EXTENSION_UNSUPPORTED =
     'Only configs with the extension .js and .json are currently supported. Do nothing'
 export const ERROR_NO_MODULE_SPECIFIED = 'Need to specify modules!'
@@ -20,8 +20,6 @@ export const ERROR_NO_MODULE_SPECIFIED = 'Need to specify modules!'
 export const WARN_NO_GIR_FILE_FOUND_FOR_PACKAGE = (packageName: string) =>
     `No gir file found for '${packageName}', this module will be ignored`
 export const WARN_CONSTANT_ALREADY_EXPORTED = (name: string) => `The constant '${name}' has already been exported`
-export const WARN_NO_NAMESPACE_ON_TYPES = "noNamespace must be 'false' if buildType is 'types'"
-export const WARN_NO_NAMESPACE_ON_ESM = "noNamespace must be 'false' on moduleType 'esm'"
 export const WARN_USE_ESM_FOR_ALIAS = "moduleType must be 'esm' if generateAlias is true!"
 export const WARN_USE_GJS_FOR_ALIAS = "environments must include 'gjs' if generateAlias is true!"
 

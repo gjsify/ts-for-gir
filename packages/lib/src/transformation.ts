@@ -12,7 +12,7 @@ import {
     GirEnumElement,
     GirBitfieldElement,
 } from './types/index.js'
-import { lowerCamelCase, upperCamelCase, isFirstCharNumeric } from './utils.js'
+import { lowerCamelCase, upperCamelCase, isFirstCharNumeric, underscores, slugCase, snakeCase } from './utils.js'
 import { Logger } from './logger.js'
 import { NEW_LINE_REG_EXP } from './constants.js'
 import {
@@ -132,8 +132,8 @@ export const FULL_TYPE_MAP = (environment: Environment, value: string, out = tru
     if (environment === 'gjs') {
         ba = 'Uint8Array'
         if (out === false) {
-            ba += ' | Gjs.byteArray.ByteArray'
-            gb = 'GLib.Bytes | Uint8Array | Gjs.byteArray.ByteArray'
+            ba += ' | imports.byteArray.ByteArray'
+            gb = 'GLib.Bytes | Uint8Array | imports.byteArray.ByteArray'
         } else {
             gb = undefined // No transformation
         }
@@ -324,7 +324,7 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        importName: {
+        importNamespaceName: {
             node: {
                 transformation: 'upperCamelCase',
             },
@@ -340,12 +340,20 @@ export class Transformation {
                 transformation: 'upperCamelCase',
             },
         },
+        importName: {
+            node: {
+                transformation: 'lowerCase',
+            },
+            gjs: {
+                transformation: 'lowerCase',
+            },
+        },
     }
 
     private log: Logger
 
-    constructor(moduleName = 'Transformation', private readonly config: GenerateConfig) {
-        this.log = new Logger(config.environment, config.verbose, moduleName)
+    constructor(private readonly config: GenerateConfig, logName = 'Transformation') {
+        this.log = new Logger(config.environment, config.verbose, logName)
     }
 
     public transformSignalInterfaceName(name: string): string {
@@ -355,7 +363,7 @@ export class Transformation {
 
     public transformModuleNamespaceName(name: string): string {
         name = this.transformNumericName(name)
-        name = this.transform('importName', name)
+        name = this.transform('importNamespaceName', name)
 
         if (RESERVED_NAMESPACE_NAMES[name]) {
             name = `${name}_`
@@ -508,25 +516,26 @@ export class Transformation {
 
     public transform(construct: ConstructName, transformMe: string): string {
         const transformations = this.transformations[construct][this.config.environment].transformation
-        if (transformations === 'original') {
-            return transformMe
+
+        switch (transformations) {
+            case 'lowerCamelCase':
+                return lowerCamelCase(transformMe)
+            case 'upperCamelCase':
+                return upperCamelCase(transformMe)
+            case 'slugCase':
+                return slugCase(transformMe)
+            case 'snakeCase':
+                return snakeCase(transformMe)
+            case 'upperCase':
+                return transformMe.toUpperCase()
+            case 'lowerCase':
+                return transformMe.toLowerCase()
+            case 'underscores':
+                return underscores(transformMe)
+            case 'original':
+            default:
+                return transformMe
         }
-        if (transformations === 'lowerCamelCase') {
-            return lowerCamelCase(transformMe)
-        }
-        if (transformations === 'upperCamelCase') {
-            return upperCamelCase(transformMe)
-        }
-        if (transformations === 'upperCase') {
-            return transformMe.toUpperCase()
-        }
-        if (transformations === 'lowerCase') {
-            return transformMe.toLowerCase()
-        }
-        if (transformations === 'underscores') {
-            return transformMe.replace(/-|_/g, '_')
-        }
-        return transformMe
     }
 
     /**
@@ -573,7 +582,10 @@ export class Transformation {
      * @param description
      */
     private transformGirDocCodeBlocks(description: string) {
-        description = description.replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c').replaceAll(/\]\|/gm, '```\n')
+        description = description
+            .replaceAll(/\|\[<!-- language="C" -->/gm, '\n```c') // C-Code
+            .replaceAll(/\|\[/gm, '\n```') // Other code
+            .replaceAll(/\]\|/gm, '```\n') // End of code
         return description
     }
 
@@ -597,5 +609,13 @@ export class Transformation {
     public transformGirDocTagText(text: string) {
         // return this.transformGirDocHighlights(text.replace(NEW_LINE_REG_EXP, ' '))
         return text.replace(NEW_LINE_REG_EXP, ' ')
+    }
+
+    public transformImportName(packageName: string): string {
+        let importName = this.transform('importName', packageName)
+        if (this.config.environment === 'node' && !importName.startsWith('node-')) {
+            importName = 'node-' + importName
+        }
+        return importName
     }
 }

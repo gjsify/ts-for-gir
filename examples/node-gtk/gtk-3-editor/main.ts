@@ -1,14 +1,16 @@
-import { startLoop } from 'node-gtk'
-import * as Gtk from './@types/node-gtk/Gtk-3.0'
-import * as GtkSource from './@types/node-gtk/GtkSource-3.0'
+import gi from './@types/node-gtk'
+import * as Gtk from './@types/node-gtk-3.0'
+import * as GtkSource from './@types/node-gtksource-3.0'
 
 // const Gtk = gi.require('Gtk', '3.0')
 // const GtkSource = gi.require('GtkSource')
 
-startLoop()
+gi.startLoop()
 Gtk.init(null)
 
-const wnd = new Gtk.Window({ title: 'Editor Test', defaultWidth: 600, defaultHeight: 400 })
+const wnd = new Gtk.Window({ title: 'Editor Test' })
+wnd.defaultHeight = 400
+wnd.defaultWidth = 600
 const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL })
 const notebook = new Gtk.Notebook()
 const srcView = new GtkSource.View()
@@ -33,8 +35,5 @@ wnd.connect('delete-event', () => {
 })
 
 console.log('hello world')
-// import { gettext } from '@types/Gjs/Gjs';
-// let locale = gettext.setlocale(gettext.LocaleCategory.ALL, null);
-// console.log('locale', locale);
 
 Gtk.main()

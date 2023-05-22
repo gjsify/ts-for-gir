@@ -1,0 +1,11 @@
+{
+    "environments": ["node"],
+    "modules": ["Gio-2.0"],
+    "buildType": "lib",
+    "moduleType": "cjs",
+    "noNamespace": false,
+    "outdir": "./@types",
+    "generateAlias": false,
+    "promisify": true,
+    "package": true
+}

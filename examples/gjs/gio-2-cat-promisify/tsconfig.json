@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.alias.json",
+  "compilerOptions": {   
+    "lib": ["ESNext"],
+    "types": [],
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "include": ["@types/gjs.d.ts"],
+  "files": [
+    "main.ts",
+  ]
+}

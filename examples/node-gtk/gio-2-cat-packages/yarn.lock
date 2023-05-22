@@ -299,7 +299,7 @@ __metadata:
     colorette: ^2.0.20
     cosmiconfig: ^8.1.3
     get-tsconfig: ^4.5.0
-    inquirer: ^9.2.5
+    inquirer: ^9.2.6
     tiny-glob: ^0.2.9
     yargs: ^17.7.2
   bin:
@@ -1420,9 +1420,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:^9.2.5":
-  version: 9.2.5
-  resolution: "inquirer@npm:9.2.5"
+"inquirer@npm:^9.2.6":
+  version: 9.2.6
+  resolution: "inquirer@npm:9.2.6"
   dependencies:
     ansi-escapes: ^4.3.2
     chalk: ^5.2.0
@@ -1439,7 +1439,7 @@ __metadata:
     strip-ansi: ^6.0.1
     through: ^2.3.6
     wrap-ansi: ^6.0.1
-  checksum: 135cae37630a60843882983a6558ce72da7920da2088345027a9890683ed9ee74656dab1cc503b4ad707e3d7969c1676598c5250706514fc6f6c86f43e75995f
+  checksum: caf3e9da66a0b3809952e8425a36435afccba8fdfeea4c9d42ce362d465b72f22a201f37a1badf52dd355c6054e5e6f073d45258fec477238dba13d24a6e77d6
   languageName: node
   linkType: hard
 

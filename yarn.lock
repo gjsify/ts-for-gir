@@ -892,7 +892,7 @@ __metadata:
     "@ts-for-gir/generator-typescript": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
     "@types/inquirer": ^9.0.3
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     "@types/yargs": ^17.0.24
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@typescript-eslint/parser": ^5.59.6
@@ -902,7 +902,7 @@ __metadata:
     eslint-config-prettier: ^8.8.0
     eslint-plugin-prettier: ^4.2.1
     get-tsconfig: ^4.5.0
-    inquirer: ^9.2.5
+    inquirer: ^9.2.6
     prettier: ^2.8.8
     rimraf: ^5.0.1
     tiny-glob: ^0.2.9
@@ -919,7 +919,7 @@ __metadata:
   resolution: "@ts-for-gir/generator-base@workspace:packages/generator-base"
   dependencies:
     "@ts-for-gir/lib": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@typescript-eslint/parser": ^5.59.6
     eslint: ^8.41.0
@@ -937,7 +937,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@typescript-eslint/parser": ^5.59.6
     eslint: ^8.41.0
@@ -955,7 +955,7 @@ __metadata:
   dependencies:
     "@ts-for-gir/generator-base": "workspace:^"
     "@ts-for-gir/lib": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@typescript-eslint/parser": ^5.59.6
     eslint: ^8.41.0
@@ -974,7 +974,7 @@ __metadata:
     "@types/ejs": ^3.1.2
     "@types/eslint": 8.37.0
     "@types/lodash": ^4.14.194
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     "@types/xml2js": ^0.4.11
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@typescript-eslint/parser": ^5.59.6
@@ -1094,10 +1094,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.16.13":
-  version: 18.16.13
-  resolution: "@types/node@npm:18.16.13"
-  checksum: ec1ffb814750fc7f7c6c7cb138ed56f24cb23a2ffe50d264a265be52b5cafca37b94b8fb3b5b420f5674baa677b0e011160aeaa1a0edd862aa4cfa11f4467918
+"@types/node@npm:^18.16.14":
+  version: 18.16.14
+  resolution: "@types/node@npm:18.16.14"
+  checksum: c11cb3c787236414efe58240ae71854971592554d82ff9d201876ce7cafd51c37aaa001c63602d002e8238614d7331bd6d48ac4c1c0caa826799980b6846fb08
   languageName: node
   linkType: hard
 
@@ -3498,9 +3498,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:^9.2.5":
-  version: 9.2.5
-  resolution: "inquirer@npm:9.2.5"
+"inquirer@npm:^9.2.6":
+  version: 9.2.6
+  resolution: "inquirer@npm:9.2.6"
   dependencies:
     ansi-escapes: ^4.3.2
     chalk: ^5.2.0
@@ -3517,7 +3517,7 @@ __metadata:
     strip-ansi: ^6.0.1
     through: ^2.3.6
     wrap-ansi: ^6.0.1
-  checksum: 135cae37630a60843882983a6558ce72da7920da2088345027a9890683ed9ee74656dab1cc503b4ad707e3d7969c1676598c5250706514fc6f6c86f43e75995f
+  checksum: caf3e9da66a0b3809952e8425a36435afccba8fdfeea4c9d42ce362d465b72f22a201f37a1badf52dd355c6054e5e6f073d45258fec477238dba13d24a6e77d6
   languageName: node
   linkType: hard
 
@@ -4963,9 +4963,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.22.0":
-  version: 3.22.0
-  resolution: "rollup@npm:3.22.0"
+"rollup@npm:^3.23.0":
+  version: 3.23.0
+  resolution: "rollup@npm:3.23.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -4973,7 +4973,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 6da2bfe1eb16714ccd4bf56ca92430309dc71b4492a3c38502f68f645433dcc789fb79f3761fc2269aa0cf20ece7821c4d7c95b860b7343c2ed52ed1c36c9a90
+  checksum: 0721065cf725c5611815be61d2b01f20b4d0027e17035f6e76384d38396b56cf6ed21a3db78eb004d9db4d24c8a6a19da4563b4ff96b5dd36f0a0f7a3baf85e8
   languageName: node
   linkType: hard
 
@@ -5513,7 +5513,7 @@ __metadata:
     "@babel/core": ^7.21.8
     "@rollup/plugin-babel": ^6.0.3
     "@ts-for-gir/cli": "workspace:^"
-    rollup: ^3.22.0
+    rollup: ^3.23.0
     typescript: ^5.0.4
     vite: ^4.3.8
   languageName: unknown
@@ -5750,7 +5750,7 @@ __metadata:
   resolution: "ts-for-gir-node-glib-2-spawn-command-example@workspace:examples/node-gtk/glib-2-spawn-command"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     raw-loader: ^4.0.2
@@ -5767,7 +5767,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-browser-example@workspace:examples/node-gtk/gtk-3-browser"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     ts-loader: ^9.4.2
@@ -5784,7 +5784,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-builder-auto-connect-signals-example@workspace:examples/node-gtk/gtk-3-builder-auto-connect-signals"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     raw-loader: ^4.0.2
@@ -5801,7 +5801,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-builder-example@workspace:examples/node-gtk/gtk-3-builder"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     raw-loader: ^4.0.2
@@ -5819,7 +5819,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-editor-example@workspace:examples/node-gtk/gtk-3-editor"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     ts-loader: ^9.4.2
@@ -5835,7 +5835,7 @@ __metadata:
   resolution: "ts-for-gir-node-gtk-3-hello-example@workspace:examples/node-gtk/gtk-3-hello"
   dependencies:
     "@ts-for-gir/cli": "workspace:^"
-    "@types/node": ^18.16.13
+    "@types/node": ^18.16.14
     fork-ts-checker-webpack-plugin: ^8.0.0
     node-gtk: ^0.11.0
     raw-loader: ^4.0.2

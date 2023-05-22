@@ -1,7 +1,7 @@
 {
   "name": "ts-for-gir-gio-2-cat-promisify-packages",
   "version": "3.0.0-beta.16",
-  "description": "Simple Gjs Gtk 3 example app that shows how you can translate strings with gettext",
+  "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",
   "private": true,

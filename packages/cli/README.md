@@ -18,7 +18,7 @@
 
 # CLI
 
-CLI tool to generate Typescript Type Definition files for Gjs and node-gtk.
+CLI tool to generate Typescript Type Definition files for GJS and node-gtk.
 
 ## Getting started
 
@@ -42,10 +42,10 @@ After you have installed `@ts-for-gir/cli` you can run the `ts-for-gir` command:
 ```bash
 $ ts-for-gir --help
 
-Typescript .d.ts generator from GIR for gjs or node-gtk
+Typescript .d.ts generator from GIR for GJS or node-gtk
 
 Commands:
-  ts-for-gir generate [modules..]  Generates .d.ts files from GIR for gjs or nod
+  ts-for-gir generate [modules..]  Generates .d.ts files from GIR for GJS or nod
                                    e-gtk
   ts-for-gir list [modules..]      Lists all available GIR modules
   ts-for-gir doc [modules..]       The HTML documentation generator is not yet i
@@ -58,7 +58,7 @@ Options:
 
 ## Example
 
-To generate the Typescript type definitions of Gtk-4.0 for Gjs run:
+To generate the Typescript type definitions of Gtk-4.0 for GJS run:
 
 ```
 ts-for-gir generate Gtk-4.0
@@ -79,7 +79,9 @@ $ ts-for-gir generate --help
 
 ts-for-gir generate [modules..]
 
-Generates .d.ts files from GIR for gjs or node-gtk
+ts-for-gir generate [modules..]
+
+Generates .d.ts files from GIR for GJS or node-gtk
 
 Options:
       --version                 Show version number                    [boolean]
@@ -87,7 +89,14 @@ Options:
       --modules                 GIR modules to load, e.g. 'Gio-2.0'. Accepts mul
                                 tiple modules           [array] [default: ["*"]]
   -g, --girDirectories          GIR directories
-                                       [array] [default: ["/usr/share/gir-1.0"]]
+  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
+  /gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-10","/usr/li
+  b64/mutter-11","/usr/lib64/mutter-12","/usr/lib/x86_64-linux-gnu/mutter-10","/
+  usr/lib/x86_64-linux-gnu/mutter-11","/usr/lib/x86_64-linux-gnu/mutter-12","/ho
+  me/jumplink/.local/share/flatpak/exports/share/gir-1.0","/var/lib/flatpak/expo
+                                                            rts/share/gir-1.0"]]
+      --root                    Root directory of your project
+                        [string] [default: "/home/jumplink/Projekte/ts-for-gir"]
   -o, --outdir                  Directory to output to
                                                   [string] [default: "./@types"]
   -e, --environments            Javascript environment
@@ -97,7 +106,7 @@ Options:
   -b, --buildType               Definitions generation type
                              [string] [choices: "lib", "types"] [default: "lib"]
   -t, --moduleType              Specify what module code is generated.
-                              [string] [choices: "esm", "cjs"] [default: "esm"]
+                   [string] [choices: "esm", "commonjs", "cjs"] [default: "esm"]
   -v, --verbose                 Switch on/off the verbose mode
                                                        [string] [default: false]
       --ignoreVersionConflicts  Do not ask for package versions if multiple vers
@@ -119,6 +128,27 @@ Options:
                                 s                       [string] [default: true]
   -a, --generateAlias           Generate an alias tsconfig file to support GJS E
                                 SM module imports      [string] [default: false]
+      --promisify               Generate promisified functions for async/finish
+                                calls                   [string] [default: true]
+      --npmScope                Scope of the generated NPM packages
+                                                     [string] [default: "@girs"]
+      --package                 Generates an NPM compatible packages for each GI
+                                R module               [string] [default: false]
+
+Examples:
+  ts-for-gir generate                       Run 'ts-for-gir generate' in your gj
+                                            s or node-gtk project to generate ty
+                                            pings for your project, pass the gir
+                                             modules you need for your project
+  ts-for-gir generate Gtk*                  You can also use wild cards
+  ts-for-gir generate '*'                   If you want to parse all of your loc
+                                            ally installed gir modules run
+  ts-for-gir generate '*' -e gjs            Generate .d.ts. files only for gjs
+  ts-for-gir generate '*' -e node           Generate .d.ts. files only for node
+  ts-for-gir generate --configName='.ts-fo  Use a special config file
+  r-gir.gtk4.rc.js
+  ts-for-gir generate --ignore=Gtk-4.0 xra  Generate .d.ts. files but not for Gt
+  ndr-1.3                                   k-4.0 and xrandr-1.3
 ```
 
 ## List available GIR modules
@@ -135,11 +165,24 @@ Options:
       --help            Show help                                      [boolean]
       --modules         GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple mo
                         dules                           [array] [default: ["*"]]
-  -g, --girDirectories  GIR directories[array] [default: ["/usr/share/gir-1.0"]]
+  -g, --girDirectories  GIR directories
+  [array] [default: ["/usr/local/share/gir-1.0","/usr/share/gir-1.0","/usr/share
+  /gnome-shell","/usr/share/gnome-shell/gir-1.0","/usr/lib64/mutter-10","/usr/li
+  b64/mutter-11","/usr/lib64/mutter-12","/usr/lib/x86_64-linux-gnu/mutter-10","/
+  usr/lib/x86_64-linux-gnu/mutter-11","/usr/lib/x86_64-linux-gnu/mutter-12","/ho
+  me/jumplink/.local/share/flatpak/exports/share/gir-1.0","/var/lib/flatpak/expo
+                                                            rts/share/gir-1.0"]]
   -i, --ignore          Modules that should be ignored     [array] [default: []]
-  -v, --verbose         Switch on/off the verbose mode [string] [default: false]
       --configName      Name of the config if you want to use a different name
                                           [string] [default: ".ts-for-girrc.js"]
+  -v, --verbose         Switch on/off the verbose mode [string] [default: false]
+
+Examples:
+  ts-for-gir list -g ./vala-girs/gir-1.0    Lists all available GIR modules in .
+                                            /vala-girs/gir-1.0
+  ts-for-gir list --ignore=Gtk-3.0 xrandr-  Lists all available GIR modules in /
+  1.3                                       usr/share/gir-1.0 but not Gtk-3.0 an
+                                            d xrandr-1.3
 ```
 
 ## Generate HTML documentation
@@ -180,7 +223,7 @@ You can pass the config file name to the CLI using [configName](#configName).
 ## Options
 
 ### girDirectories
-Directories in which *.gir files are to be searched for. Default is `["/usr/share/gir-1.0"]`. More than one can be specified. If you want to generate the types for the GNOME Shell you have to search in several folders for the corresponding types: 
+Directories in which `*.gir` files are to be searched for. Default is `["/usr/share/gir-1.0"]`. More than one can be specified. If you want to generate the types for the GNOME Shell you have to search in several folders for the corresponding types: 
 ```js
 girDirectories: [
   // General gir files
@@ -252,7 +295,7 @@ The `moduleType` CLI option determines the format in which the generated JavaScr
 
 > This option is only relevant if the `buildType` is set to `"lib"`. The choice of `moduleType` may affect how the generated code is used in other parts of your project, so it's important to choose the right format that works best for your use case.
 
-The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"cjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"cjs"`. If you want to build a regular Gjs Application we recommend to use `ESM`.
+The choice of `moduleType` is also important in the context of the bundler that you plan to use in your project. For example, if you are using a bundler that only supports ESM (such as Rollup), you would need to set `moduleType` to "esm". On the other hand, if you are using a bundler that supports both ESM and CommonJS (such as Webpack), you can choose whichever format you prefer. Ultimately, the choice of `moduleType` will depend on your project requirements and the tools that you are using. For Example, if you want to build a GNOME Shell Extension, you should use `"cjs"` because `ESM` is currently not supported for GNOME Shell Extensions. For [node-gtk](https://github.com/romgrk/node-gtk) you also need to use `"cjs"`. If you want to build a regular GJS Application we recommend to use `ESM`.
 
 When `"esm"` is set, the generated JavaScript files will use the ECMAScript module (ESM) format for imports and exports. For example, the generated code might look like this:
 
@@ -276,7 +319,7 @@ import Gtk from 'gi://Gtk?version=4.0';
 export default Gtk;
 ```
 
-> The `"esm"` module type is recommended for Gjs applications as it makes use of the ESM import syntax, which is more modern and flexible compared to imports.gi / CommonJS imports. This allows for a more streamlined and convenient way of using the generated types in your Gjs application. Support for ES modules can be activated in `gjs` with its `gjs -m` flag.
+> The `"esm"` module type is recommended for GJS applications as it makes use of the ESM import syntax, which is more modern and flexible compared to imports.gi / CommonJS imports. This allows for a more streamlined and convenient way of using the generated types in your GJS application. Support for ES modules can be activated in `gjs` with its `gjs -m` flag.
 
 When `"cjs"` and [`noNamespace`](#nonamespace) is set, the generated JavaScript files will use the CommonJS format exports and the `imports.gi` object for imports. For example:
 
@@ -408,7 +451,7 @@ You can extend the generated `tsconfig.alias.json` file in your main tsconfig.js
 }
 ```
 
-> The example in [examples/gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a Gjs project and provides a clear understanding of how this option can be used in practice.
+> The example in [examples/gjs/gio-2-cat-alias](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-alias) demonstrates the usage of the generateAlias option. This example shows how to use the generated tsconfig.alias.json file in a GJS project and provides a clear understanding of how this option can be used in practice.
 
 # package
 
@@ -420,7 +463,7 @@ When this option is used, each GObject introspection module will be packaged int
 
 For example, if the `--package` option is used to generate the TypeScript type definitions for the `Gtk-4.0` module, then the generated NPM package will have the name `@girs/gtk-3.0`.
 
-> YOu can change the NPM package scope name with the [`--npmScope`](#npmscope) option.
+> You can change the NPM package scope name with the [`--npmScope`](#npmscope) option.
 
 To use the generated NPM package in your TypeScript project, you can also install our pregenerated packages:
 
@@ -439,7 +482,7 @@ const button = new Gtk.Button();
 It is recommended to use the `--package` option when generating TypeScript type definitions for a GObject introspection module, as it allows for easy distribution and consumption of the generated types. However, please note that the generated NPM packages will only work with a package manager like NPM or Yarn, and cannot be used directly in a GJS or Node.js project.
 
 > Here are some examples are making use of the `--package` option:
-> * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - Gjs example with `--package` option
+> * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - GJS example with `--package` option
 > * [examples/node-gtk/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/node-gtk/gio-2-cat-packages) - node-gtk example with `--package` option
 
 ## npmScope
@@ -458,9 +501,12 @@ This command will generate NPM packages with the scope `my-scope` instead of the
 
 In TypeScript, ambient modules are a way to define external modules that are not part of the TypeScript codebase. This can be useful for importing external libraries or modules, including those generated by ts-for-gir using the `gi://` syntax.
 
-When using ambient modules, it is recommended to activate the [`--package`](#package) option, as exporting namespaces without NPM packages currently does not work.
-> If you find a solution to make ambient modules work without NPM packages, please let us know.
+If you want to have support for ambient modules, then you have to enable the [`--package`](#package) option, this will generate a NPM package for each module.
+Alternatively, you can also use the pre-generated NPM packages for this, so you don't even need to use ts-for-gir for it. For example, look at the NPM packages [gtk-4.0](https://www.npmjs.com/package/@girs/gtk-4.0), [gio-2.0](https://www.npmjs.com/package/@girs/gio-2.0) and [adw-1](https://www.npmjs.com/package/@girs/adw-1). All pre-generated NPM packages can be found on [gjsify/types](https://github.com/gjsify/types).
 
+> The advantage of self-generated types is that you generate the types exactly for your locally installed library version. However, we try to keep the pre-generated NPM packages as up to date as possible.
+
+### Alias
 If for some reason you don't want to or can't generate NPM packages, you can instead use the [`--generateAlias`](#generatealias) CLI option. This way you can also use imports in the `gi://` syntax with the generated types.
 
 To use ambient modules, the `ambient.d.ts` file must be imported either in the code like `import '@girs/gjs/ambient'` or by adding an entry to the `includes` property in the `tsconfig` file. The `ambient.d.ts` file is automatically generated.
@@ -482,12 +528,12 @@ To use ambient modules, the `ambient.d.ts` file must be imported either in the c
 ```
 
 > Here are some examples demonstrating the usage of ambient modules:
-> * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - Gjs example with `--package` option
+> * [examples/gjs/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/gjs/gio-2-cat-packages) - GJS example with `--package` option
 > * [examples/node-gtk/gio-2-cat-packages](https://github.com/gjsify/ts-for-gir/tree/main/examples/node-gtk/gio-2-cat-packages) - node-gtk example with `--package` option
 
 ### Without version specifier
 
-The ambient modules declarations are only defined with the version specifier to prevent version conflicts e.g. between Gtk-3.0 and Gtk-4.0.
+Some ambient modules declarations are only defined with the version specifier to prevent version conflicts e.g. between Gtk-3.0 and Gtk-4.0.
 If you want to import the modules without the version specifier you can define the module declarations by yourself, similarly to this:
 
 ```ts

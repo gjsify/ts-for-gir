@@ -1,10 +1,20 @@
 # TODO
 - New test: Create simple vala classes, build the gir files from that, generate the typescript type definitions for that and test if the result looks good
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
-- Update types for Gjs v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
-- Make use of packages/lib/templates/gjs/types.d.ts
+- Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
-# Unreleased
+# 3.0.0
+This is the first stable release of version 3.0.0 with support for NPM package generation.
+
+## Braking changes
+ * All filenames for the generated types now contain the name of the module
+ * All filenames for the generated types are now lowercase
+ * All filenames for the generated types for Node.js now have a `node-` prefix 
+ * Now no parent folder `Gjs` or `note-gtk` is created. When types are generated for both environments, they all end up in the same folder
+ * Now not all GIR modules are imported in the gjs.js, who wants to have types for a certain GIR module, must include this module now itself. This saves a lot of processing work in your IDE
+ * Some default values of the CLI options have changed, for example now by default only the types for Gjs are generated and the default module format is now ESM with namespaces
+
+## Changelog
 - Add support to generate a package for each type we can publish on NPM, see #106
 - Add a new CLI option to generate NPM packages
 - Add a new CLI option to change the NPM package scope name
@@ -96,7 +106,7 @@
 - Fix prepend logic in Logger's static methods, see #84 by @HeavenVolkoff
 - Expose GIRepositoryNamespace underscore properties in TS namespace, see #85 by @HeavenVolkoff
 - Solution for #72 + Add type definitions for Text(D)Encoder, see #86 by @HeavenVolkoff
-- Added new simple Gjs example with Libadwaita and Vite
+- Added new simple GJS example with Libadwaita and Vite
 # 3.0.0-beta.2
 - Rename package to `@ts-for-gir/cli`, see #82
 - Ported more examples, see #81
@@ -116,22 +126,22 @@
 - Expect error on gi ESM imports, see #69 by @HeavenVolkoff
 - Add typing definition for `imports.package`, see #67 by @HeavenVolkoff
 - Allow Node.js versions greater or equal than v16 , see #65 by @HeavenVolkoff
-- Ported Gjs for http server + client example to node-gtk
+- Ported GJS for http server + client example to node-gtk
 - Split GObject template for separate templates for gjs and node-gtk
 - Do not skip generation of GObject fields anymore
 - Add TSDoc tags which identifies the type with the original gir type
 - Also generate TSDocs for classes 
 - Split Github workflows into gjs and node-gtk
 - General improvements #59
-  - Added new Gjs example for http server + client with Soap 3
+  - Added new GJS example for http server + client with Soap 3
   - Renamed CHANGELOG.md to NEWS.md because as it is not always a detailed changelog
   - Cleanup detection / generation of Array types
-  - Added new Gjs example for `Gtk.ListStore`
+  - Added new GJS example for `Gtk.ListStore`
   - Inject additional static methods to GObject.ParamSpec and other GObject overrides
-  - Export Gjs System namespace
+  - Export GJS System namespace
   - Ignore depreciated allow-none if `optional` or `nullable` is used
   - Distinguish between `optional` and `nullable` types
-  - Add types for timer functions (`setTimeout`, `setInterval`), supported by Gjs since 1.71.1
+  - Add types for timer functions (`setTimeout`, `setInterval`), supported by GJS since 1.71.1
   - Renamed GObject.Type to GObject.Gtype
   - General improvements to the generated types
   - Add initial support for generic type parameters
@@ -144,7 +154,7 @@
 
 # v2.0.0
 - Fix config file loading, see #48
-- The browser example now uses ESM for Gjs and Node.js
+- The browser example now uses ESM for GJS and Node.js
 - Upgrade all dependencies to latest
 - [node-gtk] don't add $obj parameter in connect() method either, by @peat-psuwit
 - [node-gtk] Fixed Return types, see #46
@@ -153,7 +163,7 @@
 - New `doc` command for future implementation
 - New class `HtmlDocGenerator` this is not implemented yet, but can serve as a template for a future implementation
 - Fix type `Uint8Array` (should not be `Uint8Array[]`)
-- CI: Run Gjs CLI examples to test working bindings
+- CI: Run GJS CLI examples to test working bindings
 - The generated types now contain a note that they are automatically generated with `ts-for-gir`
 - Split option `exportDefault` to `useNamespace` and `moduleType` to specify `ESM` or `CommonJS` module generation
 - Fix VSCode debugging configuration to work with ESM
@@ -167,9 +177,9 @@
 - All types in vala-gir can now be built and validated without errors, this can be tested with `npm run test:girs:all`, this test is now also executed with github actions
 - Switch to ESM for ts-for-gir itself
 - Replaced `oclif` with `yargs` for CLI parsing (`yargs` has ESM Support, `oclif` not)
-- Improved @realh's Gjs ESM support
+- Improved @realh's GJS ESM support
 - Improved types based on [gobject-introspection/docs/gir-1.2.rnc](https://gitlab.gnome.org/GNOME/gobject-introspection/-/blob/master/docs/gir-1.2.rnc) and [gi.ts/parser/src/xml.ts](https://gitlab.gnome.org/ewlsh/gi.ts/-/blob/master/packages/parser/src/xml.ts)
-- Changed `examples/gjs/builder` example to use the Gjs ESM feature using `gi://` imports
+- Changed `examples/gjs/builder` example to use the GJS ESM feature using `gi://` imports
 - Version conflicts in Gir modules fixed, now multiple versions of the same module name can be generated
 - Made the source code more readable in some places, this mainly affects places where an array was returned, here a more meaningful tuple / object is now returned
 - Dependencies updated
@@ -248,8 +258,8 @@ See PR [#22](https://github.com/gjsify/ts-for-gir/pull/22) and [#23](https://git
 - Added **ESLint** with the **Prettier** plugin, I tried to keep the code style (for example, there is a rule to not use semicolon's).
 - ESLint and Prettier are also used to validate and auto format the generated template files.
 - I've changed the default output dir to `@types/` to make it easier to generate type definitions in other projects without having to specify the output path each time
-- The output path now contains subfolder's for `Gjs` and / or `node-gtk` (the directory name `node-gtk` is required to get typescript automatically working with `import * as gi from 'node-gtk'`)
-- There is now a new option called `--build-type` which can be `"lib"` or `"types"`, `"lib"` is the default for generating types for `Gjs` and the way it was before. I added "types" for node-gtk and generates the types e.g. as you would publish them on DefinitelyTyped.
+- The output path now contains subfolder's for `GJS` and / or `node-gtk` (the directory name `node-gtk` is required to get typescript automatically working with `import * as gi from 'node-gtk'`)
+- There is now a new option called `--build-type` which can be `"lib"` or `"types"`, `"lib"` is the default for generating types for `GJS` and the way it was before. I added "types" for node-gtk and generates the types e.g. as you would publish them on DefinitelyTyped.
 - Source maps are now also generated, which simplify debugging, Zhe IDE can now points directly to the typescript files e.g. at a breakpoint
 - Updated dependencies
 - Replaced [commander.js](https://github.com/tj/commander.js/) with [oclif](https://github.com/oclif/oclif) because `commander.js` was a difficult to use with multiple arguments

@@ -18,7 +18,7 @@
 
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://wiki.gnome.org/Projects/Gjs) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject
-introspection](https://wiki.gnome.org/Projects/GObjectIntrospection) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
+introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
 ## Getting Started
 
@@ -30,20 +30,29 @@ npx @ts-for-gir/cli --help
 
 That's it, you can start generating your types 👩‍💻☕
 
+## NPM packages
+
+If you are only interested in the types and do not want to generate them yourself, you can use our pre-generated NPM packages. For example, if you want to develop a Gtk4 application with GJS, it is enough to install the corresponding NPM packages:
+
+```bash
+npm install @girs/gjs @girs/gtk-4.0 --save
+```
+
+```ts
+import '@girs/gjs'
+import '@girs/gtk-4.0'
+
+import Gtk from 'gi://Gtk?version=4.0';
+
+const button = new Gtk.Button();
+```
+
+All pre-generated NPM packages can be found on [gjsify/types](https://github.com/gjsify/types).
+
 ## Further information
 
 [Examples](/examples/README.md) - Take a look at many different examples to see how you can use TypeScript with different bundlers.  
 [CLI](/packages/cli/README.md) - Learn about the CLI options and what to keep in mind when using them.  
 [Development](/DEVELOPMENT.md) - Learn how you can contribute to this project.  
+[gjsify/types](https://github.com/gjsify/types) - Pre-generated NPM packages that you can use directly without needing ts-for-gir for it.
 [GNOME Shell Extension Types](https://github.com/gjsify/gnome-shell) - Additional hand written type definitions for GNOME Shell Extensions.
-
-## Related Projects
-
-* [node-gtk](https://github.com/romgrk/node-gtk) - GIO bindings for NodeJS
-* [cgjs](https://github.com/cgjs/cgjs) - A NodeJS / CommonJS Runtime for GJS
-* [vala-girs](https://github.com/nemequ/vala-girs) - Collection of GIRs and VAPIs for the Vala toolchain
-* [gjs-examples](https://github.com/optimisme/gjs-examples) - GJS examples showing how to build Gtk javascript applications
-* [hello-gjs-yarn](https://github.com/jo/hello-gjs-yarn) - Gjs example using Babel and Rollup
-* [vala-object](https://github.com/antono/vala-object) - Set of examples of how you can build native code with Vala and use it in Gjs, Node.js and other environments
-* [Workbench](https://github.com/sonnyp/Workbench) - Learn and prototype with GNOME technologies
-* [troll](https://github.com/sonnyp/troll) - Common JavaScript APIs for gjs and some helpers.

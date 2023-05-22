@@ -88,7 +88,7 @@ To validate all your generated type definition files in this project run
 yarn run validate:types:all
 ```
 
-To validate only your type definition files for Gjs
+To validate only your type definition files for GJS
 
 ```bash
 yarn run validate:types:gjs

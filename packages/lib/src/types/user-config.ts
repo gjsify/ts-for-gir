@@ -42,6 +42,6 @@ export interface UserConfig {
     promisify: boolean
     /** Scope of the generated NPM packages */
     npmScope: string
-    /** Generates an NPM compatible packages for each type */
+    /** Generates an NPM compatible packages for each GIR module */
     package: boolean
 }

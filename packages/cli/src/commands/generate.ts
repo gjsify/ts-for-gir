@@ -14,7 +14,7 @@ import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for gjs or node-gtk'
+const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
 
 const builder = (yargs: Argv) => {
     const optionNames = Object.keys(Config.generateOptions)

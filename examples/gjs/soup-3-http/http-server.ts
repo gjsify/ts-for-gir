@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2010 litl, LLC
 // Copyright 2022 Pascal Garber <pascal@artandcode.studio>
 
-// This is a simple example of a HTTP server in Gjs using libsoup 3
+// This is a simple example of a HTTP server in GJS using libsoup 3
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
 import GLib from 'gi://GLib?version=2.0';

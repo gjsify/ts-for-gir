@@ -48,7 +48,7 @@ export class Config {
         fixConflicts: true,
         noDOMLib: false,
         generateAlias: false,
-        promisify: false,
+        promisify: true,
         npmScope: '@girs',
         package: false,
     }
@@ -199,7 +199,7 @@ export class Config {
         },
         package: {
             type: 'boolean',
-            description: 'Generates an NPM compatible packages for each type',
+            description: 'Generates an NPM compatible packages for each GIR module',
             default: Config.defaults.package,
             normalize: true,
         },

@@ -37,6 +37,6 @@ export interface GenerateConfig {
      * @see https://docs.npmjs.com/cli/v7/using-npm/scope
      */
     npmScope: string
-    /** Generates an NPM compatible packages for each type */
+    /** Generates an NPM compatible packages for each GIR module */
     package: boolean
 }

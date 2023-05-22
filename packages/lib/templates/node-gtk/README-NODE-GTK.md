@@ -5,6 +5,8 @@
 
 <%_ if (typeof pkgData !== 'undefined' && pkgData.description) { _%>
 <%- pkgData.description %>
+<%_ } else { _%>
+[node-gtk](https://github.com/romgrk/node-gtk) is a [GObject Introspection](https://gi.readthedocs.io/en/latest/) import library for Node.js. Using node-gtk with the type definitions in this NPM package, you can build GTK applications in TypeScript or JavaScript with type checking, better autocompletion and inline documentations.
 <%_ } _%>
 
 ## Install
@@ -18,6 +20,7 @@ npm install <%- npmScope %>/<%- importName %>
 <%_ if(!pkg){ _%>
   <%_ return `Package with package name "${packageName}" not found!` _%>
 <%_ } _%>
+
 ## Usage
 
 You can import this package into your project like this:
@@ -32,9 +35,9 @@ const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 
 ### Ambient Modules
 
-You can also use [ambient modules](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules) to import this module like you would do this in JavaScript.
-For this you need to include `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/<%= environment === 'gjs' ? "ambient" : "import" %>` in your `tsconfig` or entry point Typescript file:
-
+You can import core [ambient module](https://github.com/gjsify/ts-for-gir/tree/main/packages/cli#ambient-modules) types.
+For this you need to include the `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/ambient` in your `tsconfig` or entry point Typescript file:
+    
 `index.ts`:
 ```ts
 import '<%- npmScope %>/<%- importName %>'
@@ -51,47 +54,13 @@ import '<%- npmScope %>/<%- importName %>'
 }
 ```
 
-Now you can import the ambient module with TypeScript support: 
-
-<%_ if(environment === 'gjs'){ _%>
+Now you can import `node-gtk` with Typescript support:
 ```ts
-import <%= pkg.namespace %> from 'gi://<%= pkg.namespace %>?version=<%= pkg.version %>';
-```
-<%_ } else { _%>
-```ts
-const gi = require('node-gtk')
-const <%= pkg.namespace %> = gi.require('<%= pkg.namespace %>', '<%= pkg.version %>')
-```
-<%_ } _%>
-
-<%_ if(environment === 'gjs'){ _%>
-### Global import
-
-You can also import the module with Typescript support using the global `imports.gi` object of GJS.
-For this you need to include `<%- npmScope %>/<%- importName %>` or `<%- npmScope %>/<%- importName %>/import` in your `tsconfig` or entry point Typescript file:
-
-`index.ts`:
-```ts
-import '<%- npmScope %>/<%- importName %>'
+const gi = require('node-gtk');
+gi.startLoop();
 ```
 
-`tsconfig.json`:
-```json
-{
-  "compilerOptions": {
-    ...
-  },
-  "include": ["<%- npmScope %>/<%- importName %>"],
-  ...
-}
-```
-
-Now you have also type support for this, too:
-
-```ts
-const <%= pkg.namespace %> = imports.gi.<%= pkg.namespace %>;
-```
-<%_ } _%>
+If you want to have types for [GObject Introspection](https://gi.readthedocs.io/en/latest/) modules, you have to add them to your dependencies and import them as well, see the description of these modules, e.g. [node-gtk-4.0](https://www.npmjs.com/package/@girs/node-gtk-4.0), [node-gio-2.0](https://www.npmjs.com/package/@girs/node-gio-2.0), [node-adw-1](https://www.npmjs.com/package/@girs/node-adw-1) and [much more](https://github.com/gjsify/types).
 
 ### Bundle
 

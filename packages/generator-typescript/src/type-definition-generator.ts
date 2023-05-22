@@ -18,7 +18,7 @@ import {
     PackageData,
 } from '@ts-for-gir/lib'
 
-import type {
+import {
     GenerateConfig,
     GirClassElement,
     GirCallableParamElement,
@@ -1500,9 +1500,9 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportNPMPackage(moduleTemplateProcessor: TemplateProcessor) {
+    protected async exportNPMPackage(moduleTemplateProcessor: TemplateProcessor, girModuleImportName: string) {
         await this.exportNPMPackageJson(moduleTemplateProcessor)
-        await this.exportNPMReadme(moduleTemplateProcessor)
+        await this.exportNPMReadme(moduleTemplateProcessor, girModuleImportName)
         await this.exportDocTSConfig(moduleTemplateProcessor)
     }
 
@@ -1524,13 +1524,20 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportNPMReadme(moduleTemplateProcessor: TemplateProcessor) {
-        const template = 'README.md'
+    protected async exportNPMReadme(moduleTemplateProcessor: TemplateProcessor, girModuleImportName: string) {
+        // E.g. `README-GJS.md` or `README-GTK-4.0.md`
+        let template = girModuleImportName ? `README-${girModuleImportName.toUpperCase()}.md` : 'README.md'
+        const outputFilename = 'README.md'
+
+        if (!moduleTemplateProcessor.exists(template)) {
+            template = 'README.md'
+        }
+
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(
                 template,
                 this.config.outdir,
-                template, // output filename
+                outputFilename,
                 undefined,
                 undefined,
                 {},
@@ -1606,7 +1613,7 @@ export class TypeDefinitionGenerator implements Generator {
         }
 
         if (this.config.package) {
-            await this.exportNPMPackage(moduleTemplateProcessor)
+            await this.exportNPMPackage(moduleTemplateProcessor, girModule.importName)
         }
     }
 
@@ -1756,7 +1763,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Package
         if (this.config.package) {
-            await this.exportNPMPackage(templateProcessor)
+            await this.exportNPMPackage(templateProcessor, 'Gjs')
         }
     }
 
@@ -1816,7 +1823,7 @@ export class TypeDefinitionGenerator implements Generator {
 
         // Package
         if (this.config.package) {
-            await this.exportNPMPackage(templateProcessor)
+            await this.exportNPMPackage(templateProcessor, 'node-gtk')
         }
     }
 

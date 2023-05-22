@@ -156,7 +156,7 @@ export class DependencyManager {
      * @returns
      */
     hasConflict(namespace: string): boolean {
-        const packageNames = this.getAllPackageNames();
+        const packageNames = this.getAllPackageNames()
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
         })
@@ -192,7 +192,7 @@ export class DependencyManager {
             return this.getNodeGtk()
         }
 
-        const packageNames = this.getAllPackageNames();
+        const packageNames = this.getAllPackageNames()
         const candidates = packageNames.filter((packageName) => {
             return packageName.startsWith(`${namespace}-`) && this.cache[packageName].namespace === namespace
         })

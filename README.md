@@ -48,6 +48,8 @@ const button = new Gtk.Button();
 
 All pre-generated NPM packages can be found on [gjsify/types](https://github.com/gjsify/types).
 
+> You want your or any other missing GObject introspection based library types to be published on NPM for every release? Then feel free to create an issue for it, we will be happy to include it.
+
 ## Further information
 
 [Examples](/examples/README.md) - Take a look at many different examples to see how you can use TypeScript with different bundlers.  

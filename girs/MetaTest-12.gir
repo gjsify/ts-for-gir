@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Clutter" version="12"/>
+  <include name="Cogl" version="12"/>
+  <include name="CoglPango" version="12"/>
+  <include name="GDesktopEnums" version="3.0"/>
+  <include name="GObject" version="2.0"/>
+  <include name="Meta" version="12"/>
+  <include name="xfixes" version="4.0"/>
+  <include name="xlib" version="2.0"/>
+  <namespace name="MetaTest"
+             version="12"
+             shared-library="libmutter-test-12.so"
+             c:identifier-prefixes="Meta"
+             c:symbol-prefixes="meta">
+    <class name="ContextTest"
+           c:symbol-prefix="context_test"
+           c:type="MetaContextTest"
+           parent="Meta.Context"
+           glib:type-name="MetaContextTest"
+           glib:get-type="meta_context_test_get_type"
+           glib:type-struct="ContextTestClass">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="49"/>
+      <method name="run_tests" c:identifier="meta_context_test_run_tests">
+        <source-position filename="src/tests/meta-test/meta-context-test.h"
+                         line="58"/>
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="int"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context_test" transfer-ownership="none">
+            <type name="ContextTest" c:type="MetaContextTest*"/>
+          </instance-parameter>
+          <parameter name="flags" transfer-ownership="none">
+            <type name="TestRunFlags" c:type="MetaTestRunFlags"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="wait_for_x11_display"
+              c:identifier="meta_context_test_wait_for_x11_display">
+        <source-position filename="src/tests/meta-test/meta-context-test.h"
+                         line="62"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="context_test" transfer-ownership="none">
+            <type name="ContextTest" c:type="MetaContextTest*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <field name="parent_instance">
+        <type name="Meta.Context" c:type="MetaContext"/>
+      </field>
+      <glib:signal name="after-tests" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="before-tests" when="last">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+      <glib:signal name="run-tests" when="last">
+        <return-value transfer-ownership="none">
+          <type name="gint" c:type="gint"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ContextTestClass"
+            c:type="MetaContextTestClass"
+            disguised="1"
+            opaque="1"
+            glib:is-gtype-struct-for="ContextTest">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="49"/>
+    </record>
+    <bitfield name="ContextTestFlag" c:type="MetaContextTestFlag">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="39"/>
+      <member name="none" value="0" c:identifier="META_CONTEXT_TEST_FLAG_NONE">
+      </member>
+      <member name="test_client"
+              value="1"
+              c:identifier="META_CONTEXT_TEST_FLAG_TEST_CLIENT">
+      </member>
+      <member name="no_x11"
+              value="2"
+              c:identifier="META_CONTEXT_TEST_FLAG_NO_X11">
+      </member>
+    </bitfield>
+    <enumeration name="ContextTestType" c:type="MetaContextTestType">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="32"/>
+      <member name="headless"
+              value="0"
+              c:identifier="META_CONTEXT_TEST_TYPE_HEADLESS">
+      </member>
+      <member name="vkms" value="1" c:identifier="META_CONTEXT_TEST_TYPE_VKMS">
+      </member>
+      <member name="nested"
+              value="2"
+              c:identifier="META_CONTEXT_TEST_TYPE_NESTED">
+      </member>
+    </enumeration>
+    <class name="TestMonitor"
+           c:symbol-prefix="test_monitor"
+           c:type="MetaTestMonitor"
+           parent="GObject.Object"
+           glib:type-name="MetaTestMonitor"
+           glib:get-type="meta_test_monitor_get_type"
+           glib:type-struct="TestMonitorClass">
+      <source-position filename="src/tests/meta-test/meta-test-monitor.h"
+                       line="28"/>
+      <constructor name="new" c:identifier="meta_test_monitor_new" throws="1">
+        <source-position filename="src/tests/meta-test/meta-test-monitor.h"
+                         line="32"/>
+        <return-value transfer-ownership="full">
+          <type name="TestMonitor" c:type="MetaTestMonitor*"/>
+        </return-value>
+        <parameters>
+          <parameter name="context" transfer-ownership="none">
+            <type name="Meta.Context" c:type="MetaContext*"/>
+          </parameter>
+          <parameter name="width" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="height" transfer-ownership="none">
+            <type name="gint" c:type="int"/>
+          </parameter>
+          <parameter name="refresh_rate" transfer-ownership="none">
+            <type name="gfloat" c:type="float"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="destroy" c:identifier="meta_test_monitor_destroy">
+        <source-position filename="src/tests/meta-test/meta-test-monitor.h"
+                         line="39"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="test_monitor" transfer-ownership="full">
+            <doc xml:space="preserve"
+                 filename="src/tests/meta-test-monitor.c"
+                 line="95">A #MetaTestMonitor</doc>
+            <type name="TestMonitor" c:type="MetaTestMonitor*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </class>
+    <record name="TestMonitorClass"
+            c:type="MetaTestMonitorClass"
+            glib:is-gtype-struct-for="TestMonitor">
+      <source-position filename="src/tests/meta-test/meta-test-monitor.h"
+                       line="28"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <bitfield name="TestRunFlags" c:type="MetaTestRunFlags">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="45"/>
+      <member name="none" value="0" c:identifier="META_TEST_RUN_FLAG_NONE">
+      </member>
+      <member name="can_skip"
+              value="1"
+              c:identifier="META_TEST_RUN_FLAG_CAN_SKIP">
+      </member>
+    </bitfield>
+    <function name="create_test_context"
+              c:identifier="meta_create_test_context"
+              introspectable="0">
+      <source-position filename="src/tests/meta-test/meta-context-test.h"
+                       line="54"/>
+      <return-value>
+        <type name="Meta.Context" c:type="MetaContext*"/>
+      </return-value>
+      <parameters>
+        <parameter name="type" transfer-ownership="none">
+          <type name="ContextTestType" c:type="MetaContextTestType"/>
+        </parameter>
+        <parameter name="flags" transfer-ownership="none">
+          <type name="ContextTestFlag" c:type="MetaContextTestFlag"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

@@ -1,0 +1,1080 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Clutter" version="11"/>
+  <include name="Cogl" version="11"/>
+  <include name="CoglPango" version="11"/>
+  <namespace name="Cally"
+             version="11"
+             shared-library="libmutter-clutter-11.so.0"
+             c:identifier-prefixes="Cally"
+             c:symbol-prefixes="cally">
+    <function-macro name="ACCESSIBLE_FACTORY"
+                    c:identifier="CALLY_ACCESSIBLE_FACTORY"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-factory.h"
+           line="32">Defines a new #AtkObjectFactory factory to create accessible
+objects of a specific GType. It defines the factory GType and also
+overrides the proper #AtkObjectFactory methods.
+
+It assumes that the accessibility object provides a
+@opt_create_accessible method in order to create the accessibility
+object. It returns a @type GType object.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-factory.h"
+                       line="46"/>
+      <parameters>
+        <parameter name="type">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-factory.h"
+               line="34">GType of the accessible which is created by the factory</doc>
+        </parameter>
+        <parameter name="type_as_function">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-factory.h"
+               line="35">prefix of the accessible object methods</doc>
+        </parameter>
+        <parameter name="opt_create_accessible">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-factory.h"
+               line="36">method to instantiate the accessibility object</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR" c:identifier="CALLY_ACTOR" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR_CLASS"
+                    c:identifier="CALLY_ACTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="39"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR_GET_CLASS"
+                    c:identifier="CALLY_ACTOR_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="42"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ACTOR_SET_FACTORY"
+                    c:identifier="CALLY_ACTOR_SET_FACTORY"
+                    introspectable="0">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-factory.h"
+           line="100">Sets the #AtkObjectFactory to be used in order to instantiate
+accessibility objects for the actor which GType is @widget_type.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-factory.h"
+                       line="108"/>
+      <parameters>
+        <parameter name="widget_type">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-factory.h"
+               line="102">GType of the clutter actor</doc>
+        </parameter>
+        <parameter name="type_as_function">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-factory.h"
+               line="103">prefix of the accessible object methods</doc>
+        </parameter>
+      </parameters>
+    </function-macro>
+    <callback name="ActionCallback" c:type="CallyActionCallback">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-actor.h"
+           line="57">Action function, to be used on #AtkAction implementations as
+an individual action.
+
+Unlike #CallyActionFunc, this function uses the @user_data
+argument passed to [method@Actor.add_action_full].</doc>
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="68"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cally_actor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.h"
+               line="59">a #CallyActor</doc>
+          <type name="Actor" c:type="CallyActor*"/>
+        </parameter>
+        <parameter name="user_data"
+                   transfer-ownership="none"
+                   nullable="1"
+                   allow-none="1"
+                   closure="1">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.h"
+               line="60">user data passed to the function</doc>
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ActionFunc" c:type="CallyActionFunc">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-actor.h"
+           line="48">Action function, to be used on #AtkAction implementations as a individual
+action</doc>
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="55"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="cally_actor" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.h"
+               line="50">a #CallyActor</doc>
+          <type name="Actor" c:type="CallyActor*"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="Actor"
+           c:symbol-prefix="actor"
+           c:type="CallyActor"
+           parent="Atk.GObjectAccessible"
+           glib:type-name="CallyActor"
+           glib:get-type="cally_actor_get_type"
+           glib:type-struct="ActorClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-actor.c"
+           line="25">Implementation of the ATK interfaces for [class@Clutter.Actor]
+
+#CallyActor implements the required ATK interfaces of [class@Clutter.Actor]
+exposing the common elements on each actor (position, extents, etc).</doc>
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="110"/>
+      <implements name="Atk.Action"/>
+      <implements name="Atk.Component"/>
+      <constructor name="new" c:identifier="cally_actor_new">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-actor.c"
+             line="189">Creates a new #CallyActor for the given @actor</doc>
+        <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                         line="116"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.c"
+               line="195">the newly created #AtkObject</doc>
+          <type name="Atk.Object" c:type="AtkObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="191">a #ClutterActor</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="add_action"
+              c:identifier="cally_actor_add_action"
+              shadowed-by="add_action_full"
+              introspectable="0">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-actor.c"
+             line="1024">Adds a new action to be accessed with the #AtkAction interface.</doc>
+        <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                         line="119"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.c"
+               line="1034">added action id, or -1 if failure</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cally_actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1026">a #CallyActor</doc>
+            <type name="Actor" c:type="CallyActor*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1027">the action name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1028">the action description</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_keybinding" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1029">the action keybinding</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_func" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1030">the callback of the action, to be executed with do_action</doc>
+            <type name="ActionFunc" c:type="CallyActionFunc"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="add_action_full"
+              c:identifier="cally_actor_add_action_full"
+              shadows="add_action">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-actor.c"
+             line="1051">Adds a new action to be accessed with the #AtkAction interface.</doc>
+        <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                         line="125"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.c"
+               line="1063">added action id, or -1 if failure</doc>
+          <type name="guint" c:type="guint"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cally_actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1053">a #CallyActor</doc>
+            <type name="Actor" c:type="CallyActor*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1054">the action name</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_description" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1055">the action description</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="action_keybinding" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1056">the action keybinding</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     scope="notified"
+                     closure="4"
+                     destroy="5">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1057">the callback of the action</doc>
+            <type name="ActionCallback" c:type="CallyActionCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1058">data to be passed to @callback</doc>
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="notify" transfer-ownership="none" scope="async">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1059">function to be called when removing the action</doc>
+            <type name="GLib.DestroyNotify" c:type="GDestroyNotify"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_action" c:identifier="cally_actor_remove_action">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-actor.c"
+             line="1095">Removes a action, using the @action_id returned by [method@Actor.add_action]</doc>
+        <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                         line="134"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.c"
+               line="1102">%TRUE if the operation was successful, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cally_actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1097">a #CallyActor</doc>
+            <type name="Actor" c:type="CallyActor*"/>
+          </instance-parameter>
+          <parameter name="action_id" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1098">the action id</doc>
+            <type name="gint" c:type="gint"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="remove_action_by_name"
+              c:identifier="cally_actor_remove_action_by_name">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-actor.c"
+             line="1126">Removes an action, using the @action_name used when the action was added
+with [method@Actor.add_action]</doc>
+        <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                         line="138"/>
+        <return-value transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-actor.c"
+               line="1134">%TRUE if the operation was successful, %FALSE otherwise</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="cally_actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1128">a #CallyActor</doc>
+            <type name="Actor" c:type="CallyActor*"/>
+          </instance-parameter>
+          <parameter name="action_name" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-actor.c"
+                 line="1129">the name of the action to remove</doc>
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent" readable="0" private="1">
+        <type name="Atk.GObjectAccessible" c:type="AtkGObjectAccessible"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ActorPrivate" c:type="CallyActorPrivate*"/>
+      </field>
+    </class>
+    <record name="ActorClass"
+            c:type="CallyActorClass"
+            glib:is-gtype-struct-for="Actor">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-actor.h"
+           line="79">The &lt;structname&gt;CallyActorClass&lt;/structname&gt; structure contains
+only private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="110"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Atk.GObjectAccessibleClass"
+              c:type="AtkGObjectAccessibleClass"/>
+      </field>
+      <field name="notify_clutter">
+        <callback name="notify_clutter">
+          <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                           line="96"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="object" transfer-ownership="none">
+              <type name="GObject.Object" c:type="GObject*"/>
+            </parameter>
+            <parameter name="pspec" transfer-ownership="none">
+              <type name="GObject.ParamSpec" c:type="GParamSpec*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="add_actor">
+        <callback name="add_actor">
+          <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                           line="99"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="container" transfer-ownership="none">
+              <type name="Clutter.Actor" c:type="ClutterActor*"/>
+            </parameter>
+            <parameter name="actor" transfer-ownership="none">
+              <type name="Clutter.Actor" c:type="ClutterActor*"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="remove_actor">
+        <callback name="remove_actor">
+          <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                           line="103"/>
+          <return-value transfer-ownership="none">
+            <type name="gint" c:type="gint"/>
+          </return-value>
+          <parameters>
+            <parameter name="container" transfer-ownership="none">
+              <type name="Clutter.Actor" c:type="ClutterActor*"/>
+            </parameter>
+            <parameter name="actor" transfer-ownership="none">
+              <type name="Clutter.Actor" c:type="ClutterActor*"/>
+            </parameter>
+            <parameter name="data" transfer-ownership="none">
+              <type name="gpointer" c:type="gpointer"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="32">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ActorPrivate" c:type="CallyActorPrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="46"/>
+    </record>
+    <function-macro name="CLONE" c:identifier="CALLY_CLONE" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLONE_CLASS"
+                    c:identifier="CALLY_CLONE_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="CLONE_GET_CLASS"
+                    c:identifier="CALLY_CLONE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Clone"
+           c:symbol-prefix="clone"
+           c:type="CallyClone"
+           parent="Actor"
+           glib:type-name="CallyClone"
+           glib:get-type="cally_clone_get_type"
+           glib:type-struct="CloneClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-clone.c"
+           line="23">Implementation of the ATK interfaces for a #ClutterClone
+
+#CallyClone implements the required ATK interfaces of [class@Clutter.Clone]
+
+In particular it sets a proper role for the clone, as just a image,
+as it is the sanest and simplest approach.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="65"/>
+      <implements name="Atk.Action"/>
+      <implements name="Atk.Component"/>
+      <constructor name="new" c:identifier="cally_clone_new">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-clone.c"
+             line="97">Creates a new #CallyClone for the given @actor. @actor must be a
+[class@Clutter.Clone].</doc>
+        <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                         line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-clone.c"
+               line="104">the newly created #AtkObject</doc>
+          <type name="Atk.Object" c:type="AtkObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-clone.c"
+                 line="99">a #ClutterActor</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Actor" c:type="CallyActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="ClonePrivate" c:type="CallyClonePrivate*"/>
+      </field>
+    </class>
+    <record name="CloneClass"
+            c:type="CallyCloneClass"
+            glib:is-gtype-struct-for="Clone">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-clone.h"
+           line="52">The &lt;structname&gt;CallyCloneClass&lt;/structname&gt; structure contains only
+private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="ActorClass" c:type="CallyActorClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="ClonePrivate" c:type="CallyClonePrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="42"/>
+    </record>
+    <function-macro name="IS_ACTOR"
+                    c:identifier="CALLY_IS_ACTOR"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="40"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ACTOR_CLASS"
+                    c:identifier="CALLY_IS_ACTOR_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-actor.h"
+                       line="41"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLONE"
+                    c:identifier="CALLY_IS_CLONE"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_CLONE_CLASS"
+                    c:identifier="CALLY_IS_CLONE_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-clone.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ROOT"
+                    c:identifier="CALLY_IS_ROOT"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_ROOT_CLASS"
+                    c:identifier="CALLY_IS_ROOT_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STAGE"
+                    c:identifier="CALLY_IS_STAGE"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_STAGE_CLASS"
+                    c:identifier="CALLY_IS_STAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT"
+                    c:identifier="CALLY_IS_TEXT"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_TEXT_CLASS"
+                    c:identifier="CALLY_IS_TEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UTIL"
+                    c:identifier="CALLY_IS_UTIL"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="36"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_UTIL_CLASS"
+                    c:identifier="CALLY_IS_UTIL_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="37"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ROOT" c:identifier="CALLY_ROOT" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ROOT_CLASS"
+                    c:identifier="CALLY_ROOT_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="ROOT_GET_CLASS"
+                    c:identifier="CALLY_ROOT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Root"
+           c:symbol-prefix="root"
+           c:type="CallyRoot"
+           parent="Atk.GObjectAccessible"
+           glib:type-name="CallyRoot"
+           glib:get-type="cally_root_get_type"
+           glib:type-struct="RootClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-root.c"
+           line="23">Root object for the Cally toolkit
+
+#CallyRoot is the root object of the accessibility tree-like
+hierarchy, exposing the application level.
+
+Somewhat equivalent to #GailTopLevel. We consider that this class
+expose the a11y information of the [class@Clutter.StageManager], as the
+children of this object are the different [class@Clutter.Stage] managed (so
+the [class@GObject.Object] used in the atk_object_initialize() is the
+[class@Clutter.StageManager]).</doc>
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="65"/>
+      <constructor name="new" c:identifier="cally_root_new">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-root.c"
+             line="110">Creates a new #CallyRoot object.</doc>
+        <source-position filename="../clutter/clutter/cally/cally-root.h"
+                         line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-root.c"
+               line="115">the newly created #AtkObject</doc>
+          <type name="Atk.Object" c:type="AtkObject*"/>
+        </return-value>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Atk.GObjectAccessible" c:type="AtkGObjectAccessible"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="RootPrivate" c:type="CallyRootPrivate*"/>
+      </field>
+    </class>
+    <record name="RootClass"
+            c:type="CallyRootClass"
+            glib:is-gtype-struct-for="Root">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-root.h"
+           line="52">The &lt;structname&gt;CallyRootClass&lt;/structname&gt; structure contains only
+private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Atk.GObjectAccessibleClass"
+              c:type="AtkGObjectAccessibleClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="16">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="RootPrivate" c:type="CallyRootPrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-root.h"
+                       line="42"/>
+    </record>
+    <function-macro name="STAGE" c:identifier="CALLY_STAGE" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STAGE_CLASS"
+                    c:identifier="CALLY_STAGE_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="STAGE_GET_CLASS"
+                    c:identifier="CALLY_STAGE_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Stage"
+           c:symbol-prefix="stage"
+           c:type="CallyStage"
+           parent="Actor"
+           glib:type-name="CallyStage"
+           glib:get-type="cally_stage_get_type"
+           glib:type-struct="StageClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-stage.c"
+           line="23">Implementation of the ATK interfaces for a #ClutterStage
+
+#CallyStage implements the required ATK interfaces for [class@Clutter.Stage]
+
+Some implementation details: at this moment #CallyStage is used as
+the most similar Window object in this toolkit (ie: emitting window
+related signals), although the real purpose of [class@Clutter.Stage] is
+being a canvas. Anyway, this is required for applications using
+just clutter, or directly [class@Clutter.Stage]</doc>
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="65"/>
+      <implements name="Atk.Action"/>
+      <implements name="Atk.Component"/>
+      <implements name="Atk.Window"/>
+      <constructor name="new" c:identifier="cally_stage_new">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-stage.c"
+             line="90">Creates a new #CallyStage for the given @actor. @actor should be a
+[class@Clutter.Stage].</doc>
+        <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                         line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-stage.c"
+               line="97">the newly created #AtkObject</doc>
+          <type name="Atk.Object" c:type="AtkObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-stage.c"
+                 line="92">a #ClutterActor</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Actor" c:type="CallyActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="StagePrivate" c:type="CallyStagePrivate*"/>
+      </field>
+    </class>
+    <record name="StageClass"
+            c:type="CallyStageClass"
+            glib:is-gtype-struct-for="Stage">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-stage.h"
+           line="52">The &lt;structname&gt;CallyStageClass&lt;/structname&gt; structure contains only
+private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="ActorClass" c:type="CallyActorClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="16">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="StagePrivate" c:type="CallyStagePrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-stage.h"
+                       line="42"/>
+    </record>
+    <function-macro name="TEXT" c:identifier="CALLY_TEXT" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_CLASS"
+                    c:identifier="CALLY_TEXT_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="TEXT_GET_CLASS"
+                    c:identifier="CALLY_TEXT_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Text"
+           c:symbol-prefix="text"
+           c:type="CallyText"
+           parent="Actor"
+           glib:type-name="CallyText"
+           glib:get-type="cally_text_get_type"
+           glib:type-struct="TextClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-text.c"
+           line="31">Implementation of the ATK interfaces for a [class@Clutter.Text]
+
+#CallyText implements the required ATK interfaces of
+[class@Clutter.Text], #AtkText and #AtkEditableText</doc>
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="65"/>
+      <implements name="Atk.Action"/>
+      <implements name="Atk.Component"/>
+      <implements name="Atk.EditableText"/>
+      <implements name="Atk.Text"/>
+      <constructor name="new" c:identifier="cally_text_new">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally-text.c"
+             line="253">Creates a new #CallyText for the given @actor. @actor must be a
+[class@Clutter.Text].</doc>
+        <source-position filename="../clutter/clutter/cally/cally-text.h"
+                         line="70"/>
+        <return-value transfer-ownership="full">
+          <doc xml:space="preserve"
+               filename="../clutter/clutter/cally/cally-text.c"
+               line="260">the newly created #AtkObject</doc>
+          <type name="Atk.Object" c:type="AtkObject*"/>
+        </return-value>
+        <parameters>
+          <parameter name="actor" transfer-ownership="none">
+            <doc xml:space="preserve"
+                 filename="../clutter/clutter/cally/cally-text.c"
+                 line="255">a #ClutterActor</doc>
+            <type name="Clutter.Actor" c:type="ClutterActor*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <field name="parent" readable="0" private="1">
+        <type name="Actor" c:type="CallyActor"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="TextPrivate" c:type="CallyTextPrivate*"/>
+      </field>
+    </class>
+    <record name="TextClass"
+            c:type="CallyTextClass"
+            glib:is-gtype-struct-for="Text">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-text.h"
+           line="52">The &lt;structname&gt;CallyTextClass&lt;/structname&gt; structure contains only
+private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="ActorClass" c:type="CallyActorClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="TextPrivate" c:type="CallyTextPrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-text.h"
+                       line="42"/>
+    </record>
+    <function-macro name="UTIL" c:identifier="CALLY_UTIL" introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="34"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UTIL_CLASS"
+                    c:identifier="CALLY_UTIL_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="35"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="UTIL_GET_CLASS"
+                    c:identifier="CALLY_UTIL_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="38"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Util"
+           c:symbol-prefix="util"
+           c:type="CallyUtil"
+           parent="Atk.Util"
+           glib:type-name="CallyUtil"
+           glib:get-type="cally_util_get_type"
+           glib:type-struct="UtilClass">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-util.c"
+           line="26">#AtkUtil implementation
+
+#CallyUtil implements #AtkUtil abstract methods. Although it
+includes the name "Util" it is in fact one of the most important
+interfaces to be implemented in any ATK toolkit implementation.
+
+For instance, it defines atk_get_root(), the method that returns
+the root object in the hierarchy. Without it, you don't have
+available any accessible object.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="65"/>
+      <field name="parent" readable="0" private="1">
+        <type name="Atk.Util" c:type="AtkUtil"/>
+      </field>
+      <field name="priv" readable="0" private="1">
+        <type name="UtilPrivate" c:type="CallyUtilPrivate*"/>
+      </field>
+    </class>
+    <record name="UtilClass"
+            c:type="CallyUtilClass"
+            glib:is-gtype-struct-for="Util">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally-util.h"
+           line="52">The &lt;structname&gt;CallyUtilClass&lt;/structname&gt; structure contains only
+private data</doc>
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="65"/>
+      <field name="parent_class" readable="0" private="1">
+        <type name="Atk.UtilClass" c:type="AtkUtilClass"/>
+      </field>
+      <field name="_padding_dummy" readable="0" private="1">
+        <array zero-terminated="0" fixed-size="8">
+          <type name="gpointer" c:type="gpointer"/>
+        </array>
+      </field>
+    </record>
+    <record name="UtilPrivate" c:type="CallyUtilPrivate" disguised="1">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="42"/>
+    </record>
+    <function name="accessibility_init"
+              c:identifier="cally_accessibility_init">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally.c"
+           line="57">Initializes the accessibility support.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-main.h"
+                       line="40"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally.c"
+             line="62">%TRUE if accessibility support has been correctly
+initialized.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <docsection name="cally">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally.c"
+           line="23">Cally initialization methods.</doc>
+    </docsection>
+    <function name="get_cally_initialized"
+              c:identifier="cally_get_cally_initialized">
+      <doc xml:space="preserve"
+           filename="../clutter/clutter/cally/cally.c"
+           line="82">Returns if the accessibility support using cally is enabled.</doc>
+      <source-position filename="../clutter/clutter/cally/cally-main.h"
+                       line="38"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../clutter/clutter/cally/cally.c"
+             line="87">%TRUE if accessibility support has been correctly
+initialized.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+    </function>
+    <function name="snoop_key_event" c:identifier="cally_snoop_key_event">
+      <source-position filename="../clutter/clutter/cally/cally-util.h"
+                       line="72"/>
+      <return-value transfer-ownership="none">
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="key" transfer-ownership="none">
+          <type name="Clutter.KeyEvent" c:type="ClutterKeyEvent*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

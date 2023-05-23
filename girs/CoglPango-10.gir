@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Cogl" version="10"/>
+  <include name="Pango" version="1.0"/>
+  <include name="PangoCairo" version="1.0"/>
+  <c:include name="cogl-pango.h"/>
+  <namespace name="CoglPango"
+             version="10"
+             shared-library="libmutter-cogl-pango-10.so.0"
+             c:identifier-prefixes="CoglPango"
+             c:symbol-prefixes="cogl_pango">
+    <alias name="FontMap" c:type="CoglPangoFontMap">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="67"/>
+      <type name="PangoCairo.FontMap" c:type="PangoCairoFontMap"/>
+    </alias>
+    <function-macro name="FONT_MAP"
+                    c:identifier="COGL_PANGO_FONT_MAP"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="64"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_FONT_MAP"
+                    c:identifier="COGL_PANGO_IS_FONT_MAP"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="65"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RENDERER"
+                    c:identifier="COGL_PANGO_IS_RENDERER"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="222"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="IS_RENDERER_CLASS"
+                    c:identifier="COGL_PANGO_IS_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="223"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RENDERER"
+                    c:identifier="COGL_PANGO_RENDERER"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="220"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RENDERER_CLASS"
+                    c:identifier="COGL_PANGO_RENDERER_CLASS"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="221"/>
+      <parameters>
+        <parameter name="klass">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <function-macro name="RENDERER_GET_CLASS"
+                    c:identifier="COGL_PANGO_RENDERER_GET_CLASS"
+                    introspectable="0">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="224"/>
+      <parameters>
+        <parameter name="obj">
+        </parameter>
+      </parameters>
+    </function-macro>
+    <class name="Renderer"
+           c:symbol-prefix="renderer"
+           c:type="CoglPangoRenderer"
+           parent="Pango.Renderer"
+           glib:type-name="CoglPangoRenderer"
+           glib:get-type="cogl_pango_renderer_get_type"
+           glib:type-struct="RendererClass">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="228"/>
+      <property name="context"
+                readable="0"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="gpointer" c:type="gpointer"/>
+      </property>
+    </class>
+    <record name="RendererClass"
+            c:type="CoglPangoRendererClass"
+            disguised="1"
+            glib:is-gtype-struct-for="Renderer">
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="228"/>
+    </record>
+    <function name="ensure_glyph_cache_for_layout"
+              c:identifier="cogl_pango_ensure_glyph_cache_for_layout"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="120">This updates any internal glyph cache textures as necessary to be
+able to render the given @layout.
+
+This api should be used to avoid mid-scene modifications of
+glyph-cache textures which can lead to undefined rendering results.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="133"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="layout" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="122">A #PangoLayout</doc>
+          <type name="Pango.Layout" c:type="PangoLayout*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_clear_glyph_cache"
+              c:identifier="cogl_pango_font_map_clear_glyph_cache"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="109">Clears the glyph cache for @font_map.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="118"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="111">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_create_context"
+              c:identifier="cogl_pango_font_map_create_context">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="81">Create a #PangoContext for the given @font_map.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="90"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../cogl/cogl-pango/cogl-pango.h"
+             line="87">the newly created context: free with g_object_unref().</doc>
+        <type name="Pango.Context" c:type="PangoContext*"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="83">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_get_renderer"
+              c:identifier="cogl_pango_font_map_get_renderer"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="163">Retrieves the #CoglPangoRenderer for the passed @font_map.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="174"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../cogl/cogl-pango/cogl-pango.h"
+             line="169">a #PangoRenderer</doc>
+        <type name="Pango.Renderer" c:type="PangoRenderer*"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="165">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_get_use_mipmapping"
+              c:identifier="cogl_pango_font_map_get_use_mipmapping"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="149">Retrieves whether the #CoglPangoRenderer used by @font_map will use
+mipmapping when rendering the glyphs.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="161"/>
+      <return-value transfer-ownership="none">
+        <doc xml:space="preserve"
+             filename="../cogl/cogl-pango/cogl-pango.h"
+             line="156">%TRUE if mipmapping is used, %FALSE otherwise.</doc>
+        <type name="gboolean" c:type="gboolean"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="151">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_new"
+              c:identifier="cogl_pango_font_map_new"
+              version="1.14">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="69">Creates a new font map.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="79"/>
+      <return-value transfer-ownership="full">
+        <doc xml:space="preserve"
+             filename="../cogl/cogl-pango/cogl-pango.h"
+             line="74">the newly created #PangoFontMap</doc>
+        <type name="Pango.FontMap" c:type="PangoFontMap*"/>
+      </return-value>
+    </function>
+    <function name="font_map_set_resolution"
+              c:identifier="cogl_pango_font_map_set_resolution"
+              version="1.14">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="92">Sets the resolution for the @font_map. This is a scale factor
+between points specified in a #PangoFontDescription and Cogl units.
+The default value is %96, meaning that a 10 point font will be 13
+units high. (10 * 96. / 72. = 13.3).</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="106"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="94">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+        <parameter name="dpi" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="95">The resolution in "dots per inch". (Physical inches aren't
+      actually involved; the terminology is conventional.)</doc>
+          <type name="gdouble" c:type="double"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="font_map_set_use_mipmapping"
+              c:identifier="cogl_pango_font_map_set_use_mipmapping"
+              version="1.0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="135">Sets whether the renderer for the passed font map should use
+mipmapping when rendering a #PangoLayout.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="146"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="font_map" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="137">a #CoglPangoFontMap</doc>
+          <type name="FontMap" c:type="CoglPangoFontMap*"/>
+        </parameter>
+        <parameter name="value" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="138">%TRUE to enable the use of mipmapping</doc>
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="show_layout"
+              c:identifier="cogl_pango_show_layout"
+              version="1.14"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="176">Draws a solidly coloured @layout on the given @framebuffer at (@x,
+@y) within the @framebuffer&lt;!-- --&gt;'s current model-view coordinate
+space.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="191"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="framebuffer" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="178">A #CoglFramebuffer to draw too.</doc>
+          <type name="Cogl.Framebuffer" c:type="CoglFramebuffer*"/>
+        </parameter>
+        <parameter name="layout" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="179">a #PangoLayout</doc>
+          <type name="Pango.Layout" c:type="PangoLayout*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="180">X coordinate to render the layout at</doc>
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="181">Y coordinate to render the layout at</doc>
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="182">color to use when rendering the layout</doc>
+          <type name="Cogl.Color" c:type="const CoglColor*"/>
+        </parameter>
+      </parameters>
+    </function>
+    <function name="show_layout_line"
+              c:identifier="cogl_pango_show_layout_line"
+              version="1.14"
+              introspectable="0">
+      <doc xml:space="preserve"
+           filename="../cogl/cogl-pango/cogl-pango.h"
+           line="197">Draws a solidly coloured @line on the given @framebuffer at (@x,
+@y) within the @framebuffer&lt;!-- --&gt;'s current model-view coordinate
+space.</doc>
+      <source-position filename="../cogl/cogl-pango/cogl-pango.h" line="212"/>
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="framebuffer" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="199">A #CoglFramebuffer to draw too.</doc>
+          <type name="Cogl.Framebuffer" c:type="CoglFramebuffer*"/>
+        </parameter>
+        <parameter name="line" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="200">a #PangoLayoutLine</doc>
+          <type name="Pango.LayoutLine" c:type="PangoLayoutLine*"/>
+        </parameter>
+        <parameter name="x" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="201">X coordinate to render the line at</doc>
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="y" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="202">Y coordinate to render the line at</doc>
+          <type name="gfloat" c:type="float"/>
+        </parameter>
+        <parameter name="color" transfer-ownership="none">
+          <doc xml:space="preserve"
+               filename="../cogl/cogl-pango/cogl-pango.h"
+               line="203">color to use when rendering the line</doc>
+          <type name="Cogl.Color" c:type="const CoglColor*"/>
+        </parameter>
+      </parameters>
+    </function>
+  </namespace>
+</repository>

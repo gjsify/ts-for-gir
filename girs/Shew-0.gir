@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository version="1.2"
+            xmlns="http://www.gtk.org/introspection/core/1.0"
+            xmlns:c="http://www.gtk.org/introspection/c/1.0"
+            xmlns:glib="http://www.gtk.org/introspection/glib/1.0">
+  <include name="Gdk" version="4.0"/>
+  <include name="Gtk" version="4.0"/>
+  <namespace name="Shew"
+             version="0"
+             shared-library="libshew-0.so"
+             c:identifier-prefixes="Shew"
+             c:symbol-prefixes="shew">
+    <class name="ExternalWindow"
+           c:symbol-prefix="external_window"
+           c:type="ShewExternalWindow"
+           parent="GObject.Object"
+           glib:type-name="ShewExternalWindow"
+           glib:get-type="shew_external_window_get_type"
+           glib:type-struct="ExternalWindowClass">
+      <source-position filename="src/shew-external-window.h" line="36"/>
+      <constructor name="new_from_handle"
+                   c:identifier="shew_external_window_new_from_handle">
+        <source-position filename="src/shew-external-window.h" line="38"/>
+        <return-value transfer-ownership="full">
+          <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
+        </return-value>
+        <parameters>
+          <parameter name="handle_str" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <virtual-method name="set_parent_of" invoker="set_parent_of">
+        <source-position filename="src/shew-external-window.h" line="34"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="external_window" transfer-ownership="none">
+            <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
+          </instance-parameter>
+          <parameter name="child_surface" transfer-ownership="none">
+            <type name="Gdk.Surface" c:type="GdkSurface*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="get_display"
+              c:identifier="shew_external_window_get_display"
+              glib:get-property="display">
+        <source-position filename="src/shew-external-window.h" line="43"/>
+        <return-value transfer-ownership="none">
+          <type name="Gdk.Display" c:type="GdkDisplay*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="external_window" transfer-ownership="none">
+            <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="set_parent_of"
+              c:identifier="shew_external_window_set_parent_of">
+        <source-position filename="src/shew-external-window.h" line="40"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="external_window" transfer-ownership="none">
+            <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
+          </instance-parameter>
+          <parameter name="child_surface" transfer-ownership="none">
+            <type name="Gdk.Surface" c:type="GdkSurface*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <property name="display"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none"
+                getter="get_display">
+        <type name="Gdk.Display"/>
+      </property>
+      <field name="parent_instance">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ExternalWindowClass"
+            c:type="ShewExternalWindowClass"
+            glib:is-gtype-struct-for="ExternalWindow">
+      <source-position filename="src/shew-external-window.h" line="36"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="set_parent_of">
+        <callback name="set_parent_of">
+          <source-position filename="src/shew-external-window.h" line="34"/>
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="external_window" transfer-ownership="none">
+              <type name="ExternalWindow" c:type="ShewExternalWindow*"/>
+            </parameter>
+            <parameter name="child_surface" transfer-ownership="none">
+              <type name="Gdk.Surface" c:type="GdkSurface*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="WindowExporter"
+           c:symbol-prefix="window_exporter"
+           c:type="ShewWindowExporter"
+           parent="GObject.Object"
+           glib:type-name="ShewWindowExporter"
+           glib:get-type="shew_window_exporter_get_type"
+           glib:type-struct="WindowExporterClass">
+      <source-position filename="src/shew-window-exporter.h" line="26"/>
+      <constructor name="new" c:identifier="shew_window_exporter_new">
+        <source-position filename="src/shew-window-exporter.h" line="28"/>
+        <return-value transfer-ownership="full">
+          <type name="WindowExporter" c:type="ShewWindowExporter*"/>
+        </return-value>
+        <parameters>
+          <parameter name="window" transfer-ownership="none">
+            <type name="Gtk.Window" c:type="GtkWindow*"/>
+          </parameter>
+        </parameters>
+      </constructor>
+      <method name="export" c:identifier="shew_window_exporter_export">
+        <source-position filename="src/shew-window-exporter.h" line="30"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="exporter" transfer-ownership="none">
+            <type name="WindowExporter" c:type="ShewWindowExporter*"/>
+          </instance-parameter>
+          <parameter name="callback"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1"
+                     scope="async"
+                     closure="1">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="user_data"
+                     transfer-ownership="none"
+                     nullable="1"
+                     allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="export_finish"
+              c:identifier="shew_window_exporter_export_finish"
+              throws="1">
+        <source-position filename="src/shew-window-exporter.h" line="34"/>
+        <return-value transfer-ownership="full">
+          <type name="utf8" c:type="char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="exporter" transfer-ownership="none">
+            <type name="WindowExporter" c:type="ShewWindowExporter*"/>
+          </instance-parameter>
+          <parameter name="result" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="unexport" c:identifier="shew_window_exporter_unexport">
+        <source-position filename="src/shew-window-exporter.h" line="38"/>
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="exporter" transfer-ownership="none">
+            <type name="WindowExporter" c:type="ShewWindowExporter*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="window"
+                writable="1"
+                construct-only="1"
+                transfer-ownership="none">
+        <type name="Gtk.Window"/>
+      </property>
+    </class>
+    <record name="WindowExporterClass"
+            c:type="ShewWindowExporterClass"
+            glib:is-gtype-struct-for="WindowExporter">
+      <source-position filename="src/shew-window-exporter.h" line="26"/>
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+  </namespace>
+</repository>

@@ -2,8 +2,7 @@
  * Everything you need for the `ts-for-gir list` command is located here
  */
 
-import { Argv } from 'yargs'
-
+import { Argv, BuilderCallback } from 'yargs'
 import { ModuleLoader } from '../module-loader.js'
 import { Config } from '../config.js'
 import { Logger, ERROR_NO_MODULES_FOUND, ResolveType } from '@ts-for-gir/lib'
@@ -14,17 +13,18 @@ const command = 'list [modules..]'
 
 const description = 'Lists all available GIR modules'
 
-const builder = (yargs: Argv) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.listOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.listOptions[optionName])
     }
-    return yargs.example(examples)
+    return yargs.example(examples) as Argv<ConfigFlags>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const handler = async (args: any /* TODO */) => {
-    const config = await Config.load(args as ConfigFlags)
+const handler = async (args: ConfigFlags) => {
+    const config = await Config.load(args)
     const generateConfig = Config.getGenerateConfig(config)
     const moduleLoader = new ModuleLoader(generateConfig)
     const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)

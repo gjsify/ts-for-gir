@@ -41,4 +41,5 @@ export default {
     ignoreVersionConflicts: true,
     promisify: true,
     package: true,
+    packageYarn: true,
 }

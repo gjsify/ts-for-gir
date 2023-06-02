@@ -29,6 +29,21 @@ export class DependencyManager {
         return this.instances[config.environment]
     }
 
+    protected parseArgs(namespaceOrPackageName: string, version?: string) {
+        let packageName: string
+        let namespace: string
+        if (version) {
+            namespace = namespaceOrPackageName
+            packageName = `${namespace}-${version}`
+        } else {
+            packageName = namespaceOrPackageName
+            const { namespace: _namespace, version: _version } = splitModuleName(packageName)
+            namespace = _namespace
+            version = _version
+        }
+        return { packageName, namespace, version }
+    }
+
     /**
      * Get all dependencies in the cache
      * @returns All dependencies in the cache
@@ -87,18 +102,11 @@ export class DependencyManager {
             return this.getNodeGtk()
         }
 
-        let packageName: string
-        let namespace: string
+        const args = this.parseArgs(namespaceOrPackageName, version)
+        version = args.version
+        const packageName = args.packageName
+        const namespace = args.namespace
 
-        if (version) {
-            packageName = `${namespaceOrPackageName}-${version}`
-            namespace = namespaceOrPackageName
-        } else {
-            packageName = namespaceOrPackageName
-            const { namespace: _namespace, version: _version } = splitModuleName(packageName)
-            namespace = _namespace
-            version = _version
-        }
         if (this.cache[packageName]) {
             const dep = this.cache[packageName]
             return dep
@@ -120,6 +128,17 @@ export class DependencyManager {
         this.cache[packageName] = dependency
 
         return dependency
+    }
+
+    /**
+     * Get girModule for dependency
+     * @param girModules
+     * @param packageName
+     */
+    getModule(girModules: GirModule[], dep: Dependency): GirModule | undefined {
+        return girModules.find(
+            (m) => m.packageName === dep.packageName && m.namespace === dep.namespace && m.version === dep.version,
+        )
     }
 
     /**

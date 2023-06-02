@@ -54,8 +54,8 @@
     "start:cli-examples:all": "yarn start:cli-examples:gjs && yarn start:cli-examples:node",
     "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-gio-2-cat-promisify-packages run start",
     "start:cli-examples:node": "yarn workspace ts-for-gir-node-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-node-gtk-gio-2-cat-promisify-packages run start",
-    "build:types:packages:all": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js'",
-    "build:types:packages:gtk4": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js'",
+    "build:types:packages:all": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js' && yarn install",
+    "build:types:packages:gtk4": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js' && yarn install",
     "build:types:all": "yarn ts-for-gir generate --configName='.ts-for-gir.all.rc.js'",
     "build:types:vda1": "yarn ts-for-gir generate --configName='.ts-for-gir.vda1.rc.js'",
     "build:types:gtk2": "yarn ts-for-gir generate --configName='.ts-for-gir.gtk2.rc.js'",
@@ -138,20 +138,20 @@
   ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.59.6",
-    "@typescript-eslint/parser": "^5.59.6",
-    "concurrently": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "concurrently": "^8.1.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.3"
   },
   "workspaces": [
     "examples/*/*",
     "packages/*",
     "types/*"
   ],
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.6.0"
 }

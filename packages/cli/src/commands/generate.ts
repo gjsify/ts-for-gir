@@ -2,8 +2,7 @@
  * Everything you need for the `ts-for-gir generate` command is located here
  */
 
-import { Argv } from 'yargs'
-
+import { Argv, BuilderCallback } from 'yargs'
 import { ERROR_NO_MODULES_FOUND, Logger } from '@ts-for-gir/lib'
 import { GeneratorType } from '@ts-for-gir/generator-base'
 import { GenerationHandler } from '../generation-handler.js'
@@ -16,17 +15,18 @@ const command = 'generate [modules..]'
 
 const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
 
-const builder = (yargs: Argv) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
     const optionNames = Object.keys(Config.generateOptions)
     for (const optionName of optionNames) {
         yargs = yargs.option(optionName, Config.generateOptions[optionName])
     }
-    return yargs.example(examples)
+    return yargs.example(examples) as Argv<ConfigFlags>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const handler = async (args: any /* TODO */) => {
-    const config = await Config.load(args as ConfigFlags)
+const handler = async (args: ConfigFlags) => {
+    const config = await Config.load(args)
 
     for (const env of config.environments) {
         const generateConfig = Config.getGenerateConfig(config, env)

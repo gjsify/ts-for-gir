@@ -51,6 +51,7 @@ export class Config {
         promisify: true,
         npmScope: '@girs',
         package: false,
+        packageYarn: false,
     }
 
     static configFilePath = join(process.cwd(), Config.defaults.configName)
@@ -203,6 +204,12 @@ export class Config {
             default: Config.defaults.package,
             normalize: true,
         },
+        packageYarn: {
+            type: 'boolean',
+            description: 'Adds Yarn workspace support to the NPM packages',
+            default: Config.defaults.packageYarn,
+            normalize: true,
+        },
     }
 
     /**
@@ -230,6 +237,7 @@ export class Config {
         promisify: this.options.promisify,
         npmScope: this.options.npmScope,
         package: this.options.package,
+        packageYarn: this.options.packageYarn,
     }
 
     static listOptions = {
@@ -333,6 +341,7 @@ export class Config {
             promisify: config.promisify,
             npmScope: config.npmScope,
             package: config.package,
+            packageYarn: config.packageYarn,
         }
         return generateConfig
     }
@@ -411,6 +420,7 @@ export class Config {
             promisify: options.promisify,
             npmScope: options.npmScope,
             package: options.package,
+            packageYarn: options.packageYarn,
         }
 
         if (configFileData) {
@@ -523,6 +533,13 @@ export class Config {
             // package
             if (config.package === Config.options.package.default && typeof configFileData.package === 'boolean') {
                 config.package = configFileData.package
+            }
+            // packageYarn
+            if (
+                config.packageYarn === Config.options.packageYarn.default &&
+                typeof configFileData.packageYarn === 'boolean'
+            ) {
+                config.packageYarn = configFileData.packageYarn
             }
         }
 

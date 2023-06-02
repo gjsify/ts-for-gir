@@ -39,4 +39,6 @@ export interface GenerateConfig {
     npmScope: string
     /** Generates an NPM compatible packages for each GIR module */
     package: boolean
+    /** Adds Yarn workspace support to the NPM packages */
+    packageYarn: boolean
 }

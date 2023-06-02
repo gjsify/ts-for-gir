@@ -7,18 +7,18 @@ import {
     girElementIsIntrospectable,
     typesContainsOptional,
     typesContainsNullable,
-    TemplateProcessor,
     Dependency,
     DependencyManager,
     NO_TSDATA,
-    PackageDataParser,
     WARN_NOT_FOUND_DEPENDENCY_GIR_FILE,
     WARN_IGNORE_MULTIPLE_CALLBACKS,
     WARN_IGNORE_MULTIPLE_FUNC_DESC,
     PackageData,
 } from '@ts-for-gir/lib'
+import { TemplateProcessor } from './template-processor.js'
+import { PackageDataParser } from './package-data-parser.js'
 
-import {
+import type {
     GenerateConfig,
     GirClassElement,
     GirCallableParamElement,

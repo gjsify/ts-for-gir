@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Based on https://github.com/romgrk/node-gtk/blob/master/examples/hello-gtk.js
+
 import gi from './@types/node-gtk.js'
 import * as Gtk from './@types/node-gtk-3.0.js'
 

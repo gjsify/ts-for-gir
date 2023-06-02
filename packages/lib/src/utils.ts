@@ -334,7 +334,7 @@ export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
  * @param filePath The path to the JSON file
  * @returns The parsed JSON
  */
-export const readJsonFile = async <T = any>(filePath: string): Promise<T> => {
+export const readJsonFile = async <T = unknown>(filePath: string): Promise<T> => {
     const fileContent = await readFile(filePath, 'utf8')
     return JSON.parse(fileContent) as T
 }

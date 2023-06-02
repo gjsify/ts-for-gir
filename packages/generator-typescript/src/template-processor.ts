@@ -7,13 +7,21 @@ import { existsSync } from 'fs'
 import { readFile, writeFile, mkdir, readdir } from 'fs/promises'
 import { join, dirname, relative, extname } from 'path'
 import ejs from 'ejs'
-import { Logger } from './logger.js'
-import { APP_NAME, APP_USAGE, APP_SOURCE, APP_VERSION, PACKAGE_DESC, PACKAGE_KEYWORDS } from './constants.js'
-import { __dirname, getDestPath } from './utils.js'
-import { DependencyManager } from './dependency-manager.js'
-import { Transformation } from './transformation.js'
+import { __dirname } from './utils.js'
+import {
+    Logger,
+    APP_NAME,
+    APP_USAGE,
+    APP_SOURCE,
+    APP_VERSION,
+    PACKAGE_DESC,
+    PACKAGE_KEYWORDS,
+    getDestPath,
+    DependencyManager,
+    Transformation,
+} from '@ts-for-gir/lib'
 
-import type { GenerateConfig, Dependency, TemplateData, Environment } from './types/index.js'
+import type { GenerateConfig, Dependency, TemplateData, Environment } from '@ts-for-gir/lib'
 
 const TEMPLATE_DIR = join(__dirname, '../templates')
 

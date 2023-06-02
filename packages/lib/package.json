@@ -23,9 +23,7 @@
   },
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "files": [
-    "lib",
-    "templates",
-    "packages.xml"
+    "lib"
   ],
   "license": "Apache-2.0",
   "bugs": {
@@ -65,6 +63,6 @@
     "colorette": "^2.0.20",
     "ejs": "^3.1.9",
     "lodash": "^4.17.21",
-    "xml2js": "^0.5.0"
+    "xml2js": "0.5.0"
   }
 }

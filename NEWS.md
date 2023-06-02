@@ -7,6 +7,8 @@
 - NPM package Yarn workspace support is optional now, see #124
 - Upgrade all dependencies (except `xml2js`, see #125)
 - Parse app version from `package.json`
+- Moved template files, `packages.xml`, `package-data-parser.ts` and `template-processor.ts` from `@ts-for-gir/lib` to `@ts-for-gir/generator-typescript`
+- Cleanup Yarn scripts
 
 # v3.0.1
 - Add missing `packages.xml` to `@ts-for-gir/lib`

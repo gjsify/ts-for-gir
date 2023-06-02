@@ -1,9 +1,8 @@
 import { parseStringPromise } from 'xml2js'
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
-
-import { Logger } from './logger.js'
-import { __dirname, splitModuleName, cleanString } from './utils.js'
+import { Logger, splitModuleName, cleanString } from '@ts-for-gir/lib'
+import { __dirname } from './utils.js'
 
 import type {
     GenerateConfig,
@@ -11,7 +10,7 @@ import type {
     PackageSectionParsed,
     PackageDataParsed,
     PackageData,
-} from './types/index.js'
+} from '@ts-for-gir/lib'
 
 export class PackageDataParser {
     protected log: Logger
@@ -73,8 +72,9 @@ export class PackageDataParser {
     }
 
     async start() {
-        this.log.log(`Parsing package.xml...`)
-        const fileContents = await readFile(resolve(__dirname, '../packages.xml'), 'utf8')
+        const filePath = resolve(__dirname, '../packages.xml')
+        console.log(`Parsing ${filePath}...`)
+        const fileContents = await readFile(filePath, 'utf8')
         const result = (await parseStringPromise(fileContents)) as ParsedPackageData
         this.parseSections(result.packages.section)
     }

@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-template-example",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Simple GJS Gtk 3 example app to demonstrate how you can use .ui template XML files",
   "main": "index.js",
   "type": "module",

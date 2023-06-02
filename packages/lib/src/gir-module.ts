@@ -2649,7 +2649,7 @@ export class GirModule {
                 //     return null
                 // }
             } else {
-                // TODO better handling of  property and field
+                // TODO better handling of property and field
                 if (isEqual(localNames[name][type]?._tsData, girElement._tsData)) {
                     return null
                 }

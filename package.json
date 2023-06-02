@@ -52,8 +52,8 @@
     "build:examples": "yarn workspaces foreach -v --exclude @ts-for-gir/cli,@ts-for-gir/lib,@ts-for-gir/generator-base,@ts-for-gir/generator-typescript,@ts-for-gir/generator-html-doc --parallel run build",
     "build:all": "yarn build && yarn build:examples",
     "start:cli-examples:all": "yarn start:cli-examples:gjs && yarn start:cli-examples:node",
-    "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start",
-    "start:cli-examples:node": "yarn workspace ts-for-gir-node-glib-2-spawn-command-example run start",
+    "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-gio-2-cat-promisify-packages run start",
+    "start:cli-examples:node": "yarn workspace ts-for-gir-node-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-node-gtk-gio-2-cat-promisify-packages run start",
     "build:types:packages:all": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-all.rc.js'",
     "build:types:packages:gtk4": "NODE_OPTIONS=--max-old-space-size=25600 yarn ts-for-gir generate --configName='.ts-for-gir.packages-gtk4.rc.js'",
     "build:types:all": "yarn ts-for-gir generate --configName='.ts-for-gir.all.rc.js'",
@@ -150,9 +150,8 @@
   },
   "workspaces": [
     "examples/*/*",
-    "!examples/gjs/gio-2-cat-packages",
-    "!examples/node-gtk/gio-2-cat-packages",
-    "packages/*"
+    "packages/*",
+    "types/*"
   ],
   "packageManager": "yarn@3.5.1"
 }

@@ -51,7 +51,7 @@
     "build:generator-base": "yarn workspace @ts-for-gir/generator-base run build",
     "build:generator-typescript": "yarn workspace @ts-for-gir/generator-typescript run build",
     "build:generator-html-doc": "yarn workspace @ts-for-gir/generator-html-doc run build",
-    "build:examples": "yarn workspaces foreach -v --exclude @ts-for-gir/* --parallel run build",
+    "build:examples": "yarn workspaces foreach -v --exclude '@ts-for-gir/*' --parallel run build",
     "build:all": "yarn build && yarn build:examples",
     "start:cli-examples:all": "yarn start:cli-examples:gjs && yarn start:cli-examples:node",
     "start:cli-examples:gjs": "yarn workspace ts-for-gir-glib-2-spawn-command-example run start && yarn workspace ts-for-gir-gio-2-cat-promisify-packages run start",

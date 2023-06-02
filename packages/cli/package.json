@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/cli",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "TypeScript type definition generator for GObject introspection GIR files",
   "module": "lib/index.js",
   "main": "lib/index.js",

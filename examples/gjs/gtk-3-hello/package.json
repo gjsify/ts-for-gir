@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-hello-example",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "",
   "main": "main.ts",
   "private": true,

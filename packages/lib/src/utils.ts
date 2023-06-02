@@ -2,6 +2,7 @@
 import lodash from 'lodash'
 import { join, dirname } from 'path'
 import { existsSync } from 'fs'
+import { readFile } from 'fs/promises'
 
 import { fileURLToPath } from 'url'
 import { GirInfoAttrs, TsType, FileInfo } from './types/index.js'
@@ -326,6 +327,16 @@ export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
     }
 
     return FileInfo
+}
+
+/**
+ * Read a JSON file
+ * @param filePath The path to the JSON file
+ * @returns The parsed JSON
+ */
+export const readJsonFile = async <T = any>(filePath: string): Promise<T> => {
+    const fileContent = await readFile(filePath, 'utf8')
+    return JSON.parse(fileContent) as T
 }
 
 /**

@@ -1,6 +1,10 @@
 <%# This template is used if the Option `package` is enabled %>
 # <%- packageName %>
 
+![version](https://img.shields.io/npm/v/<%- npmScope %>/<%- importName %>)
+![downloads/week](https://img.shields.io/npm/dw/<%- npmScope %>/<%- importName %>)
+
+
 <%- PACKAGE_DESC %> using [<%- APP_NAME %>](<%- APP_SOURCE %>) v<%- APP_VERSION %>.
 
 <%_ if (typeof pkgData !== 'undefined' && pkgData.description) { _%>

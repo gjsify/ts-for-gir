@@ -4,10 +4,10 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/checks-status/gjsify/ts-for-gir/main" />
+  <img src="https://img.shields.io/github/actions/workflow/status/gjsify/ts-for-gir/ci.yml" />
   <img src="https://img.shields.io/github/license/gjsify/ts-for-gir" />
-  <img src="https://img.shields.io/npm/v/@ts-for-gir/cli" />
-  <img src="https://img.shields.io/npm/dw/@ts-for-gir/cli" />
+  <img src="https://img.shields.io/npm/v/@ts-for-gir/generator-typescript" />
+  <img src="https://img.shields.io/npm/dw/@ts-for-gir/generator-typescript" />
 </p>
 
 <p align="center">TypeScript type definition generator for GObject introspection GIR files</p>

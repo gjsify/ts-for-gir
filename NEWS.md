@@ -3,6 +3,10 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
+# v3.0.4
+- Update badges on README template files
+- Node-gtk: Readd gobject signal method, fixes #126
+
 # v3.0.3
 - NPM package Yarn workspace support is optional now, see #124
 - Upgrade all dependencies (except `xml2js`, see #125)

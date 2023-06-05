@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-4-list-store-example",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "It takes the hassle away from building Gtk4 application in Python So you can create a cool application, without all the boilerplate code",
   "main": "index.js",
   "type": "module",

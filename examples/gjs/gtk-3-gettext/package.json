@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-gettext-example",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Simple GJS Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "module",

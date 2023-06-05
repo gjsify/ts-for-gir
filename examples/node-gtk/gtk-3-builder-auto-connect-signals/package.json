@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-builder-auto-connect-signals-example",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "",
   "main": "main.ts",
   "private": true,

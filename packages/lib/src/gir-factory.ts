@@ -466,7 +466,7 @@ export class GirFactory {
         )
         tsMethods.push(emitTsFn)
 
-        if (withDisconnect && environment === 'gjs') {
+        if (withDisconnect) {
             const idInParam: InjectionParameter = {
                 name: 'id',
                 type: [

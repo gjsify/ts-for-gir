@@ -44,8 +44,8 @@ export const PACKAGE_KEYWORDS = (packageName: string, environment: Environment) 
 
 export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K']
 
-export const SIGNAL_METHOD_NAMES_GENERAL: string[] = ['connect', 'emit']
-export const SIGNAL_METHOD_NAMES_GJS: string[] = ['connect_after', 'emit', 'disconnect']
+export const SIGNAL_METHOD_NAMES_GENERAL: string[] = ['connect', 'emit', 'disconnect']
+export const SIGNAL_METHOD_NAMES_GJS: string[] = ['connect_after', 'emit']
 export const SIGNAL_METHOD_NAMES_NODE: string[] = ['after', 'on', 'once', 'off']
 export const SIGNAL_METHOD_NAMES = (env: Environment) => {
     if (env === 'node') {

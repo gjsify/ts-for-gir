@@ -132,11 +132,11 @@
     "scripts": {
       "test": "yarn test:esm && yarn test:cjs",
       <%_ if (moduleType === 'esm') { _%>
-      "test:esm": "tsc --noEmit <%- entryPointName %>.d.ts",
-      "test:cjs": "tsc --noEmit <%- entryPointName %>.d.cts"
+      "test:esm": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts",
+      "test:cjs": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.cts"
       <%_ } else { _%>
-      "test:esm": "tsc --noEmit <%- entryPointName %>.d.mts",
-      "test:cjs": "tsc --noEmit <%- entryPointName %>.d.ts"
+      "test:esm": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.mts",
+      "test:cjs": "NODE_OPTIONS=--max_old_space_size=9216 tsc --noEmit <%- entryPointName %>.d.ts"
       <%_ } _%>
     },
     "dependencies": {
@@ -149,8 +149,9 @@
       <%_ } _%>
       <%_ for (let i = 0; i < deps.length;  i++ ) { _%>
       <%_ if (!packageYarn) { _%>
-        <%_ girModule = dep.getModule(girModules, deps[i]) _%>
-        <%_ depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
+        <%_ // girModule = dep.getModule(girModules, deps[i]) _%>
+        <%_ // depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
+        <%_ depVersion = `*-${APP_VERSION}` _%>
       <%_ } _%>
       "<%- deps[i].importPath %>": "<%- depVersion %>"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
       <% } %>

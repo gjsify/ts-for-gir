@@ -19407,9 +19407,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.23.1":
-  version: 3.23.1
-  resolution: "rollup@npm:3.23.1"
+"rollup@npm:^3.24.0":
+  version: 3.24.0
+  resolution: "rollup@npm:3.24.0"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -19417,7 +19417,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 4b3b3bbfd490b41ec5473d1141fe2beb0c86f600b56378fce97e0485192818256f8cbf4d43450b097ee7042e6629fb0187488807e2d15050860718f458c44685
+  checksum: 373d0062a79cfce3583d4f6b7ab8ac9aa3201a9af1fa20b24f61a4ddea95a45974c4a8baed3087cb4e7bfc34a9dcd6774b7a635eb071ba52f97f51a59e860d6e
   languageName: node
   linkType: hard
 
@@ -19921,7 +19921,7 @@ __metadata:
     "@babel/core": ^7.22.1
     "@rollup/plugin-babel": ^6.0.3
     "@ts-for-gir/cli": "workspace:^"
-    rollup: ^3.23.1
+    rollup: ^3.24.0
     typescript: ^5.1.3
     vite: ^4.3.9
   languageName: unknown

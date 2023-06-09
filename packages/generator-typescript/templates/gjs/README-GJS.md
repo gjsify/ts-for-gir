@@ -41,16 +41,36 @@ const <%- pkg.namespace %> = require('<%- pkg.importPath %>');
 After the import, the global types of GJS are also available:
 
 ```ts
-console.log('Hello World from console');
+import '@girs/gjs';
+
 print('Hello World from print');
 
 const ByteArray = imports.byteArray;
 
+// And so on...
+```
+
+### Global DOM types
+
+Some types that conflict with the DOM are outsourced to allow frameworks like Gjsify to rebuild the DOM API without causing type conflicts.
+But you can easily import them:
+
+```ts
+import '@girs/gjs/dom';
+
+console.log('Hello World from console');
+
 const encoder = new TextEncoder();
 const encoded = encoder.encode('𝓽𝓮𝔁𝓽');
 
+setTimeout(() => {
+  // ...
+}, 1000);
+
 // And so on...
 ```
+
+To avoid a type conflict with the DOM types it is recommended to either modify your `tsconfig.json` or `jsconfig.json` file to exclude the DOM lib, or to enable the `noLib` property.
 
 ### Ambient Modules
 
@@ -89,6 +109,7 @@ These types will then be available to you:
 
 ```ts
 import '@girs/gjs'
+import '@girs/gjs/dom'
 import '@girs/gio-2.0'
 import '@girs/gtk-4.0'
 import '@girs/adw-1'

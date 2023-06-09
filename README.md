@@ -39,6 +39,7 @@ npm install @girs/gjs @girs/gtk-4.0 --save
 
 ```ts
 import '@girs/gjs'
+import '@girs/gjs/dom'
 import '@girs/gtk-4.0'
 
 import Gtk from 'gi://Gtk?version=4.0';

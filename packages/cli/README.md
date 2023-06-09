@@ -121,9 +121,6 @@ Options:
                                                        [string] [default: false]
       --noDebugComments         Do not generate debugging inline comments
                                                        [string] [default: false]
-      --noDOMLib                Disables the generation of types that are in con
-                                flict with the DOM types
-                                                       [string] [default: false]
       --fixConflicts            Fix Inheritance and implementation type conflict
                                 s                       [string] [default: true]
   -a, --generateAlias           Generate an alias tsconfig file to support GJS E
@@ -394,15 +391,6 @@ ts-for-gir generate * --noComments`
 The `noDebugComments` CLI option is used to control the generation of inline comments in the generated TypeScript files. These comments are used for debugging purposes and can be useful in tracking down issues with the generated types.
 
 By default, the `noDebugComments` option is disabled and these inline comments will be included in the generated TypeScript files. If you do not require these comments for debugging purposes, you can use the -`-noDebugComments` option to disable their generation and keep your TypeScript code more compact.
-
-### noDOMLib
-The `noDOMLib` option helps to avoid conflicts between the generated GJS global types and the DOM types, which can cause lint warnings and compilation errors with TypeScript.
-
-To utilize this option, it is recommended to either modify your `tsconfig.json` or `jsconfig.json` file to exclude the DOM lib, or to enable the `noLib` property. Doing so will prevent the generation of types that conflict with the DOM types.
-
-For more information on the `lib` and `noLib` properties, please refer to the official TypeScript documentation at https://www.typescriptlang.org/tsconfig/#lib and https://www.typescriptlang.org/tsconfig#noLib.
-
-In summary, the `noDOMLib` option provides a convenient way to prevent the generation of conflicting types, making it easier to build robust and error-free TypeScript applications with GJS.
 
 ### fixConflicts
 The `fixConflicts` CLI option is used to resolve type conflicts between the GObject Introspection descriptions in GIR XML format and TypeScript. For example, properties in the GIR XML format can be overwritten by methods, which is not allowed in TypeScript. When this option is active, `ts-for-gir` attempts to resolve these conflicts. However, it's important to note that this may result in generating types that do not exist.

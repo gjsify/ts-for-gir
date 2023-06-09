@@ -2,7 +2,6 @@
 /**
  * Default values, parse the config file and handle CLI flags
  */
-import inquirer from 'inquirer'
 import { Options } from 'yargs'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import { join, extname, dirname, resolve } from 'path'
@@ -17,7 +16,6 @@ import {
     WARN_USE_ESM_FOR_ALIAS,
     WARN_USE_GJS_FOR_ALIAS,
 } from '@ts-for-gir/lib'
-import { readTsJsConfig } from './utils.js'
 
 import type { Environment, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from '@ts-for-gir/lib'
 
@@ -46,7 +44,6 @@ export class Config {
         noComments: false,
         noDebugComments: false,
         fixConflicts: true,
-        noDOMLib: false,
         generateAlias: false,
         promisify: true,
         npmScope: '@girs',
@@ -173,12 +170,6 @@ export class Config {
             default: Config.defaults.fixConflicts,
             normalize: true,
         },
-        noDOMLib: {
-            type: 'boolean',
-            description: 'Disables the generation of types that are in conflict with the DOM types',
-            default: Config.defaults.noDOMLib,
-            normalize: true,
-        },
         generateAlias: {
             type: 'boolean',
             alias: 'a',
@@ -231,7 +222,6 @@ export class Config {
         noNamespace: this.options.noNamespace,
         noComments: this.options.noComments,
         noDebugComments: this.options.noDebugComments,
-        noDOMLib: this.options.noDOMLib,
         fixConflicts: this.options.fixConflicts,
         generateAlias: this.options.generateAlias,
         promisify: this.options.promisify,
@@ -336,7 +326,6 @@ export class Config {
             noComments: config.noComments,
             noDebugComments: config.noDebugComments,
             fixConflicts: config.fixConflicts,
-            noDOMLib: config.noDOMLib,
             generateAlias: config.generateAlias,
             promisify: config.promisify,
             npmScope: config.npmScope,
@@ -346,34 +335,7 @@ export class Config {
         return generateConfig
     }
 
-    protected static async validateTsConfig(config: UserConfig): Promise<UserConfig> {
-        const tsCompilerOptions = (config.outdir && readTsJsConfig(config.outdir)?.compilerOptions) || {}
-        const tsConfigHasDOMLib = tsCompilerOptions.noLib
-            ? false // NoLib makes typescript to ignore the lib property
-            : Array.isArray(tsCompilerOptions.lib)
-            ? tsCompilerOptions.lib.some((lib) => lib.toLowerCase().startsWith('dom'))
-            : true // Typescript includes DOM lib by default
-
-        if (config.environments.includes('gjs') && tsConfigHasDOMLib && !config.noDOMLib) {
-            const answer = (
-                await inquirer.prompt([
-                    {
-                        type: 'list',
-                        name: 'include',
-                        choices: ['Yes', 'No'],
-                        message:
-                            'Your typescript compilerOptions includes the DOM lib, this conflicts with some Gjs global types, do you want to skip generating those types?',
-                    },
-                ])
-            ).include as 'Yes' | 'No'
-
-            if (answer == 'No') config.noDOMLib = true
-        }
-
-        return config
-    }
-
-    public static async validate(config: UserConfig): Promise<UserConfig> {
+    public static validate(config: UserConfig): UserConfig {
         if (config.generateAlias) {
             if (!config.environments.includes('gjs')) {
                 Logger.warn(WARN_USE_GJS_FOR_ALIAS)
@@ -384,8 +346,6 @@ export class Config {
                 config.moduleType = 'esm'
             }
         }
-
-        config = await this.validateTsConfig(config)
 
         return config
     }
@@ -415,7 +375,6 @@ export class Config {
             noComments: options.noComments,
             noDebugComments: options.noDebugComments,
             fixConflicts: options.fixConflicts,
-            noDOMLib: options.noDOMLib,
             generateAlias: options.generateAlias,
             promisify: options.promisify,
             npmScope: options.npmScope,
@@ -508,10 +467,6 @@ export class Config {
             ) {
                 config.fixConflicts = configFileData.fixConflicts
             }
-            // noDOMLib
-            if (config.noDOMLib === Config.options.noDOMLib.default && typeof configFileData.noDOMLib === 'boolean') {
-                config.noDOMLib = configFileData.noDOMLib
-            }
             // generateAlias
             if (
                 config.generateAlias === Config.options.generateAlias.default &&
@@ -562,7 +517,7 @@ export class Config {
             })
         }
 
-        return await this.validate(config)
+        return this.validate(config)
     }
 }
 

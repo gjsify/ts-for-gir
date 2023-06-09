@@ -74,7 +74,6 @@
     "@ts-for-gir/lib": "workspace:^",
     "colorette": "^2.0.20",
     "cosmiconfig": "^8.2.0",
-    "get-tsconfig": "^4.6.0",
     "inquirer": "^9.2.7",
     "tiny-glob": "^0.2.9",
     "yargs": "^17.7.2"

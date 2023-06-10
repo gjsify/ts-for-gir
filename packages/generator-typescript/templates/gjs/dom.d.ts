@@ -13,8 +13,6 @@
 
 declare global {
 
-    const ARGV: string[]
-
     // Timers
     // See https://gitlab.gnome.org/GNOME/gjs/-/blob/master/modules/esm/_timers.js
 

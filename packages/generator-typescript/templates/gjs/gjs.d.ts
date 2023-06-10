@@ -450,6 +450,8 @@ declare global {
     }
 
     const imports: GjsImports
+
+    const ARGV: string[]
 }
 
 declare const _imports: GjsImports

@@ -12,7 +12,7 @@
     "alwaysStrict": true,
     "moduleResolution":"Node16"
   },
-  "include": ["@types/gjs.d.ts"],
+  "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [
     "index.ts"
   ]

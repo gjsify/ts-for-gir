@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-3-editor-example",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "",
   "main": "main.ts",
   "private": true,

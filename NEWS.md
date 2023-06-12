@@ -3,18 +3,33 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
-# v3.0.4
+# 3.1.0
+- Upgrade dependencies
+- Move conflicting global GJS types to `dom.d.ts` for optional import
+## Breaking Changes
+Move conflicting global GJS types to `dom.d.ts`, allowing you to optionally import them in your project. By doing so, you have the flexibility to choose whether or not to include these types based on your specific needs. This resolves the conflict between the GJS and DOM types and provides you with more control over managing the type definitions.
+
+To use the previous behavior and include the conflicting GJS types, you can import both `./@types/gjs.d.ts` and `./@types/dom.d.ts` in your code.
+
+Alternatively, if you are using the NPM packages, you can import the following:
+
+- `@girs/gjs`: This package provides the GJS types.
+- `@girs/gjs/dom`: This package provides the conflicting DOM types.
+
+Please update your imports accordingly based on your chosen approach.
+
+# 3.0.4
 - Update badges on README template files
 - Node-gtk: Readd gobject signal method, fixes #126
 
-# v3.0.3
+# 3.0.3
 - NPM package Yarn workspace support is optional now, see #124
 - Upgrade all dependencies (except `xml2js`, see #125)
 - Parse app version from `package.json`
 - Moved `templates`, `packages.xml`, `package-data-parser.ts` and `template-processor.ts` from `@ts-for-gir/lib` to `@ts-for-gir/generator-typescript`
 - Cleanup yarn scripts in `./package.json`
 
-# v3.0.1
+# 3.0.1
 - Add missing `packages.xml` to `@ts-for-gir/lib`
 
 # 3.0.0
@@ -93,9 +108,6 @@ This is the first stable release of version 3.0.0 with support for NPM package g
   - `environments: ["gjs"]` (was `["gjs", "node"]` before)
   - `moduleType: "esm"` (was `"commonjs"` before)
 
-# Development
-- Move conflicting global GJS types to dom.d.ts for optional import  
-  This moves the global GJS types that were conflicting with the global DOM types to dom.d.ts. By doing so, these types can now be imported optionally, allowing developers to choose whether or not to include them in their project. This resolves the conflict between the GJS and DOM types and provides more flexibility in managing the type definitions.
 
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)

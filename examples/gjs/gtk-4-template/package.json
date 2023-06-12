@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-4-template-example",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
   "main": "index.js",
   "type": "module",

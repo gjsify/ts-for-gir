@@ -10,7 +10,7 @@
     "noImplicitThis": true,
     "alwaysStrict": true,
   },
-  "include": ["@types/gjs.d.ts"],
+  "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [
     "main.ts",
   ]

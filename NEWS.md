@@ -92,6 +92,11 @@ This is the first stable release of version 3.0.0 with support for NPM package g
   - `noNamespace: true` (was `useNamespace: false` before)
   - `environments: ["gjs"]` (was `["gjs", "node"]` before)
   - `moduleType: "esm"` (was `"commonjs"` before)
+
+# Development
+- Move conflicting global GJS types to dom.d.ts for optional import  
+  This moves the global GJS types that were conflicting with the global DOM types to dom.d.ts. By doing so, these types can now be imported optionally, allowing developers to choose whether or not to include them in their project. This resolves the conflict between the GJS and DOM types and provides more flexibility in managing the type definitions.
+
 # 3.0.0-beta.8
 - Add new option to enable type generation for GNOME Shell (disabled by default now)
 - Add some more types for GNOME Shell

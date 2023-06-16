@@ -8,6 +8,7 @@ import { basename } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import * as xml2js from 'xml2js'
+import * as parser from '@gi.ts/parser'
 import {
     DependencyManager,
     ResolveType,

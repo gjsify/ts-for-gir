@@ -152,7 +152,7 @@
       <%_ if (!packageYarn) { _%>
         <%_ // girModule = dep.getModule(girModules, deps[i]) _%>
         <%_ // depVersion = `${girModule.libraryVersion}-${APP_VERSION}` _%>
-        <%_ depVersion = `*-${APP_VERSION}` _%>
+        <%_ depVersion = '*' _%>
       <%_ } _%>
       "<%- deps[i].importPath %>": "<%- depVersion %>"<%_ if(i < deps.length - 1) { _%>,<%_ } _%>
       <% } %>

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "strictBindCallApply": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ES2019"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

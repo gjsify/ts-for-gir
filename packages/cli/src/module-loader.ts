@@ -8,7 +8,6 @@ import { basename } from 'path'
 import { readFile } from 'fs/promises'
 import { bold } from 'colorette'
 import * as parser from '@gi.ts/parser'
-import * as xml2js from 'xml2js'
 import {
     DependencyManager,
     ResolveType,
@@ -23,7 +22,6 @@ import { Config } from './config.js'
 
 import type {
     GirModulesGroupedMap,
-    ParsedGir,
     GenerateConfig,
     GirModuleResolvedBy,
     GirModulesGrouped,
@@ -387,9 +385,8 @@ export class ModuleLoader {
 
         this.log.log(`Parsing ${dependency.path}...`)
         const fileContents = await readFile(dependency.path, 'utf8')
-        const xml2jsResult = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
         const result = parser.parser.parseGir(fileContents)
-        const girModule = new GirModule(result, xml2jsResult, this.config)
+        const girModule = new GirModule(result, this.config)
         // Figure out transitive module dependencies
         this.extendDependencyMapByGirModule(girModule)
         return girModule

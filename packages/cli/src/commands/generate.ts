@@ -39,6 +39,7 @@ const handler = async (args: ConfigFlags) => {
         if (keep.length === 0) {
             return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
         }
+        console.log('Environment: ' + env)
         const tsForGir = new GenerationHandler(
             generateConfig,
             env === 'gjs' ? GeneratorType.TYPES_GI_TS : GeneratorType.TYPES,

@@ -496,8 +496,9 @@ export class GirFactory {
     ): (GirConstructorElement & GirFunctionElement & GirMethodElement & GirVirtualMethodElement)['$'] {
         return {
             name,
-            'glib:set-property': '',
-            'glib:get-property': '',
+            // TODO: ?
+            // 'glib:set-property': '',
+            // 'glib:get-property': '',
         }
     }
 

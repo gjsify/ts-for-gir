@@ -7,17 +7,9 @@ import {
     TsMethod,
     PartOfClass,
 } from './index.js'
+import { MethodElement } from '@gi.ts/parser'
 
-export interface GirMethodElement extends PartOfClass, GirDocElement {
-    /** element defining a method from a class */
-    $: GirInfoAttrs &
-        GirCallableAttrs & {
-            /** The GObject property that is set by this method */
-            'glib:set-property': string
-            /** The GObject property that is retrieved by this method */
-            'glib:get-property': string
-        }
-
+export interface GirMethodElement extends Omit<MethodElement, 'return-value'>, PartOfClass, GirDocElement {
     parameters?: [GirCallableParams]
     'return-value'?: GirCallableReturn[]
 

@@ -60,18 +60,23 @@ export class GenerationHandler {
         this.log.info(FILE_PARSING_DONE)
 
         const inheritanceTable: InheritanceTable = {}
-        for (const girModule of girModules) girModule.init(inheritanceTable)
 
-        this.finalizeInheritance(inheritanceTable)
+        // TODO: Figure this out...
+        // @gi.ts/lib currently handles all of this transformation for its own generator
+        if (!(this.generator instanceof GiTsTypeDefinitionGenerator)) {
+            for (const girModule of girModules) girModule.init(inheritanceTable)
 
-        this.log.info(TSDATA_PARSING_DONE)
+            this.finalizeInheritance(inheritanceTable)
 
-        for (const girModule of girModules) {
-            if (this.config.outdir) {
-                await mkdir(this.config.outdir, { recursive: true })
+            this.log.info(TSDATA_PARSING_DONE)
+
+            for (const girModule of girModules) {
+                if (this.config.outdir) {
+                    await mkdir(this.config.outdir, { recursive: true })
+                }
+                this.log.log(` - ${girModule.packageName} ...`)
+                girModule.start(girModules)
             }
-            this.log.log(` - ${girModule.packageName} ...`)
-            girModule.start(girModules)
         }
 
         await this.generator.start(girModules, girModulesGrouped, inheritanceTable)

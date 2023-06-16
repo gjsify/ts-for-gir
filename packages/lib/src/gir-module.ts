@@ -79,7 +79,6 @@ import type {
     TsGenericParameter,
     TsCallback,
     InheritanceTable,
-    ParsedGir,
     GenerateConfig,
     ClassParent,
     InjectionParameter,
@@ -164,9 +163,9 @@ export class GirModule {
      */
     constNames: { [varName: string]: GirConstantElement } = {}
 
-    constructor(xml: GirXML, parsed: ParsedGir, private readonly config: GenerateConfig) {
+    constructor(xml: GirXML, private readonly config: GenerateConfig) {
         this.xml = xml
-        this.repo = parsed.repository
+        this.repo = xml.repository[0]
 
         if (!this.repo.namespace || !this.repo.namespace.length) {
             throw new Error(`Namespace not found!`)
@@ -222,7 +221,8 @@ export class GirModule {
             tags: [],
         }
         if (girDoc.doc?.[0]?._) {
-            let text = girDoc.doc?.[0]?._ || ''
+            // Sometimes docs can be numbers with fast-xml-parser
+            let text = `${girDoc.doc?.[0]?._ || ''}`
             text = this.transformation.transformGirDocText(text)
             tsDoc.text = text
         }
@@ -333,8 +333,9 @@ export class GirModule {
             for (const retVal of retVals) {
                 retVal._module = this
                 retVal.girTypeName = 'callable-return'
-                if (retVal.$ && retVal.$.name) {
-                    retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
+                if (retVal.$ && 'name' in retVal.$ && retVal.$.name) {
+                    // TODO: Does name exist here?
+                    retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name as string}`
                 }
             }
     }
@@ -584,7 +585,8 @@ export class GirModule {
 
         if ((girVar as GirCallableReturn | GirFieldElement).array) {
             collection = (girVar as GirCallableReturn | GirFieldElement).array
-        } else if (/^GLib.S?List$/.test(girVar.type?.[0].$?.name || '')) {
+            // TODO: Mysterious hole in the array :thinking:
+        } else if (/^GLib.S?List$/.test(girVar.type?.[0]?.$?.name || '')) {
             // This converts GLib.List<T> / GLib.SList<T> to T[]
             collection = girVar.type
         }
@@ -710,7 +712,7 @@ export class GirModule {
 
         if (!typeName) {
             typeName = 'any'
-            const logName = cType || fullTypeName || girVar.$.name || ''
+            const logName = cType || fullTypeName || ('name' in girVar.$ && girVar.$.name) || ''
             this.log.warn(WARN_NOT_FOUND_TYPE(logName))
         }
 
@@ -841,7 +843,10 @@ export class GirModule {
         if (a.optional || a.nullable) {
             return girBool(a.nullable)
         } else {
-            return girBool(a.nullable) || girBool(a['allow-none']) || girBool(a['null-ok'])
+            // TODO: null-ok is deprecated
+            return (
+                girBool(a.nullable) || girBool(a['allow-none']) || ('null-ok' in a && girBool(a['null-ok'] as string))
+            )
         }
     }
 
@@ -865,7 +870,10 @@ export class GirModule {
         if (a.optional || a.nullable) {
             return girBool(a.optional)
         } else {
-            return girBool(a.optional) || girBool(a['allow-none']) || girBool(a['null-ok'])
+            // TODO: null-ok is deprecated
+            return (
+                girBool(a.optional) || girBool(a['allow-none']) || ('null-ok' in a && girBool(a['null-ok'] as string))
+            )
         }
     }
 
@@ -982,7 +990,7 @@ export class GirModule {
                         if (
                             optDirection === GirDirection.Out ||
                             optDirection === GirDirection.Inout ||
-                            optDirection === GirDirection.InOut
+                            optDirection === GirDirection.In
                         ) {
                             outParams.push(param)
                             if (optDirection === GirDirection.Out) continue

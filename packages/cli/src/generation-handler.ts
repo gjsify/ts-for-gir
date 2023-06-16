@@ -5,11 +5,11 @@ import {
     START_MODULE,
     FILE_PARSING_DONE,
     TSDATA_PARSING_DONE,
-    GENERATING_TYPES_DONE,
     ERROR_NO_MODULE_SPECIFIED,
 } from '@ts-for-gir/lib'
 import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
 import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
+import { GiTsTypeDefinitionGenerator } from '@ts-for-gir/generator-typescript-gi-ts'
 import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
 import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from '@ts-for-gir/lib'
@@ -26,6 +26,9 @@ export class GenerationHandler {
                 break
             case GeneratorType.HTML_DOC:
                 this.generator = new HtmlDocGenerator(config)
+                break
+            case GeneratorType.TYPES_GI_TS:
+                this.generator = new GiTsTypeDefinitionGenerator(config)
                 break
             default:
                 throw new Error('Unknown Generator')
@@ -72,7 +75,5 @@ export class GenerationHandler {
         }
 
         await this.generator.start(girModules, girModulesGrouped, inheritanceTable)
-
-        this.log.success(GENERATING_TYPES_DONE)
     }
 }

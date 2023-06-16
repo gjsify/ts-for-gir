@@ -86,6 +86,7 @@ import type {
     TsSignal,
     PromisifyFunc,
 } from './types/index.js'
+import { GirXML } from '@gi.ts/parser'
 
 export class GirModule {
     /**
@@ -154,14 +155,18 @@ export class GirModule {
 
     extends?: string
 
+    // TODO: Storing this for now as gi.ts expects the root object (not just repository)
+    xml: GirXML
+
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
     constNames: { [varName: string]: GirConstantElement } = {}
 
-    constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
-        this.repo = xml.repository
+    constructor(xml: GirXML, parsed: ParsedGir, private readonly config: GenerateConfig) {
+        this.xml = xml
+        this.repo = parsed.repository
 
         if (!this.repo.namespace || !this.repo.namespace.length) {
             throw new Error(`Namespace not found!`)

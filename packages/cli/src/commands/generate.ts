@@ -39,7 +39,10 @@ const handler = async (args: ConfigFlags) => {
         if (keep.length === 0) {
             return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
         }
-        const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
+        const tsForGir = new GenerationHandler(
+            generateConfig,
+            env === 'gjs' ? GeneratorType.TYPES_GI_TS : GeneratorType.TYPES,
+        )
 
         const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
         const girModulesGrouped = Object.values(grouped)

@@ -1503,7 +1503,8 @@ export class TypeDefinitionGenerator implements Generator {
     protected async exportNPMPackage(moduleTemplateProcessor: TemplateProcessor, girModuleImportName: string) {
         await this.exportNPMPackageJson(moduleTemplateProcessor)
         await this.exportNPMReadme(moduleTemplateProcessor, girModuleImportName)
-        await this.exportDocTSConfig(moduleTemplateProcessor)
+        await this.exportTSConfig(moduleTemplateProcessor)
+        await this.exportTypeDoc(moduleTemplateProcessor)
     }
 
     protected async exportNPMPackageJson(moduleTemplateProcessor: TemplateProcessor) {
@@ -1549,8 +1550,26 @@ export class TypeDefinitionGenerator implements Generator {
         }
     }
 
-    protected async exportDocTSConfig(moduleTemplateProcessor: TemplateProcessor) {
-        const template = 'tsconfig.doc.json'
+    protected async exportTSConfig(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'tsconfig.json'
+        if (this.config.outdir) {
+            await moduleTemplateProcessor.create(
+                template,
+                this.config.outdir,
+                template, // output filename
+                undefined,
+                undefined,
+                {},
+                this.config,
+            )
+        } else {
+            const { append, prepend } = await moduleTemplateProcessor.load(template, {}, this.config)
+            this.log.log(append + prepend)
+        }
+    }
+
+    protected async exportTypeDoc(moduleTemplateProcessor: TemplateProcessor) {
+        const template = 'typedoc.json'
         if (this.config.outdir) {
             await moduleTemplateProcessor.create(
                 template,

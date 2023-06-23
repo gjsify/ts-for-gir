@@ -1,12 +1,14 @@
-<%# This template is used if the Option `package` is enabled %>
-<%_ let entryPointName = importName _%>
-<%_ if (packageName === 'Gjs') { _%>
-  <%_ entryPointName = 'gjs' _%>
-<%_ } _%>
-<%_ if (packageName === 'node-gtk') { _%>
-  <%_ entryPointName = 'node-gtk' _%>
-<%_ } _%>
-<%_ let depVersion = packageYarn ? 'workspace:^' : APP_VERSION _%>
+<%_
+// This template is used if the Option `package` is enabled
+let entryPointName = importName
+if (packageName === 'Gjs') {
+  entryPointName = 'gjs'
+}
+if (packageName === 'node-gtk') {
+  entryPointName = 'node-gtk'
+}
+let depVersion = packageYarn ? 'workspace:^' : APP_VERSION
+_%>
 {
     "name": "<%- npmScope %>/<%- importName %>",
     <%_ if(typeof girModule !== "undefined"){ _%>
@@ -23,81 +25,75 @@
     "module": "<%- entryPointName %>.mjs",
     <%_ } _%>
     "main": "<%- entryPointName %>.js",
-    "typedoc": {
-      "entryPoint": "./<%- entryPointName %>.d.ts",
-      "readmeFile": "./README.md",
-      "displayName": "<%- packageName %>",
-      "tsconfig": "./tsconfig.doc.json"
-    },
     "exports": {
       <%_ if (packageName === 'Gjs' && generateAlias) { _%>
-      "./tsconfig.alias.json": "./tsconfig.alias.json",
+        "./tsconfig.alias.json": "./tsconfig.alias.json",
       <%_ } _%>
       <%_ if (packageName === 'Gjs') { _%>
-      "./ambient": "./ambient.d.ts",
-      "./gettext": {
-        <%_ if (moduleType === 'esm') { _%>
-        "import": {
-          "types": "./gettext.d.ts",
-          "default": "./gettext.js"
+        "./ambient": "./ambient.d.ts",
+        "./gettext": {
+          <%_ if (moduleType === 'esm') { _%>
+          "import": {
+            "types": "./gettext.d.ts",
+            "default": "./gettext.js"
+          },
+          "require": {
+            "types": "./gettext.d.cts",
+            "default": "./gettext.cjs"
+          }
+          <%_ } else { _%>
+          "import": {
+            "types": "./gettext.d.mts",
+            "default": "./gettext.mjs"
+          },
+          "require": {
+            "types": "./gettext.d.ts",
+            "default": "./gettext.js"
+          }
+          <%_ } _%>
         },
-        "require": {
-          "types": "./gettext.d.cts",
-          "default": "./gettext.cjs"
-        }
-        <%_ } else { _%>
-        "import": {
-          "types": "./gettext.d.mts",
-          "default": "./gettext.mjs"
+        "./system": {
+          <%_ if (moduleType === 'esm') { _%>
+          "import": {
+            "types": "./system.d.ts",
+            "default": "./system.js"
+          },
+          "require": {
+            "types": "./system.d.cts",
+            "default": "./system.cjs"
+          }
+          <%_ } else { _%>
+          "import": {
+            "types": "./system.d.mts",
+            "default": "./system.mjs"
+          },
+          "require": {
+            "types": "./system.d.ts",
+            "default": "./system.js"
+          }
+          <%_ } _%>
         },
-        "require": {
-          "types": "./gettext.d.ts",
-          "default": "./gettext.js"
-        }
-        <%_ } _%>
-      },
-      "./system": {
-        <%_ if (moduleType === 'esm') { _%>
-        "import": {
-          "types": "./system.d.ts",
-          "default": "./system.js"
+        "./cairo": {
+          <%_ if (moduleType === 'esm') { _%>
+          "import": {
+            "types": "./cairo.d.ts",
+            "default": "./cairo.js"
+          },
+          "require": {
+            "types": "./cairo.d.cts",
+            "default": "./cairo.cjs"
+          }
+          <%_ } else { _%>
+          "import": {
+            "types": "./cairo.d.mts",
+            "default": "./cairo.mjs"
+          },
+          "require": {
+            "types": "./cairo.d.ts",
+            "default": "./cairo.js"
+          }
+          <%_ } _%>
         },
-        "require": {
-          "types": "./system.d.cts",
-          "default": "./system.cjs"
-        }
-        <%_ } else { _%>
-        "import": {
-          "types": "./system.d.mts",
-          "default": "./system.mjs"
-        },
-        "require": {
-          "types": "./system.d.ts",
-          "default": "./system.js"
-        }
-        <%_ } _%>
-      },
-      "./cairo": {
-        <%_ if (moduleType === 'esm') { _%>
-        "import": {
-          "types": "./cairo.d.ts",
-          "default": "./cairo.js"
-        },
-        "require": {
-          "types": "./cairo.d.cts",
-          "default": "./cairo.cjs"
-        }
-        <%_ } else { _%>
-        "import": {
-          "types": "./cairo.d.mts",
-          "default": "./cairo.mjs"
-        },
-        "require": {
-          "types": "./cairo.d.ts",
-          "default": "./cairo.js"
-        }
-        <%_ } _%>
-      },
       <%_ } _%>
       <%_ if (entryPointName === 'gjs') { _%>
       "./ambient": "./ambient.d.ts",

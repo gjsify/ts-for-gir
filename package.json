@@ -129,7 +129,6 @@
     "gjs",
     "typescript",
     "generate",
-    "node-gtk",
     "gir",
     "gobject-introspection",
     "gnome",

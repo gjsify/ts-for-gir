@@ -13,7 +13,7 @@ import type { ConfigFlags } from '@ts-for-gir/lib'
 
 const command = 'generate [modules..]'
 
-const description = 'Generates .d.ts files from GIR for GJS or node-gtk'
+const description = 'Generates .d.ts files from GIR for GJS'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const builder: BuilderCallback<any, ConfigFlags> = (yargs: Argv<any>) => {
@@ -40,10 +40,7 @@ const handler = async (args: ConfigFlags) => {
             return Logger.error(ERROR_NO_MODULES_FOUND(config.girDirectories))
         }
         console.log('Environment: ' + env)
-        const tsForGir = new GenerationHandler(
-            generateConfig,
-            env === 'gjs' ? GeneratorType.TYPES_GI_TS : GeneratorType.TYPES,
-        )
+        const tsForGir = new GenerationHandler(generateConfig, GeneratorType.TYPES)
 
         const girModules = Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module)
         const girModulesGrouped = Object.values(grouped)
@@ -55,12 +52,11 @@ const handler = async (args: ConfigFlags) => {
 const examples: ReadonlyArray<[string, string?]> = [
     [
         `${Config.appName} generate`,
-        `Run '${Config.appName} generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
+        `Run '${Config.appName} generate' in your gjs project to generate typings for your project, pass the gir modules you need for your project`,
     ],
     [`${Config.appName} generate Gtk*`, 'You can also use wild cards'],
     [`${Config.appName} generate '*'`, 'If you want to parse all of your locally installed gir modules run'],
     [`${Config.appName} generate '*' -e gjs`, 'Generate .d.ts. files only for gjs'],
-    [`${Config.appName} generate '*' -e node`, 'Generate .d.ts. files only for node'],
     [`${Config.appName} generate --configName='.ts-for-gir.gtk4.rc.js`, 'Use a special config file'],
     [
         `${Config.appName} generate --ignore=Gtk-4.0 xrandr-1.3`,

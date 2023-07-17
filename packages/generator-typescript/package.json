@@ -1,5 +1,5 @@
 {
-  "name": "@ts-for-gir/generator-typescript-gi-ts",
+  "name": "@ts-for-gir/generator-typescript",
   "version": "3.0.4",
   "description": "TypeScript type definition generator for ts-for-gir using gi.ts",
   "module": "lib/index.js",

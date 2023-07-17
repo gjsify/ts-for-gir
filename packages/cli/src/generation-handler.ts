@@ -1,6 +1,6 @@
 import { GirModule, Logger, START_MODULE, FILE_PARSING_DONE, ERROR_NO_MODULE_SPECIFIED } from '@ts-for-gir/lib'
 import { GeneratorType, Generator } from '@ts-for-gir/generator-base'
-import { GiTsTypeDefinitionGenerator } from '@ts-for-gir/generator-typescript-gi-ts'
+import { GiTsTypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
 import { HtmlDocGenerator } from '@ts-for-gir/generator-html-doc'
 
 import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from '@ts-for-gir/lib'

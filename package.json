@@ -1,7 +1,7 @@
 {
   "name": "ts-for-gir",
   "version": "3.2.0",
-  "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
+  "description": "Typescript .d.ts generator from GIR for gjs",
   "type": "module",
   "private": true,
   "engines": {

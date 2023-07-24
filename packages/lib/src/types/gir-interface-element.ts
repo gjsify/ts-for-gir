@@ -12,7 +12,6 @@ import {
     GirConstantElement,
     GirSignalElement,
     PartOfModule,
-    TsClass,
 } from './index.js'
 import { InterfaceElement } from '@gi.ts/parser'
 
@@ -31,6 +30,4 @@ export interface GirInterfaceElement extends InterfaceElement, PartOfModule, Gir
     'glib:signal'?: GirSignalElement[]
     callback?: GirCallbackElement[]
     constant?: GirConstantElement[]
-
-    _tsData?: TsClass
 }

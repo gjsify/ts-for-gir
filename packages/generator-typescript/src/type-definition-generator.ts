@@ -1,13 +1,10 @@
 import { Generator } from '@ts-for-gir/generator-base'
-import { DependencyManager } from '@ts-for-gir/lib'
 import { PackageDataParser } from './package-data-parser.js'
 
 import type { GirModule } from '@ts-for-gir/lib'
 
 import { mkdir, writeFile } from 'fs/promises'
 import { Logger, GENERATING_TYPES_DONE } from '@ts-for-gir/lib'
-
-import { TypeDefinitionGenerator } from '@ts-for-gir/generator-typescript'
 
 import type { GenerateConfig, GirModulesGrouped } from '@ts-for-gir/lib'
 
@@ -35,7 +32,6 @@ class TypeScriptFormatter extends lib.Formatter {
 
 export class GiTsTypeDefinitionGenerator implements Generator {
     protected log: Logger
-    protected dependencyManager: DependencyManager
     protected packageData?: PackageDataParser
 
     /** Override config, used to override the config temporarily to generate both ESM and CJS for NPM packages */
@@ -50,8 +46,7 @@ export class GiTsTypeDefinitionGenerator implements Generator {
      * @param _config The config to use without the override config
      */
     constructor(protected readonly _config: GenerateConfig) {
-        this.log = new Logger(this.config.environment, this.config.verbose, TypeDefinitionGenerator.name)
-        this.dependencyManager = DependencyManager.getInstance(this.config)
+        this.log = new Logger(this.config.environment, this.config.verbose, GiTsTypeDefinitionGenerator.name)
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

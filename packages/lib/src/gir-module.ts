@@ -1,5 +1,4 @@
 import { Logger } from './logger.js'
-import { Injector } from './injection/injector.js'
 
 import type { GirRepository, GirNamespace, GirConstantElement, GenerateConfig } from './types/index.js'
 import { GirXML } from '@gi.ts/parser'
@@ -17,6 +16,7 @@ export class GirModule {
      * E.g. '4.0'
      */
     version = '0.0'
+
     /**
      * E.g. 'Gtk-4.0'
      */
@@ -26,8 +26,6 @@ export class GirModule {
     ns: GirNamespace = { $: { name: '', version: '0.0' } }
 
     log: Logger
-
-    inject: Injector
 
     extends?: string
 
@@ -54,7 +52,5 @@ export class GirModule {
         this.packageName = `${this.namespace}-${this.version}`
 
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
-
-        this.inject = new Injector(this.config.environment)
     }
 }

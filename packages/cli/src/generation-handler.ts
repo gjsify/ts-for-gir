@@ -17,7 +17,10 @@ import type { InheritanceTable, GenerateConfig, GirModulesGrouped } from '@ts-fo
 export class GenerationHandler {
     log: Logger
     generator: Generator
-    constructor(private readonly config: GenerateConfig, type: GeneratorType) {
+    constructor(
+        private readonly config: GenerateConfig,
+        type: GeneratorType,
+    ) {
         this.log = new Logger(config.environment, config.verbose, 'GenerationHandler')
 
         switch (type) {

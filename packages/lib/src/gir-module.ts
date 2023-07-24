@@ -160,7 +160,10 @@ export class GirModule {
      */
     constNames: { [varName: string]: GirConstantElement } = {}
 
-    constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
+    constructor(
+        xml: ParsedGir,
+        private readonly config: GenerateConfig,
+    ) {
         this.repo = xml.repository
 
         if (!this.repo.namespace || !this.repo.namespace.length) {
@@ -487,7 +490,6 @@ export class GirModule {
             | GirCallableReturn
             | GirFieldElement
             | GirAliasElement
-            | GirFieldElement
             | GirPropertyElement
             | GirConstantElement,
         fullTypeName: string | null,
@@ -531,7 +533,6 @@ export class GirModule {
                     | GirCallableReturn
                     | GirFieldElement
                     | GirAliasElement
-                    | GirFieldElement
                     | GirPropertyElement
             )._class as GirClassElement | undefined
 

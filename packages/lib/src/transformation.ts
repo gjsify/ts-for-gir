@@ -352,7 +352,10 @@ export class Transformation {
 
     private log: Logger
 
-    constructor(private readonly config: GenerateConfig, logName = 'Transformation') {
+    constructor(
+        private readonly config: GenerateConfig,
+        logName = 'Transformation',
+    ) {
         this.log = new Logger(config.environment, config.verbose, logName)
     }
 

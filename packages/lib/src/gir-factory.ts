@@ -31,7 +31,6 @@ import type {
     TypeTsFunction,
     TypeTsProperty,
     TsClass,
-    TsInstanceParameter,
 } from './types/index.js'
 
 import { GENERIC_NAMES } from './constants.js'
@@ -171,12 +170,10 @@ export class GirFactory {
         return result
     }
 
-    newGirInstanceParameter(
-        data: InjectionInstanceParameter | GirInstanceParameter | TsInstanceParameter,
-    ): GirInstanceParameter {
+    newGirInstanceParameter(data: InjectionInstanceParameter | GirInstanceParameter): GirInstanceParameter {
         const tsData = (data as GirInstanceParameter)._tsData
             ? (data as GirInstanceParameter)._tsData
-            : (data as InjectionInstanceParameter | TsInstanceParameter)
+            : (data as InjectionInstanceParameter)
 
         return {
             $: this.newGirAttr(),
@@ -220,7 +217,7 @@ export class GirFactory {
     }
 
     newTsFunction(tsData: InjectionFunction, parent: TsClass | null): TsFunction {
-        const tsFunc: TsFunction & TsMethod = {
+        const tsFunc: TsFunction = {
             ...tsData,
             returnTypes: this.newTsTypes(tsData.returnTypes || []),
             isArrowType: tsData.isArrowType || false,

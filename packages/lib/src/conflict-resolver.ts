@@ -43,7 +43,10 @@ export class ConflictResolver {
 
     private girFactory = new GirFactory()
 
-    constructor(private readonly environment: Environment, private readonly verbose: boolean) {
+    constructor(
+        private readonly environment: Environment,
+        private readonly verbose: boolean,
+    ) {
         this.log = new Logger(environment, verbose, 'ConflictResolver')
     }
 

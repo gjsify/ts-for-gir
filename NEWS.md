@@ -3,14 +3,19 @@
 - Create a Reporter to create a text or json file with warnings like unknown types, renaming, etc and a summary of all that (e.g. 5 type conflicts resolved, 8 unknown types of *gint)
 - Update types for GJS v1.75.2, see https://gitlab.gnome.org/GNOME/gjs/-/commit/666755b3b09d765e43d415e76105b828517b5509
 
+# 3.2.1
+- TypeDoc: Only include main entry point
+- Upgrade dependencies
+- 
 # 3.2.0
+- TypeDoc: Improved support for TypeDoc 0.24.x
 - Upgrade dependencies
 - Upgrade gir files
-- Improved TypeDoc support for TypeDoc 0.24.x
 
 # 3.1.0
 - Upgrade dependencies
 - Move conflicting global GJS types to `dom.d.ts` for optional import
+
 ## Breaking Changes
 Move conflicting global GJS types to `dom.d.ts`, allowing you to optionally import them in your project. By doing so, you have the flexibility to choose whether or not to include these types based on your specific needs. This resolves the conflict between the GJS and DOM types and provides you with more control over managing the type definitions.
 

@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-timers-example",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Simple GJS Gtk 4 example app to demonstrate how you can use .ui template XML files",
   "main": "index.js",
   "type": "module",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.18.6",
-    "typescript": "^5.1.3"
+    "esbuild": "^0.18.16",
+    "typescript": "^5.1.6"
   }
 }

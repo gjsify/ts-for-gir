@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-soup-3-http-example",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Node-gtk example showing how to build a http server/client using Soap 3",
   "main": "dist/http-server.js",
   "private": true,
@@ -23,10 +23,10 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.18.6",
-    "typescript": "^5.1.3"
+    "esbuild": "^0.18.16",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "node-gtk": "^0.11.0"
+    "node-gtk": "^0.12.0"
   }
 }

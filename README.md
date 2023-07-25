@@ -19,6 +19,13 @@
 
 `ts-for-gir` is a robust [TypeScript](https://www.typescriptlang.org/) type definitions generator that improves the development experience of [GJS](https://gitlab.gnome.org/GNOME/gjs/) projects. It has been completely rewritten over time to provide a more complete and accurate TypeScript representation of the [GObject introspection](https://gi.readthedocs.io/en/latest/) interfaces. With `ts-for-gir`, developers can now benefit from TypeScript's strong typing and improved code navigation, making it easier to build robust and powerful applications with GJS.
 
+# Branch "3.x" - Stable Version
+
+You are on the `3.x` branch. This are the stable features of `ts-for-gir` v3.x with support for [GJS](https://gitlab.gnome.org/GNOME/gjs) and [node-gtk](https://github.com/romgrk/node-gtk) environments. Explore the 3.x branch to generate comprehensive TypeScript type definitions for GObject introspection modules. If you want to help us merge with [gi.ts](https://github.com/gjsify/gi.ts), check out v4.x on the `main` branch.
+
+`main` branch: https://github.com/gjsify/ts-for-gir/tree/main  
+`3.x` branch: https://github.com/gjsify/ts-for-gir/tree/3.x
+
 ## Getting Started
 
 Install the latest LTS version of Node.js. We recommend using [NVM](https://github.com/nvm-sh/nvm) for this purpose. After Node.js has been installed, `ts-for-gir` can be executed with the following command:

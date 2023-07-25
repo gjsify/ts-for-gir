@@ -58,6 +58,9 @@ All pre-generated NPM packages can be found on [gjsify/types](https://github.com
 
 > You want your or any other missing GObject introspection based library types to be published on NPM for every release? Then feel free to create an issue for it, we will be happy to include it.
 
+## Maintainer wanted for node-gtk maintenance
+
+Version 3.x has working [node-gtk](https://github.com/romgrk/node-gtk) support. This is currently not planned for version 4.x. We ourselves want to focus on GJS support. However, if there is a need in the community to maintain node-gtk support, then we are looking for a maintainer for that. Feel free to get in touch 🤓
 ## Further information
 
 [Examples](/examples/README.md) - Take a look at many different examples to see how you can use TypeScript with different bundlers.  

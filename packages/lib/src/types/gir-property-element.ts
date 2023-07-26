@@ -1,6 +1,4 @@
 import { PropertyElement } from '@gi.ts/parser'
-import { GirInfoElements, GirAnyType, PartOfClass, TsProperty } from './index.js'
+import { GirInfoElements, GirAnyType, PartOfClass } from './index.js'
 
-export interface GirPropertyElement extends PropertyElement, PartOfClass, GirInfoElements, GirAnyType {
-    _tsData?: TsProperty
-}
+export interface GirPropertyElement extends PropertyElement, PartOfClass, GirInfoElements, GirAnyType {}

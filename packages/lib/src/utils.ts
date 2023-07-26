@@ -1,15 +1,10 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import lodash from 'lodash'
 import { join, dirname } from 'path'
-import { existsSync } from 'fs'
 import { readFile } from 'fs/promises'
 
 import { fileURLToPath } from 'url'
-import { GirInfoAttrs, TsType, FileInfo } from './types/index.js'
 import { inspect } from 'util'
-import { Logger } from './logger.js'
-
-import { COMMENT_REG_EXP, PARAM_REG_EXP, OPT_PARAM_REG_EXP } from './constants.js'
 
 export { inspect }
 
@@ -269,66 +264,6 @@ export const pascalCase = (str: string): string => {
     return str
 }
 
-/** Alias for {@link pascalCase} */
-export const upperCamelCase = pascalCase
-
-/**
- * Convert a string to `snake_case`
- * @param str The string to convert
- * @returns The converted string
- */
-export const snakeCase = (str: string): string => {
-    return str
-        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
-        .replace(/[^a-zA-Z0-9-]+/g, '_') // replace non-alphanumeric characters with underscore
-        .replace(/^_+|_+$/g, '') // remove any leading or trailing underscores
-        .toLowerCase()
-}
-
-/**
- * Convert a string to `kebab-case`
- * @param str The string to convert
- * @returns The converted string
- */
-export const kebabCase = (str: string): string => {
-    return str
-        .replace(/([a-z])([A-Z])/g, '$1-$2') // replace camelCase with hyphen-case
-        .replace(/[^a-zA-Z0-9-]+/g, '-') // replace non-alphanumeric characters with hyphen
-        .replace(/^-+|-+$/g, '') // remove any leading or trailing hyphens
-        .toLowerCase()
-}
-
-/** Alias for {@link kebabCase} */
-export const slugCase = kebabCase
-
-export const underscores = (str: string): string => {
-    return str.replace(/-|_/g, '_')
-}
-
-/**
- * Find a file in a list of directories
- * @param dirs The directories to search in
- * @param filename The filename to search for
- * @returns The file info
- */
-export const findFileInDirs = (dirs: string[], filename: string): FileInfo => {
-    const FileInfo: FileInfo = {
-        path: null,
-        filename,
-        exists: false,
-    }
-    for (const dir of dirs) {
-        const filePath = join(dir, filename)
-        FileInfo.exists = existsSync(filePath)
-        if (FileInfo.exists) {
-            FileInfo.path = filePath
-            return FileInfo
-        }
-    }
-
-    return FileInfo
-}
-
 /**
  * Read a JSON file
  * @param filePath The path to the JSON file
@@ -349,39 +284,6 @@ export const union = <T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> => 
     return (target = new Set<T>([...target, ...source]))
 }
 
-export const stripParamNames = (func: string, ignoreTail = false): string => {
-    const g = func
-    func = func.replace(COMMENT_REG_EXP, '')
-    const lb = func.split('(', 2)
-    if (lb.length < 2) Logger.error(`Bad function definition ${g}`)
-    const rb = lb[1].split(')')
-    const tail = ignoreTail ? '' : rb[rb.length - 1]
-    let params = rb.slice(0, rb.length - 1).join(')')
-    params = params.replace(PARAM_REG_EXP, ':')
-    params = params.replace(OPT_PARAM_REG_EXP, '?:')
-    return `${lb[0]}(${params})${tail}`
-}
-
-/**
- * Check if a line is a comment line
- * @param line The line to check
- * @returns Whether the line is a comment line or not
- */
-export const isCommentLine = (line: string) => {
-    const lineTrim = line.trim()
-    return lineTrim.startsWith('//') || (lineTrim.startsWith('/*') && lineTrim.endsWith('*/'))
-}
-
-/**
- * Add indents to a string
- * @param indents The number of indents
- * @param spaceForIndent The number of spaces for each indent
- * @returns The indented string
- */
-export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
-    return ' '.repeat(indents * spaceForIndent)
-}
-
 /**
  * Get the destination path for the environment
  * @param baseOutputPath The base output path
@@ -391,77 +293,4 @@ export const generateIndent = (indents = 1, spaceForIndent = 4): string => {
 export const getDestPath = (baseOutputPath: string, ...parts: string[]) => {
     const destPath = join(baseOutputPath, ...parts)
     return destPath
-}
-
-/**
- * Convert a GirBoolean to a boolean
- * @param boolStr The GirBoolean string
- * @param defaultVal The default value
- * @returns The boolean value
- */
-export const girBool = (boolStr: string | undefined, defaultVal = false): boolean => {
-    if (boolStr) {
-        if (parseInt(boolStr) === 0) return false
-        return true
-    }
-    return defaultVal
-}
-
-/**
- * Returns `true` if the definitions in `d1` and `d2` have equivalent signatures
- * @param d1
- * @param d2
- */
-export const signaturesMatch = (d1: string, d2: string) => {
-    if (isCommentLine(d1) || isCommentLine(d2)) return false
-    return stripParamNames(d1) == stripParamNames(d2)
-}
-
-/**
- * GirElements contains an attribute `introspectable`, which is a GirBoolean.
- * If this is attribute is falsy the element is not introspectable,
- * this means doesn't exist in the bindings, due in general to missing information in the annotations in the original C code
- */
-export const girElementIsIntrospectable = (girElement?: { $: GirInfoAttrs & { name: string } }, name?: string) => {
-    if (!girElement) {
-        return false
-    }
-    name = name || girElement?.$?.name
-    if (!name) {
-        return false
-    }
-    // Handle introspectable only if the attribute is also present...
-    if ({}.hasOwnProperty.call(girElement.$, 'introspectable') && girElement.$.introspectable !== undefined) {
-        return girBool(girElement.$.introspectable, true)
-    }
-    // ...otherwise we assume that it is introspectable
-    return true
-}
-
-/**
- * Check if a type is optional
- * @param types The types to check
- * @returns Whether the type is optional or not
- */
-export const typesContainsNullable = (tsTypes: TsType[]) => {
-    for (const tsType of tsTypes) {
-        if (tsType.nullable) {
-            return true
-        }
-    }
-    return false
-}
-
-/**
- * Check if a type is optional
- * @param types The types to check
- * @returns Whether the type is optional or not
- */
-export const typesContainsOptional = (tsTypes: TsType[]) => {
-    for (const tsType of tsTypes) {
-        if (tsType.optional) {
-            return true
-        }
-    }
-    return false
 }

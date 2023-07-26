@@ -1,5 +1,4 @@
 import {
-    GirInfoAttrs,
     GirInterfaceElement,
     GirRecordElement,
     GirUnionElement,

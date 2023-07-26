@@ -17,8 +17,6 @@ import {
     PACKAGE_DESC,
     PACKAGE_KEYWORDS,
     getDestPath,
-    DependencyManager,
-    Transformation,
 } from '@ts-for-gir/lib'
 
 import type { GenerateConfig, Dependency, TemplateData, Environment } from '@ts-for-gir/lib'
@@ -28,15 +26,12 @@ const TEMPLATE_DIR = join(__dirname, '../templates')
 export class TemplateProcessor {
     protected environmentTemplateDir: string
     protected log: Logger
-    protected transformation: Transformation
     constructor(
         protected readonly data: TemplateData | undefined,
         protected readonly packageName: string,
         protected readonly deps: Dependency[],
         protected readonly config: GenerateConfig,
     ) {
-        this.transformation = new Transformation(config)
-        const dep = DependencyManager.getInstance(config)
         let outdir = config.outdir || './'
         // Make outdir relative to the root directory
         outdir = relative(config.root, outdir)
@@ -48,10 +43,8 @@ export class TemplateProcessor {
             APP_USAGE,
             APP_SOURCE,
             APP_VERSION,
-            PACKAGE_DESC: PACKAGE_DESC(packageName, this.config.environment, this.data?.girModule?.libraryVersion),
-            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName, this.config.environment),
-            importName: this.transformation.transformImportName(packageName),
-            dep,
+            PACKAGE_DESC: PACKAGE_DESC(packageName), // TODO: Add library version
+            PACKAGE_KEYWORDS: PACKAGE_KEYWORDS(packageName),
             deps,
             typeDir,
             join,
@@ -72,9 +65,6 @@ export class TemplateProcessor {
             if (environment === 'gjs' && !baseDir.endsWith('/gjs')) {
                 return join(baseDir, 'gjs')
             }
-        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
-            return join(baseDir, 'node-gtk')
-        }
         return baseDir
     }
 

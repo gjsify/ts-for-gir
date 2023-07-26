@@ -1,8 +1,6 @@
 import { ClassElement } from '@gi.ts/parser'
 import type {
-    GirBoolean,
     GirInfoElements,
-    GirInfoAttrs,
     PartOfModule,
     GirConstructorElement,
     GirImplements,
@@ -16,12 +14,10 @@ import type {
     GirConstantElement,
     GirRecordElement,
     GirCallbackElement,
-    TsClass,
 } from './index.js'
 
 export interface GirClassElement extends ClassElement, PartOfModule, GirInfoElements {
     /* Other elements a class can contain */
-
     implements?: GirImplements[]
     constructor?: GirConstructorElement[]
     method?: GirMethodElement[]
@@ -35,6 +31,4 @@ export interface GirClassElement extends ClassElement, PartOfModule, GirInfoElem
     constant?: GirConstantElement[]
     record?: GirRecordElement[]
     callback?: GirCallbackElement[]
-
-    _tsData?: TsClass
 }

@@ -1,7 +1,6 @@
 import { UnionElement } from '@gi.ts/parser'
 import type {
     GirInfoElements,
-    GirInfoAttrs,
     GirConstructorElement,
     GirMethodElement,
     GirFunctionElement,

@@ -1,4 +1,4 @@
-import { GirBoolean, GirAnyType, GirTransferOwnership, GirDirection, GirType, TsInstanceParameter } from './index.js'
+import { GirAnyType, GirType, TsInstanceParameter } from './index.js'
 import { CallableParams } from '@gi.ts/parser'
 
 type InstanceParameter = NonNullable<CallableParams['instance-parameter']>[number]

@@ -1,8 +1,6 @@
 import { RecordElement } from '@gi.ts/parser'
 import {
-    GirBoolean,
     GirInfoElements,
-    GirInfoAttrs,
     GirFieldElement,
     GirFunctionElement,
     GirUnionElement,

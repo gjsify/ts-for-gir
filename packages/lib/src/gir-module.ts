@@ -1,7 +1,8 @@
+import { DependencyManager } from './dependency-manager.js'
 import { Logger } from './logger.js'
-import { Injector } from './injection/injector.js'
+import { find } from './utils.js'
 
-import type { GirRepository, GirNamespace, GirConstantElement, GenerateConfig } from './types/index.js'
+import type { GirRepository, GirNamespace, GirConstantElement, GenerateConfig, Dependency } from './types/index.js'
 import { GirXML } from '@gi.ts/parser'
 
 export class GirModule {
@@ -24,10 +25,9 @@ export class GirModule {
 
     repo: GirRepository
     ns: GirNamespace = { $: { name: '', version: '0.0' } }
+    dependencyManager: DependencyManager
 
     log: Logger
-
-    inject: Injector
 
     extends?: string
 
@@ -39,6 +39,21 @@ export class GirModule {
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
     constNames: { [varName: string]: GirConstantElement } = {}
+
+    dependencies: Dependency[]
+    private _transitiveDependencies: Dependency[] = []
+
+    set transitiveDependencies(deps: Dependency[]) {
+        this._transitiveDependencies = this.checkTransitiveDependencies(deps)
+    }
+
+    get transitiveDependencies(): Dependency[] {
+        return this._transitiveDependencies
+    }
+
+    get allDependencies(): Dependency[] {
+        return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
+    }
 
     constructor(xml: GirXML, private readonly config: GenerateConfig) {
         this.xml = xml
@@ -54,7 +69,33 @@ export class GirModule {
         this.packageName = `${this.namespace}-${this.version}`
 
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
+    }
 
-        this.inject = new Injector(this.config.environment)
+    private checkTransitiveDependencies(transitiveDependencies: Dependency[]) {
+        // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
+        if (this.packageName !== 'GObject-2.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GObject-2.0')) {
+                transitiveDependencies.push(this.dependencyManager.get('GObject', '2.0'))
+            }
+        }
+
+        // Add missing dependencies
+        if (this.packageName === 'UnityExtras-7.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-7.0')) {
+                transitiveDependencies.push(this.dependencyManager.get('Unity', '7.0'))
+            }
+        }
+        if (this.packageName === 'UnityExtras-6.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'Unity-6.0')) {
+                transitiveDependencies.push(this.dependencyManager.get('Unity', '6.0'))
+            }
+        }
+        if (this.packageName === 'GTop-2.0') {
+            if (!find(transitiveDependencies, (x) => x.packageName === 'GLib-2.0')) {
+                transitiveDependencies.push(this.dependencyManager.get('GLib', '2.0'))
+            }
+        }
+
+        return transitiveDependencies
     }
 }

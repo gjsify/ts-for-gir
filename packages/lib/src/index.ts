@@ -1,6 +1,6 @@
-export * from './injection/index.js'
 export * from './types/index.js'
 export * from './constants.js'
+export * from './dependency-manager.js'
 export * from './gir-module.js'
 export * from './logger.js'
 export * from './messages.js'

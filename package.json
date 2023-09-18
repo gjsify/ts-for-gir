@@ -140,20 +140,20 @@
   ],
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "concurrently": "^8.2.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.0",
+    "prettier": "^3.0.3",
     "rimraf": "^5.0.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "workspaces": [
     "examples/*/*",
     "packages/*",
     "types/*"
   ],
-  "packageManager": "yarn@3.6.0"
+  "packageManager": "yarn@3.6.3"
 }

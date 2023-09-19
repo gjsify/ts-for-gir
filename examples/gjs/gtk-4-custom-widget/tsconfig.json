@@ -10,7 +10,7 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "moduleResolution":"Node16"
+    "moduleResolution":"Bundler"
   },
   "include": ["@types/gjs.d.ts", "@types/dom.d.ts"],
   "files": [

@@ -3,7 +3,7 @@
     "lib": ["ESNext"],
     "types": ["node"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "Node16",
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

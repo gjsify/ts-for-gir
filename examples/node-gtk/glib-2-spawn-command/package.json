@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-glib-2-spawn-command-example",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "",
   "main": "main.ts",
   "private": true,
@@ -26,12 +26,12 @@
   },
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "@types/node": "^20.4.4",
-    "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "@types/node": "^20.8.10",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "raw-loader": "^4.0.2",
-    "ts-loader": "^9.4.4",
-    "typescript": "^5.1.6",
-    "webpack": "^5.88.2",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
   },

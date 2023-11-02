@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-node-gtk-gio-2-cat-promisify-packages",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Simple Node Gtk 3 example app that shows how you can translate strings with gettext",
   "main": "index.js",
   "type": "commonjs",
@@ -19,8 +19,8 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "esbuild": "^0.18.16",
-    "typescript": "^5.1.6"
+    "esbuild": "^0.19.5",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "node-gtk": "^0.12.0"

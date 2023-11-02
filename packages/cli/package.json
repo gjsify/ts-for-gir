@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/cli",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "TypeScript type definition generator for GObject introspection GIR files",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -54,18 +54,18 @@
     "cli"
   ],
   "devDependencies": {
-    "@types/inquirer": "^9.0.3",
-    "@types/node": "^20.4.4",
-    "@types/yargs": "^17.0.24",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.0",
-    "rimraf": "^5.0.1",
+    "@types/inquirer": "^9.0.6",
+    "@types/node": "^20.8.10",
+    "@types/yargs": "^17.0.29",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@ts-for-gir/generator-base": "workspace:^",
@@ -73,8 +73,8 @@
     "@ts-for-gir/generator-typescript": "workspace:^",
     "@ts-for-gir/lib": "workspace:^",
     "colorette": "^2.0.20",
-    "cosmiconfig": "^8.2.0",
-    "inquirer": "^9.2.8",
+    "cosmiconfig": "^8.3.6",
+    "inquirer": "^9.2.11",
     "tiny-glob": "^0.2.9",
     "yargs": "^17.7.2"
   }

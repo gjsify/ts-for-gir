@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-adw-1-hello-example",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Simple GJS Typescript hello-world example using Libadwaita",
   "main": "index.js",
   "type": "module",
@@ -21,11 +21,11 @@
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@rollup/plugin-babel": "^6.0.3",
+    "@babel/core": "^7.23.2",
+    "@rollup/plugin-babel": "^6.0.4",
     "@ts-for-gir/cli": "workspace:^",
-    "rollup": "^3.26.3",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.6"
+    "rollup": "^3.29.4",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   }
 }

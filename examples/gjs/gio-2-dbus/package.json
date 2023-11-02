@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gio-2-dbus-example",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "GJS example showing how to build a DBus server/client",
   "main": "index.js",
   "type": "module",
@@ -25,7 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.18.16",
-    "typescript": "^5.1.6"
+    "esbuild": "^0.19.5",
+    "typescript": "^5.2.2"
   }
 }

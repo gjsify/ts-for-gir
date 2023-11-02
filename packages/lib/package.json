@@ -1,6 +1,6 @@
 {
   "name": "@ts-for-gir/lib",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Typescript .d.ts generator from GIR for gjs and node-gtk",
   "module": "lib/index.js",
   "main": "lib/index.js",
@@ -45,19 +45,19 @@
     "type definitions"
   ],
   "devDependencies": {
-    "@types/ejs": "^3.1.2",
-    "@types/eslint": "8.44.0",
-    "@types/lodash": "^4.14.195",
-    "@types/node": "^20.4.4",
-    "@types/xml2js": "^0.4.11",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.0",
-    "rimraf": "^5.0.1",
-    "typescript": "^5.1.6"
+    "@types/ejs": "^3.1.4",
+    "@types/eslint": "8.44.6",
+    "@types/lodash": "^4.14.200",
+    "@types/node": "^20.8.10",
+    "@types/xml2js": "^0.4.13",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "colorette": "^2.0.20",

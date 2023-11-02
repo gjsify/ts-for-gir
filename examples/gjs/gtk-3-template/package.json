@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir-gtk-3-template-example",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Simple GJS Gtk 3 example app to demonstrate how you can use .ui template XML files",
   "main": "index.js",
   "type": "module",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "@ts-for-gir/cli": "workspace:^",
-    "esbuild": "^0.18.16",
-    "typescript": "^5.1.6"
+    "esbuild": "^0.19.5",
+    "typescript": "^5.2.2"
   }
 }

@@ -598,7 +598,7 @@ export class GirModule {
             arrayType = typeArray[0]
         }
 
-        if (isArray && arrayType?.$?.name && ARRAY_TYPE_MAP[arrayType.$.name]) {
+        if (this.config.environment == 'gjs' && isArray && arrayType?.$?.name && ARRAY_TYPE_MAP[arrayType.$.name]) {
             isArray = false
             overrideTypeName = ARRAY_TYPE_MAP[arrayType.$.name] as string | undefined
         }

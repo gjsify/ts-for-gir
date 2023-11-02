@@ -5,7 +5,9 @@
 // This is a simple example of a HTTP server in Gjs using libsoup 3
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-server.js
 
-import './@types/node-gtk.js';
+// TODO callbacks not working in node-gtk?
+
+import gi from './@types/node-gtk.js';
 import GLib from './@types/node-glib-2.0.js';
 import Soup from './@types/node-soup-3.0.js';
 
@@ -14,6 +16,8 @@ import Soup from './@types/node-soup-3.0.js';
 interface GjsHashTable {
     [key: symbol | string | number]: string | number | boolean;
 }
+
+gi.startLoop();
 
 const loop = GLib.MainLoop.new(null, false);
 
@@ -32,7 +36,7 @@ const handler: Soup.ServerCallback = (server, msg, path, query) => {
         </html>
     `);
 
-    msg.setResponse('text/html; charset=utf-8', Soup.MemoryUse.COPY, body)
+    msg.setResponse('text/html; charset=utf-8', Soup.MemoryUse.COPY, [...body])
 }
 
 const helloHandler: Soup.ServerCallback = (server, msg, path, query) => {
@@ -54,7 +58,7 @@ const helloHandler: Soup.ServerCallback = (server, msg, path, query) => {
         </html>
     `);
     
-    msg.setResponse('text/html; charset=utf-8', Soup.MemoryUse.COPY, body)
+    msg.setResponse('text/html; charset=utf-8', Soup.MemoryUse.COPY, [...body])
 }
 
 function main() {

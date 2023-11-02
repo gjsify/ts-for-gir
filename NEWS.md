@@ -5,7 +5,8 @@
 
 # 3.2.2
 - Upgrade dependencies
-
+- Upgrade gir files
+  
 # 3.2.1
 - TypeDoc: Only include main entry point
 - Upgrade dependencies

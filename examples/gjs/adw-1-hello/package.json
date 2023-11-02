@@ -24,7 +24,7 @@
     "@babel/core": "^7.23.2",
     "@rollup/plugin-babel": "^6.0.4",
     "@ts-for-gir/cli": "workspace:^",
-    "rollup": "^3.29.4",
+    "rollup": "^4.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   }

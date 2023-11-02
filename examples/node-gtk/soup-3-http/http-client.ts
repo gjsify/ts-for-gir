@@ -6,12 +6,16 @@
 // https://developer.gnome.org/libsoup/stable/libsoup-client-howto.html
 // https://gitlab.gnome.org/GNOME/gjs/-/blob/master/examples/http-client.js
 
-import './@types/node-gtk.js';
+// TODO callbacks not working in node-gtk?
+
+import gi from './@types/node-gtk.js';
 import GLib from './@types/node-glib-2.0.js';
 import Soup from './@types/node-soup-3.0.js';
 import Gio from './@types/node-gio-2.0.js';
 
 const loop = GLib.MainLoop.new(null, false);
+
+gi.startLoop();
 
 const gBytesToString = (data: GLib.Bytes) => {
     return Buffer.from(data.getData() || []).toString()
@@ -20,7 +24,7 @@ const gBytesToString = (data: GLib.Bytes) => {
 const session = new Soup.Session();
 const message = new Soup.Message({
     method: 'GET',
-    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=gjs', GLib.UriFlags.NONE),
+    uri: GLib.Uri.parse('http://localhost:1080/hello?myname=node-gtk', GLib.UriFlags.NONE),
 });
 
 const readBytesAsyncCallback: Gio.AsyncReadyCallback = (inputStream, res) => {

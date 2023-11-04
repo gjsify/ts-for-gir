@@ -1,4 +1,4 @@
-import { GirNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
+import { IntrospectedNamespace, promisifyNamespaceFunctions } from "../gir/namespace.js";
 
 import {
   GirBase } from "../gir.js";
@@ -10,12 +10,12 @@ import { override as overrideGio } from "./dts/gio.js";
 import { DtsGenerator, versionImportFormat } from "./dts.js";
 
 export class DtsModuleGenerator extends DtsGenerator {
-  constructor(namespace: GirNamespace, options: GenerationOptions) {
+  constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
     super(namespace, options);
   }
 
 
-  async generateNamespace(node: GirNamespace): Promise<string | null> {
+  async generateNamespace(node: IntrospectedNamespace): Promise<string | null> {
     const { namespace, options } = this;
 
     if (options.verbose) {
@@ -133,7 +133,7 @@ export const __version__: string;
     }
   }
 
-  async stringifyNamespace(node: GirNamespace): Promise<string | null> {
+  async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {
     return this.generateNamespace(node);
   }
 }

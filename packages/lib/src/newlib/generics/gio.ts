@@ -1,10 +1,10 @@
 import { AnyType, Generic, GenericType, GenerifiedTypeIdentifier, StringType, TypeIdentifier } from "../gir.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
 export default {
   namespace: "Gio",
   version: "2.0",
-  modifier: (namespace: GirNamespace) => {
+  modifier: (namespace: IntrospectedNamespace) => {
     const AsyncInitable = namespace.getClass("AsyncInitable");
 
     if (!AsyncInitable) {

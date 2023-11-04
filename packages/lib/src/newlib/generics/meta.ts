@@ -1,9 +1,9 @@
 import { GenerifiedTypeIdentifier } from "../gir.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
 export default {
   namespace: "Meta",
-  modifier: (namespace: GirNamespace, inferGenerics: boolean) => {
+  modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
     if (!inferGenerics) {
       return;
     }

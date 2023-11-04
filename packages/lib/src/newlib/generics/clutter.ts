@@ -1,9 +1,9 @@
 import { GenericType } from "../gir.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
 export default {
   namespace: "Clutter",
-  modifier: (namespace: GirNamespace, inferGenerics: boolean) => {
+  modifier: (namespace: IntrospectedNamespace, inferGenerics: boolean) => {
     if (!inferGenerics) {
       return;
     }

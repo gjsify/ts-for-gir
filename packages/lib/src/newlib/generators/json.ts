@@ -1,19 +1,19 @@
 import { FormatGenerator } from "./generator.js";
-import { GirNamespace } from "../gir/namespace.js";
+import { IntrospectedNamespace } from "../gir/namespace.js";
 
-import { GirBaseClass, GirRecord, GirInterface, GirClass } from "../gir/class.js";
-import { GirConst } from "../gir/const.js";
-import { GirEnum, GirError, GirEnumMember } from "../gir/enum.js";
-import { GirProperty, GirField } from "../gir/property.js";
-import { GirSignal, GirSignalType } from "../gir/signal.js";
+import { IntrospectedBaseClass, GirRecord, GirInterface, IntrospectedClass } from "../gir/class.js";
+import { IntrospectedConstant } from "../gir/const.js";
+import { IntrospectedEnum, IntrospectedError, GirEnumMember } from "../gir/enum.js";
+import { GirProperty, Field } from "../gir/property.js";
+import { IntrospectedSignal, IntrospectedSignalType } from "../gir/signal.js";
 import {
-  GirFunction,
-  GirConstructor,
-  GirFunctionParameter,
-  GirCallback,
-  GirDirectAllocationConstructor
+  IntrospectedFunction,
+  IntrospectedConstructor,
+  IntrospectedFunctionParameter,
+  IntrospectedCallback,
+  IntrospectedDirectAllocationConstructor
 } from "../gir/function.js";
-import { GirClassFunction, GirStaticClassFunction, GirVirtualClassFunction } from "../gir/function.js";
+import { IntrospectedClassFunction, IntrospectedStaticClassFunction, IntrospectedVirtualClassFunction } from "../gir/function.js";
 import { sanitizeIdentifierName, isInvalid, resolveDirectedType } from "../gir/util.js";
 import {
   TypeExpression,
@@ -33,8 +33,8 @@ import {
   TypeConflict,
   GirMetadata
 } from "../gir.js";
-import { Direction } from "@gi.ts/parser";
-import { GirAlias } from "../gir/alias.js";
+import { GirDirection } from "@gi.ts/parser";
+import { IntrospectedAlias } from "../gir/alias.js";
 import { GenerationOptions } from "../types.js";
 
 export const enum NodeKind {
@@ -319,7 +319,7 @@ export interface NamespaceJson extends Json {
 }
 
 export class JsonGenerator extends FormatGenerator<Json> {
-  constructor(namespace: GirNamespace, options: GenerationOptions) {
+  constructor(namespace: IntrospectedNamespace, options: GenerationOptions) {
     super(namespace, options);
   }
 
@@ -332,7 +332,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
   private generateDoc(doc: string): string {
     const { namespace } = this;
 
-    function resolveClass(ns: GirNamespace, className: string): readonly [GirBase | null, boolean] {
+    function resolveClass(ns: IntrospectedNamespace, className: string): readonly [GirBase | null, boolean] {
       let classes = ns.getMembers(className);
 
       let plural = false;
@@ -412,7 +412,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
         let [clazz, plural] = resolveClass(ns, className);
 
-        if (clazz instanceof GirBaseClass || clazz instanceof GirEnum) {
+        if (clazz instanceof IntrospectedBaseClass || clazz instanceof IntrospectedEnum) {
           const r = `#${plural ? "{" : ""}${ns.name}.${clazz.name}${punc ? `${punc}${modified_name}` : ""}${
             plural ? "}s" : ""
           }`;
@@ -479,7 +479,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
       if (functionNamespace) {
         const [member = null] = functionNamespace.getMembers(functionName.toLowerCase());
 
-        if (member instanceof GirFunction) {
+        if (member instanceof IntrospectedFunction) {
           return `${functionNamespace.name}.${member.name}`;
         }
 
@@ -487,7 +487,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
       } else if (constNamespace) {
         const [member = null] = constNamespace.getMembers(functionName.toUpperCase());
 
-        if (member instanceof GirConst) {
+        if (member instanceof IntrospectedConstant) {
           return `${constNamespace.name}.${member.name}`;
         }
 
@@ -500,7 +500,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
           const [klass = null] = enumNamespace.getMembers(enumName);
 
-          if (klass instanceof GirEnum) {
+          if (klass instanceof IntrospectedEnum) {
             return `${enumNamespace.name}.${klass.name}.${memberName.toUpperCase()}`;
           }
         }
@@ -531,7 +531,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
           {
             className: "" as string,
             selectedClassName: "" as string,
-            resolvedNamespace: null as GirNamespace | null,
+            resolvedNamespace: null as IntrospectedNamespace | null,
             selectedIndex: -1
           }
         );
@@ -542,7 +542,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
           let [klass] = resolveClass(resolvedNamespace, selectedClassName);
 
-          if (klass instanceof GirBaseClass || klass instanceof GirEnum) {
+          if (klass instanceof IntrospectedBaseClass || klass instanceof IntrospectedEnum) {
             return `${resolvedNamespace.name}.${klass.name}.${
               upper ? functionName.toUpperCase() : functionName
             }`;
@@ -597,7 +597,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     return { ...metadata } as MetadataJson;
   }
 
-  private generateParameters(parameters: GirFunctionParameter[]): ParameterJson[] {
+  private generateParameters(parameters: IntrospectedFunctionParameter[]): ParameterJson[] {
     const { namespace, options } = this;
 
     return parameters.map(p => ({
@@ -612,11 +612,11 @@ export class JsonGenerator extends FormatGenerator<Json> {
     }));
   }
 
-  generateCallbackType(node: GirCallback): [Json, Json] {
+  generateCallbackType(node: IntrospectedCallback): [Json, Json] {
     return [{}, {}];
   }
 
-  generateCallback(node: GirCallback): CallbackJson {
+  generateCallback(node: IntrospectedCallback): CallbackJson {
     const { namespace, options } = this;
 
     const parameters = this.generateParameters(node.parameters);
@@ -633,7 +633,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
 
   generateReturn(
     return_type: TypeExpression,
-    output_parameters: GirFunctionParameter[]
+    output_parameters: IntrospectedFunctionParameter[]
   ): TypeJson | TypeJson[] {
     const { namespace, options } = this;
     const type = return_type.resolve(namespace, options);
@@ -651,7 +651,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     return generateType(type);
   }
 
-  generateEnum(node: GirEnum): EnumJson {
+  generateEnum(node: IntrospectedEnum): EnumJson {
     return {
       kind: NodeKind.enum,
       name: node.name,
@@ -660,7 +660,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateError(node: GirError): ErrorJson {
+  generateError(node: IntrospectedError): ErrorJson {
     const { namespace } = this;
     const clazz = node.asClass();
 
@@ -673,13 +673,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
     clazz.parent = GLibError.getType();
 
     // Manually construct a GLib.Error constructor.
-    clazz.mainConstructor = new GirConstructor({
+    clazz.mainConstructor = new IntrospectedConstructor({
       name: "new",
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "options",
           type: NativeType.of("{ message: string, code: number}"),
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: clazz.getType()
@@ -709,7 +709,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateConst(node: GirConst): ConstJson {
+  generateConst(node: IntrospectedConstant): ConstJson {
     const { namespace, options } = this;
 
     return {
@@ -720,7 +720,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  private implements(node: GirClass): TypeIdentifier[] {
+  private implements(node: IntrospectedClass): TypeIdentifier[] {
     const { namespace, options } = this;
 
     if (node.interfaces.length > 0) {
@@ -732,7 +732,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     return [];
   }
 
-  private extends(node: GirBaseClass): TypeIdentifier | null {
+  private extends(node: IntrospectedBaseClass): TypeIdentifier | null {
     const { namespace: ns, options } = this;
 
     if (node.parent) {
@@ -771,13 +771,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
     const Properties = node.props.map(v => v && v.asString(this));
 
     const Methods = node.members
-      .filter(m => !(m instanceof GirStaticClassFunction) && !(m instanceof GirVirtualClassFunction))
+      .filter(m => !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction))
       .map(v => v && v.asString(this));
     const StaticMethods = node.members
-      .filter((m): m is GirStaticClassFunction => m instanceof GirStaticClassFunction)
+      .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
       .map(v => v && v.asString(this));
     const VirtualMethods = node.members
-      .filter((m): m is GirVirtualClassFunction => m instanceof GirVirtualClassFunction)
+      .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
       .map(v => v && v.asString(this));
 
     return {
@@ -805,13 +805,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
     const Constructors = node.constructors.map(v => v && this.generateConstructorFunction(v));
 
     const Methods = node.members
-      .filter(m => !(m instanceof GirStaticClassFunction) && !(m instanceof GirVirtualClassFunction))
+      .filter(m => !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction))
       .map(v => v && v.asString(this));
     const StaticMethods = node.members
-      .filter((m): m is GirStaticClassFunction => m instanceof GirStaticClassFunction)
+      .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
       .map(v => v && v.asString(this));
     const VirtualMethods = node.members
-      .filter((m): m is GirVirtualClassFunction => m instanceof GirVirtualClassFunction)
+      .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
       .map(v => v && v.asString(this));
 
     const Callbacks = node.callbacks.map(c => c && c.asString(this));
@@ -834,7 +834,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateClass(node: GirClass): ClassJson {
+  generateClass(node: IntrospectedClass): ClassJson {
     const Extends = this.extends(node);
     const Implements = this.implements(node);
 
@@ -871,73 +871,73 @@ export class JsonGenerator extends FormatGenerator<Json> {
     const Constructors = node.constructors.map(v => this.generateConstructorFunction(v));
 
     const Methods = node.members
-      .filter(m => !(m instanceof GirStaticClassFunction) && !(m instanceof GirVirtualClassFunction))
+      .filter(m => !(m instanceof IntrospectedStaticClassFunction) && !(m instanceof IntrospectedVirtualClassFunction))
       .map(v => v && v.asString(this));
     const StaticMethods = node.members
-      .filter((m): m is GirStaticClassFunction => m instanceof GirStaticClassFunction)
+      .filter((m): m is IntrospectedStaticClassFunction => m instanceof IntrospectedStaticClassFunction)
       .map(v => v && v.asString(this));
     const VirtualMethods = node.members
-      .filter((m): m is GirVirtualClassFunction => m instanceof GirVirtualClassFunction)
+      .filter((m): m is IntrospectedVirtualClassFunction => m instanceof IntrospectedVirtualClassFunction)
       .map(v => v && v.asString(this));
 
     // TODO Move these to a cleaner place.
 
-    const Connect = new GirClassFunction({
+    const Connect = new IntrospectedClassFunction({
       name: "connect",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "callback",
           type: AnyFunctionType,
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: NumberType
     });
 
-    const ConnectAfter = new GirClassFunction({
+    const ConnectAfter = new IntrospectedClassFunction({
       name: "connect_after",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "callback",
           type: AnyFunctionType,
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: NumberType
     });
 
-    const Emit = new GirClassFunction({
+    const Emit = new IntrospectedClassFunction({
       name: "emit",
       parent: node,
       parameters: [
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "id",
           type: StringType,
-          direction: Direction.In
+          direction: GirDirection.In
         }),
-        new GirFunctionParameter({
+        new IntrospectedFunctionParameter({
           name: "args",
           isVarArgs: true,
           type: new ArrayType(AnyType),
-          direction: Direction.In
+          direction: GirDirection.In
         })
       ],
       return_type: VoidType
     });
 
-    let default_signals = [] as GirClassFunction[];
+    let default_signals = [] as IntrospectedClassFunction[];
     let hasConnect, hasConnectAfter, hasEmit;
 
     if (node.signals.length > 0) {
@@ -966,9 +966,9 @@ export class JsonGenerator extends FormatGenerator<Json> {
         .map(s => {
           const methods = [] as Json[];
 
-          if (!hasConnect) methods.push(s.asString(this, GirSignalType.CONNECT));
-          if (!hasConnectAfter) methods.push(s.asString(this, GirSignalType.CONNECT_AFTER));
-          if (!hasEmit) methods.push(s.asString(this, GirSignalType.EMIT));
+          if (!hasConnect) methods.push(s.asString(this, IntrospectedSignalType.CONNECT));
+          if (!hasConnectAfter) methods.push(s.asString(this, IntrospectedSignalType.CONNECT_AFTER));
+          if (!hasEmit) methods.push(s.asString(this, IntrospectedSignalType.EMIT));
 
           return methods;
         })
@@ -996,7 +996,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateField(node: GirField): FieldJson {
+  generateField(node: Field): FieldJson {
     const { namespace, options } = this;
     const { name, computed } = node;
     const invalid = isInvalid(name);
@@ -1037,13 +1037,13 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateSignal(node: GirSignal, type: GirSignalType = GirSignalType.CONNECT): MethodJson {
+  generateSignal(node: IntrospectedSignal, type: IntrospectedSignalType = IntrospectedSignalType.CONNECT): MethodJson {
     switch (type) {
-      case GirSignalType.CONNECT:
+      case IntrospectedSignalType.CONNECT:
         return node.asConnect(false).asString(this);
-      case GirSignalType.CONNECT_AFTER:
+      case IntrospectedSignalType.CONNECT_AFTER:
         return node.asConnect(true).asString(this);
-      case GirSignalType.EMIT:
+      case IntrospectedSignalType.EMIT:
         return node.asEmit().asString(this);
     }
   }
@@ -1074,7 +1074,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateParameter(node: GirFunctionParameter): ParameterJson {
+  generateParameter(node: IntrospectedFunctionParameter): ParameterJson {
     const { namespace, options } = this;
 
     let type = generateType(
@@ -1092,7 +1092,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateFunction(node: GirFunction): FunctionJson {
+  generateFunction(node: IntrospectedFunction): FunctionJson {
     const { namespace } = this;
     // Register our identifier with the sanitized identifiers.
     // We avoid doing this in fromXML because other class-level function classes
@@ -1111,7 +1111,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateConstructorFunction(node: GirConstructor): MethodJson {
+  generateConstructorFunction(node: IntrospectedConstructor): MethodJson {
     const { namespace, options } = this;
 
     const Parameters = this.generateParameters(node.parameters);
@@ -1126,7 +1126,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateConstructor(node: GirConstructor): ConstructorJson {
+  generateConstructor(node: IntrospectedConstructor): ConstructorJson {
     return {
       name: node.name,
       kind: NodeKind.constructor,
@@ -1135,16 +1135,16 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateDirectAllocationConstructor(node: GirDirectAllocationConstructor): ConstructorJson {
+  generateDirectAllocationConstructor(node: IntrospectedDirectAllocationConstructor): ConstructorJson {
     return {
       name: node.name,
       kind: NodeKind.constructor,
       parameters: this.generateParameters(
         node.fields.map(
           field =>
-            new GirFunctionParameter({
+            new IntrospectedFunctionParameter({
               name: field.name,
-              direction: Direction.In,
+              direction: GirDirection.In,
               type: field.type,
               isOptional: true
             })
@@ -1154,7 +1154,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateClassFunction(node: GirClassFunction): MethodJson {
+  generateClassFunction(node: IntrospectedClassFunction): MethodJson {
     let parameters = node.parameters.map(p => this.generateParameter(p));
     let output_parameters = node.output_parameters;
     let return_type = node.return();
@@ -1170,7 +1170,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateStaticClassFunction(node: GirStaticClassFunction): StaticMethodJson {
+  generateStaticClassFunction(node: IntrospectedStaticClassFunction): StaticMethodJson {
     let parameters = node.parameters.map(p => this.generateParameter(p));
     let output_parameters = node.output_parameters;
     let return_type = node.return();
@@ -1186,7 +1186,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateAlias(node: GirAlias): AliasJson {
+  generateAlias(node: IntrospectedAlias): AliasJson {
     const { namespace, options } = this;
     const type = node.type.resolve(namespace, options);
 
@@ -1200,14 +1200,14 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  generateVirtualClassFunction(node: GirVirtualClassFunction): VirtualMethodJson {
+  generateVirtualClassFunction(node: IntrospectedVirtualClassFunction): VirtualMethodJson {
     return {
       ...this.generateClassFunction(node),
       kind: NodeKind.virtualClassFunction
     };
   }
 
-  async generateNamespace(node: GirNamespace): Promise<NamespaceJson> {
+  async generateNamespace(node: IntrospectedNamespace): Promise<NamespaceJson> {
     function shouldGenerate(node: GirBase) {
       return node.emit;
     }
@@ -1218,22 +1218,22 @@ export class JsonGenerator extends FormatGenerator<Json> {
       .flatMap(m => m)
       .filter(shouldGenerate);
 
-    const classes = members.filter((m): m is GirClass => m instanceof GirClass).map(m => m.asString(this));
+    const classes = members.filter((m): m is IntrospectedClass => m instanceof IntrospectedClass).map(m => m.asString(this));
     const interfaces = members
 
       .filter((m): m is GirInterface => m instanceof GirInterface)
       .map(m => m.asString(this));
     const records = members.filter((m): m is GirRecord => m instanceof GirRecord).map(m => m.asString(this));
-    const constants = members.filter((m): m is GirConst => m instanceof GirConst).map(m => m.asString(this));
+    const constants = members.filter((m): m is IntrospectedConstant => m instanceof IntrospectedConstant).map(m => m.asString(this));
     const callbacks = members
 
-      .filter((m): m is GirCallback => m instanceof GirCallback)
+      .filter((m): m is IntrospectedCallback => m instanceof IntrospectedCallback)
       .map(m => m.asString(this));
     // Functions can have overrides.
     const functions = [
       ...members
 
-        .filter((m): m is GirFunction => !(m instanceof GirCallback) && m instanceof GirFunction)
+        .filter((m): m is IntrospectedFunction => !(m instanceof IntrospectedCallback) && m instanceof IntrospectedFunction)
         .reduce((prev, next) => {
           if (!prev.has(next.name)) prev.set(next.name, next.asString(this));
 
@@ -1241,12 +1241,12 @@ export class JsonGenerator extends FormatGenerator<Json> {
         }, new Map<string, FunctionJson>())
         .values()
     ];
-    const errors = members.filter((m): m is GirError => m instanceof GirError).map(m => m.asString(this));
+    const errors = members.filter((m): m is IntrospectedError => m instanceof IntrospectedError).map(m => m.asString(this));
     const enums = members
 
-      .filter((m): m is GirEnum => !(m instanceof GirError) && m instanceof GirEnum)
+      .filter((m): m is IntrospectedEnum => !(m instanceof IntrospectedError) && m instanceof IntrospectedEnum)
       .map(m => m.asString(this));
-    const alias = members.filter((m): m is GirAlias => m instanceof GirAlias).map(m => m.asString(this));
+    const alias = members.filter((m): m is IntrospectedAlias => m instanceof IntrospectedAlias).map(m => m.asString(this));
 
     // Resolve imports after we stringify everything else, sometimes we have to ad-hoc add an import.
     const imports = node.getImports();
@@ -1268,7 +1268,7 @@ export class JsonGenerator extends FormatGenerator<Json> {
     };
   }
 
-  async stringifyNamespace(node: GirNamespace): Promise<string | null> {
+  async stringifyNamespace(node: IntrospectedNamespace): Promise<string | null> {
     const { namespace, options } = this;
 
     if (options.verbose) {

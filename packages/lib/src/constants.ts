@@ -31,14 +31,14 @@ export const APP_SOURCE = 'https://github.com/gjsify/ts-for-gir'
 export const APP_VERSION = PACKAGE.version
 
 export const PACKAGE_DESC = (packageName: string, environment: Environment, libraryVersion?: LibraryVersion) => {
-    const envStr = environment === 'node' ? 'Node.js' : 'GJS'
+    const envStr = environment === 'gjs' ? 'GJS' : 'unknown environment'
     if (libraryVersion) {
         return `${envStr} TypeScript type definitions for ${packageName}, generated from library version ${libraryVersion.toString()}`
     }
     return `${envStr} TypeScript type definitions for ${packageName}`
 }
 export const PACKAGE_KEYWORDS = (packageName: string, environment: Environment) => {
-    const envKeywords = environment === 'node' ? '"node", "node-gtk"' : '"GJS"'
+    const envKeywords = environment === 'gjs' ? '"GJS"' : ''
     return `"Gir", "TypeScript", "types", "GObject-Introspection", ${envKeywords}, "${packageName}"`
 }
 
@@ -46,10 +46,6 @@ export const GENERIC_NAMES: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
 
 export const SIGNAL_METHOD_NAMES_GENERAL: string[] = ['connect', 'emit', 'disconnect']
 export const SIGNAL_METHOD_NAMES_GJS: string[] = ['connect_after', 'emit']
-export const SIGNAL_METHOD_NAMES_NODE: string[] = ['after', 'on', 'once', 'off']
 export const SIGNAL_METHOD_NAMES = (env: Environment) => {
-    if (env === 'node') {
-        return [...SIGNAL_METHOD_NAMES_GENERAL, SIGNAL_METHOD_NAMES_NODE]
-    }
-    return [...SIGNAL_METHOD_NAMES_GENERAL, SIGNAL_METHOD_NAMES_GJS]
+    return [...SIGNAL_METHOD_NAMES_GENERAL, ...(env === 'gjs' ? SIGNAL_METHOD_NAMES_GJS : [])]
 }

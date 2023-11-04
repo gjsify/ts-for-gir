@@ -407,50 +407,6 @@ export class GirFactory {
                 parentClass,
             )
             tsMethods.push(connectAfterTsFn)
-        } else if (environment === 'node') {
-            const afterInParam: InjectionParameter = {
-                name: 'after',
-                type: [
-                    this.newTsType({
-                        type: 'boolean',
-                        optional: true,
-                    }),
-                ],
-                doc: this.newTsDoc(),
-            }
-
-            const nodeEventEmitterReturnType = this.newTsType({
-                type: 'NodeJS.EventEmitter',
-            })
-
-            const onTsFn = this.newTsFunction(
-                {
-                    name: 'on',
-                    inParams: [sigNameInParam, callbackInParam, afterInParam],
-                    returnTypes: [nodeEventEmitterReturnType],
-                    girTypeName,
-                },
-                parentClass,
-            )
-            const onceTsFn = this.newTsFunction(
-                {
-                    name: 'once',
-                    inParams: [sigNameInParam, callbackInParam, afterInParam],
-                    returnTypes: [nodeEventEmitterReturnType],
-                    girTypeName,
-                },
-                parentClass,
-            )
-            const offTsFn = this.newTsFunction(
-                {
-                    name: 'off',
-                    inParams: [sigNameInParam, callbackInParam],
-                    returnTypes: [nodeEventEmitterReturnType],
-                    girTypeName,
-                },
-                parentClass,
-            )
-            tsMethods.push(onTsFn, onceTsFn, offTsFn)
         }
 
         const emitTsFn = this.newTsFunction(

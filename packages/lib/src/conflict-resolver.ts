@@ -1,7 +1,7 @@
 import { GirFactory } from './gir-factory.js'
 import { Logger } from './logger.js'
 import { NO_TSDATA } from './messages.js'
-import { isEqual, merge, clone, typesContainsOptional } from './utils.js'
+import { isEqual } from './utils.js'
 import { SIGNAL_METHOD_NAMES, MAX_CLASS_PARENT_DEPTH } from './constants.js'
 
 import {
@@ -24,13 +24,11 @@ import {
     type TsTypeSeparator,
     type TsType,
     type TsClass,
-    type TsParameter,
     type TypeGirFunction,
     type TypeGirProperty,
     type ConflictChildElement,
     type ConflictGroupedElements,
     type ConflictGroupedElement,
-    GirDirection,
 } from './types/index.js'
 
 /**
@@ -45,7 +43,7 @@ export class ConflictResolver {
 
     constructor(
         private readonly environment: Environment,
-        private readonly verbose: boolean,
+        verbose: boolean,
     ) {
         this.log = new Logger(environment, verbose, 'ConflictResolver')
     }
@@ -214,22 +212,6 @@ export class ConflictResolver {
         }
     }
 
-    private tsElementIsMethod(el: TsFunction | TsVar) {
-        return !this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
-    }
-
-    private tsElementIsStaticFunction(el: TsFunction | TsVar) {
-        return this.tsElementIsStatic(el) && this.tsElementIsMethodOrFunction(el)
-    }
-
-    private tsElementIsProperty(el: TsFunction | TsVar) {
-        return !this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
-    }
-
-    private tsElementIsStaticProperty(el: TsFunction | TsVar) {
-        return this.tsElementIsStatic(el) && this.tsElementIsPropertyOrVariable(el)
-    }
-
     private tsElementIsSignal(el: TsFunction | TsVar) {
         return el.tsTypeName === 'event-methods'
     }
@@ -255,14 +237,6 @@ export class ConflictResolver {
         return (
             // el.tsTypeName === 'constructor' ||
             (el as TsFunction).isStatic || el.tsTypeName === 'static-property' || el.tsTypeName === 'static-function'
-        )
-    }
-
-    private typeIsString(type: TsType) {
-        return (
-            type.type === 'string' ||
-            (type.type.startsWith("'") && type.type.endsWith("'")) ||
-            (type.type.startsWith('"') && type.type.endsWith('"'))
         )
     }
 
@@ -293,168 +267,6 @@ export class ConflictResolver {
         }
 
         return dest
-    }
-
-    private setTypesProperty(types: TsType[], property: 'optional', value: boolean) {
-        for (const type of types) {
-            type[property] = value
-        }
-        return types
-    }
-
-    /**
-     * Merges two parameter name and type of two parameters
-     * @param a
-     * @param b
-     * @returns
-     */
-    private mergeParam(a: GirCallableParamElement | undefined, b: GirCallableParamElement | undefined) {
-        if (!a?._tsData && !b?._tsData) {
-            throw new Error('At least one parameter must be defined!')
-        }
-
-        let dest: GirCallableParamElement
-
-        if (a?._tsData && b?._tsData) {
-            dest = merge({}, clone(a), clone(b))
-            if (!dest._tsData) {
-                throw new Error('Error on merge parameters!')
-            }
-            dest._tsData.type = []
-            dest._tsData.type = this.mergeTypes('|', ...a._tsData.type, ...b._tsData.type)
-            if (a._tsData.name !== b._tsData.name) {
-                dest._tsData.name = `${a._tsData.name}_or_${b._tsData.name}`
-            }
-        } else {
-            dest = clone((a || b) as GirCallableParamElement)
-            if (!dest._tsData) {
-                throw new Error('Error on merge parameters!')
-            }
-            // If `a` or `b` is undefined make the types optional
-            dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
-        }
-
-        if (typesContainsOptional(dest._tsData.type)) {
-            dest._tsData.type = this.setTypesProperty(dest._tsData.type, 'optional', true)
-        }
-
-        return dest
-    }
-
-    /**
-     * Merges parameter names and types of multiple functions
-     * @param params
-     * @returns
-     */
-    private mergeParams(...params: GirCallableParamElement[][]) {
-        let dest: GirCallableParamElement[] = []
-
-        for (const a of params) {
-            for (const b of params) {
-                if (a === b) {
-                    continue
-                }
-                if (isEqual(a, b)) {
-                    dest = clone(a)
-                } else {
-                    const length = Math.max(a.length, b.length)
-                    dest = new Array<GirCallableParamElement>(length)
-                    for (let i = 0; i < length; i++) {
-                        const aParam = a[i] as GirCallableParamElement | undefined
-                        const bParam = b[i] as GirCallableParamElement | undefined
-                        dest[i] = this.mergeParam(aParam, bParam)
-                    }
-                }
-            }
-        }
-
-        return dest
-    }
-
-    private paramCanBeOptional(
-        girParam: GirCallableParamElement,
-        girParams: GirCallableParamElement[],
-        skip: GirCallableParamElement[] = [],
-    ) {
-        if (!girParam._tsData) return false
-        let canBeOptional = true
-        const index = girParams.indexOf(girParam)
-        const following = girParams
-            .slice(index)
-            .filter((p) => !!p._tsData)
-            .filter(() => !skip.includes(girParam))
-            .filter((p) => p.$.direction !== GirDirection.Out)
-            .map((p) => p._tsData)
-
-        if (following.some((p) => p && !typesContainsOptional(p.type))) {
-            canBeOptional = false
-        }
-
-        return canBeOptional
-    }
-
-    /**
-     * In Typescript no optional parameters are allowed if the following ones are not optional
-     * @param girParams
-     * @returns
-     */
-    private fixOptionalParameters(girParams: GirCallableParamElement[]) {
-        for (const girParam of girParams) {
-            if (!girParam._tsData) throw new Error(NO_TSDATA('fixOptionalParameters'))
-            if (typesContainsOptional(girParam._tsData.type) && !this.paramCanBeOptional(girParam, girParams)) {
-                this.setTypesProperty(girParam._tsData.type, 'optional', false)
-            }
-        }
-        return girParams
-    }
-
-    /**
-     * Merge function types and parameters together
-     * @param baseFunc The function to change or null if you want to create a new property
-     * @param funcs The functions you want to merge
-     * @returns
-     */
-    public mergeFunctions(baseFunc: TsFunction | null, ...funcs: TsFunction[]) {
-        const returnTypesMap: TsType[] = []
-        for (const func of funcs) {
-            returnTypesMap.push(...func.returnTypes)
-        }
-        const returnTypes = this.mergeTypes('|', ...returnTypesMap)
-
-        const inParamsMap = funcs.map((func) => func.inParams)
-        const inParams: GirCallableParamElement[] = []
-        if (this.paramsHasConflict(...inParamsMap)) {
-            inParams.push(...this.mergeParams(...inParamsMap))
-        }
-
-        const outParamsMap = funcs.map((func) => func.outParams)
-        const outParams: GirCallableParamElement[] = []
-        if (this.paramsHasConflict(...outParamsMap)) {
-            outParams.push(...this.mergeParams(...outParamsMap))
-        }
-
-        if (!funcs[0]) {
-            throw new Error('At least one function must exist!')
-        }
-
-        if (baseFunc) {
-            baseFunc.returnTypes = returnTypes
-            return baseFunc
-        }
-
-        return this.girFactory.newTsFunction(
-            {
-                name: funcs[0].name,
-                returnTypes: returnTypes,
-                isStatic: funcs[0].isStatic || false,
-                inParams: inParams.map((inParam) => inParam._tsData).filter((inParam) => !!inParam) as TsParameter[],
-                outParams: outParams
-                    .map((outParam) => outParam._tsData)
-                    .filter((outParam) => !!outParam) as TsParameter[],
-                girTypeName: funcs[0].girTypeName,
-            },
-            funcs[0].parent,
-        )
     }
 
     /**
@@ -576,78 +388,6 @@ export class ConflictResolver {
             !SIGNAL_METHOD_NAMES(this.environment).includes(prop.name)
 
         return canAdd
-    }
-
-    public groupSignalConflicts(signalsMethods: ConflictChildElement<TsFunction>[], baseClass: TsClass) {
-        const groupedConflicts: ConflictGroupedElements = {}
-        for (const base of signalsMethods) {
-            for (const b of signalsMethods) {
-                if (base === b) {
-                    continue
-                }
-
-                if (base.data.name !== 'connect' && base.data.name !== 'connect_after') {
-                    continue
-                }
-
-                const sigNameParam = base.data.inParams[0]
-                // const callbackParam = base.data.inParams[1]
-
-                const eventName = sigNameParam?._tsData?.type?.[0]?.type
-                // TODO do not render the callback type as a full string, create a TSCallback instead
-                // const callbackType = callbackParam?._tsData?.type?.[0]?.type
-                // console.debug('eventName', eventName, callbackType)
-
-                if (!eventName || eventName === 'string') {
-                    continue
-                }
-                groupedConflicts[eventName] ||= {
-                    baseElements: [],
-                    inheritedElements: [],
-                    baseClass,
-                }
-
-                const groupedConflict = groupedConflicts[eventName]
-                const isBaseElement = base.depth === 0
-                if (isBaseElement) {
-                    if (!groupedConflict.baseElements.find((c) => isEqual(c.data, base.data))) {
-                        groupedConflict.baseElements.push(base)
-                    }
-                } else {
-                    if (!groupedConflict.inheritedElements.find((c) => isEqual(c.data, base.data))) {
-                        groupedConflict.inheritedElements.push(base)
-                    }
-                }
-            }
-        }
-
-        return groupedConflicts
-    }
-
-    public fixSignalConflicts(groupedElements: ConflictGroupedElements) {
-        for (const eventName of Object.keys(groupedElements)) {
-            const elements = groupedElements[eventName]
-
-            const bases = elements.baseElements
-
-            if (!bases.length) {
-                // TODO
-                // return this.fixIndirectSignalConflicts(elements.inheritedElements, elements.baseClass)
-                return
-            }
-
-            for (const base of bases) {
-                if (base.data.hasUnresolvedConflict) {
-                    continue
-                }
-                for (const b of elements.inheritedElements) {
-                    if (b === base || b.data.hasUnresolvedConflict) {
-                        continue
-                    }
-                    // TODO
-                }
-            }
-        }
     }
 
     /**
